@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="03/16/2016"
 ms.author="deonhe"/>
 
 # Get started with the Yammer API
@@ -207,8 +207,8 @@ If group ID is provided, message will be posted to the specified group else it w
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-[1]: ./media/create-api-yammer/connectionconfig1.png
-[2]: ./media/create-api-yammer/connectionconfig2.png 
-[3]: ./media/create-api-yammer/connectionconfig3.png
-[4]: ./media/create-api-yammer/connectionconfig4.png
-[5]: ./media/create-api-yammer/connectionconfig5.png
+[1]: ./media/connectors-create-api-yammer/connectionconfig1.png
+[2]: ./media/connectors-create-api-yammer/connectionconfig2.png 
+[3]: ./media/connectors-create-api-yammer/connectionconfig3.png
+[4]: ./media/connectors-create-api-yammer/connectionconfig4.png
+[5]: ./media/connectors-create-api-yammer/connectionconfig5.png

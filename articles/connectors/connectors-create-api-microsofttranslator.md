@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="03/16/2016"
    ms.author="mandia"/>
 
 # Get started with the Microsoft Translator API
@@ -25,7 +25,7 @@ Connect to Microsoft Translator to translate text, detect a language, and more. 
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-microsofttranslator.md)
+- [Logic apps](../articles/connectors/connectors-create-api-microsofttranslator.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
 
 With Microsoft Translator, you can: 
@@ -144,4 +144,4 @@ Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 [5]: https://datamarket.azure.com/developer/applications/
-[6]: ./media/create-api-microsofttranslator/register-your-application.png
+[6]: ./media/connectors-create-api-microsofttranslator/register-your-application.png

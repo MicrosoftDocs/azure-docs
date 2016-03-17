@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="03/16/2016"
    ms.author="mandia"/>
 
 # Get started with the Dropbox API 
@@ -25,7 +25,7 @@ Connect to Dropbox to manage files, such us create files, get files, and more. T
 - PowerApps
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-dropbox.md)
+- [Logic apps](../articles/connectors/connectors-create-api-dropbox.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
 &nbsp; 
@@ -292,7 +292,7 @@ Go back to the [APIs list](apis-list.md).
 [1]: https://www.dropbox.com/login
 [2]: https://www.dropbox.com/developers/apps/create
 [3]: https://www.dropbox.com/developers/apps
-[8]: ./media/create-api-dropbox/dropbox-developer-site.png
-[9]: ./media/create-api-dropbox/dropbox-create-app.png
-[10]: ./media/create-api-dropbox/dropbox-create-app-page1.png
-[11]: ./media/create-api-dropbox/dropbox-create-app-page2.png
+[8]: ./media/connectors-create-api-dropbox/dropbox-developer-site.png
+[9]: ./media/connectors-create-api-dropbox/dropbox-create-app.png
+[10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
+[11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
