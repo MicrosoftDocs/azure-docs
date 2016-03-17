@@ -70,7 +70,7 @@ The Batch account blade displays several properties for the account, as well as 
 
  ![Batch account keys][account_keys]
 
-* **All settings** -- To manage all settings for the Batch account or to view its properties, click **All settings** to open the **Settings** blade. This blade provides access to all settings and properties for the account, including viewing the account quotas, selecting an Azure Storage account to link to the Batch account, or managing users.
+* **All settings** -- To manage all settings for the Batch account or to view its properties, click **All settings** to open the **Settings** blade. This blade provides access to all settings and properties for the account, including viewing the account quotas, selecting an Azure Storage account to link to the Batch account, and managing users.
 
  ![Batch account settings and properties blades][5]
 
@@ -84,15 +84,15 @@ The Batch account blade displays several properties for the account, as well as 
 
 * If you're running several large-scale Batch workloads, be aware of certain [Batch service quotas and limits](batch-quota-limit.md) that apply to your Azure subscription and each Batch account. Current quotas on a Batch account appear in the portal in the account properties.
 
-* If you associate a storage account with your Batch account, take care when regenerating the storage account access keys. You should regenerate only a single storage account key, then click **Sync Keys** on the linked storage account blade, wait 5 minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and will lose access to the storage account.
+* If you associate a storage account with your Batch account, take care when regenerating the storage account access keys. You should regenerate only a single storage account key, click **Sync Keys** on the linked storage account blade, wait 5 minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the storage account.
 
   ![Regenerating storage account keys][4]
 
 ## Next steps
 
-* See the [Azure Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. This article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the many features that enable large-scale compute workload execution.
+* See the [Azure Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features that enable large-scale compute workload execution.
 
-* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md). This [introductory article](batch-dotnet-get-started.md) guides you through a working application that uses the Batch service to execute a workload on multiple compute nodes, including how Azure Storage can be used for file staging and retrieval in your Batch solutions.
+* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md). The [introductory article](batch-dotnet-get-started.md) guides you through a working application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
