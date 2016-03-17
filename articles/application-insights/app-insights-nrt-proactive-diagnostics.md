@@ -21,7 +21,7 @@
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
 
-After setting up [Application Insights for your project](app-insights-get-started.md), and provided your app generates a certain minimum amount of telemetry, Proactive Diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+After setting up [Application Insights for your project](app-insights-get-started.md), and provided your app generates a certain minimum amount of telemetry, NRT Proactive Diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
 
 Here's a sample alert:
 
@@ -41,7 +41,7 @@ Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a probl
 
 Near Real Time Proactive Diagnostics monitors the telemetry received from your app, and in particular the failed request rate. This metric counts the number of requests for which the `Successful request` property is false. By default, `Successful request== (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls). 
 
-Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. Near Real Time Proactive Diagnostics uses machine learning to find these anomalies. 
+Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. NRT Proactive Diagnostics uses machine learning to find these anomalies. 
 
 As telemetry comes into Application Insights from your web app, NRT Proactive Diagnostics compares the current behavior with the patterns seen over the past few days. If an abnormal rise in failure rate is observed by comparison with previous performance, an analysis is triggered.
 
@@ -51,7 +51,7 @@ When your service is instrumented with these telemetry, the analyser finds an ex
 
 The resulting analysis is sent to you as alert, unless you have configured it not to.
 
-Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure NRT Proactive Diagnosis. If you want, you can disable it or change its target email addresses.
+Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure NRT Proactive Diagnostics. If you want, you can disable it or change its target email addresses.
 
 ## Triaging and diagnosing an alert
 
@@ -81,7 +81,7 @@ Click any alert to see its full detail.
 
 ## Configure alerts 
 
-Open the Alerts page. The Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
+Open the Alerts page. Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
 
 ![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-nrt-proactive-diagnostics/021.png)
 
@@ -89,7 +89,7 @@ Click the alert to configure it.
 
 ![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
-Notice that you can disable the Proactive Diagnostics, but you can't delete it (or create another one).
+Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
 
 
 ## What's the difference ...

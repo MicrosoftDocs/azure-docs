@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Using the Yammer connector in your logic app #
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Yammer API](../connectors/create-api-yammer.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Yammer API](../connectors/connectors-create-api-yammer.md).
 
 Connect to Yammer and Post Messages action and a trigger to retrieve new message.
 

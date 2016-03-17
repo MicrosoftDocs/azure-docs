@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="billmath"/> 
+	ms.date="03/16/2016"
+	ms.author="billmath"/>
 
 # Next steps and how to manage Azure AD Connect
 The following are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organization's needs and requirements.  
+
+## Add additional sync administrators
+By default only the user who did the installation and local administrators will be able to manage the installed sync engine. For additional people to be able to access and manage the sync engine, locate the group named ADSyncAdmins on the local server and add them to this group.
 
 ## Optional configuration on your AD FS service
 You can customize the illustration and logo image for your AD FS login pages by logging into the AD FS and using PSH to make this configuration.
