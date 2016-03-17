@@ -213,7 +213,7 @@ You can use the following cmdlet example, configuring the values to match your o
 
 If you need to change the prefixes for your local network gateway, use the instructions below.  Two sets of instructions are provided. The instructions you choose depends on whether you have already created your VPN gateway connection. 
 
-### Add or remove prefixes without a VPN gateway connection
+### Add or remove prefixes if you haven't yet created a VPN gateway connection
 
 - **To add** additional address prefixes to a local network gateway that you created, but that doesn't yet have a VPN gateway connection, use the example below.
 
@@ -226,7 +226,7 @@ If you need to change the prefixes for your local network gateway, use the instr
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### Add or remove prefixes with a VPN gateway connection
+### Add or remove prefixes if you've already created a VPN gateway connection
 
 If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local network gateway, you'll need to do the following steps in order. This will result in some downtime for your VPN connection, as you will need to remove and rebuild the gateway.  However, because you have requested an IP address for the connection, you won't need to re-configure your on-premises VPN router unless you decide to change the values you previously used.
  
