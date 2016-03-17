@@ -44,7 +44,7 @@ Depending upon which version your device is running, you can determine if Update
 > - This update includes a set of manual and automatic pre-checks to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal.
 > - We recommend that you install the software and driver updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. The updates may take 5-10 hours to install (including the Windows Updates). The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
 
-[AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-update.md)]
+[AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
 ## Install Update 1.2 via the Azure classic portal
 

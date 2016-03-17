@@ -30,7 +30,7 @@ Update 2 includes device software updates, LSI driver updates, and disk firmware
 > - We recommend that you install the software and driver updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. The updates may take 4-7 hours to install (including the Windows Updates). The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
 > - If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 2 prior to updating the device.
 
-[AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-update.md)]
+[AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
 ## Install Update 2 via the Azure classic portal
 
