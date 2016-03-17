@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/16/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -137,6 +137,8 @@ If you want to limit which attributes to synchronize to Azure AD, then start by 
 Based on the services selected in the previous step, this page will show all attributes which will be synchronized. This list is a combination of all object types being synchronized. If there are some particular attributes you need to not synchronize, you can unselect those.
 
 ![Optional features](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
+
+>[AZURE.WARNING] Removing attributes can impact impact functionality. For best practices and recommendations, see [attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
 
 ### Directory Extension attribute sync
 With directory extensions you can extend the schema in Azure AD with custom attributes added by your organization or other attributes in Active Directory. To use this feature select **Directory Extension attribute sync** on the **Optional Features** page. This will give you this page where you can select your additional attributes.
