@@ -36,15 +36,15 @@ To resolve the most common issues, try the following method:
 
 	![location](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
 
-4. Check the **Attached to** column of the disks and make sure that the disks are not attached to a VM, then delete the disks.
+4. Confirm there is no VM listed on the **Attached to** of the disks, and then delete the disks.
 
- 		**Note** Disks are detached from a deleted VM asynchronously, it may take a few minutes after the VM is deleted for this field to clear up.
+ 	> [AZURE.NOTE] If a disk is attaching to a VM, you will not be able to delete it. Disks are detached from a deleted VM asynchronously, it may take a few minutes after the VM is deleted for this field to clear up.
 
 5. Select **VIRTUAL MACHINE**>**IMAGES**, and then delete the images that are associated with the storage account, container or VHD.
 
 After that, try to delete the storage account, container or VHD again.
 
-**WARNING**: Be sure to back up anything you want to save before you delete the account. It is not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. This also holds true for any resources in the account—once you delete a VHD, blob, table, queue, or file, it is permanently deleted. Please ensure the resource is not in use.
+> [AZURE.WARNING] Be sure to back up anything you want to save before you delete the account. It is not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. This also holds true for any resources in the account—once you delete a VHD, blob, table, queue, or file, it is permanently deleted. Please ensure the resource is not in use.
 
 ## Common errors
 
