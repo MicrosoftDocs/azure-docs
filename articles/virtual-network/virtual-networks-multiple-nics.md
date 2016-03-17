@@ -170,7 +170,7 @@ The following limitations are applicable when using the multi NIC feature:
 
 By default secondary NICs will not be configured with a default gateway, due to which the traffic flow on the secondary NICs will be limited to be within the same subnet. If the users want to enable secondary NICs to talk outside their own subnet, they will need to add an entry in the routing table to configure the gateway as described below.
 
-NOTE: VMs created before July 2015 may have a default gateway configured for all NICs. The default gateway for secondary NICs will not be removed until these VMs are rebooted. In Operating systems that use the weak host routing model, such as Linux, Internet connectivity can break if the ingress and egress traffic use different NICs.
+>[AZURE.NOTE] VMs created before July 2015 may have a default gateway configured for all NICs. The default gateway for secondary NICs will not be removed until these VMs are rebooted. In Operating systems that use the weak host routing model, such as Linux, Internet connectivity can break if the ingress and egress traffic use different NICs.
 
 ### Configure Windows VMs
 
