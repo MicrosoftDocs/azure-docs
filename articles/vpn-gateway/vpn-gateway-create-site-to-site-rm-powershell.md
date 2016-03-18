@@ -173,41 +173,7 @@ After a short while, the connection will be established.
 
 ## 9. Verify a VPN connection
 
-At this time, the site-to-site VPN connections created with Resource Manager are not visible in the Preview Portal. However, it's possible to verify that your connection succeeded by using *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. In the future, we'll have a cmdlet for this, as well as the ability to view your connection in the Preview Portal.
-
-You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All.
-
-	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
-
- After the cmdlet has finished, scroll through to view the values. In the example below, the connection status shows as *Connected* and you can see ingress and egress bytes.
-
-	Body:
-	{
-	  "name": "localtovon",
-	  "id":
-	"/subscriptions/086cfaa0-0d1d-4b1c-9455-f8e3da2a0c7789/resourceGroups/testrg/providers/Microsoft.Network/connections/loca
-	ltovon",
-	  "properties": {
-	    "provisioningState": "Succeeded",
-	    "resourceGuid": "1c484f82-23ec-47e2-8cd8-231107450446b",
-	    "virtualNetworkGateway1": {
-	      "id":
-	"/subscriptions/086cfaa0-0d1d-4b1c-9455-f8e3da2a0c7789/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkGa
-	teways/vnetgw1"
-	    },
-	    "localNetworkGateway2": {
-	      "id":
-	"/subscriptions/086cfaa0-0d1d-4b1c-9455-f8e3da2a0c7789/resourceGroups/testrg/providers/Microsoft.Network/localNetworkGate
-	ways/LocalSite"
-	    },
-	    "connectionType": "IPsec",
-	    "routingWeight": 10,
-	    "sharedKey": "abc123",
-	    "connectionStatus": "Connected",
-	    "ingressBytesTransferred": 33509044,
-	    "egressBytesTransferred": 4142431
-	  }
-
+[AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm.md)]
 
 ## <a name="localnet"></a>To modify IP address prefixes for a local network gateway
 
