@@ -18,8 +18,7 @@
    
 # Enable or Disable Azure VM Monitoring
 
-This section describes how to enable or disable monitoring on Virtual machines running on Azure. By default monitoring is enabled on Azure Virtual machines if deployed from **[Azure portal](https://portal.azure.com)** and monitoring graphs are provided by default with a 1-minute period. You can enable or disable monitoring using the portal or Azure CLI - Command Line Interface. 
-
+This section describes how to enable or disable monitoring on Virtual machines running on Azure. By default monitoring is enabled on Azure Virtual machines if deployed from the [Azure portal](https://portal.azure.com) and monitoring graphs are provided by default with a 1-minute period. You can enable or disable monitoring using the portal or Azure Command-line Interface for Mac, Linux, and Windows (the Azure CLI). 
 
 ## Enable / Disable Monitoring through the Azure Portal
  

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/02/2016"
+	ms.date="03/13/2016"
 	ms.author="v-livech"/>
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
@@ -22,23 +22,18 @@
 This topic discusses:
 
 1. Create a password-protected public and private key pair using `ssh-keygen`
-2. Create a `~/.ssh/config` file to speed up login and enable important security and configuration defaults
+2. Create an `~/.ssh/config` file to speed up login and enable important security and configuration defaults
 3. Log into a Linux or BSD VM in Azure using SSH
 
 ## Prerequisites
 
-  - Azure account
-    - [free trial signup](https://azure.microsoft.com/pricing/free-trial/)
-    - [Azure portal](http://portal.azure.com)
-  - Linux or Mac terminal with SSH toolkits installed 
+An Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and a Linux or Mac terminal with SSH toolkits installed. Place the CLI into resource mode by typing `azure config mode arm`.
 
 ## Introduction
 
-Using SSH public and private keys is the most secure **and** easiest way to login into your Linux Servers.  Passwords can be guessed or brute forced while [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to login to your Linux or BSD VM in Azure. The your public key can be shared with anyone; your private key is possessed only by you (or your local security infrastructure).
+Using SSH public and private keys is the most secure **and** easiest way to login into your Linux servers.  [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute forced far more easily. Your public key can be shared with anyone; your private key is possessed only by you (or your local security infrastructure).
 
 This article creates *ssh-rsa* format key files, as those are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
-
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 > [AZURE.NOTE] If you are logging onto your VMs from a Windows computer, see [Use SSH keys on Windows](virtual-machines-linux-ssh-from-windows.md).
 
@@ -46,7 +41,7 @@ This article creates *ssh-rsa* format key files, as those are recommended for de
 
 In the following command examples, replace the values between &lt; and &gt; with the values from your own environment. 
 
-```
+```bash
 [username@fedora22 ~]$ ssh-keygen -t rsa -b 4096 -C "<your_user@yourdomain.com>"
 
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
@@ -102,7 +97,7 @@ This command will create a SSH Keypair using 2048 bit RSA and it will be comment
 
 #### `ssh-keygen` walk through
 
-```
+```bash
 username@macbook$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/steve/.ssh/id_rsa): azure_fedora_id_rsa
@@ -147,13 +142,13 @@ The following example shows a standard configuration.
 
 ### Create the file
 
-```
+```bash
 username@macbook$ touch ~/.ssh/config
 ```
 
 ### Edit the file to add the new SSH configuration
 
-```
+```bash
 username@macbook$ vim ~/.ssh/config
 
 #Azure Keys
@@ -217,4 +212,4 @@ When `username@macbook$ ssh fedora22` is executed SSH first locates and loads an
 
 ## Next Steps
 
-Now you can go on to use your key files to [create your secure Linux VM in Azure using a template](virtual-machines-linux-create-ssh-secured-vm-from-template.md).
+Now you can go on to use your key files to [create a secure Linux VM in Azure using a template](virtual-machines-linux-create-ssh-secured-vm-from-template.md).

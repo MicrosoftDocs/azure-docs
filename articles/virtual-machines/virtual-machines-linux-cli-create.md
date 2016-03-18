@@ -22,16 +22,6 @@
 
 Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to quickly create an Ubuntu Server VM running in Azure, connect to it using **ssh**, and create and mount a new disk. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-classic-create-upload-vhd.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
-
-## Video walkthrough
-
-Here's a walkthrough of this tutorial.
-
-[AZURE.VIDEO building-a-linux-virtual-machine-tutorial]
-
 ## Install the Azure CLI
 
 The first step is to [install the Azure CLI](../xplat-cli-install.md).
@@ -304,6 +294,12 @@ The data disk is now ready to use as `/datadrive`.
 	boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 
 > [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For details, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
+
+## Video walkthrough
+
+Here's a walkthrough of this tutorial.
+
+[AZURE.VIDEO building-a-linux-virtual-machine-tutorial]
 
 ## Next Steps
 
