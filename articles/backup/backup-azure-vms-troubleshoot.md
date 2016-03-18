@@ -155,4 +155,4 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
     - Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
 
 >[AZURE.NOTE] DHCP must be enabled inside the guest for IaaS VM Backup to work.  If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled.
-View more information about [Setting a Static Internal Private IP](../virtual-networks-reserved-private-ip.md).
+View more information about [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md).
