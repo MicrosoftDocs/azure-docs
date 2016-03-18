@@ -25,8 +25,8 @@
 If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, this article describes how to reset the local administrator password or reset the Remote Desktop service configuration.
 
 Depending on the deployment model of your virtual machine, you can either use the portal or the VM Access extension in Azure PowerShell. If you are using Azure PowerShell, make sure you have the latest Azure PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
-
-> [Azure.TIP] You can check the version of Azure PowerShell that you have installed with the **Get-Module azure | format-table version** command. 
+</br>
+> [Azure.TIP] You can check the version of Azure PowerShell that you have installed with the `Get-Module azure | format-table version` command. 
 
 
 ## Windows VMs in classic deployment model
