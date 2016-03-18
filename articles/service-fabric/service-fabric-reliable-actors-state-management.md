@@ -90,29 +90,96 @@ Every actor instance has its own State Manager: A dictionary-like data structure
 
 State Manager keys must be strings, while values are generic and can be any type, including custom types. Values stored in the State Manager must be Data Contract serializable because they may be transmitted over the network to other nodes during replication and may be written to disk, depending on an actor's state persistence setting. 
 
-The State Manager exposes common dictionary methods for managing state, similar to those found in Reliable Dictionary:
+The State Manager exposes common dictionary methods for managing state, similar to those found in Reliable Dictionary.
+
+### Accessing state
+
+State can be accessed through the State Manager by key. State Manager methods are all asynchronous as they may require disk I/O when actors have persisted state. Upon first access, state objects are cached in memory. Repeat access operations access objects directly from memory and return synchronously without incurring disk I/O or asynchronous context switching overhead. A state object is removed from the cache in the following cases:
+
+ - An actor method throws an unhandled exception after retrieving an object from the State Manager.
+ - An actor is re-activated, either after being deactivated or due to failure.
+ - If the state provider pages state to disk. This behavior depends on the state provider implementation. The default state provider for the `Persisted` setting has this behavior. 
+
+State can be retrieved using a standard *Get* operation that throws `KeyNotFoundException` if an entry does not exist for the given key: 
 
 ```C#
-bool success = await this.StateManager.TryAddStateAsync<int>("MyState", 10);
-
-ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
-
-if (result.HasValue)
+[StatePersistence(StatePersistence.Persisted)]
+class MyActor : Actor, IMyActor
 {
-    int value = result.Value;
+    public Task<int> GetCountAsync()
+    {
+        return this.StateManager.GetStateAsync<int>("MyState");
+    }
 }
 ```
-```C#
-await this.StateManager.SetStateAsync<int>("MyState", 10);
 
-int value = await this.StateManager.GetStateAsync<int>("MyState");
+State can also be retrieved using a *TryGet* method that does not throw if an entry does not exist for a given key:
+
+```C#
+class MyActor : Actor, IMyActor
+{
+    public async Task<int> GetCountAsync()
+    {
+        ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
+        if (result.HasValue)
+        {
+            return result.Value;
+        }
+
+        return 0;
+    }
+}
 ```
+
 ### Saving state
 
 The State Manager retrieval methods return a reference to an object in local memory. Modifying this object in local memory alone does not cause it to be saved durably. When an object is retrieved from the State Manager and modified, it must be re-inserted into the State Manager to be saved durably.
 
-At the end of an actor method, the State Manager automatically saves any values that have been added or modified by an insert or update operation. A "save" can include persisting to disk and replication, depending on the settings used. Values that have not been modified are not persisted or replicated. If no values have bene modified, the save operation does nothing. In the event that saving fails, the modified state is discarded and the original state is reloaded.
+State can be inserted using an unconditional *Set*, which is the equivalent of the `dictionary["key"] = value` syntax:
 
+```C#
+[StatePersistence(StatePersistence.Persisted)]
+class MyActor : Actor, IMyActor
+{
+    public Task SetCountAsync(int value)
+    {
+        return this.StateManager.SetStateAsync<int>("MyState", value);
+    }
+}
+```
+
+State can be added using an *Add* method, which will throw `InvalidOperationException` when trying to add a key that already exists:
+
+```C#
+[StatePersistence(StatePersistence.Persisted)]
+class MyActor : Actor, IMyActor
+{
+    public Task AddCountAsync(int value)
+    {
+        return this.StateManager.AddStateAsync<int>("MyState", value);
+    }
+}
+```
+
+State can also be added using a *TryAdd* method, which will not throw when trying to add a key that already exists:
+
+```C#
+[StatePersistence(StatePersistence.Persisted)]
+class MyActor : Actor, IMyActor
+{
+    public async Task AddCountAsync(int value)
+    {
+        bool result = await this.StateManager.TryAddStateAsync<int>("MyState", value);
+
+        if (result)
+        {
+            // Added successfully!
+        }
+    }
+}
+```
+
+At the end of an actor method, the State Manager automatically saves any values that have been added or modified by an insert or update operation. A "save" can include persisting to disk and replication, depending on the settings used. Values that have not been modified are not persisted or replicated. If no values have bene modified, the save operation does nothing. In the event that saving fails, the modified state is discarded and the original state is reloaded.
 
 State can also be saved manually be calling the `SaveStateAsync` method on the actor base:
 
@@ -125,12 +192,37 @@ async Task IMyActor.SetCountAsync(int count)
 }
 ```
 
-### State caching
+### Removing state
 
-State Manager methods are all asynchronous as they may require disk I/O when actors have persisted state. Upon first access, state objects are cached in memory. Repeat access operations return synchronously without incurring disk I/O or asynchronous context switching overhead. A state object is removed from the cache in the following cases:
+State can be removed permanently from an actor's State Manager by calling the *Remove* method. This method will throw `KeyNotFoundException` when trying to remove a key that doesn't exist:
 
- - An actor method throws an unhandled exception after retrieving an object from the State Manager.
- - An actor is re-activated, either after being deactivated or due to failure.
- - If the state provider pages state to disk. This behavior depends on the state provider implementation. The default state provider for the `Persisted` setting has this behavior. 
+```C#
+[StatePersistence(StatePersistence.Persisted)]
+class MyActor : Actor, IMyActor
+{
+    public Task RemoveCountAsync()
+    {
+        return this.StateManager.RemoveStateAsync("MyState");
+    }
+}
+```
+
+State can also be removed permanently by using the *TryRemove* method, which will not throw when trying to remove a key that doesn't exist:
+
+```C#
+[StatePersistence(StatePersistence.Persisted)]
+class MyActor : Actor, IMyActor
+{
+    public async Task RemoveCountAsync()
+    {
+        bool result = await this.StateManager.TryRemoveStateAsync("MyState");
+
+        if (result)
+        {
+            // State removed!
+        }
+    }
+}
+```
 
 ## Next Steps

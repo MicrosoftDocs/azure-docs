@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2016"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Introduction to Service Fabric Reliable Actors
@@ -106,7 +106,7 @@ The `ActorProxy` class on the client side performs the necessary resolution to l
 The Reliable Actors runtime provides a simple turn-based access model for accessing actor methods. This means that no more than one thread can be active inside an actor object's code at any time. Turn-based access greatly simplifies concurrent systems as there is no need for synchronization mechanisms for data access. It also means systems must be designed with special considerations for the single-threaded access nature of each actor instance.
 
  - A single actor instance cannot process more than one request at a time. An actor instance can cause a throughput bottleneck if it is expected to handle concurrent requests. 
- - Actors can deadlock on each other if there is a circular request between two actors while an external request is made to one of the actors simultaneously. 
+ - Actors can deadlock on each other if there is a circular request between two actors while an external request is made to one of the actors simultaneously. The actor runtime will automatically time out on actor calls and throw an exception to the caller to interrupt possible deadlock situations.
 
 ![Reliable Actors communication][3]
 
@@ -120,14 +120,14 @@ The following example illustrates the above concepts. Consider an actor type tha
 
 ![Reliable Actors runtime turn-based concurrency and access][1]
 
-The above diagram follows these conventions:
+This diagram follows these conventions:
 
 - Each vertical line shows the logical flow of execution of a method or a callback on behalf of a particular actor.
 - The events marked on each vertical line occur in chronological order, with newer events occurring below older ones.
 - Different colors are used for timelines corresponding to different actors.
 - Highlighting is used to indicate the duration for which the per-actor lock is held on behalf of a method or callback.
 
-The following points about the above diagram are worth mentioning:
+Some important points to consider:
 
 - While *Method1* is executing on behalf of *ActorId2* in response to client request *xyz789*, another client request (*abc123*) arrives that also requires *Method1* to be executed by *ActorId2*. However, the second execution of *Method1* does not begin until the prior execution has finished. Similarly, a reminder registered by *ActorId2* fires while *Method1* is being executed in response to client request *xyz789*. The reminder callback is executed only after both executions of *Method1* are complete. All of this is due to turn-based concurrency being enforced for *ActorId2*.
 - Similarly, turn-based concurrency is also enforced for *ActorId1*, as demonstrated by the execution of *Method1*, *Method2*, and the timer callback on behalf of *ActorId1* happening in a serial fashion.
@@ -142,64 +142,13 @@ The Actors runtime allows reentrancy by default. This means that if an actor met
 
 The Actors runtime provides these concurrency guarantees in situations where it controls the invocation of these methods. For example, it provides these guarantees for the method invocations that are done in response to a client request, as well as for timer and reminder callbacks. However, if the actor code directly invokes these methods outside of the mechanisms provided by the Actors runtime, then the runtime cannot provide any concurrency guarantees. For example, if the method is invoked in the context of some task that is not associated with the task returned by the actor methods, then the runtime cannot provide concurrency guarantees. If the method is invoked from a thread that the actor creates on its own, then the runtime also cannot provide concurrency guarantees. Therefore, to perform background operations, actors should use [actor timers and actor reminders](service-fabric-reliable-actors-timers-reminders.md) that respect turn-based concurrency.
 
-> [AZURE.TIP] The Service Fabric Actors runtime emits some [events and performance counters related to concurrency](service-fabric-reliable-actors-diagnostics.md#concurrency-events-and-performance-counters). They are useful in diagnostics and performance monitoring.
-
-### Actor state management
-You can use Service Fabric to create actors that are either stateless or stateful.
-
-#### Stateless actors
-Stateless actors, which are derived from the `StatelessActor` base class, do not have any state that is managed by the Actors runtime. Their member variables are preserved throughout their in-memory lifetime, just as with any other .NET type. However, when they are garbage-collected after a period of inactivity, their state is lost. Similarly, the state can be lost due to failovers, which can occur during upgrades or resource-balancing operations, or as the result of failures in the actor process or its hosting node.
-
-The following is an example of a stateless actor:
-
-```csharp
-class HelloActor : StatelessActor, IHello
-{
-    public Task<string> SayHelloAsync(string greeting)
-    {
-        return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
-    }
-}
-```
-
-#### Stateful actors
-Stateful actors have a state that needs to be preserved across garbage collections and failovers. They derive from the `StatefulActor` base class that provides a State Manager to contain state reliably across garbage collection and failover. By default, actor state is persisted on disk and replicated across multiple nodes in the cluster. This means that, as with method arguments and return values, the actor state's type must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
-
-> [AZURE.NOTE] Refer to the [Reliable Actors notes on serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) article for more details on how interfaces and Actor state types should be defined. 
-
-##### Storing state
-
-The State Manager is a dictionary-like structure, similar to Reliable Dictionary. Multiple state objects and values can be saved as key-value pairs. When an actor method finishes, the Actor runtime automatically saves any modified state in the State Manager. If a failure occurs during the **Save** operation, the Actor runtime creates a new actor instance and loads the last consistent state.  
-
-
-
-```csharp
-class MyActor : StatefulActor, IMyActor
-{
-    public Task<int> SetCountAsync(int count)
-    {
-        return this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
-    }
-    ...
-}
-```
-
-##### Accessing state
-State can be accessed through the State Manager by key. Accessing state is an asynchronous operation because state is persisted to disk, and accessing state may require fetching state from disk. The State Manager caches objects in memory the first time they are accessed, so subsequent reads access live objects directly from memory and return synchronously without invoking disk I/O or thread context switching. Objects are removed from this cache when an actor instance is garbage collected or an unhandled exception occurs in an actor method, in which case the state is marked "dirty" and reloaded from disk the next time it is accessed. The State Manager also keeps track of when objects are modified, and will not perform a save operation if no changes have been made in an actor method, making read operations from the State Manager highly efficient. 
-
-```csharp
-class MyActor : StatefulActor, IMyActor
-{
-    public Task<int> GetCountAsync()
-    {
-        return this.StateManager.GetStateAsync<int>("count");
-    }
-    ...
-}
-```
-
-
 ## Next steps
+[Getting started with Reliable Actors](service-fabric-reliable-actors-get-started.md)
+
+[Actor state management](service-fabric-reliable-actors-state-management.md)
+
+[How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
+
 [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 
 [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
@@ -207,10 +156,6 @@ class MyActor : StatefulActor, IMyActor
 [Actor events](service-fabric-reliable-actors-events.md)
 
 [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
-
-[How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
-
-[Configure the KVSActorStateProvider Actor](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 
 [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 
