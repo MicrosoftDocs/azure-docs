@@ -64,7 +64,7 @@ Scroll down to the **Notification** section, click an icon, and then click `PNGS
 
 ##Create a Google Cloud Messaging project with API key
 
-[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](mobile-engagement-enable-google-cloud-messaging.md)]
 
 ###Enable your app to receive GCM push notifications
 
