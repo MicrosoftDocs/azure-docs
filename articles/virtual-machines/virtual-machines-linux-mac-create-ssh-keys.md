@@ -27,7 +27,7 @@ This topic discusses:
 
 ## Prerequisites
 
-An Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and a Linux or Mac terminal with SSH toolkits installed.
+An Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and a Linux or Mac terminal with SSH toolkits installed. Place the CLI into resource mode by typing `azure config mode arm`.
 
 ## Introduction
 

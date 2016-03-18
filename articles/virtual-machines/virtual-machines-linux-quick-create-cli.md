@@ -23,7 +23,7 @@ This topic shows how to quickly create a Linux VM in a basic Azure environment u
 
 ## Prerequisites
 
-You'll need the following an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md). Current version: 0.9.16.
+You'll need the following an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) placed in resource mode by typing `azure config mode arm` and logged in to Azure by typing `azure login` and following the prompts. Current version: 0.9.16.
 
 ## Quick Command Summary
 

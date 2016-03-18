@@ -29,7 +29,7 @@ Azure Resource Manager templates are JSON files that can be used for simple one-
 
 ## Prerequisites
 
-- An Azure account ([get a free trial!](https://azure.microsoft.com/pricing/free-trial/)) and an [SSH public key file](virtual-machines-linux-mac-create-ssh-keys.md).
+- An Azure account ([get a free trial!](https://azure.microsoft.com/pricing/free-trial/)), an [SSH public key file](virtual-machines-linux-mac-create-ssh-keys.md), the [Azure CLI](../xplat-cli-install.md), and then put the CLI in resource mode by typing `azure config mode arm`. Then log in to Azure with the CLI by typing `azure login`.
 
 ## Quick Command Summary
 
