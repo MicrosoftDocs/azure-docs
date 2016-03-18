@@ -422,13 +422,13 @@ For more development tips and content related to the examples shown please refer
 <!--Image references-->
 
 <!--ACOM references-->
-[Development]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse/sql-data-warehouse-overview-develop/
-[Transactions]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse/sql-data-warehouse-develop-transactions/
-[Table partitioning]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse/sql-data-warehouse-develop-table-partitions/
-[table partition]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse/sql-data-warehouse-develop-table-partitions/
-[Concurrency]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse/sql-data-warehouse-develop-concurrency/
-[CTAS]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse/sql-data-warehouse-develop-ctas/
-[RENAME OBJECT]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse/sql-data-warehouse-develop-rename/
+[Development]: sql-data-warehouse-overview-develop.md
+[Transactions]: sql-data-warehouse-develop-transactions.md
+[Table partitioning]: sql-data-warehouse-develop-table-partitions.md
+[table partition]: sql-data-warehouse-develop-table-partitions.md
+[Concurrency]: sql-data-warehouse-develop-concurrency.md
+[CTAS]: sql-data-warehouse-develop-ctas.md
+[RENAME OBJECT]: sql-data-warehouse-develop-rename.md
 
 <!--MSDN references-->
 [alter index]:https://msdn.microsoft.com/en-us/library/ms188388.aspx
