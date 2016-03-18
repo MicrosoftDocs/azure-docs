@@ -1,0 +1,239 @@
+<properties
+	pageTitle="Quick start guide: Machine Learning Text Analytics APIs | Microsoft Azure"
+	description="Azure Machine Learning Text Analytics - Quick Start Guide"
+	services="machine-learning"
+	documentationCenter=""
+	authors="onewth"
+	manager="paulettm"
+	editor="cgronlun"/>
+
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/30/2016"
+	ms.author="onewth"/>
+
+<a name="HOLTop"></a>
+# Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
+
+This document describes how to onboard your service or application to use the [Text Analytics APIs](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2).
+You can use these APIs to detect sentiment, key phrases, topics and language from your text. You can find more details on the Text Analytics APIs the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2).
+
+This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-apps-text-analytics/).
+
+By the end of this tutorial, you will be able to programatically detect:
+
+- **Sentiment** - Is text positive or negative?
+
+- **Key phrases** - What are people discussing in a single article?
+
+- **Topics** - What are people discussing across many articles?
+
+- **Languages** - What language is text written in?
+
+Note that this API charges 1 transaction per text record submitted. 
+
+<a name="Overview"></a>
+## General overview ##
+
+This document is a step-by-step guide. Our objective is to walk you through the steps necessary to train a model, and to point you to resources that will allow you to put it in production. This exercise will take about 30 minutes.
+
+For these tasks, you will need an editor and call the RESTful endpoints in your language of choice.
+
+Let's get started!
+
+## Task 1 - Signing up for the Text Analytics APIs ####
+
+In this task, you will sign up for the text analytics service.
+
+1. Navigate to the Text Analytics service through the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
+
+1. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
+
+1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
+
+1. After you sign up for Text Analytics, you'll be given an **API Key**. Copy this key, as you'll need it when using the API services.
+
+
+## Task 2 - Detect sentiment, key phrases and languages ####
+
+It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](http://text-analytics-demo.azurewebsites.net) returns.
+
+**Tip!** For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
+
+1. You will need to set the headers to the following. Note that JSON is currently the only accepted input format for the APIs. XML is not supported.
+
+		Ocp-Apim-Subscription-Key: <your API key>
+		Content-Type: application/json
+		Accept: application/json
+
+1. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Note that each ID should be unique and will be the ID returned by the system. The maximum size of a single document that can be submitted is 10KB, and the total maximum size of submitted input is 1MB. No more than 1,000 documents may be submitted in one call. An example of input is shown below:
+
+		{
+			"documents": [
+				{
+					"id": "1",
+					"text": "First document"
+				},
+                ...
+                {
+					"id": "100",
+					"text": "Final document"
+				}
+			]
+		}
+
+1. Make a **POST** call to the system with the input for sentiment, key phrases and language. The URLs will look as follows:
+
+        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/sentiment
+        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/keyPhrases
+        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/languages
+
+1. This call will return a JSON formatted response with the IDs and detected properties. An example of the output for sentiment is shown below (with error details excluded). In the case of sentiment, a score between 0 and 1 will be returned for each document:
+
+        // Sentiment response
+		{
+		  	"documents": [
+				{
+					"id": "1",
+					"score": "0.934"
+		        },
+                ...
+                {
+					"id": "100",
+					"score": "0.002"
+		        },
+			]
+		}
+
+        // Key phrases response
+        {
+		  	"documents": [
+				{
+					"id": "1",
+					"keyPhrases": ["key phrase 1", ..., "key phrase n"]
+		        },
+                ...
+                {
+					"id": "100",
+					"keyPhrases": ["key phrase 1", ..., "key phrase n"]
+		        },
+			]
+		}
+
+        // Languages response
+        {
+		  	"documents": [
+				{
+					"id": "1",
+					"detectedLanguages": [
+                        {
+                            "name": "English",
+                            "iso6391Name": "en",
+                            "score": "1"
+                        }
+                    ]
+		        },
+                ...
+                {
+                    "id": "100",
+                    "detectedLanguages": [
+                        {
+                            "name": "French",
+                            "iso6391Name": "fr",
+                            "score": "0.985"
+                        }
+                    ]
+		        }
+			]
+		}
+
+        
+
+## Task 3 - Detect topics in a corpus of text ####
+
+This is a newly released API which returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. The API is designed to work well for short, human written text such as reviews and user feedback.
+
+This API requires **a minimum of 100 text records** to be submitted, but is designed to detect topics across hundreds to thousands of records. Any non-English records or records with less than 3 words will be discarded and therefore will not be assigned to topics. For topic detection, the maximum size of a single document that can be submitted is 30KB, and the total maximum size of submitted input is 30MB. 
+
+There are two additional **optional** input parameters that can help to improve the quality of results:
+
+- **Stop words.**  These words and their close forms (e.g. plurals) will be excluded from the entire topic detection pipeline. Use this for common words (for example, “issue”, “error” and “user” may be appropriate choices for customer complaints about software). Each string should be a single word.
+- **Stop phrases** - These phrases will be excluded from the list of returned topics. Use this to exclude generic topics that you don’t want to see in the results. For example, “Microsoft” and “Azure” would be appropriate choices for topics to exclude. Strings can contain multiple words.
+
+Follow these steps to detect topics in your text.
+
+1. Format the input in JSON. This time, you can define stop words and stop phrases.
+
+		{
+			"documents": [
+				{
+					"id": "1",
+					"text": "First document"
+				},
+                ...
+                {
+					"id": "100",
+					"text": "Final document"
+				}
+			],
+			"stopWords": [
+				"issue", "error", "user"
+			],
+			"stopPhrases": [
+				"Microsoft", "Azure"
+			]
+		}
+
+1. Using the same headers as defined in Task 2, make a **POST** call to the topics endpoint:
+
+        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/topics
+
+1. This will return an `operation-location` as the header in the response, where the value is the URL to query for the resulting topics:
+
+        'operation-location': 'https://cognitive.microsoft.com/language/text-analytics/v2.0/operations/<operationId>'
+
+1. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
+
+        GET https://cognitive.microsoft.com/language/text-analytics/v2.0/operations/<operationId>
+
+1. The endpoint will return a response including `{"status": "notstarted"}` before processing, `{"status": "running"}` while processing and `{"status": "succeeded"}` with the output once completed. You can then consume the output which will be in the following format (note details like error format and dates have been excluded from this example):
+
+		{
+			"status": "succeeded",
+			"processingResult": {
+			  	"topics": [
+                    {
+					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
+					    "score": "5"
+					    "keyPhrase": "first topic name"
+                    },
+                    ...
+                    {
+					    "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
+					    "score": "3"
+					    "keyPhrase": "final topic name"
+                    }
+                ],
+			  	"topicAssignments": [
+                    {
+					    "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
+					    "documentId": "1",
+					    "distance": "0.354"
+                    },
+                    ...
+                    {
+					    "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
+					    "documentId": "55",
+					    "distance": "0.758"
+                    },            
+                ]
+			}
+		}
+
+## Next steps ##
+
+Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](http://powerbi.microsoft.com) to visualize your data, as well as automating your insights to give you a real-time view of your text data.
