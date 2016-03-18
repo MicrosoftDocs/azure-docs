@@ -2,6 +2,7 @@
 	pageTitle="Azure Active Directory Device Registration Overview| Microsoft Azure"
 	description="is the foundation for device-based conditional access scenarios. When a device is registered, Azure Active Directory Device Registration provisions the device with an identity which is used to authenticate the device when the user signs in."
 	services="active-directory"
+	keywords="device registration, enable device registration"
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -12,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.topic="getting-started-article"
+	ms.date="03/18/2016"
 	ms.author="femila"/>
 
 # Azure Active Directory Device Registration overview
@@ -40,15 +41,16 @@ You can view and enable/disable registered devices using the Administrator Porta
 
 ## Enable Azure Active Directory Device Registration
 The following section describes how to enable the Azure Active Directory Device Registration Service for your directory.
-To enable Azure Active Directory Device Registration Service
--------------------------------------------------------------
+
+###To enable Azure Active Directory Device Registration Service
+
 1. Log on to the Azure Portal as Administrator.
-1. On the left pane, select **Active Directory**.
-1. On the **Directory** tab, select your directory.
-1. Select the **Configure** tab.
-1. Scroll to the section called **Devices**.
-1. Select **ALL** for **USERS MAY WORKPLACE JOIN DEVICES**.
-1. Select the maximum number of devices you want to authorize per user.
+2. On the left pane, select **Active Directory**.
+3. On the **Directory** tab, select your directory.
+4. Select the **Configure** tab.
+5. Scroll to the section called **Devices**.
+6. Select **ALL** for **USERS MAY WORKPLACE JOIN DEVICES**.
+7. Select the maximum number of devices you want to authorize per user.
 
 >[AZURE.NOTE]
 >Enrollment with Microsoft Intune or Mobile Device Management for Office 365 requires Workplace Join. If you have configured either of these services, ALL is selected and the NONE button is disabled.

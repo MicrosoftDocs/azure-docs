@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="03/18/2016"
 	ms.author="yuridio"/>
 
 
@@ -115,7 +115,7 @@ Each interaction in the diagram showed in Figure X represents one access control
  - Granular access to resources: You can assign roles to users and groups for a particular subscription, resource  group, or an individual Azure resource such as a website or database. In this way, you can ensure that users have access to all the resources they need and no access to resources that they do not need to manage.
 
  >[AZURE.NOTE]
-  Read [Role-based access control in Azure Preview portal](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) to know more details about this capability. For developers that are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
+  Read [Role-based access control in Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) to know more details about this capability. For developers that are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
 
 3. Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md).
 
