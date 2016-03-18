@@ -65,7 +65,7 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 
 | Component | Benefits/Limitations | Documentation |
 | --- | --- | --- |
-| Azure Backup (MARS) agent | **Benefits**<br><li>Can backup files and folders on a Windows OS machine, be it physical or virtual (VMs can be anywhere on-premises or Azure)<br><li>No separate backup server required<br><li>Uses Azure Backup Vault<br><br>**Limitations**<br><li>Thrice a day backup/file level restore<br><li>File/folder/volume level restore only, not application aware<br><li>No support for Linux | [Back up Windows Server or Windows Client files and folders to Azure](backup-configure-vault.md) |
+| Azure Backup (MARS) agent | **Benefits**<br><li>Can backup files and folders on a Windows OS machine, be it physical or virtual (VMs can be anywhere on-premises or Azure)<br><li>No separate backup server required<br><li>Uses Azure Backup Vault<br><br>**Limitations**<br><li>Three times a day backup/file level restore<br><li>File/folder/volume level restore only, not application aware<br><li>No support for Linux | [Back up Windows Server or Windows Client files and folders to Azure](backup-configure-vault.md) |
 | System Center Data Protection Manager | **Benefits**<br><li>App aware snapshots (VSS)<br> <li>Full flexibility for when to take backups<br> <li>Recovery granularity (all)<br> <li>Can use Azure Backup vault<br> <li>Linux support (if hosted on Hyper-V) <br><br>**Limitations**<br><li>DPM Server required and management of that server<br> <li>Only file-consistent backup is possible for Linux machines | [Preparing to back up workloads to Azure with DPM](backup-azure-dpm-introduction.md) |
 | Azure Backup Server (MABS) | Same as DPM, but:<br><li>Does not require a System Center license<br> <li>Always requires live Azure subscription<br> <li>No support for tape backup | [Preparing to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md) |
 | Azure IaaS VM Backup | **Benefits**<br><li>Native backups for Windows/Linux<br><li>No specific agent install required<br><li>No separate backup server required<br><li>Uses Azure Backup vault<br><br>**Limitations**<br><li>Once a day backup/disk level restore<br><li>Cannot backup on-premises | [Back up Azure virtual machines](backup-azure-vms-introduction.md) |
@@ -202,7 +202,7 @@ The following concepts will help you make important decisions around backup and 
 | ------- | ------- | ------ | ----------------- |
 | Recovery point objective (RPO) | The amount of acceptable data loss if a recovery needs to be done. | Backup solutions have wide variability in their acceptable RPO. Virtual machine backups usually have an RPO of one day, while database backups have RPOs as low as 15 minutes. | Disaster recovery solutions have low RPOs. The DR copy can be behind by a few seconds or a few minutes. |
 | Recovery time objective (RTO) | The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher, which leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location. | Disaster recovery solutions have smaller RTOs because they are more in sync with the source. Fewer changes need to be processed. |
-| Retention | How long data needs to be stored | <p>For scenarios that require operational recovery (data corruption, inadvertent file deletion, OS failure), backup data is typically retained for 30 days or less.</p> <p>From a compliance standpoint, data might need to be stored for months or even years. Backup data is ideally suited for archiving in such cases.</p> | Disaster recovery needs only operational recovery data, which typically takes a few hours or up to a day. Because of the fine-grained data capture used in DR solutions, using DR data for long-term retention is not recommended. |
+| Retention | How long data needs to be stored | For scenarios that require operational recovery (data corruption, inadvertent file deletion, OS failure), backup data is typically retained for 30 days or less.<br>From a compliance standpoint, data might need to be stored for months or even years. Backup data is ideally suited for archiving in such cases. | Disaster recovery needs only operational recovery data, which typically takes a few hours or up to a day. Because of the fine-grained data capture used in DR solutions, using DR data for long-term retention is not recommended. |
 
 ## Next steps
 
@@ -218,6 +218,7 @@ Because those tutorials help you back up quickly, they show you only the most di
 - [Backup Azure IaaS VMs](backup-azure-vms-prepare.md)
 
 If you have additional questions:
+
 - [Frequently asked question on the Azure Backup service](backup-azure-backup-faq.md)
 - Visit the [Azure Backup forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
