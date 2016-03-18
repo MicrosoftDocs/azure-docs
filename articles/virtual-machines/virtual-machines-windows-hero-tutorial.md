@@ -50,7 +50,7 @@ Here's a walkthrough of this tutorial.
 
 2. On the Hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
 
-	![Screenshot that shows the Azure VM images available in the preview portal](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
+	![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
 
 	>[AZURE.TIP] To find additional images, click **Marketplace** and then search or filter for available items.
 
