@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with Reliable Actors | Microsoft Azure"
-   description="This tutorial walks you through the steps of creating, debugging, and deploying a canonical HelloWorld service using Service Fabric Reliable Actors."
+   pageTitle="Get started with Service Fabric Reliable Actors | Microsoft Azure"
+   description="This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="03/25/2015"
    ms.author="vturecek"/>
 
-# Reliable Actors: The canonical HelloWorld walk-through scenario
-This article explains the basics of Azure Service Fabric Reliable Actors and walks you through creating, debugging, and deploying a simple HelloWorld application in Visual Studio.
+# Getting started with Reliable Actors
+This article explains the basics of Azure Service Fabric Reliable Actors and walks you through creating, debugging, and deploying a simple Reliable Actor application in Visual Studio.
 
 ## Installation and setup
 Before you start, ensure that you have the Service Fabric development environment set up on your machine.
@@ -58,76 +58,48 @@ After you have created the solution, you should see the following structure:
 
 A typical Reliable Actors solution is composed of three projects:
 
-* **The application project (HelloWorldApplication)**. This is the project that packages all of the services together for deployment. It contains the **ApplicationManifest.xml** and PowerShell scripts for managing the application.
+* **The application project (MyActorApplication)**. This is the project that packages all of the services together for deployment. It contains the *ApplicationManifest.xml* and PowerShell scripts for managing the application.
 
-* **The interface project (HelloWorld.Interfaces)**. This is the project that contains the interface definition for the actor. In the HelloWorld.Interfaces project, you can define the interfaces that will be used by the actors in the solution.
+* **The interface project (MyActor.Interfaces)**. This is the project that contains the interface definition for the actor. In the MyActor.Interfaces project, you can define the interfaces that will be used by the actors in the solution. Your actor interfaces can be defined in any project with any name, however the interface defines the actor contract that is shared by the actor implementation and the clients calling the actor, so it typically makes sense to define it in an assembly that is separate from the actor implementation and can be shared by multiple other projects.
 
 ```csharp
-
-namespace MyActor.Interfaces
+public interface IMyActor : IActor
 {
-    using System.Threading.Tasks;
-    using Microsoft.ServiceFabric.Actors;
-
-    public interface IMyActor : IActor
-    {
-        Task<string> HelloWorld();
-    }
+    Task<string> HelloWorld();
 }
-
 ```
 
-* **The service project (HelloWorld)**. This is the project used to define the Service Fabric service that is going to host the actor. It contains some boilerplate code that does not need to be edited in most cases (ServiceHost.cs), as well as the implementation of the actor. The implementation of the actor involves implementing a class that derives from a base type (Actor). It also implements the interface(s) that are defined in the HelloWorld.Interfaces project.
+* **The actor service project (MyActor)**. This is the project used to define the Service Fabric service that is going to host the actor. It contains the implementation of the actor. An actor implementation is a class that derives from the base type `Actor` and impleemnts the interface(s) that are defined in the MyActor.Interfaces project.
 
 ```csharp
-
-namespace MyActor
+[StatePersistence(StatePersistence.Persisted)]
+internal class MyActor : Actor, IMyActor
 {
-    using System;
-    using System.Threading.Tasks;
-    using Interfaces;
-    using Microsoft.ServiceFabric.Actors;
-
-    internal class MyActor : StatelessActor, IMyActor
+    public Task<string> HelloWorld()
     {
-        public Task<string> HelloWorld()
+        return Task.FromResult("Hello world!");
+    }
+}
+```
+
+The actor service must be registered with a service type in the Service Fabric runtime. In order for the Actor Service to run your actor instances, your actor type must also be registered with the Actor Service. The `ActorRuntime` registration method performs this work for actors.
+
+```csharp
+internal static class Program
+{
+    private static void Main()
+    {
+        try
         {
-            throw new NotImplementedException();
+            ActorRuntime.RegisterActorAsync<MyActor>(
+                (context, actorType) => new ActorService(context, actorType, () => new MyActor())).GetAwaiter().GetResult();
+
+            Thread.Sleep(Timeout.Infinite);
         }
-    }
-}
-
-```
-
-The Reliable Actors service project contains the code to create a Service Fabric service. In the service definition, the actor type or types are registered, so that they can be used to instantiate new actors.
-
-```csharp
-
-namespace MyActor
-{
-    using System;
-    using System.Fabric;
-    using System.Threading;
-    using Microsoft.ServiceFabric.Actors;
-
-    internal static class Program
-    {
-        private static void Main()
+        catch (Exception e)
         {
-            try
-            {
-                using (FabricRuntime fabricRuntime = FabricRuntime.Create())
-                {
-                    fabricRuntime.RegisterActor<MyActor>();
-
-                    Thread.Sleep(Timeout.Infinite);  // Prevents this host process from terminating so services keeps running.
-                }
-            }
-            catch (Exception e)
-            {
-                ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
-                throw;
-            }
+            ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
+            throw;
         }
     }
 }
@@ -137,9 +109,7 @@ namespace MyActor
 If you start from a new project in Visual Studio and you have only one actor definition, the registration is included by default in the code that Visual Studio generates. If you define other actors in the service, you need to add the actor registration by using:
 
 ```csharp
-
-fabricRuntime.RegisterActor<MyActor>();
-
+ ActorRuntime.RegisterActorAsync<MyOtherActor>();
 
 ```
 
@@ -148,7 +118,7 @@ fabricRuntime.RegisterActor<MyActor>();
 
 ## Debugging
 
-The Service Fabric tools for Visual Studio support debugging on your local machine. You can start a debugging session by hitting the F5 key. Visual Studio builds (if necessary) packages. It also deploys the application on the local Service Fabric cluster and attaches the debugger. The experience is similar to debugging an ASP.NET application.
+The Service Fabric tools for Visual Studio support debugging on your local machine. You can start a debugging session by hitting the F5 key. Visual Studio builds (if necessary) packages. It also deploys the application on the local Service Fabric cluster and attaches the debugger.
 
 During the deployment process, you can see the progress in the **Output** window.
 
