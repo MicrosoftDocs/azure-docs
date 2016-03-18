@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="02/24/2016"
+  ms.date="03/18/2016"
   ms.author="andrl"/>
 
 # Community portal
@@ -89,6 +89,12 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 **Community posts:**
 
+* [**https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *by Matias Quarantaas*
+
+* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *by Eric Langland*
+
+* [**Notifications for new or changed DocumentDB resources using Logic Apps**](https://azure.microsoft.com/en-us/documentation/articles/documentdb-change-notification/) - *by Howard Edidin*
+
 * [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *by Yoichi Kawasaki*
 
 * [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *by Peter Mannerhult*
@@ -139,10 +145,11 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 ### Recent and upcoming events
 
-| Event Name                                                                                                                 | Speaker                                                     | Location             | Date                   | Hashtag |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
-| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/)                                                     | Andrew Liu                                                  | Bellevue, WA         | March 3, 2016          | n/a
-| SQLBits XV                                                                                                                 | tbd                                                         | Liverpool, UK        | May 4-7, 2016          | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| Event Name                                                                                                                 | Speaker                                                     | Location             | Date                     | Hashtag |
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Build 2016](https://build.microsoft.com/)                                                                                 | John Macintyre, Dharma Shukla                               | San Francisco, CA    | March 30 - April 1, 2016 | [#MicrosoftBuild](https://twitter.com/hashtag/MicrosoftBuild)
+| [SQLBits XV](https://sqlbits.com/)                                                                                         | Andrew Liu, Aravind Ramachandran                            | Liverpool, UK        | May 4-7, 2016            | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/)                                    | Andrew Liu                                                  | London, UK           | May 12, 2016             | n/a |
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
 
@@ -150,6 +157,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                   | Recording |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/)                                                     | Kirat Pandya                                                | Bellevue, WA         | March 3, 2016          | n/a |
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/)                                                | Merwan Chinta                                               | Austin, TX           | January 28, 2016       | n/a |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/)                                                       | Vincent-Philippe Lauzon                                     | Montreal, QC, Canada | December 1, 2015       | n/a |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/)                                                     | David Makogon                                               | Seattle, WA          | November 12, 2015      | n/a |
