@@ -4,7 +4,7 @@
 
 5. In the Remote Desktop window, click **Connect** to continue.
 
-	![Continue with connecting](./media/virtual-machines-log-on-win-server/connectpublisher.png)
+	![Screenshot of a warning about an Unknown Publisher.](./media/virtual-machines-log-on-win-server/connectpublisher.png)
 
 6. In the Windows Security window, type the credentials for an account on the virtual machine and then click **OK**.
 
@@ -16,4 +16,4 @@
 
 7.	Click **Yes** to verify the identity of the virtual machine and finish logging on.
 
-	![Verify the identity of the machine](./media/virtual-machines-log-on-win-server/connectverify.png)
+	![Screenshot showing a message abut verifying the identity of the VM.](./media/virtual-machines-log-on-win-server/connectverify.png)
