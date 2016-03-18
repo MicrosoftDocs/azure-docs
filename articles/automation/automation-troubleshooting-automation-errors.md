@@ -189,7 +189,7 @@ This error typically occurs when the node is assigned to a configuration name (e
     - In order to assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
 
 
-### Scenario:  No node configurations(mof files) were produced when a configuration is compiled
+### Scenario:  No node configurations (MOF files) were produced when a configuration is compiled
 
 **Error:**
 Your DSC compilation job suspends with the error: “Compilation completed successfully, but no node configuration .mofs were generated”.
@@ -201,7 +201,7 @@ When the expression following the **Node** keyword in the DSC configuration eval
 Any of the following solutions will fix the problem:  
 
 - Make sure that the expression next to the **Node** keyword in the configuration definition is not evaluating to $null.  
-- If you are passing ConfigurationData when compiling the congifuration, make sure that you are passing the expected values that the configuration requires from [configurationData](automation-dsc-compile.md#configurationdata).
+- If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](automation-dsc-compile.md#configurationdata).
 
 
 ### Scenario:  The DSC node report becomes stuck “in progress” state

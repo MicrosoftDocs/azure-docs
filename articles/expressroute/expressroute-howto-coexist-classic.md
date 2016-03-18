@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/09/2016"
    ms.author="cherylmc"/>
 
 # Configure ExpressRoute and Site-to-Site coexisting connections
@@ -188,7 +188,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 
 1. You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. Note that the cmdlets that you'll use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
 
-2. Delete the existing Site-to-Site VPN gateway. Use the following cmdlet, replacing the values with your own.
+2. Delete the existing ExpressRoute or Site-to-Site VPN gateway. Use the following cmdlet, replacing the values with your own.
 
 	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
 
