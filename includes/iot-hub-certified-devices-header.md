@@ -2,6 +2,7 @@
 - [(Linux | C)](../articles/iot-hub/iot-hub-certified-devices-linux-c.md)
 - [(Linux | Java)](../articles/iot-hub/iot-hub-certified-devices-linux-java.md)
 - [(Linux | Javascript)](../articles/iot-hub/iot-hub-certified-devices-linux-javascript.md)
+- [(Arduino | C)](../articles/iot-hub/iot-hub-certified-devices-arduino-c.md)
 - [(Embedded | C)](../articles/iot-hub/iot-hub-certified-devices-embedded-c.md)
 - [(Embedded | Javascript)](../articles/iot-hub/iot-hub-certified-devices-embedded-javascript.md)
 - [(Windows 10 IoT Core | C#)](../articles/iot-hub/iot-hub-certified-devices-10iot-csharp.md)

@@ -16,7 +16,7 @@
      ms.date="02/28/2016"
      ms.author="hegate"/>
 
-# Microsoft Azure Certified for IoT - Linux/Java
+# Microsoft Azure Certified for IoT
 
 [AZURE.INCLUDE [iot-hub-certified-devices-header](../../includes/iot-hub-certified-devices-header.md)]
 

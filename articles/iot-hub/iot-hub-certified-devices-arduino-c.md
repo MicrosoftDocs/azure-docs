@@ -22,11 +22,8 @@
 
 |Device| Tested OS |
 |:---------|:----------|
-|[Arrow DragonBoard 410c](http://partners.arrow.com/campaigns-na/qualcomm/dragonboard-410c/) |Windows 10 IoT Core |
-|[Inventec Corp Avatar](http://www.inventec.com/indexEN.htm) |Windows 10 IoT Core |
-|[NEXCOM NISE 50C](http://www.nexcom.com/Products/industrial-computing-solutions/industrial-fanless-computer/atom-compact/fanless-computer-nise-50c) |Windows 10 IoT Core |
-|[PANASONIC Toughpad FZ-F1](http://www.panasonic.com/global/home.html) |Windows 10 IoT Mobile Enterprise |
-|[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Windows 10 IoT Core|
-|[Toradex Colibri T30](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-3) |Windows 10 IoT Core |
+|[Arduino MKR1000](https://www.arduino.cc/en/Main/ArduinoMKR1000) |Arduino IDE |
+|[Arduino Zero](https://www.arduino.cc/en/Guide/ArduinoZero) |Arduino IDE |
+
 
 [AZURE.INCLUDE [iot-hub-certified-devices-footer](../../includes/iot-hub-certified-devices-footer.md)]
