@@ -25,7 +25,7 @@ For SaaS developers who have tens, hundreds, or even thousands of databases, an 
 ## Prerequisites for creating and managing elastic database pools
 
 - Elastic database pools are only available in Azure SQL Database V12 servers. To upgrade to V12 and migrate your databases directly into a pool, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-powershell.md).
-- Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-powershell.md), and a .NET Client Library (Azure Resource Manager only); the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
+- Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), [Powerhell](sql-database-elastic-pool-create-powershell.md), and a .NET Client Library (Azure Resource Manager only); the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
 - Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using [Transact-SQL](#transact-sql).
 
 
@@ -38,8 +38,10 @@ The following articles will help you get started using elastic databases and ela
 | [SQL Database elastic database pools](sql-database-elastic-pool.md) | Overview of elastic  database pools |
 | [Price and performance considerations](sql-database-elastic-pool-guidance.md) | How to assess if using an elastic database pool is cost efficient |
 | [Create and manage a SQL Database elastic database pool with the Azure portal](sql-database-elastic-pool-create-portal.md) | How to create and manage an elastic database pool using the Azure portal |
-| [Create and manage a SQL Database elastic database pool with PowerShell](sql-database-elastic-pool-powershell.md) | How to create and manage an elastic database pool using PowerShell cmdlets |
-| [Create and manage a SQL Database with the Azure SQL Database Library for .NET](sql-database-elastic-pool-csharp.md) | How to create and manage an elastic database pool using C# |
+| [Create a pool with PowerShell](sql-database-elastic-pool-create-powershell.md) | How to create a pool using PowerShell cmdlets |
+| [Manage a pool with PowerShell](sql-database-elastic-pool-manage-powershell.md) | How to manage and size a pool using PowerShell cmdlets |
+| [Create a pool with C&#x23;](sql-database-elastic-pool-create-csharp.md) | How to create a pool using C# |
+| [Manage a pool with C&#x23;](sql-database-elastic-pool-manage-csharp.md) | How to manage and size a pool using C&#x23 |
 | [Elastic database jobs overview](sql-database-elastic-jobs-overview.md) | An overview of the elastic jobs service, that enables running T-SQL scripts across all elastic databases in a pool |
 | [Installing the elastic database job component](sql-database-elastic-jobs-service-installation.md) | How to install the elastic database job service |
 | [Securing your SQL Database](sql-database-security.md) | To run an elastic database job script, a user with the appropriate permissions must be added to every database in the pool. |
