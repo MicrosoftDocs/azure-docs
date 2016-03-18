@@ -125,7 +125,7 @@ These steps assume you have set up a Key Vault and a secret that stores the pass
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Get your Active Directory application. You will the application id when logging in.
+2. Get your Active Directory application. You will need the application id when logging in.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -239,7 +239,7 @@ service principal. Two options are shown in this topic:
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Provide certificate through automated PowerShell script
 
-1. Get your Active Directory application. You will the application id when logging in
+1. Get your Active Directory application. You will need the application id when logging in
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
