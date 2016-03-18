@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Quick start guide: Machine Learning Text Analytics APIs | Microsoft Azure"
 	description="Azure Machine Learning Text Analytics - Quick Start Guide"
-	services="machine-learning"
+	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
 	manager="paulettm"
