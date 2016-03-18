@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Going Social with DocumentDB | Microsoft Azure" 
-	description="Learn how can you create a Social Network by leveraging the storage flexibility of DocumentDB and other Azure services." 
+	pageTitle="DocumentDB design pattern: Social media apps | Microsoft Azure" 
+	description="Learn about a design pattern for Social Networks by leveraging the storage flexibility of DocumentDB and other Azure services." 
+    keywords="social media apps"
 	services="documentdb" 
 	authors="ealsur" 
 	manager="" 
@@ -13,38 +14,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
-	ms.author="ealsur"/>
+	ms.date="03/18/2016" 
+	ms.author="ealsur@hotmail.com"/>
 
-# Going Social with DocumentDB
+# Going social with DocumentDB
 
-## Down the rabbit hole
+Living in a massively-interconnected society means that, at some point in life, you become part of a **Social Network**. We use social networks to keep in touch with friends, colleagues, family, or sometimes to share our passion with people with common interests.
 
-Living in a massive-interconnected society means that, at some point in life, you become part of a **Social Network**. We use Social Networks to keep in touch with friends, colleagues, family, or sometimes to share our passion with people with common interests.
-
-As engineers or developers, we might have wondered how do these Networks store and interconnect our data, or might have even been tasked to create or architecture a new Social Network for a specific niche market yourselves. That’s when the big question arises: **How is all this data stored?**
+As engineers or developers, we might have wondered how do these networks store and interconnect our data, or might have even been tasked to create or architect a new social network for a specific niche market yourselves. That’s when the big question arises: **How is all this data stored?**
 
 Let’s suppose that we are creating a new and shiny Social Network, where our *Users* can *Post* articles with related media like, *Pictures*, *Videos* or even *Music*. Users can *Comment* on posts and give *Points* for rating. There will be a *Feed* of posts that users will see and be able to interact with on our main website landing. This doesn’t sound really complex (at first), but for the sake of simplicity, let’s stop there (we could delve into custom user feeds affected by relationships, but it exceeds the goal of this article).
 
 **So, how do we store this and where?**
 
-Many of you might have experience on SQL databases or at least have notion of [relational modelling of data](https://en.wikipedia.org/wiki/Relational_model) and you might be tempted to start drawing something like this:
+Many of you might have experience on SQL databases or at least have notion of [relational modeling of data](https://en.wikipedia.org/wiki/Relational_model) and you might be tempted to start drawing something like this:
 
-![ Diagram illustrating a relative relational model](./media/documentdb-social/social-sql.png) 
+![Diagram illustrating a relative relational model](./media/documentdb-social-media-apps/social-sql.png) 
 
 A perfectly normalized and pretty data structure… that **fails**. 
 
-Don’t take it wrongly, I’ve worked with SQL databases all my life, they are great, but like every pattern, practice and software platform, it’s not perfect for every scenario.
+Don’t take it wrong, I’ve worked with SQL databases all my life, they are great, but like every pattern, practice and software platform, it’s not perfect for every scenario.
 
 Why does it fail? Let’s look at the structure of a single Post, if I wanted to show that Post in a website or application, I’d have to do a query with… **8 table Joins** (!) just to show one single Post, now, picture a **stream of posts** that dynamically load and appear on the screen and you might see where I am going.
 
 We could, of course, pay for a humongous SQL instance with enough power to solve thousands of queries with these many joins to serve our content, but truly, why would we? We are not on the Apollo 13 thankfully, and we do not need to fit a square SQL engine into our circular data.
 
-![ Picture of a metaphore of trying to put a cilinder in a cube](./media/documentdb-social/social-apollo13.png) 
-
 ## The NoSQL Road
 
-There are special Graph databases that can [run on Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure) but they are far from cheap and require IaaS services (Infrastructure-as-a-Service, Virtual Machines mainly) and maintenance. I’m going to aim this post at a lower cost solution that will work for most scenarios, running on Azure’s NoSQL database [**DocumentDB**](https://azure.microsoft.com/services/documentdb/). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), our previously complicated Post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
+There are special graph databases that can [run on Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure) but they are far from cheap and require IaaS services (Infrastructure-as-a-Service, Virtual Machines mainly) and maintenance. I’m going to aim this post at a lower cost solution that will work for most scenarios, running on Azure’s NoSQL database [**DocumentDB**](https://azure.microsoft.com/services/documentdb/). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), our previously complicated Post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
 
     {
         "id":"ew12-res2-234e-544f",
@@ -135,7 +132,7 @@ Let’s take a User information as an example:
     
 By looking at this information, we can quickly detect which is **critical information** and which isn’t, thus creating a “Ladder”:
 
-![ Diagram of a Ladder pattern](./media/documentdb-social/social-ladder.png)
+![ Diagram of a Ladder pattern](./media/documentdb-social-media-apps/social-ladder.png)
 
 The **smallest** step is called a **UserChunk**, the minimal piece of information that identifies a User and it’s used for **Data Duplication**. By reducing the size of the duplicated data to only the information we will “show”, we **reduce** the possibility of **massive updates**.
 
@@ -191,8 +188,12 @@ Now that I got you hooked, you’ll probably think you need some PhD in math sci
 
 This article tries to shed some light into the alternatives of creating Social Networks completely on Azure with low-cost services and providing great results by encouraging the use of a multi-layered storage solution and data distribution called “**Ladder**”.
 
-![ Diagram of intraction between Azure services for Social Networking](./media/documentdb-social/social-conclusion.png)
+![Diagram of intraction between Azure services for Social Networking](./media/documentdb-social-media-apps/social-conclusion.png)
 
-The truth is that there is no silver bullet for this kind of scenarios, it’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of **Azure DocumentDB** to provide a great social application, the intelligence behind a first-class search solution like **Azure Search**, the flexibility of **Azure AppServices** to host not even language-agnostic applications but powerful background processes and the expandable **Azure Storage** and **Azure SQL Database** for storing massive amounts of data and the analytic power of **Azure Machine Learning** to create knowledge and intelligence that can provide feedback to our processes and help us deliver the right content to the right users.
+The truth is that there is no silver bullet for this kind of scenarios, it’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of **Azure DocumentDB** to provide a great social application, the intelligence behind a first-class search solution like **Azure Search**, the flexibility of **Azure App Services** to host not even language-agnostic applications but powerful background processes and the expandable **Azure Storage** and **Azure SQL Database** for storing massive amounts of data and the analytic power of **Azure Machine Learning** to create knowledge and intelligence that can provide feedback to our processes and help us deliver the right content to the right users.
 
-If you need any help or have questions or feedback, please reach out to us on the [developer forums on Stackoverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) or [schedule a 1:1 chat with the DocumentDB engineering team](http://www.askdocdb.com/). Stay up-to-date on the latest DocumentDB news and features by following us on Twitter [@DocumentDB](https://twitter.com/DocumentDB).
+## Next Steps
+
+Learn more about data modeling by reading the [Modeling data in DocumentDB](documentdb-modeling-data.md) article. 
+
+Or learn more about DocumentDB by following the [DocumentDB Learning Path](https://azure.microsoft.com/en-us/documentation/learning-paths/documentdb/).
