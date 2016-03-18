@@ -28,11 +28,11 @@ Operational Insights identifies the sources of the different types of logs uploa
 ## Suggested reading
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
 * [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
-* [Azure Resource Manager](resource-group-overview.md)
+* [Azure Resource Manager](../resource-group-overview.md)
 
 ## Prerequisites
 These tools will be used to perform some of the operations in this document:
-* [Azure PowerShell](powershell-install-configure.md)
+* [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
 
 ## Different log sources that you may want to collect

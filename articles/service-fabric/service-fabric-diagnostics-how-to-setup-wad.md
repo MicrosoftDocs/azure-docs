@@ -23,11 +23,11 @@ When you're running an Azure Service Fabric cluster, it's a good idea to collect
 
 ## Suggested reading
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
-* [Azure Resource Manager](resource-group-overview.md)
+* [Azure Resource Manager](../resource-group-overview.md)
 
 ## Prerequisites
 These tools will be used to perform some of the operations in this document:
-* [Azure PowerShell](powershell-install-configure.md)
+* [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
 
 ## Different log sources that you may want to collect
@@ -47,19 +47,19 @@ To deploy Diagnostics to the VMs in the cluster as part of cluster creation, the
 ![Azure Diagnostics setting in portal for cluster creation](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
 
 The Support Logs are **required** by the Azure support team to revolve any support requests that you create. These logs are collected in real-time and will be stored in the storage account created in the current resource group. The Application Diagnostics configures application level events including [Actor](service-fabric-reliable-actors-diagnostics.md) events, [Reliable Service](service-fabric-reliable-services-diagnostics.md) events and some system level Service Fabric events to be stored into Azure storage. Products such as [Operational Insights](https://azure.microsoft.com/services/operational-insights/) or your own process can pick up the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If a processes to remove events from the table is not implemented, the table will continue to grow.   When creating a cluster using the portal it is recommended that you export the template after the deployment has completed. Templates can be exported from the portal by
-    - Open your resource group
-    - Select Settings to display the Settings panel
-    - Select Deployments to display the Deployment history panel
-    - Select a deployment to display the details of the deployment
-    - Select Export Template to display the Template panel
-    - Select Save to file to export a .zip file containing the template, parameter and PowerShell files.
+1. Open your resource group
+2. Select Settings to display the Settings panel
+3. Select Deployments to display the Deployment history panel
+4. Select a deployment to display the details of the deployment
+5. Select Export Template to display the Template panel
+6. Select Save to file to export a .zip file containing the template, parameter and PowerShell files.
 
 After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run.
 
 ### Deploy the diagnostics extension as part of cluster creation by using Azure Resource Manager
 To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before creating the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). To see the Diagnostics setting in the Resource Manager template, open the **azuredeploy.json** file and search for **IaaSDiagnostics**. To create a cluster with this template, just press the **Deploy to Azure** button available at the link above.
 
-Alternatively, you can download the Resource Manager sample, makes changes to it, and create a cluster with the modified template by using the `New-AzureResourceGroupDeployment` command in an Azure PowerShell window. See the information below for the parameters you will need to pass in to the command. For detailed information on how to deploy a Resource Group using PowerShell, refer to the article [Deploy a Resource Group with Azure Resource Manager template](resource-group-template-deploy.md)
+Alternatively, you can download the Resource Manager sample, makes changes to it, and create a cluster with the modified template by using the `New-AzureResourceGroupDeployment` command in an Azure PowerShell window. See the information below for the parameters you will need to pass in to the command. For detailed information on how to deploy a Resource Group using PowerShell, refer to the article [Deploy a Resource Group with Azure Resource Manager template](../resource-group-template-deploy.md)
 
 ```powershell
 
@@ -88,7 +88,7 @@ Add a new storage resource to the template by adding to the resources section.
 },
 ```
 
- Next add to the parameters section just after the storage account definitions, between "supportLogStorageAccountName" and "vmNodeType0Name". Replace the placeholder text *storage account name* with the name of the desired storage account.
+ Next add to the parameters section just after the storage account definitions, between "supportLogStorageAccountName" and "vmNodeType0Name". Replace the placeholder text *storage account name goes here* with the name of the desired storage account.
 
 ##### Update parameters section
 ```json
@@ -105,7 +105,7 @@ Add a new storage resource to the template by adding to the resources section.
     },
     "applicationDiagnosticsStorageAccountName": {
       "type": "string",
-      "defaultValue": "<storage account name>",
+      "defaultValue": "storage account name goes here",
       "metadata": {
         "description": "Name for the storage account that contains application diagnostics data from the cluster"
       }
