@@ -188,26 +188,28 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 ### Videos and Podcasts
 
-| Show                                        | Speaker                 | Date               | Episode |
-| ------------------------------------------- | ----------------------- | ------------------ | ------- |
-| Integration User Group                      | Han Wong                | February 17, 2016  | [Analyze and visualize non-relational data with DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
-| Channel 9: Modern Applications              | Tara Shankar Jana       | December 13, 2016  | [Take a modern approach to data in your apps](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
-| NinjaTips                                   | Miguel Quintero         | December 10, 2015  | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
-| Integration User Group                      | Howard Edidin           | November 9, 2015   | [Azure DocumentDB for Healthcare Integration – Part 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
-| Integration User Group                      | Howard Edidin           | October 5, 2015    | [Azure DocumentDB for Healthcare Integration](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
-| DX Italy - #TecHeroes                       | Alessandro Melchiori    | October 2, 2015    | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
-| Microsoft Cloud Show - Podcast              | Andrew Liu              | September 30, 2015 | [Episode 099 - Azure DocumentDB with Andrew Liu](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
-| .NET Rocks!  - Podcast                      | Ryan Crawcour           | September 29, 2015 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
-| Data Exposed                                | Ryan Crawcour           | September 28, 2015 | [What's New with Azure DocumentDB Since GA](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
-| The Azure Podcast                           | Cale Teeter             | September 17, 2015 | [Episode 94: azpodcast.com re-architecture](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
-| Cloud Cover                                 | Ryan Crawcour           | September 4, 2015  | [Episode 185: DocumentDB Updates with Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
-| CodeChat 033                                | Greg Doerr              | July 28, 2015      | [Greg Doerr on Azure DocumentDB](https://channel9.msdn.com/Shows/codechat/033) |
-| NoSql Central                               | King Wilder             | May 25, 2015       | [Golf Tracker - A video overview on how to build a web application on top of AngularJS, WebApi 2, and DocumentDB.](http://www.nosqlcentral.net/Story/Details/videos/kahanu/1-documentdb-golf-tracker-overview) |
-| In-Memory Technologies PASS Virtual Chapter | Stephen Baron           | May 25, 2015       | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
-| Data Exposed                                | Ryan Crawcour           | April 8, 2015      | [DocumentDB General Availibility and What's New!](https://channel9.msdn.com/Shows/Data-Exposed/DocumentDB-General-Availability-and-Whats-New) |
-| Data Exposed                                | Andrew Liu              | March 17, 2015     | [Java SDK for DocumentDB](https://channel9.msdn.com/Shows/Data-Exposed/Java-SDK-for-DocumentDB) |
-| #DevHangout                                 | Gustavo Alzate Sandoval | March 11, 2015     | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
-| Data Architecture Virtual Chapter PASS      | Ike Ellis               | February 25, 2015  | [Introduction to DocumentDB](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+| Show                                        | Speaker                     | Date               | Episode |
+| ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Wired2WinWebinar                            | Sai Sankar Kunnathukuzhiyil | March 9, 2016      | [Developing Solutions with Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs)
+| Integration User Group                      | Han Wong                    | February 17, 2016  | [Analyze and visualize non-relational data with DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| The Azure Podcast                           | Cale Teeter                 | January 14, 2016   | [Episode 110: Using DocumentDB & Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) |
+| Channel 9: Modern Applications              | Tara Shankar Jana           | December 13, 2016  | [Take a modern approach to data in your apps](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
+| NinjaTips                                   | Miguel Quintero             | December 10, 2015  | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
+| Integration User Group                      | Howard Edidin               | November 9, 2015   | [Azure DocumentDB for Healthcare Integration – Part 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
+| Integration User Group                      | Howard Edidin               | October 5, 2015    | [Azure DocumentDB for Healthcare Integration](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
+| DX Italy - #TecHeroes                       | Alessandro Melchiori        | October 2, 2015    | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
+| Microsoft Cloud Show - Podcast              | Andrew Liu                  | September 30, 2015 | [Episode 099 - Azure DocumentDB with Andrew Liu](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
+| .NET Rocks!  - Podcast                      | Ryan Crawcour               | September 29, 2015 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
+| Data Exposed                                | Ryan Crawcour               | September 28, 2015 | [What's New with Azure DocumentDB Since GA](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
+| The Azure Podcast                           | Cale Teeter                 | September 17, 2015 | [Episode 94: azpodcast.com re-architecture](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
+| Cloud Cover                                 | Ryan Crawcour               | September 4, 2015  | [Episode 185: DocumentDB Updates with Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
+| CodeChat 033                                | Greg Doerr                  | July 28, 2015      | [Greg Doerr on Azure DocumentDB](https://channel9.msdn.com/Shows/codechat/033) |
+| NoSql Central                               | King Wilder                 | May 25, 2015       | [Golf Tracker - A video overview on how to build a web application on top of AngularJS, WebApi 2, and DocumentDB.](http://www.nosqlcentral.net/Story/Details/videos/kahanu/1-documentdb-golf-tracker-overview) |
+| In-Memory Technologies PASS Virtual Chapter | Stephen Baron               | May 25, 2015       | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| Data Exposed                                | Ryan Crawcour               | April 8, 2015      | [DocumentDB General Availibility and What's New!](https://channel9.msdn.com/Shows/Data-Exposed/DocumentDB-General-Availability-and-Whats-New) |
+| Data Exposed                                | Andrew Liu                  | March 17, 2015     | [Java SDK for DocumentDB](https://channel9.msdn.com/Shows/Data-Exposed/Java-SDK-for-DocumentDB) |
+| #DevHangout                                 | Gustavo Alzate Sandoval     | March 11, 2015     | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
+| Data Architecture Virtual Chapter PASS      | Ike Ellis                   | February 25, 2015  | [Introduction to DocumentDB](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
 
 
 ### Online classes
