@@ -96,7 +96,7 @@ A Point-to-Site connection is a VPN connection over SSTP (Secure Socket Tunnelin
 
 ## Next steps
 
-You'll want to become familiar with the items in the [About VPN Gateways](vpn-gateway-about-vpngateways.md) and [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) articles to better understand VPN gateway before moving forward with planning and designing your connection.
+You'll want to become familiar with the items in the [About VPN Gateways](vpn-gateway-about-vpngateways.md) and [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) articles to better understand VPN gateways before moving forward with planning and designing your connection.
 
 
 
