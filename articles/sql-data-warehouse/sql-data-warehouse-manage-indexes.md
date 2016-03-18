@@ -16,14 +16,16 @@
    ms.date="03/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-## Optimizing large index rebuilds
+# Managing Indexes
+This article demonstrates some key techniques for managing your indexes.
 
-If you have a large table you can optimize your index rebuild in one of two ways:
+## Optimizing index rebuilds
+You can optimize your index rebuild in one of two ways:
 
 1) Partition your table and execute partition level index rebuilds
 2) Use CTAS to re-create the partition of data in a new table; and partition switch in the new table
 
-### Partitioned index rebuild example
+## Partitioned index rebuilds
 
 Below is an example of how to rebuild a single partition:
 
@@ -35,7 +37,7 @@ ALTER INDEX..REBUILD is best used for smaller data volumes - especially against 
 
 Refer to the [ALTER INDEX][] article for more details on this syntax.
 
-### Using CTAS to rebuild a partition
+## Using CTAS to rebuild a partition
 
 Below is an example of how to rebuild a partition using CTAS:
 
@@ -79,4 +81,18 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 ```
 
+## Next steps
 Please refer to the article on [table partitioning][] for more guidance on how to create and size partitions. The article also contains an example to help identify partition boundaries.
+
+For more management tips head over to the [management][] overview
+
+<!--Image references-->
+
+<!--Article references-->
+[Table partitioning]: sql-data-warehouse-develop-table-partitions.md
+[Management]: sql-data-warehouse-manage-monitor.md
+
+<!--MSDN references-->
+[ALTER INDEX]:https://msdn.microsoft.com/en-us/library/ms188388.aspx
+
+<!--Other Web references-->

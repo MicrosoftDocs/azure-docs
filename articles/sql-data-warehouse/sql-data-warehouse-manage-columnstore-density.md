@@ -130,6 +130,8 @@ For more details on recreating partitions using `CTAS` please refer to the follo
 * [Table partitioning][]
 * [concurrency][]
 
+For more detailed advice on index management please review the [manage indexes][] article.
+
 For more management tips head over to the [management][] overview
 
 <!--Image references-->
@@ -139,6 +141,7 @@ For more management tips head over to the [management][] overview
 [Table partitioning]: sql-data-warehouse-develop-table-partitions.md
 [Concurrency]: sql-data-warehouse-develop-concurrency.md
 [Management]: sql-data-warehouse-manage-monitor.md
+[Manage indexes]: sql-data-warehouse-manage-indexes.md
 
 <!--MSDN references-->
 [ALTER INDEX]:https://msdn.microsoft.com/en-us/library/ms188388.aspx
