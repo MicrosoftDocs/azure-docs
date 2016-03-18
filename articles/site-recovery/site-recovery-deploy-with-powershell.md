@@ -16,8 +16,12 @@
 	ms.date="12/14/2015"
 	ms.author="lauraa"/>
 
-# Replicate Hyper-V virtual machines in VMM clouds using Azure Site Recovery and PowerShell
+# Replicate Hyper-V virtual machines in VMM clouds using Powershell and Azure Classic
 
+> [AZURE.SELECTOR]
+- [Azure Classic Portal](site-recovery-vmm-to-azure.md)
+- [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
 
 ## Overview
 
