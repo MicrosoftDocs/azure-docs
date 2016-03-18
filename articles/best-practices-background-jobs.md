@@ -24,52 +24,52 @@
 
 ## Overview
 
-Many types of applications require background tasks that run independently of the user interface (UI). Examples include batch jobs, intensive processing tasks, and long running processes such as workflows. Background jobs can be executed without requiring user interaction; the application can start the job and then continue to process interactive requests from users. This can help to minimize the load on the application UI, which can improve availability and reduce interactive response times.
+Many types of applications require background tasks that run independently of the user interface (UI). Examples include batch jobs, intensive processing tasks, and long-running processes such as workflows. Background jobs can be executed without requiring user interaction--the application can start the job and then continue to process interactive requests from users. This can help to minimize the load on the application UI, which can improve availability and reduce interactive response times.
 
-For example, if an application is required to generate thumbnails of images uploaded by users, it can do this as a background job and save the thumbnail to storage when complete without the user needing to wait for the process to complete. In the same way, a user placing an order can initiate a background workflow that processes the order, while the UI allows the user to continue browsing the web app. When the background job is complete, it can update the stored orders data and send an email to the user confirming the order.
+For example, if an application is required to generate thumbnails of images that are uploaded by users, it can do this as a background job and save the thumbnail to storage when it is complete--without the user needing to wait for the process to complete. In the same way, a user placing an order can initiate a background workflow that processes the order, while the UI allows the user to continue browsing the web app. When the background job is complete, it can update the stored orders data and send an email to the user that confirms the order.
 
-When considering whether to implement a task as a background job, the main criteria is whether the task can run without user interaction and without the UI needing to wait for the job to complete. Tasks that require the user or the UI to wait while they are completed may not be appropriate as background jobs.
+When you consider whether to implement a task as a background job, the main criteria is whether the task can run without user interaction and without the UI needing to wait for the job to be completed. Tasks that require the user or the UI to wait while they are completed might not be appropriate as background jobs.
 
 ## Types of background jobs
 
-Background jobs typically have one or more of the following characteristics:
+Background jobs typically include one or more of the following types of jobs:
 
-- CPU intensive jobs such as mathematical calculations, structural model analysis, and more.
-- I/O intensive jobs such as executing a series of storage transactions or indexing files.
-- Batch jobs such as nightly data updates or scheduled processing.
-- Long running workflows such as order fulfillment or provisioning services and systems.
-- Sensitive data processing where the task is handed off to a more secure location for processing. For example, you may not want to process sensitive data within a web app, and instead use a pattern such as [Gatekeeper](http://msdn.microsoft.com/library/dn589793.aspx) to transfer the data to an isolated background process that has access to protected storage.
+- CPU-intensive jobs, such as mathematical calculations or structural model analysis.
+- I/O-intensive jobs, such as executing a series of storage transactions or indexing files.
+- Batch jobs, such as nightly data updates or scheduled processing.
+- Long-running workflows, such as order fulfillment, or provisioning services and systems.
+- Sensitive-data processing where the task is handed off to a more secure location for processing. For example, you might not want to process sensitive data within a web app. Instead, you might use a pattern such as [Gatekeeper](http://msdn.microsoft.com/library/dn589793.aspx) to transfer the data to an isolated background process that has access to protected storage.
 
 ## Triggers
 
-Background jobs can be initiated in several different ways. Effectively, all of them fall into one of the following categories:
+Background jobs can be initiated in several different ways. They fall into one of the following categories:
 
-- [**Event driven triggers**](#event-driven-triggers). The task is started in response to an event, typically an action taken by a user or a step in a workflow.
-- [**Schedule driven triggers**](#schedule-driven-triggers). The task is invoked on a schedule based on a timer. This may be a recurring schedule, or a one-off invocation specified for a later time
+- [**Event-driven triggers**](#event-driven-triggers). The task is started in response to an event, typically an action taken by a user or a step in a workflow.
+- [**Schedule-driven triggers**](#schedule-driven-triggers). The task is invoked on a schedule based on a timer. This might be a recurring schedule, or a one-off invocation that is specified for a later time.
 
-### Event driven triggers
+### Event-driven triggers
 
-Event driven invocation uses a trigger to start the background task. Examples of using event driven triggers include:
+Event-driven invocation uses a trigger to start the background task. Examples of using event-driven triggers include:
 
 - The UI or another job places a message in a queue. The message contains data about an action that has taken place, such as the user placing an order. The background task listens on this queue and detects the arrival of a new message. It reads the message and uses the data in it as the input to the background job.
 - The UI or another job saves or updates a value in storage. The background task monitors the storage and detects changes. It reads the data and uses it as the input to the background job.
-- The UI or another job makes a request to an endpoint, such as an HTTPS URI, or an API exposed as a web service. It passes the data required to complete the background task as part of the request. The endpoint or web service invokes the background task, which uses the data as its input.
+- The UI or another job makes a request to an endpoint, such as an HTTPS URI, or an API that is exposed as a web service. It passes the data that is required to complete the background task as part of the request. The endpoint or web service invokes the background task, which uses the data as its input.
 
-Typical examples of tasks suited to event driven invocation include image processing, workflows, sending information to remote services, sending email messages, provisioning new users in multi-tenant applications, and more.
+Typical examples of tasks that are suited to event-driven invocation include image processing, workflows, sending information to remote services, sending email messages, and provisioning new users in multitenant applications.
 
-### Schedule driven triggers
+### Schedule-driven triggers
 
-Schedule driven invocation uses a timer to start the background task. Examples of using schedule driven triggers include:
+Schedule-driven invocation uses a timer to start the background task. Examples of using schedule-driven triggers include:
 
-- A timer running locally within the application or as part of the application’s operating system invokes a background task on a regular basis.
-- A timer running in a different application, or a timer service such as Azure Scheduler, sends a request to an API or web service on a regular basis. The API or web service invokes the background task.
+- A timer that is running locally within the application or as part of the application’s operating system invokes a background task on a regular basis.
+- A timer that is running in a different application, or a timer service such as Azure Scheduler, sends a request to an API or web service on a regular basis. The API or web service invokes the background task.
 - A separate process or application starts a timer that causes the background task to be invoked once after a specified time delay, or at a specific time.
 
-Typical examples of tasks suited to schedule driven invocation include batch processing routines such as updating related products lists for users based on their recent behavior, routine data processing tasks such as updating indexes or generating accumulated results, analyzing data for daily reports, data retention cleanup, data consistency checks, and more.
+Typical examples of tasks that are suited to schedule-driven invocation include batch-processing routines (such as updating related-products lists for users based on their recent behavior), routine data processing tasks (such as updating indexes or generating accumulated results), analyzing data for daily reports, data retention cleanup, and data consistency checks.
 
-If you use a schedule driven task that must run as a single instance, be aware of the following:
+If you use a schedule-driven task that must run as a single instance, be aware of the following:
 
-- If the compute instance that is running the scheduler (such as a Virtual Machine using Windows Scheduled Tasks) is scaled, you will have multiple instances of the scheduler running and these could start multiple instances of the task.
+- If the compute instance that is running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you will have multiple instances of the scheduler running. These could start multiple instances of the task.
 - If tasks run for longer than the period between scheduler events, the scheduler may start another instance of the task while the previous one is still running.
 
 ## Returning results
