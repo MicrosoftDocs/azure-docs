@@ -181,7 +181,7 @@ The following are the basic configuration options for creating an HDInsight clus
 
 In some cases, you may wish to add additional storage to the cluster. For example, if you have multiple Azure Storage Accounts for different geographical regions, or for different services, but want to analyze them all with HDInsight.
 
-For more information on using secondary blob stores, see [Using Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information on using secondary Data Lake stores, see [Create HDInsight clusters with Data Lake Store using Azure Portal](../data-lake/data-lake-store-hdinsight-hadoop-use-portal.md)
+For more information on using secondary blob stores, see [Using Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information on using secondary Data Lake stores, see [Create HDInsight clusters with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 ## Use Hive/Oozie metastore
