@@ -646,7 +646,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
 
 **To check the job error log**
 
-To troubleshoot a workflow, the Oozie log file can be found at C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log from the cluster headnode. For information on RDP, see [Administering HDInsight clusters using the Azure preview portal][hdinsight-admin-portal].
+To troubleshoot a workflow, the Oozie log file can be found at C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log from the cluster headnode. For information on RDP, see [Administering HDInsight clusters using the Azure portal][hdinsight-admin-portal].
 
 **To rerun the tutorial**
 

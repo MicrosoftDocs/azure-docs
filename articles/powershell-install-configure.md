@@ -144,7 +144,7 @@ Sign into your work or school account:
 
 > 5. Finally, log out of the Azure classic portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
 
-> For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
+> For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](/active-directory/sign-up-organization.md).
 
 > For more information about authentication and subscription management in Azure, see [Manage Accounts, Subscriptions, and Administrative Roles](http://go.microsoft.com/fwlink/?LinkId=324796).
 

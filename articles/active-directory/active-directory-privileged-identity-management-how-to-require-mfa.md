@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management: How To require multi-factor authentication"
+   pageTitle="How to require multi-factor authentication | Microsoft Azure"
    description="Learn how to require multi-factor authentication (MFA) for privileged identities with the Azure Active Directory Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: How to require MFA
+# Azure AD Privileged Identity Management: How to require MFA
 
 We recommend that you require multi-factor authentication for all of your administrators.
 
@@ -28,7 +28,7 @@ Additionally, you can change the MFA requirement for a specific role by clicking
 
 ## How Azure AD PIM validates MFA
 
-> [AZURE.IMPORTANT] Since Microsoft accounts (e.g. @outlook.com, @live.com, or @hotmail.com) are not currently supported to register for Azure MFA, they will not be permitted as temporary admins for highly privileged roles. If users need to continue managing workloads using a Microsoft account, please convert them to permanent administrators for now. 
+> [AZURE.IMPORTANT] Since Microsoft accounts (e.g. @outlook.com, @live.com, or @hotmail.com) are not currently supported to register for Azure MFA, they will not be permitted as temporary admins for highly privileged roles. If users need to continue managing workloads using a Microsoft account, please convert them to permanent administrators for now.
 
 There are two options for validating MFA when a user activates a role.
 
