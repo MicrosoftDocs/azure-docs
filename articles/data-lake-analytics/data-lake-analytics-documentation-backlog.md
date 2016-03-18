@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/10/2016"
+   ms.date="03/10/2016"
    ms.author="mwinkle"/>
 
 # Azure Data Lake Analytics Documentation Backlog
@@ -24,12 +24,13 @@ We will continue adding new documentation to support Azure Data Lake Analytics a
 
 Area   |Topic | Priority | Status | Assigned To | Requested By 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
+Service | Content redesign		 | 1 | In process | [@edmacauley](https://github.com/edmacauley) |
 U-SQL   | Distributed Query		 | 1 | On hold |  [@edmacauley](https://github.com/edmacauley) |
 U-SQL  | Moving data between WASB and ADLS		| 1 |  Pending | tbd | Ye Xing (ml)
 U-SQL | Unit testing guidance for UDO model | 1 | Pending | tbd | [@ddobric](https://github.com/ddobric) 
 U-SQL  | Processing JSON 		| 2 |  Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 Service | Interacting with Curl | 3 |Pending |[@mumian](https://github.com/mumian)
-U-SQL | Partitioned Tables |1 | In process | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Partitioned Tables |1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Performance Tuning | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
 U-SQL | Programmer's Guide | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Getting started with U-SQL from a T-SQL background | 1 | Pending | [@edmacauley](https://github.com/edmacauley)  | [@MikeRys](https://github.com/mikerys)

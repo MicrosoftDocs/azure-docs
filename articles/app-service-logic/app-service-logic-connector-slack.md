@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # Get started with the Slack Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Slack API](../connectors/create-api-slack.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Slack API](../connectors/connectors-create-api-slack.md).
 
 Connect to Slack channels and post messages to your team. Connectors can be used in Logic Apps as a part of a "workflow" to do different tasks. When you use the Slack Connector in your workflow, you can achieve a variety of scenarios using other connectors. For example, you can use the [Facebook Connector](app-service-logic-connector-facebook.md) in your workflow to post a message to your Slack channel. 
 
