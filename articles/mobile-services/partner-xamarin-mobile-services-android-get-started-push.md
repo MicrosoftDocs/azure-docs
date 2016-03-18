@@ -73,13 +73,13 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [Get started with authentication](mobile-services-android-get-started-users.md)
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
-* [What are Notification Hubs?](../notification-hubs-overview.md)
+* [What are Notification Hubs?](../notification-hubs/notification-hubs-overview.md)
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
 * [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
   </br>Get guidance troubleshooting and debugging Notification Hubs solutions.
 
-* [How to use the .NET client library for Mobile Services](mobile-services-windows-dotnet-how-to-use-client-library.md)
+* [How to use the .NET client library for Mobile Services](mobile-services-dotnet-how-to-use-client-library.md)
   <br/>Learn more about how to use Mobile Services with Xamarin C# code.
 
 * [Mobile Services server script reference](mobile-services-how-to-use-server-scripts.md)
