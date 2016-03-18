@@ -298,7 +298,6 @@ In this section, you will create a C# console application to export the hivesamp
 
 		var parameters = new SqoopJobSubmissionParameters
 		{
-		    UserName = ExistingClusterUsername,
 		    Command = cmdExport
 		};
 		

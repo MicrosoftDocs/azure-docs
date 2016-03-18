@@ -161,7 +161,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
                     WaitForNewline("Source data file prepared.", "Submitting a job.");
 
                     // Submit the job
-                    string jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
+                    Guid jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
                     WaitForNewline("Job submitted.", "Waiting for job completion.");
 
                     // Wait for job completion
@@ -294,9 +294,9 @@ A sample search log has been copied to a public Azure Blob container. In the app
 
                 // Submit a U-SQL job by providing script contents.
                 // Returns the job ID
-                public static string SubmitJobByScript(string script, string jobName)
+                public static Guid SubmitJobByScript(string script, string jobName)
                 {
-                    var jobId = Guid.NewGuid().ToString();
+                    var jobId = Guid.NewGuid();
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties);
 
@@ -306,11 +306,11 @@ A sample search log has been copied to a public Azure Blob container. In the app
                 }
 
                 // Submit a U-SQL job by providing a path to the script
-                public static string SubmitJobByPath(string scriptPath, string jobName)
+                public static Guid SubmitJobByPath(string scriptPath, string jobName)
                 {
                     var script = File.ReadAllText(scriptPath);
 
-                    var jobId = Guid.NewGuid().ToString();
+                    var jobId = Guid.NewGuid();
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1000, degreeOfParallelism: 1);
 
@@ -319,7 +319,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
                     return jobId;
                 }
 
-                public static JobResult WaitForJob(string jobId)
+                public static JobResult WaitForJob(Guid jobId)
                 {
                     var jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
                     while (jobInfo.State != JobState.Ended)
