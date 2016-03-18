@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Elastic database pool for SQL databases | Microsoft Azure"
 	description="Find out how you can tame explosive growth in SQL databases with elastic database pools, a way of sharing available resources across many databases."
-	keywords="elastic database,sql databases"	
+	keywords="elastic database,sql databases"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
@@ -21,7 +21,7 @@
 # Tame explosive growth in SQL databases by using elastic database pools to share resources
 
 A SaaS developer must create and manage tens, hundreds, or even thousands of SQL databases. Elastic pools
-simplify the creation, maintenance, and performance management across these databases within a budget that you control. Add or subtract databases from the pool at will. [Create an elastic database pool](sql-database-elastic-pool-portal.md) for your SQL databases in minutes using the Microsoft Azure portal, [PowerShell](sql-database-elastic-pool-powershell.md), or [C#](sql-database-elastic-pool-csharp.md).
+simplify the creation, maintenance, and performance management across these databases within a budget that you control. Add or subtract databases from the pool at will. [Create an elastic database pool](sql-database-elastic-pool-create-portal.md) for your SQL databases in minutes using the Microsoft Azure portal, [PowerShell](sql-database-elastic-pool-powershell.md), or [C#](sql-database-elastic-pool-csharp.md).
 
 For API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
 
@@ -33,7 +33,7 @@ A common SaaS application pattern is for each customer to be given a database. E
 
 In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic database pools. See the [Introduction to SQL Database](sql-database-technical-overview.md#understand-dtus) to learn more about DTUs and eDTUs.
 
-A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load don’t consume any eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool. 
+A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load don’t consume any eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool.
 
 Additional eDTUs can be added to an existing pool with no database downtime or negative impact on the databases. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time.
 
@@ -43,7 +43,7 @@ And you can add or subtract databases to the pool. If a database is predictably 
 
 ![SQL databases sharing eDTUs in an elastic database pool.][1]
 
-Databases that are great candidates for elastic database pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases and finally an elastic database pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned. 
+Databases that are great candidates for elastic database pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases and finally an elastic database pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
 
 [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
@@ -62,11 +62,11 @@ Currently in the preview, elastic databases support most [business continuity fe
 
 ### Point in Time Restore
 
-Databases in an elastic database pool are backed up automatically by the system and the backup retention policy is the same as the corresponding service tier for single databases. In sum, databases in  each tier has a different restore range: 
+Databases in an elastic database pool are backed up automatically by the system and the backup retention policy is the same as the corresponding service tier for single databases. In sum, databases in  each tier has a different restore range:
 
-* **Basic pool**: Restore-able to any point within the last 7 days. 
+* **Basic pool**: Restore-able to any point within the last 7 days.
 * **Standard pool**: Restore-able to any point within the last 14 days.
-* **Premium pool**: Restore-able to any point within the last 35 days. 
+* **Premium pool**: Restore-able to any point within the last 35 days.
 
 During preview, databases in a pool will be restored to a new database in the same pool. Dropped databases will always be restored as a standalone database outside the pool into the lowest performance level for that service tier. For example, an elastic database in a Standard pool that is dropped will be restored as an S0 database. You can perform database restore operations through the Azure Portal or programmatically using REST API. PowerShell cmdlet support is coming soon.
 
