@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="03/17/2016"
 	ms.author="genli"/>
 
 # Troubleshoot deleting Azure storage accounts, containers or VHDs
 
 You may receive errors when you try to delete the Azure storage account, container or VHD in the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/). The issues can be caused by:
 
--	When you delete a VM, the disk and VHD are not automatically deleted and they may be the reason for failure on storage account deletion. We don’t delete the disk so that you can use the disk to mount another VM.
+-	When you delete a VM, the disk and VHD are not automatically deleted that may be the reason for failure on storage account deletion. We don’t delete the disk so that you can use the disk to mount another VM.
 
 -	There is still a lease on a disk or the blob associated on the disk.
 
