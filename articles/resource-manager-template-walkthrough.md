@@ -311,7 +311,7 @@ Look at the [REST API for network interfaces](https://msdn.microsoft.com/library
 
 ## Virtual Machine
 You will create 2 virtual machines, using copyIndex() function, as you did in creation of the [network interfaces](#network-interface).
-The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReferece` is used to define the image publisher, offer, sku and version. 
+The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReference` is used to define the image publisher, offer, sku and version. 
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
 To find the relevant properties for a marketplace image, follow the [VM searching](./virtual-machines/resource-groups-vm-searching.md) article.
