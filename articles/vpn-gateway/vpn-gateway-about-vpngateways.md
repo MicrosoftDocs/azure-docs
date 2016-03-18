@@ -22,7 +22,7 @@ VPN Gateways, also called Azure Virtual Network Gateways, are used to send netwo
 
 The instructions that you use to create your VPN gateway will depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you'll use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway. You can't create a Resource Manager VPN gateway for a classic deployment model virtual network. 
 
-See [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) for more information about deployment models. For baseline connection topologies that are available for VPN gateways, see [VPN Gateway connection topologies](vpn-gateway-topology.md).
+See [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) for more information about deployment models.
 
 
 ## <a name="gwsub"></a>Gateway subnet
@@ -115,7 +115,7 @@ You must make sure that the VPN device that you plan to use supports the VPN typ
 
 ## Next steps
 
-See  the [VPN Gateway configuration topologies](vpn-gateway-topology.md) article for more information before moving forward with planning and designing your configuration.
+See  the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) article for more information before moving forward with planning and designing your configuration.
 
 
 
