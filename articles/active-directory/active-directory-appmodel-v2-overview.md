@@ -22,17 +22,13 @@ In the past, an app developer who wanted to support both Microsoft accounts and 
 
 Apps that use the v2.0 endpoint can also consume REST APIs from the [Microsoft Graph](https://graph.microsoft.io) and [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) using either type of account.
 
-> [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-
-
 ## Getting Started
 Choose your favorite platform below to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
 <!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## What's New	
+## What's New
 The conceptual information here will be useful in understanding what is & what isn't possible with the v2.0 endpoint.
 
 - If you built an app during the v2.0 endpoint 2015 preview period, be sure to [read about these breaking protocol changes](active-directory-v2-preview-oidc-changes.md) that we recently made.
@@ -50,13 +46,15 @@ These links will be useful for exploring the platform in depth:
 - [The Microsoft App Registration Portal](https://apps.dev.microsoft.com)
 - [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [The Microsoft Graph](https://graph.microsoft.io)
-- Below are the Open source client libraries and samples that have been tested with the v2.0 endpoint. Please note, features such as [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) and token validation endpoints are not yet supported, and may need to be disabled in the library to work with the v2 endpoint:  
+- Below are the Open source client libraries and samples that have been tested with the v2.0 endpoint.
 
   - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
   - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Android OpenID Connect sample](https://github.com/learning-layers/android-openid-connect)
+  - [iOS OAuth2 Client](https://github.com/nxtbgthng/OAuth2Client)
+  - [Android OAuth2 Client](https://github.com/wuman/android-oauth-client)
+  - [Android OpenID Connect Client](https://github.com/kalemontes/OIDCAndroidLib)
 
 <!-- TODO: These articles
 - [ADAL Library Reference]()
