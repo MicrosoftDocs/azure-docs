@@ -26,12 +26,14 @@ Azure [Operational Insights](https://azure.microsoft.com/services/operational-in
 Operational Insights identifies the sources of the different types of logs uploaded from a Service Fabric cluster by the names of the storage tables that they are stored in. This means the Azure Diagnostics extension must be configured to upload the logs to storage tables with names that match what Operational Insights will look for. The configuration settings examples in this document will show you what the names of the storage tables should be.
 
 ## Suggested reading
+
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
 * [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
 * [Azure Resource Manager](../resource-group-overview.md)
 
 ## Prerequisites
 These tools will be used to perform some of the operations in this document:
+
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
 
