@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
 	ms.topic="get-started-article"
-	ms.date="02/29/2016"
+	ms.date="03/18/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for iOS Apps in Swift

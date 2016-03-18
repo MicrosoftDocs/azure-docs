@@ -1,3 +1,4 @@
+
 ####Update manifest file to enable notifications
 
 1. Copy the in-app messaging resources below into your Manifest.xml between the `<application>` and `</application>` tags.

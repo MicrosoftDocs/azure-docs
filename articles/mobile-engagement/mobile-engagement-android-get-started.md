@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="03/17/2016"
+	ms.date="03/18/2016"
 	ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Android apps
@@ -67,8 +67,6 @@ We will create a basic app with Android Studio to demonstrate the integration.
 Android Studio now creates the demo app into which we will integrate Mobile Engagement.
 
 ###Include the SDK library in your project
-
-Download and integrate the SDK library
 
 1. Download the [Mobile Engagement Android SDK].
 2. Extract the archive file to a folder in your computer.
@@ -151,16 +149,18 @@ The following sections sets up your app to receive them.
 
 ### Enable in-app messaging
 
-#### Copy SDK resources to your project:
-	1. Navigate back to your SDK download content and copy the **res** folder.
 
-		 ![][10]
+#### Copy SDK resources to your project
+	
+1. Navigate back to your SDK download content and copy the **res** folder.
 
-	2. Go back to Android Studio, select the **main** directory of your project files, and then paste it to add the resources to your project.
+ ![][10]
 
-		 ![][11]
+2. Go back to Android Studio, select the **main** directory of your project files, and then paste it to add the resources to your project.
 
-[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+ ![][11]
+
+[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-android-send-push.md)]
 
 <!-- URLs. -->
 [Mobile Engagement Android SDK]: https://aka.ms/vq9mfn
