@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/01/2015" 
+	ms.date="03/18/2016" 
 	ms.author="raynew"/>
 
 # What workloads can you protect with Azure Site Recovery?
@@ -54,7 +54,7 @@ Dynamics CRM | Y | Coming soon | Y | Coming soon
 Oracle | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
 Windows File Server | Y | Y | Y | Y
 
-##Protect Active Directory and DNS
+##Active Directory and DNS
 
 All enterprise applications such as SharePoint, Dynamics AX and SAP depend on an Active Directory and DNS infrastructure. As part of your BCDR solution you'll need to protect and recover these infrastructure components before recovering your workloads and apps.
 
@@ -62,7 +62,7 @@ Using Site Recovery you can create a complete automated disaster recovery plan f
 
 [Learn more ](http://aka.ms/asr-ad) 
 
-##Protect SQL Server
+##SQL Server
 
 SQL Server provides a foundation for data services for many business applications in an on-premises datacenter.  Site Recovery and SQL Server HA/DR technologies are complementary and can be used together to provide end-to-end protection for multi-tiered enterprise applications. Site Recovery offers the following benefits for SQL Server environments:
 
@@ -74,7 +74,7 @@ SQL Server provides a foundation for data services for many business application
 
 [Learn more](http://aka.ms/asr-sql)
 
-##Protect SharePoint
+##SharePoint
 
 Azure Site Recovery helps you to protect your SharePoint deployment. With Site Recovery you can:
 
@@ -86,7 +86,7 @@ Azure Site Recovery helps you to protect your SharePoint deployment. With Site R
 [Learn more](http://aka.ms/asr-sharepoint)
 
 
-## Protect Dynamics AX
+##Dynamics AX
 
 Azure Site Recovery helps you protect your Dynamics AX ERP solution: 
 
@@ -96,13 +96,13 @@ Azure Site Recovery helps you protect your Dynamics AX ERP solution:
 
 [Read more](http://aka.ms/asr-dynamics)
 
-## Protect RDS 
+##RDS 
 Remote Desktop Services enables virtual desktop infrastructure (VDI), session-based desktops, and applications, allowing users to work anywhere. With Site Recovery you can enable protection of managed or unmanaged pooled virtual desktops to a secondary site, and remote applications and sessions to a secondary site or Azure.
 
 [Learn more](http://aka.ms/asr-rds)
 
 
-## Protect Exchange
+##Exchange
 
 Microsoft Exchange includes in-built support for high availability and disaster recovery. Exchange DAGs and Azure Site Recovery can work together.
 
@@ -111,7 +111,7 @@ Microsoft Exchange includes in-built support for high availability and disaster 
 
 [earn more](http://aka.ms/asr-exchange)
 
-## Protect SAP
+##SAP
 
 Use Site Recovery to protect your SAP deployment: 
 
