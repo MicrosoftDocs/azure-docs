@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB design pattern: Social media apps | Microsoft Azure" 
 	description="Learn about a design pattern for Social Networks by leveraging the storage flexibility of DocumentDB and other Azure services." 
-    keywords="social media apps"
+	keywords="social media apps"
 	services="documentdb" 
 	authors="ealsur" 
 	manager="" 
