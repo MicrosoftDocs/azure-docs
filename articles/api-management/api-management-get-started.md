@@ -112,6 +112,8 @@ Perform the following steps to configure the calculator API:
 
 ![Add new API][api-management-import-new-api]
 
+>[AZURE.NOTE] **API Management** currently supports both 1.2 and 2.0 version of Swagger document for import. Make sure that, even though [Swagger 2.0 specification](http://swagger.io/specification) declares that `host`, `basePath`, and `schemes` properties are optional, your Swagger 2.0 document **MUST** contain those properties; otherwise it won't get imported. 
+
 Once the API is imported, the summary page for the API is displayed in the publisher portal.
 
 ![API summary][api-management-imported-api-summary]

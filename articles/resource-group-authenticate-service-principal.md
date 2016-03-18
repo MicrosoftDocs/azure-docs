@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Authenticating a service principal with Azure Resource Manager
@@ -125,7 +125,7 @@ These steps assume you have set up a Key Vault and a secret that stores the pass
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Get your Active Directory application. You will the application id when logging in.
+2. Get your Active Directory application. You will need the application id when logging in.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -239,7 +239,7 @@ service principal. Two options are shown in this topic:
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Provide certificate through automated PowerShell script
 
-1. Get your Active Directory application. You will the application id when logging in
+1. Get your Active Directory application. You will need the application id when logging in
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -347,13 +347,13 @@ service principal. Three options are shown in this topic:
 If you want to manually sign in as the service principal, you can use the **azure login** command. You must provide the tenant id, application id, and password. 
 Directly including the password in a script is not secure because the password is stored in the file. See the next section for better option when executing an automated script.
 
-1. Determine the **TenantId** for the subscription that contains the service principal. You must remove the starting and ending double quotes that are returned from the json output before passing it as a parameter.
+1. Determine the **TenantId** for the subscription that contains the service principal. If you are retrieving the tenant id for your currently authenticated subscription, you do not need to provide the subscription id as a parameter. The **-r** switch retrieves the value without the quotation marks.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 2. For the user name, use the **AppId** that you used when creating the service principal. If you need to retrieve the application id, use the following command. Provide the name of the Active Directory application in the **search** parameter.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 3. Login as the service principal.
 
@@ -377,17 +377,17 @@ These steps assume you have set up a Key Vault and a secret that stores the pass
 Key Vault and secret through a template, see [Key Vault template format](). To learn about Key Vault, see 
 [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
 
-1. Retrieve your password (in the example below, stored as secret with the name **appPassword**) from the Key Vault. You must remove the starting and ending double quotes that are returned from the json output before passing it as the password parameter.
+1. Retrieve your password (in the example below, stored as secret with the name **appPassword**) from the Key Vault. Include the **-r** switch to remove the starting and ending double quotes that are returned from the json output.
 
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value' | sed -e 's/^"//' -e 's/"$//')
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq -r '.value')
     
-2. Determine the **TenantId** for the subscription that contains the service principal.
+2. Determine the **TenantId** for the subscription that contains the service principal. If you are retrieving the tenant id for your currently authenticated subscription, you do not need to provide the subscription id as a parameter.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. For the user name, use the **AppId** that you used when creating the service principal. If you need to retrieve the application id, use the following command. Provide the name of the Active Directory application in the **search** parameter.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Login in as the service principal by providing the application id, the password from Key Vault, the tenant id.
 
@@ -475,13 +475,13 @@ service principal. Two options are shown in this topic:
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-2. Determine the **TenantId** for the subscription that contains the service principal.
+2. Determine the **TenantId** for the subscription that contains the service principal. If you are retrieving the tenant id for your currently authenticated subscription, you do not need to provide the subscription id as a parameter. The **-r** switch retrieves the value without the quotation marks.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. For the user name, use the **AppId** that you used when creating the service principal. If you need to retrieve the application id, use the following command. Provide the name of the Active Directory application in the **search** parameter.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. To authenticate with Azure CLI, provide the certificate thumbprint, certificate file, the application id, and tenant id.
 
