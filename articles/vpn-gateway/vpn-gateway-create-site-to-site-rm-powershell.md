@@ -66,7 +66,7 @@ Specify the subscription that you want to use.
 
 ## 2. Create a virtual network and a gateway subnet
 
-Our examples below show a gateway subnet of /28. While it's possible to create a gateway subnet as small as /29, we don't recommend this. We do recommend creating a gateway subnet /27 or larger (/26, /25, etc.) in order to accommodate additional feature requirements. If you already have a virtual network with a gateway subnet that is /29 or larger, you can jump ahead to [Step 3 - Add your local site](#localnet). 
+Our examples below show a gateway subnet of /28. While it's possible to create a gateway subnet as small as /29, we don't recommend this. We do recommend creating a gateway subnet /27 or larger (/26, /25, etc.) in order to accommodate additional feature requirements. If you already have a virtual network with a gateway subnet that is /29 or larger, you can jump ahead to [Step 3 - Add your local network gateway](#localnet). 
 
 ### To create a virtual network and a gateway subnet
 
@@ -177,7 +177,7 @@ There are a few different ways to verify your VPN connection. Below, we'll talk 
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="localnet"></a>To modify IP address prefixes for a local network gateway
+## <a name="modify"></a>To modify IP address prefixes for a local network gateway
 
 If you need to change the prefixes for your local network gateway, use the instructions below.  Two sets of instructions are provided. The instructions you choose depends on whether you have already created your VPN gateway connection. 
 
