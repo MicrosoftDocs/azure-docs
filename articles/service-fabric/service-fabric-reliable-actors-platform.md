@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="vturecek"
    manager="timlt"
-   editor="vturecek"/>
+   editor="amanbha"/>
 
 <tags
    ms.service="service-fabric"
@@ -27,7 +27,7 @@ This article explains how Reliable Actors work on the Service Fabric platform. R
 These components together form the Reliable Actor framework. 
 
 ## Service Layering
- 
+
 Because the Actor Service itself is a Reliable Service, all of the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-application-model.md#package-an-application), [deployment]((service-fabric-deploy-remove-applications.md#deploy-an-application), upgrade, and scaling concepts of Reliable Services apply the same way to Actor services. 
 
 ![Actor Service layering][1]
@@ -77,11 +77,11 @@ Using this lambda, you can also register your own actor service that derives fro
 
 ```C#
 class MyActorService : ActorService
-{
+    {
     public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
         : base(context, typeInfo, newActor)
     { }
-}
+      }
 ```
 
 ```C#
@@ -102,7 +102,7 @@ This custom actor service inherits all of the actor runtime functionality from `
 
 ```C#
 public interface IMyActorService : IService
-{
+    {
     Task BackupActorsAsync();
 }
 
@@ -115,8 +115,8 @@ class MyActorService : ActorService, IMyActorService
     public Task BackupActorsAsync()
     {
         return this.BackupAsync(new BackupDescription(...));
+      }
     }
-}
 ```
 
 In this example, `IMyActorService` is a remoting contract that is implemented by `MyActorService`, which makes all methods on `IMyActorService` available to a client using the `ActorServiceProxy`:
@@ -182,12 +182,12 @@ public class MyService : StatefulService, IMyService
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
         return new[]
-        {
+    {
             new ServiceReplicaListener(context =>
                 this.CreateServiceRemotingListener(context))
         };
+      }
     }
-}
 ```
 When using remoting, `ServiceProxy` is used to make RPC calls instead of `ActorServiceProxy`. The difference is minor, and in fact `ActorServiceProxy` simply uses `ServiceProxy` internally with custom settings tuned to work better with Actor Services.
 
@@ -210,7 +210,7 @@ The contents of your actor service's ServiceManifest.xml are generated automatic
  - Code package.
  - Config package.
  - Resources and endpoints
- 
+
 ### Application Manifest
 
 The actor framework build tools automatically create a default service definition for your actor service. The default service properties are populated by the build tools:
