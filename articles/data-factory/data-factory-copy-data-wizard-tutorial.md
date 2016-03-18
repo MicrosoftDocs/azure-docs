@@ -28,7 +28,7 @@ In this tutorial, you will use Data Factory Copy Wizard to create a pipeline wit
 
 > [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-get-started.md) article and complete the prerequisite steps before performing this tutorial.
 
-## <a name="CreateDataFactory"></a>Step 1: Create an Azure data factory
+## Create data factory
 In this step, you use the Azure Portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
 1.	After logging into the [Azure Portal](https://portal.azure.com), click **+ NEW** from the top-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** in the **Data analytics** blade. 
@@ -60,7 +60,7 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 
     ![Data factory home page](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Create a pipeline using Copy Wizard
+## Create pipeline
 
 1. On the Data Factory home page, click the **Copy data** tile to launch **Copy Wizard**. 
 2. In the **Properties** page:
