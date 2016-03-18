@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="18/03/2016"
+   ms.date="03/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Managing columnstore indexes

@@ -1,3 +1,21 @@
+<properties
+   pageTitle="Managing indexes | Microsoft Azure"
+   description="Guidance to help users manage their indexes"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="03/18/2016"
+   ms.author="jrj;barbkess;sonyama"/>
+
 ## Optimizing large index rebuilds
 
 If you have a large table you can optimize your index rebuild in one of two ways:
