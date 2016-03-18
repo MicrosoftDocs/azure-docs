@@ -28,14 +28,14 @@ If you want more information about VPN gateways, see [About VPN Gateways](vpn-ga
 
 ## Site-to-Site and Multi-Site
 
-A Site-to-Site connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device or Windows Server RRAS on premises. Site-to-site connections can be used for cross-premises and hybrid configurations.   
+A Site-to-Site connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device or Windows Server RRAS on-premises. Site-to-site connections can be used for cross-premises and hybrid configurations.   
 
 
 **S2S diagram**
 
 ![S2S connection](./media/vpn-gateway-topology/site2site.png "site-to-site")
 
-You can create and configure more than one S2S VPN connections to your on premises networks if you are using Azure Route-Based VPNs. This type of configuration is often called a "multi-site" connection.
+You can create and configure more than one S2S VPN connections to your on-premises networks if you are using Azure Route-Based VPNs. This type of configuration is often called a "multi-site" connection.
  
 
 **Multi-Site diagram**
