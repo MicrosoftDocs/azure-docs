@@ -219,7 +219,7 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 	![Settings blade in Azure portal](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-	Notice the **Deployment credentials** link in the **Publishing** section. That's where you create a custom user name and password for deployment. You can enter a user name and password of your choice there, then enter the same values on the **Connection** tab of the **Publish Web** wizard in your web project, replacing the automatically generated credentials.
+	Notice the **Deployment credentials** link in the **Publishing** section. That's where you can create a custom user name and password for deployment. If you enter a user name and password of your choice there, enter the same values on the **Connection** tab of the **Publish Web** wizard in your web project, replacing the automatically generated credentials.
 	
 	The screen shot is only a partial view of the **Settings** blade. There are more sections to this blade than are shown.
 
@@ -271,7 +271,7 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 * How to create API apps
 
-	You've seen how to create an instance of Azure App Service that is mainly intended to host a website. App Service also has features designed to make it easier to develop, test, and host APIs. For more information, see [Get started with API Apps and ASP.NET in Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md). 
+	You've seen how to create an instance of Azure App Service that is mainly intended to host a website.  Such instances are called web apps. App Service also has features designed to make it easier to develop, test, and host APIs. Instances of App Service intended mainly to host APIs are called API apps. For more information, see [Get started with API Apps and ASP.NET in Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md). 
 
 * Other ways to deploy a web project
 
