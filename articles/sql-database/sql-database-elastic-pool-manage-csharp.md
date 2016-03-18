@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Manage an elastic database pool (C&#x23;)
+# Manage and size an elastic database pool with C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
@@ -34,7 +34,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 
 
-## Update an elastic database pool
+## Update a pool
 
 
     // Retrieve existing pool properties
@@ -58,7 +58,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 
 
-## Move an existing database into an elastic database pool
+## Move an existing database into a pool
 
 
     // Update database service objective to add the database to a pool
@@ -86,7 +86,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 
 
-## Create a new database in an elastic database pool
+## Create a new database in a pool
 
 
     // Create a new database in the pool
@@ -109,7 +109,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 
 
-## List all databases in an elastic database pool
+## List all databases in a pool
 
 The following example lists all databases in a pool:
 
@@ -124,7 +124,7 @@ The following example lists all databases in a pool:
 
 
 
-## Manage elastic database pool C&#x23; example
+## Manage a pool C&#x23; example
 
 The following libraries are required to run this example. You can install by running the following commands in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
 
@@ -146,7 +146,7 @@ Create a console app and replace the contents of Program.cs with the following. 
     {
     class Program
     {
-        // elastic database pool variables
+        // pool variables
         static string poolName = "elasticPool1";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -189,7 +189,7 @@ Create a console app and replace the contents of Program.cs with the following. 
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool with 400 pool eDTUs... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -210,7 +210,7 @@ Create a console app and replace the contents of Program.cs with the following. 
             Console.WriteLine("Press Enter to update the pool to 1200 pool eDTUs.");
             Console.ReadLine();
 
-            // Update the elastic database pool
+            // Update the pool
             Console.WriteLine("Updating elastic database pool to 1200 pool eDTUs...");
             ElasticPoolCreateOrUpdateResponse epool2 = UpdateElasticDatabasePool();
             Console.WriteLine("Update of pool " + epool2.ElasticPool.Name + ": " + epool2.Status.ToString());

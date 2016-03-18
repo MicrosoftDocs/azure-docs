@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Create an elastic database pool (C#) | Microsoft Azure"
-    description="Use C# database development techniques to create an Azure SQL Database elastic database pool so you can share resources across many databases."
+    pageTitle="Create an elastic database pool with C# | Microsoft Azure"
+    description="Use C# database development techniques to create a scalable elastic database pool in Azure SQL Database so you can share resources across many databases."
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/15/2016"
+    ms.date="03/18/2016"
     ms.author="sstein"/>
 
-# Create an elastic database pool (C&#x23;)
+# Create an elastic database pool with C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
@@ -35,7 +35,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 
 
-## Create an elastic database pool
+## Create a pool
 
 
     // Create elastic pool: configure create or update parameters and properties explicitly
@@ -54,7 +54,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Move an existing database into an elastic database pool
+## Move an existing database into a pool
 
 
     // Retrieve current database properties
@@ -80,7 +80,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 
 
-## Create a new database in an elastic database pool
+## Create a new database in a pool
 
 
     // Create a database: configure create or update parameters and properties explicitly
@@ -103,7 +103,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 
 
-## Create elastic database pool C&#x23; example
+## Create a pool C&#x23; example
 
 
 The following libraries are required to run this example. You can install by running the following commands in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
@@ -143,7 +143,7 @@ Create a console app and replace the contents of Program.cs with the following. 
         static string adminPassword = "<server password (store it securely!)>";
         static string serverVersion = "12.0";
 
-        // elastic database pool variables
+        // pool variables
         static string elasticPoolName = "<pool name>";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -166,7 +166,7 @@ Create a console app and replace the contents of Program.cs with the following. 
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -268,7 +268,7 @@ Create a console app and replace the contents of Program.cs with the following. 
 ## Next steps
 
 - [Manage your pool](sql-database-elastic-pool-manage-csharp.md)
-- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool.
+- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you T-SQL scripts against any number of databases in the pool.
 
 
 ## Additional Resources
