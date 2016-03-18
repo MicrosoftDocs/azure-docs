@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/18/2016"
 	ms.author="micurd"/>
 
 # Azure Storage Explorers
 
 Users of Azure Storage frequently want to be able to view their data in an “explorer” – a tool that is meant to show the data in a storage account.
 
-In the below table, we list each Azure Storage explorer, and then put an “X” in each block if it provides the ability to either enumerate and/or access the data abstraction. The table also shows if the explorer is free or not. “Trial” indicates that there is a free trial, but the full product is not free. “Y/N” indicates that a version is available for free, while a different version is available for purchase.
+In the tables below, we list each Azure Storage explorer, then put an “X” in each block if it provides the ability to either enumerate and/or access the data abstraction. The table also shows if the explorer is free or not. “Trial” indicates that there is a free trial, but the full product is not free. “Y/N” indicates that a version is available for free, while a different version is available for purchase.
 
-We have not verified the functionality or quality claimed by these utilities and their listing does not imply an endorsement by Microsoft - with the exception of the [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/), the [Microsoft Azure Storage Explorer](http://storageexplorer.com/), and the [Microsoft Visual Studio Server Explorer](https://www.visualstudio.com/features/azure-tools-vs.aspx).
+We've only provided a snapshot of the available Azure Storage Explorers. These tools may continue to evolve and grow in functionality. If there are corrections or updates, please leave a comment to let us know. The same is true if you know of tools that ought to be here - we’d be happy to add them.
 
-The table below is only a snapshot of the available Azure Storage Explorers. These tools may continue to evolve and grow in functionality. If there are corrections or updates, please leave a comment to let us know. The same is true if you know of tools that ought to be here - we’d be happy to add them.
+**Microsoft Azure Storage Explorers**
 
 <table>
   <tr>
@@ -45,7 +45,7 @@ The table below is only a snapshot of the available Azure Storage Explorers. The
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure Poral</a></td>
+    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure Portal</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -85,6 +85,30 @@ The table below is only a snapshot of the available Azure Storage Explorers. The
     <td>X</td>
     <td></td>
     <td></td>
+  </tr>
+</table>
+
+**Third-Party Azure Storage Explorers**
+
+We have not verified the functionality or quality claimed by the following third-party explorers and their listing does not imply an endorsement by Microsoft.
+
+<table>
+  <tr>
+    <th rowspan="2">Azure Storage Explorer</th>
+    <th rowspan="2">Block Blob</th>
+    <th rowspan="2">Page Blob</th>
+    <th rowspan="2">Append Blob</th>
+    <th rowspan="2">Tables</th>
+    <th rowspan="2">Queues</th>
+    <th rowspan="2">Files</th>
+    <th rowspan="2">Free</th>
+    <th colspan="4">Platform</th>
+  </tr>
+  <tr>
+    <td>Web</td>
+    <td>Windows</td>
+    <td>OSX</td>
+    <td>Linux</td>
   </tr>
   <tr>
     <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/18/2016"
 	ms.author="micurd"/>
 
 # Moving data to and from Azure Storage
