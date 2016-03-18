@@ -27,10 +27,10 @@ you are new to Mobile Apps, you should consider first completing the [Azure Mobi
 managed SDK. To learn more about the server-side SDKs for Mobile Apps, see the HOWTO documentation for the [.NET Server SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 or the [Node.js Server SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
-The pack
 ## Reference documentation
 
 The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET Client Reference].
+You can also find several client samples in the [Azure-Samples GitHub Repository].
 
 ##<a name="setup"></a>Setup and Prerequisites
 
@@ -56,6 +56,11 @@ Note that the [JsonPropertyAttribute] is used to define the *PropertyName* mappi
 To learn how to create new tables in your Mobile Apps backend, see the information in the [.NET Server SDK HOWTO](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller)
 or the [Node.js Server SDK HOWTO](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). If you
 created your Mobile App backend in the Azure Portal using the QuickStart, you can also use the **Easy tables** setting in the [Azure portal].
+
+###<a name="symbolsource"></a>How to: Work with debug symbols in Visual Studio
+
+The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSource].  Refer to the [SymbolSource instructions]
+to integrate SymbolSource with Visual Studio.
 
 ##<a name="create-client"></a>Create the Mobile App client
 
@@ -889,6 +894,10 @@ how to handle an exception that is returned by the backend:
 		}
 	}
 
+Another example of dealing with error conditions can be found in the [Mobile Apps Files Sample] - the [LoggingHandler]
+example provides a logging delegate handler (see below) to log the requests being made to the backend.  This provides
+an easier way to debug Xamarin applications rather than relying on Fiddler.
+
 ###<a name="headers"></a>How to: Customize request headers
 
 To support your specific app scenario, you might need to customize communication with the Mobile App backend. For example, you may want to add a
@@ -924,6 +933,7 @@ the following example:
         }
     }
 
+
 <!-- Anchors. -->
 [Filter returned data]: #filtering
 [Sort returned data]: #sorting
@@ -937,6 +947,7 @@ the following example:
 [Azure Mobile Apps quickstart]: app-service-mobile-windows-store-dotnet-get-started.md
 [Add authentication to your app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Work with .NET backend SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [How to use the Node.js backend SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 [How to: Define a table controller]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
 [Define Tables using a Dynamic Schema]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
@@ -981,10 +992,15 @@ the following example:
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Notification Hubs APIs]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[Mobile Apps Files Sample]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
+[Azure-Samples GitHub Repository]: https://github.com/Azure-Samples
 
 <!-- External URLs -->
 [JsonPropertyAttribute]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
 [OData v3 Documentation]: http://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
+[SymbolSource]: http://www.symbolsource.org/
+[SymbolSource instructions]: http://www.symbolsource.org/Public/Wiki/Using
 

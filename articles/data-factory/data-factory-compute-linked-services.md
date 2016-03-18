@@ -38,22 +38,7 @@ Note the following **important** points about on-demand HDInsight linked service
 > [AZURE.IMPORTANT] It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
 
 ### Example
-The following JSON defines an on-demand HDInsight linked service. The Data Factory automatically creates a **Windows-based** HDInsight cluster when processing a data slice. Note the **osType** is not specified in this sample JSON and the default value for this property is **Windows**.  
-
-	{
-	  "name": "HDInsightOnDemandLinkedService",
-	  "properties": {
-	    "type": "HDInsightOnDemand",
-	    "typeProperties": {
-	      "clusterSize": 1,
-	      "timeToLive": "00:30:00",
-	      "linkedServiceName": "StorageLinkedService"
-	    }
-	  }
-	}
-
-
-The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. You must specify values for **sshUserName** and **sshPassword**.   
+The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. 
 
 
 	{
@@ -64,12 +49,12 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 	            "clusterSize": 4,
 	            "timeToLive": "00:05:00",
 	            "osType": "linux",
-	            "sshPassword": "MyPassword!",
-	            "sshUserName": "myuser",
-	            "linkedServiceName": "StorageLinkedService",
+	            "linkedServiceName": "StorageLinkedService"
 	        }
 	    }
 	}
+
+To use a Windows-based HDInsight cluster, set **osType** to **windows** or do not use the property as the default value is: windows.  
 
 > [AZURE.IMPORTANT] 
 > The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done. 
@@ -88,8 +73,6 @@ linkedServiceName | The blob store to be used by the on-demand cluster for stori
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
 osType | Type of operating system. Allowed values are: Windows (default) and Linux | No
 hcatalogLinkedServiceName | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster will be created by using the Azure SQL database as the metastore. | No
-sshUser | SSH user for the Linux-based HDInsight cluster | Yes (only for Linux)
-sshPassword | SSH password for the Linux-based HDInsight cluster | Yes (only for Linux)
 
 
 #### additionalLinkedServiceNames JSON example
