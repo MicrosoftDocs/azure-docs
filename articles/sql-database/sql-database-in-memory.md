@@ -29,7 +29,7 @@ This topic emphasizes two demonstrations, one for In-Memory OLTP, and one for In
 
 > [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
-[Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx) - is another article to help you get started.
+- [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx) - is another article to help you get started.
 
 #### In-Memory OLTP
 
