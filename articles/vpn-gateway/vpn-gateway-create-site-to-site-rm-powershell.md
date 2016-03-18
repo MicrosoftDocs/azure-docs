@@ -173,7 +173,7 @@ After a short while, the connection will be established.
 
 ## 9. Verify a VPN connection
 
-[AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm.md)]
+[AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 ## <a name="localnet"></a>To modify IP address prefixes for a local network gateway
 
