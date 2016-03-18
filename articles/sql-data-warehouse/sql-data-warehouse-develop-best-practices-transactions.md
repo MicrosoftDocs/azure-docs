@@ -26,9 +26,9 @@ Transactions are an important component of a relational database engine. SQL Dat
 
 Azure SQL Data Warehouse commits changes to the database using transaction logs. Each distribution has its own transaction log. Transaction log writes are automatic. There is no configuration required. However, whilst this process guarantees the write it does introduce an overhead in the system. You can minimize this impact by writing transactionally efficient code. Transactionally efficient code broadly falls into two categories.
 
-* Leverage minimal logging constructs where possible
-* Process data using scoped batches to avoid singular long running transactions
-* Adopt a partition switching pattern for large modifications to a given partition
+- Leverage minimal logging constructs where possible
+- Process data using scoped batches to avoid singular long running transactions
+- Adopt a partition switching pattern for large modifications to a given partition
 
 ## Minimal logging vs. full logging
 Unlike fully logged operations, which use the transaction log to keep track of every row change, minimally logged operations keep track of extent allocations and meta-data changes only. Therefore minimal logging involves logging only the information that is required to rollback the transaction in the event of a failure or an explicit request (`ROLLBACK TRAN`). As much less information is tracked in the transaction log, a minimally logged operation performs better than a similarly sized fully logged operation. Furthermore, because fewer writes go the transaction log, a much smaller amount of log data is generated and so is more I/O efficient.
@@ -38,6 +38,7 @@ Unlike fully logged operations, which use the transaction log to keep track of e
 ## Minimally logged operations
 
 The following operations are capable of being minimally logged:
+
 - CREATE TABLE AS SELECT (CTAS)
 - INSERT..SELECT
 - CREATE INDEX
@@ -407,11 +408,13 @@ Azure SQL Data Warehouse lets you pause, resume and scale your data warehouse on
 > [AZURE.IMPORTANT] Both `UPDATE` and `DELETE` are fully logged operations and so these undo/redo operations can take significantly longer than equivalent minimally logged operations. 
 
 The best scenario is to let in flight data modification transactions complete prior to pausing or scaling SQL Data Warehouse. However, this may not always be practical. To mitigate the risk of a long rollback consider one of the following options:
+
 - Re-write long running operations using [CTAS][]
 - Break the operation down into chunks; operating on a subset of the rows
 
 ## Next steps
 For more development tips and content related to the examples shown please refer to the following articles:
+
 - [Development][]
 - [Transactions][]
 - [Table partitioning][]
