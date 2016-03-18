@@ -46,8 +46,8 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 |SKU Family	|ACU/Core |
 |---|---|
-|[Standard_A0 (Extra Small)](#standard-tier-a-series)	|50 |
-|[Standard_A1-4 (Small – Large)] (#standard-tier-a-series)	|100 |
+|[Standard_A0](#standard-tier-a-series)	|50 |
+|[Standard_A1-4](#standard-tier-a-series)	|100 |
 |[Standard_A5-7](#standard-tier-a-series)	|100 |
 |[A8-A11](#standard-tier-a-series)	|225 *|
 |[D1-14](#standard-tier-d-series)	|160 |
@@ -72,26 +72,16 @@ The following tables show the sizes and the capacities they provide.
 
 ## Standard tier: A-series
 
-In the classic deployment model, some VM sizes are slightly different in Powershell and CLI.
-
-* Standard_A0 is ExtraSmall 
-* Standard_A1 is Small
-* Standard_A2 is Medium
-* Standard_A3 is Large
-* Standard_A4 is ExtraLarge
-
-<br>
-
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
 |---|---|---|---|---|---|---|---|
-|Standard_A0\ExtraSmall |1|768 MB|1| Temporary = 20 GB |1|1x500| low |
-|Standard_A1\Small|1|1.75 GB|1|Temporary = 70 GB |2|2x500| moderate |
-|Standard_A2\Medium|2|3.5 GB|1|Temporary = 135 GB |4|4x500| moderate |
-|Standard_A3\Large|4|7 GB|2|Temporary = 285 GB |8|8x500| high |
-|Standard_A4\ExtraLarge|8|14 GB|4|Temporary = 605 GB |16|16x500| high |
-|Standard_A5|2|14 GB|1|Temporary = 135 GB |4|4X500| moderate |
-|Standard_A6|4|28 GB|2|Temporary = 285 GB |8|8x500| high |
-|Standard_A7|8|56 GB|4|Temporary = 605 GB |16|16x500| high |
+|Standard_A0 |1|768 MB|1| Temporary = 20 GB |1|1x500| low |
+|Standard_A1 |1|1.75 GB|1|Temporary = 70 GB |2|2x500| moderate |
+|Standard_A2 |2|3.5 GB|1|Temporary = 135 GB |4|4x500| moderate |
+|Standard_A3 |4|7 GB|2|Temporary = 285 GB |8|8x500| high |
+|Standard_A4 |8|14 GB|4|Temporary = 605 GB |16|16x500| high |
+|Standard_A5 |2|14 GB|1|Temporary = 135 GB |4|4X500| moderate |
+|Standard_A6 |4|28 GB|2|Temporary = 285 GB |8|8x500| high |
+|Standard_A7 |8|56 GB|4|Temporary = 605 GB |16|16x500| high |
 
 
 ## Standard tier: A-series - compute-intensive instances
@@ -168,10 +158,18 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_GS5|32|448|8|Local SSD disk = 896 GB |64|4224| 80,000  2,000 MB per second | extremely high |
 
 
-### See also
+## Notes: Standard A0 - A4 using CLI and Powershell 
 
-[Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
+In the classic deployment model, some VM size names are slightly different in CLI and Powershell:
 
+* Standard_A0 is ExtraSmall 
+* Standard_A1 is Small
+* Standard_A2 is Medium
+* Standard_A3 is Large
+* Standard_A4 is ExtraLarge
 
-[About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+## Next steps
+
+- Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+- Learn more [about the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) for workloads like High-performance Computing (HPC).
 

@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Make the D drive of a VM a data disk | Microsoft Azure"
-	description="Describes how to change drive letters for a Windows VM created using the classic deployment model so that you can use the D: drive as a data drive."
+	description="Describes how to change drive letters for a Windows VM so that you can use the D: drive as a data drive."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,21 +14,25 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="03/10/2016"
 	ms.author="cynthn"/>
 
 # Use the D drive as a data drive on a Windows VM 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+If your application need to use the D drive to store data, follow these instructions to use a different drive letter for the temporary disk. Never use the temporary disk to store data that you need to keep.
 
+If you resize or **Stop (Deallocate)** a virtual machine, this may trigger placement of the virtual machine to a new hypervisor. A planned or unplanned maintenance event may also trigger this placement. In this scenario, the temporary disk will be reassigned to the first available drive letter. If you have an application that specifically requires the D: drive, you need to follow these steps to temporarily move the pagefile.sys, attach a new data disk and assign it the letter D and then move the pagefile.sys back to the temporary drive. Once complete, Azure will not take back the D: if the VM moves to a different hypervisor.
 
-If you need to use the D drive to store data, follow these instructions to use a different drive letter for the temporary disk. Never use the temporary disk to store data that you need to keep.
+For more information about how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Attach the data disk
 
-First, you'll need to attach the data disk to the virtual machine. To attach a new disk, see [How to attach a data disk to a Windows virtual machine][Attach]. 
+First, you'll need to attach the data disk to the virtual machine. 
 
-If you want to use an existing data disk, make sure you've also uploaded the VHD to the Storage account. For instructions, see steps 3 and 4 in [Create and upload a Windows Server VHD to Azure][VHD]. 
+- To use the portal, see [How to attach a data disk in the Azure portal](virtual-machines-windows-attach-disk-portal.md)
+- To use the classic portal, see [How to attach a data disk to a Windows virtual machine](virtual-machines-windows-classic-attach-disk.md). 
 
 
 ## Temporarily move pagefile.sys to C drive
@@ -104,20 +108,8 @@ If you want to use an existing data disk, make sure you've also uploaded the VHD
 
 
 
-## Additional resources
-[How to log on to a virtual machine running Windows Server][Logon]
+## Next steps
+- You can increase the storage available to your virtual machine by [attaching a additonal data disk](virtual-machines-windows-attach-disk-portal.md).
 
-[How to detach a data disk from a Windows virtual machine][Detach]
 
-[About Azure Storage accounts][Storage]
 
-<!--Link references-->
-[Attach]: virtual-machines-windows-classic-attach-disk.md
-
-[VHD]: virtual-machines-windows-classic-createupload-vhd.md
-
-[Logon]: virtual-machines-windows-classic-connect-logon.md
-
-[Detach]: virtual-machines-windows-classic-detach-disk.md
-
-[Storage]: ../storage-whatis-account.md

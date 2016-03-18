@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="03/10/2016"
 	ms.author="cynthn"/>
 
 # Create Windows virtual machines with Powershell and the classic deployment model 
@@ -36,10 +36,14 @@ These steps follow a fill-in-the-blanks approach for creating Azure PowerShell c
 
 For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-linux-classic-createpowershell.md).
 
-
-## Step 1: Install Azure PowerShell
-
 If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install Azure PowerShell on your local computer. Then, open an Azure PowerShell command prompt.
+
+## Step 1: Add your account
+
+1. At the Powershell prompt, type **Add-AzureAccount** and click **Enter**. 
+2. Type in the email address associated with your Azure subscription and click **Continue**. 
+3. Type in the password for your Azure subscription. 
+4. Click **Sign in**.
 
 ## Step 2: Set your subscription and storage account
 
@@ -255,15 +259,9 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 
-## Additional resources
+## Next steps
 
-[Virtual machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
-
-[Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
-
-[How to install and configure Azure PowerShell](../powershell-install-configure.md)
+If you need an OS disk that is larger than 127 GB, you can [expand the OS drive](virtual-machines-windows-expand-os-disk.md).
 
 
 
