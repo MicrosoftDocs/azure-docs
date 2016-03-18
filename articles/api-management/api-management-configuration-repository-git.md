@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="03/18/2016" 
 	ms.author="sdanie"/>
 
 
@@ -279,6 +279,9 @@ For information on other ways to manage your service instance, see:
 -	Manage your service instance using the REST API
 	-	[API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## Watch a video overview
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
