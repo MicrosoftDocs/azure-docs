@@ -13,18 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="02/29/2016"
+	ms.date="03/17/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for iOS apps in Objective C
 
-> [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users to an iOS application.
 In this tutorial, you create a blank iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS).
