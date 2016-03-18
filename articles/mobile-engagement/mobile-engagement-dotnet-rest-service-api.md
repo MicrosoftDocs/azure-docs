@@ -20,19 +20,19 @@
 
 Azure Mobile Engagement provides the [Azure Mobile Engagement REST API](https://msdn.microsoft.com/library/azure/mt683754.aspx) for you to manage Devices, Reach/Push campaigns etc. This sample will use the REST APIs directly to create an Announcement campaign then activate and push it to a set of devices. 
 
-If you do not want to use the REST APIs directly, we also provide a [Swagger file](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) that you can use with tools to generate SDKs for your preferred language. We recommend using the [AutoRest](https://github.com/Azure/AutoRest) tool to generate your SDK from our Swagger file. We have created a .NET SDK in a similar manner which allows you to interact with these APIs using a C# wrapper and you don't have to do the authentication token negotiation and refresh yourself. If you want to walk through this sample using this wrapper, see [Service API .NET SDK Sample](mobile-engagement-dotnet-sdk-service-api.md)
+If you do not want to use the REST APIs directly, we also provide a [Swagger file](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) that you can use with tools to generate SDKs for your preferred language. We recommend using the [AutoRest](https://github.com/Azure/AutoRest) tool to generate your SDK from our Swagger file. We have created a .NET SDK in a similar manner which allows you to interact with these APIs using a C# wrapper and you don't have to do the authentication token negotiation and refresh yourself. If you want to walk through a similar sample using this wrapper, see [Service API .NET SDK Sample](mobile-engagement-dotnet-sdk-service-api.md)
 
 This sample will use the REST APIs directly to create and activate an Announcement campaign. 
 
 ## Adding a user_name appInfo to the Mobile Engagement app
 
-This sample will require a **user_name** app-info added to the Mobile Engagement app. In the engagement portal for your app, you can add the app-info by clicking **Settings** > **Tag (app-info)** > **New tag (app-info)**. Add the new app-info named **user_name** as a **String** type.
+This sample will require an app-info tag added to the Mobile Engagement app. In the engagement portal for your app, you can add the tag by clicking **Settings** > **Tag (app-info)** > **New tag (app-info)**. Add the new tag named **user_name** as a **String** type.
 
 ![](./media/mobile-engagement-dotnet-rest-service-api/user-name-app-info.png)
 
 
 
-If you followed [Getting Started with Azure Mobile Engagement for Windows Universal Apps](mobile-engagement-windows-store-dotnet-get-started.md), you can test sending the **user_name** app-info by simply overriding `OnNavigatedTo()` in your `MainPage` class to send the app-info similar to the following code:
+If you followed [Getting Started with Azure Mobile Engagement for Windows Universal Apps](mobile-engagement-windows-store-dotnet-get-started.md), you can test sending the **user_name** tag by simply overriding `OnNavigatedTo()` in your `MainPage` class to send the app-info tag similar to the following code:
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
