@@ -30,10 +30,10 @@ Service Fabric Reliable Actors is an implementation of the actor design pattern.
 Although the actor design pattern can be a good fit to a number of distributed systems problems and scenarios, careful consideration of the constraints of the pattern and the framework implementing it must be made. As general guidance, consider the actor pattern to model your problem or scenario if:
 
  - Your problem space involves a large number (thousands or more) of small, independent, and isolated units of state and logic.
- 
+
  - You want to work with single-threaded objects that do not require significant interaction from external components, including querying state across a set of actors.
- 
- - Your actor instances don't experience unpredictable delays by issuing I/O operations.
+
+ - Your actor instances won't block callers with unpredictable delays by issuing I/O operations.
 
 ## Actors in Service Fabric
 
@@ -106,7 +106,7 @@ The `ActorProxy` class on the client side performs the necessary resolution to l
 The Reliable Actors runtime provides a simple turn-based access model for accessing actor methods. This means that no more than one thread can be active inside an actor object's code at any time. Turn-based access greatly simplifies concurrent systems as there is no need for synchronization mechanisms for data access. It also means systems must be designed with special considerations for the single-threaded access nature of each actor instance.
 
  - A single actor instance cannot process more than one request at a time. An actor instance can cause a throughput bottleneck if it is expected to handle concurrent requests. 
- - Actors can deadlock on each other if there is a circular request between two actors while an external request is made to one of the actors simultaneously. The actor runtime will automatically time out on actor calls and throw an exception to the caller to interrupt possible deadlock situations.
+ - Actors can deadlock on each other if there is a circular request between two actors while an external request is made to one of the actors simultaneously. 
 
 ![Reliable Actors communication][3]
 
@@ -171,7 +171,7 @@ Stateful actors have a state that needs to be preserved across garbage collectio
 
 The State Manager is a dictionary-like structure, similar to Reliable Dictionary. Multiple state objects and values can be saved as key-value pairs. When an actor method finishes, the Actor runtime automatically saves any modified state in the State Manager. If a failure occurs during the **Save** operation, the Actor runtime creates a new actor instance and loads the last consistent state.  
 
- 
+
 
 ```csharp
 class MyActor : StatefulActor, IMyActor
