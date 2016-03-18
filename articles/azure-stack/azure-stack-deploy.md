@@ -130,4 +130,5 @@ Sample OEM configurations are available.
 
 ## Next steps
 
+[Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package
 [Deploy Azure Stack POC](azure-stack-run-powershell-script.md)
