@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/08/2016"
-	ms.author="billmath"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 
 # Azure AD Connect Health Agent Installation
@@ -26,14 +26,13 @@ The following table is a list of requirements for using Azure AD Connect Health.
 
 | Requirement | Description|
 | ----------- | ---------- |
-|Azure AD Premium| Azure AD Connect Health is an Azure AD Premium feature and requires Azure AD Premium. </br></br>For more information see [Getting started with Azure AD Premium](active-directory-get-started-premium.md).</br></br>To start a free 30 day trial see [Start a trial.](https://azure.microsoft.com/trial/get-started-active-directory/)|
+|Azure AD Premium| Azure AD Connect Health is an Azure AD Premium feature and requires Azure AD Premium. </br></br>For more information see [Getting started with Azure AD Premium](active-directory-get-started-premium.md) </br>To start a free 30 day trial see [Start a trial.](https://azure.microsoft.com/trial/get-started-active-directory/)|
 |You must be a global administrator of your Azure AD to get started with Azure AD Connect Health|By default, only the global administrators can install and configure the health agents to get started, access the portal and perform any operations within Azure AD Connect Health. For additional information see [Administering your Azure AD directory](active-directory-administer.md). <br><br> Using Role Based Access Control you can allow access to Azure AD Connect Health to other users in your organization. For more information see [Role Based Access Control for Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Important:** The account you use when installing the agents must be a work or school account and cannot be a Microsoft account. For more information see  [Sign up for Azure as an organization](sign-up-organization.md)
-|The Azure AD Connect Health Agent installed on each targeted server| Azure AD Connect Health requires that an agent be installed on targeted servers in order to provide the data that is viewed in the portal. </br></br>For example, in order to get data on your AD FS on-premises infrastructure, the agent must be installed on the AD FS servers.  This includes AD FS Proxy servers and Web Application Proxy servers.   </br></br>For information on installing the agent see the [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md).</br></br>**Important:** The account you use when installing the agents must be a work or school account and cannot be a Microsoft account.   For more information see [Sign up for Azure as an organization](sign-up-organization.md)|
-|Azure AD Connect Health Agent for Sync| This agent is installed automatically with the latest version of Azure AD Connect.  </br></br>If you are just starting out then you do not need to do anything else.  The Agent will be installed when you install Azure AD Connect.</br></br> If you already have Azure AD Connect installed, you will need to upgrade to the latest version which can be downloaded [here](http://www.microsoft.com/download/details.aspx?id=47594).
+|The Azure AD Connect Health Agent installed on each targeted server| Azure AD Connect Health requires that an agent be installed on targeted servers in order to provide the data that is viewed in the portal. </br></br>For example, in order to get data on your AD FS on-premises infrastructure, the agent must be installed on the AD FS servers, AD FS Proxy servers and Web Application Proxy servers. </br></br>**Important:** The account you use when installing the agents must be a work or school account and cannot be a Microsoft account.   For more information see [Sign up for Azure as an organization](sign-up-organization.md)|
+|Azure AD Connect Health Agent for Sync| This health agent for sync is installed automatically with the latest version of Azure AD Connect.  </br></br>If you are just starting out then you do not need to do anything else.  The Agent will be installed when you install Azure AD Connect.</br></br> If you already have Azure AD Connect installed (version 1.0.8667.0 or lower), you will need to upgrade to the latest version which can be downloaded [here](http://www.microsoft.com/download/details.aspx?id=47594).  Azure AD Connect version 1.0.9125.0 or higher includes the health agent.  
 |Outbound connectivity to the Azure service endpoints|During installation and runtime, the agent requires connectivity to the Azure AD Connect Health service end points listed below. If you block outbound connectivity make sure that the following are added to the allowed list: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Firewall ports on the server running the agent.| The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.</br></br><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li>
 |Allow the following websites if IE Enhanced Security is enabled|The following websites need to be allowed if IE Enhanced Security is enabled on the server that is going to have the agent installed.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory For example: https://sts.contoso.com</li>
-
 
 
 > You can download the agents from [here](active-directory-aadconnect-health#Download -and-Install-Azure-AD-Connect-Health-Agent).
@@ -55,7 +54,7 @@ This will launch a command prompt followed by some PowerShell that will execute 
 
 After signing in, PowerShell will continue. Once it completes you can close PowerShell and the configuration is complete.
 
-At this point, the services should be started automatically and the agent will be now monitoring and gathering data.  Be aware that you will see warnings in the PowerShell window if you have not met all of the pre-requisites that were outlined in the previous sections. Be sure to complete the requirements [here](active-directory-aadconnect-health.md#requirements) prior to installing the agent. The following screenshot below is an example of these errors.
+At this point, the services should be started automatically and the agent will be now monitoring and gathering data.  Be aware that you will see warnings in the PowerShell window if you have not met all of the pre-requisites that were outlined in the previous sections. Be sure to complete the requirements [here](active-directory-aadconnect-health-agent-install.md#requirements) prior to installing the agent. The screenshot below is an example of these errors.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install4.png)
 
@@ -137,7 +136,7 @@ To verify the agent has been installed, open services and look for the following
 
 ![Verify Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE] Remember that using Azure AD Connect Health requires Azure AD Premium.  If you do not have Azure AD Premium you will not be able to complete the configuration in the Azure portal.  For more information see the requirements [here](active-directory-aadconnect-health.md#requirements).
+>[Azure.NOTE] Remember that using Azure AD Connect Health requires Azure AD Premium.  If you do not have Azure AD Premium you will not be able to complete the configuration in the Azure portal.  For more information see the requirements [here](active-directory-aadconnect-health-agent-install.md#requirements).
 
 
 ## Manual Azure AD Connect Health for Sync registration
@@ -224,7 +223,7 @@ You can use the -ShowResults flag in the command to view detailed logs.  Use the
 
     Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
->[AZURE.NOTE]In order to use the connectivity tool, you must first complete the agent registration.  If you are not able to complete the agent registration, make sure that you have met all of the [requirements](active-directory-aadconnect-health.md#requirements) for Azure AD Connect Health.  This connectivity test is performed by default during agent registration.
+>[AZURE.NOTE]In order to use the connectivity tool, you must first complete the agent registration.  If you are not able to complete the agent registration, make sure that you have met all of the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health.  This connectivity test is performed by default during agent registration.
 
 
 ## Related links

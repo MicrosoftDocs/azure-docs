@@ -80,6 +80,7 @@ It is very easy to get started with Azure AD Connect Health. Follow the steps be
 
 - To get started using Azure AD Connect Health for sync, download and install the [latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  The health agent will be installed as part of the Azure AD Connect installation.  Azure AD Connect supports an in-place upgrade from previous versions.
 
+
 ### Azure AD Connect Health Portal
 The Azure AD Connect Health portal allows you to view alerts, performance monitoring, and usage analytics. https://aka.ms/aadconnecthealth takes you to the main blade of Azure AD Connect Health.  You can think of a blade as a window. On The main blade you see Quick Start, Services within Azure AD Connect Health and additional configuration options. Below the screenshot is a brief explanation of each of these.  After you've deployed the agents, the service identifiers for the services Azure AD Connect Health is monitoring.
 
