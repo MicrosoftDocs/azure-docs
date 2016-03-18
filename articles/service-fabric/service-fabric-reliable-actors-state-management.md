@@ -33,7 +33,7 @@ However, even though actors are considered stateful, it does not mean they must 
 Each level of persistence is simply a different *state provider* and *replication* configuration of your service. Whether or not state is written to disk depends on the *state provider* - the component in a Reliable Service that stores state - and replication depends on how many replicas a service is deployed with. Just as with Reliable Services, both the state provider and replica count can easily be set manually. The actor framework provides an attribute, that, when used on an actor will automatically select a default state provider and auto-generate settings for replica count to achieve one of these three persistence settings.
 
 ### Persisted state
-```C#
+```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
@@ -42,7 +42,7 @@ class MyActor : Actor, IMyActor
 This setting uses a state provider that stores data on disk and automatically sets the service replica count to 3.
 
 ### Volatile state
-```C#
+```csharp
 [StatePersistence(StatePersistence.Volatile)]
 class MyActor : Actor, IMyActor
 {
@@ -52,7 +52,7 @@ This setting uses an in-memory-only state provider and sets the replica count to
 
 ### No persisted state
 
-```C#
+```csharp
 [StatePersistence(StatePersistence.None)]
 class MyActor : Actor, IMyActor
 {
@@ -102,7 +102,7 @@ State can be accessed through the State Manager by key. State Manager methods ar
 
 State can be retrieved using a standard *Get* operation that throws `KeyNotFoundException` if an entry does not exist for the given key: 
 
-```C#
+```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
@@ -115,7 +115,7 @@ class MyActor : Actor, IMyActor
 
 State can also be retrieved using a *TryGet* method that does not throw if an entry does not exist for a given key:
 
-```C#
+```csharp
 class MyActor : Actor, IMyActor
 {
     public async Task<int> GetCountAsync()
@@ -137,7 +137,7 @@ The State Manager retrieval methods return a reference to an object in local mem
 
 State can be inserted using an unconditional *Set*, which is the equivalent of the `dictionary["key"] = value` syntax:
 
-```C#
+```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
@@ -150,7 +150,7 @@ class MyActor : Actor, IMyActor
 
 State can be added using an *Add* method, which will throw `InvalidOperationException` when trying to add a key that already exists:
 
-```C#
+```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
@@ -163,7 +163,7 @@ class MyActor : Actor, IMyActor
 
 State can also be added using a *TryAdd* method, which will not throw when trying to add a key that already exists:
 
-```C#
+```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
@@ -183,7 +183,7 @@ At the end of an actor method, the State Manager automatically saves any values 
 
 State can also be saved manually be calling the `SaveStateAsync` method on the actor base:
 
-```C#
+```csharp
 async Task IMyActor.SetCountAsync(int count)
 {
     await this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
@@ -196,7 +196,7 @@ async Task IMyActor.SetCountAsync(int count)
 
 State can be removed permanently from an actor's State Manager by calling the *Remove* method. This method will throw `KeyNotFoundException` when trying to remove a key that doesn't exist:
 
-```C#
+```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
@@ -209,7 +209,7 @@ class MyActor : Actor, IMyActor
 
 State can also be removed permanently by using the *TryRemove* method, which will not throw when trying to remove a key that doesn't exist:
 
-```C#
+```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {

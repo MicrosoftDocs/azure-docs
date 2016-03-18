@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2016"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 
@@ -93,7 +93,7 @@ Gabrage collection of deactivated actors only cleans up the actor object, but it
 
 The [Actor Service](service-fabric-reliable-actors-platform.md) provides a function for deleting actors from a remote caller:
 
-```C#
+```csharp
 ActorId actorToDelete = new ActorId(id);
 
 IActorService myActorServiceProxy = ActorServiceProxy.Create(

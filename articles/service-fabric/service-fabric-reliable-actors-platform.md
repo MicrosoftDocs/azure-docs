@@ -57,7 +57,7 @@ Task MyActorMethod()
 
 Like all Reliable Services, the Actor Service must be registered with a service type in the Service Fabric runtime. In order for the Actor Service to run your actor instances, your actor type must also be registered with the Actor Service. The `ActorRuntime` registration method performs this work for actors. In the simplest case, you can just register your actor type, and the Actor Service with default settings will implicitly be used:
 
-```C#
+```csharp
 static class Program
 {
     private static void Main()
@@ -71,7 +71,7 @@ static class Program
 
 Alternatively, you can use a lambda provided by the registration method to construct the Actor Service yourself. This allows you to configure the Actor Service as well as explicitly construct your actor instances, where you can inject dependencies to your actor through its constructor:
 
-```C#
+```csharp
 static class Program
 {
     private static void Main()
@@ -94,7 +94,7 @@ The Actor Service implements `IActorService` which in turn implements `IService`
 
 The Actor Service allows a client to enumerate metadata about the actors being hosted by the service. Since the Actor Service is a partitioned stateful service, enumeration is performed per partition. Because each partition may contain a large number of actors, the enumeration is return as a set of paged results. The pages are looped over until all pages are read. The following example shows how to create a list of all active actors in one partition of an actor service:
 
-```C#
+```csharp
 IActorService actorServiceProxy = ActorServiceProxy.Create(
     new Uri("fabric:/MyApp/MyService"), partitionKey);
 
@@ -116,7 +116,7 @@ while (continuationToken != null);
 
 The Actor Service also provides a function for deleting actors:
 
-```C#
+```csharp
 ActorId actorToDelete = new ActorId(id);
 
 IActorService myActorServiceProxy = ActorServiceProxy.Create(
@@ -131,16 +131,16 @@ For more information on deleting actors and their state, refer to the [actor lif
 
 Using the actor registration lambda, you can also register your own custom actor service that derives from `ActorService` where you can implement your own service-level functionality. This is done by writing a service class that inherits `ActorService`. A custom actor service inherits all of the actor runtime functionality from `ActorService` and can be used to implement your own service methods.
 
-```C#
+```csharp
 class MyActorService : ActorService
-    {
+{
     public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
         : base(context, typeInfo, newActor)
     { }
-      }
+}
 ```
 
-```C#
+```csharp
 static class Program
 {
     private static void Main()
@@ -159,7 +159,7 @@ static class Program
 
  In the following example, the custom actor service exposes a method to back-up actor data by taking advantage of the remoting listener already present in `ActorService`:
 
-```C#
+```csharp
 public interface IMyActorService : IService
 {
     Task BackupActorsAsync();
@@ -180,7 +180,7 @@ class MyActorService : ActorService, IMyActorService
 
 In this example, `IMyActorService` is a remoting contract that implements `IService` and is then implemented by `MyActorService`. By adding this remoting contract, methods on `IMyActorService` are now also available to a client by creating a remoting proxy using `ActorServiceProxy`:
 
-```C#
+```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
     new Uri("fabric:/MyApp/MyService"), ActorId.CreateRandom());
 
@@ -220,13 +220,13 @@ Reliable Services can be created with different partition schemes and partition 
 
 Each actor that's created in the service has a unique ID associated with it, represented by the `ActorId` class. The `ActorId` is an opaque id value that can be used for uniform distribution of actors across the service partitions by generating random IDs:
 
-```C#
+```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
 ```
 
 Every `ActorId` is hashed to an Int64, which is why the actor service must use an Int64 partitioning scheme with the full Int64 key range. However, custom ID values can be used for an `ActorID`, including GUIDs, strings, and Int64s. 
 
-```C#
+```csharp
 ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
 ActorProxy.Create<IMyActor>(new ActorId("myActorId"));
 ActorProxy.Create<IMyActor>(new ActorId(1234));
@@ -235,7 +235,6 @@ ActorProxy.Create<IMyActor>(new ActorId(1234));
 When using GUIDs and strings, the values are hashed to an Int64. However, when explicitly providing an Int64 to an `ActorId`, the Int64 will map directly to a partition without further hashing. This can be used to control which partition actors are placed in.
 
 ## Next steps
-
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png
