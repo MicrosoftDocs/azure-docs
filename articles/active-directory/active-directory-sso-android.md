@@ -34,7 +34,7 @@ This walkthrough applies to:
 * Azure Active Directory B2C
 * Azure Active Directory B2B
 
-Note that the document below assumes you have knowledge of how to [provision applications in the legacy portal for Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-how-to-integrate/) as well as have integrated your application with the [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+Note that the document below assumes you have knowledge of how to [provision applications in the legacy portal for Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-how-to-integrate/) as well as have integrated your application with the [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## SSO Concepts in the Microsoft Identity Platform
 
@@ -243,7 +243,7 @@ Your redirect URI must be in the proper form of:
 
 ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-This Redirect URI needs to be specified in your app registration using the [Azure classic portal](https://manage.windowsazure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-how-to-integrate/).
+This Redirect URI needs to be specified in your app registration using the [Azure classic portal](https://manage.windowsazure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
 
 
 #### Step 3: Set up the correct permissions in your application
