@@ -24,7 +24,29 @@ As you would expect SQL Data Warehouse does offer support for all transactional 
 SQL Data Warehouse implements ACID transactions. However, the Isolation of the transactional support is limited to `READ UNCOMMITTED` and this cannot be changed. You can implement a number of coding methods to prevent dirty reads of data if this is a concern for you. The most popular methods leverage both CTAS and table partition switching (often known as the sliding window pattern) to prevent users from querying data that is still being prepared. Views that pre-filter the data is also a popular approach.  
 
 ## Transaction size
+A single data modification transaction is limited in size. The limit today is applied "per distribution". To get the total figure therefore we must multiply the limit by the distribution count.
 
+| DWU	 | Cap per distribution (GiB) | Number of Distributions | MAX transaction size (GiB) |
+| ------ | -------------------------- | ----------------------- | -------------------------- |
+| DW100	 |   3                        | 60                      |    180                     |
+| DW200	 |   6                        | 60                      |    360                     |
+| DW300	 |   9                        | 60                      |    540                     |
+| DW400	 |  12                        | 60                      |    720                     |
+| DW500	 |  15                        | 60                      |    900                     |
+| DW600	 |  18                        | 60                      |  1,080                     |
+| DW1000 |  30                        | 60                      |  1,800                     |
+| DW1200 |  36                        | 60                      |  2,160                     |
+| DW1500 |  45                        | 60                      |  2,700                     |
+| DW2000 |  60                        | 60                      |  3,600                     |
+| DW3000 |  90                        | 60                      |  5,400                     |
+| DW6000 | 120                        | 60                      |  7,200                     |
+ 
+> [AZURE.WARNING] The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
+<!--REPLICATED_TABLE-->
+
+You can approximate the size of your transaction by summing up the size of the columns and multiplying by the number of rows being modified. For variable length columns consider taking an average column length rather than using the maximum size.
+
+The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. To optimize and minimize the amount of data written to the log please refer to the [transactions best practices][] article.
 
 ## Transaction state
 SQL Data Warehouse uses the XACT_STATE() function to report a failed transaction using the value -2. This means that the transaction has failed and is marked for rollback only
@@ -110,6 +132,7 @@ For more development tips, see [development overview][].
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
+[transactions best practices]: sql-data-warehouse-develop-best-practices-transactions.md
 
 <!--MSDN references-->
 
