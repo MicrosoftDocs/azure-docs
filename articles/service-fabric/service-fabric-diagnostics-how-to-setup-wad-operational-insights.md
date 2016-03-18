@@ -21,18 +21,18 @@
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location makes it easy to analyze and troubleshoot issues in your cluster or in the applications and services running in that cluster. One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage.
 
-Azure [Operational Insights](https://azure.microsoft.com/en-us/services/operational-insights/) (part of the Microsoft Operations Management Suite) is an SaaS solution that makes it easy to analyze and search logs. The steps below describe how to set up the Azure Diagnostics extension on the VMs in a cluster to upload logs to a central store, and then to configure Operational Insights to pull the logs so that you can view them in the Operational Insights portal.
+Azure [Operational Insights](https://azure.microsoft.com/services/operational-insights/) (part of the Microsoft Operations Management Suite) is an SaaS solution that makes it easy to analyze and search logs. The steps below describe how to set up the Azure Diagnostics extension on the VMs in a cluster to upload logs to a central store, and then to configure Operational Insights to pull the logs so that you can view them in the Operational Insights portal.
 
 Operational Insights identifies the sources of the different types of logs uploaded from a Service Fabric cluster by the names of the storage tables that they are stored in. This means the Azure Diagnostics extension must be configured to upload the logs to storage tables with names that match what Operational Insights will look for. The configuration settings examples in this document will show you what the names of the storage tables should be.
 
 ## Suggested reading
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
 * [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
-* [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
+* [Azure Resource Manager](resource-group-overview.md)
 
 ## Prerequisites
 These tools will be used to perform some of the operations in this document:
-* [Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* [Azure PowerShell](powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
 
 ## Different log sources that you may want to collect
@@ -53,12 +53,12 @@ To deploy Diagnostics to the VMs in the cluster as part of cluster creation, the
 ![Azure Diagnostics setting in portal for cluster creation](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
 
 The Support Logs are **required** by the Azure support team to revolve any support requests that you create. These logs are collected in real-time and will be stored in the storage account created in the current resource group. The Application Diagnostics configures application level events, [Actor events](service-fabric-reliable-actors-diagnostics.md), [Reliable Service events](service-fabric-reliable-services-diagnostics.md) and some system level Service Fabric events to be stored into Azure storage. Operational Insights can then pick up the events from the storage account. When creating a cluster using the portal it is recommended that you export the template after the deployment has completed. Templates can be exported from the portal by
-    - Open your resource group
-    - Select **Settings** to display the Settings panel
-    - Select **Deployments** to display the Deployment history panel
-    - Select a deployment to display the details of the deployment
-    - Select **Export Template** to display the Template panel
-    - Select **Save to file** to export a .zip file containing the template, parameter and PowerShell files.
+1. Open your resource group
+2. Select **Settings** to display the Settings panel
+3. Select **Deployments** to display the Deployment history panel
+4. Select a deployment to display the details of the deployment
+5. Select **Export Template** to display the Template panel
+6. Select **Save to file** to export a .zip file containing the template, parameter and PowerShell files.
 
 After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run.
 

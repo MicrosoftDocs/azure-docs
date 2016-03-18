@@ -23,11 +23,11 @@ When you're running an Azure Service Fabric cluster, it's a good idea to collect
 
 ## Suggested reading
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
-* [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
+* [Azure Resource Manager](resource-group-overview.md)
 
 ## Prerequisites
 These tools will be used to perform some of the operations in this document:
-* [Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* [Azure PowerShell](powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
 
 ## Different log sources that you may want to collect
@@ -59,7 +59,7 @@ After exporting the files, a modification is needed. Edit the **parameters.json*
 ### Deploy the diagnostics extension as part of cluster creation by using Azure Resource Manager
 To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before creating the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). To see the Diagnostics setting in the Resource Manager template, open the **azuredeploy.json** file and search for **IaaSDiagnostics**. To create a cluster with this template, just press the **Deploy to Azure** button available at the link above.
 
-Alternatively, you can download the Resource Manager sample, makes changes to it, and create a cluster with the modified template by using the `New-AzureResourceGroupDeployment` command in an Azure PowerShell window. See the information below for the parameters you will need to pass in to the command. For detailed information on how to deploy a Resource Group using PowerShell, refer to the article [Deploy a Resource Group with Azure Resource Manager template](https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/)
+Alternatively, you can download the Resource Manager sample, makes changes to it, and create a cluster with the modified template by using the `New-AzureResourceGroupDeployment` command in an Azure PowerShell window. See the information below for the parameters you will need to pass in to the command. For detailed information on how to deploy a Resource Group using PowerShell, refer to the article [Deploy a Resource Group with Azure Resource Manager template](resource-group-template-deploy.md)
 
 ```powershell
 
@@ -88,7 +88,7 @@ Add a new storage resource to the template by adding to the resources section.
 },
 ```
 
- Next add to the parameters section just after the storage account definitions, between "supportLogStorageAccountName" and "vmNodeType0Name". Replace the **<storage account name>** with the name of the desired storage account.
+ Next add to the parameters section just after the storage account definitions, between "supportLogStorageAccountName" and "vmNodeType0Name". Replace the placeholder text *storage account name* with the name of the desired storage account.
 
 ##### Update parameters section
 ```json
