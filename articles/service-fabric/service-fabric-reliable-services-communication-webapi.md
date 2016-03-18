@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/13/2015"
+   ms.date="3/25/2016"
    ms.author="vturecek"/>
 
 # Get started: Service Fabric Web API services with OWIN self-hosting
@@ -23,14 +23,14 @@ Azure Service Fabric puts the power in your hands when you're deciding how you w
 
 ## Introduction to Web APIs in Service Fabric
 
-The ASP.NET Web API is a popular and powerful framework for building HTTP APIs on top of the .NET Framework. If you're not already familiar with the framework, see [Getting started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) to learn more.
+ASP.NET Web API is a popular and powerful framework for building HTTP APIs on top of the .NET Framework. If you're not already familiar with the framework, see [Getting started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) to learn more.
 
-The Web API in Service Fabric is the same ASP.NET Web API you know and love. The difference is in how you *host* the Web API application. You won't be using Microsoft Internet Information Services. To better understand the difference, let's break it into two parts:
+Web API in Service Fabric is the same ASP.NET Web API you know and love. The difference is in how you *host* a Web API application. You won't be using Microsoft Internet Information Services. To better understand the difference, let's break it into two parts:
 
  1. The Web API application (including controllers and models)
  2. The host (the web server, usually IIS)
 
-The Web API application itself doesn't change. It's no different from Web API applications you may have written in the past, and you should be able to simply move over most of your application code. But if you've been hosting on IIS, where you host the application may be a little different from what you're used to. Before we get to the hosting part, let's start with something more familiar: the Web API application.
+A Web API application itself doesn't change. It's no different from Web API applications you may have written in the past, and you should be able to simply move over most of your application code. But if you've been hosting on IIS, where you host the application may be a little different from what you're used to. Before we get to the hosting part, let's start with something more familiar: the Web API application.
 
 
 ## Create the application
@@ -43,7 +43,7 @@ Start by creating a new Service Fabric application with a single stateless servi
 
 This gives us an empty stateless service that will host the Web API application. We're going to set up the application from scratch to see how it's put together.
 
-The first step is to pull in some NuGet packages for the Web API. The package we want to use is Microsoft.AspNet.WebApi.OwinSelfHost. This package includes all the necessary Web API packages and the *host* packages. This will be important later.
+The first step is to pull in some NuGet packages for Web API. The package we want to use is Microsoft.AspNet.WebApi.OwinSelfHost. This package includes all the necessary Web API packages and the *host* packages. This will be important later.
 
 ![Create the Web API by using the NuGet Package Manager](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
