@@ -38,19 +38,19 @@ Unlike fully logged operations, which use the transaction log to keep track of e
 ## Minimally logged operations
 
 The following operations are capable of being minimally logged:
-* CREATE TABLE AS SELECT (CTAS)
-* INSERT..SELECT
-* CREATE INDEX
-* ALTER INDEX REBUILD
-* DROP INDEX
-* TRUNCATE TABLE
-* DROP TABLE
-* ALTER TABLE SWITCH PARTITION
+- CREATE TABLE AS SELECT (CTAS)
+- INSERT..SELECT
+- CREATE INDEX
+- ALTER INDEX REBUILD
+- DROP INDEX
+- TRUNCATE TABLE
+- DROP TABLE
+- ALTER TABLE SWITCH PARTITION
 
 <!--
-* MERGE
-* UPDATE on LOB Types .WRITE
-* SELECT..INTO
+- MERGE
+- UPDATE on LOB Types .WRITE
+- SELECT..INTO
 -->
 
 ## Minimal logging conditions for bulk loading operations.
@@ -81,9 +81,9 @@ However, these statements can be optimized so that they can be run more efficien
 
 Below are four examples explaining how to optimise your code for fully logged operations:
 
-* `CTAS`
-* Table partitioning
-* Batched operations
+- `CTAS`
+- Table partitioning
+- Batched operations
 
 ### Optimizing large delete operations using CTAS
 If you need to delete a large amount of data in a table or a partition it often makes more sense to `SELECT` the data you wish to keep instead; creating a new table with [CTAS][]. Once created, use a pair of [RENAME OBJECT][] commands to switch the names of the tables over.
@@ -407,17 +407,17 @@ Azure SQL Data Warehouse lets you pause, resume and scale your data warehouse on
 > [AZURE.IMPORTANT] Both `UPDATE` and `DELETE` are fully logged operations and so these undo/redo operations can take significantly longer than equivalent minimally logged operations. 
 
 The best scenario is to let in flight data modification transactions complete prior to pausing or scaling SQL Data Warehouse. However, this may not always be practical. To mitigate the risk of a long rollback consider one of the following options:
-* Re-write long running operations using [CTAS][]
-* Break the operation down into chunks; operating on a subset of the rows
+- Re-write long running operations using [CTAS][]
+- Break the operation down into chunks; operating on a subset of the rows
 
 ## Next steps
 For more development tips and content related to the examples shown please refer to the following articles:
-* [Development][]
-* [Transactions][]
-* [Table partitioning][]
-* [Concurrency][]
-* [CTAS][]
-* [RENAME OBJECT][]
+- [Development][]
+- [Transactions][]
+- [Table partitioning][]
+- [Concurrency][]
+- [CTAS][]
+- [RENAME OBJECT][]
 
 <!--Image references-->
 

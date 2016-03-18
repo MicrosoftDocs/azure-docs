@@ -22,8 +22,8 @@ This article demonstrates some key techniques for managing your indexes.
 ## Optimizing index rebuilds
 You can optimize your index rebuild in one of two ways:
 
-1) Partition your table and execute partition level index rebuilds
-2) Use CTAS to re-create the partition of data in a new table; and partition switch in the new table
+1. Partition your table and execute partition level index rebuilds
+2. Use [CTAS][] to re-create the partition of data in a new table; and partition switch in the new table
 
 ## Partitioned index rebuilds
 
@@ -33,7 +33,11 @@ Below is an example of how to rebuild a single partition:
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
-ALTER INDEX..REBUILD is best used for smaller data volumes - especially against columnstore indexes. It guarantees that open rowgroups in the columnstore are closed and merged into columnstore index in the compressed format. However, if the partition is quite large then you will find that `CTAS` is the more efficient operation.
+ALTER INDEX..REBUILD is best used for smaller data volumes - especially against columnstore indexes. Open, closed and compressed rowgroups are all included in the rebuild. However, if the partition is quite large then you will find that `CTAS` is the more efficient operation. An example of a full index rebuild is below
+
+```
+ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
+```
 
 Refer to the [ALTER INDEX][] article for more details on this syntax.
 
@@ -89,6 +93,7 @@ For more management tips head over to the [management][] overview
 <!--Image references-->
 
 <!--Article references-->
+[CTAS]: sql-data-warehouse-develop-ctas.md
 [Table partitioning]: sql-data-warehouse-develop-table-partitions.md
 [Management]: sql-data-warehouse-manage-monitor.md
 
