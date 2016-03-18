@@ -13,33 +13,33 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/11/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Application Analytics: Language Overview
+# Application Insights Analytics: Language Overview
 
 
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights Analytics](app-analytics.md) is a powerful query engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL.
+Application Insights query language, AIQL.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-A typical CSL query is a *source* table followed by a series of *operators* separated by `|`. 
+A typical AIQL query is a *source* table followed by a series of *operators* separated by `|`. 
 
 For example, let's find out what time of day the citizens of Hyderabad try our web app. And while we're there, let's see what result codes are returned to their HTTP requests. 
 
-```CSL
+```AIQL
 
     requests 
-    | where timestamp > ago(30d) and location_City == "Hyderabad"
-    | summarize clients = dcount(location_ClientIP) 
-      by tod_UTC=bin(timestamp % 1d, 1h), responseCode
-    | extend local_hour = (tod_UTC + 5h + 30min) % 24h 
+    | where timestamp > ago(30d) and client_City == "Hyderabad"
+    | summarize clients = dcount(client_IP) 
+      by tod_UTC=bin(timestamp % 1d, 1h), resultCode
+    | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01") 
 ```
 
 We count distinct client IP addresses, grouping them by the hour of the day over the past 30 days. 
@@ -50,7 +50,20 @@ Let's display the results with the bar chart presentation, choosing to stack the
 
 Looks like our app is most popular at lunchtime and bed-time in Hyderabad. (And we should investigate those 500 codes.)
 
-The language has many of the capabilities of SQL, and more. Just as in SQL, you can filter data, group records, sort and join tables. You can also perform computations on the fields. Unlike SQL, these functions are separated into different operations, and instead of nesting queries, you pipe the data from one operation to the next in a very intuitive way. This makes it easy to write quite complex queries.
+
+There are also powerful statistical operations:
+
+![](./media/app-analytics/025.png)
+
+
+The language has many attractive features:
+
+* [Filter](app-analytics-queries.md) your raw app telemetry by any fields, including your custom properties and metrics.
+* [Join](app-analytics-queries.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+* Powerful statistical [aggregations](app-analytics-aggregations.md).
+* Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
+* Immediate and powerful visualizations.
+
 
 
 >[AZURE.NOTE] We recommend starting with the [language tour](app-analytics-tour.md).
@@ -59,14 +72,11 @@ The language has many of the capabilities of SQL, and more. Just as in SQL, you 
 ## Connect to your Application Insights data
 
 
-Open Application Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights: 
+Open Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights: 
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-analytics/001.png)
 
 
-*Early adopter? If the button isn't working yet, open Application Analytics by navigating to this URL:*
-
-`https://analytics.applicationinsights.io/subscriptions/{subscription-id}/resourcegroups/{resource-group}/components/{app-insights-name}`
 
 
 

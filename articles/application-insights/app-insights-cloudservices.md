@@ -283,7 +283,6 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md

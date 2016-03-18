@@ -20,12 +20,11 @@
 
 If you store historical data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both historical and current data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate must call an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
 
-In CTP 3.1 through RC0, the option to specify a predicate isn't available in the Enable Database for Stretch wizard. You have to use the ALTER TABLE statement to configure Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+In CTP 3.1 through RC1, the option to specify a predicate isn't available in the Enable Database for Stretch wizard. You have to use the ALTER TABLE statement to configure Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 If you don't specify a filter predicate, the entire table is migrated.
 
-> [!IMPORTANT]
-> If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
 ## Basic requirements for the inline table\-valued function
 The inline table\-valued function required for a Stretch Database filter function looks like the following example.
@@ -408,4 +407,5 @@ You can't drop the inline table\-valued function as long as a table is using the
 To check the filter predicate applied to a table, open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column. If the value is null, the entire table is eligible for archiving. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## See also
+
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
