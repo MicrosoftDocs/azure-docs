@@ -70,7 +70,7 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | Azure Backup Server (MABS) | Same as DPM, but:<br><li>Does not require a System Center license<br> <li>Always requires live Azure subscription<br> <li>No support for tape backup | [Preparing to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md) |
 | Azure IaaS VM Backup | **Benefits**<br><li>Native backups for Windows/Linux<br><li>No specific agent install required<br><li>No separate backup server required<br><li>Uses Azure Backup vault<br><br>**Limitations**<br><li>Once a day backup/disk level restore<br><li>Cannot backup on-premises | [Back up Azure virtual machines](backup-azure-vms-introduction.md) |
 
-## Which applications and workloads can be backed up?
+### Which applications and workloads can be backed up?
 
 | Workload | Source machine | Azure Backup solution |
 | --- | --- |---|
@@ -83,6 +83,17 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | Microsoft Exchange |  Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>   |
 | Azure IaaS VMs (Windows) | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 | Azure IaaS VMs (Linux) | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
+
+### ARM and Linux support
+
+| Component | ARM Support | Linux (Azure endorsed) Support |
+| --- | --- | --- |
+| Azure Backup (MARS) agent | Yes | No (Only Windows based agent) |
+| System Center Data Protection Manager | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible |
+| Azure Backup Server (MABS) | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible (Same as DPM) |
+| Azure IaaS VM Backup | Coming soon | Coming soon - V2 Linux VMs <br><br>(File system level consistency) |
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Functionality
 These five tables summarize how Backup functionality is handled in each component.
@@ -173,17 +184,6 @@ The Azure Backup agent provides throttling capability which allows you to contro
 | Recovery points in Backup vault | Unlimited | Unlimited | Unlimited |
 | Recovery points on local disk | Not applicable | Not applicable | Not applicable |
 | Recovery points on tape | Not applicable | Not applicable | Not applicable |
-
-## ARM and Linux support
-
-| Component | ARM Support | Linux (Azure endorsed) Support |
-| --- | --- | --- |
-| Azure Backup (MARS) agent | Yes | No (Only Windows based agent) |
-| System Center Data Protection Manager | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible |
-| Azure Backup Server (MABS) | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible (Same as DPM) |
-| Azure IaaS VM Backup | Coming soon | Coming soon - V2 Linux VMs <br><br>(File system level consistency) |
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## What is the vault credential file?
 
