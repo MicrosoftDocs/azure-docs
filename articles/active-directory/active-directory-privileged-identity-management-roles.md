@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: Roles"
+   pageTitle="Roles in PIM | Microsoft Azure"
    description="Learn what roles are used for privileged identities with the Azure Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: Roles
+# Azure AD Privileged Identity Management: Roles
 
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
