@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: How To Use the Audit Log"
+   pageTitle="How to use the audit log | Microsoft Azure"
    description="Learn how to use the audit log in the Azure Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: How to use the audit log
+# Azure AD Privileged Identity Management: How to use the audit log
 
 You can use the Privileged Identity Management (PIM) audit log to see all of the user assignments and activations within a given time period.
 

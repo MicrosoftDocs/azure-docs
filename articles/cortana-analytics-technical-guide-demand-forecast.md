@@ -4,7 +4,7 @@
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
-	manager="ireiter"
+	manager="ilanr9"
 	editor="yijichen"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="inqiu;yijichen"/>
+	ms.author="inqiu;yijichen;ilanr9"/>
 
 # Technical Guide to the Cortana Analytics Solution Template for Demand Forecast in Energy
 
