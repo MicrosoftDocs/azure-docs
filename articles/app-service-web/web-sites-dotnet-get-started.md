@@ -219,7 +219,7 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 	![Settings blade in Azure portal](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-	Notice the **Deployment credentials** link in the **Publishing** section. That's where you can create a custom user name and password for deployment. If you enter a user name and password of your choice there, enter the same values on the **Connection** tab of the **Publish Web** wizard in your web project, replacing the automatically generated credentials. If you make a change on the blade, click the **Save** button at the top of the blade to submit your change.
+	Notice the **Deployment credentials** link in the **Publishing** section. That's where you can create a custom user name and password for deployment. Click the **Save** button at the top of the blade to submit your change. If you create a new user name and password, you have to enter the same values on the **Connection** tab of the **Publish Web** wizard in your web project.
 	
 	The screen shot is only a partial view of the **Settings** blade. There are more sections to this blade than are shown.
 
