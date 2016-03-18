@@ -13,7 +13,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="getting-started-article"
+	ms.topic="get-started-article"
 	ms.date="03/18/2016"
 	ms.author="femila"/>
 
