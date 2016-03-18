@@ -32,11 +32,11 @@ Following are the two methods by which you can install Azure PowerShell. You can
 
 ###Installing Azure PowerShell from WebPI
 
-Installing Azure PowerShell 1.0 and greater from WebPI is the same as it was for 0.9.x. Download [Azure Powershell](http://aka.ms/webpi-azps) and start the install. If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires you to remove the modules before installation to ensure a consistent Azure PowerShell environment.
+Installing Azure PowerShell 1.0 and greater from WebPI is the same as it was for 0.9.x. Download [Azure PowerShell](http://aka.ms/webpi-azps) and start the install. If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires you to remove the modules before installation to ensure a consistent Azure PowerShell environment.
 
 > [AZURE.NOTE] If you have installed the PowerShell Gallery Azure modules, the installer will automatically remove them. This is to prevent confussion about which modules you have installed and where they are located. PowerShell Gallery modules will normally install in **%ProgramFiles%\WindowsPowerShell\Modules**. In contrast, the WebPI installer will install the Azure modules in **%ProgramFiles%\Microsoft SDKs\Azure\PowerShell\**. **PowerShellGet** will uninstall modules and leave behind locked .dlls and their folders if a module dependency is loaded when it's being uninstalled. If an error occurs during install, remove the Azure* folders in your **%ProgramFiles%\WindowsPowerShell\Modules** folder.
 
-If you installed Azure PowerShell via PowerShell Gallery but instead want to use the WebPI installation, the WebPI installation wil automatically remove the cmdlets installed from the gallery.
+If you installed Azure PowerShell via PowerShell Gallery but instead want to use the WebPI installation, the WebPI installation will automatically remove the cmdlets installed from the Gallery.
 
 > [AZURE.NOTE] There is a known issue with PowerShell **$env:PSModulePath** that occurs when installing from WebPI. If your computer requires a restart due to system updates or other installations, it may cause the **$env:PSModulePath** to not include the path where Azure PowerShell is installed. This can be corrected by restarting the machine.
 
@@ -59,7 +59,7 @@ Install Azure PowerShell 1.0 or greater from the Gallery using the following com
 
 ####More about these commands
 
-- **Install-Module AzureRM** installs a bootstrapping module for the AzureRM modules. This module contains cmdlets to help update, uninstall and import the AzureRM modules in a safe and consistent way. The AzureRM module contains a list of modules and the version range (min and max) required to ensure no breaking changes will be introduced for the major version of AzureRM. For more information on semantic versioning, see [semver.org](http://semver.org). This means you can author your cmdlets using a specific version of AzureRM and know that all of the modules installed via the bootstrapper, will introduce no breaking changes.
+- **Install-Module AzureRM** installs a bootstrapping module for the AzureRM modules. This module contains cmdlets to help update, uninstall, and import the AzureRM modules in a safe and consistent way. The AzureRM module contains a list of modules and the version range (min and max) required to ensure no breaking changes will be introduced for the major version of AzureRM. For more information on semantic versioning, see [semver.org](http://semver.org). This means you can author your cmdlets using a specific version of AzureRM and know that all of the modules installed via the bootstrapper, will introduce no breaking changes.
 - **Install-AzureRM** installs all of the modules declared in the bootstrapping module.
 - **Install-Module Azure** installs the Azure module. This module is the Service Management module from Azure PowerShell 0.9.x. This should have no major changes and be interchangeable for the previous version of the Azure module.
 - **Import-AzureRM** imports all of the modules in the AzureRM module's list of modules and versions. This ensures that the Azure PowerShell modules that are loaded are within the version range required by the AzureRM module.
@@ -134,15 +134,15 @@ Sign into your work or school account:
 
 > [AZURE.NOTE] This non-interactive login method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 
-> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
+> 1. Login to the [Azure classic portal](https://manage.windowsazure.com), and click on **Active Directory**.
 
 > 2. If no directory exists, select **Create your directory** and provide the requested information.
 
 > 3. Select your directory and add a new user. This new user can sign in using a work or school account. During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this information, as it is used in step 5 below.
 
-> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
+> 4. From the Azure classic portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
 
-> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
+> 5. Finally, log out of the Azure classic portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
 
 > For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
 
