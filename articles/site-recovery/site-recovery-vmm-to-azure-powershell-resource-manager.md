@@ -20,7 +20,9 @@
 
 > [AZURE.SELECTOR]
 - [Azure Classic Portal](site-recovery-vmm-to-azure.md)
-- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 ## Overview
 
