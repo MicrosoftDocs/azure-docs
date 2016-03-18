@@ -117,7 +117,7 @@ The following sections sets up your app to receive them.
 
 ### Enable in-app messaging
 
-[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-android-send-push.md)]
+[AZURE.INCLUDE [Enable in-app messaging](../../includes/mobile-engagement-android-send-push.md)]
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-xamarin-android-get-started/1.png

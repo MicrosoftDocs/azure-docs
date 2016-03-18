@@ -160,7 +160,7 @@ The following sections sets up your app to receive them.
 
  ![][11]
 
-[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-android-send-push.md)]
+[AZURE.INCLUDE [Enable in-app messaging](../../includes/mobile-engagement-android-send-push.md)]
 
 <!-- URLs. -->
 [Mobile Engagement Android SDK]: https://aka.ms/vq9mfn
