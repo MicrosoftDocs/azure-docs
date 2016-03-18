@@ -19,13 +19,7 @@
 
 # Automatically scale machines in a Virtual Machine Scale Set
 
-> [AZURE.SELECTOR]
-- [Azure CLI](virtual-machines-linux-cli-vmss-create.md)
-- [Azure PowerShell](virtual-machines-windows-ps-vmss-create.md)
 
-<br>
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 Virtual Machine Scale Sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual Machine Scale Sets](virtual-machines-linux-scale-sets-overview.md).
 
