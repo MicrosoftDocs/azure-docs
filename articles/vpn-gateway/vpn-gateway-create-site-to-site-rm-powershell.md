@@ -173,6 +173,8 @@ After a short while, the connection will be established.
 
 ## 9. Verify a VPN connection
 
+There are a few different ways to verify your VPN connection. Below, we'll talk about how to do basic verification by using the Azure portal and by using PowerShell.
+
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 ## <a name="localnet"></a>To modify IP address prefixes for a local network gateway
