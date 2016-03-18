@@ -24,10 +24,11 @@ This topic will add a persistent disk to a Linux based Azure Virtual machine usi
 
 ## Prerequisites
 
-This topic assumes you already have a working Azure Subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)), [installed the Azure CLI](../xplat-cli-install.md) and have already provisioned a VM into your Azure Subscription. You will need to know the Resource Group name, your VM name and the Region they are located in order to proceed. 
+This topic assumes you already have a working Azure Subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)), [installed the Azure CLI](../xplat-cli-install.md) and have already [created a VM](virtual-machines-linux-quick-create-cli.md). You will need to know the resource group name, your VM name, and the region they are located in order to proceed. 
 
-## Connect your AzureCLI terminal to your Azure subscription
-Before doing anything with Azure - you have to authenticate to your subscription. To do this with AzureCLI, simply type `azure login` to start the interactive process. This will connect your session to your Azure subscription and keep it active for up to 30 minutes. 
+## Connect your Azure CLI terminal to your Azure subscription
+
+Before doing anything with Azure - you have to [log on to Azure with the Azure CLI](../xplat-cli-connect.md) and put the CLI in resource group mode by typing `azure config mode arm`.
 
 ## Attach and mount a disk
 
