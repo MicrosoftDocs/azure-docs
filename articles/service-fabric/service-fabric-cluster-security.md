@@ -82,14 +82,16 @@ Login-AzureRmAccount
 ```
 
 The following script will create a new resource group and/or a key vault if they are not already present.
-**Please note: if you're using an existing keyvault, it must be configured to support deployment, by using this script.**
-```
-Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
-```
 
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
 ```
+
+>[AZURE.IMPORTANT] If you're using an existing key vault, you must configure it to support deployment by using this script first:
+```
+Set-AzureRmKeyVaultAccessPolicy -VaultName <name of the vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+```
+
 Here is a filled out script as an example.
 
 ```
