@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="03/18/2016"
 	ms.author="curtand"/>
 
 
 # Managing groups in Azure Active Directory
 
-One of the major features of Azure Active Directory (Azure AD) is the ability to manage access to resources. These resources can be objects in the directory, or resources that are external to the directory, such as SaaS applications, Azure services, SharePoint sites, or on-premises resources. In addition, a resource owner can assign access to a resource to an Azure AD group, which grants the members of that group access to the resource. Membership of the group is managed by the owner of the group, so effectively, the resource owner delegates the permission to assign users to their resource to the owner of the group.
+One of the major features of Azure Active Directory (Azure AD) is the ability to manage access to resources. These resources can be objects in the directory, or resources that are external to the directory, such as SaaS applications, Azure services, SharePoint sites, or on-premises resources. In addition, a resource owner can assign access to a resource to an Azure AD group. This grants the members of that group access to the resource. Then, the owner of the group manages membership in the group. Effectively, the resource owner delegates to the owner of the group the permission to assign users to their resource.
 
 ## How do I create a security group?
 
