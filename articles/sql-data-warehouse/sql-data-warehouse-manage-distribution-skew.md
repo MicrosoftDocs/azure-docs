@@ -1,11 +1,41 @@
+<properties
+   pageTitle="Managing table distribution skew | Microsoft Azure"
+   description="Guidance to help users identify distribution skew in their distributed tables"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="18/03/2016"
+   ms.author="jrj;barbkess;sonyama"/>
+
+# Managing table distribution skew
+When table data is distributed using the hash distribution method there is a chance that the distribution of the data will be "skewed".
+
+If you identify that some distributions have disproportionately more data than others then the table is said to be skewed. Depending on the degree of the skew you may want to address it. Excessive data skew will have an impact on query performance as the distributed compute resources will not be consumed evenly.
+
+This article is designed to help you identify data skew in your hash distributed tables.
+
+## Finding distribution skew
+
+A query like the view below can help you identify skewed tables.
 
 ```
+CREATE VIEW dbo.vDistributionSkew
+AS
 WITH base
 AS
 (
 select 
 	SUBSTRING(@@version,34,4)															AS  [build_number]
+,	GETDATE()																			AS  [execution_time]
 ,	DB_NAME()																			AS  [database_name]
 ,	s.name																				AS  [schema_name]
 ,	t.name																				AS  [table_name]
@@ -40,6 +70,7 @@ join sys.dm_pdw_nodes_db_partition_stats nps	ON	nt.[object_id]			= nps.[object_i
 AS
 (
 SELECT	[build_number]
+,		[execution_time]
 ,		[database_name]
 ,		[schema_name]
 ,		[table_name]
@@ -79,3 +110,43 @@ SELECT	*
 FROM	size
 ;
 ```
+
+Once the view has been created we can simply query it to validate the skew in our tables using a query like the one below.
+
+```
+SELECT	[two_part_name]
+,		[distribution_id]
+,		[row_count]
+,		[reserved_space_GB]
+,		[unused_space_GB]
+,		[data_space_GB]
+,		[index_space_GB]
+FROM	[dbo].[vDistributionSkew]
+WHERE	[table_name] = 'FactInternetSales'
+ORDER BY [row_count] DESC
+```
+
+>[AZURE.NOTE] ROUND_ROBIN distributed tables should not be skewed. Data is distributed evenly across the nodes by design.
+
+## Resolving data skew
+There are times when the skew is worth retaining. Typically this is when the table is being joined on a shared distribution key.
+
+However, to resolve data skew a different column would typically be chosen. Using ROUND_ROBIN instead of HASH is also an option.
+
+Refer to the recommendations section in the [Hash distribution][] article for further guidance on selecting a different column.
+
+## Next Steps
+For more details on table distribution please refer to the following articles:
+
+* [Table design][]
+* [Hash distribution][]
+
+<!--Image references-->
+
+<!--Article references-->
+[Table design]: sql-data-warehouse-develop-table-design.md
+[Hash distribution]: sql-data-warehouse-develop-hash-distribution-key.md
+
+<!--MSDN references-->
+
+<!--Other Web references-->

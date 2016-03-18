@@ -24,29 +24,34 @@ As you would expect SQL Data Warehouse does offer support for all transactional 
 SQL Data Warehouse implements ACID transactions. However, the Isolation of the transactional support is limited to `READ UNCOMMITTED` and this cannot be changed. You can implement a number of coding methods to prevent dirty reads of data if this is a concern for you. The most popular methods leverage both CTAS and table partition switching (often known as the sliding window pattern) to prevent users from querying data that is still being prepared. Views that pre-filter the data is also a popular approach.  
 
 ## Transaction size
-A single data modification transaction is limited in size. The limit today is applied "per distribution". To get the total figure therefore we must multiply the limit by the distribution count.
+A single data modification transaction is limited in size. The limit today is applied "per distribution". To get the total figure therefore we must multiply the limit by the distribution count. To approximate the maximum number of rows in the transaction divide the distribution cap by the total size of each column. For variable length columns consider taking an average column length rather than using the maximum size.
 
-| DWU	 | Cap per distribution (GiB) | Number of Distributions | MAX transaction size (GiB) |
-| ------ | -------------------------- | ----------------------- | -------------------------- |
-| DW100	 |   3                        | 60                      |    180                     |
-| DW200	 |   6                        | 60                      |    360                     |
-| DW300	 |   9                        | 60                      |    540                     |
-| DW400	 |  12                        | 60                      |    720                     |
-| DW500	 |  15                        | 60                      |    900                     |
-| DW600	 |  18                        | 60                      |  1,080                     |
-| DW1000 |  30                        | 60                      |  1,800                     |
-| DW1200 |  36                        | 60                      |  2,160                     |
-| DW1500 |  45                        | 60                      |  2,700                     |
-| DW2000 |  60                        | 60                      |  3,600                     |
-| DW3000 |  90                        | 60                      |  5,400                     |
-| DW6000 | 120                        | 60                      |  7,200                     |
- 
+In the table below the following assumptions have been made:
+* An even distribution of data has occurred 
+* The average row length is 250 bytes
+
+| DWU	 | Cap per distribution (GiB) | Number of Distributions | MAX transaction size (GiB) | # Rows per distribution | Max Rows per transaction |
+| ------ | -------------------------- | ----------------------- | -------------------------- | ----------------------- | ------------------------ |
+| DW100	 |   3                        | 60                      |    180                     |  12,000,000             |    720,000,000           |
+| DW200	 |   6                        | 60                      |    360                     |  24,000,000             |  1,440,000,000           |
+| DW300	 |   9                        | 60                      |    540                     |  36,000,000             |  2,160,000,000           |
+| DW400	 |  12                        | 60                      |    720                     |  48,000,000             |  2,880,000,000           |
+| DW500	 |  15                        | 60                      |    900                     |  60,000,000             |  3,600,000,000           |
+| DW600	 |  18                        | 60                      |  1,080                     |  72,000,000             |  4,320,000,000           |
+| DW1000 |  30                        | 60                      |  1,800                     | 120,000,000             |  7,200,000,000           |
+| DW1200 |  36                        | 60                      |  2,160                     | 144,000,000             |  8,640,000,000           |
+| DW1500 |  45                        | 60                      |  2,700                     | 180,000,000             | 10,800,000,000           |
+| DW2000 |  60                        | 60                      |  3,600                     | 240,000,000             | 14,400,000,000           |
+<!--
+| DW3000 |  90                        | 60                      |  5,400                     | 360,000,000             | 21,600,000,000           |
+| DW6000 | 120                        | 60                      |  7,200                     | 720,000,000             | 43,200,000,000           |
+-->
+The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. 
+
+To optimize and minimize the amount of data written to the log please refer to the [transactions best practices][] article.
+
 > [AZURE.WARNING] The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
 <!--REPLICATED_TABLE-->
-
-You can approximate the size of your transaction by summing up the size of the columns and multiplying by the number of rows being modified. For variable length columns consider taking an average column length rather than using the maximum size.
-
-The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. To optimize and minimize the amount of data written to the log please refer to the [transactions best practices][] article.
 
 ## Transaction state
 SQL Data Warehouse uses the XACT_STATE() function to report a failed transaction using the value -2. This means that the transaction has failed and is marked for rollback only
