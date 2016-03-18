@@ -101,7 +101,7 @@ Click the checkmark on the bottom of the page and your virtual network will begi
 
 ## Configure your virtual network gateway
 
-Next, you'll configure the virtual network gateway in order to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure Classic Portal](vpn-gateway-configure-vpn-gateway-mp.md).
+Next, you'll configure the virtual network gateway in order to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure classic portal](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Next steps
 
