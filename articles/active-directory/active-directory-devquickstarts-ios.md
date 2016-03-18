@@ -220,8 +220,12 @@ Congratulations! You now have a working iOS application that has the ability to 
 
 ADAL makes it easy to incorporate all of these common identity features into your application.  It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.  All you really need to know is a single API call, `getToken`.
 
-For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  You can now move on to additional scenarios.  You may want to try:
+For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
-[Secure a Node.JS Web API with Azure AD >>](../active-directory-devquickstarts-webapi-nodejst.md)
+## Additional scenarios
+You can now move on to additional scenarios.  You may want to try:
+
+[Secure a Node.JS Web API with Azure AD](../active-directory-devquickstarts-webapi-nodejst.md)  
+Learn [How to enable cross-app SSO on iOS using ADAL](active-directory-sso-ios.md)  
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
