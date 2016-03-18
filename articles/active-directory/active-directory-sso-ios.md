@@ -35,7 +35,7 @@ This walkthrough applies to:
 * Azure Active Directory B2B
 
 
-Note that the document below assumes you have knowledge of how to [provision applications in the legacy portal for Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-how-to-integrate/) as well as have integrated your application with the [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
+Note that the document below assumes you have knowledge of how to [provision applications in the legacy portal for Azure Active Directory](active-directory-how-to-integrate.md) as well as have integrated your application with the [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## SSO Concepts in the Microsoft Identity Platform
 
