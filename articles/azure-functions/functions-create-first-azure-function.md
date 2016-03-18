@@ -20,8 +20,6 @@
 
 # Create your first Azure Function
 
-In this short video you will learn how easy it is to create, run and test an Azure Function. Learn more about [Azure Function](functions-overview)  
-
-[comment]: <> ([AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)])
+[AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
 
 [AZURE.VIDEO 9059]
