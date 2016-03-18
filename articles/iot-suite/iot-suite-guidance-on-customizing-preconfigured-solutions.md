@@ -28,10 +28,7 @@ The source code for the preconfigured solutions is available on GitHub in the fo
 - Remote Monitoring: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 - Predictive Maintenance: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-The source code for the preconfigured solutions is provided to demonstrate the patterns and practices used to implement the end-to-end functionality of an IoT solution using Azure IoT Suite. Guidance on building and deploying from the command line is in the GitHub wiki for each preconfigured solution: 
-
-- [Remote Monitoring Wiki](https://github.com/Azure/azure-iot-remote-monitoring/wiki)
-- [Predictive Maintenance Wiki](https://github.com/Azure/azure-iot-predictive-maintenance/wiki)
+The source code for the preconfigured solutions is provided to demonstrate the patterns and practices used to implement the end-to-end functionality of an IoT solution using Azure IoT Suite. You can find more information about how to build and deploy the solutions in the GitHub repositories.
 
 ## Manage the permissions in a preconfigured solution
 The solution portal for each preconfigured solution is created as a new Azure Active Directory application. You can manage the permissions for your solution portal (AAD application) as follows:
@@ -84,9 +81,11 @@ Additionally, Azure IoT provides a [C SDK Sample](https://github.com/Azure/azure
 
 The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries for connecting numerous device types (languages and operating systems) into IoT solutions.
 
-## Next steps
+## Feedback
 
-Have a customization you'd like to see covered in this document? Please add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), comment on this article below, or send us a mail at iotsolhelp@microsoft.com. 
+Have a customization you'd like to see covered in this document? Please add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), or comment on this article below. 
+
+## Next steps
 
 For more information about IoT devices, see the [Azure IoT Developer Site](https://azure.microsoft.com/develop/iot/) to find links and documentation.
 

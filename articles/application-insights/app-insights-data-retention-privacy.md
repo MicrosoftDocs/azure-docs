@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
@@ -80,6 +80,8 @@ If you're developing the app using Visual Studio, run the app in debug mode (F5)
 
 ![](./media/app-insights-data-retention-privacy/06-vs.png)
 
+There's also a more readable view in the Diagnostics window.
+
 For web pages, open your browser's debugging window.
 
 ![Press F12 and open the Network tab.](./media/app-insights-data-retention-privacy/08-browser.png)
@@ -94,9 +96,9 @@ This would be possible by writing a [telemetry processor plugin](app-insights-ap
 
 It depends on your [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/).
 
-Raw data points (that is, items that you can inspect in Diagnostic Search): between 7 and 30 days.
+Raw data points (that is, items that you can inspect in Diagnostic Search): 7 days. If you need to keep data longer than that, you can use [continuous export](app-insights-export-telemetry.md) to copy it to a storage account.
 
-Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.
+Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 90 days.
 
 
 ## Who can access the data?
@@ -116,7 +118,7 @@ Microsoft uses the data only in order to provide the service to you.
 
 #### Can it be stored somewhere else, for example in Europe? 
 
-* Not yet. 
+* Not at present. 
 
 ## How secure is my data?  
 

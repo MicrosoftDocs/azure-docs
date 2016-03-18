@@ -52,11 +52,11 @@ If you simply want to pause data migration, see [Pause and resume Stretch Databa
 
 ### Use Transact\-SQL to disable Stretch Database for a table
 
--   To disable Stretch for a table and copy the remote data for the table from Azure SQL Database back to SQL Server, run the following command. This command can't be canceled.
+-   To disable Stretch for a table and copy the remote data for the table from Azure back to SQL Server, run the following command. This command can't be canceled.
 
     ```tsql
     ALTER TABLE <table name>
-       SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;
+       SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;
     ```
     This operation incurs data transfer costs. For more info, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
 
