@@ -7,8 +7,8 @@ Other data points per month | 5 million | 50 million<sup>2</sup>
 Trace or Log data rate | 200 dp/s | 500 dp/s
 Exception data rate | 50 dp/s | 50 dp/s
 Other telemetry data rate | 200 dp/s | 500 dp/s
-Raw  data retention |7 days| 30 days
-Aggregated data retention | 13 months | unlimited
+Raw  data retention | 7 days
+Aggregated data retention | 90 days
 Property name count across the app | 100 | 100
 Property name length | 100 | 100
 Property value length | 1000 | 1000

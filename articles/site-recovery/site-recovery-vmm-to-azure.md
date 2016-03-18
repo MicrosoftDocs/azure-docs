@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 #  Replicate Hyper-V virtual machines in VMM clouds to Azure
+
+> [AZURE.SELECTOR]
+- [Azure Classic Portal](site-recovery-vmm-to-azure.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
 
@@ -43,7 +48,7 @@ Here's what you'll need in Azure.
 **Prerequisite** | **Details**
 --- | ---
 **Azure account**| You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. 
-**Azure storage** | You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). The account must in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>[Read about](../storage/storage-introduction.md) Azure storage.
+**Azure storage** | You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). The account must in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used. We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.<br/><br/>[Read about](../storage/storage-introduction.md) Azure storage.
 **Azure network** | You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Site Recovery vault. 
 
 ## On-premises prerequisites
@@ -196,6 +201,8 @@ Where parameters are as follows:
 
 	![Storage account](./media/site-recovery-vmm-to-azure/storage.png)
 
+>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+
 ## Step 5: Install the Azure Recovery Services Agent
 
 Install the Azure Recovery Services agent on each Hyper-V host server in the VMM cloud.
@@ -229,7 +236,10 @@ After the VMM server is registered, you can configure cloud protection settings.
 1. On the Quick Start page, click **Set up protection for VMM clouds**.
 2. On the **Protected Items** tab, click on the cloud you want to configure and go to the **Configuration** tab.
 3. In **Target** select **Azure**.
-4. In **Storage Account** select the Azure storage account you use for replication.
+4. In **Storage Account** select the Azure storage account you use for replication. 
+
+	>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+
 5. Set **Encrypt stored data** to **Off**. This setting specifies that data should be encrypted replicated between the on-premises site and Azure.
 6. In **Copy frequency** leave the default setting. This value specifies how frequently data should be synchronized between source and target locations.
 7. In **Retain recovery points for**, leave the default setting. With a default value of zero, only the latest recovery point for a primary virtual machine is stored on a replica host server.
