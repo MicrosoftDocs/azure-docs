@@ -77,7 +77,7 @@ The command shell also provides the following output.
 
     /info:    Added subscription Visual Studio Ultimate with MSDN
     info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
-	+
+    +
     info:    login command OKK
 
 In addition to the interactive login method described here, there are additional Azure CLI login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
@@ -91,7 +91,7 @@ By default, the Azure CLI starts in the service management mode (**asm** mode). 
 Which provides the following output:
 
     info:    Executing command config mode
-	info:    New mode is arm
+    info:    New mode is arm
     info:    config mode command OK
 
 You can switch back to the default set of commands by typing `azure config mode asm`.
@@ -345,7 +345,7 @@ Now that you have a DocumentDB account, the next step is to create a DocumentDB 
 
 After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](documentdb-view-json-document-explorer.md) to the collections. 
 
-After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the preview portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 To learn more about DocumentDB, explore these resources:
 
@@ -353,3 +353,4 @@ To learn more about DocumentDB, explore these resources:
 -	[DocumentDB resource model and concepts](documentdb-resources.md)
 
 For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/).
+

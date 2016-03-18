@@ -35,7 +35,7 @@ The sample template available in the public repository uses a parameter file con
 
 To deploy the template you downloaded by using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../../articles/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
 
 2. Download the [parameters](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) file to your local disk.<BR>
@@ -53,7 +53,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 
 To deploy the template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
 		azure config mode arm
