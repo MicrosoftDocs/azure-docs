@@ -65,7 +65,7 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
 		$resourceGroupName = "<Resource Group Name>"
 		$clusterName = "<HDInsight cluster name>"             # HDInsight cluster name
 		
-		Select-AzureRmSubscription $subscriptionName
+		Select-AzureRmSubscription -SubscriptionName $subscriptionName
 		
 		# Define the MapReduce job
 		$mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `

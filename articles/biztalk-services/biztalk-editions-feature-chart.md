@@ -4,8 +4,8 @@
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/08/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 
@@ -216,7 +216,7 @@ BizTalk Services provides a true Platform-as-a-Service (PaaS) architecture for b
 - Microsoft ensures availability.
 - You control scale on-demand by simply requesting more or less capacity through the Azure portal.
 
-BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service (IaaS) architecture. You  create virtual machines and configure them exactly like your on-premises environment, making it easier to run existing applications in the cloud with no code changes. With IaaS, you are still responsible for configuring the virtual machines,  managing the virtual machines (for example, installing software and OS patches), and  architecting the application for high availability.
+BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service (IaaS) architecture. You  create virtual machines and configure them exactly like your on-premises environment, making it easier to run existing applications in the cloud with no code changes. With IaaS, you are still responsible for configuring the virtual machines,  managing the virtual machines (for example, installing software and OS patches), and architecting the application for high availability.
 
 If you are looking at building new integration solutions that minimize your infrastructure management effort, use BizTalk Services. If you are looking to quickly migrate your existing BizTalk solutions or looking for an on-demand environment to develop and test BizTalk Server applications, use BizTalk Server on an Azure Virtual Machine.
 

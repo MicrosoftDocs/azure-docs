@@ -11,8 +11,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.workload="NA"
+   ms.date="02/29/2016"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device (Update 2)

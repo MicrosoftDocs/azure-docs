@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="billmath"/>
 
 # Next steps and how to manage Azure AD Connect
 The following are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organization's needs and requirements.  
+
+## Add additional sync administrators
+By default only the user who did the installation and local administrators will be able to manage the installed sync engine. For additional people to be able to access and manage the sync engine, locate the group named ADSyncAdmins on the local server and add them to this group.
 
 ## Optional configuration on your AD FS service
 You can customize the illustration and logo image for your AD FS login pages by logging into the AD FS and using PSH to make this configuration.
@@ -57,6 +60,8 @@ If you want to check on the status of a synchronization you can do this by check
 If you need to run a synchronization task you can do this by running through the Azure AD Connect wizard again.  You will need to provide your Azure AD credentials.  In the wizard, select the **Customize synchronization options** task and click next through the wizard. At the end, ensure that the **Start the synchronization process as soon as the initial configuration completes** box is checked.
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
+
+For more information on the Azure AD Connect sync: Scheduler, see [Azure AD Connect Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 
 
 ## Additional tasks available in Azure AD Connect

@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
-#BizTalk XPath Extractor
+# BizTalk XPath Extractor
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
 
 BizTalk XPath Extract connector helps your app lookup and extract data from XML content based on a given XPath.
 

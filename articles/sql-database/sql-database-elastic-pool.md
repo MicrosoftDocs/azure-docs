@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jhubbard"
+	manager="jeffreyg"
 	editor="cgronlun"/>
 
 <tags
@@ -27,13 +27,13 @@ For API and error details, see [Elastic database pool reference](sql-database-el
 
 ## How it works
 
-A common SaaS application pattern is for each customer to be given a database. Each customer (database) has unpredictable resource requirements (CPU/IO/Memory summarized with DTU). With these peaks and valleys of demand, how do you allocate resources? Two options: (1) over-provision resources based on peak usage—and overpay. Or (2) under-provision to save cost—at the expense of performance and customer satisfaction during peaks.
-
-Elastic database pools solve this problem.
+A common SaaS application pattern is for each customer to be given a database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources? Traditionally, you had two options: either over-provision resources based on peak usage, and over pay, or under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic database pools solve this problem by ensuring that databases get the performance resources they need, when they need it, while  providing a simple resource allocation mechanism within a predictable budget.
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
-Elastic database pools ensure that databases get the performance resources they need, when they need it, while  providing a simple resource allocation mechanism and a predictable budget. A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load don’t consume any eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool. 
+In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic database pools. See the [Introduction to SQL Database](sql-database-technical-overview.md#understand-dtus) to learn more about DTUs and eDTUs.
+
+A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load don’t consume any eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool. 
 
 Additional eDTUs can be added to an existing pool with no database downtime or negative impact on the databases. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time.
 

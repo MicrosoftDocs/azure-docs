@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -22,7 +22,8 @@
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Overview  
-The [Azure Storage Client Library for Java](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
+
+The [Azure Storage Client Library for Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 ## Encryption and decryption via the envelope technique    
 The processes of encryption and decryption follow the envelope technique.  
@@ -241,8 +242,9 @@ Note that encrypting your storage data results in additional performance overhea
 
 ## Next steps  
 
-- Download the [Azure Storage Client Library for Java Maven package](https://github.com/Azure/azure-storage-java)  
+- Download the [Azure Storage Client Library for Java Maven package](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 - Download the [Azure Storage Client Library for Java Source Code from GitHub](https://github.com/Azure/azure-storage-java)   
-- Download the Azure Key Vault Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/),
-[Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages
+- Download the Azure Key Vault Maven Library for Java Maven packages:
+	- [Core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) package
+	- [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) package
 - Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)  

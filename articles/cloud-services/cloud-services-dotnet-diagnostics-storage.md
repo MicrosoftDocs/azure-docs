@@ -12,7 +12,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="10/21/2015"
+  ms.date="02/20/2016"
   ms.author="robb" />
 
 # Store and view diagnostic data in Azure Storage
@@ -83,11 +83,12 @@ Log data is stored in either Blob or Table storage with the following names:
 ## Tools to view diagnostic data
 Several tools are available to view the data after it is transferred to storage. For example:
 
-- **Server Explorer in Visual Studio** - If you have installed the Azure Tools for Microsoft Visual Studio, you can use the Azure Storage node in Server Explorer to view read-only blob and table data from your Azure storage accounts. You can display data from your local storage emulator account and also from storage accounts you have created for Azure. For more information, see [Browsing Storage Resources with Server Explorer](https://msdn.microsoft.com/library/ff683677.aspx).
+- Server Explorer in Visual Studio - If you have installed the Azure Tools for Microsoft Visual Studio, you can use the Azure Storage node in Server Explorer to view read-only blob and table data from your Azure storage accounts. You can display data from your local storage emulator account and also from storage accounts you have created for Azure. For more information, see [Browsing and Managing Storage Resources with Server Explorer](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 
-- **Azure Storage Explorer by Neudesic** - [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) is a useful graphical user interface tool for inspecting and altering the data in your Azure storage projects including the logs of your Azure applications. To download the tool, see [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
+- [Azure Storage Explorer by Neudesic](http://azurestorageexplorer.codeplex.com/) is a useful graphical user interface tool for inspecting and altering the data in your Azure storage projects including the logs of your Azure applications.
 
-- Azure Diagnostics Manager by Cerebrata - [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) is a Windows (WPF) based client for managing Azure Diagnostics. It lets you view, download, and manage the diagnostics data collected by the applications running in Azure. To download the tool, see [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx).
+- [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) includes Azure Diagnostics Manager which allows you to view, download and manage the diagnostics data collected by the applications running on Azure.
+
 
 ## Next Steps
 

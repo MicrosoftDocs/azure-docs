@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/04/2015" 
+	ms.date="02/19/2016" 
 	ms.author="elizapo"/>
 
 # What is Azure RemoteApp?

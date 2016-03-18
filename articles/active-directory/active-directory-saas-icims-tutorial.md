@@ -73,6 +73,7 @@ To configure the integration of ICIMS into Azure AD, you need to add ICIMS from 
 ![Creating an Azure AD test user](./media/active-directory-saas-icims-tutorial/tutorial_icims_01.png)<br>
 7. In the results pane, select **ICIMS**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-icims-tutorial/tutorial_icims_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with ICIMS based on a test user called "Britta Simon".
@@ -107,6 +108,8 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
     a. In the Sign On URL textbox, type the URL used by your users to sign-on to your ICIMS application using the following pattern: **“https://\<TenantName\>.icims.com”**.
+
+    b. Click **Next**.
 
 
 4. On the **Configure single sign-on at ICIMS** page, perform the following steps:

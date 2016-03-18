@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Using the Yammer connector in your logic app #
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Yammer API](../connectors/connectors-create-api-yammer.md).
+
 Connect to Yammer and Post Messages action and a trigger to retrieve new message.
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.

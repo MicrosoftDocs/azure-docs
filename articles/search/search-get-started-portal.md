@@ -20,7 +20,7 @@
 # Get started with Azure Search in the portal
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 This code-free introduction gets you started with Microsoft Azure Search using capabilities built right into the portal. 
 
@@ -48,14 +48,16 @@ There are several ways to create an index. If your data is in a store that Azure
 
 To keep this task portal-based, we'll assume data from DocumentDB that can be crawled using an indexer via the **Import data** wizard. 
 
-Optionally, create a [sample DocumentDB database](#apdx-sampledata) to use with this tutorial.
+Before you continue, create a [sample DocumentDB database](#apdx-sampledata) to use with this tutorial, and then return to this section to complete the steps below.
 
 <a id="defineDS"></a>
 #### Step 1: Define the data source
 
 1. On your Azure Search service dashboard, click **Import data** in the command bar to start a wizard that both creates and populates an index.
 
-2. Click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. A data source is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
+  ![][7]
+
+2. In the wizard, click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. A data source is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
 
 3. Choose your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition will look like this:
 
@@ -146,7 +148,7 @@ You can try this same workflow, using the Import data wizard for other data sour
 <a id="apdx-sampledata"></a>
 
 
-## Appendix: Get sample data from this DocumentDB database
+## Appendix: Create sample data in DocumentDB
 
 This section creates a small database in DocumentDB that can be used to complete the tasks in this tutorial.
 
@@ -154,11 +156,10 @@ The following instructions give you general guidance, but are not exhaustive. If
 
   ![][1]
 
-We provide 246 JSON documents for this dataset.
+### Create musicstoredb for this tutorial
 
-[Click here](https://github.com/HeidiSteen/azure-search-get-started-sample-data) to download a ZIP file containing the music store JSON data files. 
-
-1. Add DocumentDB to your subscription and then open the service dashboard.
+1. [Click here](https://github.com/HeidiSteen/azure-search-get-started-sample-data) to download a ZIP file containing the music store JSON data files. We provide 246 JSON documents for this dataset.
+2. Add DocumentDB to your subscription and then open the service dashboard.
 2. Click **Add Database** to create a new database with an id of `musicstoredb`. It will show up in a database list further down the page after it's created.
 2. Click on the database name to open the database blade.
 3. Click **Add Collection** to create a collection with an id of `musicstorecoll`.
@@ -169,9 +170,10 @@ We provide 246 JSON documents for this dataset.
 	- 387.json
 	- . . .
 6. Click **Query Explorer** to verify the data is uploaded to meet the upload requirements of Document Explorer.
-7. An easy way to do this is to modify the default query so that it selects the top 300 (there are less than 300 items in total), or you can write `select * from musicstorecoll`, and then click **Run Query**.
 
-You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [use it to begin this walkthrough](#defineDS) using the Azure Search **Import wizard**.
+An easy way to do this is to modify the default query so that it selects the top 300 (there are fewer than 300 items in this dataset), or you can write `select * from musicstorecoll`, and then click **Run Query**.
+
+You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [return to the steps in this walkthrough](#defineDS) to build an index using the  **Import wizard**.
 
 
 <!--Image references-->
@@ -181,3 +183,4 @@ You should get back JSON output, starting with document number 386, and ending w
 [4]: ./media/search-get-started-portal/AzureSearch-GetStart-FinishedIndex.png
 [5]: ./media/search-get-started-portal/AzureSearch-GetStart-ImportReady.png
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
+[7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png

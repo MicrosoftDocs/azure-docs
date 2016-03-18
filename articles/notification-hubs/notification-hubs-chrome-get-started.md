@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Chrome apps
@@ -410,7 +410,8 @@ You should see the following view for your folder at the end of this:
 
 In this tutorial, you send notifications by using a .NET console application. However, you can send notifications by using Notification Hubs from any backend via the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>.
 
-For an example of how to send notifications from an Azure Mobile Services backend that's integrated with Notification Hubs, see "Get started with push notifications in Mobile Services" ([.NET backend](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](../mobile-services-javascript-backend-android-get-started-push.md)).  
+For an example of how to send notifications from an Azure Mobile Services backend that's integrated with Notification Hubs, see [Get started with push notifications in Mobile Services](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
+  
 For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP/Python" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
 
 1. In Visual Studio, from the **File** menu, select **New** and then **Project**. Under **Visual C#**, click **Windows** and **Console Application**, and then click **OK**.  This creates a new console application project.

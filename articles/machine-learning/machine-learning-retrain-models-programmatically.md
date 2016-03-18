@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Retrain Machine Learning models programmatically | Microsoft Azure"
 	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning."
 	services="machine-learning"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="03/17/2016"
 	ms.author="raymondl;garye"/>
 
 
 #Retrain Machine Learning models programmatically  
 
-As part of the process of operationalization of machine learning models in Azure Machine Learning, a model needs to be trained and saved, then used to create a predicative web service. The web service can then be consumed in web sites, dashboards, and mobile apps.  
+As part of the process of operationalization of machine learning models in Azure Machine Learning, a model needs to be trained and saved, then used to create a predictive web service. The web service can then be consumed in web sites, dashboards, and mobile apps.  
 
-Frequently, you need to retrain the model created in the first step with new data. Previously, this was only possible through the Azure ML UI, but with the introduction of the Programmatic Retraining API feature, you now can retrain the model and update the Web Service with the newly trained model, programmatically using the Retraining APIs.  
+Frequently, you need to retrain the model created in the first step with new data. Previously, this was only possible through the Azure ML UI, but with the introduction of the Programmatic Retraining API feature, you now can retrain the model and update the Web Service with the newly trained model, programmatically using the Retraining APIs.
 
 This document describes the above process, and shows how to use the Retraining APIs.
 
@@ -34,7 +34,7 @@ As part of the ML training process, a model is trained using a set of data. The 
 In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web Service API to use the newly trained model.  
 
 ##How to retrain: the end to end process  
-To start, the process involves the following components: a Training Experiment and a Predicative Experiment published as a Web Service. To enable retraining of a trained model, the Training Experiment has to also be published as a Web Service with the output of a trained model. This enables API access to the model for retraining. The process for setting up retraining involves the following steps:  
+To start, the process involves the following components: a Training Experiment and a Predictive Experiment published as a Web Service. To enable retraining of a trained model, the Training Experiment has to also be published as a Web Service with the output of a trained model. This enables API access to the model for retraining. The process for setting up retraining involves the following steps:  
 
 ![][1]
 
@@ -50,10 +50,10 @@ Diagram 1: Retraining process overview
 
 	![][3]
 
-	After experiment run is completed, we click on Create Predicative Experiment. This creates a Predicative Experiment, saves the model as a Trained Model and adds Web Service Input and Output modules as shown below. Next, we click Run.  
+	After experiment run is completed, we click on Create Predictive Experiment. This creates a Predictive Experiment, saves the model as a Trained Model and adds Web Service Input and Output modules as shown below. Next, we click Run.  
 
-	After experiment run is completed, clicking on “Publish Web Service” will publish the Predicative Experiment as a Web Service and create a default endpoint. The trained model in this webservice is updatable, as shown below. The details for this endpoint will then show up on the screen.  
-3. *Publish the Training Experiment as a Web Service*
+	After experiment run is completed, clicking on “Publish Web Service” will publish the Predictive Experiment as a Web Service and create a default endpoint. The trained model in this webservice is updatable, as shown below. The details for this endpoint will then show up on the screen.
+3. *Publish the Training Experiment as a Web Service*:
 	To re-train the trained model, we need to publish the Training Experiment we created in step 1 above as a Web Service. This Web Service will need a Web Service Output module connected to the [Train Model][train-model] module, to be able to produce new trained models.
 Click on the Experiments icon in the left pane, then click on the experiment called Census Model to go back to the training experiment.  
 
@@ -65,8 +65,9 @@ Click on the Experiments icon in the left pane, then click on the experiment cal
 
 	We next click on the Deploy Web Service button, then click Yes. This will deploy the Training Experiment as a Web Service that produces a trained model and model evaluation results. The Web Service Dashboard will be displayed with the API Key and the API help page for Batch Execution. Note that only the Batch Execution method can be used for creating Trained Models.  
 4. *Add a new Endpoint*  
-	The Predicative Web Service we published in Step 2 above was created with a default endpoint. The default endpoints are kept in sync with the original training and scoring experiments, and therefore a default endpoint's trained model cannot be replaced.
-To create an updatable endpoint visit the Azure Classic Portal and click on Add Endpoint (more details [here](machine-learning-create-endpoint.md)).
+	The Predictive Web Service we published in Step 2 above is the default scoring endpoint. The default endpoints are kept in sync with the original training and scoring experiments, and therefore a default endpoint's trained model cannot be replaced.
+To create a new scoring endpoint with an update-able model, visit the Azure Classic Portal and click on Add Endpoint (more details [here](machine-learning-create-endpoint.md)).
+You can also add scoring endpoints using the sample code provided [here](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
 
 5. *Retrain the model with new data and BES*  
 	To call the Retraining APIs, we create a new C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).  
@@ -104,9 +105,9 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 	This will tell us if the newly trained model performs well enough to replace the existing one.
 
 7. *Update the added endpoint’s Trained Model*  
-	To complete the process, we need to update the trained model of the predicative endpoint we created in Step 4 above.  
+	To complete the process, we need to update the trained model of the predictive (scoring) endpoint we created in Step 4 above.  
 
-	(If you added the new endpoint using the Azure Portal, you can click on the new endpoint's name, then the UpdateResource link to get the URL you would need to update the endpoint's model.)
+	(If you added the new endpoint using the Azure Portal, you can click on the new endpoint's name, then the UpdateResource link to get the URL you would need to update the endpoint's model. If you added the endpoint using code, the output of that call will have the endpoint URL.)
 
 	The BES output above shows the information for the result of retraining for “output1” which contains the retrained model location information. We now need to take this trained model and update the scoring endpoint (created  in step 4 above). Sample code follows:
 
@@ -151,6 +152,8 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 	```
 
 	The “apiKey” and the “endpointUrl” for this call are visible on the endpoint dashboard. The "Name" parameter in Resources should match the name of the Saved Trained Model in the Predictive Experiment.
+	
+	Note that the SAS token expires after 1 hour (55 minutes). You would need to do a GET with the Job Id to get a fresh token.
 
 	With the success of this call, the new endpoint will start using a retrained model approximately within 15 seconds.  
 
