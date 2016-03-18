@@ -88,9 +88,9 @@ Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupNa
 ```
 
 >[AZURE.IMPORTANT] If you're using an existing key vault, you must configure it to support deployment by using this script first:
-```
-Set-AzureRmKeyVaultAccessPolicy -VaultName <name of the vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
-```
+>```
+>Set-AzureRmKeyVaultAccessPolicy -VaultName <name of the vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+>```
 
 Here is a filled out script as an example.
 
