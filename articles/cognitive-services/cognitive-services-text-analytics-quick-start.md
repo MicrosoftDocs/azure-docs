@@ -45,7 +45,6 @@ For these tasks, you will need an editor and call the RESTful endpoints in your 
 
 Let's get started!
 
-<a name="Task1"></a>
 ## Task 1 - Signing up for the Text Analytics APIs ####
 
 In this task, you will sign up for the text analytics service.
@@ -59,7 +58,6 @@ In this task, you will sign up for the text analytics service.
 1. After you sign up for Text Analytics, you'll be given an **API Key**. Copy this key, as you'll need it when using the API services.
 
 
-<a name="Task2"></a>
 ## Task 2 - Detect sentiment, key phrases and languages ####
 
 It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](http://text-analytics-demo.azurewebsites.net) returns.
@@ -155,7 +153,6 @@ It's easy to detect sentiment, key phrases and languages in your text. You will 
 
         
 
-<a name="Task3"></a>
 ## Task 3 - Detect topics in a corpus of text ####
 
 This is a newly released API which returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. The API is designed to work well for short, human written text such as reviews and user feedback.
