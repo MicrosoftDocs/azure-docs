@@ -26,7 +26,7 @@ If you can't connect to a Windows virtual machine because of a forgotten passwor
 
 Depending on the deployment model of your virtual machine, you can either use the portal or the VM Access extension in Azure PowerShell. If you are using Azure PowerShell, make sure you have the latest Azure PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
 
->[Azure.TIP] You can check the version of Azure PowerShell that you have installed with the **Get-Module azure | format-table version** command. 
+> [Azure.TIP] You can check the version of Azure PowerShell that you have installed with the **Get-Module azure | format-table version** command. 
 
 
 ## Windows VMs in classic deployment model
@@ -125,7 +125,8 @@ OR<br>
 	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
 
 	
-[AZURE.TIP] Both the `Set-AzureRmVMAccessExtension` and `Set-AzureRmVMExtension` add a new named VM access agent to the virtual machine. At any point, a VM can only have a single VM access agent. To set the VM access agent properties successively, remove the access agent set previously by using either `Remove-AzureRmVMAccessExtension` or `Remove-AzureRmVMExtension`. Starting from Azure PowerShell version 1.2.2, you can avoid this step when using `Set-AzureRmVMExtension` with a `-ForceRerun` option. Make sure to use the same name for the VM access agent as set by the previous command when using the `-ForceRerun` option.
+> [AZURE.TIP] Both the `Set-AzureRmVMAccessExtension` and `Set-AzureRmVMExtension` add a new named VM access agent to the virtual machine. At any point, a VM can only have a single VM access agent. To set the VM access agent properties successively, remove the access agent set previously by using either `Remove-AzureRmVMAccessExtension` or `Remove-AzureRmVMExtension`. Starting from Azure PowerShell version 1.2.2, you can avoid this step when using `Set-AzureRmVMExtension` with a `-ForceRerun` option. Make sure to use the same name for the VM access agent as set by the previous command when using the `-ForceRerun` option.
+
 
 If you still cannot connect remotely to your virtual machine, see more steps to try at [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
