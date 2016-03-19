@@ -89,11 +89,11 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 **Community posts:**
 
-* [**https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *by Matias Quarantaas*
+* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *by Matias Quarantaas*
 
 * [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *by Eric Langland*
 
-* [**Notifications for new or changed DocumentDB resources using Logic Apps**](https://azure.microsoft.com/en-us/documentation/articles/documentdb-change-notification/) - *by Howard Edidin*
+* [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md) - *by Howard Edidin*
 
 * [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *by Yoichi Kawasaki*
 
