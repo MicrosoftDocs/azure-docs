@@ -4,9 +4,9 @@
 	description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure."
 	services="active-directory"
 	documentationCenter=""
-	authors="vakarand"
+	authors="karavar"
 	manager="samueld"
-	editor="vakarand"/>
+	editor="karavar"/>
 
 <tags
 	ms.service="active-directory"
