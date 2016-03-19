@@ -36,14 +36,15 @@ In the **Microsoft Power BI Embedded** usage model, licensing for Power BI is no
 As mentioned earlier, **Microsoft Power BI Embedded** is an Azure service.  Like any other service in Azure, resources can be provisioned through the Azure ARM APIs.  The resources that can be provisioned in this case is a **Power BI Workspace Collection**.
 ## Workspace Collection
 
-A **Workspace Collection** is the top level Azure container for resources which contains 0 or more **Workspaces**.  A **Workspace** has all of the standard Azure properties , as well as the following:
+A **Workspace Collection** is the top level Azure container for resources which contains 0 or more **Workspaces**.  A **Workspace** **Collection** has all of the standard Azure properties , as well as the following:
+
 -	**API Keys** – Keys used when securely calling the Power BI APIs (described in a later section)
 -	**Users** – Azure Active Directory (AAD) users that have administrator rights to manage the Power BI Workspace Collection through the Azure portal or ARM API.
 -	**Region** – As part of provisioning a **Workspace Collection**, you can select a region you to be provisioned in. For more information on Azure regions, see [Azure Regions](https://azure.microsoft.com/regions/).
 
 ## Workspace
 
-A **Workspace** is a container of Power BI content which includes Datasets, Reports and Dashboards.  A **Workspace** is empty when first created.  During Preview , all content will be authored using the Power BI desktop application and you’ll upload it to one of your workspaces using the [Power BI REST APIs](http://docs.powerbi.apiary.io/reference).
+A **Workspace** is a container of Power BI content which includes Datasets, Reports and Dashboards.  A **Workspace** is empty when first created.  During Preview, all content will be authored using the Power BI desktop application and you’ll upload it to one of your workspaces using the [Power BI REST APIs](http://docs.powerbi.apiary.io/reference).
 
 ## Using Workspace Collections and Workspaces
 **Workspace Collections** and **Workspaces** are containers of content that are used and organized in whichever way best fits the design of the application you are building. There will be many different ways that you could arrange the content within them. You may choose to put all content within one workspace and then later use security and permissions to further subdivide it amongst your customers. You may also choose to put all of your customers in separate workspaces so that there is some separation between them. Or, you may choose to organize users by region rather than by customer. This flexible design allows you to choose the best way for your application to organize content.
@@ -69,17 +70,16 @@ Cached datasets can be used in Preview.  However, you cannot refresh cached data
 
 ![](media\powerbi-embedded-whats-is\app-tokens.png)
 
-> [AZURE.NOTE] As the developer and administrator of your apps, you will need an Azure Active Directory account.
 
 ### Application Authentication Tokens
 
 **Application Authentication Tokens (App Tokens)** are used to authenticate against **Microsoft Power BI Embedded**.  There are three types of **App Tokens**:
 
-1.	Development Tokens
-2.	Provisioning Tokens
-3.	Embedding Tokens
+1.	Provisioning Tokens - Used when provisioning a new **Workspace** into a **Workspace** **Collection**
+2.	Development Tokens - Used when making calls directly to the **Power** **BI** **REST** **APIs**
+3.	Embedding Tokens - Used when making calls to render a report in the embedded iframe
 
-These tokens are used for the various phases of your interactions with **Microsoft Power BI Embedded**.  The tokens are designed so that you do not need your users to interactively sign-in with an Azure AD account to use your application.
+These tokens are used for the various phases of your interactions with **Microsoft Power BI Embedded**.  The tokens are designed so that you can delegate permissions from your app to Power BI.
 
 ### Generating App Tokens
 
