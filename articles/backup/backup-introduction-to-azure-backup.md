@@ -175,15 +175,15 @@ The Azure Backup agent provides throttling capability which allows you to contro
 
 ### Backup and retention
 
-|  | Azure Backup agent | System Center DPM and Azure Backup Server | Azure Backup (VM extension) |
-| --- | --- | --- | --- |
-| Backup frequency (to the backup vault) | Three backups per day | Two backups per day | One backup per day |
-| Backup frequency (to disk) | Not applicable | <p>Every 15 minutes for SQL Server</p> <p>Every hour for other workloads</p> | Not applicable |
-| Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |
-| Retention period | Up to 99 years | Up to 99 years | Up to 99 years |
-| Recovery points in Backup vault | Unlimited | Unlimited | Unlimited |
-| Recovery points on local disk | Not applicable | Not applicable | Not applicable |
-| Recovery points on tape | Not applicable | Not applicable | Not applicable |
+|  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
+| --- | --- | --- | --- | --- |
+| Backup frequency (to the backup vault) | Three backups per day | Two backups per day |Two backups per day | One backup per day |
+| Backup frequency (to disk) | Not applicable | <p>Every 15 minutes for SQL Server</p> <p>Every hour for other workloads</p> | <p>Every 15 minutes for SQL Server</p> <p>Every hour for other workloads</p> |Not applicable |
+| Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
+| Retention period | Up to 99 years | Up to 99 years | Up to 99 years | Up to 99 years |
+| Recovery points in Backup vault | Unlimited | Unlimited | Unlimited | Unlimited |
+| Recovery points on local disk | Not applicable | 64 for File Servers,<br><br>448 for Application Servers | 64 for File Servers,<br><br>448 for Application Servers |Not applicable |
+| Recovery points on tape | Not applicable | Unlimited | Not applicable | Not applicable |
 
 ## What is the vault credential file?
 
