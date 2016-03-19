@@ -19,9 +19,9 @@
 
 # Azure AD Connect Health Agent Installation
 
-This document will walk you through installing and configuring the Azure AD Connect Health Agents.
+This document will walk you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](active-directory-aadconnect-health.md#download -and-install-azure-ad-connect-health-agent).
 
-## Requirements
+## 	Requirements
 The following table is a list of requirements for using Azure AD Connect Health.
 
 | Requirement | Description|
@@ -35,7 +35,7 @@ The following table is a list of requirements for using Azure AD Connect Health.
 |Allow the following websites if IE Enhanced Security is enabled|The following websites need to be allowed if IE Enhanced Security is enabled on the server that is going to have the agent installed.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory For example: https://sts.contoso.com</li>
 
 
-> You can download the agents from [here](active-directory-aadconnect-health#Download -and-Install-Azure-AD-Connect-Health-Agent).
+
 
 
 ## Installing the  Azure AD Connect Health Agent for AD FS
