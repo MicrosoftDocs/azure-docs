@@ -109,7 +109,7 @@ for the first time. For example, every time you want to push a new change that y
 (repository) root:
     
     git add .
-    git commit -m "<you_message>"
+    git commit -m "<your_message>"
     git push azure master
 
 ## Other ways to deploy
