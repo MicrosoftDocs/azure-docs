@@ -78,8 +78,6 @@ To back up files and folders from a Windows Server or client you need to create 
 
     You will need to click **Save** if you've selected **Locally Redundant**, since **Geo Redundant** is the default option.
 
-    ![GRS](./media/backup-configure-vault/geo-redundant.png)
-
     d. Click **Recovery Services**, in the left navigation pane to return to the list of resources for **Recovery Services**.
 
 ## Download the vault credential file
@@ -110,7 +108,7 @@ After creating the Azure Backup vault and downloading the vault credentials, an 
 
 1. Click **Recovery Services**, then select the backup vault that you want to register with a server.
 
-2. On the Quick Start page, click **Agent for Windows Server or System Center Data Protection Manager or Windows Client > Save**.
+2. On the Quick Start page, click **Agent for Windows Server or System Center Data Protection Manager or Windows client > Save**.
 
     ![Save agent](./media/backup-configure-vault/agent.png)
 
@@ -152,9 +150,9 @@ After creating the Azure Backup vault and downloading the vault credentials, an 
 
 ## Complete the initial backup
 
-The initial backup is the backup that you do to capture the files or folders in their current state. It's comprised of two key tasks: **scheduling the backup** and **completing the initial backup**. After completing the initial backup, based on the schedule you define, the backup policy will create backup points that you can use should you need to recover the data.
+The initial backup is comprised of two key tasks: **creating the backup schedule** and **backing up files and folder for the first time**. After completing the initial backup, based on the schedule you define, the backup policy will create backup points that you can use should you need to recover the data.
 
-### To schedule the backup
+### Schedule the backup
 
 1. Open the **Microsoft Azure Backup agent** (this will open automatically if you left the **Launch Microsoft Azure Recovery Services Agent** checkbox checked when you closed the **Register Server Wizard** or you can find it by searching your machine for *Microsoft Azure Backup*).
 
@@ -196,7 +194,7 @@ The initial backup is the backup that you do to capture the files or folders in 
 
 11. Once the wizard finishes creating the **backup schedule**, click **Close**.
 
-### To enable network throttling (optional)
+### Enable network throttling (optional)
 
 The Azure Backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling of data transfer applies to back up and restore activities.
 
@@ -214,7 +212,7 @@ The Azure Backup agent provides network throttling. Throttling controls how netw
 
 4. Click **OK**.
 
-### To complete the initial backup
+### Complete the initial backup
 
 1. In the **Backup agent** click **Back Up Now** to complete the initial seeding over the network.
 
@@ -224,7 +222,7 @@ The Azure Backup agent provides network throttling. Throttling controls how netw
 
 3. Click **Close** to close the wizard. You can do this before the **backup process** completes and it will continue to run in the background.
 
-After the initial backup is completed,  the *Job completed* status is reflected in the **Description** column of the **Jobs** tab in the **Azure Backup console**.
+After the initial backup is completed,  the *Job completed* status is reflected in the **Azure Backup console**.
 
 ![IR complete](./media/backup-configure-vault/ircomplete.png)
 
