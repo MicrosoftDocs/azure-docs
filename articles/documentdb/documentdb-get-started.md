@@ -66,7 +66,7 @@ Let's create a DocumentDB account. If you already have an account you want to us
 8. Within the results, find **Microsoft Azure DocumentDB Client Library** and click **Install**.  
    The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 
-Great! Now that we finished the setup, let's start writing some code.
+Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
 ##<a id="Connect"></a> Step 3: Connect to a DocumentDB account
 
@@ -89,18 +89,18 @@ Next, save the DocumentDB account endpoint and either the primary or secondary a
 We'll start the getting started demo application by creating a new instance of the **DocumentClient**. Create a new asynchronous task called **GetStartedDemo** and instantiate our new **DocumentClient**.
 
 	private static async Task GetStartedDemo()
-    {
+	{
 		// Create a new instance of the DocumentClient
-    	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
+		DocumentClient client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
 	}
 
 Call your asynchronous task from your **Main** method similar to the code below.
 
 	public static void Main(string[] args)
-    {
+	{
 		try
-    	{
-        	GetStartedDemo().Wait();
+		{
+			GetStartedDemo().Wait();
 		}
 		catch (Exception e)
 		{
@@ -109,177 +109,203 @@ Call your asynchronous task from your **Main** method similar to the code below.
 		}
 	}
 
-> [AZURE.WARNING] Never store credentials in source code. To keep this sample simple, the credentials are shown in the source code. See [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) for information on how to store credentials in a production environment. Take a look at our sample application on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) for an example on storing credentials outside of the source code.
-
 Now that you know how to connect to a DocumentDB account and create an instance of the **DocumentClient** class, let's take a look at working with DocumentDB resources.  
 
 ## Step 4: Create an online database
 Your DocumentDB [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections. Create your new database in your **GetStartedDemo** method after your **DocumentClient** creation.
 
-	// Check to verify a database with the id=FamilyRegistry does not exist
-	Database database = client.CreateDatabaseQuery().Where(db => db.Id == "FamilyRegistry").AsEnumerable().FirstOrDefault();
-
-	// If the database does not exist, create a new database
-    if (database == null)
-    {
-    	database = await client.CreateDatabaseAsync(
-    		new Database
-            {
-            	Id = "FamilyRegistry"
-            });
-
-		// Write the new database's id to the console
-		Console.WriteLine(database.Id);
-        Console.WriteLine("Press any key to continue ...");
-        Console.ReadKey();
-        Console.Clear();
+	// Check if the database FamilyDB does not exist
+	string databaseName = "FamilyDB";
+	
+	try
+	{
+		await this.client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(familyName));
 	}
-
+	catch (DocumentClientException de)
+	{
+		// If the database does not exist, create a new database
+		if (de.StatusCode == HttpStatusCode.NotFound)
+		{
+			await this.client.CreateDatabaseAsync(new Database { Id = familyName });
+			this.WriteToConsoleAndPromptToContinue("Created {0}", databaseName);
+		}
+		else
+		{
+			throw;
+		}
+	}
+	
 ##<a id="CreateColl"></a>Step 5: Create a collection  
 
-> [AZURE.WARNING] **CreateDocumentCollectionAsync** will create a new S1 collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** will create a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
 
-A [collection](documentdb-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. The newly created collection will be mapped to a [S1 performance level](documentdb-performance-levels.md). Create a new collection named **FamilyCollection** after your Database creation in the **GetStartedDemo** method.
+A [collection](documentdb-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. Create a new collection named **FamilyCollection** after your Database creation in the **GetStartedDemo** method.
 
-    // Check to verify a document collection with the id=FamilyCollection does not exist
-    // dbs is prepended to the id to identify the parent resource: databases
-    DocumentCollection documentCollection = client.CreateDocumentCollectionQuery("dbs/" + database.Id).Where(c => c.Id == "FamilyCollection").AsEnumerable().FirstOrDefault();
+	string collectionName = "FamilyCollection";
+	try
+	{
+		await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
+	}
+	catch (DocumentClientException de)
+	{
+		// If the document collection does not exist, create a new collection
+		if (de.StatusCode == HttpStatusCode.NotFound)
+		{
+			// Configure the collection. Optionally, you can configure partitioning and indexing behavior of the collection here.
+			DocumentCollection collectionInfo = new DocumentCollection();
+			collectionInfo.Id = collectionName;
 
-	// If the document collection does not exist, create a new collection
-    if (documentCollection == null)
-    {
-    	documentCollection = await client.CreateDocumentCollectionAsync("dbs/" + database.Id,
-        	new DocumentCollection
-            {
-            	Id = "FamilyCollection"
-            });
+			// DocumentDB collections can be reserved with throughput specified in request units/second. 1 RU is a normalized request equivalent to the read
+			// of a 1KB document.  Here we create a collection with 400 RU/s. 
+			await this.client.CreateDocumentCollectionAsync(
+				UriFactory.CreateDatabaseUri(databaseName),
+				new DocumentCollection { Id = collectionName },
+				new RequestOptions { OfferThroughput = 400 });
 
-		// Write the new collection's id to the console
-		Console.WriteLine(documentCollection.Id);
-        Console.WriteLine("Press any key to continue ...");
-        Console.ReadKey();
-        Console.Clear();
+			this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
+		}
+		else
+		{
+			throw;
+		}
 	}
 
 ##<a id="CreateDoc"></a>Step 6: Create JSON documents
 A [document](documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md).
 
-First, we need to create a **Parent**, **Child**, **Pet**, **Address** and **Family** class. Create these classes by adding the following internal sub-classes after the **GetStartedDemo** method.
+First, we need to create a **Family** class that will represent objects stored within DocumentDB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal sub-classes after the **GetStartedDemo** method. 
 
-    internal sealed class Parent
-    {
-        public string FamilyName { get; set; }
-        public string FirstName { get; set; }
-    }
-
-    internal sealed class Child
-    {
-        public string FamilyName { get; set; }
-        public string FirstName { get; set; }
-        public string Gender { get; set; }
-        public int Grade { get; set; }
-        public Pet[] Pets { get; set; }
-    }
-
-    internal sealed class Pet
-    {
-        public string GivenName { get; set; }
-    }
-
-    internal sealed class Address
-    {
-        public string State { get; set; }
-        public string County { get; set; }
-        public string City { get; set; }
-    }
-
-    internal sealed class Family
-    {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
-        public string LastName { get; set; }
-        public Parent[] Parents { get; set; }
-        public Child[] Children { get; set; }
-        public Address Address { get; set; }
-        public bool IsRegistered { get; set; }
-    }
-
-Next, create your documents within your **GetStartedDemo** async method.
-
-    // Check to verify a document with the id=AndersenFamily does not exist
-    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
-    Document document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "AndersenFamily").AsEnumerable().FirstOrDefault();
-
-	// If the document does not exist, create a new document
-	if (document == null)
+	public class Family
 	{
-	    // Create the Andersen Family document
-	    Family andersonFamily = new Family
-	    {
-	        Id = "AndersenFamily",
-	        LastName = "Andersen",
-	        Parents = new Parent[] {
-	            new Parent { FirstName = "Thomas" },
-	            new Parent { FirstName = "Mary Kay"}
-	        },
-	        Children = new Child[] {
-	            new Child
-	            {
-	                FirstName = "Henriette Thaulow",
-	                Gender = "female",
-	                Grade = 5,
-	                Pets = new Pet[] {
-	                    new Pet { GivenName = "Fluffy" }
-	                }
-	            }
-	        },
-	        Address = new Address { State = "WA", County = "King", City = "Seattle" },
-	        IsRegistered = true
-	    };
-
-	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
-	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
+		[JsonProperty(PropertyName = "id")]
+		public string Id { get; set; }
+		public string LastName { get; set; }
+		string string District { get; set; }
+		public Parent[] Parents { get; set; }
+		public Child[] Children { get; set; }
+		public Address Address { get; set; }
+		public bool IsRegistered { get; set; }
+	}
+	
+	public class Parent
+	{
+		public string FamilyName { get; set; }
+		public string FirstName { get; set; }
 	}
 
-    // Check to verify a document with the id=AndersenFamily does not exist
-    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
-    document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "WakefieldFamily").AsEnumerable().FirstOrDefault();
-
-    if (document == null)
-    {
-        // Create the WakeField document
-        Family wakefieldFamily = new Family
-        {
-            Id = "WakefieldFamily",
-            Parents = new Parent[] {
-                new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
-                new Parent { FamilyName= "Miller", FirstName= "Ben" }
-            },
-            Children = new Child[] {
-                new Child {
-                    FamilyName= "Merriam",
-                    FirstName= "Jesse",
-                    Gender= "female",
-                    Grade= 8,
-                    Pets= new Pet[] {
-                        new Pet { GivenName= "Goofy" },
-                        new Pet { GivenName= "Shadow" }
-                    }
-                },
-                new Child {
-                    FamilyName= "Miller",
-                    FirstName= "Lisa",
-                    Gender= "female",
-                    Grade= 1
-                }
-            },
-            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-            IsRegistered = false
-        };
-
-        // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
-        await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, wakefieldFamily);
+	public class Child
+	{
+		public string FamilyName { get; set; }
+		public string FirstName { get; set; }
+		public string Gender { get; set; }
+		public int Grade { get; set; }
+		public Pet[] Pets { get; set; }
 	}
+
+	public class Pet
+	{
+		public string GivenName { get; set; }
+	}
+
+	public class Address
+	{
+		public string State { get; set; }
+		public string County { get; set; }
+		public string City { get; set; }
+	}
+
+
+Next, create your documents within your **GetStartedDemo** async method. First, create a **CreateFamilyDocumentIfNotExists** method as shown below:
+
+	private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
+	{
+		try
+		{
+			await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, family.Id));
+		}
+		catch (DocumentClientException de)
+		{
+			if (de.StatusCode == HttpStatusCode.NotFound)
+			{
+				await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), family);
+				this.WriteToConsoleAndPromptToContinue("Created Family {0}", family.Id);
+			}
+			else
+			{
+				throw;
+			}
+		}
+	}
+
+And insert two documents, one each for the Andersen Family and the Wakefield Family as shown below:
+
+	// Insert a document, here we create a Family object
+	Family andersenFamily = new Family
+	{
+		Id = "Andersen.1",
+		LastName = "Andersen",
+		Parents = new Parent[] 
+		{
+			new Parent { FirstName = "Thomas" },
+			new Parent { FirstName = "Mary Kay" }
+		},
+		Children = new Child[] 
+		{
+			new Child
+			{
+				FirstName = "Henriette Thaulow",
+				Gender = "female",
+				Grade = 5,
+				Pets = new Pet[] 
+				{
+					new Pet { GivenName = "Fluffy" }
+				}
+			}
+		},
+		District = "WA5",
+		Address = new Address { State = "WA", County = "King", City = "Seattle" },
+		IsRegistered = true
+	};
+
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
+
+	Family wakefieldFamily = new Family
+	{
+		Id = "Wakefield.7",
+		LastName = "Wakefield",
+		Parents = new Parent[]
+		{
+			new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
+			new Parent { FamilyName = "Miller", FirstName = "Ben" }
+		},
+		Children = new Child[]
+		{
+			new Child
+			{
+				FamilyName = "Merriam",
+				FirstName = "Jesse",
+				Gender = "female",
+				Grade = 8,
+				Pets = new Pet[]
+				{
+					new Pet { GivenName = "Goofy" },
+					new Pet { GivenName = "Shadow" }
+				}
+			},
+			new Child
+			{
+				FamilyName = "Miller",
+				FirstName = "Lisa",
+				Gender = "female",
+				Grade = 1
+			}
+		},
+		District = "NY23",
+		Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+		IsRegistered = false
+	};
+
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
 You have now created the following database, collection, and documents in your DocumentDB account.
 
@@ -289,37 +315,29 @@ You have now created the following database, collection, and documents in your D
 
 DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step. Add these queries to your **GetStartedDemo** async method.
 
-    // Query the documents using DocumentDB SQL for the Andersen family.
-    var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
-        "SELECT * " +
-        "FROM Families f " +
-        "WHERE f.id = \"AndersenFamily\"");
+	// Run a simple query via LINQ. DocumentDB indexes all properties, so queries can be completed efficiently and with low latency.
+	// Here we find the Andersen family via its LastName
+	IQueryable<Family> familyQuery = this.client.CreateDocumentQuery<Family>(
+		UriFactory.CreateDocumentCollectionUri(databaseName, collectionName))
+		.Where(f => f.LastName == "Andersen");
 
-    foreach (var family in families)
-    {
-        Console.WriteLine("\tRead {0} from SQL", family);
-    }
+	// The query is executed synchronously here, but can also be executed asynchronously via the IDocumentQuery<T> interface
+	Console.WriteLine("Running LINQ query...");
+	foreach (Family family in familyQuery)
+	{
+			Console.WriteLine("\tRead {0}", family);
+	}
 
-    // Query the documents using LINQ for the Andersen family.
-    families =
-        from f in client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
-        where f.Id == "AndersenFamily"
-        select f;
+	// Now execute the same query via direct SQL
+	IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
+		UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
+		"SELECT * FROM Family WHERE Family.lastName = 'Andersen'");
 
-    foreach (var family in families)
-    {
-        Console.WriteLine("\tRead {0} from LINQ", family);
-    }
-
-    // Query the documents using LINQ lambdas for the Andersen family.
-    families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
-        .Where(f => f.Id == "AndersenFamily")
-        .Select(f => f);
-
-    foreach (var family in families)
-    {
-        Console.WriteLine("\tRead {0} from LINQ query", family);
-    }
+	Console.WriteLine("Running direct SQL query...");
+	foreach (Family family in familyQuery)
+	{
+		Console.WriteLine("\tRead {0}", family);
+	}
 
 The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created, and the same logic applies to the LINQ query as well.
 
@@ -331,9 +349,8 @@ The [FROM](documentdb-sql-query.md#from-clause) keyword is optional in the query
 
 Deleting the created database will remove the database and all children resources (collections, documents, etc.). You can delete the database and the document client by adding the following code snippet to the end of your **GetStartedDemo** async method.
 
-    // Clean up/delete the database
-    await client.DeleteDatabaseAsync("dbs/" + database.Id);
-	client.Dispose();
+	// Clean up/delete the database
+	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
 
 ##<a id="Run"></a>Step 9: Run your C# console application!
 
@@ -345,120 +362,19 @@ Now hit F5 in Visual Studio to build the application in debug mode.
 
 You should now see the output of your get started app. The output will show the results of the queries we added and should match the example text below.
 
-	Read {
-	  "id": "AndersenFamily",
-	  "LastName": "Andersen",
-	  "Parents": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Thomas"
-		},
-    	{
-		  "FamilyName": null,
-		  "FirstName": "Mary Kay"
-		}
-	  ],
-	  "Children": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Henriette Thaulow",
-		  "Gender": "female",
-		  "Grade": 5,
-		  "Pets": [
-			{
-			  "GivenName": "Fluffy"
-			}
-		  ]
-		}
-	  ],
-	  "Address": {
-		"State": "WA",
-		"County": "King",
-		"City": "Seattle"
-	  },
-	  "IsRegistered": true,
-	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
-	  "_ts": 1428372205,
-	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
-	  "_attachments": "attachments/"
-	} from SQL
-	Read {
-	  "id": "AndersenFamily",
-	  "LastName": "Andersen",
-	  "Parents": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Thomas"
-		},
-		{
-		  "FamilyName": null,
-		  "FirstName": "Mary Kay"
-		}
-	  ],
-	  "Children": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Henriette Thaulow",
-		  "Gender": "female",
-		  "Grade": 5,
-		  "Pets": [
-			{
-			  "GivenName": "Fluffy"
-			}
-		  ]
-		}
-	  ],
-	  "Address": {
-		"State": "WA",
-		"County": "King",
-		"City": "Seattle"
-	  },
-	  "IsRegistered": true,
-	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
-	  "_ts": 1428372205,
-	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
-	  "_attachments": "attachments/"
-	} from LINQ
-	Read {
-	  "id": "AndersenFamily",
-	  "LastName": "Andersen",
-	  "Parents": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Thomas"
-		},
-		{
-		  "FamilyName": null,
-		  "FirstName": "Mary Kay"
-		}
-	  ],
-	  "Children": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Henriette Thaulow",
-		  "Gender": "female",
-		  "Grade": 5,
-		  "Pets": [
-			{
-			  "GivenName": "Fluffy"
-			}
-		  ]
-		}
-	  ],
-	  "Address": {
-		"State": "WA",
-		"County": "King",
-		"City": "Seattle"
-	  },
-	  "IsRegistered": true,
-	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
-	  "_ts": 1428372205,
-	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
-	  "_attachments": "attachments/"
-	} from LINQ query
+	Created FamilyDB
+	Press any key to continue ...
+	Created FamilyCollection
+	Press any key to continue ...
+	Created Family Andersen.1
+	Press any key to continue ...
+	Created Family Wakefield.7
+	Press any key to continue ...
+	Running LINQ query...
+		Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
+	Running direct SQL query...
+		Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
+	End of demo, press any key to exit.
 
 Congratulations! You've completed this NoSQL tutorial and have a working C# console application!
 
