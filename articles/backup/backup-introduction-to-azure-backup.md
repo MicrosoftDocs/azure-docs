@@ -46,31 +46,11 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported|
 | --- | --- | --- | --- |
 | Azure Backup agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM that runs in Azure.</p> | <p>**Yes**</p> <p>The Backup agent can be deployed on any Windows Server VM or physical machine.</p> | <p>Azure Backup vault</p> |
-| System Center Data Protection Manager (DPM) | <p>**Yes**</p><p>IaaS VM to protect application workloads deployed in IaaS VMs.</p><p>Learn more about [how to protect workloads in Azure by using System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault,</p> <p>tape (on-premises only)</p> |
-| Azure Backup Server | <p>**Yes**</p><p>IaaS VM to protect application workloads deployed in IaaS VM.</p><p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault</p> |
+| System Center Data Protection Manager (DPM) | <p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault,</p> <p>tape (on-premises only)</p> |
+| Azure Backup Server | <p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault</p> |
 | Azure Backup (VM extension) | <p>**Yes**</p><p>Part of Azure fabric</p><p>Specialized for [backup of Azure infrastructure as a service (IaaS) virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use System Center DPM to back up virtual machines in your datacenter.</p> | <p>Azure Backup vault</p> |
 
-### Recovery granularity
-
-| Component | Model | Requires a server? | Recovery granularity | Agent Install Required |
-| --- | --- | --- | --- | --- | --- | --- |
-| Azure Backup (MARS) agent | D-C | No | files/folders/volumes | Yes |
-| System Center Data Protection Manager | D-D-C/T | Yes | files/folders/volumes/VMs<br>/applications<br>(Exchange DB/SQL DB<br>/Sharepoint Farm through Item etc.)| Yes |
-| Azure Backup Server (MABS) | D-D-C<br><br> D-D | Yes | files/folders/volumes/VMs<br>/applications<br>(Exchange DB/SQL DB<br>/Sharepoint Farm through Item etc.) |Yes|
-| Azure IaaS VM Backup | C-C | No |VMs | Yes (but done automatically) |
-
-<sup>Model: D = Disk, C = Cloud, T = Tape</sup>
-
-### Component level benefits and limitations
-
-| Component | Benefits/Limitations | Documentation |
-| --- | --- | --- |
-| Azure Backup (MARS) agent | **Benefits**<br><li>Can backup files and folders on a Windows OS machine, be it physical or virtual (VMs can be anywhere on-premises or Azure)<br><li>No separate backup server required<br><li>Uses Azure Backup Vault<br><br>**Limitations**<br><li>Three times a day backup/file level restore<br><li>File/folder/volume level restore only, not application aware<br><li>No support for Linux | [Back up Windows Server or Windows Client files and folders to Azure](backup-configure-vault.md) |
-| System Center Data Protection Manager | **Benefits**<br><li>App aware snapshots (VSS)<br> <li>Full flexibility for when to take backups<br> <li>Recovery granularity (all)<br> <li>Can use Azure Backup vault<br> <li>Linux support (if hosted on Hyper-V) <br><br>**Limitations**<br><li>DPM Server required and management of that server<br> <li>Only file-consistent backup is possible for Linux machines | [Preparing to back up workloads to Azure with DPM](backup-azure-dpm-introduction.md) |
-| Azure Backup Server (MABS) | Same as DPM, but:<br><li>Does not require a System Center license<br> <li>Always requires live Azure subscription<br> <li>No support for tape backup | [Preparing to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md) |
-| Azure IaaS VM Backup | **Benefits**<br><li>Native backups for Windows/Linux<br><li>No specific agent install required<br><li>No separate backup server required<br><li>Uses Azure Backup vault<br><br>**Limitations**<br><li>Once a day backup/disk level restore<br><li>Cannot backup on-premises | [Back up Azure virtual machines](backup-azure-vms-introduction.md) |
-
-### Which applications and workloads can be backed up?
+## Which applications and workloads can be backed up?
 
 | Workload | Source machine | Azure Backup solution |
 | --- | --- |---|
@@ -84,7 +64,7 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | Azure IaaS VMs (Windows) | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 | Azure IaaS VMs (Linux) | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 
-### ARM and Linux support
+## ARM and Linux support
 
 | Component | ARM Support | Linux (Azure endorsed) Support |
 | --- | --- | --- |
