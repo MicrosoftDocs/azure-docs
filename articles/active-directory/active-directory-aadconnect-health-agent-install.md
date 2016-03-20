@@ -36,7 +36,6 @@ The following table is a list of requirements for using Azure AD Connect Health.
 
 
 
-
 ## Installing the  Azure AD Connect Health Agent for AD FS
 To start the agent installation, double-click on the .exe file that you downloaded. On the first screen, click Install.
 
@@ -223,6 +222,7 @@ You can use the -ShowResults flag in the command to view detailed logs.  Use the
     Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
 >[AZURE.NOTE]In order to use the connectivity tool, you must first complete the agent registration.  If you are not able to complete the agent registration, make sure that you have met all of the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health.  This connectivity test is performed by default during agent registration.
+
 
 
 ## Related links

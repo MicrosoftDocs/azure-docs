@@ -23,7 +23,7 @@ The following topic describes the various operations that can be performed using
 ## Enable Email Notifications
 You can configure the Azure AD Connect Health Service to send email notifications when alerts are generated indicating your identity  infrastructure is not healthy. This will occur when an alert is generated, as well as when it is marked as resolved. Follow the instructions below to configure email notifications.
 
-![Azure AD Connect Health RBAC Main Blade](./media/active-directory-aadconnect-health/email_noti_discover.png)
+![Azure AD Connect Health Email Notification Discover](./media/active-directory-aadconnect-health/email_noti_discover.png)
 
 >[AZURE.NOTE] Email notifications are disabled by default.
 
