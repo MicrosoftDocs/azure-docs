@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="03/18/2016"
 	ms.author="yuridio"/>
 
 
@@ -115,7 +115,7 @@ Each interaction in the diagram showed in Figure X represents one access control
  - Granular access to resources: You can assign roles to users and groups for a particular subscription, resource  group, or an individual Azure resource such as a website or database. In this way, you can ensure that users have access to all the resources they need and no access to resources that they do not need to manage.
 
  >[AZURE.NOTE]
-  Read [Role-based access control in Azure Preview portal](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) to know more details about this capability. For developers that are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
+  Read [Role-based access control in Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) to know more details about this capability. For developers that are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
 
 3. Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md).
 
@@ -124,7 +124,7 @@ Each interaction in the diagram showed in Figure X represents one access control
 Since the options for access control use a multilayer approach, comparison between those options are not applicable for this task. Ensure that you are leveraging all options available for each scenario that requires you to control access to your resources.
 
 ## Define incident response options
-Azure AD can assist IT to identity potential security risks in the environment by monitoring user’s activity, IT can leverage Azure AD Access and Usage reports capability to gain visibility into the integrity and security of your organization’s directory. With this information, an IT admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.  [Azure AD Premium subscription](articles/active-directory-get-started-premium.md) has a set of security reports that can enable IT to obtain this information. [Azure AD reports](active-directory-view-access-usage-reports.md) are categorized as shown below:
+Azure AD can assist IT to identity potential security risks in the environment by monitoring user’s activity, IT can leverage Azure AD Access and Usage reports capability to gain visibility into the integrity and security of your organization’s directory. With this information, an IT admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.  [Azure AD Premium subscription](active-directory-get-started-premium.md) has a set of security reports that can enable IT to obtain this information. [Azure AD reports](active-directory-view-access-usage-reports.md) are categorized as shown below:
 
 - **Anomaly reports**: Contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to make a determination about whether an event is suspicious. 
 - **Integrated Application report**: Provides insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications. 
