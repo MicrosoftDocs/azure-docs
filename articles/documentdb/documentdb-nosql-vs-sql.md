@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/20/2016"
+	ms.date="03/21/2016"
 	ms.author="mimig"/>
 
 # NoSQL vs SQL Comparison
 
 SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous have data gained in popularity. 
 
-NoSQL is a category of databases that are separate from the well-known SQL databases. NoSQL means "Not-SQL" or "Not Only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, and column family stores, which are popular with gaming, social, and IoT apps.
+NoSQL is a category of databases that are separate from well-known SQL databases. NoSQL means "Not-SQL" or "Not Only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, and column family stores, which are popular with gaming, social, and IoT apps. NoSQL technologies differ from SQL technologies as they 
 
 ![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview1.png)
 
@@ -48,7 +48,7 @@ The following comparison chart maps out the key differentiators for each service
 
 ![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
 
-If one or more of these services sounds like it might meet the needs of your application, learn more with the following resources: 
+If one or more of these services might meet the needs of your application, learn more with the following resources: 
 
 - [DocumentDB learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) and [DocumentDB use cases](documentdb-use-cases.md)
 - [Get started with Azure table storage](../storage/storage-dotnet-how-to-use-tables.md)
@@ -78,10 +78,9 @@ The following comparison charts maps out the key differentiators for each offeri
 |**Availability**|AlwaysOn availability and log shipping maintained by DBA|99.95% availability for Virtual Machines maintained by Microsoft. SQL Server AlwaysOn availability maintained by DBA|99.99% availability maintained by Microsoft|
 |**Pricing**|License based on SQL Server edition|Size of virtual machine, time usage, and license based on SQL Server edition|Amount of storage per elastic database pool and performance level|
 
-If one or more of these options sounds like it might meet the needs of your application, learn more with the following resources:
+If SQL Server on a Virtual Machine or SQL Database sound like the best options, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md) to learn more about the differences between the two.
 
-- [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
-- [SQL Server Editions](https://www.microsoft.com/server-cloud/products/sql-server-editions/overview.aspx)
+If SQL Server sounds like the best option, then go to [SQL Server Editions](https://www.microsoft.com/server-cloud/products/sql-server-editions/overview.aspx) to learn more about what the different versions of SQL offer.
 
 Then go to [Next steps](#next-steps) for free trial and evaluation links.
 
