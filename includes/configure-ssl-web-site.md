@@ -46,6 +46,10 @@ To get an SSL certificate for use with Azure App Service, you submit a Certifica
 
 You may also need to obtain **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs website. The steps in this article provide steps to ensure that any intermediate certificates are merged with the certificate uploaded to your apps.
 
+> [AZURE.NOTE]
+>
+> In case your CA uses intermediate certificates each of them must be installed along with the certificate issued for your domain. Failing to install any of the intermediate certificates may cause hard to reproduce interoperability problems for some clients.
+
 <a name="bkmk_certreq"></a>
 ### Get a certificate using Certreq.exe (Windows only)
 
