@@ -1,6 +1,6 @@
 ### To verify your connection using the Azure portal
 
-You can verify a VPN connection in the Azure Portal by navigating to **Virtual network gateways** -> ***click your gateway name*** -> **Settings** -> **Connections**. By selecting the name of the connection, you can view more information in the **Connection** blade.  
+You can verify a VPN connection in the Azure portal by navigating to **Virtual network gateways** -> ***click your gateway name*** -> **Settings** -> **Connections**. By selecting the name of the connection, you can view more information in the **Connection** blade.  
 
 ### To verify your connection using PowerShell
 
