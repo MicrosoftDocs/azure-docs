@@ -3,7 +3,7 @@
    description="Learn how to send health reports from your service code and check the health of your service using the health monitoring tools that Azure Service Fabric provides."
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunaldsingh"
+   authors="punewa"
    manager="timlt"
    editor=""/>
 
