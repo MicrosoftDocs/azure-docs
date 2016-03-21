@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prepare your environment and back up a Windows Server or client to Azure | Microsoft Azure"
+	pageTitle="Back up a Windows Server or client to Azure | Microsoft Azure"
 	description="Backup windows Servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
 	services="backup"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.author="jimpark; trinadhk; markgal"/>
 
 
-# Prepare your environment and back up a Windows Server or client to Azure
+# Back up a Windows Server or client to Azure
 This article covers the procedures you need to do to prepare your environment and back up a Windows Server (or client) to Azure. It also covers things to consider when you're deploying your backup solution. If you're interested in trying Azure Backup for the first time [this article](backup-configure-vault.md) will quickly walk you through that process.
 
 The required steps to prepare your environment and backup Windows to Azure include:
