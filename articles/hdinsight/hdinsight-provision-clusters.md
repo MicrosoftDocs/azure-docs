@@ -23,6 +23,8 @@
 
 A Hadoop cluster consists of several virtual machines (nodes) which are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you will learn these configuration settings. 
 
+>[AZURE.NOTE] the information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [Create Windows-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
 ##Cluster types
 
 Currently, HDInsight provides 4 different types of clusters, each with a set of components to provide certain functionalities: 
