@@ -18,7 +18,7 @@
 
 # Audit operations with Resource Manager
 
-Audit logs enable you to determine:
+Through audit logs, you can determine:
 
 - what operations were taken on the resources in your subscription
 - who initiated the operation (although operations initiated by a backend service do not return a user as the caller)
@@ -51,6 +51,14 @@ You can retrieve information from the audit logs through the Azure portal, Azure
     ![set filter options](./media/resource-group-audit/set-filter.png)
 
 After updating the view of the audit logs, you will only see the operations that meet the specified condition. Those settings are retained the next time you view the audit logs, so you may need to change those values to broaden your view of the operations.
+
+You can also automatically filter for a particular resource by selecting audit logs from that resource blade. In the portal, select the resource to audit, and select **Audit logs**.
+
+![audit resource](./media/resource-group-audit/audit-by-resource.png)
+
+Notice that the audit log is automatically filered by the selected resource for the past week.
+
+![filter by resource](./media/resource-group-audit/filtered-by-resource.png)
 
 ## PowerShell to view audit logs
 
