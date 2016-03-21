@@ -62,13 +62,13 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 {
     return new[]
     {
-        new ServiceReplicaListener(initParams =>
-            new MyCustomListener(initParams),
+        new ServiceReplicaListener(context =>
+            new MyCustomListener(context),
             "customReadonlyEndpoint",
             true),
 
-        new ServiceReplicaListener(initParams =>
-            new ServiceRemotingListener<IMyStatefulInterface2>(initParams, this),
+        new ServiceReplicaListener(context =>
+            new ServiceRemotingListener<IMyStatefulInterface2>(context, this),
             "rpcPrimaryEndpoint",
             false)
     };
@@ -91,7 +91,7 @@ The communication listener can access the endpoint resources allocated to it fro
 
 ```csharp
 
-var codePackageActivationContext = this.serviceInitializationParameters.CodePackageActivationContext;
+var codePackageActivationContext = this.Context.CodePackageActivationContext;
 var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 
 ```
@@ -99,31 +99,36 @@ var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 > [AZURE.NOTE] Endpoint resources are common to the entire service package, and they are allocated by Service Fabric when the service package is activated. All the replicas hosted in the same ServiceHost share the same port. This means that the communication listener should support port sharing. The recommended way of doing this is for the communication listener to use the partition ID and replica/instance ID when it generates the listen address.
 
 ```csharp
+EndpointResourceDescription serviceEndpoint = serviceContext.CodePackageActivationContext.GetEndpoint("ServiceEndpoint");
+int port = serviceEndpoint.Port;
 
-var replicaOrInstanceId = 0;
-var parameters = this.serviceInitializationParameters as StatelessServiceInitializationParameters;
-if (parameters != null)
+if (serviceContext is StatefulServiceContext)
 {
-   replicaOrInstanceId = parameters.InstanceId;
+    StatefulServiceContext statefulServiceContext =
+        (StatefulServiceContext)serviceContext;
+
+    this.listeningAddress = string.Format(
+        CultureInfo.InvariantCulture,
+        "http://+:{0}/{1}/{2}/{3}/",
+        port,
+        statefulServiceContext.PartitionId,
+        statefulServiceContext.ReplicaId,
+        Guid.NewGuid());
+}
+else if (serviceContext is StatelessServiceContext)
+{
+    this.listeningAddress = string.Format(
+        CultureInfo.InvariantCulture,
+        "http://+:{0}/{1}",
+        port,
+        string.IsNullOrWhiteSpace(this.appRoot)
+            ? string.Empty
+            : this.appRoot.TrimEnd('/') + '/');
 }
 else
 {
-   replicaOrInstanceId = ((StatefulServiceInitializationParameters) this.serviceInitializationParameters).ReplicaId;
+    throw new InvalidOperationException();
 }
-
-var nodeContext = FabricRuntime.GetNodeContext();
-
-var listenAddress = new Uri(
-    string.Format(
-        CultureInfo.InvariantCulture,
-        "{0}://{1}:{2}/{5}/{3}-{4}",
-        scheme,
-        nodeContext.IPAddressOrFQDN,
-        port,
-        this.serviceInitializationParameters.PartitionId,
-        replicaOrInstanceId,
-        Guid.NewGuid().ToString()));
-
 ```
 
 For a complete walk-through of how to write an `ICommunicationListener`, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
