@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="03/18/2016"
+	ms.date="03/21/2016"
 	ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Android apps
@@ -147,18 +147,15 @@ If you want to keep this around then you should check out the "Basic Reporting" 
 Mobile Engagement allows you to interact with and REACH your users with push notifications and in-app messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
 The following sections sets up your app to receive them.
 
-### Enable in-app messaging
-
-
-#### Copy SDK resources to your project
+### Copy SDK resources in your project
 	
 1. Navigate back to your SDK download content and copy the **res** folder.
 
- ![][10]
+	![][10]
 
 2. Go back to Android Studio, select the **main** directory of your project files, and then paste it to add the resources to your project.
 
- ![][11]
+	![][11]
 
 [AZURE.INCLUDE [Enable in-app messaging](../../includes/mobile-engagement-android-send-push.md)]
 

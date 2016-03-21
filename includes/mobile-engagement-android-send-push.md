@@ -1,7 +1,7 @@
 
-####Update manifest file to enable notifications
+###Update manifest file to enable notifications
 
-1. Copy the in-app messaging resources below into your Manifest.xml between the `<application>` and `</application>` tags.
+Copy the in-app messaging resources below into your Manifest.xml between the `<application>` and `</application>` tags.
 
 		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
   			<intent-filter>
@@ -134,19 +134,19 @@ To allow Mobile Engagement to send push notifications on your behalf, you need t
 
 	From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
 
-	![][1]
+	![](./media/mobile-engagement-android-send-push/engage-button.png)
 
 2. Then click the **Settings** -> **Native Push** section to enter your GCM Key:
 
-	![][2]
+	![](./media/mobile-engagement-android-send-push/engagement-portal.png)
 
 3. Click the **Edit** icon in front of **API Key** in the **GCM Settings** section as shown below:
 
-	![][3]
+	![](./media/mobile-engagement-android-send-push/native-push-settings.png)
 
 4. In the pop-up, paste the GCM Server Key you obtained before and then click **Ok**.
 
-	![][4]
+	![](./media/mobile-engagement-android-send-push/api-key.png)
 
 ##<a id="send"></a>Send a notification to your app
 
@@ -156,11 +156,11 @@ We will now create a simple push notification campaign that sends a push notific
 
 2. Click **New announcement** to create your push notification campaign.
 
-	![][5]
+	![](./media/mobile-engagement-android-send-push/new-announcement.png)
 
 3. Set up the first field of your campaign through the following steps:
 
-	![][6]
+	![](./media/mobile-engagement-android-send-push/campaign-first-params.png)
 
 	a. Name your campaign.
 
@@ -174,21 +174,12 @@ We will now create a simple push notification campaign that sends a push notific
 
 4. Scroll down, and in the **Content** section, select **Notification only**.
 
-	![][7]
+	![](./media/mobile-engagement-android-send-push/campaign-content.png)
 
 5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
 
 6. Last step: click **Activate** to activate your campaign to send push notifications.
 
-	![][8]
+	![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-<!-- Images. -->
-[1]: ./media/mobile-engagement-android-send-push/engage-button.png
-[2]: ./media/mobile-engagement-android-send-push/engagement-portal.png
-[3]: ./media/mobile-engagement-android-send-push/native-push-settings.png
-[4]: ./media/mobile-engagement-android-send-push/api-key.png
-[5]: ./media/mobile-engagement-android-send-push/new-announcement.png
-[6]: ./media/mobile-engagement-android-send-push/campaign-first-params.png
-[7]: ./media/mobile-engagement-android-send-push/campaign-content.png
-[8]: ./media/mobile-engagement-android-send-push/campaign-activate.png
 

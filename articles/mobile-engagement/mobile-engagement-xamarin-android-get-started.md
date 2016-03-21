@@ -115,8 +115,6 @@ In order to start sending data and ensuring the users are active, you must send 
 Mobile Engagement allows you to interact with and REACH your users with push notifications and in-app messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
 The following sections sets up your app to receive them.
 
-### Enable in-app messaging
-
 [AZURE.INCLUDE [Enable in-app messaging](../../includes/mobile-engagement-android-send-push.md)]
 
 <!-- Images -->
