@@ -2,14 +2,14 @@
 - [(Linux | C)](../articles/iot-hub/iot-hub-certified-devices-linux-c.md)
 - [(Linux | Java)](../articles/iot-hub/iot-hub-certified-devices-linux-java.md)
 - [(Linux | Javascript)](../articles/iot-hub/iot-hub-certified-devices-linux-javascript.md)
-- [(Arduino | C)](../articles/iot-hub/iot-hub-certified-devices-arduino-c.md)
-- [(Embedded | C)](../articles/iot-hub/iot-hub-certified-devices-embedded-c.md)
-- [(Embedded | Javascript)](../articles/iot-hub/iot-hub-certified-devices-embedded-javascript.md)
 - [(Windows 10 IoT Core | C#)](../articles/iot-hub/iot-hub-certified-devices-10iot-csharp.md)
 - [(Windows 10 IoT Core | C)](../articles/iot-hub/iot-hub-certified-devices-10iot-c.md)
 - [(Windows 10 IoT Core | Javascript)](../articles/iot-hub/iot-hub-certified-devices-10iot-javascript.md)
 - [(Windows 7,8,10 | C#)](../articles/iot-hub/iot-hub-certified-devices-7810-csharp.md)
 - [(Windows 7,8,10 | C)](../articles/iot-hub/iot-hub-certified-devices-10-c.md)
+- [(Arduino | C)](../articles/iot-hub/iot-hub-certified-devices-arduino-c.md)
+- [(Other | C)](../articles/iot-hub/iot-hub-certified-devices-other-c.md)
+- [(Other | Javascript)](../articles/iot-hub/iot-hub-certified-devices-other-javascript.md)
 
 *Microsoft Azure Certified for IoT* is the partner program that connects the broader IoT ecosystem with Microsoft Azure so that developers and architects understand the compatibility scenarios. Specifically, it provides a trusted list of OS/device combinations to help you get started quickly with an IoT project – whether you’re in a proof of concept or pilot phase. With certified device and operating system combinations, your IoT project can get started quickly, with less work and customization required to make sure devices are compatible with [Azure IoT Suite][lnk-iot-suite] and Azure IoT Hub.
 

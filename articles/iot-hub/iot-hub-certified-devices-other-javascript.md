@@ -1,5 +1,5 @@
 <properties
-	pageTitle="IoT Hub certified devices (Embedded + JavaScript)| Microsoft Azure"
+	pageTitle="IoT Hub certified devices (Other + JavaScript)| Microsoft Azure"
 	description="Summarizes IoT device SDK compatibility with device hardware."
 	services="iot-hub"
 	documentationCenter=""
@@ -16,7 +16,7 @@
      ms.date="02/28/2016"
      ms.author="hegate"/>
 
-# Certified devices for Azure IoT Hub (Embedded + JavaScript)
+# Certified devices for Azure IoT Hub (Other + JavaScript)
 
 [AZURE.INCLUDE [iot-hub-certified-devices-header](../../includes/iot-hub-certified-devices-header.md)]
 
