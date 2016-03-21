@@ -225,8 +225,3 @@ For additional information about backing up VMs or other workloads, see:
 - [Back up IaaS VMs](backup-azure-vms-prepare.md)
 - [Back up workloads to Azure with Microsoft Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [Back up workloads to Azure with DPM](backup-azure-dpm-introduction.md).
-
-If you have additional questions:
-
-- Take a look at [frequently asked question on the Azure Backup service](backup-azure-backup-faq.md)
-- Visit the [Azure Backup forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)
