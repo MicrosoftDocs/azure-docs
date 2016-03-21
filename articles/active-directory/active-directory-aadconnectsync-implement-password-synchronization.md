@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD Connect sync: Implement password synchronization | Microsoft Azure"
-	description="Provides you with the information you need to understand how password synchronization works and how to enable it in your environment."
+	pageTitle="Implementing password synchronization with Azure AD Connect sync | Microsoft Azure"
+	description="Provides information about how password synchronization works and how to enable it."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -16,11 +16,11 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect sync: Implement password synchronization
+# Implementing password synchronization with Azure AD Connect sync
 
 With password synchronization, you enable your users to use the same password they are using to sign in to your on-premises Active Directory to sign in to Azure Active Directory.
 
-The objective of this topic is to provide you with the information you need to understand how password synchronization works and how to enable it in your environment.
+The objective of this topic is to provide you with the information you need to understand how password synchronization works, how to enable it and how to troubleshoot it in your environment.
 
 ## What is password synchronization
 
@@ -93,7 +93,7 @@ To enable passwordy synchronization, you have two options:
 - If you use custom settings when you install Azure AD Connect, you enable password synchronization on the user sign-in page.
 
 <br>
-![usersignin](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
+![User sign-in](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 <br>
 
 If you select to use **Federation with AD FS**, then you can optionally enable password sync as a backup in case your AD FS infrastructure fails. You can also enable it if you plan to use Azure AD Domain Services.
@@ -131,15 +131,15 @@ For information about security and FIPS see [AAD Password Sync, Encryption and F
 
 6. Select the **lineage** tab and make sure at least one Sync Rule shows **Password Sync** as **True**. In the  default configuration, the name of the the Sync Rule is **In from AD - User AccountEnabled**.
 
-    ![csuser](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
+    ![Lineage](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
 
 7. You should also [follow the user](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) through the metaverse to the Azure AD Connector space and make sure there is also an outbound rule with **Password Sync** set to **True**. In the default configuration, the name of the sync rule is **Out to AAD - User Join**.
 
-    ![csuser2](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+    ![Password sync rule](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
 
 8. To see the password sync details of the object, click on the button **Log...**.<br> This creates a page with a historic view of the user's password sync status for the past week.
 
-    ![object log](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
+    ![Object log](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
 The status column can have the following values which also indicates the issue and why a password is not synchronized.
 
@@ -173,7 +173,7 @@ However, if you have a need to do this, you can accomplish this by using the fol
 
 
 
-## Additional resources
+## Next steps
 
 * [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
