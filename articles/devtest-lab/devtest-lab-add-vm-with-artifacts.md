@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2016"
+	ms.date="03/21/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to a DevTest Lab
@@ -63,7 +63,7 @@ This article shows you how to create a VM in your lab with artifacts.
 
 1. Tap **VM Size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 
-1. Tap **Virtual network** and select the desired VNET.
+1. Tap **Virtual network** and select the desired virtual network.
 
 1. Tap **Subnet** and select subnet.
 
