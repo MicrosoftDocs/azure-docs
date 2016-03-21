@@ -26,13 +26,14 @@ You can find more details on the Recommendations API and other Cognitive Service
 <a name="Overview"></a>
 ## General overview
 
-This document is a step-by-step guide. Our objective is to walk you through the steps necessary to train a model, and to point you to resources that will allow you to put it in production.
+This document is a step-by-step guide. Our objective is to walk you through the steps necessary to train a model, and to point you to resources that will allow you to consume the model from your production environment.
+
 This exercise will take about 30 minutes.
 
-To use [Recommendations API](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2) , you need to take the following steps:
+To use [Recommendations API](http://go.microsoft.com/fwlink/?LinkId=759710), you need to take the following steps:
 
 1. Create a model - A model is a container of your usage data, catalog data and the recommendation model.
-1. Import catalog data - A catalog contains metadata information on the items.
+1. Import catalog data - A catalog contains metadata information about the items.
 1. Import usage data - Usage data can be uploaded in one of 2 ways (or both):
   -  By uploading a file that contains the usage data.
   -  Sending data acquisition events.
@@ -61,7 +62,7 @@ This product will allow you to start a subscription for any of the cognitive ser
 
 1. On the Cognitive Services API landing page, click **Create**.
 
-1. Enter a **Resource name** for your Recommendations subscription. (For instace: "MyRecommendations"). This name should not have any spaces on it.
+1. Enter a **Resource name** for your Recommendations subscription. (For instace: "MyRecommendations"). This name should not have any spaces in it.
 
 1. On **API type**, select **Recommendations**.
 
@@ -72,11 +73,10 @@ and change the plan type accordingly.
 
 1. You may change other elements in the Create dialog. We should point out that
 the resource provider today is only supported from United States data centers.
-The actual recommendations service is running out of the South-Central US data center.
 Once you are done with any selections, click **Create**.
 
 1. Wait a few minutes for the resource to be deployed.
-Once it is deployed, you can go to the **Keys** section where you will be provided a primary and secondary key to use the API.  Copy the primary key, as you'll need it when creating your first model.
+Once it is deployed, you can go to the **Keys** section in the **Settings** blade where you will be provided a primary and secondary key to use the API.  Copy the primary key, as you'll need it when creating your first model.
 
 <a name="Ex1Task2"></a>
 #### Task 2 - Did you bring your data? ####
@@ -84,20 +84,26 @@ Once it is deployed, you can go to the **Keys** section where you will be provid
 The Recommendations API will learn from your catalog and your transactions in order to provide good product recommendations. That means you need to feed it with good data about your products (We call this a **catalog** file) and a set of transactions large enough for it to find interesting patterns of consumption (We call this **usage**).
 
 1. Usually you would query your transactions database for these pieces of information.
-Just case you don't have them handy, we have provided some sample data for you based on Microsoft Store transaction data.
-You can download the data from [here](http://go.microsoft.com/fwlink/?LinkId=759703). Copy and unpack the MsStoreData.Zip into a folder on your local machine.
+Just in case you don't have them handy, we have provided some sample data for you based on Microsoft Store transaction data.
 
-1.	Now let’s take a look at the catalog file. On a command prompt navigate to the location where you copied the data.
+ You can download the data from [here](http://aka.ms/RecoSampleData). Copy and unpack the MsStoreData.Zip into a folder on your local machine.
 
-You will notice that the catalog file is pretty simple. It has the following format
+ > ** Note:** The sample code that you will download and run in Task 3 has sample data already
+ > embedded inside it -- so this task is optional.  That said, this Task will allow you to
+ > download more realistic data sets and allow you to understand the inputs into the
+ > Recommendations API better.
+
+1.	Now let’s take a look at the catalog file. Navigate to the location where you copied the data.
+ Open the catalog file in **notepad**.
+
+ You will notice that the catalog file is pretty simple. It has the following format
 `<itemid>,<item name>,<product category>`
 
+ >  AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office <br>
+ >  AAA-04303,OfficeLangPack 2013 32/64 ET Online DwnLd,Office  <br>
+ >  C9F-00168,KRUSELL Kiruna Flip Cover for Nokia Lumia 635 - Camel,Accessories
 
->  AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office <br>
->  AAA-04303,OfficeLangPack 2013 32/64 ET Online DwnLd,Office  <br>
->  C9F-00168,KRUSELL Kiruna Flip Cover for Nokia Lumia 635 - Camel,Accessories
-
-  We should point out that a catalog file can be much richer, for instance you can add  metadata about the products (We call these *item features*). You should see the [catalog format] (https://oxfordibiza.portal.azure-api.net/docs/services/56e7b18bd97e8a169c94cadf/operations/56e7b18bd97e8a0f702a30da) section in the API Reference for more details on the catalog format.
+ We should point out that a catalog file can be much richer, for instance you can add  metadata about the products (We call these *item features*). You should see the [catalog format](http://go.microsoft.com/fwlink/?LinkID=760716) section in the API Reference for more details on the catalog format.
 
 1. Let's do the same with the usage data. You will notice that the usage date is of the format
 `<User Id>,<Item Id>`.
@@ -107,12 +113,13 @@ You will notice that the catalog file is pretty simple. It has the following for
   > 000300009C01C881,W6F-00121<br>
   > 00060000AF0D2B04,QR2-00011<br>
 
-This is the minimum data required for a valid usage file. A more complex usage file could contain additional information for each transaction, including a timestamp for the transaction and the type of even that occurred ( a click, a purchase, etc.). You can check out the [usage format] (https://oxfordibiza.portal.azure-api.net/docs/services/56e7b18bd97e8a169c94cadf/operations/56e7b18bd97e8a0f702a30e3) for more information on this topic.
+ This is the minimum data required for a valid usage file. A more complex usage file could contain additional information for each transaction, including a timestamp for the transaction and the type of event that occurred (a click, a purchase, etc.). You can check out the [usage format](http://go.microsoft.com/fwlink/?LinkID=760712) for more information on this topic.
 
-
-> **How much data do you need?**  Well, it really depends on the usage data itself. The system learns when users buy different items. For some build like FBT builds, it is important to know which items are purchased in the same transactions. (We call this *co-occurrences*). A good rule of thumb is to have most items be in 20 transactions or more, so if you had 10,000 items in your catalog, we would recommend that you have at least 20 times that number of transactions or about 200,000 transactions.
+ > **How much data do you need?**
+ <p>
+ Well, it really depends on the usage data itself. The system learns when users buy different items. For some builds like FBT, it is important to know which items are purchased in the same transactions. (We call this *co-occurrences*). A good rule of thumb is to have most items be in 20 transactions or more, so if you had 10,000 items in your catalog, we would recommend that you have at least 20 times that number of transactions or about 200,000 transactions.
     Once again, this is a rule of thumb. You will need to experiment with your data.
-
+</p>
 
 <a name="Ex1Task3"></a>
 #### Task 3 - Creating a recommendations model ####
@@ -123,16 +130,17 @@ In this task, you will use the sample application to build your first model.
 
 1. First of all you should be aware of the [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348).
 
-1. Download the [sample application] from (https://code.msdn.microsoft.com/Recommendations-144df403) to a local folder.
+1. Download the [Sample Application](http://go.microsoft.com/fwlink/?LinkID=759344) to a local folder.
 
 1. Open in Visual Studio the **RecommendationsSample.sln** solution located in the **C#** folder.
 
 1. Open the **SampleApp.cs** file. Note that the following steps in the file:
-- Create a Model
-- Add a catalog file
-- Add a usage file
-- Trigger a build for the Model
-- Get a recommendation based on a pair of items
+ + Create a Model
+ + Add a catalog file
+ + Add a usage file
+ + Trigger a build for the Model
+ + Get a recommendation based on a pair of items
+<p></p>
 
 1. Replace the values for the **accountEmail** and **accountKey** fields with your email and the key from Task 1.
 
@@ -140,7 +148,7 @@ In this task, you will use the sample application to build your first model.
 
 1. Try replacing the catalog and usage files you just downloaded to create a new model for the Microsoft Store, or for book recommendations. You will need to change the model name as well, and the items for which you request recommendations.
 
-1. When the is created, take note of the **model ID** as you will need it when
+1. When the model is created, take note of the **model ID** as you will need it when
 requesting recommendations in your production environment.
 
 <a name="Ex1Task4"></a>
@@ -176,8 +184,9 @@ In this case, the model will provide recommendations that are of interest given 
 A recommendations model can take as input the user id.  This will use the history of transactions by that user to provide personalized recommendations to the user specified.
 </p>
 
-Check out the [Recommendations Consumption Documentation](https://oxfordibiza.portal.azure-api.net/docs/services/56e7b18bd97e8a169c94cadf/operations/56e7b18bd97e8a0f702a30db).
+Check out the [Get Item Recommendations Documentation](http://go.microsoft.com/fwlink/?LinkID=760719).
 
 <a name="Ex1Task6"></a>
 ### What's next?
-Congratulations if you have made it this far in the getting started guide. To learn more you can visit the complete [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348)
+Congratulations if you have made it this far! To learn more you can visit the complete [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348)
+If you have questions, don't hesitate to contact us at mlapi@microsoft.com
