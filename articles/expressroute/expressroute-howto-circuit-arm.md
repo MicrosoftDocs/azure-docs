@@ -385,7 +385,7 @@ Your circuit will be sized up on the Microsoft side. Then you must contact your 
 
 **Important**: You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 
-## Delete and deprovision an ExpressRoute circuit
+## To delete and deprovision an ExpressRoute circuit
 
 You can delete your ExpressRoute circuit by running the following command:
 
