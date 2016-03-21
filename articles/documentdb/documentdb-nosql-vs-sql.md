@@ -67,7 +67,7 @@ Microsoft has three SQL offerings:
 
 The following comparison charts maps out the key differentiators for each offering. Which one most accurately describes the needs of your application? 
 
-*I will make this into a similar table as the NoSQL offering tables and add additional rows.*
+*For comparison, do you like the info in a text table like this - or is the image table better?*
 
 |---|**SQL Server**|**SQL Server on Azure Virtual Machines**|**Azure SQL Database**|
 |---|---|---|---|
@@ -86,11 +86,10 @@ Then go to [Next steps](#next-steps) for free trial and evaluation links.
 
 ## Next steps
 
-Interested in:
+We invite you to learn more about our SQL and NoSQL products by trying them out for free. 
 
-- DocumentDB, Table Storage, HBase on HDInsignt, or Redis Cache? You can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) and receive $200 to spend on Azure.
-- SQL Server or SQL Server on a Virtual Machine? Spin up an [evaluation version of SQL Server 2016 on a virtual machine](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/).
-- SQL Server 2016? Try [SQL Server Evaluations](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).
-
-
+|Product|Free trial and evaluation information|
+|---|---|
+|[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)<br><br>[Azure Table Storage](https://azure.microsoft.com/services/storage/)<br><br>[Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)<br><br>[Azure Redis Cache](https://azure.microsoft.com/services/cache/)<br><br>[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)|You can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) and receive $200 to spend on Azure.|
+|[SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)<br><br>[SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-provision-sql-server.md)|Spin up an [evaluation version of SQL Server 2016 on a virtual machine](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/).<br><br>Or see [SQL Server Evaluations](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).|
 
