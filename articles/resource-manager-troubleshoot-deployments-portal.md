@@ -27,7 +27,9 @@
 
 If you've received an error when deploying resources to Azure, you need to troubleshoot what went wrong. The Azure Portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
-You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. Both methods are shown in this topic.
+You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This topic shows both methods.
+
+You can avoid some errors by validating your template and infrastructure prior to deployment. For more information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
 ## Use audit logs to troubleshoot
 
@@ -98,3 +100,4 @@ To see the deployment operations, use the following steps:
 ## Next steps
 
 - To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).

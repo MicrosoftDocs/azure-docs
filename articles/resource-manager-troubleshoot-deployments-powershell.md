@@ -27,11 +27,15 @@
 
 If you've received an error when deploying resources to Azure, you need to troubleshoot what went wrong. Azure PowerShell provides cmdlets that enable you to easily find the errors and determine potential fixes.
 
-You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. Both methods are shown in this topic.
+You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This topic shows both methods.
+
+You can avoid some errors by validating your template and infrastructure prior to deployment. For more information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
 ## Use audit logs to troubleshoot
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
+
+To see errors for a deployment, use the following steps:
 
 1. To retrieve log entries, run the **Get-AzureRmLog** command. You can use the **ResourceGroup** and **Status** parameters to return only events that failed for a single resource group. If you do not specify a start and end time, entries for the last hour are returned.
 For example, to retrieve the failed operations for the past hour run:
@@ -129,3 +133,5 @@ deployment operations. You can see the status of the operations with **Get-Azure
 ## Next steps
 
 - To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+
