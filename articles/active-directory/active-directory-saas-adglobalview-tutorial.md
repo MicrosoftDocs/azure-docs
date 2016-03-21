@@ -121,9 +121,9 @@ Before you can configure the SAML assertion, you need to contact your ADP Global
 
 
 
-    - **“https://\<server name\>.globalview.adp.com/federate2/sp/ACS.saml2”**
+     - **“https://\<server name\>.globalview.adp.com/federate2/sp/ACS.saml2”**
     
-    - **“https://\<server name\>.globalview.adp.com/federate/sp/ACS.saml2”**
+     - **“https://\<server name\>.globalview.adp.com/federate/sp/ACS.saml2”**
 
     c. Click **Next**.
 
