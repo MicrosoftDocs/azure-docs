@@ -62,21 +62,21 @@ Then go to [Next steps](#next-steps) for free trial information.
 Microsoft has three SQL offerings: 
 
 - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-- [SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-provision-sql-server.md)
+- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
 The following comparison charts maps out the key differentiators for each offering. Which one most accurately describes the needs of your application? 
 
 *For comparison, do you like the info in a text table like this - or is the image table better?*
 
-|---|**SQL Server**|**SQL Server on Azure Virtual Machines**|**Azure SQL Database**|
+|---|**SQL Server**|**SQL Server on Azure Virtual Machines**|**Azure SQL Database**|**Azure SQL Data Warehouse**
 |---|---|---|---|
-|**Category**|Relational Database Management System (RDBMS)|Infrastructure as a service (IaaS)|Platform as a service (PaaS) database or database as a service (DBaaS) that is optimized for software-as-a-service (SaaS) app development|
-|**Use case**|Existing on-premises applications or new applications where private hosting and administration is preferred|Existing on-premises applications with a preference to stop maintaining private hardware. Hybrid solutions. Elastic scale.|Building new cloud-based applications or migrating existing SQL Server solutions to take advantage of the cost savings and performance optimization that cloud services provide. Low initial time-to-market, long term cost optimization. Elastic scale|
-|**Hardware**|Complete flexibility in choosing your own hardware|Wide variety of virtual machine sizes available in Azure|Hardware selected by Microsoft|
-|**Hardware hosting**|Hosted privately. SQL Server is installed on-premises by DBA|Hosted on the cloud by Azure. SQL Server is installed on Windows Server Virtual Machines (VMs) hosted by Azure|On the cloud by Azure. This is a fully managed, cloud-based Azure service.|
-|**Availability**|AlwaysOn availability and log shipping maintained by DBA|99.95% availability for Virtual Machines maintained by Microsoft. SQL Server AlwaysOn availability maintained by DBA|99.99% availability maintained by Microsoft|
-|**Pricing**|License based on SQL Server edition|Size of virtual machine, time usage, and license based on SQL Server edition|Amount of storage per elastic database pool and performance level|
+|**Category**|Relational Database Management System (RDBMS)|SQL Server using Infrastructure as a service (IaaS)|Platform as a service (PaaS) database or database as a service (DBaaS) that is optimized for software-as-a-service (SaaS) app development|TBD|
+|**Use case**|New or existing on-premises applications or new applications where private hosting and administration is preferred|New or existing on-premises applications with a preference to stop maintaining private hardware and data centers. Both hybrid and cloud-only solutions.|Building new cloud-based applications or migrating existing SQL Server solutions to take advantage of the cost savings and performance optimization that cloud services provide. Low initial time-to-market, long-term cost optimization. Elastic scale|TBD|
+|**Hardware**|Complete flexibility in choosing your own hardware|Wide variety of virtual machine sizes available in Azure|Hardware selected by Microsoft|TBD|
+|**Hardware hosting**|Hosted privately. SQL Server is installed on-premises by DBA|Hosted on the cloud by Azure. SQL Server is installed on Windows Server Virtual Machines (VMs) hosted by Azure|On the cloud by Azure. This is a fully managed, cloud-based Azure service.|TBD|
+|**Availability**|AlwaysOn availability and log shipping maintained by DBA|99.95% availability for Virtual Machines maintained by Microsoft. SQL Server AlwaysOn availability maintained by DBA|99.99% availability maintained by Microsoft. Geo-restore and geo-replication services to protect against service outages. Point In Time Restore to protect against user error|TBD|
+|**Pricing**|License based on SQL Server edition|Size of virtual machine, time usage, and license based on SQL Server edition. SQL VM images licensing built into VM pricing|For single databases, based on service tier and performance level. For elastic database pools, based on performance level and usage|TBD|
 
 If SQL Server on a Virtual Machine or SQL Database sound like the best options, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md) to learn more about the differences between the two.
 
@@ -91,5 +91,5 @@ We invite you to learn more about our SQL and NoSQL products by trying them out 
 |Product|Free trial and evaluation information|
 |---|---|
 |[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)<br><br>[Azure Table Storage](https://azure.microsoft.com/services/storage/)<br><br>[Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)<br><br>[Azure Redis Cache](https://azure.microsoft.com/services/cache/)<br><br>[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)|You can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) and receive $200 to spend on Azure.|
-|[SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)<br><br>[SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-provision-sql-server.md)|Spin up an [evaluation version of SQL Server 2016 on a virtual machine](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/).<br><br>Or see [SQL Server Evaluations](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).|
+|[SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)<br><br>[SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Spin up an [evaluation version of SQL Server 2016 on a virtual machine](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/).<br><br>Or see [SQL Server Evaluations](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).|
 
