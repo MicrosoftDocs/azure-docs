@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/25/2016"
 	ms.author="daleche"/>
 
 
@@ -26,7 +26,7 @@ This article describes how to prevent, troubleshoot, diagnose, and mitigate conn
 
 ## Transient errors (transient faults)
 
-A transient error - also, transient fault - has an underlying cause that will soon resolve itself. An occasional cause of transient errors is when the Azure system quickly shifts hardware resources to better load-balance various workloads. During this reconfiguration time span, you may have connectivity issues to Azure SQL Database.
+A transient error - also, transient fault - has an underlying cause that will soon resolve itself. An occasional cause of transient errors is when the Azure system quickly shifts hardware resources to better load-balance various workloads. Most of these reconfiguration events often complete in less than 60 seconds. During this reconfiguration time span, you may have connectivity issues to Azure SQL Database. Applications connecting to Azure SQL Database should be built to expect these transient errors, handle them by implementing retry logic in their code instead of surfacing them to users as application errors.
 
 If your client program is using ADO.NET, your program is told about the transient error by the throw of an **SqlException**. The **Number** property can be compared against the list of transient errors near the top of the topic:
 [SQL error codes for SQL Database client applications](sql-database-develop-error-messages.md).
@@ -42,7 +42,7 @@ You'll retry the SQL connection or establish it again, depending on the followin
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-## Retry logic for transient errors
+### Retry logic for transient errors
 
 
 Client programs that occasionally encounter a transient error are more robust when they contain retry logic.
@@ -51,7 +51,7 @@ Client programs that occasionally encounter a transient error are more robust wh
 When your program communicates with Azure SQL Database through a 3rd party middleware, inquire with the vendor whether the middleware contains retry logic for transient errors.
 
 
-### Principles for retry
+#### Principles for retry
 
 
 - An attempt to open a connection should be retried if the error is transient.
@@ -75,7 +75,7 @@ When your program communicates with Azure SQL Database through a 3rd party middl
  - However, the solution must not be to retry every few seconds, because that policy can flood the system with requests.
 
 
-### Interval increase between retries
+#### Interval increase between retries
 
 
 
@@ -86,7 +86,7 @@ A discussion of the *blocking period* for clients that use ADO.NET is available 
 You might also want to set a maximum number of retries before the program self-terminates.
 
 
-### Code samples with retry logic
+#### Code samples with retry logic
 
 
 Code samples with retry logic, in a variety of programming languages, are available at:
@@ -96,13 +96,13 @@ Code samples with retry logic, in a variety of programming languages, are availa
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-## Test your retry logic
+#### Test your retry logic
 
 
 To test your retry logic, you must simulate or cause an error than can be corrected while your program is still running.
 
 
-### Test by disconnecting from the network
+##### Test by disconnecting from the network
 
 
 One way you can test your retry logic is to disconnect your client computer from the network while the program is running. The error will be:
@@ -124,7 +124,7 @@ To make this practical, you unplug your computer from the network before you sta
 5. Attempt again to connect, expecting success.
 
 
-### Test by misspelling the database name when connecting
+##### Test by misspelling the database name when connecting
 
 
 Your program can purposely misspell the user name before the first connection attempt. The error will be:
@@ -143,18 +143,6 @@ To make this practical, your program could recognize a run time parameter that c
 3. After the error is caught, remove 18456 from the list.
 4. Remove 'WRONG_' from the user name.
 5. Attempt again to connect, expecting success.
-
-
-<a id="a-connection-connection-string" name="a-connection-connection-string"></a>
-
-## Connection: Connection string
-
-
-The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure Portal](https://portal.azure.com/).
-
-
-[AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
-
 
 
 ### .NET SqlConnection parameters for connection retry
@@ -182,7 +170,7 @@ Specifically, your chosen values should make the following equality true:
 For example, if the count = 3, and interval = 10 seconds, a timeout of only 29 seconds would not quite give the system enough time for its 3rd and final retry at connecting: 29 < 3 * 10.
 
 
-#### Connection versus command
+### Connection versus command
 
 
 The **ConnectRetryCount** and **ConnectRetryInterval** parameters let your **SqlConnection** object retry the connect operation without telling or bothering your program, such as returning control to your program. The retries can occur in the following situations:
@@ -197,11 +185,21 @@ There is a subtlety. If a transient error occurs while your *query* is being exe
 
 Suppose your application has robust custom retry logic. It might retry the connect operation 4 times. If you add **ConnectRetryInterval** and **ConnectRetryCount** =3 to your connection string, you will increase the retry count to 4 * 3 = 12 retries. You might not intend such a high number of retries.
 
+<a id="a-connection-connection-string" name="a-connection-connection-string"></a>
+
+## Connections to Azure SQL Database
+### Connection: Connection string
+
+
+The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure Portal](https://portal.azure.com/).
+
+
+[AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
-## Connection: IP address
+### Connection: IP address
 
 
 You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. You do this by editing the firewall settings through the [Azure Portal](https://portal.azure.com/).
@@ -219,7 +217,7 @@ For more information, see:
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-## Connection: Ports
+### Connection: Ports
 
 
 Typically you only need to ensure that port 1433 is open for outbound communication, on the computer that hosts you client program.
@@ -246,7 +244,7 @@ For background information about cofiguration of ports and IP address, see:
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## Connection: ADO.NET 4.6.1
+### Connection: ADO.NET 4.6.1
 
 
 If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection** to connect to Azure SQL Database, we recommend that you use .NET Framework version 4.6.1 or higher.
@@ -269,7 +267,8 @@ If you are using ADO.NET 4.0 or earlier, we recommend that you upgrade to the la
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## Diagnostics: Test whether utilities can connect
+## Diagnostics
+### Diagnostics: Test whether utilities can connect
 
 
 If your program is failing to connect to Azure SQL Database, one diagnostic option is to try to connect with a utility program. Ideally the utility would connect by using the same library that your program uses.
@@ -286,7 +285,7 @@ Once connected, test whether a short SQL SELECT query works.
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-## Diagnostics: Check the open ports
+### Diagnostics: Check the open ports
 
 
 Suppose you suspect that connection attempts are failing due to port issues. On your computer you can run a utility that reports on the port configurations.
@@ -322,7 +321,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-## Diagnostics: Log your errors
+### Diagnostics: Log your errors
 
 
 An intermittent problem is sometimes best diagnosed by detection of a general pattern over days or weeks.
@@ -338,7 +337,7 @@ Enterprise Library 6 (EntLib60) offers .NET managed classes to assist with loggi
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-## Diagnostics: Examine system logs for errors
+### Diagnostics: Examine system logs for errors
 
 
 Here are some Transact-SQL SELECT statements that query logs of error and other information.
