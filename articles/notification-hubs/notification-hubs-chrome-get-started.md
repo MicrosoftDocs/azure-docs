@@ -426,7 +426,7 @@ For testing purposes, we will send Chrome push notifications by using a .NET con
 
    	![Google Chrome - Notification][13]
 
-7. You can also see all your notifications by using the Chrome Notifications window in the taskbar (in Windows) when Chrome is running.
+8. You can also see all your notifications by using the Chrome Notifications window in the taskbar (in Windows) when Chrome is running.
 
    	![Google Chrome - Notifications List][14]
 
