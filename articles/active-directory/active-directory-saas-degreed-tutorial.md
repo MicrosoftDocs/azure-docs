@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/21/2016"
 	ms.author="jeedes"/>
 
 
@@ -72,6 +72,7 @@ To configure the integration of Degreed into Azure AD, you need to add Degreed f
 ![Creating an Azure AD test user](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_01.png)<br>
 7. In the results pane, select **Degreed**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Degreed based on a test user called "Britta Simon".

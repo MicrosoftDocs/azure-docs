@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the Twitter Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Twitter API](../connectors/create-api-twitter.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Twitter API](../connectors/connectors-create-api-twitter.md).
 
 Connect to your Twitter feed to post tweets and gets tweets from your timeline, your friends' timeline, and followers of your Twitter account. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the Twitter Connector in your workflow, you can achieve a variety of scenarios. For example, you can:
 
