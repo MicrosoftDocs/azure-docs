@@ -69,12 +69,12 @@ The software versions that can be upgraded using the hotfix method are Update 0.
 
 To install Update 2 as a hotfix, you must download and install the following hotfixes:
 
-| Order  | KB        | Name                    | Update type  |
+| Order  | KB        | Description                    | Update type  |
 |--------|-----------|-------------------------|------------- |
 | 1      | KB3121901 | Software update         |  Regular     |
 | 2      | KB3121900 | LSI driver              |  Regular     |
-| 3      | KB3080728 | Storport fix            |  Regular     |
-| 4      | KB3090322 | Spaceport fix           |  Regular     |
+| 3      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular     |
+| 4      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular     |
 | 5      | KB3121899 | Disk firmware           | Maintenance  |
 
 

@@ -91,10 +91,10 @@ You should use this procedure only if you are running Update 0.1, 0.2, 0.3 and i
 
 To install Update 1.2 as a hotfix, you must download and install the following hotfixes:
 
-| Order  | KB        | Name                    | Update type  |
+| Order  | KB        | Description             | Update type  |
 |--------|-----------|-------------------------|------------- |
 | 1      | KB3063418 | Software update         |  Regular     |
-| 2      | KB3043005 | LSI driver              |  Regular     |
+| 2      | KB3043005 | LSI SAS controller update |  Regular     |
 | 3      | KB3063416 | Disk firmware           | Maintenance  |
 
 Before using this procedure to apply the update, make sure that:
