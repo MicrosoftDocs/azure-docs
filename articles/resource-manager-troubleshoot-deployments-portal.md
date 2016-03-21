@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/16/2016"
+   ms.date="03/21/2016"
    ms.author="tomfitz"/>
 
 # Troubleshooting resource group deployments with Azure Portal
@@ -25,8 +25,7 @@
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-You've tried deploying resources to Azure, but it did not succeed. Now, you need to troubleshoot what went wrong. Whether you deployed your resources through the Azure Portal or one of the other methods (Azure PowerShell, Azure CLI, REST
-API, or code), the Portal provides an interface that enables you to easily find the errors and determine potential fixes.
+If you've received an error when deploying resources to Azure, you need to troubleshoot what went wrong. The Azure Portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
 You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. Both methods are shown in this topic.
 
@@ -52,7 +51,7 @@ To see errors for a deployment, use the following steps:
 
     ![select event](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
 
-5. You will see a lot of details about the event. In particular, pay attention to the **Properties** for information about the error.
+5. You will see details about the event. In particular, pay attention to the **Properties** for information about the error.
 
     ![show audit log details](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
 
@@ -62,7 +61,7 @@ You can filter your view of the audit logs to focus on particular conditions. To
 
     ![filter logs](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
 
-2. From the **Filter** blade, select conditions to restrict your view of the audit logs to only those operations you want to see. For example, you can select to filter operations to only displays errors for a particular resource group.
+2. From the **Filter** blade, select conditions to restrict your view of the audit logs to only those operations you want to see. For example, you can filter operations to only display errors for a particular resource group.
 
     ![set filter options](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
 
