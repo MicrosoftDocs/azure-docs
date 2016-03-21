@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute circuits and routing domains
@@ -73,7 +73,7 @@ The table below compares the three routing domains.
 |---|---|---|---|
 |**Max. # prefixes supported per peering**|4000 by default, 10,000 with ExpressRoute Premium|200|200|
 |**IP address ranges supported**|Any valid IPv4 address within your WAN.|Public IPv4 addresses owned by you or your connectivity provider.|Public IPv4 addresses owned by you or your connectivity provider.|
-|**AS Number requirements**|Private and public AS numbers. Customer must own public AS number. | Private and public AS numbers. However, customer must provide Public AS number to validate ownership of public IP addresses.| Private and public AS numbers. However, customer must provide Public AS number to validate ownership of public IP addresses.|
+|**AS Number requirements**|Private and public AS numbers. Customer must own public AS number. | Private and public AS numbers. However, customer must provide public AS number to validate ownership of public IP addresses.| Private and public AS numbers. However, customer must provide public AS number to validate ownership of public IP addresses.|
 |**Routing Interface IP addresses**|RFC1918 and public IP addresses|Public IP addresses registered to customers in routing registries.| Public IP addresses registered to customers in routing registries.|
 |**MD5 Hash support**| Yes|Yes|Yes|
 
