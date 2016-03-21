@@ -113,17 +113,17 @@ Before you can configure the SAML assertion, you need to contact your ADP Global
 
     a. In the **Identifier** textbox, type the URL used to idenify ADP GlobalView application using one the following patterns:
 
-     - **“https://\<server name\>.globalview.adp.com/federate2”**
+     1. **“https://\<server name\>.globalview.adp.com/federate2”**
       
-     - **“https://\<server name\>.globalview.adp.com/federate”** 
+     2. **“https://\<server name\>.globalview.adp.com/federate”** 
 
 
 
     a. In the **Identifier** textbox, type the URL used to idenify ADP GlobalView application using one the following patterns:
 
-     - **“https://\<server name\>.globalview.adp.com/federate2”**
+     1. **“https://\<server name\>.globalview.adp.com/federate2”**
       
-     - **“https://\<server name\>.globalview.adp.com/federate”** 
+     2. **“https://\<server name\>.globalview.adp.com/federate”** 
 
 
 
