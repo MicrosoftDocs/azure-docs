@@ -28,7 +28,7 @@ You may receive errors when you try to delete the Azure storage account, contain
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../..includes/learn-about-deployment-models-both-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Resolution
 To resolve the most common issues, try the following method:
