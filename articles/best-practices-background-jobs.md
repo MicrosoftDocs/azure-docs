@@ -74,69 +74,71 @@ If you use a schedule-driven task that must run as a single instance, be aware o
 
 ## Returning results
 
-Background jobs execute asynchronously in a separate process, or even a separate location, from the UI or the process that invoked the background task. Ideally, background tasks are “fire and forget” operations, and their execution progress has no impact on the UI or the calling process. This means that the calling process does not wait for completion of the tasks, and therefore cannot automatically detect when the task ends.
+Background jobs execute asynchronously in a separate process, or even in a separate location, from the UI or the process that invoked the background task. Ideally, background tasks are “fire and forget” operations, and their execution progress has no impact on the UI or the calling process. This means that the calling process does not wait for completion of the tasks. Therefore, it  cannot automatically detect when the task ends.
+
 If you require a background task to communicate with the calling task to indicate progress or completion, you must implement a mechanism for this. Some examples are:
 
-- Write status indicator value to storage that is accessible to the UI or caller task, which can monitor or check this value when required. Other data that the background task must return to the caller can be placed into the same storage.
-- Establish a reply queue that the UI or caller listens on. The background task can send messages to the queue indicating status and completion. Data that the background task must return to the caller can be placed into the messages. If you are using Azure Service Bus, you can use the **ReplyTo** and **CorrelationId** properties to implement this capability. For more information, see [Correlation in Service Bus Brokered Messaging](http://www.cloudcasts.net/devguide/Default.aspx?id=13029).
+- Write a status indicator value to storage that is accessible to the UI or caller task, which can monitor or check this value when required. Other data that the background task must return to the caller can be placed into the same storage.
+- Establish a reply queue that the UI or caller listens on. The background task can send messages to the queue that indicate status and completion. Data that the background task must return to the caller can be placed into the messages. If you are using Azure Service Bus, you can use the **ReplyTo** and **CorrelationId** properties to implement this capability. For more information, see [Correlation in Service Bus Brokered Messaging](http://www.cloudcasts.net/devguide/Default.aspx?id=13029).
 - Expose an API or endpoint from the background task that the UI or caller can access to obtain status information. Data that the background task must return to the caller can be included in the response.
 - Have the background task call back to the UI or caller through an API to indicate status at predefined points or on completion. This might be through events raised locally, or through a publish and subscribe mechanism. Data that the background task must return to the caller can be included in the request or event payload.
 
 ## Hosting environment
 
-You can host background tasks using a range of different Azure platform services:
+You can host background tasks by using a range of different Azure platform services:
 
-- [**Azure Web Apps and WebJobs**](#azure-web-apps-and-webjobs). You can use WebJobs to execute custom jobs based on a range of different types of script or executable program within the context of a web app.
+- [**Azure Web Apps and WebJobs**](#azure-web-apps-and-webjobs). You can use WebJobs to execute custom jobs based on a range of different types of scripts or executable programs within the context of a web app.
 - [**Azure Cloud Services web and worker roles**](#azure-cloud-services-web-and-worker-roles). You can write code within a role that executes as a background task.
-- [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or you want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
+- [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
-### Azure Web Apps and WebJobs
+## Azure Web Apps and WebJobs
 
-You can use Azure WebJobs to execute custom jobs as background tasks within an Azure Web App. WebJobs run within the context of your web app as a continuous process, or in response to a trigger event from Azure Scheduler or external factors such as changes to storage blobs and message queues. Jobs can be started and stopped on demand, and shut down gracefully. If a continuously running WebJob fails, it is automatically restarted. Retry and error actions are configurable.
+You can use Azure WebJobs to execute custom jobs as background tasks within an Azure Web App. WebJobs run within the context of your web app as a continuous process. WebJobs also run in response to a trigger event from Azure Scheduler or external factors, such as changes to storage blobs and message queues. Jobs can be started and stopped on demand, and shut down gracefully. If a continuously running WebJob fails, it is automatically restarted. Retry and error actions are configurable.
 
-When configuring a WebJob:
+When you configure a WebJob:
 
-- If you want the job to respond to an event driven trigger, it should be configured as **Run continuously**. The script or program is stored in the folder named site/wwwroot/app_data/jobs/continuous.
-- If you want the job to respond to a schedule driven trigger, it should be configured as **Run on a schedule**. The script or program is stored in the folder named site/wwwroot/app_data/jobs/triggered.
+- If you want the job to respond to an event-driven trigger, you should configure it as **Run continuously**. The script or program is stored in the folder named site/wwwroot/app_data/jobs/continuous.
+- If you want the job to respond to a schedule-driven trigger, you should configure it as **Run on a schedule**. The script or program is stored in the folder named site/wwwroot/app_data/jobs/triggered.
 - If you choose the **Run on demand** option when you configure a job, it will execute the same code as the **Run on a schedule** option when you start it.
 
-Azure WebJobs run within the sandbox of the web app, which means they can access environment variables, and share information such as connection strings with the web app. The job has access to the unique identifier of the machine running the job. The connection string named **AzureWebJobsStorage** provides access to Azure storage queues, blobs, and tables for application data, and Service Bus for messaging and communication. The connection string named **AzureWebJobsDashboard** provides access to the job action log files.
+Azure WebJobs run within the sandbox of the web app. This means that they can access environment variables and share information, such as connection strings, with the web app. The job has access to the unique identifier of the machine that is running the job. The connection string named **AzureWebJobsStorage** provides access to Azure storage queues, blobs, and tables for application data, and Service Bus for messaging and communication. The connection string named **AzureWebJobsDashboard** provides access to the job action log files.
 
 Azure WebJobs have the following characteristics:
 
 - **Security**: WebJobs are protected by the deployment credentials of the web app.
-- **Supported file types**: WebJobs can be defined using command scripts (.cmd), batch files (.bat), PowerShell scripts (.ps1), bash shell scripts (.sh), PHP scripts (.php), Python scripts (.py), JavaScript code (.js), and executable programs (.exe, .jar, and more).
-- **Deployment**: Scripts and executables can be deployed using the Azure portal, created and deployed by using the [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) add-in for Visual Studio or the [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs), by using the [Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md), or by copying them directly to the following locations:
-  - for triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
-  - for continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}
-- **Logging**: Console.Out is treated (marked) as INFO and Console.Error as ERROR. Monitoring and diagnostics information can be accessed using the Azure portal, and log files can be downloaded directly from the site. They are saved in the following locations:
-  - for triggered execution: Vfs/data/jobs/continuous/jobName
-  - for continuous execution: Vfs/data/jobs/triggered/jobName
-- **Configuration**: WebJobs can be configured using the portal, the REST API, and PowerShell. A configuration file named settings.job in the same root directory as the job script can be used to provide configuration information for a job. For example:
+- **Supported file types**: You can define WebJobs by using command scripts (.cmd), batch files (.bat), PowerShell scripts (.ps1), bash shell scripts (.sh), PHP scripts (.php), Python scripts (.py), JavaScript code (.js), and executable programs (.exe, .jar, and more).
+- **Deployment**: You can deploy scripts and executables by using the Azure portal, by using the [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) add-in for Visual Studio or the [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs) (you can create and deploy with this option), by using the [Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md), or by copying them directly to the following locations:
+  - For triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
+  - For continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}
+- **Logging**: Console.Out is treated (marked) as INFO. Console.Error is treated as ERROR. You can access monitoring and diagnostics information by using the Azure portal. You can download log files directly from the site. They are saved in the following locations:
+  - For triggered execution: Vfs/data/jobs/continuous/jobName
+  - For continuous execution: Vfs/data/jobs/triggered/jobName
+- **Configuration**: You can configure WebJobs by using the portal, the REST API, and PowerShell. You can use a configuration file named settings.job in the same root directory as the job script to provide configuration information for a job. For example:
   - { "stopping_wait_time": 60 }
   - { "is_singleton": true }
 
 ### Considerations
 
-- By default, WebJobs scale with the web app. However, jobs can be configured to run on single instance by setting the **is_singleton** configuration property to true. Single instance WebJobs are useful for tasks that you do not want to scale or run as simultaneous multiple instances, such as re-indexing, data analysis, and similar tasks.
-- To minimize the impact of jobs on the performance of the web app, consider creating an empty Azure Web App instance in a new App Service Plan to host WebJobs that may be long running or resource intensive.
+- By default, WebJobs scale with the web app. However, you can configure jobs to run on single instance by setting the **is_singleton** configuration property to true. Single instance WebJobs are useful for tasks that you do not want to scale or run as simultaneous multiple instances, such as reindexing, data analysis, and similar tasks.
+- To minimize the impact of jobs on the performance of the web app, consider creating an empty Azure Web App instance in a new App Service plan to host WebJobs that may be long running or resource intensive.
 
 ### More information
 
-- [Azure WebJobs Recommended Resources](websites-webjobs-resources.md) lists the many useful resources, downloads, and samples for WebJobs.
+- [Azure WebJobs recommended resources](websites-webjobs-resources.md) lists the many useful resources, downloads, and samples for WebJobs.
 
 ## Azure Cloud Services web and worker roles
 
-Background tasks can be executed within a web role or in a separate worker role. The decision whether to use a worker role should be based on consideration of scalability and elasticity requirements, task lifetime, release cadence, security, fault tolerance, contention, complexity, and the logical architecture. For more information, see [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx).
+You can execute background tasks within a web role or in a separate worker role. When you are deciding whether to use a worker role, consider scalability and elasticity requirements, task lifetime, release cadence, security, fault tolerance, contention, complexity, and the logical architecture. For more information, see [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx).
 
 There are several ways to implement background tasks within a Cloud Services role:
 
-- Create an implementation of the **RoleEntryPoint** class in the role and use its methods to execute background tasks. The tasks run in the context of WaIISHost.exe, and can use the **GetSetting** method of the **CloudConfigurationManager** class to load configuration settings. For more information, see [Lifecycle (Cloud Services)](#lifecycle-cloud-services).
-- Use startup tasks to execute background tasks when the application starts. To force the tasks to continue to run in the background set the **taskType** property to **background** (if you do not do this, the application startup process will halt and wait for the task to finish). For more information, see [Run Startup Tasks in Azure](cloud-services-startup-tasks.md).
-- Use the WebJobs SDK to implement background tasks as WebJobs that are initiated as a startup task. For more information, see [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
-- Use a startup task to install a Windows service that executes one or more background tasks. You must set the **taskType** property to **background** so that the service executes in the background. For more information, see [Run Startup Tasks in Azure](cloud-services-startup-tasks.md).
+- Create an implementation of the **RoleEntryPoint** class in the role and use its methods to execute background tasks. The tasks run in the context of WaIISHost.exe. They can use the **GetSetting** method of the **CloudConfigurationManager** class to load configuration settings. For more information, see [Lifecycle (Cloud Services)](#lifecycle-cloud-services).
+- Use startup tasks to execute background tasks when the application starts. To force the tasks to continue to run in the background, set the **taskType** property to **background** (if you do not do this, the application startup process will halt and wait for the task to finish). For more information, see [Run startup tasks in Azure](cloud-services-startup-tasks.md).
+- Use the WebJobs SDK to implement background tasks such as WebJobs that are initiated as a startup task. For more information, see [Get started wit
+h the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
+- Use a startup task to install a Windows service that executes one or more background tasks. You must set the **taskType** property to **background** so that the service executes in the background. For more information, see [Run startup tasks in Azure](cloud-services-startup-tasks.md).
 
 ### Running background tasks in the web role
 
@@ -146,49 +148,50 @@ The main advantage of running background tasks in the web role is the saving in 
 
 Running background tasks in a worker role has several advantages:
 
-- It allows you to manage scaling separately for each type of role. For example, you may need more instances of a web role to support the current load, but fewer instances of the worker role that executes background tasks. Scaling background task compute instances separately from the UI roles can reduce hosting cost, while maintaining acceptable performance.
+- It allows you to manage scaling separately for each type of role. For example, you might need more instances of a web role to support the current load, but fewer instances of the worker role that executes background tasks. By scaling background task compute instances separately from the UI roles, you can reduce hosting costs, while maintaining acceptable performance.
 - It offloads the processing overhead for background tasks from the web role. The web role that provides the UI can remain responsive, and it may mean fewer instances are required to support a given volume of requests from users.
-- It allows you to implement separation of concerns. Each role type can implement a specific set of clearly defined and related tasks. This makes designing and maintaining the code easier because there is less interdependence of code and functionality between each role.
-- It can help to isolate sensitive processes and data. For example, web roles that implement the UI do not need to have access to data that is managed and controlled by a worker role. This can be useful in strengthening security, especially when using a pattern such as the [Gatekeeper Pattern](http://msdn.microsoft.com/library/dn589793.aspx).  
+- It allows you to implement separation of concerns. Each role
+type can implement a specific set of clearly defined and related tasks. This makes designing and maintaining the code easier because there is less interdependence of code and functionality between each role.
+- It can help to isolate sensitive processes and data. For example, web roles that implement the UI do not need to have access to data that is managed and controlled by a worker role. This can be useful in strengthening security, especially when you use a pattern such as the [Gatekeeper Pattern](http://msdn.microsoft.com/library/dn589793.aspx).  
 
 ### Considerations
 
 Consider the following points when choosing how and where to deploy background tasks when using Cloud Services web and worker roles:
 
-- Hosting background tasks in an existing web role can save the cost of running a separate worker role just for these tasks, but it is likely to affect the performance and availability of the application if there is contention for processing and other resources. Using a separate worker role protects the web role from the impact of long running or resource intensive background tasks.
-- If you host background tasks using the **RoleEntryPoint** class, you can easily move this to another role. For example, if you create the class in a web role and later decide you need to run the tasks in a worker role, you can move the **RoleEntryPoint** class implementation into the worker role.
-- Startup tasks are designed to execute a program or a script. Deploying a background job as an executable program may be more difficult, especially if it also requires deployment of dependent assemblies. It may be easier to deploy and use a script to define a background job when using startup tasks.
-- Exceptions that cause a background task to fail have a different impact depending on the way that they are hosted:
+- Hosting background tasks in an existing web role can save the cost of running a separate worker role just for these tasks. However, it is likely to affect the performance and availability of the application if there is contention for processing and other resources. Using a separate worker role protects the web role from the impact of long-running or resource-intensive background tasks.
+- If you host background tasks by using the **RoleEntryPoint** class, you can easily move this to another role. For example, if you create the class in a web role and later decide that you need to run the tasks in a worker role, you can move the **RoleEntryPoint** class implementation into the worker role.
+- Startup tasks are designed to execute a program or a script. Deploying a background job as an executable program might be more difficult, especially if it also requires deployment of dependent assemblies. It might be easier to deploy and use a script to define a background job when you use startup tasks.
+- Exceptions that cause a background task to fail have a different impact, depending on the way that they are hosted:
   - If you use the **RoleEntryPoint** class approach, a failed task will cause the role to restart so that the task automatically restarts. This can affect availability of the application. To prevent this, ensure that you include robust exception handling within the **RoleEntryPoint** class and all the background tasks. Use code to restart tasks that fail where this is appropriate, and throw the exception to restart the role only if you cannot gracefully recover from the failure within your code.
   - If you use startup tasks, you are responsible for managing the task execution and checking if it fails.
-- Managing and monitoring startup tasks is more difficult than using the **RoleEntryPoint** class approach. However, the Azure WebJobs SDK include a dashboard to make it easier to manage WebJobs that you initiate through startup tasks.
+- Managing and monitoring startup tasks is more difficult than using the **RoleEntryPoint** class approach. However, the Azure WebJobs SDK includes a dashboard to make it easier to manage WebJobs that you initiate through startup tasks.
 
 ### More information
 
 - [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx)
-- [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
+- [Get started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ## Azure Virtual Machines
 
-Background tasks may be implemented in a way that prevents them from being deployed to Azure Web Apps or Cloud Services, or these options may not be convenient. Typical examples are Windows services, and third party utilities and executable programs. It may also include programs written for an execution environment different to that hosting the application; for example, it may be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
+Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps or Cloud Services, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](choose-web-site-cloud-service-vm.md). For information about the options for [Virtual Machines, see Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and pre-built images available for Virtual Machines, see [Azure Virtual Machines Gallery](https://azure.microsoft.com/gallery/virtual-machines/).
+To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](choose-web-site-cloud-service-vm.md). For information about the options for Virtual Machines, see [Virtual Machine and Cloud Service sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines/).
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
-- You can execute the task on demand directly from your application by sending a request to an endpoint that the task exposes, passing in any data that the task requires. This endpoint invokes the task.
-- You can configure the task to run on a schedule using a scheduler or timer available in your chosen operating system. For example, on Windows you can use Windows Task Scheduler to execute scripts and tasks or, if you have SQL Server installed on the virtual machine, you can use the SQL Server Agent to execute scripts and tasks.
+- You can execute the task on demand directly from your application by sending a request to an endpoint that the task exposes. This passes in any data that the task requires. This endpoint invokes the task.
+- You can configure the task to run on a schedule by using a scheduler or timer that is available in your chosen operating system. For example, on Windows you can use Windows Task Scheduler to execute scripts and tasks. Or, if you have SQL Server installed on the virtual machine, you can use the SQL Server Agent to execute scripts and tasks.
 - You can use Azure Scheduler to initiate the task by adding a message to a queue that the task listens on, or by sending a request to an API that the task exposes.
 
 See the earlier section [Triggers](#triggers) for more information about how you can initiate background tasks.  
 
 ### Considerations
 
-Consider the following points when deciding whether to deploy background tasks in an Azure virtual machine:
+Consider the following points when you are deciding whether to deploy background tasks in an Azure virtual machine:
 
 - Hosting background tasks in a separate Azure virtual machine provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it will increase runtime cost if a virtual machine must be deployed just to run background tasks.
-- There is no facility to monitor the tasks in the Azure portal, and no automated restart capability for failed tasks, although you can monitor the basic status of the virtual machine and manage it using the [Azure Service Management Cmdlets](http://msdn.microsoft.com/library/azure/dn495240.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that may be appropriate is to use the [System Center Management Pack for Azure](http://technet.microsoft.com/library/gg276383.aspx).
-- You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics, or collate error information, and return it to a management application. For more information, see [Health Endpoint Monitoring Pattern](http://msdn.microsoft.com/library/dn589789.aspx).
+- There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the [Azure Service Management Cmdlets](http://msdn.microsoft.com/library/azure/dn495240.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](http://technet.microsoft.com/library/gg276383.aspx).
+- You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics--or collate error information and return it to a management application. For more information, see [Health Endpoint Monitoring Pattern](http://msdn.microsoft.com/library/dn589789.aspx).
 
 ### More information
 
@@ -197,37 +200,40 @@ Consider the following points when deciding whether to deploy background tasks i
 
 ## Design considerations
 
-There are several fundamental factors to consider when designing background tasks. The following sections discuss partitioning, conflicts, and coordination.
+There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
 
 ## Partitioning
 
-If you decide to include background tasks within an existing compute instance (such as a web app, web role, existing worker role, or virtual machine), you must consider how this will affect the quality attributes of the compute instance and the background task itself. These factors will help you to decide whether to co-locate the tasks with the existing compute instance, or separate them out into a separate compute instance:
+If you decide to include background tasks within an existing compute instance (such as a web app, web role, existing worker role, or virtual machine), you must consider how this will affect the quality attributes of the compute instance and the background task itself. These factors will help you to decide whether to colocate the tasks with the existing compute instance or separate them out into a separate compute instance:
 
-- **Availability**: Background tasks may not need to have the same level of availability as other parts of the application, in particular the UI and other parts directly involved in user interaction. Background tasks may be more tolerant of latency, retried connection failures, and other factors that affect availability because the operations can be queued. However, there must be sufficient capacity to prevent backing up of requests that could block queues and affect the application as a whole.
-- **Scalability**: Background tasks are likely to have a different scalability requirement to the UI and the interactive parts of the application. Scaling the UI may be necessary to meet peaks in demand, while outstanding background tasks could be completed during less busy times by a fewer number of compute instances.
-- **Resiliency**: Failure of a compute instance that just hosts background tasks may not fatally affect the application as a whole if the requests for these tasks can be queued or postponed until the task is available again. If the compute instance and/or tasks can be restarted within an appropriate interval, users of the application may not be affected.
-- **Security**: Background tasks may have different security requirements or restrictions than the UI or other parts of the application. By using a separate compute instance, you can specify a different security environment for the tasks. You can also use patterns such as Gatekeeper to isolate the background compute instances from the UI in order to maximize security and separation.
-- **Performance**: You can choose the type of compute instance for background tasks to specifically match the performance requirements of the tasks. This may mean using a less expensive compute option if the tasks do not require the same processing capabilities as the UI, or a larger instance if they require additional capacity and resources.
-- **Manageability**: Background tasks may have a different development and deployment rhythm from the main application code or the UI. Deploying them to a separate compute instance can simplify updates and versioning.
+- **Availability**: Background tasks might not need to have the same level of availability as other parts of the application, in particular the UI and other parts that are directly involved in user interaction. Background tasks might be more tolerant of latency, retried connection failures, and other factors that affect availability because the operations can be queued. However, there must be sufficient capacity to prevent the backup of requests that could block queues and affect the application as a whole.
+- **Scalability**: Background tasks are likely to have a different scalability requirement than the UI and the interactive parts of the application. Scaling the UI might be necessary to meet peaks in demand, while outstanding background tasks might be completed during less busy times by a fewer number of compute instances.
+- **Resiliency**: Failure of a compute instance that just hosts background tasks might not fatally affect the application as a whole if the requests for these tasks can be queued or postponed until the task is available again. If the compute instance and/or tasks can be restarted within an appropriate interval, users of the application might not be affected.
+- **Security**: Background tasks might have different security requirements or restrictions than the UI or other parts of the application. By using a separate compute instance, you can specify a different security environment for the tasks. You can also use patterns such as Gatekeeper to isolate the background compute instances from the UI in order to maximize security and separation.
+- **Performance**: You can choose the type of compute instance for background tasks to specifically match the performance requirements of the tasks. This might mean using a less expensive compute option if the tasks do not require the same processing capabilities as the UI, or a larger instance if they require additional capacity and resources.
+- **Manageability**: Background tasks might have a different development and deployment rhythm from the main application code or the UI. Deploying them to a separate compute instance can simplify updates and versioning.
 - **Cost**: Adding compute instances to execute background tasks increases hosting costs. You should carefully consider the trade-off between additional capacity and these extra costs.
 
-For more information, see [Leader Election pattern](http://msdn.microsoft.com/library/dn568104.aspx) and [Competing Consumers pattern](http://msdn.microsoft.com/library/dn568101.aspx).
+For more information, see [Leader Election Pattern](http://msdn.microsoft.com/library/dn568104.aspx) and [Competing Consumers
+Pattern](http://msdn.microsoft.com/library/dn568101.aspx).
 
 ## Conflicts
 
-If you have multiple instances of a background job, it is possible that they will compete for access to resources and services such as databases and storage. This concurrent access can result in resource contention, which may cause conflicts in availability of the services and in the integrity of data in storage. Resource contention can be resolved by using a pessimistic locking approach to prevent competing instances of a task from concurrently accessing a service, or corrupting data.
+If you have multiple instances of a background job, it is possible that they will compete for access to resources and services, such as databases and storage. This concurrent access can result in resource contention, which might cause conflicts in availability of the services and in the integrity of data in storage. You can resolve resource contention by using a pessimistic locking approach. This prevents competing instances of a task from concurrently accessing a service or corrupting data.
 
-Another approach to resolve conflicts is to define background tasks as a singleton, so that there is only ever one instance running. However, this eliminates the reliability and performance benefits that a multiple-instance configuration could provide, especially if the UI can supply sufficient work to keep more than one background task busy. It is vital to ensure that the background task can automatically restart, and that it has sufficient capacity to cope with peaks in demand. This may be achieved by allocating a compute instance with sufficient resources, by implementing a queueing mechanism that can store requests for later execution when demand decreases, or by a combination of these techniques.
+Another approach to resolve conflicts is to define background tasks as a singleton, so that there is only ever one instance running. However, this eliminates the reliability and performance benefits that a multiple-instance configuration can provide. This is especially true if the UI can supply sufficient work to keep more than one background task busy.
+
+It is vital to ensure that the background task can automatically restart and that it has sufficient capacity to cope with peaks in demand. You can achieve this by allocating a compute instance with sufficient resources, by implementing a queueing mechanism that can store requests for later execution when demand decreases, or by using a combination of these techniques.
 
 ## Coordination
 
-The background tasks may be complex, and require multiple individual tasks to execute to produce a result or to fulfil all the requirements. It is common in these scenarios to divide the task into smaller discreet steps or subtasks that can be executed by multiple consumers. Multi-step jobs can be more efficient and more flexible because individual steps may be reusable in multiple jobs. It is also easy to add, remove, or modify the order of the steps.
+The background tasks might be complex and might require multiple individual tasks to execute to produce a result or to fulfil all the requirements. It is common in these scenarios to divide the task into smaller discreet steps or subtasks that can be executed by multiple consumers. Multistep jobs can be more efficient and more flexible because individual steps might be reusable in multiple jobs. It is also easy to add, remove, or modify the order of the steps.
 
-Coordinating multiple tasks and steps can be challenging, but there are three common patterns you can use to guide your implementation of a solution:
+Coordinating multiple tasks and steps can be challenging, but there are three common patterns that you can use to guide your implementation of a solution:
 
-- **Decomposing a task into multiple reusable steps**. An application may be required to perform a variety of tasks of varying complexity on the information that it processes. A straightforward but inflexible approach to implementing this application could be to perform this processing as monolithic module. However, this approach is likely to reduce the opportunities for refactoring the code, optimizing it, or reusing it if parts of the same processing are required elsewhere within the application. For more information, see [Pipes and Filters Pattern](http://msdn.microsoft.com/library/dn568100.aspx).
-- **Managing execution of the steps for a task**. An application may perform tasks that comprise a number of steps, some of which may invoke remote services or access remote resources. The individual steps may be independent of each other, but they are orchestrated by the application logic that implements the task. For more information, see [Scheduler Agent Supervisor Pattern](http://msdn.microsoft.com/library/dn589780.aspx).
-- **Managing recovery for steps of a task that fail**. An application may need to undo the work performed by a series of steps, which together define an eventually consistent operation, if one or more of the steps fail. For more information, see [Compensating Transaction Pattern](http://msdn.microsoft.com/library/dn589804.aspx).
+- **Decomposing a task into multiple reusable steps**. An application might be required to perform a variety of tasks of varying complexity on the information that it processes. A straightforward but inflexible approach to implementing this application might be to perform this processing as a monolithic module. However, this approach is likely to reduce the opportunities for refactoring the code, optimizing it, or reusing it if parts of the same processing are required elsewhere within the application. For more information, see [Pipes and Filters Pattern](http://msdn.microsoft.com/library/dn568100.aspx).
+- **Managing execution of the steps for a task**. An application might perform tasks that comprise a number of steps (some of which might invoke remote services or access remote resources). The individual steps might be independent of each other, but they are orchestrated by the application logic that implements the task. For more information, see [Scheduler Agent Supervisor Pattern](http://msdn.microsoft.com/library/dn589780.aspx).
+- **Managing recovery for task steps that fail**. An application might need to undo the work that is performed by a series of steps (which together define an eventually consistent operation) if one or more of the steps fail. For more information, see [Compensating Transaction Pattern](http://msdn.microsoft.com/library/dn589804.aspx).
 
 ## Lifecycle (Cloud Services)
 
@@ -246,10 +252,10 @@ For more details and an example of using the methods of the **RoleEntryPoint** c
 
 ## Considerations
 
-Consider the following points when planning how you will run background tasks in a web or worker role:
+Consider the following points when you are planning how you will run background tasks in a web or worker role:
 
-- The default **Run** method implementation in the **RoleEntryPoint** class contains a call to **Thread.Sleep(Timeout.Infinite)** that keeps the role alive indefinitely. If you override the **Run** method (which is typically necessary to execute background tasks) you must not allow your code to exit from the method unless you want to recycle the role instance.
-- A typical implementation of the **Run** method includes code to start each of the background tasks, and a loop construct that periodically checks the state of all the background tasks. It can restart any that fail, or monitor for cancellation tokens that indicate jobs have completed.
+- The default **Run** method implementation in the **RoleEntryPoint** class contains a call to **Thread.Sleep(Timeout.Infinite)** that keeps the role alive indefinitely. If you override the **Run** method (which is typically necessary to execute background tasks), you must not allow your code to exit from the method unless you want to recycle the role instance.
+- A typical implementation of the **Run** method includes code to start each of the background tasks and a loop construct that periodically checks the state of all the background tasks. It can restart any that fail or monitor for cancellation tokens that indicate that jobs have completed.
 - If a background task throws an unhandled exception, that task should be recycled while allowing any other background tasks in the role to continue running. However, if the exception is caused by corruption of objects outside the task, such as shared storage, the exception should be handled by your **RoleEntryPoint** class, all tasks should be cancelled, and the **Run** method allowed to end. Azure will then restart the role.
 - Use the **OnStop** method to pause or kill background tasks and clean up resources. This may involve stopping long-running or multi-step tasks, and it is vital to consider how this can be done to avoid data inconsistencies. If a role instance stops for any reason other than a user-initiated shutdown, the code running in the **OnStop** method must complete within five minutes before it is forcibly terminated. Ensure that your code can complete in that time, or can tolerate not running to completion.  
 - The Azure load balancer starts directing traffic to the role instance when the **RoleEntryPoint.OnStart** method returns true. Therefore, consider putting all your initialization code in the **OnStart** method so that role instances that do not successfully initialize will not receive any traffic.
@@ -285,13 +291,13 @@ Background tasks must be resilient in order to provide reliable services to the 
 
 ## Scaling and performance considerations
 
-Background tasks must offer sufficient performance to ensure they do not block the application, or cause inconsistencies due to delayed operation when the system is under load. Typically, performance is improved by scaling the compute instances that host the background tasks. When planning and designing background tasks, consider the following points around scalability and performance:
+Background tasks must offer sufficient performance to ensure they do not block the application, or cause inconsistencies due to delayed operation when the system is under load. Typically, performance is improved by scaling the compute instances that host the background tasks. When you are planning and designing background tasks, consider the following points around scalability and performance:
 
-- Azure supports autoscaling (both scaling out and scaling back in) based on current demand and load, or on a predefined schedule, for Web Apps, Cloud Services web and worker roles, and Virtual Machines hosted deployments. Use this feature to ensure the application as a whole has sufficient performance capabilities while minimizing runtime costs.
-- Where background tasks have a different performance capability from the other parts of a Cloud Services application (for example, the UI or components such as the data access layer), hosting the background tasks together in a separate worker role allows the UI and background task roles to scale independently to manage the load. If multiple background tasks have significantly different performance capabilities from each other, consider dividing them into separate worker roles and scaling each role type independently, but note that this may increase runtime costs compared to combining all the tasks into fewer roles.
-- Simply scaling the roles may not be sufficient to prevent loss of performance under load. You may also need to scale storage queues and other resources to prevent a single point of the overall processing chain becoming a bottleneck. Also, consider other limitations, such as the maximum throughput of storage and other services the application and the background tasks rely on.
+- Azure supports autoscaling (both scaling out and scaling back in) based on current demand and load--or on a predefined schedule, for Web Apps, Cloud Services web and worker roles, and Virtual Machines hosted deployments. Use this feature to ensure that the application as a whole has sufficient performance capabilities while minimizing runtime costs.
+- Where background tasks have a different performance capability from the other parts of a Cloud Services application (for example, the UI or components such as the data access layer), hosting the background tasks together in a separate worker role allows the UI and background task roles to scale independently to manage the load. If multiple background tasks have significantly different performance capabilities from each other, consider dividing them into separate worker roles and scaling each role type independently. However, note that this might increase runtime costs compared to combining all the tasks into fewer roles.
+- Simply scaling the roles might not be sufficient to prevent loss of performance under load. You might also need to scale storage queues and other resources to prevent a single point of the overall processing chain from becoming a bottleneck. Also, consider other limitations, such as the maximum throughput of storage and other services that the application and the background tasks rely on.
 - Background tasks must be designed for scaling. For example, they must be able to dynamically detect the number of storage queues in use in order to listen on or send messages to the appropriate queue.
-- By default, WebJobs scale with their associated Azure Web Apps instance. However, if you want a WebJob to run as only a single instance, you can create a Settings.job file containing the JSON data **{ "is_singleton": true }**. This forces Azure to only run one instance of the WebJob, even if there are multiple instances of the associated web app, which can be a useful technique for scheduled jobs that must run as only a single instance.
+- By default, WebJobs scale with their associated Azure Web Apps instance. However, if you want a WebJob to run as only a single instance, you can create a Settings.job file that contains the JSON data **{ "is_singleton": true }**. This forces Azure to only run one instance of the WebJob, even if there are multiple instances of the associated web app. This can be a useful technique for scheduled jobs that must run as only a single instance.
 
 ## Related patterns
 
@@ -305,7 +311,7 @@ Background tasks must offer sufficient performance to ensure they do not block t
 - [Leader Election Pattern](http://msdn.microsoft.com/library/dn568104.aspx)
 - [Pipes and Filters Pattern](http://msdn.microsoft.com/library/dn568100.aspx)
 - [Priority Queue Pattern](http://msdn.microsoft.com/library/dn589794.aspx)
-- [Queue-Based Load Leveling Pattern](http://msdn.microsoft.com/library/dn589783.aspx)
+- [Queue-based Load Leveling Pattern](http://msdn.microsoft.com/library/dn589783.aspx)
 - [Scheduler Agent Supervisor Pattern](http://msdn.microsoft.com/library/dn589780.aspx)
 
 ## More information
