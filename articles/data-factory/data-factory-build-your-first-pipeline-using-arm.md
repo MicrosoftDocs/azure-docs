@@ -39,7 +39,7 @@ Apart from prerequisites listed in the Tutorial Overview topic, you need to inst
 > [AZURE.IMPORTANT]
 > You must complete the prerequisite steps in [Tutorial Overview](data-factory-build-your-first-pipeline.md) to do the walkthrough in this article. 
 
-## Step 1: Create the ARM template
+## Create ARM template
 
 Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder with the following content: 
 
@@ -103,7 +103,7 @@ Click **Using Data Factory Editor** tab to switch to the article with details ab
                                 "clusterSize": 4,
                                 "version":  "3.2",
             					"timeToLive": "00:05:00",
-                                "osType": "linux",
+                                "osType": "windows",
             					"linkedServiceName": "[variables('storageLinkedServiceName')]",
     						}
 	                    }
@@ -230,7 +230,7 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 
 > [AZURE.NOTE] You can find another example of ARM template for creating an Azure data factory on [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
 
-## Step 2: Deploy Data Factory entities using the ARM template
+## Create data factory
 
 1. Start **Azure PowerShell** and run the following command. 
 	- Run **Login-AzureRmAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
@@ -240,7 +240,7 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
-## Monitor the pipeline
+## Monitor pipeline
  
 1.	After logging into the [Azure Portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
 		![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)

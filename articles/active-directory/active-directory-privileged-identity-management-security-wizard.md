@@ -1,5 +1,5 @@
 <properties
-   pageTitle="The Azure AD Privileged Identity Management Security Wizard"
+   pageTitle="The Azure AD Privileged Identity Management security wizard"
    description="The first time you use the Azure Active Directory Privileged Identity Management extension, you will be presented with a security wizard. This article describes the steps for using the wizard."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # The Azure AD Privileged Identity Management security wizard
