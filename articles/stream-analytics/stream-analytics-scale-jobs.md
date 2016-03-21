@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/16/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs to increase stream data processing throughput
@@ -29,7 +29,7 @@ A job requires at least one input source for data streaming. The data stream inp
 ## Configuring streaming units
 Streaming units (SUs) represent the resources and power to execute an Azure Stream Analytics job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput. 
 
-Choosing how many SUs are required for a particular job is depends on the on the partition configuration for the inputs and the query defined for the job. You can select up to your quota in streaming units for a job by using the Azure portal. Each Azure subscription by default has a quota of up to 50 streaming units for all the analytics jobs in a specific region. To increase streaming units for your subscriptions, contact [Microsoft Support](http://support.microsoft.com).
+Choosing how many SUs are required for a particular job is depends on the on the partition configuration for the inputs and the query defined for the job. You can select up to your quota in streaming units for a job by using the Azure Classic Portal. Each Azure subscription by default has a quota of up to 50 streaming units for all the analytics jobs in a specific region. To increase streaming units for your subscriptions, contact [Microsoft Support](http://support.microsoft.com).
 
 The number of streaming units that a job can utilize depends on the partition configuration for the inputs and the query defined for the job. Note also that a valid value for the stream units must be used. The valid values start at 1, 3, 6 and then upwards in increments of 6, as shown below.
 
@@ -247,9 +247,9 @@ This query can be scaled to 24 streaming units.
 
 ![Azure Stream Analytics Stream Units Scale][img.stream.analytics.streaming.units.scale]
 
-In the Azure preview portal, Scale settings can be accessed under Settings:
+In the Azure Portal, Scale settings can be accessed under Settings:
 
-![Azure Preview Portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
+![Azure Portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
 
 ## Monitor job performance
 

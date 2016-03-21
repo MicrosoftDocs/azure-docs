@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Machine Learning Competition FAQ | Microsoft Azure"
-	description="Frequently asked questions about Microsoft Azure Machine Learning competitions."
+	description="Frequently asked questions about Microsoft Cortana Analytics Suite Competitions."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="hning86"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# Microsoft Azure Machine Learning Competition FAQ
+# Microsoft Cortana Analytics Suite Competitions FAQ
 
 **Where can I ask general questions about data science?**
 
