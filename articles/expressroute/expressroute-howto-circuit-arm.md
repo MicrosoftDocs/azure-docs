@@ -250,7 +250,7 @@ For step-by-step instructions, refer to the [ExpressRoute circuit routing config
 
 Next, link a virtual network to your ExpressRoute circuit. You can use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment mode.
 
-## Get the status of an ExpressRoute circuit
+## To get the status of an ExpressRoute circuit
 
 You can retrieve this information at any time by using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call with no parameters will list all circuits.
 
@@ -322,7 +322,7 @@ You can get detailed descriptions of all parameters by running the following:
 get-help get-azurededicatedcircuit -detailed
 ```
 
-## Modify an ExpressRoute circuit
+## To modify an ExpressRoute circuit
 
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
 
