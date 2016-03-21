@@ -1,20 +1,20 @@
-<properties
+<properties 
 	pageTitle="Azure Stack App Service Technical Preview 1 deployment | Microsoft Azure"
-	description="Detailed guidance for deploying Azure Web Apps in Azure Stack"
-	services="azure-stack"
-	documentationCenter=""
-	authors="ccompy"
-	manager="stefsch"
+	description="Detailed guidance for deploying Azure Web Apps in Azure Stack" 
+	services="azure-stack" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="stefsch" 
 	editor=""/>
 
-<tags
-	ms.service="azure-stack"
-	ms.workload="app-service"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="chriscompy"/>
+<tags 
+	ms.service="azure-stack" 
+	ms.workload="app-service" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/08/2016" 
+	ms.author="chriscompy"/>	
 
 # Add a Web Apps resource provider to Azure Stack
 
@@ -66,14 +66,14 @@ To deploy a resource provider, you must run your PowerShell ISE as an administra
 2. If you are prompted, select **Use recommended security**, and then **OK**.  
 3. In Internet Explorer, select **Tools** (the gear icon), and then **Internet Options** and the **Privacy** tab.  
 4. Select **Advanced**. Make sure that both **Accept** check boxes are selected, and then select **OK** and **OK** again.  
-5. Close Internet Explorer and restart PowerShell ISE as an administrator.  
+5. Close Internet Explorer and restart PowerShell ISE as an administrator.
 
 ## Install the latest version of Azure PowerShell
 
 1. Sign in to the Azure Stack POC machine as **AzureStack/administrator**.  
 2. Use the remote desktop connection to sign in to the `ClientVM.AzureStack.local` virtual machine as an administrator.  
 3. Open **Control Panel** and select **Uninstall a program**. Right-click on **Microsoft Azure PowerShell - November 2015** and select **Uninstall**.  
-4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).  
+4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
 
 ## Installation prerequisites
 
@@ -91,7 +91,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 By default the Azure Stack App Service ARM template has defaults set to use the SQL Server that is installed along with the Azure Stack SQL RP.  When you install the SQL RP keep track of the resource group that was used to install it as well as the SA password.  Both are needed when installing Azure Stack Web Apps.
 
 ## Azure Web Apps installation steps
-
+ 
 Azure Stack Web App installation has 5 steps:
 
 1. Create certificates to be used by Azure Stack Web Apps
@@ -157,7 +157,7 @@ When the installer has successfully completed all of its steps, select **Deploy 
 ![Azure Stack App Service Technical Preview 1 installer Deploy to Azure Stack prompt][6] 
 
 Option 1 requires additional support in the Azure Stack Portal and so cannot be used at this time.  For that reason you need to use Option 2.  In the dialog box, select **Option 2 Use Power Shell cmdlet to deploy** and then select **Copy**.  
-
+ 
 ![Azure Stack App Service Technical Preview 1 Azure Resource Manager template prompt][7] 
  
 Open Notepad and paste the contents of your clipboard immediately.  The Power Shell command cannot be immediately executed but rather needs some edits prior to execution.
