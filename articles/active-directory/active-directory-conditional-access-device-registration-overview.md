@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Device Registration Overview| Microsoft Azure"
+	pageTitle="Azure Active Directory Device Registration Overview | Microsoft Azure"
 	description="is the foundation for device-based conditional access scenarios. When a device is registered, Azure Active Directory Device Registration provisions the device with an identity which is used to authenticate the device when the user signs in."
 	services="active-directory"
 	keywords="device registration, enable device registration"
@@ -44,7 +44,7 @@ The following section describes how to enable the Azure Active Directory Device 
 
 ###To enable Azure Active Directory Device Registration Service
 
-1. Log on to the Azure Portal as Administrator.
+1. Sign in to the Azure portal as Administrator.
 2. On the left pane, select **Active Directory**.
 3. On the **Directory** tab, select your directory.
 4. Select the **Configure** tab.
