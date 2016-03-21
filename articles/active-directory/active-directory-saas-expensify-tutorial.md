@@ -105,7 +105,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Expensify application using the following pattern: **“https://expensify.com/authentication/saml/login”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Expensify application using the following pattern: **“https://www.expensify.com/authentication/saml/login”**.
 
 
 4. On the **Configure single sign-on at Expensify** page, perform the following steps:
@@ -116,12 +116,12 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To enable SSO in Expensify you will first need to have Domain Control enabled. You can enable the Domain control [here](http://help.expensify.com/domain-control). For any additional support you can reach via help@expensify.com, Once you have Domain Control enabled follow the below steps.<br>
+5. To enable SSO in Expensify you will first need to have Domain Control enabled in the application. You can enable the Domain control [here](http://help.expensify.com/domain-control). For any additional support you can reach via [help@expensify.com](mailto:help@expensify.com). Once you have Domain Control enabled follow the below steps.<br>
    1. Log in to the Expensify account with Admin rights.<br>
    2. Click on the Admin Tab from the top.<br>
    3. Click on Domain control from the left panel.<br>
-   4. Click on your Domain name.<br>
-   5. Click on SAML from the left panel, and enable SAML.<br>
+   4. Click on your verified Domain name.<br>
+   5. After clicking on your verified domain name, Click on SAML from the left panel, and enable SAML.<br>
    6. Open the downloaded Federation Metadata from Azure AD and copy the content                 and paste it in the Identity Provider Metadata textbox provided.<br>
    7. SAML Settings automatically saves the changes.<br>
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png) <br><br>
