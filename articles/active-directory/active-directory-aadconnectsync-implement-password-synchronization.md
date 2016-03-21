@@ -32,7 +32,7 @@ Password synchronization is a feature of the Azure Active Directory Connect sync
 
 Any customer of Azure Active Directory is eligible to run password synchronization. See below for information on the compatibility of password synchronization and other features such as Federated Authentication.
 
-### How password synchronization works
+## How password synchronization works
 
 Password synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. As a consequence of this, this feature requires directory synchronization between your on-premise and your Azure Active Directory to be configured.
 
@@ -83,10 +83,8 @@ In this case, the new password will override the user’s synchronized password 
 
 If the user changes the on-premises password again, the new password will be synchronized to the cloud, and will override the manually updated password.
 
-## Preparing for password synchronization
 
-
-### Enabling password synchronization
+## Enabling password synchronization
 
 If you use express settings when you install Azure AD Connect then password synchronization will be enabled by default.
 
@@ -111,9 +109,8 @@ The configuration/runtime node can be found at the end of the config file.
 
 For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
 
-## Managing password synchronization
 
-### Troubleshoot password synchronization
+## Troubleshooting password synchronization
 
 Start **Synchronization Service Manager**, open **Connectors**, select the Active Directory Connector the user is located in, select **Search Connector Space**, and find the user you are looking for.
 
@@ -141,7 +138,7 @@ The status column can have the following values which also indicates the issue a
 | MigratedCheckDetailsForMoreInfo | Log entry was created before build 1.0.9125.0 and is shown in its legacy state. |
 
 
-### Trigger a full sync of all passwords
+## Triggering a full sync of all passwords
 Forcing a full sync of all passwords should not be required, but if for some reason you need to, here is the PowerShell for it.
 
     $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
