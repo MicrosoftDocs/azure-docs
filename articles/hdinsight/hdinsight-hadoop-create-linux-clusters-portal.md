@@ -26,13 +26,15 @@ The Azure portal is a web-based management tool for services and resources hoste
 
 ## Prerequisites
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
+
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - __A modern web browser__. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 ##Create clusters
 
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+The Azure portal exposes most of the cluster properties. Using Azure ARM template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 1. Sign in to the [Azure  portal](https://portal.azure.com).
 
