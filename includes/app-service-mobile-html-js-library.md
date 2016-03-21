@@ -1,9 +1,9 @@
 ##<a name="create-client"></a>Create a Client Connection
 
-Create a client connection by creating a `WindowsAzure.MobileServicesClient` object.  Replace `appUrl` with the URL to your Mobile App.
+Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.  Replace `appUrl` with the URL to your Mobile App.
 
 ```
-var client = WindowsAzure.MobileServicesClient(appUrl);
+var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ##<a name="table-reference"></a>Work with Tables

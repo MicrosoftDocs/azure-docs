@@ -38,7 +38,7 @@ You'll learn:
 
 * How to create a new App Service web app while you create a new web project in Visual Studio.
 * How to deploy a web project to an App Service web app by using Visual Studio.
-* How to use the [Azure Portal](/overview/preview-portal/) to monitor and manage your web app.
+* How to use the [Azure Portal](/features/azure-portal/) to monitor and manage your web app.
 
 At the end of the tutorial, a [Troubleshooting](#troubleshooting) section gives ideas on what to do if something doesn't work, and a [Next steps](#next-steps) section provides links to other tutorials that go into more depth about how to use Azure App Service.
 
