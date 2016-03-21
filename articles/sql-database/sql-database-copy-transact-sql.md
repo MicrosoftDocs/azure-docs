@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Create a copy of an Azure SQL database using Transact-SQL" 
+    pageTitle="Copy an Azure SQL database using Transact-SQL | Microsoft Azure" 
     description="Create copy of an Azure SQL database using Transact-SQL" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a copy of an Azure SQL database using Transact-SQL
+# Copy an Azure SQL database using Transact-SQL
 
 **Single database**
 

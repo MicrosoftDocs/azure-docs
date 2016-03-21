@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Create a copy of an Azure SQL database using PowerShell | Microsoft Azure" 
+    pageTitle="Copy an Azure SQL database using PowerShell | Microsoft Azure" 
     description="Create copy of an Azure SQL database using PowerShell" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/20/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a copy of an Azure SQL database using PowerShell
+# Copy an Azure SQL database using PowerShell
 
 **Single database**
 
