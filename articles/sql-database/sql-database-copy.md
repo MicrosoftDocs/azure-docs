@@ -25,7 +25,7 @@
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 The following steps show you how to copy a SQL database with the [Azure Portal](https://portal.azure.com). The database copy operation creates a new SQL database. The copy is a snapshot backup of your database that you create on either the same server or a different server.
 
