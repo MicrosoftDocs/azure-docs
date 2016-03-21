@@ -21,21 +21,12 @@
 # Back up a Windows Server or client to Azure
 This article covers the procedures you need to do to prepare your environment and back up a Windows Server (or client) to Azure. It also covers things to consider when you're deploying your backup solution. If you're interested in trying Azure Backup for the first time [this article](backup-configure-vault.md) will quickly walk you through that process.
 
-The required steps to prepare your environment and backup Windows to Azure include:
-
-| Step | Name | Details |
-| :------: | ---- | ------- |
-| 1 | [Create a vault](#create-a-backup-vault) | Create a vault in the [Azure Backup management portal](http://manage.windowsazure.com) |
-| 2 | [Download the vault credentials](#download-the-vault-credential-file) | Download the vault credentials that will be used to register the Windows machine with the backup vault |
-| 3 | [Install the Azure Backup Agent ](#download-install-and-register-the-azure-backup-agent) | Install the agent and register the server to the backup vault using the vault credentials |
-| 4 | [Complete the initial backup](#complete-the-initial-backup) | Complete the initial back up for Windows Server or client files and folders. |
-
 ![Create vault](./media/backup-configure-vault/initial-backup-process.png)
 
 ## Before you start
 To back up a Windows Server (or client) to Azure, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
-## Create a backup vault
+## Step 1: Create a backup vault
 To back up files and folders from a Windows Server or client you need to create a backup vault in the geographic region where you want to store the data.
 
 ### To create a Backup vault
@@ -80,7 +71,7 @@ To back up files and folders from a Windows Server or client you need to create 
 
     d. Click **Recovery Services**, in the left navigation pane to return to the list of resources for **Recovery Services**.
 
-## Download the vault credential file
+## Step 2: Download the vault credential file
 The on-premises machine (Windows Server or Windows client) needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using *vault credentials*. The vault credential file is downloaded through a secure channel from the Azure portal. The Azure Backup service is unaware of the certificate private key, which does not persist in the portal or the service.
 
 Learn more about [using vault credentials to authenticate with the Azure Backup service](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
@@ -101,7 +92,7 @@ Learn more about [using vault credentials to authenticate with the Azure Backup 
 
     >[AZURE.NOTE] Make sure the vault credential file is saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, check for the access permissions.
 
-## Download, install, and register the Azure Backup agent
+## Step 3: Download, install, and register the Azure Backup agent
 After creating the Azure Backup vault and downloading the vault credentials, an agent must be installed on each of your Windows machines (Windows Server or Windows client).
 
 ### To download, install, and register the agent
@@ -148,7 +139,7 @@ After creating the Azure Backup vault and downloading the vault credentials, an 
 
 10. Once the **encryption key** is set, leave the **Launch Microsoft Azure Recovery Services Agent** checkbox checked and click **Close**.
 
-## Complete the initial backup
+## Step 4: Complete the initial backup
 
 The initial backup is comprised of two key tasks: **creating the backup schedule** and **backing up files and folder for the first time**. After completing the initial backup, based on the schedule you define, the backup policy will create backup points that you can use should you need to recover the data.
 
@@ -212,7 +203,7 @@ The Azure Backup agent provides network throttling. Throttling controls how netw
 
 4. Click **OK**.
 
-### Complete the initial backup
+### Back up now
 
 1. In the **Backup agent** click **Back Up Now** to complete the initial seeding over the network.
 
