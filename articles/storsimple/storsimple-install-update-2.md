@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/27/2016"
+   ms.date="03/21/2016"
    ms.author="alkohli" />
 
 # Install Update 2 on your StorSimple device
@@ -42,19 +42,13 @@ Update 2 enables Microsoft to pull additional diagnostic information from the de
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. The **Last updated date** should also be modified. You'll also see that Maintenance mode updates are available.
+12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. The **Last updated date** should also be modified. You'll also see that Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
 
-    In some cases when you are running Update 1.2, your disk firmware may already be up-to-date. In these instances, the portal will automatically determine that and not prompt you for the maintenance mode updates.
-
-    > [AZURE.NOTE]
-    In certain instances, the message indicating maintenance mode updates are available may be displayed for up to 24 hours after the maintenance mode updates are successfully applied on the device.
+    Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. In some cases when you are running Update 1.2, your disk firmware might already be up-to-date, in which case you don't need to install any maintenance mode updates.
 
 13. Download the maintenance mode updates by using the steps listed in [To download hotfixes](#to-download-hotfixes) to search for and download KB3121899, which installs disk firmware updates (the other updates should already be installed by now).
 
 13. Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
-
-    Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
-
 
 
 ## Install Update 2 as a hotfix
@@ -89,26 +83,8 @@ Perform the following steps to apply this update as a hotfix.
 
 [AZURE.INCLUDE [storsimple-install-update2-hotfix](../../includes/storsimple-install-update2-hotfix.md)]
 
+[AZURE.INCLUDE [storsimple-troubleshooting-update-failures](../../includes/storsimple-troubleshooting-update-failures.md)]
 
-## Troubleshooting update failures
-
-**What if you see a notification that the pre-upgrade checks have failed?**
-
-If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page. This provides guidance as to which pre-check has failed. The following illustration shows an instance in which such a notification appears. In this case, the controller health check and hardware component health check have failed. Under the **Hardware Status** section, you can see that both **Controller 0** and **Controller 1** components need attention.
-
-  ![Pre-check failure](./media/storsimple-install-update-2/HCS_PreUpdateCheckFailed-include.png)
-
-You will need to make sure that both controllers are healthy and online. You will also need to make sure that all the hardware components in the StorSimple device are shown to be healthy on the Maintenance page. You can then try to install updates. If you are not able to fix the hardware component issues, then you will need to contact Microsoft Support for next steps.
-
-**What if you receive a "Could not install updates" error message, and the recommendation is to refer to the update troubleshooting guide to determine the cause of the failure?**
-
-One likely cause for this could be that you do not have connectivity to the Microsoft Update servers. This is a manual check that needs to be performed. If you lose connectivity to the update server, your update job would fail. You can check the connectivity by running the following cmdlet from the Windows PowerShell interface of your StorSimple device:
-
- `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
-
-Run the cmdlet on both controllers.
-
-If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.
 
 
 ## Next steps
