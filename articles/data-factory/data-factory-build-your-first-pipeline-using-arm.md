@@ -103,7 +103,7 @@ Click **Using Data Factory Editor** tab to switch to the article with details ab
                                 "clusterSize": 4,
                                 "version":  "3.2",
             					"timeToLive": "00:05:00",
-                                "osType": "linux",
+                                "osType": "windows",
             					"linkedServiceName": "[variables('storageLinkedServiceName')]",
     						}
 	                    }

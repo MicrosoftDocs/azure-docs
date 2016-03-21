@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/08/2016"
 	ms.author="genli"/>
 
 # What do I do if my Azure subscription becomes disabled?
