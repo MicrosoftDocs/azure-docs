@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/16/2016"
    ms.author="oanapl"/>
 
 # View Service Fabric health reports
@@ -103,11 +103,11 @@ var policy = new ClusterHealthPolicy()
 };
 var nodesFilter = new NodeHealthStatesFilter()
 {
-    HealthStateFilter = (long)(HealthStateFilter.Error | HealthStateFilter.Warning)
+    HealthStateFilterValue = HealthStateFilter.Error | HealthStateFilter.Warning
 };
 var applicationsFilter = new ApplicationHealthStatesFilter()
 {
-    HealthStateFilter = (long)HealthStateFilter.Error
+    HealthStateFilterValue = HealthStateFilter.Error
 };
 var queryDescription = new ClusterHealthQueryDescription()
 {
@@ -181,8 +181,7 @@ $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
 $appHealthPolicyMap.Add($appUri1, $appHealthPolicy)
-$warningAndErrorFilter = [System.Fabric.Health.HealthStateFilter]::Warning.value__  + [System.Fabric.Health.HealthStateFilter]::Error.value__
-Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -ApplicationsHealthStateFilter $warningAndErrorFilter -NodesHealthStateFilter $warningAndErrorFilter
+Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -ApplicationsFilter "Warning,Error" -NodesFilter "Warning,Error"
 
 AggregatedHealthState   : Error
 UnhealthyEvaluations    :
@@ -234,7 +233,7 @@ The following gets the node health for the specified node name and passes in an 
 var queryDescription = new NodeHealthQueryDescription(nodeName)
 {
     HealthPolicy = new ClusterHealthPolicy() {  ConsiderWarningAsError = true },
-    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)HealthStateFilter.Warning },
+    EventsFilter = new HealthEventsFilter() { HealthStateFilterValue = HealthStateFilter.Warning },
 };
 
 NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(queryDescription).Result;
@@ -315,9 +314,9 @@ var policy = new ApplicationHealthPolicy()
 var queryDescription = new ApplicationHealthQueryDescription(applicationName)
 {
     HealthPolicy = policy,
-    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)warningAndErrors },
-    ServicesFilter = new ServiceHealthStatesFilter() { HealthStateFilter = (long)warningAndErrors },
-    DeployedApplicationsFilter = new DeployedApplicationHealthStatesFilter() { HealthStateFilter = (long)warningAndErrors },
+    EventsFilter = new HealthEventsFilter() { HealthStateFilterValue = warningAndErrors },
+    ServicesFilter = new ServiceHealthStatesFilter() { HealthStateFilterValue = warningAndErrors },
+    DeployedApplicationsFilter = new DeployedApplicationHealthStatesFilter() { HealthStateFilterValue = warningAndErrors },
 };
 
 ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationHealthAsync(queryDescription).Result;
@@ -393,8 +392,7 @@ HealthEvents                    :
 The following PowerShell cmdlet passes in custom policies. It also filters children and events.
 
 ```powershell
-PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
-Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesHealthStateFilter $errorFilter -EventsHealthStateFilter $errorFilter -DeployedApplicationsHealthStateFilter $errorFilter
+PS C:\> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
@@ -438,8 +436,8 @@ The following gets the service health for the specified service name (URI), spec
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
 {
-    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)HealthStateFilter.All },
-    PartitionsFilter = new PartitionHealthStatesFilter() { HealthStateFilter = (long)HealthStateFilter.Error },
+    EventsFilter = new HealthEventsFilter() { HealthStateFilterValue = HealthStateFilter.All },
+    PartitionsFilter = new PartitionHealthStatesFilter() { HealthStateFilterValue = HealthStateFilter.Error },
 };
 
 ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(queryDescription).Result;
@@ -728,6 +726,8 @@ The queries that contain **HealthState** for entities are:
 - Deployed service package list: This returns the list of service packages in a deployed application.
   - API: FabricClient.QueryManager.GetDeployedServicePackageListAsync
   - PowerShell: Get-ServiceFabricDeployedApplication
+
+> [AZURE.NOTE] Some of the queries return paged results. The return of these queries is a class derived from [PagedList<T>](https://msdn.microsoft.com/library/azure/mt280056.aspx) If the results do not fit a message, only a page is returned and ContinuationToken is set to keep track of where enumeration stopped. The user should continue to call the same query and pass in the continuation token from the previous query to get next results.
 
 ### Examples
 
