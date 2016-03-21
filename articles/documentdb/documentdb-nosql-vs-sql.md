@@ -50,9 +50,9 @@ The following comparison chart maps out the key differentiators for each service
 
 If one or more of these services sounds like it might meet the needs of your application, learn more with the following resources: 
 
-- [DocumentDB learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) and [DocumentDB use cases](documentdb-use-case.md)
-- [Get started with Azure table storage](storage/storage-dotnet-how-to-use-tables.md)
-- [What is HBase in HDInsight](hdinsight-hbase-overview.md)
+- [DocumentDB learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) and [DocumentDB use cases](documentdb-use-cases.md)
+- [Get started with Azure table storage](../storage/storage-dotnet-how-to-use-tables.md)
+- [What is HBase in HDInsight](../hdinsight/hdinsight-hbase-overview.md)
 - [Redis Cache learning path](https://azure.microsoft.com/documentation/learning-paths/redis-cache/)
 
 Then go to [Next steps](#next-steps) for free trial information.
@@ -62,7 +62,7 @@ Then go to [Next steps](#next-steps) for free trial information.
 Microsoft has three SQL offerings: 
 
 - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-provision-sql-server/)
+- [SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-provision-sql-server.md)
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
 The following comparison charts maps out the key differentiators for each offering. Which one most accurately describes the needs of your application? 
@@ -80,7 +80,7 @@ The following comparison charts maps out the key differentiators for each offeri
 
 If one or more of these options sounds like it might meet the needs of your application, learn more with the following resources:
 
-- [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](data-management-azure-sql-database-and-sql-server-iaas.md).
+- [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 - [SQL Server Editions](https://www.microsoft.com/server-cloud/products/sql-server-editions/overview.aspx)
 
 Then go to [Next steps](#next-steps) for free trial and evaluation links.
