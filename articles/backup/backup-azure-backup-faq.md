@@ -127,10 +127,10 @@ A21. Absolutely. Azure Backup provides VM level back up for Azure VMs using the 
 A22. You can install the Azure Backup agent on the Guest Windows OS and back up files and folders on tempstorage. However, please note that backups will start failing when temporary storage data is wiped out. Also, during restore you can only restore to non-temporary storage if temporary storage data has been deleted. 
 
 **Q23. What is the length of file path that can be specified as part of Azure Backup policy using Azure Backup agent?** <br>  
-A23. Azure Backup agent relies on NTFS. The [filepath length specification is limited by Windows API](https://msdn.microsoft.com/en-us/library/aa365247.aspx#fully_qualified_vs._relative_paths). In case of backing up files with file path length greater than the ones specified by Windows API, customers can choose to backup the parent folder or the disk drive of backup files.  
+A23. Azure Backup agent relies on NTFS. The [filepath length specification is limited by Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). In case of backing up files with file path length greater than the ones specified by Windows API, customers can choose to backup the parent folder or the disk drive of backup files.  
 
 **Q24 What characters are allowed in file path of Azure Backup policy using Azure Backup agent?** <br>  
-A24. Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/en-us/library/aa365247.aspx#naming_conventions) as part of file specification.  
+A24. Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) as part of file specification.  
 
 
 ## Backup & Retention
