@@ -206,10 +206,6 @@ Because those tutorials help you back up quickly, they show you only the most di
 - [Back up application workloads](backup-azure-microsoft-azure-backup.md)
 - [Backup Azure IaaS VMs](backup-azure-vms-prepare.md)
 
-If you have additional questions:
-
-- [Frequently asked question on the Azure Backup service](backup-azure-backup-faq.md)
-- Visit the [Azure Backup forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
