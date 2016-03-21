@@ -17,7 +17,7 @@
 	ms.date="03/16/2016"
 	ms.author="dendeli"/>
     
- # Geo-fenced push notifications with Azure Notification Hubs and Bing Spatial Data
+# Geo-fenced push notifications with Azure Notification Hubs and Bing Spatial Data
  
  > [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
 
