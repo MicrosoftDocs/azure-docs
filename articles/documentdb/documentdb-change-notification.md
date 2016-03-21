@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/10/2016" 
+    ms.date="03/17/2016" 
     ms.author="b-hoedid"/>
 
 # Notifications for new or changed DocumentDB resources using Logic Apps
@@ -626,7 +626,7 @@ The next action is to save the documents to [Azure Blog storage](https://azure.m
 
 The code is generated from action in the designer. You don't have to modify the code.
 
-If you are not familiar with using the Azure Blob API, see [Get started with the Azure blob storage API](../connectors/create-api-azureblobstorage.md).
+If you are not familiar with using the Azure Blob API, see [Get started with the Azure blob storage API](../connectors/connectors-create-api-azureblobstorage.md).
 
 #### Operations
 
