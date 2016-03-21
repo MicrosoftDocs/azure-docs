@@ -19,12 +19,12 @@
 # Use labels to instrument queries in SQL Data Warehouse
 SQL Data Warehouse supports a concept called query labels. Before going into any depth let's look at an example of one:
 
-	```
-	SELECT *
-	FROM sys.tables
-	OPTION (LABEL = 'My Query Label')
-	;
-	```
+```
+SELECT *
+FROM sys.tables
+OPTION (LABEL = 'My Query Label')
+;
+```
 
 This last line tags the string 'My Query Label' to the query. This is particularly helpful as the label is query-able through the DMVs. This provides us with a mechanism to track down problem queries and also to help identify progress through an ETL run.
 
@@ -32,12 +32,12 @@ A good naming convention really helps here. For example something like ' PROJECT
 
 To search by label you can use the following query that uses the dynamic management views:
 
-	```
-	SELECT  *
-	FROM    sys.dm_pdw_exec_requests r
-	WHERE   r.[label] = 'My Query Label'
-	;
-	```
+```
+SELECT  *
+FROM    sys.dm_pdw_exec_requests r
+WHERE   r.[label] = 'My Query Label'
+;
+```
 
 > [AZURE.NOTE] It is essential that you wrap square brackets or double quotes around the word label when querying. Label is a reserved word and will caused an error if it has not been delimited.
 

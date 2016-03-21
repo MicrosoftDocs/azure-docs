@@ -38,7 +38,7 @@ You'll learn:
 
 * How to create a new App Service web app while you create a new web project in Visual Studio.
 * How to deploy a web project to an App Service web app by using Visual Studio.
-* How to use the [Azure Portal](/overview/preview-portal/) to monitor and manage your web app.
+* How to use the [Azure Portal](/features/azure-portal/) to monitor and manage your web app.
 
 At the end of the tutorial, a [Troubleshooting](#troubleshooting) section gives ideas on what to do if something doesn't work, and a [Next steps](#next-steps) section provides links to other tutorials that go into more depth about how to use Azure App Service.
 
@@ -108,7 +108,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	This combo box lets you select an existing resource group or create a new one by typing in a name that is different from any existing resource group in your subscription.
 
-	A resource group is a collection of Azure resources such as API apps, databases, VMs, and so forth.	For a tutorial it's generally best to create a new resource group because that will make it easy to delete in one step any Azure resources that you create for the tutorial. For more information, see [Azure Resource Manager overview](../resource-group-overview.md)
+	A resource group is a collection of Azure resources such as web apps, databases, and VMs. For a tutorial, it's generally best to create a new resource group because that makes it easy to delete in one step any Azure resources that you create for the tutorial. For more information, see [Azure Resource Manager overview](../resource-group-overview.md).
 
 4. Click the **New** button next to the **App Service Plan** drop-down.
 
@@ -116,7 +116,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	The screen shot shows sample values for **Web App Name**, **Subscription**, and **Resource Group** -- your values will be different.
 
-	In the following steps you create an App Service plan for the new resource group. An App Service plan specifies the compute resources that your API app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For more information, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	In the following steps, you create an App Service plan for the new resource group. An App Service plan specifies the compute resources that your web app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For more information, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 5. In the **Configure App Service Plan** dialog, enter "MyExamplePlan" or another name if you prefer.
 
@@ -162,7 +162,7 @@ In this section, you deploy web project to the web app, as illustrated in step 2
 
 	In a few seconds, the **Publish Web** wizard appears. The wizard opens to a *publish profile* that has settings for deploying the web project to the new web app. If you wanted to deploy to a different web app, you could click the **Profile** tab to create a different profile. For this tutorial, you accept the settings that deploy to the web app that you created earlier.
 
-	The publish profile includes a user name and password for deployment. These credentials have been generated for you, but you can change them to values that you choose. You'll see how to do that in the tutorial section that introduces the Azure portal. The password is encrypted in a hidden user-specific file in the `Properties\PublishProfiles` folder.
+	The publish profile includes a user name and password for deployment. These credentials have been generated for you, and you don't have to enter or change them. The password is encrypted in a hidden user-specific file in the `Properties\PublishProfiles` folder.  
 
 8. On the **Connection** tab of the **Publish Web** wizard, click **Next**.
 
@@ -199,7 +199,7 @@ In this section, you deploy web project to the web app, as illustrated in step 2
 > [AZURE.TIP] You can enable the **Web One Click Publish** toolbar for quick deployment. Click **View > Toolbars**, and then select **Web One Click Publish**. You can use the toolbar to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard.
 > ![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
-## Monitor and manage the web app in the Azure Portal
+## <a id="portal"></a> Monitor and manage the web app in the Azure Portal
 
 The [Azure portal](/services/management-portal/) is a web interface that you can use to manage and monitor your Azure services, such as the web app that you just created. In this section of the tutorial, you look at some of what you can do in the portal.
 
@@ -219,8 +219,8 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 	![Settings blade in Azure portal](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-	Notice the **Deployment credentials** link in the **Publishing** section. That's where you create a new user name and password for deployment. You can enter a user name and password of your choice there, then enter the same values on the **Connection** tab of the **Publish Web** wizard in your web project.
-
+	Notice the **Deployment credentials** link in the **Publishing** section. That's where you can create a custom user name and password for deployment. Click the **Save** button at the top of the blade to submit your change. If you create a new user name and password, you have to enter the same values on the **Connection** tab of the **Publish Web** wizard in your web project.
+	
 	The screen shot is only a partial view of the **Settings** blade. There are more sections to this blade than are shown.
 
 4. Click **Application settings** from the **General** section of the **Settings** blade to see an example of the kinds of settings that you can configure in the Portal.
@@ -235,7 +235,7 @@ These are just a few of the Portal's features. You can create new web apps, dele
 
 When you no longer need the web app that you created for this tutorial, you can delete it. 
 
-An easy way to delete your web app is to click the **Delete** button at the top of its **Web App** blade in the Azure portal. A better way is to delete the resource group that you created to contain the web app. For this tutorial the resource group contains only the web app, but typically a resource group contains a collection of related resources. For instance, your web app might use a database or Azure storage account that is no longer needed when the web app is no longer needed. When you delete a resource group, everything it contains is deleted. To delete a resource group by using the Azure portal, perform the following steps.
+An easy way to delete your web app is to click the **Delete** button at the top of its **Web App** blade in the Azure portal. A better way is to delete the resource group that you created to contain the web app. For this tutorial, the resource group contains only the web app, but typically a resource group contains a collection of related resources. For instance, your web app might use a database or Azure storage account that is no longer needed when you delete the web app. When you delete a resource group, everything it contains is deleted. To delete a resource group by using the Azure portal, perform the following steps.
 
 1. Go to the home page of [the Azure portal](https://portal.azure.com).
 
@@ -251,7 +251,7 @@ An easy way to delete your web app is to click the **Delete** button at the top 
 
 ## Troubleshooting
 
-If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer will let you know that no installation is needed.
+If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer lets you know that no installation is needed.
 
 If you're on a corporate network and are trying to deploy to Azure App Service through a firewall, make sure that ports 443 and 8172 are open for Web Deploy. If you can't open those ports, see the following Next steps section for other deployment options.
 
@@ -271,7 +271,7 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 * How to create API apps
 
-	You've seen how to create an instance of Azure App Service that is mainly intended to host a website. App Service also has features designed to make it easier to develop, test, and host APIs. For more information, see [Get started with API Apps and ASP.NET in Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md). 
+	You've seen how to create an instance of Azure App Service that is mainly intended to host a website.  Such instances are called web apps. App Service also has features designed to make it easier to develop, test, and host APIs. Instances of App Service intended mainly to host APIs are called API apps. For more information, see [Get started with API Apps and ASP.NET in Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md). 
 
 * Other ways to deploy a web project
 
