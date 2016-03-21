@@ -177,7 +177,6 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 	      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
 	      "userName": "admin",
 	      "password": "<password>",
-	      "location": "WestUS",
 	      "linkedServiceName": "MyHDInsightStoragelinkedService"
 	    }
 	  }
@@ -191,7 +190,6 @@ type | The type property should be set to **HDInsight**. | Yes
 clusterUri | The URI of the HDInsight cluster. | Yes
 username | Specify the name of the user to be used to connect to an existing HDInsight cluster. | Yes
 password | Specify password for the user account. | Yes
-location | Specify the location of the HDInsight cluster (for example: WestUS). | Yes
 linkedServiceName | Name of the linked service for the blob storage used by this HDInsight cluster. | Yes
 
 ## Azure Batch Linked Service
