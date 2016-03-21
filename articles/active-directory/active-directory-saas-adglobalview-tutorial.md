@@ -111,9 +111,11 @@ Before you can configure the SAML assertion, you need to contact your ADP Global
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_04.png) <br>
 
 
-    a. In the Identifier textbox, type the URL used to idenify ADP GlobalView application using the following pattern: **“https://\<server name\>.globalview.adp.com/federate2”** or **“https://\<server name\>.globalview.adp.com/federate”**. In the Reply URL textbox, type the URL where Azure AD will post the Response to ADP GlobalView application, using the following pattern: **“https://\<SERVERNAME\>.globalview.adp.com/federate2/sp/ACS.saml2”** or **“https://\<SERVERNAME\>.globalview.adp.com/federate/sp/ACS.saml2”**.
+    a. In the **Identifier** textbox, type the URL used to idenify ADP GlobalView application using the following pattern: **“https://\<server name\>.globalview.adp.com/federate2”** or **“https://\<server name\>.globalview.adp.com/federate”**. 
 
-    b. Click **Next**.
+    b. In the **Reply URL** textbox, type the URL used by Azure AD to post the response to the ADP GlobalView application, using the following pattern: **“https://\<server name\>.globalview.adp.com/federate2/sp/ACS.saml2”** or **“https://\<server name\>.globalview.adp.com/federate/sp/ACS.saml2”**.
+
+    c. Click **Next**.
 
 
 4. On the **Configure single sign-on at ADP GlobalView** page, perform the following steps:
