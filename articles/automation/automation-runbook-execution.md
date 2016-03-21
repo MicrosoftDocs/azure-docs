@@ -3,7 +3,7 @@
    description="Describes the details of how a runbook in Azure Automation is processed."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="03/21/2016"
    ms.author="bwren" />
 
 # Runbook execution in Azure Automation
@@ -95,7 +95,9 @@ The following sample commands retrieves the last job for a sample runbook and di
 
 ## Fair share
 
-In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for 3 hours.  [Graphical](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) runbooks will be resumed from their last [checkpoint](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). During this time, the job will show a status of Running, Waiting for Resources. If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it will restart from the beginning.  [PowerShell](automation-runbook-types.md#powershell-runbooks) runbooks are always restarted from the beginning since they don't support checkpoints.
+In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for 3 hours.    [Graphical](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) runbooks will be resumed from their last [checkpoint](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). During this time, the job will show a status of Running, Waiting for Resources. If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it will restart from the beginning.  [PowerShell](automation-runbook-types.md#powershell-runbooks) runbooks are always restarted from the beginning since they don't support checkpoints.
+
+>[AZURE.NOTE] The fair share limit is not applicable to runbook jobs executing on Hybrid Runbook Workers.
 
 If the runbook restarts from the same checkpoint or from the beginning of the runbook three consecutive times, it will be terminated with a status of Failed, waiting for resources. This is to protect from runbooks running indefinitely without completing, as they are not able to make it to the next checkpoint without being unloaded again. In this case, you will receive the following exception with the failure.
 
@@ -105,6 +107,6 @@ When you create a runbook, you should ensure that the time to run any activities
 
 
 
-## Related articles
+## Next Steps
 
 - [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
