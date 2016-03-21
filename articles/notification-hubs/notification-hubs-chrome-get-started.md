@@ -64,9 +64,9 @@ Configuring GCM and Azure Notification Hubs is identical to configuring for Andr
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 
-&emsp;&emsp;7.   Click the **Configure** tab at the top, enter the **API Key** value you obtained in the previous section, and then click **Save**.
+&emsp;&emsp;6.   In the **Settings** blade, select **Notification Services** and then **Google (GCM)**. Enter the API key and save.
 
-&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
+&emsp;&emsp;![Azure Notification Hubs - Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 ##<a id="connect-app"></a>Connect your Chrome App to the notification hub
 
