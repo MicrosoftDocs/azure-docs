@@ -19,13 +19,13 @@
 
 # NoSQL vs SQL Comparison
 
-SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous have data gained in popularity. 
+SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data have gained in popularity. 
 
-NoSQL is a category of databases that are separate from well-known SQL databases. NoSQL means "Not-SQL" or "Not Only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, and column family stores, which are popular with gaming, social, and IoT apps. NoSQL technologies differ from SQL technologies as they 
+NoSQL is a category of databases and they are distinctly different from SQL databases. NoSQL means "Not-SQL" or "Not Only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, and column family stores, which are popular with gaming, social, and IoT apps.
 
 ![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview1.png)
 
-The goal of this article is to help you learn about the differences between NoSQL and SQL, and provide you with a comparative introduction to the NoSQL and SQL offerings from Microsoft and Microsoft Azure.  
+The goal of this article is to help you learn about the differences between NoSQL and SQL, and provide you with an introduction to the NoSQL and SQL offerings from Microsoft and Microsoft Azure.  
 
 ## NoSQL vs SQL 
 
@@ -33,7 +33,7 @@ The following table compares the benefits of NoSQL versus SQL. Which one best su
 
 ![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
 
-If a NoSQL database best suits your requirements, continue to the next section. Otherwise, if a SQL database best suits your needs, skip to [What are the Microsoft SQL offerings?](#what-are-the-microsoft-sql-offerings)
+If a NoSQL database best suits your requirements, continue to the next section to learn more about the NoSQL services available from Azure. Otherwise, if a SQL database best suits your needs, skip to [What are the Microsoft SQL offerings?](#what-are-the-microsoft-sql-offerings)
 
 ## What are the Microsoft Azure NoSQL offerings?
 
