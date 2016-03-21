@@ -23,8 +23,6 @@ SQL Server and relational databases (RDBMS) have been the go-to databases for ov
 
 NoSQL is a category of databases that are separate from the well-known SQL databases. NoSQL means "Not-SQL" or "Not Only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, and column family stores, which are popular with gaming, social, and IoT apps.
 
-![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview.png)
-
 ![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview1.png)
 
 The goal of this article is to help you learn about the differences between NoSQL and SQL, and provide you with a comparative introduction to the NoSQL and SQL offerings from Microsoft and Microsoft Azure.  
