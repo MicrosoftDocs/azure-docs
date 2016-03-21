@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="03/21/2016"
 	ms.author="jeedes"/>
 
 
@@ -84,7 +84,7 @@ To configure and test Azure AD single sign-on with ADP GlobalView, you need to c
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a ADP GlobalView test user](#creating-a-adpglobalview-test-user)** - to have a counterpart of Britta Simon in ADP GlobalView that is linked to the Azure AD representation of her.
+4. **[Creating a ADP GlobalView test user](#creating-a-adp-globalview-test-user)** - to have a counterpart of Britta Simon in ADP GlobalView that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -111,9 +111,15 @@ Before you can configure the SAML assertion, you need to contact your ADP Global
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_04.png) <br>
 
 
-    a. In the **Identifier** textbox, type the URL used to idenify ADP GlobalView application using the following pattern: **“https://\<server name\>.globalview.adp.com/federate2”** or **“https://\<server name\>.globalview.adp.com/federate”**. 
+    a. In the **Identifier** textbox, type the URL used to idenify ADP GlobalView application using one the following patterns:
 
-    b. In the **Reply URL** textbox, type the URL used by Azure AD to post the response to the ADP GlobalView application, using the following pattern: **“https://\<server name\>.globalview.adp.com/federate2/sp/ACS.saml2”** or **“https://\<server name\>.globalview.adp.com/federate/sp/ACS.saml2”**.
+     - **“https://\<server name\>.globalview.adp.com/federate2”** 
+     - **“https://\<server name\>.globalview.adp.com/federate”**. 
+
+    b. In the **Reply URL** textbox, type the URL used by Azure AD to post the response to the ADP GlobalView application, using one of the following patterns: 
+
+    - **“https://\<server name\>.globalview.adp.com/federate2/sp/ACS.saml2”** 
+    - **“https://\<server name\>.globalview.adp.com/federate/sp/ACS.saml2”**.
 
     c. Click **Next**.
 
