@@ -79,7 +79,7 @@ If you want to move the app to a different region, one alternative is app clonin
  
 You can find **Clone App** in the **tools** menu. 
 
-Clone has some limitatiations, you can read more about it [here](app-service-web-app-cloning-portal.md)
+Clone has some limitatiations, you can read more about it [here](../app-service-web/app-service-web-app-cloning-portal.md)
 
 ## Scale an App Service plan
 
