@@ -282,7 +282,7 @@ Below is an example of how this appears in your project configuration. You may a
 
 #### Step 3: Establish a new redirect URI with your URL Scheme
 
-In order to ensure that we always return the credential tokens to the correct application, we need to make sure we call back to your application in a way that the iOS operating system can verify. The iOS operating system reports to the Microsoft broker applications the Bundle ID of the application calling it. This cannot be spoofed by a rogue application. Therefore, we leverage this along with the redirect URI you created in *Step 2* to ensure that there is a unique redirect URI that you can set. You need to set this in your application and set as a Redirect URI in the [Azure classic portal](https://manage.windowsazure.com/). 
+In order to ensure that we always return the credential tokens to the correct application, we need to make sure we call back to your application in a way that the iOS operating system can verify. The iOS operating system reports to the Microsoft broker applications the Bundle ID of the application calling it. This cannot be spoofed by a rogue application. Therefore, we leverage this along with the URI of our broker application to ensure that the tokens are returned to the correct application. We require you to establish this unique redirect URI both in your application and set as a Redirect URI in our developer portal. 
 
 Your redirect URI must be in the proper form of:
 
