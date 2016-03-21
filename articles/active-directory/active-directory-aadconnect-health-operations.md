@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="samueld"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags

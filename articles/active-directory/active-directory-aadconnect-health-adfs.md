@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="samueld"
+	manager="stevenpo"
 	editor="karavar"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/21/2016"
+	ms.date="03/21/2016"
 	ms.author="vakarand"/>
 
 # Using Azure AD Connect Health with AD FS

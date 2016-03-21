@@ -54,11 +54,10 @@ Azure AD Connect Health for Sync monitors and provides information on the synchr
 - Sync operational insights including latency charts for Sync Operations and trends in sync operations such as adds, updates, deletes.
 - Quick glance information about sync properties, last successful export to Azure AD
 
-<!-- TODO: Uncomment after sync video is available
-The following video will provide an overview of Azure AD Connect Health for AD FS
+The following video will provide an overview of Azure AD Connect Health for sync
 
-[AZURE.VIDEO azure-ad-connect-health--monitor-your-sync-server]
--->
+[AZURE.VIDEO Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine]
+
 
 ## Get started with Azure AD Connect Health
 It is very easy to get started with Azure AD Connect Health. Follow the steps below:
