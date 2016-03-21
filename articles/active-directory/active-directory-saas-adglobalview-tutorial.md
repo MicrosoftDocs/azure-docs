@@ -119,6 +119,8 @@ Before you can configure the SAML assertion, you need to contact your ADP Global
 
     b. In the **Reply URL** textbox, type the URL used by Azure AD to post the response to the ADP GlobalView application, using one of the following patterns: 
 
+
+
     - **“https://\<server name\>.globalview.adp.com/federate2/sp/ACS.saml2”**
     
     - **“https://\<server name\>.globalview.adp.com/federate/sp/ACS.saml2”**
