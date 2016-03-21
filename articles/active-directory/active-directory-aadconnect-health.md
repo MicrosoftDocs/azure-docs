@@ -56,7 +56,7 @@ Azure AD Connect Health for Sync monitors and provides information on the synchr
 
 The following video will provide an overview of Azure AD Connect Health for sync
 
-[AZURE.VIDEO Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine]
+[Azure Active Directory Connect Health: Monitoring the sync engine](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine)
 
 
 ## Get started with Azure AD Connect Health
