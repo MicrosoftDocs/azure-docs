@@ -86,12 +86,17 @@ If the user changes the on-premises password again, the new password will be syn
 
 ## Enabling password synchronization
 
-If you use express settings when you install Azure AD Connect then password synchronization will be enabled by default.
+To enable passwordy synchronization, you have two options:
 
-If you use custom settings when you install Azure AD Connect they you enable password synchronization on the user sign-in page.
+- If you use express settings when you install Azure AD Connect, password synchronization will be enabled by default.
+
+- If you use custom settings when you install Azure AD Connect, you enable password synchronization on the user sign-in page.
+
+<br>
 ![usersignin](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
+<br>
 
-If you select to use **Federation with AD FS** then you can optionally enable password sync as a backup in case your AD FS infrastructure fails. You can also enable it if you plan to use Azure AD Domain Services.
+If you select to use **Federation with AD FS**, then you can optionally enable password sync as a backup in case your AD FS infrastructure fails. You can also enable it if you plan to use Azure AD Domain Services.
 
 ### Password synchronization and FIPS
 
@@ -112,19 +117,29 @@ For information about security and FIPS see [AAD Password Sync, Encryption and F
 
 ## Troubleshooting password synchronization
 
-Start **Synchronization Service Manager**, open **Connectors**, select the Active Directory Connector the user is located in, select **Search Connector Space**, and find the user you are looking for.
+**To troubleshoot password synchronization, perform the following steps:**
 
-![csuser](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
+1. Open the **Synchronization Service Manager**
 
-On the user, select the **lineage** tab and make sure at least one Sync Rule shows **Password Sync** as **True**. With default configuration, this would be the Sync Rule named **In from AD - User AccountEnabled**.
+2. Click **Connectors**
 
-You should also [follow the user](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) through the metaverse to the Azure AD Connector space and make sure there is also an outbound rule with **Password Sync** set to **True**. In the default configuration this would be the sync rule named **Out to AAD - User Join**.
+3. Select the Active Directory Connector the user is located in
 
-![csuser2](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+4. Select **Search Connector Space**
 
-To see the password sync details of the object, click on the button **Log...** at the bottom of this page. This will produce this page with a historic view of the user's password sync status for the past week.
+5. Locate the user you are looking for.
 
-![object log](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
+6. Select the **lineage** tab and make sure at least one Sync Rule shows **Password Sync** as **True**. In the  default configuration, the name of the the Sync Rule is **In from AD - User AccountEnabled**.
+
+    ![csuser](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
+
+7. You should also [follow the user](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) through the metaverse to the Azure AD Connector space and make sure there is also an outbound rule with **Password Sync** set to **True**. In the default configuration, the name of the sync rule is **Out to AAD - User Join**.
+
+    ![csuser2](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+
+8. To see the password sync details of the object, click on the button **Log...**.<br> This creates a page with a historic view of the user's password sync status for the past week.
+
+    ![object log](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
 The status column can have the following values which also indicates the issue and why a password is not synchronized.
 
@@ -139,7 +154,9 @@ The status column can have the following values which also indicates the issue a
 
 
 ## Triggering a full sync of all passwords
-Forcing a full sync of all passwords should not be required, but if for some reason you need to, here is the PowerShell for it.
+
+In many cases, it is not necessary to force a full sync of all passwords.<br>
+However, if you have a need to do this, you can accomplish this by using the following script:
 
     $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
     $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
