@@ -26,7 +26,8 @@ You may receive errors when you try to delete the Azure storage account, contain
 
 -	There is still a lease on a disk or the blob associated on the disk.
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
+
 ## Resolution
 To resolve the most common issues, try the following method:
 
