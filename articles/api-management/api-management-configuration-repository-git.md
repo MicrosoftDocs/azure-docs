@@ -117,7 +117,7 @@ Use the encoded password along with your user name and repository location to co
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure overview of local Git repository](#file-and-folder-structure-overview-of-local-git-repository).
+Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## To update your local repository with the most current service instance configuration
 
