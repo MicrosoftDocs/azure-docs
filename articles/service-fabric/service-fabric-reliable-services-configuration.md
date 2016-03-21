@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="sumukhs"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="03/25/2016"
    ms.author="sumukhs"/>
 
 # Configuring stateful Reliable Services
@@ -64,17 +64,34 @@ ReplicatorConfig
 
 ## Sample configuration via code
 ```csharp
-protected override IReliableStateManager CreateReliableStateManager()
+class Program
 {
-    return new ReliableStateManager(
-        new ReliableStateManagerConfiguration(
-            new ReliableStateManagerReplicatorSettings
-            {
-                RetryInterval = TimeSpan.FromSeconds(3)
-            }));
+    /// <summary>
+    /// This is the entry point of the service host process.
+    /// </summary>
+    static void Main()
+    {
+        ServiceRuntime.RegisterServiceAsync("HelloWorldStatefulType",
+            context => new HelloWorldStateful(context, 
+                new ReliableStateManager(context, 
+                    new ReliableStateManagerConfiguration(
+                        new ReliableStateManagerReplicatorSettings()
+                        {
+                            RetryInterval = TimeSpan.FromSeconds(3)
+                        }
+            )))).GetAwaiter().GetResult();
+    }
+}    
+```
+```csharp
+class MyStatefulService : StatefulService
+{
+    public MyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica stateManager)
+        : base(context, stateManager)
+    { }
+    ...
 }
 ```
-
 
 ## Sample configuration file
 ```xml
