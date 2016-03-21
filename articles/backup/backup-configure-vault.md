@@ -19,7 +19,7 @@
 
 
 # Back up a Windows Server or client to Azure
-This article covers the procedures you need to do to prepare your environment and back up a Windows Server (or client) to Azure. It also covers things to consider when you're deploying your backup solution. If you're interested in trying Azure Backup for the first time [this article](backup-configure-vault.md) will quickly walk you through that process.
+This article covers the procedures you need to do to prepare your environment and back up a Windows Server (or client) to Azure. It also covers considerations deploying your backup solution. If you're interested in trying Azure Backup for the first time [this article](backup-configure-vault.md) will quickly walk you through that process.
 
 ![Create vault](./media/backup-configure-vault/initial-backup-process.png)
 
