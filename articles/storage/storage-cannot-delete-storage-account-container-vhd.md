@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="03/20/2016"
 	ms.author="genli"/>
 
 # Troubleshoot deleting Azure storage accounts, containers or VHDs
@@ -27,6 +27,7 @@ You may receive errors when you try to delete the Azure storage account, contain
 -	There is still a lease on a disk or the blob associated on the disk.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Resolution
