@@ -3,7 +3,7 @@
    description="Automation schedules are used to schedule runbooks in Azure Automation to start automatically.  This article describes how to create schedules."
    services="automation"
    documentationCenter=""
-   authors="magoedte"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
