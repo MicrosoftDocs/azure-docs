@@ -1,5 +1,5 @@
 <properties
-   pageTitle="FAQ"
+   pageTitle="Power BI Embedded .NET API"
    description=""
    services="power-bi-embedded"
    documentationCenter=""

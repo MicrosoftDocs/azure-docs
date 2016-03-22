@@ -10,7 +10,7 @@
 <tags
    ms.service="power-bi-embedded"
    ms.devlang="NA"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi-embedded"
    ms.date="03/08/2016"

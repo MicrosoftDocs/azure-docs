@@ -1,5 +1,5 @@
 <properties
-   pageTitle="FAQ"
+   pageTitle="Power BI Embedded Community"
    description=""
    services="power-bi-embedded"
    documentationCenter=""
@@ -16,4 +16,4 @@
    ms.date="03/08/2016"
    ms.author="derrickv"/>
 
-# FAQ
+# Power BI Embedded Community

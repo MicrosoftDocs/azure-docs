@@ -1,5 +1,5 @@
 <properties
-   pageTitle="FAQ"
+   pageTitle="Power BI Embedded JavaScript API"
    description=""
    services="power-bi-embedded"
    documentationCenter=""
@@ -16,4 +16,4 @@
    ms.date="03/08/2016"
    ms.author="derrickv"/>
 
-# FAQ
+# Power BI Embedded JavaScript API
