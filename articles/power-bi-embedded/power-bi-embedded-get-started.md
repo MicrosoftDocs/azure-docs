@@ -16,7 +16,7 @@
    ms.date="03/08/2016"
    ms.author="derrickv"/>
 
-# Get stated with Microsoft Power BI Embedded sample code
+# Get started with Microsoft Power BI Embedded sample code
 
 Here are some resources to help you get started using Microsoft Power BI Embedded preview
 
