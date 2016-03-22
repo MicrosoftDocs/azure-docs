@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="A tour through Application Insights - Analytics" 
-	description="Short samples of all the main queries in Application Insights - Analytics, 
-	             the powerful search tool for Application Insights." 
+	pageTitle="A tour through Analytics in Application Insights" 
+	description="Short samples of all the main queries in Analytics, 
+	             the powerful search tool of Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -18,10 +18,12 @@
 
 
  
-# A tour through Application Insights - Analytics
+# A tour of Analytics in Application Insights
 
 
-*Analytics* is a powerful diagnostic search engine for your [Application Insights](app-insights-overview.md) telemetry.
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage, AIQL.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]

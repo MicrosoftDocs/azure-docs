@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="The summarize statement and aggregation functions in Analytics in Application Insights" 
+	pageTitle="Summarize and aggregation in Analytics in Application Insights" 
 	description="Reference for aggregation functions and the summarize statement in Analytics, 
 	             the powerful search tool of Application Insights. " 
 	services="application-insights" 

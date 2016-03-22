@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Application Insights - Analytics - the powerful search tool for Application Insights" 
-	description="Overview of Application Insights - Analytics, 
-	             the powerful search tool for Application Insights. " 
+	pageTitle="Analytics - the powerful search tool of Application Insights" 
+	description="Overview of Analytics, 
+	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -19,7 +19,7 @@
 
 
 
-# Analytics in Application Insights: Search language Overview
+# Analytics search in Application Insights
 
 
 [Analytics](app-analytics.md) is the powerful search feature of 

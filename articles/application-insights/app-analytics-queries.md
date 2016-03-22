@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Operators and queries in Analytics in Application Insights" 
+	pageTitle="Analytics operators and queries in Application Insights" 
 	description="Reference for the operators used to make queries in Analytics, 
 	             the powerful search tool of Application Insights." 
 	services="application-insights" 
@@ -18,7 +18,7 @@
 
 
 
-# Query syntax in Analytics
+# Queries in Analytics
 
 
 [Analytics](app-analytics.md) is the powerful search feature of 
