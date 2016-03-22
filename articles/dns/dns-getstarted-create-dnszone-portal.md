@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to create a DNS zone in the Azure portal | Microsoft Azure"
-   description="Learn how to create DNS zones for Azure DNS. This is a Step-by-step guide to create your first DNS and start hosting your DNS domain using the Azure portal."
+   pageTitle="How to create and manage a DNS zone in the Azure portal | Microsoft Azure"
+   description="Learn how to create DNS zones for Azure DNS. This is a Step-by-step guide to create and manage your first DNS and start hosting your DNS domain using the Azure portal."
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,7 +17,7 @@
    ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
-# Create a DNS zone in the Azure portal
+# Creating and managing a DNS zone in the Azure portal
 
 
 > [AZURE.SELECTOR]
@@ -30,6 +30,12 @@
 This article will walk you thorough the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI. The links to the article are at the top of this page.
 
 The domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site).  A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain you will first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
+
+Note the following:
+ 
+- The name of the zone must be unique within the resource group, and the zone must not exist already, otherwise the operation will fail.
+
+- The same zone name can be re-used in a different resource group or a different Azure subscription.  Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for more information.
 
 
 ## To create a DNS zone
@@ -85,8 +91,7 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 
 ## To delete a DNS zone in the portal
 
-You can delete the DNS zone directly from the portal. Locate the DNS zone blade for the zone you want to delete, then click **Delete**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.
-
+You can delete the DNS zone directly from the portal. Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created. Locate the DNS zone blade for the zone you want to delete, then click **Delete**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.  
 
 ## About Etags and Tags for Azure DNS
 
