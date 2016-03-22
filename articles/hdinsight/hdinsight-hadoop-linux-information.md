@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # Information about using HDInsight on Linux
