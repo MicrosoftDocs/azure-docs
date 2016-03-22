@@ -65,7 +65,7 @@ Let’s walk through the steps to build a **Workspace Collection** using the Azu
 
   **Pricing**
 
-  - See [Power BI Embedded pricing] TODO
+  - See [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527).
 
 5.Click **create**.
 
