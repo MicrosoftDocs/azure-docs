@@ -104,7 +104,7 @@ The following patterns and guidance may also be relevant to your scenario when i
 - [How to Scale an Application](cloud-services-how-to-scale.md)
 - [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](cloud-services-how-to-manage.md#linkresources)
 - [How to: Link a resource to a cloud service](cloud-services-how-to-manage.md#linkresources)
-- [Scale linked resources](cloud-services-how-to-scale.md#scalelink)
+- [Scale linked resources](cloud-services-how-to-scale.md#scale-link-resources)
 - [Azure Monitoring Services Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring)
 - [Azure Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)
 - [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)
