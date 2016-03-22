@@ -13,10 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/09/2015"
+	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
-# Azure Site Recovery using PowerShell and Azure Resource Manager.
+# Replicate between on-premises Hyper-V virtual machines and Azure using PowerShell and Azure Resource Manager.
+
+> [AZURE.SELECTOR]
+- [Azure Classic Portal](site-recovery-hyper-v-site-to-azure.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+
 
 
 ## Overview
