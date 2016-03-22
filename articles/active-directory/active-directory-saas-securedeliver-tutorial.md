@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="03/22/2016"
 	ms.author="jeedes"/>
 
 
@@ -118,8 +118,12 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Secure Deliver support team via [teruhiko.iwashita@fujifilm.com](mailto:teruhiko.iwashita@fujifilm.com). Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with the Secure Deliver team to get SSO configured.
-
+5. To get SSO configured for your application, contact your Secure Deliver support team via [teruhiko.iwashita@fujifilm.com](mailto:teruhiko.iwashita@fujifilm.com) and provide them with the following:
+   
+    - The downloaded certificate file
+    - The Entity ID
+    - The Single Sign-On Service URL
+    - The Single Sign-Out Service URL
 
 6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
