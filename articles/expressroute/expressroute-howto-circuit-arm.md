@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create and modify an ExpressRoute circuit by using Resource Manager and PowerShell | Microsoft Azure"
-   description="This article describes how to create and provision an ExpressRoute circuit. It also shows you how to check the circuit, update it, or delete and deprovision it."
+   description="This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -37,7 +37,7 @@ To create an ExpressRoute circuit, you need to:
 
 ### Step 1. Sign in to your Azure account and select your subscription
 
-Open your PowerShell console as administrator and connect to your account. Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md). Use the following sample to help you connect:
+To begin your configuration, login to your Azure account. For more information about PowerShell, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md). Use the following examples to help you connect:
 
 	Login-AzureRmAccount
 
@@ -121,9 +121,9 @@ The response will look similar to the following example:
 	
 You can retrieve this information at any time by using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call with no parameters will list all circuits. Your service key will be listed in the *ServiceKey* field.
 	
-	```
+
 	Get-AzureRmExpressRouteCircuit
-	```
+
 
 The response will look similar to the following example:
 	
