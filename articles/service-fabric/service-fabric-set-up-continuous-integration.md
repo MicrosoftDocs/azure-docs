@@ -221,7 +221,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     f.	Unzip agent.zip to `C:\agent` (or any location that has a short path) on your build machine.
 
-        >[AZURE.NOTE] If you plan to use ASP.NET 5 Web Services, we recommend that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment.
+    >[AZURE.NOTE] If you plan to use ASP.NET 5 Web Services, we recommend that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment.
 
 2.	From an admin command prompt, run `C:\agent\ConfigureAgent.cmd`. The script prompts you for the following parameters:
 
