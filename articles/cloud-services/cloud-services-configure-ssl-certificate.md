@@ -68,12 +68,12 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
                     		 storeName="CA"
                              permissionLevel="limitedOrElevated" />
                 <!-- IMPORTANT! Unless your certificate is either
-                self-signed or signed directly by the CA root you
-                have to include all the intermediate certificates
-                here. They have to be listed here, no matter they're
+                self-signed or signed directly by the CA root, you
+                must include all the intermediate certificates
+                here. You must list them here, even if they are
                 not bound to any endpoints. Failing to list any of
-                the intermediate certificates may cause hard to
-                reproduce interoperability problems on some clients-->
+                the intermediate certificates may cause hard-to-reproduce
+                interoperability problems on some clients.-->
                 <Certificate name="CAForSampleCertificate"
                              storeLocation="LocalMachine"
                              storeName="CA"
