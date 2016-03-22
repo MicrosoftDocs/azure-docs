@@ -70,7 +70,7 @@ If you receive an error and have problems with connectivity, please see [Trouble
 ## Pages under the section Sync
 
 ### Connect your directories
-To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions. You can enter the domain part in either NetBios or FQDN format, i.e. FABRIKAM\syncuser or FABRIKAM.COM\syncuser. This account can be a regular user account because it only needs the default read permissions. However, depending on your scenario, you may need additional permissions. For more information see [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions. You can enter the domain part in either NetBios or FQDN format, i.e. FABRIKAM\syncuser or fabrikam.com\syncuser. This account can be a regular user account because it only needs the default read permissions. However, depending on your scenario, you may need additional permissions. For more information see [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
 ![Connect Directory](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
