@@ -57,7 +57,7 @@ Creating a DNS zone also creates the following DNS records, which you can view i
 - The "Start of Authority" (SOA) record.  This is present at the root of every DNS zone.
 - The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
-To view DNS zone records:
+### To view DNS zone records:
 
 1. From your DNS zone blade, click on **All settings** to open the** Settings blade** for the DNS zone. 
 2. In the lower part of the blade, you can see the record sets for the DNS zone.
@@ -105,12 +105,6 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 Tags are different than Etags. Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about Tags, see the article [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
 You can add Tags in the Azure portal by using the **Settings** blade for your DNS zone.
-
-You can also use PowerShell to add tags. Azure DNS PowerShell supports Tags on both zones and record sets specified using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
-
-	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
-
-
 
 
 ## Next steps

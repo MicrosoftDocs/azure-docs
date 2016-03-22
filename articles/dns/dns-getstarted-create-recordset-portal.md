@@ -84,10 +84,6 @@ In the following example we will show how to create a record set and records.  W
 
 
 
-
-
-
-
 ## Next Steps
 
 [How to manage DNS zones](dns-operations-dnszones.md)

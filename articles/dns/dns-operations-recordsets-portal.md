@@ -74,7 +74,6 @@ You can use the Azure portal to remove records can be removed from a record set.
 3. Once the record has been removed, the values for the record set on the DNS blade will reflect the record was removed.
 
 
-
 ## <a name="delete"></a>To delete a record set
 
 1. From the record set properties blade for your record set, click Delete.
