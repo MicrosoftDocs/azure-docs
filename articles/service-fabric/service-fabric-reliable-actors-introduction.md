@@ -145,9 +145,9 @@ The Actors runtime provides these concurrency guarantees in situations where it 
 ## Next steps
 [Getting started with Reliable Actors](service-fabric-reliable-actors-get-started.md)
 
-[Actor state management](service-fabric-reliable-actors-state-management.md)
-
 [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
+
+[Actor state management](service-fabric-reliable-actors-state-management.md)
 
 [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 
