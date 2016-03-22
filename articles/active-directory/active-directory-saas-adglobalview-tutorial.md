@@ -127,9 +127,15 @@ Before you can configure the SAML assertion, you need to contact your ADP Global
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your ADP GlobalView support team and email the attach downloaded certificate file and Entity ID, SAML SSO URL and Single Sign Out Service URL, so that they can be configured for SSO integration.
+5. To get SSO configured for your application, contact your ADP GlobalView support team and provide them with the following: 
 
-> [AZURE.NOTE] After **ADP GlobalView** team configure the instance, get the **RelayState** value from them and request to Azure AD to configure that for your application instance. You can send this value, your Azure AD tenanat id and application id to Azure AD team on [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). After this configuring only you can test the integration and it will work. So please note that this is important configuration step for this application integration to work.
+    - The downloaded certificate file
+    - Entity ID
+    - SAML SSO URL
+    - Single Sign-Out Service URL
+
+
+    > [AZURE.NOTE] After **ADP GlobalView** team configure the instance, get the **RelayState** value from them and request to Azure AD to configure that for your application instance. You can send this value, your Azure AD tenanat id and application id to Azure AD team on [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). After this configuring only you can test the integration and it will work. So please note that this is important configuration step for this application integration to work.
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
