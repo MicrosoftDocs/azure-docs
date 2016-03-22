@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.topic="get-started-article"
+	ms.date="02/01/2016"
 	ms.author="erikje"/>
 
 # Before you deploy Azure Stack POC
@@ -129,5 +129,7 @@ These requirements apply to the Azure Stack POC only and might change for future
 Sample OEM configurations are available.
 
 ## Next steps
+
+[Download the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Deploy Azure Stack POC](azure-stack-run-powershell-script.md)

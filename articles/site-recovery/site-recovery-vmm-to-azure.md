@@ -18,6 +18,12 @@
 
 #  Replicate Hyper-V virtual machines in VMM clouds to Azure
 
+> [AZURE.SELECTOR]
+- [Azure Classic Portal](site-recovery-vmm-to-azure.md)
+- [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
+
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
 
 ## Overview

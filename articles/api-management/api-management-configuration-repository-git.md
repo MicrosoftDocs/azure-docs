@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="sdanie"/>
 
 
 # How to save and configure your API Management service configuration using Git
+
+>[AZURE.IMPORTANT] Git configuration for API Management is currently in preview. It is functionally complete, but is in preview because we are actively seeking feedback on this feature. It is possible that we may make a breaking change in response to customer feedback, so we recommend not depending on the feature for use in production environments. If you have any feedback or questions, please let us know at `apimgmt@microsoft.com`.
 
 Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the publisher portal, using a PowerShell cmdlet, or making a REST API call. In addition to these methods, you can also manage your service instance configuration using Git, enabling service management scenarios such as:
 
@@ -43,13 +45,17 @@ This article describes how to enable and use Git to manage your service configur
 
 ## To enable Git access
 
-To configure Git access, click the **Security** menu and navigate to the **Configuration repository** tab.
+You can quickly view the status of your Git configuration by viewing the Git icon in the upper-right corner of the publisher portal. In this example, Git access has not yet been enabled.
+
+![Git status][api-management-git-icon-enable]
+
+To view and configure your Git configuration settings, you can either click the Git icon, or click the **Security** menu and navigate to the **Configuration repository** tab.
 
 ![Enable GIT][api-management-enable-git]
 
 To enable Git access, check the **Enable Git access** checkbox.
 
-After a moment the change is saved and a confirmation message is displayed.
+After a moment the change is saved and a confirmation message is displayed. Note that Git icon has changed to color to indicate that Git access is enabled and the status message now indicates that there are unsaved changes to the repository. This is because the API Management service configuration database has not yet been saved to the repository.
 
 ![Git enabled][api-management-git-enabled]
 
@@ -111,7 +117,7 @@ Use the encoded password along with your user name and repository location to co
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure overview of local Git repository](#file-and-folder-structure-overview-of-local-git-repository).
+Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## To update your local repository with the most current service instance configuration
 
@@ -273,6 +279,9 @@ For information on other ways to manage your service instance, see:
 -	Manage your service instance using the REST API
 	-	[API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## Watch a video overview
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
@@ -286,6 +295,7 @@ For information on other ways to manage your service instance, see:
 [api-management-configuration-deploy]: ./media/api-management-configuration-repository-git/api-management-configuration-deploy.png
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
+[api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
 
 
