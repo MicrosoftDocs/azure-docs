@@ -29,17 +29,17 @@
 
 This article will walk you thorough the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI. The links to the article are at the top of this page.
 
-The domain ‘contoso.com’ may contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site).  A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain you will first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
+The domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site).  A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain you will first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
 
 
 ## To create a DNS zone
 
 1. Sign in to the Azure portal
-2. On the Hub menu, click  and click** New > Networking >** and then click ** DNS zone** to open the DNS zone blade. 
+2. On the Hub menu, click  and click **New > Networking >** and then click **DNS zone** to open the DNS zone blade. 
 3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade.
 4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. 
 5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists. 
-6. From the location dropdown, specify the location.
+6. From the **location** dropdown, specify the location.
 7. You can leave the **Pin to dashboard** checkbox selected if you want to easily locate your new zone on your dashboard. Then click **Create**.
 8. After you click Create, you'll see your new zone being configured on the dashboard.
 
@@ -49,7 +49,7 @@ The domain ‘contoso.com’ may contain a number of DNS records, such as ‘mai
 
 Creating a DNS zone also creates the following DNS records:
 
-- The ‘Start of Authority’ (SOA) record.  This is present at the root of every DNS zone.
+- The "Start of Authority" (SOA) record.  This is present at the root of every DNS zone.
 - The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
 You can view these records in on the blade for your DNS zone in the Azure portal. From your DNS zone blade, you can click on All settings to open the Settings blade for the DNS zone. If a zone is not available for you to use, you will see a "Failed" result and the details for the reason of failure in the Operations details window.
@@ -85,7 +85,7 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 
 ## To delete a DNS zone in the portal
 
-You can delete the DNS zone directly from the portal. Local the DNS zone blade for the zone you want to delete, then click Delete. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.
+You can delete the DNS zone directly from the portal. Locate the DNS zone blade for the zone you want to delete, then click **Delete**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.
 
 
 ## About Etags and Tags for Azure DNS
@@ -110,11 +110,14 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 ### Tags
 
 Tags are different than Etags. Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about Tags, see the article [Using tags to organize your Azure resources](../resource-group-using-tags.md).
-Azure DNS PowerShell supports Tags on both zones and record sets specified using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
+
+You can add Tags in the Azure portal by using the **Settings** blade for your DNS zone.
+
+You can also use PowerShell to add tags. Azure DNS PowerShell supports Tags on both zones and record sets specified using the options ‘-Tag’ parameter. The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
 
 	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
 
-You can also add Tags in the Azure portal by using the Settings pane for your DNS zone.
+
 
 
 ## Next steps
