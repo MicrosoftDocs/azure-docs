@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/22/2016"
    ms.author="oanapl"/>
 
 # Add custom Service Fabric health reports
@@ -47,7 +47,11 @@ As mentioned above, reporting can be done from:
 
 > [AZURE.NOTE] Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Using system health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). The user reports must be sent on [health entities](service-fabric-health-introduction.md#health-entities-and-hierarchy) that have already been created by the system.
 
-Once the health reporting design is clear, health reports can be sent easily. This can be done through the API by using **FabricClient.HealthManager.ReportHealth**, through PowerShell, or through REST. Internally, all methods use a health client contained in a fabric client. Configuration knobs batch reports for improved performance.
+Once the health reporting design is clear, health reports can be sent easily. You can use `FabricClient` to report health if the cluster is not [secure](service-fabric-cluster-security.md) or if the fabric client has admin privileges. This can be done through the API by using **FabricClient.HealthManager.ReportHealth**, through PowerShell, or through REST. 
+
+From within Service Fabric services, you can report health on entities from the current context using [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) or [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx) objects. For example, the code running as part of a replica can report health only on that replica, the partition it belongs to and the application it is a part of. In this article, I will focus on reporting through FabricClient, with the mention that reporting through `Partition` or `CodePackageActivationContext` is similar. 
+  
+Configuration knobs batch reports for improved performance.
 
 > [AZURE.NOTE] Report health is synchronous, and it represents only the validation work on the client side. The fact that the report is accepted by the health client doesn't mean that it is applied in the store. It will be sent asynchronously and possibly batched with other reports. The processing on the server may still fail (e.g. a sequence number is stale, the entity on which the report must be applied has been deleted, etc.).
 
@@ -63,7 +67,7 @@ The health reports are sent to the health store through a health client, which l
 > [AZURE.NOTE] When the reports are batched, the fabric client must be kept alive for at least the HealthReportSendInterval to ensure that they are sent. If the message is lost or the health store cannot apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
 
 The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports will be replaced with the last version. Only one such report exists in the client queue at most. If batching is configured, the number of reports sent to the health store is just one per send interval. This is the last added report, which reflects the most current state of the entity.
-All configuration parameters can be specified when **FabricClient** is created by passing **FabricClientSettings** with the desired values for health-related entries.
+All configuration parameters can be specified when **FabricClient** is created by passing [**FabricClientSettings**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) with the desired values for health-related entries.
 
 The following creates a fabric client and specifies that the reports should be sent as soon as they are added. On timeouts and errors that can be retried, retries happen every 40 seconds.
 
