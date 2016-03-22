@@ -19,101 +19,111 @@
 
 # Monitoring and diagnostics guidance
 
-![](media/best-practices-monitoring/pnp-logo.png)
+![Patterns & practices logo](media/best-practices-monitoring/pnp-logo.png)
 
 ## Overview
-Distributed applications and service running in the cloud are, by their very nature, complex pieces of software that comprise many moving parts. In a production environment, it is important to be able to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system. This information can be used as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
+Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts. In a production environment, it's important to be able to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
 
 ## Monitoring and diagnostics scenarios
-Monitoring enables you to gain an insight into how well a system is functioning, and is a crucial part in maintaining quality-of-service targets. Some common scenarios for collecting monitoring data include:
+You can use monitoring to gain an insight into how well a system is functioning. Monitoring is a crucial part of maintaining quality-of-service targets. Common scenarios for collecting monitoring data include:
 
 - Ensuring that the system remains healthy.
 - Tracking the availability of the system and its component elements.
 - Maintaining performance to ensure that the throughput of the system does not degrade unexpectedly as the volume of work increases.
-- Guaranteeing that the system meets any SLAs agreed with customers.
+- Guaranteeing that the system meets any service-level agreements (SLAs) established with customers.
 - Protecting the privacy and security of the system, users, and their data.
 - Tracking the operations that are performed for auditing or regulatory purposes.
-- Monitoring the day-to-day usage of the system and help spot trends that could lead to problems if they are not addressed.
+- Monitoring the day-to-day usage of the system and spotting trends that might lead to problems if they're not addressed.
 - Tracking issues that occur, from initial report through to analysis of possible causes, rectification, consequent software updates, and deployment.
 - Tracing operations and debugging software releases.
 
-> [AZURE.NOTE] This list is not intended to be comprehensive. This document focusses on these scenarios as the most common situations for performing monitoring, but there may well be others that are less common or specific to your own environment.
+> [AZURE.NOTE] This list is not intended to be comprehensive. This document focuses on these scenarios as the most common situations for performing monitoring. There might be others that are less common or are specific to your environment.
 
 The following sections describe these scenarios in more detail. The information for each scenario is discussed in the following format:
 
-- A brief overview of the scenario.
-- The typical requirements of this scenario.
-- The raw instrumentation data required to support the scenario, and possible sources of this information.
-- How this raw data can be analyzed and combined to generate meaningful diagnostic information.
+1. A brief overview of the scenario
+2. The typical requirements of this scenario
+3. The raw instrumentation data that's required to support the scenario, and possible sources of this information
+4. How this raw data can be analyzed and combined to generate meaningful diagnostic information
 
 ## Health monitoring
-A system is healthy if it is running and capable of processing requests. The purpose of health monitoring is to generate a snapshot of the current health of the system to enable you to verify that all components of the system are functioning as expected.
+A system is healthy if it is running and capable of processing requests. The purpose of health monitoring is to generate a snapshot of the current health of the system so that you can verify that all components of the system are functioning as expected.
 
 ### Requirements for health monitoring
-An operator should be alerted quickly (within a matter of seconds) if any part of the system is deemed to be unhealthy. The operator should be able to ascertain which parts of the system are functioning normally, and which parts are experiencing problems. System health can be highlighted by using a traffic-light system; red for unhealthy (the system has stopped), yellow for partially healthy (the system is running with reduced functionality), and green for completely healthy.
+An operator should be alerted quickly (within a matter of seconds) if any part of the system is deemed to be unhealthy. The operator should be able to ascertain which parts of the system are functioning normally, and which parts are experiencing problems. System health can be highlighted through a traffic-light system:
+
+- Red for unhealthy (the system has stopped)
+- Yellow for partially healthy (the system is running with reduced functionality)
+- Green for completely healthy
 
 A comprehensive health-monitoring system enables an operator to drill down through the system to view the health status of subsystems and components. For example, if the overall system is depicted as partially healthy, the operator should be able to zoom in and determine which functionality is currently unavailable.
 
-### Data sources, instrumentation, and data collection requirements
-The raw data required to support health monitoring can be generated as a result of:
+### Data sources, instrumentation, and data-collection requirements
+The raw data that's required to support health monitoring can be generated as a result of:
 
 - Tracing execution of user requests. This information can be used to determine which requests have succeeded, which have failed, and how long each request takes.
 - Synthetic user monitoring. This process simulates the steps performed by a user and follows a predefined series of steps. The results of each step should be captured.
-- Logging exceptions, faults, and warnings. This information can be captured as a result of trace statements embedded into the application code, as well as retrieving information from the event logs of any services referenced by the system.
-- Monitoring the health of any third-party services used by the system. This may require retrieving and parsing health data supplied by these services, and this information could take a variety of formats.
-- Endpoint monitoring. This mechanism is described in more detail in the Availability monitoring section.
+- Logging exceptions, faults, and warnings. This information can be captured as a result of trace statements embedded into the application code, as well as retrieving information from the event logs of any services that the system references.
+- Monitoring the health of any third-party services that the system uses. This monitoring might require retrieving and parsing health data that these services supply. This information might take a variety of formats.
+- Endpoint monitoring. This mechanism is described in more detail in the "Availability monitoring" section.
 - Collecting ambient performance information, such as background CPU utilization or I/O (including network) activity.
 
 ### Analyzing health data
-The primary focus of health monitoring is to quickly indicate whether the system is running. Hot analysis of the immediate data can trigger an alert if a critical component is detected to be unhealthy (it fails to respond to a consecutive series of pings, for example). The operator can then take the appropriate corrective action.
+The primary focus of health monitoring is to quickly indicate whether the system is running. Hot analysis of the immediate data can trigger an alert if a critical component is detected as unhealthy. (It fails to respond to a consecutive series of pings, for example.) The operator can then take the appropriate corrective action.
 
-A more advanced system might include a predictive element that performs a cold analysis over recent and current workloads to spot trends and determine whether the system is likely to remain healthy or whether additional resources are going to be required. This predictive element should be based on critical performance metrics, such as the rate of requests directed at each service or subsystem, the response times of these requests, and the volume of data flowing into and out of each service. If the value of any metric exceeds a defined threshold the system can raise an alert to enable an operator or auto-scaling (if available) to take the preventative actions necessary to maintain system health. These actions might involve adding resources, restarting one or more services that are failing, or applying throttling to lower-priority requests.
+A more advanced system might include a predictive element that performs a cold analysis over recent and current workloads. A cold analysis can spot trends and determine whether the system is likely to remain healthy or whether the system will need additional resources. This predictive element should be based on critical performance metrics, such as:
+
+- The rate of requests directed at each service or subsystem.
+- The response times of these requests.
+- The volume of data flowing into and out of each service.
+
+If the value of any metric exceeds a defined threshold, the system can raise an alert to enable an operator or autoscaling (if available) to take the preventative actions necessary to maintain system health. These actions might involve adding resources, restarting one or more services that are failing, or applying throttling to lower-priority requests.
 
 ## Availability monitoring
-A truly healthy system requires that the components and subsystems that comprise the system are available. Availability monitoring is closely related to health monitoring, but whereas health monitoring provides an immediate view of the current health of the system, availability monitoring is concerned with tracking the availability of the system and its components to generate statistics concerning the uptime of the system.
+A truly healthy system requires that the components and subsystems that compose the system are available. Availability monitoring is closely related to health monitoring. But whereas health monitoring provides an immediate view of the current health of the system, availability monitoring is concerned with tracking the availability of the system and its components to generate statistics about the uptime of the system.
 
-In many systems, some components (such as a database) are configured with built-in redundancy to permit rapid failover in the event of a serious fault or loss of connectivity. Ideally, users should not be aware that such a failure has occurred, but from an availability monitoring perspective it is necessary to gather as much information as possible about such failures to try and determine the cause and take corrective actions to prevent them from recurring.
+In many systems, some components (such as a database) are configured with built-in redundancy to permit rapid failover in the event of a serious fault or loss of connectivity. Ideally, users should not be aware that such a failure has occurred. But from an availability monitoring perspective, it's necessary to gather as much information as possible about such failures to determine the cause and take corrective actions to prevent them from recurring.
 
-The data required to track availability may be dependent on a number of lower-level factors, many of which may be specific to the application, system, and environment. An effective monitoring system captures the availability data that corresponds to these low-level factors and then aggregates them to give an overall picture of the system. For example, in an ecommerce system, the business functionality that enables a customer to place orders might depend on the repository in which order details are stored and the payment system that handles the monetary transactions for paying for these orders. The availability of the order-placement part of the system is therefore a function of the availability of the repository and the payment sub-system.
+The data that's required to track availability might depend on a number of lower-level factors. Many of these factors might be specific to the application, system, and environment. An effective monitoring system captures the availability data that corresponds to these low-level factors and then aggregates them to give an overall picture of the system. For example, in an e-commerce system, the business functionality that enables a customer to place orders might depend on the repository where order details are stored and the payment system that handles the monetary transactions for paying for these orders. The availability of the order-placement part of the system is therefore a function of the availability of the repository and the payment subsystem.
 
 ### Requirements for availability monitoring
-An operator should also be able to view the historical availability of each system and subsystem, and use this information to spot any trends that may be causing one or more subsystem to periodically fail (do services start to fail at a particular time of day that corresponds to peak processing hours?)
+An operator should also be able to view the historical availability of each system and subsystem, and use this information to spot any trends that might cause one or more subsystems to periodically fail. (Do services start to fail at a particular time of day that corresponds to peak processing hours?)
 
-As well as providing an immediate and historical view of the availability or otherwise of each subsystem, a monitoring solution should also be capable of quickly alerting an operator when one or more services fail or users are unable to connect to services. This is not simply a matter of monitoring each service, but also examining the actions being performed by each user if these actions fail when they attempt to communicate with a service. To some extent, a degree of connectivity failure is normal and may be due to transient errors, but it may be useful to allow the system to raise an alert of the number of connectivity failures to a specified subsystem occur during a specific time period.
+A monitoring solution should provide an immediate and historical view of the availability or unavailability of each subsystem. It should also be capable of quickly alerting an operator when one or more services fail or when users can't connect to services. This is a matter of not only monitoring each service, but also examining the actions that each user performs if these actions fail when they attempt to communicate with a service. To some extent, a degree of connectivity failure is normal and might be due to transient errors. But it might be useful to allow the system to raise an alert for the number of connectivity failures to a specified subsystem that occur during a specific period.
 
-### Data sources, instrumentation, and data collection requirements
-As with health monitoring, the raw data required to support availability monitoring can be generated as a result of synthetic user monitoring and logging any exceptions, faults, and warnings that may occur. In addition, availability data can be obtained from performing endpoint monitoring. The application can expose one or more health endpoints, each testing access to a functional area within the system. The monitoring system can ping each endpoint following a defined schedule and collect the results (success or fail).
+### Data sources, instrumentation, and data-collection requirements
+As with health monitoring, the raw data that's required to support availability monitoring can be generated as a result of synthetic user monitoring and logging any exceptions, faults, and warnings that might occur. In addition, availability data can be obtained from performing endpoint monitoring. The application can expose one or more health endpoints, each testing access to a functional area within the system. The monitoring system can ping each endpoint by following a defined schedule and collect the results (success or fail).
 
-All timeouts and network connectivity failures, and connection retry attempts must be recorded. All data should be time-stamped.
+All timeouts, network connectivity failures, and connection retry attempts must be recorded. All data should be time-stamped.
 
-<a name="analyzing-availablity-data"></a>
+<a name="analyzing-availability-data"></a>
 ### Analyzing availability data
 The instrumentation data must be aggregated and correlated to support the following types of analysis:
 
 - The immediate availability of the system and subsystems.
-- The availability failure rates of the system and subsystems. Ideally an operator should be able to correlate failures with specific activities; what was happening when the system failed?
-- An historical view of failure rates of the system or any subsystems across any specified time period, and the load on the system (number of user requests for example) when a failure occurred.
-- The reasons for unavailability of the system or any subsystems. For example, service not running, loss of connectivity, connected but timing out, and connected but returning errors.
+- The availability failure rates of the system and subsystems. Ideally, an operator should be able to correlate failures with specific activities: what was happening when the system failed?
+- A historical view of failure rates of the system or any subsystems across any specified period, and the load on the system (number of user requests, for example) when a failure occurred.
+- The reasons for unavailability of the system or any subsystems. For example, the reasons might be service not running, connectivity lost, connected but timing out, and connected but returning errors.
 
-You can calculate the percentage availability of a service over a period of time by using the formula:
+You can calculate the percentage availability of a service over a period of time by using the following formula:
 
 ```
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-This is useful for SLA purposes ([SLA monitoring](#SLA-monitoring) is described in more detail later in this guidance). The definition of _Downtime_ depends on the service. For example, Visual Studio Team Services Build Service defines downtime as the period (total accumulated minutes) during which Build Service is unavailable. A minute is considered unavailable if all continuous HTTP requests to the Build Service to perform operations initiated by Customer throughout the minute either result in an Error Code or do not return a response.
+This is useful for SLA purposes. ([SLA monitoring](#SLA-monitoring) is described in more detail later in this guidance.) The definition of _downtime_ depends on the service. For example, the Visual Studio Team Services build service defines downtime as the period (total accumulated minutes) during which the build service is unavailable. A minute is considered unavailable if all continuous HTTP requests to the build service to perform customer-initiated operations throughout the minute either result in an error code or do not return a response.
 
 ## Performance monitoring
-As the system is placed under more and more stress as the volume of users increase and the size of the datasets that these users access grows, the possible failure of one or more components becomes likely. Frequently, component failure is preceded by a decrease in performance. If you are able detect such a decrease you can take proactive steps to remedy the situation.
+As the system is placed under more and more stress (because the volume of users is increasing and the size of the datasets that these users access is growing), the possible failure of one or more components becomes likely. A decrease in performance often precedes component failure. If you can detect such a decrease, you can take proactive steps to remedy the situation.
 
-System performance is dependent on a number of factors. Each factor is typically measured by using Key Performance Indicators (KPIs), such as the number of database transactions per second, or the volume of network requests that are successfully serviced in a given timeframe. Some of these KPIs may be available as specific performance measures, while others may be derived from a combination of metrics.
+System performance depends on a number of factors. Each factor is typically measured through key performance indicators (KPIs), such as the number of database transactions per second or the volume of network requests that are successfully serviced in a specified time frame. Some of these KPIs might be available as specific performance measures, whereas others might be derived from a combination of metrics.
 
-> [AZURE.NOTE] Determining poor or good performance requires that you understand the level of performance at which the system should be capable of running. This requires observing the system while it is functioning under a typical load and capturing the data for each KPI over a period of time. This might involve running the system under a simulated load in a test environment and gathering the appropriate data before deploying the system to a production environment.
+> [AZURE.NOTE] Determining poor or good performance requires that you understand the level of performance at which the system should be capable of running. This requires observing the system while it's functioning under a typical load and capturing the data for each KPI over a period of time. This might involve running the system under a simulated load in a test environment and gathering the appropriate data before deploying the system to a production environment.
 
-> You should also ensure that monitoring for performance purposes does not become an unwarranted burden on the system. You may be able to dynamically adjust the level of detail concerning the data that the performance monitoring process gathers.
+> You should also ensure that monitoring for performance purposes does not become a burden on the system. You might be able to dynamically adjust the level of detail for the data that the performance monitoring process gathers.
 
 ### Requirements for performance monitoring
-To examine system performance, an operator would typically need to see information including:
+To examine system performance, an operator typically needs to see information that includes:
 
 - The response rates for user requests.
 - The number of concurrent user requests.
@@ -123,89 +133,93 @@ To examine system performance, an operator would typically need to see informati
 
 It can also be helpful to provide tools that enable an operator to help spot correlations, such as:
 
-- The number of concurrent users versus request latency times (how long does it take to start processing a request after the user has sent it).
-- The number of concurrent users versus the average response time (how long does it take to complete a request after it has started processing).
+- The number of concurrent users versus request latency times (how long it takes to start processing a request after the user has sent it).
+- The number of concurrent users versus the average response time (how long it takes to complete a request after it has started processing).
 - The volume of requests versus the number of processing errors.
 
-As well as this high-level functional information, an operator should also be able to obtain a detailed view of the performance for each component in the system. This data is typically provided by using low-level performance counters tracking information such as:
+Along with this high-level functional information, an operator should be able to obtain a detailed view of the performance for each component in the system. This data is typically provided through low-level performance counters that track information such as:
 
-- Memory utilization,
-- Number of threads,
-- CPU processing time,
-- Request queue length,
-- Disk or network I/O rates and errors,
-- Number of bytes written or read,
+- Memory utilization.
+- Number of threads.
+- CPU processing time.
+- Request queue length.
+- Disk or network I/O rates and errors.
+- Number of bytes written or read.
 - Middleware indicators, such as queue length.
 
-All visualizations should allow an operator to specify a time period; the data displayed could be a snapshot of the current situation and/or an historical view of the performance.
+All visualizations should allow an operator to specify a time period. The displayed data might be a snapshot of the current situation and/or a historical view of the performance.
 
-An operator should be able to raise an alert based on any performance measure for any given value during any specified time interval.
+An operator should be able to raise an alert based on any performance measure for any specified value during any specified time interval.
 
-### Data sources, instrumentation, and data collection requirements
-The high-level performance data (throughput, number of concurrent users, number of business transactions, error rates, and so on) can be gathered by monitoring the progress of users' requests as they arrive and pass through the system. This involves incorporating tracing statements at key points in the application code together with timing information. All faults, exceptions, and warnings should be captured with sufficient data to enable them to be correlated with the requests that caused them. The IIS log is another useful source.
+### Data sources, instrumentation, and data-collection requirements
+You can gather high-level performance data (throughput, number of concurrent users, number of business transactions, error rates, and so on) by monitoring the progress of users' requests as they arrive and pass through the system. This involves incorporating tracing statements at key points in the application code, together with timing information. All faults, exceptions, and warnings should be captured with sufficient data for correlating them with the requests that caused them. The Internet Information Services (IIS) log is another useful source.
 
-If possible, you should also capture performance data for any external systems that the application uses. These external systems might provide their own performance counters or other features for requesting performance data. If this is not possible, you should record information such as the start time and end time of each request made to an external system, together with the status (success, fail, or warning) of the operation. For example, you can use a stopwatch approach to time requests; start a timer running when the request starts and then stop the timer when the request completes.
+If possible, you should also capture performance data for any external systems that the application uses. These external systems might provide their own performance counters or other features for requesting performance data. If this is not possible, record information such as the start time and end time of each request made to an external system, together with the status (success, fail, or warning) of the operation. For example, you can use a stopwatch approach to time requests: start a timer when the request starts and then stop the timer when the request finishes.
 
-Low-level performance data for individual components in a system may be available through features such as Windows performance counters and Azure diagnostics.
+Low-level performance data for individual components in a system might be available through features and services such as Windows performance counters and Azure Diagnostics.
 
 ### Analyzing performance data
-Much of the analysis work consists of aggregating performance data by user request type (such as adding an item to a shopping cart, or performing the checkout process in an ecommerce system) and/or the subsystem or service to which each request is sent.
+Much of the analysis work consists of aggregating performance data by user request type and/or the subsystem or service to which each request is sent. An example of a user request is adding an item to a shopping cart or performing the checkout process in an e-commerce system.
 
-Another common requirement is summarizing performance data in selected percentiles. For example, determining the response times for 99% of requests, 95% of requests, and 70% of requests. There may be SLA targets or other goals set for each percentile. The ongoing results should be reported in both near real-time to help detect immediate issues, as well as being aggregated over the longer time for statistical purposes.
+Another common requirement is summarizing performance data in selected percentiles. For example, an operator might determine the response times for 99 percent of requests, 95 percent of requests, and 70 percent of requests. There might be SLA targets or other goals set for each percentile. The ongoing results should be reported in near real time to help detect immediate issues. The results should also be aggregated over the longer time for statistical purposes.
 
-In the case of latency issues impacting performance, an operator should be quickly able to identify the cause of the bottleneck by examining the latency of each step performed by each request. The performance data must therefore provide a means of correlating performance measures for each step to tie them to a specific request.
+In the case of latency issues affecting performance, an operator should be able to quickly identify the cause of the bottleneck by examining the latency of each step that each request performs. The performance data must therefore provide a means of correlating performance measures for each step to tie them to a specific request.
 
-Depending on the visualization requirements, it may be useful to generate and store a data cube containing views of the raw data to allow complex ad-hoc querying and analysis of the performance information.
+Depending on the visualization requirements, it might be useful to generate and store a data cube that contains views of the raw data. This data cube can allow complex ad hoc querying and analysis of the performance information.
 
 ## Security monitoring
-All commercial systems that include sensitive data must implement a security structure. The complexity of the security mechanism is usually a function of the sensitivity of the data. In a system that requires users to be authenticated, you should record all login attempts, whether they fail or succeed. Additionally, all operations performed and the details of all resources accessed by an authenticated user should be logged. When the user terminates their session and logs out, this information should also be recorded.
+All commercial systems that include sensitive data must implement a security structure. The complexity of the security mechanism is usually a function of the sensitivity of the data. In a system that requires users to be authenticated, you should record:
 
-Monitoring may be able to help detect attacks on the system. For example, a large number of failed login attempts might indicate a brute-force attack, or an unexpected surge in requests could be the result of a DDoS attack. You must be prepared to monitor all requests to all resources regardless of the source of these requests; a system with a login vulnerability may accidentally expose resources to the outside world without requiring that a user actually logs in.
+- All sign-in attempts, whether they fail or succeed.
+- All operations performed by--and the details of all resources accessed by--an authenticated user.
+- When a user ends a session and signs out.
+
+Monitoring might be able to help detect attacks on the system. For example, a large number of failed sign-in attempts might indicate a brute-force attack. An unexpected surge in requests might be the result of a distributed denial-of-service (DDoS) attack. You must be prepared to monitor all requests to all resources regardless of the source of these requests. A system that has a sign-in vulnerability might accidentally expose resources to the outside world without requiring a user to actually sign in.
 
 ### Requirements for security monitoring
 The most critical aspects of security monitoring should enable an operator to quickly:
 
-- Detect attempted intrusions by an unauthenticated entity,
-- Identify attempts by entities to perform operations on data for which they have not been granted access,
-- Determine whether the system, or some part of the system, is under attack from outside or inside (for example, a malicious authenticated user may be attempting to bring the system down).
+- Detect attempted intrusions by an unauthenticated entity.
+- Identify attempts by entities to perform operations on data for which they have not been granted access.
+- Determine whether the system, or some part of the system, is under attack from outside or inside. (For example, a malicious authenticated user might be attempting to bring the system down.)
 
 To support these requirements, an operator should be notified:
 
-- Of any repeated failed login attempts made by the same account within a specified time period.
-- If the same authenticated account repeatedly tries to access a prohibited resource during a specified time period.
-- If a large number of unauthenticated or unauthorized requests occur during a specified time period.
+- If one account makes repeated failed sign-in attempts within a specified period.
+- If one authenticated account repeatedly tries to access a prohibited resource during a specified period.
+- If a large number of unauthenticated or unauthorized requests occur during a specified period.
 
-The information provided to an operator should include the host address of the source for each request. If security violations regularly arise from a particular range of addresses, then these hosts could be blocked.
+The information that's provided to an operator should include the host address of the source for each request. If security violations regularly arise from a particular range of addresses, these hosts might be blocked.
 
-A key part in maintaining the security of a system is being able to quickly detect actions that deviate from the usual pattern. Information such as the number of failed and/or successful login requests can be displayed visually to help detect whether there is a spike in activity at an unusual time (such as users logging in at 3am and performing a large number of operations when their working day starts at 9am). This information can also be used to help configure time-based autoscaling, For example, if an operator observes that a large number of users regularly log in at a particular time of day, the operator can arrange to start additional authentication services to handle the volume of work, and then shut these additional services down when the peak has passed.
+A key part in maintaining the security of a system is being able to quickly detect actions that deviate from the usual pattern. Information such as the number of failed and/or successful sign-in requests can be displayed visually to help detect whether there is a spike in activity at an unusual time. (An example of this activity is users signing in at 3:00 AM and performing a large number of operations when their working day starts at 9:00 AM). This information can also be used to help configure time-based autoscaling. For example, if an operator observes that a large number of users regularly sign in at a particular time of day, the operator can arrange to start additional authentication services to handle the volume of work, and then shut down these additional services when the peak has passed.
 
-### Data sources, instrumentation, and data collection requirements
-Security is an all-encompassing aspect of most distributed systems, and the pertinent data is likely to be generated at multiple points throughout a system. You should consider adopting a Security Information and Event Management (SIEM) approach to gather the security-related information resulting from events raised by the application, network equipment, servers, firewalls, antivirus software, and other intrusion prevention elements.
+### Data sources, instrumentation, and data-collection requirements
+Security is an all-encompassing aspect of most distributed systems. The pertinent data is likely to be generated at multiple points throughout a system. You should consider adopting a Security Information and Event Management (SIEM) approach to gather the security-related information that results from events raised by the application, network equipment, servers, firewalls, antivirus software, and other intrusion-prevention elements.
 
-Security monitoring can incorporate data from tools that are not part of your application, such as utilities that identify port scanning activities by external agencies, or network filters that detect attempts to gain unauthenticated access to your application and data.
+Security monitoring can incorporate data from tools that are not part of your application. These tools can include utilities that identify port-scanning activities by external agencies, or network filters that detect attempts to gain unauthenticated access to your application and data.
 
-In all cases the data gathered must enable an administrator to determine the nature of any attack and take the appropriate counter-measures.
+In all cases, the gathered data must enable an administrator to determine the nature of any attack and take the appropriate countermeasures.
 
 ### Analyzing security data
-A feature of security monitoring is the variety of sources from which the data arises. The different formats and level of detail often require complex analysis of the data captured to tie it together into a coherent thread of information. Apart from the simplest of cases (such as detecting a large number of failed logins, or repeated attempts to gain unauthorized access to critical resources), it might not be possible to perform any complex automated processing of the security data, and instead it may be preferable to write this data, time-stamped but otherwise in its original form, to a secure repository to allow for expert manual analysis.
+A feature of security monitoring is the variety of sources from which the data arises. The different formats and level of detail often require complex analysis of the captured data to tie it together into a coherent thread of information. Apart from the simplest of cases (such as detecting a large number of failed sign-ins, or repeated attempts to gain unauthorized access to critical resources), it might not be possible to perform any complex automated processing of security data. Instead, it might be preferable to write this data, time-stamped but otherwise in its original form, to a secure repository to allow for expert manual analysis.
 
 <a name="SLA-monitoring"></a>
 
 ## SLA monitoring
-Many commercial systems that support paying customers make guarantees about the performance of the system in the form of SLAs. Essentially, SLAs state that the system can handle a defined volume of work within an agreed timeframe and without losing critical information. SLA monitoring is concerned with ensuring that the system can meet measurable SLAs.
+Many commercial systems that support paying customers make guarantees about the performance of the system in the form of SLAs. Essentially, SLAs state that the system can handle a defined volume of work within an agreed time frame and without losing critical information. SLA monitoring is concerned with ensuring that the system can meet measurable SLAs.
 
-> [AZURE.NOTE] SLA monitoring is closely related to performance monitoring, but whereas performance monitoring is concerned with ensuring that the system functions _optimally_, SLA monitoring is governed by a contractual obligation that defines what _optimally_ actually means.
+> [AZURE.NOTE] SLA monitoring is closely related to performance monitoring. But whereas performance monitoring is concerned with ensuring that the system functions _optimally_, SLA monitoring is governed by a contractual obligation that defines what _optimally_ actually means.
 
-SLAs are frequently defined in terms of:
+SLAs are often defined in terms of:
 
-- Overall system availability. For example, an organization may guarantee that the system will be available for 99.9% of the time; this equates to no more than 9 hours of downtime per year, or approximately 10 minutes a week.
-- Operational throughput. This aspect is often expressed as one or more key high-water marks, such as guaranteeing that the system will be able to support up to 100,000 concurrent user requests or handle 10,000 concurrent business transactions.
-- Operational response time. The system may also make guarantees concerning the rate at which requests are processed, such as 99% of all business transactions will complete within 2 seconds, and no single transaction will take longer than 10 seconds.
+- Overall system availability. For example, an organization might guarantee that the system will be available for 99.9 percent of the time. This equates to no more than 9 hours of downtime per year, or approximately 10 minutes a week.
+- Operational throughput. This aspect is often expressed as one or more high-water marks, such as guaranteeing that the system can support up to 100,000 concurrent user requests or handle 10,000 concurrent business transactions.
+- Operational response time. The system might also make guarantees for the rate at which requests are processed. An example is that 99 percent of all business transactions will finish within 2 seconds, and no single transaction will take longer than 10 seconds.
 
-> [AZURE.NOTE] Some contracts for commercial systems might also include SLAs concerning customer support, such as all help desk requests will elicit a response within 5 minutes, and that 99% of all problems should be fully addressed within 1 working day. Effective [issue tracking](#issue-tracking) (described later in this section) is key to meeting SLAs such as these.
+> [AZURE.NOTE] Some contracts for commercial systems might also include SLAs for customer support. An example is that all help-desk requests will elicit a response within 5 minutes, and that 99 percent of all problems will be fully addressed within 1 working day. Effective [issue tracking](#issue-tracking) (described later in this section) is key to meeting SLAs such as these.
 
 ### Requirements for SLA monitoring
-At the highest level, an operator should be able to determine at a glance whether the system is meeting the agreed SLAs or not, and if not then to drill down and examine the underlying factors to determine the reasons for substandard performance.
+At the highest level, an operator should be able to determine at a glance whether the system is meeting the agreed SLAs or not. And if not, the operator should be able to drill down and examine the underlying factors to determine the reasons for substandard performance.
 
 Typical high-level indicators that can be depicted visually include:
 
@@ -216,115 +230,119 @@ Typical high-level indicators that can be depicted visually include:
 
 All of these indicators should be capable of being filtered by a specified period of time.
 
-A cloud application will likely comprise a number of subsystems and components. An operator should be able to select a high-level indicator and see how it is composed from the health of the underlying elements. For example, if the uptime of the overall system falls below an acceptable value, an operator should be able to zoom in and determine which element(s) are contributing to this failure.
+A cloud application will likely comprise a number of subsystems and components. An operator should be able to select a high-level indicator and see how it's composed from the health of the underlying elements. For example, if the uptime of the overall system falls below an acceptable value, an operator should be able to zoom in and determine which elements are contributing to this failure.
 
-> [AZURE.NOTE] System uptime needs to be defined carefully. In a system that uses redundancy to ensure maximum availability, individual instances of elements may fail, but the system can remain functional. System uptime as presented by health monitoring should indicate the aggregate uptime of each element and not necessarily whether the system has actually halted. Additionally, failures may be isolated, so even if a specific system is unavailable the remainder of the system might remain available, although with decreased functionality (in an ecommerce system, a failure in the system might prevent a customer from placing orders but the customer might still be able to browse the product catalog.)
+> [AZURE.NOTE] System uptime needs to be defined carefully. In a system that uses redundancy to ensure maximum availability, individual instances of elements might fail, but the system can remain functional. System uptime as presented by health monitoring should indicate the aggregate uptime of each element and not necessarily whether the system has actually halted. Additionally, failures might be isolated. So even if a specific system is unavailable, the remainder of the system might remain available, although with decreased functionality. (In an e-commerce system, a failure in the system might prevent a customer from placing orders, but the customer might still be able to browse the product catalog.)
 
-For alerting purposes, the system should be able to raise an event if any of the high-level indicators exceed a specified threshold. The lower-level details of the various factors that comprise the high-level indicator should be available as contextual data to the alerting system.
+For alerting purposes, the system should be able to raise an event if any of the high-level indicators exceed a specified threshold. The lower-level details of the various factors that compose the high-level indicator should be available as contextual data to the alerting system.
 
-### Data sources, instrumentation, and data collection requirements
-The raw data required to support SLA monitoring is similar to that required for performance monitoring together with some aspects of health and availability monitoring (see those sections for more details). You can capture this data by:
+### Data sources, instrumentation, and data-collection requirements
+The raw data that's required to support SLA monitoring is similar to the raw data that's required for performance monitoring, together with some aspects of health and availability monitoring. (See those sections for more details.) You can capture this data by:
 
 - Performing endpoint monitoring.
 - Logging exceptions, faults, and warnings.
-- Tracing execution of user requests.
-- Monitoring the availability of any third-party services used by the system.
+- Tracing the execution of user requests.
+- Monitoring the availability of any third-party services that the system uses.
 - Using performance metrics and counters.
 
 All data must be timed and time-stamped.
 
 ### Analyzing SLA data
-The instrumentation data must be aggregated to generate a picture of the overall performance of the system and to support drill-down to enable examination of the performance of the underlying subsystems. For example, you should be able to:
+The instrumentation data must be aggregated to generate a picture of the overall performance of the system. Aggregated data must also support drill-down to enable examination of the performance of the underlying subsystems. For example, you should be able to:
 
-- Calculate the total number of user requests during a given period and determine the success and failure rate of these requests.
+- Calculate the total number of user requests during a specified period and determine the success and failure rate of these requests.
 - Combine the response times of user requests to generate an overall view of system response times.
-- Analyze the progress of user requests break the overall response time of a given request down into the response times of the individual work items in that request.  
-- Determine the overall availability of the system as a percentage uptime for any specific period.
-- Analyze the percentage time availability of each of the individual components and services in the system. This may involve parsing logs generating by third-party services.
+- Analyze the progress of user requests to break down the overall response time of a request into the response times of the individual work items in that request.  
+- Determine the overall availability of the system as a percentage of uptime for any specific period.
+- Analyze the percentage time availability of the individual components and services in the system. This might involve parsing logs that third-party services have generated.
 
-Many commercial systems are required to report real performance figures against agreed SLAs for a specified period, typically a month. This information can be used to calculate credits or other forms of repayments for customers if the SLAs are not met during that period. You can calculate availability for a service by using the technique described in the section [Analyzing Availability Data](#analyzing-availability-data).
+Many commercial systems are required to report real performance figures against agreed SLAs for a specified period, typically a month. This information can be used to calculate credits or other forms of repayments for customers if the SLAs are not met during that period. You can calculate availability for a service by using the technique described in the section [Analyzing availability data](#analyzing-availability-data).
 
 For internal purposes, an organization might also track the number and nature of incidents that caused services to fail. Learning how to resolve these issues quickly, or eliminate them completely, will help to reduce downtime and meet SLAs.
 
 ## Auditing
-Depending on the nature of the application, there may be statutory or other legal regulations that specify requirements for auditing the operations performed by users and recording all data access. Auditing can provide evidence linking customers to specific requests; non-repudiation is an important factor in many e-business systems to help maintain trust be between a customer and the organization responsible for the application or service.
+Depending on the nature of the application, there might be statutory or other legal regulations that specify requirements for auditing users' operations and recording all data access. Auditing can provide evidence that links customers to specific requests. Non-repudiation is an important factor in many e-business systems to help maintain trust be between a customer and the organization that's responsible for the application or service.
 
 ### Requirements for auditing
-An analyst must be able to trace the sequence of business operations being performed by users so that you can reconstruct users' actions. This may be necessary simply as a matter of record, or as part of a forensic investigation.
+An analyst must be able to trace the sequence of business operations that users are performing so that you can reconstruct users' actions. This might be necessary simply as a matter of record, or as part of a forensic investigation.
 
-Audit information is highly sensitive as it will likely include data that identifies the users of the system together with the tasks that they are performing. For this reason, it is most likely that audit information will be visualized in the form of reports only available to trusted analysts rather than by using an interactive system that supports drill-down graphical operations. An analyst should be able to generate a range of reports, for example listing all users' activities occurring during a specified time-frame, detailing the chronology of activity for a single user, or listing the sequence operations performed against one or more resources.
+Audit information is highly sensitive. It will likely include data that identifies the users of the system, together with the tasks that they're performing. For this reason, audit information will most likely take the form of reports that are available only to trusted analysts rather than as an interactive system that supports drill-down of graphical operations. An analyst should be able to generate a range of reports. For example, reports might list all users' activities occurring during a specified time frame, detail the chronology of activity for a single user, or list the sequence of operations performed against one or more resources.
 
-### Data sources, instrumentation, and data collection requirements
+### Data sources, instrumentation, and data-collection requirements
 The primary sources of information for auditing can include:
 
 - The security system that manages user authentication.
-- Trace logs recording user activity.
-- Security logs tracking all identifiable and non-identifiable network requests.
+- Trace logs that record user activity.
+- Security logs that track all identifiable and unidentifiable network requests.
 
-The format of the audit data and the way in which it is stored might be driven by regulatory requirements. For example, it may not be possible to clean the data in any way (it must be recorded in its original format), and access to the repository in which it is held must be protected to prevent tampering.
+The format of the audit data and the way in which it's stored might be driven by regulatory requirements. For example, it might not be possible to clean the data in any way. (It must be recorded in its original format.) Access to the repository where it's held must be protected to prevent tampering.
 
 ### Analyzing audit data
-An analyst must be able to access the raw data in its entirety in its original form. Aside from the requirement to generate common audit reports, the tools used to analyze this data are likely to be specialized and kept external to the system.
+An analyst must be able to access the raw data in its entirety, in its original form. Aside from the requirement to generate common audit reports, the tools for analyzing this data are likely to be specialized and kept external to the system.
 
 ## Usage monitoring
-Usage monitoring tracks how the features and components of an application are used. The data gathered can be utilized to:
+Usage monitoring tracks how the features and components of an application are used. An operator can use the gathered data to:
 
-- Determine which features are heavily used and determine any potential hotspots in the system. High-traffic elements could benefit from functional partitioning or even replication to spread the load more evenly. This information can also be used to ascertain which features are infrequently used and are possible candidates for retirement or replacement in a future version of the system.
-- Obtain information about the operational events of the system under normal use. For example, in an e-commerce site you could record the statistical information about the number of transactions and the volume of customers that are responsible for them. This information could be used for capacity planning as the number of customers grows.
-- Detect (possibly indirectly) user satisfaction with the performance or functionality of the system. For example, if a large number of customers in an e-commerce system regularly abandon their shopping carts this could be due to a problem with the checkout functionality.
-- Generate billing information. A commercial application or multi-tenant service may charge customers for the resources that they use.
-- Enforce quotas. If a user in a multi-tenant system exceeds their paid quota of processing time or resource usage during a specified period, their access can be limited or processing throttled.
+- Determine which features are heavily used and determine any potential hotspots in the system. High-traffic elements might benefit from functional partitioning or even replication to spread the load more evenly. An operator can also use this information to ascertain which features are infrequently used and are possible candidates for retirement or replacement in a future version of the system.
+- Obtain information about the operational events of the system under normal use. For example, in an e-commerce site, you can record the statistical information about the number of transactions and the volume of customers that are responsible for them. This information can be used for capacity planning as the number of customers grows.
+- Detect (possibly indirectly) user satisfaction with the performance or functionality of the system. For example, if a large number of customers in an e-commerce system regularly abandon their shopping carts, this might be due to a problem with the checkout functionality.
+- Generate billing information. A commercial application or multitenant service might charge customers for the resources that they use.
+- Enforce quotas. If a user in a multitenant system exceeds their paid quota of processing time or resource usage during a specified period, their access can be limited or processing can be throttled.
 
 ### Requirements for usage monitoring
-To examine system usage, an operator would typically need to see information including:
+To examine system usage, an operator typically needs to see information that includes:
 
-- The number of requests being processed by each subsystem and directed to each resource.
-- The work being performed by each user.
-- The volume of data storage occupied by each user.
-- The resources being accessed by each user.
+- The number of requests that are processed by each subsystem and directed to each resource.
+- The work that each user is performing.
+- The volume of data storage that each user occupies.
+- The resources that each user is accessing.
 
-An operator should also be able to generate graphs, for example, displaying the most resource-hungry users, or the most frequently accessed resources or system features.
+An operator should also be able to generate graphs. For example, a graph might display the most resource-hungry users, or the most frequently accessed resources or system features.
 
-### Data sources, instrumentation, and data collection requirements
-Usage tracking can be performed at a relatively high level, noting the start and end time of each request and the nature of the request (read, write, and so on, depending on the resource in question). You can obtain this information by:
+### Data sources, instrumentation, and data-collection requirements
+Usage tracking can be performed at a relatively high level. It can note the start and end times of each request and the nature of the request (read, write, and so on, depending on the resource in question). You can obtain this information by:
 
 - Tracing user activity.
-- Capturing performance counters measuring the utilization for each resource.
+- Capturing performance counters that measure the utilization for each resource.
 - Monitoring the resource consumption by each user.
 
-For metering purposes, you also need to be able to identity which users are responsible for performing which operations and the resources that these operations utilize. The information gathered should be detailed enough to enable accurate billing.
+For metering purposes, you also need to be able to identify which users are responsible for performing which operations, and the resources that these operations utilize. The gathered information should be detailed enough to enable accurate billing.
 
 <a name="issue-tracking"></a>
 ## Issue tracking
-Customers and other users may report issues if unexpected events or behavior occurs in the system. Issue tracking is concerned with managing these issues, associating them with efforts to resolve any underlying problems in the system, and informing customers of possible resolutions.
+Customers and other users might report issues if unexpected events or behavior occurs in the system. Issue tracking is concerned with managing these issues, associating them with efforts to resolve any underlying problems in the system, and informing customers of possible resolutions.
 
 ### Requirements for issue tracking
-Issue tracking is often performed by using a separate system that enables operators to record and report the details of problems reported by users. These details can include information such as the tasks that the user was attempting to perform, symptoms of the problem, the sequence of events, and any error or warning messages that were issued.
+Operators often perform issue tracking by using a separate system that enables them to record and report the details of problems that users report. These details can include the tasks that the user was trying to perform, symptoms of the problem, the sequence of events, and any error or warning messages that were issued.
 
-### Data sources, instrumentation, and data collection requirements
-The initial data source for issue tracking data is the user that reported the issue in the first place. The user may be able to provide additional data such as a crash dump (if the application includes a component that runs on the user's desktop), a screen snapshot, and the date and time at which the error occurred together with any other environmental information such as their location.
+### Data sources, instrumentation, and data-collection requirements
+The initial data source for issue-tracking data is the user who reported the issue in the first place. The user might be able to provide additional data such as:
 
-This information can be used to feed in to the debugging effort and help to construct a backlog for future releases of the software.
+- A crash dump (if the application includes a component that runs on the user's desktop).
+- A screen snapshot.
+- The date and time when the error occurred, together with any other environmental information such as the user's location.
 
-### Analyzing issue tracking data
-Different users may report the same problem, and the issue tracking system should associate common reports together.
+This information can be used to help the debugging effort and help construct a backlog for future releases of the software.
 
-The progress of the debugging effort should be recorded against each issue report, and when the problem is resolved the customer can be informed of the solution.
+### Analyzing issue-tracking data
+Different users might report the same problem. The issue-tracking system should associate common reports.
 
-If a user reports a recognized issue with a known solution in the issue tracking system, the operator should be able to inform the user of the solution immediately.
+The progress of the debugging effort should be recorded against each issue report. When the problem is resolved, the customer can be informed of the solution.
+
+If a user reports an issue that has a known solution in the issue-tracking system, the operator should be able to inform the user of the solution immediately.
 
 ## Tracing operations and debugging software releases
-When a user reports an issue, the user is often only aware of the immediate impact that it has on his or her operations, and the user can only report the results of their own experience back to an operator responsible for maintaining the system. These experiences are usually just a visible symptom of one or more fundamental problems. In many cases, an analyst will need to dig through the chronology of the underlying operations to establish the root cause of the problem (this process is referred to as _Root Cause Analysis_).
+When a user reports an issue, the user is often only aware of the immediate impact that it has on their operations. The user can only report the results of their own experience back to an operator who is responsible for maintaining the system. These experiences are usually just a visible symptom of one or more fundamental problems. In many cases, an analyst will need to dig through the chronology of the underlying operations to establish the root cause of the problem. This process is called _root cause analysis_.
 
-> [AZURE.NOTE] Root Cause Analysis may uncover inefficiencies in the design of an application. In these situations, it may be possible to rework the affected elements and deploy them as part of a subsequent release. This process requires careful control, and the updated components should be monitored closely.
+> [AZURE.NOTE] Root cause analysis might uncover inefficiencies in the design of an application. In these situations, it might be possible to rework the affected elements and deploy them as part of a subsequent release. This process requires careful control, and the updated components should be monitored closely.
 
 ### Requirements for tracing and debugging
-For tracing unexpected events and other problems, it is vital that the monitoring data provides enough information not just about issues that occur at the high level, but also includes sufficient detail to enable an analyst to trace back to the origins of these issues and reconstruct the sequence of events that occurred. This information must be sufficient to enable an analyst to diagnose the root cause of any problems so that a developer can make the necessary modifications to prevent them from recurring.
+For tracing unexpected events and other problems, the monitoring data must provide enough information about issues that occur at a high level. The data must also provide enough detail to enable an analyst to trace back to the origins of each issue, diagnose the root cause, and reconstruct the sequence of events that occurred. A developer can then make the necessary modifications to prevent the issues from recurring.
 
-### Data sources, instrumentation, and data collection requirements
-Troubleshooting can involve tracing all the methods (and their parameters) invoked as part of an operation to build up a tree depicting the logical flow through the system when a customer makes a specific request. Exceptions and warnings generated by the system as a result of this flow need to be captured and logged.
+### Data sources, instrumentation, and data-collection requirements
+Troubleshooting can involve tracing all the methods (and their parameters) invoked as part of an operation to build up a tree that depicts the logical flow through the system when a customer makes a specific request. Exceptions and warnings that the system generates as a result of this flow need to be captured and logged.
 
-To support debugging, the system can provide hooks that enable an operator to capture state information at crucial points in the system, or deliver detailed step-by-step information as selected operations progress. Capturing data at this level of detail can impose an additional load on the system and should be a temporary process, mainly used when a highly unusual series of events occur that is difficult to replicate, or when a new release of one or more elements into a system require careful monitoring to ensure that they function as expected.
+To support debugging, the system can provide hooks that enable an operator to capture state information at crucial points in the system. Or, the system can deliver detailed step-by-step information as selected operations progress. Capturing data at this level of detail can impose an additional load on the system and should be a temporary process. An operator uses the process mainly when a highly unusual series of events occurs and is difficult to replicate, or when a new release of one or more elements into a system requires careful monitoring to ensure that the elements function as expected.
 
 ## The monitoring and diagnostics pipeline
 Monitoring a large-scale distributed system poses a significant challenge, and each of the scenarios described in the previous section should not necessarily be considered in isolation. There is likely to be a significant overlap in the monitoring and diagnostic data required for each situation, although this data may need to be processed and presented in different ways. For these reasons, you should take a holistic view of monitoring and diagnostics.
