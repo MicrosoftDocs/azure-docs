@@ -64,18 +64,18 @@ property in JSON request to **requestContent** and/or **responseContent**.
     In the response, note in particular the **provisioningState** , **correlationId** and **error** elements. The **correlationId** is used to track related events, and can be helpful 
     when working with technical support to troubleshoot an issue.
     
-            { 
-              ...
-              "properties": {
-                "provisioningState":"Failed",
-                "correlationId":"d5062e45-6e9f-4fd3-a0a0-6b2c56b15757",
-                ...
-                "error":{
-                  "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
-                  "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
-                }  
-              }
-            }
+        { 
+          ...
+          "properties": {
+            "provisioningState":"Failed",
+            "correlationId":"d5062e45-6e9f-4fd3-a0a0-6b2c56b15757",
+            ...
+            "error":{
+              "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
+              "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
+            }  
+          }
+        }
 
 3. Get information about deployment operations with the [List all template deployment operations](https://msdn.microsoft.com/library/azure/dn790518.aspx) operation. 
 
@@ -83,28 +83,28 @@ property in JSON request to **requestContent** and/or **responseContent**.
 
     The response will include request and/or response information based on what you specified in the **debugSetting** property during deployment.
     
-            {
-              ...
-              "properties": 
-              {
-                ...
-                "request":{
-                  "content":{
-                    "location":"West US",
-                    "properties":{
-                      "accountType": "Standard_LRS"
-                    }
-                  }
-                },
-                "response":{
-                  "content":{
-                    "error":{
-                      "message":"Conflict","code":"Conflict"
-                    }
-                  }
+        {
+          ...
+          "properties": 
+          {
+            ...
+            "request":{
+              "content":{
+                "location":"West US",
+                "properties":{
+                  "accountType": "Standard_LRS"
+                }
+              }
+            },
+            "response":{
+              "content":{
+                "error":{
+                  "message":"Conflict","code":"Conflict"
                 }
               }
             }
+          }
+        }
 
 4. Get events from the audit logs for the deployment with the [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx) operation.
 
