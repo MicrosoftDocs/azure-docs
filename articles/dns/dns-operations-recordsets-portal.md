@@ -65,11 +65,8 @@ When updating a record in an existing record set, the fields you can update depe
 
 ## To remove a record from a record set
 
-Records can be removed from a record set in the Azure portal. Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete) below for more.
+Records can be removed from a record set in the Azure portal. Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete) below for more information.
 
-### Remove CNAME record from a record set
-
-Since a CNAME record set can contain at most one record, removing that record will leave an empty record set.
 
 
 ## <a name="delete"></a>To delete a record set

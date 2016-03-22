@@ -27,7 +27,7 @@
 
 
 
-This article will walk you thorough the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI. The links to the article are at the top of this page.
+This article will walk you thorough the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
 
 The domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site).  A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain you will first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
 
@@ -51,47 +51,36 @@ Note the following:
 
 
 
-## To view your DNS zone using the portal
+## To view a DNS zone using the portal
 
-Creating a DNS zone also creates the following DNS records:
+Creating a DNS zone also creates the following DNS records, which you can view in the Azure portal on the blade for your DNS zone:
 
 - The "Start of Authority" (SOA) record.  This is present at the root of every DNS zone.
 - The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
-You can view these records in on the blade for your DNS zone in the Azure portal. From your DNS zone blade, you can click on All settings to open the Settings blade for the DNS zone. If a zone is not available for you to use, you will see a "Failed" result and the details for the reason of failure in the Operations details window.
+To view DNS zone records:
 
-You can also use the `Get-AzureRmDnsRecordSet` PowerShell cmdlet to view the records.
+1. From your DNS zone blade, click on **All settings** to open the** Settings blade** for the DNS zone. 
+2. In the lower part of the blade, you can see the record sets for the DNS zone.
+
+Note: If a zone is not available for you to use or did not create correctly, you will see a "Failed" result and the details for the reason of failure in the Operations details window.
+
 
 ## To test your DNS zone by using DNS tools
 
 You can test your DNS zone by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).<BR>
 
 
-
 ## To delegate your domain to use the new zone in Azure DNS
 
-If you haven’t yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by Get-AzureRmDnsRecordSet above—be sure the substitute the correct values for your zone into the command below.<BR>
-
-		C:\> nslookup
-		> set type=SOA
-		> server ns1-01.azure-dns.com
-		> contoso.com
-
-		Server: ns1-01.azure-dns.com
-		Address:  208.76.47.1
-
-		contoso.com
-        		primary name server = ns1-01.azure-dns.com
-        		responsible mail addr = msnhst.microsoft.com
-        		serial  = 1
-        		refresh = 900 (15 mins)
-        		retry   = 300 (5 mins)
-        		expire  = 604800 (7 days)
-        		default TTL = 300 (5 mins)
+If you haven’t yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records. See the article [Delegate your domain to Azure DNS](dns-domain-delegation.md) for more information.
 
 ## To delete a DNS zone in the portal
 
-You can delete the DNS zone directly from the portal. Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created. Locate the DNS zone blade for the zone you want to delete, then click **Delete**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.  
+You can delete the DNS zone directly from the portal. Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created. 
+
+1. Locate the DNS zone blade for the zone you want to delete, then click **Delete** at the top of the blade. 
+2. A message will appear letting you know that you must delete all records sets, except NS and SOA records that were automatically created. If you have deleted your record sets, click **Yes**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.  
 
 ## About Etags and Tags for Azure DNS
 
