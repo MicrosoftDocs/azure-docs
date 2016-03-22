@@ -19,7 +19,7 @@
 
 # Background jobs guidance
 
-![](media/best-practices-background-jobs/pnp-logo.png)
+![Patterns and Practices logo](media/best-practices-background-jobs/pnp-logo.png)
 
 
 ## Overview
@@ -65,7 +65,7 @@ Schedule-driven invocation uses a timer to start the background task. Examples o
 - A timer that is running in a different application, or a timer service such as Azure Scheduler, sends a request to an API or web service on a regular basis. The API or web service invokes the background task.
 - A separate process or application starts a timer that causes the background task to be invoked once after a specified time delay, or at a specific time.
 
-Typical examples of tasks that are suited to schedule-driven invocation include batch-processing routines (such as updating related-products lists for users based on their recent behavior), routine data processing tasks (such as updating indexes or generating accumulated results), analyzing data for daily reports, data retention cleanup, and data consistency checks.
+Typical examples of tasks that are suited to schedule-driven invocation include batch-processing routines (such as updating related-products lists for users based on their recent behavior), routine data processing tasks (such as updating indexes or generating accumulated results), data analysis for daily reports, data retention cleanup, and data consistency checks.
 
 If you use a schedule-driven task that must run as a single instance, be aware of the following:
 
@@ -74,14 +74,14 @@ If you use a schedule-driven task that must run as a single instance, be aware o
 
 ## Returning results
 
-Background jobs execute asynchronously in a separate process, or even in a separate location, from the UI or the process that invoked the background task. Ideally, background tasks are “fire and forget” operations, and their execution progress has no impact on the UI or the calling process. This means that the calling process does not wait for completion of the tasks. Therefore, it  cannot automatically detect when the task ends.
+Background jobs execute asynchronously in a separate process, or even in a separate location, from the UI or the process that invoked the background task. Ideally, background tasks are “fire and forget” operations, and their execution progress has no impact on the UI or the calling process. This means that the calling process does not wait for completion of the tasks. Therefore, it cannot automatically detect when the task ends.
 
 If you require a background task to communicate with the calling task to indicate progress or completion, you must implement a mechanism for this. Some examples are:
 
 - Write a status indicator value to storage that is accessible to the UI or caller task, which can monitor or check this value when required. Other data that the background task must return to the caller can be placed into the same storage.
 - Establish a reply queue that the UI or caller listens on. The background task can send messages to the queue that indicate status and completion. Data that the background task must return to the caller can be placed into the messages. If you are using Azure Service Bus, you can use the **ReplyTo** and **CorrelationId** properties to implement this capability. For more information, see [Correlation in Service Bus Brokered Messaging](http://www.cloudcasts.net/devguide/Default.aspx?id=13029).
 - Expose an API or endpoint from the background task that the UI or caller can access to obtain status information. Data that the background task must return to the caller can be included in the response.
-- Have the background task call back to the UI or caller through an API to indicate status at predefined points or on completion. This might be through events raised locally, or through a publish and subscribe mechanism. Data that the background task must return to the caller can be included in the request or event payload.
+- Have the background task call back to the UI or caller through an API to indicate status at predefined points or on completion. This might be through events raised locally, or through a publish-and-subscribe mechanism. Data that the background task must return to the caller can be included in the request or event payload.
 
 ## Hosting environment
 
@@ -103,7 +103,7 @@ When you configure a WebJob:
 - If you want the job to respond to a schedule-driven trigger, you should configure it as **Run on a schedule**. The script or program is stored in the folder named site/wwwroot/app_data/jobs/triggered.
 - If you choose the **Run on demand** option when you configure a job, it will execute the same code as the **Run on a schedule** option when you start it.
 
-Azure WebJobs run within the sandbox of the web app. This means that they can access environment variables and share information, such as connection strings, with the web app. The job has access to the unique identifier of the machine that is running the job. The connection string named **AzureWebJobsStorage** provides access to Azure storage queues, blobs, and tables for application data, and Service Bus for messaging and communication. The connection string named **AzureWebJobsDashboard** provides access to the job action log files.
+Azure WebJobs run within the sandbox of the web app. This means that they can access environment variables and share information, such as connection strings, with the web app. The job has access to the unique identifier of the machine that is running the job. The connection string named **AzureWebJobsStorage** provides access to Azure storage queues, blobs, and tables for application data, and access to Service Bus for messaging and communication. The connection string named **AzureWebJobsDashboard** provides access to the job action log files.
 
 Azure WebJobs have the following characteristics:
 
@@ -136,8 +136,7 @@ There are several ways to implement background tasks within a Cloud Services rol
 
 - Create an implementation of the **RoleEntryPoint** class in the role and use its methods to execute background tasks. The tasks run in the context of WaIISHost.exe. They can use the **GetSetting** method of the **CloudConfigurationManager** class to load configuration settings. For more information, see [Lifecycle (Cloud Services)](#lifecycle-cloud-services).
 - Use startup tasks to execute background tasks when the application starts. To force the tasks to continue to run in the background, set the **taskType** property to **background** (if you do not do this, the application startup process will halt and wait for the task to finish). For more information, see [Run startup tasks in Azure](cloud-services-startup-tasks.md).
-- Use the WebJobs SDK to implement background tasks such as WebJobs that are initiated as a startup task. For more information, see [Get started wit
-h the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
+- Use the WebJobs SDK to implement background tasks such as WebJobs that are initiated as a startup task. For more information, see [Get started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
 - Use a startup task to install a Windows service that executes one or more background tasks. You must set the **taskType** property to **background** so that the service executes in the background. For more information, see [Run startup tasks in Azure](cloud-services-startup-tasks.md).
 
 ### Running background tasks in the web role
@@ -150,8 +149,7 @@ Running background tasks in a worker role has several advantages:
 
 - It allows you to manage scaling separately for each type of role. For example, you might need more instances of a web role to support the current load, but fewer instances of the worker role that executes background tasks. By scaling background task compute instances separately from the UI roles, you can reduce hosting costs, while maintaining acceptable performance.
 - It offloads the processing overhead for background tasks from the web role. The web role that provides the UI can remain responsive, and it may mean fewer instances are required to support a given volume of requests from users.
-- It allows you to implement separation of concerns. Each role
-type can implement a specific set of clearly defined and related tasks. This makes designing and maintaining the code easier because there is less interdependence of code and functionality between each role.
+- It allows you to implement separation of concerns. Each role type can implement a specific set of clearly defined and related tasks. This makes designing and maintaining the code easier because there is less interdependence of code and functionality between each role.
 - It can help to isolate sensitive processes and data. For example, web roles that implement the UI do not need to have access to data that is managed and controlled by a worker role. This can be useful in strengthening security, especially when you use a pattern such as the [Gatekeeper Pattern](http://msdn.microsoft.com/library/dn589793.aspx).  
 
 ### Considerations
@@ -322,4 +320,4 @@ Background tasks must offer sufficient performance to ensure they do not block t
 - [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (video)
 - [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 - [Azure Queues and Service Bus Queues - Compared and Contrasted](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [How To Enable Diagnostics in a Cloud Service](cloud-services-dotnet-diagnostics.md)
+- [How to Enable Diagnostics in a Cloud Service](cloud-services-dotnet-diagnostics.md)
