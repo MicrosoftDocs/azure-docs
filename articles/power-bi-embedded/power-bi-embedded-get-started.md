@@ -48,11 +48,9 @@ Let’s walk through the steps to build a Workspace Collection using the Azure P
 
   **Workspace Collection Name**
 
-    - Name that you wish to use to refer to your Workspace Collection.
+  - Globally unique name that you wish to use to refer to your Workspace Collection.
 
-      - Must be globally unique
-
-      - Names of workspace collections can be publicly visible and should not contain private information.
+  - Names of workspace collections can be publicly visible and should not contain private information.
 
   **Subscription**
 
