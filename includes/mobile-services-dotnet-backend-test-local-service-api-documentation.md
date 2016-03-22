@@ -9,7 +9,7 @@
 
 	 ![verify the mobile service in the taskbar](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png)
 
-3. On the start page of your mobile service, click **try it out**.
+3. On the start page of your .NET backend, click **try it out**.
 
     ![mobile service start up page](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png)
 

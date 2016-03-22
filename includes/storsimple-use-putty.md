@@ -1,21 +1,6 @@
-<properties 
-   pageTitle="Use PuTTY to connect to the device serial console"
-   description="Explains how to use PuTTY terminal emulation software to connect to the StorSimple device."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
-### To connect through the serial console
+#### To connect through the serial console
 
 1. Connect your serial cable to the device (directly or through a USB-serial adapter).
 
@@ -38,7 +23,7 @@
 
     These settings are shown in the following illustration.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_ConnectingViaPutty-include.png) 
+     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
 
     > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
 

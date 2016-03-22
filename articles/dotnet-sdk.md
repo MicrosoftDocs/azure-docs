@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # What is the Azure SDK for .NET?
@@ -36,8 +36,9 @@ The Azure SDK for .NET installs the following products:
 - [Microsoft Azure Storage Emulator](#stgemulator)
 - [Microsoft Azure Storage Tools](#stgtools)
 - [Microsoft Azure Libraries for .NET](#libraries)
-- [HDInsight Tools for Visual Studio](#hdinsight)
-- [Azure Resource Manager Tools for Visual Studio](#arm)
+- [HDInsight Tools for Visual Studio and Microsoft Hive ODBC Driver](#hdinsight)
+- [Microsoft Azure Mobile App SDK V1.0](#mobile)
+- [Microsoft Azure PowerShell](#ps)
 
 ###<a id="vwd"></a>Visual Studio Express for Web
 
@@ -47,26 +48,27 @@ If you don't have Visual Studio on your computer, the SDK will install [Visual S
 
 This enables you to work with Azure Websites:
 
-* [Publish web projects to Azure Websites](web-sites-dotnet-get-started.md).
-* [Publish console application projects to Azure WebJobs](websites-dotnet-deploy-webjobs.md).
-* [Create Azure Website and SQL Database resources while creating a new web project or while publishing a web project](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+* [Publish web projects to Azure Websites](app-service-web/web-sites-dotnet-get-started.md).
+* [Publish console application projects to Azure WebJobs](app-service-web/websites-dotnet-deploy-webjobs.md).
+* [Create Azure Website and SQL Database resources while creating a new web project or while publishing a web project](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 * [Create PowerShell deployment scripts while creating new Websites](http://msdn.microsoft.com/library/dn642480.aspx).
-* [Manage and troubleshoot Azure Websites in Server Explorer](web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement).
-* [Run in debug mode remotely for Websites and WebJobs](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). 
+* [Manage and troubleshoot Azure Websites in Server Explorer](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement).
+* [Run in debug mode remotely for Websites and WebJobs](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). 
 
 >[AZURE.NOTE] You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
 
 ###<a id="tools"></a>Microsoft Azure Tools for Microsoft Visual Studio
 
-This enables you to work with Azure Cloud Services and Virtual Machines:
+This enables you to work with Azure resources, primarily Cloud Services and Virtual Machines:
 
-* [Create, open, and publish cloud service projects](cloud-services-dotnet-get-started.md).
+* [Create, open, and publish cloud service projects](cloud-services/cloud-services-dotnet-get-started.md).
 * [Create deployment packages for cloud service projects](http://msdn.microsoft.com/library/ff683672.aspx).
-* [Create Azure Virtual Machines while creating new web projects](virtual-machines-dotnet-create-visual-studio-powershell.md).
+* [Create Azure Virtual Machines while creating new web projects](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md).
 * [Create PowerShell scripts while creating new virtual machines](http://msdn.microsoft.com/library/dn642480.aspx).
 * [View and manage cloud service project settings in Visual Studio Project Properties windows](http://msdn.microsoft.com/library/ee405486.aspx).
 * View and manage [cloud services](http://msdn.microsoft.com/library/ff683675.aspx), [virtual machines](http://msdn.microsoft.com/library/jj131259.aspx), and [Service Bus](http://msdn.microsoft.com/library/jj149828.aspx) in Server Explorer. 
 * [Run in debug mode remotely for cloud services and virtual machines](http://msdn.microsoft.com/library/ff683670.aspx).
+* [Automate resource provisioning using Azure Resource Group Deployment Projects](https://msdn.microsoft.com/library/dn872471.aspx)
 
 ###<a id="auth"></a>Microsoft Azure Authoring Tools
 
@@ -95,13 +97,17 @@ This includes the following:
 * NuGet packages for Azure Storage, Service Bus, and Caching that are stored on your computer so that Visual Studio can create new cloud service projects while offline.
 * A Visual Studio plug-in that enables [In-Role Cache](http://msdn.microsoft.com/library/dn386103.aspx) projects to run locally in Visual Studio. 
 
-###<a id="hdinsight"></a>HDInsight Tools for Visual Studio
+###<a id="hdinsight"></a>HDInsight Tools for Visual Studio, and Microsoft Hive ODBC Driver
 
-HDInsight tools in Server Explorer enable you to navigate Hive databases and linked storage accounts for HDInsight clusters, create tables, and create and submit Hive queries. For more information, see [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+HDInsight tools in Server Explorer enable you to navigate Hive databases and linked storage accounts for HDInsight clusters, create tables, and create and submit Hive queries. For more information, see [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-###<a id="arm"></a>Azure Resource Manager Tools for Visual Studio
+###<a id="mobile"></a>Microsoft Azure Mobile App SDK V1.0
 
-The Azure Resource Manager tools enable you to create an application using the Azure Marketplace templates in a new project type called a Cloud Deployment Project. You can create and edit the Azure Resource Manager deployment template (to declaratively describe an Azure Website and SQL database, for example) and parameter files in the Cloud Deployment Project. The parameter file makes it easy to use the same template to spin up multiple instances of the resources in development, testing, and production environments. Use the tools to create resource groups and deploy templates to simplify creation of resources. For more information, see [Cloud Deployment Projects](https://msdn.microsoft.com/library/azure/dn872471.aspx) and [Azure Resource Manager 2.5 for Visual Studio](http://azure.microsoft.com/blog/2014/11/26/azure-resource-manager-2-5-for-visual-studio/).
+Tools for working with [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop.md).
+
+###<a id="ps"></a>Microsoft Azure PowerShell
+
+Azure PowerShell enables you to [automate Azure environment creation and deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
 ##<a id="notincluded"></a>What's not included when you install the Azure SDK for .NET
 
@@ -113,13 +119,9 @@ There are a few things that you might want for Azure development that aren't inc
 
   	**Local copies of client libraries.** The Azure SDK for .NET copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create projects even if you're not connected to the Internet. Client libraries are generally updated more frequently than new SDK versions are released, so the client libraries at NuGet.org are often more current than what you get with the SDK. 
 
-	**Project templates that include client libraries.** Only [Azure Cloud Service](cloud-services-dotnet-get-started.md) and [Azure Mobile Service](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
+	**Project templates that include client libraries.** Only [Azure Cloud Service](cloud-services/cloud-services-dotnet-get-started.md) and [Azure Mobile Service](mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
 
-* [Azure PowerShell](install-configure-powershell.md). 
-
-	Azure PowerShell enables you to [automate Azure environment creation and deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
-
-* [Azure Mobile Service project templates](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md).
+* [Azure Mobile Service project templates](mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md).
 
 	Mobile Service templates are available only in Visual Studio 2013 Update 2 and later. They are not available in Visual Studio 2012 or earlier versions, and not in Visual Studio 2013 Update 1 or earlier, even if you install the Azure SDK for .NET.
 
@@ -130,6 +132,7 @@ There are a few things that you might want for Azure development that aren't inc
 - [Where can I find older versions of the Azure SDK for .NET?](#olderversions)
 - [What's the lifecycle policy for versions of the Azure SDK for .NET?](#lifecycle)
 - [Which guest OS versions is the Azure SDK for .NET compatible with?](#guestos)
+- [How do I uninstall the Azure SDK for .NET?](#uninstall)
 
 ###<a id="azinvs"></a>Many Azure features are already in Visual Studio. Do I need to install the Azure SDK for .NET?
 
@@ -154,6 +157,22 @@ See [Microsoft Azure Cloud Services Support Lifecycle Policy](http://support.mic
 ###<a id="guestos"></a>Which guest OS versions is the Azure SDK for .NET compatible with?
 
 See [Azure Guest OS Releases and SDK Compatibility Matrix](http://msdn.microsoft.com/library/ee924680.aspx).
+
+###<a id="uninstall"></a>How do I uninstall the Azure SDK for .NET?
+
+Each item shown in this article under [What's included in the Azure SDK for .NET](#included) is a separate program in the list of installed programs in Windows Control Panel **Programs and Features**.  There is no way to uninstall them as a group; you have to uninstall each program individually.
+
+When you have the Azure SDK for .NET already installed, and you install a new version, there is generally no need to uninstall the old one. In most cases, the SDK installation updates an existing program rather than adding a new one and leaving the old one. 
+
+However, if you want to remove no-longer-needed remnants of an earlier version, uninstall only programs that specify the older version number, and only uninstall them if the same program with a newer version is present. For example, after updating from 2.5 to 2.6 you may see both 2.5 and 2.6 versions of "Microsoft Azure Tools for Microsoft Visual Studio 2013", and you can uninstall the 2.5 version. But you may only see the 2.5 version of "Microsoft Azure Authoring Tools", and it wouldn't be safe to uninstall that.
+
+Note that version numbers in program titles shown in **Programs and Features** can be misleading.  For example, SDK version 2.6 includes "Microsoft Azure Mobile App SDK V1.0" if you install the SDK for Visual Studio 2013, and "Microsoft Azure Mobile App SDK V2.0" for Visual Studio 2015; the version in this case isn't the SDK version but an indicator of which Visual Studio version the program applies to.
+
+This article does not list every program that every earlier version of the Azure SDK included; there are other programs you can uninstall from earlier SDK versions, because earlier SDK versions sometimes included programs that were omitted from later versions. For example, version 2.5 installs "Azure Resource Manager Tools for Visual Studio" but that is not in this article's list because it no longer shows up as a separate program in **Programs and Features**.  This article only lists programs that are included in the Azure SDK for .NET version 2.6.  
+
+> **Note:** Some of the programs that the SDK includes may also be installed separately in other contexts and may be needed even if you don't need the full SDK. The same may be true of programs that were installed by earlier SDK versions but were omitted from later SDK versions. When you uninstall programs, be careful to avoid removing something that is still needed on your computer.
+
+
 
 ##<a id="versions"></a>Versions
 
