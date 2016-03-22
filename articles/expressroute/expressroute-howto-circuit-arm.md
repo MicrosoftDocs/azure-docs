@@ -90,7 +90,6 @@ The response contains the service key. You can get detailed descriptions of all 
 
 To get a list of all ExpressRoute circuits you created, run the *Get-AzureRmExpressRouteCircuit* command:
 
-	#Getting service key
 
 	Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 	
