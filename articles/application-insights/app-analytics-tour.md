@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="A tour through Application Insights Analytics" 
-	description="Short samples of all the main queries in Application Insights Analytics, 
+	pageTitle="A tour through Application Insights - Analytics" 
+	description="Short samples of all the main queries in Application Insights - Analytics, 
 	             the powerful search tool for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -18,10 +18,10 @@
 
 
  
-# A tour through Application Insights Analytics
+# A tour through Application Insights - Analytics
 
 
-Application Insights Analytics is a powerful diagnostic search engine for your [Application Insights](app-insights-overview.md) telemetry.
+Application Insights - Analytics is a powerful diagnostic search engine for your [Application Insights](app-insights-overview.md) telemetry.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -438,7 +438,7 @@ Use [let](./app-analytics-syntax.md#let-statements) to separate out the parts of
     | take 30
 ```
 
-> Tip: In the AI Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
+> Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]

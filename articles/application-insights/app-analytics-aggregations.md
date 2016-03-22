@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="The summarize statement and aggregation functions in Application Insights Analytics" 
-	description="Reference for aggregation functions and the summarize statement in Application Insights Analytics, 
+	pageTitle="The summarize statement and aggregation functions in Application Insights - Analytics" 
+	description="Reference for aggregation functions and the summarize statement in Application Insights - Analytics, 
 	             the powerful search tool for Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
@@ -17,11 +17,11 @@
 	ms.author="awills"/>
 
 
-# Aggregation in Application Insights Analytics
+# Aggregation in Application Insights - Analytics
 
-[Application Insights Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights - Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights Analytics query language, AIQL.
+Application Insights - Analytics query language, AIQL.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -55,7 +55,7 @@ Produces a table that aggregates the content of the input table.
 * *Aggregation:* A call to an aggregation function such as `count()` or `avg()`, with column names as arguments. See the list of aggregation functions below.
 * *GroupExpression:* An expression over the columns, that provides a set of distinct values. Typically it's either a column name that already provides a restricted set of values, or `bin()` with a numeric or time column as argument. 
 
-If you provide a numeric or time expression without using `bin()`, AI Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
+If you provide a numeric or time expression without using `bin()`, Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
 
 If you don't provide a *GroupExpression,* the whole table is summarized in a single output row.
 

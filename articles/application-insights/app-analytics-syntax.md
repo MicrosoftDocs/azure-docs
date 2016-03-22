@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Statements in Application Analytics" 
-	description="Queries, expressions, and let statements in Application Analytics, 
+	pageTitle="Statements in Application Insights - Analytics" 
+	description="Queries, expressions, and let statements in Analytics, 
 	             the powerful search tool for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -18,11 +18,10 @@
 
 
  
-# Statements in Application Analytics
+# Statements in Application - Analytics
 
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL.
+[Application Insights - Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights](app-insights-overview.md) telemetry. These pages describe the Analytics query lanuage, CSL.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -70,7 +69,7 @@ There are four kinds of statements in CSL:
 
 ### Data Queries
   
-Read-only requests about the data stored in Application Analytics. For example:
+Read-only requests about the data stored in Analytics. For example:
 
 * `event` - Return all records in the table named "event."
 * `event | count` - Return a the number of records in "event."

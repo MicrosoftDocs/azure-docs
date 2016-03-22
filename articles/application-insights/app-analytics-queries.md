@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Operators and queries in Application Insights Analytics" 
-	description="Reference for the operators used to make queries in Application Insights Analytics, 
+	pageTitle="Operators and queries in Application Insights - Analytics" 
+	description="Reference for the operators used to make queries in Application Insights - Analytics, 
 	             the powerful search tool for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -18,10 +18,10 @@
 
 
 
-# Query syntax in Application Insights Analytics
+# Query syntax in Application Insights - Analytics
 
 
-[Application Insights Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights - Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
 Application Insights Analytics query lanquage, AIQL.
 
@@ -629,7 +629,7 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 * *Aggregation:* A call to an [aggregation function](app-analytics-aggregations.md) such as `count()` or `avg()`, with column names as arguments. See the [list of aggregation functions](app-analytics-aggregations.md).
 * *GroupExpression:* An expression over the columns, that provides a set of distinct values. Typically it's either a column name that already provides a restricted set of values, or `bin()` with a numeric or time column as argument. 
 
-If you provide a numeric or time expression without using `bin()`, AI Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
+If you provide a numeric or time expression without using `bin()`, Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
 
 If you don't provide a *GroupExpression,* the whole table is summarized in a single output row.
 

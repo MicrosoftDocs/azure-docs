@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Reference material for Application Analytics" 
-	description="Regular expressions in Application Analytics, 
+	pageTitle="Reference material for Application Insights - Analytics" 
+	description="Regular expressions in Analytics, 
 	             the powerful search tool for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -18,7 +18,7 @@
 
 # Reference material
 
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights - Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
 Application Analytics query lanuage, CSL.
 

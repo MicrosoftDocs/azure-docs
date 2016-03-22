@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Scalar expressions in Application Insights Analytics" 
-	description="Numbers, strings, dynamic expressions and types in Application Insights Analytics, 
+	pageTitle="Scalar expressions in Application Insights - Analytics" 
+	description="Numbers, strings, dynamic expressions and types in Application Insights - Analytics, 
 	             the powerful search tool for Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -18,12 +18,12 @@
 
 
  
-# Scalar expressions in Application Insights Analytics
+# Scalar expressions in Application Insights - Analytics
 
 
-[Application Insights Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights - Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights Analytics query lanuage, AIQL.
+Application Insights - Analytics query lanuage, AIQL.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -569,7 +569,7 @@ Backslash (`\`) is used to escape characters such as `\t` (tab), `\n` (newline) 
 
 ### Obfuscated String Literals
 
-Obfuscated string literals are strings that AI Analytics will obscure when outputting the string (for example, when tracing). The obfuscation process replaces all obfuscated characters by a start (`*`) character.
+Obfuscated string literals are strings that Analytics will obscure when outputting the string (for example, when tracing). The obfuscation process replaces all obfuscated characters by a start (`*`) character.
 
 To form an obfuscated string literal, prepend `h` or 'H'. For example:
 

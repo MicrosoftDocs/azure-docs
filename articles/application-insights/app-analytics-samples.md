@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Samples of queries in Application Insights Analytics" 
-	description="Samples of queries in Application Insights Analytics, 
+	pageTitle="Samples of queries in Application Insights - Analytics" 
+	description="Samples of queries in Application Insights - Analytics, 
 	             the powerful search tool for Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
@@ -17,11 +17,11 @@
 	ms.author="awills"/>
 
 
-# Samples for Application Insights Analytics
+# Samples for Application Insights - Analytics
 
-[Application Insights Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights - Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights Analytics query language, AIQL. There's also 
+Application Insights - Analytics query language, AIQL. There's also 
 a [tour of the language](app-analytics-tour.md), which is recommended for getting started.
 
 
@@ -33,7 +33,7 @@ There are several do's and don'ts you can follow to make your query run faster.
 
 DO:
 
--	Use time filters first. Application Insights Analytics is highly optimized to utilize time filters.
+-	Use time filters first. Application Insights - Analytics is highly optimized to utilize time filters.
 -	Put filters that are expected to get rid most of the data in the beginning of the query (right after time filters)
 -	Check that most of your filters are appearing in the beginning of the query (before you start using 'extend') 
 -	Prefer 'has' keyword over 'contains' when looking for full tokens. 'has' is more performant as it doesn't have to look-up for substrings.
@@ -110,7 +110,7 @@ Events
 
 The join will match every start time with all the stop times from the same client IP address. So we first remove matches with earlier stop times.
 
-Then we group by start time and ip to get a group for each session. We must supply a `bin` function for the StartTime parameter: if we don't, AI Analytics will automatically use 1-hour bins, which will match some start times with the wrong stop times.
+Then we group by start time and ip to get a group for each session. We must supply a `bin` function for the StartTime parameter: if we don't, Analytics will automatically use 1-hour bins, which will match some start times with the wrong stop times.
 
 `argmin` picks out the row with the smallest duration in each group, and the `*` parameter passes through all the other columns, though it prefixes "min_" to each column name. 
 
@@ -270,7 +270,7 @@ This can be rendered as a bar chart or time chart.
 
 ## Join flavors
 
-The exact flavor of the join operator is specified with the kind keyword. As of today, AI Analytics supports six flavors of the join operator: inner join with left side deduplication (the default), standard inner join, left outer, right outer, full outer and left anti join. 
+The exact flavor of the join operator is specified with the kind keyword. As of today, Analytics supports six flavors of the join operator: inner join with left side deduplication (the default), standard inner join, left outer, right outer, full outer and left anti join. 
  
 Default join flavor (no kind specified) 
 Let's use two sample tables to explain the operation of the join: 
@@ -318,7 +318,7 @@ and the result of the join would be:
 
 (Note that the keys 'a' and 'd' do not appear in the output, since there were no matching keys on both left and right sides). 
  
-(Historically, this was the first implementation of the join supported by the initial version of AI Analytics; it is useful in the typical log/trace analysis scenarios where we want to correlate two events (each matching some filtering criterion) under the same correlation ID, and get back all appearances of the phenomenon we're looking for, ignoring multiple appearances of the contributing trace records.)
+(Historically, this was the first implementation of the join supported by the initial version of Analytics; it is useful in the typical log/trace analysis scenarios where we want to correlate two events (each matching some filtering criterion) under the same correlation ID, and get back all appearances of the phenomenon we're looking for, ignoring multiple appearances of the contributing trace records.)
  
 ### Inner join (kind=inner) 
 
