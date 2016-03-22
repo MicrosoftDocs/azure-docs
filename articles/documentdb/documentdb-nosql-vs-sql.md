@@ -71,7 +71,7 @@ The following comparison charts maps out the key differentiators for each offeri
 *For comparison, do you like the info in a text table like this - or is the image table better?*
 
 |---|**SQL Server**|**SQL Server on Azure Virtual Machines**|**Azure SQL Database**|**Azure SQL Data Warehouse (Preview)**|
-|---|---|---|---|
+|---|---|---|---|---|
 |**Category**|Relational Database Management System (RDBMS)|SQL Server using Infrastructure as a service (IaaS)|Platform as a service (PaaS) database or database as a service (DBaaS) that is optimized for software-as-a-service (SaaS) app development|TBD|
 |**Use case**|New or existing on-premises applications or new applications where private hosting and administration is preferred|New or existing on-premises applications with a preference to stop maintaining private hardware and data centers. Both hybrid and cloud-only solutions.|Building new cloud-based applications or migrating existing SQL Server solutions to take advantage of the cost savings and performance optimization that cloud services provide. Low initial time-to-market, long-term cost optimization. Elastic scale|TBD|
 |**Hardware**|Complete flexibility in choosing your own hardware|Wide variety of virtual machine sizes available in Azure|Hardware selected by Microsoft|TBD|
