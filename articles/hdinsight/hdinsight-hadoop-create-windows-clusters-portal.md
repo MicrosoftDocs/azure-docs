@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="03/21/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using the Azure Portal
