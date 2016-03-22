@@ -47,28 +47,30 @@ Let’s walk through the steps to build a Workspace Collection using the Azure P
    ![](media\power-bi-embedded-get-started\create-workspace-2.png)
 
   **Workspace Collection Name**
-    - Name that you wish to use to refer to your Workspace Collection.
 
-          - Must be globally unique
+  - Name that you wish to use to refer to your Workspace Collection.
+
+    - Must be globally unique
 
     - Names of workspace collections can be publicly visible and should not contain private information.
 
-   ** Subscription**
+  ** Subscription**
+
     - The Azure subscription this Workspace Collection will be associated with.
 
-    ** Resource Group**
+  ** Resource Group**
 
     - The Azure resource group this Workspace Collection will be associated with. Choose an existing resource group or create a new one.
 
-    ** Location**
+  ** Location**
 
     - The physical datacenter location as the where this Workspace Collection and all of its content will be stored.
 
-   **Pricing**
+  **Pricing**
 
     - See [Power BI Embedded pricing] TODO
 
-   5.	Click create.
+5.Click **create**.
 
 The Workspace Collection will take a few moments to provision. When it is completed you will be taken to the Workspace Collection Blade.
 
