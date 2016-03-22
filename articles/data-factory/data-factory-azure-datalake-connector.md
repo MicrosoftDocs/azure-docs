@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/21/2016"
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Data Lake Store using Azure Data Factory
@@ -58,7 +58,7 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -69,7 +69,7 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 The following procedure provides steps for creating an Azure Data Lake Store linked service using the Data Factory Editor.
 
 1. Click **New data store** on the command bar and select **Azure Data Lake Store**.
-2. In the JSON editor, for the **datalakeUri** property, enter the URI for the data lake.
+2. In the JSON editor, for the **dataLakeStoreUri** property, enter the URI for the data lake.
 3. Click **Authorize** button on the command bar. You should see a pop up window.
 
 	![Authorize button](./media/data-factory-azure-data-lake-connector/authorize-button.png)
@@ -235,7 +235,7 @@ The sample copies data belonging to a time series from an Azure Data Lake store 
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -405,7 +405,7 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | Property | Description | Required |
 | :-------- | :----------- | :-------- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
-| dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Yes |
+| dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Yes |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credentials, which assigns the auto-generated authorization URL to this property.  | Yes |
 | sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. This is automatically generated when you use Data Factory Editor. | Yes |  
 | accountName | Data lake account name | No |
