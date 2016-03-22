@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add company branding to your Sign In and Access Panel pages"
+	pageTitle="Add company branding to your sign-in and Access Panel pages"
 	description="Learn how to add a company branding to the Azure sign-in page and the access panel page"
 	services="active-directory"
 	documentationCenter=""
@@ -44,7 +44,7 @@ If they visit a service with non-tenant specific URLs (such as https://mail.offi
 
 > [AZURE.NOTE]
 >
-- Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure Management Portal where you have configured branding.
+- Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure classic portal where you have configured branding.
 - Sign-in page branding doesn’t carry over to Microsoft’s consumer sign-in page. This means that users who sign-in with a personal Microsoft account (formerly Windows Live ID) may see a branded list of user tiles rendered by Azure AD, but your organization’s branding will not apply to the Microsoft account sign-in page.
 
 
@@ -109,13 +109,13 @@ The following screenshot shows an example of an access panel page after customiz
 
 ## Configure your directory with company branding
 
-One default set of customizable elements can be configured per directory in the Management Portal. After defaults have been saved, an administrator also has the option to add localized versions of each element, for different languages/locales. All customizable elements are optional.
+One default set of customizable elements can be configured per directory in the Azure classic portal. After defaults have been saved, an administrator also has the option to add localized versions of each element, for different languages/locales. All customizable elements are optional.
 
 For example, if you configure a default Banner Logo but no Large Illustration, the sign-in page will display your logo in the upper-right corner, however the site’s default illustration will be displayed. If you configure a default Banner Logo and sign-in Page Text in English, and configure language-specific sign-in Page Text for German, then users with a German language preference will see your default Banner Logo but the German text. While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
 
 **To add company branding to your directory, perform the following steps:**
 
-1. Sign-in to the [Azure Management Portal](https://manage.windowsazure.com) as the administrator of the directory you wish to customize.
+1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com) as the administrator of the directory you wish to customize.
 2. Select the directory you wish to customize.
 3. Select the **Configure** tab, and then select **Customize Branding**.
 4. Modify the elements you wish to customize. Note that all fields are optional.
@@ -125,14 +125,14 @@ It can take up to an hour for users to see any new change you made to the sign-i
 
 **To add language-specific company branding, perform the following steps:**
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), under the **Configure** tab, select **Customize Branding**.
+1. In the [Azure classic portal](https://manage.windowsazure.com), under the **Configure** tab, select **Customize Branding**.
 2. Select **Add branding for a specific language**, select the language you want to customize the logo for, and then click **Next**.
 3. Edit only the elements for which you wish to configure language-specific overrides. Note that all fields are optional. If a field is left blank, then the custom default value will be displayed instead (or the Microsoft default if a custom default is not configured).
 4. Click **Save**.
 
 **To remove company branding from your directory, perform the following steps:**
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), under the **Configure** tab, select **Customize Branding**.
+1. In the [Azure classic portal](https://manage.windowsazure.com), under the **Configure** tab, select **Customize Branding**.
 2. On the Customize Branding page, select **Edit Existing Branding Settings** and then go to the next page.
 3. Depending on which elements you want to remove, do one or more of the following:
 
