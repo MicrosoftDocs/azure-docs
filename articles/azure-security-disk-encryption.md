@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="03/21/2016"
    ms.author="devtiw"/>
 
 
@@ -530,7 +530,7 @@ Disk encryption can be enabled on customer encrypted VHD using the CLI command i
 
 ### Get encryption status of an encrypted IaaS VM
 
-You can get encryption status using Azure Management portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt622700.aspx) or CLI commands. The sections below will explain how to use the Azure Management (Preview) portal and CLI commands to get the encryption status.
+You can get encryption status using Azure Management portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt622700.aspx) or CLI commands. The sections below will explain how to use the Azure portal and CLI commands to get the encryption status.
 
 #### Get encryption status of an encrypted IaaS VM using Azure Management Portal
 
