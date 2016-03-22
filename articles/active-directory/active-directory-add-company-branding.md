@@ -115,38 +115,44 @@ For example, if you configure a default Banner Logo but no Large Illustration, t
 
 **To add company branding to your directory, perform the following steps:**
 
-1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com) as the administrator of the directory you wish to customize.
-2. Select the directory you wish to customize.
-3. Select the **Configure** tab, and then select **Customize Branding**.
-4. Modify the elements you wish to customize. Note that all fields are optional.
+1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
+2. Select the directory you want to customize.
+3. In the toolbar on the top, click **Configure**.
+4. Click **Customize Branding**.
+4. Modify the elements you want to customize. Note that all fields are optional.
 5. Click **Save**.
 
 It can take up to an hour for users to see any new change you made to the sign-in page branding.
 
 **To add language-specific company branding, perform the following steps:**
 
-1. In the [Azure classic portal](https://manage.windowsazure.com), under the **Configure** tab, select **Customize Branding**.
-2. Select **Add branding for a specific language**, select the language you want to customize the logo for, and then click **Next**.
-3. Edit only the elements for which you wish to configure language-specific overrides. Note that all fields are optional. If a field is left blank, then the custom default value will be displayed instead (or the Microsoft default if a custom default is not configured).
+1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
+2. Select the directory you want to customize.
+3. In the toolbar on the top, click **Configure**.
+4. Click **Customize Branding**.
+2. Click **Add branding for a specific language**.
+3. Select the language you want to customize the logo for, and then click **Next**.
+3. Edit only the elements for which you want to configure language-specific overrides. Note that all fields are optional. If a field is left blank, then the custom default value will be displayed instead (or the Microsoft default if a custom default is not configured).
 4. Click **Save**.
 
 **To remove company branding from your directory, perform the following steps:**
 
-1. In the [Azure classic portal](https://manage.windowsazure.com), under the **Configure** tab, select **Customize Branding**.
-2. On the Customize Branding page, select **Edit Existing Branding Settings** and then go to the next page.
+1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
+2. Select the directory you want to customize.
+3. In the toolbar on the top, click **Configure**.
+4. Click **Customize Branding**.
+5. On the Customize Branding page, select **Edit Existing Branding Settings** and then go to the next page.
 3. Depending on which elements you want to remove, do one or more of the following:
 
-	a. For Banner Logo, click on the check box to **Remove uploaded logo**.
+	a. Under **Banner Logo**, select **Remove uploaded logo**.
 
-    b. For Tile Logo, click on the check box to **Remove uploaded logo**.
+    b. Under **Tile Logo**, select **Remove uploaded logo**.
 
-    c. For Sign-In Page User Name Label, clear all text.
+    c. Remove the text from all textboxes.
 
-    d. For Sign-In Page Text, clear all text.
+    d. Click **Next**.
 
-    e. For Sign In Page Illustration, click on the check box to **Remove illustration**.
-
-    f. For Sign In Page Background Color, clear all text.
+    e. Remove the text from all textboxes.
 
 4. Click **Save** to remove the elements.
 5. If necessary, click **Customize Branding** again and repeat these steps for all language-specific branding that needs to be removed.
