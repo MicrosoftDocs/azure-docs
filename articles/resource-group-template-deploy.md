@@ -69,7 +69,9 @@ You specify the type of deployment through the **Mode** property, as shown in th
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-4. Validate your deployment prior to executing it by running the **Test-AzureRmResourceGroupDeployment** cmdlet. This cmdlet verifies whether the template and parameters are valid, and whether the resources specified in your template can actually be deployed to your subscription. It evaluates the deployment to determine whether the defined resources will exceed quotas or other limitations for your environment. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
+4. Validate your deployment prior to executing it by running the **Test-AzureRmResourceGroupDeployment** cmdlet. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
+
+        PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
 5. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. If the **Mode** parameter is not specified, the default value of **Incremental** is used.
    
@@ -156,7 +158,9 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
         data:
         info:    group create command OK
 
-5. Validate your deployment prior to executing it by running the **azure group template validate** command. This command verifies whether the template and parameters are valid, and whether the resources specified in your template can actually be deployed to your subscription. It evaluates the deployment to determine whether the defined resources will exceed quotas or other limitations for your environment. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
+5. Validate your deployment prior to executing it by running the **azure group template validate** command. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
+
+        azure group template vaildate -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup
 
 5. To create a new deployment for your resource group, run the following command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. 
    
@@ -207,7 +211,7 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
             }
           }
    
-3. Validate your deployment prior to executing it by running the [Validate a template deployment](https://msdn.microsoft.com/library/azure/dn790547.aspx) operation. This operation verifies whether the template and parameters are valid, and whether the resources specified in your template can actually be deployed to your subscription. It evaluates the deployment to determine whether the defined resources will exceed quotas or other limitations for your environment. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
+3. Validate your deployment prior to executing it by running the [Validate a template deployment](https://msdn.microsoft.com/library/azure/dn790547.aspx) operation. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
 
 3. Create a new resource group deployment. Provide your subscription id, the name of the resource group to deploy, the name of the deployment, and the location of your template. For information about the template file, see [Parameter file](./#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx). Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**.
     
@@ -245,7 +249,7 @@ Simply, select the **New** icon and you will be on your way toward deploying an 
 
 ![New](./media/resource-group-template-deploy/new.png)
 
-All deployments through the portal are automatically validated prior to execution. The portal verifies whether the template and parameters are valid, and whether the resources specified in your template can actually be deployed to your subscription. It evaluates the deployment to determine whether the defined resources will exceed quotas or other limitations for your environment. For more information about using the portal with Azure Resource Manager, see [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md).  
+All deployments through the portal are automatically validated prior to execution. For more information about using the portal with Azure Resource Manager, see [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md).  
 
 
 ## Parameter file
