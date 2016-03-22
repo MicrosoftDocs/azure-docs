@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="03/21/2016" 
 	ms.author="sdanie"/>
 
 
@@ -117,7 +117,7 @@ Use the encoded password along with your user name and repository location to co
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure overview of local Git repository](#file-and-folder-structure-overview-of-local-git-repository).
+Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## To update your local repository with the most current service instance configuration
 
@@ -279,6 +279,9 @@ For information on other ways to manage your service instance, see:
 -	Manage your service instance using the REST API
 	-	[API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## Watch a video overview
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
