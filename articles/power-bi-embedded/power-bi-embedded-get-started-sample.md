@@ -28,7 +28,7 @@
 
    > [AZURE.NOTE] Before starting, make sure that you have created at least one Workspace Collection in your Azure subscription. To learn how to create a Workspace Collection in the Azure Portal see [Getting Started with Power BI Embedded Preview](power-bi-embedded-get-started.md).
 
-   ## Setup & Samples
+   ## Setup and Samples
 
    The following will walk you through setting up your Visual Studio development environment to access the Preview components
 
@@ -42,6 +42,7 @@
        a.	Select option 5 to **Create a new workspace within existing collection**.
 
        b.	Enter your subscription id, workspace collection and signing key when prompted (These can be found in the Azure portal).
+       
        ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
        c.	Copy and save the newly created workspace id to use later (this can also be found in the Azure portal after it is created).

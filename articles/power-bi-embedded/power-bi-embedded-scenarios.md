@@ -16,7 +16,6 @@
    ms.date="03/08/2016"
    ms.author="jocaplan"/>
 
-
 # Common Microsoft Power BI Embedded scenarios
 
 **Microsoft Power BI Embedded** Preview is primarily focused on exposing the majority of existing Power BI API functionality  as part of an Azure service for you to develop your applications with.  Additionally, you will be able to programmatically provision, develop and deploy the necessary resources and Power BI content. See [Get started sample](power-bi-embedded-get-started.md) . The following is a list of what's available in preview:

@@ -16,22 +16,21 @@
    ms.date="03/08/2016"
    ms.author="derrickv"/>
 
-
 # Get stated with Microsoft Power BI Embedded preview
 
-Microsoft Power BI Embedded is an Azure service which enables application developers to add interactive Power BI reports into their own applications. Power BI Embedded is intended to work with existing applications without the need to redesign those applications or change the way their users log in.
+**Microsoft Power BI Embedded** is an Azure service which enables application developers to add interactive Power BI reports into their own applications. **Power BI Embedded** is works with existing applications without the need to redesign those applications or change the way their users log in.
 
 To learn more about Power BI Embedded, see [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md).
 
 ![](media\power-bi-embedded-get-started\introduction.png)
 
 ## Creating a workspace collection
-A workspace collection is the top level Azure resource and a container for the content that will be embedded. A workspace collection can be created two ways:
+A **Workspace Collection** is the top level Azure resource and a container for the content that will be embedded. A workspace collection can be created two ways:
 
    -	Manually using the Azure Portal
    -	Programmatically using the ARM APIs
 
-Let’s walk through the steps to build a Workspace Collection using the Azure Portal.
+Let’s walk through the steps to build a **Workspace Collection** using the Azure Portal.
 
    1.	Open and sign into the Azure Portal
     ```
@@ -48,21 +47,21 @@ Let’s walk through the steps to build a Workspace Collection using the Azure P
 
   **Workspace Collection Name**
 
-  - Globally unique name that you wish to use to refer to your Workspace Collection.
+  - Globally unique name that you wish to use to refer to your **Workspace Collection**.
 
-  - Names of workspace collections can be publicly visible and should not contain private information.
+  - Names of **Workspace Collections** can be publicly visible and should not contain private information.
 
   **Subscription**
 
-  - The Azure subscription this Workspace Collection will be associated with.
+  - The Azure subscription this **Workspace Collection** will be associated with.
 
   **Resource Group**
 
-  - The Azure resource group this Workspace Collection will be associated with. Choose an existing resource group or create a new one.
+  - The Azure resource group this **Workspace Collection** will be associated with. Choose an existing resource group or create a new one.
 
   **Location**
 
-  - The physical datacenter location as the where this Workspace Collection and all of its content will be stored.
+  - The physical datacenter location as the where this **Workspace Collection** and all of its content will be stored.
 
   **Pricing**
 
@@ -70,7 +69,7 @@ Let’s walk through the steps to build a Workspace Collection using the Azure P
 
 5.Click **create**.
 
-The Workspace Collection will take a few moments to provision. When it is completed you will be taken to the Workspace Collection Blade.
+The **Workspace Collection** will take a few moments to provision. When it is completed you will be taken to the Workspace Collection Blade.
 
    ![](media\power-bi-embedded-get-started\create-workspace-3.png)
 
@@ -78,7 +77,7 @@ This blade contains the information that you will need to call the APIs needed t
 
 **Access Keys**
 
-One of the most important pieces of information needed for calling the Power BI REST APIs are the “Access Keys”. These are used to generate the “app tokens” (see #TODO link) that are used to authenticate your API requests. To view your access keys, click “Access Keys” on the settings blade.
+One of the most important pieces of information needed for calling the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** (see #TODO link) that are used to authenticate your API requests. To view your access keys, click **Access Keys** on the settings blade.
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -92,11 +91,11 @@ While two keys are listed, only one key is needed at a time. The second key is p
 
 ## Writing your first report
 
-Now that you have created an instance of Power BI for your application you will need to create some Power BI datasets and the reports that you wish to embed. These can be created by using the “Power BI Desktop” tool. To learn more about downloading the Power BI desktop for free, please see the following:
+Now that you have created an instance of Power BI for your application you will need to create some Power BI datasets and the reports that you wish to embed. These can be created by using the **Power BI Desktop** tool. To learn more about downloading the Power BI desktop for free, please see the following:
 
     https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/
 
-Once you have installed the Power BI Desktop, you can then create your first dataset and report following the instructions here:
+Once you have installed the **Power BI Desktop**, you can then create your first dataset and report following the instructions here:
 
     https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/.
 
