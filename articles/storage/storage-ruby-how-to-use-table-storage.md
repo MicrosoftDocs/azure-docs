@@ -3,9 +3,9 @@
 	description="Learn how to use Azure Table Storage in Azure. Code samples are written using the Ruby API."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # How to use Azure Table Storage from Ruby
