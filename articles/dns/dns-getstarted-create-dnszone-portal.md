@@ -50,7 +50,6 @@ Note the following:
 8. After you click Create, you'll see your new zone being configured on the dashboard.
 
 
-
 ## To view a DNS zone using the portal
 
 Creating a DNS zone also creates the following DNS records, which you can view in the Azure portal on the blade for your DNS zone:

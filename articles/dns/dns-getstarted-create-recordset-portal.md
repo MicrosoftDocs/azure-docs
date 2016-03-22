@@ -54,7 +54,7 @@ Sometimes you need to create more than one DNS record with a given name and type
 
 This is an example of a record set. Azure DNS manages DNS records using record sets. A record set is the collection of DNS records in a zone with the same name and the same type.  Most record sets contain a single record, but examples like the one above in which a record set contains more than one record are not uncommon. Records sets of type SOA and CNAME are an exception; the DNS standards do not permit multiple records with the same name for these types.
 
-To create a record set in the apex of the zone, use the record name "@", including the quotation marks. This is a common DNS convention. To do this, you must use PowerShell. See [this article](dns-getstarted-create-recordset-portal.md) for more information.
+To create a record set in the apex of the zone, use the record name "@", including the quotation marks. This is a common DNS convention, especially for MX records.
 
 The Time-to-Live, or TTL, specifies how long each record is cached by clients before being re-queried. In the above example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
 
@@ -74,7 +74,7 @@ CNAME record sets cannot co-exist with other record sets with the same name. For
 In the following example we will show how to create a record set and records.  We'll use the DNS 'A' record type, for other record types see [How to manage DNS records](dns-operations-recordsets.md)
 
 1. Log in to the Azure portal.
-2. Navigate to the DNS zone blade for which you want to create a record set.
+2. Navigate to the DNS zone blade in which you want to create a record set.
 3. In your DNS zone blade, at the top of the blade click **Record set** to open the **Add record set** blade.
 4. In the **Add record set** blade, name your records set. For example, you could name your record set "**www**".
 5. Type, select the type of record you want to create. For example, **A**.

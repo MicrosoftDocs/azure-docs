@@ -48,14 +48,14 @@ You can add up to 20 records to any record set. However, record sets of type CNA
 
 1. From the record set properties blade for your dns zone, click the record set that you want to add a record to.
 2. Specify the record settings by filling in the fields.
-2. Save your settings at the top of the page before closing the blade.
+2. Click **Save** to save your settings at the top of the page before closing the blade.
 3. In the corner, you will see that the record is saving.
-4. You can view the values for the record set on the DNS zone blade.
+4. Once the record has been saved, the values for the record set on the DNS blade will reflect the new record.
 
 
 ## To update a record in a record set
 
-When updating a record in an existing record set, the fields you can update depend on the type of record you are working with. To update a record:
+When updating a record in an existing record set, the available fields you can update depend on the type of record you are working with. To update a record:
 
 1. From the record set properties blade for your record set, search for the record.
 2. Modify the available settings.
@@ -67,9 +67,19 @@ When updating a record in an existing record set, the fields you can update depe
 
 Records can be removed from a record set in the Azure portal. Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete) below for more information.
 
+1. From the record set properties blade for your record set, search for the record.
+2. Modify the available settings.
+3. Click **Save** at the top of the blade to save your settings.
+3. In the corner, you will see that the record is saving and can view the results on the DNS zone blade.
+
 
 
 ## <a name="delete"></a>To delete a record set
+
+1. From the record set properties blade for your record set, click Delete.
+2. A message will appear asking if you want to delete the record set 'name_of_record_set'.
+3. Verify that the name matches the record set that you want to delete, then click **Yes**.
+4. From the DNS zone blade, you can verify that the record set is no longer visible.
 
 
 ## Working with  NS and SOA records
