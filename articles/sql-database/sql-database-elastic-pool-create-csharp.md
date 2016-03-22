@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/15/2016"
+    ms.date="03/22/2016"
     ms.author="sstein"/>
 
 # Create an elastic database pool (C&#x23;)
@@ -25,6 +25,8 @@
 
 
 Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using C&#x23;. 
+
+For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
