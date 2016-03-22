@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/21/2016"
+   ms.date="03/22/2016"
    ms.author="devtiw"/>
 
 
@@ -196,7 +196,7 @@ Azure disk encryption safeguards the disk encryption keys and secrets in your Az
 To create a new Key Vault, use one of the two options listed below:
 
 - Use the "101-Create-KeyVault" ARM template located [here](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
-- Use the Azure PowerShell Key Vault cmdlets as described [here](key-vault-get-started.md)
+- Use the Azure PowerShell Key Vault cmdlets.
 
 **Note:** If you already have a Key Vault setup for your subscription, please proceed to next section.
 
