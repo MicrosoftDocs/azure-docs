@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Manage Azure Cloud Services using Azure Automation"
+	pageTitle="Manage Azure Cloud Services using Azure Automation | Microsoft Azure"
 	description="Learn about how the Azure Automation service can be used to manage Azure cloud services at scale."
 	services="cloud-services, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="eamono"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="03/22/2016"
 	ms.author="jolevy"/>
 
 
