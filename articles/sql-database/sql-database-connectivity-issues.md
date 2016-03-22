@@ -31,6 +31,8 @@ A transient error - also, transient fault - has an underlying cause that will so
 If your client program is using ADO.NET, your program is told about the transient error by the throw of an **SqlException**. The **Number** property can be compared against the list of transient errors near the top of the topic:
 [SQL error codes for SQL Database client applications](sql-database-develop-error-messages.md).
 
+<a id="connection-versus-command" name="connection-versus-command"></a>
+
 ### Connection versus command
 
 You'll retry the SQL connection or establish it again, depending on the following:
@@ -50,6 +52,7 @@ Client programs that occasionally encounter a transient error are more robust wh
 
 When your program communicates with Azure SQL Database through a 3rd party middleware, inquire with the vendor whether the middleware contains retry logic for transient errors.
 
+<a id="principles-for-retry" name="principles-for-retry"></a>
 
 #### Principles for retry
 
@@ -144,6 +147,7 @@ To make this practical, your program could recognize a run time parameter that c
 4. Remove 'WRONG_' from the user name.
 5. Attempt again to connect, expecting success.
 
+<a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ### .NET SqlConnection parameters for connection retry
 
@@ -169,6 +173,7 @@ Specifically, your chosen values should make the following equality true:
 
 For example, if the count = 3, and interval = 10 seconds, a timeout of only 29 seconds would not quite give the system enough time for its 3rd and final retry at connecting: 29 < 3 * 10.
 
+<a id="connection-versus-command" name="connection-versus-command"></a>
 
 ### Connection versus command
 
@@ -188,6 +193,9 @@ Suppose your application has robust custom retry logic. It might retry the conne
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
 ## Connections to Azure SQL Database
+
+<a id="c-connection-string" name="c-connection-string"></a>
+
 ### Connection: Connection string
 
 
@@ -268,6 +276,9 @@ If you are using ADO.NET 4.0 or earlier, we recommend that you upgrade to the la
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
 ## Diagnostics
+
+<a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
+
 ### Diagnostics: Test whether utilities can connect
 
 
@@ -348,6 +359,7 @@ Here are some Transact-SQL SELECT statements that query logs of error and other 
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | The [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) view offers information about individual events, including some that can cause transient errors or connectivity failures.<br/><br/>Ideally you can correlate the **start_time** or **end_time** values with information about when your client program experienced problems.<br/><br/>**TIP:** You must connect to the **master** database to run this. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | The [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) view offers aggregated counts of event types, for additional diagnostics.<br/><br/>**TIP:** You must connect to the **master** database to run this. |
 
+<a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
 ### Diagnostics: Search for problem events in the SQL Database log
 
@@ -416,6 +428,7 @@ A short C# code sample that uses EntLib60 in its retry logic is available at:
 
 > [AZURE.NOTE] The source code for EntLib60 is available for public [download](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
 
+<a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
 ### EntLib60 classes for transient errors and retry
 
@@ -453,6 +466,7 @@ Here are links to information about EntLib60:
 
 - NuGet download of [Enterprise Library - Transient Fault Handling application block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
+<a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
 ### EntLib60: The logging block
 
@@ -469,6 +483,7 @@ Here are links to information about EntLib60:
 For details see:
 [5 - As Easy As Falling Off a Log: Using the Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
+<a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
 ### EntLib60 IsTransient method source code
 
