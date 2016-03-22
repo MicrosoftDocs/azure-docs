@@ -109,7 +109,9 @@ You can also add the **"Unique ID"** attribute with the appropriate value like E
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Pluralsight application using the following pattern: **“https://</InstanceName/>.pluralsight.com/sso/</CompanyName/>”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Pluralsight application using the following pattern: **“https://\<instance name\>.pluralsight.com/sso/\<comapny name\>”**.
+
+    b. Click **Next**.
 
 
 4. On the **Configure single sign-on at Pluralsight** page, perform the following steps:
