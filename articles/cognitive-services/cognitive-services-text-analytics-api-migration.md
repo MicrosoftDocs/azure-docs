@@ -1,4 +1,22 @@
-# Upgrading to Version 2 of the Text Analytics API
+<properties
+	pageTitle="Upgrading to Version 2 of the Text Analytics API | Microsoft Azure"
+	description="Azure Machine Learning Text Analytics - Upgrade to Version 2"
+	services="cognitive-services"
+	documentationCenter=""
+	authors="onewth"
+	manager="paulettm"
+	editor="cgronlun"/>
+
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/30/2016"
+	ms.author="onewth"/>
+
+# Upgrading to Version 2 of the Text Analytics API #
 
 This guide will take you through the process of upgrading your code from using the [first version of the API](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-apps-text-analytics/) to using the second version. 
 
@@ -285,4 +303,3 @@ As before, **poll the output every minute** until the output is returned. When t
 ### Part 5. Test it! ###
 
 You should now be good to go! Test your code with a small sample to ensure that you can successfully process your data.
-
