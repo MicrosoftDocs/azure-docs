@@ -106,7 +106,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 | Authentication Method                              | Pre-Shared Key                 | Pre-Shared Key                                                   |
 | Encryption Algorithms                              | AES256 AES128 3DES             | AES256 3DES                                                      |
 | Hashing Algorithm                                  | SHA1(SHA128)                   | SHA1(SHA128), SHA2(SHA256)                                                     |
-| Phase 1 Security Association (SA)  Lifetime (Time) | 28,800 seconds                 | 28,800 seconds                                                   |
+| Phase 1 Security Association (SA)  Lifetime (Time) | 28,800 seconds                 | 10,800 seconds                                                   |
 
 
 ### IKE Phase 2 setup
@@ -115,7 +115,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | IKE Version                                                              | IKEv1                                          | IKEv2                                                              |
 | Hashing Algorithm                                                        | SHA1(SHA128)                                   | SHA1(SHA128)                                                       |
-| Phase 2 Security Association (SA) Lifetime (Time)                        | 3,600 seconds                                  | -                                                                  |
+| Phase 2 Security Association (SA) Lifetime (Time)                        | 3,600 seconds                                  | 3,600 seconds                                                                  |
 | Phase 2 Security Association (SA) Lifetime (Throughput)                  | 102,400,000 KB                                 | -                                                                  |
 | IPsec SA Encryption & Authentication Offers (in the order of preference) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A | See *Route-based Gateway IPsec Security Association (SA) Offers* (below) |
 | Perfect Forward Secrecy (PFS)                                            | No                                             | Yes (DH Group1, 2, 5, 14, 24)                                                    |
