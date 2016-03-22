@@ -70,7 +70,7 @@ A primitive condition can do one of the following comparisons.
 
 -   Compare a function parameter to a constant expression. For example, `@column1 < 1000`.
 
-    Here's an example that checks whether the value of a *date* column is &lt; 1\/1\/2016.
+    Here's an example that checks whether the value of a *date* column is &lt; 1/1/2016.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
