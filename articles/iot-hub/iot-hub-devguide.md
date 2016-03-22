@@ -578,7 +578,7 @@ The following is the list of enforced throttles. Values refer to an individual h
 
 It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle is dependent on the number of units that are provisioned for the hub.
 
-For instance, if you buy a single S1 unit, you get a throttle of 100 connections per sec. This means that in order to connect 100.000 devices it would take at least 1000 secs ~ 16mins. You can, however, have as many simultaneously connected devices as you have in your device identity registry.
+For example, if you buy a single S1 unit you get a throttle of 100 connections per second. This means that to connect 100,000 devices it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your device identity registry.
 
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
