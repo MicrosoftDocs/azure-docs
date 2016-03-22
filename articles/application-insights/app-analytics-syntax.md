@@ -18,17 +18,17 @@
 
 
  
-# Statements in Application - Analytics
+# Statements in Application Insights - Analytics
 
 [Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the Analytics query lanuage, CSL.
+[Application Insights](app-insights-overview.md) telemetry. These pages describe the Analytics query lanuage, AIQL.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## Data model
 
-In CSL:
+In AIQL:
 
 * A *database* contains zero or more named *tables.*
 * A *table* contains:

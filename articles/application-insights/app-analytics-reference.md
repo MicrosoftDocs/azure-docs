@@ -18,9 +18,8 @@
 
 # Application Insights - Analytics: Reference material
 
-[Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL.
+[Application Insights - Analytics](app-analytics.md) is a powerful search engine for your 
+[Application Insights](app-insights-overview.md) telemetry. These pages describe the Analytics query lanuage, AIQL.
 
 
 

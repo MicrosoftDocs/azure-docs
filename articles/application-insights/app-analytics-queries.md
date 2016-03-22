@@ -23,7 +23,7 @@
 
 [Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights Analytics query lanquage, AIQL.
+Application Insights - Analytics query lanquage, AIQL.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
