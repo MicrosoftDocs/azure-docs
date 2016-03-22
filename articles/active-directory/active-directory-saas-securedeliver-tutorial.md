@@ -121,9 +121,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. To get SSO configured for your application, contact your Secure Deliver support team via [teruhiko.iwashita@fujifilm.com](mailto:teruhiko.iwashita@fujifilm.com) and provide them with the following:
    
     - The downloaded certificate file
-    - The Entity ID
-    - The Single Sign-On Service URL
-    - The Single Sign-Out Service URL
+    - The **Entity ID**
+    - The **Single Sign-On Service URL**
+    - The **Single Sign-Out Service URL**
 
 6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
