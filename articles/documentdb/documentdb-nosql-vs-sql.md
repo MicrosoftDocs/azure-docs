@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/21/2016"
+	ms.date="03/22/2016"
 	ms.author="mimig"/>
 
 # NoSQL vs SQL
@@ -56,7 +56,12 @@ Now you could use a relational solution like SQL Server or SQL Data Warehouse to
         ]
     }
 
-You could then build on this solution using other Azure services such as Azure Search, Azure App Services to host applications and background processes, Azure Storage and Azure SQL database for storing massive amounts of data, and Azure Machine Learning to create knowledge and intelligence that can provide feedback to to the process and help us deliver the right content to the right users.
+You can then build on this solution using other Azure services:
+
+- [Azure Search](https://azure.microsoft.com/services/search/) can be used via the web app to enable users to search for posts.
+- [Azure App Services](https://azure.microsoft.com/services/app-service/) can be used to host applications and background processes.
+- [Azure Storage](https://azure.microsoft.com/services/storage/), [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used to store massive amounts of data such as login information, full profiles, and data for usage analytics.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)  can be used to build knowledge and intelligence that can provide feedback to the process and help deliver the right content to the right users.
 
 ![Relational data model for social media app](./media/documentdb-nosql-vs-sql/nosql-vs-sql-solution.png)
 
