@@ -42,7 +42,7 @@ The example below shows a gateway subnet named GatewaySubnet. You can see the CI
 
 ## <a name="gwtype"></a>Gateway types
 
-The gateway type specifies how the gateway itself connects and is a required configuration setting for the Resource Manager deployment model. Don't confuse gateway type with VPN type. Although there is a -GatewayType of Vpn available, it is not the same as the -VPNtype, which specifies the type of routing for your VPN. 
+The gateway type specifies how the gateway itself connects and is a required configuration setting for the Resource Manager deployment model. Don't confuse gateway type with VPN type, which specifies the type of routing for your VPN. The available values GatewayType are: *Vpn* and *ExpressRoute*.
 
 
 This example for the Resource Manager deployment model specifies the -GatewayType as *Vpn*. When you are creating a gateway, you must make sure that the gateway type is correct for your configuration. 
