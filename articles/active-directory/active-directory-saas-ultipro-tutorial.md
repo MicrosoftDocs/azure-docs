@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/22/2016"
 	ms.author="jeedes"/>
 
 
@@ -120,13 +120,13 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 5. To get SSO configured for your application, contact your Ultipro support team via [ultiproinfo@ultimatesoftware.com](mailto:ultiproinfo@ultimatesoftware.com) and provide them with the following:
 
-    a. The downloaded certificate file
+    - The downloaded certificate file
 
-    b. The **Issuer URL**
+    - The **Issuer URL**
 
-    c. The **SAML SSO URL** 
+    - The **SAML SSO URL** 
 
-    d. The **Single Sign Out Service URL**
+    - The **Single Sign Out Service URL**
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
