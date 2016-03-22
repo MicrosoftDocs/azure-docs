@@ -636,7 +636,7 @@ imagesQueue = queueClient.GetQueueReference("images");
 Most of the controller code is typical for working with an Entity Framework data model using a DbContext class. An exception is the HttpPost `Create` method, which uploads a file and saves it in blob storage. The model binder provides an [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) object to the method.
 
 ```csharp
-    [HttpPost]
+[HttpPost]
 [ValidateAntiForgeryToken]
 public async Task<ActionResult> Create(
     [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
