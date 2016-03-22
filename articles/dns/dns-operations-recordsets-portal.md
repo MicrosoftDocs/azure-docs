@@ -32,74 +32,62 @@ It is important to understand the distinction between DNS record sets and indivi
 
 ## To create a record set
 
-To create a record set in the Azure portal, see [Create DNS records using the Azure portal](dns-getstarted-recordset-portal.md).
+To create a record set in the Azure portal, see [Create DNS records using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
 
-## To view an existing record set
+## To view a record set
 
 1. In the Azure portal, navigate to your DNS zone blade.
 2. You can search for the record set and select it from the listed items. Click the record set to select it. This will open the record set properties.
 
 
-## To modify your record set
-
-1. From the record set properties blade for your record set, modify the settings.
-2. Save your settings at the top of the page before closing the blade.
-3. In the corner, you will see that the record is saving and can view the results on the DNS zone blade.
-
-
-## To add a record to a record set
-
-Records are added to record sets using the Add-AzureRmDnsRecordConfig cmdlet. This is an off-line operation—only the local object representing the record set is changed.
-
-The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type 'A' you will only be able to specify records with the parameter ‘IPv4Address’.
+## To add a new record to a record set
 
 You can add up to 20 records to any record set. However, record sets of type CNAME can contain at most 1 record, and a record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers.
 
 
-## To update a record in an existing record set
+1. From the record set properties blade for your dns zone, click the record set that you want to add a record to.
+2. Specify the record settings by filling in the fields.
+2. Save your settings at the top of the page before closing the blade.
+3. In the corner, you will see that the record is saving.
+4. You can view the values for the record set on the DNS zone blade.
 
 
+## To update a record in a record set
 
-### Modify SOA record
+When updating a record in an existing record set, the fields you can update depend on the type of record you are working with. To update a record:
 
->[AZURE.NOTE] You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’), but you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL.
-
-The following example shows how to change the ‘Email’ property of the SOA record:
-
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> $rs.Records[0].Email = "admin.contoso.com"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
-
-### Modify NS records at zone apex
-
->[AZURE.NOTE] You cannot add to, remove or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’).  The only change permitted is to modify the record set TTL.
-
-The following example shows how to change the TTL property of the NS record set:
-
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> $rs.Ttl = 300
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
-
-### Add records to an existing record set
-
-In this example we add two additional MX records to the existing record set:
+1. From the record set properties blade for your record set, search for the record.
+2. Modify the available settings.
+3. Click **Save** at the top of the blade to save your settings.
+3. In the corner, you will see that the record is saving and can view the results on the DNS zone blade.
 
 
-## Remove a record from an existing record set
+## To remove a record from a record set
 
-Records can be removed from a record set in the Azure portal. Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete-a-record-set) below for more.
+Records can be removed from a record set in the Azure portal. Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete) below for more.
 
 ### Remove CNAME record from a record set
 
 Since a CNAME record set can contain at most one record, removing that record will leave an empty record set.
 
 
-## To delete a record set
+## <a name="delete"></a>To delete a record set
 
 
->[AZURE.NOTE] You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that are created automatically when the zone is created.  They will be deleted automatically when deleting the zone.
+## Working with  NS and SOA records
 
+### Modify SOA records
+
+You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’), but you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL. See [this article](dns-operations-recordsets.md) for more information about how to do this using PowerShell.
+
+### Modify NS records at zone apex
+
+You cannot add to, remove or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’).  The only change permitted is to modify the record set TTL.  See [this article](dns-operations-recordsets.md) for more information about how to do this using PowerShell.
+
+### Deleting SOA or NS record sets
+
+You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that are created automatically when the zone is created.  They will be deleted automatically when deleting the zone.
 
 ## See Also
 
