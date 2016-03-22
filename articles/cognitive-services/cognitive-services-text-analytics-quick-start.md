@@ -19,8 +19,10 @@
 <a name="HOLTop"></a>
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
 
-This document describes how to onboard your service or application to use the [Text Analytics APIs](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2).
-You can use these APIs to detect sentiment, key phrases, topics and language from your text. You can find more details on the Text Analytics APIs the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2).
+This document describes how to onboard your service or application to use the [Text Analytics APIs](http://go.microsoft.com/fwlink/?LinkID=759711).
+You can use these APIs to detect sentiment, key phrases, topics and language from your text. [Click here to see an interactive demo of the experience.](http://go.microsoft.com/fwlink/?LinkID=759712)
+
+Please refer to the [API definitions](http://go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
 This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-apps-text-analytics/).
 
@@ -60,7 +62,7 @@ In this task, you will sign up for the text analytics service.
 
 ## Task 2 - Detect sentiment, key phrases and languages ####
 
-It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](http://text-analytics-demo.azurewebsites.net) returns.
+It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](http://go.microsoft.com/fwlink/?LinkID=759712) returns.
 
 **Tip!** For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
 
