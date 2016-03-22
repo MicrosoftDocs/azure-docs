@@ -57,6 +57,11 @@ To learn how to create new tables in your Mobile Apps backend, see the informati
 or the [Node.js Server SDK HOWTO](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). If you
 created your Mobile App backend in the Azure Portal using the QuickStart, you can also use the **Easy tables** setting in the [Azure portal].
 
+###<a name="symbolsource"></a>How to: Work with debug symbols in Visual Studio
+
+The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSource].  Refer to the [SymbolSource instructions]
+to integrate SymbolSource with Visual Studio.
+
 ##<a name="create-client"></a>Create the Mobile App client
 
 The following code creates the [MobileServiceClient] object that is used to access your Mobile App backend.
@@ -534,7 +539,7 @@ authentication token after successful sign-on with the identity provider. The [L
 of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more
 information, see [Caching the authentication token](#caching).
 
-###Client flow
+###<a name="client-flow"></a>Client flow
 
 Your app can also independently contact the identity provider and then provide the returned token to App Service for authentication. This client flow enables you
 to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
@@ -996,4 +1001,6 @@ the following example:
 [OData v3 Documentation]: http://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
+[SymbolSource]: http://www.symbolsource.org/
+[SymbolSource instructions]: http://www.symbolsource.org/Public/Wiki/Using
 
