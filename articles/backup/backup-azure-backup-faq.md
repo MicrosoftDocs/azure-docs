@@ -215,16 +215,16 @@ A4. The key used to encrypt the backup data is present only on the customer prem
 
 1. Stop the Backup engine by executing the following command in an elevated command prompt:
 
-  ```PS C:\> Net stop obengine```
+```PS C:\> Net stop obengine```
 
 2. Copy the cache space folder to a different drive with sufficient space. You should copy the files from the cache space folder instead of moving them. The original cache space can be removed after confirming the backups are working with the new cache space.
 
 3. Update the following registry entries with the path to the new cache space folder.
 
 |Registry path | Registry Key | Value |
-    | ------ | ------- | ------|
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *New cache folder location* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *New cache folder location* |
+| ------ | ------- | ------|
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *New cache folder location* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *New cache folder location* |
 
 4. Re-start the Backup engine by executing the following command in an elevated command prompt:
 
