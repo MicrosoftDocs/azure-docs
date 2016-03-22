@@ -112,6 +112,8 @@ Selecting any metric will disable the others that can't appear on the same chart
 
 Some of the metrics you can choose from are [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows provides a wide variety of them, and you can also define your own.
 
+(For applications hosted on Azure, [send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md).)
+
 This example shows performance counters that are available by default. We have [added a separate chart](app-insights-metrics-explorer.md#editing-charts-and-grids) for each counter, and named the chart by [saving it as a favorite](app-insights-metrics-explorer.md#editing-charts-and-grids):
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
