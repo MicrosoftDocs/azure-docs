@@ -16,7 +16,44 @@
    ms.date="02/29/2016"
    ms.author="sumukhs"/>
 
-# Configuring stateful Reliable Services
+# Configuring Stateful Reliable Services
+
+There are two sets of configuration settings for reliable services. One set is global for all reliable services in the cluster while the other set is specific to a particular reliable service.
+
+# Global Specific Configuration
+
+The global reliable service configuration is specified in the cluster manifest for the cluster under the KtlLogger section. It allows configuration of the shared log location and size plus the global memory limits used by the logger. The cluster manifest is a single XML file that holds settings and configurations that apply to all nodes and services in the cluster. The file is typically called ClusterManifest.xml. You can see the cluster manifest for your cluster using the Get-ServiceFabricClusterManifest powershell command.
+
+### Configuration names
+
+|Name|Unit|Default value|Remarks|
+|----|----|-------------|-------|
+|WriteBufferMemoryPoolMinimumInKB|Kilobytes|8388608|Minimum number of KB to allocate in kernel mode for the logger write buffer memory pool. This memory pool is used for caching state information before writing to disk.|
+|WriteBufferMemoryPoolMaximumInKB|Kilobytes|No Limit|Maximum size to which the logger write buffer memory pool can grow.|
+|SharedLogId|GUID|""|Specifies a unique GUID to use for identifying the default shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogId in their service specific configuration. If SharedLogId is specified, then SharedLogPath must also be specified.|
+|SharedLogPath|Fully qualified path name|""|Specifies the fully qualified path where the shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogPath in their service specific configuration. However, if SharedLogPath is specified, then SharedLogId must also be specified.|
+|SharedLogSizeInMB|Megabytes|8192|Specifies the number of MB of disk space to statically allocate for the shared log. The value must be 2048 or larger.|
+
+## Sample cluster manifest section
+```xml
+   <Section Name="KtlLogger">
+     <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
+     <Parameter Name="WriteBufferMemoryPoolMaximumInKB" Value="8192" />
+     <Parameter Name="SharedLogId" Value="{7668BB54-FE9C-48ed-81AC-FF89E60ED2EF}"/>
+     <Parameter Name="SharedLogPath" Value="f:\SharedLog.Log"/>
+     <Parameter Name="SharedLogSizeInMB" Value="16383"/>
+   </Section>
+```
+
+## Remarks
+The logger write buffer memory pool is a pool of non paged kernel memory that is available to all reliable services on a node and is where state data is cached before being written to the dedicated log associated with the reliable service replica. WriteBufferMemoryPoolMinimumInKB specifies both the initial size of this memory pool and the lowest size to which the memory pool may shrink. WriteBufferMemoryPoolMaximumInKB is the highest size to which the memory pool may grow. Each reliable service replica that is opened may increase the size of the memory pool by a system determined amount up to WriteBufferMemoryPoolMaximumInKB. If there is more demand for memory from the memory pool than is available, requests for memory will be delayed until memory is available. Therefore if the write buffer memory pool is too small for a particular configuration then performance may suffer.
+
+The SharedLogId and SharedLogPath settings are always used together to define the GUID and location for the default shared log for all nodes in the cluster. The default shared log is used for all reliable services that do not specify the settings in the settings.xml for the specific service. For best performance, shared log files should be placed on disks that are used solely for the shared log file to reduce contention.
+
+SharedLogSizeInMB specifies the amount of disk space to preallocate for the default shared log on all nodes.  SharedLogId and SharedLogPath do not need to be specified in order for SharedLogSizeInMB to be specified.
+
+
+# Service Specific Configuration
 You can modify stateful Reliable Services' default configurations by using the configuration package (Config) or the service implementation (code).
 
 + **Config** - Configuration via the config package is accomplished by changing the Settings.xml file that is generated in the Microsoft Visual Studio package root under the Config folder for each service in the application.
@@ -56,9 +93,7 @@ ReplicatorConfig
 |MaxSecondaryReplicationQueueSize|Number of operations|16384|Maximum number of operations in the secondary queue. An operation is freed up after making its state highly available through persistence. This value must be greater than 64 and a power of 2.|
 |CheckpointThresholdInMB|MB|50|Amount of log file space after which the state is checkpointed.|
 |MaxRecordSizeInKB|KB|1024|Largest record size that the replicator may write in the log. This value must be a multiple of 4 and greater than 16.|
-|OptimizeLogForLowerDiskUsage|Boolean|true|When true, the log is configured so that the replica's dedicated log file is created by using an NTFS sparse file. This lowers the actual disk space usage for the file. When false, the file is created with fixed allocations, which provide the best write performance.|
-|MaxRecordSizeInKB|KB|1024|Largest record size that the replicator may write in the log. This value must be a multiple of 4 and greater than 16.|
-|SharedLogId|guid|""|Specifies a unique guid to use for identifying the shared log file used with this replica. Typically, services should not use this setting. However, if SharedLogId is specified, then SharedLogPath must also be specified.|
+|SharedLogId|GUID|""|Specifies a unique GUID to use for identifying the shared log file used with this replica. Typically, services should not use this setting. However, if SharedLogId is specified, then SharedLogPath must also be specified.|
 |SharedLogPath|Fully qualified path name|""|Specifies the fully qualified path where the shared log file for this replica will be created. Typically, services should not use this setting. However, if SharedLogPath is specified, then SharedLogId must also be specified.|
 
 
@@ -103,8 +138,6 @@ BatchAcknowledgementInterval controls replication latency. A value of '0' result
 The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency. This directly translates to the latency of transaction commits.
 
 The value for CheckpointThresholdInMB controls the amount of disk space that the replicator can use to store state information in the replica's dedicated log file. Increasing this to a higher value than the default could result in faster reconfiguration times when a new replica is added to the set. This is due to the partial state transfer that takes place due to the availability of more history of operations in the log. This can potentially increase the recovery time of a replica after a crash.
-
-If you set OptimizeForLowerDiskUsage to true, log file space will be over-provisioned so that active replicas can store more state information in their log files, while inactive replicas will use less disk space. This makes it possible to host more replicas on a node. If you set OptimizeForLowerDiskUsage to false, the state information is written to the log files more quickly.
 
 The MaxRecordSizeInKB setting defines the maximum size of a record that can be written by the replicator into the log file. In most cases, the default 1024-KB record size is optimal. However, if the service is causing larger data items to be part of the state information, then this value might need to be increased. There is little benefit in making MaxRecordSizeInKB smaller than 1024, as smaller records use only the space needed for the smaller record. We expect that this value would need to be changed in only rare cases.
 
