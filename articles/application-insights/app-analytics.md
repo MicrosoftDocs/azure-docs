@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Application Analytics - the powerful search tool for Application Insights" 
-	description="Overview of Application Analytics, 
-	             the powerful search tool for Application Insights. " 
+	pageTitle="Analytics - the powerful search tool of Application Insights" 
+	description="Overview of Analytics, 
+	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Application Insights Analytics: Language Overview
+# Analytics search in Application Insights
 
 
-[Application Insights Analytics](app-analytics.md) is a powerful query engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights query language, AIQL.
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage, AIQL.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
