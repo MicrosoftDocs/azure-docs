@@ -61,7 +61,6 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 * [Optimize Hive queries for Hadoop](hdinsight-hadoop-optimize-hive-query–v1.md)
 * [Run Pig jobs using the .NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md )
 * [Use C# user-defined functions with Hive and Pig streaming](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Develop C# Hadoop streaming programs](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 ## HBase: NoSQL database
 
