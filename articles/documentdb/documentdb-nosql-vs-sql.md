@@ -65,7 +65,7 @@ You can then build on this solution using other Azure services:
 
 ![Relational data model for social media app](./media/documentdb-nosql-vs-sql/nosql-vs-sql-solution.png)
 
-This social media app is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](documentdb-social-media-app.md). 
+This social media app is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](documentdb-social-media-apps.md). 
 
 ## NoSQL vs SQL comparison
 
