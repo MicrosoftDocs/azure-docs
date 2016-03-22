@@ -29,15 +29,15 @@ The goal of this article is to help you learn about the differences between NoSQ
 
 ## When to use NoSQL?
 
-Let's imagine you're building a new social media app. Users can create articles and add add pictures, videos and music to them. Other users can comment on the posts and give points to rate the articles. The landing page will have a feed of posts that users can share and interact with. There will be a feed of posts that users will see and be able to interact with on our main website landing. 
+Let's imagine you're building a new social media app. Users can create posts and add pictures, videos and music to them. Other users can comment on the posts and give points (likes) to rate the posts. The landing page will have a feed of posts that users can share and interact with. 
 
 So how do you store this data? If you're familiar with SQL, you might start drawing something like this:
 
 ![Relational data model for social media app](./media/documentdb-nosql-vs-sql/nosql-vs-sql-social.png)
 
-So far, so good, but now think about the structure of a single post. If you want to show that post in a website or application, you'd have to do a query with eight table joins just to show a single post. Now imagine a stream of posts that dynamically load and appear on the screen and you can easily predict that it's going to require thousands of queries and many joins to complete the task.
+So far, so good, but now think about the structure of a single post and how to display it. If you want to show the post and the associated images, audio, video, comments, points, and user info on a website or application, you'd have to perform a query with eight table joins just to retrieve the content. Now imagine a stream of posts that dynamically load and appear on the screen and you can easily predict that it's going to require thousands of queries and many joins to complete the task.
 
-Now you could use a relational solution like SQL Server or SQL Data Warehouse to store the data - but there's another option, a NoSQL option that simplifies the approach. By transforming the post into a JSON document like the following and storing it in DocumentDB, an Azure NoSQL service, you can retrieve the whole post with one query and no joins. It's a simpler and more straightforward result.
+Now you could use a relational solution like SQL Server or SQL Data Warehouse to store the data - but there's another option, a NoSQL option that simplifies the approach. By transforming the post into a JSON document like the following and storing it in DocumentDB, an Azure NoSQL document database service, you can retrieve the whole post with one query and no joins. It's a simpler and more straightforward result.
 
     {
         "id":"ew12-res2-234e-544f",
@@ -56,12 +56,7 @@ Now you could use a relational solution like SQL Server or SQL Data Warehouse to
         ]
     }
 
-You could then build on this solution using: 
-
-- An intelligent search solution like Azure Search
-- The flexibility of Azure App Services to host the application and the background processes
-- Expandable storage solutions such as Azure Storage and Azure SQL Database for storing massive amounts of data
-- The analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to our processes and help us deliver the right content to the right users.
+You could then build on this solution using other Azure services such as Azure Search, Azure App Services to host applications and background processes, Azure Storage and Azure SQL database for storing massive amounts of data, and Azure Machine Learning to create knowledge and intelligence that can provide feedback to to the process and help us deliver the right content to the right users.
 
 ![Relational data model for social media app](./media/documentdb-nosql-vs-sql/nosql-vs-sql-solution.png)
 
