@@ -164,7 +164,7 @@ When you create a new ExpressRoute circuit, the circuit will be in the following
 
 	CircuitProvisioningState         : Enabled
 
-*ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side, and Status provides the state on the Microsoft side. For you to be able to use an ExpressRoute circuit, it must be in the following state:
+"ServiceProviderProvisioningState" provides information on the current state of provisioning on the service provider side, and Status provides the state on the Microsoft side. For you to be able to use an ExpressRoute circuit, it must be in the following state:
 
 	ServiceProviderProvisioningState : Provisioned
 
@@ -179,7 +179,7 @@ The circuit will change to the following state when the connectivity provider is
 
 ### Step 6.  Periodically check the status and the state of the circuit key.
 
-Checking the status and the state of the circuit key informs you when your provider has enabled your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* appears as *Provisioned*, as shown in the following example:
+Checking the status and the state of the circuit key informs you when your provider has enabled your circuit. After the circuit has been configured, "ServiceProviderProvisioningState" appears as "Provisioned", as shown in the following example:
 
 
 	Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -220,7 +220,7 @@ Next, link a virtual network to your ExpressRoute circuit. You can use the [Link
 
 ## To get the status of an ExpressRoute circuit
 
-You can retrieve this information at any time by using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call with no parameters will list all circuits.
+You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters will list all circuits.
 
 	Get-AzureRmExpressRouteCircuit
 
