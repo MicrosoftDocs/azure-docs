@@ -34,7 +34,7 @@ If the application persistently fails to connect to SQL Azure Database, it usual
 
 ## Steps to resolve persistent connectivity issues
 1.	Set up [firewall rules](sql-database-configure-firewall-settings.md) to allow the client IP address.
-2.	On all firewalls between the client and the Internet, make sure that port 1433 is open for outbound connections. Review [Configure the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/en-us/library/cc646023.aspx) for additional pointers.
+2.	On all firewalls between the client and the Internet, make sure that port 1433 is open for outbound connections. Review [Configure the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx) for additional pointers.
 3.	Verify your connection string and other connection settings. See the Connection String section in the [connectivity issues topic](sql-database-connectivity-issues.md).
 4.	Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
 5.	If connectivity problems continue, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
