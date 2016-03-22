@@ -17,7 +17,7 @@
 	ms.date="03/21/2016"
 	ms.author="mimig"/>
 
-# NoSQL vs SQL Comparison
+# NoSQL vs SQL
 
 SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data have gained in popularity. 
 
@@ -65,17 +65,11 @@ You could then build on this solution using:
 
 ![Relational data model for social media app](./media/documentdb-nosql-vs-sql/nosql-vs-sql-solution.png)
 
-This social media app is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media pplications, see [Going social with DocumentDB](documentdb-social-media-app.md). 
+This social media app is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](documentdb-social-media-app.md). 
 
-Other scenarios where NoSQL may be better suited for the data model than SQL include the following:
+## NoSQL vs SQL comparison
 
-- Massive amounts of device information that contain only a key and an attribute per device could be stored in Azure Table Storage.
-- Sensor data collected incrementally from various sources and used provide metrics and insights about the health of server system could be stored in HBase as a part of HDInsight.
-- A list of the most popular movies and times could be populated from Redis Cache because the commonly requested movie times can be cached and don't need to be continually retrieved from the database.
-
-## NoSQL vs SQL 
-
-The following table compares some differences between NoSQL and SQL. 
+The following table compares the main differences between NoSQL and SQL. 
 
 ![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
 
