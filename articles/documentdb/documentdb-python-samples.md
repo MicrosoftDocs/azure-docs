@@ -3,7 +3,7 @@
 	description="Find NoSQL Python examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases." 
 	keywords="python examples"
 	services="documentdb" 
-	authors="ryancraw" 
+	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter="python"/>
