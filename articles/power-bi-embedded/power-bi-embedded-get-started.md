@@ -48,27 +48,27 @@ Let’s walk through the steps to build a Workspace Collection using the Azure P
 
   **Workspace Collection Name**
 
-  - Name that you wish to use to refer to your Workspace Collection.
+    - Name that you wish to use to refer to your Workspace Collection.
 
-    - Must be globally unique
+      - Must be globally unique
 
-    - Names of workspace collections can be publicly visible and should not contain private information.
+      - Names of workspace collections can be publicly visible and should not contain private information.
 
-  ** Subscription**
+  **Subscription**
 
-    - The Azure subscription this Workspace Collection will be associated with.
+  - The Azure subscription this Workspace Collection will be associated with.
 
-  ** Resource Group**
+  **Resource Group**
 
-    - The Azure resource group this Workspace Collection will be associated with. Choose an existing resource group or create a new one.
+  - The Azure resource group this Workspace Collection will be associated with. Choose an existing resource group or create a new one.
 
-  ** Location**
+  **Location**
 
-    - The physical datacenter location as the where this Workspace Collection and all of its content will be stored.
+  - The physical datacenter location as the where this Workspace Collection and all of its content will be stored.
 
   **Pricing**
 
-    - See [Power BI Embedded pricing] TODO
+  - See [Power BI Embedded pricing] TODO
 
 5.Click **create**.
 
