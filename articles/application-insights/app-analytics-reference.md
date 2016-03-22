@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Reference material for Application Insights - Analytics" 
+	pageTitle="Reference material for Analytics in Application Insights" 
 	description="Regular expressions in Analytics, 
-	             the powerful search tool for Application Insights." 
+	             the powerful search tool of Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -16,11 +16,11 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-# Application Insights - Analytics: Reference material
+# Application Insights: Analytics reference material
 
-[Application Insights - Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the Analytics query lanuage, AIQL.
-
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage, AIQL.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]

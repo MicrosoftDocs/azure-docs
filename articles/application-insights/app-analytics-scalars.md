@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Scalar expressions in Application Insights - Analytics" 
-	description="Numbers, strings, dynamic expressions and types in Application Insights - Analytics, 
-	             the powerful search tool for Application Insights." 
+	pageTitle="Scalar expressions in Analytics in Application Insights" 
+	description="Numbers, strings, dynamic expressions and types in Analytics, 
+	             the powerful search tool of Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -18,12 +18,12 @@
 
 
  
-# Scalar expressions in Application Insights - Analytics
+# Scalar expressions in Analytics
 
 
-[Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights - Analytics query lanuage, AIQL.
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage, AIQL.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 

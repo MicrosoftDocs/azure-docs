@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Statements in Application Insights - Analytics" 
+	pageTitle="Statements in Analytics Application Insights" 
 	description="Queries, expressions, and let statements in Analytics, 
-	             the powerful search tool for Application Insights." 
+	             the powerful search tool of Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -18,11 +18,11 @@
 
 
  
-# Statements in Application Insights - Analytics
+# Analytcis statements in Application Insights
 
-[Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the Analytics query lanuage, AIQL.
-
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage, AIQL.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 

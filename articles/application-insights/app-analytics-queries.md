@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Operators and queries in Application Insights - Analytics" 
-	description="Reference for the operators used to make queries in Application Insights - Analytics, 
-	             the powerful search tool for Application Insights." 
+	pageTitle="Operators and queries in Analytics in Application Insights" 
+	description="Reference for the operators used to make queries in Analytics, 
+	             the powerful search tool of Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -18,12 +18,12 @@
 
 
 
-# Query syntax in Application Insights - Analytics
+# Query syntax in Analytics
 
 
-[Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights - Analytics query lanquage, AIQL.
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage, AIQL.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]

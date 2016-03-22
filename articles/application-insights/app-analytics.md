@@ -19,12 +19,12 @@
 
 
 
-# Application Insights - Analytics: Language Overview
+# Analytics in Application Insights: Search language Overview
 
 
-*Analytics* is a powerful query engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights query language, AIQL.
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage, AIQL.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
