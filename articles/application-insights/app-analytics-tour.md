@@ -21,7 +21,7 @@
 # A tour through Application Insights - Analytics
 
 
-Application Insights - Analytics is a powerful diagnostic search engine for your [Application Insights](app-insights-overview.md) telemetry.
+*Analytics* is a powerful diagnostic search engine for your [Application Insights](app-insights-overview.md) telemetry.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]

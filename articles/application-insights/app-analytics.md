@@ -22,7 +22,7 @@
 # Application Insights - Analytics: Language Overview
 
 
-[Application Insights - Analytics](app-analytics.md) is a powerful query engine for your 
+*Analytics* is a powerful query engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
 Application Insights query language, AIQL.
 

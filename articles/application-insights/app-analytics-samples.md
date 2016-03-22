@@ -19,7 +19,7 @@
 
 # Samples for Application Insights - Analytics
 
-[Application Insights - Analytics](app-analytics.md) is a powerful search engine for your 
+[Analytics](app-analytics.md) is a powerful search engine for your 
 [Application Insights](app-insights-overview.md) telemetry. These pages describe the
 Application Insights - Analytics query language, AIQL. There's also 
 a [tour of the language](app-analytics-tour.md), which is recommended for getting started.
