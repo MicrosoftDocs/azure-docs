@@ -99,7 +99,7 @@ Some backup options for Azure IaaS include:
 
 -   [Azure IaaS workload protection using Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Back up Azure virtual machines](../backup/backup-azure-vms.md)
+-   [Back up Azure virtual machines](./backup/backup-azure-vms.md)
 
 ### Monitoring
 
