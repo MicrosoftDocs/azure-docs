@@ -106,8 +106,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Ultipro application using the following pattern: **“https://</CompanyName/>.ultipro.com/”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Ultipro application using the following pattern: **“https://\<company name\>.ultipro.com/”**.
 
+    b. Click **Next**.
 
 4. On the **Configure single sign-on at Ultipro** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_05.png) <br>
@@ -117,7 +118,15 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Ultipro support team and email the attach downloaded certificate file. Also please do provide the Issuer URL, SAML SSO URL and Single Sign Out Service URL so that they can be configured for SSO integration.
+5. To get SSO configured for your application, contact your Ultipro support team via [ultiproinfo@ultimatesoftware.com](mailto:ultiproinfo@ultimatesoftware.com) and provide them with the following:
+
+    a. The downloaded certificate file
+
+    b. The **Issuer URL**
+
+    c. The **SAML SSO URL** 
+
+    d. The **Single Sign Out Service URL**
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
