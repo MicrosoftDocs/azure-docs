@@ -56,7 +56,7 @@ An Azure Multi-Factor Auth Provider is used to take advantage of features provid
 	2. Directory – The Azure Active Directory tenant that the Multi-Factor Authentication Provider is associated with. Please be aware of the following:
 		- You do not need an Azure AD directory to create a Multi-Factor Auth Provider.  This can be left blank if you are planning to use the Azure Multi-Factor Authentication Server or SDK only.
 		- You need to associate the Multi-Factor Auth Provider with an Azure AD directory to take advantage of advanced features.
-		- Azure AD Connect, AAD Sync, or DirSync are only a requirement if you are synchronizing your on-premises Active Directory environment with an Azure AD directory.  If you only use an Azure AD directory that is not synchronized then tis is not required.
+		- Azure AD Connect, AAD Sync, or DirSync are only a requirement if you are synchronizing your on-premises Active Directory environment with an Azure AD directory.  If you only use an Azure AD directory that is not synchronized, then synchronization is not required.
 		
 
 
