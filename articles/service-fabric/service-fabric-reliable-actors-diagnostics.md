@@ -3,9 +3,9 @@
    description="This article describes the diagnostics and performance monitoring features in the Service Fabric Reliable Actors runtime, including the events and performance counters emitted by it."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="abhishekram"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="03/25/2016"
    ms.author="abhisram"/>
 
 # Diagnostics and performance monitoring for Reliable Actors
@@ -31,7 +31,7 @@ All events that belong to the Reliable Actors EventSource are associated with on
 |---|---|
 |0x1|Set of important events that summarize the operation of the Fabric Actors runtime.|
 |0x2|Set of events that describe actor method calls. For more information, see the [introductory topic on actors](service-fabric-reliable-actors-introduction.md#actors).|
-|0x4|Set of events related to actor state. For more information, see the topic on [stateful actors](service-fabric-reliable-actors-introduction.md#stateful-actors).|
+|0x4|Set of events related to actor state. For more information, see the topic on [actor state management](service-fabric-reliable-actors-state-management.md).|
 |0x8|Set of events related to turn-based concurrency in the actor. For more information, see the topic on [concurrency](service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Performance counters

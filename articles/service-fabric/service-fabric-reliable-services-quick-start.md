@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="vturecek"
    manager="timlt"
-   editor="jessebenson"/>
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/15/2015"
+   ms.date="03/25/2015"
    ms.author="vturecek"/>
 
 # Get started with Service Fabric Reliable Services
@@ -44,7 +44,7 @@ Open the **HelloWorldStateless.cs** file in the service project. In Service Fabr
 
  - An open-ended entry point method, called *RunAsync*, where you can begin executing any workloads. These can include long-running compute workloads.
 
-```C#
+```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
     ...
@@ -53,7 +53,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
  - A communication entry point where you can plug in your communication stack of choice, such as ASP.NET Web API. This is where you can start receiving requests from users and other services.
 
-```C#
+```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
@@ -68,21 +68,21 @@ The project template includes a sample implementation of `RunAsync()` that incre
 
 ### RunAsync
 
-```C#
-protected override async Task RunAsync(CancellationToken cancelServiceInstance)
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic.
+    // TODO: Replace the following sample code with your own logic 
+    //       or remove this RunAsync override if it's not needed in your service.
 
-    int iterations = 0;
-    // This service instance continues processing until the instance is terminated.
-    while (!cancelServiceInstance.IsCancellationRequested)
+    long iterations = 0;
+
+    while (true)
     {
+        cancellationToken.ThrowIfCancellationRequested();
 
-        // Log what the service is doing
-        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", iterations++);
+        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
 
-        // Pause for 1 second before continue processing.
-        await Task.Delay(TimeSpan.FromSeconds(1), cancelServiceInstance);
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
 }
 ```
@@ -106,7 +106,7 @@ Service Fabric introduces a new kind of service that is stateful. A stateful ser
 
 To convert a counter value from stateless to highly available and persistent, even when the service moves or restarts, you need a stateful service.
 
-In the same *HelloWorld* application, you can add a new service by right-clicking on the application project and selecting **Add Fabric Service**.
+In the same *HelloWorld* application, you can add a new service by right-clicking on the Services references in the application project and selecting **Add ->  New Service Fabric Service**.
 
 ![Add a service to your Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
@@ -118,43 +118,34 @@ Your application should now have two services: the stateless service *HelloWorld
 
 Open **HelloWorldStateful.cs** in *HelloWorldStateful*, which contains the following RunAsync method:
 
-```C#
-protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic.
+    // TODO: Replace the following sample code with your own logic 
+    //       or remove this RunAsync override if it's not needed in your service.
 
-    // Gets (or creates) a replicated dictionary called "myDictionary" in this partition.
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-    // This partition's replica continues processing until the replica is terminated.
-    while (!cancelServicePartitionReplica.IsCancellationRequested)
+    while (true)
     {
+        cancellationToken.ThrowIfCancellationRequested();
 
-        // Create a transaction to perform operations on data within this partition's replica.
         using (var tx = this.StateManager.CreateTransaction())
         {
+            var result = await myDictionary.TryGetValueAsync(tx, "Counter");
 
-            // Try to read a value from the dictionary whose key is "Counter-1".
-            var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-
-            // Log whether the value existed or not.
             ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
-            // If the "Counter-1" key doesn't exist, set its value to 0
-            // else add 1 to its current value.
-            await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
+            await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
 
-            // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
-            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
-            // discarded, and nothing is sent to this partition's secondary replicas.
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // discarded, and nothing is saved to the secondary replicas.
             await tx.CommitAsync();
         }
 
-        // Pause for one second before continuing processing.
-        await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
-}
 ```
 
 ### RunAsync
@@ -163,7 +154,7 @@ A stateful service has the same entry points as a stateless service. The main di
 
 ### Reliable Collections and the state manager
 
-```C#
+```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
@@ -192,9 +183,9 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, including LINQ. However, operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections are *replicated*. For high availability, these operations are sent to other replicas of the service on different nodes.
+Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, except LINQ. However, operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections are *replicated* and persisted to disk. For high availability, these operations are sent to other replicas of the service on different nodes.
 
-They also support *transactional* operations, so that you can keep state consistent among multiple Reliable Collections. For example, you may dequeue a work item from a reliable queue, perform an operation on it, and save the result in a reliable dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or none of it will. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
+Reliable Collection operations are *transactional*, so that you can keep state consistent across multiple Reliable Collections and operations. For example, you may dequeue a work item from a reliable queue, perform an operation on it, and save the result in a reliable dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or none of it will. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
 ## Run the application
 
