@@ -143,6 +143,12 @@ For additional discussion of resource governance and associated errors, see:
 
 ## Elastic pool errors
 
+Related topics:
+
+* [Create an elastic database pool (C#)](sql-database-elastic-pool-create-csharp.md) 
+* [Manage an elastic database pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
+* [Create an elastic database pool (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
+* [Monitor and manage an elastic database pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 | :-- | :-- | :-- | :-- | :-- | :-- |
