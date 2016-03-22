@@ -132,14 +132,14 @@ context.bindings.myOutput = {
 ```
 The `context.bindings` object collects all your input and output data. The data is added onto the `context.bindings` object via the `name` property of the binding. For instance, given the binding below, we could access the contents of the queue via `context.bindings.myInput`. 
 
-<code>
+```json
     {
         "type":"queue",
         "direction":"in",
         "name":"myInput"
         ...
     }
-</code>
+```
 
 ### `context.done([err],[propertyBag])`
 
@@ -148,9 +148,9 @@ The `context.bindings` object collects all your input and output data. The data 
 //  -> text: hello world, number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };
 // If we pass an object to the done function...
-context.done(null, { myOutput: { text: 'foobar', noNumber: true }});
+context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 // the done method will overwrite the myOutput binding to be: 
-//  -> text: foobar, noNumber: true
+//  -> text: hello there, world, noNumber: true
 ```
 
 
