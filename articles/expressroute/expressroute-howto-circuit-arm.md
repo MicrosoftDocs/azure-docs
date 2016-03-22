@@ -37,7 +37,7 @@ To create an ExpressRoute circuit, you need to:
 
 ### Step 1. Sign in to your Azure account and select your subscription
 
-To begin your configuration, login to your Azure account. For more information about PowerShell, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md). Use the following examples to help you connect:
+To begin your configuration, sign in to your Azure account. For more information about PowerShell, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md). Use the following examples to help you connect:
 
 	Login-AzureRmAccount
 
@@ -51,7 +51,7 @@ Select the subscription that you want to create an ExpressRoute circuit:
 
 ### Step 2. Get the list of supported providers, locations, and bandwidths.
 
-Before creating an ExpressRoute circuit, you need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell *Get-AzureRmExpressRouteServiceProvider* cmdlet returns this information, which you’ll use in later steps.
+Before creating an ExpressRoute circuit, you need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` returns this information, which you’ll use in later steps.
 
 	Get-AzureRmExpressRouteServiceProvider
 
@@ -77,8 +77,8 @@ The following example shows how to create a 200-Mbps ExpressRoute circuit throug
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-- SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify *standard* to get the standard SKU or *premium* for the premium add-on.
-- SKU family determines the billing type. You can select *metereddata* for a metered data plan and *unlimiteddata* for an unlimited data plan. **Note:** After you've created a circuit, you will not be able to change the billing type.
+- SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify "Standard" to get the standard SKU or "Premium" for the premium add-on.
+- SKU family determines the billing type. You can specify "Metereddata" for a metered data plan and "Unlimiteddata" for an unlimited data plan. **Note:** After you've created a circuit, you will not be able to change the billing type.
 
 The response contains the service key. You can get detailed descriptions of all parameters by running the following:
 
@@ -88,7 +88,7 @@ The response contains the service key. You can get detailed descriptions of all 
 
 ### Step 4.  List all ExpressRoute circuits.
 
-To get a list of all ExpressRoute circuits you created, run the *Get-AzureRmExpressRouteCircuit* command:
+To get a list of all ExpressRoute circuits you created, run the `Get-AzureRmExpressRouteCircuit` command:
 
 
 	Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -118,7 +118,7 @@ The response will look similar to the following example:
 	ServiceKey                        : **************************************
 	Peerings                          : []
 	
-You can retrieve this information at any time by using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call with no parameters will list all circuits. Your service key will be listed in the *ServiceKey* field.
+You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters will list all circuits. Your service key will be listed in the "ServiceKey" field.
 	
 
 	Get-AzureRmExpressRouteCircuit
@@ -292,7 +292,7 @@ You can get detailed descriptions of all parameters by running the following:
 
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
 
-You can do the following, with no downtime:
+You can do the following with no downtime:
 
 - Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
 - Increase the bandwidth of your ExpressRoute circuit.
@@ -331,7 +331,7 @@ The premium add-on is now disabled for the circuit.
 Note that this operation can fail if you are using resources greater than what is permitted for the standard circuit.
 
 - Before you downgrade from premium to standard, you must ensure that the number of virtual networks linked to the circuit is less than 10. If you don't do so, your update request fails and Microsoft will bill you at premium rates.
-- You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and Microsoft will bill you at premium rates.
+- You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail, and Microsoft will bill you at premium rates.
 - Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops and won't be reenabled until the number of advertised prefixes goes below 4,000.
 
 ### To update the ExpressRoute circuit bandwidth
@@ -359,9 +359,9 @@ You can delete your ExpressRoute circuit by running the following command:
 
 Note that for this operation to succeed, you must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
 
-If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to *disabling* from an enabled state. You must work with your service provider to deprovision the circuit on their side. Microsoft will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to "disabling" from an enabled state. You must work with your service provider to deprovision the circuit on their side. Microsoft will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the above cmdlet, Microsoft will deprovision the circuit and stop billing you.
+If the service provider has deprovisioned the circuit (the service provider provisioning state is set to "not provisioned") before you run the above cmdlet, Microsoft will deprovision the circuit and stop billing you.
 
 ## Next steps
 
