@@ -118,7 +118,7 @@ Perform the following steps to disable the network interface with the gateway an
 
 [AZURE.INCLUDE [storsimple-install-update-option2](../../includes/storsimple-install-update-option2.md)]
 
-[AZURE.INCLUDE [storsimple-troubleshooting-update-failures](../../includes/storsimple-troubleshooting-update-failures.md)]
+[AZURE.INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
 
 ## Next steps

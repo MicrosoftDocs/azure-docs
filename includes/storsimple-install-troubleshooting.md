@@ -6,7 +6,7 @@
 
 If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page. This provides guidance as to which pre-check has failed. The following illustration shows an instance in which such a notification appears. In this case, the controller health check and hardware component health check have failed. Under the **Hardware Status** section, you can see that both **Controller 0** and **Controller 1** components need attention.
 
-  ![Pre-check failure](./media/storsimple-install-update-2/HCS_PreUpdateCheckFailed-include.png)
+  ![Pre-check failure](./media/storsimple-install-troubleshooting/HCS_PreUpdateCheckFailed-include.png)
 
 You will need to make sure that both controllers are healthy and online. You will also need to make sure that all the hardware components in the StorSimple device are shown to be healthy on the Maintenance page. You can then try to install updates. If you are not able to fix the hardware component issues, then you will need to contact Microsoft Support for next steps.
 

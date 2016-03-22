@@ -83,7 +83,7 @@ Perform the following steps to apply this update as a hotfix.
 
 [AZURE.INCLUDE [storsimple-install-update2-hotfix](../../includes/storsimple-install-update2-hotfix.md)]
 
-[AZURE.INCLUDE [storsimple-troubleshooting-update-failures](../../includes/storsimple-troubleshooting-update-failures.md)]
+[AZURE.INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
 
 
