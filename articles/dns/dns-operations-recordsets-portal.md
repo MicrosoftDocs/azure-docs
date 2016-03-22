@@ -28,7 +28,7 @@
 
 This guide will show how to create and manage record sets and records for your DNS zone using the Azure portal.
 
-It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
+It is important to understand the distinction between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
 
 ## To create a record set
 
@@ -60,17 +60,18 @@ When updating a record in an existing record set, the available fields you can u
 1. From the record set properties blade for your record set, search for the record.
 2. Modify the available settings.
 3. Click **Save** at the top of the blade to save your settings.
-3. In the corner, you will see that the record is saving and can view the results on the DNS zone blade.
+3. Once the record has been saved, the values for the record set on the DNS blade will reflect the updated record.
+
 
 
 ## To remove a record from a record set
 
-Records can be removed from a record set in the Azure portal. Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete) below for more information.
+You can use the Azure portal to remove records can be removed from a record set. Note that removing the last record from a record set does not delete the record set. See [Delete a record set](#delete) below for more information.
 
 1. From the record set properties blade for your record set, search for the record.
 2. Modify the available settings.
 3. Click **Save** at the top of the blade to save your settings.
-3. In the corner, you will see that the record is saving and can view the results on the DNS zone blade.
+3. Once the record has been removed, the values for the record set on the DNS blade will reflect the record was removed.
 
 
 
@@ -84,11 +85,12 @@ Records can be removed from a record set in the Azure portal. Removing the last 
 
 ## Working with  NS and SOA records
 
-### Modify SOA records
+NS and SOA records that are automatically created are managed differently from other record types.
+### Modifying SOA records
 
 You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’), but you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL. See [this article](dns-operations-recordsets.md) for more information about how to do this using PowerShell.
 
-### Modify NS records at zone apex
+### Modifying NS records at zone apex
 
 You cannot add to, remove or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’).  The only change permitted is to modify the record set TTL.  See [this article](dns-operations-recordsets.md) for more information about how to do this using PowerShell.
 
