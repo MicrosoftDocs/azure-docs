@@ -43,13 +43,7 @@ Records come in various types according to the data they contain. The most commo
 
 Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT. Note that SPF records should be created using the TXT record type. See [this page](http://tools.ietf.org/html/rfc7208#section-3.1) for more information.
 
-#### About Wildcard records
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record).  These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set).
-
-To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
-
-Wildcard record sets are supported for all record types except NS and SOA.  
 
 ### About record sets
 
@@ -64,12 +58,18 @@ To create a record set in the apex of the zone, use the record name "@", includi
 
 The Time-to-Live, or TTL, specifies how long each record is cached by clients before being re-queried. In the above example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
 
-#### About CNAME record sets
+#### Wildcard record sets
+
+Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record).  These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.  
+
+To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
+
+#### CNAME record sets
 
 CNAME record sets cannot co-exist with other record sets with the same name. For example, you cannot create a CNAME with the relative name "www" and an A record with the relative name "www" at the same time. Since the zone apex (name = ‘@’) always contains the NS and SOA record sets created when the zone is created, this means you cannot create a CNAME record set at the zone apex. These constraints arise from the DNS standards, they are not limitations of Azure DNS.
 
 
-## To create a records set and records
+## To create a record set and a record
 
 In the following example we will show how to create a record set and records.  We'll use the DNS 'A' record type, for other record types see [How to manage DNS records](dns-operations-recordsets.md)
 

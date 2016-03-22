@@ -94,16 +94,10 @@ The following example shows how to change the TTL property of the NS record set:
 
 In this example we add two additional MX records to the existing record set:
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
 
 ## Remove a record from an existing record set
 
-Records can be removed from a record set using Remove-AzureRmDnsRecordConfig.  Note that the record being removed must be an exact match with an existing record, across all parameters.  Changes must be committed using Set-AzureRmDnsRecordSet.
-
-Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete-a-record-set) below for more.
+Records can be removed from a record set in the Azure portal. Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete-a-record-set) below for more.
 
 
 	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
