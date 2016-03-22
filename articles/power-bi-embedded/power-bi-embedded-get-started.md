@@ -91,13 +91,9 @@ While two keys are listed, only one key is needed at a time. The second key is p
 
 ## Writing your first report
 
-Now that you have created an instance of Power BI for your application you will need to create some Power BI datasets and the reports that you wish to embed. These can be created by using the **Power BI Desktop** tool. To learn more about downloading the Power BI desktop for free, please see the following:
+Now that you have created an instance of Power BI for your application you will need to create some Power BI datasets and the reports that you wish to embed. These can be created by using the **Power BI Desktop** tool. To learn more about downloading the Power BI desktop for free, please see the following: [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-    https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/
-
-Once you have installed the **Power BI Desktop**, you can then create your first dataset and report following the instructions here:
-
-    https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/.
+Once you install **Power BI Desktop**, you can then create your first dataset and report following the instructions here: [Getting started with Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started).
 
 With Power BI Desktop, when you connect to your data source, it is always possible to import a copy of the data into the Power BI Desktop. For some data sources, an alternative approach is available: connect directly to the data source using **DirectQuery**.
 
