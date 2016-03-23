@@ -46,7 +46,7 @@ When you create an Active Directory application, it actually creates both the ap
 
 Currently, you must use the Azure classic portal to create a new Active Directory application. This ability will be added to the Azure portal in a later release. You can also perform these steps through Azure PowerShell or Azure CLI. For more information about using PowerShell or CLI with the service principal, see [Authenticate service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
-**To create an Azure Directory application*
+**To create an Azure Directory application**
 
 1.	Sign in to the [Azure classic portal]( https://manage.windowsazure.com/).
 2.	Select **Active Directory** from the left pane.
@@ -60,7 +60,7 @@ Currently, you must use the Azure classic portal to create a new Active Director
 
     ![new azure active directory application](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application.png)
 
-7.	Enter **Sign-on URL** and **App ID URI”. For **SIGN-ON URL**, provide the URI to a web-site that describes your application. The existence of the web-site is not validated. For APP ID URI, provide the URI that identifies your application. And then click **Complete**.
+7.	Enter **Sign-on URL** and **App ID URI**. For **SIGN-ON URL**, provide the URI to a web-site that describes your application. The existence of the web-site is not validated. For APP ID URI, provide the URI that identifies your application. And then click **Complete**.
 It takes a few moments to create the application.  Once the application is created, the portal shows you the Quick Glace page of the new application. Don’t close the portal. 
 
     ![new azure active directory application properties](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application-properties.png)
@@ -81,7 +81,9 @@ You must assign the application to a [role](../active-directory/role-based-acces
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	Click **Resource Group** from the left pane.
 3.	Click the resource group that contains the HDInsight cluster where you will run your Hive query later in this tutorial. If there are too many resource groups, you can use the filter.
-4.	Click **Access** (![cloud and thunderbolt icon = quickstart](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)) from the cluster blade.
+4.	Click **Access** from the cluster blade.
+
+    ![cloud and thunderbolt icon = quickstart](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)
 5.	Click **Add** from the **Users** blade.
 6.	Follow the instruction to add the **Owner** role to the AD application you created in the last procedure. When you complete it successfully, you shall see the application listed in the Users blade with the Owner role.
 
@@ -105,7 +107,7 @@ Create a C# .net console application following the instructions found in [Submit
         return new TokenCloudCredentials(accessToken);
     }
 
-To retrieve the tenant id through PowerShell:
+To retrieve the Tenant ID through PowerShell:
 
     Get-AzureRmSubscription
 
@@ -113,16 +115,7 @@ Or, Azure CLI:
 
     azure account show --json
 
-
-To convert a string to a System.Security.SecretString: 
-
-    System.Security.SecureString secretkey = new SecureString();
-    foreach (char c in "xLB5QJXXQ09hWqU5llFgAsN3e85UY6g5Z6OzsUpfKbQ=")
-        secretkey.AppendChar(c);
-
-    secretkey.MakeReadOnly();
-
-        
+      
 ## See also
 
 - [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
