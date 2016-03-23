@@ -149,6 +149,6 @@ The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sour
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started Configuring an Internet facing load balancer](load-balancer-internet-getstarted.md)
+[Get started Configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) 
