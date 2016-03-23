@@ -46,12 +46,14 @@ Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV
 
 ### About record sets
 
-Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the www.contoso.com web site is hosted on two different IP addresses. This requires two different A records, one for each IP address:
+Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the www.contoso.com web site is hosted on two different IP addresses. This requires two different A records, one for each IP address. This is an example of a record set. 
 
 	www.contoso.com.		3600	IN	A	134.170.185.46
 	www.contoso.com.		3600	IN	A	134.170.188.221
 
-This is an example of a record set. Azure DNS manages DNS records using record sets. A record set is the collection of DNS records in a zone with the same name and the same type.  Most record sets contain a single record, but examples like the one above in which a record set contains more than one record are not uncommon. Records sets of type SOA and CNAME are an exception; the DNS standards do not permit multiple records with the same name for these types.
+Azure DNS manages DNS records using record sets. A record set is the collection of DNS records in a zone with the same name and the same type. Most record sets contain a single record, but examples like the one above in which a record set contains more than one record are not uncommon. 
+
+Records sets of type SOA and CNAME are an exception; the DNS standards do not permit multiple records with the same name for these types.
 
 To create a record set in the apex of the zone, use the record name "@", including the quotation marks. This is a common DNS convention, especially for MX records.
 
@@ -70,7 +72,7 @@ CNAME record sets cannot co-exist with other record sets with the same name. For
 
 ## To create a record set and a record
 
-In the following example we will show how to create a record set and records.  We'll use the DNS 'A' record type, for other record types see [How to manage DNS records](dns-operations-recordsets.md)
+The following example will walk you through how to create a record set and records by using the Azure portal. We'll use the DNS 'A' record type. For other record types see [How to manage DNS records](dns-operations-recordsets.md)
 
 1. Log in to the Azure portal.
 2. Navigate to the DNS zone blade in which you want to create a record set.
