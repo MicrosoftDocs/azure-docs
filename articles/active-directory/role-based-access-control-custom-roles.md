@@ -18,7 +18,9 @@
 
 
 # Custom Roles in Azure RBAC
-Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using Azure PowerShell, Azure Command-Line Interface (CLI), and the REST API. Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scope.
+
+
+Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using Azure PowerShell, Azure Command-Line Interface (CLI), and the REST API. Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes.
 
 The following is an example of a custom role for monitoring and restarting virtual machines:
 
@@ -58,14 +60,14 @@ The **Actions** property of a custom role specifies the Azure operations to whic
 -	`Microsoft.Compute/virtualMachines/*` grants access to all operations of virtual machines and its child resource types.
 -	`Microsoft.Web/sites/restart/Action` grants access to restart websites.
 
-Use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operations show` (in Azure command-line interface) to list operations of Azure resource providers. You may also use these commands to verify that an operation string is valid, and to expand wildcard operation strings.
+Use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operations show` (in Azure CLI) to list operations of Azure resource providers. You may also use these commands to verify that an operation string is valid, and to expand wildcard operation strings.
 
-![PowerShell Get-AzureRMProviderOperation - screenshot](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![PowerShell screnshot - Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
-![Azure CLI azure provider operations show - screenshot](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
+![Azure CLI screenshot - azure provider operations show "Microsoft.Compute/virtualMachines/\*/action" ](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
 ## NotActions
-Use the **NotActions** property if the set of operations that you wish to allow is more easily defined by excluding restricted operations. The access granted by a custom role is computed by excluding the **NotActions** operations from the **Actions** operations.
+Use the **NotActions** property if the set of operations that you wish to allow is more easily defined by excluding restricted operations. The access granted by a custom role is computed by subtracting the **NotActions** operations from the **Actions** operations.
 
 > [AZURE.NOTE] If a user is assigned a role that excludes an operation in **NotActions**, and is assigned a second role that grants access to the same operation, the user will be allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
 

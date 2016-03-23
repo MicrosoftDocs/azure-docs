@@ -13,12 +13,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="03/22/2016"
+	ms.date="03/23/2016"
 	ms.author="kgremban"/>
 
 # Create an access change history report
 
-When you're not the sole owner of your Azure subscriptions, or the resources and resource groups within them, you need to be able to keep track of all access changes. Any time some grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes going back up to 90 days.
+When you're not the sole owner of your Azure subscriptions, or the resources and resource groups within them, you need to be able to keep track of all access changes. Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
+
 ## Create a report with Azure PowerShell
 To create an access change history report in PowerShell, use the following command:
 
@@ -27,6 +28,7 @@ Get-AzureRMAuthorizationChangeLog
 ```
 
 You can specify which property of the assignments you want listed, including the following:
+
 | Property | Description |
 |-|-|
 | **Action** | Whether access was granted or revoked |
@@ -43,6 +45,7 @@ You can specify which property of the assignments you want listed, including the
 | **SubscriptionName** | The name of the Azure subscription |
 
 This example command lists all access changes in the subscription for the past 7 days:
+
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
 ```
@@ -55,9 +58,7 @@ To create an access change history report in the Azure command line interface (C
 azure authorization changelog
 ```
 
-> [AZURE.NOTE] Access changes can be queried for the past 90 days (in 15 day batches).
-
-## Export to a Spreadsheet
+## Export to a spreadsheet
 To save the report, or manipulate the data, export the access changes into a .csv file. You can then view the report in a spreadsheet for review.
 
 ![Changelog viewed as spreadsheet - screenshot](./media/role-based-access-control-configure/change-history-spreadsheet.png)
