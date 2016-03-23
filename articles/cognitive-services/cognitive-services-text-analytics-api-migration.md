@@ -1,4 +1,22 @@
-# Upgrading to Version 2 of the Text Analytics API
+<properties
+	pageTitle="Upgrading to Version 2 of the Text Analytics API | Microsoft Azure"
+	description="Azure Machine Learning Text Analytics - Upgrade to Version 2"
+	services="cognitive-services"
+	documentationCenter=""
+	authors="onewth"
+	manager="paulettm"
+	editor="cgronlun"/>
+
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/30/2016"
+	ms.author="onewth"/>
+
+# Upgrading to Version 2 of the Text Analytics API #
 
 This guide will take you through the process of upgrading your code from using the [first version of the API](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-apps-text-analytics/) to using the second version. 
 
@@ -40,7 +58,7 @@ Update the submitted header values as shown below. Note that the account key is 
 
 **Version 2**
 
-    https://oxfordibiza.azure-api.net/text/analytics/v2.0/
+    https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/
 
 ### Part 4a. Update the formats for sentiment, key phrases and languages ###
 
@@ -57,7 +75,7 @@ GET endpoints have now been deprecated, so all input should be submitted as a PO
 
 #### Input formats ####
 
-Note that only POST format is now accepted, so you should reformat any input which previously used the single document endpoints accordingly.
+Note that only POST format is now accepted, so you should reformat any input which previously used the single document endpoints accordingly. Inputs are not case sensitive.
 
 **Version 1 (batch)**
 
@@ -181,8 +199,8 @@ Note that only POST format is now accepted, so you should reformat any input whi
 
 | |Version 1 endpoint | Version 2 endpoint|
 |---|---|---|
-|Topics (submit)|```StartTopicDetection```|```topics```|
-|Topics (operation)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
+|Submit for topic detection (POST)|```StartTopicDetection```|```topics```|
+|Fetch topic results (GET)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
 
 #### Input formats ####
 
@@ -235,7 +253,7 @@ Previously, when the job finished, you would receive the following JSON output, 
 
 The response will now include a header value as follows, where `operation-location` is used as the endpoint to poll for the results:
 
-    'operation-location': 'https://cognitive.microsoft.com/language/text-analytics/v2.0/operations/<operationId>'
+    'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
 #### Operation results ####
 
@@ -260,10 +278,14 @@ The response will now include a header value as follows, where `operation-locati
 
 **Version 2 (GET)**
 
-As before, **poll the output every minute** until the output is returned. When the new API has finished, a status reading `succeeded` will be returned. This will then include the output results in the format shown below:
+As before, **periodically poll the output** (the suggested period is every minute) until the output is returned. 
+
+When the topics API has finished, a status reading `succeeded` will be returned. This will then include the output results in the format shown below:
 
     {
         "status": "succeeded",
+        "createdDateTime": "string",
+        "operationType": "topics",
         "processingResult": {
             "topics" : [{
             "id" : "string"
@@ -285,4 +307,3 @@ As before, **poll the output every minute** until the output is returned. When t
 ### Part 5. Test it! ###
 
 You should now be good to go! Test your code with a small sample to ensure that you can successfully process your data.
-
