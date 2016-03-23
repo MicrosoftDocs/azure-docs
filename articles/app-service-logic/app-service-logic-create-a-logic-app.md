@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 
 # Create a new logic app connecting SaaS services
@@ -24,7 +24,7 @@
 | [Logic Apps Connector Documentation](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
 
-This topic demonstrates how, in just a few minutes, you can get started with [App Services Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a workflow that lets you deliver a set of Tweets that you’re interested in to a Dropbox folder.
+This topic demonstrates how, in just a few minutes, you can get started with [App Services Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a workflow that lets you deliver a set of Tweets that you’re interested in to a mailbox.
 
 To use this scenario, you need:
 
@@ -39,14 +39,7 @@ To use this scenario, you need:
 3. Enter a name for your logic app, select the app service plan, and select **Create**.  
 	In this step, we're assuming you have an app service plan and are familiar with the required properties. If not, no worries, you can start at [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-4. When the logic app opens for the first time you'll need a trigger. For example, you can use **Recurrence**:  
-	![Recurrence](./media/app-service-logic-create-a-logic-app/recurrence.png)
-
-	Using Recurrence, your logic app runs continuously using the time you choose. For example, you can run your logic app every 30 seconds, every 5 hours, every day at 8am PST, every night at 2am EST, and more. You can also delete the Recurrence from your logic app. If you delete the Recurrence, then you manually start your logic app. 
-
-5. However, for this tutorial, let's have the trigger run each time there's a tweet matching a condition. Click the `...` menu to delete the Recurrence trigger.
-
-6. Search for **twitter** in the trigger search box, and select it.
+4. When the logic app opens for the first time you'll need a trigger. Search for **twitter** in the trigger search box, and select it.
 
 7. Now you'll type which keyword you want to search twitter for. 
 	![Twitter search](./media/app-service-logic-create-a-logic-app/twittersearch.png)

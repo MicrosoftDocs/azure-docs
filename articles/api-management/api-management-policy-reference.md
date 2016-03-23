@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
@@ -59,7 +59,7 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Convert JSON to XML][] - Converts request or response body from JSON to XML.
 	-	[Convert XML to JSON][] - Converts request or response body from XML to JSON.
 	-	[Find and replace string in body][] - Finds a request or response substring and replaces it with a different substring.
-	-	[Mask URLs in content][] - Re-writes (masks) links in the response body and in the location header so that they point to the equivalent link via the gateway.
+	-	[Mask URLs in content][] - Re-writes (masks) links in the response body so that they point to the equivalent link via the gateway.
 	-	[Set backend service][] - Changes the backend service for an incoming request.
 	-	[Set body][] - Sets the message body for incoming and outgoing requests.
 	-	[Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.

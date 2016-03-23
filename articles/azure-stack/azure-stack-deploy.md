@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.topic="get-started-article"
+	ms.date="02/01/2016"
 	ms.author="erikje"/>
 
 # Before you deploy Azure Stack POC
@@ -36,15 +36,15 @@ One available port on a switch for the POC machine.  
 
 The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. For example:
 
-	DeployAzureStack.ps1 –verbose –PublicVLan 305
+	DeployAzureStack.ps1 –Verbose –PublicVLan 305
 
 ### Subnet
 
-Do not connect the POC machine to the subnets 192.168.200.0/24, 192.168.100.0/24, or 192.168.133.0/24. These are reserved for the internal networks within the Microsoft Azure Stack POC environment.
+Do not connect the POC machine to the subnets 192.168.200.0/24, 192.168.100.0/24, or 192.168.133.0/24. These are reserved for the internal networks within the Microsoft Azure Stack POC environment.
 
 ### IPv4/IPv6
 
-Only IPv4 is supported. You cannot create IPv6 networks.
+Only IPv4 is supported. You cannot create IPv6 networks.
 
 ### DHCP
 
@@ -66,7 +66,7 @@ Azure Stack POC does not support proxy authentication. 
 
 ### Telemetry
 
-Port 443 (HTTPS) must be open for your network. The client end-point is https://vortex-win.data.microsoft.com.
+Port 443 (HTTPS) must be open for your network. The client endpoint is https://vortex-win.data.microsoft.com.
 
 ## Microsoft Azure Active Directory accounts
 
@@ -129,5 +129,7 @@ These requirements apply to the Azure Stack POC only and might change for future
 Sample OEM configurations are available.
 
 ## Next steps
+
+[Download the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Deploy Azure Stack POC](azure-stack-run-powershell-script.md)

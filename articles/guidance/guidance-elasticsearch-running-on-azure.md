@@ -966,9 +966,7 @@ retaining the throttle, or scaling out by spreading the load for write-heavy ind
 For more information, see the document [Tuning Data Ingestion Performance for Elasticsearch on Azure][].
 
 - If the searching statistics for an index indicate that queries are taking a long time then consider how
-the queries are optimized. For more information, see the section [Query Tuning][]. Note that you can use
-the *query_time_in_millis* and *query_total* values reported by the search statistics to calculate a
-rough guide to query efficiency; the equation *query_time_in_millis* / *query_total* will give you an
+the queries are optimized. Note that you can use the *query_time_in_millis* and *query_total* values reported by the search statistics to calculate a rough guide to query efficiency; the equation *query_time_in_millis* / *query_total* will give you an
 average time for each query.
 
 ### Tools for Monitoring Elasticsearch
@@ -1020,7 +1018,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Azure Load Balancer]: load-balancer-overview/
 [ExpressRoute]: expressroute-introduction/
 [internal load balancer]: load-balancer-internal-overview/
-[Sizes for Virtual Machines]: virtual-machines-size-specs/
+[Sizes for Virtual Machines]: virtual-machines-linux-sizes/
 
 [Memory Requirements]: #memory-requirements
 [Network Requirements]: #network-requirements

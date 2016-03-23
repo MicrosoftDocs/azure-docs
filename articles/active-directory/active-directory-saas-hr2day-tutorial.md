@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/15/2016"
+	ms.date="03/10/2016"
 	ms.author="jeedes"/>
 
 
@@ -141,6 +141,7 @@ Before you can configure the SAML assertion, you need to contact your HR2day sup
 
     a. In the Sign On URL textbox, type the URL used by your users to sign-on to your HR2day by Merces application using the following pattern: **“https://\<tenant name\>.force.com/\<instance name\>”**.
 
+    b. Click **Next**.
 
 4. On the **Configure single sign-on at HR2day by Merces** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_05.png) <br>

@@ -1,6 +1,6 @@
 <properties
    pageTitle="ACS container management with the REST API | Microsoft Azure"
-   description="Deploy containers to an Azure Container Service cluster service using the Marathon REST API."
+   description="Deploy containers to an Azure Container Service Mesos cluster, using the Marathon REST API."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
@@ -22,7 +22,7 @@
 
 Mesos provides an environment for deploying and scaling clustered workload while abstracting the underlying hardware. On top of Mesos, frameworks manage scheduling and executing compute workload. While frameworks are available for many popular workloads, this document will detail creating and scaling container deployments with Marathon.
 
-Before working through these examples, you will need a Mesos cluster configured in ACS and have remote connectivity to this cluster. For more information in these items see the following articles.
+Before working through these examples, you will need a Mesos cluster configured in ACS and have remote connectivity to this cluster. For more information on these items, see the following articles.
 
 - [Deploying an Azure Container Service Cluster](./container-service-deployment.md) 
 - [Connecting to an ACS Cluster](./container-service-connect.md)
@@ -36,13 +36,13 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
 ## Gather information from Mesos and Marathon
 
-Before deploying containers to the Mesos cluster, gather some information about the Mesos cluster such as the name and current status of the Mesos agents. To do so, query the `master/slaves` endpoint on a Mesos master. If everything goes well, you will see a list of Mesos agents and several properties for each.   
+Before deploying containers to the Mesos cluster, gather some information about the Mesos cluster such as the names and current status of the Mesos agents. To do so, query the `master/slaves` endpoint on a Mesos master. If everything goes well, you will see a list of Mesos agents and several properties for each.   
 
 ```bash
 curl http://localhost/master/slaves
 ```
 
-Now, use the Marathon `/apps` endpoint to check for and current Marathon deployments to the Mesos cluster. If this is a new cluster, you will see an empty array for apps.
+Now, use the Marathon `/apps` endpoint to check for current application deployments to the Mesos cluster. If this is a new cluster, you will see an empty array for apps.
 
 ```
 curl localhost/marathon/v2/apps
@@ -50,9 +50,12 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Deploying a Docker Container
+## Deploying a Docker Formated Container
 
-Docker containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the nginx container, binding port 80 of the Mesos agent to port 80 of the container.
+Docker formatted containers are deployed through Marathon using a json
+file that describes the intended deployment. The following sample will
+deploy the nginx container, binding port 80 of the Mesos agent to port
+80 of the container.
 
 ```json
 {
@@ -73,25 +76,25 @@ Docker containers are deployed through Marathon using a json file that describes
 }
 ```
 
-In order to deploy a Docker container, create your own json file, or use the sample provided here - [Azure ACS Demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), and store it in an accessible location. Next, run the following command, specifying the name of the json file, to deploy the container.
+In order to deploy a Docker formatted container, create your own json file, or use the sample provided here - [Azure ACS Demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), and store it in an accessible location. Next, run the following command, specifying the name of the json file, to deploy the container.
 
 ```
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
 ```
 
-The output will be similar the following:
+The output will be similar to the following:
 
 ```json
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Now if you query Marathon for running application, this new application will show in the output.
+Now, if you query Marathon for applications, this new application will show in the output.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## Scale a Docker Container
+## Scale Your Containers
 
 The Marathon API can also be used to scale application deployments out or in. In the previous example one instance of an application was deployed, let's scale this out to three instances. To do so, create a json file with the following json text, and store it in an accessible location.
 
@@ -107,13 +110,13 @@ Run the following command to scale the application out.
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Finally, query the Marathon endpoint for application instance. You will notice that there are now three.
+Finally, query the Marathon endpoint for applications, you will notice that there are now three of the nginx container.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## Marathon REST API PowerShell
+## Marathon REST API interaction with PowerShell
 
 These same action can be performed using PowerShell on a Windows system. This quick exercise will complete similar tasks as the last exercise, this time using PowerShell commands.
 
@@ -123,7 +126,7 @@ To gather information about the Mesos cluster such as agent names and agent stat
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Docker containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the nginx container, binding port 80 of the Mesos agent to port 80 of the container.
+Docker format containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the nginx container, binding port 80 of the Mesos agent to port 80 of the container.
 
 ```json
 {

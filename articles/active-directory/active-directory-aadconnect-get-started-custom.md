@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -26,7 +26,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 | Topic |  |
 | --------- | --------- |
 | **Download Azure AD Connect** | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| **Hardware and prerequisites** | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
+| **Hardware and prerequisites** | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md#hardware-requirements-for-azure-ad-connect) |
 | **Accounts used for installation** | [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md) |
 | Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
@@ -40,7 +40,7 @@ When you install the synchronization services, you can leave the optional config
 | Optional Configuration  | Description |
 | ------------- | ------------- |
 | Use an existing SQL Server | Allows you to specify the SQL Server name and the instance name.  Choose this option if you already have a database server that you would like to use. If your SQL Server does not have browsing enabled and you must specify a port number then in the **Instance Name** box enter the instance name followed by a comma and port number.  |
-| Use an existing service account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Use an existing service account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server or use a proxy which requires authentication you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | Specify custom sync groups | By default Azure AD Connect will create four groups local to the server when the synchronization services are installed.  These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group.  If you wish to specify your own groups you can do so here. The groups must be local on the server and cannot be located in the domain. |
 
 ## User sign-in
@@ -70,7 +70,7 @@ If you receive an error and have problems with connectivity, please see [Trouble
 ## Pages under the section Sync
 
 ### Connect your directories
-To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions.  This account can be a regular user account because it only needs the default read permissions.  However, depending on your scenario, you may need additional permissions.  For more information see [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions. You can enter the domain part in either NetBios or FQDN format, i.e. FABRIKAM\syncuser or fabrikam.com\syncuser. This account can be a regular user account because it only needs the default read permissions. However, depending on your scenario, you may need additional permissions. For more information see [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
 ![Connect Directory](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
@@ -108,7 +108,7 @@ The filtering on groups feature allows you to run a small pilot where only a sma
 To use this feature, in the customized path you will see this page:
 ![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
->[AZURE.WARNING] This feature is only intended to support a pilot deployment and should not be used in a full-blow production deployment.
+>[AZURE.WARNING] This feature is only intended to support a pilot deployment and should not be used in a full-blown production deployment.
 
 In a full-blown production deployment it is going to be hard to maintain a single group with all objects to synchronize. Instead you should use one of the methods in [Configure filtering](active-directory-aadconnectsync-configure-filtering.md).
 
@@ -137,6 +137,8 @@ If you want to limit which attributes to synchronize to Azure AD, then start by 
 Based on the services selected in the previous step, this page will show all attributes which will be synchronized. This list is a combination of all object types being synchronized. If there are some particular attributes you need to not synchronize, you can unselect those.
 
 ![Optional features](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
+
+>[AZURE.WARNING] Removing attributes can impact impact functionality. For best practices and recommendations, see [attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
 
 ### Directory Extension attribute sync
 With directory extensions you can extend the schema in Azure AD with custom attributes added by your organization or other attributes in Active Directory. To use this feature select **Directory Extension attribute sync** on the **Optional Features** page. This will give you this page where you can select your additional attributes.
@@ -199,6 +201,14 @@ This configuration is used to setup the federation relationship between AD FS an
 
 ![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
+
+### Verify the Azure AD domain selected for federation
+
+When you select the domain to be federated with your on-premise directory, Azure AD Connect provides you with the necessary information to verify the domain if it is not already verified. This page will provide you the DNS records that you are required to create at the domain name registrar, or wherever your DNS is hosted, in order to complete domain verification.</br>
+
+![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
+
+> [AZURE.NOTE] AD Connect tries to verify the domain during the configure stage. If you continue to configure without adding the necessary DNS records where your domain DNS is hosted, the wizard will not be able to complete the configuration.</br>
 
 ## Configure and verify pages
 On this page the configuration will actually happen.
