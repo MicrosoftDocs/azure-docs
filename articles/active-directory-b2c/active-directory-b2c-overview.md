@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/06/2016"
+	ms.date="03/22/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Sign up and sign in consumers in your applications
@@ -37,6 +37,7 @@ You can write your application against the Azure Active Directory B2C service ei
 Check back here often to learn about future changes to the Azure Active Directory B2C preview. We'll also tweet about any updates by using @AzureAD.
 
 - Learn about our [extensible policy framework](active-directory-b2c-reference-policies.md) and about the types of policies that you can create and use in your applications.
+- Bookmark our [service health page](active-directory-b2c-service-health.md) for notifications on minor service issues, status and mitigations. Continue to monitor the [Azure status dashboard](https://azure.microsoft.com/status/) as well.
 - Current [preview limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
 
 ## How-to articles
