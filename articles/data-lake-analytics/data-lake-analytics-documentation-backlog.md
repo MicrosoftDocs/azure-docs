@@ -43,6 +43,8 @@ U-SQL  | Explain Techniques for doing range-based JOINs | 1 | Pending | [@MikeRy
 U-SQL  | ADLS Authentication Options | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL  | Cross platform CLI job submission | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
 U-SQL  | Reference doc updates for REDUCE and COMBINE | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
+Tools  | Unit Testing your U-SQL UDFs Azure Data Lake Tools for Visual Studio  | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
+Tools  | Job Graphs and Vertex Execution View in Azure Data Lake Tools for Visual Studio  | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
 
 

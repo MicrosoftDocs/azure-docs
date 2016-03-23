@@ -130,7 +130,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-See [Virtual machine sizes](../articles/virtual-machines/virtual-machines-size-specs.md) for additional details.
+See [Virtual machine sizes](../articles/virtual-machines/virtual-machines-linux-sizes.md) for additional details.
 
 **Standard storage accounts**
 
@@ -280,6 +280,6 @@ For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-dat
 
 [Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/virtual-machines-size-specs.md)
+[Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/virtual-machines-linux-sizes.md)
 
 [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md)
