@@ -95,7 +95,7 @@ azure network public-ip create -d testsubdomain testrg testpip westeurope
 azure network public-ip show testrg testpip --json | jq '.'
 
 # Associate the Public IP to the NIC
-azure network nic set --public-ip-name test pip
+azure network nic set --public-ip-name testpip testrg testnic
 
 # Bind the NSG to the NIC
 azure network nic set --network-security-group-name testnsg testrg testnic
@@ -528,7 +528,7 @@ And, as always, you can investigate more resource details, including the subdoma
 
 ### Associate the public IP and the network security group to the NIC
 
-        azure network nic set --public-ip-name test pip
+        azure network nic set --public-ip-name testpip testrg testnic
 
 Bind the NSG to the NIC: 
 
