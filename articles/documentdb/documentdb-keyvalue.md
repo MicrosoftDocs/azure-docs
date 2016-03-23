@@ -24,9 +24,7 @@ Azure DocumentDB is commonly used as a document database, but its data model and
 * How do I design a high-performance key-value database on DocumentDB?
 
 ## A brief introduction to key-value databases
-Key-value databases (also known as key-value) stores are NoSQL databases which are designed to manage data organized in the form of associative arrays, also known as dictionaries. 
-
-To learn more about Azure DocumentDB, see the [Introduction to DocumentDB](documentdb-introduction.md).
+Key-value databases (also known as key-value) stores are NoSQL databases which are designed to manage data organized in the form of associative arrays, also known as dictionaries. They support simple access methods like reads (by key) and writes, and partition data across one or multiple servers for scalability and high-availability. Key-value stores are used in a variety of use cases like log storage, managing user and session data, and shopping cart data.
 
 ## DocumentDB as a high performance key-value store
 Azure DocumentDB is commonly used as a document database, but its data model and functionality can be easily adapted to support key value workloads. In fact, document databases can be thought of as a subclass of key value databases with additional functionality like indexing and query.
