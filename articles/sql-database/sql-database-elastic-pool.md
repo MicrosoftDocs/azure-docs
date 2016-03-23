@@ -21,7 +21,7 @@
 # Tame explosive growth in SQL databases by using elastic database pools to share resources
 
 A SaaS developer must create and manage tens, hundreds, or even thousands of SQL databases. Elastic pools
-simplify the creation, maintenance, and performance management across these databases within a budget that you control. Add or subtract databases from the pool at will. [Create an elastic database pool](sql-database-elastic-pool-portal.md) for your SQL databases in minutes using the Microsoft Azure portal, [PowerShell](sql-database-elastic-pool-powershell.md), or [C#](sql-database-elastic-pool-csharp.md).
+simplify the creation, maintenance, and performance management across these databases within a budget that you control. Add or subtract databases from the pool at will. See [Create a scalable elastic database pool for SQL databases in Azure portal](sql-database-elastic-pool-create-portal.md), or [using PowerShell](sql-database-elastic-pool-powershell.md), or [C#](sql-database-elastic-pool-csharp.md).
 
 For API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
 

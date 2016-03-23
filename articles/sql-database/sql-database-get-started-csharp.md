@@ -30,7 +30,7 @@
 
 Learn how to use C# commands to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 
-You'll try SQL Database by creating a single database with SQL and C#. To create elastic databases, see [Create an Elastic database pool](sql-database-elastic-pool-portal.md).
+You'll try SQL Database by creating a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-portal.md).
 
 Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 

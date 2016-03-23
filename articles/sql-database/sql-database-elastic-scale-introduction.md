@@ -93,7 +93,7 @@ For a sample app that demonstrates the client library, see [Get started with Ela
 
 To use the split-merge tool, you must [configure security](sql-database-elastic-scale-split-merge-security-configuration.md). 
 
-To see the specifics of the Elastic Database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md), or create a new pool with the [tutorial](sql-database-elastic-pool-portal.md).  
+To see the specifics of the Elastic Database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md), or create a new pool with the [tutorial](sql-database-elastic-pool-create-portal.md).  
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
