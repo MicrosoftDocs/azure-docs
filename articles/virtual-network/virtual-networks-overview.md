@@ -91,6 +91,6 @@ There is no extra cost for using Virtual Networks in Azure. The compute instance
 ## Next steps
 
 - [Create a VNet](virtual-networks-create-vnet-arm-pportal.md) and subnets.
-- [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-tutorial.md).
+- [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 - Learn about [NSGs](virtual-networks-nsg.md).
 - Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).

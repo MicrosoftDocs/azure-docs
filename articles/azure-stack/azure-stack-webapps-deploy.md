@@ -73,7 +73,7 @@ To deploy a resource provider, you must run your PowerShell ISE as an administra
 1. Sign in to the Azure Stack POC machine as **AzureStack/administrator**.  
 2. Use the remote desktop connection to sign in to the `ClientVM.AzureStack.local` virtual machine as an administrator.  
 3. Open **Control Panel** and select **Uninstall a program**. Right-click on **Microsoft Azure PowerShell - November 2015** and select **Uninstall**.  
-4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).  
+4. Download and install the latest Azure PowerShell from [http://aka.ms/azStackPsh](http://aka.ms/azStackPsh).  
 
 ## Installation prerequisites
 
