@@ -63,7 +63,7 @@ The health reports are sent to the health store through a health client, which l
 > [AZURE.NOTE] When the reports are batched, the fabric client must be kept alive for at least the HealthReportSendInterval to ensure that they are sent. If the message is lost or the health store cannot apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
 
 The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports will be replaced with the last version. Only one such report exists in the client queue at most. If batching is configured, the number of reports sent to the health store is just one per send interval. This is the last added report, which reflects the most current state of the entity.
-All configuration parameters can be specified when **FabricClient** is created by passing [**FabricClientSettings**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) with the desired values for health-related entries.
+All configuration parameters can be specified when `FabricClient` is created by passing [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) with the desired values for health-related entries.
 
 The following creates a fabric client and specifies that the reports should be sent as soon as they are added. On timeouts and errors that can be retried, retries happen every 40 seconds.
 
@@ -105,12 +105,12 @@ GatewayInformation   : {
                        }
 ```
 
-> [AZURE.NOTE] To ensure that unauthorized services can't report health against the entities in the cluster, the server can be configured to accept requests only from secured clients. Since the reporting is done through FabricClient, this means that FabricClient must have security enabled to be able to communicate with the cluster (e.g. with Kerberos or certificate authentication).
+> [AZURE.NOTE] To ensure that unauthorized services can't report health against the entities in the cluster, the server can be configured to accept requests only from secured clients. Since the reporting is done through `FabricClient`, this means that `FabricClient` must have security enabled to be able to communicate with the cluster (e.g. with Kerberos or certificate authentication). Read more about [cluster security](service-fabric-cluster-security.md).
 
 ## Report from within low privilege services
-From within Service Fabric services that do not have adming access to the cluster, you can report health on entities from the current context through `Partition` or `CodePackageActivationContext`.
+From within Service Fabric services that do not have admin access to the cluster, you can report health on entities from the current context through `Partition` or `CodePackageActivationContext`.
 
-- For stateless services, use [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) to report on the current service instance. 
+- For stateless services, use [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) to report on the current service instance.
 
 - For stateful services, use  [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) to report on current replica.
 
@@ -162,7 +162,7 @@ For periodic reporting, the watchdog can be implemented with a timer. On a timer
 
 Reporting on transitions requires careful handling of state. The watchdog monitors some conditions and reports only when the conditions change. The upside side of this approach is that fewer reports are needed. The downside is that the logic of the watchdog is complex. The conditions or the reports must also be maintained, so that they can be inspected to determine state changes. On failover, care must be taken when a report is sent that may have not be sent previously (queued, but not yet sent to the health store). The sequence number must be ever-increasing. If not, the reports will be rejected as stale. In the rare cases where data loss is incurred, synchronization may be needed between the state of the reporter and the state of the health store.
 
-Reporting on transitions makes sense for services reporting on themselves, through `Partition` or `CodePackageActivationContext`. When the local object (replica or deployed service package / deployed application) is removed, all reports associated with them are also removed, so there is less necessity for synchronization between reporter and health store. If the report is for parent partition or parent application, care must be taken on failover to avoid stale reports in the health store. Logic must be added to maintain the correct state and clear the report from store when not needed anymore. 
+Reporting on transitions makes sense for services reporting on themselves, through `Partition` or `CodePackageActivationContext`. When the local object (replica or deployed service package / deployed application) is removed, all its reports are also removed. This relaxes the need for synchronization between reporter and health store. If the report is for parent partition or parent application, care must be taken on failover to avoid stale reports in the health store. Logic must be added to maintain the correct state and clear the report from store when not needed anymore.
 
 ## Implement health reporting
 Once the entity and report details are clear, sending health reports can be done through the API, PowerShell, or REST.
@@ -193,8 +193,8 @@ public static void SendReport(object obj)
         new HealthInformation("ExternalSourceWatcher", "Connectivity", healthState));
 
     // TODO: handle exception. Code omitted for snippet brevity.
-    // Possible exceptions: FabricException with error codes 
-    // FabricHealthStaleReport (non-retryable, the report is already queued on the health client), 
+    // Possible exceptions: FabricException with error codes
+    // FabricHealthStaleReport (non-retryable, the report is already queued on the health client),
     // FabricHealthMaxReportsReached (retryable; user should retry with exponential delay until the report is accepted).
     Client.HealthManager.ReportHealth(deployedServicePackageHealthReport);
 }
