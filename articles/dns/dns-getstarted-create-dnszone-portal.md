@@ -45,6 +45,8 @@ Note the following:
 ![DNS zone](./media/dns-getstarted-create-dnszone-portal/openzone.png)
 3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade.  
 ![Create zone](./media/dns-getstarted-create-dnszone-portal/createzone.png)
+![Create zone](./media/dns-getstarted-create-dnszone-portal/createzone2.png)
+
 4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. 
 5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists. 
 6. From the **location** dropdown, specify the location.
