@@ -59,7 +59,7 @@ Creating a DNS zone also creates the following DNS records, which you can view i
 
 ### To view DNS zone records:
 
-1. From your DNS zone blade, click on **All settings** to open the** Settings blade** for the DNS zone. 
+1. From your DNS zone blade, click on **All settings** to open the **Settings blade** for the DNS zone. 
 2. In the lower part of the blade, you can see the record sets for the DNS zone.
 
 Note: If a zone is not available for you to use or did not create correctly, you will see a "Failed" result and the details for the reason of failure in the Operations details window. Typically this happens when you try to create a zone with a name that is not available.
@@ -89,7 +89,7 @@ Suppose two people or two processes try to modify a DNS record at the same time.
 
 Azure DNS uses Etags to handle concurrent changes to the same resource safely. Each DNS resource (zone or record set) has an Etag associated with it.  Whenever a resource is retrieved, its Etag is also retrieved. When updating a resource, you have the option to pass back the Etag so Azure DNS can verify that the Etag on the server matches. Since each update to a resource results in the Etag being re-generated, an Etag mismatch indicates a concurrent change has occurred. Etags are also used when creating a new resource to ensure that the resource does not already exist.
 
-By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets. The optional ‘-Overwrite’ switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred will be overwritten.
+By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets. The optional *-Overwrite* switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred will be overwritten.
 
 At the level of the Azure DNS REST API, Etags are specified using HTTP headers. The following table shows the behavior:
 
@@ -97,8 +97,8 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 |------|--------|
 |None|PUT always succeeds (no Etag checks)|
 |If-match <etag>|PUT only succeeds if resource exists and Etag matches|
-|If-match *	|PUT only succeeds if resources exist|
-|If-none-match |*	PUT only succeeds if resource does not exist|
+|If-match *	|PUT only succeeds if resource exists|
+|If-none-match * |PUT only succeeds if resource does not exist|
 
 ### Tags
 
