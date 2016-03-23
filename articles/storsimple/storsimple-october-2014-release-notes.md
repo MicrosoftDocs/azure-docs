@@ -3,8 +3,8 @@
     description="Describes the new features and fixes, open issues, and available workarounds for the October 2014 Microsoft Azure StorSimple release (Update 0.1)."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
-    manager="carolz"
+    authors="alkohli"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="12/01/2015"
-    ms.author="v-sharos" />
+    ms.date="03/23/2016"
+    ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 0.1 release notes – October 2014  
 
