@@ -100,7 +100,6 @@ For articles about using native Apache Spark clusters in the Azure Portal, go to
 
 * [Generate movie recommendations by using Apache Mahout with Hadoop](hdinsight-mahout.md)
 * [Learning path: Build advanced analytics solutions](../machine-learning/machine-learning-walkthrough-develop-predictive-solution.md)
-* [Learning path: Cortana Analytics Process](../machine-learning/cortana-analytics-process.md)
 * [Predict taxi tips with HDInsight and Machine Learning](../machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Extensibility
