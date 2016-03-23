@@ -61,7 +61,7 @@ The Time-to-Live, or TTL, specifies how long each record is cached by clients be
 
 #### Wildcard record sets
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record).  These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.  
+Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.  
 
 To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
 
