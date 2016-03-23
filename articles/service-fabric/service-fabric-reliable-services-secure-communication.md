@@ -234,7 +234,7 @@ We will be using a previous [example]((service-fabric-reliable-services-communic
                 channelFactory = new ChannelFactory<TServiceContract>(this.clientBinding, endpointAddress);
             }
             // Add certificate details to the ChannelFactory credentials.
-            // These credentials will be used by the clients created by the 
+            // These credentials will be used by the clients created by the
             // SecureWcfCommunicationClientFactory.  
             channelFactory.Credentials.ClientCertificate.SetCertificate(
                 StoreLocation.LocalMachine,
@@ -249,8 +249,22 @@ We will be using a previous [example]((service-fabric-reliable-services-communic
     }
     ```
 
+    Use the `SecureWcfCommunicationClientFactory` to create a `WcfCommunicationClient`. Use the client to invoke service methods.
+
+    ```csharp
+    IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
+
+    var wcfClientFactory = new SecureWcfCommunicationClientFactory<ICalculator>(clientBinding: GetNetTcpBinding(), servicePartitionResolver: partitionResolver);
+
+    var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
+        wcfClientFactory,
+        ServiceUri,
+        ServicePartitionKey.Singleton);
+
+    var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
+        client => client.Channel.Add(2, 3)).Result;
+    ```
+
 ## Next steps
 
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-
-* [WCF communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)

@@ -113,8 +113,11 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
 
 ```
+>[AZURE.NOTE] The default ServicePartitionResolver assumes that the client is running in same cluster as the service. If that is not the case, create a ServicePartitionResolver object and pass in the cluster connection endpoints.
 
 ## Next steps
 * [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+
+* [Securing communication for Reliable Services Fabric](service-fabric-reliable-services-secure-communication.md)
