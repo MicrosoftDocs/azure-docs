@@ -101,9 +101,9 @@ If you have any previous version of Azure PowerShell installed, remove it:
 
 When the script finishes, it outputs the following three values. Note the values, because they are used as build variables.
 
-*  `ServicePrincipalId`
-*  `ServicePrincipalTenantId`
-*  `ServicePrincipalSubscriptionId`
+ - `ServicePrincipalId`
+ - `ServicePrincipalTenantId`
+ - `ServicePrincipalSubscriptionId`
 
 ### Create a certificate and upload it to a new instance of Azure Key Vault
 
@@ -124,9 +124,9 @@ When the script finishes, it outputs the following three values. Note the values
 
 When the script finishes, it outputs the following three values. Note these values, because they are used as build variables.
 
-* `ServiceFabricCertificateThumbprint`
-* `ServiceFabricKeyVaultId`
-* `ServiceFabricCertificateSecretId`
+ * `ServiceFabricCertificateThumbprint`
+ * `ServiceFabricKeyVaultId`
+ * `ServiceFabricCertificateSecretId`
 
 ## Set up your build machine
 
@@ -203,7 +203,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     e.	Select **OK**, and then close the certificate manager.
 
-![Screenshot of steps for granting Local Service account permission](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
+ ![Screenshot of steps for granting Local Service account permission](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
 ### Register your build agent
 
@@ -245,7 +245,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     c. Verify that your build agent shows up in the list and has a green status highlight. If the highlight is red, the build agent is having trouble connecting to Team Services.
 
-![Screenshot that shows the status of the build agent](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
+ ![Screenshot that shows the status of the build agent](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
 
 ## Create your build definition
@@ -407,6 +407,6 @@ The previous instructions create a new cluster for each build and remove it at t
 
 To learn more about continuous integration with Service Fabric applications, read the following articles:
 
-- [Build documentation home](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
-- [Deploy a build agent](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
-- [Create and configure a build definition](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
+ - [Build documentation home](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
+ - [Deploy a build agent](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
+ - [Create and configure a build definition](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
