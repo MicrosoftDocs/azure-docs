@@ -8,7 +8,7 @@ Azure Resource Manager template allow you to declaratively specify the Azure Iaa
 
 - [Resource Group Overview](../articles/resource-group-overview.md)
 - [Deploying Templates with Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-manage.md)
-- [Deploying Templates with Azure Powershell]../articles/virtual-machines/(virtual-machines-windows-ps-manage.md)
+- [Deploying Templates with Azure Powershell](../articles/virtual-machines/virtual-machines-windows-ps-manage.md)
 
 ### Prerequistes
 
