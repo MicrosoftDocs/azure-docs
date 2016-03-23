@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/22/2016"
+	ms.date="03/23/2016"
 	ms.author="mimig"/>
 
 # NoSQL vs SQL
@@ -23,17 +23,17 @@ SQL Server and relational databases (RDBMS) have been the go-to databases for ov
 
 NoSQL is a category of databases distinctly different from SQL databases. NoSQL means "Not-SQL" or "Not Only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, and column family stores, which are popular with gaming, social, and IoT apps.
 
-![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview1.png)
+![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview.png)
 
-The goal of this article is to help you learn about the differences between NoSQL and SQL, and provide you with an introduction to the NoSQL and SQL offerings from Microsoft and Microsoft Azure.  
+The goal of this article is to help you learn about the differences between NoSQL and SQL, and provide you with an introduction to the NoSQL and SQL offerings from Microsoft.  
 
 ## When to use NoSQL?
 
-Let's imagine you're building a new social media app. Users can create posts and add pictures, videos and music to them. Other users can comment on the posts and give points (likes) to rate the posts. The landing page will have a feed of posts that users can share and interact with. 
+Let's imagine you're building a new social engagement site. Users can create posts and add pictures, videos and music to them. Other users can comment on the posts and give points (likes) to rate the posts. The landing page will have a feed of posts that users can share and interact with. 
 
 So how do you store this data? If you're familiar with SQL, you might start drawing something like this:
 
-![Relational data model for social media app](./media/documentdb-nosql-vs-sql/nosql-vs-sql-social.png)
+![Relational data model for social engagement site](./media/documentdb-nosql-vs-sql/nosql-vs-sql-social.png)
 
 So far, so good, but now think about the structure of a single post and how to display it. If you want to show the post and the associated images, audio, video, comments, points, and user info on a website or application, you'd have to perform a query with eight table joins just to retrieve the content. Now imagine a stream of posts that dynamically load and appear on the screen and you can easily predict that it's going to require thousands of queries and many joins to complete the task.
 
@@ -60,12 +60,13 @@ You can then build on this solution using other Azure services:
 
 - [Azure Search](https://azure.microsoft.com/services/search/) can be used via the web app to enable users to search for posts.
 - [Azure App Services](https://azure.microsoft.com/services/app-service/) can be used to host applications and background processes.
-- [Azure Storage](https://azure.microsoft.com/services/storage/), [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used to store massive amounts of data such as login information, full profiles, and data for usage analytics.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/) can be used to store full user profiles.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used to store massive amounts of data such as login information, and data for usage analytics.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)  can be used to build knowledge and intelligence that can provide feedback to the process and help deliver the right content to the right users.
 
-![Relational data model for social media app](./media/documentdb-nosql-vs-sql/nosql-vs-sql-solution.png)
+![Relational data model for social engagement site](./media/documentdb-nosql-vs-sql/nosql-vs-sql-solution.png)
 
-This social media app is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](documentdb-social-media-apps.md). 
+This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](documentdb-social-media-apps.md). 
 
 ## NoSQL vs SQL comparison
 
