@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started: Create R Server for Azure HDInsight (Linux)"
-   description="Learn how to create an R Server on Spark cluster in HDInsight and then submit an R script on the cluster."
+   pageTitle="Get started with R Server on HDInsight | Azure"
+   description="Learn how to create a Apache Spark on HDInsight (Hadoop) cluster that includes R Server, and then submit an R script on the cluster."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -14,90 +14,254 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="03/20/2016"
+   ms.date="03/23/2016"
    ms.author=jeffstok"/>
 
-# Get started: Create an R Server for Azure HDInsight (Linux)
+# Get started using R Server on HDInsight
 
-Learn how to create an R Server on Spark cluster in HDInsight and then submit an R script on the cluster.
+The premium tier offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight cluster using the Spark cluster type, then run an R script that demonstrates using both MapReduce and Spark for distributed computations.
 
-![](media/hdinsight-getting-started-with-r/hdinsight-getting-started-with-r-01.png)
+![Diagram of the workflow for this document](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
 ## Prerequisites
 
--   **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
--   **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the ssh command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
--   **Secure Shell (SSH) keys (optional)**: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password gets you started quickly, and you should use this option if you want to quickly create a cluster and run some test jobs. Using a key is more secure, however it requires additional setup. You might want to use this approach when creating a production cluster. In this article, we use the password approach. For instructions on how to create and use SSH keys with HDInsight, refer to the following articles:
-    -   From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-    -   From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+* __An Azure subscription__: Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) for more information.
 
-## Create a R Server cluster on HDInsight Linux
+* __A Secure Shell (SSH) client: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. Linux, Unix, and OS X systems provide an SSH client through the `ssh` command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-R Server run on top of Spark or Mapreduce for its distributed computation. In this section, you will create an R Server on HDInsight cluster which is based on the version 3.4 HDInsight cluster with built in Spark version 1.6. For information about HDInsight versions and their SLAs, see [HDInsight component versioning](hdinsight-component-versioning.md).
+    * __SSH keys (optional)__: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password is easier, and allows you to get started without having to create a public/private key pair; however, using a key is more secure.
+    
+        The steps in this document assume that you are using a password. For information on how to create and use SSH keys with HDInsight, see the following documents:
+        
+        * [Use SSH with HDInsight from Linux, Unix, or OS X clients](hdinsight-hadoop-linux-use-ssh-unix.md)
+        
+        * [Use SSH with HDInsight from Windows clients](hdinsight-hadoop-linux-use-ssh-windows.md)
 
->[AZURE.NOTE] The steps in this article create an R Server on HDInsight cluster using basic configuration settings. For information about other cluster configuration settings (such as using additional storage, an Azure virtual network, or a metastore for Hive), see [Create HDInsight Spark clusters using custom options](hdinsight-hadoop-provision-linux-clusters.md).
+## Create the cluster
 
-## To create a R Server cluster
+> [AZURE.NOTE] The steps in this document create an R Server on HDInsight using basic confiuration information. For other cluster configuration settings (such as using additional storage, Azure Virtual Network, or a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-1.  Sign in to the [Azure preview portal](https://ms.portal.azure.com/).
-2.  Click **NEW**, click **Data + Analytics**, and then click **HDInsight**.    
-	![](media/hdinsight-getting-started-with-r/hdinsight-getting-started-with-r-02.png)    
-3.  Enter a **Cluster Name**,
-	![](media/hdinsight-getting-started-with-r/hdinsight-getting-started-with-r-03.png)
-4.  If you have more than one subscription, click the **Subscription** entry to select the Azure subscription to use for the cluster.
-5.  Enter to the Cluster Type blade and select **R Server on Spark** for the **Cluster Type**, from the drop-down menu. This selection will default to **Linux** operating system and **Premium** card. Select the desired version from the **Version** drop-down. A green check appears beside the cluster name if it is available. Additionally, you can install R Server on Hadoop and Spark Cluster Types. To do so you need to select **Hadoop** or **Spark** for the **ClusterType** from the drop-down menu, select **Linux** for the operating system and select any version of HDI 3.4 or higher.  
-    ![](media/hdinsight-getting-started-with-r/hdinsight-getting-started-with-r-04.png)  
-6.  Click **Select** to save the Cluster Type configuration.
-7.  Click **Credentials** and then enter a password for the admin user. You must also enter an **SSH Username**. For **SSH Authentication Type**, click **PASSWORD** and specify a password for the SSH user. Click **Select** at the bottom to save the credentials configuration.  
-	![](media/hdinsight-getting-started-with-r/hdinsight-getting-started-with-r-05.png)  
-8.  Click **Select** to save the Cluster Credentials configuration.
-9.  Click **Data Source** to choose an existing data source for the cluster, or create a new one. When you create a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, like in the Hadoop distributed file system (HDFS). By default, the HDInsight cluster is created in the same data center as the storage account you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
->[AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password you use here is used when connecting to the cluster through SSH. Also, the SSH user name must be unique, as it creates a user account on all the HDInsight cluster nodes. The following are some of the account names reserved for use by services on the cluster, and cannot be used as the SSH user name: root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+2. Select __NEW__, __Data + Analytics__, and then __HDInsight__.
 
-For more information on using SSH with HDInsight, see one of the following articles:
+    ![Image of creating a new cluster](./media/hdinsight-getting-started-with-r/newcluster.png)
 
--   [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+3. Enter a name for the cluster in the __Cluster Name__ field. If you have multiple Azure subscriptions, use the __Subscription__ entry to select the one you want to use.
 
-![](media/hdinsight-getting-started-with-r/hdinsight-getting-started-with-r-06.png)
+    ![Cluster name and subscription selections](./media/hdinsight-getting-started-with-r/clustername.png)
 
-Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the **Data Source** blade.
+4. Select __Select Cluster Type__. On the __Cluster Type__ blade, select the following options:
 
--   **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
--   **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check appears if the name is available.
--   **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
--   **Location**: The geographic region that the storage account is in, or will be created in.
+    * __Cluster Type__: Spark
+    
+    * __Cluster Tier__: Premium
 
->[AZURE.ALERT] Selecting the location for the default data source also sets the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
+    Leave the other options at the default values, then use the __Select__ button to save the cluster type.
+    
+    ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
 
-Click **Select** to save the data source configuration.
+5. Select **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can select **Create New** and then enter the name of the new resource group. A green check will appear to indicate if the new group name is available.
 
-1.  Click **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of the cluster will be shown within the blade.
+    > [AZURE.NOTE] This entry will default to one of your existing resource groups, if any are available.
+    
+    Use the __Select__ button to save the resource group.
 
-![](media/hdinsight-getting-started-with-r/hdinsight-getting-started-with-r-07.png)
+6. Select **Credentials**, then enter a **Cluster Login Username** and **Cluster Login Password**.
 
-2.  Click **Select** to save the node pricing configuration.
+    Enter an __SSH Username__ and select __Password__, then enter the __SSH Password__ to configure the SSH account. This is used to remotely connect to the cluster using a Secure Shell (SSH) client.
+    
+    Use the __Select__ button to save the credentials.
+    
+    ![Credentials blade](./media/hdinsight-getting-started-with-r/clustercredentials.png)
 
-3.  Click **Resource Group** to see a list of existing resource groups and select where to create the cluster. Or, you can click **Create New** and then enter the name of the new resource group. A green check appears to indicate if the new group name is available. This entry defaults to one of your existing resource groups, if any are available.
+7. Select **Data Source** to select a data source for the cluster. Either select an existing storage account by selecting __Select storage account__ and then selecting the account, or create a new account using the __New__ link in the __Select storage account__ section.
 
-4.  On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This creates the cluster and adds a tile for it to the Startboard of your Azure portal. The icon will indicate that the cluster is being created, and will change to display the HDInsight icon once creation has completed.
+    If you select __New__, you must enter a name for the new storage account. A green check will appear if the name is accepted.
 
-While creating
+    The __Default Container__ will default to the name of the cluster. Leave this as the value.
+    
+    Select __Location__ to select the region that the storage account will be located in.
+    
+    > [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
 
-![](media/hdinsight-getting-started-with-r/hdinsight-getting-started-with-r-08.png)
+    Use the **Select** button to save the data source configuration.
+    
+    ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)
 
-Creation complete
+8. Select **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Leave the number of worker nodes that you need for the cluster at the default of `4`. The estimated cost of the cluster will be shown within the blade.
 
-![](media/hdinsight-getting-started-with-r/hdinsight-getting-started-with-r-09.png)
+    ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
-It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process. Once the creation is complete, click the tile for the R Server on HDInsight cluster from the Startboard to launch the cluster blade.
+    Use the **Select** button to save the node pricing configuration.
+    
+9. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then select **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is creating, and will change to display the HDInsight icon once creation has completed.
 
-## Run your first distributed R Query
+    | While creating | Creationg complete |
+    | ------------------ | --------------------- |
+    | ![Creating indicator on startboard](./media/hdinsight-getting-started-with-r/provisioning.png) | ![Created cluster tile](./media/hdinsight-getting-started-with-r/provisioned.png) |
 
-In this section, you use a SSH to run a R server in a distributed way. You need to use SSH to connect to the edge node and start the script from there. You can use R Studio as your editor which you can learn how to install at <Create an R script that use the Spark engine>
+    > [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
 
-See also Overview:
-R Server on HDInsight
+## Connect to the Spark cluster
+
+Connect to the Spark on HDInsight cluster using SSH:
+
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    
+If you used a password to secure your SSH user account, you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    
+For more information on using SSH with Linux-based HDInsight, see the following articles:
+
+* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+Once connected, you will arrive at a prompt similar to the following.
+
+    username@hn0-clustername:~$
+
+## Use the R console
+
+1. From the SSH session, use the following command to start the R console.
+
+        R
+    
+    You will see output similar to the following.
+    
+        R version 3.2.2 (2015-08-14) -- "Fire Safety"
+        Copyright (C) 2015 The R Foundation for Statistical Computing
+        Platform: x86_64-pc-linux-gnu (64-bit)
+
+        R is free software and comes with ABSOLUTELY NO WARRANTY.
+        You are welcome to redistribute it under certain conditions.
+        Type 'license()' or 'licence()' for distribution details.
+
+        Natural language support but running in an English locale
+
+        R is a collaborative project with many contributors.
+        Type 'contributors()' for more information and
+        'citation()' on how to cite R or R packages in publications.
+
+        Type 'demo()' for some demos, 'help()' for on-line help, or
+        'help.start()' for an HTML browser interface to help.
+        Type 'q()' to quit R.
+
+        Microsoft R Server version 8.0: an enhanced distribution of R
+        Microsoft packages Copyright (C) 2016 Microsoft Corporation
+
+        Type 'readme()' for release notes.
+
+        >
+
+2. From the `>` prompt, you can enter R code. RevoScaleR is included with the R server on HDInsight, so you can easily interact with Hadoop from your R scripts. Use the following command to view the root of the default file system for the HDInsight cluster.
+
+        rxHadoopListFiles("/")
+    
+    You can also use the WASB style addressing.
+    
+        rxHadoopListFiles("wasb:///")
+        
+3. Use the following to copy example data to `wasb:///example/data/
+
+        # Set the NameNode and port for the cluster
+        myNameNode <- "default"
+        myPort <- 0
+        # Set the HDFS (WASB) location of example data
+        bigDataDirRoot <- "/example/data"
+        # Source for the data to load
+        source <-system.file("SampleData/AirlineDemoSmall.csv",      package="RevoScaleR")
+        # Directory in bigDataDirRoot to load the data into
+        inputDir <- file.path(bigDataDirRoot,"AirlineDemoSmall") 
+        # Make the directory
+        rxHadoopMakeDir(inputDir)
+        # Copy the data from source to input
+        rxHadoopCopyFromLocal(source, inputDir)
+
+4. Next, let's create some Factors and define a data source so that we can work with the data.
+
+        # Define the HDFS (WASB) file system
+        hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, 
+                                   port=myPort)
+        # Create Factors for the days of the week
+        colInfo <- list(DayOfWeek = list(type = "factor",
+             levels = c("Monday", 
+                        "Tuesday", 
+                        "Wednesday", 
+                        "Thursday", 
+                        "Friday", 
+                        "Saturday", 
+                        "Sunday")))
+        # Define the data source
+        airDS <- RxTextData(file = inputDir, 
+                            missingValueString = "M",
+                            colInfo  = colInfo, 
+                            fileSystem = hdfsFS)
+
+4. Let's run a linear regression over the data using the local compute context.
+
+        # Set a local compute context
+        rxSetComputeContext("local")
+        # Run a linear regression
+        system.time(
+            modelLocal <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek,
+                             data = airDS)
+        )
+        # Display a summary 
+        summary(modelLocal) 
+
+    You should see output similar that ends with lines similar to the following.
+    
+        Residual standard error: 40.39 on 582620 degrees of freedom
+        Multiple R-squared: 0.01465
+        Adjusted R-squared: 0.01464
+        F-statistic:  1238 on 7 and 582620 DF,  p-value: < 2.2e-16
+        Condition number: 10.6542
+
+5. Next, let's try using MapReduce for the compute context. The MapReduce context will distribute the processing over all the worker nodes in the HDInsight cluster as a MapReduce job.
+
+        # Define the compute context to use MapReduce
+        myHadoopMRCluster <- RxHadoopMR(consoleOutput=TRUE,
+                                        nameNode = myNameNode,
+                                        port=myPort,
+                                        hadoopSwitches="-libjars /etc/hadoop/conf") 
+        # Set compute context 
+        rxSetComputeContext(myHadoopMRCluster)
+        # Run a linear regression 
+        system.time(
+            modelMapReduce <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek,
+                                       data = airDS) 
+        )
+        # Display a summary
+        summary(modelMapReduce)
+
+    When you run this script, you will notice that the output generated by the MapReduce process is displayed. This happens because we set `consoleOutput=TRUE` when we set the compute context.
+
+6. Next, let's run the same linear regression using the Spark context.
+
+        # Define the Spark compute context 
+        mySparkCluster <- RxSpark(consoleOutput=TRUE) 
+        # Set the compute context 
+        rxSetComputeContext(mySparkCluster) 
+        # Run a linear regression 
+        system.time(  
+            modelSpark <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, 
+                      data = airDS) 
+        )
+        # Display a summary
+        summary(modelSpark)
+
+    As with the MapReduce context, the output of Spark processing is written to the console because we set `consoleOutput=TRUE`.
+
+7. You can also start tasks directly using `rxExcec`. For example, the following will start four tasks to retrieve the nodename.
+
+        rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+    
+    If you are still using the Spark or MapReduce context, this will return the nodename value for the worker nodes that the tasks are ran on.
+
+## Next steps
+
+Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
 
 Tools and extensions
 -   [Use R Server for HDInsight from RStudio to submit R scripts](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-intellij-tool-plugin/)
