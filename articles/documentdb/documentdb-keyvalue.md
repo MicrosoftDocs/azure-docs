@@ -37,6 +37,7 @@ Azure DocumentDB is commonly used as a document database, but its data model and
 * DocumentDB's SSD backed storage allows low latency order-of-millisecond response times
 * DocumentDB's reserved throughput model allows you to think in terms of number of reads/writes instead of CPU/memory/IOPs of the underlying hardware
 * DocumentDB's design lets you scale to massive request volumes in the order of billions of requests per day
+* DocumentDB has a flexible data-friendly pricing model that meters storage and throughput independently
 
 If you have a use case that involves storing a large amount of data with low request rates, then Azure DocumentDB may not be right for you. We recommend that you use Azure Table Storage for such use cases.
 
