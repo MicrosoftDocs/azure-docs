@@ -252,12 +252,14 @@ Task<ActionResult> Report(string reportId)
 Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report**. Here is a code snippet from the powerbi.js in the **Microsoft Power BI Embedded** preview sample.
 
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + '" scrolling="no" allowfullscreen="true"></iframe>';
+    var iframeHtml = '&lt;iframe style="width:100%;height:100%;" src="' + embedUrl + '" scrolling="no" allowfullscreen="true"&gt;&lt;/iframe&gt;';
 
 For more details about the **Power BI JavaScript API** (powerbi.js) including details about how to integrate a Power BI **Report** into your app, see [Power BI Embedded JavaScript API](power-bi-embedded-javascript-api.md).
 
 ## See also
 
+- [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Power BI Embedded JavaScript API](power-bi-embedded-javascript-api.md)
+
 
 [Burbeck92] Burbeck, Steve. "Application Programming in Smalltalk-80: How to use Model-View-Controller (MVC)."University of Illinois in Urbana-Champaign (UIUC) Smalltalk Archive. Available at: http://st-www.cs.illinois.edu/users/smarch/st-docs/mvc.html.
