@@ -218,7 +218,7 @@ For step-by-step instructions, refer to the [ExpressRoute circuit routing config
 
 Next, link a virtual network to your ExpressRoute circuit. You can use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment mode.
 
-## To get the status of an ExpressRoute circuit
+## Getting the status of an ExpressRoute circuit
 
 You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters will list all circuits.
 
@@ -288,7 +288,7 @@ You can get detailed descriptions of all parameters by running the following:
 	get-help get-azurededicatedcircuit -detailed
 
 
-## To modify an ExpressRoute circuit
+## Modifying an ExpressRoute circuit
 
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
 
@@ -350,7 +350,7 @@ Your circuit will be sized up on the Microsoft side. Then you must contact your 
 
 **Important**: You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 
-## To delete and deprovision an ExpressRoute circuit
+## Deleting and deprovisioning an ExpressRoute circuit
 
 You can delete your ExpressRoute circuit by running the following command:
 
