@@ -44,9 +44,9 @@ Following is a list of security recommendations that should be considered when c
 
 - Consider using [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) to administer the virtual machines instead of public RDP ports.
 
-- Use a [Network Security Group](virtual-networks-nsg.md) (NSG) to allow or deny network traffic to your virtual machine. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md).
+- Use a [Network Security Group](../virtual-network/virtual-networks-nsg.md) (NSG) to allow or deny network traffic to your virtual machine. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
-- If you are using endpoints, remove any endpoints on the virtual machine if you do not use them. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
+- If you are using endpoints, remove any endpoints on the virtual machine if you do not use them. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](../virtual-network/virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
 
 - Enable an encrypted connection option for an instance of the SQL Server Database Engine in Azure Virtual Machines. Configure SQL server instance with a signed certificate. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192.aspx) and [Connection String Syntax](https://msdn.microsoft.com/library/ms254500.aspx).
 
