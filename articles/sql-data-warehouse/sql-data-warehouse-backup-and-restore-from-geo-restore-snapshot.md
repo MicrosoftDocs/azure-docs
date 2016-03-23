@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/09/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess"/>
 
 # Recover a database from an outage in SQL Data Warehouse
