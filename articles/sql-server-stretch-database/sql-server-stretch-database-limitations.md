@@ -3,9 +3,9 @@
 	description="Learn about blocking issues that you have to resolve before you can enable Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -65,6 +65,8 @@ In the current preview release of SQL Server 2016, the following items make a ta
 
 -   Foreign key constraints that reference the table
 
+    The table on which you can't enable Stretch Database is the table referenced by a foreign key constraint. In a parent-child relationship (for example, Orders and Order Details), this is the parent table (Orders).
+
 **Indexes**
 -   Full text indexes
 
@@ -81,7 +83,9 @@ IIn the current preview release of SQL Server 2016, Stretch\-enabled tables have
 
 -   You can't run UPDATE or DELETE operations on a Stretch\-enabled table.
 
--   You can't INSERT into the remote Azure SQL Database table.
+-   You can't INSERT remotely into a Stretch-enabled table on a linked server.
+
+-   You can't use replication with a Stretch-enabled table.
 
 -   You can't create an index for a view that includes Stretch\-enabled tables.
 
@@ -90,6 +94,9 @@ IIn the current preview release of SQL Server 2016, Stretch\-enabled tables have
 -   Filters on indexes are not propagated to the remote table.
 
 ## See also
+
 [Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md)
+
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
+
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)

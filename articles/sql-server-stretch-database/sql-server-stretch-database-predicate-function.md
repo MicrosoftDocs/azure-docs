@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Write an Inline Table-Valued Function to Select Rows to Migrate (Stretch Database) | Microsoft Azure"
-	description="Learn how to create a filter predicate to select the rows to migrate."
+	pageTitle="Use a Filter Predicate to Select Rows to Migrate (Stretch Database) | Microsoft Azure"
+	description="Learn how to use a filter predicate to select the rows to migrate."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,16 +16,15 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Write an Inline Table-Valued Function to Select Rows to Migrate (Stretch Database)
+# Use a Filter Predicate to Select Rows to Migrate (Stretch Database)
 
 If you store historical data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both historical and current data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate must call an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
 
-In CTP 3.1 through RC0, the option to specify a predicate isn't available in the Enable Database for Stretch wizard. You have to use the ALTER TABLE statement to configure Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+In CTP 3.1 through RC1, the option to specify a predicate isn't available in the Enable Database for Stretch wizard. You have to use the ALTER TABLE statement to configure Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 If you don't specify a filter predicate, the entire table is migrated.
 
-> [!IMPORTANT]
-> If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
 ## Basic requirements for the inline table\-valued function
 The inline table\-valued function required for a Stretch Database filter function looks like the following example.
@@ -71,7 +70,7 @@ A primitive condition can do one of the following comparisons.
 
 -   Compare a function parameter to a constant expression. For example, `@column1 < 1000`.
 
-    Here's an example that checks whether the value of a *date* column is &lt; 1\/1\/2016.
+    Here's an example that checks whether the value of a *date* column is &lt; 1/1/2016.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -408,4 +407,5 @@ You can't drop the inline table\-valued function as long as a table is using the
 To check the filter predicate applied to a table, open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column. If the value is null, the entire table is eligible for archiving. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## See also
+
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)

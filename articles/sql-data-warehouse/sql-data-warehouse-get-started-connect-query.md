@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connect and query with Visual Studio
@@ -46,7 +46,7 @@ To connect to your database you need the full name  of the server (***servername
 
 1. Open Visual Studio.
 2. Open the **SQL Server Object Explorer** from the View menu
- 
+
 ![][2]
 
 3. Click the **Add SQL Server** button

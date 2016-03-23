@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Monitor your workload using DMVs
@@ -38,10 +38,10 @@ Use the following query to retrieve the information on the current connection.
 
 ```
 
-SELECT * 
-FROM sys.dm_pdw_nodes_exec_connections AS c 
-   JOIN sys.dm_pdw_nodes_exec_sessions AS s 
-   ON c.session_id = s.session_id 
+SELECT *
+FROM sys.dm_pdw_nodes_exec_connections AS c
+   JOIN sys.dm_pdw_nodes_exec_sessions AS s
+   ON c.session_id = s.session_id
 WHERE c.session_id = @@SPID;
 
 ```
@@ -70,7 +70,7 @@ SELECT * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 Save the Request ID of the query.
 
 
-  
+
 ### STEP 2: Check if the query is waiting for resources
 
 ```
@@ -81,15 +81,15 @@ Save the Request ID of the query.
 SELECT waits.session_id,
       waits.request_id,  
       requests.command,
-      requests.status, 
+      requests.status,
       requests.start_time,  
       waits.type,  
-      waits.object_type, 
+      waits.object_type,
       waits.object_name,  
       waits.state  
-FROM   sys.dm_pdw_waits waits 
+FROM   sys.dm_pdw_waits waits
    JOIN  sys.dm_pdw_exec_requests requests
-   ON waits.request_id=requests.request_id 
+   ON waits.request_id=requests.request_id
 WHERE waits.request_id = 'QID33188'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 
@@ -106,13 +106,13 @@ The results of the above query will show you the wait state of your request.
 
 ### STEP 3: Find the longest running step of the query
 
-Use the Request ID to retrieve a list of all the distributed query steps. Find the long-running step by looking at the total elapsed time. 
+Use the Request ID to retrieve a list of all the distributed query steps. Find the long-running step by looking at the total elapsed time.
 
 ```
 
 -- Find the distributed query plan steps for a specific query.
 -- Replace request_id with value from Step 1.
- 
+
 SELECT * FROM sys.dm_pdw_request_steps
 WHERE request_id = 'QID33209'
 ORDER BY step_index;
@@ -148,7 +148,7 @@ Use the following query to retrieve the SQL Server execution plan for the SQL St
 
 ```
 
--- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
@@ -159,19 +159,19 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ### STEP 4b: Find the execution progress of a DMS Step
 
-Use the Request ID and the Step Index to retrieve information about the Data Movement Step running on each distribution. 
+Use the Request ID and the Step Index to retrieve information about the Data Movement Step running on each distribution.
 
 ```
 
 -- Find the information about all the workers completing a Data Movement Step.
 -- Replace request_id and step_index with values from Step 1 and 3.
- 
+
 SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID33209' AND step_index = 2;
 
 ```
 
-- Check the *total_elapsed_time* column to see if a particular distribution is taking significantly longer than others for data movement. 
+- Check the *total_elapsed_time* column to see if a particular distribution is taking significantly longer than others for data movement.
 - For the long-running distribution, check the *rows_processed* column to see if the number of rows being moved from that distribution is significantly larger than others. This shows that your query has data skew.
 
 
@@ -203,5 +203,3 @@ For more tips on managing your SQL Data Warehouse, see [manage overview][].
 [table design]: sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
-
-

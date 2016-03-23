@@ -17,7 +17,7 @@
    ms.date="02/16/2016"
    ms.author="mwasson"/>
 
-# Federating with a customer's AD FS
+# Federating with a customer's AD FS for multitenant apps in Azure
 
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
@@ -90,7 +90,7 @@ The SaaS provider can deploy AD FS either on-premise or on Azure VMs. For securi
 
 To set up a similar topology in Azure requires the use of Virtual networks, NSG’s, azure VM’s and availability sets. For more details, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines] (MSDN).
 
-## Configure the application to use OpenID Connect authentication with AD FS
+## Configure OpenID Connect authentication with AD FS
 
 The SaaS provider must enable OpenID Connect between the application and AD FS. To do so, add an application group in AD FS.  You can find detailed instructions in this [blog post], under " Setting up a Web App for OpenId Connect sign in AD FS."
 Then configure the OpenID Connect middleware. The metadata endpoint is `https://domain/adfs/.well-known/openid-configuration`, where domain is the SaaS provider's AD FS domain.
@@ -119,7 +119,7 @@ Here are the steps in more detail.
 
 1.	Right-click the newly added claims provider trust, and select **Edit Claims Rules**.
 2.	Click **Add Rule**.
-3.	Select "Pass Through of Filter an Incoming Claim" and click **Next**.
+3.	Select "Pass Through or Filter an Incoming Claim" and click **Next**.
 	![Add Transform Claim Rule Wizard](media/guidance-multitenant-identity/edit-claims-rule.png)
 4.	Enter a name for the rule.
 5.	Under "Incoming claim type", select **UPN**.
@@ -140,7 +140,7 @@ where "name" is the friendly name of the claims provider trust, and "suffix" is 
 
 With this configuration, end users can type in their organizational account, and AD FS automatically selects the corresponding claims provider. See [Customizing the AD FS Sign-in Pages], under the section "Configure Identity Provider to use certain email suffixes".
 
-## Configuring the AD FS Account Partner
+## Configure the AD FS Account Partner
 
 The customer must do the following:
 
@@ -164,9 +164,9 @@ The customer must do the following:
 1.	Right-click the newly added relying party trust, and select **Edit Claim Issuance Policy**.
 2.	Click **Add Rule**.
 3.	Select "Send LDAP Attributes as Claims" and click **Next**.
-  ![Add Transform Claim Rule Wizard](media/guidance-multitenant-identity/add-claims-rules.png)
 4.	Enter a name for the rule, such as "UPN".
 5.	Under **Attribute store**, select **Active Directory**.
+  ![Add Transform Claim Rule Wizard](media/guidance-multitenant-identity/add-claims-rules.png)
 6.	In the **Mapping of LDAP attributes** section:
   -	Under **LDAP Attribute**, select **User-Principal-Name**.
   - Under **Outgoing Claim Type**, select **UPN**.
@@ -174,7 +174,7 @@ The customer must do the following:
 7.	Click **Finish**.
 8.	Click **Add Rule** again.
 9.	Select "Send Claims Using a Custom Rule" and click **Next**.
-10.	Enter a name for the rule, such as "Anchor Claim".
+10.	Enter a name for the rule, such as "Anchor Claim Type".
 11.	Under **Custom rule**, enter the following:
 
 	```
@@ -183,10 +183,14 @@ The customer must do the following:
              Value = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn");
 	```
 
-    This rule maps the UPN claim to the Anchor claim.
+    This rule issues a claim of type `anchorclaimtype`. The claim tells the relying party to use UPN as the user's immutable ID.
 
 12.	Click **Finish**.
 13.	Click **OK** to complete the wizard.
+
+## Next steps
+
+- Read the next article in this series: [Using client assertion to get access tokens from Azure AD][client assertion]
 
 <!-- Links -->
 [part of a series]: guidance-multitenant-identity.md
@@ -202,3 +206,4 @@ The customer must do the following:
 [blog post]: http://www.cloudidentity.com/blog/2015/08/21/OPENID-CONNECT-WEB-SIGN-ON-WITH-ADFS-IN-WINDOWS-SERVER-2016-TP3/
 [Customizing the AD FS Sign-in Pages]: https://technet.microsoft.com/library/dn280950.aspx
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[client assertion]: guidance-multitenant-identity-client-assertion.md

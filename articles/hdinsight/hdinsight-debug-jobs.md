@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="jgao"/>
 
 # Analyze HDInsight logs
@@ -99,14 +99,14 @@ You can now use Excel to filter and sort as necessary. Obviously, you may want t
 2. From the **View** menu, click **Cloud Explorer**. Or simply click **CTRL+\, CTRL+X**.
 3. From **Cloud Explorer**, select **Resource Types**.  The other available option is **Resource Groups**.
 4. Expand **Storage Accounts**, the default storage account for your cluster, and then **Tables**.
-5. Double-click hadoopservicelog.
+5. Double-click **hadoopservicelog**.
 6. Add a filter. For example:
 	
 		TraceLevel eq 'ERROR'
 
 	![HDInsight Hadoop logs choose columns](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
 
-	For more information about constructing filters, see [Constructing Filter Strings for the Table Designer](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+	For more information about constructing filters, see [Construct Filter Strings for the Table Designer](../vs-azure-tools-table-designer-construct-filter-strings.md).
  
 ##Logs Written to Azure Blob Storage
 
@@ -337,6 +337,6 @@ Some of these error messages could also be seen in the Azure Portal when it is u
 
 ## Next steps
 
-[Use Ambari Views to debug Tez Jobs on HDInsight](hdinsight-debug-ambari-tez-view.md)
-[Enable heap dumps for Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-[Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
+- [Use Ambari Views to debug Tez Jobs on HDInsight](hdinsight-debug-ambari-tez-view.md)
+- [Enable heap dumps for Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+- [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)

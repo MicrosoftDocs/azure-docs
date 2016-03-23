@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
@@ -508,7 +508,6 @@ In this MapReduce tutorial, you installed the HDInsight Emulator - a Hadoop sand
 
 - [Get started using Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Develop C# Hadoop streaming MapReduce programs for HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight Emulator release notes](hdinsight-emulator-release-notes.md)
 - [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -528,7 +527,6 @@ In this MapReduce tutorial, you installed the HDInsight Emulator - a Hadoop sand
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
 [Powershell-install-configure]: powershell-install-configure.md

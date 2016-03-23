@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="03/09/2016"
 	ms.author="awills"/>
 
 
@@ -147,10 +147,8 @@ You need to open some outgoing ports in your server's firewall to allow Status M
 
 + Telemetry - these are needed all the time:
  +	`dc.services.visualstudio.com:80`
- +	`f5.services.visualstudio.com:80`
  +	`dc.services.visualstudio.com:443`
- +	`f5.services.visualstudio.com:443`
- +	`dc.services.vsallin.net:443`
+ +	`dc.applicationinsights.microsoft.com`
 + Configuration - needed only when making changes:
  -	`management.core.windows.net:443`
  -	`management.azure.com:443`

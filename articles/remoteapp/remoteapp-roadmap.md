@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="02/16/2016"
+    ms.date="03/23/2016"
     ms.author="elizapo" />
 
 # What's coming in Azure RemoteApp
 
 We are always working to improve Azure RemoteApp based on your feedback. Here are rough time lines for future feature availability.
 
-|Feature|Jan-March 2016|April-June 2016|
+|Feature|April-June 2016|July-Sept 2016|
 |-----------|-------|-------|
 |Azure Remote App available in both the [Azure classic portal](http://manage.windowsazure.com) and [Azure portal](https://portal.azure.com) |X | |
 |Windows 10 Universal Application with Continuum for Azure RemoteApp - Preview|X| |
@@ -29,7 +29,7 @@ We are always working to improve Azure RemoteApp based on your feedback. Here ar
 |Azure Resource Manager (ARM) support||X|
 |Azure v2 resource support| |X|
 |Cloud Solution Provider (CSP)||X|
-|Availability in India region|X||
+|Availability in India region||X|
 |Availability in UK region||X|
 
 
