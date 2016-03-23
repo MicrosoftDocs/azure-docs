@@ -20,7 +20,8 @@ The objective of this tutorial is to show the integration of Azure and ServiceNo
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 -   A valid Azure subscription
--   A tenant in ServiceNow
+-   A tenant in ServiceNow, Calgary version or higher
+-   ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. This can be done by submitting a service request at https://hi.service-now.com/ 
   
 After completing this tutorial, the Azure AD users you have assigned to ServiceNow will be able to single sign into the application at your ServiceNow company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
   
@@ -89,13 +90,13 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
     c. Click **Next**
 
-4.  On the **Auto configure single sign-on** page, click **Manually configure the application for single sign-on**, and then click **Next**.
+4.  To have Azure AD automatically configure ServiceNow for SAML-based authentication, enter your ServiceNow instance name, admin username, and admin password in the **Auto configure single sign-on** form and click *Configure*. Note that the admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML identity provider, click **Manually configure the application for single sign-on**, then click **Next** and complete the following steps.
 
     ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configure app URL")
 
 
 
-4.  On the **Configure single sign-on at ServiceNow** page, click **Download certificate**, save the certificate file locally on your computer, and then click **Next**.
+5.  On the **Configure single sign-on at ServiceNow** page, click **Download certificate**, save the certificate file locally on your computer, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
 
