@@ -42,6 +42,7 @@ The article includes prerequisites for the scenario, and shows you
 
 If you run into problems setting up this scenario, post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
+> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](https://azure.microsoft.com/en-in/documentation/articles/resource-manager-deployment-model/). This article covers using the Resource Manager deployment model.
 
 ## Before you start
 
