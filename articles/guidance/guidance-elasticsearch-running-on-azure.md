@@ -1018,7 +1018,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Azure Load Balancer]: load-balancer-overview/
 [ExpressRoute]: expressroute-introduction/
 [internal load balancer]: load-balancer-internal-overview/
-[Sizes for Virtual Machines]: virtual-machines-size-specs/
+[Sizes for Virtual Machines]: virtual-machines-linux-sizes/
 
 [Memory Requirements]: #memory-requirements
 [Network Requirements]: #network-requirements
