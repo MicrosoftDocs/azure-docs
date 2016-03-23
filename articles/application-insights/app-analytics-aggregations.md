@@ -21,7 +21,7 @@
 
 [Analytics](app-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage, AIQL.
+ Analytics query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -311,7 +311,7 @@ The syntax of the returned schema is:
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
-They are equivalent to a subset of the TypeScript type annotations, encoded as a AIQL dynamic value. In Typescript, the example schema would be:
+They are equivalent to a subset of the TypeScript type annotations, encoded as a dynamic value. In Typescript, the example schema would be:
 
     var someobject: 
     { 
