@@ -49,6 +49,7 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
 
 > [AZURE.WARNING] Restoring from a backup will replace the existing volumes from the backup. This may cause the loss of any data that was written after the backup was taken.
 
+Before you initiate a restore on a volume, ensure that the volume is offline. You will need to take the volume offline on the host first and then the device. Follow the steps in [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline). Perform the following steps to restore a volume from a backup set.
 
 ### To restore from a backup set
 
@@ -64,13 +65,11 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
  
     The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
-3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Access the volumes on the **Volume Containers** page, and then follow the steps in [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline) to take them offline.
+3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Follow the steps in [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
 
     >  [AZURE.IMPORTANT] Make sure that you have taken the volumes offline on the host first, before you take the volumes offline on the device. If you do not take the volumes offline on the host, it could potentially lead to data corruption.
 
-4. Navigate back to the **Backup Catalog** tab and select a backup set.
-
-5. Click **Restore** at the bottom of the page.
+4. Select a backup set. Click **Restore** at the bottom of the page.
 
 6. You will be prompted for confirmation. 
 
