@@ -87,6 +87,8 @@ The Power BI Embedded service uses App Tokens for authentication and authorizati
 
     ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-1.png)
 
-2. The token assets a claim and has an expiration time.
+2. The token asserts a claim and has an expiration time.
 
-    ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-1.png)
+    ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-2.png)
+
+3. 
