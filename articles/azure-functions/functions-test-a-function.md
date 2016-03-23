@@ -65,19 +65,19 @@ Update the function with the following code which we will use for testing:
 	            if (typeof bodyJSON.address != 'undefined')
 	                ProcessNewUserInformation(context, bodyJSON.name, bodyJSON.address);    
 	            else
-	                ProcessNewUserInformation(context, bodyJSON.name, null);   
+	                ProcessNewUserInformation(context, bodyJSON.name);   
 	        }
 	        else 
 	        {
 	            context.res = {
 	                status: 400,
-	                body: "Please pass a name in request body or the query string"
+	                body: "Please pass a name on the query string"
 	            }
 	        }
 	    }
 	    else {
 	        context.log('Name was provided as a query string param.'); 
-	        respondToName(context, req.query.name);
+	        ProcessNewUserInformation(context, req.query.name);
 	    }
 	    context.done();
 	    
@@ -88,7 +88,7 @@ Update the function with the following code which we will use for testing:
 	    context.log('Processing User Information...');            
 	    echoString = "Hello " + name;
 	    
-	    if (address !== null)
+	    if (typeof address != 'undefined')
 	    {
 	        echoString += "\n" + "The address you provided is " + address;
 	    }
@@ -97,8 +97,7 @@ Update the function with the following code which we will use for testing:
 	            // status: 200, /* Defaults to 200 */
 	            body: echoString
 	        };
-	}	
-
+	}
 
 
 ## Test with a browser
