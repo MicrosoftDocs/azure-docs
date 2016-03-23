@@ -24,19 +24,21 @@ Azure DocumentDB is commonly used as a document database, but its data model and
 * How do I design a high-performance key-value database on DocumentDB?
 
 ## A brief introduction to key-value databases
-Key-value databases (also known as key-value) stores are NoSQL databases which are designed to manage data organized in the form of associative arrays, also known as dictionaries. They support simple access methods like reads (by key) and writes, and partition data across one or multiple servers for scalability and high-availability. Key-value stores are used in a variety of use cases like log storage, managing user and session data, and shopping cart data.
+Key-value databases (also known as key-value stores) are NoSQL databases which are designed to manage data organized in the form of associative arrays, also known as dictionaries. They support simple access methods like reads (by key) and writes, and partition data across one or multiple servers for scalability and high-availability. Key-value stores are used in a variety of use cases like log storage, managing user and session data, and shopping cart data.
+
+Some popular key-value stores are [Azure Table Storage](storage-dotnet-how-to-use-tables/) and [Amazon DynamoDB](https://aws.amazon.com/dynamodb/). 
 
 ## DocumentDB as a high performance key-value store
 Azure DocumentDB is commonly used as a document database, but its data model and functionality can be easily adapted to support key value workloads. In fact, document databases can be thought of as a subclass of key value databases with additional functionality like indexing and query.
 
 * The JSON data model is a superset of the key-value model 
 * DocumentDB supports read and write operations on JSON entities through a REST API
-* DocumentDB natively partitions your data for high availability and scalability using a partition key property (since API version 2015-12-16)
+* DocumentDB natively partitions your data for high availability and scalability using a partition key property (since [API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx))
 * DocumentDB's SSD backed storage allows low latency order-of-millisecond response times
 * DocumentDB's reserved throughput model allows you to think in terms of number of reads/writes instead of CPU/memory/IOPs of the underlying hardware
 * DocumentDB's design lets you scale to massive request volumes in the order of billions of requests per day
 
-If you have a use case that involves storing a large amount of data that you rarely access, then Azure DocumentDB may not be right for you. We recommend that you use Azure Table Storage for such use cases.
+If you have a use case that involves storing a large amount of data with low request rates, then Azure DocumentDB may not be right for you. We recommend that you use Azure Table Storage for such use cases.
 
 ## Getting started
 While designing your key-value data storage tier on DcoumentDB, you must consider the following factors:
