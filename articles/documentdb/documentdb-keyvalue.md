@@ -15,7 +15,8 @@
 	ms.topic="article" 
 	ms.date="03/23/2016" 
 	ms.author="arramac"/>
-	
+
+#DocumentDB as a high-performance key-value database
 Azure DocumentDB is commonly used as a document database, but its data model and functionality can be easily adapted to support key value workloads. In fact, document databases can be thought of as a subclass of key value databases with additional functionality like indexing and query. This article walks through how you can best use DocumentDB for key-value scenarios. After reading this article, you'll be able to answer the following questions:
 
 * What are key-value and document databases?
