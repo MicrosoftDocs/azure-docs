@@ -497,6 +497,5 @@ inbound parameter of tshirtSize to a variable embedded within the template.
 
 ## Next steps
 
-- To see contextual examples of how to implement the design priciples presented in this topic, see [Contextual examples of best practices for implementing templates](best-practices-resource-manager-examples.md).
 - For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
 - To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
