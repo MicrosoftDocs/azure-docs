@@ -17,7 +17,7 @@
 	ms.date="03/23/2016"
 	ms.author="jgao"/>
 
-# Create non-interactive authentication .NET HDInsight applciations
+# Create non-interactive authentication .NET HDInsight applications
 
 You can execute your .NET Azure HDInsight application either under application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). For a sample of the interactive application, see [Submit Hive/Pig/Sqoop jobs using HDInsight .NET SDK](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). This article shows you how to create non-interactive authentication .NET application to connect to Azure HDInsight and submit a Hive job.
 
@@ -69,7 +69,7 @@ It takes a few moments to create the application.  Once the application is creat
 
 1.	From the newly created AD application page, click **Configure** from the top menu.
 2.	Make a copy of **Client ID**. You will need it in your .NET application.
-3.	Under **Keys**, click **Select duration** dropdown, and select either **1 year** or **2 year**. The key value will not be displayed until you save the configuration.
+3.	Under **Keys**, click **Select duration** dropdown, and select either **1 year** or **2 years**. The key value will not be displayed until you save the configuration.
 4.	Click **Save** on the bottom of the page. When the secret key appears, make a copy of the key. You will need it in your .NET application.
 
 ##Assign AD application to role
