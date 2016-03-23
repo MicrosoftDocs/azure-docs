@@ -72,7 +72,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
 
-4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
+4. Download and install the latest Azure PowerShell from [http://aka.ms/azStackPsh](http://aka.ms/azStackPsh).
 
 ## Create a wildcard certificate
 
