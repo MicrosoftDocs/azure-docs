@@ -16,8 +16,7 @@
 	ms.date="03/14/2016"
 	ms.author="luisca"/>
 
-<a name="HOLTop"></a>
-# Quick start guide for the Machine Learning Recommendations API#
+# Quick start guide for the Machine Learning Recommendations API
 
 This document describes how to onboard your service or application to use the [Recommendations API](http://go.microsoft.com/fwlink/?LinkId=759710).
 You can find more details on the Recommendations API and other Cognitive Services [here](http://go.microsoft.com/fwlink/?LinkId=759709). Throughout this guide, you may also find the [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) handy.
