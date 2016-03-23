@@ -88,7 +88,12 @@ event service log. For example, an administrator can create a policy which cause
         "effect" : "deny | audit"
       }
     }
+    
+## Policy Evaluation
 
+Policy will be evaluated when resource creation or template deployment happens using HTTP PUT. In case of template deployment, policy will be evaluated during the creation of each resource in the template. 
+
+Note: Resource types which do not support tags, kind, location are not evaluated by Policy, such as Microsoft.Resources/deployments. The support will be added at a future time. To avoid backward compatability issues, it is best practice to explicitly specify type when authoring policies. For example, a tag policy without specifying types will be applied for all types, so template deployment may fail if there is a nested resource that don't support tag when the resource type is added to evaluation at a future time. 
 
 ## Logical Operators
 
