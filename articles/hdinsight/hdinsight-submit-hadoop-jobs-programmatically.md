@@ -53,6 +53,8 @@ See [Use Sqoop with HDInsight][hdinsight-use-sqoop].
 ##Submit Hive/Pig/Sqoop jobs using HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
+The following sample using user interactive authentication. To use the non-interactive authentication, see [Create non-interactive authentication .NET HDInsight applciations](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+
 **To Submit jobs**
 
 1. Create a C# console application in Visual Studio.
