@@ -22,6 +22,8 @@
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
 
-[AZURE.VIDEO []()]
+[AZURE.VIDEO ]
 
-## Learn more
+[See this video on Channel 9]()
+
+[AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]

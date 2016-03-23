@@ -23,4 +23,8 @@ In this short video you will learn how to create Azure Function that listens to 
    
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
 
-[AZURE.VIDEO []()]
+[AZURE.VIDEO ]
+
+[See this video on Channel 9]()
+
+[AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
