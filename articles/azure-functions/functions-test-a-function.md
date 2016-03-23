@@ -27,7 +27,7 @@ In this tutorial, we will walk through a few different approaches and tools that
 
 ## Creating a function for testing
 
-For the purposes of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](https://azure.microsoft.com/documentation/articles/functions-create-first-azure-function/) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template.
+For the purposes of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](https://azure.microsoft.com/) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template.
 
 This function template by default is basically a hello world function echoing back the name you provide as input in the form of a query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client.   
 
