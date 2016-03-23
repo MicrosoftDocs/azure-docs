@@ -54,8 +54,8 @@ Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Sta
 ### Azure cross platform command line interfaces
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
 
-[Download the Windows CLI](http://go.microsoft.com/?linkid=9828653&clcid=0x409)
+[Download the Windows CLI](http://aka.ms/azstack-windows-cli)
 
-[Download the Mac CLI](http://go.microsoft.com/fwlink/?linkid=253471&clcid=0x409)
+[Download the Mac CLI](http://aka.ms/azstack-linux-cli)
 
-[Download the Linux CLI](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409)
+[Download the Linux CLI](http://aka.ms/azstack-mac-cli)
