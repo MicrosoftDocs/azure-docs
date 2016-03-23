@@ -124,9 +124,9 @@ When the script finishes, it outputs the following three values. Note the values
 
 When the script finishes, it outputs the following three values. Note these values, because they are used as build variables.
 
- * `ServiceFabricCertificateThumbprint`
- * `ServiceFabricKeyVaultId`
- * `ServiceFabricCertificateSecretId`
+ - `ServiceFabricCertificateThumbprint`
+ - `ServiceFabricKeyVaultId`
+ - `ServiceFabricCertificateSecretId`
 
 ## Set up your build machine
 
@@ -235,7 +235,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 |User account to run the service|Accept the default value, `NT AUTHORITY\LocalService`.|
 |Un-configure existing agent?|Accept the default value, **N**.|
 
-3.  You will be prompted for credentials. Enter the credentials for your Microsoft account that has rights to your team project.
+3.  When you're prompted for credentials, enter the credentials for your Microsoft account that has rights to your team project.
 
 4.  Verify that your build agent was registered. To do this:
 
