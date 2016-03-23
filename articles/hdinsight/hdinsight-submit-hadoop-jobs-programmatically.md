@@ -260,7 +260,6 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
