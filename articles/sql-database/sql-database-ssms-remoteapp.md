@@ -80,7 +80,7 @@ To learn more about creating a Azure RemoteApp image, see: [How to create a Remo
 
 When the VM has stopped running, find it in the current portal and capture it. 
 
-To learn more about capturing an image, see [Capture an image of an Azure Windows virtual machine created with the classic deployment model](../virtual-machines-capture-image-windows-server.md)
+To learn more about capturing an image, see [Capture an image of an Azure Windows virtual machine created with the classic deployment model](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
 
 
 ### 5. Add to Azure RemoteApp Template images
