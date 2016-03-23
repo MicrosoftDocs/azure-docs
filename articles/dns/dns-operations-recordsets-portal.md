@@ -43,7 +43,7 @@ To create a record set in the Azure portal, see [Create DNS records using the Az
 
 ## To add a new record to a record set
 
-You can add up to 20 records to any record set. However, record sets of type CNAME can contain at most 1 record, and a record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers.
+You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers. Record sets of type CNAME can contain at most 1 record.
 
 
 1. From the record set properties blade for your dns zone, click the record set that you want to add a record to.
@@ -66,7 +66,7 @@ When updating a record in an existing record set, the available fields you can u
 
 ## To remove a record from a record set
 
-You can use the Azure portal to remove records can be removed from a record set. Note that removing the last record from a record set does not delete the record set. See [Delete a record set](#delete) below for more information.
+You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set. See [Delete a record set](#delete) below for more information.
 
 1. From the record set properties blade for your record set, search for the record.
 2. Modify the available settings.
@@ -76,7 +76,7 @@ You can use the Azure portal to remove records can be removed from a record set.
 
 ## <a name="delete"></a>To delete a record set
 
-1. From the record set properties blade for your record set, click Delete.
+1. From the record set properties blade for your record set, click **Delete**.
 2. A message will appear asking if you want to delete the record set 'name_of_record_set'.
 3. Verify that the name matches the record set that you want to delete, then click **Yes**.
 4. From the DNS zone blade, you can verify that the record set is no longer visible.

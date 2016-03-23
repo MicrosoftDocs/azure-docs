@@ -27,13 +27,13 @@
 
 
 
-This article will walk you thorough the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
+This article will walk you through the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
 
 The domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site).  A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain you will first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
 
 Note the following:
  
-- The name of the zone must be unique within the resource group, and the zone must not exist already, otherwise the operation will fail.
+- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
 
 - The same zone name can be re-used in a different resource group or a different Azure subscription.  Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for more information.
 
@@ -41,7 +41,7 @@ Note the following:
 ## To create a DNS zone
 
 1. Sign in to the Azure portal
-2. On the Hub menu, click  and click **New > Networking >** and then click **DNS zone** to open the DNS zone blade. 
+2. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the DNS zone blade. 
 3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade.
 4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. 
 5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists. 
@@ -54,15 +54,15 @@ Note the following:
 
 Creating a DNS zone also creates the following DNS records, which you can view in the Azure portal on the blade for your DNS zone:
 
-- The "Start of Authority" (SOA) record.  This is present at the root of every DNS zone.
-- The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
+- The "Start of Authority" (SOA) record. The SOA is present at the root of every DNS zone.
+- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
 ### To view DNS zone records:
 
 1. From your DNS zone blade, click on **All settings** to open the** Settings blade** for the DNS zone. 
 2. In the lower part of the blade, you can see the record sets for the DNS zone.
 
-Note: If a zone is not available for you to use or did not create correctly, you will see a "Failed" result and the details for the reason of failure in the Operations details window.
+Note: If a zone is not available for you to use or did not create correctly, you will see a "Failed" result and the details for the reason of failure in the Operations details window. Typically this happens when you try to create a zone with a name that is not available.
 
 
 ## To test your DNS zone by using DNS tools
@@ -97,7 +97,7 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 |------|--------|
 |None|PUT always succeeds (no Etag checks)|
 |If-match <etag>|PUT only succeeds if resource exists and Etag matches|
-|If-match *	|PUT only succeeds if resources exists|
+|If-match *	|PUT only succeeds if resources exist|
 |If-none-match |*	PUT only succeeds if resource does not exist|
 
 ### Tags
