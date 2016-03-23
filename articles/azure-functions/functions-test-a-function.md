@@ -22,14 +22,14 @@
 
 ## Overview
 
-In this tutorial, we will walk through a few different approaches and tools that can be used for testing functions. We will define a very simple function that accepts input through a query string parameter, or the request body. The **HttpTrigger Nodejs Function** template supports a `name` query string parameter. We will also add code to support the parameter along with `address` information for the user in the request body.
+In this tutorial, we will walk through a few different tools that can be used for testing functions. We will define a very simple function that accepts input through a query string parameter, or the request body. The **HttpTrigger Nodejs Function** template supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
 
 
 ## Creating a function for testing
 
 For the purposes of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](https://azure.microsoft.com/) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template.
 
-This function template by default is basically a hello world function echoing back the name you provide as input in the form of a query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client.   
+This function template by default is basically a hello world function that echos back the name query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client.   
 
 Update the function with the following code which we will use for testing:
 
@@ -112,9 +112,9 @@ To test the function we defined above, copy the **Function Url** from the portal
 
 	https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Append the `name` query string parameter as follows, using an actual name for the `<Enter a name here>` place holder.
+Append the `name` query string parameter as follows, using an actual name for the `<Enter a name here>` placeholder.
 
-	https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>"
+	https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
 Paste the URL into your browser and you should get a response similar to the following.
 
@@ -163,12 +163,12 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 ## Testing with Postman
 
-The recommended tool to test calling your functions is Postman. To install Postman, see [Get Postman](https://www.getpostman.com/). Postman provides control over many more attributes of an HTTP request.
+The recommended tool to test your functions is Postman. To install Postman, see [Get Postman](https://www.getpostman.com/). Postman provides control over many more attributes of an HTTP request.
 
 To test the function with a request body in Postman: 
 
-1. Launch Postman from the **Apps** button in the upper left of corner of a Chrome browser.
-2. Copy your **Function Url** for your function and paste it into Postman. It includes the access code.
+1. Launch Postman from the **Apps** button in the upper left of corner of a Chrome browser window.
+2. Copy your **Function Url** and paste it into Postman. It includes the access code query string parameter.
 3. Change the HTTP method to **POST**.
 4. Click **Body** > **raw** and add JSON request body similar to the following:
 
