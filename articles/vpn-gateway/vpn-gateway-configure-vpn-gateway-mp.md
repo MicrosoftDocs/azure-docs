@@ -164,7 +164,7 @@ Before changing your gateway VPN type, be sure to verify that your VPN device wi
 
 You can learn more about Virtual Network cross-premises connectivity in this article: [About secure cross-premises connections for virtual networks](vpn-gateway-cross-premises-options.md).
 
-You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-create-custom.md).
+You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 If you want to configure a point-to-site VPN connection, see [Configure a point-to-site VPN connection](vpn-gateway-point-to-site-create.md).
 

@@ -50,9 +50,12 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Deploying a Docker Container
+## Deploying a Docker Formated Container
 
-Docker containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the nginx container, binding port 80 of the Mesos agent to port 80 of the container.
+Docker formatted containers are deployed through Marathon using a json
+file that describes the intended deployment. The following sample will
+deploy the nginx container, binding port 80 of the Mesos agent to port
+80 of the container.
 
 ```json
 {
@@ -73,7 +76,7 @@ Docker containers are deployed through Marathon using a json file that describes
 }
 ```
 
-In order to deploy a Docker container, create your own json file, or use the sample provided here - [Azure ACS Demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), and store it in an accessible location. Next, run the following command, specifying the name of the json file, to deploy the container.
+In order to deploy a Docker formatted container, create your own json file, or use the sample provided here - [Azure ACS Demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json), and store it in an accessible location. Next, run the following command, specifying the name of the json file, to deploy the container.
 
 ```
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
@@ -91,7 +94,7 @@ Now, if you query Marathon for applications, this new application will show in t
 curl localhost/marathon/v2/apps
 ```
 
-## Scale a Docker Container
+## Scale Your Containers
 
 The Marathon API can also be used to scale application deployments out or in. In the previous example one instance of an application was deployed, let's scale this out to three instances. To do so, create a json file with the following json text, and store it in an accessible location.
 
@@ -123,7 +126,7 @@ To gather information about the Mesos cluster such as agent names and agent stat
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Docker containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the nginx container, binding port 80 of the Mesos agent to port 80 of the container.
+Docker format containers are deployed through Marathon using a json file that describes the intended deployment. The following sample will deploy the nginx container, binding port 80 of the Mesos agent to port 80 of the container.
 
 ```json
 {
