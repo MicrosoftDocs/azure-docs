@@ -20,7 +20,7 @@
 
 There are two sets of configuration settings for reliable services. One set is global for all reliable services in the cluster while the other set is specific to a particular reliable service.
 
-# Global Specific Configuration
+## Global Specific Configuration
 
 The global reliable service configuration is specified in the cluster manifest for the cluster under the KtlLogger section. It allows configuration of the shared log location and size plus the global memory limits used by the logger. The cluster manifest is a single XML file that holds settings and configurations that apply to all nodes and services in the cluster. The file is typically called ClusterManifest.xml. You can see the cluster manifest for your cluster using the Get-ServiceFabricClusterManifest powershell command.
 
@@ -34,7 +34,7 @@ The global reliable service configuration is specified in the cluster manifest f
 |SharedLogPath|Fully qualified path name|""|Specifies the fully qualified path where the shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogPath in their service specific configuration. However, if SharedLogPath is specified, then SharedLogId must also be specified.|
 |SharedLogSizeInMB|Megabytes|8192|Specifies the number of MB of disk space to statically allocate for the shared log. The value must be 2048 or larger.|
 
-## Sample cluster manifest section
+### Sample cluster manifest section
 ```xml
    <Section Name="KtlLogger">
      <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
@@ -45,7 +45,7 @@ The global reliable service configuration is specified in the cluster manifest f
    </Section>
 ```
 
-## Remarks
+### Remarks
 The logger write buffer memory pool is a pool of non paged kernel memory that is available to all reliable services on a node and is where state data is cached before being written to the dedicated log associated with the reliable service replica. WriteBufferMemoryPoolMinimumInKB specifies both the initial size of this memory pool and the lowest size to which the memory pool may shrink. WriteBufferMemoryPoolMaximumInKB is the highest size to which the memory pool may grow. Each reliable service replica that is opened may increase the size of the memory pool by a system determined amount up to WriteBufferMemoryPoolMaximumInKB. If there is more demand for memory from the memory pool than is available, requests for memory will be delayed until memory is available. Therefore if the write buffer memory pool is too small for a particular configuration then performance may suffer.
 
 The SharedLogId and SharedLogPath settings are always used together to define the GUID and location for the default shared log for all nodes in the cluster. The default shared log is used for all reliable services that do not specify the settings in the settings.xml for the specific service. For best performance, shared log files should be placed on disks that are used solely for the shared log file to reduce contention.
@@ -53,7 +53,7 @@ The SharedLogId and SharedLogPath settings are always used together to define th
 SharedLogSizeInMB specifies the amount of disk space to preallocate for the default shared log on all nodes.  SharedLogId and SharedLogPath do not need to be specified in order for SharedLogSizeInMB to be specified.
 
 
-# Service Specific Configuration
+## Service Specific Configuration
 You can modify stateful Reliable Services' default configurations by using the configuration package (Config) or the service implementation (code).
 
 + **Config** - Configuration via the config package is accomplished by changing the Settings.xml file that is generated in the Microsoft Visual Studio package root under the Config folder for each service in the application.
@@ -65,26 +65,26 @@ By default, the Azure Service Fabric runtime looks for predefined section names 
 Renaming the config package or section names will require a code change when configuring the ReliableStateManager.
 
 
-## Replicator security configuration
+### Replicator security configuration
 Replicator security configurations are used to secure the communication channel that is used during replication. This means that services will not be able to see each other's replication traffic, ensuring that the data that is made highly available is also secure. By default, an empty security configuration section prevents replication security.
 
-### Default section name
+#### Default section name
 ReplicatorSecurityConfig
 
 >[AZURE.NOTE] To change this section name, override the replicatorSecuritySectionName parameter to the ReliableStateManagerConfiguration constructor when creating the ReliableStateManager for this service.
 
 
-## Replicator configuration
+### Replicator configuration
 Replicator configurations configure the replicator that is responsible for making the stateful Reliable Service's state highly reliable by replicating and persisting the state locally.
 The default configuration is generated by the Visual Studio template and should suffice. This section talks about additional configurations that are available to tune the replicator.
 
-### Default section name
+#### Default section name
 ReplicatorConfig
 
 >[AZURE.NOTE] To change this section name, override the replicatorSettingsSectionName parameter to the ReliableStateManagerConfiguration constructor when creating the ReliableStateManager for this service.
 
 
-### Configuration names
+#### Configuration names
 |Name|Unit|Default value|Remarks|
 |----|----|-------------|-------|
 |BatchAcknowledgementInterval|Seconds|0.05|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response.|
@@ -97,7 +97,7 @@ ReplicatorConfig
 |SharedLogPath|Fully qualified path name|""|Specifies the fully qualified path where the shared log file for this replica will be created. Typically, services should not use this setting. However, if SharedLogPath is specified, then SharedLogId must also be specified.|
 
 
-## Sample configuration via code
+### Sample configuration via code
 ```csharp
 protected override IReliableStateManager CreateReliableStateManager()
 {
@@ -111,7 +111,7 @@ protected override IReliableStateManager CreateReliableStateManager()
 ```
 
 
-## Sample configuration file
+### Sample configuration file
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -133,7 +133,7 @@ protected override IReliableStateManager CreateReliableStateManager()
 ```
 
 
-## Remarks
+### Remarks
 BatchAcknowledgementInterval controls replication latency. A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).
 The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency. This directly translates to the latency of transaction commits.
 
