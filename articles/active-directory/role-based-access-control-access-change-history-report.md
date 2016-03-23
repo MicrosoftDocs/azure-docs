@@ -30,7 +30,7 @@ Get-AzureRMAuthorizationChangeLog
 You can specify which property of the assignments you want listed, including the following:
 
 | Property | Description |
-|-|-|
+| -------- | ----------- |
 | **Action** | Whether access was granted or revoked |
 | **Caller** or **User** | The owner responsible for the access change |
 | **Date** | The date and time that access was changed |
