@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Cimpl | Microsoft Azure"
+	pageTitle="Tutorial: Azure Active Directory integration with Pluralsight | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and Pluralsight."
 	services="active-directory"
 	documentationCenter=""
@@ -117,12 +117,12 @@ You can also add the **"Unique ID"** attribute with the appropriate value like E
 4. On the **Configure single sign-on at Pluralsight** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_05.png) <br>
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Click **Download metadata**, and then save the file on your computer.
 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Pluralsight support team on +1 866-982-8250 and email the attach downloaded certificate file. Also please do provide the Identity Provider ID and Remote Login URL so that they can be configured for SSO integration.
+5. To get SSO configured for your application, contact your Pluralsight sales rep and provide the downloaded metadata file.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
