@@ -1,12 +1,12 @@
 
-For more details about disks, see [About Disks and VHDs for Virtual Machines](virtual-machines-disks-vhds.md).
+For more details about disks, see [About Disks and VHDs for Virtual Machines](virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## How to: Attach an empty disk
 Attaching an empty disk is the simpler way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.
 
 1.  Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription. See [Connect
-    to Azure from Azure CLI](../articles/xplat-cli-connect.md) for more details.
+    to Azure from Azure CLI](../xplat-cli-connect.md) for more details.
 
 2.  Make sure you are in Azure Service Management mode, which is the default by typing `azure config
  	mode asm`.
@@ -36,7 +36,7 @@ Attaching an empty disk is the simpler way to add a data disk, because Azure cre
 Attaching an existing disk requires that you have a .vhd available in a storage account.
 
 1. 	Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription. See [Connect
-    to Azure from Azure CLI](../articles/xplat-cli-connect.md) for more details.
+    to Azure from Azure CLI](../xplat-cli-connect.md) for more details.
 
 2.  Make sure you are in Azure Service Management mode, which is the default. If you have changed
     mode to Resource Management, simply revert by typing `azure config mode asm`.
