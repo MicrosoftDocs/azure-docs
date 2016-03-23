@@ -3,7 +3,7 @@
 	description="Learn how to host an enterprise-class WordPress site on Azure App Service"
 	services="app-service\web"
 	documentationCenter=""
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
 	ms.date="01/26/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Enterprise-class WordPress on Azure App Service
 
