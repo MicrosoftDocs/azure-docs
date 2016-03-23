@@ -22,11 +22,13 @@ Connection issues to Azure SQL database can at a very high level be classified a
 - Transient errors (short-lived or intermittent)
 - Persistent or non-transient (always occur) errors
 
-If your application is experiencing transient errors, review the following topics for additional tips about how to troubleshoot and reducing these errors.
+If your application is experiencing transient errors, review the following topics for additional tips about how to troubleshoot and reducing these errors:
+
 - [Troubleshooting Database <x> on Server <y> is unavailable](sql-database-troubleshoot-connection.md)
 - [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](sql-database-connectivity-issues.md)
 
 If the application persistently fails to connect to SQL Azure Database, it usually indicates an issue with one of the following:
+
 - Firewall configuration. The Azure SQL database or client-side firewall doesn’t open for communications to Azure SQL Database.
 - Network reconfiguration on the client side. For example, a new IP address or a proxy server.
 - User error. For example, mistyped connection parameters, such as server name in the connection string and so on
