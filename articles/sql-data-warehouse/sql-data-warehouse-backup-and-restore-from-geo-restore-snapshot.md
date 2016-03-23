@@ -52,7 +52,7 @@ To recover a database, use the [Start-AzureSqlDatabaseRecovery][] cmdlet.
 5. Create the recovery request for the database.
 6. Monitor the progress of the recovery.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription

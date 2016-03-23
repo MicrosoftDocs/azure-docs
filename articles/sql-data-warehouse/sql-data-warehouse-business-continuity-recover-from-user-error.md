@@ -44,7 +44,7 @@ To restore a database, use the [Start-AzureSqlDatabaseRestore][] cmdlet.
 6. Restore the database to the desired restore point.
 7. Monitor the progress of the restore.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -95,13 +95,13 @@ To restore a deleted database, use the [Start-AzureSqlDatabaseRestore][] cmdlet.
 3. Select the subscription that contains the deleted database to be restored.
 4. Find the database and its deletion date from the list of deleted databases
 
-```
+```Powershell
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
 5. Get the specific deleted database and start the restore.
 
-```
+```Powershell
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
 
 $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName "<NewDatabaseName>"
