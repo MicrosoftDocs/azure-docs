@@ -27,7 +27,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 * __An Azure subscription__: Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) for more information.
 
-* __A Secure Shell (SSH) client: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. Linux, Unix, and OS X systems provide an SSH client through the `ssh` command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* __A Secure Shell (SSH) client__: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. Linux, Unix, and OS X systems provide an SSH client through the `ssh` command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
     * __SSH keys (optional)__: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password is easier, and allows you to get started without having to create a public/private key pair; however, using a key is more secure.
     
@@ -39,7 +39,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 ## Create the cluster
 
-> [AZURE.NOTE] The steps in this document create an R Server on HDInsight using basic confiuration information. For other cluster configuration settings (such as using additional storage, Azure Virtual Network, or a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+> [AZURE.NOTE] The steps in this document create an R Server on HDInsight using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -61,7 +61,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
     
     ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
 
-5. Select **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can select **Create New** and then enter the name of the new resource group. A green check will appear to indicate if the new group name is available.
+5. Select **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can select **Create New** and then enter the name of the new resource group. A green check will appear to indicate that the new group name is available.
 
     > [AZURE.NOTE] This entry will default to one of your existing resource groups, if any are available.
     
@@ -69,7 +69,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 6. Select **Credentials**, then enter a **Cluster Login Username** and **Cluster Login Password**.
 
-    Enter an __SSH Username__ and select __Password__, then enter the __SSH Password__ to configure the SSH account. This is used to remotely connect to the cluster using a Secure Shell (SSH) client.
+    Enter an __SSH Username__ and select __Password__, then enter the __SSH Password__ to configure the SSH account. SSH is used to remotely connect to the cluster using a Secure Shell (SSH) client.
     
     Use the __Select__ button to save the credentials.
     
@@ -81,7 +81,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
     The __Default Container__ will default to the name of the cluster. Leave this as the value.
     
-    Select __Location__ to select the region that the storage account will be located in.
+    Select __Location__ to select the region to create the storage account in.
     
     > [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
 
@@ -95,9 +95,9 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
     Use the **Select** button to save the node pricing configuration.
     
-9. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then select **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is creating, and will change to display the HDInsight icon once creation has completed.
+9. On the **New HDInsight Cluster** blade, make sure that **Pin to Startboard** is selected, and then select **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is creating, and will change to display the HDInsight icon once creation has completed.
 
-    | While creating | Creationg complete |
+    | While creating | Creation complete |
     | ------------------ | --------------------- |
     | ![Creating indicator on startboard](./media/hdinsight-getting-started-with-r/provisioning.png) | ![Created cluster tile](./media/hdinsight-getting-started-with-r/provisioned.png) |
 
@@ -263,8 +263,7 @@ Once connected, you will arrive at a prompt similar to the following.
 
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
 
-Tools and extensions
--   [Use R Server for HDInsight from RStudio to submit R scripts](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-intellij-tool-plugin/)
+- [Add RStudio Server to your HDInsight Premium cluster](hdinsight-r-server-install-r-studio.md)
 
 Manage resources
 -   [Manage resources for the R Server for HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-resource-manager/)
