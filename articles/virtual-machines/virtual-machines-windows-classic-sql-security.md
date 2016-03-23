@@ -33,7 +33,7 @@ Following is a list of security recommendations that should be considered when c
 
 - Create a unique local administrator account that is not named **Administrator**.
 
-- Use complex strong passwords for all your accounts. For more information about how to create a strong password, see [Tips for creating a strong passwords](http://windows.microsoft.com/windows-vista/Tips-for-creating-a-strong-password) article .
+- Use complex strong passwords for all your accounts. For more information about how to create a strong password, see [Create Strong Passwords](http://go.microsoft.com/fwlink/?LinkId=293596) article in the Safety and Security Center.
 
 - By default, Azure selects Windows Authentication during SQL Server Virtual Machine setup. Therefore, the **SA** login is disabled and a password is assigned by setup. We recommend that the **SA** login should be not be used or enabled. The following are alternative strategies if a SQL Login is desired:
 	- Create a SQL account that has sysadmin membership.
