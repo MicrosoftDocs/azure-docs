@@ -91,4 +91,18 @@ The Power BI Embedded service uses App Tokens for authentication and authorizati
 
     ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-2.png)
 
-3. 
+3. Token gets signed with API access keys.
+
+    ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-3.png)
+
+4. User requests to view a Report.
+
+    ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-4.png)
+
+5.	Token is validated with API access keys.
+
+    ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-5.png)
+
+6.	Power BI sends report to user.
+
+    ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-6.png)
