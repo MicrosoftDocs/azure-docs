@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/07/2016"
+   ms.date="03/23/2016"
    ms.author="cherylmc"/>
 
 # Create a resource manager VNet with a Site-to-Site VPN connection using the Azure Portal
@@ -103,9 +103,9 @@ If you are doing this as an exercise, refer to these [values](#values) when crea
 
 [AZURE.INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## Add your local site
+## Configure the local network gateway
 
-In a virtual network, the *local site* typically refers to your on-premises location. You'll give that site a name by which Azure can refer to it. This collection of settings is referred to as an Azure Local Network Gateway. You can modify the prefixes that you add here, but there are specific steps that you'll have to follow. The steps are in the [To modify IP address prefixes for a local site](#modifyls) section of this article.
+In a virtual network, the collection of settings called the *local network gateway* typically refers to your on-premises location. You'll give the local network gateway a name by which Azure can refer to it. You can modify the prefixes that you add here, but there are specific steps that you'll have to follow. The steps are in the [To modify IP address prefixes for a local site](#modifylng) section of this article.
 
 If you are doing this as an exercise, refer to these [values](#values) when adding your local site.
 
@@ -127,7 +127,7 @@ If you are doing this as an exercise, refer to these [values](#values) when crea
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="modifyls"/>To modify IP address prefixes for a local site
+## <a name="modifylng"></a>To modify IP address prefixes for a local network gateway
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
