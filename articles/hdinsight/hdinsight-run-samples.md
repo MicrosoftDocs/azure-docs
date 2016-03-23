@@ -33,7 +33,6 @@ A set of samples are provided to help you get started running MapReduce jobs on 
 Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting. For more information about these resources, see:
 
 - [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Develop C# Hadoop streaming programs for HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Introduction to Azure HDInsight][hdinsight-introduction]
 
