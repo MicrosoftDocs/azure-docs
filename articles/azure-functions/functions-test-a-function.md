@@ -41,43 +41,47 @@ Update the function with the following code which we will use for testing:
 	    if (typeof req.query.name == 'undefined') 
 	    {
 	        context.log('Name not provided as query string param. Checking body...'); 
-	        bodyJSON = req.body;
+	        body = req.body;
 	        
-	        if (typeof bodyJSON == 'Object')
+	        if (typeof body == 'Object')
 	        {
 	            context.log('Request Body Type = Object'); 
-	            context.log('Request Body JSON = ' + JSON.stringify(req.body)); 
+	            context.log('Request Body JSON = ' + JSON.stringify(body)); 
 	        }
-	        else if (typeof bodyJSON == 'string')
+	        else if (typeof body == 'string')
 	        {
 	            context.log('Request Body Type = string'); 
-	            context.log('Request Body JSON = ' + bodyJSON);
-	            bodyJSON = JSON.parse(bodyJSON);
+	            context.log('Request Body JSON = ' + body);
+	            body = JSON.parse(req.body);
 	        }
 	        else
 	        {
-	             context.log('Request Body Type = ' + typeof bodyJSON);
-	             context.log('Request Body = ' + bodyJSON);
+	             context.log('Request Body Type = ' + typeof body);
+	             context.log('Request Body = ' + body);
+	             context.res = {
+	                status: 400,
+	                body: "Content type not handled.  Expected a JSON object or string."
+	            }
 	        }       
 	        
-	        if ((typeof bodyJSON != 'undefined') && (typeof bodyJSON.name != 'undefined'))
+	        if ((typeof body != 'undefined') && (typeof body.name != 'undefined'))
 	        {
-	            if (typeof bodyJSON.address != 'undefined')
-	                ProcessNewUserInformation(context, bodyJSON.name, bodyJSON.address);    
+	            if (typeof body.address != 'undefined')
+	                ProcessNewUserInformation(context, body.name, body.address);    
 	            else
-	                ProcessNewUserInformation(context, bodyJSON.name, null);   
+	                ProcessNewUserInformation(context, body.name);   
 	        }
 	        else 
 	        {
 	            context.res = {
 	                status: 400,
-	                body: "Please pass a name in request body or the query string"
+	                body: "Please pass a name in the request body or query string"
 	            }
 	        }
 	    }
 	    else {
 	        context.log('Name was provided as a query string param.'); 
-	        respondToName(context, req.query.name);
+	        ProcessNewUserInformation(context, req.query.name);
 	    }
 	    context.done();
 	    
@@ -88,7 +92,7 @@ Update the function with the following code which we will use for testing:
 	    context.log('Processing User Information...');            
 	    echoString = "Hello " + name;
 	    
-	    if (address !== null)
+	    if (typeof address != 'undefined')
 	    {
 	        echoString += "\n" + "The address you provided is " + address;
 	    }
@@ -97,8 +101,7 @@ Update the function with the following code which we will use for testing:
 	            // status: 200, /* Defaults to 200 */
 	            body: echoString
 	        };
-	}	
-
+	}
 
 
 ## Test with a browser
@@ -200,12 +203,12 @@ You can use Node.js code similar to the following to test your Azure Function fr
 
 	var http = require('http');
 	
-	var nameData = "name=Wes%20Query%20String%20Test%20From%20Node.js";
+	var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
 	var nameBodyJSON = '{"name" : "Wes testing with Node.JS code","address" : "Dallas, T.X. 75201"}';	
 	
 	var options = {
 	  host: 'functionsExample.azurewebsites.net',
-	  //path: '/api/WesmcHttpTriggerNodeJS1/?code=<your code>&' + nameData,
+	  //path: '/api/WesmcHttpTriggerNodeJS1/?code=<your code>&' + nameQueryString,
 	  path: '/api/WesmcHttpTriggerNodeJS1/?code=<your code>',
 	  method: 'POST',
 	  headers : {
