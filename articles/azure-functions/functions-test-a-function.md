@@ -71,7 +71,7 @@ Update the function with the following code which we will use for testing:
 	        {
 	            context.res = {
 	                status: 400,
-	                body: "Please pass a name on the query string"
+	                body: "Please pass a name in the request body or query string"
 	            }
 	        }
 	    }
