@@ -107,4 +107,4 @@
 
 20.	**How do I get started?**
 
-  You can get started for free now! If you have an Azure subscription, you can now provision Power BI Embedded from the Azure portal directly.  You can also create you free Azure account [here](https://azure.microsoft.com/en-us/free/). Once you have provisioned the Power BI Embedded service, you can easily use Power BI REST APIs directly, or use the developer SDK available on [GitHub](https://github.com/PowerBI) . Samples are provided on how to leverage the developer SDK.
+  You can get started for free now! If you have an Azure subscription, you can now provision Power BI Embedded from the Azure portal directly.  You can also create you free Azure account [here](https://azure.microsoft.com/free/). Once you have provisioned the Power BI Embedded service, you can easily use Power BI REST APIs directly, or use the developer SDK available on [GitHub](https://github.com/PowerBI) . Samples are provided on how to leverage the developer SDK.
