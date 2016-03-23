@@ -35,7 +35,7 @@ The domain "contoso.com" may contain a number of DNS records, such as "mail.cont
  
 - The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
 
-- The same zone name can be re-used in a different resource group or a different Azure subscription.  Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for more information.
+- The same zone name can be re-used in a different resource group or a different Azure subscription.  Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. See [Delegate a Domain to Azure DNS](#delegate) for more information.
 
 ### About Etags and Tags for Azure DNS
 
@@ -103,16 +103,8 @@ Creating a DNS zone also creates the following DNS records, which you can view i
 
 2. In the lower part of the blade, you can see the record sets for the DNS zone.
 
-Note: If a zone is not available for you to use or did not create correctly, you will see a "Failed" result and the details for the reason of failure in the Operations details window. Typically this happens when you try to create a zone with a name that is not available.
 
-![zone](./media/dns-getstarted-create-dnszone-portal/namedzoneblade400.png)
-
-![zone](./media/dns-getstarted-create-dnszone-portal/namedzoneblade450.png)
-
-![zone](./media/dns-getstarted-create-dnszone-portal/namedzoneblade500.png)
-
-![zone](./media/dns-getstarted-create-dnszone-portal/namedzoneblade550.png)
-
+	![zone](./media/dns-getstarted-create-dnszone-portal/namedzoneblade500.png)
 
 
 ## Test your DNS zone by using DNS tools
@@ -120,7 +112,7 @@ Note: If a zone is not available for you to use or did not create correctly, you
 You can test your DNS zone by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).<BR>
 
 
-## Delegate your domain to use the new zone in Azure DNS
+## <a name="delegate"></a>Delegate your domain to use the new zone in Azure DNS
 
 If you haven’t yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records. See the article [Delegate your domain to Azure DNS](dns-domain-delegation.md) for more information.
 
@@ -131,8 +123,6 @@ You can delete the DNS zone directly from the portal. Before deleting a DNS zone
 1. Locate the DNS zone blade for the zone you want to delete, then click **Delete** at the top of the blade.
  
 2. A message will appear letting you know that you must delete all records sets, except NS and SOA records that were automatically created. If you have deleted your record sets, click **Yes**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.  
-
-
 
 
 ## Next steps
