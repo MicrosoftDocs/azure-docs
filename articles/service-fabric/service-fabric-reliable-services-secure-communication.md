@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="3/22/2016"
+   ms.date="03/22/2016"
    ms.author="punewa"/>
 
 # Secure communication for services in Service Fabric
@@ -161,7 +161,7 @@ Setting up secure remoting for a service is done using following steps:
 
 ## Securing the service when using WCF-based communication stack
 
-We will be using a previous [example]((service-fabric-reliable-services-communication-wcf.md)) which explains how to set up a WCF based communication for relaible services and extend it to make it secure.
+We will be using a previous [example](service-fabric-reliable-services-communication-wcf.md) which explains how to set up a WCF based communication for relaible services and extend it to make it secure.
 
 1. For the service we need to create a `WcfCommunicationListener` which is secure. For that we need to modify the `CreateServiceReplicaListeners` mothod.
     ```csharp
@@ -199,7 +199,7 @@ We will be using a previous [example]((service-fabric-reliable-services-communic
         return b;
     }
     ```
-2. In the client the `WcfCommunicationClient` class that we created in the previous [example]((service-fabric-reliable-services-communication-wcf.md) remains unchanged. But we need to override the `CreateClientAsync` method of `WcfCommunicationClientFactory`.
+2. In the client the `WcfCommunicationClient` class that we created in the previous [example](service-fabric-reliable-services-communication-wcf.md) remains unchanged. But we need to override the `CreateClientAsync` method of `WcfCommunicationClientFactory`.
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
