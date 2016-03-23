@@ -1,7 +1,5 @@
 Thanks for your contribution! Here's a few guidelines to help speed review of your pull request:
 
-- **File name**: Include the file name of the article you are updating in the title of the pull request.
+- File name: Include the file name of the article you are updating in the title of the pull request.
 
-- **CLA**: Large changes usually require you to sign a one-time contributor license agreement (CLA). Smaller changes usually do not require a CLA. Automation in the repo will let you know through a comment to the pull request after you create it.
-
-- **PMs and writers**: If you are a core Azure product team PM or a content developer, please use the private repository. You can easily access the private repository from the article links by typing "-pr" after "azure-content" in the GitHub URL for the article. Instructions for requesting perms are posted in the [contributor's guide](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md#permissions-in-github).
+- PMs and writers: If you are a core Azure product team PM or a content developer, please use the private repository. You can easily access the private repository from the article links by typing "-pr" after "azure-content" in the GitHub URL for the article. Instructions for requesting perms are posted in the [contributor's guide](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md#permissions-in-github).
