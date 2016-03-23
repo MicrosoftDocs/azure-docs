@@ -116,4 +116,4 @@ To create a VPN gateway for the ARM VNet, follow the instructions below.
 ## Next Steps
 
 - Learn more about [the Network Resource Provider (NRP) for ARM](resource-groups-networking.md).
-- Create an [end-to-end solution connecting a classic VNet to an ARM VNet by using a S2S VPN](../virtual-networks-arm-asm-s2s.md).
+- Create an [end-to-end solution connecting a classic VNet to an ARM VNet by using a S2S VPN](virtual-networks-arm-asm-s2s.md).
