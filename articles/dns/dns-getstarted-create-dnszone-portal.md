@@ -31,7 +31,7 @@ This article will walk you through the steps to create a DNS zone by using the A
 
 The domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site).  A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain you will first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
 
-Note the following:
+### About DNS zone names
  
 - The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
 
@@ -41,16 +41,25 @@ Note the following:
 ## To create a DNS zone
 
 1. Sign in to the Azure portal
-2. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the DNS zone blade. 
-![DNS zone](./media/dns-getstarted-create-dnszone-portal/openzone650.png)
-3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade.  
-![Create zone](./media/dns-getstarted-create-dnszone-portal/createzone200.png)
-![Create zone](./media/dns-getstarted-create-dnszone-portal/createzone250.png)
 
-4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. 
+2. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the DNS zone blade.
+ 
+	![DNS zone](./media/dns-getstarted-create-dnszone-portal/openzone650.png)
+
+3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade. 
+
+	![Create zone](./media/dns-getstarted-create-dnszone-portal/createzone250.png)
+
+4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. [See About DNS Zone Names](#names) in the section above.
+
 5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists. 
-6. From the **location** dropdown, specify the location.
+
+6. From the **Location** dropdown, specify the location.
+
 7. You can leave the **Pin to dashboard** checkbox selected if you want to easily locate your new zone on your dashboard. Then click **Create**.
+
+	![Pin to dashboard](./media/dns-getstarted-create-dnszone-portal/pindashboard150.png)
+
 8. After you click Create, you'll see your new zone being configured on the dashboard.
 
 
