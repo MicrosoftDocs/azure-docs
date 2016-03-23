@@ -86,3 +86,7 @@ The Power BI Embedded service uses App Tokens for authentication and authorizati
 1.	Copy the API keys to your application. You can get the keys in Azure portal, see [Enter your subscription id, workspace collection and signing key above](#keys).
 
     ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-1.png)
+
+2. The token assets a claim and has an expiration time.
+
+    ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-1.png)
