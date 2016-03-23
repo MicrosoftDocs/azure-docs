@@ -25,7 +25,7 @@ The **Backup Catalog** page displays all the backup sets that are created when m
 
  ![Backup Catalog page](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
-This tutorial explains how to use the **Backup Catalog** page to restore your device from a backup set.
+This tutorial explains how to use the **Backup Catalog** page to restore a volume on your device from a backup set.
 
 ## How to use the backup catalog 
 
