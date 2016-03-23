@@ -16,60 +16,60 @@
    ms.date="03/08/2016"
    ms.author="derrickv"/>
 
-   # Get started with Microsoft Power BI Embedded sample code
+# Get started with Microsoft Power BI Embedded sample code
 
-   Here are some resources to help you get started using Microsoft Power BI Embedded preview
+ Here are some resources to help you get started using Microsoft Power BI Embedded preview
 
-   -	Sample code
-   -	API docs
-   -	SDKs (available via NuGet)
+ -	Sample code
+ -	API docs
+ -	SDKs (available via NuGet)
 
-   Let’s take a high level look at the steps involved to get started with the sample applications.
+ Let’s take a high level look at the steps involved to get started with the sample applications.
 
-   > [AZURE.NOTE] Before starting, make sure that you have created at least one Workspace Collection in your Azure subscription. To learn how to create a Workspace Collection in the Azure Portal see [Getting Started with Power BI Embedded Preview](power-bi-embedded-get-started.md).
+ > [AZURE.NOTE] Before starting, make sure that you have created at least one Workspace Collection in your Azure subscription. To learn how to create a Workspace Collection in the Azure Portal see [Getting Started with Power BI Embedded Preview](power-bi-embedded-get-started.md).
 
-   ## Setup and Samples
+ ## Setup and Samples
 
-   The following will walk you through setting up your Visual Studio development environment to access the Preview components
+ The following will walk you through setting up your Visual Studio development environment to access the Preview components
 
-   1.	Download and unzip the powerbi-private-preview-sample-feb26.zip file.
-   2.	Open **PowerBIPrivatePreview.sln** in Visual Studio.
-   3.	Build solution.
-   4.	Run ProvisionSample console app.
+ 1.	Download and unzip the powerbi-private-preview-sample-feb26.zip file.
+ 2.	Open **PowerBIPrivatePreview.sln** in Visual Studio.
+ 3.	Build solution.
+ 4.	Run ProvisionSample console app.
 
-       ![](media\powerbi-embedded-get-started-sample\console.png)
+     ![](media\powerbi-embedded-get-started-sample\console.png)
 
-       a.	Select option 5 to **Create a new workspace within existing collection**.
+     a.	Select option 5 to **Create a new workspace within existing collection**.
 
-       b.	Enter your subscription id, workspace collection and signing key when prompted (These can be found in the Azure portal).
-       
-       ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
+     b.	Enter your subscription id, workspace collection and signing key when prompted (These can be found in the Azure portal).
 
-       c.	Copy and save the newly created workspace id to use later (this can also be found in the Azure portal after it is created).
+     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
-       d.	Import a PBIX file using option 6.
+     c.	Copy and save the newly created workspace id to use later (this can also be found in the Azure portal after it is created).
 
-         - If prompted, provide the friendly name for your DataSet.
+     d.	Import a PBIX file using option 6.
 
-         - You should see a response like:
+       - If prompted, provide the friendly name for your DataSet.
 
-             - Checking import state... Publishing
-             - Checking import state... Succeeded
+       - You should see a response like:
 
-     e.	If your PBIX file contains any direct query connections run option 7 to update the connection strings.
+           - Checking import state... Publishing
+           - Checking import state... Succeeded
 
-     f.	Select option 8 to retrieve the Embed URL that you should use to add the report to your application.
+   e.	If your PBIX file contains any direct query connections run option 7 to update the connection strings.
 
-   5.	Open the web.config in the paas-demo web application within the same solution.
+   f.	Select option 8 to retrieve the Embed URL that you should use to add the report to your application.
 
-     a.	Add your signing key, workspace collection name and workspace ID to the appSettings section.
+ 5.	Open the web.config in the paas-demo web application within the same solution.
 
-   6.	Run the paas-demo web application.
+   a.	Add your signing key, workspace collection name and workspace ID to the appSettings section.
 
-     a.	Left nav should contain a “Reports” menu.
+ 6.	Run the paas-demo web application.
 
-     b.	Click the Report (should match name of imported PBIX).
+   a.	Left nav should contain a “Reports” menu.
 
-     c.	Report should now render within the main portion of the app window.
+   b.	Click the Report (should match name of imported PBIX).
 
-       ![](media\powerbi-embedded-get-started-sample\report.png)
+   c.	Report should now render within the main portion of the app window.
+
+     ![](media\powerbi-embedded-get-started-sample\report.png)
