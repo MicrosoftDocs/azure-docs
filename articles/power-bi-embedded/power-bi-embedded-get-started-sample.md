@@ -44,7 +44,8 @@ The following will walk you through setting up your Visual Studio development en
 
     a.	Select option 5 to **Create a new workspace within existing collection**.
 
-    b.	Enter your subscription id, workspace collection and signing key when prompted (These can be found in the Azure portal).
+    <a name="keys"/>
+    b.	Enter your subscription id, workspace collection and signing key when prompted (These can be found in the Azure portal). To learn about the app token key flow, see [How does app token key flow work?](#key-flow).
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
@@ -74,3 +75,14 @@ The following will walk you through setting up your Visual Studio development en
     c.	Report should now render within the main portion of the app window.
 
     ![](media\powerbi-embedded-get-started-sample\report.png)
+
+<a name="key-flow"/>
+## How does app token key flow work?
+
+The Power BI Embedded service uses App Tokens for authentication and authorization instead of explicit end-user authentication.  In the App Token model, your application manages authentication and authorization for your end-users.  Then, when necessary, your app creates and sends the App Tokens which tells our service to render the requested report. This design does not require your app to use Azure Active Directory for user authentication and authorization, although you can do this.
+
+**Here's how the app token key flow works**
+
+1.	Copy the API keys to your application. You can get the keys in Azure portal, see [Enter your subscription id, workspace collection and signing key above](#keys).
+
+    ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-1.png)
