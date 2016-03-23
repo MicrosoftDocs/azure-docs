@@ -59,3 +59,5 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
 [Download the Mac CLI](http://aka.ms/azstack-linux-cli)
 
 [Download the Linux CLI](http://aka.ms/azstack-mac-cli)
+
+> [AZURE.NOTE] If you’re on a Mac or Linux machine, you can also get the CLI by using the command npm install -g azure-cli@0.9.11 
