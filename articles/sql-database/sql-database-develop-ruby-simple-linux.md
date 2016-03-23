@@ -31,39 +31,13 @@ This topic presents a Ruby code sample that runs on an Ubuntu Linux client compu
 
 ## Prerequisites
 
-### Install the required modules
+### Configure Development Environment
 
-Open your terminal and install FreeTDS if you do not have it on your machine.
+[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/en-us/library/mt711041(v=sql.1).aspx)
 
-    sudo apt-get --assume-yes update
-    sudo apt-get --assume-yes install freetds-dev freetds-bin
-
-After your machine is configured with FreeTDS, install Ruby if you do not already have it on your machine.
-
-    sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
-    curl -L https://get.rvm.io | bash -s stable
-
-If you have any issues with signatures, run the following command.
-
-    command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-
-If there are no issues with signatures, run the following commands.  
-
-    source ~/.rvm/scripts/rvm
-    rvm install 2.1.2
-    rvm use 2.1.2 --default
-    ruby -v
-
-Ensure that you are running version 2.1.2 or the Ruby VM.
-
-Next, install TinyTDS.
-
-    gem install tiny_tds
-
-### A SQL database
+### Create a SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
-
 
 ## Step 1: Get Connection Details
 
