@@ -174,7 +174,9 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
     a. in the **Name** textbox, type a name for your configuration (e.g.: **SAML 2.0**).
 
-    b. In the **User Field** textbox, type **email**. 
+    b. In the **User Field** textbox, type **email** or **user_id**, depending on which field is used to uniquely identify users in your ServiceNow deployment. 
+    
+    **Note:** You can configue Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token by going to the **ServiceNow > Attributes > Single Sign-On** section of the Azure classic portal and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (e.g. user principal name) must match the value stored in ServiceNow for the entered field (e.g. user_id)
 
     c. In the Azure AD classic portal, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL** textbox.
 
