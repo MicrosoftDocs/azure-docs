@@ -59,7 +59,7 @@ You can specify a DNS domain name label for a public IP resource, which creates 
 >[AZURE.IMPORTANT] Each domain name label created must be unique within its Azure location.  
 
 ### VMs
-You can associate a Public IP address with a [Virtual machine](virtual-machines-about.md) (VM) by assigning it to its **network interface card** (NIC). In case of a multi-NIC VM, you can assign it to the *primary* NIC only. You can assign either a dynamic or a static public IP address to a VM.
+You can associate a Public IP address with a [Virtual machine](../virtual-machines/virtual-machines-linux-about.md) (VM) by assigning it to its **network interface card** (NIC). In case of a multi-NIC VM, you can assign it to the *primary* NIC only. You can assign either a dynamic or a static public IP address to a VM.
 
 ### Internet facing load balancers
 You can associate a public IP address with an [Azure Load Balancer](load-balancer-overview.md), by assigning it to the load balancer **front end** configuration. This public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to a load balancer front end. You can also assign multiple public IP addresses to a load balancer front end, which enables [multi-vip](load-balancer-multivip.md) scenarios like a multi-tenant environment with SSL-based websites.
@@ -103,7 +103,7 @@ Static private IP addresses are commonly used for:
 - Resources accessed by other apps/resources through an IP address.
 
 ### VMs
-A private IP address is assigned to the **network interface card** (NIC) of a [Virtual machine](virtual-machines-about.md). In case of a multi-nic VM, each NIC gets a private IP address assigned. You can specify the allocation method either as a dynamic or static for a NIC.
+A private IP address is assigned to the **network interface card** (NIC) of a [Virtual machine](../virtual-machines/virtual-machines-linux-about.md). In case of a multi-nic VM, each NIC gets a private IP address assigned. You can specify the allocation method either as a dynamic or static for a NIC.
 
 #### Internal DNS hostname resolution (for VMs)
 All Azure VMs are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs that reside within the same VNet.
