@@ -45,7 +45,7 @@ The filtered backup sets are then tabulated based on the following attributes:
 
 ## How to restore your StorSimple volume from a backup
 
-You can use the **Backup Catalog** page to restore your StorSimple volume from a specific backup. Keep in mind, however, that restoring a volume will revert the volume to the state it was in when the backup was taken. Any data that was added after the backup operation will be lost.
+You can use the **Backup Catalog** page to restore your StorSimple volume from a specific backup. 
 
 > [AZURE.WARNING] Restoring from a backup will replace the existing volumes from the backup. This may cause the loss of any data that was written after the backup was taken.
 
