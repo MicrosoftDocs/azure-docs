@@ -47,7 +47,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
         Properties = new ElasticPoolCreateOrUpdateProperties()
         {
             Edition = "Standard",
-            Dtu = 400
+            Dtu = 400,
             DatabaseDtuMin = 0,
             DatabaseDtuMax = 100
          }
