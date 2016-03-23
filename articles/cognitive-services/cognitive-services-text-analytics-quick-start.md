@@ -51,13 +51,13 @@ Let's get started!
 
 In this task, you will sign up for the text analytics service.
 
-1. Navigate to the Text Analytics service through the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
-
-1. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
+1. Navigate to **Cognitive Services** in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
 
 1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
 
-1. After you sign up for Text Analytics, you'll be given an **API Key**. Copy this key, as you'll need it when using the API services.
+1. Complete the other fields and create your account.
+
+1. After you sign up for Text Analytics, find your **API Key**. Copy the primary key, as you will need it when using the API services.
 
 
 ## Task 2 - Detect sentiment, key phrases and languages ####
@@ -90,9 +90,9 @@ It's easy to detect sentiment, key phrases and languages in your text. You will 
 
 1. Make a **POST** call to the system with the input for sentiment, key phrases and language. The URLs will look as follows:
 
-        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/sentiment
-        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/keyPhrases
-        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/languages
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
 1. This call will return a JSON formatted response with the IDs and detected properties. An example of the output for sentiment is shown below (with error details excluded). In the case of sentiment, a score between 0 and 1 will be returned for each document:
 
@@ -192,15 +192,15 @@ Follow these steps to detect topics in your text.
 
 1. Using the same headers as defined in Task 2, make a **POST** call to the topics endpoint:
 
-        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/topics
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
 
 1. This will return an `operation-location` as the header in the response, where the value is the URL to query for the resulting topics:
 
-        'operation-location': 'https://cognitive.microsoft.com/language/text-analytics/v2.0/operations/<operationId>'
+        'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
 1. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
 
-        GET https://cognitive.microsoft.com/language/text-analytics/v2.0/operations/<operationId>
+        GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 
 1. The endpoint will return a response including `{"status": "notstarted"}` before processing, `{"status": "running"}` while processing and `{"status": "succeeded"}` with the output once completed. You can then consume the output which will be in the following format (note details like error format and dates have been excluded from this example):
 
