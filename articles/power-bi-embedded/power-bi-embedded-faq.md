@@ -18,17 +18,17 @@
 
 # Power BI Embedded FAQ
 
-1.	**What did you announce about Power BI at Build?**
+1. **What did you announce about Power BI at Build?**
 
-Microsoft announced that the Microsoft Power BI Embedded Service Public Preview is now available.
+  Microsoft announced that the Microsoft Power BI Embedded Service Public Preview is now available.
 
 2.	**What is Microsoft Power BI Embedded?**
 
-Microsoft Power BI Embedded is an Azure service that allows Application Developers to embed stunning, fully interactive reports and visualizations into your customer facing apps without the time and expense of having to build your own controls from the ground-up. You can choose from a broad range of data visualizations that come out of the box, or easily build custom visualizations to meet your application’s unique needs.  Power BI Embedded is intended for use by ISV/Application Developers that want to deliver BI to their customers as part of their larger application.  
+  Microsoft Power BI Embedded is an Azure service that allows Application Developers to embed stunning, fully interactive reports and visualizations into your customer facing apps without the time and expense of having to build your own controls from the ground-up. You can choose from a broad range of data visualizations that come out of the box, or easily build custom visualizations to meet your application’s unique needs.  Power BI Embedded is intended for use by ISV/Application Developers that want to deliver BI to their customers as part of their larger application.  
 
 3.	**Who would want to use Microsoft Power BI Embedded, and why?**
 
-Microsoft Power BI Embedded is for Application Developers that want to offer stunning and interactive data visualization experiences for their users across any of their devices without having to build it themselves.  With Power BI Embedded, developers can deliver always-up-to-date views with **Direct Query**.  Developers can also programmatically deploy, manage, and automate Power BI with the Azure ARM APIs and Power BI APIs.  As with all things Power BI, the Embedded service automatically scales to meet the usage and needs of your application.  The Power BI Embedded service features a Pay-as-you-go consumption based pricing model. For pricing, see [How is this service priced?](#price).
+  Microsoft Power BI Embedded is for Application Developers that want to offer stunning and interactive data visualization experiences for their users across any of their devices without having to build it themselves.  With Power BI Embedded, developers can deliver always-up-to-date views with **Direct Query**.  Developers can also programmatically deploy, manage, and automate Power BI with the Azure ARM APIs and Power BI APIs.  As with all things Power BI, the Embedded service automatically scales to meet the usage and needs of your application.  The Power BI Embedded service features a Pay-as-you-go consumption based pricing model. For pricing, see [How is this service priced?](#price).
 
 4.	**How does Power BI Embedded relate to the Power BI service?**
 
