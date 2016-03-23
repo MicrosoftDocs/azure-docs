@@ -54,7 +54,6 @@
 
     Power BI Embedded is now available as a preview Azure service without a formal SLA. An SLA will be provided when the service moves from preview to general availability.
 
-<a name="price"/>
 10.	**How is this service priced?**
 
     Power BI Embedded is currently in preview. Customers purchase the service through two primary licensing vehicles: the Microsoft Online Subscription Program (MOSP) or through an Enterprise VL Program.
