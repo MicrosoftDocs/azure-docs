@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/15/2016"
+   ms.date="03/23/2016"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -52,7 +52,7 @@ The following software requirements are for the optional StorSimple components (
  
 ## Networking requirements for your StorSimple device
 
-Your StorSimple device is a locked-down device. However, ports need to be opened in your firewall to allow for iSCSI, cloud, or management traffic. The following table lists the ports that need to be opened in your firewall. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
+Your StorSimple device is a locked-down device. However, ports need to be opened in your firewall to allow for iSCSI, cloud, and management traffic. The following table lists the ports that need to be opened in your firewall. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
 
 | Port No.<sup>1,2</sup> | In or out | Port scope | Required | Notes |
 |------------------------|-----------|------------|----------|-------| 
@@ -77,7 +77,7 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your StorSimple device and the StorSimple Manager service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. This in turn will require the network administrator to monitor and update firewall rules for your StorSimple as and when needed. 
 
-We recommend that you set your firewall rules liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
+We recommend that you set your firewall rules for outbound traffic, based on StorSimple fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
 
 > [AZURE.NOTE] The device (source) IPs should always be set to all the enabled network interfaces. The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
 
@@ -168,7 +168,7 @@ Update 2 has several networking-related improvements and the routing metrics has
 
 In addition to the above networking requirements, for the optimal performance of your StorSimple solution, please adhere to the following best practices:
 
-- Ensure that your StorSimple device has a dedicated 40 Mbps bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications.
+- Ensure that your StorSimple device has a dedicated 40 Mbps bandwidth (or more) available at all times. This bandwidth should not be shared (or allocation should be guaranteed through the use of QoS policies) with any other applications.
 
 - Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.
 
@@ -259,7 +259,7 @@ StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosur
 
 - If an EBOD enclosure controller module fails, make sure that the other controller module is active before you replace the failed module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- During an EBOD controller module oreplacement, continuously monitor the status of the component in the StorSimple Manager service by accessing **Maintenance** - **Hardware** status.
+- During an EBOD controller module replacement, continuously monitor the status of the component in the StorSimple Manager service by accessing **Maintenance** > **Hardware status**.
 
 - If an SAS cable fails or requires replacement (Microsoft Support should be involved to make such a determination), make sure that you remove only the SAS cable that requires replacement.
 
