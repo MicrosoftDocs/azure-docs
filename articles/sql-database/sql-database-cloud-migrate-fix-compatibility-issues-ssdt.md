@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/22/2016"
+   ms.date="03/22/2016"
    ms.author="carlrab"/>
 
 # Using SQL Server Data Tools for Visual Studio to Migrate a SQL Server Database to Azure SQL Database
