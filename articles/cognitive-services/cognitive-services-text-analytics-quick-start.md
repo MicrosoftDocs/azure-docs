@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="03/24/2016"
 	ms.author="onewth"/>
 
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
 
 <a name="HOLTop"></a>
 
-This document describes how to onboard your service or application to use the [Text Analytics APIs](http://go.microsoft.com/fwlink/?LinkID=759711).
-You can use these APIs to detect sentiment, key phrases, topics and language from your text. [Click here to see an interactive demo of the experience.](http://go.microsoft.com/fwlink/?LinkID=759712)
+This document describes how to onboard your service or application to use the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711).
+You can use these APIs to detect sentiment, key phrases, topics and language from your text. [Click here to see an interactive demo of the experience.](//go.microsoft.com/fwlink/?LinkID=759712)
 
-Please refer to the [API definitions](http://go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+Please refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
-This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-apps-text-analytics/).
+This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](machine-learning-apps-text-analytics/).
 
 By the end of this tutorial, you will be able to programatically detect:
 
@@ -52,7 +52,7 @@ Let's get started!
 
 In this task, you will sign up for the text analytics service.
 
-1. Navigate to **Cognitive Services** in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
+1. Navigate to **Cognitive Services** in the [Azure Portal](//go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
 
 1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
 
@@ -63,7 +63,7 @@ In this task, you will sign up for the text analytics service.
 
 ## Task 2 - Detect sentiment, key phrases and languages ####
 
-It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](http://go.microsoft.com/fwlink/?LinkID=759712) returns.
+It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](//go.microsoft.com/fwlink/?LinkID=759712) returns.
 
 **Tip!** For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
 
@@ -239,4 +239,4 @@ Follow these steps to detect topics in your text.
 
 ## Next steps ##
 
-Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](http://powerbi.microsoft.com) to visualize your data, as well as automating your insights to give you a real-time view of your text data.
+Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data, as well as automating your insights to give you a real-time view of your text data.
