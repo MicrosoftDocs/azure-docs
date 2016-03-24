@@ -37,6 +37,11 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 	![Add address space](./media/vpn-gateway-create-vnet-arm-pportal-include/addaddress400.png)
 
+	![Add address space](./media/vpn-gateway-create-vnet-arm-pportal-include/address400.png)
+
+
+
+
 2. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the Subnets blade. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
 
 	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/addsubnet250.png)
