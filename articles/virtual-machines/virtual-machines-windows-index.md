@@ -54,7 +54,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 
 ### Get started
-[Learning path for Windows VMs](https://azure.microsoft.com/en-us/documentation/learning-paths/virtual-machines/)
+[Learning path for Windows VMs](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Create a Windows virtual machine in the Azure portal](virtual-machines-windows-classic-tutorial.md)
 
@@ -197,7 +197,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Troubleshooting Azure VM Extension failures](virtual-machines-windows-extensions-troubleshoot.md)
 
-[Troubleshoot resource group deployments](resource-manager-troubleshoot-deployments-portal.md)
+[Troubleshoot resource group deployments](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Troubleshoot Access to an Application Running on an Azure Virtual Machine](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -230,7 +230,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 
 ### Get started
-[Learning path for Windows VMs](https://azure.microsoft.com/en-us/documentation/learning-paths/virtual-machines/)
+[Learning path for Windows VMs](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Create a Windows virtual machine in the Azure classic portal](virtual-machines-windows-classic-tutorial.md)
 

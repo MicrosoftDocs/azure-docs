@@ -12,8 +12,8 @@
    ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload=""
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
    ms.date="03/24/2016"
    ms.author="tomfitz"/>
 
@@ -85,9 +85,9 @@ You can create a unique name by concatenating your naming convention with the re
 
 There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory. Regardless how you manage your Azure resource groups, the identity you use to sign in to your account must be an Azure Active Directory object. This identity can be a work or school account that you created or was assigned to you, or you can create a Service Principal for applications.
 
-But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, and examine the deployment logs for your resource group. You might find that while you have permissions for some resources, you do not have permissions for others. Using the Azure CLI, you can examine Azure Active Directory tenants and users using the `azure ad` commands. (For a complete list of Azure CLI commands, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](azure-cli-arm-commands.md).)
+But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, and examine the deployment logs for your resource group. You might find that while you have permissions for some resources, you do not have permissions for others. Using the Azure CLI, you can examine Azure Active Directory tenants and users using the `azure ad` commands. (For a complete list of Azure CLI commands, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](./virtual-machines/azure-cli-arm-commands.md).)
 
-You might also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, and other scopes. Confirm to your satisfaction that you have the resources available to deploy correctly. For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+You might also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, and other scopes. Confirm to your satisfaction that you have the resources available to deploy correctly. For complete quota information, see [Azure subscription and service limits, quotas, and constraints](./azure-subscription-service-limits.md).
 
 To examine your own subscription's quotas for cores, you should use the `azure vm list-usage` command in the Azure CLI and the **Get-AzureRmVMUsage** cmdlet in PowerShell. The following shows the command in the Azure CLI, and illustrates that the core quota for a free trial account is 4:
 
