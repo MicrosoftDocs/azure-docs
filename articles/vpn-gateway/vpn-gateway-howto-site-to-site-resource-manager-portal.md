@@ -78,15 +78,15 @@ When using these steps as an exercise, you can use the following values:
 
 ## 1. Create a virtual network 
 
-If you already have a virtual network, verify that the settings are correct, you can jump to the next section, Specify a DNS server.
-If you are doing this as an exercise, refer to these [values](#values) when creating your VNet.
+If you already have created a virtual network, verify that the settings are compatible with your vpn gateway design, paying particular attention to any subnets that may overlap with other networks. You can then jump to [Specify a DNS server](#dns).
 
+If you are creating a new VNet as an exercise, you can refer to these [values](#values) when creating your VNet.
 
 [AZURE.INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]  
 
-## 2. Specify a DNS server
+## <a name="dns"></a>2. Specify a DNS server
 
-If you are doing this as an exercise, refer to these [values](#values) when specifying your DNS server.
+If you are creating this configuration as an exercise, refer to these [values](#values) when specifying your DNS server.
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -101,7 +101,7 @@ The gateway subnet prefix for some configurations requires a subnet of /28 or la
 
 ## 4. Create the gateway
 
-If you are doing this as an exercise, refer to these [values](#values) when creating your gateway.
+If you are creating this configuration as an exercise, refer to these [values](#values) when creating your gateway.
 
 [AZURE.INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -109,7 +109,7 @@ If you are doing this as an exercise, refer to these [values](#values) when crea
 
 In a virtual network, the collection of settings called the *local network gateway* typically refers to your on-premises location. You'll give the local network gateway a name by which Azure can refer to it. You can modify the prefixes that you add here, but there are specific steps that you'll have to follow. The steps are in the [To modify IP address prefixes for a local site](#modifylng) section of this article.
 
-If you are doing this as an exercise, refer to these [values](#values) when adding your local site.
+If you are creating this configuration as an exercise, refer to these [values](#values) when adding your local site.
 
 [AZURE.INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
@@ -121,7 +121,7 @@ If you are doing this as an exercise, refer to these [values](#values) when addi
 
 Next, you'll create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration.
 
-If you are doing this as an exercise, refer to these [values](#values) when creating your connection.
+If you are creating this configuration as an exercise, refer to these [values](#values) when creating your connection.
 
 [AZURE.INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
