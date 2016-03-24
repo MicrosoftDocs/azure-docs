@@ -42,7 +42,7 @@
 
 This article builds a deployment that is similar to a cloud service deployment with one Linux VM inside a VNetwork Subnet. It walks through the entire basic deployment imperatively, command by command, until you have a working, secure Linux VM to which you can connect from anywhere on the internet. 
 
-Along the way, you'll understand the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. Once you see how the system is built, you can rebuild the system much faster using more direct Azure CLI commands (see [this](insertlinktonewdoc) for roughly the same deployment using the `azure vm quick-create` command), or you can move on to master how to design and automate entire network and application deployments and update them using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you see how the parts of your deployment fit together, creating templates to automate them becomes easier.
+Along the way, you'll understand the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. Once you see how the system is built, you can rebuild the system much faster using more direct Azure CLI commands (see [this](virtual-machines-linux-quick-create-cli.md) for roughly the same deployment using the `azure vm quick-create` command), or you can move on to master how to design and automate entire network and application deployments and update them using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you see how the parts of your deployment fit together, creating templates to automate them becomes easier.
 
 Let's build a simple network with a VM useful to development and simple compute, and we'll explain it as we go. Then you'll be able to move on to more complex networks and deployments.
 
@@ -95,7 +95,7 @@ azure network public-ip create -d testsubdomain testrg testpip westeurope
 azure network public-ip show testrg testpip --json | jq '.'
 
 # Associate the Public IP to the NIC
-azure network nic set --public-ip-name test pip
+azure network nic set --public-ip-name testpip testrg testnic
 
 # Bind the NSG to the NIC
 azure network nic set --network-security-group-name testnsg testrg testnic
@@ -528,7 +528,7 @@ And, as always, you can investigate more resource details, including the subdoma
 
 ### Associate the public IP and the network security group to the NIC
 
-        azure network nic set --public-ip-name test pip
+        azure network nic set --public-ip-name testpip testrg testnic
 
 Bind the NSG to the NIC: 
 

@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Create an elastic database pool (PowerShell) | Microsoft Azure" 
-    description="Learn how to use PowerShell to scale-out Azure SQL Database resources by creating an elastic database pool to manage multiple databases." 
+    description="Learn how to use PowerShell to scale-out Azure SQL Database resources by creating a scalable elastic database pool to manage multiple databases." 
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Create an elastic database pool (PowerShell) 
+# Create an elastic database pool with PowerShell 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
@@ -33,16 +33,14 @@ For common error codes, see [SQL error codes for SQL Database client application
 
 You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
+## Create a  pool
 
-
-## Create an elastic database pool
-
-The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet creates an elastic database pool. 
+The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet creates a pool. 
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## Create a new elastic database in an elastic database pool
+## Create a new elastic database in a pool
 
 To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter.
 
@@ -51,7 +49,7 @@ To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase
 
 
 
-## Move a stand-alone database into an elastic database pool
+## Move a stand-alone database into a pool
 
 To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet and set the **ElasticPoolName** parameter. 
 
@@ -59,9 +57,9 @@ To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https
 
 
 
-## Create elastic database pool PowerShell example
+## Create a pool PowerShell example
 
-This script will create a new server so when it prompts you for a username and password, enter an admin login and admin password for your new server (not your Azure credentials).
+This script creates a new server so when it prompts you for a username and password, enter an admin login and admin password for your new server (not your Azure credentials).
 
     $subscriptionId = '<your Azure subscription id>'
     $resourceGroupName = '<resource group name>'
@@ -86,7 +84,7 @@ This script will create a new server so when it prompts you for a username and p
 ## Next steps
 
 - [Manage your pool](sql-database-elastic-pool-manage-powershell.md)
-- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool.
+- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
 
 
 ## Elastic database reference
