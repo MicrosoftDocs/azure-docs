@@ -1,12 +1,19 @@
-<properties
-	pageTitle="Installing elastic database jobs | Microsoft Azure"
-	description="Walk through installation of the elastic job feature."
-	services="sql-database"
-	documentationCenter=""
-	manager="jhubbard"
-	authors="ddove"
+<properties 
+	pageTitle="Installing elastic database jobs | Microsoft Azure" 
+	description="Walk through installation of the elastic job feature." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="ddove" 
 	editor=""/>
-    ms.date="03/24/2016" 
+
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/24/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Installing Elastic Database jobs overview
