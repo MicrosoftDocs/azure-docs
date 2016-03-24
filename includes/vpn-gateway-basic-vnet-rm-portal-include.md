@@ -12,17 +12,22 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 4. On the **Create virtual network** blade, configure the VNet settings. In this blade, you'll add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces. This is a current limitation of the portal. The values that you use will depend on the configuration you want to create. Be sure to refer to your planned configuration values. 
 
-	![Create virtual network blade](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
+	![Create virtual network blade](./media/vpn-gateway-create-vnet-arm-pportal-include/createvnet250.png)
 
-5. Click **Resource group** and select a resource group to which you want to associate your new VNet. If you want to create a new resource group, select **Create new**. Name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the dropdown.
 
-	![Resource group](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
+5. Click **Resource group** and either select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
-6. Next, select the **Subscription** and **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
+6. Next, select the **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
 
-7. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
+8. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
+	
+	![Pin to dashboard](./media/vpn-gateway-create-vnet-arm-pportal-include/pintodash150.png)
 
-	![Creating virtual network tile](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
+
+7. After clicking Create, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile will change as the VNet is being created.
+
+	![Creating virtual network tile](./media/vpn-gateway-create-vnet-arm-pportal-include/submitvnet150.png)
 
 8. Once your VNet has been created, you can make changes to it such as adding additional address space, subnets, and DNS servers.
 
