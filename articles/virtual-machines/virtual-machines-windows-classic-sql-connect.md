@@ -28,9 +28,9 @@ Configuring connectivity to SQL Server running on an Azure Virtual Machine does 
 
 But there are some SQL Server connectivity aspects that are specific to Azure VMs. This article covers some [general connectivity scenarios](#connection-scenarios) and then provides [detailed steps for configuring SQL Server connectivity in an Azure VM](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-This article focuses on connectivity. For a full walk-through of both provisioning and connectivity, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md).
+This article focuses on how to connect to an existing SQL Server virtual machine that uses the classic model.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. If you are using Resource Manager VMs, see [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
 
 ## Connection scenarios
 
@@ -44,11 +44,11 @@ The way a client connects to SQL Server running on a Virtual Machine differs dep
 
 Multiple virtual machines can be created in the same cloud service. To understand this virtual machines scenario, see [How to connect virtual machines with a virtual network or cloud service](virtual-machines-linux-classic-connect-vms.md).
 
-First, follow the [steps in this article to configure connectivity](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm). Note that you do not have to setup a public endpoint if you are going to be connecting between machines in the same cloud service. 
+First, follow the [steps in this article to configure connectivity](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm). Note that you do not have to setup a public endpoint if you are going to be connecting between machines in the same cloud service.
 
 You can use the VM **hostname** in the client connection string. The hostname is the name that you gave your VM during creation. For example, if you SQL VM named **mysqlvm** with a cloud service DNS name of **mycloudservice.cloudapp.net**, a client VM in the same cloud service could use the following connection string to connect:
 
-	"Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+"Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 ### Connect to SQL Server over the Internet
 
@@ -101,8 +101,6 @@ The connection path is summarized by the following diagram:
 [AZURE.INCLUDE [Connect to SQL Server in a VM Classic Steps](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## Next Steps
-
-To see provisioning instructions along with these connectivity steps, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md).
 
 If you are also planning to use AlwaysOn Availability Groups for high availability and disaster recovery, you should consider implementing a listener. Database clients connect to the listener rather than directly to one of the SQL Server instances. The listener routes clients to the primary replica in the availability group. For more information, see [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
