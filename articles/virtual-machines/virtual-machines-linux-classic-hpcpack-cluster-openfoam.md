@@ -20,7 +20,7 @@
 
 This article shows you one way to run OpenFoam in Azure. You'll deploy a Microsoft HPC Pack cluster on Azure and run an [OpenFoam](http://openfoam.com/) job with Intel MPI on multiple Linux compute nodes that connect across the Azure remote direct memory access (RDMA) network. Other options to run OpenFoam in Azure include fully configured commercial images available in the Marketplace. 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 OpenFOAM (for Open Field Operation and Manipulation) is a freely available open-source computational fluid dynamics (CFD) software package that is used widely in engineering and science, in both commercial and academic organizations. It includes tools for meshing, notably snappyHexMesh, a parallelized mesher for complex CAD geometries, and for pre- and post-processing. Almost all processes run in parallel, enabling users to take full advantage of computer hardware at their disposal.  
 
@@ -36,7 +36,7 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 
     *   Currently, Linux RDMA networking in Azure is supported only on size A8 or A9 VMs created from the SUSE Linux Enterprise Server 12 – Optimized for High Performance Compute image from the Azure Marketplace. For additional considerations, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-    *   Deploy all the Linux compute nodes within one cloud service to use the RDMA network connection.
+    *   If you use the Powershell script deployment option, deploy all the Linux compute nodes within one cloud service to use the RDMA network connection.
 
     *   After deploying the Linux nodes, if you need to connect by SSH to perform any additional administrative tasks, find the SSH connection details for each Linux VM in the Azure portal.  
         
