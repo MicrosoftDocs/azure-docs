@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/24/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Installing Elastic Database jobs overview
@@ -151,7 +151,7 @@ To update the VM size of an installation, run the following script with paramete
 
 ## Install the Elastic Database jobs components using the Portal
 
-Once you have [created an Elastic Database pool](sql-database-elastic-pool-portal.md), you can install **Elastic Database jobs** components to enable execution of administrative tasks against each database in the Elastic Database pool. Unlike when using the **Elastic Database jobs** PowerShell APIs, the portal interface is currently restricted to only executing against an existing pool.
+Once you have [created an Elastic Database pool](sql-database-elastic-pool-create-portal.md), you can install **Elastic Database jobs** components to enable execution of administrative tasks against each database in the Elastic Database pool. Unlike when using the **Elastic Database jobs** PowerShell APIs, the portal interface is currently restricted to only executing against an existing pool.
 
 
 **Estimated time to complete:** 10 minutes.
