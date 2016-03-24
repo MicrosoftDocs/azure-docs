@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="03/21/2015"
+ ms.date="03/21/2016"
  ms.author="danlep"/>
 
 # Get started with Linux compute nodes in an HPC Pack cluster in Azure
