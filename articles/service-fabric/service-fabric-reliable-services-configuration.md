@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="03/30/2016"
    ms.author="sumukhs"/>
 
 # Configuring Stateful Reliable Services
