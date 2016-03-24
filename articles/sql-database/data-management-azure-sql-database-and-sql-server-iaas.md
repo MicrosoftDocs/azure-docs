@@ -195,6 +195,6 @@ Choose **SQL Server on Azure VMs** if:
 
 - You have existing IT resources, need full administrative rights over SQL Server, and require full compatibility with on-premises SQL Server. This approach lets you minimize costs for development or modifications of existing applications with the flexibility to run most applications. In addition, it provides full control of the VM, operating system, and database configuration.
 
-See [Provision a SQL Server virtual machine in Azure](virtual-machines-windows-classic-portal-sql.md) to get started.
+See [Provision a SQL Server virtual machine in Azure](virtual-machines-windows-portal-sql-server-provision.md) to get started.
 
 > [AZURE.NOTE] Want to try SQL Server 2016 CTP2? Sign up for Microsoft Azure, and then go [here](http://aka.ms/sql2016vm "here") to create a Virtual Machine with SQL Server 2016 CTP2 already installed.
