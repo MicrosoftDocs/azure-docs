@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/19/2016"
+     ms.date="03/22/2016"
      ms.author="dobett"/>
 
 # Get started with Azure IoT Hub for Node.js
