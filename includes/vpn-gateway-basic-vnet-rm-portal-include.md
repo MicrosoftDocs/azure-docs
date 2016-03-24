@@ -41,3 +41,4 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/addsubnet250.png)
 
+	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/addsub2250.png)		
