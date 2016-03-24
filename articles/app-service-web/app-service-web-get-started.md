@@ -36,7 +36,8 @@ To complete this tutorial, you need:
 - Git. You can download the installation binary [here](http://www.git-scm.com/downloads). You should be able to run `git --version` from the command-line terminal
 of your choice. 
 - Basic knowledge of Git.
-- Azure CLI. Installation instructions are [here](../xplat-cli-install.md).
+- Azure CLI. Installation instructions are [here](../xplat-cli-install.md). You should be able to run `azure --version` from the command-line terminal
+of your choice.
 - A Microsoft Azure account. If you don't have an account, you can 
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -109,7 +110,7 @@ for the first time. For example, every time you want to push a new change that y
 (repository) root:
     
     git add .
-    git commit -m "<you_message>"
+    git commit -m "<your_message>"
     git push azure master
 
 ## Other ways to deploy

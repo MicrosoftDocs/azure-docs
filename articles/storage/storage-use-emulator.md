@@ -47,7 +47,7 @@ For more details on connection strings, see [Configure Azure Storage Connection 
 
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You will need to create this SAS token using a tool or application that supports Shared Key authentication. An easy way to generate the SAS token is via Azure PowerShell:
 
-1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md#Install) for installation instructions.
+1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](../powershell-install-configure.md#Install) for installation instructions.
 
 2. Open Azure PowerShell and run the following commands. Remember to replace *ACCOUNT_NAME* and *ACCOUNT_KEY==* with your own credentials. Replace *CONTAINER_NAME* with a name of your choosing.
 
