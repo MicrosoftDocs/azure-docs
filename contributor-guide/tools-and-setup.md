@@ -84,20 +84,24 @@ If you only need or want to make textual updates to an existing article, you pro
  That opens the easy-to-use web editor that makes it easy to submit changes. You don't need to follow the other steps in this article.
 
 ###All other changes
-You need to install the tools if you want to make any of the following sorts of changes:
+The GitHub UI does support creation of new files and dragging and dropping images. However, when you work in the UI, managing branches can be confusing so we typically recommend you install the tools and learn the commands for creating and managing articles. If you want to use the UI, see:
 
- - Major changes to an article
- - Create and publish a new article
- - Add new images or update images
- - Update an article over a period of days without publishing changes each of those days
+- [Creating files on Github](https://github.com/blog/1327-creating-files-on-github)
+- [Upload files to your repositories](https://github.com/blog/2105-upload-files-to-your-repositories)
 
- Go to the next section!
+For the following sorts of work, we strongly recommend you install and learn to use the tools:
+
+ - Making major changes to an article
+ - Creating and publishing a new article
+ - Adding new images or updating images
+ - Updating an article over a period of days without publishing changes each of those days
+ - Creating content for a release that has to go out on a certain day at a certain time
 
 ##Permissions in GitHub
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are a Microsoft employee working on Azure content, you should work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - sign in to GitHub using the button > click Azure > click **Join a team** or **Join another team**, and then search for and join the **azure-content-read** group.
+If you are a Microsoft PM or writer who is working on Azure content, you must work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - sign in to GitHub using the button > click Azure > click **Join a team** or **Join another team**, and then search for and join the **azure-content-read** group.
 
 ## Install Git for Windows
 
