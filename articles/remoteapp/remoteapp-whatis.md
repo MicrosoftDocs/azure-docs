@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/04/2015" 
+	ms.date="02/19/2016" 
 	ms.author="elizapo"/>
 
 # What is Azure RemoteApp?
@@ -22,7 +22,7 @@ Azure RemoteApp brings the functionality of the on-premises Microsoft RemoteApp 
 
 With Azure RemoteApp you can share apps and resources with users on almost any device. We host your apps in the cloud, meaning we take care of the hardware and scaling to meet user demands. All you have to do is upload the apps you want to share, and then get your users to use those apps. [Users get to keep their own devices](remoteapp-clients.md), while you manage everything through the Azure portal. You even have the option of using your corporate credentials, letting you ensure the security of apps and data.
 
-Read on for more information about Azure RemoteApp, or, if we have already convinced you, [try it out now](http://azure.microsoft.com/services/remoteapp/).
+Read on for more information about Azure RemoteApp, or, if we have already convinced you, [try it out now](https://azure.microsoft.com/services/remoteapp/).
 
 Have questions about Azure RemoteApp? Check out our [FAQ](remoteapp-faq.md).
 

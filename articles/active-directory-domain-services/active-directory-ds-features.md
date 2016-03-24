@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)*
@@ -39,7 +39,7 @@ The following features are available in the Azure AD Domain Services preview rel
 
 - **Group Policy:** You can leverage a single built-in GPO each for the users and computers containers in order to enforce compliance with required security policies for user accounts as well as domain joined computers.
 
-- **Available in multiple Azure regions:** See the [supported Azure regions](active-directory-ds-regions.md) page for a list of Azure regions in which Azure AD Domain Services are available.
+- **Available in multiple Azure regions:** See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services are available.
 
 - **High availability:** Azure AD Domain Services offer high availability for your domain. This offers the guarantee of higher service uptime and resilience to failures. Built-in health monitoring offers automated remediation from failures by spinning up new instances to replace failed instances and to provide continued service for your domain.
 

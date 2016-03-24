@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Diagnosing issues with dependencies in Application Insights
 
 
-A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. In Visual Studio Application Insights, you can easily see how long your application waits for dependencies and how often a dependency call fails.
+A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. Or in your web page script, it can be an AJAX call back to the server. In Visual Studio Application Insights, you can easily see how long your application waits for dependencies and how often a dependency call fails.
 
 ## Where you can use it
 
@@ -26,6 +26,7 @@ Out of the box dependency monitoring is currently available for:
 
 * ASP.NET web apps and services running on an IIS server or on Azure
 * [Java web apps](app-insights-java-agent.md)
+* [Web pages](https://azure.microsoft.com/blog/ajax-collection-in-application-insights/)
 
 For other types, such as device apps, you can write your own monitor using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -38,6 +39,8 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
  * Azure DocumentDb, table, blob storage, and queue
 * Java
  * Calls to a database through a [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) driver, such as MySQL, SQL Server, PostgreSQL or SQLite.
+* Web pages
+ * [AJAX calls](app-insights-javascript.md)
 
 Again, you could write your own SDK calls to monitor other dependencies.
 
@@ -47,13 +50,15 @@ Install the appropriate agent for the host server.
 
 Platform | Install
 ---|---
-IIS Server | [Status Monitor](app-insights-monitor-performance-live-website-now.md)
+IIS Server | Either [install Status Monitor on your server](app-insights-monitor-performance-live-website-now.md) or [Upgrade your application to .NET framework 4.6 or later](http://go.microsoft.com/fwlink/?LinkId=528259) 
 Azure Web App | [Application Insights Extension](../azure-portal/insights-perf-analytics.md)
 Java web server | [Java web apps](app-insights-java-agent.md)
+Web pages | [JavaScript monitor](app-insights-javascript.md) (No additional setup beyond web page monitoring)
+Cloud service |  [Use startup task](app-insights-cloudservices.md#dependencies) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 The Status Monitor for IIS Servers doesn't need you to rebuild your source project with the Application Insights SDK. 
 
-## <a name="diagnosis"></a> Diagnosing dependency performance issues
+## <a name="diagnosis"></a> Diagnosing dependency performance issues in the web server
 
 To assess the performance of requests at your server:
 
@@ -127,7 +132,10 @@ For example, if you build your code with an assembly that you didn't write yours
 
 If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
-<!--Link references-->
+
+## Ajax
+
+See [Web pages](app-insights-javascript.md).
 
 
  

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="12/11/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -114,7 +114,8 @@ Within the **Module** element, you can specify an optional **Owner** element tha
 * The content of the **Description** element must not exceed 128 characters in length.
 * The content of the **Owner** element must not exceed 32 characters in length.
 
-** Indicating whether a module's results are deterministic or nondeterministic
+
+**Indicating whether a module's results are deterministic or nondeterministic**
 
 By default, all modules are considered to be deterministic. That is, given an  unchanging set of parameters, the module should return the same results each time it is run. Given this behavior, Azure Machine Learning Studio does not re-run modules marked as deterministic unless a parameter or the input data has changed. Cached results are returned resulting in faster experiment execution.
 
@@ -173,8 +174,6 @@ Output ports are mapped to the return values from your R function, which can the
 	</Output>
 
 For outputs in custom R modules, the value of the **id** attribute does not have to correspond with anything in the R script, but it must be unique. For a single module output, the return value from the R function must be a *data.frame*. In order to output more than one object of a supported data type, the appropriate output ports need to be specified in the XML definition file and the objects need to be returned as a list. The output objects will be assigned to output ports from left to right, reflecting the order in which the objects are placed in the returned list.
- 
-For example, if you want to output dataset, Dataset1, and Dataset2 to output ports dataset, dataset1, and dataset2 from left to right, respectively, then define the output ports in the ‘CustomAddRows.xml’ file as follows:
 
 For example, if you want to modify the **Custom Add Rows** module to output the original two datasets, *dataset1*, and *dataset2*, in addition to the new joined dataset *dataset* (in an order, from left to right, as: *dataset*, *dataset1*, *dataset2*), then define the output ports in the CustomAddRows.xml file as follows:
 

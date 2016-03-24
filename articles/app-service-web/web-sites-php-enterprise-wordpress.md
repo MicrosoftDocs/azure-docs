@@ -3,7 +3,7 @@
 	description="Learn how to host an enterprise-class WordPress site on Azure App Service"
 	services="app-service\web"
 	documentationCenter=""
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="11/06/2015"
-	ms.author="tomfitz"/>
+	ms.date="01/26/2016"
+	ms.author="robmcm"/>
 
 #Enterprise-class WordPress on Azure App Service
 
@@ -53,7 +53,7 @@ Replication and routing to multiple MySQL Databases can be done using ClearDB's 
 
 ###Multi-region deployment with media storage and caching
 
-If the site will accept uploads, or host media files, use Azure Blob storage. If you need caching, consider [Redis cache][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](http://azure.microsoft.com/gallery/store/).
+If the site will accept uploads, or host media files, use Azure Blob storage. If you need caching, consider [Redis cache][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](https://azure.microsoft.com/gallery/store/).
 
 ![an Azure web app, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN][performance-diagram]
 
@@ -260,8 +260,8 @@ To do this... | Use this...
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines-mysql-windows-server-2008r2.md
-[mysqllinux]: ../virtual-machines-linux-mysql-use-opensuse.md
+[mysqlwindows]: ../virtual-machines-windows-classic-mysql-2008r2.md
+[mysqllinux]: ../virtual-machines-linux-classic-mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/

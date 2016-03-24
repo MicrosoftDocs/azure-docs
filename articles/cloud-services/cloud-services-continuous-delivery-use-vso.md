@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Continuous delivery to Azure using Visual Studio Team Services
@@ -37,7 +37,7 @@ Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to
 You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, create a new Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
-If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC. See [Create an ASP.NET web app in Azure App Service](../web-sites-dotnet-get-started.md).
+If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC. See [Create an ASP.NET web app in Azure App Service](/app-service-web/web-sites-dotnet-get-started.md).
 
 	> [AZURE.NOTE] Visual Studio Team Services only support CI deployments of Visual Studio Web Applications at this time. Web Site projects are out of scope.
 
@@ -63,7 +63,7 @@ If you want to create a web app, choose the ASP.NET Web Application project temp
 
 ## Step 3: Connect the project to Azure
 
-1. Now that you have a VSTS team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure classic portal](http://manage.windowsazure.com), select your cloud service or web app, or create a new one by choosing the **+** icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Team Services** link.
+1. Now that you have a VS Team Services team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure classic portal](http://manage.windowsazure.com), select your cloud service or web app, or create a new one by choosing the **+** icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Team Services** link.
 
 	![][10]
 
@@ -71,7 +71,7 @@ If you want to create a web app, choose the ASP.NET Web Application project temp
 
 	![][11]
 
-1. In the **Connection Request** pop-up dialog, choose the **Accept** button to authorize Azure to configure your team project in VSTS.
+1. In the **Connection Request** pop-up dialog, choose the **Accept** button to authorize Azure to configure your team project in VS Team Services.
 
 	![][12]
 
@@ -269,7 +269,7 @@ This step applies only to web apps, not cloud services. To put a quality gate on
 	![][50]
 
 ## Next steps
-For more about unit testing in Visual Studio Team Services, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Continuous deployment using GIT in Azure App Service](../web-sites-publish-source-control.md).  For more information about Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+For more about unit testing in Visual Studio Team Services, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Continuous deployment using GIT in Azure App Service](/app-service-web/web-sites-publish-source-control.md).  For more information about Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png

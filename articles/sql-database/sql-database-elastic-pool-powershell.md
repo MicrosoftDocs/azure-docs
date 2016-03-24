@@ -14,19 +14,19 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="adamkr; sstein"/>
 
 # Create an elastic database pool with PowerShell to scale-out resources for multiple SQL databases 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 Learn how to manage multiple databases by creating an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
 Elastic database pools allow you to scale-out database resources and management across multiple SQL databases.
 
@@ -47,7 +47,7 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 
 Now that you are running the Azure Resource Manager module you have access to all the necessary cmdlets to create and configure an elastic database pool. First you must establish access to your Azure account. Run the following and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 After successfully signing in you should see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
 

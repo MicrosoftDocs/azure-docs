@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="03/09/2016"
 	ms.author="larryfr"/>
 
 #Use Sqoop with Hadoop in HDInsight (SSH)
@@ -42,12 +42,6 @@ Before you begin this tutorial, you must have the following:
 
 - **Azure CLI**: For more information, see [Install and Configure the Azure CLI](../xplat-cli-install.md)
 
-- **Linux-based HDInsight cluster**: For instructions about cluster provision, see [Get started using HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) or [Provision HDInsight clusters][hdinsight-provision].
-
-- **Azure SQL database**: This document provides instructions for creating an example SQL database. For more information on SQL Database, see [Get started using Azure SQL database][sqldatabase-get-started].
-
-* **SQL Server**: The steps in this document can also be used, with some modification, with SQL Server; however, both the HDInsight cluster and SQL Server must be on the same Azure Virtual Network. For more information on requirements specific to using this article with SQL Server, see the [Using SQL Server](#using-sql-server) section.
-
 ##Understand the scenario
 
 An HDInsight cluster comes with some sample data. You will use a Hive table named **hivesampletable**, which references the data file located at **wasb:///hive/warehouse/hivesampletable**. The table contains some mobile device data. The Hive table schema is:
@@ -68,92 +62,66 @@ An HDInsight cluster comes with some sample data. You will use a Hive table name
 
 You will first export **hivesampletable** to the Azure SQL database or to SQL Server in a table named **mobiledata**, and then import the table back to HDInsight at **wasb:///tutorials/usesqoop/importeddata**.
 
-##Create a database
 
-1. Open a terminal or command prompt and use the following command to create a new Azure SQL Database server:
+## Create cluster and SQL database
 
-        azure sql server create <adminLogin> <adminPassword> <region>
+1. Click the following image to open an ARM template in the Azure Portal.         
 
-    For exmaple, `azure sql server create admin password "West US"`.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    
+    The ARM template is located in a public blob container, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*. 
+    
+    The ARM template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is also located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
+    
+        "storageKeyType": "Primary",
+        "storageKey": "<TheAzureStorageAccountKey>",
+    
+2. From the Parameters blade, enter the following:
 
-    When the command completes, you will receive a response similar to the following:
+    - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
+    - **Cluster login name and password**: The default login name is admin.
+    - **SSH user name and password**.
+    - **SQL database server login name and password**.
 
-        info:    Executing command sql server create
-        + Creating SQL Server
-        data:    Server Name i1qwc540ts
-        info:    sql server create command OK
+    The following values are hardcoded in the variables section:
+    
+    |Default storage account name|<CluterName>store|
+    |----------------------------|-----------------|
+    |Azure SQL database server name|<ClusterName>dbserver|
+    |Azure SQL database name|<ClusterName>db|
+    
+    Please write down these values.  You will need them later in the tutorial.
+    
+3.Click **OK** to save the parameters.
 
-    > [AZURE.IMPORTANT] Note the server name returned by this command. This is the short name of the SQL Database server that was created. The fully qualified domain name (FQDN) is **&lt;shortname&gt;.database.windows.net**.
+4.From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group. The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
 
-2. Use the following command to create a database named **sqooptest** on the SQL Database server:
+5.Click **Legal terms**, and then click **Create**.
 
-        sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
+6.Click **Create**. You will see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
 
-    This will return an "OK" message when it completes.
+If you choose to use existing Azure SQL database or Microsoft SQL Server
 
-	> [AZURE.NOTE] If you receive an error indicating that you do not have access, you may need to add your client workstation's IP address to the SQL Database firewall using the following command:
-	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+- **Azure SQL database**: You must configure a firewall rule for the Azure SQL database server to allow access from your workstation. For instructions about creating an Azure SQL database and configuring the firewall, see [Get started using Azure SQL database][sqldatabase-get-started]. 
 
-##Create a table
+    > [AZURE.NOTE] By default an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you must enabled it from the Azure portal. For instruction about creating an Azure SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue].
 
-> [AZURE.NOTE] There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
+- **SQL Server**: If your HDInsight cluster is on the same virtual network in Azure as SQL Server, you can use the steps in this article to import and export data to a SQL Server database.
 
-1. Use SSH to connect to the Linux-based HDInsight cluster. The address to use when connecting is `CLUSTERNAME-ssh.azurehdinsight.net` and the port is `22`.
+    > [AZURE.NOTE] HDInsight supports only location-based virtual networks, and it does not currently work with affinity group-based virtual networks.
 
-	For more information on using SSH to connect to HDInsight, see the following documents:
+    * To create and configure a virtual network, see [Virtual Network Configuration Tasks](../services/virtual-machines/).
 
-    * **Linux, Unix or OS X clients**: See [Connect to a Linux-based HDInsight cluster from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
+        * When you are using SQL Server in your datacenter, you must configure the virtual network as *site-to-site* or *point-to-site*.
 
-    * **Windows clients**: See [Connect to a Linux-based HDInsight cluster from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
+            > [AZURE.NOTE] For **point-to-site** virtual networks, SQL Server must be running the VPN client configuration application, which is available from the **Dashboard** of your Azure virtual network configuration.
 
-3. Use the following command to install FreeTDS:
+        * When you are using SQL Server on an Azure virtual machine, any virtual network configuration can be used if the virtual machine hosting SQL Server is a member of the same virtual network as HDInsight.
 
-        sudo apt-get --assume-yes install freetds-dev freetds-bin
+    * To create an HDInsight cluster on a virtual network, see [Create Hadoop clusters in HDInsight using custom options](hdinsight-provision-clusters.md)
 
-4. Once FreeTDS has been installed, use the following command to connect to the SQL Database server you created previously:
-
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
-
-    You will receive output similar to the following:
-
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to sqooptest
-        1>
-
-5. At the `1>` prompt, enter the following lines:
-
-        CREATE TABLE [dbo].[mobiledata](
-		[clientid] [nvarchar](50),
-		[querytime] [nvarchar](50),
-		[market] [nvarchar](50),
-		[deviceplatform] [nvarchar](50),
-		[devicemake] [nvarchar](50),
-		[devicemodel] [nvarchar](50),
-		[state] [nvarchar](50),
-		[country] [nvarchar](50),
-		[querydwelltime] [float],
-		[sessionid] [bigint],
-		[sessionpagevieworder] [bigint])
-        GO
-		CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
-        GO
-
-    When the `GO` statement is entered, the previous statements will be evaluated. First, the **mobiledata** table is created, then a clustered index is added to it (required by SQL Database.)
-
-    Use the following to verify that the table has been created:
-
-        SELECT * FROM information_schema.tables
-        GO
-
-    You should see output similar to the following:
-
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        sqooptest       dbo     mobiledata      BASE TABLE
-
-8. Enter `exit` at the `1>` prompt to exit the tsql utility.
+    > [AZURE.NOTE] SQL Server must also allow authentication. You must use a SQL Server login to complete the steps in this article.
+	
 
 ##Sqoop export
 
@@ -247,8 +215,8 @@ Now you have learned how to use Sqoop. To learn more, see:
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -258,7 +226,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

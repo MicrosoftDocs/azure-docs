@@ -4,16 +4,16 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="03/09/2016"
    ms.author="cherylmc"/>
 
 # Create and modify routing for an ExpressRoute circuit using Azure Resource Manager and PowerShell
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit.
+This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to create or modify routing for an ExpressRoute circuit using the **classic** deployment model, please see [Create and modify routing for an ExpressRoute circuit using the classic deployment model](expressroute-howto-routing-classic.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
@@ -30,9 +30,9 @@ This article walks you through the steps to create and manage routing configurat
 
 - You will need the latest version of the Azure PowerShell modules, version 1.0 or later. 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
-- You must have an active ExpressRoute circuit. Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
+- You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
 
->[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+>[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
 
 You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. 
 
@@ -353,7 +353,7 @@ This section provides instructions on how to create, get, update and delete the 
 	
 	You can run the following cmdlet to configure Microsoft peering for your circuit
 
-		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
+		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
@@ -371,7 +371,7 @@ You can get configuration details using the following cmdlet.
 
 You can update any part of the configuration using the following cmdlet.
 
-		Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
+		Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 		
@@ -386,8 +386,7 @@ You can remove your peering configuration by running the following cmdlet.
 
 ## Next steps
 
-Next step, link a VNet to an ExpressRoute circuit. You can use [this template](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) when working with the Azure Resource Manager deployment mode. We're currently working on PowerShell steps.
-
+Next step, [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
 
 -  For more information about ExpressRoute workflows, see [ExpressRoute workflows](expressroute-workflows.md).
 

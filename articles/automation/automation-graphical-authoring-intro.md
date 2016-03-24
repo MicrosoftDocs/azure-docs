@@ -3,7 +3,7 @@
    description="Graphical authoring allows you to create runbooks for Azure Automation without working with code.   This article provides an introduction to graphical authoring and all the details needed to start creating a graphical runbook."
    services="automation"   
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
-   ms.author="bwren" />
+   ms.date="02/23/2016"
+   ms.author="magoedte;bwren" />
 
 # Graphical authoring in Azure Automation
 
@@ -30,7 +30,7 @@ All runbooks in Azure Automation are Windows PowerShell Workflows.  Graphical ru
 
 ## Overview of graphical editor
 
-You can open the graphical editor in the Azure preview portal by creating or editing a graphical runbook.
+You can open the graphical editor in the Azure portal by creating or editing a graphical runbook.
 
 ![Graphical workspace](media/automation-graphical-authoring-intro/graphical-editor.png)
 
@@ -40,6 +40,10 @@ The following sections describe the controls in the graphical editor.
 
 ### Canvas
 The Canvas is where you design your runbook.  You add activities from the nodes in the Library control to the runbook and connect them with links to define the logic of the runbook.
+
+You can use the controls at the bottom of the canvas to zoom in and out.
+
+![Graphical workspace](media/automation-graphical-authoring-intro/canvas-zoom.png)
 
 ### Library control
 
@@ -75,7 +79,7 @@ You can import a graphical runbook file by selecting the **Import** option when 
 
 ### Testing a graphical runbook
 
-You can test the Draft version of a runbook in the Azure preview portal while leaving the published version of the runbook unchanged, or you can test a new runbook before it has been published. This allows you to verify that the runbook is working correctly before replacing the published version. When you test a runbook, the Draft runbook is executed and any actions that it performs are completed. No job history is created, but output is displayed in the Test Output Pane. 
+You can test the Draft version of a runbook in the Azure portal while leaving the published version of the runbook unchanged, or you can test a new runbook before it has been published. This allows you to verify that the runbook is working correctly before replacing the published version. When you test a runbook, the Draft runbook is executed and any actions that it performs are completed. No job history is created, but output is displayed in the Test Output Pane. 
 
 Open the Test control for a runbook by opening the runbook for edit and then click on the **Test pane** button.
 
@@ -140,6 +144,38 @@ When you specify a value for a parameter, you select a data source to determine 
 #### Optional additional parameters
 
 All cmdlets will have the option to provide additional parameters.  These are PowerShell common parameters or other custom parameters.  You are presented with a text box where you can provide parameters using PowerShell syntax.  For example, to use the **Verbose** common parameter, you would specify **"-Verbose:$True"**.
+
+### Retry activity
+
+**Retry Behavior** allows an activity to be run multiple times until a particular condition is met.  You can use this feature for activities that should run multiple times or that are error prone and may need more than one attempt for success.
+
+When you enable retry for an activity, you can set a delay and a condition.  The delay is the time (measured in seconds or minutes) that the runbook will wait before it runs the activity again.  If no delay is specified, then the activity will run again immediately after it completes. 
+
+![Activity retry delay](media/automation-graphical-authoring-intro/retry-delay.png)
+
+The retry condition is a PowerShell expression that is evaluated after each time the activity runs.  If the expression resolves to True, then the activity runs again.  If the expression resolves to False then the activity does not run again, and the runbook moves on to the next activity. 
+
+![Activity retry delay](media/automation-graphical-authoring-intro/retry-condition.png)
+
+The retry condition can use a variable called $RetryData that provides access to information about the activity retries.  This variable has the properties in the following table.
+
+| Property | Description |
+|:--|:--|
+| NumberOfAttempts | Number of times that the activity has been run.              |
+| Output           | Output from the last run of the activity.                    |
+| TotalDuration    | Timed elapsed since the activity was started the first time. |
+| StartedAt        | Time in UTC format the activity was first started.           |
+
+Following are examples of activity retry conditions.
+
+	# Run the activity exactly 10 times.
+	$RetryData.NumberOfAttempts -ge 10 
+
+	# Run the activity repeatedly until it produces any output.
+	$RetryData.Output.Count -ge 1 
+
+	# Run the activity repeatedly until 2 minutes has elapsed. 
+	$RetryData.TotalDuration.TotalMinutes -ge 2
 
 ### Workflow Script control
 
@@ -239,7 +275,11 @@ You can also retrieve the output of an activity in a **PowerShell Expression** d
 
 ### Checkpoints
 
-The same guidance for setting [checkpoints](automation-powershell-workflow/#checkpoints) in your runbook applies to graphical runbooks.  You can add an activity for the Checkpoint-Workflow cmdlet where you need to set a checkpoint.  You should then follow this activity with an Add-AzureAccount in case the runbook starts from this checkpoint on a different worker. 
+You can set [checkpoints](automation-powershell-workflow/#checkpoints) in a graphical runbook by selecting *Checkpoint runbook* on any activity.  This causes a checkpoint to be set after the activity runs.
+
+![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
+
+The same guidance for setting checkpoints in your runbook applies to graphical runbooks.  If the runbook uses Azure cmdlets, you should follow any checkpointed activity with an Add-AzureRMAccount in case the runbook is suspended and restarts from this checkpoint on a different worker. 
 
 
 ## Authenticating to Azure resources
@@ -258,10 +298,10 @@ You have to authenticate at the start of the runbook and after each checkpoint. 
 
 ### Runbook input
 
-A runbook may require input either from a user when they start the runbook through the Azure preview portal or from another runbook if the current one is used as a child.
+A runbook may require input either from a user when they start the runbook through the Azure portal or from another runbook if the current one is used as a child.
 For example, if you have a runbook that creates a virtual machine, you may need to provide information such as the name of the virtual machine and other properties each time you start the runbook.  
 
-You accept input for a runbook by defining one or more input parameters.  You provide values for these parameters each time the runbook is started.  When you start a runbook with the Azure preview portal, it will prompt you to provide values for the each of the runbook's input parameters.
+You accept input for a runbook by defining one or more input parameters.  You provide values for these parameters each time the runbook is started.  When you start a runbook with the Azure portal, it will prompt you to provide values for the each of the runbook's input parameters.
 
 You can access input parameters for a runbook by clicking the **Input and output** button on the runbook toolbar.  
 
@@ -277,7 +317,7 @@ Each input parameter is defined by the properties in the following table.
 |:---|:---|
 | Name | The unique name of the parameter.  This can only contain alpha numeric characters and cannot contain a space. |
 | Description | An optional description for the input parameter.  |
-| Type | Data type expected for the parameter value.  The Azure preview portal will provide an appropriate control for the data type for each parameter when prompting for input. |
+| Type | Data type expected for the parameter value.  The Azure portal will provide an appropriate control for the data type for each parameter when prompting for input. |
 | Mandatory | Specifies whether a value must be provided for the parameter.  The runbook cannot be started if you do not provide a value for each mandatory parameter that does not have a default value defined. |
 | Default Value | Specifies what value is used for the parameter if one is not provided.  This can either be Null or a specific value. |
 

@@ -13,20 +13,15 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="03/16/2016"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Create a Xamarin.iOS App](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md).
 
 This tutorial shows you how to add a cloud-based backend service to a Xamarin.iOS app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service.
 
@@ -42,7 +37,7 @@ A screenshot from the completed app is below:
 
 Completing this tutorial requires XCode and [Xamarin Studio] for OS X or the Xamarin Visual Studio plug-in for Visual Studio on Windows. The sample will run on iOS 5.0 and newer.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
@@ -113,8 +108,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with push notifications]
   Learn how to send a very basic push notification to your app.
 
-* [How to use the Xamarin Component client for Azure Mobile Services](partner-xamarin-mobile-services-how-to-use-client-library.md)
-   Learn how to query the mobile service, work with data, and access custom APIs.
+
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]

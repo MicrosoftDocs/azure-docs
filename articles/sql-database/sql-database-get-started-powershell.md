@@ -11,10 +11,10 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # Create a new SQL database and perform common database setup tasks with PowerShell cmdlets 
@@ -135,7 +135,7 @@ The database details appear after the database is successfully created.
 ## Next steps
 After you create a new SQL database and perform basic database setup tasks, you're ready for the following:
 
-- [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 
 ## Additional Resources

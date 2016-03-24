@@ -1,22 +1,24 @@
 <properties
-pageTitle="Define lab policies | Microsoft Azure"
-description="Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation."
-services="devtest-lab,virtual-machines"
-documentationCenter="na"
-authors="tomarcher"
-manager="douge"
-editor=""/>
+	pageTitle="Define lab policies | Microsoft Azure"
+	description="Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-ms.service="devtest-lab"
-ms.workload="na"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="11/01/2015"
-ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/18/2016"
+	ms.author="tarcher"/>
 
 # Define lab policies
+
+> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to author custom artifacts](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab) 
 
 ## Overview
 
@@ -26,7 +28,7 @@ DevTest Lab allows you to specify key policies that govern how your lab and its 
 
 In order to view (and change) the policies for a lab, follow these steps:
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -99,4 +101,3 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 1. If you enabled this policy, specify a time to shut down all VMs in the current lab.
 
 1. Tap **Save**.
-

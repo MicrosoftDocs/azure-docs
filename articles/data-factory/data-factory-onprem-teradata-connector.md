@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Move data from Teradata using Azure Data Factory
@@ -30,9 +30,13 @@ Data factory supports only moving data from Teradata to other data stores, not f
 
 For Data Management Gateway to connect to the Teradata Database, you need to install the [.NET Data Provider for Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) on the same system as the Data Management Gateway.
 
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+
 ### Sample: Copy data from Teradata to Azure Blob
 
-The sample below shows:
+This sample shows how to copy data from a Teradata database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -52,8 +56,6 @@ As a first step, setup the data management gateway as per the instructions in th
 	        "type": "OnPremisesTeradata",
 	        "typeProperties": {
 	            "server": "<server>",
-	            "database": "<database>",
-	            "schema": "<schema>",
 	            "authenticationType": "<authentication type>",
 	            "username": "<username>",
 	            "password": "<password>",
@@ -88,7 +90,6 @@ Setting “external”: true and specifying externalData policy tells data facto
 	        "type": "RelationalTable",
 	        "linkedServiceName": "OnPremTeradataLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
@@ -216,7 +217,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	}
 
 
-## Teradata Linked Service properties
+## Teradata linked service properties
 
 The following table provides description for JSON elements specific to Teradata linked service. 
 
@@ -224,26 +225,21 @@ Property | Description | Required
 -------- | ----------- | --------
 type | The type property must be set to: **OnPremisesTeradata** | Yes
 server | Name of the Teradata server. | Yes
-database | Name of the Teradata database. | Yes 
-schema  | Name of the schema in the database. | No
 authenticationType | Type of authentication used to connect to the Teradata database. Possible values are: Anonymous, Basic, and Windows. | Yes
 username | Specify user name if you are using Basic or Windows authentication. | No 
 password | Specify password for the user account you specified for the username. | No 
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises Teradata database. | Yes
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises Teradata data source.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises Teradata data source.
 
-## Teradata Dataset type properties
+## Teradata dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for dataset of type **RelationalTable** (which includes Teradata dataset) has the following properties.
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type properties supported for the Teradata dataset at this time. 
 
-Property | Description | Required
--------- | ----------- | --------
-tableName | Name of the table in the Teradata Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) 
 
-## Teradata Copy Activity type properties
+## Teradata copy activity type properties
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
@@ -253,11 +249,11 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
-query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified)
+query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | Yes
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## Type Mapping for Teradata
+## Type mapping for Teradata
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, the Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 
@@ -311,3 +307,6 @@ Xml | String
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
+
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

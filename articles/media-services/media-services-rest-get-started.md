@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+ 	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
 #Get started with delivering content on demand using REST API
@@ -22,7 +22,8 @@
 
 
 >[AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
+
 
 This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs. 
 
@@ -80,12 +81,9 @@ Two things are required when accessing Azure Media Services: an access token pro
 The following steps describe the most common workflow when using the Media Services REST API to connect to Media Services:
 
 1. Getting an access token. 
-2. Connecting to the Media Services URI. 
-	
-	>[AZURE.NOTE]
-	After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
-	> 
-	> You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
+2. Connecting to the Media Services URI.  
+
+	Remember that after successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
 3. Posting your subsequent API calls to the new URL. 
 	
 	For example, if after trying to connect, you got the following:
@@ -368,7 +366,7 @@ The following example shows how to create an AccessPolicy:
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
 
-**HTTP Request**
+**HTTP Response**
 
 	If successful, the following response is returned:
 	
@@ -674,17 +672,17 @@ To take advantage of dynamic packaging, you need to do the following:
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
 - get at least one streaming unit for the streaming endpoint from which you plan to deliver your content. 
 
-The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Azure Media Encoder**. The section also shows how to monitor the job processing progress. When the job is complete you you would be able to create locators that are needed to get access to your assets. 
+The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The section also shows how to monitor the job processing progress. When the job is complete you you would be able to create locators that are needed to get access to your assets. 
 
 ### Get a media processor
 
-In Media Services, a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. For the encoding task shown in this tutorial we are going to use the Azure Media Encoder.
+In Media Services, a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. For the encoding task shown in this tutorial we are going to use the Media Encoder Standard.
 
 The following code requests the encoder's id. 
 
 **HTTP Request**
 
-	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20Encoder' HTTP/1.1
+	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
@@ -713,12 +711,12 @@ The following code requests the encoder's id.
 	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors",
 	   "value":[  
 	      {  
-	         "Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
-	         "Description":"Azure Media Encoder",
-	         "Name":"Azure Media Encoder",
+	         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+	         "Description":"Media Encoder Standard",
+	         "Name":"Media Encoder Standard",
 	         "Sku":"",
 	         "Vendor":"Microsoft",
-	         "Version":"4.4"
+	         "Version":"1.1"
 	      }
 	   ]
 	}
@@ -727,7 +725,7 @@ The following code requests the encoder's id.
 
 Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing; however, for the readability of the code examples in this topic, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/azure/dn619392.aspx) supported by the Azure Media Processor.  
+The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/mt269960) supported by the Media Encoder Standard processor.  
 
 **HTTP Request**
 	
@@ -754,7 +752,7 @@ The following example shows you how to create and post a Job with one Task set t
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
 	         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
 				<outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      }
@@ -1201,10 +1199,6 @@ To test progressive download, paste a URL into a browser (for example, IE, Chrom
 ## Looking for something else?
 
 If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
-
-##Additional Resources
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices</a>
 
 
 

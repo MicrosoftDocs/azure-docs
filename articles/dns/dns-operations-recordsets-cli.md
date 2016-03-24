@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Manage DNS record sets and records on Azure DNS using CLI | Microsoft Azure" 
+   pageTitle="Manage DNS record sets and records on Azure DNS using Azure CLI | Microsoft Azure" 
    description="Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All CLI commands for operations on record sets and records." 
    services="dns" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="03/04/2016"
    ms.author="joaoma"/>
 
 # How to manage DNS records using CLI
@@ -22,7 +22,7 @@
 - [Azure CLI](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
-This guide will show how to manage record sets and records for your DNS zone.
+This guide will show how to manage record sets and records for your DNS zone using the cross-platform Azure CLI.
 
 >[AZURE.NOTE] Azure DNS is an Azure Resource Manager-only service.  It does not have an ASM API.  You will therefore need to ensure the Azure CLI is configured to use Resource Manager mode, using the 'azure config mode arm' command.
 
@@ -34,9 +34,9 @@ It is important to understand the distinction between DNS record sets and indivi
 
 Record sets are created using the `azure network dns record-set create` command .  You need to specify the record set name, the zone, the Time-to-Live (TTL) and the record type.
 
->[AZURE.NOTE] The record set name must be a relative name, excluding the zone name.  For example, the record set name ‘www’ in zone ‘contoso.com’ will create a record set with the fully-qualified name ‘www.contoso.com’.
+The record set name must be a relative name, excluding the zone name.  For example, the record set name ‘www’ in zone ‘contoso.com’ will create a record set with the fully-qualified name ‘www.contoso.com’.
 
->For a record set at the zone apex, use "@" as the record set name, including quotation marks.  The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".
+For a record set at the zone apex, use "@" as the record set name, including quotation marks.  The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".
 
 Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.  Note that [the SPF record type has been deprecated by the DNS standards in favour of creating SPF records using the TXT record type](http://tools.ietf.org/html/rfc7208#section-3.1).
 
@@ -48,10 +48,9 @@ Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV,
 ### Wildcard records
 
 Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record).  These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set).
+ To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
 
->[AZURE.NOTE] To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
-
->Wildcard record sets are supported for all record types except NS and SOA.  
+Wildcard record sets are supported for all record types except NS and SOA.  
 
 ## Get a record set
 To retrieve an existing record set, use `azure network dns record-set show`, specifying resource group, zone name, record set relative name and the record type:
@@ -238,9 +237,10 @@ In the example below, the A record set "test-a" will be removed from contoso.com
 The optional ‘-q’ switch can be used to suppress the confirmation prompt.
 
 
-##See Also
+## Next steps
 
-[Delegate a domain to Azure DNS](dns-domain-delegation.md)<BR>
-[Manage DNS zones](dns-operations-dnszones-cli.md)<BR>
-[Automate operations using .NET SDK](dns-sdk.md)
+After creating the DNS zone and records, you can [delegate your domain to Azure DNS](dns-domain-delegation.md).<BR>
+Learn how to [manage DNS zones](dns-operations-dnszones-cli.md) using CLI.<BR>
+You can also [automate operations using .NET SDK](dns-sdk.md) to code Azure DNS opearations into your application.
+
  

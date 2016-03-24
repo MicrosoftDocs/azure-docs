@@ -12,8 +12,8 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+	ms.topic="article" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Using AES-128 Dynamic Encryption and Key Delivery Service

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move and process log files using Azure Data Factory (Azure Classic Portal)" 
-	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor in the Azure Classic Portal." 
+	pageTitle="Move and process log files using Azure Data Factory (Azure Portal)" 
+	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor in the Azure Portal." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="03/17/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Measuring effectiveness of a marketing campaign  
+# Tutorial: Move and process log files using Azure Data Factory (Azure Portal)  
 Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). These games produce a lot of logs and Contoso’s goal is to collect and analyze these logs to gain insights into customer preferences, demographics, usage behavior etc. to identify up-sell and cross-sell opportunities, develop new compelling features to drive business growth and provide a better experience to customers.
 
 In this tutorial, you will create Data Factory pipelines to evaluate the effectiveness of a marketing campaign that Contoso has recently launched by collecting sample logs, processing and enriching them with reference data, and transforming the data. It has the following three pipelines:
@@ -27,7 +27,7 @@ In this tutorial, you will create Data Factory pipelines to evaluate the effecti
 
 ## Getting ready for the tutorial
 1.	Read [Introduction to Azure Data Factory][adfintroduction] to get an overview of Azure Data Factory and understanding of the top level concepts.
-2.	You must have an Azure subscription to perform this tutorial. For information about obtaining a subscription, see [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), [Member Offers](http://azure.microsoft.com/pricing/member-offers/), or [Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+2.	You must have an Azure subscription to perform this tutorial. For information about obtaining a subscription, see [Purchase Options](https://azure.microsoft.com/pricing/purchase-options/), [Member Offers](https://azure.microsoft.com/pricing/member-offers/), or [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 3.	You must download and install [Azure PowerShell][download-azure-powershell] on your computer. You will execute Data Factory cmdlets to upload sample data and pig/hive scripts to your blob storage. 
 2.	**(recommended)** Review and practice the tutorial in the [Get started with Azure Data Factory][adfgetstarted] article for a simple tutorial to get familiar with the portal and cmdlets.
 3.	**(recommended)** Review and practice the walkthrough in the [Use Pig and Hive with Azure Data Factory][usepigandhive] article for a walkthrough on creating a pipeline to move data from on-premises data source to an Azure blob store.
@@ -60,18 +60,19 @@ The end-to-end workflow is depicted below:
 1. The **PartitionGameLogsPipeline** reads the raw game events from a blob storage (RawGameEventsTable) and creates partitions based on year, month, and day (PartitionedGameEventsTable).
 2. The **EnrichGameLogsPipeline** joins partitioned game events (PartitionedGameEvents table, which is an output of the PartitionGameLogsPipeline) with geo code (RefGetoCodeDictionaryTable) and enriches the data by mapping an IP address to the corresponding geo-location (EnrichedGameEventsTable).
 3. The **AnalyzeMarketingCampaignPipeline** pipeline leverages the enriched data (EnrichedGameEventTable produced by the EnrichGameLogsPipeline) and processes it with the advertising data (RefMarketingCampaignnTable) to create the final output of marketing campaign effectiveness, which is copied to the Azure SQL database (MarketingCampainEffectivensessSQLTable) and an Azure blob storage (MarketingCampaignEffectivenessBlobTable) for analytics.
+
+You will perform the following steps in this tutorial: 
     
-## Walkthrough: Creating, deploying, and monitoring workflows
-1. [Step 1: Upload sample data and scripts](#MainStep1). In this step, you will upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that will be executed by the workflows. The scripts you execute also create an Azure SQL database (named MarketingCampaigns), tables, user-defined types, and stored procedures.
-2. [Step 2: Create an Azure data factory](#MainStep2). In this step, you will create an Azure data factory named LogProcessingFactory.
-3. [Step 3: Create linked services](#MainStep3). In this step, you will create the following linked services: 
+1. [Upload sample data and scripts](#upload-sample-data-and-scripts). In this step, you will upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that will be executed by the workflows. The scripts you execute also create an Azure SQL database (named MarketingCampaigns), tables, user-defined types, and stored procedures.
+2. [Create an Azure data factory](#create-data-factory). In this step, you will create an Azure data factory named LogProcessingFactory.
+3. [Create linked services](#create-linked-services). In this step, you will create the following linked services: 
 	
 	- 	**StorageLinkedService**. Links the Azure storage location that contains raw game events, partitioned game events, enriched game events, marketing campaign effective information, reference geo-code data, and reference marketing campaign data to the LogProcessingFactory   
 	- 	**AzureSqlLinkedService**. Links an Azure SQL database that contains marketing campaign effectiveness information. 
 	- 	**HDInsightStorageLinkedService**. Links an Azure blob storage that is associated with the HDInsight cluster that the HDInsightLinkedService refers to. 
 	- 	**HDInsightLinkedService**. Links an Azure HDInsight cluster to the LogProcessingFactory. This cluster is used to perform pig/hive processing on the data. 
  		
-4. [Step 4: Create tables](#MainStep4). In this step, you will create the following tables:  	
+4. [Create datasets](#create-datasets). In this step, you will create the following tables:  	
 	
 	- **RawGameEventsTable**. This table specifies the location of the raw game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/rawgameevents/) . 
 	- **PartitionedGameEventsTable**. This table specifies the location of the partitioned game event data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/logs/partitionedgameevents/) . 
@@ -82,7 +83,7 @@ The end-to-end workflow is depicted below:
 	- **MarketingCampaignEffectivenessBlobTable**. This table specifies the location of the marketing campaign effectiveness data within the Azure blob storage defined by StorageLinkedService (adfwalkthrough/marketingcampaigneffectiveness/). 
 
 	
-5. [Step 5: Create and schedule pipelines](#MainStep5). In this step, you will create the following pipelines:
+5. [Create and schedule pipelines](#create-pipelines). In this step, you will create the following pipelines:
 	- **PartitionGameLogsPipeline**. This pipeline reads the raw game events from a blob storage (RawGameEventsTable) and creates partitions based on year, month, and day (PartitionedGameEventsTable). 
 
 
@@ -99,9 +100,9 @@ The end-to-end workflow is depicted below:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Step 6: Monitor pipelines and data slices](#MainStep6). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
+6. [Monitor pipelines](#monitor-pipelines). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
 
-## <a name="MainStep1"></a> Step 1: Upload sample data and scripts
+## Upload sample data and scripts
 In this step, you upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that are invoked by the workflows. The scripts you execute also create an Azure SQL database called **MarketingCampaigns**, tables, user-defined types, and stored procedures. 
 
 The tables, user-defined types and stored procedures are used when moving the Marketing Campaign Effectiveness results from Azure blob storage to the Azure SQL database.
@@ -154,7 +155,7 @@ The tables, user-defined types and stored procedures are used when moving the Ma
 		6/6/2014 11:54:36 AM 3. Created ‘MarketingCampaigns’ Azure SQL database and tables.
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
-## <a name="MainStep2"></a> Step 2: Create an Azure data factory
+## Create data factory
 In this step, you create an Azure data factory named **LogProcessingFactory**.
 
 1.	After logging into the [Azure Portal][azure-portal], click **NEW** from the bottom-left corner, click **Data analytics** in the **Create** blade, and click **Data Factory** on the **Data analytics** blade. 
@@ -190,7 +191,7 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
  
 	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “LogProcessingFactory” is not available**, change the name (for example, yournameLogProcessingFactory). Use this name in place of LogProcessingFactory while performing steps in this tutorial.
  
-## <a name="MainStep3"></a> Step 3: Create linked services
+## Create linked services
 
 > [AZURE.NOTE] This article uses the Azure Classic Portal, specifically the Data Factory Editor, to create linked services, tables, and pipelines. See [Tutorial using Azure PowerShell][adftutorial-using-powershell] if you want to perform this tutorial using Azure PowerShell. 
 
@@ -206,8 +207,6 @@ In this step, you will create the following linked services:
 1.	In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
-
-	See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor.
 
 2.  In the **Editor**, click **New data store** button on the toolbar and select **Azure storage** from the drop down menu. You should see the JSON template for creating an Azure storage linked service in the right pane.	
 	
@@ -275,7 +274,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 2. Click **Deploy** on the command bar to deploy the linked service.
 
 
-## <a name="MainStep4"></a> Step 4: Create tables
+## Create datasets
  
 In this step, you will create the following Data Factory tables: 
 
@@ -306,7 +305,7 @@ The picture above displays pipelines in the middle row and tables in the top and
 	1. MarketingCampaignEffectivenessSQLTable.json
 	
 
-## <a name="MainStep5"></a> Step 5: Create and schedule pipelines
+## Create pipelines
 In this step, you will create the following pipelines: 
 
 - PartitionGameLogsPipeline
@@ -352,7 +351,7 @@ In this step, you will create the following pipelines:
 **Congratulations!** You have successfully created the Azure Data Factory, Linked Services, Pipelines, Tables and started the workflow. 
 
 
-## <a name="MainStep6"></a> Step 6: Monitor pipelines and data slices 
+## Monitor pipelines 
 
 1.	If you do not have the **DATA FACTORY** blade for the **LogProcessingFactory** open, you can do one of the following:
 	1.	Click **LogProcessingFactory** on the **Startboard**. While creating the data factory, the **Add to Startboard** option was automatically checked.
@@ -392,7 +391,7 @@ In this step, you will create the following pipelines:
 
 	![RawGameEventsTable DATA SLICE blade][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	If there was an error, you would see a **Failed **status here.  You might also see either both slices with status **Ready**, or both with status **PendingValidation**, depending on how quickly the slices are processed.
+	If there was an error, you would see a **Failed **status here.  You might also see either both slices with status **Ready**, or both with status **Waiting**, depending on how quickly the slices are processed.
 
 	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
  
@@ -421,7 +420,6 @@ Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] t
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
 
 [adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
@@ -458,16 +456,6 @@ Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] t
 [image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline.png
 
 
-[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial/EgreeDataToOnPremPipeline.png
-
-[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial/SetFirewallRuleForAzureDatabase.png
-
-[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial/PortalNewEverything.png
-
-[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial/DataStorageCacheBackup.png
-
-[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial/DataServicesBlade.png
-
 [image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial/NewDataFactoryBlade.png
 
 [image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial/ResourceGroupBlade.png
@@ -478,35 +466,11 @@ Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] t
 
 [image-data-factory-tutorial-create-datafactory]: ./media/data-factory-tutorial/CreateDataFactory.png
 
-[image-data-factory-tutorial-linkedservice-tile]: ./media/data-factory-tutorial/LinkedServiceTile.png
-
-[image-data-factory-tutorial-linkedservices-add-datstore]: ./media/data-factory-tutorial/LinkedServicesAddDataStore.png
-
-[image-data-factory-tutorial-datastoretype-azurestorage]: ./media/data-factory-tutorial/DataStoreTypeAzureStorageAccount.png
-
-[image-data-factory-tutorial-azurestorage-settings]: ./media/data-factory-tutorial/AzureStorageSettings.png
-
-[image-data-factory-tutorial-storage-key]: ./media/data-factory-tutorial/StorageKeyFromAzurePortal.png
-
-[image-data-factory-tutorial-linkedservices-blade-storage]: ./media/data-factory-tutorial/LinkedServicesBladeWithAzureStorage.png
-
-[image-data-factory-tutorial-azuresql-settings]: ./media/data-factory-tutorial/AzureSQLDatabaseSettings.png
-
-[image-data-factory-tutorial-azuresql-database-connection-string]: ./media/data-factory-tutorial/DatabaseConnectionString.png
-
-[image-data-factory-tutorial-linkedservices-all]: ./media/data-factory-tutorial/LinkedServicesAll.png
-
-[image-data-factory-tutorial-datasets-all]: ./media/data-factory-tutorial/DataSetsAllTables.png
-
-[image-data-factory-tutorial-pipelines-all]: ./media/data-factory-tutorial/AllPipelines.png
-
 [image-data-factory-tutorial-diagram-link]: ./media/data-factory-tutorial/DataFactoryDiagramLink.png
 
 [image-data-factory-tutorial-diagram-view]: ./media/data-factory-tutorial/DiagramView.png
 
 [image-data-factory-monitoring-startboard]: ./media/data-factory-tutorial/MonitoringStartBoard.png
-
-[image-data-factory-monitoring-hub-everything]: ./media/data-factory-tutorial/MonitoringHubEverything.png
 
 [image-data-factory-monitoring-browse-datafactories]: ./media/data-factory-tutorial/MonitoringBrowseDataFactories.png
 
@@ -518,8 +482,5 @@ Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] t
 
 [image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial/MonitoringActivityRunDetails.png
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial/DataManagementGatewayConfigurationManager.png
-
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png 

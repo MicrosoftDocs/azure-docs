@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Resource Manager Template Expressions | Microsoft Azure"
+   pageTitle="Resource Manager Template Functions | Microsoft Azure"
    description="Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/31/2015"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
-# Azure Resource Manager template expressions
+# Azure Resource Manager template functions
 
-This topic describes all of the expressions you can use in an Azure Resource Manager template.
+This topic describes all of the functions you can use in an Azure Resource Manager template.
 
-Template expressions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the expression expressly modifies case (such as toUpper or toLower), the expression will preserve the case. Certain resource types may have case requirements irrespective of how expressions are evaluated.
+Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function will preserve the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
 
-## Numeric expressions
+## Numeric functions
 
-Resource Manager provides the following expressions for working with integers:
+Resource Manager provides the following functions for working with integers:
 
 - [add](#add)
 - [copyIndex](#copyindex)
@@ -56,7 +56,7 @@ Returns the sum of the two provided integers.
 
 Returns the current index of an iteration loop. 
 
-This expression is always used with a **copy** object. For examples of using **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+This function is always used with a **copy** object. For examples of using **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 
 <a id="div" />
@@ -157,9 +157,9 @@ Returns the subtraction of the two provided integers.
 | operand2                           |   Yes    | Number to be subtracted.
 
 
-## String expressions
+## String functions
 
-Resource Manager provides the following expressions for working with strings:
+Resource Manager provides the following functions for working with strings:
 
 - [base64](#base64)
 - [concat](#concat)
@@ -199,16 +199,31 @@ The following example show how to use the base64 function.
 
 **concat (arg1, arg2, arg3, ...)**
 
-Combines multiple string values and returns the resulting string value. This function can take any number of arguments.
+Combines multiple values and returns the concatenated result. This function can take any number of arguments, and can accept either strings or arrays for the parameters.
 
-The following example shows how to combine multiple values to return a value.
+The following example shows how to combine multiple string values to return a concatenated string.
 
     "outputs": {
         "siteUri": {
           "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+The next example shows how to combine two arrays.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
 
 <a id="padleft" />
 ### padLeft
@@ -431,17 +446,25 @@ The following example shows how to construct a link to a nested template based o
 
     "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
+## Array functions
 
+Resource Manager provides several functions for working with array values.
 
-## Deployment value expressions
+To combine multiple arrays into a single array, use [concat](#concat).
 
-Resource Manager provides the following expressions for getting values from sections of the template and values related to the deployment:
+To get the number of elements in an array, use [length](#length).
+
+To divide a string value into an array of string values, use [split](#split).
+
+## Deployment value functions
+
+Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
 - [deployment](#deployment)
 - [parameters](#parameters)
 - [variables](#variables)
 
-To get values from resources, resource groups, or subscriptions, see [Resource expressions](#resource-expressions).
+To get values from resources, resource groups, or subscriptions, see [Resource functions](#resource-functions).
 
 <a id="deployment" />
 ### deployment
@@ -450,7 +473,7 @@ To get values from resources, resource groups, or subscriptions, see [Resource e
 
 Returns information about the current deployment operation.
 
-This expression returns the object that is passed during deployment. The properties in the returned object will differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object is in the following format:
+This function returns the object that is passed during deployment. The properties in the returned object will differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object is in the following format:
 
     {
         "name": "",
@@ -529,29 +552,30 @@ Returns the value of variable. The specified variable name must be defined in th
 
 
 
-## Resource expressions
+## Resource functions
 
-Resource Manager provides the following expressions for getting resource values:
+Resource Manager provides the following functions for getting resource values:
 
 - [listkeys](#listkeys)
+- [list*](#list)
 - [providers](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
 - [resourceId](#resourceid)
 - [subscription](#subscription)
 
-To get values from parameters, variables, or the current deployment, see [Deployment value expressions](#deployment-value-expressions).
+To get values from parameters, variables, or the current deployment, see [Deployment value functions](#deployment-value-functions).
 
 <a id="listkeys" />
 ### listKeys
 
 **listKeys (resourceName or resourceIdentifier, apiVersion)**
 
-Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
+Returns the keys for any resource type that supports the listKeys operation. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| resourceName or resourceIdentifier |   Yes    | Unique identifier of a storage account.
+| resourceName or resourceIdentifier |   Yes    | Unique identifier for the resource.
 | apiVersion                         |   Yes    | API version of resource runtime state.
 
 The following example shows how to return the keys from a storage account in the outputs section.
@@ -562,6 +586,19 @@ The following example shows how to return the keys from a storage account in the
         "type" : "object" 
       } 
     } 
+
+<a id="list" />
+### list*
+
+**list* (resourceName or resourceIdentifier, apiVersion)**
+
+Any operation that starts with **list** can be used a function in your template. This includes **listKeys**, as shown above, but also operations like **list**, **listAdminKeys**, and **listStatus**. When calling the function, use the actual name of the function not list*. To determine which resource types have a list operation, use the following PowerShell command.
+
+    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+Or, retrieve the list with Azure CLI. The following example retrieves all of the operations for **apiapps**, and uses the JSON utility [jq](http://stedolan.github.io/jq/download/) to filter only the list operations.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
 
 <a id="providers" />
 ### providers
@@ -606,8 +643,8 @@ Enables an expression to derive its value from another resource's runtime state.
 
 The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
 
-By using the reference expression, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the **dependsOn** property. 
-The expression is not evaluated until the referenced resource has completed deployment.
+By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the **dependsOn** property. 
+The function is not evaluated until the referenced resource has completed deployment.
 
 The following example references a storage account that is deployed in the same template.
 
@@ -636,7 +673,7 @@ You can retrieve a particular value from the returned object, such as the blob e
 		}
 	}
 
-If you do now wish to directly specify the API version in your template, you can use the **providers** expression and retrieve one the values, such as the latest version as shown below.
+If you do now wish to directly specify the API version in your template, you can use the [providers](#providers) function and retrieve one the values, such as the latest version as shown below.
 
     "outputs": {
 		"BlobUri": {
@@ -751,8 +788,9 @@ Often, you need to use this function when using a storage account or virtual net
 Returns details about the subscription in the following format.
 
     {
-        "id": "/subscriptions/#####"
-        "subscriptionId": "#####"
+        "id": "/subscriptions/#####",
+        "subscriptionId": "#####",
+        "tenantId": "#####"
     }
 
 The following example shows the subscription function called in the outputs section. 

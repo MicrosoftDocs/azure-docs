@@ -8,7 +8,7 @@ In this section, you'll create a Windows console app that simulates a device tha
 
 2. In Solution Explorer, right-click the **SimulatedDevice** project, and then click **Manage NuGet Packages**.
 
-3. In the **NuGet Package Manager** window, make sure the **Include prerelease** option is checked. Search for **Microsoft Azure Devices Client**, click **Install**, and accept the terms of use.
+3. In the **NuGet Package Manager** window, select **Browse**, search for **Microsoft.Azure.Devices.Client**, click **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use.
 
 	This downloads, installs, and adds a reference to the [Azure IoT - Device SDK NuGet package][lnk-device-nuget].
 
@@ -68,7 +68,7 @@ In this section, you'll create a Windows console app that simulates a device tha
 <!-- Links -->
 
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
-[lnk-transient-faults]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png

@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="12/01/2015"
@@ -43,13 +43,13 @@ in the U-SQL script, and then save the output to either a Data Lake Store accoun
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater).
-
+- **A workstation with Azure PowerShell**. See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md#prerequisites).
+	
 ##Create Data Lake Analytics account
 
 You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
 
-- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
+- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
 
 	To enumerate the resource groups in your subscription:
     
@@ -141,7 +141,7 @@ The following PowerShell script shows you how to get the default Data Lake Store
 
 >[AZURE.NOTE] The Azure Portal provides an user interface to copy the sample data files to the default Data Lake Store account. For instructions, see [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
-Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
 
 ##Submit Data Lake Analytics jobs
 

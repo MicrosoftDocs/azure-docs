@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/09/2016"
 	ms.author="glenga"/>
 
 # Mobile Services concepts
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
 
 The topics linked below provide information about specific behaviors of Microsoft Azure Mobile Services. These same topics are available as help in the Azure classic portal.
 

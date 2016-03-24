@@ -85,4 +85,4 @@ Sample of DNS zone in Json format:
 
 Read the [REST API documentation for DNS zones ](https://msdn.microsoft.com/library/azure/mt130626.aspx) for more information.
 
-Read the [REST API documentation for DNS record sets](https://msdn.microsoft.com/library/azure/mt130626.aspx) for more information.
+Read the [REST API documentation for DNS record sets](https://msdn.microsoft.com/library/azure/mt130627.aspx) for more information.

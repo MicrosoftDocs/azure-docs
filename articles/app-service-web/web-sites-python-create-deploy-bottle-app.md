@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="02/19/2016"
 	ms.author="huvalo"/>
 
 
@@ -56,7 +56,6 @@ You should have Python and Git already installed, but make sure you have either 
 The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.com).  
 
 1. Log into the Azure Portal and click the **NEW** button in the bottom left corner. 
-2. Click **Web + Mobile**.
 3. In the search box, type "python".
 4. In the search results, select **Bottle**, then click **Create**.
 5. Configure the new Bottle app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.

@@ -1,4 +1,3 @@
-<a id="what-are-service-bus-queues"></a>
 ## What are Service Bus Queues?
 
 Service Bus queues support a **brokered messaging** communication
@@ -70,8 +69,6 @@ The namespace you created takes a moment to activate, and will then appear in th
 In order to perform management operations, such as creating a queue on
 the new namespace, you must obtain the management credentials for the
 namespace. You can obtain these credentials from the portal.
-
-###To obtain management credentials from the portal
 
 1.  In the left navigation pane, click the **Service Bus** node, to
     display the list of available namespaces:

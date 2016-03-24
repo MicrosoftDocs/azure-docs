@@ -3,7 +3,7 @@
 	description="Learn more about using the IoTHubClient library in the Azure IoT device SDK for C"
 	services="iot-hub"
 	documentationCenter=""
-	authors="MichelBarnett"
+	authors="olivierbloch"
 	manager="timlt"
 	editor=""/>
 
@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
-     ms.author="michelb"/>
+     ms.date="02/23/2016"
+     ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK for C – more about IoTHubClient
 

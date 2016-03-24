@@ -15,7 +15,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/30/2015" 
-	ms.author="Erikre"/>
+	ms.author="glenga"/>
 
 
 # Send email from Mobile Services with SendGrid

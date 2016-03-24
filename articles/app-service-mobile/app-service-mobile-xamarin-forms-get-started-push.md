@@ -1,32 +1,30 @@
-<properties 
-	pageTitle="Add push notifications to your Xamarin.Forms app with Azure App Service" 
-	description="Learn how to use Azure App Service to send push notifications to your Xamarin.Forms app" 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Add push notifications to your Xamarin.Forms app with Azure App Service"
+	description="Learn how to use Azure App Service to send push notifications to your Xamarin.Forms app"
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/19/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview
 
-This tutorial is based on the [Xamarin.Forms quickstart tutorial](app-service-mobile-xamarin-forms-get-started.md), which you must complete first. You will add push notifications support for each project that your want to support in the the Xamarin.Forms quick start project. Every time a record is inserted, a push notification will be sent. 
+This tutorial is based on the [Xamarin.Forms quickstart tutorial](app-service-mobile-xamarin-forms-get-started.md), which you must complete first. You will add push notifications support for each project that your want to support in the the Xamarin.Forms quick start project. Every time a record is inserted, a push notification will be sent.
 
-If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
+If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so you must use a physical iOS device. You'll also need to sign up for an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
 
@@ -34,8 +32,8 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 
 To complete this tutorial, you need the following:
 
-* An active Azure account.  
-If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account.
+If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 * A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it. You can run the Xamarin.Forms app using Visual Studio on a Windows computer if you want, but it's a bit more complicated because you have to connect to a networked Mac running the Xamarin.iOS Build Host. If you're interested in doing that, see [Installing Xamarin.iOS on Windows].
 
@@ -45,7 +43,7 @@ If you don't have an account yet, sign up for an Azure trial and get up to 10 fr
 
 ##Create a Notification Hub for your Mobile App
 
-To configure your app to send notifications, create a new notification hub and configure it for the platform notification services that you will use. 
+To configure your app to send notifications, create a new notification hub and configure it for the platform notification services that you will use.
 
 These steps walk you through creating a new notification hub. If you already have one created, you can just select it.
 
@@ -94,7 +92,7 @@ This section is for running the Xamarin droid project for Android. You can skip 
 	        // Check to ensure everything's setup right
 	        GcmClient.CheckDevice(this);
 	        GcmClient.CheckManifest(this);
-	
+
 	        // Register for push notifications
 	        System.Diagnostics.Debug.WriteLine("Registering...");
 	        GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
@@ -111,7 +109,7 @@ This section is for running the Xamarin droid project for Android. You can skip 
 
 4. Add the following code for the `CreateAndShowDialog` helper method.
 
-		private void CreateAndShowDialog(String message, String title) 
+		private void CreateAndShowDialog(String message, String title)
 		{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -122,10 +120,10 @@ This section is for running the Xamarin droid project for Android. You can skip 
 
 
 5. In the `MainActivity` class, add the following code to expose the current `MainActivity` so we can execute some UI on the main UI thread:
-		
+
 		// Create a new instance field for this activity.
 		static MainActivity instance = null;
-		
+
 		// Return the current activity instance.
 		public static MainActivity CurrentActivity
 		{
@@ -135,7 +133,7 @@ This section is for running the Xamarin droid project for Android. You can skip 
 		    }
 		}
 
-6. Initialize the `instance`, variable at the beginning of the `MainActivity.OnCreate` method.  
+6. Initialize the `instance`, variable at the beginning of the `MainActivity.OnCreate` method.
 
 		// Set the current instance of MainActivity.
 		instance = this;
@@ -160,7 +158,7 @@ This section is for running the Xamarin droid project for Android. You can skip 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-		
+
 		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
 		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
@@ -171,10 +169,10 @@ This section is for running the Xamarin droid project for Android. You can skip 
 		[BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]		
+		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
 		public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
-		{		
-		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };		
+		{
+		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
 		}
 
 11. Update your `GcmService` class to use the new broadcast receiver.
@@ -183,7 +181,7 @@ This section is for running the Xamarin droid project for Android. You can skip 
 		 public class GcmService : GcmServiceBase
 		 {
 		     public static string RegistrationID { get; private set; }
-		
+
 		     public GcmService()
 		         : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
 		 }
@@ -192,18 +190,18 @@ This section is for running the Xamarin droid project for Android. You can skip 
 12. Add the following code to the GcmService class that overrides the OnRegistered event handler and implements a `Register` method.
 
 	This code will register a template body to receive template notifications using the `messageParam` parameter. Template notifications allow you to send notifications cross platform. For more information see, [Templates](https://msdn.microsoft.com/library/azure/dn530748.aspx).
-		
+
 		protected override void OnRegistered(Context context, string registrationId)
 		{
 		    Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
 		    RegistrationID = registrationId;
-		
+
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
-		
+
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-		
+
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-		
+
 		}
 
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
@@ -217,7 +215,7 @@ This section is for running the Xamarin droid project for Android. You can skip 
                 {
                   {"body", templateBodyGCM}
                 };
-                
+
                 await push.RegisterAsync(RegistrationID, templates);
                 Log.Info("Push Installation Id", push.InstallationId.ToString());
             }
@@ -233,61 +231,61 @@ This section is for running the Xamarin droid project for Android. You can skip 
 		protected override void OnMessage(Context context, Intent intent)
 		{
 		    Log.Info("PushHandlerBroadcastReceiver", "GCM Message Received!");
-		
+
 		    var msg = new StringBuilder();
-		
+
 		    if (intent != null && intent.Extras != null)
 		    {
 		        foreach (var key in intent.Extras.KeySet())
 		            msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
 		    }
-		
+
 		    //Store the message
 		    var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
 		    var edit = prefs.Edit();
 		    edit.PutString("last_msg", msg.ToString());
 		    edit.Commit();
-		
+
 		    string message = intent.Extras.GetString("message");
 		    if (!string.IsNullOrEmpty(message))
 		    {
 		        createNotification("New todo item!", "Todo item: " + message);
 		        return;
 		    }
-		
+
 		    string msg2 = intent.Extras.GetString("msg");
 		    if (!string.IsNullOrEmpty(msg2))
 		    {
 		        createNotification("New hub message!", msg2);
 		        return;
 		    }
-		
+
 		    createNotification("Unknown message details", msg.ToString());
 		}
-		
+
 		void createNotification(string title, string desc)
 		{
 		    //Create notification
 		    var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-		
+
 		    //Create an intent to show ui
 		    var uiIntent = new Intent(this, typeof(MainActivity));
-		
+
 		    //Create the notification
 		    var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
-		
+
 		    //Auto cancel will remove the notification once the user touches it
 		    notification.Flags = NotificationFlags.AutoCancel;
-		
+
 		    //Set the notification info
 		    //we use the pending intent, passing our ui intent over which will get called
 		    //when the notification is tapped.
 		    notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
-		
+
 		    //Show the notification
 		    notificationManager.Notify(1, notification);
 		}
-	
+
 14. You must also implement `OnUnRegistered` and `OnError` handlers for the receiver.
 
 		protected override void OnUnRegistered(Context context, string registrationId)
@@ -305,9 +303,9 @@ This section is for running the Xamarin droid project for Android. You can skip 
 ####Test push notifications in your Android app
 
 1. In Visual Studio or Xamarin Studio, right click the **droid** project and click **Set as startup project**.
- 
+
 2. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications.
-	
+
 	> [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type a task, and then click the plus (**+**) icon.
@@ -356,7 +354,7 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
             // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
             // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
             //SQLitePCL.CurrentPlatform.Init();
-            
+
             // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes(
                 UIUserNotificationType.Alert
@@ -415,7 +413,7 @@ Your app is now updated to support push notifications.
 1. Right click the iOS project, and click **Set as StartPp Project**.
 
 2. Press the **Run** button or **F5** in Visual Studio to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications.
-	
+
 	> [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 3. In the app, type a task, and then click the plus (**+**) icon.
@@ -487,7 +485,7 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
                 // Set the default language
                 rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
                 rootFrame.NavigationFailed += OnNavigationFailed;
-                Xamarin.Forms.Forms.Init(e); 
+                Xamarin.Forms.Forms.Init(e);
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
@@ -520,7 +518,7 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 
 
 2. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications.
-	
+
 	> [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 3. In the app, type a task, and then click the plus (**+**) icon.

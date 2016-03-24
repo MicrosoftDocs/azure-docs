@@ -1,11 +1,12 @@
 <properties
-  pageTitle="Preparing to back up workloads using Azure Backup Server | Microsoft Azure"
-  description="This article provides you with the definitive steps to prepare you environment to backup workloads using Azure Backup Server"
+  pageTitle="Preparing your environment to back up workloads using Azure Backup Server | Microsoft Azure"
+  description="Make sure your environment is properly prepared to back up workloads using Azure Backup Server"
   services="backup"
   documentationCenter=""
-  authors="SamirMehta"
-  manager="shreeshd"
-  editor=""/>
+  authors="pvrk"
+  manager="shivamg"
+  editor=""
+  keywords="azure backup server; backup vault"/>
 
 <tags
   ms.service="backup"
@@ -13,8 +14,8 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="12/15/2015"
-  ms.author="sammehta; jimpark"; "aashishr"/>
+  ms.date="02/04/2016"
+  ms.author="jimpark;trinadhk;pullabhk"/>
 
 # Preparing to back up workloads using Azure Backup Server
 
@@ -66,7 +67,7 @@ To create a backup vault:
 6. A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active.
     ![List of backup vaults](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
 
-  > [AZURE.IMPORTANT] Make sure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+  > [AZURE.IMPORTANT] Make sure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) options in this [overview](../storage/storage-redundancy.md).
 
 
 ## 3. Software package
@@ -151,7 +152,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
     ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 
-When the installation step is completely, the product's desktop icons would have been created as well. Just double-click the icon to launch the product.
+When the installation step has completed, the product's desktop icons will have been created as well. Just double-click the icon to launch the product.
 
 ### Add backup storage
 

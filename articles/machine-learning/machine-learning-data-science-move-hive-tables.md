@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
  
 #Create and load data into Hive tables from Azure blob storage
 
+## Introduction
+In **this document**, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
+
 This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Cortana Analytics Process (CAPS).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
- 
-## Introduction
-In **this document**, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
 
 ## Prerequisites
 This article assumes that you have:

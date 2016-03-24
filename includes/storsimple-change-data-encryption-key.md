@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### Step 1: Authorize a device to change the service data encryption key in the Management Portal
+### Step 1: Authorize a device to change the service data encryption key in the Azure classic portal
 
 Typically, the device administrator will request that the service administrator authorize a device to change service data encryption keys. The service administrator will then authorize the device to change the key.
 

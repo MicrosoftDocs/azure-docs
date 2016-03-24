@@ -1,20 +1,20 @@
 <properties
-                pageTitle="What is Azure Active Directory?"
-                description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications."
-                services="active-directory"
-                documentationCenter=""
-                authors="markusvi"
-                manager="stevenpo"
-                editor=""/>
+    pageTitle="What is Azure Active Directory?"
+    description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-                ms.service="active-directory"
-                ms.workload="identity"
-                ms.tgt_pltfrm="na"
-                ms.devlang="na"
-                ms.topic="article"
-                ms.date="10/30/2015"
-                ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/14/2016"
+    ms.author="markusvi"/>
 
 
 # What is Azure Active Directory?

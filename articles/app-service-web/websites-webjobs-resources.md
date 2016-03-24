@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs documentation resources
@@ -34,7 +34,7 @@ The WebJobs dashboard in the Azure portal provides powerful management capabilit
 * [Azure WebJobs are awesome and you should start using them right now!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Blog post by Troy Hunt.)
 * [Azure WebJobs Features](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md)
-* [Background Jobs Guidance by Microsoft Patterns and Practices](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
+* [Background Jobs Guidance by Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
 * [Announcing the 1.1.0 RTM of Microsoft Azure WebJobs SDK](/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 * [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -57,7 +57,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 * [How to Deploy Azure WebJobs using Visual Studio](websites-dotnet-deploy-webjobs.md)
 * [How to deploy WebJobs using the Azure Portal](web-sites-create-web-jobs.md)
-* [Enabling Command-line or Continuous Delivery of Azure WebJobs](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
+* [Enabling Command-line or Continuous Delivery of Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Git deploying a .NET console app to Azure using WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * [Deploying custom services as Azure Webjobs](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
@@ -98,7 +98,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [Azure WebJobs GA blog post by Magnus Mårtensson](http://magnusmartensson.com/azure-webjobs-ga)
 * [Running Powershell Web Jobs on Azure App Service](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Getting notified when your Azure triggered WebJobs completes](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
-* [Simple Web App Backup retention policy with WebJobs](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
+* [Simple Web App Backup retention policy with WebJobs](https://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Azure Web Apps and Cloud Services Slow on First Request](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Shows how to use WebJobs to simulate the AlwaysOn feature that is only available for the Standard pricing tier.
 * [WebJobs Graceful Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). For WebJobs SDK graceful shutdown, see [Graceful shutdown](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).)
 * [Automating Backups with Azure WebJobs & AzCopy](http://markjbrown.com/azure-webjobs-azcopy/)
@@ -135,7 +135,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [StackOverflow for the WebJobs SDK](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Azure and ASP.NET forum](http://forums.asp.net/1247.aspx)
 * [Azure App Service Web Apps forum](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
-* [Azure Web Apps User Voice site](http://feedback.azure.com/forums/169385-websites)
+* [Azure Web Apps User Voice site](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). Use the hashtag #AzureWebJobs.
 * [Report a WebJobs bug or issue](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 

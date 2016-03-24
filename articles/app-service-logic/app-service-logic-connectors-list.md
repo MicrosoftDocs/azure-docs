@@ -4,7 +4,7 @@
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor="cgronlun"/>
 
 <tags
@@ -12,17 +12,19 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/11/2016"
 	ms.author="mandia"/>
 
 
 # List of Connectors and API Apps to use in your Logic Apps
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [API List](../connectors/apis-list.md).
+
 Learn about all the available connectors and API Apps created by Microsoft to use within your Logic Apps.
 
-For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/).
+For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 ## Core Connectors
 The following table lists all the available connectors and API Apps created by Microsoft that are available as Core Connectors:
@@ -32,8 +34,7 @@ Name | Description
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | Use this connector to create a Hadoop cluster on Azure, submit different Hadoop jobs, and more.
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions.
 [Azure Storage Blob](app-service-logic-connector-azurestorageblob.md) | Connects to Blob storage and can get, delete, list, and more. 
-Bing Search | Search Bing for web, images, news and video.
-Bing Translate | Use Bing to translate text into another language.
+[Bing Translator](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Use Bing to translate text into another language.
 [Box](app-service-logic-connector-box.md) | Connects to Box and can upload, get, delete, list, and more file tasks.
 [Chatter](app-service-logic-connector-chatter.md) | Connects to Chatter and can post messages, search, and even retrieve new messages.
 [Dropbox](app-service-logic-connector-dropbox.md) | Connect to Dropbox and can get, delete, list, and more file tasks.

@@ -13,10 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/09/2015"
+	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
-# Azure Site Recovery using PowerShell and Azure Resource Manager.
+# Replicate between on-premises Hyper-V virtual machines and Azure using PowerShell and Azure Resource Manager.
+
+> [AZURE.SELECTOR]
+- [Azure Classic Portal](site-recovery-hyper-v-site-to-azure.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+
 
 
 ## Overview
@@ -32,7 +37,7 @@ This article describes how to use Windows PowerShell® together with ARM to depl
 > [AZURE.NOTE] The Azure Site Recovery PowerShell cmdlets currently allow you to configure the VMM site to VMM site, VMM site to Azure and Hyper-V site to Azure scenarios. Support for other ASR scenarios will be added soon. 
 
 You don't need to be a PowerShell expert to use this article, but it does assume that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
-- Read more about [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+- Read more about [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 
 ## Key features
@@ -44,8 +49,8 @@ You don't need to be a PowerShell expert to use this article, but it does assume
 
 Make sure you have these prerequisites in place:
 
-- You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](http://azure.microsoft.com/pricing/details/site-recovery/).
-- You'll need Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](http://azure.microsoft.com/)
+- You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
+- You'll need Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](https://azure.microsoft.com/)
 - You'll need to have the [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) and [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules installed. You can get the latest versions of these modules from the [PowerShell gallery](https://www.powershellgallery.com/)
 
 This article illustrates how to use Azure Powershell with ARM to configure and manage protection of your servers with the help of an example. The example used in this articles shows you how to protect a virtual machine running on a Hyper-V host to Azure and the prerequisites that follow are specific to this example. For a more comprehensive set of requirements for the various ASR scenarios refer to the documentation pertaining to that scenario.
@@ -110,7 +115,7 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 
 2. Create a new Azure Recovery Services vault as follows:-
 
-		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName <string> -Location <string>
+		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
 	You can retrieve a list of existing vaults using the `Get-AzureRmRecoveryServicesVault` cmdlet.
 

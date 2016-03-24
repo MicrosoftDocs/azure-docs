@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
@@ -38,7 +38,7 @@ The following diagram shows the dynamic packaging workflow.
 
 ##Common scenario
 
-1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Services Encoder](media-services-azure-media-encoder-formats)).
+1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-services-media-encoder-standard-formats.md).
 
 1. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
 
@@ -46,56 +46,31 @@ The following diagram shows the dynamic packaging workflow.
 
 1. Build the streaming URLs to access and stream your content.
 
->[AZURE.NOTE]Not all MP4 file formats are supported by dynamic packaging, for more information, see [Unsupported formats for dynamic packaging](media-services-dynamic-packaging-overview.md#unsupported_formats).
 
 ##Preparing assets for dynamic streaming
 
 To prepare your asset for dynamic streaming you have two options:
 
-- Upload a master file and produce H.264 MP4 adaptive bitrate sets using the Azure Media Encoder.
-- Upload existing adaptive bitrate sets and validate them using the Media Packager.
+1. [Upload a master file](media-services-dotnet-upload-files.md).
+2. [Use the Media Encoder Standard encoder to produce H.264 MP4 adaptive bitrate sets](media-services-dotnet-encode-with-media-encoder-standard.md).
+3. [Stream your content](media-services-deliver-content-overview.md).
 
-###Upload a master file and produce H.264 MP4 adaptive bitrate sets using the Azure Media Encoder
+-OR-
+ 
+1. Upload pre-enocded MP4 files. 
 
-For information about how to upload and encode assets see the following articles:
-
-
-Upload your files using **Azure Classic Portal**, **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-Encode with **Azure Media Encoder** using **Azure Classic Portal**, **.NET**, or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-
-###Upload existing adaptive bitrate sets and validate them using the Media Packager
-
-You would typically want to perform this task if you are uploading a set of adaptive bitrate MP4 files that were not encoded with Media Services Encoder. The [Validating Adaptive Bitrate MP4s Encoded with External Encoders](https://msdn.microsoft.com/library/azure/dn750842.aspx) topic shows how to achieve this task.
-
-##Streaming your content to clients
-
-Once you have the adaptive bitrate sets, you can publish your asset by creating an On-Demand locator and compose the streaming URLs for Smooth Steaming, MPEG DASH, HLS, and HDS (for Adobe PrimeTime/Access licensees only).
-
-For information on how to create locators and use dynamic packaging to stream your content, see the following topics:
-
-[Delivering Content to Customers Overview](media-services-deliver-content-overview.md).
-
-Configure asset delivery policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publish assets (by creating Locators) using **Azure Classic Portal** or **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
+	>[AZURE.NOTE] This opiton is not recommended.
+	
+2. [Validate your pre-encoded files](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
+3. [Stream your content](media-services-deliver-content-overview.md).
 
 
 ##<a id="unsupported_formats"></a>Formats that are not supported by dynamic packaging
 
 The following source file formats are not supported by dynamic packaging.
 
-- Dolby digital plus mp4 files.
-- Dolby digital plus smooth files.
+- Dolby digital mp4 files.
+- Dolby digital smooth files.
 
 ##Media Services learning paths
 

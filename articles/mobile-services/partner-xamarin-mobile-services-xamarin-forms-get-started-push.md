@@ -13,16 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="10/05/2015"
+	ms.date="03/18/2016"
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Add push notifications to your Xamarin.Forms app](../app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md).
 
 ##Overview
 
@@ -290,7 +291,7 @@ Your mobile service is now configured to work with APNS.
             _deviceToken = _deviceToken.Trim('<', '>').Replace(" ", "");
 
             // Get Mobile Services client
-            MobileServiceClient client = todoItemManager.GetClient;
+            MobileServiceClient client = todoItemManager.GetClient();
 
             // Register for push with Mobile Services
             IEnumerable<string> tag = new List<string>() { "uniqueTag" };
@@ -302,7 +303,7 @@ Your mobile service is now configured to work with APNS.
 
             var push = client.GetPush();
 
-            push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag)
+            push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag);
         }
 
 7. In **AppDelegate**, override the **ReceivedRemoteNotification** event:
@@ -402,7 +403,7 @@ In the [Azure classic portal], click the **Data** tab and then click the **TodoI
 
    ![][22]
 
-    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
@@ -539,6 +540,7 @@ Your **MainActivity** is now prepared for adding push notifications.
             MainActivity.DefaultService.RunOnUiThread(() => Register(push, null));
 
         }
+
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
         {
             try
@@ -618,9 +620,14 @@ Your **MainActivity** is now prepared for adding push notifications.
 
 12. Add the following method overrides for **OnUnRegistered()** and **OnError()**, which are required for the project to compile.
 
+		protected override void OnUnRegistered(Context context, string registrationId)
+		{
+			Log.Error("GcmService", "Unregistered RegisterationId : " + registrationId);
+		}
+
         protected override void OnError(Context context, string errorId)
         {
-              Log.Error(PushHandlerBroadcastReceiver.TAG, "GCM Error: " + errorId);
+            Log.Error(PushHandlerBroadcastReceiver.TAG, "GCM Error: " + errorId);
         }
 
 ###<a id="test"></a>Test push notifications in your app
@@ -702,7 +709,7 @@ Before your app can receive push notifications, you must register a notification
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
 
-6.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
+6.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID_CAP_PUSH_NOTIFICATION** capability is checked.
 
    	![Enable notifications in VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 

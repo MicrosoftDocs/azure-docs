@@ -1,20 +1,20 @@
-<properties 
- pageTitle="Scheduler PowerShell Cmdlets Reference" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Scheduler PowerShell Cmdlets Reference"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # Scheduler PowerShell Cmdlets Reference
 
 The following table describes and links to the reference page of each of the major cmdlets in Azure Scheduler.
@@ -36,25 +36,20 @@ The following table describes and links to the reference page of each of the maj
 
 
 ## See Also
- 
+
 
  [What is Scheduler?](scheduler-intro.md)
- 
+
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
  [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
  [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
  [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
- 
-  
-
-
-  

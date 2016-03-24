@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="02/29/2016" 
 	ms.author="nitinme"/>
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -34,9 +34,12 @@ Hue is a set of Web applications used to interact with a Hadoop cluster. You can
 
 ## Install Hue using Script Actions
 
-The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) script action is used to install Hue on an HDInsight cluster. This section provides instructions about how to use the script when provisioning the cluster using the Azure Classic Portal.
+The following script action can be used to install Hue on a Linux-based HDInsight cluster.
+    https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+    
+This section provides instructions about how to use the script when provisioning the cluster using the Azure Portal. 
 
-> [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Azure PowerShell, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
 
@@ -47,13 +50,11 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/inst
 	![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Provide script action parameters for Hue")
 
 	* __NAME__: Enter a friendly name for the script action.
-	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
+	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 	* __HEAD__: Check this option
 	* __WORKER__: Leave this blank.
 	* __ZOOKEEPER__: Leave this blank.
-	* __PARAMETERS__: The script expects the **cluster admin password** as a parameter. This is the password you specified while provisioning the cluster. Important considerations while providing the password:
-		* If the cluster username is "admin", you only need to specify the password within single quotes.
-		* If the cluster username is anything other than "admin", you must specify the paramter as `-u [username] [password in single quotes]`
+	* __PARAMETERS__: Leave this blank.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
@@ -124,8 +125,6 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 ## Next steps
 
-- [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md) for  instructions about how to use cluster customization to install and use Spark on HDInsight Hadoop clusters. Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications.
-
 - [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
 
 - [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
@@ -135,4 +134,3 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="mimig"/>
 
 # Automate DocumentDB account creation using Azure Resource Manager templates and Azure CLI
@@ -46,7 +46,7 @@ If your version is not 0.9.11 or later, you need to either [install the Azure CL
 
 ### Set your Azure account and subscription
 
-If you don't already have an Azure subscription but you do have a Visual Studio subscription, you can activate your [Visual Studio subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+If you don't already have an Azure subscription but you do have a Visual Studio subscription, you can activate your [Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 You need to have a work or school account or a Microsoft account identity to use Azure resource management templates. If you have one of these accounts, type the following command.
 
@@ -59,7 +59,7 @@ Which produces the following output:
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE] If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE] If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
 Open [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in a browser and enter the code provided in the command output.
 
@@ -75,9 +75,10 @@ You'll receive the following confirmation screen when you're successfully logged
 
 The command shell also provides the following output.
 
-    -info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+    /info:    Added subscription Visual Studio Ultimate with MSDN
+    info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+    +
+    info:    login command OKK
 
 In addition to the interactive login method described here, there are additional Azure CLI login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
 
@@ -89,7 +90,9 @@ By default, the Azure CLI starts in the service management mode (**asm** mode). 
 
 Which provides the following output:
 
-	info:    New mode is arm
+    info:    Executing command config mode
+    info:    New mode is arm
+    info:    config mode command OK
 
 You can switch back to the default set of commands by typing `azure config mode asm`.
 
@@ -268,8 +271,8 @@ To use a parameter file:
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
- - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1.
- - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1.
+ - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
+ - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
  - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
  - `<deploymentname>` is the optional name of the deployment.
 
@@ -342,11 +345,12 @@ Now that you have a DocumentDB account, the next step is to create a DocumentDB 
 
 After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](documentdb-view-json-document-explorer.md) to the collections. 
 
-After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the preview portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 To learn more about DocumentDB, explore these resources:
 
 -	[Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB resource model and concepts](documentdb-resources.md)
 
-For more templates you can use, see [Azure Quickstart templates](http://azure.microsoft.com/documentation/templates/).
+For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/).
+

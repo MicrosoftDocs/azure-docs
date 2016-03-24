@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Data Factory"
-	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight."
+	pageTitle="Build your first data factory | Microsoft Azure"
+	description="This tutorial shows you how to create a data factory with a data pipeline that transforms data using Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="12/18/2015"
+	ms.topic="article" 
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Get started with Azure Data Factory
+# Tutorial: Build your first data factory (overview)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -34,7 +34,7 @@ This tutorial takes you through the steps needed to get your first data factory 
 ## Pre-requisites
 Before you begin this tutorial, you must have the following prerequisites:
 
-1.	**Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
+1.	**Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
 
 2.	**Azure Storage** – You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
@@ -185,7 +185,7 @@ Using notepad, create a file named **input.log** in the **c:\adfgetstarted** wit
 
 ### Upload input file and HQL file to your Azure Blob Storage
 
-You can use any tool of your choice (for example: Azure Storage Explorer, CloudXPlorer by ClumsyLeaf Software) to do this task. This section provides instructions on using AzCopy tool.  
+You can use any tool of your choice (for example: [Microsoft Azure Storage Explorer](http://storageexplorer.com/), CloudXPlorer by ClumsyLeaf Software) to do this task. This section provides instructions on using AzCopy tool.  
 	 
 2. To prepare the Azure storage for the tutorial:
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
@@ -209,7 +209,7 @@ You can use any tool of your choice (for example: Azure Storage Explorer, CloudX
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Repeat the previous two steps to upload the partitionweblogs.hql file to the script folder of the adfgetstarted container. Here is the command: 
+	1. Run the following command to upload the **partitionweblogs.hql** file to the **script** folder of the **adfgetstarted** container. Here is the command: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 

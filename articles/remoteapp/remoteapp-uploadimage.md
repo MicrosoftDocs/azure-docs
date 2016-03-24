@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="02/02/2016"
     ms.author="ericor" />
 
 
@@ -26,7 +26,7 @@ Now that you have created your custom template image or have updated it with cha
 ## Before you start
 
 1.      Verify your custom image meets the [image requirements](remoteapp-imagereqs.md) and [application requirements](remoteapp-appreqs.md).
-2.      Install the [Azure PowerShell module](../install-configure-powershell.md).
+2.      Install the [Azure PowerShell module](../powershell-install-configure.md).
 
 ## Step by step on how to upload custom image
 

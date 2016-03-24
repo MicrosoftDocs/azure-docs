@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Get started creating an internal load balancer using PowerShell
@@ -89,7 +89,7 @@ Choose which of your Azure subscriptions to use. <BR>
 
 Create a new resource group (skip this step if using an existing resource group)
 
-    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create a load balancer will use the same resource group.
 
@@ -120,7 +120,7 @@ Setting up a front end IP pool for the incoming load balancer network traffic an
 
 Create a front end IP pool using the private IP address 10.0.2.5 for the subnet 10.0.2.0/24 which will be the incoming network traffic endpoint.
 
-	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
+	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 
 ### step 2 
 
@@ -191,8 +191,9 @@ In this step, we are creating a second network interface, assigning to the same 
 The end result will show the following:
 
 
-PS C:\> $backendnic1
+	PS C:\> $backendnic1
 
+Expected output:
 
 	Name                 : lb-nic1-be
 	ResourceGroupName    : NRP-RG
@@ -242,8 +243,41 @@ PS C:\> $backendnic1
 
 Use the command Add-AzureRmVMNetworkInterface to assign the NIC to a virtual Machine.
 
-You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) option 4 or 5.
+You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example) option 4 or 5.
 
+or if you already have a virtual machine created, you can add the network interface with the following steps:
+
+#### Step 1 
+
+Load the load balancer resource into a variable (if you haven't done that yet). The variable used is called $lb and use the same names from the load balancer resource created above.
+
+	$lb= Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+
+#### Step 2 
+
+Load the backend configuration to a variable. 
+
+	$backend= Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+
+#### Step 3 
+
+Load the already created network interface into a variable. the variable name used is $nic. The network interface name used is the same from the example above. 
+
+	$nic=Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+
+#### Step 4
+
+Change the backend configuration on the network interface.
+
+	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+
+#### Step 5 
+
+Save the network interface object.
+
+	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+
+After a network interface is added to the load balancer backend pool, it starts receiving network traffic based on the load balancing rules for that load balancer resource.
 
 ## Update an existing load balancer
 

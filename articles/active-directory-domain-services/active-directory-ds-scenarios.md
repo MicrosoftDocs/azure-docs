@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 
@@ -55,3 +55,9 @@ Contoso has a custom-built software vault application that includes a web front-
 A few important points to note when considering this scenario:
 
 - Ensure that the application uses username/password for authentication. Certificate/Smartcard based authentication is not supported by Azure AD Domain Services.
+
+
+## Azure RemoteApp
+Azure RemoteApp enables Contoso's administrator to create a domain-joined collection. This enables remote applications served by Azure RemoteApp to run on domain-joined computers and to access other resources using Windows integrated authentication. Contoso can use Azure AD Domain Services to provide a managed domain used by Azure RemoteApp domain-joined collections.
+
+For more information about this deployment scenario, refer to the Remote Desktop Services Blog article titled [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).

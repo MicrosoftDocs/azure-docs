@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/30/2015"
+	ms.date="01/27/2016"
 	ms.author="jgao"/>
 
 # Get started using Visual Studio Hadoop tools for HDInsight to run a Hive query
@@ -55,9 +55,7 @@ HDInsight Tools for Visual Studio and Microsoft Hive ODBC Driver are packaged wi
 ## Connect to Azure subscriptions
 The HDInsight Tools for Visual Studio allows you to connect to your HDInsight clusters, perform some basic management operations, and run Hive queries.
 
->[AZURE.NOTE] For information on connecting to HDInsight Emulator, see [Get started with the HDInsight Emulator](../hdinsight-get-started-emulator.md/#vstools).
-
->[AZURE.NOTE] For information on connecting to a generic Hadoop cluster (preview), see [Write and submit Hive queries using Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+>[AZURE.NOTE] For information on connecting to a generic Hadoop cluster, see [Write and submit Hive queries using Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
 
 
 **To connect to your Azure subscription**
@@ -262,13 +260,13 @@ In this article, you learned how to connect to HDInsight clusters from Visual St
 
 
 <!--Link references-->
-[hdinsight-provision]: ../hdinsight/hdinsight-provision-clusters.md
-[hdinsight.introduction]: ../hdinsight-introduction.md
-[hdinsight.get.started]: ../hdinsight-get-started.md
-[hdinsight.hive]: ../hdinsight/hdinsight-use-hive.md
-[hdinsight.submit.jobs]: ../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight.analyze.twitter.data]: ../hdinsight/hdinsight-analyze-twitter-data.md
-[hdinsight.storm.visual.studio.tools]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
-[hdinsight.access.application.logs]: ../hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
+[hdinsight-provision]: hdinsight/hdinsight-provision-clusters.md
+[hdinsight.introduction]: hdinsight-introduction.md
+[hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight.hive]: hdinsight/hdinsight-use-hive.md
+[hdinsight.submit.jobs]: hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight.analyze.twitter.data]: hdinsight/hdinsight-analyze-twitter-data.md
+[hdinsight.storm.visual.studio.tools]: hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+[hdinsight.access.application.logs]: hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org

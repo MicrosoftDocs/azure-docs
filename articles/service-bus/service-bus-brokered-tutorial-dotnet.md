@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/14/2015"
@@ -31,7 +31,7 @@ The following are some administrative and prerequisite steps you should follow b
 
 ### Create a service namespace and obtain a SAS key
 
-1. To create a service namespace, follow the steps outlined in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+1. To create a service namespace, visit the [Azure classic portal][]. Click **Service Bus** on the left-hand side, then click **Create**. Type a name for your namespace, then click the check mark.
 
 1. In the main window of the [Azure classic portal][], click the name of the namespace you created in the previous step.
 
@@ -104,7 +104,7 @@ The next step is to create a Visual Studio project and write two helper function
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
 	        private static DataTable issues;
@@ -203,14 +203,16 @@ The next step is to create a Visual Studio project and write two helper function
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList; 
-	        // Add these variablesprivatestaticstring ServiceNamespace;
-	        privatestaticstring sasKeyName = "RootManageSharedAccessKey";
-	        privatestaticstring sasKeyValue;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList; 
+
+	        // Add these variables
+			private static string ServiceNamespace;
+	        private static string sasKeyName = "RootManageSharedAccessKey";
+	        private static string sasKeyValue;
 	        …
 	```
 
@@ -220,11 +222,11 @@ The next step is to create a Visual Studio project and write two helper function
 	static void CollectUserInput()
 	{
 	    // User service namespace
-	    Console.Write("Please enter the service namespace to use: ");
+	    Console.Write("Please enter the namespace to use: ");
 	    ServiceNamespace = Console.ReadLine();
 	
 	    // Issuer key
-	    Console.Write("Please enter the SAS key to use: ");
+	    Console.Write("Enter the SAS key to use: ");
 	    sasKeyValue = Console.ReadLine();
 	}
 	```
@@ -248,10 +250,6 @@ The next step is to create a Visual Studio project and write two helper function
 
 From the **Build** menu in Visual Studio, you can click **Build Solution** or press F6 to confirm the accuracy of your work so far.
 
-Create Management Credentials
-
-This is the second step in the Service Bus messaging features tutorial. In this step, you define the management operations you will use to create shared access signature (SAS) credentials with which your application will be authorized.
-
 ## Create management credentials
 
 In this step, you define the management operations you will use to create shared access signature (SAS) credentials with which your application will be authorized.
@@ -263,7 +261,7 @@ In this step, you define the management operations you will use to create shared
 	{
 	…
 	}
-	staticvoid Queue()
+	static void Queue()
 	{
 	}
 	```
@@ -271,7 +269,7 @@ In this step, you define the management operations you will use to create shared
 1. The next step is to create a SAS credential using a [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) object. The creation method takes the SAS key name and value obtained in the `CollectUserInput()` method. Add the following code to the `Queue()` method:
 
 	```
-	staticvoid Queue()
+	static void Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
@@ -279,7 +277,7 @@ In this step, you define the management operations you will use to create shared
 	```
 ### Create the namespace manager
 
-1. Create a new namespace management object, with a URI containing the namespace name and the management credentials obtained in the last step, as arguments. Add this code directly beneath the code added in the previous step:
+1. Create a new namespace management object, with a URI containing the namespace name and the management credentials obtained in the previous step, as arguments. Add this code directly beneath the code added in the previous step:
 	
 	```
 	NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", <namespaceName>, string.Empty), credentials);
@@ -456,7 +454,7 @@ In the `Queue()` method, iterate through the queue and receive the messages usin
 
 ### End the `Queue()` method and clean up resources
 
-Directly beneath the previous code, add the following code to clean up the message factory and queue resources:
+Directly after the previous code, add the following code to clean up the message factory and queue resources:
 
 	```
 	factory.Close();
@@ -643,7 +641,7 @@ In Visual Studio, from the **Build** menu, click **Build Solution**, or press F6
 
 ## Next steps
 
-This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [relayed messaging](service-bus-messaging-overview.md/#Relayed-messaging), see the [Service Bus relayed messaging tutorial](service-bus-relay-tutorial.md).
+This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [relayed messaging](service-bus-messaging-overview.md#Relayed-messaging), see the [Service Bus relayed messaging tutorial](service-bus-relay-tutorial.md).
 
 To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
 

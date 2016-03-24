@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="12/08/2015" 
+ 	ms.date="03/10/2016"  
 	ms.author="robmcm"/>
 
 #How to use Media Services with Java
@@ -78,7 +78,8 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 		private static String clientId = "account name";
 		private static String clientSecret = "account key";
 		private static String scope = "urn:WindowsAzureMediaServices";
-		
+		private static MediaContract mediaService;
+		    
 		// Encoder configuration
 		private static String preferedEncoder = "Media Encoder Standard";
 		private static String encodingPreset = "H264 Multiple Bitrate 720p";

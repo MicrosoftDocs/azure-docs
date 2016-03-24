@@ -14,12 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/08/2016"
 	ms.author="jgao"/>
 
 # Customize HDInsight clusters using Bootstrap
-
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 Sometimes, you want to configure the configuration files which include:
 
@@ -102,6 +100,10 @@ Some more samples on customizing other configuration files:
 
 For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creationg](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
+## Use .NET SDK
+
+See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk#use-bootstrap).
+
 ## Use Azure ARM template
 
 You can use bootstrap in ARM template:
@@ -133,7 +135,7 @@ You can use bootstrap in ARM template:
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-provision-clusters.md
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"

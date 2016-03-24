@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Continuous Delivery for Cloud Services in Azure

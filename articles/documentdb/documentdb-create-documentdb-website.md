@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="02/01/2016" 
 	ms.author="ryancraw"/>
 
 # Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template #
 
-This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app, and a sample web application.
+This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app, and a sample web application.
 
 After completing this tutorial, you'll be able to answer the following questions:  
 
@@ -31,7 +31,7 @@ After completing this tutorial, you'll be able to answer the following questions
 
 Before following the instructions in this tutorial, ensure that you have the following:
 
-- An Azure subscription. Azure is a subscription-based platform.  For more information about obtaining a subscription, see [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), [Member Offers](http://azure.microsoft.com/pricing/member-offers/), or [Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. Azure is a subscription-based platform.  For more information about obtaining a subscription, see [Purchase Options](https://azure.microsoft.com/pricing/purchase-options/), [Member Offers](https://azure.microsoft.com/pricing/member-offers/), or [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - An Azure Storage Account. For instructions, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md).
 - A workstation with Azure PowerShell 0.9.8. For instructions, see [Install and configure Azure PowerShell](../powershell-install-configure.md). This tutorial has not yet been updated for Azure PowerShell 1.0 Preview. 
 

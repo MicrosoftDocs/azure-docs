@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Using App-V apps with Azure RemoteApp| Microsoft Azure" 
-    description="Learn how to use App-V apps in Azure RemoteApp." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="ericorman" 
+<properties
+    pageTitle="Using App-V apps with Azure RemoteApp| Microsoft Azure"
+    description="Learn how to use App-V apps in Azure RemoteApp."
+    services="remoteapp"
+	documentationCenter=""
+    authors="ericorman"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/19/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/21/2016" 
     ms.author="elizapo" />
 
 
@@ -34,6 +34,4 @@ It’s easy to use your existing App-V infrastructure with Azure RemoteApp. Sinc
 | Targeting             | User                  | Requires full standalone App-V infrastructure                          |                                                                                                       |
 |                       | Global (machine)      |  Pre-publish or target using Publishing server                         |  Need to update your Azure image if you want to update the app (huge). Takes up some space on image. |
 
- After you create your custom image and your hybrid collection, publish your application, assign users and enjoy your existing App-V applications hosted in Azure RemoteApp delivered to any device anywhere. 
-
-
+ After you create your custom image and your hybrid collection, publish your application, assign users and enjoy your existing App-V applications hosted in Azure RemoteApp delivered to any device anywhere.

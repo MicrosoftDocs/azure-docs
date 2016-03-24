@@ -3,7 +3,7 @@
 	description="Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Authentication and Authorization in Azure Mobile Apps
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## What is App Service Authentication / Authorization?
 

@@ -9,11 +9,11 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/07/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -26,14 +26,9 @@ This article describes how to use Service Bus queues. The samples are written in
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Configure the application to use Service Bus
-
-When you create an application that uses Service Bus, you must add a reference to the Service Bus assembly and include the corresponding namespaces.
-
 ## Add the Service Bus NuGet package
 
-The Service Bus **NuGet** package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. The NuGet Visual Studio extension makes it easy to install and update libraries and tools in Visual Studio and Visual Studio Express. The Service Bus NuGet package is the easiest way
-to get the Service Bus API and to configure your application with all of the Service Bus dependencies.
+The [Service Bus **NuGet** package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. The NuGet Visual Studio extension makes it easy to install and update libraries and tools in Visual Studio and Visual Studio Express. The Service Bus NuGet package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies.
 
 To install the NuGet package in your application, do the following:
 
@@ -187,7 +182,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Service Bus queues support a [maximum message size of 256 Kb](service-bus-quotas.md) (the header, which includes  the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For more information, see [Partitioning Messaging Entities](service-bus-partitioning.md).
+Service Bus queues support a [maximum message size of 256 Kb](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (the header, which includes  the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For more information, see [Partitioned messaging entities](service-bus-partitioning.md).
 
 ## How to receive messages from a queue
 

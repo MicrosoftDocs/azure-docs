@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Monitor XTP in-memory storage | Microsoft Azure"
-	description="Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41805"
+	description="Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41823"
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -13,14 +13,14 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="10/28/2015"
+	ms.topic="article"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
-# Monitor XTP In-Memory Storage
+# Monitor In-Memory OLTP Storage
 
-When using [In-Memory](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in XTP in-memory storage. Each Premium service tier has a maximum in-memory storage size, which is documented in the [SQL Database Service Tiers article](sql-database-service-tiers.md#service-tiers-for-single-databases). Once this limit is exceeded, insert and update operations may start failing (with error 41805). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
+When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in in-memory OLTP storage. Each Premium service tier has a maximum in-memory storage size, which is documented in the [SQL Database Service Tiers article](sql-database-service-tiers.md#service-tiers-for-single-databases). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
 
 ## Determine whether data will fit within the in-memory storage cap
 
@@ -32,10 +32,10 @@ Note that the table and table variable rows, as well as indexes, count toward th
 
 ## Monitoring and alerting
 
-You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#service-tiers-for-single-databases) in the Azure [portal](http://portal.azure.com/): 
+You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#service-tiers-for-single-databases) in the Azure [portal](https://portal.azure.com/): 
 
 - On the Database blade, locate the Resource utilization box and click on Edit.
-- Then select the metric XTP In-Memory Storage percentage.
+- Then select the metric In-Memory OLTP Storage percentage.
 - To add an alert, click on the Resource Utilization box to open the Metric blade, then click on Add alert.
 
 Or use the following query to show the in-memory storage utilization:
@@ -43,11 +43,11 @@ Or use the following query to show the in-memory storage utilization:
     select xtp_storage_percent from sys.dm_db_resource_stats
 
 
-## Correct out-of-memory situations - Error 41805
+## Correct out-of-memory situations - Error 41823
 
-Running out-of-memory results in INSERT, UPDATE, and CREATE operations failing with error message 41805.
+Running out-of-memory results in INSERT, UPDATE, and CREATE operations failing with error message 41823.
 
-Error message 41805 indicates that the memory-optimized tables and table variables have exceeded the maximum size.
+Error message 41823 indicates that the memory-optimized tables and table variables have exceeded the maximum size.
 
 To resolve this error, either:
 

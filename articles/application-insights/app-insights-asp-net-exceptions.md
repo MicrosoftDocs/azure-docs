@@ -25,11 +25,31 @@ By monitoring your application with [Visual Studio Application Insights][start],
 
 To monitor an ASP.NET app, you have to [add Application Insights SDK][greenbrown] to your application, or [install Status Monitor on your IIS server][redfield], or, if your app is an Azure Web App, add the [Application Insights Extension][azure].
 
-## Diagnosing failures 
+## Diagnosing exceptions using Visual Studio
 
-From the overview blade, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.
+Open the app solution in Visual Studio to help with debugging.
 
-![Select Failures](./media/app-insights-asp-net-exceptions/012-start.png)
+Run the app, either on your server or on your development machine by using F5.
+
+Open the Application Insights Search window in Visual Studio, and set it to display events from your app. While you're debugging, you can do this just by clicking the Application Insights button.
+
+![Right-click the project and choose Application Insights, Open.](./media/app-insights-asp-net-exceptions/34.png)
+
+Notice that you can filter the report to show just exceptions. 
+
+*No exceptions showing? See [Capture exceptions](#exceptions).*
+
+Click an exception report to show its stack trace.
+
+![Click through an exception.](./media/app-insights-asp-net-exceptions/35.png)
+
+Click a line reference in the stack trace, to open the relevant file.  
+
+## Diagnosing failures using the Azure portal
+
+From the Application Insights overview of your app, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.
+
+![Select Settings, Failures](./media/app-insights-asp-net-exceptions/012-start.png)
 
 Click through one of the failed request types in the list to get to individual occurrences of the failure. From there, click through to the exceptions or any trace data associated with it:
 
@@ -49,6 +69,8 @@ From there you can look at the stack trace and detailed properties of each excep
 ![Drill through](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
 
 [Learn more about Diagnostic Search][diagnostic].
+
+
 
 ## Dependency failures
 

@@ -14,11 +14,49 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="03/10/2016"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 03/10/2016 release of HDInsight
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight	(Windows)	 	2.1.10.859.2123216 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight	(Windows)	 	3.0.6.859.2123216 (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight	(Windows)	 	3.1.4.859.2123216  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight	(Windows)		3.2.7.859.2123216  (HDP 2.2.9.1-7)
+* HDInsight (Windows)		3.3.0.859.2123216  (HDP 2.3.3.1-5 - unchanged)
+* HDInsight	(Linux)			3.2.1000.7076817   (HDP	2.2.9.1-8)
+* HDInsight (Linux)			3.3.1000.7076817   (HDP 2.3.3.1-7)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDInsight versions for all HDInsight clusters | With this release, we have updated HDInsight versions for all HDInsight clusters| Service    | All| N/A
+
+## Notes for 01/27/2016 release of HDInsight
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight	(Windows)	 	2.1.10.817.2028315 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight	(Windows)	 	3.0.6.817.2028315 (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight	(Windows)	 	3.1.4.817.2028315  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight	(Windows)		3.2.7.817.2028315  (HDP 2.2.9.1-1)
+* HDInsight (Windows)		3.3.0.817.2028315  (HDP 2.3.3.1-5 - unchanged)
+* HDInsight	(Linux)			3.2.1000.4072335   (HDP	2.2.9.1-1)
+* HDInsight (Linux)			3.3.1000.4072335   (HDP 2.3.3.1-1)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDInsight versions for all HDInsight clusters | With this release, we have updated HDInsight versions for all HDInsight clusters| Service    | All| N/A
 
 ## Notes for 12/02/2015 release of HDInsight
 
@@ -1443,7 +1481,7 @@ The following version changes were made between HDInsight 2.x (HDP1.x) and HDIns
 
 
 ### Drivers
-The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](../hdinsight-connect-excel-hive-odbc-driver.md).
+The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Bug fixes

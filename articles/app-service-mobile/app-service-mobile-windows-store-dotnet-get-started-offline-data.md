@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/22/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Enable offline sync for your Windows app
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Overview
 
 This tutorial shows you how to add offline support to a Windows 8.1 Store or Phone app using an Azure Mobile App backend. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
 
-In this tutorial, you will update the Windows 8.1 app project from the tutorial [Create a Windows app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
+In this tutorial, you will update the Windows 8.1 app project from the tutorial [Create a Windows app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
@@ -82,7 +80,7 @@ Azure Mobile App offline features allow you to interact with a local database wh
 
 7. In MainPage.cs, in the region marked `Offline sync`, uncomment the methods `InitLocalStoreAsync` and `SyncAsync`. The method `InitLocalStoreAsync` initializes the client sync context with a SQLite store. In Visual Studio, you can select all commented lines and use the **Ctrl**+**K**+**U** keyboard shortcut to uncomment.
 
-	Notice in `SyncAsync` a push operation is executed off the `MobileServiceClient.SyncContext` instead of the `IMobileServicesSyncTable`. This is because the context tracks changes made by the client for all tables. This is to cover scenarios where there are relationships between tables. For more information on this behavior, see [Offline Data Sync in Azure Mobile Apps].
+	Notice in `SyncAsync` a push operation is executed off the `MobileServiceClient.SyncContext` instead of the `IMobileServicesSyncTable`. This is because the context tracks changes made by the client for all tables.  For more information on this behavior, see [Offline Data Sync in Azure Mobile Apps].
 
         private async Task InitLocalStoreAsync()
         {
@@ -174,7 +172,7 @@ Azure Mobile App offline features allow you to interact with a local database wh
 
     Note that the `MobileServicePushFailedException` can occur for both a push and a pull operation. It can occur for a pull because the pull operation internally executes a push to make sure all tables along with any relationships are consistent.
 
-11. In Visual Studio, press the **F5** key to rebuild and run the client app. The app will behave the same as it did before the offline sync changes, because it does a sync operation on the insert, update, and refresh operations. However, it will populate a local database which can be used in an offline scenario.  We will cause and offline scenario in the next section now that the local database is populated.  
+11. In Visual Studio, press the **F5** key to rebuild and run the client app. The app will behave the same as it did before the offline sync changes, because it does a sync operation on the insert, update, and refresh operations. However, it will populate a local database which can be used in an offline scenario.  We will cause and offline scenario in the next section now that the local database is populated.
 
 ## <a name="update-sync"></a>Update the sync behavior of the client app
 
@@ -182,21 +180,21 @@ In this section, you will modify the client app to simulate an offline scenario 
 
 1. Edit App.xaml.cs in the shared project. Comment out the initialization of the **MobileServiceClient** and add the following lines, which use an invalid mobile app URL:
 
-         public static MobileServiceClient MobileService = 
+         public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
 	Note that when your app is also using authentication, this will cause sign in to fail. You can also demonstrate offline behavior by disabling wifi and celluar networks on the device or use airplane mode.
 
 2. Press **F5** to build and run the app. Notice your sync failed on refresh when the app launched.
-3. Enter some new todo items and click **Save** for each one. Push fails for each one with a `PushResult.Status=CancelledByNetworkError`. The new todo items exist only in the local store until they can be pushed to the mobile app backend. 
- 
-	You could suppress the exception dialog for `PushResult.Status=CancelledByNetworkError`, then client app would behave as if its connected to the mobile app backend supporting all create, read, update, delete (CRUD) operations seamlessly. 
+3. Enter some new todo items and click **Save** for each one. Push fails for each one with a `PushResult.Status=CancelledByNetworkError`. The new todo items exist only in the local store until they can be pushed to the mobile app backend.
+
+	You could suppress the exception dialog for `PushResult.Status=CancelledByNetworkError`, then client app would behave as if its connected to the mobile app backend supporting all create, read, update, delete (CRUD) operations seamlessly.
 
 4. Close the app and restart it to verify that the new items you created are persisted to the local store.
 
 5. (Optional) In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents. Verify that the data in the backend database has not changed.
 
-6. (Optional) Use a REST tool such as Fiddler or Postman to query your mobile backend, using a GET query in the form `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+6. (Optional) Use a REST tool such as Fiddler or Postman to query your mobile backend, using a GET query in the form `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 ## <a name="update-online-app"></a>Update the app to reconnect your Mobile App backend
 
@@ -270,6 +268,6 @@ When we want to synchronize the local store with the server, we used the `IMobil
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
- 
+
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Service Bus queues, topics, and subscriptions
@@ -158,7 +158,7 @@ For more information about possible filter values, see the documentation for the
 
 ## Event Hubs
 
-[Event Hubs](http://azure.microsoft.com/services/event-hubs/) is an event processing service, used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. This service, when used with other downstream services, is particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios.
+[Event Hubs](https://azure.microsoft.com/services/event-hubs/) is an event processing service, used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. This service, when used with other downstream services, is particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios.
 
 Event Hubs are a message streaming construct, and although they may appear similar to queues and topics, they have very different characteristics. For example, Event Hubs do not provide message TTL, deadlettering, transactions, or acknowledgments as these are traditional brokered messaging features not streaming features. Event Hubs provide other stream-related features such as partitioning, preserving order, and stream replay.
 
@@ -169,6 +169,7 @@ See the following advanced topics for more information and examples of using Ser
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus brokered messaging .NET tutorial](service-bus-brokered-tutorial-dotnet.md)
 - [Service Bus brokered messaging REST tutorial](service-bus-brokered-tutorial-rest.md)
+- [Event Hubs documentation](https://azure.microsoft.com/documentation/services/event-hubs/)
 - [Event Hubs developer guide](../event-hubs/event-hubs-programming-guide.md)
 - [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 

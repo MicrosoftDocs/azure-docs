@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -30,9 +30,9 @@ In this tutorial, you will learn how to use the HDInsight Tools for Visual Studi
 
 ## Prerequisites
 
-* An [Apache Storm on HDInsight cluster](hdinsight-storm-getting-started.md)
+* An [Apache Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started.md)
 
-* An [Azure Event Hub](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+* An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 * The [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 
@@ -524,6 +524,10 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 ![image of killing a topology](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
+##Delete your cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## Notes
 
 ### Checkpointing
@@ -552,7 +556,7 @@ Export an import allows you to persist checkpoint data when you need to delete t
 
 > [AZURE.NOTE] Since the data is persisted to the default storage container, the new cluster **must** use the same storage account and container as the previous cluster.
 
-## Summary
+## Next Steps
 
 In this document, you have learned how to use the Java Event Hubs Spout and Bolt from a C# topology to work with data in Azure Event Hub. To learn more about creating C# topologies, see the following.
 

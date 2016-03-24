@@ -3,9 +3,9 @@
 	description="How to enable storage metrics for the Blob, Queue, Table, and File services" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+	authors="robinsh" 
+	manager="carmonm" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/14/2016" 
+	ms.author="robinsh"/>
 
 # Enabling Storage metrics and viewing metrics data
 
@@ -22,13 +22,13 @@
 
 ## Overview
 
-By default, Storage Metrics is not enabled for your storage services. You can enable monitoring using either the [Azure Classic Portal](manage.windowsazure.com), Windows PowerShell, or programmatically through a storage API.
+By default, Storage Metrics is not enabled for your storage services. You can enable monitoring using either the [Azure Classic Portal](https://manage.windowsazure.com), Windows PowerShell, or programmatically through a storage API.
 
 When you enable Storage Metrics, you must choose a retention period for the data: this period determines for how long the storage service keeps the metrics and charges you for the space required to store them. Typically, you should use a shorter retention period for minute metrics than hourly metrics because of the significant extra space required for minute metrics. You should choose a retention period such that you have sufficient time to analyze the data and download any metrics you wish to keep for off-line analysis or reporting purposes. Remember that you will also be billed for downloading metrics data from your storage account.
 
 ## How to enable Storage metrics using the Azure Classic Portal
 
-In the [Azure Classic Portal](manage.windowsazure.com), you use the Configure page for a storage account to control Storage Metrics. For monitoring, you can set a level and a retention period in days for each of blobs, tables, and queues. In each case, the level is one of the following:
+In the [Azure Classic Portal](https://manage.windowsazure.com), you use the Configure page for a storage account to control Storage Metrics. For monitoring, you can set a level and a retention period in days for each of blobs, tables, and queues. In each case, the level is one of the following:
 
 - Off — No metrics are collected.
 
@@ -59,7 +59,7 @@ The following command retrieves the current hourly metrics level and retention d
 
 `Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
 
-For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](../install-configure-powershell.md).
+For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 ## How to enable Storage metrics programmatically
 
@@ -208,5 +208,5 @@ The capacity used by the metrics tables is also billable: you can use the follow
 - The capacity table for blobs has two rows added each day (provided user has opted in for logs): this implies that every day the size of this table increases by up to approximately 300 bytes.
 
 ## Next steps:
-[Enabling Storage Analytics logging and accessing log data](https://msdn.microsoft.com/library/dn782840.aspx)
+[Enabling Storage Analytics Logging and Accessing Log Data](https://msdn.microsoft.com/library/dn782840.aspx)
  

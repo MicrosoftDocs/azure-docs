@@ -21,9 +21,9 @@
             }
         }
 
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
+    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Twitter login.
 
-    >[AZURE.NOTE]If you are using an identity provider other than Facebook, change the value of <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider.</p>
+    >[AZURE.NOTE]If you are using an identity provider other than Twitter, change the value of <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider.</p>
     </div>
 
 2. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 

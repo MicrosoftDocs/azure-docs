@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+	ms.date="02/18/2016" 
 	ms.author="juliako"/>
 
 #Protecting Content Overview
 
 
-Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and common encryption (CENC) using PlayReady and/or Widevine DRM. Media Services also provides a service for delivering AES keys and PlayReady licenses to authorized clients. Widevine license delivery services provided by Azure Media Sevices is in preview. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and common encryption (CENC) using PlayReady and/or Widevine DRM. Media Services also provides a service for delivering AES keys and PlayReady licenses to authorized clients. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 - The following image demonstrates the "PlayReady and/or Widevine DRM dynamic common encryption" workflow. For details, see [Using PlayReady and/or Widevine DRM dynamic common encryption](media-services-protect-with-drm.md).
 
@@ -66,17 +66,23 @@ When a stream is requested by a player, Media Services uses the specified key to
 
 >[AZURE.NOTE]To take advantage of dynamic encryption, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your encrypted content. For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 
-###PlayReady DRM licenses and AES clear keys delivery services
+###Licenses and keys delivery service
 
-Media Services provides a service for delivering PlayReady licenses and AES clear keys to authorized clients. You can use the Azure Classic Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
+Media Services provides a service for delivering DRM (PlayReady and Widevine) licenses and AES clear keys to authorized clients. You can use the Azure Classic Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
 
 Note if you are using the Portal, you can configure one AES policy (which will be applied to all the AES encrypted content) and one PlayReady policy (which will be applied to all the PlayReady encrypted content). Use Media Services SDK for .NET if you want more control over the configurations.
 
-###PlayReady license template
+###PlayReady license 
 
 Media Services provides a service for delivering PlayReady licenses. When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
 
-Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content. Media Services provides APIs that let you configure your PlayReady licenses. For more information, see [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview).
+Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content. Media Services provides APIs that let you configure your PlayReady licenses. For more information, see [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md).
+
+###Widevine license
+
+AMS also enables you to delivery MPEG DASH encrypted with Widevine DRM. Both PlayReady and Widewine are encrypted per the Common Encryption (CENC) specification. You can use [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (starting with the version 3.5.1) or REST API to configure your AssetDeliveryConfiguration to use Widevine.
+
+Starting with the Media Services .NET SDK version 3.5.2, Media Services enables you to configure [Widevine license template](media-services-widevine-license-template-overview.md) and get Widevine licenses. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 ###Token restriction
 
@@ -84,11 +90,6 @@ The content key authorization policy could have one or more authorization restri
 
 When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
-###Widevine
-
-AMS also enables you to delivery MPEG DASH encrypted with Widevine DRM. Both PlayReady and Widewine are encrypted per the Common Encryption (CENC) specification. You can use [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (starting with the version 3.5.1) or REST API to configure your AssetDeliveryConfiguration to use Widevine.
-
-Starting with the Media Services .NET SDK version 3.5.2, Media Services enables you to configure Widevine license template and get Widevine licenses. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 ##Common scenarios
 

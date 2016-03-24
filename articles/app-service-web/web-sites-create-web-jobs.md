@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tdykstra"/>
 
 # Run Background tasks with WebJobs
@@ -42,7 +42,7 @@ The following file types are accepted:
 
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
 
-1. In the **Web App** blade of the [Azure Portal](http://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
+1. In the **Web App** blade of the [Azure Portal](https://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
 	
 	![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
 	
@@ -76,7 +76,7 @@ The following file types are accepted:
 
 ## <a name="CreateScheduledCRON"></a>Create a scheduled WebJob using a CRON expression
 
-This technique is available to Web Apps running in Standard or Premium mode, and requires the **Always On** setting to be enabled on the app.
+This technique is available to Web Apps running in Basic, Standard or Premium mode, and requires the **Always On** setting to be enabled on the app.
 
 To turn an On Demand WebJob into a scheduled WebJob, simply include a `settings.job` file at the root of your WebJob zip file. This JSON file should include a `schedule` property with a [CRON expression](https://en.wikipedia.org/wiki/Cron), per example below.
 
@@ -209,7 +209,6 @@ For more information, see [Azure WebJobs Recommended Resources][WebJobsRecommend
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226

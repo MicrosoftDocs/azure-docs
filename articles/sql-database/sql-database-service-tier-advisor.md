@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="02/08/2016"
    ms.author="sstein"/>
 
 # SQL Database pricing tier recommendations
@@ -26,8 +26,8 @@
 Get pricing tier recommendations during the following tasks:
 
 - [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md)
-- [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md)
-- Browse to your V12 server - if your databases can [benefit in an elastic database pool](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), the server blade will display a message indicating a recommended pool. Click the message to create the recommended pool.
+- [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md)
+- Browse to your V12 server. See [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md).
 - [Create an elastic database pool](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
@@ -56,7 +56,7 @@ Based on your database's usage, there are currently 2 categories of recommendati
 
 ## Getting pricing tier recommendations
 
-Get pricing tier recommendations by selecting an existing Web or Business database and clicking on the **Pricing tier** tile. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md).)
+Get pricing tier recommendations by selecting an existing Web or Business database, click **All settings**, then click **Pricing tier (scale DTUs)**. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md).)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **BROWSE** > **SQL databases**.
@@ -64,12 +64,10 @@ Get pricing tier recommendations by selecting an existing Web or Business databa
 
     ![Select database][1]
 
-5. On the database blade, select the **Pricing tier** tile.
-
-    ![Pricing tier][2]
+5. On the database blade, select **All settings** then select **Pricing tier (scale DTUs)**.
 
 
-7. After clicking the **Pricing tier** tile you will be presented with the **Recommended pricing tiers** blade where you can click the suggested tier and then click the **Select** button to change to that tier.
+7. The **Recommended pricing tiers** open where you can click the suggested tier and then click the **Select** button to change to that tier.
 
     ![Sign up for the preview][4]
 
@@ -81,7 +79,7 @@ Get pricing tier recommendations by selecting an existing Web or Business databa
 
 ## Summary
 
-Pricing tier recommendations provide an automated experience for gathering telemetry data for each SQL database and recommending the best service tier/performance level combination based on a database's actual performance needs and feature requirements. Click the **Pricing tier** tile on a database blade to see pricing tier recommendations.
+Pricing tier recommendations provide an automated experience for gathering telemetry data for each SQL database and recommending the best service tier/performance level combination based on a database's actual performance needs and feature requirements. On the Settings blade click **Pricing tier (scale DTUs)** to see pricing tier recommendations for any Web and Business databases.
 
 
 
@@ -92,8 +90,6 @@ Depending on the details of your specific database, performing an upgrade or dow
 
 <!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
-[2]: ./media/sql-database-service-tier-advisor/pricing-tier.png
-[3]: ./media/sql-database-service-tier-advisor/preview-sign-up.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 

@@ -12,8 +12,8 @@
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/17/2015"
+	ms.topic="get-started-article"
+	ms.date="03/08/2016"
 	ms.author="juliako"/>
 
 
@@ -38,7 +38,7 @@ For more conceptual information related to Channels that are enabled for live en
 
 The following steps describe tasks involved in creating common live streaming applications.
 
->[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+>[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft.com if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -99,12 +99,12 @@ The following are required to complete the tutorial.
 
 ##Considerations
 
-- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft.com if you need to run a Channel for longer periods of time.
 - Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
 ##Download sample
 
-Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 
 ##Set up for development with Media Services SDK for .NET
@@ -120,7 +120,7 @@ As a best practice, you should use an app.config file to store the Media Service
 Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.
 
 
-<?xml version="1.0"?>
+	<?xml version="1.0"?>
 	<configuration>
 	  <appSettings>
 	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />

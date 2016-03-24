@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="03/18/2016"
 	ms.author="brandwe"/>
 
 # Integrate Azure AD into an iOS App
@@ -47,7 +47,7 @@ The iOS format for a Redirect URI is:
 
 - 	**aap-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
 - 	**bundle-id** - This is the Bundle Identifier found under "identity" un your project settings in XCode.
-	
+
 An example for this QuickStart code would be: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Register the DirectorySearcher Application*
@@ -108,12 +108,12 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         completionBlock(data.userItem.accessToken, nil);
         return;
     }
-    
+
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
     authContext.parentController = parent;
     NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-    
+
     [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
@@ -122,7 +122,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                    userId:data.userItem.userInformation.userId
                      extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
                           completionBlock:^(ADAuthenticationResult *result) {
-                              
+
                               if (result.status != AD_SUCCEEDED)
                               {
                                   completionBlock(nil, result.error);
@@ -148,68 +148,68 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     {
         [self readApplicationSettings];
     }
-    
+
     AppData* data = [AppData getInstance];
-    
+
     NSString *graphURL = [NSString stringWithFormat:@"%@%@/users?api-version=%@&$filter=startswith(userPrincipalName, '%@')", data.taskWebApiUrlString, data.tenant, data.apiversion, searchString];
 
-    
+
     [self craftRequest:[self.class trimString:graphURL]
                 parent:parent
      completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-         
+
          if (error != nil)
          {
              completionBlock(nil, error);
          }
          else
          {
-             
+
              NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-             
+
              [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                 
+
                  if (error == nil && data != nil){
-                     
+
                      NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                     
+
                      // We can grab the top most JSON node to get our graph data.
                      NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
-                     
+
                      // Don't be thrown off by the key name being "value". It really is the name of the
                      // first node. :-)
-                     
+
                      //each object is a key value pair
                      NSDictionary *keyValuePairs;
                      NSMutableArray* Users = [[NSMutableArray alloc]init];
-                     
+
                      for(int i =0; i < graphDataArray.count; i++)
                      {
                          keyValuePairs = [graphDataArray objectAtIndex:i];
-                         
+
                          User *s = [[User alloc]init];
                          s.upn = [keyValuePairs valueForKey:@"userPrincipalName"];
                          s.name =[keyValuePairs valueForKey:@"givenName"];
-                         
+
                          [Users addObject:s];
                      }
-                     
+
                      completionBlock(Users, nil);
                  }
                  else
                  {
                      completionBlock(nil, error);
                  }
-                 
+
              }];
          }
      }];
-    
+
 }
 
 ```
 - When your app requests a token by calling `getToken(...)`, ADAL will attempt to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a login dialog, collect the user's credentials, and return a token upon successful authentication.  If ADAL is unable to return a token for any reason, it will throw an `AdalException`.
-- Notice that the `AuthenticationResult` object contains a `tokenCacheStoreItem` object that can be used to collect information your app may need.  In the QuickStart, `tokenCacheStoreItem` is used to determine if authenitcation has already occurred. 
+- Notice that the `AuthenticationResult` object contains a `tokenCacheStoreItem` object that can be used to collect information your app may need.  In the QuickStart, `tokenCacheStoreItem` is used to determine if authenitcation has already occurred.
 
 
 ## Step 5: Build and Run the application
@@ -220,8 +220,12 @@ Congratulations! You now have a working iOS application that has the ability to 
 
 ADAL makes it easy to incorporate all of these common identity features into your application.  It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.  All you really need to know is a single API call, `getToken`.
 
-For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  You can now move on to additional scenarios.  You may want to try:
+For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
-[Secure a Node.JS Web API with Azure AD >>](../active-directory-devquickstarts-webapi-nodejst.md)
+## Additional scenarios
+You can now move on to additional scenarios.  You may want to try:
+
+- [Secure a Node.JS Web API with Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
+- Learn [How to enable cross-app SSO on iOS using ADAL](active-directory-sso-ios.md)  
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]

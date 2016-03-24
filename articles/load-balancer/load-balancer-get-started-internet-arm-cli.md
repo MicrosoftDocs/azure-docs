@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # Get started creating an Internet facing load balancer using Azure CLI
@@ -49,7 +49,7 @@ You can get more information about load balancer components with Azure resource 
 
 ## Setup CLI to use Resource Manager
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
@@ -107,19 +107,19 @@ Set up a back end address pool used to receive incoming traffic from the front e
 
 The example below creates the following items.
 
-- a NAT rule to translate all incoming traffic on port 3441 to port 3389<sup>1</sup>
-- a NAT rule to translate all incoming traffic on port 3442 to port 3389
+- a NAT rule to translate all incoming traffic on port 21 to port 22<sup>1</sup>
+- a NAT rule to translate all incoming traffic on port 23 to port 22
 - a load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back end pool.
 - a probe rule which will check the health status on a page named *HealthProbe.aspx*.
 
-<sup>1</sup> NAT rules are associated to a specific virtual machine instance behind the load balancer. The incoming network traffic to port 3341 will be sent to a specific virtual machine on port 3389 associated with a NAT rule in the example below. You have to choose a protocol for NAT rule, UDP or TCP. Both protocols can't be assigned to the same port.
+<sup>1</sup> NAT rules are associated to a specific virtual machine instance behind the load balancer. The incoming network traffic to port 21 will be sent to a specific virtual machine on port 22 associated with a NAT rule in the example below. You have to choose a protocol for NAT rule, UDP or TCP. Both protocols can't be assigned to the same port.
 
 ### Step 1
 
 Create the NAT rules.
 
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp1 -p tcp -f 3441 -b 3389
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp2 -p tcp -f 3442 -b 3389
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
 
 Parameters:
 
@@ -190,20 +190,20 @@ Expected output:
 	data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
 	data:
 	data:    Inbound NAT rules:
-	data:      Name                          : rdp1
+	data:      Name                          : ssh1
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3441
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 21
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
 	data:
-	data:      Name                          : rdp2
+	data:      Name                          : ssh2
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3442
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 23
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
@@ -335,7 +335,7 @@ Where **nrprg** is the resource group and **nrplb** the load balancer name.
 
 ## Next steps
 
-[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-cli.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 

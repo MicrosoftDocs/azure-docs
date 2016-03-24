@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/18/2015"
-	ms.author="yuaxu"/>
+	ms.date="03/04/2016"
+	ms.author="yuaxu;ricksal"/>
 
 # Add Push Notifications to your Android App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Overview
-In this tutorial, you add push notifications to the [Android quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Android quick start] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
+In this tutorial, you add push notifications to the [Android quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Android quick start] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Prerequisites
 
@@ -31,7 +29,7 @@ To complete this tutorial, you need the following:
 
 * [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address.
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)&mdash;not needed for a Node.js backend project.
-* Complete the [quickstart tutorial](../app-service-mobile-android-get-started.md).
+* Complete the [quickstart tutorial](app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Create a Notification Hub
 
@@ -79,3 +77,5 @@ You can test the app by directly attaching an Android phone with a USB cable, or
 
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md
+
+[Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup

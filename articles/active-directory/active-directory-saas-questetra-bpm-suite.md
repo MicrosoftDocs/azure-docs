@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/22/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Questetra BPM Sui
 
 - You can control in Azure AD who has access to Questetra BPM Suite 
 - You can enable your users to automatically get signed-on to Questetra BPM Suite (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ To configure the integration of Questetra BPM Suite into Azure AD, you need to a
 
 **To add Questetra BPM Suite from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -90,11 +90,11 @@ To configure and test Azure AD single sign-on with Questetra BPM Suite, you need
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Questetra BPM Suite application.<br>
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Questetra BPM Suite application.<br>
 
 **To configure Azure AD single sign-on with Questetra BPM Suite, perform the following steps:**
 
-1. In the Azure AD portal, on the **Questetra BPM Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br><br>
+1. In the Azure classic portal, on the **Questetra BPM Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br><br>
 ![Configure Single Sign-On][8]
 
 2. On the **How would you like users to sign on to Questetra BPM Suite** page, select **Azure AD Single Sign-On**, and then click **Next**.<br><br>
@@ -108,7 +108,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. To open the **SingleSignOnSAML** page, click **SSO (SAML)**. <br><br> ![Azure AD Single Sign-On][11]
 
 
-6. In the Azure portal, on the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][13]
+6. In the Azure classic portal, on the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][13]
  
     a. On you **Questetra BPM Suite** company site, in the SP Information section, copy the **ACS URL**, and then paste it into the **Sign On URL** textbox.
 
@@ -126,11 +126,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. Select **Enable Single Sign-On**.
      
-    b. On the Azure portal, copy the **Issuer URL** value, and then paste it into the **Entity ID** textbox.
+    b. On the Azure classic portal, copy the **Issuer URL** value, and then paste it into the **Entity ID** textbox.
 
-    c. On the Azure portal, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
+    c. On the Azure classic portal, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
 
-    d. On the Azure portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Sign-out page URL** textbox.
+    d. On the Azure classic portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Sign-out page URL** textbox.
 
     e. In the **NameID format** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
@@ -144,7 +144,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     h. Click **Save**.
 
 
-9. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br>![What is Azure AD Connect][17]
+9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br>![What is Azure AD Connect][17]
 
 
 10. On the **Single sign-on confirmation** page, click **Complete**.  <br><br>![What is Azure AD Connect][18]
@@ -153,11 +153,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Create Azure AD test user][100] 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -225,7 +225,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 **To assign Britta Simon to Questetra BPM Suite, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.<br><br>![What is Azure AD Connect][201]
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.<br><br>![What is Azure AD Connect][201]
 2. In the applications list, select **Questetra BPM Suite**.
 <br><br>![What is Azure AD Connect][205]
 1. In the menu on the top, click **Users**.

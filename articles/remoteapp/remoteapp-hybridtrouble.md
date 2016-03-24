@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="02/11/2016"
     ms.author="elizapo" />
 
 
@@ -29,36 +29,19 @@ If you are having trouble creating your collection, or if the collection isn't w
 ## Your image is invalid ##
 If you see a message like, "GoldImageInvalid" when you are waiting for Azure to provision your collection, it means that your template image doesn't meet the [defined image requirements](remoteapp-imagereqs.md). So, go read those [requirements](remoteapp-imagereqs.md), fix your image, and try to create your collection again.
 
-## Does your VNET use forced tunneling? ##
-RemoteApp does not currently support using VNETs that have forced tunneling enabled. If you need this function, contact the [RemoteApp team](mailto:remoteappforum@microsoft.com) to request support.
 
-After your request is approved, make sure the following ports are opened on the subnet you chose for Azure RemoteApp and the VMs in the subnet. The VMs in your subnets should also be able to access the URLs mentioned in the section about network security groups.
-
-Outbound: TCP: 443, TCP: 10101-10175
 
 ## Does your VNET have network security groups defined? ##
-If you have network security groups defined on the subnet you are using for your collection, make sure the following URLs are accessible from within your subnet:
-
-	https://management.remoteapp.windowsazure.com  
-	https://opsapi.mohoro.com  
-	https://telemetry.remoteapp.windowsazure.com  
-	https://*.remoteapp.windowsazure.com  
-	https://login.windows.net (if you have Active Directory)  
-	https://login.microsoftonline.com  
-	Azure storage *.remoteapp.windowsazure.com  
-	*.core.windows.net  
-	https://www.remoteapp.windowsazure.com  
-	https://www.remoteapp.windowsazure.com  
-
-Open the following ports on the virtual network subnet:
-
-Inbound - TCP: 3030, TCP: 443  
-OUtbound - TCP: 443  
+If you have network security groups defined on the subnet you are using for your collection, make sure these [URLs and ports](remoteapp-ports.md) are accessible from within your subnet.
 
 You can add additional network security groups to the VMs deployed by you in the subnet for tighter control.
 
 ## Are you using your own DNS servers? And are they accessible from your VNET subnet? ##
+>[AZURE.NOTE] You have to make sure the DNS servers in your VNET are always up and always able to resolve the virtual machines hosted in the VNET. Don't use Google DNS for this.
+
+
 For hybrid collections you use your own DNS servers. You specify them in your network configuration schema or through the management portal when you create your virtual network. DNS servers are used in the order that they are specified in a failover manner (as opposed to round robin).  
+Please refer to [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) to make sure your DNS servers are configured correcly.
 
 Make sure the DNS servers for your collection are accessible and available from the VNET subnet you specified for this collection.
 

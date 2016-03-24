@@ -1,28 +1,36 @@
-<properties 
-	pageTitle="How to add data inputs to your Stream Analytics jobs | Microsoft Azure" 
-	description="Adding Inputs to Stream Analytics jobs | learning path segment."
+<properties
+	pageTitle="Add a data input to your Stream Analytics jobs | Microsoft Azure"
+	description="Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blog storage."
 	keywords="data input, streaming data"
 	documentationCenter=""
 	services="stream-analytics"
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"
 />
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"
 />
 
 
-# How to add streaming data inputs to Stream Analytics jobs
+# Add a streaming data input or reference data to a Stream Analytics job
 
-Azure Stream Analytics jobs can be connected to one or more data inputs, each of which define a connection to an existing data source. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time as streaming data. Stream Analytics has first class integration with [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/) and [Azure Blob storage](./storage/storage-dotnet-how-to-use-blobs.md) both within and outside of the job's subscription. There are two distinct types of inputs in Stream Analytics: data streams and reference data.
+Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blob storage.
+
+Azure Stream Analytics jobs can be connected to one data input or more, each of which define a connection to an existing data source. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time as streaming data. Stream Analytics has first class integration with [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md) both within and outside of the job's subscription.
+
+This article is a step in the [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/).
+
+## Data input: Streaming data and reference data
+
+There are two distinct types of inputs in Stream Analytics: data streams and reference data.
 
 - **Data Streams**:
     Stream Analytics jobs must include at least one data stream input to be consumed and transformed by the job. Azure Blob storage and Azure Event Hubs are supported as data stream input sources. Azure Event Hubs are used to collect event streams from connected devices, services and applications. Azure Blob storage can be used as an input source for ingesting bulk data as a stream.  
@@ -33,11 +41,11 @@ To add an input to your Stream Analytics job:
 
 1. In the Azure portal click **Inputs** and then click **Add an Input** in your Stream Analytics job.
 
-    ![Add data input of streaming data](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure classic portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
 
-    In the Azure preview portal click the **Inputs** tile in your Stream Analytics job.  
+    In the Azure portal click the **Inputs** tile in your Stream Analytics job.  
 
-    ![Add data input of streaming data](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)  
+    ![Azure portal - Add data input.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)  
 
 2. Specify the type of the input: either **Data stream** or **Reference data**.
 
@@ -71,7 +79,7 @@ To add an input to your Stream Analytics job:
 
     ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
-## Get help
+## Get help with streaming data inputs
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps

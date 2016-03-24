@@ -3,7 +3,7 @@
    description="Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="03/03/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Loops in SQL Data Warehouse
 SQL Data Warehouse supports the [WHILE][] loop for repeatedly executing statement blocks. This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the `BREAK` keyword. Loops are particularly useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety. Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.
@@ -25,15 +25,14 @@ However, before diving in head first you should ask yourself the following quest
 Fast forward read-only cursors can be easily replaced with a looping construct. Below is a simple example. This code example updates the statistics for every table in the database. By iterating over the tables in the loop we are able to execute each command in sequence.
 
 First, create a temporary table containing a unique row number used to identify the individual statements:
-  
+
 ```
-CREATE TABLE #tbl 
-WITH 
-(   LOCATION     = USER_DB
-,   DISTRIBUTION = ROUND_ROBIN
+CREATE TABLE #tbl
+WITH
+( DISTRIBUTION = ROUND_ROBIN
 )
 AS
-SELECT  ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) ) AS Sequence
+SELECT  ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS Sequence
 ,       [name]
 ,       'UPDATE STATISTICS '+QUOTENAME([name]) AS sql_code
 FROM    sys.tables
@@ -81,5 +80,3 @@ For more development tips, see [development overview][].
 
 
 <!--Other Web references-->
-
-

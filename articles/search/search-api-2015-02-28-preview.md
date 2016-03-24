@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
-   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Lucene query syntax and custom analyzers."
+   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure | Azure Search Preview API"
+   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches."
    services="search"
    documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
+   authors="brjohnstmsft"
+   manager="pablocas"
    editor=""/>
 
 <tags
@@ -13,20 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="12/21/2015"
-   ms.author="heidist"/>
+   ms.date="03/08/2016"
+   ms.author="brjohnst"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
 
 This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
-- [Lucene query syntax](https://msdn.microsoft.com/library/mt589323.aspx) can now be used for queries in Azure Search. To use the Lucene query parser, specify `queryType` in Search operations.
-- [Custom analyzers](https://msdn.microsoft.com/library/azure/mt605304.aspx) allow you to take control over the process of converting text into indexable/searchable tokens
-- `moreLikeThis` is a a query parameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
+- `moreLikeThis` query parameter in [Search Documents](#SearchDocs) API. It finds other documents that are relevant to another specific document.
+
+A few additional parts of the `2015-02-28-Preview` REST API are documented separately. These include:
+
+- [Scoring Profiles](search-api-scoring-profiles-2015-02-28-preview.md)
+- [Indexers](search-api-indexers-2015-02-28-preview.md)
 
 Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
-##APIs in this documentsear
+## APIs in this document
+
+Azure Search service API supports two URL syntaxes for API operations: simple and OData (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
 
 [Create Index](#CreateIndex)
 
@@ -266,7 +271,7 @@ The following attributes can be set when creating an index. For details about sc
 
 `analyzer` - Sets the name of the analyzer to use for the field at search time and indexing time. For the allowed set of values see [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). This option can be used only with `searchable` fields and it can't be set together with either `searchAnalyzer` or `indexAnalyzer`.  Once the analyzer is chosen, it cannot be changed for the field.
 
-`searchAnalyzer` - Sets the name of the analyzer used at search time for the field. For the allowed set of values see [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). This option can be used only with `searchable` fields. It must be set together with `indexAnalyzer` and it cannot be set together with the `analyzer` option. Once the analyzer is chosen, it cannot be changed for the field.
+`searchAnalyzer` - Sets the name of the analyzer used at search time for the field. For the allowed set of values see [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). This option can be used only with `searchable` fields. It must be set together with `indexAnalyzer` and it cannot be set together with the `analyzer` option. This analyzer can be updated on an existing field.
 
 `indexAnalyzer` - Sets the name of the analyzer used at indexing time for the field. For the allowed set of values see [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). This option can be used only with `searchable` fields. It must be set together with `searchAnalyzer` and it cannot be set together with the `analyzer` option. Once the analyzer is chosen, it cannot be changed for the field.
 
@@ -617,7 +622,7 @@ A `scoringProfile` defines custom scoring behaviors that let you influence which
 
 A default scoring profile operates behind the scenes to compute a search score for every item in a result set. You can use the internal, unnamed scoring profile. Alternatively, set `defaultScoringProfile` to use a custom profile as the default, invoked whenever a custom profile is not specified on the query string.
 
-See [Add scoring profiles to a search index (Azure Search Service REST API)](search-api-scoring-profiles-2015-02-28.md) for details.
+See [Add scoring profiles to a search index (Azure Search Service REST API)](search-api-scoring-profiles-2015-02-28-preview.md) for details.
 
 **CORS Options**
 
@@ -666,7 +671,7 @@ By default the response body will contain the JSON for the index definition that
 Currently, there is limited support for index schema updates. Any schema updates that would require re-indexing such as changing field types are not currently supported. Although existing fields cannot be changed or deleted, new fields can be added to an existing index at any time. When a new field is added, all existing documents in the index will automatically have a null value for that field. No additional storage space will be consumed until new documents are added to the index.
 
 <a name="Suggesters"></a>
-##Suggesters
+## Suggesters
 
 The suggestions feature in Azure Search is a type-ahead or auto-complete query capability, providing a list of potential search terms in response to partial string inputs entered into a search box. You've probably noticed query suggestions when using commercial web search engines: typing ".NET" in Bing produces a list of terms for ".NET 4.5", ".NET Framework 3.5", and so forth. When using the Search service REST API, implementing suggestions in a custom Azure Search application requires the following:
 
@@ -1028,7 +1033,7 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Add Documents** request must include an `api-key` header set to your admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](.search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -1046,12 +1051,14 @@ The body of the request contains one or more documents to be indexed. Documents 
       ]
     }
 
+> [AZURE.NOTE] Document keys can only contain letters, numbers, dashes ("-"), underscores ("_"), and equal signs ("="). For more details, see [Naming rules](https://msdn.microsoft.com/library/azure/dn857353.aspx).
+
 **Document Actions**
 
 - `upload`: An upload action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. Note that all fields are replaced in the update case.
 - `merge`: Merge updates an existing document with the specified fields. If the document doesn't exist, the merge will fail. Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field "tags" with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for "tags", the final value of the "tags" field will be `["economy", "pool"]`. It will **not** be `["budget", "economy", "pool"]`.
 - `mergeOrUpload`: behaves like `merge` if a document with the given key already exists in the index. If the document does not exist it behaves like `upload` with a new document.
-- `delete`: Delete removes the specified document from the index. Note that you can specify only the key field value in a `delete` operation. Attempting to specify other fields will result in an HTTP 400 error. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to `null`.
+- `delete`: Delete removes the specified document from the index. Note that any fields you specify in a `delete` operation, other than the key field, will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to `null`.
 
 **Response**
 
@@ -1147,8 +1154,9 @@ A **Search** operation is issued as a GET or POST request and specifies paramete
 
 **When to use POST instead of GET**
 
-When you use HTTP GET to call the **Search** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries, specifically OData filter expressions. For these applications, using HTTP POST is a better choice. The request size limit for POST is close to 17 MB, which is plenty of room for even the most complex queries.
+When you use HTTP GET to call the **Search** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries or OData filter expressions. For these applications, using HTTP POST is a better choice because it allows larger filters and queries than GET. With POST, the number of terms or clauses in a query is the limiting factor, not the size of the raw query since the request size limit for POST is approximately 16 MB.
 
+> [AZURE.NOTE] Even though the POST request size limit is very large, search queries and filter expressions cannot be arbitrarily complex. See [Lucene query syntax](https://msdn.microsoft.com/library/mt589323.aspx) and [OData expression syntax](https://msdn.microsoft.com/library/dn798921.aspx) for more information about search query and filter complexity limitations.
 **Request**
 
 HTTPS is required for service requests. The **Search** request can be constructed using the GET or POST methods.
@@ -1221,7 +1229,10 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 - `interval` (integer interval greater than 0 for numbers, or `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` for date time values)
   - For example: `facet=baseRate,interval:100` produces buckets based on base rate ranges of size 100. For example, if base rates are all between $60 and $600, there will be buckets for 0-100, 100-200, 200-300, 300-400, 400-500, and 500-600.
   - For example: `facet=lastRenovationDate,interval:year` produces one bucket for each year when hotels were renovated.
+- `timeoffset` ([+-]hh:mm, [+-]hhmm, or [+-]hh) `timeoffset` is optional. It can only be combined with the `interval` option, and only when applied to a field of type `Edm.DateTimeOffset`. The value specifies the UTC time offset to account for in setting time boundaries.
+  - For example: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` uses the day boundary that starts at 01:00:00 UTC (midnight in the target time zone)
 - **Note**: `count` and `sort` can be combined in the same facet specification, but they cannot be combined with `interval` or `values`, and `interval` and `values` cannot be combined together.
+- **Note**: Interval facets on date time are computed based on UTC time if `timeoffset` is not specified. For example: for `facet=lastRenovationDate,interval:day`, the day boundary starts at 00:00:00 UTC. 
 
 > [AZURE.NOTE] When calling **Search** using POST, this parameter is named `facets` instead of `facet`. Also, you specify it as a JSON array of strings where each string is a separate facet expression.
 
@@ -1353,6 +1364,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 
 1)	Search the Index sorted descending by date.
 
+
     GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1363,6 +1375,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 
 2)	In a faceted search, search the index and retrieve facets for categories, rating, tags, as well as items with baseRate in specific ranges:
 
+
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1372,6 +1385,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
     }
 
 3)	Using a filter, narrow down the previous faceted query results after the user clicks on rating 3 and category "Motel":
+
 
     GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2015-02-28-Preview
 
@@ -1384,6 +1398,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 
 4) In a faceted search, set an upper limit on unique terms returned in a query. The default is 10, but you can increase or decrease this value using the `count` parameter on the `facet` attribute:
 
+
     GET /indexes/hotels/docs?search=test&facet=city,count:5&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1394,6 +1409,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 
 5)	Search the Index within specific fields; For example, a language-specific field:
 
+
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1403,6 +1419,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
     }
 
 6) Search the Index across multiple fields. For example, you can store and query searchable fields in multiple languages, all within the same index.  If English and French descriptions co-exist in the same document, you can return any or all in the query results:
+
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2015-02-28-Preview
 
@@ -1416,6 +1433,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
 7)	Paging - Get the 1st page of items (page size is 10):
 
+
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1426,6 +1444,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
     }
 
 8)	Paging - Get the 2nd page of items (page size is 10):
+
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
 
@@ -1438,6 +1457,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
 9)	Retrieve a specific set of fields:
 
+
     GET /indexes/hotels/docs?search=*&$select=hotelName,description&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1448,6 +1468,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
 10)  Retrieve documents matching a specific filter expression
 
+
     GET /indexes/hotels/docs?$filter=(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1456,6 +1477,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
     }
 
 11) Search the index and return fragments with hit highlights
+
 
     GET /indexes/hotels/docs?search=something&highlight=description&api-version=2015-02-28-Preview
 
@@ -1467,6 +1489,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
 12) Search the index and return documents sorted from closer to farther away from a reference location
 
+
     GET /indexes/hotels/docs?search=something&$orderby=geo.distance(location, geography'POINT(-122.12315 47.88121)')&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1476,6 +1499,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
     }
 
 13) Search the index assuming there's a scoring profile called "geo" with two distance scoring functions, one defining a parameter called "currentLocation" and one defining a parameter called "lastLocation"
+
 
     GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
 
@@ -1487,6 +1511,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
     }
 
 14) Find documents in the index using [simple query syntax](https://msdn.microsoft.com/library/dn798920.aspx). This query returns hotels where searchable fields contain the terms "comfort" and "location" but not "motel":
+
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
 
@@ -1510,7 +1535,7 @@ Note the use of `searchMode=all` above. Including this parameter overrides the d
     }
 
 <a name="LookupAPI"></a>
-##Lookup Document
+## Lookup Document
 
 The **Lookup Document** operation retrieves a document from Azure Search. This is useful when a user clicks on a specific search result, and you want to look up specific details about that document.
 
@@ -1568,7 +1593,7 @@ Lookup the document that has key '3' using OData syntax:
     GET /indexes('hotels')/docs('3')?api-version=2015-02-28-Preview
 
 <a name="CountDocs"></a>
-##Count Documents
+## Count Documents
 
 The **Count Documents** operation retrieves a count of the number of documents in a search index. The `$count` syntax is part of the OData protocol.
 
@@ -1604,7 +1629,7 @@ Status Code: 200 OK is returned for a successful response.
 The response body contains the count value as an integer formatted in plain text.
 
 <a name="Suggestions"></a>
-##Suggestions
+## Suggestions
 
 The **Suggestions** operation retrieves suggestions based on partial search input. It's typically used in search boxes to provide type-ahead suggestions as users are entering search terms.
 
@@ -1621,7 +1646,9 @@ A **Suggestions** operation is issued as a GET or POST request.
 
 **When to use POST instead of GET**
 
-When you use HTTP GET to call the **Suggestions** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries, specifically OData filter expressions. For these applications, using HTTP POST is a better choice. The request size limit for POST is close to 17 MB, which is plenty of room for even the most complex queries.
+When you use HTTP GET to call the **Suggestions** API, you need to be aware that the length of the request URL cannot exceed 8 KB. This is usually enough for most applications. However, some applications produce very large queries, specifically OData filter expressions. For these applications, using HTTP POST is a better choice because it allows larger filters than GET. With POST, the number of clauses in a filter is the limiting factor, not the size of the raw filter string since the request size limit for POST is approximately 16 MB.
+
+> [AZURE.NOTE] Even though the POST request size limit is very large, filter expressions cannot be arbitrarily complex. See [OData expression syntax](https://msdn.microsoft.com/library/dn798921.aspx) for more information about filter complexity limitations.
 
 **Request**
 

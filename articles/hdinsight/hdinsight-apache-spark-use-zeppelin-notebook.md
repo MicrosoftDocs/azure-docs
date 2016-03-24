@@ -13,17 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/23/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
 # Use Zeppelin notebooks with Spark cluster on HDInsight (Linux)
 
-Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zeppelin notebooks. 
+Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zeppelin notebooks.
+
+> [AZURE.IMPORTANT] Zeppelin notebook for HDInsight Spark cluster is an offering just to showcase how to use Zeppelin in an Azure HDInsight Spark environment. If you want to use notebooks to work with HDInsight Spark, we recommend that you use Jupyter notebooks instead. Jupyter notebooks also provide different kernel options, such as Scala, and will continue to have feature improvements. For instructions on how to use Jupyter notebooks with HDInsight spark, see [Run Spark SQL queries using a Jupyter notebook](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter). 
 
 **Prerequisites:**
 
-* Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 * An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
@@ -37,7 +39,17 @@ Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zep
 
 ## Install Zeppelin as part of cluster creation
 
->[AZURE.NOTE]  Skip this step if you created the Spark cluster using the portal. This step is only required if you are creating using HDInsight .NET SDK or Azure PowerShell.
+You can install Zeppelin on a Spark cluster using script action. Script action uses custom scripts to install components on the cluster that are not available by default. The custom script to install Zeppelin on a Spark cluster is available at **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+
+### Using the Azure Portal
+
+For instructions on how to use HDInsight .NET SDK to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). You must make a couple of changes to the instructions in that article.
+
+* You must use the script for installing Zeppelin. The script to use is **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+
+* You must run the script action only on the headnode.
+
+* The script does not need any parameters. 
 
 ### Using HDInsight .NET SDK
 
@@ -51,7 +63,7 @@ For instructions on how to use HDInsight .NET SDK to run script action to instal
 
 ### Using Azure PowerShell
 
-Use the following PowerShell snippet to create a Spark cluster on HDInsight Linux with Zeppelin installed. Make sure you have PowerShell installed before you proceed. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
+Use the following PowerShell snippet to create a Spark cluster on HDInsight Linux with Zeppelin installed. Make sure you have PowerShell installed before you proceed. See [Install and configure Azure PowerShell](../powershell-install-configure.md) for instructions.
 
 	Login-AzureRMAccount
 	
@@ -200,7 +212,7 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 		http://hn0-myspar:9995
 
 	* **hn0** denotes headnode0
-	* **myspar** is the first five letters of the Spark cluster.
+	* **myspar** is the first six letters of the Spark cluster name.
 	* **9995** is the port where Zeppelin notebook is accessible.
 
 2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
@@ -299,7 +311,9 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensions
+### Tools and extensions
+
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
@@ -308,15 +322,15 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-create-storageaccount]: storage-create-storage-account.md 
 
 
 

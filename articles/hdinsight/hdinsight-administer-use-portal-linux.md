@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/22/2016"
 	ms.author="larryfr"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Portal
@@ -41,7 +41,7 @@ There are also other tools available for administering HDInsight in addition to 
 
 Before you begin this article, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
 ## Provision HDInsight clusters
 
@@ -96,12 +96,13 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 	
 8. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes will be set to __4__. 
 
-
 	The estimated cost of the cluster will be shown at the bottom of this blade.
 
 	![Node pricing tiers blade](./media/hdinsight-administer-use-portal-linux/nodepricingtiers.png)
 
 	Use the __Select__ button to save the __Node Pricing Tiers__ information.
+    
+    > [AZURE.NOTE] The nodes used by your cluster do not count as Virtual Machines, as the Virtual Machines images used for the nodes are an implementation detail of the HDInsight service; however, the compute cores used by the nodes do count against the total number of compute cores available to your subscription. You can see the number of cores that will be used by the cluster, as well as the number of cores available, in the summary section of the Node Pricing Tiers blade when creating an HDInsight cluster.
 
 9. Select __Optional Configuration__. This blade allows you to configure the following items:
 
@@ -109,15 +110,9 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 
 	* __External Metastores__: This allows you to select a SQL Database, which will be used to store configuration information for Oozie and Hive. This allows you to reuse the configuration when deleting and recreating a cluster, instead of having to recreate the Hive and Oozie configuration each time.
 
-	* __Virtual Network__: This allows you to place the HDInsight cluster on the same virtual network as other resources, such as SQL Database or an Azure Virtual Machine. Placing resources on a virtual network allows the to directly communicate with each other, bypassing the public gateways that handle incoming traffic from the Internet. For more information on how HDInsight benefits from Azure Virtual Networks, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
-
-		> [AZURE.IMPORTANT] You must create the Azure Virtual Network before creating the HDInsight cluster, as you cannot create a new network from HDInsight configuration.
-		>
-		> Currently (8/25/2015) there is a limitation that only one Linux-based HDInsight cluster can be present on an Azure Virtual Network. 
-        >
-        > You cannot use a v1 (Classic,) Azure Virtual Network with Linux-based HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure Portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
-        >
-        > If you have resources on a v1 network, and you wish to make HDInsight directly accessible to those resources through a virtual network, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) for information on how to connect a v2 Virtual Network to a v1 Virtual Network. Once this connection is established, you can create the HDInsight cluster in the v2 Virtual Network.
+	* __Virtual Network__: This allows you to place the HDInsight cluster on the same virtual network as other resources, such as SQL Database or an Azure Virtual Machine. Placing resources on a virtual network allows the to directly communicate with each other, bypassing the public gateways that handle incoming traffic from the Internet.
+    
+        For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 	* __Script Actions__: This allows you to specify Bash scripts that customize the HDInsight cluster during provisioning. For example, there is a [script that installs Hue](hdinsight-hadoop-hue-linux.md) (a graphical client for working with Hadoop.) For more information on Script Actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 

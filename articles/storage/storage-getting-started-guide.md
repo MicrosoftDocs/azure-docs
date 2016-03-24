@@ -5,15 +5,15 @@
 	documentationCenter=".net" 
 	authors="tamram" 
 	manager="carmonm" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/14/2016" 
 	ms.author="tamram"/>
 
 # Get started with Azure Storage in five minutes 
@@ -30,7 +30,7 @@ You'll need the following prerequisites before you start:
 
 1. To compile and build the application, you'll need a version of [Visual Studio](https://www.visualstudio.com/) installed on your computer. 
 
-2. Install the latest version [Azure SDK for .NET](http://azure.microsoft.com/downloads/). The SDK includes the Azure QuickStart sample projects, the Azure storage emulator, and the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
+2. Install the latest version [Azure SDK for .NET](https://azure.microsoft.com/downloads/). The SDK includes the Azure QuickStart sample projects, the Azure storage emulator, and the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 3. Make sure that you have [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) installed on your computer, as it is required by the Azure QuickStart sample projects that we'll be using in this tutorial. 
 
@@ -38,8 +38,8 @@ You'll need the following prerequisites before you start:
 
 4. You'll need an Azure subscription and an Azure storage account.
 
-    - To get an Azure subscription, see [Free Trial](http://azure.microsoft.com/pricing/free-trial/), [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](http://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).
-    - To create a storage account in Azure, see [How to create, manage, or delete a storage account](storage-create-storage-account.md).
+    - To get an Azure subscription, see [Free Trial](https://azure.microsoft.com/pricing/free-trial/), [Purchase Options](https://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](https://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).
+    - To create a storage account in Azure, see [How to create a storage account](storage-create-storage-account.md#create-a-storage-account).
 
 ## Run your first Azure Storage application against Azure Storage in the cloud
 
@@ -104,13 +104,14 @@ Next, run the sample application in the Azure Storage Emulator:
 See these resources to learn more about Azure Storage:
 
 * [Introduction to Microsoft Azure Storage](storage-introduction.md)
-* [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
-* [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)
-* [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
-* [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
-* [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
-* [Azure Storage Client Library](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-* [Azure Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
+* [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md)
+* [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
+* [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
+* [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+* [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  

@@ -3,7 +3,7 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and CloudPassage."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="markvi"/>
+	ms.date="01/26/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with CloudPassage
@@ -23,7 +23,8 @@ The objective of this tutorial is to show you how to integrate CloudPassage with
 
 - You can control in Azure AD who has access to CloudPassage 
 - You can enable your users to automatically get signed-on to CloudPassage (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure Active Directory 
+- 
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +58,7 @@ To configure the integration of CloudPassage into Azure AD, you need to add Clou
 
 ### To add CloudPassage from the gallery, perform the following steps:
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -91,14 +92,14 @@ To configure and test Azure AD single sign-on with CloudPassage, you need to com
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your CloudPassage application.<br>
+The objective of this section is to enable Azure AD single sign-on in the Azure AD classic portal and to configure single sign-on in your CloudPassage application.<br>
 Your CloudPassage application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. 
 The following screenshot shows an example for this.
 <br><br> ![Configure Single Sign-On][21]
 
 **To configure Azure AD single sign-on with CloudPassage, perform the following steps:**
 
-1. In the Azure AD portal, on the **CloudPassage** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br><br>
+1. In the Azure AD classic portal, on the **CloudPassage** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br><br>
 ![Configure Single Sign-On][7]
 
 2. On the **How would you like users to sign on to CloudPassage** page, select **Azure AD Single Sign-On**, and then click **Next**.<br><br>
@@ -126,11 +127,11 @@ The following screenshot shows an example for this.
 8. In the **Single Sign-on Settings** section, perform the following steps: <br><br> ![Configure Single Sign-On][14]
 
 
-     8.1. In the Azure portal, on the **Configure single sign-on at CloudPassage** dialog page, copy the **Issuer URL** value, and then paste it into the **SAML issuer URL** textbox.
+     8.1. In the Azure classic portal, on the **Configure single sign-on at CloudPassage** dialog page, copy the **Issuer URL** value, and then paste it into the **SAML issuer URL** textbox.
 
-     8.2. In the Azure portal, on the **Configure single sign-on at CloudPassage** dialog page, copy the **Service Provider (SP) initiated endpoint** value, and then paste it into the **SAML endpoint URL** textbox.
+     8.2. In the Azure classic portal, on the **Configure single sign-on at CloudPassage** dialog page, copy the **Service Provider (SP) initiated endpoint** value, and then paste it into the **SAML endpoint URL** textbox.
 
-     8.3. In the Azure portal, on the **Configure single sign-on at CloudPassage** dialog page, copy the **Logout URL** value, and then paste it into the **Logout landing page** textbox.
+     8.3. In the Azure classic portal, on the **Configure single sign-on at CloudPassage** dialog page, copy the **Logout URL** value, and then paste it into the **Logout landing page** textbox.
 
      8.4. Create a **base-64** encoded file from your downloaded certificate. 
           
@@ -141,7 +142,7 @@ The following screenshot shows an example for this.
      8.6. Click **Save**.
 
 
-9. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br> ![Configure Single Sign-On][15]
+9. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br> ![Configure Single Sign-On][15]
 
 
 10. On the **Single sign-on confirmation** page, click **Complete**. <br><br> ![Configure Single Sign-On][16]
@@ -171,12 +172,12 @@ The following screenshot shows an example for this.
 
 ### Creating an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.<br><br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br><br>
 In the Users list, select **Britta Simon**.<br>![Creating an Azure AD test user](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.<br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.<br>
 ![Creating an Azure AD test user](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -246,7 +247,7 @@ The objective of this section is to enable Britta Simon to use Azure single sign
 
 **To assign Britta Simon to CloudPassage, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.<br>
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.<br>
 <br><br>![Assign User][26]
 2. In the applications list, select **CloudPassage**.
 <br><br>![Assign User][27]

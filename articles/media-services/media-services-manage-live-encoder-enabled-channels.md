@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015"  
+	ms.date="02/14/2016" 
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
@@ -32,6 +32,9 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 - **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
 
 >[AZURE.NOTE]This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
+>
+>Make sure to review the [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations) section.
+
 
 
 ##Billing Implications
@@ -61,6 +64,12 @@ Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running p
 Stopping|Stopping|No (transient state)
 Stopped|Stopped|No
 
+###Automatic shut-off for unused Channels
+
+Starting with January 25, 2016, Media Services rolled out an update that automatically stops a Channel (with live encoding enabled) after it has been running in an unused state for a long period. This applies to Channels that have no active Programs, and which have not received an input contribution feed for an extended period of time.
+
+The threshold for an unused period is nominally 12 hours, but is subject to change.
+
 ##Live Encoding Workflow
 The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS); it then encodes the stream to a multi-bitrate stream. 
 
@@ -78,7 +87,7 @@ The following diagram represents a live streaming workflow where a channel recei
 
 The following are general steps involved in creating common live streaming applications.
 
->[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
+>[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -297,7 +306,7 @@ There can be up to 8 audio stream sets specified if the input to the Channel is 
 
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
 
-Note that if you need custom presets, you should contact amslived at Microsoft dot com.
+Note that if you need custom presets, you should contact  amslived at Microsoft.com.
 
 **Default720p** will encode the video into the following 7 layers.
 
@@ -431,15 +440,16 @@ Stopped|Stopped|No
 - By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 - You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
-- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
+- Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.
 - Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 - When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-manage-channels-overview.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+- The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.97i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
 - Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue. 
 
 ##Known Issues
 
 - Channel start up time has been improved to an average of 2 minutes, but at times of increased demand could still take up to 20+ minutes.
-- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 - Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 

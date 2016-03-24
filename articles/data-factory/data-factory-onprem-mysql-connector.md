@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Move data From MySQL using Azure Data Factory
@@ -29,9 +29,12 @@ Data factory currently supports only moving data from MySQL to other data stores
 ## Installation 
 For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) on the same system as the Data Management Gateway.
 
-## Sample: Copy data from MySQL to Azure Blob
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
-The sample below shows:
+## Sample: Copy data from MySQL to Azure Blob
+This sample shows how to copy data from an on-premises MySQL database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -213,7 +216,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 
 
-## MySQL Linked Service properties
+## MySQL linked service properties
 
 The following table provides description for JSON elements specific to MySQL linked service.
 
@@ -228,9 +231,9 @@ The following table provides description for JSON elements specific to MySQL lin
 | password | Specify password for the user account you specified for the username. | No | 
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. | Yes |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises MySQL data source.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises MySQL data source.
 
-## MySQL Dataset type properties
+## MySQL dataset type properties
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
@@ -240,7 +243,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the MySQL Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) | 
 
-## MySQL Copy Activity type properties
+## MySQL copy activity type properties
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
@@ -310,5 +313,6 @@ When moving data to MySQL the following mappings will be used from MySQL types t
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 

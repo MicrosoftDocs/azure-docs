@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog prerequisites"
    description="What do I need to get started with Azure Data Catalog?"
    services="data-catalog"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # What do I need to get started with Azure Data Catalog?
@@ -36,7 +36,7 @@ The Global Authentication Policy allows authentication methods to be enabled sep
 
  ![Active Directory Global Authentication Policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
-For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/en-us/library/dn486781.aspx).
+For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
 
 
 ## Azure Subscription

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="03/11/2016"
 	ms.author="spelluru"/>
 
 # Compute Linked Services
@@ -27,8 +27,7 @@ In this type of configuration, the computing environment is fully managed by the
 > [AZURE.NOTE] The on-demand configuration is currently supported only for Azure HDInsight clusters.
 
 ## Azure HDInsight On-Demand Linked Service
-
-The on-demand HDInsight cluster is automatically created by the Azure Data Factory service to process data. The cluster is created in the region that is same as that of the storage account (linkedServiceName property in the JSON) associated with the cluster.
+The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the region that is same as that of the storage account (linkedServiceName property in the JSON) associated with the cluster.
 
 Note the following **important** points about on-demand HDInsight linked service:
 
@@ -39,25 +38,28 @@ Note the following **important** points about on-demand HDInsight linked service
 > [AZURE.IMPORTANT] It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
 
 ### Example
+The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. 
+
 
 	{
-	  "name": "HDInsightOnDemandLinkedService",
-	  "properties": {
-	    "type": "HDInsightOnDemand",
-	    "typeProperties": {
-	      "clusterSize": 4,
-	      "timeToLive": "00:05:00",
-	      "version": "3.2",
-		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore",
-		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
-	      "additionalLinkedServiceNames": [
-	        "otherLinkedServiceName1",
-	        "otherLinkedServiceName2"
-	      ]
+	    "name": "HDInsightOnDemandLinkedService",
+	    "properties": {
+	        "type": "HDInsightOnDemand",
+	        "typeProperties": {
+	            "clusterSize": 4,
+	            "timeToLive": "00:05:00",
+	            "osType": "linux",
+	            "linkedServiceName": "StorageLinkedService"
+	        }
 	    }
-	  }
 	}
+
+To use a Windows-based HDInsight cluster, set **osType** to **windows** or do not use the property as the default value is: windows.  
+
+> [AZURE.IMPORTANT] 
+> The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done. 
+> 
+> As more and more slices are processed, you will see a lot of containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The name of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 ### Properties
 
@@ -65,13 +67,21 @@ Property | Description | Required
 -------- | ----------- | --------
 type | The type property should be set to **HDInsightOnDemand**. | Yes
 clusterSize | The size of the on-demand cluster. Specify how many nodes you want to be in this on-demand cluster. | Yes
-timetolive | <p>The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.</p><p>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.</p><p>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.</p><p>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.</p><p>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set</p> | Yes
+timetolive | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set | Yes
 version | Version of the HDInsight cluster. The default value is 3.1 for Windows cluster and 3.2 for Linux cluster. | No
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
 osType | Type of operating system. Allowed values are: Windows (default) and Linux | No
 hcatalogLinkedServiceName | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster will be created by using the Azure SQL database as the metastore. | No
 
+
+#### additionalLinkedServiceNames JSON example
+
+    "additionalLinkedServiceNames": [
+        "otherLinkedServiceName1",
+		"otherLinkedServiceName2"
+  	]
+ 
 ### Advanced Properties
 
 You can also specify the following properties for the granular configuration of the on-demand HDInsight cluster.
@@ -96,7 +106,6 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 	    "typeProperties": {
 	      "clusterSize": 16,
 	      "timeToLive": "01:30:00",
-	      "version": "3.2",
 	      "linkedServiceName": "adfods1",
 	      "coreConfiguration": {
 	        "templeton.mapper.memory.mb": "5000"
@@ -133,7 +142,7 @@ dataNodeSize | Specifies the size of the data node. The default value is: Large 
 zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Small | No
  
 #### Specifying node sizes
-Please see the [Sizes of Virtual Machines](../virtual-machines/virtual-machines-size-specs.md#size-tables) article for string values you need to specify for the above properties. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7 GB memory, which may not be good enough for your scenario. 
+Please see the [Sizes of Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) article for string values you need to specify for the above properties. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7 GB memory, which may not be good enough for your scenario. 
 
 If you want to create D4 sized head nodes and worker nodes, you need to specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
 
@@ -168,7 +177,6 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 	      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
 	      "userName": "admin",
 	      "password": "<password>",
-	      "location": "WestUS",
 	      "linkedServiceName": "MyHDInsightStoragelinkedService"
 	    }
 	  }
@@ -182,7 +190,6 @@ type | The type property should be set to **HDInsight**. | Yes
 clusterUri | The URI of the HDInsight cluster. | Yes
 username | Specify the name of the user to be used to connect to an existing HDInsight cluster. | Yes
 password | Specify password for the user account. | Yes
-location | Specify the location of the HDInsight cluster (for example: WestUS). | Yes
 linkedServiceName | Name of the linked service for the blob storage used by this HDInsight cluster. | Yes
 
 ## Azure Batch Linked Service
@@ -290,6 +297,43 @@ subscriptionId | Azure subscription id | No (If not specified, subscription of t
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
 sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
 
+The authorization code you generated by using the **Authorize** button expires after sometime. See the following table for the expiration times for different types of user accounts. You may see the following error message when the authentication **token expires**: Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
+
+| User type | Expires after |
+| :-------- | :----------- | 
+| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 hours |
+| Users accounts managed by Azure Active Directory (AAD) | 14 days after the last slice run. <br/><br/>90 days, if a slice based on OAuth-based linked service runs at least once every 14 days. |
+ 
+To avoid/resolve this error, you will need to reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for sessionId and authorization properties programmatically using code in the following section. 
+
+### To programmatically generate sessionId and authorization values 
+The following code generates **sessionId** and **authorization** values.  
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. You need to add a reference to: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll for the WindowsFormsWebAuthenticationDialog class. 
+ 
 
 ## Azure SQL Linked Service
 

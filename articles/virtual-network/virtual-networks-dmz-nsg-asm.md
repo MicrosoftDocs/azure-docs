@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Example 1 – Build a Simple DMZ with NSGs

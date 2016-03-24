@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/30/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # How to Use iOS Client Library for Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp; 
- 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). If you are new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more about the .NET server-side SDK for the backend, see [Work with .NET Backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
@@ -31,7 +28,7 @@ The reference documentation for the iOS client SDK is located here: [Azure Mobil
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
-This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those tutorials. This guide also assumes that in your code, you reference `WindowsAzureMobileServices.framework` and import `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
+This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those tutorials. This guide also assumes that in your code, you reference `MicrosoftAzureMobile.framework` and import `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
 ##<a name="create-client"></a>How to: Create Client
 
@@ -40,7 +37,7 @@ To access an Azure Mobile Apps backend in your project, create an `MSClient`. Re
 **Objective-C**:
 
 ```
-MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
+MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
 
 **Swift**:
@@ -88,15 +85,15 @@ To create a database query, query the `MSTable` object. The following query gets
 **Swift**:
 
 ```
-table.readWithCompletion({(result, error) -> Void in
-    if error != nil { // error is nil if no error occured
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+table.readWithCompletion { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
-})
+}
 ```
 
 ##<a name="filtering"></a>How to: Filter Returned Data
@@ -110,7 +107,7 @@ To filter using a predicate, use an `NSPredicate` and `readWithPredicate`. The f
 ```
 // Create a predicate that finds items where complete is false
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-// Query the TodoItem table 
+// Query the TodoItem table
 [table readWithPredicate:predicate completion:^(MSQueryResult *result, NSError *error) {
 		if(error) {
 				NSLog(@"ERROR %@", error);
@@ -126,17 +123,17 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ```
 // Create a predicate that finds items where complete is false
-let predicate =  NSPredicate(format:"complete == NO")
-// Query the TodoItem table 
-table.readWithPredicate(predicate, completion: { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+let predicate =  NSPredicate(format: "complete == NO")
+// Query the TodoItem table
+table.readWithPredicate(predicate) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
-})
+}
 ```
 
 ##<a name="query-object"></a>How to: Use MSQuery
@@ -154,7 +151,7 @@ MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"c
 
 ```
 let query = table.query()
-let query = table.queryWithPredicate(NSPredicate(format:"complete == NO"))
+let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
 `MSQuery` lets you control several query behaviors, including the following. Execute an `MSQuery` query by calling `readWithCompletion` on it, as shown in the next example.
@@ -188,15 +185,15 @@ To sort results, let's look at an example. To first ascendingly by field `text` 
 
 **Swift**:
 
-```        
+```
 query.orderByAscending("text")
 query.orderByDescending("complete")
-query.readWithCompletion { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+query.readWithCompletion { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
 }
@@ -261,11 +258,11 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 
 ```
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
-table.insert(newItem) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
+table.insert(newItem) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let item = result {
+        print("Todo Item: ", item["text"])
     }
 }
 ```
@@ -291,14 +288,15 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 **Swift**:
 
 ```
-let newItem = oldItem.mutableCopy() as! NSMutableDictionary // oldItem is NSDictionary
-newerItem["text"] = "Updated text"
-table.update(newerItem  as [NSObject : AnyObject]) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
-    }
+if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
+    newItem["text"] = "Updated text"
+    table2.update(newItem as [NSObject: AnyObject], completion: { (result, error) -> Void in
+        if let err = error {
+            print("ERROR ", err)
+        } else if let item = result {
+            print("Todo Item: ", item["text"])
+        }
+    })
 }
 ```
 
@@ -319,13 +317,12 @@ Alternatively, supply the row ID and the updated field:
 **Swift**:
 
 ```
-table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
+table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let item = result {
+        print("Todo Item: ", item["text"])
     }
-    
 }
 ```
 
@@ -350,12 +347,12 @@ To delete an item, invoke `delete` with the item:
 **Swift**:
 
 ```
-table.delete(item as [NSObject : AnyObject]) { (itemId, error) -> Void in
-	if error != nil {
-		NSLog("ERROR %@", error!)
-	} else {
-		NSLog("Todo Item ID: %@", itemId! as! String)
-	}
+table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else {
+        print("Todo Item ID: ", itemId)
+    }
 }
 ```
 
@@ -370,22 +367,64 @@ Alternatively, delete by providing a row ID:
 	} else {
 		NSLog(@"Todo Item ID: %@", itemId);
 	}
-}];   
+}];
 ```
 
 **Swift**:
 
 ```
-table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) -> Void in
-        if error != nil {
-        	NSLog("ERROR %@", error!)
-        } else {
-        	NSLog("Todo Item ID: %@", itemId! as! String)
-        }
+table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else {
+        print("Todo Item ID: ", itemId)
+    }
 }
 ```
 
 At minimum, the `id` attribute must be set when making deletes.
+
+##<a name="customapi"></a>How to: Call Custom API
+
+With a custom API, you can expose any backend functionality. It doesn't have to map to a table operation. Not only do you gain more control over messaging, you can even read/set headers and change the response body format. To learn how to create a custom API on the backend, read [Custom APIs](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+
+To call a custom API, call `MSClient.invokeAPI` as shown below. The request and response content are treated as JSON. To use other media types, [use the other overload of `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)
+
+To make a `GET` request instead of a `POST` request, set parameter `HTTPMethod` to `"GET"` and parameter `body` to `nil` (since GET requests do not have message bodies.) If your custom API supports other HTTP verbs, change `HTTPMethod` appropriately.
+
+**Objective-C**:
+```
+    [self.client invokeAPI:@"sendEmail"
+                      body:@{ @"contents": @"Hello world!" }
+                HTTPMethod:@"POST"
+                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                   headers:nil
+                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                    if(error) {
+                        NSLog(@"ERROR %@", error);
+                    } else {
+                        // Do something with result
+                    }
+                }];
+```
+
+**Swift**:
+
+```
+client.invokeAPI("sendEmail",
+            body: [ "contents": "Hello World" ],
+            HTTPMethod: "POST",
+            parameters: [ "to": "bill@contoso.com", "subject" : "Hi!" ],
+            headers: nil)
+            {
+                (result, response, error) -> Void in
+                if let err = error {
+                    print("ERROR ", err)
+                } else if let res = result {
+                          // Do something with result
+                }
+        }
+```
 
 ##<a name="templates"></a>How to: Register push templates to send cross-platform notifications
 
@@ -404,11 +443,11 @@ To register templates, simply pass along templates with your **client.push regis
 **Swift**:
 
 ```
-client.push!.registerDeviceToken(deviceToken, template: iOSTemplate, completion: { (error) -> Void in
-            if error != nil {
-                NSLog("ERROR %@", error!)
-            }
-        })
+    client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
+        if let err = error {
+            print("ERROR ", err)
+        }
+    })
 ```
 
 Your templates will be of type NSDictionary and can contain multiple templates in the following format:
@@ -422,7 +461,7 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 **Swift**:
 
 ```
-let iOSTemplate: [NSObject : AnyObject] = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
+let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
 Note that all tags will be stripped away for security. To add tags to installations or templates within installations, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
@@ -444,7 +483,7 @@ NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 **Swift**:
 
 ```
-let serverItem = error?.userInfo[MSErrorServerItemKey];
+let serverItem = error.userInfo[MSErrorServerItemKey]
 ```
 
 In addition, the file defines constants for each error code, which may be used as shown below:
@@ -458,9 +497,96 @@ if (error.code == MSErrorPreconditionFailed) {
 **Swift**:
 
 ```
-if (error?.code == MSErrorPreconditionFailed) {
+if (error.code == MSErrorPreconditionFailed) {
 ```
 
+## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
+
+You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+
+1. Configure your mobile app backend for AAD sign-in by followin the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure to complete the optional step of registering a native client application. For iOS, it is recommended (but not required) that the redirect URI is of the form `<app-scheme>://<bundle-id>`. Please see the [ADAL iOS quickstart](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem) for more details.
+
+2. Install ADAL using Cocoapods. Edit your Podfile to include the following, replacing **YOUR-PROJECT** with the name of your Xcode project:
+
+		source 'https://github.com/CocoaPods/Specs.git'
+		link_with ['YOUR-PROJECT']
+		xcodeproj 'YOUR-PROJECT'
+and the Pod:
+
+		pod 'ADALiOS'
+
+3. Using the Terminal, run `pod install` from the directory containing your project, and then open the generated Xcode workspace (not the project).
+
+4. Add the below code to your application, according to the language you are using. In each, make the following replacements:
+
+* Replace **INSERT-AUTHORITY-HERE** ith the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure classic portal].
+
+* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain this from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
+
+* Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
+
+* Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
+
+**Objective-C**:
+
+	#import <ADALiOS/ADAuthenticationContext.h>
+	#import <ADALiOS/ADAuthenticationSettings.h>
+	// ...
+	- (void) authenticate:(UIViewController*) parent
+	           completion:(void (^) (MSUser*, NSError*))completionBlock;
+	{
+	    NSString *authority = @"INSERT-AUTHORITY-HERE";
+	    NSString *resourceId = @"INSERT-RESOURCE-ID-HERE";
+	    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
+	    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
+	    ADAuthenticationError *error;
+	    ADAuthenticationContext authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+	    authContext.parentController = parent;
+	    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
+	    [authContext acquireTokenWithResource:resourceId
+	                                 clientId:clientId
+	                              redirectUri:redirectUri
+	                          completionBlock:^(ADAuthenticationResult *result) {
+	                              if (result.status != AD_SUCCEEDED)
+	                              {
+	                                  completionBlock(nil, result.error);;
+	                              }
+	                              else
+	                              {
+	                                  NSDictionary *payload = @{
+	                                                            @"access_token" : result.tokenCacheStoreItem.accessToken
+	                                                            };
+	                                  [client loginWithProvider:@"aad" token:payload completion:completionBlock];
+	                              }
+	                          }];
+	}
+
+
+**Swift**:
+
+	// add the following imports to your bridging header:
+	//     #import <ADALiOS/ADAuthenticationContext.h>
+	//     #import <ADALiOS/ADAuthenticationSettings.h>
+
+	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
+		let authority = "INSERT-AUTHORITY-HERE"
+		let resourceId = "INSERT-RESOURCE-ID-HERE"
+		let clientId = "INSERT-CLIENT-ID-HERE"
+		let redirectUri = NSURL(string: "INSERT-REDIRECT-URI-HERE")
+		var error: AutoreleasingUnsafeMutablePointer<ADAuthenticationError?> = nil
+		let authContext = ADAuthenticationContext(authority: authority, error: error)
+		authContext.parentController = parent
+		ADAuthenticationSettings.sharedInstance().enableFullScreen = true
+		authContext.acquireTokenWithResource(resourceId, clientId: clientId, redirectUri: redirectUri) { (result) in
+		        if result.status != AD_SUCCEEDED {
+		            completion(nil, result.error)
+		        }
+		        else {
+		            let payload: [String: String] = ["access_token": result.tokenCacheStoreItem.accessToken]
+		            client.loginWithProvider("aad", token: payload, completion: completion)
+		        }
+    		}
+	}
 
 
 <!-- Anchors. -->

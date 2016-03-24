@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos"/>
 
 # Use the StorSimple Manager service to manage backup policies (Update 2)
@@ -63,7 +63,7 @@ Add a backup policy to automatically schedule your backups. Perform the followin
 
 ![Video available](./media/storsimple-manage-backup-policies-u2/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to create a local or cloud backup policy, click [here](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+To watch a video that demonstrates how to create a local or cloud backup policy, click [here](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Add or modify a schedule
@@ -94,4 +94,4 @@ Perform the following steps in the Azure classic portal to create a custom backu
 
 ## Next steps
 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

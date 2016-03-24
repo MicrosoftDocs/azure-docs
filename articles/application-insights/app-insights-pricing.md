@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Manage pricing and quota for Application Insights
@@ -67,7 +67,7 @@ At any time, you can switch to the 30 day free Premium trial. This gives you the
 * You can also inspect individual data points at source during debugging:
  * If you run your app in debug mode in Visual Studio, the data points are logged in the Output window. 
  * To see client data points, open your browser's debugging pane (usually F12) and open the network tab.
-
+* The data rate is (by default) reduced by [adaptive sampling](app-insights-sampling). This means that, as usage of your app increases, the telemetry rate won't increase as much as you might expect.
 
 ### Overage
 
@@ -85,6 +85,8 @@ The chart at the bottom of the pricing blade shows your application's data point
 ![At the bottom of the pricing blade](./media/app-insights-pricing/03-allocation.png)
 
 Click the chart for more detail, or drag across it and click (+) for the detail of a time range.
+
+The chart shows the volume of data that arrives at the Application Insights service, after [sampling](app-insights-sampling).
 
 
 ## Data rate
@@ -112,17 +114,13 @@ If throttling occurs, you'll see a notification warning that this has happened.
 * Open Settings/Quota and Pricing to see the Data Volume chart.
 * Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
 
-*How can I reduce the amount of data my app sends?*
-
-* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search. From ASP.NET SDK 2.0.0-beta3, adaptive sampling is enabled by default.
-* [Switch off telemetry collectors](app-insights-configuration-with-applicationinsights-config.md) that you don't need.
-
 
 ### Tips for reducing your data rate
 
 If you encounter the throttling limits, here are some things you can do:
 
 * Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search.
+* [Limit the number of Ajax calls that can be reported](app-insights-javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
 * Switch off collection modules you don't need by [editing ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). For example, you might decide that performance counters or dependency data are inessential.
 * Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
@@ -138,10 +136,21 @@ If you encounter the throttling limits, here are some things you can do:
 Your pricing tier determines how long data is kept in the portal, and therefore how far back you can set the time ranges.
 
 
-* Raw data points (that is, instances that you can inspect in Diagnostic Search): between 7 and 30 days.
-* Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.
+* Raw data points (that is, instances that you can inspect in Diagnostic Search): between 7 days.
+* Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for 90 days.
 
 
+## Sampling
+
+[Sampling](app-insights-sampling.md) is a method of reducing the volume of telemetry retained by your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts. Sampling helps you to keep within your monthly quota.
+
+There are several forms of sampling. We recommend [adaptive sampling](app-insights-sampling.md), which automatically adjusts to the volume of telemetry that your app sends. It operates in the SDK in your web app, so that the telemetry traffic on the network is reduced. You can use it if your web app framework is .NET: just install the latest (beta) version of the SDK.
+
+As an alternative, you can set *ingestion sampling* on the Quotas + pricing blade. This form of sampling operates at the point where telemetry from your app enters the Application Insights service. It doesn't affect the volume of telemetry sent from your app, but it reduces the volume retained by the service.
+
+![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-sampling/04.png)
+
+Sampling is an effective way to reduce charges and stay within your monthly quota. The sampling algorithm retains related items of telemetry, so that, for example, when you use Search, you can find the request related to a particular exception. The algorithm also retains correct counts, so that you see the correct values in Metric Explorer for request rates, exception rates, and other counts.
 
 
 ## Review the bill for your subscription to Azure

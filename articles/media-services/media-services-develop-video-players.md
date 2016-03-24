@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,6 @@
 ##Overview
 
 Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. This topic also provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Azure Media Services.
-
 
 ##Azure Media Player
 
@@ -34,7 +33,7 @@ For more information:
 
 - [Azure Media Player](http://aka.ms/ampinfo)
 - [Azure Media Player Documentation](http://aka.ms/ampdocs) 
-- [Azure Media Player Getting Started Blog](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
+- [Azure Media Player Getting Started Blog](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Sign up to stay up to date with the latest from Azure Media Player](http://aka.ms/ampsignup)
 - [Add new feature requests, ideas, feedback](http://aka.ms/ampuservoice ) 
 

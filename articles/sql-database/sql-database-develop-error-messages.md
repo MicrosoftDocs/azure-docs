@@ -1,24 +1,25 @@
-﻿<properties 
-	pageTitle="Error messages for SQL Database client programs"
-	description="For each error, this gives the numeric ID and the textual message. Feel free to cross-reference your own preferred friendlier error message text if you see fit."
+<properties
+	pageTitle="SQL error codes - database connection error | Microsoft Azure"
+	description="Learn about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. "
+	keywords="sql error code,access sql,database connection error,sql error codes"
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/06/2015" 
-	ms.author="genemi"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/22/2016"
+	ms.author="annemill"/>
 
 
-# Error messages for SQL Database client programs
+# SQL error codes for SQL Database client applications: Database connection error and other issues
 
 
 <!--
@@ -28,25 +29,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-This topic lists several categories of error messages. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server.
+This article lists SQL error codes for SQL Database client applications, including database connection errors, transient errors (also called transient faults), resource governance errors, database copy issues, elastic pool, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server.
 
-
-In your client program you have the option of providing your user with an alternative message customized by you, for any given error.
-
-
-> [AZURE.TIP] Of extra importance is the following section about [*transient fault* errors](#bkmk_connection_errors).
-
-
+In your client application for any given error you can provide your user with a message you customize.
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## Transient faults, Connection-Loss, and other temporary errors
+## Database connection errors, transient errors, and other temporary errors
 
-The following table covers the connection-loss errors, and other transient errors, that you might encounter while working over the Internet with Azure SQL Database.
+The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database.
 
 
-### Most common transient faults
+### Most common database connection errors and transient fault errors
 
 
 Transient fault errors typically manifest as one of the following error messages from your client programs:
@@ -64,13 +59,13 @@ Transient fault errors should prompt your client program to run *retry logic* th
 
 - [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-- [Actions to fix connection errors and transient faults in SQL Database](sql-database-connectivity-issues.md)
+- [Actions to fix connection errors and transient errors in SQL Database](sql-database-connectivity-issues.md)
 
 
-### Transient fault error numbers
+### Transient fault error codes
 
 
-| Error number | Severity | Description |
+| Error code | Severity | Description |
 | ---: | ---: | :--- |
 | 4060 | 16 | Cannot open database "%.&#x2a;ls" requested by the login. The login failed. |
 |40197|17|The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You will receive this error, when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) embedded within the message of error 40197 provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting to your SQL Database server will automatically connect you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again.|
@@ -89,7 +84,7 @@ Transient fault errors should prompt your client program to run *retry logic* th
 The following table covers the various errors you can encounter while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
 
 
-|Error number|Severity|Description|
+|Error code|Severity|Description|
 |---:|---:|:---|
 |40635|16|Client with IP address '%.&#x2a;ls' is temporarily disabled.|
 |40637|16|Create database copy is currently disabled.|
@@ -126,7 +121,7 @@ The following table covers the errors caused by excessive use of resources while
 - [Azure SQL Database resource limits](sql-database-resource-limits.md)
 
 
-|Error number|Severity|Description|
+|Error code|Severity|Description|
 |---:|---:|:---|
 |10928|20|Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-resource-limits.md). |
 |10929|20|Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-resource-limits.md).|
@@ -144,16 +139,48 @@ For additional discussion of resource governance and associated errors, see:
 - [Azure SQL Database resource limits](sql-database-resource-limits.md).
 
 
-
 <a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
+
+## Elastic pool errors
+
+Related topics:
+
+* [Create an elastic database pool (C#)](sql-database-elastic-pool-create-csharp.md) 
+* [Manage an elastic database pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
+* [Create an elastic database pool (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
+* [Monitor and manage an elastic database pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+
+| ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| 1132 | EX_RESOURCE | The elastic pool has reached its storage limit. The storage usage for the elastic pool cannot exceed (%d) MBs. | Elastic pool space limit in MBs. | Attempting to write data to a database when the storage limit of the elastic pool has been reached. | Please consider increasing the DTUs of the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool. |
+| 10929 | EX_USER | The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) for assistance. Otherwise, please try again later. | DTU min per database; DTU max per database | The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit. | Please consider increasing the DTUs of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
+| 40844 | EX_USER | Database '%ls' on Server '%ls' is a '%ls' edition database in an elastic pool and cannot have a continuous copy relationship. | database name, database edition, server name | A StartDatabaseCopy command is issued for a non-premium db in an elastic pool. | Coming soon |
+| 40857 | EX_USER | Elastic pool not found for server: '%ls', elastic pool name: '%ls'. | name of server; elastic pool name | Specified elastic pool does not exist in the specified server. | Please provide a valid elastic pool name. |
+| 40858 | EX_USER | Elastic pool '%ls' already exists in server: '%ls' | elastic pool name, server name | Specified elastic pool already exists in the specified logical server. | Provide new elastic pool name. |
+| 40859 | EX_USER | Elastic pool does not support service tier '%ls'. | elastic pool service tier | Specified service tier is not supported for elastic pool provisioning. | Provide the correct edition or leave service tier blank to use the default service tier. |
+| 40860 | EX_USER | Elastic pool '%ls' and service objective '%ls' combination is invalid. | elastic pool name; service level objective name | Elastic pool and service objective can be specified together only if service objective is specified as 'ElasticPool'. | Please specify correct combination of elastic pool and service objective. |
+| 40861 | EX_USER | The database edition '%.*ls' cannot be different than the elastic pool service tier which is '%.*ls'. | database edition, elastic pool service tier | The database edition is different than the elastic pool service tier. | Please do not specify a database edition which is different than the elastic pool service tier.  Note that the database edition does not need to be specified. |
+| 40862 | EX_USER | Elastic pool name must be specified if the elastic pool service objective is specified. | None | Elastic pool service objective does not uniquely identify an elastic pool. | Please specify the elastic pool name if using the elastic pool service objective. |
+| 40864 | EX_USER | The DTUs for the elastic pool must be at least (%d) DTUs for service tier '%.*ls'. | DTUs for elastic pool; elastic pool service tier. | Attempting to set the DTUs for the elastic pool below the minimum limit. | Please retry setting the DTUs for the elastic pool to at least the minimum limit. |
+| 40865 | EX_USER | The DTUs for the elastic pool cannot exceed (%d) DTUs for service tier '%.*ls'. | DTUs for elastic pool; elastic pool service tier. | Attempting to set the DTUs for the elastic pool above the maximum limit. | Please retry setting the DTUs for the elastic pool to no greater than the maximum limit. |
+| 40867 | EX_USER | The DTU max per database must be at least (%d) for service tier '%.*ls'. | DTU max per database; elastic pool service tier | Attempting to set the DTU max per database below the supported limit. | Please consider using the elastic pool service tier that supports the desired setting. |
+| 40868 | EX_USER | The DTU max per database cannot exceed (%d) for service tier '%.*ls'. | DTU max per database; elastic pool service tier. | Attempting to set the DTU max per database beyond the supported limit. | Please consider using the elastic pool service tier that supports the desired setting. |
+| 40870 | EX_USER | The DTU min per database cannot exceed (%d) for service tier '%.*ls'. | DTU min per database; elastic pool service tier. | Attempting to set the DTU min per database beyond the supported limit. | Please consider using the elastic pool service tier that supports the desired setting. |
+| 40873 | EX_USER | The number of databases (%d) and DTU min per database (%d) cannot exceed the DTUs of the elastic pool (%d). | Number databases in elastic pool; DTU min per database; DTUs of elastic pool. | Attempting to specify DTU min for databases in the elastic pool that exceeds the DTUs of the elastic pool. | Please consider increasing the DTUs of the elastic pool, or decrease the DTU min per database, or decrease the number of databases in the elastic pool. |
+| 40877 | EX_USER | An elastic pool cannot be deleted unless it does not contain any databases. | None | The elastic pool contains one or more databases and therefore cannot be deleted. | Please remove databases from the elastic pool in order to delete it. |
+| 40881 | EX_USER | The elastic pool '%.*ls' has reached its database count limit.  The database count limit for the elastic pool cannot exceed (%d) for an elastic pool with (%d) DTUs. | Name of elastic pool; database count limit of elastic pool;e DTUs for resource pool. | Attempting to create or add database to elastic pool when the database count limit of the elastic pool has been reached. | Please consider increasing the DTUs of the elastic pool if possible in order to increase its database limit, or remove databases from the elastic pool. |
+| 40889 | EX_USER | The DTUs or storage limit for the elastic pool '%.*ls' cannot be decreased since that would not provide sufficient storage space for its databases. | Name of elastic pool. | Attempting to decrease the storage limit of the elastic pool below its storage usage. | Please consider reducing the storage usage of individual databases in the elastic pool or remove databases from the pool in order to reduce its DTUs or storage limit. |
+| 40891 | EX_USER | The DTU min per database (%d) cannot exceed the DTU max per database (%d). | DTU min per database; DTU max per database. | Attempting to set the DTU min per database higher than the DTU max per database. | Please ensure the DTU min per databases does not exceed the DTU max per database. |
+| TBD | EX_USER | The storage size for an individual database in a elastic pool cannot exceed the max size allowed by '%.*ls' service tier elastic pool. | elastic pool service tier | The max size for the database exceeds the max size allowed by the elastic pool service tier. | Please set the max size of the database within the limits of the max size allowed by the elastic pool service tier. |
+
 
 ## General errors
 
 
-The following table lists all the general errors that do not fall into any previous category.
+The following table lists all the general errors that don't fall into any previous category.
 
 
-|Error number|Severity|Description|
+|Error code|Severity|Description|
 |---:|---:|:---|
 |15006|16|<AdministratorLogin> is not a valid name because it contains invalid characters.|
 |18452|14|Login failed. The login is from an untrusted domain and cannot be used with Windows authentication.%.&#x2a;ls (Windows logins are not supported in this version of SQL Server.)|
@@ -225,4 +252,3 @@ The following table lists all the general errors that do not fall into any previ
 
 - [Azure SQL Database General Limitations and Guidelines](sql-database-general-limitations.md)
 - [Azure SQL Database resource limits](sql-database-resource-limits.md)
-

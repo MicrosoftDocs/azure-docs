@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.workload="NA"
+   ms.date="02/29/2016"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device (Update 2)
@@ -82,7 +82,7 @@ Before you begin, make sure that:
 
 - You have your Microsoft Azure storage account with access credentials.
 
-- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](http://azure.microsoft.com/pricing/enterprise-agreement/).
+- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - You have access to terminal emulation software such as PuTTY.
 
@@ -240,7 +240,7 @@ Perform the following steps in the Management Portal to create an on-demand manu
 
 ## Next steps
 
-Configure a [virtual device](storsimple-virtual-device.md).
+- Configure a [virtual device](storsimple-virtual-device.md).
 
-Use the [StorSimple Manager service](storsimple-manager-service-administration.md) to manage your StorSimple device.
+- Use the [StorSimple Manager service](storsimple-manager-service-administration.md) to manage your StorSimple device.
  

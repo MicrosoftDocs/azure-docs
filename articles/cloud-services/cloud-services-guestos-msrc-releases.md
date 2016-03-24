@@ -20,6 +20,37 @@
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
 
+
+## February Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-009 | [3134220] | Cumulative Security Update for Internet Explorer | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-013 | [3134811] | Security Update to Windows Journal to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-014 | [3134228] | Security update to Microsoft Windows to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-016 | [3136041] | Security Update to WebDAV to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-018 | [3136082] | Security Update for Windows Kernel-Mode Driver to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-019 | [3137893] | Security Update for .NET Framework to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-021 | [3133043] | Security Update for NPS RADIUS Server to Address Denial of Service | 4.29, 3.36, 2.48 | February 9, 2016 |
+| Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.29, 3.36 | February 9, 2016 |
+| Re-Release - MS15-101 | [3089662] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| Re-Release - MS15-118 | [3104507] | Security Updates for .NET Framework to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| Re-Release - MS15-128 | [3104503] | Security Updates for Microsoft Graphics Component to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+
+## January Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-001 | [3124903] | Cumulative Security Update for Internet Explorer | 4.28, 3.35, 2.47 | January 12, 2016 |
+| MS16-003 | [3125540] | Cumulative Security Update for JScript and VBScript | 2.47 | January 12, 2016 |
+| MS16-005 | [3124584] | Security Update for Windows Kernel-Mode Drivers to Address Remote Code Execution | 4.28, 3.35, 2.47 | January 12, 2016 |
+| MS16-007 | [3124901] | Security Update for Microsoft Windows to Address Remote Code Execution | 4.28, 3.35, 2.47 | January 12, 2016 |
+| MS16-008 | [3124605] | Security Update for Kernel to Address Elevation of Privilege | 4.28, 3.35, 2.47 | January 12, 2016 |
+| Microsoft Security Advisory Revision | [2755801] | Update for Vulnerabilities in Adobe Flash Player in Internet Explorer (Package KB: TBD) -  Advisory Placeholder | 4.28, 3.35 | January 12, 2016 |
+| Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.28, 3.35 | January 12, 2016 |
+| Microsoft Security Advisory | [3123479] | Deprecation of SHA-1 Hashing Algorithm for Microsoft Root Certificate Program | 4.28, 3.35, 2.47 | January 12, 2016 |
+| Microsoft Security Advisory | [2736233] | Updates for ActiveX Kill Bits | 4.28, 3.35, 2.47 | January 12, 2016 |
+
 ## December Guest OS
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
@@ -211,6 +242,27 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 
+[3134220]: http://support.microsoft.com/kb/3134220
+[3134811]: http://support.microsoft.com/kb/3134811
+[3134228]: http://support.microsoft.com/kb/3134228
+[3136041]: http://support.microsoft.com/kb/3136041
+[3136082]: http://support.microsoft.com/kb/3136082
+[3137893]: http://support.microsoft.com/kb/3137893
+[3133043]: http://support.microsoft.com/kb/3133043
+[3109853]: http://support.microsoft.com/kb/3109853
+[3089662]: http://support.microsoft.com/kb/3089662
+[3104507]: http://support.microsoft.com/kb/3104507
+[3104503]: http://support.microsoft.com/kb/3104503
+
+[3124903]: http://support.microsoft.com/kb/3124903
+[3125540]: http://support.microsoft.com/kb/3125540
+[3124584]: http://support.microsoft.com/kb/3124584
+[3124901]: http://support.microsoft.com/kb/3124901 
+[3124605]: http://support.microsoft.com/kb/3124605
+[2755801]: http://support.microsoft.com/kb/2755399
+[3109853]: http://support.microsoft.com/kb/3109853
+[3123479]: http://support.microsoft.com/kb/3123479 
+[2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
 [3116178]: http://support.microsoft.com/kb/3116178

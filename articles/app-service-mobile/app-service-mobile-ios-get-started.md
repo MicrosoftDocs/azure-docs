@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 #Create an iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Overview
 
@@ -30,7 +28,7 @@ This tutorial shows you how to use a cloud-based backend service ([Azure Mobile 
 
 To complete this tutorial, you need the following:
 
-* An [active Azure account](http://azure.microsoft.com/pricing/free-trial/)
+* An [active Azure account](https://azure.microsoft.com/pricing/free-trial/)
 
 * A PC with [Visual Studio Community 2013] or newer
 

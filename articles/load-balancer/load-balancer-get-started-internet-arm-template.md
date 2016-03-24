@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/18/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Get started creating an Internet facing load balancer using an ARM template
@@ -36,11 +36,11 @@ The sample template available in the public repository uses a parameter file con
 
 To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../../articles/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
-2. Run the **New-AzureRmResourceGroup** cmdlet to create a resource group using the template.
+2. Run the **New-AzureRmResourceGroupDeployment** cmdlet to create a resource group using the template.
 
-		New-AzureRmResourceGroup -Name TestRG -Location uswest `
+		New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'	
 
@@ -48,7 +48,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
 To deploy the ARM template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
 		azure config mode arm
@@ -64,7 +64,7 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
 
 ## Next steps
 
-[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 

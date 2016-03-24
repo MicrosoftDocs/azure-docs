@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
-	ms.author="erikre"/>
+	ms.date="01/12/2016" 
+	ms.author="tdykstra"/>
 
 # Manage a web app in Azure App Service
 
@@ -65,8 +65,8 @@ While your web app is running, you want to make sure it is available, and that i
  
 ### Backups
 
-- Set [automatic backups](web-sites-backup.md) of your web app. Learn more about backups in [this video](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Learn about the options for [database recovery](../sql-database-business-continuity.md) in Azure SQL Database.
+- Set [automatic backups](web-sites-backup.md) of your web app. Learn more about backups in [this video](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
+- Learn about the options for [database recovery](../sql-database/sql-database-business-continuity.md) in Azure SQL Database.
 
 ### Troubleshooting
 
@@ -87,8 +87,8 @@ Consider using [staged deployment](web-sites-staged-publishing.md). This option 
 
 If you use Visual Studio Team Services, you can set up continuous deployment from source control:
 
-- [Using Team Foundation Version Control (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
-- [Using Git](../cloud-services-continuous-delivery-use-vso-git.md)
+- [Using Team Foundation Version Control (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [Using Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

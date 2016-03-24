@@ -67,11 +67,9 @@ In the example, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, 
 
 Verify that you have the following items below before beginning your configuration.
 
-- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell cmdlets (1.0 or later). You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). This documentation was written for PowerShell 1.0 or later. The necessary cmdlets for this configuration are not present in earlier versions. 
-
-- If you aren't familiar with using Azure Resource Manager and PowerShell, please see [this article](../articles/powershell-azure-resource-manager.md) for more information.
+- Azure PowerShell cmdlets (1.0 or later). The necessary cmdlets for this configuration are not present in versions earlier than 1.0. You can download and install this version from the Windows PowerShell section of the [Download page](https://azure.microsoft.com/downloads/). If you aren't familiar with installing and configuring PowerShell, please see [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information. 
 
 ### Configuration steps
 

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Debug your application in Visual Studio | Microsoft Azure"
-   description="Improve the reliability and performance of your services by developing and debugging them in Visual Studio and a local development cluster."
+   description="Improve the reliability and performance of your services by developing and debugging them in Visual Studio on a local development cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # Debug your Service Fabric application by using Visual Studio

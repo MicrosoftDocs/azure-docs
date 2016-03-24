@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/01/2016" 
     ms.author="ddove;sidneyh"/>
 
 # Elastic Database tools glossary
@@ -25,7 +25,7 @@ These terms are used in [Adding a shard using Elastic Database tools](sql-databa
 
 **Database**: An Azure SQL database. 
 
-**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. Compare to **Multi-Shard Query**.
+**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. See [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md). Compare to **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
 
 **Global shard map**: The map between sharding keys and their respective shards within a **shard set**. The global shard map is stored in the **shard map manager**. Compare to **local shard map**.
 

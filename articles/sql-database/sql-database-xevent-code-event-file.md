@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/09/2015" 
+	ms.date="03/15/2016" 
 	ms.author="genemi"/>
 
 
@@ -41,7 +41,7 @@ This topic presents a two-phase code sample:
 ## Prerequisites
 
 
-- An Azure account and subscription. You can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Any database you can create a table in.

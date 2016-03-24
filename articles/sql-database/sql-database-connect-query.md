@@ -2,10 +2,10 @@
 	pageTitle="Connect to SQL Database with a C# query | Microsoft Azure"
 	description="Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio."
 	services="sql-database"
-	keywords="c# database query, c# query, connect to database"
+	keywords="c# database query, c# query, connect to database, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -36,7 +36,7 @@ This article describes every step for people who are new to Azure SQL Database, 
 To run the C# query code sample, you must have:
 
 
-- An Azure account and subscription. You can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+- An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - An **AdventureWorksLT** demonstration database on the Azure SQL Database service.
@@ -46,7 +46,7 @@ To run the C# query code sample, you must have:
 - Visual Studio 2013 update 4 (or later). Microsoft now provides Visual Studio Community for *free*.
  - [Visual Studio Community, download](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [More options for free Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Or, let the [step](#InstallVSForFree) later in this topic describe how the [Azure Portal](http://portal.azure.com/) guides you to the install of Visual Studio.
+ - Or, let the [step](#InstallVSForFree) later in this topic describe how the [Azure Portal](https://portal.azure.com/) guides you to the install of Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ To run the C# query code sample, you must have:
 If you need to install Visual Studio, you can:
 
 - Install Visual Studio Community for free by navigating your browser to Visual Studio product webpages that provide free downloads and other options; or
-- Let the [Azure Portal](http://portal.azure.com/) guide you to the download webpage, which described next.
+- Let the [Azure Portal](https://portal.azure.com/) guide you to the download webpage, which described next.
 
 
 ### Visual Studio through the Azure Portal
 
 
-1. Login through the [Azure Portal](http://portal.azure.com/), http://portal.azure.com/.
+1. Login through the [Azure Portal](https://portal.azure.com/), http://portal.azure.com/.
 
 2. Click **BROWSE* ALL** > **SQL databases**. A blade opens that searches for databases.
 
@@ -127,7 +127,7 @@ Our C# sample uses the .NET Framework assembly **System.Configuration.dll**, so 
 ## Step 4: Get the connection string
 
 
-Use the [Azure Portal](http://portal.azure.com/) to copy the connection string needed to connect to the SQL database.
+Use the [Azure Portal](https://portal.azure.com/) to copy the connection string needed to connect to the SQL database.
 
 Your first use will be to connect Visual Studio to your Azure SQL Database **AdventureWorksLT** database.
 
@@ -316,7 +316,7 @@ We try to keep the C# sample short. Yet we added code to read a config file to h
 Your client C# program cannot connect to SQL Database until the IP address of the client computer has been added in the SQL Database firewall. Your program will fail with a handy error message that states the necessary IP address.
 
 
-You can use the [Azure Portal](http://portal.azure.com/) to add the IP address.
+You can use the [Azure Portal](https://portal.azure.com/) to add the IP address.
 
 
 

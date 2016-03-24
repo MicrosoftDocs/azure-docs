@@ -1,6 +1,6 @@
 <properties writer="kathydav" editor="tysonn" manager="timlt" />
 
-1. Sign in to the [Azure portal](http://manage.windowsazure.com). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you don't have a subscription yet.
+1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  Check out the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) offer if you don't have a subscription yet.
 
 2. On the command bar at the bottom of the window, click **New**.
 
@@ -12,15 +12,16 @@
 
 5. On the first **Virtual machine configuration** page:
 
-	- Type a **Virtual Machine Name**, such as "testlinuxvm".
-	- Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from. The size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines-size-specs.md).
+	- Type a **Virtual Machine Name**, such as "testlinuxvm". The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.
+
+	- Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from. The size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines-linux-sizes.md).
 	- Type a **New User Name**, or accept the default, **azureuser**. This name is added to the Sudoers list file.
 	- Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).
 
 6. On the next **Virtual machine configuration** page:
 
 	- Use the default **Create a new cloud service**.
-	- In the **DNS Name** box, type a valid DNS name to use as part of the address, such as "testlinuxvm".
+	- In the **DNS Name** box, type a unique DNS name to use as part of the address, such as "testlinuxvm".
 	- In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
 	- Under **Endpoints**, keep the SSH endpoint. You can add others now, or add, change, or delete them after the virtual machine is created.
 

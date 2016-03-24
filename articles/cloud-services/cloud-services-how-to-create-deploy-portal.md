@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to create and deploy a cloud service | Microsoft Azure"
-	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure. These examples use the Azure portal."
+	description="Learn how to create and deploy a cloud service using the Azure portal."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # How to create and deploy a cloud service
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 - [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 The Azure portal provides two ways for you to create and deploy a cloud service: *Quick Create* and *Custom Create*.
 
@@ -46,7 +46,7 @@ Three components are required to deploy an application as a cloud service in Azu
 You can learn more about these and how to create a package [here](cloud-services-model-and-package.md).
 
 ## Prepare your app
-Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). The Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Azure Downloads](http://azure.microsoft.com/downloads/) page, in the language in which you prefer to develop your application code.
+Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). The Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Azure Downloads](https://azure.microsoft.com/downloads/) page, in the language in which you prefer to develop your application code.
 
 Three cloud service features require special configurations before you export a service package:
 
@@ -60,16 +60,16 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 
 ## Before you begin
 
-- If you haven't installed the Azure SDK, click **Install Azure SDK** to open the [Azure Downloads page](http://azure.microsoft.com/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
+- If you haven't installed the Azure SDK, click **Install Azure SDK** to open the [Azure Downloads page](https://azure.microsoft.com/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
 
 - If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. [You can upload the certificates to Azure]() as you create and deploy the cloud service.
 
 - If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure classic portal, on the **Affinity Groups** page.
 
 
-## Step 3: Create a cloud service and upload the deployment package
+## Create and deploy
 
-1. Log in to the [Azure portal][].
+1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **New > Compute**, and then scroll down to and click **Cloud Service**.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)

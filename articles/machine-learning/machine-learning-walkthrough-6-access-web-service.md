@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
 # Walkthrough Step 6: Access the Azure Machine Learning web service
 
-This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
+This is the last step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
 1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -31,13 +31,18 @@ This is the last step of the walkthrough, [Developing a Predictive Solution with
 
 ----------
 
-For a web service to be useful, users need to be able to send data to it and receive results. The web service is an Azure web service that can receive and return data in one of two ways:  
+In the previous step in this walkthrough we deployed a web service that uses our credit risk prediction model. 
+Now users need to be able to send data to it and receive results. 
 
--	**Request/Response** - The user sends one or more rows of credit data to the service by using an HTTP protocol, and the service responds with a set of results.
--	**Batch Execution** - The user sends to the service the URL of an Azure blob that contains one or more rows of credit data. The service stores the results in another blob and returns the URL of that container.  
+The web service is an Azure web service that can receive and return data using REST APIs in one of two ways:  
 
-On the **DASHBOARD** tab for the web service, there are two links to information that will help a developer write code to access this service. Click the **API help page** link on the **REQUEST/RESPONSE** row, and a page opens that contains sample code to use the service's request/response protocol. Similarly, the link on the **BATCH EXECUTION** row provides example code for making a batch request to the service.  
+-	**Request/Response** - The user sends one or more rows of credit data to the service by using an HTTP protocol, and the service responds with one or more sets of results.
+-	**Batch Execution** - The user stores one or more rows of credit data in an Azure blob and then sends the blob location to the service. The service scores all the rows of data in the input blob, stores the results in another blob, and returns the URL of that container.  
 
-The API help page includes samples for R, C#, and Python programming languages.
+The quickest and easiest way to access the web service is through the Web App Templates available in the [Azure Web App Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
+These web app templates can build a custom web app that knows your web service's input data and what it will return. All you need to do is provide access to your web service and data, and the template does the rest.
 
-For more information about how to access and use the web service, see [How to consume an Azure Machine Learning web service that has been published from a Machine Learning experiment](machine-learning-consume-web-services.md).
+For more information on using the web app templates, see [Consume an Azure Machine Learning web service with a web app template](machine-learning-consume-web-service-with-web-app-template.md).
+
+You can also develop a custom application to access the web service using starter code provided for you in R, C#, and Python programming languages.
+You can find complete details in [How to consume an Azure Machine Learning web service that has been published from a Machine Learning experiment](machine-learning-consume-web-services.md).

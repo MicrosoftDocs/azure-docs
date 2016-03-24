@@ -12,23 +12,24 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="12/16/2015"
+    ms.date="03/23/2016"
     ms.author="elizapo" />
 
 # What's coming in Azure RemoteApp
 
 We are always working to improve Azure RemoteApp based on your feedback. Here are rough time lines for future feature availability.
 
-|Feature|Jan-March 2016|April-June 2016|
+|Feature|April-June 2016|July-Sept 2016|
 |-----------|-------|-------|
-|Azure Remote App available in both the [Azure classic portal](http://manage.windowsazure.com) and [Azure portal](http://portal.azure.com) |X | |
-|Windows 10 Universal Application for Azure RemoteApp Preview|X| |
-|Ability to publish individual applications to specific users - **Public Preview** ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))|X | |
-|Windows client redistributable MSI package ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| X| |
+|Azure Remote App available in both the [Azure classic portal](http://manage.windowsazure.com) and [Azure portal](https://portal.azure.com) |X | |
+|Windows 10 Universal Application with Continuum for Azure RemoteApp - Preview|X| |
+|Ability to publish individual applications to specific users - **Private Preview** ([feedback](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
+|Windows client redistributable MSI package ([feedback](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
 |HTML5-based client for Azure RemoteApp|X ||
 |Azure Resource Manager (ARM) support||X|
+|Azure v2 resource support| |X|
 |Cloud Solution Provider (CSP)||X|
-|Availability in India region|X||
+|Availability in India region||X|
 |Availability in UK region||X|
 
 

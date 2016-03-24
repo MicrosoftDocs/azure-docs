@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="03/02/2016" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -44,10 +44,12 @@ The Azure Machine Learning Recommendations API can be divided into the following
 ##2. Limitations
 
 - The maximum number of models per subscription is 10.
+- The maximum number of builds per model is 20.
 - The maximum number of items that a catalog can hold is 100,000.
 - The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
 - The maximum size of data that can be sent in POST (e.g. import catalog data, import usage data) is 200MB.
 - The number of transactions per second for a recommendation model build that is not active is ~2TPS. A recommendation model build that is active can hold up to 20TPS.
+- The maximum number of items that can be asked for when getting recommendations is 150.
 
 ##3. APIs - general information
 
@@ -802,16 +804,24 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 
-
-
 ##7. Model Business Rules
+
 These are the types of rules supported:
-- <strong>BlockList</strong> - BlockList enables you to provide a list of items that you do not want to return in the recommendation results.
+- <strong>BlockList</strong> - BlockList enables you to provide a list of items that you do not want to return in the recommendation results. 
+
 - <strong>FeatureBlockList</strong> - Feature BlockList enables you to block items based on the values of its features.
+
+*Do not send more than 1000 items in a single blocklist rule or your call may timeout. If you need to block more than 1000 items, you can make several blocklist calls.*
+
 - <strong>Upsale</strong> - Upsale enables you to enforce items to return in the recommendation results.
+
 - <strong>WhiteList</strong> - White List enables you to only suggest recommendations from a list of items.
+
 - <strong>FeatureWhiteList</strong> - Feature White List enables you to only recommend items that have specific feature values.
+
 - <strong>PerSeedBlockList</strong> - Per Seed Block List enables you to provide per item a list of items that cannot be returned as recommendation results.
+
+
 
 
 ###7.1.	Get Model Rules
@@ -1160,12 +1170,12 @@ HTTP Status code: 200
 
 The response includes one entry per catalog item. Each entry has the following data:
 
-- `feed/entry/content/properties/ExternalId` – Catalog item external ID, the one provided by the customer.
 - `feed/entry/content/properties/InternalId` – Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
 - `feed/entry/content/properties/Name` – Catalog item name.
-- `feed/entry/content/properties/Category` – Catalog item category.
-- `feed/entry/content/properties/Description` – Catalog item description.
-- `feed/entry/content/properties/Metadata` – Catalog item metadata.
+- `feed/entry/content/properties/Rating` –  (for future use)
+- `feed/entry/content/properties/Reasoning` –  (for future use)
+- `feed/entry/content/properties/Metadata` –  (for future use)
+- `feed/entry/content/properties/FormattedRating` – (for future use)
 
 OData XML
 
@@ -2469,7 +2479,7 @@ Get recommendations of the active build of type "Recommendation" or "Fbt" based 
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | itemIds | Comma-separated list of the items to recommend for. <br>If the active build is of type FBT then you can send only one item. <br>Max length: 1024 |
-| numberOfResults | Number of required results |
+| numberOfResults | Number of required results <br> Max: 150 |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |
 
@@ -2649,7 +2659,7 @@ Get recommendations of a specific build of type "Recommendation" or "Fbt".
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | itemIds | Comma-separated list of the items to recommend for. <br>If the active build is of type FBT then you can send only one item. <br>Max length: 1024 |
-| numberOfResults | Number of required results |
+| numberOfResults | Number of required results <br> Max: 150  |
 | includeMetatadata | Future use, always false
 | buildId | the build id to use for this recommendation request |
 | apiVersion | 1.0 |
@@ -2679,7 +2689,7 @@ Get recommendations of the active build of type "Fbt" based on a seed (input) it
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | itemId | Item to recommend for. <br>Max length: 1024 |
-| numberOfResults | Number of required results |
+| numberOfResults | Number of required results <br>Max: 150 |
 | minimalScore | Minimal score that a frequent set should have in order to be included in the returned results |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |
@@ -2770,7 +2780,7 @@ Get recommendations of a specific build of type "Fbt".
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | itemId | Item to recommend for. <br>Max length: 1024 |
-| numberOfResults | Number of required results |
+| numberOfResults | Number of required results <br>Max: 150 |
 | minimalScore | Minimal score that a frequent set should have in order to be included in the returned results |
 | includeMetatadata | Future use, always false |
 | buildId | the build id to use for this recommendation request |
@@ -2845,7 +2855,7 @@ Notes:
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | userId  | Unique identifier of the user |
-| itemIds | Comma-separated list of the items to recommend for. Max length: 1024 |
+| itemsIds | Comma-separated list of the items to recommend for. Max length: 1024 |
 | numberOfResults | Number of required results |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |

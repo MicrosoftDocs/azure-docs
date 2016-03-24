@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Active Directory Audit Report Events | Microsoft Azure"
+   pageTitle="Azure Active Directory audit report events | Microsoft Azure"
    description="Audited events that are available for viewing and downloading from your Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
-# Azure Active Directory Audit Report Events
+# Azure Active Directory audit report events
 
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
@@ -120,4 +120,4 @@ StrongAuthenticationRequirement | If Multi-Factor Authentication is enforced, en
 StrongAuthenticationUserDetails | The user’s phone number, alternative phone number and email address used for Multi-Factor Authentication and password reset verification.
 TelephoneNumber                 | The user's telephone number.
 
-Audit records are a required control for many compliance regulations. For customers using the Azure Active Directory Audit Report to meet their compliance regulations, it is recommended that the customer submit a copy of this help topic with the copy of the customer's exported audit report to help explain the report details. If the auditor would like to understand the compliance regulations that Azure currently meets, direct the auditor to the [Compliance page](http://azure.microsoft.com/support/trust-center/compliance/) of the Microsoft Azure Trust Center.
+Audit records are a required control for many compliance regulations. For customers using the Azure Active Directory Audit Report to meet their compliance regulations, it is recommended that the customer submit a copy of this help topic with the copy of the customer's exported audit report to help explain the report details. If the auditor would like to understand the compliance regulations that Azure currently meets, direct the auditor to the [Compliance page](https://azure.microsoft.com/support/trust-center/compliance/) of the Microsoft Azure Trust Center.

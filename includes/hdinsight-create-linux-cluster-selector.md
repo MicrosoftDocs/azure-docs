@@ -6,4 +6,3 @@
 - [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 - [REST API (cURL)](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 - [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-- [Script action](hdinsight-hadoop-customize-cluster-linux.md)

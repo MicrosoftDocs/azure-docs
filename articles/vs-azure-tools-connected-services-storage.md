@@ -91,7 +91,7 @@ happened - WebJob projects](vs-storage-webjobs-what-happened/).
 
      - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [Storage at azure.microsoft.com](http://azure.microsoft.com/services/storage)
+     - [Storage at azure.microsoft.com](https://azure.microsoft.com/services/storage/)
 
-     - [Storage Documentation at azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
+     - [Storage Documentation at azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 

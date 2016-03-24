@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="03/23/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Table design in SQL Data Warehouse #
 SQL Data Warehouse is a massively parallel processing (MPP) distributed database system. It stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By spreading the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.
@@ -59,7 +59,7 @@ SQL Data Warehouse supports the common business data types:
 
 You can identify columns in your data warehouse that contain incompatible types using the following query:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -123,7 +123,7 @@ Partial support:
 
 There are two choices for distributing data in SQL Data Warehouse:
 
-1. Distribute data evenly but randomly 
+1. Distribute data evenly but randomly
 2. Distribute data based on hashing values from a single column
 
 Data distribution is decided at the table level. All tables are distributed. You will assign distribution for each table in your SQL Data Warehouse database.
@@ -138,7 +138,7 @@ Round-Robin distribution is a method of spreading data as evenly as possible acr
 
 Below is an example of round robin distributed table:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +158,7 @@ WITH
 
 This is also an example of a round robin distributed table:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -205,7 +205,7 @@ As you will see below, hash distribution can be very effective for query optimiz
 
 Below is a table that has been hash distributed by ProductKey.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -230,7 +230,7 @@ Table partitions are supported and easy to define.
 
 Example SQL Data Warehouse partitioned `CREATE TABLE` command:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL

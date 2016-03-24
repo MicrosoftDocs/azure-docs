@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Set up a web-based LOB application in a hybrid cloud for testing
@@ -46,7 +46,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the SQL server computer (SQL1).
 3.	Configure the LOB server (LOB1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](https://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Phase 1: Set up the hybrid cloud environment
 
@@ -180,21 +180,6 @@ This is your current configuration.
  
 This environment is now ready for you to deploy your web-based application on LOB1 and test functionality and performance from the Corpnet subnet.
 
-## Additional resources
+## Next steps
 
-[Microsoft Software Architecture Diagrams and Blueprints](http://msdn.microsoft.com/dn630664)
-
-[Hosting-Friendly Web Server Platform (IIS)](http://technet.microsoft.com/library/hh831818)
-
-[Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Azure hybrid cloud test environments](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Azure infrastructure services implementation guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
+- Set up the [production environment](../virtual-machines/virtual-machines-windows-lob-overview.md).

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/10/2016" 
 	ms.author="genemi"/>
 
 
@@ -51,7 +51,7 @@ This section provides links to code sample topics for client programs that run o
 | Language | Short sample | Retry sample | Relational to object |
 | :-- | :-- | :-- | :-- |
 | Node.js | [Tedious](sql-database-develop-nodejs-simple-linux.md) | . | . |
-| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-ubuntu-linux.md) | . | . |
 | Ruby | [FreeTDS, TinyTDS](sql-database-develop-ruby-simple-linux.md) | . | . |
 
 
@@ -86,7 +86,7 @@ This section provides links to code sample topics for client programs that run o
 ## See also
 
 
-- [Downloads for SDKs and tools, for numerous languages and platforms](http://azure.microsoft.com/downloads/#cmd-line-tools)
+- [Downloads for SDKs and tools, for numerous languages and platforms](https://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
 - [List of numeric codes for transient errors](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)

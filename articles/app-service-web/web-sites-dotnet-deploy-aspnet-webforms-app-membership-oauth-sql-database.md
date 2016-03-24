@@ -3,7 +3,7 @@
 	description="This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="Erikre" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
-	ms.author="erikre"/>
+	ms.date="02/29/2016" 
+	ms.author="tdykstra"/>
 
 
 # Create and deploy a secure ASP.NET Web Forms app with Membership, OAuth, and SQL Database to Azure App Service
@@ -788,7 +788,7 @@ Earlier in the tutorial you used code to add users to the canEdit role. An alter
 We are working on a tool that will make managing users and roles much easier.  
 
 ##Next steps
-For more information about ASP.NET Web Forms, see [Learn About ASP.NET Web Forms](http://www.asp.net/web-forms) on the ASP.NET web app and [Microsoft Azure Tutorials and Guides](http://azure.microsoft.com/documentation/services/web-sites/#net).
+For more information about ASP.NET Web Forms, see [Learn About ASP.NET Web Forms](http://www.asp.net/web-forms) on the ASP.NET web app and [Microsoft Azure Tutorials and Guides](https://azure.microsoft.com/documentation/services/web-sites/#net).
 
 This tutorial was based on the MVC tutorial [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) written by Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 

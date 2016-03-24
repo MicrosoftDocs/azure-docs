@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure IoT Hub | Microsoft Azure"
+	pageTitle="Get started with Azure IoT Hub for C# | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure IoT Hub with C#."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -13,10 +13,12 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/14/2015"
+     ms.date="03/22/2016"
      ms.author="dobett"/>
 
-# Tutorial: Get started with Azure IoT Hub
+# Get started with Azure IoT Hub for .NET
+
+[AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 ## Introduction
 
@@ -104,14 +106,6 @@ In this tutorial, you configured a new IoT hub in the portal and then created a 
 - [Process Device-to-Cloud messages][lnk-process-d2c-tutorial] shows how to reliably process telemetry and interactive messages coming from devices.
 - [Uploading files from devices][lnk-upload-tutorial] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
 
-You can find out more about IoT Hub in the following articles:
-
-* [IoT Hub overview][lnk-hub-overview]
-* [IoT Hub developer guide][lnk-hub-dev-guide]
-* [Design your IoT Hub solution][lnk-hub-guidance]
-* [Supported device platforms and languages][lnk-supported-devices]
-* [Azure IoT Developer Center][lnk-dev-center]
-
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
 [2]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub2.png
@@ -126,11 +120,6 @@ You can find out more about IoT Hub in the following articles:
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
-[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md

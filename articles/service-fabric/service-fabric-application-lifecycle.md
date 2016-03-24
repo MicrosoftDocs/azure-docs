@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
-   ms.author="ryanwi; mani-ramaswamy"/>
+   ms.date="01/20/2016"
+   ms.author="ryanwi"/>
 
 
 # Service Fabric application lifecycle
@@ -34,7 +34,7 @@ The service model roles are:
 
 
 ## Develop
-1. A *service developer* develops different types of services using the [Reliable Actors](service-fabric-reliable-actors-introduction.md) or [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md) programming model.
+1. A *service developer* develops different types of services using the [Reliable Actors](service-fabric-reliable-actors-introduction.md) or [Reliable Services](service-fabric-reliable-services-introduction.md) programming model.
 2. A *service developer* declaratively describes the developed service types in a service manifest file consisting of one or more code, configuration, and data packages.
 3. An *application developer* then builds an application using different service types.
 4. An *application developer* declaratively describes the application type in an application manifest by referencing the service manifests of the constituent services and appropriately overriding and parameterizing different configuration and deployment settings of the constituent services.
@@ -46,13 +46,13 @@ See [Get started with Reliable Actors](service-fabric-reliable-actors-get-starte
 
 2. An *operator* uploads the application package to the cluster image store by using the [**CopyApplicationPackage** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) or the [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx). The application package contains the application manifest and the collection of service packages. Service Fabric deploys applications from the application package stored in the image store, which can be an Azure blob store or the Service Fabric system service.
 
-3. The *operator* then provisions the application type in the target cluster from the uploaded application package using the [**ProvisionApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), the  [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx), or the [**Create Application** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+3. The *operator* then provisions the application type in the target cluster from the uploaded application package using the [**ProvisionApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), the  [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx), or the [**Provision an Application** REST operation](https://msdn.microsoft.com/library/azure/dn707672.aspx).
 
-3. After provisioning the application, an *operator* starts the application with the parameters supplied by the *application administrator* using the [**CreateApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx), the [**New-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125913.aspx), or the [**Create Application** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+4. After provisioning the application, an *operator* starts the application with the parameters supplied by the *application administrator* using the [**CreateApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx), the [**New-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125913.aspx), or the [**Create Application** REST operation](https://msdn.microsoft.com/library/azure/dn707676.aspx).
 
-4. After the application has been deployed, an *operator* uses the [**CreateServiceAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx), the [**New-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt125874.aspx), or the [**Create Application** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx) to create new service instances for the application based on available service types.
+5. After the application has been deployed, an *operator* uses the [**CreateServiceAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx), the [**New-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt125874.aspx), or the [**Create Service** REST operation](https://msdn.microsoft.com/library/azure/dn707657.aspx) to create new service instances for the application based on available service types.
 
-5. The application is now running in the Service Fabric cluster.
+6. The application is now running in the Service Fabric cluster.
 
 See [Deploy an application](service-fabric-deploy-remove-applications.md) for examples.
 
@@ -72,15 +72,15 @@ See [Testability scenarios](service-fabric-testability-scenarios.md) for example
 
 4. An *operator* uploads the updated application package to the cluster image store using the [**CopyApplicationPackage** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) or the [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx). The application package contains the application manifest and the collection of service packages.
 
-5. An *operator* provisions the new version of the application in the target cluster by using the [**ProvisionApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), the [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx), or the [**Provision an Application** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+5. An *operator* provisions the new version of the application in the target cluster by using the [**ProvisionApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), the [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx), or the [**Provision an Application** REST operation](https://msdn.microsoft.com/library/azure/dn707672.aspx).
 
-6. An *operator* upgrades the target application to the new version using the [**UpgradeApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), the [**Start-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx), or the [**Upgrade Application by Application Type** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+6. An *operator* upgrades the target application to the new version using the [**UpgradeApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), the [**Start-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx), or the [**Upgrade an Application** REST operation](https://msdn.microsoft.com/library/azure/dn707633.aspx).
 
-7. An *operator* checks the progress of upgrade using the [**GetApplicationUpgradeProgressAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), the [**Get-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx), or the [**Get Application Upgrade Progress** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+7. An *operator* checks the progress of upgrade using the [**GetApplicationUpgradeProgressAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), the [**Get-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx), or the [**Get Application Upgrade Progress** REST operation](https://msdn.microsoft.com/library/azure/dn707631.aspx).
 
-8. If necessary, the *operator* modifies and reapplies the parameters of the current application upgrade using the [**UpdateApplicationUpgradeAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), the [**Update-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx), or the [**Update Application Upgrade** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+8. If necessary, the *operator* modifies and reapplies the parameters of the current application upgrade using the [**UpdateApplicationUpgradeAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), the [**Update-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx), or the [**Update Application Upgrade** REST operation](https://msdn.microsoft.com/library/azure/mt628489.aspx).
 
-9. If necessary, the *operator* rolls back the current application upgrade using the [**RollbackApplicationUpgradeAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), the [**Start-ServiceFabricApplicationRollback** cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx), or the [**Rollback Application Upgrade** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+9. If necessary, the *operator* rolls back the current application upgrade using the [**RollbackApplicationUpgradeAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), the [**Start-ServiceFabricApplicationRollback** cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx), or the [**Rollback Application Upgrade** REST operation](https://msdn.microsoft.com/library/azure/mt628494.aspx).
 
 10. Service Fabric upgrades the target application running in the cluster without losing the availability of any of its constituent services.
 
@@ -98,11 +98,11 @@ See the [Application upgrade tutorial](service-fabric-application-upgrade-tutori
 5. When new nodes are added to or existing nodes are removed from the cluster, Service Fabric automatically load-balances the running applications across all nodes in the cluster to achieve optimal performance.
 
 ## Remove
-1. An *operator* can delete a specific instance of a running service in the cluster without removing the entire application using the [**DeleteServiceAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), the [**Remove-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt126033.aspx), or the [**Delete Service** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).  
+1. An *operator* can delete a specific instance of a running service in the cluster without removing the entire application using the [**DeleteServiceAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), the [**Remove-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt126033.aspx), or the [**Delete Service** REST operation](https://msdn.microsoft.com/library/azure/dn707687.aspx).  
 
-2. An *operator* can also delete an application instance and all of its services using the [**DeleteApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), the [**Remove-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125914.aspx), or the [**Delete Application** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+2. An *operator* can also delete an application instance and all of its services using the [**DeleteApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), the [**Remove-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125914.aspx), or the [**Delete Application** REST operation](https://msdn.microsoft.com/library/azure/dn707651.aspx).
 
-3. Once the application and services have stopped, the *operator* can unprovision the application type using the [**UnprovisionApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync.aspx), the  [**Unregister-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125885.aspx), or the [**Unprovision an Application** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx). Unprovisioning the application type does not remove the application package from the ImageStore. You must remove the application package manually.
+3. Once the application and services have stopped, the *operator* can unprovision the application type using the [**UnprovisionApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync.aspx), the  [**Unregister-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125885.aspx), or the [**Unprovision an Application** REST operation](https://msdn.microsoft.com/library/azure/dn707671.aspx). Unprovisioning the application type does not remove the application package from the ImageStore. You must remove the application package manually.
 
 4. An *operator* removes the application package from the ImageStore using the [**RemoveApplicationPackage** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage.aspx) or the [**Remove-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt163532.aspx).
 
@@ -113,7 +113,7 @@ See [Deploy an application](service-fabric-deploy-remove-applications.md) for ex
 For more information on developing, testing, and managing Service Fabric applications and services, see:
 
 - [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md)
+- [Reliable Services](service-fabric-reliable-services-introduction.md)
 - [Deploy an application](service-fabric-deploy-remove-applications.md)
 - [Application upgrade](service-fabric-application-upgrade.md)
 - [Testability overview](service-fabric-testability-overview.md)

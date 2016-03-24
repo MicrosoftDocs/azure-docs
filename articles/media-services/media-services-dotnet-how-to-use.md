@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/05/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Media Services development with .NET

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 # Windows Universal Apps Engagement SDK Integration
@@ -59,8 +59,6 @@ NuGet does not automatically deploy the SDK resources in your UWP application ye
 3.  Drag and drop the **Resources** folder from the file explorer to the root of your project in Visual Studio.
 4.  In Visual Studio select your project and activate the **Show All files** icon on top of the **Solution Explorer**.
 5.  Some files are not included in the project. To import them at once right click on the **Resources** folder, **Exclude from project** then another right click on the **Resources** folder, **Include in project** to re-include the whole folder. All files from the **Resources** folder are now included in your project.
-
-The extracted Engagement package can also be found on *$(Solutiondir)\Packages* or as defined in you *NuGet.config* file.
 
 ## Add the capabilities
 

@@ -11,18 +11,16 @@
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="12/29/2015"
 	ms.author="danlep"/>
 
 # Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)
 
 The Azure CLI is a set of open-source, cross-platform commands for working with the Azure platform. This article describes how to connect to your Azure subscription from the Azure CLI to use all of the CLI commands. If you haven't already installed the CLI, see [Install the Azure CLI](xplat-cli-install.md).
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
 
 
 There are two ways to connect to your subscription from the Azure CLI:
@@ -67,7 +65,7 @@ Copy the code offered to you, above, and open a browser to http://aka.ms/devicel
 ## Use non-interactive log in with a work or school account
 
 
-The non-interactive log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#create-an-organizational-account) if you don't have one, or you can [create a work or school ID from your Microsoft account id](./virtual-machines/resource-group-create-work-id-from-personal.md). This requires you to specify either a username or a username and a password to the `azure login` command, like so:
+The non-interactive log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#create-an-organizational-account) if you don't have one, or you can [create a work or school ID from your Microsoft account id](./virtual-machines/virtual-machines-windows-create-aad-work-id.md). This requires you to specify either a username or a username and a password to the `azure login` command, like so:
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
@@ -96,9 +94,9 @@ If you only need to use the classic (Service Management) CLI commands, you can c
 
 This opens your default browser and prompts you to sign in to the [Azure classic portal][portal]. After you sign in, a `.publishsettings` file downloads. Make note of where this file is saved.
 
-	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
-	>
-	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
+>
+> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * **To import the publish settings file**, run the following command:
 

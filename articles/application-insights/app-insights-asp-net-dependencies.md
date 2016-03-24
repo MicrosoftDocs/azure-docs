@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 
@@ -36,6 +36,7 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
  * Azure DocumentDb, table, blob storage, and queue
 * Java
  * Calls to a database through a [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) driver, such as MySQL, SQL Server, PostgreSQL or SQLite.
+* JavaScript in web pages - the [web page SDK](app-insights-javascript.md) automatically logs Ajax calls as dependencies.
 
 You can write your own SDK calls to monitor other dependencies using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -45,6 +46,10 @@ You can write your own SDK calls to monitor other dependencies using the [TrackD
 You need a [Microsoft Azure](http://azure.com) subscription.
 
 ### If your app runs on your IIS server
+
+If your web app runs on .NET 4.6 or later, you'll get dependency tracking automatically if you [install the Application Insights SDK](app-insights-asp-net.md) in your app. You don't need anything else.
+
+Otherwise, install Application Insights Status Monitor on the server:
 
 1. On your IIS web server, login with administrator credentials.
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -90,7 +95,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ### If it's an Azure cloud services project
 
-[Add scripts to web and worker roles](app-insights-cloudservices.md).
+[Add scripts to web and worker roles](app-insights-cloudservices.md#dependencies). Or [install .NET framework 4.6 or later](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## <a name="diagnosis"></a> Diagnosing dependency performance issues
 
@@ -181,16 +186,12 @@ If you want to switch off the standard dependency tracking module, remove the re
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
 
  

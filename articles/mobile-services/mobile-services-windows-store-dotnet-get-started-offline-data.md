@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/06/2015"
+	ms.date="02/11/2016"
 	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
@@ -44,7 +44,7 @@ This tutorial requires the following:
 * [Azure Mobile Services SDK version 1.3.0 (or later)][Mobile Services SDK Nuget]
 * [Azure Mobile Services SQLite Store version 1.0.0 (or later)][SQLite store nuget]
 * [SQLite for Windows 8.1](http://www.sqlite.org/download.html)
-* An Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+* An Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 ## <a name="enable-offline-app"></a>Update the app to support offline features
 

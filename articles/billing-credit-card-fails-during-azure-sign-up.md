@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia"/>
+	ms.author="cjiang"/>
 
 # My credit card doesn’t go through when I try to sign up for Azure
 This article discusses common causes of sign-up issues using a credit or debit card.
@@ -74,7 +74,7 @@ The Azure Free Trial offer is limited to one free trial activation.
 
 Suggestions:
 
-If a free trial activation fails because you already activated an Azure subscription in the past, please use another available Azure plan listed in the [Microsoft Azure offer details](http://azure.microsoft.com/support/legal/offer-details/) instead of the Azure Free Trial plan.
+If a free trial activation fails because you already activated an Azure subscription in the past, please use another available Azure plan listed in the [Microsoft Azure offer details](https://azure.microsoft.com/support/legal/offer-details/) instead of the Azure Free Trial plan.
 
 ## Contact Azure Support
 If you continue to have a sign-up issue after following these troubleshooting steps, please contact [Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).

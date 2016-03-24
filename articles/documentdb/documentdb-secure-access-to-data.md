@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/26/2016" 
 	ms.author="ryancraw"/>
 
 # Securing access to DocumentDB data #
 
-This article provides an overview of securing access to data stored in [Microsoft Azure DocumentDB](../../services/documentdb/). 
+This article provides an overview of securing access to data stored in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
 
 After reading this overview, you'll be able to answer the following questions:  
 

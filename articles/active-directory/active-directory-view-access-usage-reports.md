@@ -3,7 +3,7 @@
 	description="Explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
+	authors="dhanyahk"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="kenhoff;Justinha;curtand"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 
 # View your access and usage reports
@@ -34,7 +34,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 > [AZURE.NOTE]
 >
 - Some advanced anomaly and resource usage reports are only available when you enable [Azure Active Directory Premium](active-directory-get-started-premium.md). Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.
-- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Reports
 
@@ -229,7 +229,7 @@ Only certain types of sign in events will appear in the User Activity report.
 | ----------------------								| ---------		|
 | Sign ins to the [Access Panel](http://myapps.microsoft.com/)				| Yes			|
 | Sign ins to the [Azure Management Portal](https://manage.windowsazure.com/)		| Yes			|
-| Sign ins to the [Microsoft Azure Portal](http://portal.azure.com/)			| Yes			|
+| Sign ins to the [Microsoft Azure Portal](https://portal.azure.com/)			| Yes			|
 | Sign ins to the [Office 365 portal](http://portal.office.com/)			| Yes			|
 | Sign ins to a native application, like Outlook (see exception below)			| Yes			|
 | Sign ins to a federated/provisioned app through the Access Panel, like Salesforce	| Yes			|
@@ -254,11 +254,11 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 
 - Contact the user to verify the activity
 - Reset the user's password
-- [Enable multi-factor authentication](multi-factor-authentication-get-started.md) for additional security
+- [Enable multi-factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md) for additional security
 
 ## View or download a report
 
-1. In the Azure Management Portal, click **Active Directory**, click the name of your organization’s directory, and then click **Reports**.
+1. In the Azure classic portal, click **Active Directory**, click the name of your organization’s directory, and then click **Reports**.
 2. On the Reports page, click the report you want to view and/or download.
 
     > [AZURE.NOTE] If this is the first time you have used the reporting feature of Azure Active Directory, you will see a message to Opt In. If you agree, click the check mark icon to continue.
@@ -268,8 +268,8 @@ If you suspect that a user account may be compromised or any kind of suspicious 
     - Last 7 days
     - Last 30 days
 4. Click the check mark icon to run the report.
-	- Up to 1000 events will be shown in the Azure Management Portal.
-5. If applicable, click **Download** to download the report to a compressed file in Comma Separated Values (CSV) format for offline viewing or archiving purposes.
+	- Up to 1000 events will be shown in the Azure classic portal.
+5. If applicable, click **Download** to download the report to a compressed file in comma-separated values (CSV) format for offline viewing or archiving purposes.
 	- Up to 75,000 events will be included in the downloaded file.
 	- For more data, check out the [Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
 

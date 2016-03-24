@@ -11,10 +11,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 #Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X
@@ -108,7 +108,7 @@ This creates a login for the specified user, by using the password or public key
 
 ###Azure Command-Line Interface for Mac, Linux and Windows
 
-You can use the [Azure CLI for Mac, Linux and Windows](../xplat-cli.md) to create a new cluster by using the `azure hdinsight cluster create` command.
+You can use the [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md) to create a new cluster by using the `azure hdinsight cluster create` command.
 
 For more information on using this command, see [Provision Hadoop Linux clusters in HDInsight using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 

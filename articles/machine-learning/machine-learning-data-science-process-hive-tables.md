@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process and Technology 

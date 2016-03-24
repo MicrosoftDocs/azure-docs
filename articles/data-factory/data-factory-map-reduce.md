@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Invoke MapReduce Programs from Data Factory
-This article describes how to invoke a **MapReduce** program from an Azure Data Factory pipeline by using the **HDInsight MapReduce Activity**. 
+The HDInsight MapReduce activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes MapReduce programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
 
 ## Introduction 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. This article describes using the HDInsight MapReduce Activity.
  
-See [Pig](data-factory-pig-activity) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from an Azure data factory pipeline by using HDInsight Pig and Hive activities. 
+See [Pig](data-factory-pig-activity.md) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from an Azure data factory pipeline by using HDInsight Pig and Hive activities. 
 
 ## JSON for HDInsight MapReduce Activity 
 
@@ -103,7 +103,7 @@ The pipeline in this example runs the Word Count Map/Reduce program on your Azur
 ### Linked Services
 First, you create a linked service to link the Azure Storage that is used by the Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, do not forget to replace **account name** and **account key** with the name and key of your Azure Storage. 
 
-#### Storage Linked Service
+#### Azure Storage linked service
 
 	{
 	    "name": "StorageLinkedService",
@@ -115,7 +115,7 @@ First, you create a linked service to link the Azure Storage that is used by the
 	    }
 	}
 
-#### Azure HDInsight Linked Service
+#### Azure HDInsight linked service
 Next, you create a linked service to link your Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, replace **HDInsight cluster name** with the name of your HDInsight cluster, and change user name and password values.   
 
 	{
@@ -130,7 +130,6 @@ Next, you create a linked service to link your Azure HDInsight cluster to the Az
 	        }
 	    }
 	}
-
 
 ### Datasets
 
@@ -214,7 +213,7 @@ linkedServiceName | refers to the HDInsight linked service you had created earli
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adfgetstartedmonitoring]:data-factory-get-started.md#MonitorDataSetsAndPipeline 
+[adfgetstartedmonitoring]:data-factory-get-started.md#monitor-pipelines 
 [adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908

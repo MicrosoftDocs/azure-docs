@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="03/03/2016" 
 	ms.author="billmath"/>
 
 #Choose the multi-factor security solution for you
@@ -42,7 +42,7 @@ Remote access such as VPN, RDG| |* |
 
 ## Where are the users located
 
-Next, depending on where are users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.
+Next, depending on where our users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.
 
 
 
@@ -65,17 +65,17 @@ One-way SMS as second factor | ● | ●
 Two-way SMS as second factor |  | ● 
 Hardware Tokens as second factor |  | ● 
 App passwords for clients that don’t support MFA | ● |  
-Admin control over authentication methods |  | ● 
+Admin control over authentication methods | (Public Preview) | ● 
 PIN mode |  | ●
 Fraud alert | ● | ●
 MFA Reports | ● | ● 
-One-Time Bypass | ● | ● 
+One-Time Bypass |  | ● 
 Custom greetings for phone calls | ● | ● 
 Customizable caller ID for phone calls | ● | ● 
 Trusted IPs | ● | ● 
-Suspend MFA for remembered devices (Public Preview) | ● |  
+Remember MFA for trusted devices (Public Preview) | ● |  
 Conditional access | ● | ● 
-Cache | ● | ● 
+Cache |  | ● 
 
 Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication.   **Select the icon that represents your scenario!**
 

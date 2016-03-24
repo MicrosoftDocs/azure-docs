@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="03/09/2016"
 	ms.author="awills"/>
 
 
@@ -99,7 +99,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ## View performance telemetry
 
-Sign into [the Azure portal](http://portal.azure.com), browse Application Insights and open the resource that you created.
+Sign into [the Azure portal](https://portal.azure.com), browse Application Insights and open the resource that you created.
 
 ![Choose Browse, Application Insights, then select your app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -147,10 +147,8 @@ You need to open some outgoing ports in your server's firewall to allow Status M
 
 + Telemetry - these are needed all the time:
  +	`dc.services.visualstudio.com:80`
- +	`f5.services.visualstudio.com:80`
  +	`dc.services.visualstudio.com:443`
- +	`f5.services.visualstudio.com:443`
- +	`dc.services.vsallin.net:443`
+ +	`dc.applicationinsights.microsoft.com`
 + Configuration - needed only when making changes:
  -	`management.core.windows.net:443`
  -	`management.azure.com:443`
@@ -196,6 +194,7 @@ On the client side Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
 
 IIS support is: IIS 7, 7.5, 8, 8.5
 (IIS is required)
+
 
 ## <a name="next"></a>Next steps
 

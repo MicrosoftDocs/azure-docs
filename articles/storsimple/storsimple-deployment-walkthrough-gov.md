@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="12/09/2015"
+   ms.workload="NA"
+   ms.date="02/22/2016"
    ms.author="v-sharos" />
 
 # Deploy your on-premises StorSimple device in the Government Portal
@@ -115,7 +115,7 @@ Before you begin, make sure that:
 
 - You have your Microsoft Azure storage account with access credentials.
 
-- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](http://azure.microsoft.com/pricing/enterprise-agreement/).
+- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - You have access to terminal emulation software such as PuTTY.
 
@@ -203,7 +203,7 @@ Perform these steps on your Windows Server host.
 
 > - For MPIO and iSCSI installation and configuration instructions on Windows Server host, go to [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md). These will also include the steps to mount, initialize and format StorSimple volumes.
 
-> - For MPIO and iSCSI installation and configuration instructions on a Linux host, go to [Configure MPIO for your StorSimple Linux host](storsimple-configure-mpio-linux.md)
+> - For MPIO and iSCSI installation and configuration instructions on a Linux host, go to [Configure MPIO for your StorSimple Linux host](storsimple-configure-mpio-on-linux.md)
 
 If you decide not to configure MPIO, perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.
 
@@ -268,13 +268,13 @@ Perform the following steps in the Government Portal to create an on-demand manu
 
 Multipath I/O (MPIO) is an optional feature and is not installed on Windows Server by default. It should be installed as a feature through Server Manager. For MPIO installation instructions, go to [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
 
-For MPIO installation instructions for a StorSimple device connected to a Linux host, go to [Configure MPIO for your Linux host](storsimple-configure-mpio-linux.md).
+For MPIO installation instructions for a StorSimple device connected to a Linux host, go to [Configure MPIO for your Linux host](storsimple-configure-mpio-on-linux.md).
 
 > [AZURE.NOTE] MPIO is not supported on a StorSimple virtual device. 
 
 ## Next steps
 
-Configure a [virtual device](storsimple-virtual-device.md).
+- Configure a [virtual device](storsimple-virtual-device.md).
 
-Use the [StorSimple Manager service](https://msdn.microsoft.com/library/azure/dn772396.aspx) to manage your StorSimple device.
+- Use the [StorSimple Manager service](https://msdn.microsoft.com/library/azure/dn772396.aspx) to manage your StorSimple device.
  

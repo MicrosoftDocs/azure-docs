@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye" /> 
 
 #<a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
 
-This document covers exploring data and generating features for data stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
+This document covers how to explore data and generate features for data stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
 
 
 > [AZURE.NOTE] The sample SQL statements in this document assume that data is in SQL Server. If it isn't, please refer to the cloud data science process map to learn how to move your data to SQL Server.

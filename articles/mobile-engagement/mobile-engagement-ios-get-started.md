@@ -2,7 +2,7 @@
 	pageTitle="Get Started with Azure Mobile Engagement for iOS in Objective C"
 	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for iOS apps."
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for iOS apps in Objective C

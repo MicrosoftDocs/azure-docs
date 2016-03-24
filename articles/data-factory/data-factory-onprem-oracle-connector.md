@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Move data from on-premises Oracle using Azure Data Factory 
@@ -24,12 +24,14 @@ This article outlines how you can use data factory copy activity to move data fr
 For the Azure Data Factory service to be able to connect to your on-premises Oracle database , you must install the following: 
 
 - Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway. 
-- [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). It must be installed on the host machine where the gateway is installed.
+- Oracle Data Provider for .NET. This is included in [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Install the appropriate version (32/64 bit) on the host machine where the gateway is installed. 
 
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
 ## Sample: Copy data from Oracle to Azure Blob
-
-The sample below shows:
+This sample shows how to copy data from an on-premises Oracle database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -205,7 +207,17 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-## Oracle Linked Service properties
+
+You will need to adjust the query string based on how dates are configured in your Oracle database. If you see the following error message: 
+
+	Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+you may need to change the query as shown below (using the to_date function):
+
+	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
+
+## Oracle linked service properties
 
 The following table provides description for JSON elements specific to Oracle linked service. 
 
@@ -215,8 +227,8 @@ type | The type property must be set to: **OnPremisesOracle** | Yes
 connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. | Yes 
 gatewayName | Name of the gateway that will be used to connect to the onpremises Oracle server | Yes
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises Oracle data source.
-## Oracle Dataset type properties
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises Oracle data source.
+## Oracle dataset type properties
 
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Oracle, Azure blob, Azure table, etc...).
  
@@ -226,7 +238,7 @@ Property | Description | Required
 -------- | ----------- | --------
 tableName | Name of the table in the Oracle Database that the linked service refers to. | No (if **oracleReaderQuery** of **SqlSource** is specified)
 
-## Oracle Copy Activity type properties
+## Oracle copy activity type properties
 
 For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. 
 
@@ -239,11 +251,11 @@ In case of Copy activity when source is of type **OracleSource** the following p
 Property | Description |Allowed values | Required
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Use the custom query to read data. | SQL query string. 
-For example: select * from MyTable <p>If not specified, the SQL statement that is executed: select * from MyTable</p> | No (if **tableName** of **dataset** is specified)
+For example: select * from MyTable <br/><br/>If not specified, the SQL statement that is executed: select * from MyTable | No (if **tableName** of **dataset** is specified)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Type Mapping for Oracle
+### Type mapping for Oracle
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 
@@ -290,7 +302,7 @@ You see the following **error message**: Copy activity met invalid parameters: '
 
 **Resolution/Workaround**
 
-1. If you haven't installed the .NET Provider for Oracle, please [install it](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) and retry the scenario. 
+1. If you haven't installed the .NET Provider for Oracle, please [install it]((http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)) and retry the scenario. 
 2. If you get the error message even after installing the provider, do the following: 
 	1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
 	2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry like below under **system.data** -> **DbProviderFactories**:
@@ -303,4 +315,5 @@ You see the following **error message**: Copy activity met invalid parameters: '
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

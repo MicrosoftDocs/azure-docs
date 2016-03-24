@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="01/04/2015"
+    ms.date="01/05/2016"
     ms.author="ryancraw"/>
 
 # Python Flask Web Application Development with DocumentDB

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/21/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@ It is recommended to always encode your mezzanine files into an adaptive bitrate
 
 If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
 
->[AZURE.NOTE]EMS produces an output file with a name that contains the first 32 characters of the input file name. The name is based on what is specified in the preset file. For example, "FileName": "{Basename}_{Index}{Extension}". {Basename} is replaced by the first 32 characters of the input file name.  
+>[AZURE.NOTE]MES produces an output file with a name that contains the first 32 characters of the input file name. The name is based on what is specified in the preset file. For example, "FileName": "{Basename}_{Index}{Extension}". {Basename} is replaced by the first 32 characters of the input file name.  
 
 ###MES Formats
 
@@ -46,7 +46,7 @@ The encoders output metadata is described [here](http://msdn.microsoft.com/libra
 
 ##Download sample
 
-Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Example
 

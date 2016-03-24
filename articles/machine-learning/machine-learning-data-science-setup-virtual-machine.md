@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Set up an Azure virtual machine as an IPython Notebook server for advanced analytics
@@ -66,7 +66,7 @@ If the virtual machine already exists, and you need to add an endpoint for IPyth
 
 ## <a name="run-commands"></a>Step 3: Install IPython Notebook and other supporting tools
 
-After the virtual machine is created, use Remote Desktop Protocol (RDP) to log on to the Windows virtual machine. For instructions, see [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines-log-on-windows-server.md). Open the **Command Prompt** (**Not the Powershell command window**) as an **Administrator** and run the following command.
+After the virtual machine is created, use Remote Desktop Protocol (RDP) to log on to the Windows virtual machine. For instructions, see [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md). Open the **Command Prompt** (**Not the Powershell command window**) as an **Administrator** and run the following command.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 

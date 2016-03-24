@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure MFA Signin experience with Azure Multi-Factor Authentication" 
-	description="This page will provide you guidance on where to go to see the various signin methods available with Azure MFA." 
+	description="This page will provide you guidance on where to go to see the various signin methods available with Azure MFA."
+	keywords="user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # The sign in experience with Azure Multi-Factor Authentication

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -26,7 +26,7 @@ In this topic, we will go through how the default configuration behaves in certa
 There are a few general rules the configuration assumes:
 
 - Regardless of which order we import from the source Active Directories, the end result should always be the same.
-- An active account will always contribute login information, including **userPrincipalName** and **sourceAnchor**.
+- An active account will always contribute sign-in information, including **userPrincipalName** and **sourceAnchor**.
 - A disabled account will contribute userPrincipalName and sourceAnchor, unless it is a linked mailbox, if there is no active account to be found.
 - An account with a linked mailbox will never be used for userPrincipalName and sourceAnchor. It is assumed that an active account will be found later.
 - A contact object might be provisioned to Azure AD as a contact or as a user. You don’t really know until all source Active Directory forests have been processed.

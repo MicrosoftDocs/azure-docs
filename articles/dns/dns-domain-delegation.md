@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma"/>
 
 
@@ -88,6 +88,8 @@ In this example, the zone ‘contoso.com’ has been assigned name servers ‘ns
 
 Each registrar has their own DNS management tools to change the name server records for a domain. In the registrar’s DNS management page, edit the NS records and replace the NS records with the ones Azure DNS created.
 
+>[AZURE.NOTE] When delegating a domain to Azure DNS, you must use the name server names provided by Azure DNS.  You should not use 'glue records' to point to the Azure DNS name server IP addresses, since these IP addresses may change in future.  Delegations using name server names in your own zone (sometimes called 'vanity name servers') are not currently supported in Azure DNS.
+
 Having completed the delegation, you can verify that name resolution is working by using a tool such as ‘nslookup’ to query the SOA record for your zone (which is also automatically created when the zone is created).
 
 Note that you do not have to specify the Azure DNS name servers, since the normal DNS resolution process will find the name servers automatically if the delegation has been set up correctly.
@@ -152,8 +154,6 @@ As when delegating using a registrar, we can verify that everything is set up co
 [Manage DNS zones](dns-operations-dnszones.md)
 
 [Manage DNS records](dns-operations-recordsets.md)
-
-[Traffic Manager overview](traffic-manager-overview.md)
 
 [Automate Azure Operations with .NET SDK](dns-sdk.md)
 

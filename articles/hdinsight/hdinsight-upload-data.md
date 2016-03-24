@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/29/2015"
+	ms.date="03/22/2016"
 	ms.author="jgao"/>
 
 
@@ -109,18 +109,12 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](../powershell-install-configure.md).
 2. Set the values of the first five variables in the following script:
 
-		$subscriptionName = "<AzureSubscriptionName>"
 		$resourceGroupName = "<AzureResourceGroupName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
 		$fileName ="<LocalFileName>"
 		$blobName = "<BlobName>"
-
-		Switch-AzureMode -Name AzureResourceManager
-
-		Add-AzureAccount
-		Select-AzureSubscription $subscriptionName
 
 		# Get the storage account key
 		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
@@ -220,7 +214,7 @@ The Azure Data Factory service is a fully managed service for composing data sto
 
 Azure Data Factory can be used to move data into Azure Blob storage, or to create data pipelines that directly use HDInsight features such as Hive and Pig.
 
-For more information, see the [Azure Data Factory documentation](http://azure.microsoft.com/documentation/services/data-factory/).
+For more information, see the [Azure Data Factory documentation](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -239,7 +233,7 @@ Azure Blob storage can also be accessed using an Azure SDK from the following pr
 * Python
 * Ruby
 
-For more information on installing the Azure SDKs, see [Azure downloads](http://azure.microsoft.com/downloads/)
+For more information on installing the Azure SDKs, see [Azure downloads](https://azure.microsoft.com/downloads/)
 
 
 ## Next steps
@@ -263,9 +257,9 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md

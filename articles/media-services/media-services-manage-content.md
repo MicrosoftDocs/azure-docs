@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"   
 	ms.author="juliako"/>
 
 
@@ -97,28 +97,18 @@ With dynamic packaging you only need to store and pay for the files in single st
 
 Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
 
-This section describes the steps you can take to encode your content with Azure Media Encoder using the Azure Classic Portal.
+This section describes the steps you can take to encode your content with Media Encoder Standard using the Azure Classic Portal.
 
 1.  Select the file that you would like to encode.
-If encoding is supported for this file type, the PROCESS button will be enabled on the bottom of the CONTENT page.
-4. In the **Process** dialog, select the **Azure Media Encoder** processor.
+
+  If encoding is supported for this file type, the PROCESS button will be enabled on the bottom of the CONTENT page.
+4. In the **Process** dialog, select the **Media Encoder Standard** processor.
 5. Choose from one of the **encoding configurations**.
 
 ![Process2][process2]
 
 
-The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Presets for Adaptive Streaming**  categories means.
-
-
-The **Other** configurations are described below:
-
-+ **Encode with PlayReady content protection**. This preset produces an asset encoded with PlayReady content protection.
-
-
-By default the Media Services PlayReady license service is used. To specify some other service from which clients can obtain a license to play the PlayReady encrypted content, use REST or Media Services .NET SDK APIs. For more information, see [Using Static Encryption to Protect your Content]() and set the **licenseAcquisitionUrl** property in the Media Encryptor preset. Alternatively, you can use dynamic encryption and set the **PlayReadyLicenseAcquisitionUrl** property as described in [Using PlayReady Dynamic Encryption and License Delivery Service](http://go.microsoft.com/fwlink/?LinkId=507720 ).
-+ **Playback on PC/Mac (via Flash/Silverlight)**. This preset produces a Smooth Streaming asset with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 96 kbps using AAC, and 720p video CBR encoded at 6 bitrates ranging from 3400 kbps to 400 kbps using H.264 Main Profile, and two second GOPs.
-+ **Playback via HTML5 (IE/Chrome/Safari)**. This preset produces a single MP4 file with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 128 kbps using AAC, and 720p video CBR encoded at 4500 kbps using H.264 Main Profile.
-+ **Playback on iOS devices and PC/Mac**. This preset produces an asset with the same characteristics as the Smooth Streaming asset (described above), but in a format that can be used to deliver Apple HLS streams to iOS devices.
+The [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) topic explains what each preset means.
 
 5. Then, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
 6. Press OK.

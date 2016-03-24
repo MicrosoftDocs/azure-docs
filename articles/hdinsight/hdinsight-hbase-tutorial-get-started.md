@@ -13,28 +13,29 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="jgao"/>
 
 
 
-# HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight (Windows)
+# HBase tutorial: Get started using Apache HBase with Windows-based Hadoop in HDInsight
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-
 Learn how to create HBase clusters in HDInsight, create HBase tables, and query the tables by using Apache Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
-> [AZURE.NOTE] The information in this document is specific to Windows-based HDInsight clusters. For information on using Linux-based clusters, see [HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight (Linux)](hdinsight-hbase-tutorial-get-started-linux.md).
->
-> HBase (version 0.98.0) on Windows-based HDInsight is only available for use with HDInsight 3.1 clusters (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
+The information in this document is specific to Windows-based HDInsight clusters. For information on Windows-based clusters, use the tab selector on the top of the page to switch.
 
-###Prerequisites
+> [AZURE.NOTE] HBase (version 0.98.0) on Windows-based HDInsight is only available for use with HDInsight 3.1 clusters (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
+
+###Before you begin
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Before you begin this HBase tutorial, you must have the following:
 
-- **A Microsoft Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **A Microsoft Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **A workstation** with Visual Studio 2013 or greater: For instructions, see [Install Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## Create HBase cluster
@@ -67,7 +68,8 @@ Before you begin this HBase tutorial, you must have the following:
 
 >[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default storage account and the default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
 
-## Use the HBase shell
+## Create tables and insert data
+
 Currently, there are two way to access HBase. This section covers using the HBase shell. The next section covers using the .NET SDK.
 
 For most people, data appears in the tabular format:
@@ -291,11 +293,13 @@ To open the Web UI, you must RDP into the cluster, and then click the HMaster In
 
 In a high availability cluster, you'll find a link to the current active HBase master node that is hosting the Web UI.
 
+##Delete the cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## What's next?
-In this HBase tutorial for HDInsight, you learned how to provision an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
+In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
 
 For more information, see:
 

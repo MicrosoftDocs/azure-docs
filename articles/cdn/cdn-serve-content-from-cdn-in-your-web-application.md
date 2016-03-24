@@ -18,6 +18,8 @@
 
 # Serve Content from Azure CDN in Your Web Application #
 
+> [AZURE.NOTE] This tutorial applies to the classic CDN service.  We're hard at work writing an update for the current version of CDN.
+
 This tutorial shows you how to take advantage of Azure CDN to improve the reach and performance of your Web application. Azure CDN can help improve the performance of your Web application when:
 
 - You have many links to static or semi-static content on your pages
@@ -151,8 +153,8 @@ In this section, you have learned how to create a CDN endpoint, upload content t
 
 If you want to easily upload all of the static content in your ASP.NET Web application to your CDN endpoint, or if your deploy your Web application using continuous delivery (for an example, see [Continuous Delivery for Cloud Services in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md)), you can use Azure PowerShell to automate the synchronization of the latest content files to Azure blobs every time you deploy your Web application. For example, you can run the script at [Upload Content Files from ASP.NET Application to Azure Blobs](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) upload all the content files in an ASP.NET application. To use this script:
 
-4. From the **Start** menu, run **Microsoft Azure PowerShell**.
-5. In the Azure PowerShell window, run `Get-AzurePublishSettingsFile` to download a publish settings file for your Azure account.
+4. From the **Start** menu, run **Windows PowerShell**.
+5. In the PowerShell window, run `Get-AzurePublishSettingsFile` to download a publish settings file for your Azure account.
 6. Once you have downloaded your publish settings file, run the following: 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -252,12 +254,12 @@ With [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 Integrating Azure App Service or Azure Cloud Services with Azure CDN gives you the following advantages:
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure web app's [continuous deployment](../web-sites-publish-source-control.md) process
+- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure web app's [continuous deployment](../app-service-web/web-sites-publish-source-control.md) process
 - Easily upgrade your CDN-served NuGet packages, such as jQuery or Bootstrap versions 
 - Manage your Web application and your CDN-served content from the same Visual Studio interface
 
 For related tutorials, see:
-- [Use Azure CDN in Azure App Service](../cdn-websites-with-cdn.md)
+- [Use Azure CDN in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 
 Without integration with Azure App Service Web Apps or Azure Cloud Services, it is possible to use Azure CDN for your script bundles, with the following caveats:
@@ -269,7 +271,7 @@ Without integration with Azure App Service Web Apps or Azure Cloud Services, it 
 
 ## More Information ##
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
-- [Use Azure CDN in Azure App Service](../cdn-websites-with-cdn.md)
+- [Use Azure CDN in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 - [How to Map Content Delivery Network (CDN) Content to a Custom Domain](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Using CDN for Azure](cdn-how-to-use-cdn.md)

@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -13,8 +13,8 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/11/2015"
+	ms.topic="article"
+	ms.date="03/17/2016"
 	ms.author="jodebrui"/>
 
 
@@ -28,6 +28,8 @@ This topic emphasizes two demonstrations, one for In-Memory OLTP, and one for In
 - Read the code to understand the scenario, and to see how to create and utilize the In-Memory objects.
 
 > [AZURE.VIDEO azure-sql-database-in-memory-technologies]
+
+- [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx) - is another article to help you get started.
 
 #### In-Memory OLTP
 
@@ -92,7 +94,7 @@ Considerations while the In-Memory features are in Preview are described [later 
 
 ## A. Install the In-Memory OLTP sample
 
-You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure Portal](http://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
+You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure Portal](https://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
 
 - In-Memory tables.
 - A natively compiled stored procedure.
@@ -100,7 +102,7 @@ You can create the AdventureWorksLT [V12] sample database by a few clicks in the
 
 #### Installation steps
 
-1. In the [Azure Portal](http://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
+1. In the [Azure Portal](https://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
  - For detailed instructions you can see [Create your first Azure SQL database](sql-database-get-started.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -226,6 +228,7 @@ WHILE (@i < 20)
 begin;
 	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
 		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+	SET @i = @i + 1;
 end
 ```
 
@@ -236,7 +239,7 @@ To make the _ondisk version of the preceding T-SQL for ostress.exe, you would si
 ### Install RML utilities and ostress
 
 
-Ideally you would plan to run ostress.exe on an Azure VM. You would create an [Azure Virtual Machine](http://azure.microsoft.com/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
+Ideally you would plan to run ostress.exe on an Azure VM. You would create an [Azure Virtual Machine](https://azure.microsoft.com/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
 
 
 On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities which include ostress.exe.
@@ -316,10 +319,13 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Expected comparison results
 
-Out In-Memory tests have shown a **9 times** performance improvement for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
+Our In-Memory tests have shown a **9 times** performance improvement for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
 
 
-The performance improvement can be higher when conversion to natively compiled stored procedures is added.
+
+<a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
+
+&nbsp;
 
 
 ## B. Install the In-Memory Analytics sample
@@ -451,7 +457,7 @@ GO
 ## Preview considerations for In-Memory OLTP
 
 
-The In-Memory OLTP features in Azure SQL Database became [active for preview on October 28, 2015](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
+The In-Memory OLTP features in Azure SQL Database became [active for preview on October 28, 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
 During the Preview phase before General Availability (GA), In-Memory OLTP is supported only for:

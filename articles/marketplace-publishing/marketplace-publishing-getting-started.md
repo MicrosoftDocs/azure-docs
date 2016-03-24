@@ -1,6 +1,6 @@
 <properties
    pageTitle="Overview of how to create and deploy an offer to the Marketplace | Microsoft Azure"
-   description="Understand the steps required to become an approved Microsoft seller and create and deploy a virtual machine image, template, data service, or developer service in the Azure Marketplace"
+   description="Understand the steps required to become an approved Microsoft Developer and create and deploy a virtual machine image, template, data service, or developer service in the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/04/2015"
+   ms.date="02/12/2016"
    ms.author="hascipio" />
 
 # How to publish an offer to the Azure Marketplace
-This article is provided to help a seller create and deploy a solution to the Azure Marketplace for other Azure customers and partners to purchase and utilize.
+This article is provided to help a developer create and deploy a solution to the Azure Marketplace for other Azure customers and partners to purchase and utilize.
 
 The first thing you would want to do as a publisher is to define what kind of solution your company is offering. The Azure Marketplace supports multiple solutions, and each of them requires a slightly different set of work from you in order to successfully publish into the Marketplace.
 
@@ -35,7 +35,7 @@ Some steps are shared between the different types of solutions. This article pro
 ||Virtual machine image |Developer service | Data service | Solution template |
 |----|----|----|----|----|
 | **Get pre-approval** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
-| **Step 1: Register your seller account** | [Microsoft seller account: creation and registration][link-accts] | [Microsoft seller account: creation and registration][link-accts] | [Microsoft seller account: creation and registration][link-accts] | [Microsoft seller account: creation and registration][link-accts] |
+| **Step 1: Register your developer account** | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] |
 |**Step 2: Create your offer**| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)|
 || [VM technical prerequisites][link-single-vm-prereq] | Developer service technical prerequisites | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md) | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
 ||[VM image publishing guide][link-single-vm] | Developer service publishing guide | [Data service publishing guide](marketplace-publishing-data-service-creation.md) | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
@@ -47,6 +47,7 @@ Some steps are shared between the different types of solutions. This article pro
 - [Get support as a publisher][suppt-general]
 - [Understanding seller insights reporting][suppt-rpt-insights]
 - [Understanding payout reporting][suppt-rpt-payouts]
+- [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
 - [Troubleshooting common publishing problems in the Marketplace][suppt-common]
 
 ## Additional resources
@@ -56,7 +57,7 @@ Some steps are shared between the different types of solutions. This article pro
 
 - [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-tutorial/)
+- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-hero-tutorial/)
 
 **Data Services**
 

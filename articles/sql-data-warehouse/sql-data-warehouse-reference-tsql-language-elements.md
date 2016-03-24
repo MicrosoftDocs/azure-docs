@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="barbkess"/>
+   ms.date="03/08/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Language elements
 
@@ -62,7 +62,7 @@
 - [>= (Great than or equal to)](https://msdn.microsoft.com/library/ms181567.aspx)
 - [<= (Less than or equal to)](https://msdn.microsoft.com/library/ms174978.aspx)
 - [<> (Not equal to)](https://msdn.microsoft.com/library/ms176020.aspx)
-- [!= (Not equal to)](https://msdn.microsoft.com/library/vstudio/bb399278.aspx)
+- [!= (Not equal to)](https://msdn.microsoft.com/library/ms190296.aspx)
 - [AND](https://msdn.microsoft.com/library/ms188372.aspx)
 - [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
 - [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
@@ -118,7 +118,7 @@
 - [DATEFROMPARTS](https://msdn.microsoft.com/library/hh213228.aspx)
 - [DATENAME](https://msdn.microsoft.com/library/ms174395.aspx)
 - [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx)
-- [DATETIME2FROmPARTS](https://msdn.microsoft.com/library/hh213312.aspx)
+- [DATETIME2FROMPARTS](https://msdn.microsoft.com/library/hh213312.aspx)
 - [DATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213233.aspx)
 - [DATETIMEOFFSETFROMPARTS](https://msdn.microsoft.com/library/hh231077.aspx)
 - [DAY](https://msdn.microsoft.com/library/ms176052.aspx)
@@ -222,30 +222,30 @@
 
 ## Transactions
 
-- transactions
+- [transactions](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## Diagnostic sessions
 
-- CREATE DIAGNOSTICS SESSION
+- [CREATE DIAGNOSTICS SESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## Procedures
 
 - [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 - [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 - [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
-- sp_datatype_info_90
+- [sp_datatype_info_90](https://msdn.microsoft.com/library/mt204014.aspx)
 - [sp_droprolemember](https://msdn.microsoft.com/library/ms188369.aspx)
 - [sp_execute](https://msdn.microsoft.com/library/ff848746.aspx)
 - [sp_executesql](https://msdn.microsoft.com/library/ms188001.aspx)
 - [sp_fkeys](https://msdn.microsoft.com/library/ms175090.aspx)
-- sp_pdw_add_network_credentials
-- sp_pdw_database_encryption
-- sp_pdw_database_encryption_regenerate_system_keys
-- sp_pdw_log_user_data_masking
-- sp_pdw_remove_network_credentials
+- [sp_pdw_add_network_credentials](https://msdn.microsoft.com/library/mt204011.aspx)
+- [sp_pdw_database_encryption](https://msdn.microsoft.com/library/mt219360.aspx)
+- [sp_pdw_database_encryption_regenerate_system_keys](https://msdn.microsoft.com/library/mt204033.aspx)
+- [sp_pdw_log_user_data_masking](https://msdn.microsoft.com/library/mt204023.aspx)
+- [sp_pdw_remove_network_credentials](https://msdn.microsoft.com/library/mt204038.aspx)
 - [sp_pkeys](https://msdn.microsoft.com/library/ms189813.aspx)
 - [sp_prepare](https://msdn.microsoft.com/library/ff848808.aspx)
-- sp_special_columns_100
+- [sp_special_columns_100](https://msdn.microsoft.com/library/mt204025.aspx)
 - [sp_sproc_columns](https://msdn.microsoft.com/library/ms182705.aspx)
 - [sp_statistics](https://msdn.microsoft.com/library/ms173842.aspx)
 - [sp_tables](https://msdn.microsoft.com/library/ms186250.aspx)
@@ -257,7 +257,7 @@
 
 - [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 - [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
-- SET ANSI_NULL_DFLOT_ON
+- [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
 - [SET ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
 - [SET ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
 - [SET ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
@@ -283,6 +283,6 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-reference.md
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->

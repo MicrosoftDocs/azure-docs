@@ -3,8 +3,8 @@
 	description="Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
-	ms.author="mmercuri"/>
+	ms.date="01/26/2016"
+	ms.author="tomfitz"/>
 
 # Sharing state in Azure Resource Manager templates
 

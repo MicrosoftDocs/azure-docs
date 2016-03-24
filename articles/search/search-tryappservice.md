@@ -10,49 +10,26 @@
 <tags
    ms.service="search"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="02/21/2016"
    ms.author="heidist"/>
 
 # Try Azure Search for free with Azure App Service
 
-[Azure App Service](https://tryappservice.azure.com/) is a new, entirely free way to test-drive selected Azure Services, including Azure Search, for up to one hour with no Azure subscription sign-up required.
+[Try Azure App Service](https://tryappservice.azure.com/) is a free one-hour, browser-based session for trying out Azure Services, including **Azure Search**, with no subscription sign-up required. The site gives you several templates to choose from. When you select the ASP.NET template that includes Azure Search, you gain access to a fully functional web site, backed by the services you selected.   
 
-The site gives you several templates to choose from. When you select the ASP.NET template that includes Azure Search, you gain one hour of access to a fully functional web site, backed by the services you selected. You won't be able to update or delete any of the data managed by Azure Search – but you can execute queries and make any number of code changes that reshapes the user experience. If the session expires before you’re done exploring, you can always start over with another session, or move on to a trial or full subscription if your goal is to create or load an index directly.
+As part of the **Try Azure App Service** offering, the Azure Search service is already created and ready to receive search queries. You cannot upload or use your own index or data– but you can execute queries and make a number of code changes that reshapes the user experience. 
 
-On the [Azure App Service](https://tryappservice.azure.com/) site, Azure Search is part of the Web App template – providing a rich, full-text search experience along with a slew of search-centric features available only in this service on the Azure platform.
-
-Although other Azure services such as SQL Database offer full-text search, a service like Azure Search gives you tuning control, pagination and counts, hit highlighting, auto-complete query suggestions, natural language support, faceted navigation, filtering and more. As several of our [samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search) demonstrate, it’s possible to develop a full-featured search-based application using just Azure Search and ASP.NET.
-
-As part of the [Azure App Service](https://tryappservice.azure.com/) offering, the Azure Search service you’ll use has already been created for your and is ready to receive search queries. You cannot upload or use your own index or data. The data you’ll work with is from the [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), consisting of about 3 million rows of landmarks, historical sites, buildings, and other landmark features across the US.
-
-To help you get the most out of your one hour session, the following instructions will walk you through queries and code. 
-
-Before moving ahead, you might want to take a few minutes review a few key points about the code, service, and searchable data. Having a little background could prove useful if you’re not already familiar with Azure Search. 
-
-## Facts about the code and Azure Search
-
-Azure Search is a fully managed Platform as a Service [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) service that makes it easy for developers to integrate great search experiences in web and mobile applications. Data used in search operations is stored with your search service in Azure, where proximity of data to operations ensures low latency and consistent search behaviors. Drilling into this a bit further:
-
-- Searchable data is stored in an index managed by Azure Search
-- The schema that defines your index is user-defined and will specify searchable fields, non-searchable fields that could be useful in a filter expression, and constructs like scoring profiles for tuning results.
-- A search index contains one or more documents (which are similar to a row in a table) which are both searchable and retrievable
-- Most indexes are loaded from a single dataset, prepared in advance by you to include only those fields that are useful in the context of search operations. 
-- Data can be auto-loaded by an Indexer (supported for Azure SQL Database or Azure DocumentDB only), or pushed to a search index via one of the Azure Search APIs. When you use the API, you can push data from any data source, as long as it’s in JSON format.
-
-In the [Azure App Service](https://tryappservice.azure.com/) option, the "ASP.NET + Azure Search Site" template provides source code for the Web application, modifiable in Visual Studio Team Services (available as a part of the one-hour session). No separate development tools are required to view or change the code.
-
-Code is written in C#, using the [Azure Search .NET client library](https://msdn.microsoft.com/library/dn951165.aspx) to execute queries against the index, provide faceted navigation, and display counts and search results in a web page.
-
-Other code, not included in the template, was used to build and load the USGS search index. Because the service is read-only, all operations requiring write-access had to be completed in advance. You can see a [copy of the schema](#schema) used to build the schema at the end of this article.
+Search data is from the [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), consisting of about 3 million rows of landmarks, historical sites, buildings, and other landmark features across the US.
 
 ## Get started
 
 If you haven’t started your 1-hour session yet, follow these steps to get started.
 
-1. Go to [https://tryappservice.azure.com](https://tryappservice.azure.com/) and scroll down to select **Web App**. 
+1. Right-click on [https://tryappservice.azure.com](https://tryappservice.azure.com/) to open this site in a new browser window.
+2. Scroll down to select **Web App**. 
 2. Click **Next**.
 3. Choose the **ASP.NET + Azure Search Site** template.
 
@@ -308,6 +285,9 @@ You might want to save a copy of the original **Search.cshtml** file to see how 
     }
     }
 
+## Why choose Azure Search?
+
+Although other Azure services such as SQL Database offer full-text search, a service like Azure Search gives you tuning control, pagination and counts, hit highlighting, auto-complete query suggestions, natural language support, faceted navigation, filtering and more. As several of our [samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search) demonstrate, it’s possible to develop a full-featured search-based application using just Azure Search and ASP.NET.
 
 ## Next steps
 
@@ -319,7 +299,23 @@ Using the read-only service provided in [Try Azure App Service](https://tryappse
 
 To perform all these tasks, you’ll need an Azure subscription so that you can create and populate indexes in a service. For more information about how to sign up for a free trial, visit [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-To learn more about Azure Search, visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) on [http://azure.microsoft.com](http://azure.microsoft.com) or check out any number of [samples and videos](search-video-demo-tutorial-list.md) that explore the full range of Azure Search functionality.
+To learn more about Azure Search, visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) on [http://azure.microsoft.com](https://azure.microsoft.com/) or check out any number of [samples and videos](search-video-demo-tutorial-list.md) that explore the full range of Azure Search functionality.
+
+## Facts about the code and Azure Search
+
+Azure Search is a fully managed Platform as a Service [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) service that makes it easy for developers to integrate great search experiences in web and mobile applications. Data used in search operations is stored with your search service in Azure, where proximity of data to operations ensures low latency and consistent search behaviors. Drilling into this a bit further:
+
+- Searchable data is stored in an index managed by Azure Search.
+- The schema that defines your index is user-defined and will specify searchable fields, non-searchable fields that could be useful in a filter expression, and constructs like scoring profiles for tuning results.
+- A search index contains one or more documents (which are similar to a row in a table) which are both searchable and retrievable.
+- Most indexes are loaded from a single dataset, prepared in advance by you to include only those fields that are useful in the context of search operations. 
+- Data can be auto-loaded by an Indexer (supported for Azure SQL Database or Azure DocumentDB only), or pushed to a search index via one of the Azure Search APIs. When you use the API, you can push data from any data source, as long as it’s in JSON format.
+
+In the [Azure App Service](https://tryappservice.azure.com/) option, the "ASP.NET + Azure Search Site" template provides source code for the Web application, modifiable in Visual Studio Team Services (available as a part of the one-hour session). No separate development tools are required to view or change the code.
+
+Code is written in C#, using the [Azure Search .NET client library](https://msdn.microsoft.com/library/dn951165.aspx) to execute queries against the index, provide faceted navigation, and display counts and search results in a web page.
+
+Other code, not included in the template, was used to build and load the USGS search index. Because the service is read-only, all operations requiring write-access had to be completed in advance. You can see a [copy of the schema](#schema) used to build the schema at the end of this article.
 
 <a name="Schema"></a>
 ## About the schema

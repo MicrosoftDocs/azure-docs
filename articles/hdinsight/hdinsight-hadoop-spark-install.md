@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # Install and use Spark on HDInsight Hadoop clusters using Script Action
@@ -24,7 +24,6 @@ Learn how to install Spark on Windows based HDInsight using Script Action, and h
 
 
 **Related articles**
-- [Install Spark on Linux-based HDInsight clusters](hdinsight-hadoop-spark-install-linux.md).
 
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters.
 
@@ -306,7 +305,6 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 
 ## See also
 
-- [Install Spark on Linux-based HDInsight clusters](hdinsight-hadoop-spark-install-linux.md): install Spark on Linux based HDInsight clusters.
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): create HDInsight clusters.
 - [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): get started with Spark on HDInsight.
 - [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: customize HDInsight clusters using Script Action.
@@ -318,4 +316,4 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md

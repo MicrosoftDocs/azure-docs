@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="01/28/2016"
    ms.author="hascipio; v-divte" />
 
 # Technical prerequisites for creating a solution template for the Azure Marketplace
@@ -29,7 +29,7 @@ You must decide on the building blocks of your solution before you proceed with 
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Next steps
-Now that you have reviewed the prerequisites and completed the necessary tasks, you can move forward with creating your solution template offer as detailed in the [Guide to creating a solution template](marketplace-publishing-solution-template-creation.md). For best practices, see [Creating a solution template best practices](marketplace-publishing-solution-template-best-practices.md). To return to the main page of publisher tasks, see [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
+Now that you have reviewed the prerequisites and completed the necessary tasks, you can move forward with creating your solution template offer as detailed in the [Guide to creating a solution template](marketplace-publishing-solution-template-creation.md). To return to the main page of publisher tasks, see [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
 
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md

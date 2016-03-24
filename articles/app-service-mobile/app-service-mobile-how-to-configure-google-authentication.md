@@ -3,7 +3,7 @@
 	description="Learn how to configure Google authentication for your App Services application."
     services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Google login
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
-&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Azure App Service to use Google as an authentication provider.
 
@@ -34,7 +31,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 ## <a name="register"> </a>Register your application with Google
 
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Google app.
- 
+
 2. Navigate to the [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, sign-in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
 
 3. In the left navigation bar, click **API & Auth**, then under **Social APIs** click **Google+ API** > **Enable API**.
@@ -71,11 +68,11 @@ If using the App Service Gateway, ignore this section and instead navigate to yo
 
     ![][1]
 
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
 17. (Optional) To restrict access to your site to only users authenticated by Google, set **Action to take when request is not authenticated** to **Google**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Google for authentication.
 
-12. Click **Save**. 
+12. Click **Save**.
 
 You are now ready to use Google for authentication in your app.
 
@@ -96,4 +93,4 @@ You are now ready to use Google for authentication in your app.
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Azure portal]: https://portal.azure.com/
- 
+

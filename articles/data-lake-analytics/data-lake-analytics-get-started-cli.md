@@ -10,10 +10,10 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/02/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using Azure Command-line Interface (CLI)
@@ -43,12 +43,12 @@ in the U-SQL script, and then save the output to either a Data Lake Store accoun
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Azure CLI**. See [Install and configure Azure CLI](xplat-cli.md).
+- **Azure CLI**. See [Install and configure Azure CLI](../xplat-cli-install.md).
 	- Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 - **Authentication**, using the following command:
 
 		azure login
-	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
+	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 - **Switch to the Azure Resource Manager mode**, using the following command:
 
 		azure config mode arm
@@ -57,7 +57,7 @@ Before you begin this tutorial, you must have the following:
 
 You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
 
-- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
+- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
 
 	To enumerate the resource groups in your subscription:
     
@@ -106,7 +106,7 @@ To upload files using cli, use the following command:
   	azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
   	azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
-Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](storage-azure-cli.md).
+Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
 
 ## Submit Data Lake Analytics jobs
 

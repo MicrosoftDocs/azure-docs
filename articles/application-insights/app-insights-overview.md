@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="What is Application Insights?" 
-	description="Track usage and performance of your live web or device application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
+	pageTitle="Analytics with Application Insights" 
+	description="Device and web app analytics. Track usage and performance of your live web application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # What is Application Insights?
@@ -86,7 +86,7 @@ The impact on your performance is very small. Tracking calls non-blocking, and a
 
 1. You'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and you can choose the free [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights.
 
-2. Sign into [Azure Portal](http://portal.azure.com)
+2. Sign into [Azure Portal](https://portal.azure.com)
 3. Create an Application Insights resource. This is where you'll see data from your app.
 
     ![Add, Developer Services, Application Insights.](./media/app-insights-overview/11-new.png)

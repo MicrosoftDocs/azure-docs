@@ -12,8 +12,8 @@
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.topic="hero-article" 
+	ms.date="02/02/2016"
 	ms.author="juliako"/>
 
 #Azure Media Services Overview and Common Scenarios
@@ -29,21 +29,25 @@ You can choose to stream your content live or deliver content on demand. This to
 To build Media Services solutions, you can use:
 
 - [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- One of the available client SDKs: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
-- Existing tools: [Azure Classic Portal](http://manage.windowsazure.com/) or [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
-
+- One of the available client SDKs: 
+	- [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), 
+	- [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), 
+	- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
+	- [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs). 
+- Existing tools: 
+	- [Azure Classic Portal](http://manage.windowsazure.com/) 
+	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
 
 ##Media Services learning paths
 
 You can view AMS learning paths here:
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [AMS Live Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Poster
 
-
-[Here](http://azure.microsoft.com/documentation/infographics/media-services/) you can view the Azure Media Services  poster that depicts AMS workflows, from media creation through consumption. 
+[Here](https://azure.microsoft.com/documentation/infographics/media-services/) you can view the Azure Media Services  poster that depicts AMS workflows, from media creation through consumption. 
 
 ##Prerequisites
 
@@ -56,10 +60,11 @@ To start using Azure Media Services, you should have the following:
 	Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect_programmatically.md).
 4. (Recommended) Allocate one or more scale units. It is recommended to allocate one or more scale units for applications in production environment.   For more information, see [Managing streaming endpoints](media-services-manage-origins.md).
 
-##Concepts
+##Concepts and overview
 
-For more information, see [Concepts](media-services-concepts.md).
+For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 
+For a how-to series that introduces you to all the main components of Azure Media Services, see [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). This series has a great overview of concepts and it uses the AMSE tool to demonstrate the AME tasks. Note that AMSE tool is a Windows tool. This tool supports most of the tasks you can achieve programmatically with [AMS SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), or  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Delivering Media on-Demand with Azure Media Services: common scenarios and tasks
 
@@ -204,7 +209,7 @@ You can also scale your Media Services account by adding storage accounts to it.
 
 ##Support
 
-[Azure Support](http://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.
+[Azure Support](https://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.
 
 ##Patterns & practices guidance
 
@@ -225,7 +230,7 @@ You can also scale your Media Services account by adding storage accounts to it.
 - For Content Protection, we guarantee that we will successfully fulfill key requests at least 99.9% of the time.
 - For Indexer, we will successfully service Indexer Task requests processed with an Encoding Reserved Unit 99.9% of the time.
 
-	For more information, see [Microsoft Azure SLA](http://azure.microsoft.com/support/legal/sla/).
+	For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png

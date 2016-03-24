@@ -1,10 +1,10 @@
-﻿<properties
+<properties
 	pageTitle="Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Azure"
 	description="Learn how to deploy and manage Azure Backup using PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
+	authors="nkolli1"
+	manager="shivamg"
 	editor=""/>
 
 <tags
@@ -13,48 +13,43 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="aashishr"; "jimpark"/>
+	ms.date="01/22/2016"
+	ms.author="markgal;jimpark;nkolli"/>
 
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
-This article shows you how to use PowerShell to set up Azure Backup on Windows Server or Windows Client, and to manage backup and recovery.
+
+This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
+
+## Install Azure PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
+In October 2015, Azure PowerShell 1.0 was released. This release succeeded the 0.9.8 release and brought about some significant changes, especially in the naming pattern of the cmdlets. 1.0 cmdlets follow the naming pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 names do not include **Rm** (for example, New-AzureRmResourceGroup instead of New-AzureResourceGroup). When using Azure PowerShell 0.9.8, you must first enable the Resource Manager mode by running the **Switch-AzureMode AzureResourceManager** command. This command is not necessary in 1.0 or later.
+
+If you want to use your scripts written for the 0.9.8 environment, in the 1.0 or later environment, you should carefully test the scripts in a pre-production environment before using them in production to avoid unexpected impact.
+
+[Download the latest PowerShell release](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
+
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Setup and Registration
-To begin:
 
-1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
-2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
-
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
-
-The following setup and registration tasks can be automated with PowerShell:
-
-- Create a backup vault
-- Installing the Azure Backup agent
-- Registering with the Azure Backup service
-- Networking settings
-- Encryption settings
-
-### Create a backup vault
+## Create a backup vault
 
 > [AZURE.WARNING] For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
-You can create a new backup vault using the **New-AzureRMBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
+You can create a new backup vault using the **New-AzureRMBackupVault** cmdlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
 ```
 PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-You can get a list of all the backup vaults in a given subscription using the **Get-AzureRMBackupVault** commandlet.
+Use the **Get-AzureRMBackupVault** cmdlet to list the backup vaults in a subscription.
 
 
-### Installing the Azure Backup agent
+## Installing the Azure Backup agent
 Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent) or from the backup vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
 
 To install the agent, run the following command in an elevated PowerShell console:
@@ -69,7 +64,7 @@ To see the list of installed programs, go to **Control Panel** > **Programs** > 
 
 ![Agent installed](./media/backup-client-automation/installed-agent-listing.png)
 
-#### Installation options
+### Installation options
 
 To see all the options available via the command-line, use the following command:
 
@@ -93,13 +88,13 @@ The available options include:
 | /pw | Proxy Password | - |
 
 
-### Registering with the Azure Backup service
+## Registering with the Azure Backup service
 Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-configure-vault.md) are met. You must:
 
 - Have a valid Azure subscription
 - Have a backup vault
 
-To download the vault credentials, run the **Get-AzureRMBackupVaultCredentials** commandlet in an Azure PowerShell console and store it in a convenient location like *C:\Downloads\*.
+To download the vault credentials, run the **Get-AzureRMBackupVaultCredentials** cmdlet in an Azure PowerShell console and store it in a convenient location like *C:\Downloads\*.
 
 ```
 PS C:\> $credspath = "C:\"
@@ -124,7 +119,7 @@ Machine registration succeeded.
 
 > [AZURE.IMPORTANT] Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
 
-### Networking settings
+## Networking settings
 When the connectivity of the Windows machine to the internet is through a proxy server, the proxy settings can also be provided to the agent. In this example, there is no proxy server, so we are explicitly clearing any proxy-related information.
 
 Bandwidth usage can also be controlled with the options of ```work hour bandwidth``` and ```non-work hour bandwidth``` for a given set of days of the week.
@@ -139,7 +134,7 @@ PS C:\> Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 
-### Encryption settings
+## Encryption settings
 The backup data sent to Azure Backup is encrypted to protect the confidentiality of the data. The encryption passphrase is the "password" to decrypt the data at the time of restore.
 
 ```

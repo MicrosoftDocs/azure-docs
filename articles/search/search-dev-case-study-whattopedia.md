@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
 	description="Learn how to build an information portal and meta search engine using Azure Search, a cloud hosted search service for developers." 
 	services="search, sql-database,  storage, web-sites" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Azure Search Developer Case Study
@@ -62,12 +62,12 @@ The diagram below illustrates the high-level components used in the WhatToPedia 
 
 Looking at the green boxes in the previous diagram, you’ll see that the WhatToPedia solution is built on these services:
 
-- [Azure Search](http://azure.microsoft.com/services/search/)
-- [Azure Websites using MVC 4](http://azure.microsoft.com/services/websites/)
-- [Azure WebJobs for scheduled tasks](../websites-webjobs-resources.md)
-- [Azure SQL Database](http://azure.microsoft.com/services/sql-database/)
-- [Azure BLOB Storage](http://azure.microsoft.com/services/storage/)
-- [SendGrid Email Delivery](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
+- [Azure Search](https://azure.microsoft.com/services/search/)
+- [Azure Websites using MVC 4](https://azure.microsoft.com/services/websites/)
+- [Azure WebJobs for scheduled tasks](../app-service-web/websites-webjobs-resources.md)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [Azure BLOB Storage](https://azure.microsoft.com/services/storage/)
+- [SendGrid Email Delivery](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
 The very heart of the solution is data and search. The flow of data from the Reseller provider to the end customer is illustrated below:
 
@@ -218,7 +218,7 @@ We hope you found this case study useful. If you go on to use Azure Search, I re
 
 - [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
 - [StackOverflow also has a tag](http://stackoverflow.com/questions/tagged/azure-search)
-- [Documentation page on Azure.com](http://azure.microsoft.com/documentation/services/search/)
+- [Documentation page on Azure.com](https://azure.microsoft.com/documentation/services/search/)
 - [Azure Search documentation on MSDN](http://msdn.microsoft.com/library/azure/dn798933.aspx)
 
 
@@ -417,7 +417,7 @@ The following code builds the indexer mentioned in the section on building the p
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Import a BACPAC file to create a new Azure SQL database using PowerShell" 
+    pageTitle="Import a BACPAC file to create a new Azure SQL database using PowerShell | Microsoft Azure" 
     description="Import a BACPAC file to create a new Azure SQL database using PowerShell" 
     services="sql-database" 
     documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/17/2015"
+    ms.date="02/05/2016"
     ms.author="sstein"/>
 
 # Import a BACPAC file to create a new Azure SQL database using PowerShell
@@ -38,7 +38,7 @@ The database is created from a BACPAC imported from an Azure storage blob contai
 To import a SQL database you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
-- A .bacpac file (BACPAC) of the database you want to restore. The BACPAC needs to be in an [Azure Storage account (classic)](storage-create-storage-account.md) blob container.
+- A .bacpac file (BACPAC) of the database you want to import. The BACPAC needs to be in an [Azure Storage account (classic)](storage-create-storage-account.md) blob container.
 
 
 > [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
@@ -115,7 +115,7 @@ Running this command will prompt you for a password. Enter the admin login and p
  
 
 
-## SQL Database PowerShell restore script
+## SQL Database PowerShell import script
 
 
     Add-AzureAccount
@@ -142,7 +142,7 @@ Running this command will prompt you for a password. Enter the admin login and p
 
 ## Next steps
 
-- [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 
 

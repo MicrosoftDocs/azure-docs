@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: Generic LDAP Connector"
+   pageTitle="Azure AD Connect sync: Generic LDAP Connector | Microsoft Azure"
    description="This article describes how to configure Microsoft's Generic LDAP Connector."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Generic LDAP Connector technical reference
@@ -22,7 +22,7 @@ This article describes the Generic LDAP Connector. The article applies to the fo
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Must use hotfix 4.1.3461.0 or later [KB2870703](https://support.microsoft.com/kb/2870703).
+    -   Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
 
 For MIM2016 and FIM2010R2 the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -39,7 +39,7 @@ From a high level perspective, the following features are supported by the curre
 
 | Feature | Support |
 | --- | --- |
-| Connected data source | The Connector is supported with all LDAP v3 servers (RFC 4510 compliant). It has been tested with the following: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (previously Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>Notable directories not supported: <li>Microsoft Active Directory Domain Services (AD DS) [Use the built-in Active Directory Connector instead]</li><li>Oracle Internet Directory (OID)</li> |
+| Connected data source | The Connector is supported with all LDAP v3 servers (RFC 4510 compliant). It has been tested with the following: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (previously Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Notable directories not supported:** <li>Microsoft Active Directory Domain Services (AD DS) [Use the built-in Active Directory Connector instead]</li><li>Oracle Internet Directory (OID)</li> |
 | Scenarios	| <li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li> |
 | Operations |The following operations are supported on all LDAP directories: <li>Full Import</li><li>Export</li>The following operations are only supported on specified directories:<li>Delta import</li><li>Set Password, Change Password</li> |
 | Schema | <li>Schema is detected from the LDAP schema (RFC3673 and RFC4512/4.2)</li><li>Supports structural classes, aux classes, and extensibleObject object class (RFC4512/4.3)</li>
@@ -50,13 +50,13 @@ Supported Directories for Delta import and Password management:
 
 - Microsoft Active Directory Lightweight Directory Services (AD LDS)
     - Supports all operations for delta import
-    - Supports Set Password and Change Password
+    - Supports Set Password
 - Microsoft Active Directory Global Catalog (AD GC)
     - Supports all operations for delta import
-    - Supports Set Password and Change Password
+    - Supports Set Password
 - 389 Directory Server
     - Supports all operations for delta import
-    - Supports Set Password
+    - Supports Set Password and Change Password
 - Apache Directory Server
     - Does not support delta import since this directory does not have a persistent change log
     - Supports Set Password
@@ -72,10 +72,10 @@ Supported Directories for Delta import and Password management:
     - Supports Set Password and Change Password
 - Open DJ
     - Supports all operations for delta import
-    - Supports Set Password
+    - Supports Set Password and Change Password
 - Open DS
     - Supports all operations for delta import
-    - Supports Set Password
+    - Supports Set Password and Change Password
 - Open LDAP (openldap.org)
     - Supports all operations for delta import
     - Supports Set Password
@@ -212,13 +212,13 @@ The following is a list of default change log DNs:
 | Apache Directory Server | Not available. |
 | Directory 389 | Change log. Default value to use: **cn=changelog** |
 | IBM Tivoli DS | Change log. Default value to use: **cn=changelog** |
-| Isode Directory | Change log. Default value to use: **cn=ChangeLog**
+| Isode Directory | Change log. Default value to use: **cn=changelog**
 | Novell/NetIQ eDirectory | Not available. TimeStamp. The Connector will use last updated date/time to get added and updated records. |
-| Open DJ/DS | Change log.  Default value to use: **cn=Changelog** |
+| Open DJ/DS | Change log.  Default value to use: **cn=changelog** |
 | Open LDAP | Access log. Default value to use: **cn=accesslog** |
 | Oracle DSEE | Change log. Default value to use: **cn=changelog** |
 | RadiantOne VDS | Virtual directory. Depends on the directory connected to VDS. |
-| Sun One Directory Server | Change log. Default value to use: **cn=Changelog** |
+| Sun One Directory Server | Change log. Default value to use: **cn=changelog** |
 
 The password attribute is the name of the attribute the Connector should use to set the password in password change and password set operations.
 This is by default set to **userPassword** but can be changed if needed for a particular LDAP system.

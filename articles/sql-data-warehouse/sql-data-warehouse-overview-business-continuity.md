@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="sahajs"/>
+   ms.date="03/03/2016"
+   ms.author="sahajs;barbkess;sonyama"/>
 
 
 # Planning for business Continuity in SQL Data Warehouse
@@ -42,7 +42,7 @@ Business continuity and disaster recovery plans need to optimize for the followi
 
 ## Business continuity features
 
-Let us take a look at how SQL Data Warehouse enhances the reliability of your database and allows for recoverability and continuous operation in the aforementioned scenarios. 
+Let us take a look at how SQL Data Warehouse enhances the reliability of your database and allows for recoverability and continuous operation in the aforementioned scenarios.
 
 
 ### Data redundancy
@@ -66,7 +66,7 @@ To learn about the business continuity features of other SQL Database editions, 
 <!--Article references-->
 [business continuity overview]: ../sql-database/sql-database-business-continuity.md
 [Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
-[Azure storage redundancy options]: storage-redundancy/#read-access-geo-redundant-storage-ra-grs.md
+[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
 [Recover from user error]: sql-data-warehouse-business-continuity-recover-from-user-error.md
 
@@ -77,5 +77,3 @@ To learn about the business continuity features of other SQL Database editions, 
 [List restorable dropped databases]: http://msdn.microsoft.com/library/azure/dn509562.aspx
 
 <!--Other Web references-->
-
-

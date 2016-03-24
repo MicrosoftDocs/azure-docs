@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using cURL and the Azure REST API | Microsoft Azure"
    	description="Learn how to create Linux-based HDInsight clusters using cURL, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components."
    	services="hdinsight"
@@ -14,12 +14,12 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/04/2015"
+   	ms.date="03/08/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using cURL and the Azure REST API
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as Linux-based HDInsight clusters. In this document, you will learn how to create Azure Resource Manager templates to configure an HDInsight cluster and associated storage, then use cURL to deploy the template to the Azure REST API to create a new HDInsight cluster.
 
@@ -29,7 +29,10 @@ The Azure REST API allows you to perform management operations on services hoste
 
 ##Prerequisites
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure CLI__. The Azure CLI is used to create a service principal, which is then used to generate authentication tokens for requests to the Azure REST API.
 

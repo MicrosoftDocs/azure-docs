@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/29/2015"
+   ms.date="02/19/2016"
    ms.author="mbaldwin"/>
 
 
 # Listing your application in the Azure Active Directory application gallery
 
-To list an application that supports single sign-on with Azure Active Directory in the [Azure AD gallery](http://azure.microsoft.com/marketplace/active-directory/all/), the application first needs to implement one of the following integration modes:
+To list an application that supports single sign-on with Azure Active Directory in the [Azure AD gallery](https://azure.microsoft.com/marketplace/active-directory/all/), the application first needs to implement one of the following integration modes:
 
 * **OpenID Connect** - Direct integration with Azure AD using OpenID Connect for authentication and the Azure AD consent API for configuration. If you are just starting an integration and your application does not support SAML, then this is the recommend mode.
 
@@ -33,7 +33,7 @@ To integrate your application with Azure AD, following the [developer instructio
 
 * Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
 
-* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework). 
+* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
 
 * Provide any further instructions required for the Azure AD team to test single sign-on with your application. 
 

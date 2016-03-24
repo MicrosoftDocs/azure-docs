@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications | Microsoft Azure"
 	description="Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the SCIM protocol specification"
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications
@@ -29,7 +29,7 @@ This capability can be used in conjunction with the “[bring your own app](http
 
 There are two use cases for SCIM in Azure Active Directory:
 
-* **Provisioning users and groups to applications that support SCIM** - Applications that support SCIM 2.0 and are capable of accepting an OAuth bearer token from Azure AD will work with Azure AD of the box.
+* **Provisioning users and groups to applications that support SCIM** - Applications that support SCIM 2.0 and use OAuth bearer tokens for authentication will work with Azure AD of the box.
 
 * **Build your own provisioning solution for applications that support other API-based provisioning** - For non-SCIM applications, you can create a SCIM endpoint to translate between Azure AD’s SCIM endpoint and whatever API the application supports for user provisioning.  To aid in the development of a SCIM endpoint, we provide CLI libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
 
@@ -49,9 +49,7 @@ Azure Active Directory can be configured to automatically provision assigned use
 
 * Supports querying groups by ID and by member as per section 3.4.2 of the SCIM protocol.  
 
-* Accepts OAuth bearer tokens for authorization as per section 2.1 of the SCIM protocol.  
-
-* Supports using Azure AD as the identity provider for the OAuth token (support for external identity providers coming soon)
+* Accepts OAuth bearer tokens for authorization as per section 2.1 of the SCIM protocol.
 
 You should check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
  
@@ -68,13 +66,14 @@ Applications that support the SCIM profile described above can be connected to A
 ![][2]
 
 4.	In the resulting screen, select the second **Configure account provisioning** button.
-5.	In the dialog, enter the URL of the application's SCIM endpoin.  
-6.	Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
-7.	If the attempts to connect to the application succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
-8.	In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
-9.	Once users and groups are assigned, click the **Configure** tab near the top of the screen.
-10.	Under **Account Provisioning**, confirm that the Status is set to On. 
-11.	Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
+5.	In the **Provisioning Endpoint URL** field, enter the URL of the application's SCIM endpoint.
+6.	If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the **Authentication Token (optional)** field. Is this field is left blank, then Azure AD will include an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an idenity provider can validate this Azure AD -issued token.
+7.	Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
+8.	If the attempts to connect to the application succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
+9.	In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
+10.	Once users and groups are assigned, click the **Configure** tab near the top of the screen.
+11.	Under **Account Provisioning**, confirm that the Status is set to On. 
+12.	Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
 
 Note that 5-10 minutes may elapse before the provisioning process will begin to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab, and both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
 
@@ -689,6 +688,17 @@ The figure below shows the messages that Azure Active Directory will send to a S
 
 ![][5]
 *Figure: Group provisioning and de-provisioning sequence*
+
+##Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
+- [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
+- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
+- [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
+- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
+
 
 	
 <!--Image references-->

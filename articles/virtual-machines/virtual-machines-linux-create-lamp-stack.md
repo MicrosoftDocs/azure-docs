@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create a LAMP Stack with Azure | Microsoft Azure"
 	description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -32,7 +32,7 @@ You will learn:
 -	How to prepare the virtual machine for the LAMP stack.
 -	How to install software that is needed by your LAMP server on the virtual machine.
 
-It is assumed that the reader already has an Azure subscription.  If not you can sign up for a free trial at [http://azure.microsoft.com](http://azure.microsoft.com). If you have an MSDN subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). To learn more about Azure, see [What is Azure?](http://azure.microsoft.com/overview/what-is-azure/)
+It is assumed that the reader already has an Azure subscription.  If not you can sign up for a free trial at [http://azure.microsoft.com](https://azure.microsoft.com/). If you have an MSDN subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). To learn more about Azure, see [What is Azure?](https://azure.microsoft.com/overview/what-is-azure/)
 
 In addition to this topic, if you already have a virtual machine and are just looking for the basics of installing a  LAMP stack on different Linux distributions, refer to [Install the LAMP Stack on a Linux virtual machine in Azure](virtual-machines-linux-install-lamp-stack.md).
 

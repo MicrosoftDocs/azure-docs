@@ -167,7 +167,7 @@ To get access to the app service environment, create APIs, connections and other
 ![][7]
 3. Select the RBAC icon to manage permissions:  
 ![][8]  
-	Adding users and assigning roles is just like using [Role-based access control](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure) within Azure.
+	Adding users and assigning roles is just like using [Role-based access control](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) within Azure.
 
 > [AZURE.NOTE] Currently, you cannot give RBAC permissions to the app service environment. You can give RBAC permissions at the parent resource group level.
 

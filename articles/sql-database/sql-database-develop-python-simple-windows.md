@@ -14,20 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
 # Connect to SQL Database by using Python on Windows
 
 
-> [AZURE.SELECTOR]
-- [C#](sql-database-develop-dotnet-simple.md)
-- [PHP](sql-database-develop-php-simple-windows.md)
-- [Python](sql-database-develop-python-simple-windows.md)
-- [Ruby](sql-database-develop-ruby-simple-windows.md)
-- [Java](sql-database-develop-java-simple-windows.md)
-- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
 This topic presents a code sample written in Python. The sample runs on a Windows computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
@@ -122,7 +116,7 @@ This code example demonstrates the use of transactions in which you:
 	cursor = conn.cursor()
 	cursor.execute("BEGIN TRANSACTION")
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
-	cnxn.rollback()
+	conn.rollback()
 
 ## Next steps
 

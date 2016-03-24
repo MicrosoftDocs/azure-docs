@@ -13,17 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="03/24/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Installing Elastic Database jobs overview
+
 [**Elastic Database jobs**](sql-database-elastic-jobs-overview.md) can be installed via PowerShell or through the Azure Classic Portal.You can gain access to create and manage jobs using the PowerShell API only if you install the PowerShell package. Additionally, the PowerShell APIs provide significantly more functionality than the portal at this point in time. 
 
 If you have already installed **Elastic Database jobs** through the Portal from an existing **Elastic Database pool**, the latest Powershell preview includes scripts to upgrade your existing installation. It is highly recommended to upgrade your installation to the latest **Elastic Database jobs** components in order to take advantage of new functionality exposed via the PowerShell APIs.
 
 ## Prerequisites
-* An Azure subscription. For a free trial, see [Free trial](http://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell version >= 0.8.16. Install the latest version (0.9.5) through the [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+* An Azure subscription. For a free trial, see [Free trial](https://azure.microsoft.com/pricing/free-trial/).
+* Azure PowerShell. Install the latest version using the [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 * [NuGet Command-line Utility](https://nuget.org/nuget.exe) is used to install the Elastic Database jobs package. For more information, see http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Download and import the Elastic Database jobs PowerShell package
@@ -150,7 +151,7 @@ To update the VM size of an installation, run the following script with paramete
 
 ## Install the Elastic Database jobs components using the Portal
 
-Once you have [created an Elastic Database pool](sql-database-elastic-pool-portal.md), you can install **Elastic Database jobs** components to enable execution of administrative tasks against each database in the Elastic Database pool. Unlike when using the **Elastic Database jobs** PowerShell APIs, the portal interface is currently restricted to only executing against an existing pool.
+Once you have [created an Elastic Database pool](sql-database-elastic-pool-create-portal.md), you can install **Elastic Database jobs** components to enable execution of administrative tasks against each database in the Elastic Database pool. Unlike when using the **Elastic Database jobs** PowerShell APIs, the portal interface is currently restricted to only executing against an existing pool.
 
 
 **Estimated time to complete:** 10 minutes.
@@ -166,7 +167,7 @@ Once you have [created an Elastic Database pool](sql-database-elastic-pool-porta
 
 	![Create username and password][2]
 
-6. Click the OK button. The components are created for you in a few minutes in a new [Resource group](../resource-group-portal.md). The new resource group is pinned to the start board, as shown below. Once created, elastic database jobs (Cloud Service, SQL Database, Service Bus, and Storage) are all created in the group.
+6. Click the OK button. The components are created for you in a few minutes in a new [Resource group](../azure-portal/resource-group-portal.md). The new resource group is pinned to the start board, as shown below. Once created, elastic database jobs (Cloud Service, SQL Database, Service Bus, and Storage) are all created in the group.
 
 	![resource group in start board][3]
 
@@ -178,12 +179,12 @@ If uninstallation is required, delete the resource group. See [How to uninstall 
 
 ## Next steps
 
-Ensure a credential with the appropriate rights for script execution is created on each database in the group, for more information see [How to add users to all database in my group of databases](sql-database-elastic-jobs-add-logins-to-dbs.md). 
+Ensure a credential with the appropriate rights for script execution is created on each database in the group, for more information see [Securing your SQL Database](sql-database-security.md). 
 See [Creating and managing an Elastic Database jobs](sql-database-elastic-jobs-create-and-manage.md) to get started.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
-[4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+[4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  

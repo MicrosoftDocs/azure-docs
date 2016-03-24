@@ -9,17 +9,17 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
 # How to use the Azure Service Bus relay service
 
-This article describes how to use the Service Bus relay service. The samples are written in C# and use the Windows Communication Foundation (WCF) API with extensions contained in the Service Bus assembly that is part of the Microsoft Azure .NET SDK. For more information about the Service Bus relay, see the [Service Bus relayed messaging](service-bus-relay-overview.md) overview.
+This article describes how to use the Service Bus relay service. The samples are written in C# and use the Windows Communication Foundation (WCF) API with extensions contained in the Service Bus assembly. For more information about the Service Bus relay, see the [Service Bus relayed messaging](service-bus-relay-overview.md) overview.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -88,7 +88,7 @@ In order to perform management operations, such as creating a relay connection, 
 
 ## Get the Service Bus NuGet package
 
-The Service Bus NuGet package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. The NuGet Visual Studio extension makes it easy to install and update libraries and tools in Visual Studio and Visual Studio Express. The Service Bus NuGet package is the easiest way
+The [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. The NuGet Visual Studio extension makes it easy to install and update libraries and tools in Visual Studio and Visual Studio Express. The Service Bus NuGet package is the easiest way
 to get the Service Bus API and to configure your application with all of the Service Bus dependencies.
 
 To install the NuGet package in your application, do the following:
@@ -284,14 +284,10 @@ you must replace the placeholders with your Service Bus namespace and SAS key.
 
 Now that you've learned the basics of the Service Bus relay service, follow these links to learn more.
 
-- [Azure Service Bus Architectural Overview](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure Service Bus architectural overview](service-bus-fundamentals-hybrid-solutions.md)
 - [How to Use the Service Bus Relay Service](service-bus-dotnet-how-to-use-relay.md)
 - Download Service Bus samples from [Azure samples][] or see the [overview of Service Bus samples][].
 
-  [Create a Service Namespace]: #create_namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
-  [Get the Service Bus NuGet Package]: #get_nuget_package
-  [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [Azure classic portal]: http://manage.windowsazure.com
   [Shared Access Signature Authentication with Service Bus]: service-bus-shared-access-signature-authentication.md
   [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2

@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/> 
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/19/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 #Create a Windows app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to a universal Windows app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).  
+This tutorial shows you how to add a cloud-based backend service to a universal Windows app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started](../../includes/app-service-mobile-windows-universal-get-started.md)]
 
@@ -32,7 +30,7 @@ This tutorial shows you how to add a cloud-based backend service to a universal 
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] or a later version.
 

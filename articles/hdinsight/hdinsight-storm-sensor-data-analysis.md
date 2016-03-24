@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Analyze sensor data with Apache Storm, Event Hub, and HBase in HDInsight (Hadoop)
@@ -26,7 +26,7 @@ Learn how to use Apache Storm on HDInsight to process sensor data from Azure Eve
 
 * An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* An [Apache Storm on HDInsight cluster](../hdinsight-storm-getting-started.md)
+* An [Apache Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started.md)
 
 * [Node.js](http://nodejs.org/): Used for the web dashboard and to send sensor data to Event Hub.
 
@@ -258,7 +258,7 @@ In your development environment, use the following steps to run the Temperature 
 
 ### Publish the website dashboard
 
-1. To deploy the dashboard to an Azure Website, follow the steps in [Build and deploy a Node.js website to Azure](../web-sites-nodejs-develop-deploy-mac.md). Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
+1. To deploy the dashboard to an Azure Website, follow the steps in [Build and deploy a Node.js website to Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md). Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
 
 2. When the website is created, go to the site in the Azure Classic Portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save** at the bottom of the page.
 
@@ -402,6 +402,9 @@ Before running the topology, you must prepare HBase to accept the data.
 
 When you have started the topology on the Storm cluster and processed data, you can use the `scan 'SensorData'` command again to verify that data was inserted into HBase.
 
+## Delete your clusters
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next steps
 

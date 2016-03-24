@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/17/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -75,12 +75,12 @@ For best performance and lowest latency, locate your Azure Redis Cache in the sa
 <a name="cache-billing"></a>
 ## How am I billed for Azure Redis Cache?
 
-Azure Redis Cache pricing is [here](http://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
+Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
 <a name="cache-timeouts"></a>
 ## Why am I seeing timeouts?
 
-Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](http://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
+Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
 
 <a name="cache-monitor"></a>
 ## How do I monitor the health and performance of my cache?
@@ -135,6 +135,55 @@ In most cases the default values of the client are sufficient. You can fine tune
 		-	Set the `ClientName` property on each multiplexer to help with diagnostics. 
 		-	This will lead to more streamlined latency per `ConnectionMultiplexer`.
 
+<a name="threadpool"></a>
+## Important details about ThreadPool growth
+
+The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (aka IOCP) threads.  
+
+-	Worker threads are used when for things like processing `Task.Run(…)` or `ThreadPool.QueueUserWorkItem(…)` methods.  These threads are also used by various components in the CLR when work needs to happen on a background thread.
+-	IOCP threads are used when asynchronous IO happens (e.g. reading from the network).  
+
+The thread pool provides new worker threads or I/O completion threads on demand (without any throttling) until it reaches the "Minimum" setting for each type of thread.  By default, the minimum number of threads is set to the number of processors on a system.  
+
+Once the number of existing (busy) threads hits the "minimum" number of threads, the ThreadPool will throttle the rate at which is injects new threads to one thread per 500 milliseconds.  This means that if your system gets a burst of work needing an IOCP thread, it will process that work very quickly.   However, if the burst of work is more than the configured "Minimum" setting, there will be some delay in processing some of the work as the ThreadPool waits for one of two things to happen.
+
+1. An existing thread becomes free to process the work.
+1. No existing thread becomes free for 500ms, so a new thread is created.
+
+Basically, it means that when the number of Busy threads is greater than Min threads, you are likely paying a 500ms delay before network traffic is processed by the application.  Also, it is important to note that when an existing thread stays idle for longer than 15 seconds (based on what I remember), it will be cleaned up and this cycle of growth and shrinkage can repeat.
+
+If we look at an example error message from StackExchange.Redis (build 1.0.450 or later), you will see that it now prints ThreadPool statistics (see IOCP and WORKER details below).
+
+	System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive, 
+	queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, 
+	IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
+	WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+
+In the above example, you can see that for IOCP thread there are 6 busy threads and the system is configured to allow 4 minimum threads.  In this case, the client would have likely seen two 500 ms delays because 6 > 4.
+
+Note that StackExchange.Redis can hit timeouts if growth of either IOCP or WORKER threads gets throttled.
+
+### Recommendation
+
+Given this information, we strongly recommend that customers set the minimum configuration value for IOCP and WORKER threads to something larger than the default value.  We can't give one-size-fits-all guidance on what this value should be because the right value for one application will be too high/low for another application.  This setting can also impact the performance of other parts of complicated applications, so each customer needs to fine-tune this setting to their specific needs.  A good starting place is 200 or 300, then test and tweak as needed.
+
+How to configure this setting:
+
+-	In ASP.NET, use the ["minIoThreads" configuration setting][] under the `<processModel>` configuration element in web.config.  If you are running inside of Azure WebSites, this setting is not exposed through the configuration options.  However, you should still be able to set this programmatically (see below) from your Application_Start method in global.asax.cs.
+
+> **Important Note:** the value specified in this configuration element is a *per-core* setting.  For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
+
+-	Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+
+<a name="server-gc"></a>
+## Enable server GC to get more throughput on the client when using StackExchange.Redis
+
+Enabling server GC can optimize the client and provide better performance and throughput when using StackExchange.Redis. For more information on server GC and how to enable it, see the following articles.
+
+-	[To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
+-	[Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
+-	[Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
+
 <a name="cache-redis-commands"></a>
 ## What are some of the considerations when using common Redis commands?
 
@@ -172,10 +221,31 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 
 -	If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the Azure Portal.
 -	You can also use the Redis command line tools. To use them, perform the following steps.
-	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/).
 	-	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
 		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
 	-	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+
+<a name="cache-emulator"></a>
+## Is there a local emulator for Azure Redis Cache?
+
+There is no local emulator for Azure Redis Cache, but you can run the MSOpenTech version of redis-server.exe from the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/) on your local machine and connect to it to get a similar experience to a local cache emulator, as shown in the following example.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
+You can optionally configure a [redis.conf](http://redis.io/topics/config) file to more closely match the [default cache settings](cache-configure.md#default-redis-server-configuration) for your online Azure Redis Cache if desired.
 
 <a name="cache-common-patterns"></a>
 ## What are some common cache patterns and considerations?
@@ -190,7 +260,7 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 
 Microsoft Azure Redis Cache is based on the popular open source Redis Cache, giving you access to a secure, dedicated Redis cache, managed by Microsoft. A variety of [Redis clients](http://redis.io/clients) are available for many programming languages. Each client has its own API that makes calls to the Redis cache instance using [Redis commands](http://redis.io/commands).
 
-Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials on Azure.com showing how to get started with Azure Redis Cache using different languages and cache clients on the [Redis Cache documentation](http://azure.microsoft.com/documentation/services/redis-cache/) page.
+Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials on Azure.com showing how to get started with Azure Redis Cache using different languages and cache clients on the [Redis Cache documentation](https://azure.microsoft.com/documentation/services/redis-cache/) page.
 
 
 ## Which Azure Cache offering is right for me?
@@ -216,7 +286,7 @@ Azure Cache currently has three offerings:
 >If you have any questions, please [contact us](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933). 
 
 ### Azure Redis Cache
-Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
+Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
 
 Azure Redis Cache gives customers the ability to use a secure, dedicated Redis cache, managed by Microsoft. With this offer, you get to leverage the rich feature set and ecosystem provided by Redis, and reliable hosting and monitoring from Microsoft.
 
@@ -231,3 +301,5 @@ Managed Cache service is set to be retired November 30, 2016.
 
 ### In-Role Cache
 In-Role Cache is set to be retired November 30, 2016.
+
+["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

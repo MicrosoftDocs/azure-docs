@@ -10,17 +10,17 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Next steps
 
-Azure IoT Hub is an Azure service that receives telemetry at scale from your devices and routes that data to a stream event processor. You can use IoT Hub to implement your own solution backend. IoT Hub can also send cloud-to-device commands to specific devices. In addition, IoT Hub includes a device identity registry that you can use to provision devices and to manage which devices may connect to the hub. To learn more, see:
+Azure IoT Hub is an Azure service that enables secure and reliable bi-directional communications between your application back end and millions of devices. It allows the application back end to receive telemetry at scale from your devices, route that data to a stream event processor, and also to send cloud-to-device commands to specific devices. You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes a device identity registry used to provision devices, their security credentials, and their rights to connect to the hub. To learn more, see:
 
 - [What is IoT Hub?][lnk-iot-hub]
 - [Get started with IoT Hub][lnk-getstarted]
@@ -32,5 +32,5 @@ You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a colle
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
 # Manage an Azure Machine Learning workspace
-Using the Azure Classic Portal, you can manage your Machine Learning workspaces to:
+Using the Azure classic portal, you can manage your Machine Learning workspaces to:
 
 - Monitor how the workspace is being used
 - Configure the workspace to allow or deny access
@@ -33,8 +33,8 @@ In addition, the dashboard tab provides an overview of your workspace usage and 
 
 To manage a workspace:
 
-1.	Sign-in to your Microsoft Azure account - use the account that's associated with the Azure subscription.
-2.	In the [Azure Classic Portal](https://manage.windowsazure.com/), in the Microsoft Azure services panel, click **MACHINE LEARNING**.
+1.	Sign-in to the [Azure classic portal](https://manage.windowsazure.com/) using your Microsoft Azure account - use the account that's associated with the Azure subscription.
+2.	In the Microsoft Azure services panel, click **MACHINE LEARNING**.
 3.	Click the workspace you want to manage.
 
 The workspace page has three tabs:

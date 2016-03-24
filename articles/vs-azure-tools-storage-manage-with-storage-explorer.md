@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 
  <tags
 	ms.service="visual-studio-online"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher" />
 
 # Manage Azure storage resources with Storage Explorer (Preview)
@@ -158,7 +158,7 @@ To control access to blob containers, you can choose the **Manage Access Control
 	![][20]
 
 ## Next steps
-Learn about the features in Azure Storage services by reading articles in [Introduction to Microsoft Azure Storage](storage-introduction.md).
+Learn about the features in Azure Storage services by reading articles in [Introduction to Microsoft Azure Storage](/storage/storage-introduction.md).
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png

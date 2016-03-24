@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -36,7 +36,7 @@ Create a blank Node.js application. For instructions on creating a Node.js appli
 
 ## Configure your application to use Service Bus
 
-To use Service Bus, download the Node.js azure package. This package includes a set of libraries that
+To use Service Bus, download the Node.js Azure package. This package includes a set of libraries that
 communicate with the Service Bus REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
@@ -432,7 +432,7 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 -   API reference for [SqlFilter][].
 -   Visit the [Azure SDK for Node][] repository on GitHub.
 
-  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Azure classic portal]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

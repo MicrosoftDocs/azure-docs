@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: Lotus Domino Connector"
+   pageTitle="Azure AD Connect sync: Lotus Domino Connector | Microsoft Azure"
    description="This article describes how to configure Microsoft's Lotus Domino Connector."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Lotus Domino Connector technical reference
@@ -22,7 +22,7 @@ This article describes the Lotus Domino Connector. The article applies to the fo
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Must use hotfix 4.1.3461.0 or later [KB2870703](https://support.microsoft.com/kb/2870703).
+    -   Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
 
 For MIM2016 and FIM2010R2 the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -346,7 +346,7 @@ The Resource Reservation database contains 3 types of documents:
 - Resource
 - Reservation
 
-For more details on setting up of Resource Reservation database see, [Setting up the Resource Reservations database](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html).
+For more details on setting up of Resource Reservation database see, [Setting up the Resource Reservations database](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html).
 
 **Create, Update and Delete Resources**
 
@@ -479,15 +479,15 @@ There are several ways in Domino to extend the schema so it will appear as a cus
 
 **Approach 1: Extend Lotus Domino schema**
 
-1. Create a copy of Domino Directory Template <PUBNAMES.NTF> by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (you should not customize the default IBM Lotus Domino directory Template):
-2. Open Copy of Domino directory template <CONTOSO.NTF> template which is just created, in Domino Designer and follow the below steps:
+1. Create a copy of Domino Directory Template {PUBNAMES.NTF} by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (you should not customize the default IBM Lotus Domino directory Template):
+2. Open Copy of Domino directory template {CONTOSO.NTF} template which is just created, in Domino Designer and follow the below steps:
     - Click on Shared Elements and expand Subforms
-    - Double click on $[ObjectName]InheritableSchema subform (where [ObjectName] is the name of the default structural object class ex: Person).
-    - Name the attribute you want to add into schema [MyPersonAtrribute]  and corresponding to that create a field by selecting “Create” Menu and then select ‘Field’ from menu.
+    - Double click on ${ObjectName}InheritableSchema subform (where {ObjectName} is the name of the default structural object class ex: Person).
+    - Name the attribute you want to add into schema {MyPersonAtrribute} and corresponding to that create a field by selecting “Create” Menu and then select ‘Field’ from menu.
     - In the added field, set its properties by selecting its Type, Style, size, font and other related parameters on field Properties window.
     - Keep the attribute Default value same as the name given for that attribute (e.g. if attribute name is MyPersonAttribute, keep the default value with the same name).
-    - Save the $[ObjectName]InheritableSchema subform with updated values
-3. Replace the Domino Directory Template <PUBNAMES.NTF> with the new customized template [CONTOSO.NTF] by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+    - Save the ${ObjectName}InheritableSchema subform with updated values
+3. Replace the Domino Directory Template {PUBNAMES.NTF} with the new customized template {CONTOSO.NTF} by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 4. Close Domino Admin and open Domino Console to restart the LDAP service and to Reload the LDAP Schema:
     - In Domino Console insert the command under **Domino Command** text filed to restart the LDAP service - [Restart Task LDAP]( http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - To reload LDAP schema use Tell LDAP command - Tell LDAP ReloadSchema
@@ -496,8 +496,8 @@ There are several ways in Domino to extend the schema so it will appear as a cus
 
 **Approach 2: Create an auxClass with custom attribute and associate with the object class**
 
-1. Create a copy of Domino Directory Template [PUBNAMES.NTF] by following [these steps]()http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html (Never customize the default IBM Lotus Domino directory Template):
-2. Open Copy of Domino directory template [CONTOSO.NTF] template which is just created, in Domino Designer.
+1. Create a copy of Domino Directory Template {PUBNAMES.NTF} by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (Never customize the default IBM Lotus Domino directory Template):
+2. Open Copy of Domino directory template {CONTOSO.NTF} template which is just created, in Domino Designer.
 3. In the left pane, select Shared Code and then Subforms.
 4. Click New Subform
 5. Do the following to specify the properties for the new subform:
@@ -510,16 +510,16 @@ There are several ways in Domino to extend the schema so it will appear as a cus
 6. Do the following to add a field to define the auxiliary object class:
     - Open the subform you just created.
     - Choose Create - Field.
-    - Next to Name on the Basics tab of the Field dialog box, specify any name, for example: [MyPersonTestAttribute].
+    - Next to Name on the Basics tab of the Field dialog box, specify any name, for example: {MyPersonTestAttribute}.
     - In the added field, set its properties by selecting its Type, Style, size, font and related properties.
     - Keep the attribute Default value same as the name given for that attribute (e.g. if attribute name is MyPersonTestAttribute, keep the default value with the same name).
     - Save the subform with updated values and do the following:
         - In the left pane, select Shared Code and then Subforms
         - Select the new subform, and choose Design - Design Properties.
         - Click the third tab from the left, and select **Propagate this prohibition of design change**.
-7. Open $[ObjectName]ExtensibleSchema subform, (where [ObjectName] is the name of the default structural object class, say – Person).
-8. Insert Resource and select the Subform (which you just created, say – TestSubform) and save the $[ObjectName]ExtensibleSchema subform.
-9. Replace the Domino Directory Template [PUBNAMES.NTF] with the new customized template [CONTOSO.NTF] by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+7. Open ${ObjectName}ExtensibleSchema subform, (where {ObjectName} is the name of the default structural object class, say – Person).
+8. Insert Resource and select the Subform (which you just created, say – TestSubform) and save the ${ObjectName}ExtensibleSchema subform.
+9. Replace the Domino Directory Template {PUBNAMES.NTF} with the new customized template {CONTOSO.NTF} by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 10. Close Domino Admin and open Domino Console to restart the LDAP service and to Reload the LDAP Schema:
     - In Domino Console insert the command under **Domino Command** text filed to restart the LDAP service - [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - To reload LDAP schema use Tell LDAP command - Tell LDAP ReloadSchema
@@ -528,10 +528,10 @@ There are several ways in Domino to extend the schema so it will appear as a cus
 
 **Approach 3: Add the custom attribute to the ExtensibleObject class**
 
-1. Open [Schema.nsf] file placed on the root directory
+1. Open {Schema.nsf} file placed on the root directory
 2. Select LDAP Object Classes from the left menu under **All Schema Documents** and click on **Add Object class** button:
-3. Provide LDAP Name in the form of [###ExtensibleSchema] (where ### is the name of the default structural object class e.g. Person) with reference to the object for which you want to extend the schema. For example, to extend the schema for Person object class, provide LDAP name [PersonExtensibleSchema].
-4. Provide Superior Object class name, for which you want to extend the schema. For example, to extend the schema for Person object class, provide Superior Object class name [dominoPerson]:
+3. Provide LDAP Name in the form of {zzzExtensibleSchema} (where zzz is the name of the default structural object class e.g. Person) with reference to the object for which you want to extend the schema. For example, to extend the schema for Person object class, provide LDAP name {PersonExtensibleSchema}.
+4. Provide Superior Object class name, for which you want to extend the schema. For example, to extend the schema for Person object class, provide Superior Object class name {dominoPerson}:
 5. Mention a valid OID corresponding to the object class.
 6. Select Extended/custom attributes under Mandatory or Optional Attribute Types fields as per the requirement:
 7. After adding required attributes to the ExtensibleObjectClass, click on **Save & Close** button.

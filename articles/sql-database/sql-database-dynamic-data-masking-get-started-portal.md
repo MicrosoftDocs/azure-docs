@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="ronitr"
    manager="jeffreyg"
-   editor="v-romcal"/>
+   editor="jeffreyg"/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 # Get started with SQL Database Dynamic Data Masking (Azure Classic Portal)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 
@@ -90,7 +90,7 @@ Make your .COM site attractive with rich media, such as:
 ## More Resources
 
 - [App Service Web Apps Documentation](/services/app-service/web/)
-- [Learning Map for Azure App Service Web Apps](websites-learning-map.md)
+- [Learning Map for Azure App Service Web Apps](/documentation/learning-paths/appservice-webapps/)
 - [Azure Web Blog](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]

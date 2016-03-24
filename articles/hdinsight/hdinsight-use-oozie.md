@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 
@@ -56,7 +56,7 @@ The workflow you will implement by following the instructions in this tutorial c
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). To execute Windows PowerShell scripts, you must run as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
+- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). To execute Windows PowerShell scripts, you must run as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
 
 ##Define Oozie workflow and the related HiveQL script
 
@@ -173,7 +173,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
 The PowerShell script in this section performs the following steps:
 
 1. Connect to Azure.
-2. Create an Azure resource group. For more information, see [Use Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+2. Create an Azure resource group. For more information, see [Use Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. These are used by the Sqoop action in the workflow.
 
 	The table name is *log4jLogCount*.
@@ -627,7 +627,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 - [Use Sqoop with Hadoop in HDInsight][hdinsight-use-sqoop]
 - [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
 - [Use Pig with Hadoop on HDInsight][hdinsight-use-pig]
-- [Develop C# Hadoop streaming jobs for HDInsight][hdinsight-develop-streaming-jobs]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -635,11 +634,11 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 
 
-[azure-data-factory-pig-hive]: ../data-factory/data-factory-pig-hive-activities.md
+[azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
@@ -650,10 +649,9 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md

@@ -12,14 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/11/2015"
+ms.date="03/08/2016"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
 
-For quite some time now, Azure Search customers have been able to "automagically" index some popular data sources by using indexers for [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) and [Azure DocumentDB](../documentdb/documentdb-search-indexer.md).
-
-We're now adding support for indexing documents stored in Azure Blob storage. Many customers have asked us to simplify indexing documents stored in blobs, such as PDFs, Office documents, or HTML pages. Until now, this involved writing custom code to do text extraction and adding the documents to an Azure Search index. 
+This article shows how to use Azure Search to index documents (such as PDFs or Office files) stored in Azure Blob storage. The new Azure Search blob indexer makes this process quick and seamless. 
 
 > [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 
@@ -59,7 +57,7 @@ Next, create an indexer that references the data source and a target index. For 
 
 	{
 	  "name" : "blob-indexer",
-	  "dataSourceName" : " blob-datasource ",
+	  "dataSourceName" : "blob-datasource",
 	  "targetIndexName" : "my-target-index",
 	  "schedule" : { "interval" : "PT2H" }
 	}
@@ -74,7 +72,8 @@ The blob indexer can extract text from the following document formats:
 - HTML
 - XML
 - ZIP
-- Plain text files (including JSON)  
+- EML
+- Plain text files  
 
 ## Document extraction process
 
@@ -191,8 +190,9 @@ PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)
 PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extract text, including embedded documents
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extract text, including attachments
 ZIP (application/zip) | `metadata_content_type` | Extract text from all documents in the archive
-XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Strip XML markup and extract text </td>
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Strip XML markup and extract text
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)
+EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extract text, including attachments
 Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
@@ -203,7 +203,22 @@ You can add metadata properties to a blob to control certain aspects of the blob
 Property name | Property value | Explanation
 --------------|----------------|------------
 AzureSearch_Skip | "true" | Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction will be attempted. This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process.
+AzureSearch_SkipContent | "true" | Instructs the blob indexer to only index the metadata and skip extracting content of the blob. This is useful if the blob content is not interesting, but you still want to index the metadata attached to the blob.
+
+<a name="IndexerParametersConfigurationControl"></a>
+## Using indexer parameters to control document extraction
+
+If you need to extract metadata but skip content extraction for all blobs, you can request this behavior using the indexer configuration, instead of having to add `AzureSearch_SkipContent` metadata to each blob individually. To do this, set the `skipContent` configuration property to `true` in the `parameters` object: 
+
+ 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "skipContent" : true } }
+	}
 
 ## Help us make Azure Search better
 
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).

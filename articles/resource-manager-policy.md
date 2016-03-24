@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Azure Resource Manager Policy | Microsoft Azure"
 	description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like subscription, resource groups or individual resources."
 	services="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -69,7 +69,7 @@ Using policies, these scenarios can easily be achieved as described below.
 
 Policy definition is created using JSON. It consists of one or more
 conditions/logical operators which define the actions and an effect
-which tells what happens when the conditions are fulfilled.
+which tells what happens when the conditions are fulfilled. The schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
 Basically, a policy contains the following:
 
@@ -117,15 +117,45 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 
 ## Fields and Sources
 
-Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload. A source represents characteristics of the request itself. 
+Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
 
 The following fields and sources are supported:
 
-Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
+Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
 
 Sources: **action**. 
 
+Property alias is a name that can be used in policy defniniton to access the resource type specific properties, such as settings, and skus. It works across all api versions that the property exists. Aliases can be retrieved using the REST API below ( Powershell support will be added in the future):
+
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+	
+The defintion of an alias looks like below. As you can see, a alias defines pathes in different api versions, even when there is a property name change. 
+
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
+
+Currently, the supported aliases are:
+
+| Alias name | Description |
+| ---------- | ----------- |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort |  |
+| Microsoft.Cache/Redis/shardCount |  |
+
+
 To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 
+
 
 ## Policy Definition Examples
 
@@ -200,6 +230,35 @@ will be denied.
         "effect" : "deny"
       }
     }
+
+### Use Approved SKUs
+
+The below example shows the use of property alias to restrict SKUs. In the example below, only Standard_LRS and Standard_GRS is approved to use for storage accounts.
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+    
 
 ### Naming Convention
 

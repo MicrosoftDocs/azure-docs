@@ -39,7 +39,7 @@ Increasing the number of worker nodes in a cluster can leverage more mappers and
 - At the run time, you can also scale out a cluster without recreating one. This is shown below.
 ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
-For more details on the different virtual machines supported by HDInsight, see [HDInsight pricing](http://azure.microsoft.com/pricing/details/hdinsight/).
+For more details on the different virtual machines supported by HDInsight, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Enable Tez
 
@@ -215,11 +215,11 @@ There are more optimization methods that you can consider, for example:
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
-- [Use Apache Hive in HDInsight](../hdinsight-using-hive.md)
+- [Use Apache Hive in HDInsight](hdinsight-use-hive.md)
 - [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 - [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md)
 - [Analyze sensor data using the Hive Query Console on Hadoop in HDInsight](hdinsight-hive-analyze-sensor-data.md)
-- [Use Hive with HDInsight to analyze logs from websites](../hdinsight-hive-analyze-web-site-log.md)
+- [Use Hive with HDInsight to analyze logs from websites](hdinsight-hive-analyze-website-log.md)
 
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to administer your StorSimple solution
@@ -38,6 +38,8 @@ This article provides links to tutorials that describe StorSimple Snapshot Manag
 - To download StorSimple Snapshot Manager, go to [the StorSimple Snapshot Manager download page](https://www.microsoft.com/download/details.aspx?id=44220).
 
 - For StorSimple Snapshot Manager deployment procedures, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+
+>[AZURE.NOTE] You cannot use StorSimple Snapshot Manager to manage Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices).
 
 ## StorSimple Snapshot Manager tasks and workflows
 

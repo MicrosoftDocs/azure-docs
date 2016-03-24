@@ -12,19 +12,20 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/23/2016" 
     ms.author="torsteng;sidneyh" />
+
 
 # Split-Merge security configuration  
 
-To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Configuring certificates
 
 Certificates are configured in two ways. 
 
-1. [To Configure the SSL Certificate](To#Configure#the#SSL#Certificate)
-2. [To Configure Client Certificates](To#Configure#Client#Certificates) 
+1. [To Configure the SSL Certificate](#To-Configure-the-SSL#Certificate)
+2. [To Configure Client Certificates](#To-Configure-Client-Certificates) 
 
 ## To obtain certificates
 
@@ -52,45 +53,45 @@ A SSL certificate is required to encrypt the communication and authenticate the 
 
 ### Create a new self-signed certificate
 
-1.    [Create a Self-Signed Certificate](Create#a#Self-Signed#Certificate)
-2.    [Create PFX file for Self-Signed SSL Certificate](Create#PFX#file#for#Self-Signed#SSL#Certificate)
-3.    [Upload SSL Certificate to Cloud Service](Upload#SSL#Certificate#to#Cloud#Service)
-4.    [Update SSL Certificate in Service Configuration File](Update#SSL#Certificate#in#Service#Configuration#File)
-5.    [Import SSL Certification Authority](Import#SSL#Certification#Authority)
+1.    [Create a Self-Signed Certificate](#Create-a-Self-Signed-Certificate)
+2.    [Create PFX file for Self-Signed SSL Certificate](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
+3.    [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
+4.    [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
+5.    [Import SSL Certification Authority](#Import-SSL-Certification-Authority)
 
-### To Use an existing certificate from the certificate store
-1. [Export SSL Certificate From Certificate Store](Export#SSL#Certificate#From#Certificate#Store)
-2. [Upload SSL Certificate to Cloud Service](Upload#SSL#Certificate#to#Cloud#Service)
-3. [Update SSL Certificate in Service Configuration File](Update#SSL#Certificate#in#Service#Configuration#File)
+### To use an existing certificate from the certificate store
+1. [Export SSL Certificate From Certificate Store](#Export-SSL-Certificate-From-Certificate-Store)
+2. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
+3. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-### To Use an existing certificate in a PFX file
+### To use an existing certificate in a PFX file
 
-1. [Upload SSL Certificate to Cloud Service](Upload#SSL#Certificate#to#Cloud#Service)
-2. [Update SSL Certificate in Service Configuration File](Update#SSL#Certificate#in#Service#Configuration#File)
+1. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
+2. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 
 ## To configure client certificates
 Client certificates are required in order to authenticate requests to the service. Choose the most applicable of the three scenarios below, and execute all its steps:
 
 ### Turn off client certificates
-1.    [Turn Off Client Certificate-Based Authentication](Turn#Off#Client#Certificate-Based#Authentication)
+1.    [Turn Off Client Certificate-Based Authentication](#Turn-Off-Client-Certificate-Based-Authentication)
 
 ### Issue new self-signed client certificates
-1.    [Create a Self-Signed Certification Authority](Create#a#Self-Signed#Certification#Authority)
-2.    [Upload CA Certificate to Cloud Service](Upload#CA#Certificate#to#Cloud#Service)
-3.    [Update CA Certificate in Service Configuration File](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [Issue Client Certificates](Issue#Client#Certificates)
-5.    [Create PFX files for Client Certificates](Create#PFX#files#for#Client#Certificates)
-6.    [Import Client Certificate](Import#Client#Certificate)
-7.    [Copy Client Certificate Thumbprints](Copy#Client#Certificate#Thumbprints)
-8.    [Configure Allowed Clients in the Service Configuration File](Configure#Allowed#Clients#in#the#Service#Configuration#File)
+1.    [Create a Self-Signed Certification Authority](#Create-a-Self-Signed-Certification-Authority)
+2.    [Upload CA Certificate to Cloud Service](#Upload-CA-Certificate-to-Cloud-Service)
+3.    [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Issue Client Certificates](#Issue-Client-Certificates)
+5.    [Create PFX files for Client Certificates](#Create-PFX-files-for-Client-Certificates)
+6.    [Import Client Certificate](#Import-Client-Certificate)
+7.    [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
+8.    [Configure Allowed Clients in the Service Configuration File](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
 
 ### Use existing client certificates
-1.    [Find CA Public Key](Find#CA#Public Key)
-2.    [Upload CA Certificate to Cloud Service](Upload#CA#certificate#to#cloud#service)
-3.    [Update CA Certificate in Service Configuration File](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [Copy Client Certificate Thumbprints](Copy#Client#Certificate#Thumbprints)
-5.    [Configure Allowed Clients in the Service Configuration File](Configure#Allowed#Clients#in#the#Service#Configuration File)
-6.    [Configure Client Certificate Revocation Check](Configure#Client#Certificate#Revocation#Check)
+1.    [Find CA Public Key](#Find-CA-Public Key)
+2.    [Upload CA Certificate to Cloud Service](#Upload-CA-certificate-to-cloud-service)
+3.    [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
+5.    [Configure Allowed Clients in the Service Configuration File](#Configure-Allowed-Clients-in-the-Service-Configuration File)
+6.    [Configure Client Certificate Revocation Check](#Configure-Client-Certificate-Revocation-Check)
 
 ## Allowed IP addresses
 
@@ -102,21 +103,21 @@ A certificate is required to encrypt the credentials that are stored in the meta
 
 ### Use a new self-signed certificate
 
-1.     [Create a Self-Signed Certificate](Create#a#Self-Signed#Certificate)
-2.     [Create PFX file for Self-Signed Encryption Certificate](Create#PFX#file#for#Self-Signed#Encryption#Certificate)
-3.     [Upload Encryption Certificate to Cloud Service](Upload#Encryption#Certificate#to#Cloud#Service)
-4.     [Update Encryption Certificate in Service Configuration File](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [Create a Self-Signed Certificate](#Create-a-Self-Signed-Certificate)
+2.     [Create PFX file for Self-Signed Encryption Certificate](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
+3.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
+4.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### Use an existing certificate from the certificate store
 
-1.     [Export Encryption Certificate From Certificate Store](Export#Encryption#Certificate#From#Certificate#Store)
-2.     [Upload Encryption Certificate to Cloud Service](Upload#Encryption#Certificate#to#Cloud#Service)
-3.     [Update Encryption Certificate in Service Configuration File](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [Export Encryption Certificate From Certificate Store](#Export-Encryption-Certificate-From-Certificate-Store)
+2.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
+3.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### Use an existing certificate in a PFX file
 
-1.     [Upload Encryption Certificate to Cloud Service](Upload#Encryption#Certificate#to#Cloud#Service)
-2.     [Update Encryption Certificate in Service Configuration File](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
+2.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ## The default configuration
 
@@ -466,12 +467,12 @@ In the Certificate Import Wizard:
 7.     Select the desired store.
 8.     Click **Finish**.
        
-	* If the Trusted Root Certification Authority store was chosen, click **Yes**.
+    * If the Trusted Root Certification Authority store was chosen, click **Yes**.
 9.     Click **OK** on all dialog windows.
 
 ## Upload certificate
 
-In the [Azure Classic Portal](http://portal.azure.com/)
+In the [Azure Portal](https://portal.azure.com/)
 
 1. Select **Cloud Services**.
 2. Select the cloud service.

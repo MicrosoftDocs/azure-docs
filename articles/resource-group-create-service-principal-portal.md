@@ -13,18 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Create Active Directory application and service principal using portal
 
 ## Overview
-When you have an automated process or application that needs to access or modify a resource in your subscription, you can use the classic portal to create an Active Directory application and assign it to a role with the correct permission. When you create an Active Directory application through the classic portal, it actually creates both the application and a service principal. You use the service principal when setting the permissions.
+When you have an automated process or application that needs to access or modify resources, you can use the classic portal to create an Active Directory application. When you create an Active Directory application 
+through the classic portal, it actually creates both the application and a service principal. You can execute the application either under its own identity or under the identity of the 
+signed-in user of your application. These two methods of authenticating the applications are referred to as interactive (user signs in) and non-interactive (app provides its own credentials). In the non-interactive mode, 
+you must assign the service principal to a role with the correct permission.
 
-This topic shows you how to create a new application and service principal using the classic portal. Currently, you must use the classic portal to create a new Active Directory application. This ability will be added to the Azure portal in a later release. You can use the portal to assign the application to a role. You can also perform these steps through Azure PowerShell or Azure CLI. For more information about using PowerShell or CLI with the service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
+This topic shows you how to create a new application and service principal using the classic portal. Currently, you must use the classic portal to create a new Active Directory application. This ability will be added to the 
+Azure portal in a later release. You can use the portal to assign the application to a role. You can also perform these steps through Azure PowerShell or Azure CLI. For more information about using PowerShell or CLI with 
+the service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Concepts
-1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure active Directory](active-directory/active-directory-whatis.md)
+1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure Active Directory](active-directory/active-directory-whatis.md)
 2. Service Principal - an instance of an application in a directory.
 3. AD Application - a directory record in AAD that identifies an application to AAD. 
 
@@ -32,7 +37,9 @@ For a more detailed explanation of applications and service principals, see [App
 For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 
-## Create the application and service principal objects
+## Create application
+
+For interactive and non-interactive applications, you must create and configure your Active Directory application.
 
 1. Login to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
 
@@ -60,17 +67,39 @@ For more information about Active Directory authentication, see [Authentication 
 
      ![new application][10]
 
-6. Fill in name of the application and select the type of application you want to use. Since we intend to use this application's service principal to authenticate with Azure Resource Manager, we will elect to create a **WEB APPLICATION AND/OR WEB API** and click the next button.
+6. Fill in name of the application and select the type of application you want to use. Select the type of application you are creating. For this tutorial, we will elect to create a **WEB APPLICATION AND/OR WEB API** and click the next button.
 
      ![name application][9]
 
 7. Fill in the properties for your app. For **SIGN-ON URL**, provide the URI to a web-site that describes your application. The existence of the web-site is not validated. 
-For **APP ID URI**, provide the URI that identifies your application. The uniqueness or existence of the endpoint is not validated. Click the **Complete** to create you AAD Application.
+For **APP ID URI**, provide the URI that identifies your application. The uniqueness or existence of the endpoint is not validated. If you had selected **Native Client Application** for the application type, you will 
+provide a **Redirect URI** value. Click the **Complete** to create you AAD Application.
 
      ![application properties][4]
 
-## Create an authentication key for your application
-The portal should now have your application selected.
+You have created your application.
+
+## Get client id and tenant id
+
+When programmatically accessing your application, you will need the id for your application. Select the **Configure** tab and copy the **CLIENT ID**.
+  
+   ![client id][5]
+
+In some cases, you need to pass the tenant id with your authentication request. For Web Apps and Web API Apps, you can retrieve the tenant id by selecting **View endpoints** at the bottom of the screen and retrieving the id as shown below.  
+
+   ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+Endpoints are not available for Native Client Applications. Instead, you can retrieve the tenant id through PowerShell:
+
+    PS C:\> Get-AzureRmSubscription
+
+Or, Azure CLI:
+
+    azure account show --json
+
+## Create an authentication key
+
+If your application will run with its own credentials, you must create a key for the application.
 
 1. Click on the **Configure** tab to configure your application's password.
 
@@ -88,22 +117,37 @@ The portal should now have your application selected.
 
      ![saved key][8]
 
-4. You can now use you key to authenticate as a service principal. You will need your **CLIENT ID** in addition to your **KEY** to sign in. Go to **CLIENT ID** and copy it.
-  
-     ![client id][5]
-
-5. In some cases, you need to pass the tenant id with your authentication request. You can retrieve the tenant id by selecting **View endpoints** and retrieving the id as shown below.
-
-     ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
-
 Your application is now ready and the service principal created on your tenant. When signing in as a service principal be sure to use:
 
 * **CLIENT ID** - as your user name.
 * **KEY** - as your password.
 
-## Assigning the application to a role
+## Set delegated permissions
 
-You must assign the application to a role to grant it permissions for performing actions. To assign the application to a role, switch from the classic portal to the [Azure portal](https://portal.azure.com). 
+If your application accesses resources on behalf of a signed-in user, you must grant your application the delegated permission to access other applications. You do this in the **permissions to other applications** section of the 
+**Configure** tab. By default, a delegated permission is already enabled for the Azure Active Directory. Leave this delegated permission unchanged.
+
+1. Select **Add application**.
+
+2. From the list, select the **Azure Service Management API**.
+
+      ![select app](./media/resource-group-create-service-principal-portal/select-app.png)
+
+3. Add the **Access Azure Service Management (preview)** delegated permission to the service management API.
+
+       ![select permission](./media/resource-group-create-service-principal-portal/select-permissions.png)
+
+4. Save the change.
+
+## Configure multi-tenant application
+
+If users from other Azure Active Directories can consent to the application and sign in to it, you must enable multi-tenancy. In the **Configure** tab, set **Application is multi-tenant** to **Yes**.
+
+![multi-tenant](./media/resource-group-create-service-principal-portal/multi-tenant.png)
+
+## Assign application to role
+
+If your application is not running under the identity of a signed-in user, you must assign the application to a role to grant it permissions for performing actions. To assign the application to a role, switch from the classic portal to the [Azure portal](https://portal.azure.com). 
 You must decide which role to add the application to, and at what scope. To learn about the available roles, see [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md). You can set the scope 
 at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means it can read the 
 resource group and any resources it contains).
@@ -143,12 +187,12 @@ First, you must install the Active Directory Authentication Library into your Vi
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
     PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
 
-In your application, add a method like the following to retrieve the token.
+To sign in with your client id and secret, use the following method to retrieve the token.
 
     public static string GetAccessToken()
     {
         var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var credential = new ClientCredential(clientId: "{client id}", clientSecret: "{application password}");
         var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
 
         if (result == null) {
@@ -159,6 +203,28 @@ In your application, add a method like the following to retrieve the token.
 
         return token;
     }
+
+To sign in on behalf of the user, use the following method to retrieve the token.
+
+    public static string GetAcessToken()
+    {
+        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {client id}, new Uri({redirect uri});
+
+        if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+        }
+
+        string token = result.AccessToken;
+
+        return token;
+    }
+
+You can pass the token in the request header with the following code:
+
+    string token = GetAcessToken();
+    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+
 
 ## Next Steps
 

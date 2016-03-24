@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -29,7 +29,7 @@ scalable cloud applications in Azure. They allow the separation and independent
 management and scale-out of front-end and back-end components of your application.  Cloud Services
 provide a robust dedicated virtual machine for hosting each role reliably.
 
-For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](../choose-web-site-cloud-service-vm.md).
+For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md).
 
 >[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">using a lightweight web app.</a> You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
 
@@ -46,7 +46,7 @@ The application is a simple "hello world" application:
 
 > [AZURE.NOTE] This tutorial uses Azure PowerShell, which requires Windows.
 
-- Install and configure [Azure Powershell](../install-configure-powershell.md).
+- Install and configure [Azure Powershell](../powershell-install-configure.md).
 - Download and install the [Azure SDK for .NET 2.7](http://www.microsoft.com/en-us/download/details.aspx?id=48178). In the install setup, select:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
@@ -57,7 +57,7 @@ The application is a simple "hello world" application:
 Perform the following tasks to create a new Azure Cloud Service project, along with basic Node.js scaffolding:
 
 
-1. Run **Azure PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**.)
+1. Run **Windows PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Windows PowerShell**.)
 
 2.  [Connect PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) to your subscription.
 3.  Enter the following PowerShell cmdlet to create to create the project:

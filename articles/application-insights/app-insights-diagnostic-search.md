@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
@@ -20,6 +20,9 @@
 Diagnostic Search is the blade in [Application Insights][start] that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
 ## When do you see Diagnostic Search?
+
+
+### In the Azure portal
 
 You can open diagnostic search explicitly:
 
@@ -38,7 +41,20 @@ The main body of Diagnostic Search is a list of telemetry items - server request
 Events typically show up in diagnostic search before they appear in metric explorer. Although the blade refreshes itself at intervals, you can click Refresh if you're waiting for a particular event.
 
 
-> [AZURE.NOTE] If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
+### In Visual Studio
+
+Open the Search window in Visual Studio:
+
+![](./media/app-insights-diagnostic-search/32.png)
+
+The Search window has the same features as the web portal:
+
+![](./media/app-insights-diagnostic-search/34.png)
+
+
+### Sampling
+
+If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
 > [Learn about sampling](app-insights-sampling.md).
 
 

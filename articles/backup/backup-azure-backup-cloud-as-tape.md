@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Use Azure Backup to replace your tape infrastructure | Microsoft Azure"
    description="Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure"
    services="backup"
@@ -12,11 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="12/15/2015"
-   ms.author="jimpark"; "aashishr"; "sammehta"/>
+   ms.date="02/09/2016"
+   ms.author="jimpark;"/>
 
 # Use Azure Backup to replace your tape infrastructure
 Azure Backup and System Center Data Protection Manager customers can:
+
 - Back up data in schedules which best suit their organization needs
 - Retain the backup data for longer periods
 - Make Azure a part of their long term retention needs (instead of tape).

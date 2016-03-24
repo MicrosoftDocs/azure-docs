@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="10/16/2015"  
+ 	ms.date="02/09/2016"  
  	ms.author="stevenpo"/>
 
 # Sharing accounts with Azure AD
@@ -44,7 +44,7 @@ Users log in once with their organizational account. This is the same account th
 
 Shared accounts not only increase oversight and improve usability, they also enhance your security. Users with permissions to use the credentials don't see the shared password, but rather get permissions to use the password as part of an orchestrated authentication flow. Further, with some password SSO applications, you have the option to have Azure AD periodically rollover (update) the password using large, complex passwords, increasing the account security. The administrator can easily grant or revoke access to an application and also know who has access to the account and who accessed it in the past.
 
-Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premium, or Basic licensed users, across all types of password single sign on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](active-directory-single-sign-on-newly-acquired-saas-apps.md).
+Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premium, or Basic licensed users, across all types of password single sign on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](active-directory-sso-integrate-saas-apps.md).
 
 Azure AD features that enable account sharing include:
 
@@ -55,7 +55,7 @@ Azure AD features that enable account sharing include:
 - [App usage dashboard/reports](active-directory-passwords-get-insights.md)
 - End user access portals
 - [App proxy](active-directory-application-proxy-get-started.md)
-- [Active Directory Marketplace](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Sharing an account
 To use Azure AD to share an account you will need to:
@@ -69,5 +69,6 @@ You can also make your shared account more secure with Multi-Factor Authenticati
 
 ## Related articles
 
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 - [Protecting apps with conditional access](active-directory-conditional-access.md)
 - [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)

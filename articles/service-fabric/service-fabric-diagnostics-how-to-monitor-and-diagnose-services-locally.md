@@ -3,7 +3,7 @@
    description="Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine."
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunaldsingh"
+   authors="toddabel"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/04/2015"
-   ms.author="kunalds"/>
+   ms.date="03/04/2016"
+   ms.author="toddabel"/>
 
 
 # Monitor and diagnose services in a local machine development setup
@@ -31,7 +31,7 @@ Monitoring, detecting, diagnosing, and troubleshooting allow for services to con
 
 ## View Service Fabric system events in Visual Studio
 
-Service Fabric emits ETW events to help application developers understand what's happening in the platform. If you haven't already done so, go ahead and follow the steps in [Creating your first application in Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md). This information will help you get an application up and running with the Diagnostics Events Viewer showing the trace messages.
+Service Fabric emits ETW events to help application developers understand what's happening in the platform. If you haven't already done so, go ahead and follow the steps in [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). This information will help you get an application up and running with the Diagnostics Events Viewer showing the trace messages.
 
 1. If the diagnostics events window does not automatically show, Go to the **Server Explorer** tab in Visual Studio, right-click **Service Fabric Cluster,** and choose **View Diagnostic Events** in the context menu.
 

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a virtual network using the Azure preview portal | Microsoft Azure"
-   description="Learn how to create a virtual network using the Azure preview portal in ARM | Resource Manager."
+   pageTitle="Create a virtual network using the Azure portal | Microsoft Azure"
+   description="Learn how to create a virtual network using the Azure portal in ARM | Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/15/2016"
    ms.author="telmos"/>
 
-# Create a virtual network using the Azure preview portal
+# Create a virtual network using the Azure portal
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 

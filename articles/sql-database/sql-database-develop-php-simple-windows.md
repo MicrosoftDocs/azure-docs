@@ -14,20 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/18/2016"
 	ms.author="meetb"/>
 
 
 # Connect to SQL Database by using PHP on Windows
 
 
-> [AZURE.SELECTOR]
-- [C#](sql-database-develop-dotnet-simple.md)
-- [PHP](sql-database-develop-php-simple-windows.md)
-- [Python](sql-database-develop-python-simple-windows.md)
-- [Ruby](sql-database-develop-ruby-simple-windows.md)
-- [Java](sql-database-develop-java-simple-windows.md)
-- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
 This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.

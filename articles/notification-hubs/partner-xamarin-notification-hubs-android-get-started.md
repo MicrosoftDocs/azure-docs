@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="02/16/2016"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs with Xamarin for Android
@@ -42,13 +42,12 @@ This tutorial requires the following:
 
 + [Xamarin.Android]
 + Active Google account
-+ [Azure Mobile Services Component]
 + [Azure Messaging Component]
 + [Google Cloud Messaging Client Component]
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Xamarin.Android apps.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
+> [AZURE.IMPORTANT] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
 
 ##Enable Google Cloud Messaging
 
@@ -519,6 +518,5 @@ In this simple example, you broadcasted notifications to all your Android device
 [Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.Android]: http://xamarin.com/download/
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Messaging Component]: http://components.xamarin.com/view/azure-messaging

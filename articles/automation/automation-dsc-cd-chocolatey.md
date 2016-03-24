@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Automation DSC Continuous Deployment with Chocolatey | Microsoft Azure"
    description="DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source."
    services="automation"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="03/04/2016"
    ms.author="golive"/>
 
 # Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
@@ -41,7 +41,7 @@ Azure Automation is a managed service in Microsoft Azure that allows you to auto
 
 A DSC Resource is a module of code that has specific capabilities, such as managing networking, Active Directory, or SQL Server.  The Chocolatey DSC Resource knows how to access a NuGet Server (among others), download packages, install packages, and so on.  There are many other DSC Resources in the [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).  These modules are installed into your Azure Automation DSC Pull Server (by you) so they can be used by your configurations.
 
-ARM templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here’s an [article](../resource-manager-deployment-model.md) that compares the ARM deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative).  And another [article](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md) about the core resource providers, compute, storage and network.
+ARM templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here’s an [article](../resource-manager-deployment-model.md) that compares the ARM deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative).  And another [article](../virtual-machines/virtual-machines-windows-compare-deployment-models.md) about the core resource providers, compute, storage and network.
 
 One key feature of an ARM template is its ability to install a VM extension into the VM as it’s provisioned.  A VM extension has specific capabilities such as running a custom script, installing anti-virus software, or running a DSC configuration script.  There are many other types of VM extensions.
 
@@ -78,7 +78,7 @@ The PowerShell Gallery is instrumented to install DSC resources into your Azure 
 Or, there’s the manual approach.  The folder structure of a PowerShell Integration Module for a Windows computer is a little different from the folder structure expected by the Azure Automation.  This requires a little tweaking on your part.  But it’s not hard, and it’s done only once per resource (unless you want to upgrade it in future.)  For more information on authoring PowerShell Integration Modules, see this article: [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Install the module that you need on your workstation, as follows:
-    -   Install [Windows Management Framework, v5](http://aka.ms/wmf5latest) 
+    -   Install [Windows Management Framework, v5](http://aka.ms/wmf5latest) (not needed for Win10)
     -   `Install-Module  –ModuleName MODULENAME`    <—grabs the module from the PowerShell gallery 
 -   Copy the module folder from `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` to a temp folder 
 -   Delete samples and documentation from the main folder 
@@ -88,7 +88,7 @@ Or, there’s the manual approach.  The folder structure of a PowerShell Integra
 
         New-AzureAutomationModule ``
             -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
-            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
+            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
 The included example performs these steps for cChoco and xNetworking. See the [Notes](#notes) for special handling for cChoco.
@@ -176,8 +176,6 @@ This usage example starts with a VM from a generic Windows 2012 R2 image from th
 You don’t have to use an ARM template and the VM extension to use this technique with your VMs.  And your VMs don’t have to be on Azure to be under CD management.  All that’s necessary is that Chocolatey be installed and the LCM configured on the VM so it knows where the pull server is.  
 
 Of course, when you update a package on a VM that’s in production, you need to take that VM out of rotation while the update is installed.  How you do this varies widely.  For example, with a VM behind an Azure Load Balancer, you can add a Custom Probe.  While updating the VM, have the probe endpoint return a 400.  The tweak necessary to cause this change can be inside your configuration, as can the tweak to switch it back to returning a 200 once the update is complete.
-
-The version of the cChoco DSC resource at the PowerShell Gallery isn't quite up to date with its source.  cChoco.zip in the GitHub source project is up to date.  Use the manual technique above in Step 3 to install it.
 
 Full source for this usage example is in [this Visual Studio project](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) on GitHub.
 

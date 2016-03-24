@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
@@ -42,6 +42,7 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Set request method](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Allows you to change the HTTP method for a request.
 	-	[Set status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Changes the HTTP status code to the specified value.
 	-	[Set variable][] - Persist a value in a named [context][] variable for later access.
+	-	[Wait](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - Waits for enclosed Send request, Get value from cache, or Control flow policies to complete before proceeding.
 -	[Authentication policies][]
 	-	[Authenticate with Basic][] - Authenticate with a backend service using Basic authentication.
 	-	[Authenticate with client certificate][] - Authenticate with a backend service using client certificates.
@@ -58,7 +59,7 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Convert JSON to XML][] - Converts request or response body from JSON to XML.
 	-	[Convert XML to JSON][] - Converts request or response body from XML to JSON.
 	-	[Find and replace string in body][] - Finds a request or response substring and replaces it with a different substring.
-	-	[Mask URLs in content][] - Re-writes (masks) links in the response body and in the location header so that they point to the equivalent link via the gateway.
+	-	[Mask URLs in content][] - Re-writes (masks) links in the response body so that they point to the equivalent link via the gateway.
 	-	[Set backend service][] - Changes the backend service for an incoming request.
 	-	[Set body][] - Sets the message body for incoming and outgoing requests.
 	-	[Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.

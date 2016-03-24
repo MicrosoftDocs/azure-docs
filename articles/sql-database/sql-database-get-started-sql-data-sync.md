@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="01/19/2016"
 	ms.author="jhubbard"/>
 
 
@@ -22,7 +22,7 @@ In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Az
 
 This tutorial assumes minimal prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.
 
-> [AZURE.NOTE] The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is now a single .pdf you download [here](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+> [AZURE.NOTE] The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .pdf. Download it [here](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Step 1: Connect to the Azure SQL Database
 

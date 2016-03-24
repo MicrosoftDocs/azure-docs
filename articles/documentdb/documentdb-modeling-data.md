@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Modeling data in Azure DocumentDB | Microsoft Azure" 
-	description="Learn how to model data for a NoSQL document database like Azure DocumentDB." 
+	description="Learn about modeling data for DocumentDB, a NoSQL document database." 
+	keywords="modeling data"
 	services="documentdb" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="ryancraw"/>
 
 #Modeling data in DocumentDB#
@@ -385,11 +386,11 @@ The biggest takeaways from this article is to understand that data modeling in a
 
 Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily. 
 
-To learn more about Azure DocumentDB, refer to the service’s [documentation]( ../../services/documentdb/) page. 
+To learn more about Azure DocumentDB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/documentdb/) page. 
 
 To learn about tuning indexes in Azure DocumentDB, refer to the article on [indexing policies](documentdb-indexing-policies.md).
 
 To understand how to shard your data across multiple partitions, refer to [Partitioning Data in DocumentDB](documentdb-partition-data.md). 
 
-And finally, for guidance on data modeling and sharding for multi-tenant applications, consult [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+And finally, for guidance on modeling data and sharding for multi-tenant applications, consult [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  

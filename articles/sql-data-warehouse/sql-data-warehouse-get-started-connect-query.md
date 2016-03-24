@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
-   ms.author="twounder"/>
+   ms.date="03/23/2016"
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Connect and query with Visual Studio
 
@@ -46,7 +46,7 @@ To connect to your database you need the full name  of the server (***servername
 
 1. Open Visual Studio.
 2. Open the **SQL Server Object Explorer** from the View menu
- 
+
 ![][2]
 
 3. Click the **Add SQL Server** button
@@ -69,13 +69,13 @@ Now that we have registered our server let's go ahead and write a query.
 
 3. Type the following code into the query window:
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. Run the query.
 
-	To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
+   To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
 
 ## Next steps
 

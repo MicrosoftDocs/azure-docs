@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Get started with Data Lake Store using cross-platform command line interface | Microsoft Azure"
-   description="Use Azure cross-platform command line to create a Data Lake Store account and perform basic operations" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   description="Use Azure cross-platform command line to create a Data Lake Store account and perform basic operations"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.workload="big-data"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Azure Command Line
@@ -35,12 +35,12 @@ The Azure CLI is implemented in Node.js. It can be used on any platform that sup
 Before you begin this article, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup). 
+- **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 - **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information. Make sure you reboot your computer after you install the CLI.
 
 ##Login to your Azure subscription
 
-Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](xplat-cli-connect.md) and connect to your subscription using the __login__ method.
+Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the __login__ method.
 
 
 ## Create an Azure Data Lake Store account
@@ -51,7 +51,7 @@ Open a command prompt, shell, or a terminal session and run the following comman
 
 		azure login
 
-	You will be prompted to open a web page and enter an authentication code. Follow the instructions on the page to log in to your Azure subscription. 
+	You will be prompted to open a web page and enter an authentication code. Follow the instructions on the page to log in to your Azure subscription.
 
 2. Switch to Azure Resource Manager mode using the following command:
 
@@ -91,7 +91,7 @@ For example:
 
 You can upload your data to Data Lake Store directly at the root level or to a folder that you created within the account. The snippets below demonstrate how to upload some sample data to the folder (**mynewfolder**) you created in the previous section.
 
-If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
+If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
 
 	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
@@ -146,12 +146,12 @@ The output of this should be similar to the following:
 
 * **To delete a file**, use the following command:
 
-		azure datalake store filesystem delete <dataLakeStoreAccountName> <path> 
+		azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
 
 	For example:
 
 		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
-	
+
 	When prompted, enter **Y** to delete the item.
 
 ## View the access control list for a folder in Data Lake Store
@@ -187,7 +187,7 @@ When prompted, enter **Y** to delete the account.
 ## Next steps
 
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 

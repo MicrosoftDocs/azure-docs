@@ -1,6 +1,6 @@
-<!--author=SharS last changed: 11/16/15-->
+<!--author=SharS last changed: 01/15/2016-->
 
-#### To install Update 1.2 from the Azure portal
+#### To install Update 1.2 from the Azure classic portal
 
 1. On the StorSimple service page, select your device. Navigate to **Devices** > **Maintenance**.
 

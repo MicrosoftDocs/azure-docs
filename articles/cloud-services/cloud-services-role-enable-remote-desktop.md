@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="10/14/2015" 
+ms.date="02/17/2016" 
 ms.author="saurabh"/>
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services
@@ -20,7 +20,7 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. 
@@ -28,8 +28,8 @@ Remote Desktop enables you to access the desktop of a role running in Azure. You
 You can enable a Remote Desktop connection in your role during development by including the Remote Desktop modules in your service definition or you can choose to enable Remote Desktop through the Remote Desktop Extension. The preferred approach is to use the Remote Desktop extension as you can enable Remote Desktop even after the application is deployed without having to redeploy your application. 
 
 
-## Configure Remote Desktop from the portal
-The portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Configure** page for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date. 
+## Configure Remote Desktop from the Azure classic portal
+The Azure classic portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Configure** page for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date. 
 
 
 1. Click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
@@ -61,7 +61,7 @@ The portal uses the Remote Desktop Extension approach so you can enable Remote D
 ## Remote into role instances
 Once Remote Desktop is enabled on the roles you can remote into a role instance through various tools.
 
-To connect to a role instance from the portal:
+To connect to a role instance from the Azure classic portal:
     
   1.   Click **Instances** to open the **Instances** page.
   2.   Select a role instance that has Remote Desktop configured.
@@ -93,7 +93,7 @@ You can use the [Download RDP File](https://msdn.microsoft.com/library/jj157183.
 
 This method allows you to enable Remote Desktop for the application during development. This approach requires encrypted passwords be stored in your service configuration file and any updates to the remote desktop configuration would require a redeployment of the application. If you want to avoid these downsides you should use the remote desktop extension based approach described above.  
 
-You can use Visual Studio to [enable a remote desktop connection](https://msdn.microsoft.com/library/gg443832.aspx) using the service definition file approach.  
+You can use Visual Studio to [enable a remote desktop connection](../vs-azure-tools-remote-desktop-roles.md) using the service definition file approach.  
 The steps below describe the changes needed to the service model files to enable remote desktop. Visual Studio will automatically makes these changes when publishing.
 
 ### Set up the connection in the service model 
@@ -122,7 +122,7 @@ The service definition file should be similar to the following example with the 
     </WebRole>
 </ServiceDefinition>
 ```
-The [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) file should be similar to the following example, note the `<ConfigurationSettings>` and `<Certificates>` elements. The Certificate specified must be [uploaded to the cloud service](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service).
+The [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) file should be similar to the following example, note the `<ConfigurationSettings>` and `<Certificates>` elements. The Certificate specified must be [uploaded to the cloud service](../cloud-services-how-to-create-deploy.md#how-to-upload-a-certificate-for-a-cloud-service).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

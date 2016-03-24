@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/14/2015"
+   ms.date="02/19/2016"
    ms.author="amanbha"/>
 
 
@@ -60,7 +60,7 @@ On the client, create a proxy to the actor that publishes the event and subscrib
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
                     new ActorId(Guid.Parse(arg)), ApplicationName);
-proxy.SubscribeAsync(new GameEventsHandler()).Wait();
+proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler()).Wait();
 ```
 
 In the event of failovers, the actor may fail over to a different process or node. The actor proxy manages the active subscriptions and automatically re-subscribes them. You can control the re-subscription interval through the `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. To unsubscribe, use the `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.

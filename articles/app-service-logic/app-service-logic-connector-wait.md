@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="rajram"/>
 
 # Get started with the Wait Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Wait connector enables an app to delay its execution for a specified duration or until the occurrence of a specified time. You can add the Wait Connector to your business workflow and process data as part of this workflow within a Logic App. When used in a Logic App, it can be used to delay execution.
 
 ## Using Wait Connector

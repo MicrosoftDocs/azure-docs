@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Windows Universal Apps SDK Upgrade Procedures
@@ -21,6 +21,11 @@
 If you already have integrated an older version of Engagement into your application, you have to consider the following points when upgrading the SDK.
 
 You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
+
+##From 3.2.0 to 3.3.0
+
+### Resources
+This step concerns customized resources only. If you have customized the resources provided by the SDK (html, images, overlay) then you have to backup them before upgrading and reapply your customization on upgraded resources.
 
 ##From 3.1.0 to 3.2.0
 

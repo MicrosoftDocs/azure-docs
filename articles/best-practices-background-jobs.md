@@ -172,7 +172,7 @@ Consider the following points when choosing how and where to deploy background t
 
 Background tasks may be implemented in a way that prevents them from being deployed to Azure Web Apps or Cloud Services, or these options may not be convenient. Typical examples are Windows services, and third party utilities and executable programs. It may also include programs written for an execution environment different to that hosting the application; for example, it may be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](choose-web-site-cloud-service-vm.md). For information about the options for [Virtual Machines, see Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and pre-built images available for Virtual Machines, see [Azure Virtual Machines Gallery](http://azure.microsoft.com/gallery/virtual-machines/).
+To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](choose-web-site-cloud-service-vm.md). For information about the options for [Virtual Machines, see Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and pre-built images available for Virtual Machines, see [Azure Virtual Machines Gallery](https://azure.microsoft.com/gallery/virtual-machines/).
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
@@ -192,8 +192,8 @@ Consider the following points when deciding whether to deploy background tasks i
 
 ### More information
 
-- [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) on Azure
-- [Azure Virtual Machines FAQ](virtual-machines-questions.md)
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
+- [Azure Virtual Machines FAQ](virtual-machines/virtual-machines-linux-classic-faq.md)
 
 ## Design considerations
 

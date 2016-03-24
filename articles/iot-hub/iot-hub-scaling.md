@@ -13,14 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="10/02/2015"
+ ms.date="03/14/2016"
  ms.author="elioda"/>
 
 # Scaling IoT Hub
 
-Azure IoT Hub can support up to a million simultaneously connected devices by increasing the number of IoT Hub S1 tier units or S2 tier units to 2,000. For more information, see [IoT Hub pricing][lnk-pricing].
-
-Each IoT Hub unit allows a certain number of devices in the registry, and these devices can all be simultaneously connected. Each unit also allows a number of daily messages.
+Azure IoT Hub can support up to a million simultaneously connected devices. For more information, see [IoT Hub pricing][lnk-pricing]. Each IoT Hub unit allows a number of daily messages.
 
 In order to properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:
 
@@ -32,21 +30,14 @@ In addition to this throughput information, see [IoT Hub quotas and throttles][]
 
 ## Device-to-cloud and cloud-to-device message throughput
 
-The best way to size an IoT Hub solution is to evaluate the traffic on a per-device basis.
+The best way to size an IoT Hub solution is to evaluate the traffic on a per-unit basis.
 
 Device-to-cloud messages follow these sustained throughput guidelines.
 
 | Tier | Sustained throughput | Sustained send rate |
 | ---- | -------------------- | ------------------- |
-| S1 | Up to 8 KB/hr per device | Average of 4 messages/hr per device |
-| S2 | Up to 4 KB/min per device | Average of 2 messages/min per device |
-
-When receiving device-to-cloud messages, the application back end can expect the following maximum throughput (across all readers).
-
-| Tier | Sustained throughput |
-| ---- | -------------------- |
-| S1 | Up to 120 KB/min per unit, with 2 MB/s minimum |
-| S2 | Up to 4 MB/min per unit, with 2 MB/s minimum |
+| S1 | Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) | Average of 278 messages/minute per unit<br/>(400,000 messages/day per unit) |
+| S2 | Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) | Average of 4167 messages/minute per unit<br/>(6 million messages/day per unit) |
 
 The performance of cloud-to-device messages scales per device, with each device receiving up to 5 messages per minute.
 

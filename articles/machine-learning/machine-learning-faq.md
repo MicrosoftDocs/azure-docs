@@ -13,8 +13,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.topic="get-started-article"
+	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
 # Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
@@ -25,7 +25,7 @@ This FAQ answers questions about Azure Machine Learning, a cloud service for pre
 
 **What is Azure Machine Learning?**
 
-Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign-in, upload data, and immediately start machine learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates makes common machine learning tasks simple and quick.  For more information, see the [Azure Machine Learning service overview](/services/machine-learning/). For a machine learning introduction covering key terminology and concepts, see [Introduction to Azure Machine Learning](machine-learning-what-is-machine-learning.md).
+Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign-in, upload data, and immediately start machine learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates makes common machine learning tasks simple and quick.  For more information, see the [Azure Machine Learning service overview](https://azure.microsoft.com/services/machine-learning/). For a machine learning introduction covering key terminology and concepts, see [Introduction to Azure Machine Learning](machine-learning-what-is-machine-learning.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -47,7 +47,7 @@ See [Connect to a Machine Learning web service](machine-learning-connect-to-azur
 
 **How does Machine Learning billing work?**
 
-For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/pricing/details/machine-learning/).
+For billing and pricing information, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 **Does Machine Learning have a free trial?**
 
@@ -63,7 +63,7 @@ No, however each time an experiment is run that version of the graph is kept and
 ### Importing and exporting data for Machine Learning
 **What data sources does Machine Learning support?**
 
-Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See [Import training data into Machine Learning Studio](machine-learning-import-data.md) to learn more about supported file formats.
+Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See [Import training data into Machine Learning Studio](machine-learning-data-science-import-data.md) to learn more about supported file formats.
 
 
 #### <a id="ModuleLimit"></a>How large can the data set be for my modules?
@@ -165,7 +165,7 @@ Currently new custom modules can only be created in R.
 
 **What R packages are available in Machine Learning Studio?**
 
-Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio supports 400+ CRAN R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Is it possible to build a custom R module?**
 
@@ -224,6 +224,9 @@ For RRS, the web service response is typically where you see the result. You can
 
  **Can I create web services only from models created in the Studio?
  No. You can also create web services directly from Jupyter Notebooks, and RStudio.
+
+ **Where can I find information about error codes?
+ Error codes are described [here.] (https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Scalability
 
@@ -295,7 +298,7 @@ See the [FAQ for publishing and using apps in the Machine Learning Marketplace](
 
 **Where can I get training for Azure ML?**
 
-[Azure Machine Learning Documentation Center](/services/machine-learning/) hosts video tutorials as well as how-to guides. These step-by-step guides provide an introduction to the services and walk through the data science life cycle of importing data, cleaning data, building predictive models and deploying them in production with Azure ML.
+[Azure Machine Learning Documentation Center](https://azure.microsoft.com/services/machine-learning/) hosts video tutorials as well as how-to guides. These step-by-step guides provide an introduction to the services and walk through the data science life cycle of importing data, cleaning data, building predictive models and deploying them in production with Azure ML.
 
 We will be adding new material to Machine Learning Center on an ongoing basis. You can submit requests for additional learning material on Machine Learning Center at [user feedback forum](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 

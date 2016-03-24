@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="03/03/2016"
    ms.author="mcoskun"/>
 
 # Back up and restore Reliable Services
@@ -22,7 +22,7 @@ Azure Service Fabric is a high-availability platform and replicates the state ac
 
 For example, a service may want to back up data in the following scenarios:
 
-* In the event of the permanent loss of an entire Service Fabric cluster or all nodes that are running a given partition. This may happen when, for example, the state isn't geo-replicated, your entire cluster is in one datacenter, and the entire datacenter goes down.
+* In the event of the permanent loss of an entire Service Fabric cluster or all nodes that are running a given partition.
 
 * Administrative errors whereby the state accidentally gets deleted or corrupted. For example, this may happen if an administrator with sufficient privilege erroneously deletes the service.
 
@@ -87,7 +87,7 @@ In this case, the runtime would automatically detect the data loss and invoke th
 
 The service author needs to perform the following to recover:
 
-- Override **IReliableStateManager** to return a new **ReliableStateManager** and provide a callback function to be called in the case of a data-loss event.
+- Override **CreateReliableStateManager** to return a new **ReliableStateManager** and provide a callback function to be called in the case of a data-loss event.
 
 - Find the latest backup in the external location that contains the service's backups.
 

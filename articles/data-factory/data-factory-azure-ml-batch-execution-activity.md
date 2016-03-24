@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create predictive pipelines using Azure Machine Learning Bach Execution activity | Microsoft Azure" 
+	pageTitle="Use Machine Learning activities | Microsoft Azure" 
 	description="Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/06/2015" 
+	ms.date="02/06/2016" 
 	ms.author="spelluru"/>
 
 # Create predictive pipelines using Azure Machine Learning activities   

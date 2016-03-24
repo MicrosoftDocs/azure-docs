@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="03/08/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -35,7 +35,34 @@
 <tr><td>**Current Supported Platform**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
-## Release Notes
+##Release notes
+###<a name="1.5.6"/>1.5.6</a>
+
+- Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results
+
+###<a name="1.5.5"/>1.5.5</a>
+
+- Fixed hashParitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
+
+###<a name="1.5.4"/>1.5.4</a>
+
+- Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for DocumentDB purposes. Use a dedicated agent for all of the lib’s requests.
+
+###<a name="1.5.3"/>1.5.3</a>
+
+- Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media ids.
+
+###<a name="1.5.2"/>1.5.2</a>
+
+- Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning
+
+###<a name="1.5.1"/>1.5.1</a>
+
+- Fixes issue [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - rename folder Hash to hash for case sensitive systems
+
+### <a name="1.5.0"/>1.5.0</a>
+
+- Implement sharding support by adding hash & range partition resolvers
 
 ### <a name="1.4.0"/>1.4.0</a>
 
@@ -97,6 +124,13 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.5.6](#1.5.6) | March 08, 2016 |---
+| [1.5.5](#1.5.5) | February 02, 2016 |---
+| [1.5.4](#1.5.4) | February 01, 2016 |---
+| [1.5.2](#1.5.2) | January 26, 2016 |---
+| [1.5.2](#1.5.2) | January 22, 2016 |---
+| [1.5.1](#1.5.1) | January 4, 2016 |---
+| [1.5.0](#1.5.0) | December 31, 2015 |---
 | [1.4.0](#1.4.0) | October 06, 2015 |---
 | [1.3.0](#1.3.0) | October 06, 2015 |---
 | [1.2.2](#1.2.2) | September 10, 2015 |---
@@ -117,6 +151,6 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## See Also
+## See also
 
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 

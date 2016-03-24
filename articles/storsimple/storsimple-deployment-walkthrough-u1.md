@@ -4,20 +4,23 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.workload="NA"
+   ms.date="03/16/2016"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device (Update 1)
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Overview
 
@@ -30,7 +33,7 @@ The information in these tutorials assumes that you have reviewed the safety pre
 
 You will need administrator privileges to complete the setup and configuration process. We recommend that you review the configuration checklist before you begin. The deployment and configuration process can take some time to complete.
 
-> [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only. For complete information about the 7000 series devices, go to: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). For 7000 series deployment information, see the [StorSimple System Quick Start Guide](http://onlinehelp.storsimple.com/111_Appliance/).
+> [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only. For complete information about the 5000 and 7000 series devices, go to: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). For 5000 and 7000 series deployment information, see the [StorSimple System Quick Start Guide](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Deployment steps
 
@@ -112,7 +115,7 @@ Before you begin, make sure that:
 
 - You have your Microsoft Azure storage account with access credentials.
 
-- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](http://azure.microsoft.com/pricing/enterprise-agreement/).
+- Your Microsoft Azure subscription is enabled for the StorSimple Manager service. Your subscription should be purchased through the [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - You have access to terminal emulation software such as PuTTY.
 
@@ -282,7 +285,7 @@ For MPIO installation instructions for a StorSimple device connected to a Linux 
 
 ## Next steps
 
-Configure a [virtual device](storsimple-virtual-device.md).
+- Configure a [virtual device](storsimple-virtual-device.md).
 
-Use the [StorSimple Manager service](storsimple-manager-service-administration.md) to manage your StorSimple device.
+- Use the [StorSimple Manager service](storsimple-manager-service-administration.md) to manage your StorSimple device.
  

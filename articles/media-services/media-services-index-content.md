@@ -3,7 +3,7 @@
 	description="Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,Asolanki,johndeu"
+	authors="Asolanki"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/15/2015"   
-	ms.author="juliako"/>
+	ms.date="03/18/2016"   
+	ms.author="adsolank;juliako;johndeu"/>
 
 
 # Indexing Media Files with Azure Media Indexer
@@ -37,7 +37,7 @@ An indexing job can generate the following outputs:
 - Keyword file (XML).
 - Audio indexing blob file (AIB) for use with SQL server.
 
-	For more information, see [Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+	For more information, see [Using AIB Files with Azure Media Indexer and SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
 This topic shows how to create indexing jobs to **Index an asset** and **Index multiple files**.
@@ -278,7 +278,7 @@ other | Internal errors | Please contact support team. indexer@microsoft.com
 
 ## <a id="supported_languages"></a>Supported Languages
 
-Currently, the English and Spanish languages are supported. For more information, see [the v1.2 release blog post](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Currently, the English and Spanish languages are supported. For more information, see [the v1.2 release blog post](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
 ##Media Services learning paths
@@ -293,7 +293,7 @@ Currently, the English and Spanish languages are supported. For more information
 
 ## Related links
 
-[Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[Using AIB Files with Azure Media Indexer and SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 

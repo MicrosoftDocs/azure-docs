@@ -12,8 +12,8 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/27/2016" 
 	ms.author="riande"/>
 
 
@@ -86,7 +86,7 @@ The following code retrieves this value from session state.
     if (objValue != null)
        strValue = (string)objValue;	
 
-You can also use the Redis Cache to cache objects in your web app. For more info, see [MVC movie app with Azure Redis Cache in 15 minutes](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
+You can also use the Redis Cache to cache objects in your web app. For more info, see [MVC movie app with Azure Redis Cache in 15 minutes](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
 For more details about how to use ASP.NET session state, see [ASP.NET Session State Overview][].
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.

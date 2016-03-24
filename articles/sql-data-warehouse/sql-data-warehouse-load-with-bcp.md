@@ -10,11 +10,11 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
-   ms.author="mausher;barbkess"/>
+   ms.date="03/23/2016"
+   ms.author="mausher;barbkess;sonyama"/>
 
 
 # Load data with bcp
@@ -59,19 +59,19 @@ In this tutorial, you will create a table in Azure SQL Data Warehouse and import
 
 From a command prompt, connect to your instance using the following command replacing the values as appropriate:
 
-```
+```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 ```
 Once connected, copy the following table script at the sqlcmd prompt and then press the Enter key:
 
-```
-CREATE TABLE DimDate2 
+```sql
+CREATE TABLE DimDate2
 (
     DateId INT NOT NULL,
     CalendarQuarter TINYINT NOT NULL,
     FiscalQuarter TINYINT NOT NULL
 )
-WITH 
+WITH
 (
     CLUSTERED COLUMNSTORE INDEX,
     DISTRIBUTION = ROUND_ROBIN
@@ -106,13 +106,13 @@ Save this to your local temp directory, C:\Temp\DimDate2.txt.
 ### Step 3: Connect and import the data
 Using bcp, you can connect and import the data using the following command replacing the values as appropriate:
 
-```
+```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 You can verify the data was loaded by connecting with sqlcmd as before and executing the following TSQL command:
 
-```
+```sql
 SELECT * FROM DimDate2 ORDER BY 1;
 GO
 ```
@@ -134,13 +134,13 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### Step 4: Create Statistics on your newly loaded data 
+### Step 4: Create Statistics on your newly loaded data
 
 Azure SQL Data Warehouse does not yet support auto create or auto update statistics. In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data. For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics. Below is a quick example of how to create statistics on the tabled loaded in this example
 
 Execute the following CREATE STATISTICS statements from a sqlcmd prompt:
 
-```
+```sql
 create statistics [DateId] on [DimDate2] ([DateId]);
 create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
@@ -154,7 +154,7 @@ In this tutorial, you will create a data file from a table in SQL Data Warehouse
 
 Using the bcp utility, you can connect and export data using the following command replacing the values as appropriate:
 
-```
+```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 You can verify the data was exported correctly by opening the new file. The data in the file should match the text below:

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="02/29/2016"
 	ms.author="robmcm"/>
 
 # How to use Blob storage from Java
@@ -22,7 +22,7 @@
 
 ## Overview
 
-This article will show you how to perform common scenarios using the Microsoft Azure Blob storage. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
+This article will show you how to perform common scenarios using the Microsoft Azure Blob storage. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#Next-Steps) section.
 
 > [AZURE.NOTE] An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][].
 
@@ -47,7 +47,7 @@ Add the following import statements to the top of the Java file where you want t
 ## Set up an Azure Storage connection string
 
 An Azure Storage client uses a storage connection string to store
-endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure Portal](portal.azure.com) for the *AccountName* and *AccountKey* values. The following example shows how you can declare a static field to hold the connection string.
+endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. The following example shows how you can declare a static field to hold the connection string.
 
     // Define the connection-string with your values
     public static final String storageConnectionString =

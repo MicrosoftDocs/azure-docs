@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Classic Portal
@@ -35,15 +35,15 @@ There are also other tools available for administering HDInsight in addition to 
 
 Before you begin this article, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight](../hdinsight-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](../storage-create-storage-account.md).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](../storage/storage-create-storage-account.md).
 
 
 ##Provision HDInsight clusters
 
 You can provision HDInsight clusters from the Azure Classic Portal by using the Quick Create or Custom Create option. See the following links for instructions:
 
-- [Provision a cluster by using Quick Create](../hdinsight-get-started.md#provision)
+- [Provision a cluster by using Quick Create](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Provision a cluster by using Custom Create](hdinsight-provision-clusters.md#portal)
 
 [AZURE.INCLUDE [data center list](../../includes/hdinsight-pricing-data-centers-clusters.md)]
@@ -58,7 +58,7 @@ HDInsight works with a wide range of Hadoop components. For the list of the comp
 - Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 
-	>[AZURE.NOTE] If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](http://azure.microsoft.com/support/options/).
+	>[AZURE.NOTE] If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 	> Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
 
@@ -182,7 +182,7 @@ In the previous screenshot, the folder name has the Hadoop version number embedd
 	cd %hcatalog_home%
 
 ##Scale clusters
-See [Scale Hadoop clusters in HDInsight](hdinsight-hadoop-cluster-scaling.md).
+See [Scale Hadoop clusters in HDInsight](hdinsight-administer-use-management-portal.md#scale-clusters).
 
 ##Next steps
 In this article, you have learned how to create an HDInsight cluster by using the Azure Classic Portal, and how to open the Hadoop command-line tool. To learn more, see the following articles:
@@ -191,7 +191,7 @@ In this article, you have learned how to create an HDInsight cluster by using th
 * [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
 * [Provision HDInsight clusters](hdinsight-provision-clusters.md)
 * [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Get Started with Azure HDInsight](../hdinsight-get-started.md)
+* [Get Started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png

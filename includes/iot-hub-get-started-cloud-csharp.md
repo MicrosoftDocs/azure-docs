@@ -8,7 +8,7 @@ In this section, you'll create a Windows console app that creates a new device i
 
 2. In Solution Explorer, right-click the **CreateDeviceIdentity** project, and then click **Manage NuGet Packages**.
 
-3. In the **NuGet Package Manager** window, make sure the **Include prerelease** option is checked. Then search for **Microsoft Azure Devices**, click **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use.
+3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, click **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use.
 
 	![][11]
 
@@ -57,7 +57,7 @@ In this section, you'll create a Windows console app that creates a new device i
 
 ## Receive device-to-cloud messages
 
-In this section, you'll create a Windows console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-processd2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale and the [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs.
+In this section, you'll create a Windows console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-processd2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hub-compatible endpoints.
 
 1. In Visual Studio, add a new Visual C# Windows Classic Desktop project to the current solution using the **Console  Application** project template. Name the project **ReadDeviceToCloudMessages**.
 
@@ -65,7 +65,7 @@ In this section, you'll create a Windows console app that reads device-to-cloud 
 
 2. In Solution Explorer, right-click the **ReadDeviceToCloudMessages** project, and then click **Manage NuGet Packages**.
 
-3. In the **NuGet Package Manager** window, make sure the **Include prerelease** option is checked. Then search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use.
+3. In the **NuGet Package Manager** window, search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use.
 
     This downloads, installs, and adds a reference to the [Azure Service Bus][lnk-servicebus-nuget], with all its dependencies.
 
@@ -83,7 +83,7 @@ In this section, you'll create a Windows console app that reads device-to-cloud 
 
         private async static Task ReceiveMessagesFromDeviceAsync(string partition)
         {
-            var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.Now);
+            var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
             while (true)
             {
                 EventData eventData = await eventHubReceiver.ReceiveAsync();
@@ -94,7 +94,7 @@ In this section, you'll create a Windows console app that reads device-to-cloud 
             }
         }
 
-    This method uses an **EventHubReceiver** instance to receive messages from all the IoT hub device-to-cloud receive partitions. Notice how you pass a `DateTime.Now` parameter when you create the **EventHubReceiver** object so that it only receives messages sent after it starts.
+    This method uses an **EventHubReceiver** instance to receive messages from all the IoT hub device-to-cloud receive partitions. Notice how you pass a `DateTime.Now` parameter when you create the **EventHubReceiver** object so that it only receives messages sent after it starts. This is useful in a test environment so you can see the current set of messages, but in a production environment your code should make sure that it processes all the messages - see the [How to process IoT Hub device-to-cloud messages][lnk-processd2c-tutorial] tutorial for more information.
 
 7. Finally, add the following lines to the **Main** method:
 
@@ -112,10 +112,10 @@ In this section, you'll create a Windows console app that reads device-to-cloud 
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md

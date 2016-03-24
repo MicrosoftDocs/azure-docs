@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/27/2016"
    ms.author="tarcher" />
 
 # Browsing and Managing Storage Resources with Server Explorer
@@ -21,7 +21,7 @@ If you've installed the Azure Tools for Microsoft Visual Studio, you can view bl
 
 To view Server Explorer in Visual Studio, on the menu bar, choose **View**, **Server Explorer**. The storage node shows all of the storage accounts that exist under each Azure subscription/certificate you're connected to. If your storage account doesn't appear, you can add it by following the instructions [later in this topic](#add-storage-accounts-by-using-server-explorer).
 
-Starting in Azure SDK 2.7, you can also use the new Cloud Explorer to view and manage your Azure resources. See [Managing Azure Resources with Cloud Explorer](https://msdn.microsoft.com/library/azure/mt185741.aspx) for more information.
+Starting in Azure SDK 2.7, you can also use the new Cloud Explorer to view and manage your Azure resources. See [Managing Azure Resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer) for more information.
 
 
 ## View and manage storage resources in Visual Studio
@@ -141,7 +141,7 @@ For example, if you enter the prefix `hello` in the filter text box and then cho
 
     The file is downloaded to a temporary location and opened on the local computer. You must upload the blob again after you make changes.
 
-### Work with Queue Resources
+## Work with Queue Resources
 
 Storage services queues are hosted in an Azure storage account and you can use them to allow your cloud service roles to communicate with each other and with other services by a message passing mechanism. You can access the queue programmatically through a cloud service and over a web service for external clients. You can also access the queue directly by using Server Explorer in Visual Studio.
 
@@ -165,7 +165,7 @@ For more information about storage services queues, see [How to: Use the Queue S
 
 >[AZURE.NOTE] Storage services queues are distinct from service bus queues. For more information about service bus queues, see Service Bus Queues, Topics, and Subscriptions.
 
-### Work with Table Resources
+## Work with Table Resources
 
 The Azure Table storage service stores large amounts of structured data. The service is a NoSQL datastore which accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.
 
@@ -214,7 +214,7 @@ The table is organized by entities (shown in rows) and properties (shown in colu
 
     Enter the values carefully because you can't change them after you close the dialog box unless you delete the entity and add it again.
 
-## To filter entities
+### To filter entities
 
 You can customize the set of entities that appear in a table if you use the query builder.
 
@@ -236,35 +236,35 @@ You can customize the set of entities that appear in a table if you use the quer
 
     ![VST_SE_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
-## Refresh Storage Data
+### Refresh storage data
 
 When Server Explorer connects to or gets data from a storage account, it might take up to a minute for the operation to complete. If it can’t connect, the operation might time out. While data is retrieved, you can continue to work in other parts of Visual Studio. To cancel the operation if it’s taking too long, choose the **Stop Refresh** button on the Server Explorer toolbar.
 
-### To refresh blob container data
+#### To refresh blob container data
 
 - Select the **Blobs** node beneath **Storage** and choose the **Refresh** button on the Server Explorer toolbar.
 
 - To refresh the list of blobs that is displayed, choose the **Execute** button.
 
-### To refresh table data
+#### To refresh table data
 
 - Select the **Tables** node beneath **Storage** and choose the **Refresh** button.
 
 - To refresh the list of entities that is displayed in the **Table Designer**, choose the **Execute** button on the **Table Designer**.
 
-### To refresh queue data
+#### To refresh queue data
 
 - Select the **Queues** node, and then choose the **Refresh** button.
 
-### Te refresh all items in a storage account
+#### To refresh all items in a storage account
 
 - Choose the account name, and then choose the **Refresh** button on the toolbar for Server Explorer.
 
-## Add storage accounts by using Server Explorer
+### Add storage accounts by using Server Explorer
 
 There are two ways to add storage accounts by using Server Explorer. You can create a new storage account in your Azure subscription, or you can attach an existing storage account.
 
-### To create a new storage account by using Server Explorer
+#### To create a new storage account by using Server Explorer
 
 1. In Server Explorer, open the shortcut menu for the Storage node, and then choose Create Storage Account.
 
@@ -284,7 +284,7 @@ There are two ways to add storage accounts by using Server Explorer. You can cre
 
     The new storage account appears in the **Storage** list in Solution Explorer.
 
-### To attach an existing storage account by using Server Explorer
+#### To attach an existing storage account by using Server Explorer
 
 1. In Server Explorer, open the shortcut menu for the Azure storage node, and then choose **Attach External Storage**.
 

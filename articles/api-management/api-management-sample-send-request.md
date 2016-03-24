@@ -1,27 +1,27 @@
 <properties
-   pageTitle="Using API Management service to generate HTTP requests"
-   description="Learn to use request and response policies in API Management to call external services from your API"
-   services="api-management"
-   documentationCenter=""
-   authors="darrelmiller"
-   manager=""
-   editor=""/>
+	pageTitle="Using API Management service to generate HTTP requests"
+	description="Learn to use request and response policies in API Management to call external services from your API"
+	services="api-management"
+	documentationCenter=""
+	authors="darrelmiller"
+	manager=""
+	editor=""/>
 
 <tags
-   ms.service="api-management"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/03/2015"
-   ms.author="v-darmi"/>
+	ms.service="api-management"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="02/19/2016"
+	ms.author="v-darmi"/>
 
 
 # Using external services from the Azure API Management service
 
 The policies available in Azure API Management service can do a wide range of useful work based purely on the incoming request, the outgoing response and basic configuration information. However, being able to interact with external services from API Management policies opens up many more opportunities.
 
-We have previously seen how we can interact with the [Azure Event Hub service for logging, monitoring and analytics](api-management-sample-logtoeventhub.md). In this article we will demonstrate policies that allow you to interact with any external HTTP based service. These policies can be used for triggering remote events or for retrieving information that will be used to manipulate the original request and response in some way.
+We have previously seen how we can interact with the [Azure Event Hub service for logging, monitoring and analytics](api-management-log-to-eventhub-sample.md). In this article we will demonstrate policies that allow you to interact with any external HTTP based service. These policies can be used for triggering remote events or for retrieving information that will be used to manipulate the original request and response in some way.
 
 ## Send-One-Way-Request
 Possibly the simplest external interaction is the fire-and-forget style of request that allows an external service to be notified of some kind of important event. We can use the control flow policy `choose` to detect any kind of condition that we are interested in and then, if the condition is satisfied, we can make an external HTTP request using the [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) policy. This could be a request to a messaging system like Hipchat or Slack, or a mail API like SendGrid or MailChimp, or for critical support incidents something like PagerDuty. All of these messaging systems have simple HTTP APIs that we can easily invoke.
@@ -262,4 +262,9 @@ The complete policy looks as follows:
 In the configuration of the placeholder operation we can configure the dashboard resource to be cached for at least an hour because we understand the nature of the data means that even if it is an hour out of date, it will still be sufficiently effective to convey valuable information to the users.
 
 ## Summary
-Azure API Management service provides flexible policies that can be selectively applied to HTTP traffic and enables composition of backend services. Whether you want to enhance your API gateway with alerting functions, verification, validation capabilities or create new composite resources based on multiple backend services, the `send-request` and related policies open a world of possibilities.    
+Azure API Management service provides flexible policies that can be selectively applied to HTTP traffic and enables composition of backend services. Whether you want to enhance your API gateway with alerting functions, verification, validation capabilities or create new composite resources based on multiple backend services, the `send-request` and related policies open a world of possibilities.
+
+## Watch a video overview of these policies
+For more information on the [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), and [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) policies covered in this article, please watch the following video.
+
+> [AZURE.VIDEO send-request-and-return-response-policies]

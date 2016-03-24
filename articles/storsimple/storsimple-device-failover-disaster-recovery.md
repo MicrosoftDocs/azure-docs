@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/14/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -59,6 +59,19 @@ Use the following table to determine if you can fail over to another device runn
 | Update 2 to Update 1 (1, 1.1, 1.2)                 | Yes <br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as tiered.                  | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 | Update 2 to Update 2 (later version)                               | Yes<br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as the starting volume type; tiered as tiered and locally pinned as locally pinned. | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 
+
+#### Partial failover across software versions
+
+Follow this guidance if you intend to perform a partial failover using a StorSimple source device running pre-Update 1 to a target running Update 1 or later. 
+
+
+| Partial failover from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+|Pre-Update 1 (Release, 0.1, 0.2, 0.3) to Update 1 or later  | Yes, see below for the best practice tip.                                                                                                                                                                               | Yes, see below for the best practice tip.                                                    |
+
+
+>[AZURE.TIP] There was a cloud metadata and data format change in Update 1 and later versions. Hence, we do not recommend a partial failover from pre-Update 1 to Update 1 or later versions. If you need to perform a partial failover, we recommend that you first apply Update 1 or later on both the devices (source and target) and then proceed with the failover. 
+
 ## Fail over to another physical device
 
 Perform the following steps to restore your device to a target physical device.
@@ -83,7 +96,7 @@ Perform the following steps to restore your device to a target physical device.
 
 	1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. After the failover is completed, go to the **Devices** page.											
+1. A failover job is created that can be monitored via the **Jobs** page. If the volume container that you failed over has local volumes, then you will see individual restore jobs for each local volume (not for tiered volumes) in the container. These restore jobs may take quite some time to complete. It is likely that the failover job may complete earlier. Note that these volumes will have local guarantees only after the restore jobs are complete. After the failover is completed, go to the **Devices** page.											
 
 	1. Select the device that was used as the target device for the failover process.
 
@@ -146,7 +159,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 ![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Business continuity disaster recovery (BCDR)
 
@@ -157,10 +170,7 @@ If there are StorSimple devices that were registered just before a disaster occu
 
 ## Next steps
 
-After you have performed a failover, you may need to:
+- After you have performed a failover, you may need to [deactivate or delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
 
-- [Deactivate your StorSimple device](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
-- [Delete your StorSimple device](storsimple-deactivate-and-delete-device.md#delete-a-device)
-
-For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  

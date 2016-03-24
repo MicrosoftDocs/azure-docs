@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web"
-   ms.date="12/24/2015"
+   ms.date="02/26/2016"
    ms.author="sumuth"/>
 
 # Use DevOps environments effectively for your web apps
@@ -246,7 +246,7 @@ Any WordPress Core updates will not affect your `wp-config.php` , `wp-config.azu
 ```
 
 #### Setup a Staging Environment
-Assuming you already have a WordPress web app running on Azure Web, login to [Azure Portal](http://portal.azure.com) and go to your WordPress web app. If not you can create one from the marketplace. To learn more, click [here](web-sites-php-web-site-gallery.md).
+Assuming you already have a WordPress web app running on Azure Web, login to [Azure Portal](https://portal.azure.com/) and go to your WordPress web app. If not you can create one from the marketplace. To learn more, click [here](web-sites-php-web-site-gallery.md).
 Click on **Settings** -> **Deployment slots** -> **Add** to create a deployment slot with the name stage. A deployment slot is another web application sharing the same resources as the primary web app created above.
 
 ![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
@@ -436,7 +436,7 @@ Once your local development site is upgraded, publish the changes to staging web
 The advantage of swapping both the web app and database:
 1. Gives you the ability to roll back to the previous version of your web app with another **Swap** if there are any application issues.
 2. For an upgrade you need to deploy files and database from staging web app to production web app and database. There are many things that can go wrong when deploying files and database. By using the **Swap** feature of slots, we can reduces downtime during an upgrade and reduce the risk of failures that can occur when deploying changes.
-3. Gives you the ability to do **A/B testing** using [Testing in production](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) feature
+3. Gives you the ability to do **A/B testing** using [Testing in production](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) feature
 
 This example shows you the flexibility of the platform where you can build custom modules similar to Umbraco Courier module to manage deployment across environments.
 

@@ -59,9 +59,10 @@ Use the following guidelines when creating and including art files:
 
     ![This is an example of a gray border around whitespace.](./media/create-images-markdown/agent.png)
 
-- Conceptual images with whitespace are allowed to not have a gray boder.  
+- Conceptual images with whitespace do not need a gray border.  
     
     Example:
+
     ![This is an example of a conceptual image with whitespace and no gray border.](./media/create-images-markdown/ic727360.png)
 
 - Try not to make an image too wide.  Images will be automatically resized if they are too wide. However, the resizing sometimes causes fuzziness, so we recommend that you limit the width of your images to 780 px, and manually resize images before submission if necessary.
@@ -77,6 +78,8 @@ Use the following guidelines when creating and including art files:
 - Use caution with what information is revealed in screenshots.  Do not reveal internal company information or personal information.
 
 - In conceptual art or diagrams, use the official icons in the Cloud and Enterprise symbol and icon set. A public set is available at http://aka.ms/CnESymbols.
+
+- Replace personal or private information in screenshots with placeholder text enclosed in angle brackets. This includes user names, subscription IDs, and other related info. Personal names can be replaced with an [approved fictious name](https://aka.ms/ficticiousnames)(Employee-only link). Do not use the crayon or marker tip in Paint to obscure or blur personal or private information.
 
 ###Contributors' Guide Links
 

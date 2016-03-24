@@ -28,7 +28,7 @@ The Microsoft Azure portal is a central place where you can provision and manage
 
 ## Before you get started
 
-You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](http://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at [https://portal.azure.com].
+You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at [https://portal.azure.com].
 
 ## How to create a resource
 
@@ -74,7 +74,7 @@ Azure preconfigures the blades for your resources, but the tiles on these blades
 
 ## How to get help
 
-If you ever have a problem, we’re here for you.  The portal has a help and support page that can point you in the right direction.  Depending on your [support plan](http://azure.microsoft.com/support/plans/), you can also create support tickets directly in the portal.  After creating a support ticket, you can manage the lifecycle of the ticket from within the portal. You can get to the help and support page by navigating to Browse -> Help + support.  
+If you ever have a problem, we’re here for you.  The portal has a help and support page that can point you in the right direction.  Depending on your [support plan](https://azure.microsoft.com/support/plans/), you can also create support tickets directly in the portal.  After creating a support ticket, you can manage the lifecycle of the ticket from within the portal. You can get to the help and support page by navigating to Browse -> Help + support.  
 
 ![Help and support][HelpSupport]
 
@@ -89,7 +89,7 @@ Let’s review what you learned in this tutorial:
 - You learned how to control access to resources using role based access (RBAC)
 - You learned how to get help and support
 
-The Microsoft Azure portal radically simplifies building and managing your applications in the cloud.  Take a look at the [management blog](http://azure.microsoft.com/blog/topics/management/) to keep up to date as we’re constantly [listening to feedback](http://feedback.azure.com/forums/223579-azure-preview-portal) and making improvements.  [ScottGu’s blog](http://weblogs.asp.net/scottgu) is another great place to look for all Azure updates.
+The Microsoft Azure portal radically simplifies building and managing your applications in the cloud.  Take a look at the [management blog](https://azure.microsoft.com/blog/topics/management/) to keep up to date as we’re constantly [listening to feedback](https://feedback.azure.com/forums/223579-azure-preview-portal/) and making improvements.  [ScottGu’s blog](http://weblogs.asp.net/scottgu) is another great place to look for all Azure updates.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png

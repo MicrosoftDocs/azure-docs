@@ -11,12 +11,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2015" 
-	ms.author="sergkanz"/>
+	ms.date="02/12/2016" 
+	ms.author="joshweb"/>
  
 # Release Notes for Application Insights SDK for Windows Phone and Store
 
-The [Application Insights SDK](app-insights-windows-get-started.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
+The [Application Insights SDK](app-insights-windows-get-started.md) sends telemetry about your live app to [Application Insights](https://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
 
 
 #### To install the SDK in your application
