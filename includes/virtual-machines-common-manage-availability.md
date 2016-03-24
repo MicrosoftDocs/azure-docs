@@ -35,7 +35,7 @@ For example, you could put all the virtual machines in the front-end of your app
 
 
 ### Combine the Load Balancer with Availability Sets
-Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, read [Load Balancing virtual machines](virtual-machines-linux-load-balance.md).
+Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, read [Load Balancing virtual machines](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
 
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance.
 
@@ -47,4 +47,4 @@ Avoid leaving a single instance virtual machine in an Availability Set by itself
 [Configure each application tier into separate Availability Sets]: #configure-each-application-tier-into-separate-availability-sets
 [Combine the Load Balancer with Availability Sets]: #combine-the-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[How to Configure An Availability Set for virtual machines]: virtual-machines-windows-classic-configure-availability.md
+[How to Configure An Availability Set for virtual machines]: ../articles/virtual-machines/virtual-machines-windows-classic-configure-availability.md
