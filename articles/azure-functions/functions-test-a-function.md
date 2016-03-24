@@ -27,7 +27,7 @@ In this tutorial, we will walk through a different approaches to testing functio
 
 ## Creating a function for testing
 
-For most of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](https://acom-sandbox.azurewebsites.net/documentation/articles/functions-create-first-azure-function/) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template when creating the test function in the [Azure Portal].
+For most of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template when creating the test function in the [Azure Portal].
 
 This function template by default is basically a hello world function that echos back the name query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client.   
 
@@ -271,7 +271,11 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 ## Testing with a timer trigger
 
-Some functions, can't be truly tested with the tools mentioned previously. For example, a queue trigger function which runs when a message is dropped into [Azure Queue Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/). You could always write code to drop a message into your queue but, there is another approach to test with functions directly.  You could use a timer trigger configured with a queue output. That timer trigger code could then write the test messages to the queue.
+Some functions, can't be truly tested with the tools mentioned previously. For example, a queue trigger function which runs when a message is dropped into [Azure Queue Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/). You could always write code to drop a message into your queue but, there is another approach to test with functions directly.  
+
+You could use a timer trigger configured with a queue output binding. That timer trigger code could then write the test messages to the queue. This section will walk through through an example. 
+
+For more in-depth information on using bindings with Azure Functions, see the [Azure Functions developer reference](functions-reference.md). 
 
 
 #### Create queue trigger for testing
