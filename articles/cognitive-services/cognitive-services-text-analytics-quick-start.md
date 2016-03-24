@@ -16,8 +16,9 @@
 	ms.date="03/30/2016"
 	ms.author="onewth"/>
 
-<a name="HOLTop"></a>
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
+
+<a name="HOLTop"></a>
 
 This document describes how to onboard your service or application to use the [Text Analytics APIs](http://go.microsoft.com/fwlink/?LinkID=759711).
 You can use these APIs to detect sentiment, key phrases, topics and language from your text. [Click here to see an interactive demo of the experience.](http://go.microsoft.com/fwlink/?LinkID=759712)
