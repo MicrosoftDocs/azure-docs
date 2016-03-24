@@ -50,7 +50,9 @@ Verify that you have the following items before beginning your configuration.
 
 ![Site-to-Site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
 
-In the steps below, you will create a VNet, add a gateway subnet, a gateway, a local site, and a connection. This is in addition to configuring your VPN device. When using these steps as an exercise, you can use the following values:
+In the steps below, you will create a VNet, add a gateway subnet, a gateway, a local site, and a connection. Additionally, you will also need to configure your VPN device. 
+
+When using these steps as an exercise, you can use the following values:
 
 
 
