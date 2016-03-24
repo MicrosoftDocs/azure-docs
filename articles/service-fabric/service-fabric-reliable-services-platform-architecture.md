@@ -70,16 +70,14 @@ The log component provides a high-performance persistent store that can be optim
 of the log is for the persistent storage (i.e., hard disks)
 to be local to the nodes that are running the stateful service. This allows for low latencies and high throughput, as compared to remote persistent storage, which is not local to the node.
 
-The log component uses multiple log files. There is a node-wide shared log file, which may be placed on a disk that is only used for the shared log in order to eliminate contention for disk IO. All replicas use this shared log as it can provide the lowest latency and highest throughput. By default the shared log is placed in the Service Fabric node
-work directory but it may also be configured to be placed at another location, ideally on a disk reserved for only the shared log. Each replica for the service also has a dedicated log file and the dedicated log is placed within the service's work directory. There is no mechanism to configure the dedicated log to be placed at a different location.
+The log component uses multiple log files. There is a node-wide shared log file that all replicas use as it can provide the lowest latency and highest throughput for storing state data. By default the shared log is placed in the Service Fabric node work directory but it may also be configured to be placed at another location, ideally on a disk reserved for only the shared log. Each replica for the service also has a dedicated log file and the dedicated log is placed within the service's work directory. There is no mechanism to configure the dedicated log to be placed at a different location.
 
 The shared log is a transitional area for the replica's state information, while the dedicated log file is the final destination where it is persisted. In this design, the state information is first written to the shared log file and then lazily moved to the dedicated log
 file in the background. In this way, the write to the shared log would have the lowest latency and highest throughput which allows the service to make progress faster.
 
 Reads and writes to the shared log are done via direct IO to preallocated space on the disk for the shared log file. To allow optimal use of disk space on the drive with dedicated logs, the dedicated log file is created as a NTFS sparse file. Note that this will allow overprovisioning of disk space and the OS will show the dedicated log files using much more disk space than is actually used.
 
-Aside from a minimal user-mode interface to the log, the log is written as a kernel-mode driver. By running as a kernel-mode driver, the log can provide the highest performance to all services that
-use it.
+Aside from a minimal user-mode interface to the log, the log is written as a kernel-mode driver. By running as a kernel-mode driver, the log can provide the highest performance to all services that use it.
 
 For more information about configuring the log, see [Configuring stateful reliable services](service-fabric-reliable-services-configuration.md).
 
