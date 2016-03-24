@@ -43,7 +43,7 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 * There is a change in the folder structure of the LogFiles and Data folders for web apps that use Local Cache. There are now subfolders in the storage LogFiles and Data folders that follow the naming pattern of "unique identifier" + time stamp. Each of the subfolders corresponds to a VM instance where the web app is running or has run.  
 * Publishing changes to the web app through any of the publishing mechanisms will publish to the shared content store. This is by design because we want the published content to be durable. To refresh the local cache of the web app, it needs to be restarted. Does this seem like an excessive step? To make the lifecycle seamless, see the information later in this article.
 * D:\Home will point to the local cache. D:\local will continue pointing to the temporary VM specific storage.
-* The default content view of the SCM site will continue to be that of the shared content store. To see what your local cache folder looks like, you can navigate to *https://[site-name].scm.azurewebsites.net/VFS/LocalSiteRoot/LocalCache*.
+* The default content view of the SCM site will continue to be that of the shared content store.
 
 ## Enable Local Cache in App Service
 
@@ -102,15 +102,12 @@ We recommend that you use Local Cache in conjunction with the [Staging Environme
 
 If your web app needs a high-performance, reliable content store, does not use the content store to write critical data at runtime, and is less than 1 GB in total size, then the answer is "yes"! To get the total size of your /site and /siteextensions folders, you can use the site extension "Azure Web Apps Disk Usage".  
 
-### How do I enable Local Cache?
-
-See the previous best practices section when you're using Local Cache.
-
 ### How can I tell if my site has switched to using Local Cache?
 
-If you're using the Local Cache feature with Staging Environments, the swap operation will not complete until Local Cache is warmed up. To check if your site is running against Local Cache, you can check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. Use the instructions here to access the worker process environment variable on multiple instances.  
+If you're using the Local Cache feature with Staging Environments, the swap operation will not complete until Local Cache is warmed up. To check if your site is running against Local Cache, you can check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. Use the instructions on the [worker process environment variable](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) page to access the worker process environment variable on multiple instances.  
 
 ### I just published new changes, but my web app does not seem to have them. Why?
+
 If your web app uses Local Cache, then you need to restart your site to get the latest changes. Don’t want to publish changes to a production site? See the slot options in the previous best practices section.
 
 ### Where are my logs?
