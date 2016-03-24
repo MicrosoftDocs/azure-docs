@@ -133,4 +133,4 @@ If you are doing this as an exercise, refer to these [values](#values) when crea
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-creation-choices.md for more information.
+Once your connection is complete, you can add virtual machines to your virtual networks. See the virtual machines [learning path](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) for more information.
