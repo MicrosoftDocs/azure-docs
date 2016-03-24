@@ -263,10 +263,7 @@ Once connected, you will arrive at a prompt similar to the following.
 
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
 
-- [Add RStudio Server to your HDInsight Premium cluster](hdinsight-r-server-install-r-studio.md)
+- [Add RStudio Server to your HDInsight cluster](hdinsight-r-server-install-r-studio.md)
 
-Manage resources
--   [Manage resources for the R Server for HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-resource-manager/)
+- [Compute contexts with R Server on HDInsight](hdinsight-r-server-storage.md)
 
-Known issues
--   [Known issues of R Studio for HDInsight (Linux)](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-known-issues/)
