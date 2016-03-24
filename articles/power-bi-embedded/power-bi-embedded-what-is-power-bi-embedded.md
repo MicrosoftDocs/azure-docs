@@ -64,19 +64,18 @@ We will support direct query connections against cloud sources for Preview.  Thi
 
 Cached datasets can be used in Preview.  However, you cannot refresh cached data once it has been loaded into **Microsoft Power BI Embedded**.
 
-## Authentication and Authorization
+## Authentication and authorization with app tokens
 
-**Microsoft Power BI Embedded** defers to your application to perform all the necessary user Authentication and Authorization for your application.  There is no explicit requirement that your end-users be customers of Azure AD.  Instead, your application will express authorization to render a Power BI report to the **Microsoft Power BI Embedded** via **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wishes to render a report.  See [App Tokens]().
+**Microsoft Power BI Embedded** defers to your application to perform all the necessary user Authentication and Authorization for your application.  There is no explicit requirement that your end-users be customers of Azure AD.  Instead, your application will express authorization to render a Power BI report to the **Microsoft Power BI Embedded** via **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wishes to render a report.  See [App Tokens](power-bi-embedded-get-started-sample.md#key-flow).
 
 ![](media\powerbi-embedded-whats-is\app-tokens.png)
-
 
 ### Application Authentication Tokens
 
 **Application Authentication Tokens (App Tokens)** are used to authenticate against **Microsoft Power BI Embedded**.  There are three types of **App Tokens**:
 
-1.	Provisioning Tokens - Used when provisioning a new **Workspace** into a **Workspace** **Collection**
-2.	Development Tokens - Used when making calls directly to the **Power** **BI** **REST** **APIs**
+1.	Provisioning Tokens - Used when provisioning a new **Workspace** into a **Workspace Collection**
+2.	Development Tokens - Used when making calls directly to the **Power BI REST APIs**
 3.	Embedding Tokens - Used when making calls to render a report in the embedded iframe
 
 These tokens are used for the various phases of your interactions with **Microsoft Power BI Embedded**.  The tokens are designed so that you can delegate permissions from your app to Power BI.
@@ -89,4 +88,11 @@ The SDKs  that have been provided for the Preview let you generate the tokens.  
 -	CreateDevToken
 -	CreateReportEmbedToken
 
-These methods are defined in the Microsoft.PowerBI.Security.PowerBIToken class. See, [Get started sample](power-bi-embedded-get-started.md) .
+These methods are defined in the Microsoft.PowerBI.Security.PowerBIToken class. See, [Get started sample](power-bi-embedded-get-started-sample.md) .
+
+## See Also
+- [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
+- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)
+- [App Tokens](power-bi-embedded-get-started-sample.md#key-flow)
+- [Power BI REST APIs](http://docs.powerbi.apiary.io/reference)
+- [Azure Regions](https://azure.microsoft.com/regions/)

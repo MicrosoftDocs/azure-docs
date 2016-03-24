@@ -34,7 +34,7 @@ Let’s walk through the steps to build a **Workspace Collection** using the Azu
 
    1.	Open and sign into the Azure Portal
     ```
-    http://portal.azure.com
+    [http://portal.azure.com](http://portal.azure.com)
     ```
    2.	Click **+ New** on the top panel.
 
@@ -77,7 +77,7 @@ This blade contains the information that you will need to call the APIs needed t
 
 **Access Keys**
 
-One of the most important pieces of information needed for calling the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** (see #TODO link) that are used to authenticate your API requests. To view your access keys, click **Access Keys** on the settings blade.
+One of the most important pieces of information needed for calling the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your access keys, click **Access Keys** on the settings blade. For more about **app tokens**, see [How does app token flow work](power-bi-embedded-get-started-sample.md#key-flow).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -91,7 +91,7 @@ While two keys are listed, only one key is needed at a time. The second key is p
 
 ## Writing your first report
 
-Now that you have created an instance of Power BI for your application you will need to create some Power BI datasets and the reports that you wish to embed. These can be created by using the **Power BI Desktop** tool. To learn more about downloading the Power BI desktop for free, please see the following: [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
+Now that you have created an instance of Power BI for your application you will need to create some Power BI datasets and the reports that you wish to embed. These can be created by using the **Power BI Desktop** tool. To learn more about downloading the Power BI desktop for free, please see the following: [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Or, to quickly get started, you can download the sample [Profit and Loss Data Modeling and Analysis] PBIX (http://go.microsoft.com/fwlink/?LinkId=780547).
 
 Once you install **Power BI Desktop**, you can then create your first dataset and report following the instructions here: [Getting started with Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started).
 
@@ -126,10 +126,10 @@ There are two primary benefits to using **DirectQuery**:
 
 To ensure that queries sent to the underlying data source have acceptable performance, limitations are imposed on measures by default. Advanced users can choose to bypass this limitation by selecting **File > Options** and then **Settings > Options > DirectQuery**, then selecting the option *Allow unrestricted measures in DirectQuery mode**. When that option is selected, any DAX expression that is valid for a measure can be used. Users must be aware, however, that some expressions that perform very well when the data is imported may result in very slow queries to the backend source when in DirectQuery mode.
 
-After you save the work that you have done in the Power BI Desktop a PBIX file will be created. This file contains both your dataset and report. It is this file that you will programmatically deploy to your workspaces using the **import API** on of the Power BI REST APIs. You can use additional APIs to change the server and database that your dataset is pointing and set a service account credential that the dataset will use to connect to your database.
+After you save the work that you have done in the Power BI Desktop a PBIX file will be created. This file contains both your dataset and report. It is this file that you will programmatically deploy to your workspaces using the **Import API** on of the Power BI REST APIs. You can use additional APIs to change the server and database that your dataset is pointing and set a service account credential that the dataset will use to connect to your database.
 
 ## Next Steps
-In the previous steps, you created a workspace collection and your first report and dataset. Now it is time to start writing code. In your code, you will complete the following items:
+In the previous steps, you created a workspace collection and your first report and dataset. Now it is time to learn how to write code for **Power BI Embedded**. To help you get started, we created a sample web app. To get start with the sample web app, please go to [Get stated with sample](power-bi-embedded-get-started-sample.md). The sample shows you how to:
 
   -	Provision content
       - Create Workspace
@@ -139,4 +139,9 @@ In the previous steps, you created a workspace collection and your first report 
   -	Embed content
     - Securely embed a report
 
-To help with these steps, please review the [getting started sample](power-bi-embedded-get-started-sample.md) which has implemented all of these steps.
+## See Also
+- [Get stated with sample](power-bi-embedded-get-started-sample.md)
+- [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+- [Getting started with Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started)
+- [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
+- [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527)

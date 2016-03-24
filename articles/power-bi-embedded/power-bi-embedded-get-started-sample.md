@@ -45,11 +45,11 @@ The following will walk you through setting up your Visual Studio development en
     a.	Select option 5 to **Create a new workspace within existing collection**.
 
     <a name="keys"/>
-    b.	Enter your subscription id, workspace collection and signing key when prompted (These can be found in the Azure portal). To learn about the app token key flow, see [How does app token flow work?](#key-flow).
+    b.	Enter your subscription id, workspace collection and access key when prompted (These can be found in the Azure Portal). To learn about the app token key flow, see [How does app token flow work?](#key-flow).
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
-    c.	Copy and save the newly created workspace id to use later (this can also be found in the Azure portal after it is created).
+    c.	Copy and save the newly created workspace id to use later (this can also be found in the Azure Portal after it is created).
 
     d.	Import a PBIX file using option 6.
 
@@ -62,20 +62,20 @@ The following will walk you through setting up your Visual Studio development en
 
     f.	Select option 8 to retrieve the Embed URL that you should use to add the report to your application.
 
-5.	In **web.config** in the paas-demo web application within the same solution.
+5.	In **web.config** in the PowerBI-embedded web application within the same solution.
 
-    a.	Add your **SigningKey**, **WorkspaceCollection** name and **WorkspaceId** to the appSettings section.
+    a.	Add your **AccessKey**, **WorkspaceCollection** name and **WorkspaceId** to the appSettings section.
 
     ```
     <appSettings>
-        <add key="powerbi:SigningKey" value="" />
+        <add key="powerbi:AccessKey" value="" />
         <add key="powerbi:ApiUrl" value="https://api.powerbi.com" />
         <add key="powerbi:WorkspaceCollection" value="" />
         <add key="powerbi:WorkspaceId" value="" />
     </appSettings>
     ```
 
-6.	Run the paas-demo web application.
+6.	Run the PowerBI-embedded web application.
 
     a.	Left nav should contain a “Reports” menu.
 
@@ -92,7 +92,7 @@ The Power BI Embedded service uses App Tokens for authentication and authorizati
 
 **Here's how the app token key flow works**
 
-1.	Copy the API keys to your application. You can get the keys in Azure portal, see [Enter your subscription id, workspace collection and signing key above](#keys).
+1.	Copy the API keys to your application. You can get the keys in Azure Portal, see [Enter your subscription id, workspace collection and signing key above](#keys).
 
     ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-token-1.png)
 
