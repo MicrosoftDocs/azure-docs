@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
@@ -36,7 +36,7 @@ Now that you've created a subscription, test that your tenants can provision a v
 
 	![](media/azure-stack-subscribe-plan-provision-vm/image8.png)
 
-5.  In the Summary blade, click **OK** to create the virtual machine.  
+5.  In the **Summary** blade, click **OK** to create the virtual machine.  
 
 	![](media/azure-stack-subscribe-plan-provision-vm/image9.png)
 

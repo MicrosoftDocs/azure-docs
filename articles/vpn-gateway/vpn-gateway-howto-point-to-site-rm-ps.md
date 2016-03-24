@@ -50,11 +50,9 @@ We'll use the following values for this configuration:
 
 ## Before beginning
 
-Verify that you have an Azure subscription, and have installed the Azure PowerShell cmdlets needed for this configuration (1.0.2 or later). If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+- Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 	
-**About installing PowerShell cmdlet modules**
-
-	[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+- You'll need to install the Azure Resource Manager PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
 ## Configure a Point-to-Site connection for Azure
 
@@ -229,6 +227,6 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 
 ## Next steps
 
-You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md) for steps.
+You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
 
 

@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/23/2016"
    ms.author="carlrab"/>
 
-# Fix SQL Server database compatibility issues before migration to SQL Database
+# Fix SQL Server database compatibility issues using SQL Azure Migration Wizard before migration to SQL Database
 
 If you determine that your source SQL Server database is not compatible, you have a number of options to fix the  identified database compatibility issues.
 

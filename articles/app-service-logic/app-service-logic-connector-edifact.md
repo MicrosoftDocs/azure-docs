@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/17/2015"
+   ms.date="02/10/2016"
    ms.author="rajram"/>
 
 # Get started with the BizTalk Edifact Connector and add it to your Logic App  
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Use the Edifact service to receive and send messages over the Edifact protocol in business to business communications. Edifact is also commonly referred to as ASC Edifact or Accredited Standards Committee Edifact and is widely used across industries.
 
 You can add the BizTalk Edifact connector to your business workflow and process data as part of this workflow within a Logic App. 

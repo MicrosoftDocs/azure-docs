@@ -1,6 +1,6 @@
 <properties
    pageTitle="Deploy a Node.js application using MongoDB | Microsoft Azure"
-   description="Walkthrough on how to package multiple applications to deploy to an Azure Service Fabric cluster"
+   description="Walkthrough on how to package multiple guest executables to deploy to an Azure Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
 
-# Deploy multiple custom applications
+# Deploy multiple guest executables
 
-This article shows how to package and deploy multiple applications to Azure Service Fabric by using the preview version of the Service Fabric packaging tool, which is available at [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+This article shows how to package and deploy multiple guest executables to Azure Service Fabric by using the preview version of the Service Fabric packaging tool, which is available at [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
-For building a Service Fabric package manually, review how to [deploy an existing application in Service Fabric](service-fabric-deploy-existing-app.md).
+For building a Service Fabric package manually, review how to [deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md).
 
 While this walkthrough shows how to deploy an application with a Node.js front end that uses MongoDB as the data store, you can apply the steps to any application that has dependencies on another application.   
 
@@ -182,7 +182,7 @@ The last step is to publish the application to the local Service Fabric cluster 
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
 
 Write-Host 'Registering application type...'
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
@@ -196,4 +196,4 @@ In this tutorial, you have seen how to easily package two existing applications 
 
 ## Next steps
 
-- Learn how to [package a single application manually](service-fabric-deploy-existing-app.md).
+- Learn how to [package a guest application manually](service-fabric-deploy-existing-app.md).

@@ -3,7 +3,7 @@
 app settings, click **Quickstart** > **Cordova**. Under **Configure your client application**, select **Create a New App**,
 then click **Download**. This downloads a complete Cordova project for an app pre-configured to connect to your backend.
 
-2. Unpack the downloading ZIP file to a directory on your hard drive.
+2. Unpack the downloaded ZIP file to a directory on your hard drive.
 
 3. Open the project using **Visual Studio**.  Click on **Open** > **Project/Solution...**.
 

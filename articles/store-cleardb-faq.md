@@ -31,7 +31,7 @@ You have several options:
 
 * [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 
-* [Single instance of MySQL running on an Azure VM](virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)
+* [Single instance of MySQL running on an Azure VM](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)
 
 ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you. When you run your own MySQL cluster or database on an Azure Virtual Machine you have to set up the MySQL server and keep it updated with patches.
 
@@ -55,7 +55,7 @@ The default database option is Titan, which is $3.50. We don’t show the cost d
 
 ## I am running MySQL on my own Azure virtual machine. Can I connect my Azure web app to my database?
 
-Yes. You can connect your web app to your database as long as your Azure VM has given remote access to you web app. For details click here.
+Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md).
 
 ## In which countries are ClearDB Premium MySQL clusters supported?
 
@@ -84,6 +84,14 @@ You can use the [ClearDB Upgrade Wizard](https://www.cleardb.com/store/azure/upg
 ## Who do I contact for support when my database is down?
 
 Contact [ClearDB support](https://www.cleardb.com/developers/help/support) for any database related issues. Be prepared to provide them with your Azure subscription information.
+
+## Can I create additional users for my ClearDB MySQL database cluster solution?  
+
+No. You cannot create additional users but you can create additional databases on your ClearDB database cluster.   
+
+## When I migrate my resources from one subscription to another, does my ClearDB MySQL database get migrated as well?  
+
+When you perform resource migration across subscriptions, some [limitations](app-service-move-resources.md) apply. A ClearDB MySQL database is a third party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
 
 ## Can I purchase Scalable WordPress with an Enterprise Agreement (EA) subscription?
 

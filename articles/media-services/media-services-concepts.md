@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #Azure Media Services Concepts 
@@ -85,19 +85,24 @@ A [job](https://msdn.microsoft.com/library/azure/hh974289.aspx) is typically use
 
 A job contains metadata about the processing to be performed. Each job contains one or more [task](https://msdn.microsoft.com/library/azure/hh974286.aspx)s that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings. Tasks within a job can be chained together, where the output asset of one task is given as the input asset to the next task. In this way one job can contain all of the processing necessary for a media presentation.
 
-##<a id="encoding"></a>Encoding \ packaging
+##<a id="encoding"></a>Encoding 
 
-###Encoding
+Azure Media Services provides multiple options for the encoding of media in the cloud.
 
-In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. People watch videos on a variety of devices from TVs with set-top boxes, desktop PCs to tablets and smartphones. Each of these devices have different bandwidth and compression requirements. Encoding is the process of compressing video and audio using Compressor/Decompressors or codecs. 
+When starting out with Media Services, it is important to understand the difference between codecs and file formats.
+Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
 
-Transcoding is the process of taking a video that has been encoded and re-encode it into a different encoding format. Since most cameras encode video to some degree, most encoding work done on Azure Media Services is technically transcoding.
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.
 
-###Codecs and File formats 
+To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to do the following:
 
-Codecs have two components: one to compress digital media files for transmission and the other to decompress digital media files for playback. There are audio codecs that compress and decompress audio and video codecs that compress and decompress video. Codecs can use lossless or lossy compression. Lossless codecs preserve all of the information when compression occurs. When the file is decompressed, the result is a file that is identical to the input media, making lossless codecs well suited to archiving and storage. Lossy codecs lose some of the information when encoding and produce smaller files (than the original) at the cost of video quality and are well suited to streaming over the internet. The two main codecs used by the Azure Media Encoder to encode are H.264 and VC-1. Other codecs may be available in our partner ecosystem of encoders. 
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-###Media Services Encoders
+Media Services supports the following on demand encoders that are described in this article:
+
+- [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+- [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 For information about supported encoders, see [Encoders](media-services-encode-asset.md).
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
@@ -30,7 +30,7 @@ We've heard the following questions about Azure RemoteApp. Have others? Visit th
 - **Can I try this service for free?** Yes. There is a free trial available for 30 days. After the trial ends, you can transition to a paid account (which you can use in production) or stop using the service. Start your free trial by going to [portal.azure.com](http://portal.azure.com) - create a new instance of RemoteApp. With the free trial, you can build 2 instances of RemoteApp with 10 users per instance. Remember that this trial only lives for 30 days.
 ## Azure RemoteApp subscription details ##
 
-- **What are the service limits?** You can learn about the default settings and service limits of Azure RemoteApp in [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md). Let us know if you have more questions.
+- **What are the service limits?** You can learn about the default settings and service limits of Azure RemoteApp in [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md). Let us know if you have more questions.
 - **How many users do I have to have?** There's a minimum of 20 users. Let me repeat that to be super clear - the MINIMUM is 20. You will be billed for 20. 
 - **How much does RemoteApp cost?** Check out [Azure RemoteApp Pricing Details ](../../../pricing/details/remoteapp/).
 - **Does one type of collection cost more than another?** 

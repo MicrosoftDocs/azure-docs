@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016" 
+	ms.date="03/11/2016" 
 	ms.author="jeannt"/>
 
 # Analyzing Customer Churn by using Azure Machine Learning
@@ -177,9 +177,9 @@ The following table summarizes the performance of the algorithms:
 
 *Table 1. General performance (accuracy) of the algorithms*
 
-**LR**|	**BT**|	**AP**|	**SVM**|
---|--|--|--|
-Average Model|	The Best Model|	Underperforming|	Average Model
+| LR|BT|AP|SVM|
+|---|---|---|---|
+|Average Model|The Best Model|Underperforming|Average Model|
 
 The models hosted in Machine Learning Studio outperformed SAS by 15-25% for speed of execution, but accuracy was largely on par.  
 
@@ -226,7 +226,7 @@ This feedback will help us improve the quality of white papers we release.
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco churn model template](https://caqs.azure.net/#gallery/telcocustomerchurn) in Cortana Analytics Gallery 
+[5] [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) in Cortana Analytics Gallery 
  
 ##Appendix
 

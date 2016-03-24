@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Create an internal load balancer for cloud services in the classic deployment model | Microsoft Azure"
    description="Learn how to create an internal load balancer using PowerShell in the classic deployment model"
-   services="load-balancer-ilb"
+   services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
    manager="carolz"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Get started creating an internal load balancer (classic) for cloud services

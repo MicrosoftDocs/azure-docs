@@ -1,6 +1,8 @@
 ### Compression support  
 Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. At this time, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
 
+> [AZURE.NOTE] Compression settings are not supported for data in the **AvroFormat** at this time. 
+
 To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
 
 	{  

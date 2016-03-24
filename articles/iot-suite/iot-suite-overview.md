@@ -11,10 +11,10 @@
 <tags
      ms.service="iot-suite"
      ms.devlang="na"
-     ms.topic="article"
+     ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/27/2015"
+     ms.date="02/19/2016"
      ms.author="dobett"/>
 
 # Overview of Azure IoT Suite
@@ -49,7 +49,7 @@ For an overview of the architecture of a typical IoT solution, see [Microsoft Az
 
 ## Preconfigured solutions
 
-IoT Suite includes preconfigured solutions that enable you to quickly get started with and to explore the common IoT scenarios that Azure IoT Suite makes possible. You can deploy the  solutions to your Azure subscription and then run a complete, end-to-end IoT solution.
+IoT Suite includes preconfigured solutions that enable you to quickly get started with and to explore the common IoT scenarios, such as *Remote monitoring* and *Predictive maintenance*, that Azure IoT Suite makes possible. You can deploy these solutions to your Azure subscription and then run a complete, end-to-end IoT scenario.
 
 ## Next steps
 
@@ -71,5 +71,5 @@ Now that you have an overview of what IoT Suite can do and what are its main com
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
+[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="01/29/2016" 
 	ms.author="anhoh"/>
 
 # DocumentDB hierarchical resource model and concepts

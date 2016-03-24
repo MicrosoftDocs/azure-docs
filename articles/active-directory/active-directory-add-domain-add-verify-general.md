@@ -103,7 +103,7 @@ If it has been more than 72 hours since you made the changes to your domain, sig
 
 ## Verify your custom domain for federation with your on-premises directory
 
-1.  Download and run Azure AD Connect. The Azure AD Connect tool will [prompt you to add the DNS entries that it provides you](active-directory-aadconnect-get-started-custom.md#select-the-azure-ad-domain-that-you-wish-to-federate).
+1.  Download and run Azure AD Connect. The Azure AD Connect tool will [prompt you to add the DNS entries that it provides you](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
 ## Third-level domain names
 

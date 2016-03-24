@@ -18,7 +18,7 @@
 
 # IoT Hub MQTT support
 
-IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol. 
+IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol on port 8883. IoT Hub requires all device communication to be secured using TLS/SSL.
 
 ## Connecting to IoT Hub
 
@@ -43,9 +43,27 @@ The following table contains links to code samples for each supported language a
 
 If a device cannot use the device client SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
 
-- The **deviceId** as the **ClientId**
-- `{iothubhostname}/{device_id}` in the **Username** field, where {iothubhostname} is the full CName of the IoT hub (for example, contoso.azure-devices.net).
-- A SAS token in the **Password** field. The [format of the SAS token][lnk-iothub-security] is the same as described for the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+- For the **ClientId** field use the **deviceId**. 
+- For the **Username** field use `{iothubhostname}/{device_id}`, where {iothubhostname} is the full CName of the IoT hub.
+
+    For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain `contoso.azure-devices.net/MyDevice01`.
+
+- For the **Password** field use a SAS token. The [format of the SAS token][lnk-iothub-security] is the same as described for the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+
+    For more information about how to generate SAS tokens, see [Using IoT Hub security tokens][lnk-sas-tokens].
+    
+    When testing, you can also use the [Device Explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+    
+    1. Go to the **Management** tab in Device Explorer.
+    2. Click **SAS Token** (top right).
+    3. On **SASTokenForm**, select your device in the **DeviceID** drop down. Set your **TTL**.
+    4. Click **Generate** to create your token.
+    
+    The SAS token that's generated looks like this:
+    `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
+
+    The part of this to use as in the **Password** field to connect using MQTT is:
+    `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel.
 
@@ -56,7 +74,7 @@ After making a successful connection, a device can send messages to IoT Hub usin
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
- 
+
 > [AZURE.NOTE] This is the same encoding as that used for query strings in the HTTP protocol.
 
 The device client application can also use `devices/{did}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
@@ -80,3 +98,5 @@ To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-doc
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
+[lnk-sas-tokens]: iot-hub-sas-tokens.md

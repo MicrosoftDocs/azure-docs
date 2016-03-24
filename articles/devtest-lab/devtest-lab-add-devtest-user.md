@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Add owners and users to a DevTest Lab
+
+> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to set security in your DevTest Lab](/documentation/videos/how-to-set-security-in-your-devtest-lab) 
 
 ## Overview
 

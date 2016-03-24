@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Add authentication to your iOS app
@@ -42,4 +42,3 @@ In Xcode, press **Run** to  start the app. An exception will be raised because t
 [iOS quick start]: app-service-mobile-ios-get-started.md
 
 [Azure portal]: https://portal.azure.com
-

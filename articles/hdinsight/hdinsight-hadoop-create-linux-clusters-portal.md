@@ -14,39 +14,44 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/08/2015"
+   	ms.date="03/21/2016"
    	ms.author="nitinme"/>
 
 
-#Create Linux-based clusters in HDInsight using the Azure preview portal
+#Create Linux-based clusters in HDInsight using the Azure portal
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-The Azure preview portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. Use the information in this document to create a new Linux-based HDInsight cluster using the preview portal and your web browser
+The Azure portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. In this article you will learn how to create Linux-based HDInsight clusters using the portal.
 
-##Prerequisites
+## Prerequisites
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-- __A modern web browser__. The Azure preview portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
+- __A modern web browser__. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 ##Create clusters
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+The Azure portal exposes most of the cluster properties. Using Azure ARM template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+
+1. Sign in to the [Azure  portal](https://portal.azure.com).
 
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
 
-3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Ubuntu**. A green check will appear beside the cluster name if it is available.
+3. Enter:
 
-    > [AZURE.NOTE] To provision HBase or Storm clusters, select the approprite value for the **Cluster Type** drop-down.
+    - **Cluster Name**: This name must be globally unique.
+    - **Cluster Type**: If you don't know what to choose, select **Hadoop**.
+    - **Cluter Operating System**: Select **Linux**.
+    - **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 
-    ![Enter cluster name and type](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.2.png "Enter cluster name and type")
+4. Click **Subscription** to select the Azure subscription that will be used for the cluster.
 
-4. If you have more than one subscription, click the **Subscription** entry to select the Azure subscription that will be used for the cluster.
-
-5. Click **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can click **Create New** and then enter the name of the new resource group. A green check will appear to indicate if the new group name is available.
+5. Click **Resource Group** to select an existing resource group, or click **New** to create a new resource group
 
 	> [AZURE.NOTE] This entry will default to one of your existing resource groups, if any are available.
 
@@ -68,13 +73,15 @@ The Azure preview portal is a web-based management tool for services and resourc
 
 	- **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
 
-	- **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
+	- **Select storage account / New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
 
 	- **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
 
 	- **Location**: The geographic region that the storage account is in, or will be created in.
 
 		> [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
+        
+    - **Cluster AAD Identity**: By configuring it, you make the cluster accessible to the Azure Data Lake stores based on the AAD configuration.
 
 	Click **Select** to save the data source configuration.
 
@@ -89,8 +96,6 @@ The Azure preview portal is a web-based management tool for services and resourc
 	Click **Select** to save the node pricing configuration.
 
 9. Click **Optional Configuration** to select the cluster version, as well as configure other optional settings such as joining a **Virtual Network**, setting up an **External Metastore** to hold data for Hive and Oozie, use Script Actions to customize a cluster to install custom components, or use additional storage accounts with the cluster.
-
-	* Click the **HDInsight Version** drop-down and select the version you want to use for the cluster. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 
 	* **Virtual Network**: Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network.  
 
@@ -112,11 +117,13 @@ The Azure preview portal is a web-based management tool for services and resourc
 
 		![Script action blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.8.png "Specify script action")
 
-	* Click **Azure Storage Keys** to specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
+	* Click **Linked Storage Accounts** to specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
 
 		![Additional storage blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.9.png "Specify additional storage accounts")
 
 		Click **Select** till you are back on the **New HDInsight cluster** blade.
+        
+        In addition to Blob storage account, you can also link Azure Data Lake stores. The configuration can be done by configure AAD from Data Source where you configured the default storage account and default container.
 
 10. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.
 
@@ -144,7 +151,7 @@ The Azure preview portal is a web-based management tool for services and resourc
 
 	* **Users** (![users icon](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): Allows you to set permissions for _portal management_ of this cluster for other users on your Azure subscription.
 
-		> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Azure preview portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
+		> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Azure portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
 
 	* **Tags** (![tag icon](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
 
@@ -152,6 +159,10 @@ The Azure preview portal is a web-based management tool for services and resourc
 
 - See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 - See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md).
+
+##Delete the cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Next steps
 
@@ -165,13 +176,13 @@ Now that you have successfully created an HDInsight cluster, use the following t
 
 ###HBase clusters
 
-* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux)
 
 ###Storm clusters
 
 * [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python.md)
+* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ###Spark clusters

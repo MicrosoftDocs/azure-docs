@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/08/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -24,7 +24,7 @@ Learn how to monitor and manage Stream Analytics resources with Azure PowerShell
 
 ## Prerequisites for running Azure PowerShell cmdlets for Stream Analytics
 
- - Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](../install-configure-powershell.md);  
+ - Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](../powershell-install-configure.md);  
 
 Azure PowerShell 0.9.8:  
 
@@ -462,7 +462,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 
 [msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
-[powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[powershell-install]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [msdn-rest-api-create-stream-analytics-job]: https://msdn.microsoft.com/library/dn834994.aspx
 [msdn-rest-api-create-stream-analytics-input]: https://msdn.microsoft.com/library/dn835010.aspx
 [msdn-rest-api-create-stream-analytics-output]: https://msdn.microsoft.com/library/dn835015.aspx

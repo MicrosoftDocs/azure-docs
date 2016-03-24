@@ -240,7 +240,7 @@ Note: **MS_AadTenants** is stored as a comma-separated list of tenant domains (t
 >
 > Azure App Service provides a separate "no-code" Authentication and Authorization system under the _Authentication / Authorization_
 > Settings menu and the (deprecated)  _Mobile Authentication_ option under the Settings menu.  These options are incompatible with a migrated Azure
-> Mobile Service.  You can [upgrade your site] to take advantage of the Azure App Service authentication.
+> Mobile Service.  You can [upgrade your site](app-service-mobile-net-upgrading-from-mobile-services.md) to take advantage of the Azure App Service authentication.
 
 ### <a name="easytables"></a>Data
 

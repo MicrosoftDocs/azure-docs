@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/23/2016"
 	ms.author="jgao"/>
 
 # Submit Hadoop jobs in HDInsight
@@ -27,7 +27,7 @@ Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to 
 > - [Use Pig with HDInsight](hdinsight-use-pig.md)
 > - [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
-###Prerequisites
+##Prerequisites
 
 Before you begin this article, you must have the following:
 
@@ -53,25 +53,27 @@ See [Use Sqoop with HDInsight][hdinsight-use-sqoop].
 ##Submit Hive/Pig/Sqoop jobs using HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
+The following sample using user interactive authentication. To use the non-interactive authentication, see [Create non-interactive authentication .NET HDInsight applciations](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+
 **To Submit jobs**
 
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.
 
-		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 2. Use the following code:
 
 		using System;
 		using System.Collections.Generic;
-		using System.Linq;
 		using System.Security;
-		
+		using System.Threading;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.Resources;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Job;
 		using Microsoft.Azure.Management.HDInsight.Job.Models;
@@ -79,152 +81,167 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 		
 		namespace SubmitHDInsightJobDotNet
 		{
-			class Program
-			{
-				private static HDInsightManagementClient _hdiManagementClient;
-				private static HDInsightJobManagementClient _hdiJobManagementClient;
+		    class Program
+		    {
+		        private static HDInsightManagementClient _hdiManagementClient;
+		        private static HDInsightJobManagementClient _hdiJobManagementClient;
 		
-				private static Guid SubscriptionId = new Guid("<Your Subscription ID>");
-				private const string ResourceGroupName = "<Your Resource Group Name>";
+		        private static Guid SubscriptionId = new Guid("<Your Subscription ID>");
+		        private const string ResourceGroupName = "<Your Resource Group Name>";
 		
-				private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
-				private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-				private const string ExistingClusterUsername = "admin";
-				private const string ExistingClusterPassword = "**********";
+		        private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
+		        private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		        private const string ExistingClusterUsername = "<Cluster Username>";
+		        private const string ExistingClusterPassword = "<Cluster User Password>";
 		
-				static void Main(string[] args)
-				{
-					System.Console.WriteLine("Running");
+		        private const string DefaultStorageAccountName = "<Default Storage Account Name>";
+		        private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
+		        private const string DefaultStorageContainerName = "<Default Blob Container Name>";
 		
-					var tokenCreds = GetTokenCloudCredentials();
-					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		        static void Main(string[] args)
+		        {
+                    System.Console.WriteLine("The application is running ...");
 		
-					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+		            var tokenCreds = GetTokenCloudCredentials();
+		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
 		
-					var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-					_hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+		            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+		            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 		
-					SubmitHiveJob();
-					SubmitPigJob();
-					SubmitSqoopJob();
-				}
+		            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 		
-				public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
-				{
-					var authFactory = new AuthenticationFactory();
+		            var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+		            _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
 		
-					var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+		            SubmitHiveJob();
+		            SubmitPigJob();
+		            SubmitSqoopJob();
+
+                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.ReadLine();
+                    
+		        }
 		
-					if (username != null && password != null)
-						account.Id = username;
+		        public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+		        {
+		            var authFactory = new AuthenticationFactory();
 		
-					var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+		            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
 		
-					var accessToken =
-						authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-							.AccessToken;
+		            if (username != null && password != null)
+		                account.Id = username;
 		
-					return new TokenCloudCredentials(accessToken);
-				}
+		            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
 		
-				public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
-				{
-					return new TokenCloudCredentials(subId.ToString(), creds.Token);
-				}
+		            var accessToken =
+		                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+		                    .AccessToken;
 		
-				private static void SubmitPigJob()
-				{
-					var parameters = new PigJobSubmissionParameters
-					{
-						UserName = ExistingClusterUsername,
-						Query = @"LOGS = LOAD 'wasb:///example/data/sample.log';
-							LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-							FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-							GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-							FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-							RESULT = order FREQUENCIES by COUNT desc;
-							DUMP RESULT;"
-					};
+		            return new TokenCloudCredentials(accessToken);
+		        }
 		
-					System.Console.WriteLine("Submitting the Pig job to the cluster...");
-					var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
-					System.Console.WriteLine("Validating that the response is as expected...");
-					System.Console.WriteLine("Response status code is " + response.StatusCode);
-					System.Console.WriteLine("Validating the response object...");
-					System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-				}
+		        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
+		        {
+		            return new TokenCloudCredentials(subId.ToString(), creds.Token);
+		        }
 		
-				private static void SubmitHiveJob()
-				{
-					Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "ravi" }, { "hive.exec.reducers.max", "1" } };
-					List<string> args = new List<string> { { "argA" }, { "argB" } };
-					var parameters = new HiveJobSubmissionParameters
-					{
-						UserName = ExistingClusterUsername,
-						Query = "SHOW TABLES",
-						Defines = ConvertDefinesToString(defines),
-						Arguments = ConvertArgsToString(args)
-					};
+		        private static void SubmitHiveJob()
+		        {
+		            Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "ravi" }, { "hive.exec.reducers.max", "1" } };
+		            List<string> args = new List<string> { { "argA" }, { "argB" } };
+		            var parameters = new HiveJobSubmissionParameters
+		            {
+		                Query = "SHOW TABLES",
+		                Defines = defines,
+		                Arguments = args
+		            };
 		
-					System.Console.WriteLine("Submitting the Hive job to the cluster...");
-					var response = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
-					System.Console.WriteLine("Validating that the response is as expected...");
-					System.Console.WriteLine("Response status code is " + response.StatusCode);
-					System.Console.WriteLine("Validating the response object...");
-					System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-				}
+                    Console.WriteLine("Submitting the Hive job to the cluster...");
+                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+                    var jobId = jobResponse.JobSubmissionJsonResponse.Id;
+                    Console.WriteLine("Response status code is " + jobResponse.StatusCode);
+                    Console.WriteLine("JobId is " + jobId);
+
+                    Console.WriteLine("Waiting for the job completion ...");
 		
-				private static void SubmitSqoopJob()
-				{
-					var sqlDatabaseServerName = "<SQLDatabaseServerName>";
-					var sqlDatabaseLogin = "<SQLDatabaseLogin>";
-					var sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
-					var sqlDatabaseDatabaseName = "hdisqoop";
+		            // Wait for job completion
+		            var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+		            while (!jobDetail.Status.JobComplete)
+		            {
+		                Thread.Sleep(1000);
+		                jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+		            }
 		
-					var tableName = "log4jlogs";
-					var exportDir = "/tutorials/usesqoop/data";
+		            // Get job output
+		            var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
+		                DefaultStorageContainerName);
+		            var output = (jobDetail.ExitValue == 0)
+		                ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
+		                : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
+                        
+                    Console.WriteLine("Job output is: ");
+                    
+                    using (var reader = new StreamReader(output, Encoding.UTF8))
+                    {
+                        string value = reader.ReadToEnd();
+                        Console.WriteLine(value);
+                    }
+		        }
+                
+   		        private static void SubmitPigJob()
+		        {
+		            var parameters = new PigJobSubmissionParameters
+		            {
+		                Query = @"LOGS = LOAD 'wasb:///example/data/sample.log';
+		                    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+		                    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+		                    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+		                    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+		                    RESULT = order FREQUENCIES by COUNT desc;
+		                    DUMP RESULT;"
+		            };
 		
-					// Connection string for using Azure SQL Database.
-					// Comment if using SQL Server
-					var connectionString = "jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
-					// Connection string for using SQL Server.
-					// Uncomment if using SQL Server
-					//var connectionString = "jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
+		            System.Console.WriteLine("Submitting the Pig job to the cluster...");
+		            var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
+		            System.Console.WriteLine("Validating that the response is as expected...");
+		            System.Console.WriteLine("Response status code is " + response.StatusCode);
+		            System.Console.WriteLine("Validating the response object...");
+		            System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+		        }
 		
-					var parameters = new SqoopJobSubmissionParameters
-					{
-						UserName = ExistingClusterUsername,
-						Command = "export --connect " + connectionString + " --table " + tableName + "_mobile --export-dir " + exportDir + "_mobile --fields-terminated-by \\t -m 1"
-					};
+		        private static void SubmitSqoopJob()
+		        {
+		            var sqlDatabaseServerName = "<SQLDatabaseServerName>";
+		            var sqlDatabaseLogin = "<SQLDatabaseLogin>";
+		            var sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
+		            var sqlDatabaseDatabaseName = "<DatabaseName>";
 		
-					System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
-					var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
-					System.Console.WriteLine("Validating that the response is as expected...");
-					System.Console.WriteLine("Response status code is " + response.StatusCode);
-					System.Console.WriteLine("Validating the response object...");
-					System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-				}
+		            var tableName = "<TableName>";
+		            var exportDir = "/tutorials/usesqoop/data";
 		
-				private static string ConvertDefinesToString(Dictionary<string, string> defines)
-				{
-					if (defines.Count == 0)
-					{
-						return null;
-					}
+		            // Connection string for using Azure SQL Database.
+		            // Comment if using SQL Server
+		            var connectionString = "jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
+		            // Connection string for using SQL Server.
+		            // Uncomment if using SQL Server
+		            //var connectionString = "jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
 		
-					return "&define=" + string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
-				}
-				private static string ConvertArgsToString(List<string> args)
-				{
-					if (args.Count == 0)
-					{
-						return null;
-					}
+		            var parameters = new SqoopJobSubmissionParameters
+		            {
+		                Command = "export --connect " + connectionString + " --table " + tableName + "_mobile --export-dir " + exportDir + "_mobile --fields-terminated-by \\t -m 1"
+		            };
 		
-					return string.Join("&arg=", args.ToArray());
-				}
-			}
+		            System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
+		            var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
+		            System.Console.WriteLine("Validating that the response is as expected...");
+		            System.Console.WriteLine("Response status code is " + response.StatusCode);
+		            System.Console.WriteLine("Validating the response object...");
+		            System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+		        }
+		    }
 		}
+
+
 
 5. Press **F5** to run the application.
 
@@ -252,14 +269,13 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png

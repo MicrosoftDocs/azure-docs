@@ -3,8 +3,8 @@
 	description="Prepare the physical machine"
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
-	manager="v-kiwhit"
+	authors="Dumagar"
+	manager="bradleyb"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/08/2016"
-	ms.author="v-anpasi"/>
+	ms.author="dumagar"/>
 
 # Add a MySQL resource provider to Azure Stack
 
@@ -58,7 +58,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
 
-4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
+4. Download and install the latest [Azure PowerShell SDK](http://aka.ms/azStackPsh).
 
 ### Enable certificates, marketplace items, and binaries
 
@@ -68,9 +68,9 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 3.	Click the **Prepare MySql Prerequisites** tab.
 
-4.	Click the **New-SslCert.ps1** tab and run it. In the prompt, type the PFX password that is used to protect the private key. This command adds the \_.AzureStack.local.pfx SSL certificate to the D:\MySql\BlobStorage\Container folder. This certificate secures communication between the resource provider and the local instance of the Azure Resource Manager.
+4.	Click the **New-SslCert.ps1** tab and run it. In the prompt, type the PFX password that is used to protect the private key. This command adds the \_.AzureStack.local.pfx SSL certificate to the D:\MySql\Prerequisites\BlobStorage\Container folder. This certificate secures communication between the resource provider and the local instance of the Azure Resource Manager.
 
-5.	Click the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking **Yes** in the **Confirm** dialog box. This command adds two zip files to the D:\MySql\BlobStorage\Container folder.
+5.	Click the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking **Yes** in the **Confirm** dialog box. This command adds two zip files to the D:\MySql\Prerequisites\BlobStorage\Container folder.
 
 6.	Click the **Upload-Microsoft.MySql-RP.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command uploads the binaries for the MySQL resource provider. When prompted for AadTenantID, input your AAD tenant FQDN, e.g. microsoftazurestack.onmicrosoft.com. When Prompted for service admin credentials, input your Azure Stack Service Admin user's username and password.
 

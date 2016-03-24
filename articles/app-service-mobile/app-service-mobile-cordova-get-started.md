@@ -4,15 +4,17 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="glenga"
-    editor=""/>
+    manager="ggailey777"
+    editor=""
+    tags=""
+    keywords="cordova,javascript,mobile,client" />
 
 <tags
     ms.service="app-service-mobile"
     ms.workload="na"
-    ms.tgt_pltfrm="mobile-javascript"
+    ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
-    ms.topic="article"
+    ms.topic="hero-article"
     ms.date="02/09/2016"
     ms.author="adrianha"/>
 
@@ -50,6 +52,23 @@ Mac computer.  Compiling Apache Cordova client applications using the command li
 
 [AZURE.INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
+## Next Steps
+
+Now that you completed this quick start tutorial, move on to one of the following tutorials:
+
+* [Add Authentication] to your Apache Cordova app.
+* [Add Push Notifications] to your Apache Cordova app.
+
+Learn more about key concepts with Azure App Service.
+
+* [Authentication]
+* [Push Notifications]
+
+Learn how to use the SDKs.
+
+* [Apache Cordova SDK]
+* [ASP.NET Server SDK]
+* [Node.js Server SDK]
 
 <!-- Images. -->
 
@@ -57,4 +76,11 @@ Mac computer.  Compiling Apache Cordova client applications using the command li
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[Add Authentication]: app-service-mobile-cordova-get-started-users.md
+[Add Push Notifications]: app-service-mobile-cordova-get-started-push.md
+[Authentication]: app-service-mobile-auth.md
+[Push Notifications]: ../notification-hubs/notification-hubs-overview.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 

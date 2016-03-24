@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="12/04/2015"
+   ms.date="03/07/2016"
    ms.author="robinsh" />
 
 # Azure Storage Scalability and Performance Targets
@@ -29,7 +29,7 @@ This topic describes the scalability and performance topics for Microsoft Azure 
 
 >When your application reaches the limit of what a partition can handle for your workload, Azure Storage will begin to return error code 503 (Server Busy) or error code 500 (Operation Timeout) responses. When this occurs, the application should use an exponential backoff policy for retries. The exponential backoff allows the load on the partition to decrease, and to ease out spikes in traffic to that partition.
 
-If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts, and partition your data objects across those storage accounts. See [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts, and partition your data objects across those storage accounts. See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
 
 ## Scalability targets for blobs, queues, tables, and files
@@ -40,7 +40,8 @@ If the needs of your application exceed the scalability targets of a single stor
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-See [Virtual machine sizes](../virtual-machines/virtual-machines-size-specs.md) for additional details.
+
+See [Virtual machine sizes](../virtual-machines/virtual-machines-linux-sizes.md) for additional details.
 
 ### Standard storage accounts
 
@@ -58,7 +59,7 @@ See [Virtual machine sizes](../virtual-machines/virtual-machines-size-specs.md) 
 
 Every object that holds data that is stored in Azure Storage (blobs, messages, entities, and files) belongs to a partition, and is identified by a partition key. The partition determines how Azure Storage load balances blobs, messages, entities, and files across servers to meet the traffic needs of those objects. The partition key is unique within the storage account and is used to locate a blob, message, or entity.
 
-The table shown above in [Scalability Targets for Standard Storage Accounts](#scalability-targets-for-standard-storage-accounts) lists the performance targets for a single partition for each service.
+The table shown above in [Scalability Targets for Standard Storage Accounts](#standard-storage-accounts) lists the performance targets for a single partition for each service.
 
 Partitions affect load balancing and scalability for each of the storage services in the following ways:
 
@@ -80,7 +81,7 @@ Partitions affect load balancing and scalability for each of the storage service
 
 - [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
-- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal/)
+- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md)
 - [Azure Storage Replication](storage-redundancy.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md)
 - [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

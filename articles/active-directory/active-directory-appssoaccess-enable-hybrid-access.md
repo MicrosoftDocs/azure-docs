@@ -3,6 +3,7 @@
 	description="Enable access to apps that are running inside your private network from outside your network though Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
+	keywords="application access,app Proxy, hybrid access"
 	authors="femila"
 	manager="stevenpo"
 	editor=""/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # Enabling hybrid access with App Proxy

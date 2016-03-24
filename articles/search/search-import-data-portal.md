@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Import data to Azure Search using the portal | Microsoft Azure | Hosted cloud search service"
-	description="How to upload data to an index in Azure Search using the portal"
+	pageTitle="Import data to Azure Search using indexers in the Azure Portal | Microsoft Azure | Hosted cloud search service"
+	description="How to use indexers in the Azure Portal."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,16 +14,10 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="03/10/2016"
 	ms.author="heidist"/>
 
 # Import data to Azure Search using the portal
-> [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST API](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 Azure Portal includes an **Import Data** command on the Azure Search dashboard that guides you through data ingestion in Azure Search. The command relies on the built-in indexers feature that crawls an existing data source, creating and uploading documents based on the rowset found in the data source.
 
@@ -37,6 +31,8 @@ To use an indexer or the **Import Data** command, your primary data source needs
 
 You can only import from a single table, view, or equivalent data structure. You might need to create this data structure in your application data source first to get the right metadata and data inputs into your search index.
 
+You can try out this workflow using sample data. Visit [Get started with Azure Search in the Azure Portal](search-get-started-portal.md) to get started.
+
 ##Configure data import
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
@@ -49,8 +45,8 @@ You can only import from a single table, view, or equivalent data structure. You
 
 4. Click **Connect to your data** to specify a data source definition used by an indexer. Options include:
 	- 	Existing data source refers to a data source definition previously created for an indexer. If you already have indexers defined in your search service, you can repurpose a data source definition for another import.
-	- 	Azure SQL is used to specify a data source connection to a SQL database on Azure or a  SQL Server database on an Azure VM. 
-	- 	DocumentDB is used to specify a data source connection for that data source type. 
+	- 	Azure SQL is used to specify a data source connection to a SQL database on Azure or a  SQL Server database on an Azure VM.
+	- 	DocumentDB is used to specify a data source connection for that data source type.
 
    For both Azure SQL and DocumentDB, the database must exist within your subscription. You can paste in a connection string if you know it, or choose a data source previously created by someone who has write privileges for your subscription.
 
@@ -69,7 +65,7 @@ You can only import from a single table, view, or equivalent data structure. You
 6. Click **Import your data** to execute the import operation using the Run Now option, or set up a recurring schedule.
 
 The data import operation you just completed created an indexer behind the scenes. You can now edit the indexer directly to change any of its component parts.
-	
+
 ##Edit an existing indexer
 
 In the service dashboard, double-click on the Indexer tile to slide out a list of all indexers created for your subscription. Double-click one of the indexers to run, edit or delete it.

@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako,Mingfeiy"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
+ 	ms.date="03/18/2016"" 
 	ms.author="juliako"/>
 
 
@@ -253,14 +253,15 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		                // Note, you need to pass the key id Guid because we specified 
 		                // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
 		                Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
-		                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey, DateTime.UtcNow.AddDays(365));
+		                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey, 
+																				DateTime.UtcNow.AddDays(365));
 		                Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 		                Console.WriteLine();
 		            }
 		
 		            // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
 		            // Note that DASH works on IE 11 (via PlayReady), Edge (via PlayReady), Chrome (via Widevine).
-		
+		             
 		            string url = GetStreamingOriginLocator(encodedAsset);
 		            Console.WriteLine("Encrypted DASH URL: {0}/manifest(format=mpd-time-csf)", url);
 		
@@ -302,45 +303,31 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		        }
 		
 		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
 		        {
-		            // Declare a new job.
-		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-		            // Get a media processor reference, and pass to it the name of the 
-		            // processor to use for the specific task.
-		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
 		
-		            // Create a task with the encoding details, using a string preset.
-		            // In this case "H264 Multiple Bitrate 720p" preset is used.
-		            ITask task = job.Tasks.AddNew("My encoding task",
-		                processor,
-		                "H264 Multiple Bitrate 720p",
-		                TaskOptions.None);
+		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
+		                                    inputAsset.Name,
+		                                    encodingPreset));
 		
-		            // Specify the input asset to be encoded.
-		            task.InputAssets.Add(asset);
-		            // Add an output asset to contain the results of the job. 
-		            // This output is specified as AssetCreationOptions.None, which 
-		            // means the output asset is not encrypted. 
-		            task.OutputAssets.AddNew("Output asset",
-		                AssetCreationOptions.None);
+		            var mediaProcessors =
+		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
+		
+		            var latestMediaProcessor =
+		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
+		
+		
+		
+		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
+		            encodeTask.InputAssets.Add(inputAsset);
+		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
 		
 		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
 		            job.Submit();
 		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
 		
 		            return job.OutputMediaAssets[0];
-		        }
-		
-		        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-		        {
-		            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-		            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-		
-		            if (processor == null)
-		                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-		
-		            return processor;
 		        }
 		
 		
@@ -369,14 +356,14 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            // and create authorization policy          
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		                    {
-		                        new ContentKeyAuthorizationPolicyRestriction
-		                        {
-		                            Name = "Open",
-		                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-		                            Requirements = null
-		                        }
-		                    };
+		            {
+		                new ContentKeyAuthorizationPolicyRestriction
+		                {
+		                    Name = "Open",
+		                    KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+		                    Requirements = null
+		                }
+		            };
 		
 		            // Configure PlayReady and Widevine license templates.
 		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
@@ -389,8 +376,8 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		                        restrictions, PlayReadyLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicyOption WidevinePolicy =
-		                _context.ContentKeyAuthorizationPolicyOptions.Create("",
-		                    ContentKeyDeliveryType.Widevine,
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("", 
+		                    ContentKeyDeliveryType.Widevine, 
 		                    restrictions, WidevineLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
@@ -411,14 +398,14 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            string tokenTemplateString = GenerateTokenRequirements();
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		                    {
-		                        new ContentKeyAuthorizationPolicyRestriction
-		                        {
-		                            Name = "Token Authorization Policy",
-		                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-		                            Requirements = tokenTemplateString,
-		                        }
-		                    };
+		            {
+		                new ContentKeyAuthorizationPolicyRestriction
+		                {
+		                    Name = "Token Authorization Policy",
+		                    KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+		                    Requirements = tokenTemplateString,
+		                }
+		            };
 		
 		            // Configure PlayReady and Widevine license templates.
 		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
@@ -517,13 +504,13 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		                allowed_track_types = AllowedTrackTypes.SD_HD,
 		                content_key_specs = new[]
 		                {
-		                            new ContentKeySpecs
-		                            {
-		                                required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-		                                security_level = 1,
-		                                track_type = "SD"
-		                            }
-		                        },
+		                    new ContentKeySpecs
+		                    {
+		                        required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+		                        security_level = 1,
+		                        track_type = "SD"
+		                    }
+		                },
 		                policy_overrides = new
 		                {
 		                    can_play = true,
@@ -538,13 +525,26 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		
 		        static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 		        {
+		            // Get the PlayReady license service URL.
 		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-		            Uri widevineURl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+			    
+			        // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
+			        // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
+			        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+			        // to append /? KID =< keyId > to the end of the url when creating the manifest.
+			        // As a result Widevine license aquisition URL will have KID appended twice, 
+			        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
+			
+		            Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+		            UriBuilder uriBuilder = new UriBuilder(widevineUrl);
+		            uriBuilder.Query = String.Empty;
+		            widevineUrl = uriBuilder.Uri;
+		
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
-		                            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-		                            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+		                    {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+		                    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl, widevineUrl.ToString()}
 		
 		                };
 		
@@ -559,7 +559,6 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 		
 		        }
-		
 		
 		        /// <summary>
 		        /// Gets the streaming origin locator.
@@ -577,7 +576,6 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		                                         FirstOrDefault();
 		
 		            // Create a 30-day readonly access policy. 
-                	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		            IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		                TimeSpan.FromDays(30),
 		                AccessPermissions.Read);
@@ -613,6 +611,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		        }
 		    }
 		}
+
 
 ##Media Services learning paths
 

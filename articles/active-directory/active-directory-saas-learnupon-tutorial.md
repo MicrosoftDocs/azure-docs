@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,8 @@ The objective of this tutorial is to show you how to integrate LearnUpon with Az
 
 - You can control in Azure AD who has access to LearnUpon
 - You can enable your users to automatically get signed-on to LearnUpon (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory classic portal
+- You can manage your accounts in one central location - the Azure Active Directory classic 
+- 
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -72,7 +73,7 @@ To configure the integration of LearnUpon into Azure AD, you need to add LearnUp
 ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_01.png)<br>
 7. In the results pane, select **LearnUpon**, and then click **Complete** to add the application.
 <br><br>
-
+![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_02.png)<br>
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with LearnUpon based on a test user called "Britta Simon".
 

@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -34,13 +34,13 @@ Use the PowerShell DSC extension to create a SharePoint 2013 farm that includes 
 
 -	Two external load balancers
 
--	One VM configured as domain controller for a new forest with a single domain
+-	One VM configured as a domain controller for a new forest with a single domain
 
 -	One VM configured as a SQL Server 2014 stand-alone server
 
 -	One VM configured as a one machine SharePoint 2013 farm
 
-## Deploy AD/SQL (non-high availability)
+## Deploy AD (non-high availability)
 
 Use the PowerShell DSC extension to create an AD domain controller server that includes the following:
 
@@ -50,9 +50,9 @@ Use the PowerShell DSC extension to create an AD domain controller server that i
 
 -	One external load balancer
 
--	One VM configured as domain controller for a new forest with a single domain
+-	One VM configured as a domain controller for a new forest with a single domain
 
-## Deploy AD/SQL
+## Deploy AD/SQL (non-high availability)
 
 Use the PowerShell DSC extension to create a SQL Server 2014 stand-alone server that includes the following:
 
@@ -62,9 +62,9 @@ Use the PowerShell DSC extension to create a SQL Server 2014 stand-alone server 
 
 -	One external load balancer
 
--	One VM configured as domain controller for a new forest with a single domain
+-	One VM configured as a domain controller for a new forest with a single domain
 
--	One VM configured as SQL Server 2014 stand-alone server
+-	One VM configured as a SQL Server 2014 stand-alone server
 
 ## VM-DSC-Extension-Azure-Automation-Pull-Server
 
@@ -80,7 +80,7 @@ Deploy a simple Windows VM that includes a virtual network (with DNS), public IP
 
 ## Cancel a running template deployment
 
-To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlt.
+To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlet.
 
 ## Next steps
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Use Azure Machine Learning with SQL Data Warehouse
@@ -23,7 +23,7 @@ Azure Machine Learning is a fully managed predictive analytics service that you 
 In this article, you will learn how to do the following using the [Azure Machine Learning Studio][]:
 
 - Read data from your database to create, train and score a predictive model
-- Write data to your database 
+- Write data to your database
 
 
 ## Read data from SQL Data Warehouse
@@ -48,14 +48,14 @@ Select the Reader module and fill out the properties pane.
 
 ![][server_name]
 
-3. Database name: Type the name of a database on the server you just specified. 
-4. Server user account name:  Type the user name of an account that has access permissions for the database. 
+3. Database name: Type the name of a database on the server you just specified.
+4. Server user account name:  Type the user name of an account that has access permissions for the database.
 5. Server user account password: Provide the password for the specified user account.
 6. Accept any server certificate: Use this option (less secure) if you want to skip reviewing the site certificate before you read your data.
 7. Database query: Enter a SQL statement that describes the data you want to read. In this case, we will read data from Product table using the following query.
 
 
-```
+```SQL
 SELECT ProductKey, EnglishProductName, StandardCost,
         ListPrice, Size, Weight, DaysToManufacture,
         Class, Style, Color
@@ -81,7 +81,7 @@ Now you can use this dataset to:
 - Create a Model: Process data and define features
 - Train the model: Choose and apply a learning algorithm
 - Score and test the model: Predict new bicycle price
- 
+
 
 ![][model]
 
@@ -102,9 +102,9 @@ Look for the Writer module in the palette of datasets and modules on the left of
 Select the Writer module and fill out the properties pane.
 
 1. Select Azure SQL Database as the Data Destination.
-2. Database server name: Type the server name. You can use the [Azure Classic Portal][] to find this. 
-3. Database name: Type the name of a database on the server you just specified. 
-4. Server user account name:  Type the user name of an account that has write permissions for the database. 
+2. Database server name: Type the server name. You can use the [Azure Classic Portal][] to find this.
+3. Database name: Type the name of a database on the server you just specified.
+4. Server user account name:  Type the user name of an account that has write permissions for the database.
 5. Server user account password: Provide the password for the specified user account.
 6. Accept any server certificate (insecure): Select this option if you don’t want to view the certificate.
 7. Comma-separated list of columns to be saved: Provide a list of the dataset or result columns that you want to output.
@@ -117,7 +117,7 @@ Select the Writer module and fill out the properties pane.
 ### Step 3
 
 1. Run the experiment by clicking Run under the experiment canvas.
-2. When the experiment finishes, all modules will have a green check mark to indicate that they completed successfully. 
+2. When the experiment finishes, all modules will have a green check mark to indicate that they completed successfully.
 
 ## Next steps
 
@@ -149,4 +149,3 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--Other Web references-->
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
-

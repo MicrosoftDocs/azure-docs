@@ -201,7 +201,7 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 
 The following steps create the Azure SQL Database that data will be exported to.
 
-> [AZURE.IMPORTANT] Before performing these steps you must [install and configure the Azure CLI](xplat-cli-install.md). Installing the CLI and following the steps to create a database can be performed either from the HDInsight cluster or your local workstation.
+> [AZURE.IMPORTANT] Before performing these steps you must [install and configure the Azure CLI](../xplat-cli-install.md). Installing the CLI and following the steps to create a database can be performed either from the HDInsight cluster or your local workstation.
 
 1. Use the following command to create a new Azure SQL Database server:
 
@@ -695,7 +695,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: sql-database-create-configure.md

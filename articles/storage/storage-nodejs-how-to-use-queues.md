@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -35,7 +35,7 @@ deleting queues**.
 
 ## Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service] using Windows PowerShell, or [Build and deploy a Node.js web app to Azure using Web Matrix].
 
 ## Configure Your Application to Access Storage
 
@@ -75,7 +75,7 @@ Using Notepad or another text editor, add the following to the top the
 
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
 
-For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service].
 
 ## How To: Create a Queue
 
@@ -310,8 +310,8 @@ The following example gets the current ACL for **myqueue**, then adds the new po
 	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
       if(!error){
 		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		queueSvc.setQueueAcl('myqueue', result, function(error, result, response){
+		result.signedIdentifiers = result.signedIdentifiers.concat(sharedAccessPolicy);
+		queueSvc.setQueueAcl('myqueue', result.signedIdentifiers, function(error, result, response){
 	  	  if(!error){
 	    	// ACL set
 	  	  }
@@ -333,10 +333,10 @@ to learn about more complex storage tasks.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Portal]: portal.azure.com
-  [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
-  [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Node.js Web Application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
+  [Azure Portal]: https://portal.azure.com
+  [Create a Node.js web app in Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
 
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -345,6 +345,6 @@ to learn about more complex storage tasks.
 
 
 
-  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+  [Build and deploy a Node.js application to an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Build and deploy a Node.js web app to Azure using Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md

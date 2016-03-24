@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="dineshm"/>
 
 # List Azure Storage Resources in C++
 
 Listing operations are key to many development scenarios with Azure Storage. This article describes how to most efficiently enumerate objects in Azure Storage using the listing APIs provided in the Microsoft Azure Storage Client Library for C++.
 
->[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.x, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 2.x, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 The Storage Client Library provides a variety of methods to list or query objects in Azure Storage. This article addresses the following scenarios:
 
@@ -33,7 +33,7 @@ Each of these methods is shown using different overloads for different scenarios
 
 ## Asynchronous versus synchronous
 
-Because the Storage Client Library for C++ is built on top of the [C++ REST library (Project Casablanca)](http://casablanca.codeplex.com/), we inherently support asynchronous operations by using [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). For example:
+Because the Storage Client Library for C++ is built on top of the [C++ REST library](https://github.com/Microsoft/cpprestsdk), we inherently support asynchronous operations by using [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). For example:
 
 	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
@@ -162,7 +162,7 @@ Note that lazy listing is only available in synchronous mode.
 
 Compared with greedy listing, lazy listing fetches data only when necessary. Under the covers, it fetches data from Azure Storage only when the next iterator moves into next segment. Therefore, memory usage is controlled with a bounded size, and the operation is fast.
 
-Lazy listing APIs are included in the Storage Client Library for C++ in version 1.0.0.
+Lazy listing APIs are included in the Storage Client Library for C++ in version 2.2.0.
 
 ## Conclusion
 

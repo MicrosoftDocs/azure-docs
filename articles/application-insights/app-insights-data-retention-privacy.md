@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
@@ -64,7 +64,7 @@ There are three sources of data:
 The main categories are:
 
 * [Web server telemetry](app-insights-asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
-* [Web pages](articles/app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions.
+* [Web pages](app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters - Memory, CPU, IO, Network occupancy.
 * Client and server context - OS, locale, device type, browser, screen resolution.
 * [Exceptions](app-insights-asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
@@ -80,6 +80,8 @@ If you're developing the app using Visual Studio, run the app in debug mode (F5)
 
 ![](./media/app-insights-data-retention-privacy/06-vs.png)
 
+There's also a more readable view in the Diagnostics window.
+
 For web pages, open your browser's debugging window.
 
 ![Press F12 and open the Network tab.](./media/app-insights-data-retention-privacy/08-browser.png)
@@ -94,9 +96,9 @@ This would be possible by writing a [telemetry processor plugin](app-insights-ap
 
 It depends on your [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/).
 
-Raw data points (that is, items that you can inspect in Diagnostic Search): between 7 and 30 days.
+Raw data points (that is, items that you can inspect in Diagnostic Search): 7 days. If you need to keep data longer than that, you can use [continuous export](app-insights-export-telemetry.md) to copy it to a storage account.
 
-Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.
+Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 90 days.
 
 
 ## Who can access the data?
@@ -116,7 +118,7 @@ Microsoft uses the data only in order to provide the service to you.
 
 #### Can it be stored somewhere else, for example in Europe? 
 
-* Not yet. 
+* Not at present. 
 
 ## How secure is my data?  
 
@@ -191,7 +193,7 @@ Your action  | Data classes collected (see next table)
 [Add Application Insights SDK to a .NET web project][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
 [Install Status Monitor on IIS][redfield]<br/>[Add AI Extension to Azure VM or Web App][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
-[Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
+[Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
 [Add SDK to Windows Store app][windows]|DeviceContext<br/>Users<br/>Crash data
 [Define default properties][apiproperties]|**Properties** on all standard and custom events
 [Call TrackMetric][api]|Numeric values<br/>**Properties**
@@ -218,6 +220,7 @@ Metrics | Metric name and value
 Events | Event name and value
 PageViews | URL and page name or screen name
 Client perf | URL/page name, browser load time
+Ajax | HTTP calls from web page to server
 Requests |URL, duration, response code
 Dependencies|Type(SQL, HTTP, ...), connection string or URI, sync/async, duration, success, SQL statement (with Status Monitor)
 **Exceptions** | Type, **message**, call stacks, source file and line number, thread id

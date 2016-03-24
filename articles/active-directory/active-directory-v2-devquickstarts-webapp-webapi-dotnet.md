@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 .NET Web App | Microsoft Azure"
+	pageTitle="Azure AD v2.0 .NET Web App | Microsoft Azure"
 	description="How to build a .NET MVC Web App that calls web services using personal Microsoft accounts and work or school accounts for sign-in."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,32 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# App model v2.0 preview: Calling a web API from a .NET web app
+# Calling a web API from a .NET web app
+
+With the v2.0 endpoint, you can quickly add authentication to your web apps and web APIs with support for both personal Microsoft accounts and work or school accounts.  Here, we'll build an MVC web app that signs users in using OpenID Connect, with some help from Microsoft's OWIN middleware.  The web app will get OAuth 2.0 access tokens for a web api secured by OAuth 2.0 that allows create, read, and delete on a given user's "To-Do List".
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 endpoint public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-With the v2.0 app model, you can quickly add authentication to your web apps and web APIs with support for both personal Microsoft accounts and work or school accounts.  Here, we'll build an MVC web app that:
+This tutorial will focus primarily on using ADAL to acquire and use access tokens in a web app, described in full [here](active-directory-v2-flows.md#web-apps).  As prerequisites, you may want to first learn how to [add basic sign-in to a web app](active-directory-v2-devquickstarts-dotnet-web.md) or how to [properly secure a web API](active-directory-v2-devquickstarts-dotnet-api.md).
 
-- Signs users in using OpenID Connect, with some help from Microsoft's OWIN middleware.
-- Gets OAuth 2.0 access tokens for a web API using ADAL.
-- Creates, Reads, and Deletes items on a user's "To-Do List", which is hosted on the web api and secured by OAuth 2.0.
+## Download sample code
 
-This tutorial will focus primarily on getting and using access tokens in a web app, described in full [here](active-directory-v2-flows.md#web-apps).  As prerequisites, you may want to first learn how to [add basic sign-in to a web app](active-directory-v2-devquickstarts-dotnet-web.md) or how to [properly secure a web API](active-directory-v2-devquickstarts-dotnet-api.md).
-
-The basic steps to call the To-Do List Web API from the client are:
-
-1. Register an app
-2. Sign the user into the web app using OpenID Connect
-3. Use ADAL to get an access token upon user sign-in
-4. Call the To-Do List Web API with an access token.
-
-The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet).  
-
-To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/skeleton.zip) or clone the skeleton:
+The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/skeleton.zip) or clone the skeleton:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
@@ -46,7 +35,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1. Register an App
+## Register an app
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
@@ -55,17 +44,8 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or
 - Enter the correct **Redirect URI**. The redirect uri indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `https://localhost:44326/`.
 
 
-## 2. Sign the user in with OpenID Connect
-Here, we'll configure the OWIN middleware to use the [OpenID Connect authentication protocol](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
-
--	To begin, open the `web.config` file in the root of the `TodoList-WebApp` project, and enter your app's configuration values in the `<appSettings>` section.
-    -	The `ida:ClientId` is the **Application Id** assigned to your app in the registration portal.
-	- The `ida:ClientSecret` is the **App Secret** you created in the registration portal.
-    -	The `ida:RedirectUri` is the **Redirect Uri** you entered in the portal.
-- Open the `web.config` file in the root of the `TodoList-Service` project, and replace the `ida:Audience` with the same **Application Id** as above.
-
-
--	Now add the OWIN middleware NuGet packages to the `TodoList-WebApp` project using the Package Manager Console.
+## Install OWIN
+Add the OWIN middleware NuGet packages to the `TodoList-WebApp` project using the Package Manager Console.  The OWIN middleware will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect -ProjectName TodoList-WebApp
@@ -73,7 +53,17 @@ PM> Install-Package Microsoft.Owin.Security.Cookies -ProjectName TodoList-WebApp
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 ```
 
--	Open the file `App_Start\Startup.Auth.cs` and add `using` statements for the above libraries.
+## Sign the user in
+Now configure the OWIN middleware to use the [OpenID Connect authentication protocol](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  
+
+-	Open the `web.config` file in the root of the `TodoList-WebApp` project, and enter your app's configuration values in the `<appSettings>` section.
+    -	The `ida:ClientId` is the **Application Id** assigned to your app in the registration portal.
+	- The `ida:ClientSecret` is the **App Secret** you created in the registration portal.
+    -	The `ida:RedirectUri` is the **Redirect Uri** you entered in the portal.
+- Open the `web.config` file in the root of the `TodoList-Service` project, and replace the `ida:Audience` with the same **Application Id** as above.
+
+
+- Open the file `App_Start\Startup.Auth.cs` and add `using` statements for the libraries from above.
 - In the same file, implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIDConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.
 
 ```C#
@@ -87,12 +77,12 @@ public void ConfigureAuth(IAppBuilder app)
         new OpenIdConnectAuthenticationOptions
         {
 
-					// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+					// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0 
 					// The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
 					// In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
 					ClientId = clientId,
-					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
+					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
 					Scope = "openid email profile offline_access",
 					RedirectUri = redirectUri,
 					PostLogoutRedirectUri = redirectUri,
@@ -114,7 +104,7 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3. Use ADAL to get an access token upon user sign-in
+## Use ADAL to get access tokens
 In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0 in tandem with OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) to redeem the authorization_code for an access token to the To-Do List Service.  ADAL can make this process easy for you:
 
 - First, install the preview version of ADAL:
@@ -143,7 +133,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4. Call the To-Do List Web API
+## 4. Call the Web API
 Now it's time to actually use the access_token you acquired in step 3.  Open the web app's `Controllers\TodoListController.cs` file, which makes all the CRUD requests to the To-Do List API.
 
 - You can use ADAL again here to fetch access_tokens from the ADAL cache.  First, add a `using` statement for ADAL to this file.
@@ -204,5 +194,5 @@ For reference, the completed sample (without your configuration values) [is prov
 ## Next Steps
 
 For additional resources, check out:
-- [The App Model v2.0 Preview >>](active-directory-appmodel-v2-overview.md)
+- [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "adal" tag >>](http://stackoverflow.com/questions/tagged/adal)

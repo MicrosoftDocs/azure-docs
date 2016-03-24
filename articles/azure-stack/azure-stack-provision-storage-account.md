@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
@@ -38,4 +38,4 @@ Storage accounts include Blob and Table services, and the unique namespace for y
 
 [Learn about Azure storage accounts](../storage/storage-create-storage-account.md)
 
-[Download the Azure Stack Azure-consistent Storage Validation Guide](http://download.microsoft.com/download/A/3/0/A301E0CF-06D3-47BD-AA65-4B3108D5974D/Azure Stack Azure-consistent Storage Validation Guide.docx)
+[Download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc)
