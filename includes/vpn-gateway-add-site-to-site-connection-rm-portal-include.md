@@ -12,3 +12,5 @@
 9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
 10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
 
+	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal/connectionstatus450.png)
+
