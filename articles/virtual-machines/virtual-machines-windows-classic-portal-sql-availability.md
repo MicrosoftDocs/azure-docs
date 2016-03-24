@@ -66,15 +66,15 @@ You begin with a new Azure trial account. Once you have finished your account se
 
 1. Click the **New** button at the lower-left corner of the page, as shown below.
 
-![Click New in the portal](./media/virtual-machines-windows-classic-portal-sql-availability/IC665511.gif)
+	![Click New in the portal](./media/virtual-machines-windows-classic-portal-sql-availability/IC665511.gif)
 
 1. Click **Network Services**, then click **Virtual Network,** and then click **Custom Create**, as shown below.
 
-![Create Virtual Network](./media/virtual-machines-windows-classic-portal-sql-availability/IC665512.gif)
+	![Create Virtual Network](./media/virtual-machines-windows-classic-portal-sql-availability/IC665512.gif)
 
 1. In the **CREATE A VIRTUAL NETWORK** dialog, create a new virtual network by stepping through the pages with the settings below. 
 
-|Page|Settings|
+	|Page|Settings|
 |---|---|
 |Virtual Network Details|**NAME = ContosoNET**<br/>**REGION = West US**|
 |DNS Servers and VPN Connectivity|None|
