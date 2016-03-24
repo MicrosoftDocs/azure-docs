@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/22/2016"
+   ms.date="03/24/2016"
    ms.author="alkohli"/>
 
 # Use the StorSimple Manager service to change your StorSimple passwords
@@ -32,7 +32,7 @@ The password that was first set through the Windows PowerShell interface during 
 
 1. In the classic portal, click **Devices** > **Configure** for your device.
 
-2. Scroll down to the **Device Administrator Password** section. Provide an administrator password that contains from 8 to 15 characters. The password must be a combination of uppercase, lowercase, numeric, and special characters.
+2. Scroll down to the **Device Administrator Password** section. Provide an administrator password that contains from 8 to 15 characters. The password must be a combination 3 or more of uppercase, lowercase, numeric, and special characters.
 
 3. Confirm the password.
 
@@ -52,7 +52,7 @@ The password that was first set through the Windows PowerShell interface during 
 
 1. In the classic portal, click **Devices** > **Configure** for your device.
 
-2. Scroll down to the **StorSimple Snapshot Manager** section. Enter a password that is 14 or 15 characters. Make sure that the password contains a combination of uppercase, lowercase, numeric, and special characters.
+2. Scroll down to the **StorSimple Snapshot Manager** section. Enter a password that is 14 or 15 characters. Make sure that the password contains a combination 3 or more of uppercase, lowercase, numeric, and special characters.
 
 3. Confirm the password.
 
