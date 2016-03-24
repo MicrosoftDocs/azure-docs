@@ -3,8 +3,8 @@
 	description="Prepare the physical machine"
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
-	manager="v-kiwhit"
+	authors="Dumagar"
+	manager="bradleyb"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/08/2016"
-	ms.author="v-anpasi"/>
+	ms.author="dumagar"/>
 
 # Add a MySQL resource provider to Azure Stack
 
@@ -58,7 +58,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
 
-4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
+4. Download and install the latest [Azure PowerShell SDK](http://aka.ms/azStackPsh).
 
 ### Enable certificates, marketplace items, and binaries
 
