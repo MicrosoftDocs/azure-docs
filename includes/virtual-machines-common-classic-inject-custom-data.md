@@ -43,7 +43,7 @@ If your Azure virtual machine is from an Ubuntu or CoreOS image, then you can us
 
 ### Ubuntu Cloud Images
 
-In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md) for more information.
+In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent user guide](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) for more information.
 
 However, on the Ubuntu Cloud Images, you must use cloud-init to configure the resource disk (that is, the "ephemeral" disk) and swap partition. See the following page on the Ubuntu wiki for more details: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
@@ -57,4 +57,4 @@ For further information, see the [cloud-init documentation for Ubuntu](https://h
 <!--Link references-->
 [Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Azure Command-line Interface](https://github.com/Azure/azure-xplat-cli)
+[Azure Command-line Interface](https://github.com/Azure/azure-xplat-cli)
