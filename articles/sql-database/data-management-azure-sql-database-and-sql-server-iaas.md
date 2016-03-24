@@ -105,7 +105,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 <tr>
    <td valign="middle"><p><b>Business continuity</b></p></td>
    <td valign="middle"><ul><li type=round>In addition to built-in fault tolerance infrastructure capabilities, Azure SQL Database provides features, such as Point in Time Restore, Geo-Restore, and Geo-Replication to increase business continuity. For more information, see [SQL Database business continuity overview](sql-database-business-continuity.md).</ul></td>
-   <td valign="middle"><ul><li type=round>SQL Server on Azure VMs lets you to set up a high availability and disaster recovery solution for your database’s specific needs. Therefore, you can have a system that is highly optimized for your application. You can test and run failovers by yourself when needed. For more information, see [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines]((../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
+   <td valign="middle"><ul><li type=round>SQL Server on Azure VMs lets you to set up a high availability and disaster recovery solution for your database’s specific needs. Therefore, you can have a system that is highly optimized for your application. You can test and run failovers by yourself when needed. For more information, see [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
 
 </tr>
 <tr>
