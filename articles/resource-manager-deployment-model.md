@@ -20,7 +20,7 @@
 
 In this topic, you will learn about Azure Resource Manager and classic deployment models, the state of your resources, and why your resources were deployed with one or the other. The Resource Manager deployment model contains important differences from the classic deployment model, and the two models are not completely compatible with each other. To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for new resources, and, if possible, re-deploy existing resources through Resource Manager.
 
-Many resources operate without issue in both the classic model and Resource Manager. These resources fully support Resource Manager even if created in the classic model. You can transition to Resource Manager without any concerns or extra effort. However, a few resource providers offer two versions of the resource (one for classic, and one for Resource Manager) because of the architectural differences between the models. The resource providers that differentiate between the two models are:
+For most resources, you can transition to Resource Manager without any issues. However, a few resource providers offer two versions of the resource (one for classic, and one for Resource Manager) because of the architectural differences between the models. The resource providers that differentiate between the two models are:
 
 - **Compute** - Supports instances of virtual machines and optional availability sets.
 - **Storage** - Supports required storage accounts that store the VHDs for virtual machines, including their operating system and additional data disks.
