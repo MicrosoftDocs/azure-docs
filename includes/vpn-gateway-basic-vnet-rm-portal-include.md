@@ -16,28 +16,30 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the dropdown.
 
-5. Click **Resource group** and either select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
-6. Next, select the **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
+7. Next, select the **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
 
 8. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
 	
 	![Pin to dashboard](./media/vpn-gateway-create-vnet-arm-pportal-include/pintodash150.png)
 
 
-7. After clicking Create, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile will change as the VNet is being created.
+9. After clicking Create, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile will change as the VNet is being created.
 
 	![Creating virtual network tile](./media/vpn-gateway-create-vnet-arm-pportal-include/submitvnet150.png)
 
-8. Once your VNet has been created, you can make changes to it such as adding additional address space, subnets, and DNS servers.
+10. Once your VNet has been created, you can make changes to it such as adding additional address space, subnets, and DNS servers.
 
 ## Add additional address space and subnets to your VNet
 
-1. To add additional address space to your VNet, in the blade for your VNet, click **Settings** to open the Settings blade. Then click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+1. To add additional address space to your VNet, on the blade for your VNet, click **All settings** to open the Settings blade. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+
+	![Add address space](./media/vpn-gateway-create-vnet-arm-pportal-include/addaddress400.png)
 
 2. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the Subnets blade. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade.
 
-	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
+	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/addsubnet250.png)
 
 3. To view the list of subnets:
 
