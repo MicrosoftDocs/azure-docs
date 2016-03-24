@@ -1,5 +1,0 @@
-Thanks for your contribution! Here's a few guidelines to help speed review of your pull request:
-
-- File name: Include the file name of the article you are updating in the title of the pull request.
-
-- Microsoft PMs and writers: If you are a core Azure product team PM or a content developer, please use the private repository. You can easily access the private repository from the article links by typing "-pr" after "azure-content" in the GitHub URL for the article. Instructions for requesting perms are posted in the contributor's guide at https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md#permissions-in-github.
