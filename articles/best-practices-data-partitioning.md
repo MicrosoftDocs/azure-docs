@@ -88,7 +88,7 @@ If shards are replicated, it might be possible to keep some of the replicas onli
 
 ### Vertical partitioning
 
-The most common use for vertical partitioning is to reduce the I/O and performance costs associated with fetching the items that are accessed most frequently. Figure 2 shows an example of vertical partitioning. In this example, different properties for each data item are held in different partitions. One partition holds more data that is accessed more frequently, including the name, description, and price information for products. Another holds the  volume in stock and the last ordered date.
+The most common use for vertical partitioning is to reduce the I/O and performance costs associated with fetching the items that are accessed most frequently. Figure 2 shows an example of vertical partitioning. In this example, different properties for each data item are held in different partitions. One partition holds data that is accessed more frequently, including the name, description, and price information for products. Another holds the  volume in stock and the last ordered date.
 
 ![Vertically partitioning data by its pattern of use](media/best-practices-data-partitioning/DataPartitioning02.png)
 
