@@ -122,10 +122,9 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 
 All JavaScript functions must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always include a `context` object.
 
-The arguments are always passed along to the function in the order they occur in *function.json*, even if you don't specify in your exports statement. 
+Bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is very convenient if you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
 
-
-Only bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is very convenient if you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
+The arguments are always passed along to the function in the order they occur in *function.json*, even if you don't specify them in your exports statement. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[3]`.
 
 All bindings, regardless of direction, are also passed along on the `context` object (see below). 
 
@@ -298,7 +297,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 ### Requiring external libraries
 
-You can add external libraries using the `#r "library"` syntax. For instance, if I had my own .dll which I uploaded with my function and I wanted to reference it, I could do so with `#r "mylib.dll"`.
+You can add external libraries using the `#r "library"` syntax. 
 
 ```csharp
 #r "System.Web.Http"
@@ -310,6 +309,8 @@ using System.Threading.Tasks;
 
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 ```
+
+If you have your own library which you name *mylib.dll* and upload to the function's folder, you can reference it with `#r "mylib.dll"`. You can use a relative path to reference libraries shared by multiple functions.
 
 ### Package management
 
