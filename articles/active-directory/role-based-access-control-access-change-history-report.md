@@ -32,11 +32,11 @@ You can specify which property of the assignments you want listed, including the
 | Property | Description |
 | -------- | ----------- |
 | **Action** | Whether access was granted or revoked |
-| **Caller** or **User** | The owner responsible for the access change |
+| **Caller** | The owner responsible for the access change |
 | **Date** | The date and time that access was changed |
 | **DirectoryName** | The Azure Active Directory directory |
-| **PrincipalName** or **SubjectName** | The name of the user, group, or application |
-| **PrincipalType** or **SubjectType**| Whether the assignment was for a user, group, or application |
+| **PrincipalName** | The name of the user, group, or application |
+| **PrincipalType** | Whether the assignment was for a user, group, or application |
 | **RoleId** | The GUID of the role that was granted or revoked |
 | **RoleName** | The role that was granted or revoked |
 | **ScopeName** | The name of the subscription, resource group, or resource |
