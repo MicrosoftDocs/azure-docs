@@ -24,7 +24,7 @@
 
 Azure Functions share a few core technical concepts, regardless of the language you choose. Before you jump into learning about how your language of choice works, be sure to read through these core concepts.
 
-This article assumes that you've already read the [Azure Functions overview](function-overview.md) and are familiar with [WebJobs SDK concepts such as triggers, bindings, and the JobHost runtime](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure Functions is based on the WebJobs SDK. 
+This article assumes that you've already read the [Azure Functions overview](functions-overview.md) and are familiar with [WebJobs SDK concepts such as triggers, bindings, and the JobHost runtime](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure Functions is based on the WebJobs SDK. 
 
 ### function
 
@@ -122,11 +122,15 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 
 All JavaScript functions must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always include a `context` object.
 
-The arguments are always passed along to the function in the order they occur in *function.json*, even if you don't specify any additional arguments. Only bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/en-us/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is very convenient if you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
+The arguments are always passed along to the function in the order they occur in *function.json*, even if you don't specify any additional arguments. Only bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is very convenient if you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
 
 All bindings, regardless of direction, are also passed along on the `context` object (see below). 
 
-### `context` Object
+### context object
+
+The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
+
+The context object is always the first parameter to a function and should always be included because it has methods such as `context.done` and `context.log` which are required to correctly use the runtime. You can name the object whatever you like (i.e. `ctx` or `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -135,11 +139,7 @@ module.exports = function(context) {
 };
 ```
 
-The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
-
-The context object is always the first parameter to a function and should always be included because it has methods such as `context.done` and `context.log` which are required to correctly use the runtime. You can name the object whatever you like (i.e. `ctx` or `c`).
-
-### `context.bindings`
+### context.bindings
 
 The `context.bindings` object collects all your input and output data. The data is added onto the `context.bindings` object via the `name` property of the binding. For instance, given the following binding definition in *function.json*, you can access the contents of the queue via `context.bindings.myInput`. 
 
@@ -177,7 +177,7 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: hello there, world, noNumber: true
 ```
 
-### `context.log(message)`
+### context.log(message)
 
 The `context.log` method allows you to output log statements that are correlated together for logging purposes. If you use `console.log`, your messages will only show for process level logging, which isn't as useful.
 
@@ -187,7 +187,7 @@ function. You can access your bindings via context.bindings */
 context.log({hello: "world"}); // logs: { "hello": "world" } 
 ```
 
-### HTTP triggers: `context.req` and `context.res`
+### HTTP triggers: context.req and `context.res
 
 In the case of HTTP Triggers, because it is such a common pattern to use `req` and `res` for the HTTP request and response objects, we decided to make it easy to access those on the context object, instead of forcing you to use the full `context.bindings.name` pattern.
 
@@ -254,7 +254,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ### Cancellation Token
 
-In certain cases, you may have operations which are sensitive to being shut down. While it's always best to write code which can handle crashing, in cases where you want to handle graceful shutdown requests, you can use a [`CancellationToken`](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken.aspx). You must make your function `async` in order to use a `CancellationToken`. 
+In certain cases, you may have operations which are sensitive to being shut down. While it's always best to write code which can handle crashing, in cases where you want to handle graceful shutdown requests, you can use a [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). You must make your function `async` in order to use a `CancellationToken`. 
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
