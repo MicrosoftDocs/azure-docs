@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="03/24/2016"
 	ms.author="onewth"/>
 
 # Upgrading to Version 2 of the Text Analytics API #
