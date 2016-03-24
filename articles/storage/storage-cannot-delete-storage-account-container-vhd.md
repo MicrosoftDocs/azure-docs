@@ -92,7 +92,7 @@ After you delete a VM and then try to delete the blobs for the associated VHDs, 
 
 ## More information
 
-VM (classic) machines that have been retained will have the **Stopped (deallocated)** status on either the [Azure portal](https://portal.azure.com/) or [Azure classic portal](https://manage.windowsazure.com/).
+VMs that were created in the classic deployment model and that have been retained will have the **Stopped (deallocated)** status on either the [Azure portal](https://portal.azure.com/) or [Azure classic portal](https://manage.windowsazure.com/).
 
 **Azure classic portal**:
 
