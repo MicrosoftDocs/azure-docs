@@ -134,11 +134,12 @@ Following are details about what this bash script does. If you're doing a proof 
     ```
 
 2.	Get node information from the environment variables. $NODESCORES stores a list of split words from $CCP_NODES_CORES. $COUNT is the size of $NODESCORES.
-```
-# Get node information from the environment variables
-NODESCORES=(${CCP_NODES_CORES})
-COUNT=${#NODESCORES[@]}
-```    
+    ```
+    # Get node information from the environment variables
+    NODESCORES=(${CCP_NODES_CORES})
+    COUNT=${#NODESCORES[@]}
+    ```    
+    
     The format for the $CCP_NODES_CORES variable is as follows:
 
     ```
