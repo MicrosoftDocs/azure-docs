@@ -162,7 +162,7 @@ To find the public IP address of your virtual network gateway, use the following
 
 ## 8. Create the VPN connection
 
-Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration.
+Next, you'll create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Note that the `-ConnectionType` for Site-to-Site is **IPsec**. 
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
