@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Protect sensitive data in SQL Database with database encryption | Microsoft Azure"
+	pageTitle="Always Encrypted - Protect sensitive data in Azure SQL Database with database encryption"
 	description="Protect sensitive data in your SQL database in minutes."
 	keywords="data encryption, encryption key, cloud encryption"	
 	services="sql-database"
@@ -18,7 +18,7 @@
 	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# Protect sensitive data in SQL Database with data encryption and store your encryption keys in the Azure Key Vault
+# Always Encrypted - Protect sensitive data in SQL Database with data encryption and store your encryption keys in the Azure Key Vault
 
 > [AZURE.SELECTOR]
 - [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)

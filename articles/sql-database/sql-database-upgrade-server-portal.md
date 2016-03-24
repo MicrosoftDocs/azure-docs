@@ -42,12 +42,11 @@ Note that your databases will remain online and continue to work throughout the 
 
 Upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11.
 
-After upgrading to V12, [service tier recommendations](sql-database-service-tier-advisor.md) and [elastic pool recommendations](sql-database-elastic-pool-manage-portal.md) will not immediately be available until the service has time to evaluate your workloads on the new server. V11 server recommendation history does not apply to V12 servers so it is not retained.  
-
+After upgrading to V12, [service tier recommendations](sql-database-service-tier-advisor.md) and [elastic pool performance considerations](sql-database-elastic-pool-guidance.md) will not immediately be available until the service has time to evaluate your workloads on the new server. V11 server recommendation history does not apply to V12 servers so it is not retained.
 
 ## Prepare to upgrade
 
-- **Upgrade all Web and Business databases**: See [Upgrade all Web and Business databases](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) section below or use [PowerShell to upgrade databases and server](sql-database-upgrade-server-powershell.md).
+- **Upgrade all Web and Business databases**: See [Upgrade all Web and Business databases](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) section below or see [Monitor and manage an elastic database pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 - **Review and suspend geo-replication**: If your Azure SQL database is configured for geo-replication you should document its current configuration and [stop geo-replication](sql-database-geo-replication-portal.md#remove-secondary-database). After the upgrade completes reconfigure your database for geo-replication.
 - **Open these ports if you have clients on an Azure VM**: If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open port ranges 11000-11999 and 14000-14999 on the VM. For details, see [Ports for SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
@@ -104,7 +103,7 @@ In the [Azure portal](https://portal.azure.com/) browse to the V12 server and cl
 
 -or-
 
-If you see a message saying **Click here to view the recommended elastic database pools for this server**, click it to easily create a pool that is optimized for your server's databases. For details, see [Recommended elastic database pools](sql-database-elastic-pool-create-portal.md).
+If you see a message saying **Click here to view the recommended elastic database pools for this server**, click it to easily create a pool that is optimized for your server's databases. For details, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
 ![Add pool to a server][7]
 
@@ -114,9 +113,9 @@ Follow the directions in the [Create an elastic database pool](sql-database-elas
 
 >[AZURE.IMPORTANT] Upgrade to the latest version of SQL Server Management Studio (SSMS) to take advantage of the new v12 capabilities. [Download SQL Server Management Studio] (https://msdn.microsoft.com/library/mt238290.aspx).
 
-After upgrading, it is recommended to monitor the database actively to ensure applications are running at the desired performance and optimize usage as needed.
+After upgrading, actively monitor the database to ensure applications are running at the desired performance, and then optimize settings as required.
 
-In addition to monitoring individual databases you can monitor elastic database pools [using the portal](sql-database-elastic-pool-manage-portal.md) or with [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+In addition to monitoring individual databases, you can monitor elastic database pools [Monitor, manage, and size an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md) or with [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
 **Resource consumption data:** For Basic, Standard, and Premium databases resource consumption data is available through the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO and log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:

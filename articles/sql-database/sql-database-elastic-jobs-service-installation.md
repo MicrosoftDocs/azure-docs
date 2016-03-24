@@ -6,14 +6,7 @@
 	manager="jhubbard"
 	authors="ddove"
 	editor=""/>
-
-<tags
-	ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/02/2016"
+    ms.date="03/24/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Installing Elastic Database jobs overview
