@@ -59,9 +59,7 @@ In this task, you'll sign up for the Recommendations API service, and create a r
 1. Select the **Cognitive Services APIs** product.
 This product will allow you to start a subscription for any of the cognitive services APIs (Face, Text Analytics, Computer Vision, etc.). Today we will focus on the Recommendations API.
 
-1. On the Cognitive Services API landing page, click **Create**.
-
-1. Enter a **Resource name** for your Recommendations subscription. (For instace: "MyRecommendations"). This name should not have any spaces in it.
+1. On the Cognitive Services API landing page, enter the **Account name** for your Recommendations subscription. (For instace: "MyRecommendations"). This name should not have any spaces in it.
 
 1. On **API type**, select **Recommendations**.
 
@@ -72,7 +70,8 @@ and change the plan type accordingly.
 
 1. You may change other elements in the Create dialog. We should point out that
 the resource provider today is only supported from United States data centers.
-Once you are done with any selections, click **Create**.
+
+1. Once you are done with any selections, click **Create**.
 
 1. Wait a few minutes for the resource to be deployed.
 Once it is deployed, you can go to the **Keys** section in the **Settings** blade where you will be provided a primary and secondary key to use the API.  Copy the primary key, as you'll need it when creating your first model.
