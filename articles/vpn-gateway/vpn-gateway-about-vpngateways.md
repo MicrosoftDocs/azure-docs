@@ -42,7 +42,10 @@ The example below shows a gateway subnet named GatewaySubnet. You can see the CI
 
 ## <a name="gwtype"></a>Gateway types
 
-The gateway type specifies how the gateway itself connects and is a required configuration setting for the Resource Manager deployment model. Don't confuse gateway type with VPN type, which specifies the type of routing for your VPN. The available values for `-GatewayType` are: *Vpn* and *ExpressRoute*.
+The gateway type specifies how the gateway itself connects and is a required configuration setting for the Resource Manager deployment model. Don't confuse gateway type with VPN type, which specifies the type of routing for your VPN. The available values for `-GatewayType` are: 
+
+- Vpn
+- ExpressRoute
 
 
 This example for the Resource Manager deployment model specifies the -GatewayType as *Vpn*. When you are creating a gateway, you must make sure that the gateway type is correct for your configuration. 
@@ -85,7 +88,12 @@ This example for the Resource Manager deployment model specifies the `-VpnType` 
 
 ## <a name="connectiontype"></a>Connection types
 
-Each configuration requires a specific connection type. The available Resource Manager PowerShell values for `-ConnectionType` are: IPSec, Vnet2Vnet, ExpressRoute, VPNClient.
+Each configuration requires a specific connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
+
+- IPSec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
 
 In the example below, we are creating a Site-to-Site connection, which requires the connection type "IPSec".
 
