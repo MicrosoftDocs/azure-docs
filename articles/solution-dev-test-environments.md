@@ -238,7 +238,7 @@ After seeing a "Waiting for deployment to complete" message for a few minutes, t
 	data:    requestedServiceObjectiveName  String        S0
 	info:    group deployment create command OKx
 
-If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](virtual-machines/resource-group-deploy-debug.md) article.
+If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](./resource-manager-troubleshoot-deployments-cli.md) article.
 
 From the CLI command line, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 
@@ -282,7 +282,7 @@ After seeing a blinking cursor for a few minutes, the command will return the fo
 	                    
 	Outputs           :
 
-  If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](virtual-machines/resource-group-deploy-debug.md) article.
+  If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](./resource-manager-troubleshoot-deployments-powershell.md) article.
 
   From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 

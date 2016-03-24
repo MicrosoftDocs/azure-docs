@@ -197,7 +197,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Troubleshooting Azure VM Extension failures](virtual-machines-windows-extensions-troubleshoot.md)
 
-[Troubleshoot resource group deployments](resource-group-deploy-debug.md)
+[Troubleshoot resource group deployments](resource-manager-troubleshoot-deployments-portal.md)
 
 [Troubleshoot Access to an Application Running on an Azure Virtual Machine](virtual-machines-windows-troubleshoot-app-connection.md)
 
