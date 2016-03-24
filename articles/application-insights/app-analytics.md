@@ -19,17 +19,17 @@
 
 
 
-# Analytics search in Application Insights
+# Analytics in Application Insights
 
 
 [Analytics](app-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage, AIQL.
+ Analytics query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-A typical AIQL query is a *source* table followed by a series of *operators* separated by `|`. 
+A typical query is a *source* table followed by a series of *operators* separated by `|`. 
 
 For example, let's find out what time of day the citizens of Hyderabad try our web app. And while we're there, let's see what result codes are returned to their HTTP requests. 
 

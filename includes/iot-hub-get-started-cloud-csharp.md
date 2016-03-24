@@ -8,7 +8,7 @@ In this section, you'll create a Windows console app that creates a new device i
 
 2. In Solution Explorer, right-click the **CreateDeviceIdentity** project, and then click **Manage NuGet Packages**.
 
-3. In the **NuGet Package Manager** window, search for **Microsoft Azure Devices**, click **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use.
+3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, click **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use.
 
 	![][11]
 
