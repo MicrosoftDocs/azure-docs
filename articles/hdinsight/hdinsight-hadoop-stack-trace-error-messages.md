@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
-	ms.date="12/09/2015"
+	ms.date="03/21/2016"
 	ms.author="rashimg;cgronlun"/>
 
 # Hadoop stack trace errors in HDInsight: Index of troubleshooting articles

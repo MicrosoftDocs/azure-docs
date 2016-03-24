@@ -233,7 +233,7 @@ The following table provides description for JSON elements specific to ODBC link
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the ODBC data store. | Yes |
 
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises ODBC data store.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises ODBC data store.
 
 ### Using Basic authentication
 

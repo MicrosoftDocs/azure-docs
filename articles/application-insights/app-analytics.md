@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Application Analytics - the powerful search tool for Application Insights" 
-	description="Overview of Application Analytics, 
-	             the powerful search tool for Application Insights. " 
+	pageTitle="Analytics - the powerful search tool of Application Insights" 
+	description="Overview of Analytics, 
+	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Application Insights Analytics: Language Overview
+# Analytics in Application Insights
 
 
-[Application Insights Analytics](app-analytics.md) is a powerful query engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights query language, AIQL.
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-A typical AIQL query is a *source* table followed by a series of *operators* separated by `|`. 
+A typical query is a *source* table followed by a series of *operators* separated by `|`. 
 
 For example, let's find out what time of day the citizens of Hyderabad try our web app. And while we're there, let's see what result codes are returned to their HTTP requests. 
 
@@ -50,7 +50,20 @@ Let's display the results with the bar chart presentation, choosing to stack the
 
 Looks like our app is most popular at lunchtime and bed-time in Hyderabad. (And we should investigate those 500 codes.)
 
-The language has many of the capabilities of SQL, and more. Just as in SQL, you can filter data, group records, sort and join tables. You can also perform computations on the fields. Unlike SQL, these functions are separated into different operations, and instead of nesting queries, you pipe the data from one operation to the next in a very intuitive way. This makes it easy to write quite complex queries.
+
+There are also powerful statistical operations:
+
+![](./media/app-analytics/025.png)
+
+
+The language has many attractive features:
+
+* [Filter](app-analytics-queries.md) your raw app telemetry by any fields, including your custom properties and metrics.
+* [Join](app-analytics-queries.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+* Powerful statistical [aggregations](app-analytics-aggregations.md).
+* Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
+* Immediate and powerful visualizations.
+
 
 
 >[AZURE.NOTE] We recommend starting with the [language tour](app-analytics-tour.md).

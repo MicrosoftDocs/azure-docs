@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="03/19/2016"
 	ms.author="chriscompy"/>
+
 
 # Add a Web Apps resource provider to Azure Stack
 
 Azure Stack App Service is Azure App Service brought to on-premises installation. In Azure Stack App Service Technical Preview 1 (TP1), only the Web Apps aspect of App Service is available.
 
 The current Azure Stack Web Apps deployment will create an instance of each of the five required role types. It will also create a file server. Although you can add more instances for each of the role types, remember that there is not much space for virtual machines (VMs) in TP1. The current capabilities for Azure Stack App Service are primarily foundation capabilities that are needed to manage the system and host web apps.  
-
 There is no support for the Azure Stack App Service preview releases. Don't put production workloads on this preview release. There is also no upgrade between Azure Stack App Service preview releases. The primary purposes of these preview releases are to show what we are providing and to obtain feedback.  
 
 The Azure Stack Web Apps resource provider uses the same code that the Web Apps feature in Azure App Service uses. As a result, some common concepts are worth describing. In Web Apps, the pricing container for web apps is called the App Service plan. It represents the set of dedicated virtual machines that are used to hold your apps. Within a given subscription, you can have multiple App Service plans. This is also true in Azure Stack Web Apps.  
@@ -30,9 +30,9 @@ In Azure, there are shared and dedicated workers. A shared worker supports high-
 
 In Azure Stack Web Apps, resource provider administrators can define the worker tiers that they want to make available. They can define them so that they have multiple sets of shared workers or different sets of dedicated workers, based on their unique web hosting needs. By using those worker tier definitions, they can then define their own pricing SKUs.
 
-## Portal features
+## TP1 Web Apps portal features
 
-As is also true with the back end, Azure Stack Web Apps uses the same UI that Web Apps in Azure App Service uses. Some features are disabled and aren't yet functional in Azure Stack. This is because Azure-specific expectations or services that those features require aren't yet available in Azure Stack.
+Azure Stack Web Apps uses the same UI that Web Apps in Azure App Service uses. Some features are disabled and aren't yet functional in Azure Stack. This is because Azure-specific expectations or services that those features require aren't yet available in Azure Stack.
 
 There are two portals for the Azure Stack App Service: the resource provider administration portal and the end-user tenant portal.
 
@@ -55,13 +55,13 @@ By using this portal, you can:
 - Create multiple App Service plans, as in Azure.
 - View web app properties.
 
-## Turn off Internet Explorer enhanced security and enable cookies
+## Before installing Azure Stack Web Apps
 
-To deploy a resource provider, you must run your PowerShell Integrated Scripting Environment (ISE) as an administrator. For this reason, you need to allow cookies and JavaScript in the Internet Explorer profile that you use to sign in to Azure Active Directory.
+There are several steps that need to be performed before starting the installation of Azure Stack Web Apps. Some of these changes are to enable the scripts to run properly and others are system pre-requisites.
 
 ### Turn off Internet Explorer enhanced security
 
-1. Sign in to the Azure Stack proof-of-concept (POC) machine as an AzureStack/administrator, and then open **Server Manager**.
+1. Sign in to the Azure Stack proof-of-concept (POC) machine as an Azure Stack administrator, and then open **Server Manager**.
 2. Turn off **IE Enhanced Security Configuration** for both admins and users.
 3. Sign in to the `ClientVM.AzureStack.local` virtual machine as an administrator, and then open **Server Manager**.
 4. Turn off **IE Enhanced Security Configuration** for both admins and users.
@@ -74,27 +74,24 @@ To deploy a resource provider, you must run your PowerShell Integrated Scripting
 4. Select **Advanced**. Make sure that both **Accept** check boxes are selected, and then select **OK** and **OK** again.  
 5. Close Internet Explorer, and then restart PowerShell ISE as an administrator.  
 
-## Install the latest version of Azure PowerShell
+### Install the latest version of Azure PowerShell
 
-1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.  
+1. Sign in to the Azure Stack POC machine as an Azure Stack administrator.  
 2. Using Remote Desktop Connection, sign in to the `ClientVM.AzureStack.local` virtual machine as an administrator.  
 3. Open **Control Panel**, and select **Uninstall a program**. Right-click **Microsoft Azure PowerShell - November 2015**, and select **Uninstall**.  
 4. Download and install the latest version of Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).  
 
-## Prerequisites for installing Azure Stack Web Apps
-
-To install Azure Stack Web Apps, there are a few items that you will need. Those items are:
-
-- A completed deployment of Azure Stack Technical Preview 1.
-- Enough space in your Azure Stack system to deploy a small deployment of Azure Stack Web Apps. The required space is roughly 20 GB of RAM.
-- A SQL Server database.
-- The DNS name for your Azure Stack deployment.
-- A storage account that was [created](azure-stack-provision-storage-account.md) in the "Default Provider Subscription" as the service admin.
-- The key to the storage account.
-
 ### SQL Server
 
-By default, the Azure Resource Manager template for the Azure Stack App Service has its defaults set to use the instance of SQL Server that is installed, along with the Azure Stack SQL Server resource provider. When you install the SQL Server resource provider, keep track of the resource group that was used to install it, as well as the SA password. You need both when you install Azure Stack Web Apps.
+By default, the Azure Resource Manager template for the Azure Stack App Service is set to use the instance of SQL Server that is installed with the Azure Stack SQL Server resource provider. When you install the SQL Server resource provider, keep track of the resource group that was used to install it, as well as the SA password. You need both when you install Azure Stack Web Apps.
+
+You also have the option of deploying/leveraging another SQL Server. Choosing which SQL Server to leverage will happen when deploying the Web Apps ARM template, through the template parameters. Whichever option you choose, the SQL Server VM and the Web Apps resource provider need to be in the same resource group
+
+### Azure Stack storage account
+
+The installation of Azure Stack Web Apps uses the Storage service. [Create a storage account](azure-stack-provision-storage-account.md) in the "Default Provider Subscription" as the service admin.
+
+Later during installation you will need to get a key to this storage account.
 
 ## Install Azure Stack Web Apps
 
@@ -118,7 +115,9 @@ After downloading AppServiceHelperScripts.zip, extract the files from it. The .z
 
 This first script works with the Azure Stack certificate authority to create three certificates that are needed by Web Apps. Run the script as follows:
 
+```
 Create-AppServiceCerts.ps1 <pfxPassword>
+```
 
 During the next step, you need to browse to these files so that they can be used by the installer. The password is used when starting Azure Resource Manager deployment.
 
@@ -181,42 +180,67 @@ After this command is kicked off with the correct information, it will:
 - Install the certificates that were obtained in Step 1.
 - Create software load balancers to operate in front of the management server and front-end server.
 
-Edit the PowerShell command and populate the following items:
+Edit the PowerShell command as follows:
 
-- The storage account name.
-- The environment DNS suffix, which is the subdomain that is used for web apps that are created in this environment (example: webapps.azurestack.local).
-- The SA password that was set when installing the SQL Server resource provider.
-- The number of workers (which only creates Shared workers).
-- The number of instances per role type. There might not be a lot of resources left for additional VMs in the single-host TP1 POC environment, so it is usually best to just go with one instance of each role type.
-- The resource group that is used for deploying web apps. This must be the same as the one you used to deploy the computer running SQL Server.
-- The default SSL .pfx file password.
-- The resource provider SSL .pfx file password.
+- Name: In the copied text, enter your deployment name
+- ResourceGroupName:  Enter your resource group.  It has to be the same one used with your SQL Server deployment.
+- TemplateFile:  This value will be automatically populated
+- storageAccountNameParameter:  Enter your storage account name that matches to the storage account you made earlier
+- adminUsername: Enter your administrator account name
+- adminPassword: replace the password with **$(Convertto-SecureString -String "<password>" -AsPlainText -force)** where <password> is replaced by your password
+- sqlservername: The SQL server name is defaulted to the name of the SQL Server resource provider server.  If you are using that there is no need to make a change.  If you are using something else then specify your SQL Server here.
+- sqlsysadmin: If using the SQL server resource provider then the default is ‘sa’ If you installed your own SQL Server then it is the system administrator account for that server.
+- sqlsysadminpwd: replace the password with **$(Convertto-SecureString -String "<password>" -AsPlainText -force)** where <password> is replaced by your password
+- defaultSslPfxFilePassword: replace the password with **$(Convertto-SecureString -String "<password>" -AsPlainText -force)** where <password> is replaced by your password.  This password should match the password from Step 1
+- resourceProviderSslPfxFilePassword:  replace the password with **$(Convertto-SecureString -String "<password>" -AsPlainText -force)** where <password> is replaced by your password.  This password should match the password from Step 1
+- environmentDnsSuffix: This is pre-populated as ‘webapps.azurestack.local’
+- armEndpointUri:  This is pre-populated as ‘https://api.azurestack.local’
+- resourceProviderUri: This is pre-populated as ‘https://management.azurestack.local’
 
-The two SSL .pfx file passwords are both the same as the password that you entered when running the script in Step 1. There are two entries here because the Azure Resource Manager template is forward looking to where there are more options available and different passwords can be used between the certificates.
+When your command is ready, open a PowerShell window as the Azure Stack administrator and issue the following commands to authenticate and set up template deployment:
 
-Here is an example deployment command:
+```
+# Add specific Azure Stack Environment
+
+$AadTenantId = "aad tenant GUID" #GUID Specific to the AAD Tenant
+Add-AzureRmEnvironment -Name 'Azure Stack' `
+     -ActiveDirectoryEndpoint ("https://login.windows.net/$AadTenantId/") `
+     -ActiveDirectoryServiceEndpointResourceId "https://azurestack.local-api/" `
+     -ResourceManagerEndpoint ("https://api.azurestack.local/") `
+     -GalleryEndpoint ("https://gallery.azurestack.local:30016/") `
+     -GraphEndpoint "https://graph.windows.net/"
+
+# Get Azure Stack Environment Information
+$env = Get-AzureRmEnvironment 'Azure Stack'
+
+# Authenticate to AAD with Azure Stack Environment
+Add-AzureRmAccount -Environment $env -Verbose
+
+# Get Azure Stack Environment Subscription
+Get-AzureRmSubscription -SubscriptionName "Default Provider Subscription"  | Select-AzureRmSubscription
+```
+
+Now copy, paste and run the command to deploy your Web Apps resource provider. Your command should look something like this:
 
 ```
 New-AzureRmResourceGroupDeployment
--Name <name>
--ResourceGroupName <resource-group>
--TemplateFile <ArmTemplatePath>
--storageAccountNameParameter <storage-account>
--adminUsername <admin-username>
--adminPassword <admin-password>
--sqlservername <sql-server>
--sqlsysadmin 'sa'
--sqlsysadminpwd <sa-password>
--defaultSslPfxFilePassword <webapps-ssl-cert>
--resourceProviderSslPfxFilePassword <management-ssl-cert>
--environmentDnsSuffix 'webapps.azurestack.local'
--armEndpointUri 'https://api.azurestack.local'
--resourceProviderUri 'https://management.azurestack.local'   
+-Name "webapps" `
+-ResourceGroupName "webapps-rg" `
+-TemplateFile http://appservicesetup.blob.azurestack.local/appservice-template/AzureStackAppServiceTemplate.json `
+-storageAccountNameParameter "webapp" `
+-adminUsername "administrator" `
+-adminPassword $(Convertto-SecureString -String "mypwd" -AsPlainText -force) `
+-sqlservername "SQLRP" `
+-sqlsysadmin "sa"  `
+-sqlsysadminpwd $(Convertto-SecureString -String "mysapwd" -AsPlainText -force) `
+-defaultSslPfxFilePassword $(Convertto-SecureString -String "mycertpwd" -AsPlainText -force) `
+-resourceProviderSslPfxFilePassword $(Convertto-SecureString -String "mycertpwd" -AsPlainText -force) `
+-environmentDnsSuffix 'webapps.azurestack.local' `
+-armEndpointUri 'https://api.azurestack.local' `
+-resourceProviderUri 'https://management.azurestack.local'    
 ```
 
-When your command is ready, run it and authenticate as the Azure Stack service administrator.
-
-To make sure the deployment was successful, in the Azure Stack portal, click **Resource Groups**, and then click the **WebSitesSQL** resource group. A green check mark next to the resource provider name indicates that it deployed successfully.
+To make sure the deployment was successful, in the Azure Stack portal, click Resource Groups, and then click the WebSitesSQL resource group. A green check mark next to the resource provider name indicates that it deployed successfully.
 
 ### Step 4: Create DNS records for the front-end and management server load balancers
 
