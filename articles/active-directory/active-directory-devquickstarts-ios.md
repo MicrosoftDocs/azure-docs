@@ -225,7 +225,7 @@ For reference, the completed sample (without your configuration values) is provi
 ## Additional scenarios
 You can now move on to additional scenarios.  You may want to try:
 
-[Secure a Node.JS Web API with Azure AD](../active-directory-devquickstarts-webapi-nodejs.md)  
-Learn [How to enable cross-app SSO on iOS using ADAL](active-directory-sso-ios.md)  
+- [Secure a Node.JS Web API with Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
+- Learn [How to enable cross-app SSO on iOS using ADAL](active-directory-sso-ios.md)  
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
