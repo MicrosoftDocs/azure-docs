@@ -26,7 +26,7 @@ This article explains how to run Azure functions locally by downloading the [Web
 
 Azure Functions is an implementation in Azure of the WebJobs.Script open source project. WebJobs.Script is in turn built on the [the Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md). Both projects can run locally, except you do need an internet connection. The WebJobs SDK uses Azure storage account features that the storage emulator doesn't support.
 
-This article assumes that you're already familiar with [Azure Functions](function-overview.md) and [WebJobs SDK concepts such as triggers, bindings, and JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md).
+This article assumes that you're already familiar with [Azure Functions](functions-overview.md) and [WebJobs SDK concepts such as triggers, bindings, and JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md).
 
 ## Prerequisites
 
