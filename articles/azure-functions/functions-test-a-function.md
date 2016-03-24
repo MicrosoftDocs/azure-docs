@@ -289,7 +289,7 @@ To demonstrate this approach, we will first create a queue trigger function that
 
 		queue-newusers 
 
-3. Click **+** button to select or create the storage account you want to use. Then click **Create**.
+3. Click the **+** (add) button to select or create the storage account you want to use. Then click **Create**.
 4. Leave this portal browser window opened so you can monitor the log entries for the default queue function template code.
 
 
@@ -312,7 +312,7 @@ To demonstrate this approach, we will first create a queue trigger function that
 
 		queue-newusers 
 
-3. Click **+** button to select the storage account you used previously with the queue trigger. Then click **Save**.
+3. Click the **+** (add) button to select the storage account you used previously with the queue trigger. Then click **Save**.
 4. Click the **Develop** tab for your timer trigger.
 5. You can use the following code for the C# timer function as long as you used the same queue message object name shown above. Then click **Save**
 
@@ -354,7 +354,7 @@ You can test a blob trigger function using [Microsoft Azure Storage Explorer](ht
 
 		files
 
-2. Click **+** button to select or create the storage account you want to use. Then click **Create**.
+2. Click the **+** button to select or create the storage account you want to use. Then click **Create**.
 
 3. Create a text file with the following text and save it:
 
@@ -364,15 +364,15 @@ You can test a blob trigger function using [Microsoft Azure Storage Explorer](ht
 
 5. Click the **Upload** button and upload the text file.
 
-![](./media/functions-test-a-function/azure-storage-explorer-test.png)
+	![](./media/functions-test-a-function/azure-storage-explorer-test.png)
 
 
-The default blob trigger function code will report the processing of the blob in the logs:
+	The default blob trigger function code will report the processing of the blob in the logs:
 
-	2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
-	2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
-	2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
-	2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+		2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
+		2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+		2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
+		2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
 
 
