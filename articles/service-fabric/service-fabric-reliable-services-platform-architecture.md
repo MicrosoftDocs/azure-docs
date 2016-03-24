@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="03/30/2016"
    ms.author="alanwar"/>
 
 # Architecture for stateful and stateless reliable services
