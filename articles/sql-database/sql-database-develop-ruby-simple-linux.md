@@ -26,21 +26,19 @@
 
 This topic presents a Ruby code sample that runs on an Ubuntu Linux client computer to connect to an Azure SQL Database database.
 
-## Prerequisites
-
-### Configure Development Environment
+## Step 1: Configure Development Environment
 
 [Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/en-us/library/mt711041(v=sql.1).aspx)
 
-### Create a SQL database
+## Step 2: Create a SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 
-## Step 1: Get Connection Details
+## Step 3: Get Connection Details
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Step 2: Connect
+## Step 4: Connect
 
 The [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function is used to connect to SQL Database.
 
@@ -49,7 +47,7 @@ The [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function is u
     host: 'yourserver.database.windows.net', port: 1433,
     database: 'AdventureWorks', azure:true
 
-## Step 3:  Execute a query
+## Step 5:  Execute a query
 
 The [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) function is used to retrieve a result set from a query against SQL Database. This function accepts a query and returns a result set. The results set is iterated over by using [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
@@ -63,7 +61,7 @@ The [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) function is u
     puts row
     end
 
-## Step 4:  Insert a row
+## Step 6:  Insert a row
 
 In this example you will see how to execute an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://msdn.microsoft.com/library/ms179610.aspx) value.  
 
