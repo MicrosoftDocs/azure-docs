@@ -122,7 +122,9 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 
 All JavaScript functions must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always include a `context` object.
 
-The arguments are always passed along to the function in the order they occur in *function.json*, even if you don't specify any additional arguments. Only bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is very convenient if you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
+Bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is very convenient if you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
+
+The arguments are always passed along to the function in the order they occur in *function.json*, even if you don't specify them in your exports statement. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[3]`.
 
 All bindings, regardless of direction, are also passed along on the `context` object (see below). 
 
@@ -243,13 +245,27 @@ public static void Run(string myBlob, out POCOObject myQueue)
 
 ### Logging
 
-To log output to your streaming logs in C#, you can include a `TextWriter` class (we recommend naming it `log`). We recommend you avoid `Console.Write` in Azure Functions.
+To log output to your streaming logs in C#, you can include a `TraceWriter` class (we recommend naming it `log`). We recommend you avoid `Console.Write` in Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
     log.Verbose($"C# Blob trigger function processed: {myBlob}");
 }
+```
+
+### Async
+
+To make a function asynchronous, use the `async` keyword and return a `Task` object.
+
+```csharp
+public async static Task ProcessQueueMessageAsync(
+        string blobName, 
+        Stream blobInput,
+        Stream blobOutput)
+    {
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
 ```
 
 ### Cancellation Token
@@ -281,7 +297,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 ### Requiring external libraries
 
-You can add external libraries using the `#r "library"` syntax. For instance, if I had more own .dll which I uploaded with my function and I wanted to reference it, I could do so with `#r "mylib.dll"`.
+You can add external libraries using the `#r "library"` syntax. 
 
 ```csharp
 #r "System.Web.Http"
@@ -294,9 +310,11 @@ using System.Threading.Tasks;
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 ```
 
+If you have your own library which you name *mylib.dll* and upload to the function's folder, you can reference it with `#r "mylib.dll"`. You can use a relative path to reference libraries shared by multiple functions.
+
 ### Package management
 
-For package management, use the *project.json* format. Most things that work with the *project.json* format work with Azure Functions. The important thing is including the `frameworks` as `net46`. 
+For package management, use a *project.json* file. Most things that work with the *project.json* format work with Azure Functions. The important thing is including the `frameworks` as `net46`. 
 
 ```JSON
 {
@@ -315,24 +333,234 @@ This is a table of all our supported bindings.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
-### HTTP
+### <a id="queuetrigger"></a> Azure Storage - queue trigger
 
-### Timer
+To poll a storage queue, you specify the name of the queue to poll and the variable name for the queue message.
 
-### Azure Blob Storage
+Sample *function.json*:
 
-#### Blob trigger
+```JSON
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myQueueItem",
+            "type": "queueTrigger",
+            "direction": "in",
+            "queueName": "myqueue-items",
+            "connection":""
+        }
+    ]
+}
+```
 
-#### Blob input
+The queue message can be deserialized to any of the following types:
 
-#### Blob output
+* `string`
+* A POCO type if the message has been serialized as JSON.   
+* `byte[]`
+* `CloudQueueMessage`
 
-### Azure Service Bus
+Here is C# code that works with the preceding *function.json* example.
 
-#### Service Bus topic trigger
+```CSHARP
+using System;
+using System.Threading.Tasks;
 
-#### Service Bus output
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+}
+```
 
-#### Event Hub trigger
+You can get queue metadata in your function by using the following variable names:
 
-#### Event Hub output
+* expirationTime
+* insertionTime
+* nextVisibleTime
+* id
+* popReceipt
+* dequeueCount
+* queueTrigger (another way to retrieve the queue message text as a string)
+
+The following C# code example retrieves queue metadata.
+
+```CSHARP
+using System;
+using System.Threading.Tasks;
+
+public static void Run(string myQueueItem, 
+    DateTimeOffset expirationTime, 
+    DateTimeOffset insertionTime, 
+    DateTimeOffset nextVisibleTime,
+    string queueTrigger,
+    string id,
+    string popReceipt,
+    int dequeueCount,
+    TraceWriter log)
+{
+    log.Verbose($"C# Queue trigger function processed: {myQueueItem}\n" +
+        $"queueTrigger={queueTrigger}\n" +
+        $"expirationTime={expirationTime}\n" +
+        $"insertionTime={insertionTime}\n" +
+        $"nextVisibleTime={nextVisibleTime}\n" +
+        $"id={id}\n" +
+        $"popReceipt={popReceipt}\n" + 
+        $"dequeueCount={dequeueCount}");
+}
+```
+
+### Azure Storage - queue output
+
+To create a new storage queue message, you provide the name of the queue to create messages in, and the content of the message to create.
+
+Sample *function.json* for a function that is triggered by a queue message and writes a queue message:
+
+```JSON
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "azurefunctions4e62e828_STORAGE",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myQueue",
+      "type": "queue",
+      "queueName": "samples-workitems-out",
+      "connection": "azurefunctions4e62e828_STORAGE",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}``` 
+
+Here is sample C# code that works with the preceding *function.json* example.
+
+```CSHARP
+using System;
+using System.Threading.Tasks;
+
+public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+{
+    myQueue = myQueueItem + "(next step)";
+}
+```
+
+To create multiple messages in a C# function, make the parameter type for the output queue `ICollector<T>` or `IAsyncCollector<T>`, as shown in the following example:
+
+```CSHARP
+using System;
+using System.Threading.Tasks;
+
+public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
+{
+    myQueue.Add(myQueueItem + "(step 1)");
+    myQueue.Add(myQueueItem + "(step 2)");
+}
+```
+
+The `queue` binding works with the following types.
+
+* `out string` (creates queue message if parameter value is non-null when the function ends)
+* `out byte[]` (works like string) 
+* `out CloudQueueMessage` (works like string) 
+* `out POCO` (a serializable type, creates a message with a null object if the parameter is null when the function ends)
+* `ICollector`
+* `IAsyncCollector`
+* `CloudQueue` (for creating messages manually using the Azure Storage API directly)
+
+### Azure Storage - blob trigger
+
+To trigger a function when a blob is created or updated, you provide a `path` that specifies the container to monitor, and optionally a blob name pattern. 
+
+You can restrict the types of blobs that trigger the function by specifying a pattern with a fixed value for the file extension. If you set the `path` to  *samples/{name}.png*, only *.png* blobs in the *samples* container will trigger the function.
+
+Sample *function.json*:
+
+```JSON
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myBlob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems",
+            "connection":""
+        }
+    ]
+}
+```
+
+### Azure Storage - blob input/output
+
+Sample *function.json*:
+
+```JSON
+``` 
+
+### Azure Storage - tables input/output
+
+Sample *function.json*:
+
+```JSON
+``` 
+
+### Azure Service Bus - queue or topic trigger
+
+To poll a Service Bus queue or topic, you provide the name of the queue or topic and the variable name to use for the message in the function code.
+
+Sample *function.json*:
+
+```JSON
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myQueueItem",
+            "type": "serviceBusTrigger",
+            "direction": "in",
+            "queueName": "samples-input",
+            "subscriptionName": ""
+        }
+    ]
+}
+```
+
+### Azure Service Bus - queue or topic output
+
+To create a new Service Bus queue message, you provide the name of the queue to create messages in, and the content of the message to create.
+
+Sample *function.json*:
+
+```JSON
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myQueueItem",
+            "type": "serviceBusTrigger",
+            "direction": "in",
+            "queueName": "samples-input",
+            "subscriptionName": ""
+        }
+    ]
+}
+``` 
+
+### Azure Service Bus - EventHub trigger
+
+Sample *function.json*:
+
+```JSON
+``` 
+
+### Azure Service Bus - EventHub output
+
+Sample *function.json*:
+
+```JSON
+``` 
