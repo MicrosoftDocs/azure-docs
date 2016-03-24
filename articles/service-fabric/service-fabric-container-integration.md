@@ -45,36 +45,36 @@ In this use case you can take advantage of Service Fabric's cluster management a
 in the same way as guest executables do. Click [here](service-fabric-deploy-multiple-apps.md) for more information on running guest execuatbles in Service Fabric. You would just define a container image and additinal parameters such as environement variables in the ServiceManifest.xml.
 The image can be located either in Docker Hub, a Docker Trusted registry or a private registry. Service Fabric will pull down the image, in case it is not already in the local registry, and 
 launch a container based on arguments you provide. Below is an early example of a ServiceManifest.xml that 
-defines the container image contoso/frontend.  
-```xml
-<ServiceManifest Name=“ContosoServiceTypePkg" Version="1.0">
-  <ServiceTypes>
-    <StatelessServiceType ServiceTypeName=“ContosoServiceType" ... >
-    </StatelessServiceType>
-  </ServiceTypes>
-  <CodePackage Name="CodePkg" Version="1.0">
-    <EntryPoint> 
-	  <ContainerHost>
-        <ImageName>contoso/frontend</ImageName>
-        <Commands></Commands>
-      </ContainerHost> 
-    </EntryPoint>
-  </CodePackage>
-  . . . 
-</ServiceManifest>
-```
-If you run multiple containers with services that need to communicate with each other your are responsible for service registry, service discovery and service monitoring. 
+defines the container image contoso/frontend. 
+    ```xml
+    <ServiceManifest Name=“ContosoServiceTypePkg" Version="1.0">
+     <ServiceTypes>
+        <StatelessServiceType ServiceTypeName=“ContosoServiceType" ... >
+        </StatelessServiceType>
+     </ServiceTypes>
+     <CodePackage Name="CodePkg" Version="1.0">
+        <EntryPoint> 
+        <ContainerHost>
+            <ImageName>contoso/frontend</ImageName>
+            <Commands></Commands>
+        </ContainerHost> 
+        </EntryPoint>
+     </CodePackage>
+     . . . 
+    </ServiceManifest>
+    ```
+    If you run multiple containers with services that need to communicate with each other your are responsible for service registry, service discovery and service monitoring. 
 
 2. **Service Fabric Services inside a container**   
 In this scenario you build Service Fabric stateless and stateful services the same way you are buillding native Service Fabric services and package them inside a container.
 This will give you all the benefits of native Service Fabric services, such as networking naming service support, self-reporting of instance’s load metrics
 and integration with code, config, & data upgrades, just to name a few.
  
-Figure 2 shows a Service Fabric cluster with running containers that communicate with Service Fabric on the host machine.
+    Figure 2 shows a Service Fabric cluster with running containers that communicate with Service Fabric on the host machine.
 
-![SF Services in containers](./media/service-fabric-container-integration/sfcontainers.png)   
+    ![SF Services in containers](./media/service-fabric-container-integration/sfcontainers.png)   
 
-At a very high level Service Fabric accomplishes the integration with the Service Fabric runtime on the host by mount the Service Fabric host directories as a data volume.
+    At a very high level Service Fabric accomplishes the integration with the Service Fabric runtime on the host by mount the Service Fabric host directories as a data volume.
 
 ## Summary
 This article was a quick introduction of what is coming with regards to Service Fabric container integration. The biggest take away should be that Service Fabric
