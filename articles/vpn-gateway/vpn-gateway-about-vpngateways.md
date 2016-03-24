@@ -79,9 +79,17 @@ There are two VPN types:
 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-This example for the Resource Manager deployment model specifies the -VpnType as *RouteBased*. When you are creating a gateway, you must make sure that the -VpnType is correct for your configuration. 
+This example for the Resource Manager deployment model specifies the `-VpnType` as *RouteBased*. When you are creating a gateway, you must make sure that the -VpnType is correct for your configuration. 
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="connectiontype"></a>Connection types
+
+Each configuration requires a specific connection type. The available Resource Manager PowerShell values for `-ConnectionType` are: IPSec, Vnet2Vnet, ExpressRoute, VPNClient.
+
+In the example below, we are creating a Site-to-Site connection, which requires the connection type "IPSec".
+
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## <a name="lng"></a>Local network gateways
