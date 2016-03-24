@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="01/22/2016"
+   ms.date="03/24/2016"
    ms.author="sstein"/>
 
 # Try SQL Database: Use C&#x23; to create a SQL database with the SQL Database Library for .NET 

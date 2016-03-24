@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/01/2016"
+    ms.date="03/24/2016"
     ms.author="ddove;sidneyh"/>
 
 # Elastic Database features overview
