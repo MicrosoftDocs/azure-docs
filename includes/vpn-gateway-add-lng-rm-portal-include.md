@@ -11,6 +11,6 @@ To create a local network gateway, follow the steps below:
 6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
 7. For **Location**, verify that the location is the same as the virtual network gateway that this local network gateway will be associated with.
 8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
-9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard. This shouldn't take very long to create.
+9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard.
 
 	
