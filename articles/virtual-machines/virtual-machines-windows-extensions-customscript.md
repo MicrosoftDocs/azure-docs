@@ -38,7 +38,8 @@ Define the following resource in the Resource section of the template
        "properties": {
            "publisher": "Microsoft.Compute",
            "type": "CustomScriptExtension",
-           "typeHandlerVersion": "1.4",
+           "typeHandlerVersion": "1.7",
+           "autoUpgradeMinorVersion":true,
            "settings": {
                "fileUris": [
                "http://Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
@@ -47,7 +48,7 @@ Define the following resource in the Resource section of the template
          }
        }
      }
-     
+
 In the example above, replace the file URL and the file name with your own settings.
 
 After authoring the template, you can deploy it using Azure Powershell.
