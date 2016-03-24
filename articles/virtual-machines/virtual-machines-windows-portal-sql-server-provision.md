@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Provision a SQL Server virtual machine in Azure Resource Manager (GUI) | Microsoft Azure"
+	pageTitle="Provision a SQL Server virtual machine in the Azure Portal | Microsoft Azure"
 	description="Create an SQL Server virtual machine in Azure Resource Manager mode. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -18,7 +18,7 @@
 	ms.date="03/24/2016"
 	ms.author="mikeray" />
 
-# Provision a SQL Server virtual machine in Azure Resource Manager
+# Provision a SQL Server virtual machine in the Azure Portal
 
 ## Overview
 
