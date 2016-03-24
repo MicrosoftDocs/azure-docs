@@ -170,7 +170,7 @@ Once connected, you will arrive at a prompt similar to the following.
         # Set the HDFS (WASB) location of example data
         bigDataDirRoot <- "/example/data"
         # Source for the data to load
-        source <-system.file("SampleData/AirlineDemoSmall.csv",      package="RevoScaleR")
+        source <-system.file("SampleData/AirlineDemoSmall.csv", package="RevoScaleR")
         # Directory in bigDataDirRoot to load the data into
         inputDir <- file.path(bigDataDirRoot,"AirlineDemoSmall") 
         # Make the directory
@@ -205,7 +205,7 @@ Once connected, you will arrive at a prompt similar to the following.
         # Run a linear regression
         system.time(
             modelLocal <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek,
-                             data = airDS)
+                                   data = airDS)
         )
         # Display a summary 
         summary(modelLocal) 
@@ -229,8 +229,7 @@ Once connected, you will arrive at a prompt similar to the following.
         rxSetComputeContext(myHadoopMRCluster)
         # Run a linear regression 
         system.time(
-            modelMapReduce <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek,
-                                       data = airDS) 
+            modelMapReduce <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS) 
         )
         # Display a summary
         summary(modelMapReduce)
@@ -245,8 +244,7 @@ Once connected, you will arrive at a prompt similar to the following.
         rxSetComputeContext(mySparkCluster) 
         # Run a linear regression 
         system.time(  
-            modelSpark <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, 
-                      data = airDS) 
+            modelSpark <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS) 
         )
         # Display a summary
         summary(modelSpark)
