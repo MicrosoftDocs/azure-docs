@@ -61,18 +61,7 @@ Community Extensions | <span class="wa-check wa-check-green"></span> | &nbsp;
 
 Azure Functions supports a variety of integrations with Azure and 3rd-party services. You can use these to trigger your function and start execution or to serve as input and output for your code. The table below shows some examples integrations supported by Azure Functions.
 
-Integration type | Service | Trigger | Input | Output 
-----------|---------------|----------
-Schedule | Azure Functions | <span class="wa-check wa-check-green"></span> | <span class="wa-cancel"></span> | <span class="wa-cancel"></span>
-HTTP (REST or webhook) | Azure Functions | <span class="wa-check wa-check-green"></span> | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span>
-Blob Storage | Azure Storage | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span> 
-Queues | Azure Storage | <span class="wa-check wa-check-green"></span> | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span>
-Tables | Azure Storage | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span>
-Tables | Azure Mobile Apps Easy Tables | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span>
-No-SQL DB | Azure DocumentDB | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span>
-Streams | Azure Event Hubs | <span class="wa-check wa-check-green"></span> | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span>
-Brokered queues | Azure Service Bus | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span> | <span class="wa-check wa-check-green"></span>
-Push Notifications | Azure Notification Hubs | <span class="wa-cancel"></span> | <span class="wa-cancel"></span> | <span class="wa-check wa-check-green"></span>
+[AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
 ## How much does Functions cost?
 

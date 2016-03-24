@@ -145,7 +145,7 @@ In this step, you'll create the virtual network gateway. Note that that creating
 
 Use the following values:
 
-- The **-GatewayType** for a Site-to-Site configuration is **Vpn**. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute, or -GatewayType VNet2VNet. 
+- The **-GatewayType** for a Site-to-Site configuration is **Vpn**. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute. 
 
 - The **-VpnType** can be **RouteBased** (referred to as a Dynamic Gateway in some documentation), or **PolicyBased** (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md#vpntype).
 - The **-GatewaySku** can be **Basic**, **Standard**, or **HighPerformance**. 	
@@ -186,4 +186,4 @@ If you need to change the prefixes for your local network gateway, use the instr
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
