@@ -24,7 +24,7 @@ There are three kinds of administrator roles in Microsoft Azure:
 | Administrative role   | Limit  | Description
 | ------------- | ------------- |---------------|
 |Account Administrator (AA)  | 1 per Azure account  |This is the person who signed up for or bought Azure subscriptions, and is authorized to access the [Account Center](https://account.windowsazure.com/Home/Index) and perform various management tasks. These include being able to create subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator.
-| Service Administrator (SA) | 1 per Azure subscription  |This role is authorized to manage services in the [Azure portal]((https://portal.azure.com). By default, for a new subscription, the Account Administrator is also the Service Administrator.|
+| Service Administrator (SA) | 1 per Azure subscription  |This role is authorized to manage services in the [Azure portal](https://portal.azure.com). By default, for a new subscription, the Account Administrator is also the Service Administrator.|
 |Co-administrator (CA) in the [Azure classic portal](https://manage.windowsazure.com)|200 per subscription| This role has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories. |
 
 > [AZURE.NOTE] Azure Active Directory Role-based Access Control (RBAC) allows users to be added to multiple roles. For more information, see [Azure Active Directory Role-based Access Control](./active-directory/role-based-access-control-configure.md).
@@ -46,7 +46,7 @@ There are three kinds of administrator roles in Microsoft Azure:
 
 **Note**
 - The owner role has same access privileges as co-administrator. This role does not have access privilege to the [Azure Account Center](https://account.windowsazure.com/subscriptions).
-- The owners you added through [Azure portal](https://portal.azure.com) cannot manage services in the [Azure classic portal](https://manage.windowsazure.com).  
+- The owners you added through the [Azure portal](https://portal.azure.com) cannot manage services in the [Azure classic portal](https://manage.windowsazure.com).  
 	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
 5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
 
