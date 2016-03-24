@@ -17,8 +17,6 @@
 	ms.author="awills"/>
 
 
-
-
 # Analytics in Application Insights
 
 
