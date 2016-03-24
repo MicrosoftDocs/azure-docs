@@ -271,7 +271,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 ## Testing with a timer trigger
 
-Some functions, can't be truly tested with the tools mentioned previously. For example, a queue trigger function which runs when a message is dropped into [Azure Queue Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/). You could always write code to drop a message into your queue but, there is another approach to test with functions directly.  
+Some functions, can't be truly tested with the tools mentioned previously. For example, a queue trigger function which runs when a message is dropped into [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). You could always write code to drop a message into your queue but, there is another approach to test with functions directly.  
 
 You could use a timer trigger configured with a queue output binding. That timer trigger code could then write the test messages to the queue. This section will walk through through an example. 
 
