@@ -15,19 +15,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/18/2016"
+   ms.date="03/24/2016"
    ms.author="wesmc"/>
 
 # Testing Azure Functions
 
 ## Overview
 
-In this tutorial, we will walk through a few different tools that can be used for testing functions. We will define a very simple function that accepts input through a query string parameter, or the request body. The **HttpTrigger Nodejs Function** template supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
+In this tutorial, we will walk through a different approaches to testing functions. We will define a http trigger function that accepts input through a query string parameter, or the request body. The default **HttpTrigger Nodejs Function** template code supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
 
 
 ## Creating a function for testing
 
-For the purposes of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](https://azure.microsoft.com/) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template.
+For most of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](https://acom-sandbox.azurewebsites.net/documentation/articles/functions-create-first-azure-function/) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template when creating the test function in the [Azure Portal].
 
 This function template by default is basically a hello world function that echos back the name query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client.   
 
@@ -43,9 +43,9 @@ Update the function with the following code which we will use for testing:
 	        context.log('Name not provided as query string param. Checking body...'); 
 	        body = req.body;
 	        
-	        if (typeof body == 'Object')
+	        if (typeof body == 'object')
 	        {
-	            context.log('Request Body Type = Object'); 
+	            context.log('Request Body Type = object'); 
 	            context.log('Request Body JSON = ' + JSON.stringify(body)); 
 	        }
 	        else if (typeof body == 'string')
@@ -56,8 +56,8 @@ Update the function with the following code which we will use for testing:
 	        }
 	        else
 	        {
-	             context.log('Request Body Type = ' + typeof body);
-	             context.log('Request Body = ' + body);
+	             context.log('Unhandled Request Body Type = ' + typeof body);
+	             context.log('Unhandled Request Body = ' + body);
 	             context.res = {
 	                status: 400,
 	                body: "Content type not handled.  Expected a JSON object or string."
@@ -83,8 +83,8 @@ Update the function with the following code which we will use for testing:
 	        context.log('Name was provided as a query string param.'); 
 	        ProcessNewUserInformation(context, req.query.name);
 	    }
-	    context.done();
-	    
+
+	    context.done();	    
 	};
 	
 	function ProcessNewUserInformation(context, name, address)
@@ -132,7 +132,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 
 
-## Testing with the Run button
+## Testing with the run button
 
 The portal provides a **Run** button which will allow you to do some limited testing. You can provide a request body using the run button but, you can't provide query string parameters or update request headers.
 
@@ -163,7 +163,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 ## Testing with Postman
 
-The recommended tool to test your functions is Postman. To install Postman, see [Get Postman](https://www.getpostman.com/). Postman provides control over many more attributes of an HTTP request.
+The recommended tool to test most of your functions is Postman. To install Postman, see [Get Postman](https://www.getpostman.com/). Postman provides control over many more attributes of an HTTP request.
 
 To test the function with a request body in Postman: 
 
@@ -199,22 +199,36 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 ## Testing with Node.js code
 
-You can use Node.js code similar to the following to test your Azure Function from Node.JS. Make sure to set the `host` used in the request options as well as your access code (`<your code>`) in the `path`.
+You can use Node.js code to execute a http request to test your Azure Function. 
+
+Make sure to set:
+
+- The `host` in the request options to your function app host
+- Your function name in the `path`.
+- Your access code (`<your code>`) in the `path`.
+
+Code Example:
 
 	var http = require('http');
 	
-	var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
-	var nameBodyJSON = '{"name" : "Wes testing with Node.JS code","address" : "Dallas, T.X. 75201"}';	
+	//var nameQueryString = "xname=Wes%20Query%20String%20Test%20From%20Node.js";
+	
+	var nameBodyJSON = {
+	    name : 'Wes testing with Node.JS code',
+	    address : 'Dallas, T.X. 75201'
+	};
+	
+	var bodyString = JSON.stringify(nameBodyJSON);
 	
 	var options = {
 	  host: 'functionsExample.azurewebsites.net',
-	  //path: '/api/WesmcHttpTriggerNodeJS1/?code=<your code>&' + nameQueryString,
+	//  path: '/api/WesmcHttpTriggerNodeJS1/?code=<your code>&' + nameQueryString,
 	  path: '/api/WesmcHttpTriggerNodeJS1/?code=<your code>',
 	  method: 'POST',
 	  headers : {
 	      "Content-Type":"application/json",
-	      "Content-Length": Buffer.byteLength(nameBodyJSON)
-	    }
+	      "Content-Length": Buffer.byteLength(bodyString)
+	    }    
 	};
 	
 	callback = function(response) {
@@ -230,8 +244,9 @@ You can use Node.js code similar to the following to test your Azure Function fr
 	
 	var req = http.request(options, callback);
 	console.log("*** Sending name and address in body ***");
-	console.log(nameBodyJSON);
-	req.end(nameBodyJSON);
+	console.log(bodyString);
+	req.end(bodyString);
+
 
 
 Output:
@@ -254,3 +269,110 @@ In the portal **Logs** window, output similar to the following is logged while e
 	2016-03-23T08:09:01.153 Processing User Information...
 	2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
+## Testing with a timer trigger
+
+Some functions, can't be truly tested with the tools mentioned previously. For example, a queue trigger function which runs when a message is dropped into [Azure Queue Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/). You could always write code to drop a message into your queue but, there is another approach to test with functions directly.  You could use a timer trigger configured with a queue output. That timer trigger code could then write the test messages to the queue.
+
+
+#### Create queue trigger for testing
+
+To demonstrate this approach, we will first create a queue trigger function that we want to test for a queue named `queue-newusers`. This function will process name and address information for a new user dropped into Azure queue storage. 
+
+> [AZURE.NOTE] If you use a different queue name, make sure the name you use conforms to the [Naming Queues and MetaData](https://msdn.microsoft.com/library/dd179349.aspx) rules.  Otherwise, you will get a HTTP Status code 400 : Bad Request. 
+
+1. In the [Azure Portal] for your Functions app, click **New Function** > **QueueTrigger - C#**.
+2. Enter the queue name to be monitored by the queue funcion 
+
+		queue-newusers 
+
+3. Click **+** button to select or create the storage account you want to use. Then click **Create**.
+4. Leave this portal browser window opened so you can monitor the log entries for the default queue function template code.
+
+
+#### Create a timer trigger to drop a message in the queue
+
+1. Open the [Azure Portal] in a new browser window and navigate to your Function app.
+2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code will execute testing your queue function. Then click **Create**. If you want the test to run every 30 seconds you can use the following cron expression:
+
+		*/30 * * * * *
+
+	For more information on cron expressions, see [Cron](https://wikipedia.org/wiki/Cron).
+
+2. Click the **Integrate** tab for your new timer trigger.
+3. Under **Output**, click the **+ New Output** button. Then click **queue** and the **Select** button.
+4. Note the name you use for the **queue message object** you will use this in the timer function code.
+
+		myQueue
+
+4. Enter the queue name where the message will be sent: 
+
+		queue-newusers 
+
+3. Click **+** button to select the storage account you used previously with the queue trigger. Then click **Save**.
+4. Click the **Develop** tab for your timer trigger.
+5. You can use the following code for the C# timer function as long as you used the same queue message object name shown above. Then click **Save**
+
+		using System;
+		
+		public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
+		{
+		    String newUser = 
+		    "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
+		
+		    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");   
+		    log.Verbose($"{newUser}");   
+		    
+		    myQueue = newUser;
+		}
+
+At this point C# timer function will execute every 30 seconds if you used the example cron expression. The logs for the timer function will report each execution:
+
+	2016-03-24T10:27:02  Welcome, you are now connected to log-streaming service.
+	2016-03-24T10:27:30.004 Function started (Id=04061790-974f-4043-b851-48bd4ac424d1)
+	2016-03-24T10:27:30.004 C# Timer trigger function executed at: 3/24/2016 10:27:30 AM
+	2016-03-24T10:27:30.004 {"name":"User testing from C# timer function","address":"XYZ"}
+	2016-03-24T10:27:30.004 Function completed (Success, Id=04061790-974f-4043-b851-48bd4ac424d1)
+
+In the browser window for the queue function, you will see the each message being processed:
+
+	2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
+	2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
+	2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"User testing from C# timer function","address":"XYZ"}
+	2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
+	
+
+
+## Testing a blob trigger using Storage Explorer
+
+You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+
+1. In the [Azure Portal] for your Functions app, create a new C# or Node blob trigger function. Set the path to monitor to the name of your blob container. For example:
+
+		files
+
+2. Click **+** button to select or create the storage account you want to use. Then click **Create**.
+
+3. Create a text file with the following text and save it:
+
+		A text file for blob trigger function testing.
+
+4. Run [Microsoft Azure Storage Explorer](http://storageexplorer.com/) and connect to the blob container in the storage account being monitored.
+
+5. Click the **Upload** button and upload the text file.
+
+![](./media/functions-test-a-function/azure-storage-explorer-test.png)
+
+
+The default blob trigger function code will report the processing of the blob in the logs:
+
+	2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
+	2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+	2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
+	2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+
+
+
+
+<!-- URLs. -->
+
+[Azure Portal]: https://portal.azure.com
