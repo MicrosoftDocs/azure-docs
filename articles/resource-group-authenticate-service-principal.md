@@ -287,8 +287,8 @@ To authenticate from a .NET application, include the following code. After retri
     }        
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred);
+    var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds); 
         
 
