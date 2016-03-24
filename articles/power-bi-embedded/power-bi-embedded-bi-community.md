@@ -17,3 +17,4 @@
    ms.author="derrickv"/>
 
 # Power BI Embedded Community
+During public preview, please go to [Microsoft Power BI Community/developer](http://community.powerbi.com/t5/Developer/bd-p/Developer) for community help. In [[Microsoft Power BI Community](http://community.powerbi.com/), you can also interact with community members for **Power BI Desktop** and **Power BI Service**.

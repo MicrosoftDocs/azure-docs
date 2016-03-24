@@ -17,3 +17,10 @@
    ms.author="derrickv"/>
 
 # Stack Overflow
+
+Stack Overflow is a great community to ask questions about developing for **Power BI Embedded** and many other software development questions and answers.
+
+Here are a couple of useful Stack Overflow links:
+
+- [Power BI](http://stackoverflow.com/questions/tagged/powerbi)
+- [C#](http://stackoverflow.com/questions/tagged/c%23)
