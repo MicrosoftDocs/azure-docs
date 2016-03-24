@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
    ms.date="03/23/2016"
-   ms.author=jeffstok"/>
+   ms.author="jeffstok"/>
 
 # Get started using R Server on HDInsight
 
