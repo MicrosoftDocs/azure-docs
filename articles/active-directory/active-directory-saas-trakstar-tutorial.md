@@ -117,7 +117,17 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Trakstar support team via [integrations@trakstar.com](mailto:integrations@trakstar.com) and email the attach downloaded certificate. Also please do provide the Issuer URL, SAML SSO URL and Sign Out URL so that they can be configured for SSO integration.
+
+
+1. To get SSO configured for your application, contact your Trakstar support team via [integrations@trakstar.com](mailto:integrations@trakstar.com) and provide them with the following:
+   
+    - The downloaded certificate file
+    - The **Issuer URL**
+    - The **SAML SSO URL**
+    - The **Single Sign-Out Service URL**
+
+
+
 
 6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
