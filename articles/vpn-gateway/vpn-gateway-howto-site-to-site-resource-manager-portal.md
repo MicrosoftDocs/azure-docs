@@ -129,7 +129,7 @@ If you are doing this as an exercise, refer to these [values](#values) when crea
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="modifylng"></a>To modify IP address prefixes for a local network gateway
+## <a name="modifylng"></a>Modifying IP address prefixes for a local network gateway
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
