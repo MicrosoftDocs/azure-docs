@@ -254,7 +254,7 @@ Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report
     var embedUrl = this.getEmbedUrl();
     var iframeHtml = '&lt;iframe style="width:100%;height:100%;" src="' + embedUrl + '" scrolling="no" allowfullscreen="true"&gt;&lt;/iframe&gt;';
 
-For more details about the **Power BI JavaScript API** (powerbi.js) including details about how to integrate a Power BI **Report** into your app, see [Power BI Embedded JavaScript API](power-bi-embedded-javascript-api.md).
+TODO: Add more detail
 
 ## See also
 
