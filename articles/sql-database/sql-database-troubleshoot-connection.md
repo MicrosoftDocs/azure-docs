@@ -17,7 +17,7 @@
 	ms.author="daleche"/>
 
 # Troubleshoot "Database x on server y is not currently available. Please retry the connection later." error message
-When an application connects to an Azure SQL Database, you may experience the following most common transient connection error:
+When an application connects to an Azure SQL Database, you may experience the following error message that's typically transient (short-lived):
 
 ```
 Error code 40613: "Database <x> on server <y> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <z>"
