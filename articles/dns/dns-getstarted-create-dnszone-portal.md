@@ -63,7 +63,7 @@ Tags are different than Etags. Tags are a list of name-value pairs and are used 
 You can add Tags in the Azure portal by using the **Settings** blade for your DNS zone.
 
 
-## To create a DNS zone
+## Create a DNS zone
 
 1. Sign in to the Azure portal
 
