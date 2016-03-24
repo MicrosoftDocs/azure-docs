@@ -20,7 +20,36 @@
 
 # What are the different Hadoop components available with HDInsight?
 
-## HDInsight versions and Hadoop components
+Find out about the different service levels offered by HDInsight as well as the versions of different hadoop components included with HDInsight.
+
+## HDInsight Standard and HDInsight Premium
+
+Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table below section lists the features that are available **only** as part of Premium. Features that are not explicitly called out in the table here are available as part of Standard.
+
+>[AZURE.NOTE] The HDInsight Premium offering is currently in Preview.
+
+| HDInsight Premium feature | Description |
+|--------------|---------------|
+| Microsoft R Server (Preview)       | Microsoft R Server is the most broadly deployed enterprise-class analytics platform for scalable R. The R language supports a variety of big data statistics, predictive modeling, and machine learning capabilities. As part of HDInsight Premium, you can now create an HDInsight cluster with R Server ready to be used with massive datasets and models. This new capability provides data scientists and statisticians a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance. <br> <br>For more information, see [Getting Started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md).
+
+### Cluster types supported for Premium
+
+The following table lists the HDInsight cluster type and Premium support matrix.
+
+| Cluster type | Standard  | Premium |
+|--------------|---------------|--------------|
+| Hadoop       | Yes           | Yes          |
+| Spark        | Yes           | Yes          |
+| HBase        | Yes           | No           |
+| Storm        | Yes           | No           |
+
+This table will be updated as more cluster types are included in HDInsight Premium.
+
+### Pricing and SLA
+
+For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+
+## Hadoop components available with different HDInsight versions
 
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component versions associated with HDInsight cluster versions are itemized in the following table. Note that the default cluster version used by Azure HDInsight is currently 3.2, and, as of 12/03/2015, based on HDP 2.2.
 
@@ -51,35 +80,8 @@ The component versions associated with HDInsight cluster versions may change in 
 
 See [HDInsight release notes](hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
-## HDInsight Standard and HDInsight Premium
 
-Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table below section lists the features that are available **only** as part of Premium. Features that are not explicitly called out in the table here are available as part of Standard.
-
->[AZURE.NOTE] The HDInsight Premium offering is currently in Preview.
-
-| HDInsight Premium feature | Description |
-|--------------|---------------|
-| Microsoft R Server (Preview)       | Microsoft R Server is the most broadly deployed enterprise-class analytics platform for scalable R. The R language supports a variety of big data statistics, predictive modeling, and machine learning capabilities. As part of HDInsight Premium, you can now create an HDInsight cluster with R Server ready to be used with massive datasets and models. This new capability provides data scientists and statisticians a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance. <br> <br>To get started with R Server on Azure HDInsight clusters, see [here]().
-
-### Cluster types supported for Premium
-
-The following table lists the HDInsight cluster type and Premium support matrix.
-
-| Cluster type | Standard  | Premium |
-|--------------|---------------|--------------|
-| Hadoop       | Yes           | Yes          |
-| Spark        | Yes           | Yes          |
-| HBase        | Yes           | No           |
-| Storm        | Yes           | No           |
-
-This table will be updated as more cluster types are included in HDInsight Premium.
-
-
-### Pricing and SLA
-
-For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
-
-## Supported versions
+## Supported HDInsight versions
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and deprecation dates are also provided. Please note the following:
 
 * Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and above. They are not available for HDInsight 1.6 clusters.

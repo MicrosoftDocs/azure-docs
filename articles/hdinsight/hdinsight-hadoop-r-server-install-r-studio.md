@@ -25,9 +25,7 @@ In this article you will learn how to install the community (free) version of RS
 
 ## Prerequisites
 
-<< ADD LINK HERE >>
-
-* An Azure HDInsight cluster with R Server installed. For instructions, see [Get started with R Server on HDInsight clusters]().
+* An Azure HDInsight cluster with R Server installed. For instructions, see [Get started with R Server on HDInsight clusters](hdinsight-hadoop-r-server-get-started.mdulet).
 * An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 
@@ -83,7 +81,7 @@ In this article you will learn how to install the community (free) version of RS
 			* **Source port** - The port on the client that you wish to forward. For example, **8787**.
 			* **Destination** - The destination that must be mapped to the local client machine. For example, **localhost:8787**.
 
-			![Create an SSH tunnel](./media/hdinsight-r-server-install-r-studio/createsshtunnel.png "Create an SSH tunnel")
+			![Create an SSH tunnel](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Create an SSH tunnel")
 
 		4. Click **Add** to add the settings, and then click **Open** to open an SSH connection.
 		5. When prompted, log in to the server. This will establish an SSH session and enable the tunnel.
@@ -94,7 +92,7 @@ In this article you will learn how to install the community (free) version of RS
 
 8. You will be prompted to enter the SSH username and password to connect to the cluster. If you used an SSH key while creating the cluster, you must enter the password you created in step 5 above.
 
-	![Connect to R Studio](./media/hdinsight-r-server-install-r-studio/connecttostudio.png "Create an SSH tunnel")
+	![Connect to R Studio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Create an SSH tunnel")
  
 
 
