@@ -67,6 +67,8 @@ The language has many attractive features:
 >[AZURE.NOTE] We recommend starting with the [language tour](app-analytics-tour.md).
 
 
+
+
 ## Connect to your Application Insights data
 
 
@@ -75,6 +77,9 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-analytics/001.png)
 
 
+## Limits
+
+At present, query results are limited to just over a week of past data.
 
 
 

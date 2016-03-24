@@ -106,7 +106,7 @@ The standard web page code snippet doesn't capture the user id from SharePoint, 
 1. Copy your app's instrumentation key from the Essentials drop-down in Application Insights. 
 
 
-![](./media/app-insights-sharepoint/02-props.png)
+    ![](./media/app-insights-sharepoint/02-props.png)
 
 2. Substitute the instrumentation key for 'XXXX' in the snippet below. 
 3. Embed the script in your SharePoint app instead of the snippet you get from the portal.
