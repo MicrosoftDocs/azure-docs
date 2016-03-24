@@ -82,7 +82,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
       <li type=round>SQL Server applications that require access to on-premises resources (such as Active Directory) from Azure via a secure tunnel.
       <li type=round>If you need a customized IT environment with full administrative rights.
       <li type=round>Rapid development and test scenarios when you do not want to buy on-premises non-production SQL Server hardware.
-      <li type=round>Disaster recovery for on-premises SQL Server applications using [backup to Azure Storage](http://msdn.microsoft.com/library/jj919148.aspx) or [AlwaysOn replicas with Azure VMs](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).
+      <li type=round>Disaster recovery for on-premises SQL Server applications using [backup to Azure Storage](http://msdn.microsoft.com/library/jj919148.aspx) or AlwaysOn replicas with Azure VMs.
       <li type=round>Large databases that are bigger than 1 TB in size.
       </ul></td>
 </tr>
