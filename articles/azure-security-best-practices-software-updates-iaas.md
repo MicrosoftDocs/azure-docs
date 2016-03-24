@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="03/22/2016"
    ms.author="yurid"/>
 
 #Best practices for software updates on Microsoft Azure IaaS
@@ -99,7 +99,7 @@ Some backup options for Azure IaaS include:
 
 -   [Azure IaaS workload protection using Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Back up Azure virtual machines](../backup/backup-azure-vms.md)
+-   [Back up Azure virtual machines](./backup/backup-azure-vms.md)
 
 ### Monitoring
 

@@ -32,7 +32,11 @@ You should see the Monitoring and Management App launched in a separate tab/wind
 
 ![Monitoring and Management App](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
-> [AZURE.NOTE] If you do not see activity windows in the list at the bottom, click the **Refresh** button on the toolbar to refresh the list. In addition, set the right values for the **Start time** and **End time** filters.  
+> [AZURE.NOTE] If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the app again.
+
+
+If you do not see activity windows in the list at the bottom, click the **Refresh** button on the toolbar to refresh the list. In addition, set the right values for the **Start time** and **End time** filters.  
+
 
 ## Understanding the Monitoring and Management App
 There are three tabs (**Resource Explorer**, **Monitoring Views** and **Alerts**) on the left and the first tab (Resource Explorer) is selected by default. 

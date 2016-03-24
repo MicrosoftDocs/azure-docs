@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Managing table distribution skew
@@ -27,7 +27,7 @@ This article is designed to help you identify data skew in your hash distributed
 
 A query like the view below can help you identify skewed tables.
 
-```
+```sql
 CREATE VIEW dbo.vDistributionSkew
 AS
 WITH base
@@ -113,7 +113,7 @@ FROM	size
 
 Once the view has been created we can simply query it to validate the skew in our tables using a query like the one below.
 
-```
+```sql
 SELECT	[two_part_name]
 ,		[distribution_id]
 ,		[row_count]
