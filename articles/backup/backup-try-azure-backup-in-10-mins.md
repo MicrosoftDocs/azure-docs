@@ -26,7 +26,7 @@ It only requires these steps:
 ![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Get an Azure subscription (if necessary).<br>
 ![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Create a backup vault and download the necessary components.<br>
 ![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Prepare your Windows Server or client by installing and registering those components.<br>
-![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Protect your data.
+![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Back up your data.
 
 
 ![How to back up your Windows machine with Azure Backup](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
