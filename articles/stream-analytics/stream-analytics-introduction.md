@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Introduction to Stream Analytics | Microsoft Azure" 
-	description="Learn about Azure Stream Analytics, a fully managed cloud service that helps you analyze streaming data from the Internet of Things (IoT) in real-time." 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	description="Learn about Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real-time." 
+	keywords="analytics as a service, managed services, stream processing, streaming analytics, what is stream analytics"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -11,14 +11,14 @@
 <tags 
 	ms.service="stream-analytics" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 
-# What is Azure Stream Analytics?
+# What is Stream Analytics?
 
 Azure Stream Analytics (ASA) is a fully managed, cost effective real-time event processing engine that helps to unlock deep insights from data. Stream Analytics makes it easy to set up real-time analytic computations on data streaming from devices, sensors, web sites, social media, applications, infrastructure systems, and more.
 
@@ -32,7 +32,7 @@ Vast amounts of data are flowing at high velocity over the wire today. Organizat
 ## Key capabilities and benefits
 -   **Ease of use:** Stream Analytics supports a simple, declarative query model for describing transformations. In order to optimize for ease of use, Stream Analytics uses a SQL variant, and removes the need for customers to deal with the technical complexities of stream processing systems. Using the [Stream Analytics query language](https://msdn.microsoft.com/library/azure/dn834998.aspx) in the in browser query editor, you get intelli-sense auto-complete to help you can quickly and easily implement time series queries, including temporal-based joins, windowed aggregates, temporal filters, and other common operations such as joins, aggregates, projections, and filters. In addition, in-browser query testing against a sample data file enables quick, iterative development.  
 
--   **Scalability:** Stream Analytics is capable of handling high event throughput of up to 1GB/second. Integration with [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/) allows the solution to ingest millions of events per second coming from connected devices, clickstreams, and log files, to name a few. In order to achieve this, Stream Analytics leverages the partitioning capability of Event Hubs, which can yield 1MB/s per partition. Users are able to partition the computation into a number of logical steps within the query definition, each with the ability to be further partitioned to increase scalability.  
+-   **Scalability:** Stream Analytics is capable of handling high event throughput of up to 1GB/second. Integration with [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) allows the solution to ingest millions of events per second coming from connected devices, clickstreams, and log files, to name a few. In order to achieve this, Stream Analytics leverages the partitioning capability of Event Hubs, which can yield 1MB/s per partition. Users are able to partition the computation into a number of logical steps within the query definition, each with the ability to be further partitioned to increase scalability.  
 
 -   **Reliability, repeatability and quick recovery:** A managed service in the cloud, Stream Analytics helps prevent data loss and provides business continuity in the presence of failures through built-in recovery capabilities. With the ability to internally maintain state, the service provides repeatable results ensuring it is possible to archive events and reapply processing in the future, always getting the same results. This enables customers to go back in time and investigate computations when doing root-cause analysis, what-if analysis, etc.  
 
@@ -40,7 +40,7 @@ Vast amounts of data are flowing at high velocity over the wire today. Organizat
 
 -   **Reference data:** Stream Analytics provides users the ability to specify and use reference data. This could be historical data or simply non-streaming data that changes less frequently over time. The system simplifies the use of reference data to be treated like any other incoming event stream to join with other event streams ingested in real time to perform transformations.  
 
--   **Connectivity:** Stream Analytics connects directly to Azure Event Hubs for stream ingestion, and the Azure Blob service to ingest historical data. Results can be written from Stream Analytics to Azure Storage Blobs or Tables, Azure SQL DB, Event Hubs, Azure Service Bus Topics or Queues, and Power BI, where it can then be visualized, further processed by workflows, used in batch analytics via [Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) or processed again as a series of events. When using Event Hubs it is possible to compose multiple Stream Analytics together with other data sources and processing engines without losing the streaming nature of the computations.  
+-   **Connectivity:** Stream Analytics connects directly to Azure Event Hubs for stream ingestion, and the Azure Blob service to ingest historical data. Results can be written from Stream Analytics to Azure Storage Blobs or Tables, Azure SQL DB, Event Hubs, Azure Service Bus Topics or Queues, and Power BI, where it can then be visualized, further processed by workflows, used in batch analytics via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) or processed again as a series of events. When using Event Hubs it is possible to compose multiple Stream Analytics together with other data sources and processing engines without losing the streaming nature of the computations.  
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

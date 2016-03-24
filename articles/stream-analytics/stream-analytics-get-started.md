@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get started with Stream Analytics: Real-time fraud detection | Microsoft Azure"
 	description="Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing."
-	keywords="event hub,fraud detection,real-time,real-time processing"
+	keywords="anomaly detection, fraud detection, real time anomaly detection"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -11,17 +11,17 @@
 <tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/06/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok" />
 
 
 
 # Get started using Azure Stream Analytics: Real-time fraud detection
 
-Learn how to create an end-to-end solution for real-time fraud detection with Azure Stream Analytics. Bring events into an Azure event hub, write Stream Analytics queries for aggregation or alerting, and send the results to an output sink to gain insight over data with real-time processing.
+Learn how to create an end-to-end solution for real-time fraud detection with Azure Stream Analytics. Bring events into an Azure event hub, write Stream Analytics queries for aggregation or alerting, and send the results to an output sink to gain insight over data with real-time processing. Real time anomaly detection for telecommunications is covered but the example technique is equally suited for other types of fraud detection such as credit card or identity theft scenarios.
 
 Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md).
 
@@ -36,7 +36,8 @@ In canonical Internet of Things (IoT) scenarios there is a ton of telemetry or s
 
 ## Prerequisites
 
-This scenario leverages an event generator located on GitHub. Download it [here](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) and follow the steps in this tutorial to set up your solution.
+- Download [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center 
+- Optional: Source code of the event generator from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)
 
 ## Create an Azure Event Hubs input and Consumer Group
 
@@ -58,16 +59,15 @@ To create an Event Hub:
 
 We have provided a client application that will generate sample incoming call metadata and push it to Event Hub. Follow the steps below to set up this application.  
 
-1.	Download the TelcoGenerator solution from [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator).
-2.	Replace the Microsoft.ServiceBus.ConnectionString and EventHubName values in App.Config with your Event Hub connection string and name.
-3.	Build the solution to trigger the download of required nuget packages.
-4.	Start the application. The usage is as follows:
+1.	Download the [TelcoGenerator.zip file](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)
+2.	Replace the Microsoft.ServiceBus.ConnectionString and EventHubName values in **telcodatagen.exe.config** with your Event Hub connection string and name.
+3.	Start the application. The usage is as follows:
 
-    	telcodatagen [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
+   telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
 The following example will generate 1000 events with a 20 percent probability of fraud over the course of 2 hours.
 
-    TelcoDataGen.exe 1000 .2 2
+    telcodatagen.exe 1000 .2 2
 
 You will see records being sent to your Event Hub. Some key fields that we will be using in this real-time fraud detection application are defined here:
 
@@ -129,7 +129,7 @@ Now that we have a stream of telecommunications events, we can set up a Stream A
 Stream Analytics supports a simple, declarative query model for describing transformations for real-time processing. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/dn834998.aspx). This tutorial will help you author and test several queries over your real-time stream of call data.
 
 #### Optional: Sample input data
-To validate your query against actual job data, you can use the **Sample Data** feature to extract events from your stream and create a .JSON file of the events for testing.  The following steps show how to do this and we have also provided a sample [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) file for testing purposes.
+To validate your query against actual job data, you can use the **Sample Data** feature to extract events from your stream and create a .JSON file of the events for testing.  The following steps show how to do this and we have also provided a sample [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) file for testing purposes.
 
 1.	Select your Event Hub input and click **Sample Data** at the bottom of the page.
 2.	In the dialog box that appears, specify a **Start Time** to start collecting data from and a **Duration** for how much additional data to consume.
@@ -149,7 +149,7 @@ If you want to archive every event, you can use a passthrough query to read all 
 	> Make sure that the name of the input source matches the name of the input you specified earlier.
 
 3.	Click **Test** under the query editor.
-4.	Supply a test file, either one that you created using the previous steps or use [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Supply a test file, either one that you created using the previous steps or use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Click the check button and see the results displayed below the query definition.
 
 	![Query definition results](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)

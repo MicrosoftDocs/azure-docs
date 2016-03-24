@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Public IP address space in a Virtual Network (VNet)
@@ -41,7 +41,7 @@ There are a few IP address ranges that are not allowed:
 
 - 169.254.0.0/16 (link-local)
 
-- 68.63.129.16/32 (Internal DNS)
+- 168.63.129.16/32 (Internal DNS)
 
 ## Next Steps
 

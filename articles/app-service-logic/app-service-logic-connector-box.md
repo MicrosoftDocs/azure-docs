@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="03/16/2016"
+   ms.author="rajram"/>
 
 # Get started with the Box Connector and add it to your Logic App 
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Box API](../connectors/connectors-create-api-box.md).
+
 Connect to your Box to get, upload, delete. and more to your files. Connectors are used in Logic Apps as a part of a "workflow". 
 
 You may have scenarios where you may need to work with Box that allows you to share data securely with anyone – even if they’re outside your firewall. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.
@@ -27,7 +29,7 @@ The Box gallery app provides you Actions as mechanisms to interact with Box:
 
 **Actions**: The actions lets you perform predefined actions on the Box account configured with the logic app. Following are the actions that can be performed on Box account using Box connector:
 
-a. *List Files:* This operation returns the information of all files in a folder. List of parameters required for the action:  
+a. *List Files:* This operation returns the information of all files in a folder. The list of parameters required for the action:  
 
 Parameter Name | Description | Required
 --- | --- | ---

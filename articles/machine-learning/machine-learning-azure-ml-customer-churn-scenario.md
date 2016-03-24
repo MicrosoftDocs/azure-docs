@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015" 
+	ms.date="03/11/2016" 
 	ms.author="jeannt"/>
 
 # Analyzing Customer Churn by using Azure Machine Learning
@@ -65,7 +65,7 @@ An interesting addition here is big data analytics. Today's telecommunication an
 
  
 ##Implementing the modeling archetype in Machine Learning Studio
-Given the problem just described, how can we implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using Azure Machine Learning Studio.  
+Given the problem just described, what is the best way to implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using Azure Machine Learning Studio.  
 
 The multi-model approach is a must when designing a global archetype for churn. Even the scoring (predictive) part of the approach should be multi-model.  
 
@@ -102,7 +102,9 @@ The following diagrams illustrate the data that was used.
 > Note that this data is private and therefore the model and data cannot be shared.
 > However, for a similar model using publicly available data, see this sample experiment in the [Cortana Analytics Gallery](http://gallery.azureml.net/):
 > [Telco Customer Churn](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
->
+> 
+> To learn more about how you can implement a churn analysis model using Cortana Analytics Suite, we also recommend [this video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) by Senior Program Manager Wee Hyong Tok. 
+> 
 
 ###Algorithms used in the prototype
 
@@ -130,7 +132,7 @@ We also submitted the scoring dataset to a comparable model built by using the d
 In this section, we present our findings about the accuracy of the models, based on the scoring dataset.  
 
 ###Accuracy and precision of scoring
-Generally, the implementation in Machine Learning is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
+Generally, the implementation in Azure Machine Learning is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
 
 However, the most important metric in churn is the misclassification rate: that is, of the top N churners as predicted by the classifier, which of them actually did **not** churn, and yet received special treatment? The following diagram compares this misclassification rate for all the models:  
 
@@ -175,9 +177,9 @@ The following table summarizes the performance of the algorithms:
 
 *Table 1. General performance (accuracy) of the algorithms*
 
-**LR**|	**BT**|	**AP**|	**SVM**|
---|--|--|--|
-Average Model|	The Best Model|	Underperforming|	Average Model
+| LR|BT|AP|SVM|
+|---|---|---|---|
+|Average Model|The Best Model|Underperforming|Average Model|
 
 The models hosted in Machine Learning Studio outperformed SAS by 15-25% for speed of execution, but accuracy was largely on par.  
 
@@ -191,7 +193,7 @@ In the telecommunications industry, several practices have emerged to analyze ch
 	-	**Competitive and business data**. Obtain any information possible about the customer (for example, can be unavailable or hard to track).
 -	Use importance to drive feature selection. This implies that the boosted decision tree model is always a promising approach.  
 
-The use of the previous four categories creates the illusion that a simple *deterministic* approach, based on indexes formed on reasonable factors per category, should suffice to identify customers at risk for churn. Unfortunately, although this notion seems plausible, it is a false understanding. The reason is that churn is a temporal effect and the factors contributing to churn are usually in transient states. What leads a customer to consider leaving today might be different tomorrow, and it certainly will be different six months from now. Therefore, a *probabilistic* model is a necessity.  
+The use of these four categories creates the illusion that a simple *deterministic* approach, based on indexes formed on reasonable factors per category, should suffice to identify customers at risk for churn. Unfortunately, although this notion seems plausible, it is a false understanding. The reason is that churn is a temporal effect and the factors contributing to churn are usually in transient states. What leads a customer to consider leaving today might be different tomorrow, and it certainly will be different six months from now. Therefore, a *probabilistic* model is a necessity.  
 
 This important observation is often overlooked in business, which generally prefers a business intelligence-oriented approach to analytics, mostly because it is an easier sell and admits straightforward automation.  
 
@@ -218,13 +220,13 @@ This feedback will help us improve the quality of white papers we release.
 ##References
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
 
-[2] [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision) on Wikipedia
+[2] Wikipedia article: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] Big Data Marketing  
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[5] [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) in Cortana Analytics Gallery 
  
 ##Appendix
 

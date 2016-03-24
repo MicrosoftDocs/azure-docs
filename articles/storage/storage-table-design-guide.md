@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="jasonnewyork" 
    manager="tadb"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="storage"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="08/03/2015"
+   ms.date="03/18/2016"
    ms.author="jahogg"/>
 
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
@@ -155,7 +155,7 @@ The following table includes some of the key values to be aware of when you are 
 For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) on MSDN.  
 
 ### Cost considerations  
-Table storage is relatively inexpensive, but you should include cost estimates for both capacity usage and the quantity of transactions as part of your evaluation of any solution that uses the Table service. However, in many scenarios storing denormalized or duplicate data in order to improve the performance or scalability of your solution is a valid approach to take. For more information about pricing, see [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/).  
+Table storage is relatively inexpensive, but you should include cost estimates for both capacity usage and the quantity of transactions as part of your evaluation of any solution that uses the Table service. However, in many scenarios storing denormalized or duplicate data in order to improve the performance or scalability of your solution is a valid approach to take. For more information about pricing, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### Comparing Azure Tables and SQL Azure  
 For a comparison between Azure SQL Database (a relational database service) and the Table service, see [Microsoft Azure Table Storage and Microsoft Azure SQL Database - Compared and Contrasted](http://msdn.microsoft.com/library/azure/jj553018.aspx) on MSDN.  
@@ -302,6 +302,16 @@ The following patterns in the section [Table Design Patterns](#table-design-patt
 
 -	[Compound key pattern](#compound-key-pattern) - Use compound **RowKey** values to enable a client to lookup related data with a single point query.  
 -	[Log tail pattern](#log-tail-pattern) - Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
+
+## Encrypting Table Data    
+     
+The .NET Azure Storage Client Library supports encryption of string entity properties for insert and replace operations. The encrypted strings are stored on the service as binary properties, and they are converted back to strings after decryption.    
+
+For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either specifying an [EncryptProperty] attribute (for POCO entities that derive from TableEntity) or an encryption resolver in request options. An encryption resolver is a delegate that takes a partition key, row key, and property name and returns a Boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) Note that it is not necessary to provide this information while reading or querying entities.
+
+Note that merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.     
+
+For information about encrypting table data, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md).  
 
 ## Modelling relationships  
 

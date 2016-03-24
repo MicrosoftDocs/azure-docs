@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Government Image Gallery" 
    description="This article provides an overview of the Azure Government Image Gallery and the images included" 
    services="Azure-Government" 
@@ -93,15 +93,15 @@ The below resources should provide more information on deploying from the image 
 
 ###Other Resources: 
 
-- [Deploying a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md)
+- [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Deploying a Linux Virtual Machine](../virtual-machines/virtual-machines-linux-tutorial.md)
+- [Deploying a Linux Virtual Machine](virtual-machines/virtual-machines-linux-cli-create.md)
 
 - [Virtual Machine FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
-- [Create and upload your own VHD](../virtual-machines-create-upload-vhd-windows-server/)
+- [Create and upload your own VHD](virtual-machines-create-upload-vhd-windows-server/)
 
-- [Capture Linux VM Image](../virtual-machines/virtual-machines-linux-capture-image.md)
+- [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
@@ -114,6 +114,6 @@ The below resources should provide more information on deploying from the image 
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

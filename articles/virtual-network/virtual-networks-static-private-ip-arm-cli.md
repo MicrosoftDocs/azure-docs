@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/08/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # How to set a static private IP address in Azure CLI
@@ -32,7 +32,7 @@ The sample Azure CLI commands below expect a simple environment already created.
 ## How to specify a static private IP address when creating a VM
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
@@ -233,7 +233,7 @@ You cannot remove a static private IP address from a NIC in Azure CLI for Resour
 ## How to add a static private IP address to an existing VM
 To add a static private IP address to the NIC used by teh VM created using the script above, run the following command:
 
-	azure netwrok nic set -g TestRG -n TestNIC2 -a 192.168.1.101
+	azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
 
 Expected output:
 
@@ -260,6 +260,6 @@ Expected output:
 
 ## Next steps
 
-- Learn about [reserved public IP](../virtual-networks-reserved-public-ip) addresses.
-- Learn about [instance-level public IP (ILPIP)](../virtual-networks-instance-level-public-ip) addresses.
+- Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
+- Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
 - Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).

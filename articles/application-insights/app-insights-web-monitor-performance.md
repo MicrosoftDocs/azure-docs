@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Monitor performance in web applications
@@ -112,6 +112,8 @@ Selecting any metric will disable the others that can't appear on the same chart
 
 Some of the metrics you can choose from are [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows provides a wide variety of them, and you can also define your own.
 
+(For applications hosted on Azure, [send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md).)
+
 This example shows performance counters that are available by default. We have [added a separate chart](app-insights-metrics-explorer.md#editing-charts-and-grids) for each counter, and named the chart by [saving it as a favorite](app-insights-metrics-explorer.md#editing-charts-and-grids):
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
@@ -134,11 +136,17 @@ If you specify an instance, it will be collected as a property "CounterInstanceN
 
 If you prefer, you can write code to have the same effect:
 
-    var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(electronics)\# Items Sold", "Items sold"));
-    perfCollector.Initialize(TelemetryConfiguration.Active);
-    TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+In addition, if you want to collect system performance counters and push them to Application Insights, you can use the snippet below:
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
 ### Exception counts
 
@@ -185,7 +193,7 @@ Here are a few tips for finding and diagnosing performance issues:
 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md

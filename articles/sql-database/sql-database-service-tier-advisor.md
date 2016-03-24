@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="10/02/2015"
+   ms.date="02/08/2016"
    ms.author="sstein"/>
 
 # SQL Database pricing tier recommendations
 
  Pricing tier recommendations are provided that recommend the service tier and performance level that is best suited for running an existing Azure SQL database’s workload.
 
-> [AZURE.NOTE] Pricing tier recommendations are only available for Web and Business databases and elastic database pools -- and only available in the [Azure Preview Portal](https://portal.azure.com/).
+> [AZURE.NOTE] Pricing tier recommendations are only available for Web and Business databases and elastic database pools -- and only available in the [Azure portal](https://portal.azure.com/).
 
 
 Get pricing tier recommendations during the following tasks:
 
 - [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md)
-- [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md)
+- [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md)
 - Browse to your V12 server - if your databases can [benefit in an elastic database pool](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), the server blade will display a message indicating a recommended pool. Click the message to create the recommended pool.
 - [Create an elastic database pool](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
@@ -56,20 +56,18 @@ Based on your database's usage, there are currently 2 categories of recommendati
 
 ## Getting pricing tier recommendations
 
-Get pricing tier recommendations by selecting an existing Web or Business database and clicking on the **Pricing tier** tile. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md).)
+Get pricing tier recommendations by selecting an existing Web or Business database, click **All settings**, then click **Pricing tier (scale DTUs)**. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md).)
 
-1. Sign in to the [Azure Preview Portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **BROWSE** > **SQL databases**.
 4. In the **SQL databases** blade, click the database that you want to see a recommendation for:
 
     ![Select database][1]
 
-5. On the database blade, select the **Pricing tier** tile.
-
-    ![Pricing tier][2]
+5. On the database blade, select **All settings** then select **Pricing tier (scale DTUs)**.
 
 
-7. After clicking the **Pricing tier** tile you will be presented with the **Recommended pricing tiers** blade where you can click the suggested tier and then click the **Select** button to change to that tier.
+7. The **Recommended pricing tiers** open where you can click the suggested tier and then click the **Select** button to change to that tier.
 
     ![Sign up for the preview][4]
 
@@ -81,19 +79,17 @@ Get pricing tier recommendations by selecting an existing Web or Business databa
 
 ## Summary
 
-Pricing tier recommendations provide an automated experience for gathering telemetry data for each SQL database and recommending the best service tier/performance level combination based on a database's actual performance needs and feature requirements. Click the **Pricing tier** tile on a database blade to see pricing tier recommendations.
+Pricing tier recommendations provide an automated experience for gathering telemetry data for each SQL database and recommending the best service tier/performance level combination based on a database's actual performance needs and feature requirements. On the Settings blade click **Pricing tier (scale DTUs)** to see pricing tier recommendations for any Web and Business databases.
 
 
 
 ## Next steps
 
-Depending on the details of your specific database, performing an upgrade or downgrade usually does not happen instantaneously. The management portal will provide notifications as the database transitions to it's new tier, or you can monitor the upgrade status by querying the [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx) view in the SQL Database Server's master database.
+Depending on the details of your specific database, performing an upgrade or downgrade usually does not happen instantaneously. The portal will provide notifications as the database transitions to it's new tier, or you can monitor the upgrade status by querying the [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx) view in the SQL Database Server's master database.
 
 
 <!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
-[2]: ./media/sql-database-service-tier-advisor/pricing-tier.png
-[3]: ./media/sql-database-service-tier-advisor/preview-sign-up.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 

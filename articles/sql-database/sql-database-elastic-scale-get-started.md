@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="03/22/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Get started with Elastic Database tools
@@ -62,7 +62,7 @@ file **AddNewShardsSample.cs**. Details of this topic are covered here: [Shard M
 ### Other elastic scale operations
 
 1. **Splitting an existing shard**: The capability to split shards is provided through the **split-merge tool**. You can find more information on this tool here: [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Merging existing shards**: Shard merges are also performed using the **split-merge tool**. For more information, refer to: [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge).   
+2. **Merging existing shards**: Shard merges are also performed using the **split-merge tool**. For more information, refer to: [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 
 ## Cost
@@ -71,17 +71,17 @@ The elastic database tools are free of charge. Elastic database tools does not i
 
 For example, the sample application creates new databases. The cost depends on the Azure SQL DB database edition you choose and the Azure usage of your application.
 
-For pricing information see [SQL Database Pricing Details](http://azure.microsoft.com/pricing/details/sql-database/).
+For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Next steps
 For more information about the elastic database tools, see:
 
-* [Elastic database tools documentation map](sql-database-elastic-scale-documentation-map.md) 
+* [Elastic database tools documentation map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
 -    Code Samples: 
     -    [Elastic DB with Azure SQL - Getting Started](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Elastic DB with Azure SQL - Integrating with Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
--    Blog: [Elastic Scale Announcement](http://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+-    Blog: [Elastic Scale Announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 -    Channel 9: [Elastic Scale Overview Video](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    Discussion Forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 

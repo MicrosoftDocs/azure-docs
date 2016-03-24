@@ -11,13 +11,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/02/2016" 
+	ms.author="ddove;sidneyh" />
 
 # Create and manage a SQL Database elastic database jobs using PowerShell (preview)
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [Azure Classic Portal](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -25,9 +25,9 @@
 The PowerShell APIs for **Elastic Database jobs** (in preview), let you define a group of databases against which scripts will execute. This article shows how to create and manage **Elastic Database jobs** using PowerShell cmdlets. See [Elastic jobs overview](sql-database-elastic-jobs-overview.md). 
 
 ## Prerequisites
-* An Azure subscription. For a free trial, see [Free one-month trial](http://azure.microsoft.com/pricing/free-trial/).
+* An Azure subscription. For a free trial, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 * A set of databases created with the Elastic Database tools. See [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+* Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 * **Elastic Database jobs** PowerShell package: See [Installing Elastic Database jobs](sql-database-elastic-jobs-service-installation.md)
 
 ### Select your Azure subscription
@@ -209,7 +209,7 @@ Open a connection to the Elastic Database jobs:
 
 Database credentials can be inserted into the jobs *control database*  with its password encrypted. It is necessary to store credentials to enable jobs to be executed at a later time, (using job schedules).
  
-Encryption works through a certificate created as part of the installation script. The installation script creates and uploads the certificate into the Azure Cloud Service for decryption of the stored encrypted passwords. The Azure Cloud Service later stores the public key within the jobs *control database* which enables the PowerShell API or Azure portal interface to encrypt a provided password without requiring the certificate to be locally installed.
+Encryption works through a certificate created as part of the installation script. The installation script creates and uploads the certificate into the Azure Cloud Service for decryption of the stored encrypted passwords. The Azure Cloud Service later stores the public key within the jobs *control database* which enables the PowerShell API or Azure Classic Portal interface to encrypt a provided password without requiring the certificate to be locally installed.
  
 The credential passwords are encrypted and secure from users with read-only access to Elastic Database jobs objects. But it is possible for a malicious user with read-write access to Elastic Database Jobs objects to extract a password. Credentials are designed to be reused across job executions. Credentials are passed to target databases when establishing connections. There are currently no restrictions on the target databases used for each credential, malicious user could add a database target for a database under the malicious user's control. The user could subsequently start a job targeting this database to gain the credential's password.
 
@@ -248,7 +248,7 @@ This example creates a shard map manager along with several shards, followed by 
 
 2.  In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
   
-3.  The [Azure preview portal](https://portal.azure.com) should show three new databases in your v12 server:
+3.  The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
 
 	![Visual Studio confirmation][2]
 
@@ -656,7 +656,7 @@ Use [Get-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346067.aspx) t
 
 ## To create a data-tier application (DACPAC) for execution across databases
 
-To create a DACPAC, see [Data-Tier applications](https://msdn.microsoft.com/library/ee210546.aspx). To deploy a DACPAC, use the [New-AzureSqlJobContent cmdlet](https://msdn.microsoft.com/library/mt346085.aspx). The DACPAC must be accessible to the service. It is recommended to upload a created DACPAC to Azure Storage and create a [Shared Access Signature](storage-dotnet-shared-access-signature-part-1.md) for the DACPAC.
+To create a DACPAC, see [Data-Tier applications](https://msdn.microsoft.com/library/ee210546.aspx). To deploy a DACPAC, use the [New-AzureSqlJobContent cmdlet](https://msdn.microsoft.com/library/mt346085.aspx). The DACPAC must be accessible to the service. It is recommended to upload a created DACPAC to Azure Storage and create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the DACPAC.
 
 	$dacpacUri = "{Uri}"
 	$dacpacName = "{Dacpac Name}"

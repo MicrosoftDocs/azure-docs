@@ -3,7 +3,7 @@
 	description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mwasson"/>
-
+	ms.date="02/04/2016" 
+	ms.author="robmcm"/>
 
 # Enabling Remote Desktop in Azure
 
@@ -29,7 +28,7 @@ application.
 
 ## Prerequisites
 
-- Install and configure [Azure Powershell](../install-configure-powershell.md).
+- Install and configure [Azure Powershell](../powershell-install-configure.md).
 - Deploy a Node.js app to an Azure Cloud Service. For more information, see [Build and deploy a Node.js application to an Azure Cloud Service](cloud-services-nodejs-develop-deploy-app.md).
 
 
@@ -40,7 +39,7 @@ configuration with a username, password, and certificate.
 
 Perform the following steps from a computer that contains the source files for your app.
 
-1. Run **Azure PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**.)
+1. Run **Windows PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Windows PowerShell**.)
 
 2.  Navigate to the directory that contains the service definition (.csdef) and
 service configuration (.cscfg) files.
@@ -64,9 +63,9 @@ service configuration (.cscfg) files.
 After you publish the update service definition, you can connect to
 the role instance.
 
-1.  In the [Azure Management Portal], select **Cloud Services** and then select your service.
+1.  In the [Azure classic portal], select **Cloud Services** and then select your service.
 
-	![azure management portal][cloud-services]
+	![Azure classic portal][cloud-services]
 
 2.  Click **Instances**, and then click **Production** or **Staging** to see the instances for your service. Select an instance and then click **Connect** at the bottom of the page.
 
@@ -113,16 +112,16 @@ instances in the cloud, disable remote desktop access using [Azure PowerShell].
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[Azure Management Portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [Remotely Accessing Role Instances in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-  [Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Remotely Accessing Role Instances in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  

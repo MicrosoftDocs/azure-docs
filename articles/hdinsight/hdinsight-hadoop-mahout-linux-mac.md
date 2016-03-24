@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/06/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
-#Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (preview)
+#Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight
 
 [AZURE.INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -25,7 +25,7 @@ Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning 
 
 Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you will use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
 
-> [AZURE.NOTE] The steps in this document require a Linux-based Hadoop on HDInsight cluster (preview). For information on using Mahout with a Windows-based cluster, see [Generate movie recommendations by using Apache Mahout with Windows-based Hadoop in HDInsight](hdinsight-mahout.md)
+> [AZURE.NOTE] The steps in this document require a Linux-based Hadoop on HDInsight cluster. For information on using Mahout with a Windows-based cluster, see [Generate movie recommendations by using Apache Mahout with Windows-based Hadoop in HDInsight](hdinsight-mahout.md)
 
 ##Prerequisites
 
@@ -249,9 +249,9 @@ Mahout jobs do not remove temporary data that is created while processing the jo
 
 Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
 
-* [Hive with HDInsight](../hadoop-use-hive.md)
-* [Pig with HDInsight](../hadoop-use-pig.md)
-* [MapReduce with HDInsight](../hadoop-use-mapreduce.md)
+* [Hive with HDInsight](hdinsight-use-hive.md)
+* [Pig with HDInsight](hdinsight-use-pig.md)
+* [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/

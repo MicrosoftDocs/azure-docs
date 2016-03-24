@@ -1,10 +1,11 @@
-<properties 
-   pageTitle="Azure SQL Database Business Continuity Overview"
-   description="Learn the built-in features and available options of Azure SQL Database that help keep your mission critical cloud applications running and help you recover from outages and errors."
+<properties
+   pageTitle="Cloud business continuity - database recovery | Microsoft Azure"
+   description="Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running."
+   keywords="business continuity,cloud business continuity,database disaster recovery,database recovery"
    services="sql-database"
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
+   documentationCenter=""
+   authors="elfisher"
+   manager="jeffreyg"
    editor="monicar"/>
 
 <tags
@@ -12,30 +13,30 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.workload="data-management"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
-# Business Continuity Overview
+# Overview: Cloud business continuity and database disaster recovery with SQL Database
 
-Business continuity is about designing, deploying and running your application in a way that it is resilient to planned or unplanned disruptive events that result in permanent or temporary loss of the application’s ability to conduct its business function. The unplanned events range from human errors to permanent or temporary outages to regional disasters that could cause wide scale loss of facility in a particular Azure region. The planned events include application redeployment to a different region, application upgrades etc. The goal of business continuity is for your application to continue to function during these events with minimal impact on the business function. 
+Business continuity is about designing, deploying, and running applications in a way that is resilient to planned or unplanned disruptive events that result in permanent or temporary loss of the application’s ability to conduct its business function. Unplanned events range from human errors to permanent or temporary outages to regional disasters that could cause wide scale loss of facility in a particular Azure region. The planned events include application redeployment to a different region and application upgrades. The goal of business continuity is for your application to continue to function during these events with minimal impact on the business function.
 
-To discuss the business continuity solutions there are several concepts you need be familiar with.
+To discuss cloud business continuity solutions there are several concepts you need be familiar with:
 
-**Disaster recovery (DR):** a process of restoring the normal business function of the application
+* **Disaster recovery (DR):** a process of restoring the normal business function of the application
 
-**Estimated Recovery Time (ERT):** The estimated duration for the database to be fully available after a restore or failover request.
+* **Estimated Recovery Time (ERT):** The estimated duration for the database to be fully available after a restore or failover request.
 
-**Recovery time objective (RTO)** – maximum acceptable time before the application fully recovers after the disruptive event. RTO measures the maximum loss of availability during the failures.
+* **Recovery time objective (RTO)**: The maximum acceptable time before the application fully recovers after the disruptive event. RTO measures the maximum loss of availability during the failures.
 
-**Recovery point objective (RPO)** – maximum amount of last updates (time interval) the application can lose by the moment it fully recovers after the disruptive event. RPO measures the maximum loss of data during the failures.
+* **Recovery point objective (RPO)**: The maximum amount of last updates (time interval) the application can lose by the moment it fully recovers after the disruptive event. RPO measures the maximum loss of data during the failures.
 
 
-## Business continuity scenarios
+## Cloud business continuity scenarios
 
-Business continuity addresses the following key scenarios.
+Following are key scenarios to consider when planning for business continuity and database recovery.
 
-###Design for business continuity
+###Design applications for business continuity
 
 The application I am building is critical for my business. I want to design and configure it to be able to survive a regional disaster of catastrophic failure of the service. I know the RPO and RTO requirements for my application and will choose the configuration that meets these requirements.
 
@@ -57,18 +58,18 @@ I am releasing a major upgrade of my application. It involves the database schem
 
 ##Business continuity features
 
-The following table shows the differences of the business continuity features across the service tiers:
+The following table shows the differences of the cloud business continuity features across the service tiers:
 
-| Capability | Basic tier | Standard tier |Premium tier 
+| Capability | Basic tier | Standard tier |Premium tier
 | --- |--- | --- | ---
 | Point In Time Restore | Any restore point within 7 days | Any restore point within 14 days | Any restore point within 35 days
 | Geo-Restore | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h
 | Standard Geo-Replication | not included |  ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
 | Active Geo-Replication | not included | not included | ERT < 30s, RPO < 5s
 
-These features are provided to address the scenarios listed earlier. Please refer to the [Design for business continuity](sql-database-business-continuity-design.md) section for guidance how to select the specific feature. 
+These features are provided to address the scenarios listed earlier. Please refer to the [Design for business continuity](sql-database-business-continuity-design.md) section for guidance how to select the specific feature.
 
-> [AZURE.NOTE] : The ERT and RPO values are engineering goals and provide guidance only. They are not part of [SLA for SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+> [AZURE.NOTE] The ERT and RPO values are engineering goals and provide guidance only. They are not part of [SLA for SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
 ###Point In Time Restore
@@ -86,7 +87,3 @@ Standard Geo-Replication is available for Standard and Premium databases. It’s
 ###Active Geo-Replication
 
 Active Geo-Replication is available for Premium databases. It’s designed for write-intensive applications with the most aggressive recovery requirements. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries in the same way as Standard Geo-Replication.  In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to configure Geo-Replication and to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to failover to the secondary database. Refer to [Application upgrade without downtime](sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.
-
-
-
- 

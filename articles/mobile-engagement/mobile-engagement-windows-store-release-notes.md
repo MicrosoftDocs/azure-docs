@@ -13,14 +13,34 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Windows Universal Apps SDK Release Notes
 
+##3.3.1 (02/18/2016)
+
+-   Fix conflicts between web announcement's HTML content and SDK's HTML page.
+-   Stability improvements.
+
+##3.3.0 (01/22/2016)
+
+-   Fix crash formatting on UWP apps running in release mode.
+-   Fix 1px margin on notifications for Universal 8.1 apps.
+-   ms-appx and ms-appdata schemes available on action urls.
+-   Stability improvements.
+
+##3.2.0 (11/20/2015)
+
+-   Added support for Windows 10 Universal Windows Platform applications.
+-   Added push channel sharing feature to fix channel conflicts (now compatible with Azure Notification Hubs).
+-   Fixed crash while requesting the device id just after the initialization.
+-   Console logs improvements.
+-   Fixed crash while parsing some unhandled exceptions.
+
 ##3.1.0 (05/21/2015)
 
--   The Mobile Engagement device id is now based on a GUID generated at installation time
+-   The Mobile Engagement device id is now based on a GUID generated at installation time.
 
 ##3.0.1 (04/29/2015)
 

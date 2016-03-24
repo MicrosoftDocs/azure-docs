@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/05/2016"
 	ms.author="hangzh;bradsev" />
 
 #Create features for data in an Hadoop cluster using Hive queries
-
-This **menu** links to topics that describe how to engineer features for data in various environments. This task is a step in the Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
 ## Introduction
 Examples of Hive queries that generate features in data stored in an Azure HDInsight Hadoop cluster are presented. These Hive queries use embedded Hive User Defined Functions (UDFs), the scripts for which are provided.
@@ -28,6 +24,10 @@ Examples of Hive queries that generate features in data stored in an Azure HDIns
 Examples of queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
 
 In the final section, parameters that users can tune so that the performance of Hive queries can be improved are discussed.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Prerequisites
 This article assumes that you have:

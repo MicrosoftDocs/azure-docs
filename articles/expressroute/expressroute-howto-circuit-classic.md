@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit using PowerShell
@@ -22,14 +22,14 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the Classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. 
+This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the **classic** deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. If you want to create and modify an ExpressRoute circuit using the **Resource Manager** deployment model, see [Create and modify an ExpressRoute circuit using the Resource Manager deployment model](expressroute-howto-circuit-arm.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
 
 ## Configuration prerequisites
 
-- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
+- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](https://azure.microsoft.com/downloads/). Follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
 - Make sure that you have reviewed the [Prerequisites](expressroute-prerequisites.md) page and the [Workflows](expressroute-workflows.md) page before you begin configuration.
 
 ## To create and provision an ExpressRoute circuit
@@ -43,7 +43,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 2. **Get the list of providers, locations, and bandwidths supported.**
 
-	Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information, which you’ll use in later steps.
+	Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information, which you’ll use in later steps. When you run the cmdlet, your result will look similar to the example below.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -108,11 +108,11 @@ This article walks you through the steps to create an ExpressRoute circuit using
 		$ServiceProvider = "Equinix"
 		$Location = "Silicon Valley"
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData 
 
 	Or, if you want to create an ExpressRoute circuit with the premium add-on, use the following example below. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more details on the premium add-on.
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
 	
 	
 	The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
@@ -197,7 +197,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 7. **Link a VNet to an ExpressRoute circuit.** 
 
-	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-classic.md) for step by step instructions. If you need to create a virtual network for ExpressRoute, see [Creating a virtual network for ExpressRoute](expressroute-howto-createvnet-classic.md) for instructions.
+	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-classic.md) for step by step instructions. If you need to create a virtual network using the classic deployment model for ExpressRoute, see [Create a VNet for ExpressRoute](expressroute-howto-vnet-portal-classic.md) for instructions. 
 
 ##  To get the status of an ExpressRoute circuit
 
@@ -327,4 +327,4 @@ If the service provider has deprovisioned the circuit (the service provider prov
 ## Next steps
 
 - [Configure routing](expressroute-howto-routing-classic.md)
-- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) 
+

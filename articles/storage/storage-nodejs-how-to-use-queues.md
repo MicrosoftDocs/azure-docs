@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="How to use Queue storage from Node.js | Microsoft Azure" 
-	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="How to use Queue storage from Node.js | Microsoft Azure"
+	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mwasson"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="02/17/2016"
+	ms.author="micurd"/>
 
 
 # How to use Queue storage from Node.js
@@ -35,7 +35,7 @@ deleting queues**.
 
 ## Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service] using Windows PowerShell, or [Build and deploy a Node.js web app to Azure using Web Matrix].
 
 ## Configure Your Application to Access Storage
 
@@ -75,7 +75,7 @@ Using Notepad or another text editor, add the following to the top the
 
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
 
-For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service].
 
 ## How To: Create a Queue
 
@@ -255,7 +255,7 @@ The following example generates a new shared access policy that will allow the S
 	var expiryDate = new Date(startDate);
 	expiryDate.setMinutes(startDate.getMinutes() + 100);
 	startDate.setMinutes(startDate.getMinutes() - 100);
-	
+
 	var sharedAccessPolicy = {
 	  AccessPolicy: {
 	    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
@@ -310,8 +310,8 @@ The following example gets the current ACL for **myqueue**, then adds the new po
 	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
       if(!error){
 		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		queueSvc.setQueueAcl('myqueue', result, function(error, result, response){
+		result.signedIdentifiers = result.signedIdentifiers.concat(sharedAccessPolicy);
+		queueSvc.setQueueAcl('myqueue', result.signedIdentifiers, function(error, result, response){
 	  	  if(!error){
 	    	// ACL set
 	  	  }
@@ -328,26 +328,23 @@ Once the ACL has been set, you can then create a SAS based on the ID for a polic
 Now that you've learned the basics of queue storage, follow these links
 to learn about more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Azure][].
 -   Visit the [Azure Storage Team Blog][].
 -   Visit the [Azure Storage SDK for Node][] repository on GitHub.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
-  [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Node.js Web Application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
+  [Azure Portal]: https://portal.azure.com
+  [Create a Node.js web app in Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
-  
+
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
   [plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
   [quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
-  
-  
-  
-  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+
+
+
+  [Build and deploy a Node.js application to an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
- [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
- 
+  [Build and deploy a Node.js web app to Azure using Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md

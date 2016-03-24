@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
@@ -27,6 +27,8 @@ The concepts and steps needed for connecting with SQL Server hosted on-premises 
 See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Setting up a gateway instance is a pre-requisite for connecting with SQL Server.
 
 While you can install the gateway on the same on-premises machine or cloud VM instance as the SQL Server for better performance it is recommended to install them on separate machines or cloud VM to avoid resource contention. 
+
+The following sample(s) show how to copy data to and from SQL Server and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
 
 ## Sample: Copy data from SQL Server to Azure Blob
 
@@ -204,11 +206,9 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-> [AZURE.NOTE] In the above example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the SQL Server Database source to get the data.
->  
-> Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
->  
-> If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the SQL Server Database. If the dataset definition does not have the structure, all columns are selected from the table.
+In the above example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the SQL Server Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
+ 
+If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the SQL Server Database. If the dataset definition does not have the structure, all columns are selected from the table.
 
 
 See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSource and BlobSink. 
@@ -385,7 +385,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-## SQL Server Linked Service properties
+## SQL Server linked service properties
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
@@ -397,7 +397,7 @@ The following table provides description for JSON elements specific to SQL Serve
 | username | Specify user name if you are using Windows Authentication. | No |
 | password | Specify password for the user account you specified for the username. | No |
 
-You can encrypt credentials using the **New-AzureDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
+You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -431,9 +431,9 @@ If username and password are specified, gateway will use them to impersonate the
 	     } 
 	}
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an SQL Server data source.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an SQL Server data source.
 
-## SQL Server Dataset type properties
+## SQL Server dataset type properties
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (SQL Server, Azure blob, Azure table, etc...). 
 
@@ -443,7 +443,7 @@ The typeProperties section is different for each type of dataset and provides in
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the SQL Server Database instance that linked service refers to. | Yes |
 
-## SQL Server Copy Activity type properties
+## SQL Server copy activity type properties
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. 
 
@@ -467,6 +467,8 @@ Alternatively, you can specify a stored procedure by specifying the **sqlReaderS
 
 If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the SQL Server Database. If the dataset definition does not have the structure, all columns are selected from the table.
 
+> [AZURE.NOTE] When you use **sqlReaderStoredProcedureName**, you still need to specify a value for the **tableName** property in the dataset JSON. This is a limitation with the product at this time. There are no validations performed against this table though. 
+
 ### SqlSink
 
 **SqlSink** supports the following properties:
@@ -482,6 +484,98 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 | storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No | 
 | sqlWriterTableType | User specified table type name to be used in the above stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
 
+## Troubleshooting connection issues
+
+1. Configure your SQL Server to accept remote connections. Launch **SQL Server Management Studio**, right-click **server**, and click **Properties**. Select **Connections** from the list and check **Allow remote connections to the server**.
+	
+	![Enable remote connections](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png) 
+
+	See [Configure the remote access Server Configuration Option](https://msdn.microsoft.com/library/ms191464.aspx) for detailed steps. 
+2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/TP by right-clicking **TCP/IP** and clicking **Enable**.
+
+	![Enable TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
+
+	See [Enable or Disable a Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx) for details and alternate ways of enabling TCP/IP protocol. 
+3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.
+4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port **(default is **1433**). 
+5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.  
+6. **Verify connection**: use SQL Server Management Studio from a different machine to connect to the SQL Server using fully qualified name. For example: <machine>.<domain>.corp.<company>.com,1433.
+
+	> [AZURE.IMPORTANT] 
+	> See [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) for detailed information.
+	>   
+	> See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+
+## Identity columns in the target database
+This section provides an example for copying data from a source table without an identity column to a destination table with an identity column. 
+
+**Source table:** 
+
+	create table dbo.SourceTbl
+	(
+	       name varchar(100),
+	       age int
+	)
+
+**Destination table:**
+
+	create table dbo.TargetTbl
+	(
+	       id int identity(1,1),
+	       name varchar(100),
+	       age int
+	)
+
+
+Notice that the target table has an identity column. 
+
+**Source dataset JSON definition**
+
+	{
+	    "name": "SampleSource",
+	    "properties": {
+	        "published": false,
+	        "type": " SqlServerTable",
+	        "linkedServiceName": "TestIdentitySQL",
+	        "typeProperties": {
+	            "tableName": "SourceTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": true,
+	        "policy": {}
+	    }
+	}
+
+**Destination dataset JSON definition**
+
+	{
+	    "name": "SampleTarget",
+	    "properties": {
+	        "structure": [
+	            { "name": "name" },
+	            { "name": "age" }
+	        ],
+	        "published": false,
+	        "type": "AzureSqlTable",
+	        "linkedServiceName": "TestIdentitySQLSource",
+	        "typeProperties": {
+	            "tableName": "TargetTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": false,
+	        "policy": {}
+	    }	
+	}
+
+
+Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in  the target dataset definition, which doesn’t include the identity column. 
+
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 
 
@@ -491,7 +585,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 
-### Type Mapping for SQL server & Azure SQL
+### Type mapping for SQL server & Azure SQL
 
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, the  Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
 

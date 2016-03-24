@@ -1,24 +1,29 @@
-<properties 
-	pageTitle="Add push notifications to your Xamarin Android app | Microsoft Azure" 
-	description="Learn how to configure push notifications with Google Cloud Messaging for you Xamarin.Android apps using Azure Mobile Services and Azure Notification Hubs." 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="Add push notifications to your Xamarin Android app | Microsoft Azure"
+	description="Learn how to configure push notifications with Google Cloud Messaging for you Xamarin.Android apps using Azure Mobile Services and Azure Notification Hubs."
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="03/17/2016"
 	ms.author="glenga"/>
 
 # Add push notifications to your Mobile Services app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Add push notifications to your Xamarin.Android app](../app-service-mobile/app-service-mobile-xamarin-android-get-started-push.md).
 
 ##Overview
 This topic shows you how to use Azure Mobile Services to send push notifications to a Xamarin.Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the [Get started with Mobile Services] project. When complete, your mobile service will send a push notification each time a record is inserted.
@@ -40,7 +45,7 @@ You should already have the [Xamarin.Android] and the [Azure Mobile Services Com
 
 ##<a id="update-scripts"></a>Update the registered insert script to send notifications
 
->[AZURE.TIP] The following steps show you how to update the script registered to the insert operation on the TodoItem table in the Azure Management Portal. You can also access and edit this mobile service script directly in Visual Studio, in the Azure node of Server Explorer. 
+>[AZURE.TIP] The following steps show you how to update the script registered to the insert operation on the TodoItem table in the Azure classic portal. You can also access and edit this mobile service script directly in Visual Studio, in the Azure node of Server Explorer.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -68,13 +73,13 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [Get started with authentication](mobile-services-android-get-started-users.md)
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
-* [What are Notification Hubs?](../notification-hubs-overview.md)
+* [What are Notification Hubs?](../notification-hubs/notification-hubs-overview.md)
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
 * [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
+  </br>Get guidance troubleshooting and debugging Notification Hubs solutions.
 
-* [How to use the .NET client library for Mobile Services](mobile-services-windows-dotnet-how-to-use-client-library.md)
+* [How to use the .NET client library for Mobile Services](mobile-services-dotnet-how-to-use-client-library.md)
   <br/>Learn more about how to use Mobile Services with Xamarin C# code.
 
 * [Mobile Services server script reference](mobile-services-how-to-use-server-scripts.md)
@@ -86,4 +91,3 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
- 

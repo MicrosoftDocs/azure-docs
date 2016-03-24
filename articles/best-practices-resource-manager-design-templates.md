@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Best practices for designing Azure Resource Manager templates"
+	pageTitle="Best practices Azure Resource Manager templates | Microsoft Azure"
 	description="Show design patterns for Azure Resource Manager templates"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
-	ms.author="mmercuri"/>
+	ms.date="12/17/2015"
+	ms.author="tomfitz"/>
 
 # Best practices for designing Azure Resource Manager templates
 

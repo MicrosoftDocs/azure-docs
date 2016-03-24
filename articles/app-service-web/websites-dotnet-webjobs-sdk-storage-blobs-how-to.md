@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/19/2016" 
 	ms.author="tdykstra"/>
 
 # How to use Azure blob storage with the WebJobs SDK
@@ -24,13 +24,13 @@ This guide provides C# code samples that show how to trigger a process when an A
 
 For code samples that show how to create blobs, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 		
-The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md).
+The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md) or to [multiple storage accounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
 ## <a id="trigger"></a> How to trigger a function when a blob is created or updated
 
 This section shows how to use the `BlobTrigger` attribute. 
 
-> **Note:** The WebJobs SDK scans log files to watch for new or changed blobs. This process is inherently slow; a function might not get triggered until several minutes or longer after the blob is created.  If your application needs to process blobs immediately, the recommended method is to create a queue message when you create the blob, and use the [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) attribute instead of the `BlobTrigger` attribute on the function that processes the blob.
+> [AZURE.NOTE] The WebJobs SDK scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use the [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) attribute instead of the `BlobTrigger` attribute on the function that processes the blob.
 
 ### Single placeholder for blob name with extension  
 
@@ -89,9 +89,15 @@ You can use the `BlobTrigger` attribute on the following types:
 * `ICloudBlob`
 * `CloudBlockBlob`
 * `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
+* `IEnumerable<CloudPageBlob>`
 * Other types deserialized by [ICloudBlobStreamBinder](#icbsb) 
 
 If you want to work directly with the Azure storage account, you can also add a `CloudStorageAccount` parameter to the method signature.
+
+For examples, see the [blob binding code in the azure-webjobs-sdk repository on GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
 
 ## <a id="string"></a> Getting text blob content by binding to string
 

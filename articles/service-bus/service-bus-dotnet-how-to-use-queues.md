@@ -9,11 +9,11 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/07/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -26,14 +26,9 @@ This article describes how to use Service Bus queues. The samples are written in
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Configure the application to use Service Bus
-
-When you create an application that uses Service Bus, you must add a reference to the Service Bus assembly and include the corresponding namespaces.
-
 ## Add the Service Bus NuGet package
 
-The Service Bus **NuGet** package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. The NuGet Visual Studio extension makes it easy to install and update libraries and tools in Visual Studio and Visual Studio Express. The Service Bus NuGet package is the easiest way
-to get the Service Bus API and to configure your application with all of the Service Bus dependencies.
+The [Service Bus **NuGet** package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. The NuGet Visual Studio extension makes it easy to install and update libraries and tools in Visual Studio and Visual Studio Express. The Service Bus NuGet package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies.
 
 To install the NuGet package in your application, do the following:
 
@@ -55,7 +50,7 @@ In both cases, you can retrieve your connection string using the [CloudConfigura
 
 ### Configure your connection string when using Cloud Services
 
-The service configuration mechanism is unique to Azure Cloud Services projects and enables you to dynamically change configuration settings from the Azure portal without redeploying your application. For example, add a `Setting` label to your service definition (.csdef) file, as shown in the next example.
+The service configuration mechanism is unique to Azure Cloud Services projects and enables you to dynamically change configuration settings from the [Azure classic portal][] without redeploying your application. For example, add a `Setting` label to your service definition (.csdef) file, as shown in the next example.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -83,7 +78,7 @@ You then specify values in the service configuration (.cscfg) file, as shown in 
 </ServiceConfiguration>
 ```
 
-Use the Shared Access Signature (SAS) key name and key values retrieved from the Azure portal as described in the previous section.
+Use the Shared Access Signature (SAS) key name and key values retrieved from the Azure classic portal as described in the previous section.
 
 ### Configure your connection string when using websites or Azure Virtual Machines
 
@@ -98,7 +93,7 @@ When using websites or Virtual Machines, it is recommended that you use the .NET
 </configuration>
 ```
 
-Use the SAS name and key values that you retrieved from the Azure portal, as described in the previous section.
+Use the SAS name and key values that you retrieved from the Azure classic portal, as described in the previous section.
 
 ## Create a queue
 
@@ -187,7 +182,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Service Bus queues support a [maximum message size of 256 Kb](service-bus-quotas.md) (the header, which includes  the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For more information, see [Partitioning Messaging Entities](service-bus-partitioning.md).
+Service Bus queues support a [maximum message size of 256 Kb](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (the header, which includes  the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For more information, see [Partitioned messaging entities](service-bus-partitioning.md).
 
 ## How to receive messages from a queue
 
@@ -255,7 +250,7 @@ Now that you've learned the basics of Service Bus queues, follow these links to 
 -   Build a working application that sends and receives messages to and from a Service Bus queue with the [Service Bus brokered messaging .NET tutorial][].
 -   Download Service Bus samples from [Azure samples][] or see the [overview of Service Bus samples][].
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
   [Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md

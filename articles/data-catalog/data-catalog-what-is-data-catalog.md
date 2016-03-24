@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog - What is Data Catalog"
    description="Overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
    services="data-catalog"
@@ -10,15 +10,15 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/21/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # What is Azure Data Catalog?
 
-Microsoft **Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. **Azure Data Catalog** provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources.
+Microsoft **Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. **Azure Data Catalog** provides capabilities that enable any user – from analysts to data scientists to developers – to discover, understand, and consume data sources, and to contribute their knowledge to build and support a community and culture of data.
 
 ## Problem description - motivation and overview
 
@@ -48,7 +48,9 @@ When combined, these challenges present a significant barrier for companies who 
 
 Once a data source has been registered, its metadata can then be enriched, either by the user who performed the registration, or by other users in the enterprise. Any user can annotate a data source by providing descriptions, tags, or other metadata, such as documentation and processes for requesting data source access. This descriptive metadata supplements the structural metadata (such as column names and data types) registered from the data source, to make discovering and understanding it easier.
 
-Discovering and understanding data sources and their use is the primary purpose of registering the sources. When enterprise users need data for their efforts (which could be business intelligence, application development, data science, or any other task where the right data is required) they can use the **Azure Data Catalog** discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for purpose, and consume that data by opening the data source in their tool of choice.
+Discovering and understanding data sources and their use is the primary purpose of registering the sources. When enterprise users need data for their efforts (which could be business intelligence, application development, data science, or any other task where the right data is required) they can use the **Azure Data Catalog** discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for purpose, and consume that data by opening the data source in their tool of choice. At the same time, **Azure Data Catalog** allows users to contribute to the catalog, by tagging, documenting, and annotating data sources that have already been registered, and by registering new data sources which can then be discovered, understood, and consumed by the community of catalog users.
+
+![Azure Data Catalog Capabilities](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
 ## Register data sources
 
@@ -60,19 +62,7 @@ The registration process involves three basic steps:
 2.	Select objects to register - the user selects the objects in the specified location that should be registered with **Azure Data Catalog**. This may be the full set of tables in all databases on the server, or a specifically selected subset of tables and views.
 3.	Complete registration - the user completes the process, and the data source registration tool extracts the structural metadata from the data source, and sends that metadata to the **Azure Data Catalog** cloud service.
 
-> [AZURE.NOTE] For preview, **Azure Data Catalog** currently supports the following data source and asset types:
-
-- SQL Server Table
-- SQL Server View
-- Oracle Database Table
-- Oracle Database View
-- SQL Server Analysis Services Multidimensional Dimension
-- SQL Server Analysis Services Multidimensional Measure
-- SQL Server Analysis Services Multidimensional KPI
-- SQL Server Analysis Services Tabular Table
-- SQL Server Reporting Services Report
-- Azure Storage Blob
-- Azure Storage Directory
+> [AZURE.NOTE] The **Azure Data Catalog** preview currently supports the following data source and asset types: [Azure Data Catalog supported data sources](data-catalog-dsr.md)
 
 Additional data sources and asset types will be added during the **Azure Data Catalog** preview.
 
@@ -86,7 +76,7 @@ Once the registration is complete, the data sources can be discovered and consum
 -	The registered data sources are more easily understood once discovered. The user-provided metadata is presented to any **Azure Data Catalog** user who views the annotated data source, which helps provide additional context and information. Most data sources typically do not include meaningful descriptions or documentation, and those that do are often focused on the technical DBA or database developer audiences. By enriching data sources in **Azure Data Catalog** with audience-appropriate descriptions and tags, users can help ensure that those who discover the data can understand its details and intended use.
 -  Each registered data source can include request access information, so that users can easily understand and follow existing processes to request access to the data source and its data.
 
-> [AZURE.NOTE] Each **Azure Data Catalog** user can add his own tags and descriptions for data assets and attributes. **Azure Data Catalog** will track the value and source of each annotation and will display the user and the date the annotation was added. This crowdsourcing approach to metadata ensures that every user with a perspective on the data and its use can share their opinions and resources with the user community at large.
+> [AZURE.NOTE] Each **Azure Data Catalog** user can add his own tags and descriptions for data assets and attributes. **Azure Data Catalog** will track the value and source of each annotation and will display the user who added it. This crowdsourcing approach to metadata ensures that every user with a perspective on the data and its use can share their opinions and resources with the user community at large.
 
 ## Explore, discover, and understand
 
@@ -119,5 +109,3 @@ The ultimate goal of data discovery is to find the data that you need, and to us
 
 1.	For client applications that are directly supported by **Azure Data Catalog**, users can click on the **Open In** menu in the data source tile found in the portal. The client application will then launch with a connection to the selected data source.
 2.	For all client applications, users can use the connection information displayed in the properties pane for a selected data source. This information includes all details (such as server name, database name, and object name) required to connect to the data, and can be copied into the client tool's connection experience. If request access details have been provided for a data source, this information will be displayed next to the connection details.
-
-> [AZURE.NOTE] For the preview of Azure Data Catalog, only Microsoft Excel and SQL Server Reporting Services Report Manager will be directly supported and available in the **Open In** menu.  

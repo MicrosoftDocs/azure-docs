@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="03/15/2016"
    ms.author="nitinme"/>
 
 # Securing data stored in Azure Data Lake Store
 
 Securing data in Azure Data Lake Store is a three-step approach.
 
-1. Start by creating security groups in Azure Active Directory (AAD). These security groups are used to implement role-based access control (RBAC) in Azure Portal. For more information see [Role-based Access Control in Microsoft Azure](role-based-access-control-configure.md).
+1. Start by creating security groups in Azure Active Directory (AAD). These security groups are used to implement role-based access control (RBAC) in Azure Portal. For more information see [Role-based Access Control in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 2. Assign the AAD security groups to the Azure Data Lake Store account. This controls access to the Data Lake Store account from the portal and management operations from the portal or APIs.
 
@@ -32,12 +32,12 @@ This article provides instructions on how to use the Azure portal to perform the
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Create security groups in Azure Active Directory
 
-For instructions on how to create AAD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](active-directory-accessmanagement-manage-groups.md).
+For instructions on how to create AAD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
 ## Assign users or security groups to Azure Data Lake Store accounts
 
@@ -119,13 +119,13 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 
 	![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.5.png "Assign permissions to group")
 
-	> [AZURE.IMPORTANT] In the current release, you can only have 12 entries under **Custom Access**. If you want to add more than 12 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
+	> [AZURE.IMPORTANT] In the current release, you can only have 9 entries under **Custom Access**. If you want to add more than 9 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
 
 7. If required, you can also modify the access permissions after you have added the group. Clear or select the check box for each permission type (Read, Write, Execute) based on whether you want to remove or assign that permission to the security group. Click **Save** to save the changes, or **Discard** to undo the changes.
 
 ## Remove security groups for an Azure Data Lake Store account
 
-When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure preview portal and Azure Resource Manager APIs.
+When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure Portal and Azure Resource Manager APIs.
 
 1. In your Data Lake Store account blade, click the user icon.
 
@@ -159,7 +159,8 @@ When you remove security groups ACLs from Azure Data Lake Store file system, you
 ## See also
 
 - [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)
 - [Get Started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)

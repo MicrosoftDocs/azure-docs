@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the Twitter Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Twitter API](../connectors/connectors-create-api-twitter.md).
+
 Connect to your Twitter feed to post tweets and gets tweets from your timeline, your friends' timeline, and followers of your Twitter account. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the Twitter Connector in your workflow, you can achieve a variety of scenarios. For example, you can:
 
 - Get new tweets associated with a given keyword or text. When a new tweet is retrieved, it triggers a new instance of your workflow and passes the data to the next connector in your workflow. For example, you create a Twitter Connector and use the New Tweet From Search trigger to monitor #peanutbutterandjelly. Whenever there's a new tweet for #peanutbutterandjelly, your workflow (aka logic app) starts automatically.
@@ -54,7 +56,7 @@ A connector can be created within a logic app or be created directly from the Az
 5. Enter other required settings around connector Name, App Service, and Resource Group.
 6.	Click **Create**.
 
-> [AZURE.NOTE] If you want to further secure your Twitter API with the redirect URL, you can see details on how to do that [here](app-service-logic-oauth-security.md)
+> [AZURE.NOTE] If you want to further secure your Twitter API with the redirect URL, you can use [OAUTH security](app-service-logic-oauth-security.md).
 
 
 ## Using the Twitter Connector in your Logic App

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
@@ -28,13 +28,13 @@ The Azure virtual machine gallery includes several images that contain Microsoft
  > [AZURE.NOTE] SQL Server 2012 SP2 Enterprise image **does not include a data disk**. You will need to add and/or attach one or more virtual hard disks to store your data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
 
-##<a name="Provision"></a>Connect to the Azure management portal and provision an SQL Server virtual machine
+##<a name="Provision"></a>Connect to the Azure Classic Portal and provision an SQL Server virtual machine
 
-1.  Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account.
+1.  Log in to the [Azure Classic Portal](http://manage.windowsazure.com/) using your account.
 	If you do not have an Azure account, visit [Azure free
-    trial](http://www.windowsazure.com/pricing/free-trial/).
+    trial](https://azure.microsoft.com/pricing/free-trial/).
 
-2.  On the Azure Management Portal, at the bottom left of the web page,
+2.  On the Azure Classic Portal, at the bottom left of the web page,
     click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and
     then click **FROM GALLERY**.
 
@@ -68,7 +68,7 @@ The Azure virtual machine gallery includes several images that contain Microsoft
     information on available virtual machine sizes and the number of
     data disks that you can attach to a virtual machine, see [Virtual
     Machine Sizes for
-    Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For pricing information, see [VIrtual Macines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/).
+    Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For pricing information, see [VIrtual Macines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
     Click the next arrow on the bottom right to continue.
 
@@ -173,7 +173,7 @@ If your VM image does not include data disks, i.e., disks other than C drive (OS
 
  > [AZURE.NOTE] Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
-To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md), which will guide you through:
+To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](virtual-machines-windows-classic-attach-disk.md), which will guide you through:
 
 1. Attaching empty disk(s) to the virtual machine provisioned in earlier steps
 2. Initialization of the new disk(s) in the virtual machine
@@ -323,7 +323,7 @@ can use the IP address, but the IP address might change when Azure moves
 resources for redundancy or maintenance. The DNS name will be stable
 because it can be redirected to a new IP address.)
 
-1.  In the Azure Management Portal (or from the previous step), select
+1.  In the Azure Classic Portal (or from the previous step), select
     **VIRTUAL MACHINES**.
 
 2.  On the **VIRTUAL MACHINE INSTANCES** page, in the **DNS NAME**
@@ -370,11 +370,11 @@ In later stages of the Advanced Analytics Process and Technology, you will use t
 
 Azure Virtual Machines are priced as **pay only for what you use**. To ensure that you are not being billed when not using your virtual machine, it has to be in the **Stopped (Deallocated)** state.
 
-> [AZURE.NOTE] Shutting down the virtual machine from inside (using Windows power options), the VM is stopped but remains allocated. To ensure you’re not being billed, always stop virtual machines from the [Azure Management Portal](http://manage.windowsazure.com/). You can also stop the VM through Powershell by calling ShutdownRoleOperation with "PostShutdownAction" equal to "StoppedDeallocated".
+> [AZURE.NOTE] Shutting down the virtual machine from inside (using Windows power options), the VM is stopped but remains allocated. To ensure you’re not being billed, always stop virtual machines from the [Azure Classic Portal](http://manage.windowsazure.com/). You can also stop the VM through Powershell by calling ShutdownRoleOperation with "PostShutdownAction" equal to "StoppedDeallocated".
 
 To shutdown and deallocate the virtual machine:
 
-1. Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account.  
+1. Log in to the [Azure Classic Portal](http://manage.windowsazure.com/) using your account.  
 
 2. Select **VIRTUAL MACHINES** from the left navigation bar.
 
@@ -385,7 +385,7 @@ To shutdown and deallocate the virtual machine:
 
 ![VM Shutdown][15]
 
-The virtual machine will be deallocated but not deleted. You may restart your virtual machine at any time from the Azure Management Portal.
+The virtual machine will be deallocated but not deleted. You may restart your virtual machine at any time from the Azure Classic Portal.
 
 ## Your Azure SQL Server VM is ready to use: what's next?
 

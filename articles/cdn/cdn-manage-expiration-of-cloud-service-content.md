@@ -1,19 +1,19 @@
-<properties 
- pageTitle="How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="zhangmanling" 
- manager="dwrede" 
+<properties
+ pageTitle="How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)"
+ description=""
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="09/01/2015" 
- ms.author="mazha"/>
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016" 
+ ms.author="casoper"/>
 
 #How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)
 
@@ -25,12 +25,12 @@ For static content such as images and style sheets you can control the update fr
 
 The following XML shows and example of setting **clientCache** to specify a maximum age of 3 days:  
 
-	<configuration> 
-	  <system.webServer> 
-	        <staticContent> 
-	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" /> 
-	        </staticContent> 
-	  </system.webServer> 
+	<configuration>
+	  <system.webServer>
+	        <staticContent>
+	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+	        </staticContent>
+	  </system.webServer>
 	</configuration>
 
 Specifying **UseMaxAge** adds a Cache-Control: max-age=<nnn> header to the response based on the value specified in the **CacheControlMaxAge** attribute. The format of the timespan is for the **cacheControlMaxAge** attribute is <days>.<hours>:<min>:<sec>. For more information on the **clientCache** node, see [Client Cache <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
@@ -49,4 +49,4 @@ For example, to cache content for one hour, add the following:
 ##See Also
 
 [How to Manage Expiration of Blob Content in the Azure Content Delivery Network (CDN)](./cdn-manage-expiration-of-blob-content.md
-) 
+)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="02/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -32,4 +32,4 @@ Microsoft Azure HDInsight provides PowerShell cmdlets to perform Hadoop tasks on
 
 ## See also
 
-* [Learning path for HDInsight](http://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+* [Learning path for HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/25/2016" 
 	ms.author="awills"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
@@ -30,7 +30,7 @@ Currently these features are available for the ASP.NET SDK.
 
 Before you start:
 
-* Install the [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
+* Install the [Application Insights SDK](app-insights-asp-net.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
 * Try the [Application Insights API](app-insights-api-custom-events-metrics.md). 
 
 
@@ -38,27 +38,27 @@ Before you start:
 
 *This feature is in beta.*
 
-The recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
+[Sampling](app-insights-sampling.md) is the recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
 
-1. Update your project's NuGet packages to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+* Adaptive sampling is recommended. It automatically adjusts the sampling percentage to achieve a specific volume of requests. Currently available for ASP.NET server-side telemetry only. 
+* [Fixed-rate sampling](app-insights-sampling.md) is also available. You specify the sampling percentage. Available for ASP.NET web app code and JavaScript web pages. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
+* Ingestion sampling operates as the telemetry is received at the Application Insights portal, and so it can be used no matter what SDK you're using. It doesn't reduce telemetry traffic on the network, but it reduces the volume processed and stored in Application Insights. Only the retained telemetry counts in your monthly quota. 
 
-2. Add this snippet to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+### To enable ingestion sampling
 
-```XML
+From the Settings bar, open the Quotas and Pricing blade. Click Sampling and select a sampling ratio.
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+### To enable adaptive sampling
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10, 1 (=100/100), 0.1 (=100/1000) ... -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+**Update your project's NuGet** packages to the latest *pre-release* version of Application Insights: Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 
-```
+In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), you can adjust the maximum rate of telemetry that the adaptive algorithm aims for:
 
+    <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
 
-To get sampling on the data from web pages, put an extra line in the [Application Insights snippet](app-insights-javascript.md) that you inserted (typically in a master page such as _Layout.cshtml):
+### Client side sampling
+
+To get fixed-rate sampling on the data from web pages, put an extra line in the [Application Insights snippet](app-insights-javascript.md) that you inserted (typically in a master page such as _Layout.cshtml):
 
 *JavaScript*
 
@@ -72,10 +72,8 @@ To get sampling on the data from web pages, put an extra line in the [Applicatio
 	}); 
 ```
 
-* Set a percentage (10 in these examples) that is equal to 100/N where N is an integer - for example 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10 (=100/5). 
-* If you have a lot of data, you can use very low sampling rates, such as 0.1.
-* If you set sampling in both web page and server, make sure to set the same sampling percentage in both sides.
-* Client and server sides will coordinate to select related items.
+* Set a percentage (10 in this example) that is equal to 100/N where N is an integer - for example 50 (=100/2), 33.33 (=100/3), 25 (=100/4), or 10 (=100/10). 
+* If you also enable [fixed-rate sampling](app-insights-sampling.md) on the server side, the client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 
 [Learn more about sampling](app-insights-sampling.md).
 
@@ -164,17 +162,17 @@ You can pass string values from the .config file by providing public named prope
  
 **Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
 
-    ```C#
+```C#
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
 
-    TelemetryConfiguration.Active.TelemetryChannel = builder.Build();
+    builder.Build();
 
-    ```
+```
 
 TelemetryClients created after this point will use your processors.
 
@@ -363,7 +361,7 @@ Insert a telemetry initializer immediately after the initialization code that yo
     </script>
 ```
 
-For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md/#lttelemetrytypegt).
+For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md#lttelemetrytypegt).
 
 You can add as many initializers as you like. 
 
@@ -400,7 +398,7 @@ You can add as many initializers as you like.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md

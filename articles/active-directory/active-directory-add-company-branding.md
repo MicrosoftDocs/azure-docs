@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add company branding to your Sign In and Access Panel pages"
-	description="A topic that explains how an organization can apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites."
+	pageTitle="Add company branding to your sign-in and Access Panel pages"
+	description="Learn how to add a company branding to the Azure sign-in page and the access panel page"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -13,64 +13,73 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015" 
+	ms.date="03/22/2016" 
 	ms.author="MarkVi"/>
 
-# Add company branding to your Sign In and Access Panel pages
+# Add company branding to your sign-in and Access Panel pages
+
+Many companies want to apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites. Azure Active Directory provides this capability by allowing you to customize the appearance of the following end user-facing web pages with your company logo and custom color schemes:
+
+- **Sign-in page** - This page is where users are redirected when they are signing in to Office 365 or other web-based and modern applications that use Azure AD as your identity provider. Most users will interact with this page whether it’s to go through Home Realm Discovery, which allows the system to redirect federated users to their on-premises STS (such as AD FS), or to enter their credentials.
+
+- **Access Panel page** - The Access Panel is a web-based portal that allows an end user with a work or school account in an Azure AD directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. The Access Panel is accessible to all users in your organization at myapps.microsoft.com.
+
+This topic explains how you can customize the sign-in page and the access panel page.
 
 > [AZURE.NOTE]
 >
 - Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-Many companies want to apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites. Azure Active Directory provides this capability by allowing you to customize the appearance of the following end user-facing web pages so that they include your company logo and color schemes:
 
-- **Sign In page** - This page is where users are redirected when they are signing in to Office 365 or other web-based and modern applications that use Azure AD as your identity provider. Most users will interact with this page whether it’s to go through Home Realm Discovery, which allows the system to redirect federated users to their on-premises STS (such as AD FS), or to enter their credentials.
 
-- **Access Panel page** - The Access Panel is a web-based portal that allows an end user with a work or school account in an Azure AD directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. The Access Panel is accessible to all users in your organization at myapps.microsoft.com.
+## Customizing the sign-in page
 
-## Sign in page customization
+The sign-in page is typically the most frequently used web page by end users that need browser-based access to the cloud apps and services that your organization subscribes to. <br>
+If you have applied changes to your sign-in page, it can take up to an hour for users to see any new change you made to the sign-in page branding.
 
-The Sign In page is typically the most frequently used web page by end users that need browser-based access to the cloud apps and services that your organization subscribes to, so making sure it looks right is paramount. If you want to use the default non-branded Sign In page experience, you need do nothing.
+Your users will see a branded sign-in page when they visit a service with a tenant-specific URL such as https://outlook.com/**contoso**.com, or https://mail.**contoso**.com (if you’ve created a CNAME).
 
-### How long does it take to see branding changes on the sign in pages?
-
-It can take up to an hour for users to see any new change you made to the sign in page branding.
-
-### When will users see a branded sign in page?
-
-User will see a branded sign in page when they visit a service with a tenant-specific URL such as https://outlook.com/**contoso**.com, or https://mail.**contoso**.com (if you’ve created a CNAME).
-
-If they visit a service with non-tenant specific URLs (such as https://mail.office365.com) they will see a non-branded sign in page. The sign in page will refresh to show your branding once users have entered their user ID or selected a user tile.
+If they visit a service with non-tenant specific URLs (such as https://mail.office365.com) they will see a non-branded sign-in page. The sign-in page will refresh to show your branding once users have entered their user ID or selected a user tile.
 
 > [AZURE.NOTE]
 >
-- Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure Management Portal where you have configured branding.
-- Sign in page branding doesn’t carry over to Microsoft’s consumer sign in page. This means that users who sign in with a personal Microsoft account (formerly Windows Live ID) may see a branded list of user tiles rendered by Azure AD, but your organization’s branding will not apply to the Microsoft account sign-in page.
+- Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure classic portal where you have configured branding.
+- Sign-in page branding doesn’t carry over to Microsoft’s consumer sign-in page. This means that users who sign-in with a personal Microsoft account (formerly Windows Live ID) may see a branded list of user tiles rendered by Azure AD, but your organization’s branding will not apply to the Microsoft account sign-in page.
 
-### What will my end users see after I customize the Sign In page?
 
 If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.
 
-When a user attempts to sign in from a desktop computer, here is an example of what the user would see on the Office 365 Sign In page *before* customization:
+The following screenshot shows and example for the Office 365 sign-in page on a desktop computer *before* a customization:
 
-![][1]
+![Office 365 sign-in page before customization][1]
 
-And here is what the same user would see *after* customization:
+After a customization, this page would look like this:
 
-![][2]
+![Office 365 sign-in page after customization][2]
 
-When a user attempts to sign in from a mobile device, here is an example of what the user would see on the Office 365 Sign In page *before* customization:
+The following screenshot shows an example of the Office 365 sign-in page on a mobile device before a customization:
 
-![][3]
+![Office 365 sign-in page before customization][3]
 
-And here is what the same user would see *after* customization:
+After a customization, this page would look like this:
 
-![][4]
+![Office 365 sign-in page after customization][4]
 
-### What elements on the page can I customize?
 
-You can customize the following elements on the Sign In page:
+When you resize a browser window resizing, the large Illustration, like the one shown previously, will almost always be cropped to accommodate different screen aspect ratios. With this in mind, you should try to keep the key visual elements in the illustration so that they will always show in the top-left corner (top-right for right-to-left languages). This is important because resizing typically occurs from the bottom-right corner going towards the top/left or from the bottom towards the top.
+
+The following picture shows how the illustration will be cropped when the browser is resized to the left:
+
+![][6]
+
+Here is how it will appear after the browser is resized toward the top:
+
+![][7]
+
+## What elements on the page can I customize?
+
+You can customize the following elements on the sign-in page:
 
 ![][5]
 
@@ -78,70 +87,73 @@ You can customize the following elements on the Sign In page:
 	------------- | -------------
 Banner Logo | Shown at the top-right of the page. Replaces the logo that would normally be displayed by the destination site that your users are signing in to (For example. Office 365 or Azure).
 Large Illustration / Background Color | Shown at the left of the page. Replaces the image that would normally be displayed by the destination site that your users are signing in to. The Background Color may be shown in place of the Large Illustration on low bandwidth connections, or on very narrow screens.
-Sign In Page Text | Shown above the page footer when you need to convey helpful information to your users before they sign in with their work or school account. For example, you may want to include the phone number to your help desk, or a legal statement.
+Sign-in Page Text | Shown above the page footer when you need to convey helpful information to your users before they sign-in with their work or school account. For example, you may want to include the phone number to your help desk, or a legal statement.
 
 > [AZURE.NOTE]
-All elements are optional. For example, if you specify a Banner Logo but no Large Illustration, the Sign In page will show your logo and the illustration for the destination site (that is, the Office 365 California highway image).
+All elements are optional. For example, if you specify a Banner Logo but no Large Illustration, the sign-in page will show your logo and the illustration for the destination site (that is, the Office 365 California highway image).
 
 You can also localize all elements on this page. Once you’ve configured a “default” set of customization elements, you can configure additional versions for different locales. You can also mix and match various elements. For example, you can:
 
 - Create a “default” Large Illustration that works for all cultures, then create specific versions for English and French. Users with browsers set to one of these two languages will see the specific image, while everyone else will see the default one.
 - Configure different logos for your organization (e.g. Japanese or Hebrew versions).
 
-### How will the illustration appear after the browser has been resized?
 
-During a browser window resizing, the large Illustration, like the one shown previously, will almost always be cropped to accommodate different screen aspect ratios. With this in mind, you should try to keep the key visual elements in the illustration so that they will always show in the top-left corner (top-right for right-to-left languages). This is important because resizing typically occurs from the bottom-right corner going towards the top/left or from the bottom towards the top.
-
-The following picture shows how the illustration will be cropped when the browser is resized to the left:
-
-![][6]
-
-And here is how it will appear after the browser is resized toward the top:
-
-![][7]
 
 ## Access panel page customization
 
-The Access Panel page is essentially a portal page for all end users that need quick access, via clickable application tiles, to the various cloud apps that you’ve granted them access to. If you want to use the default non-branded Access Panel page experience, you need do nothing.
+The Access Panel page is essentially a portal page for all end users that need quick access, via clickable application tiles, to the various cloud apps that you’ve granted them access to. 
 
-### What will my end users see after I have customized the Access Panel page?
+The following screenshot shows an example of an access panel page after customization.
 
 ![][8]
 
 ## Configure your directory with company branding
 
-One default set of customizable elements can be configured per directory in the Management Portal. After defaults have been saved, an administrator also has the option to add localized versions of each element, for different languages/locales. All customizable elements are optional.
+One default set of customizable elements can be configured per directory in the Azure classic portal. After defaults have been saved, an administrator also has the option to add localized versions of each element, for different languages/locales. All customizable elements are optional.
 
-For example, if you configure a default Banner Logo but no Large Illustration, the Sign In page will display your logo in the upper-right corner, however the site’s default illustration will be displayed. If you configure a default Banner Logo and Sign In Page Text in English, and configure language-specific Sign In Page Text for German, then users with a German language preference will see your default Banner Logo but the German text. While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
+For example, if you configure a default Banner Logo but no Large Illustration, the sign-in page will display your logo in the upper-right corner, however the site’s default illustration will be displayed. If you configure a default Banner Logo and sign-in Page Text in English, and configure language-specific sign-in Page Text for German, then users with a German language preference will see your default Banner Logo but the German text. While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
 
-To add company branding to your directory:
+**To add company branding to your directory, perform the following steps:**
 
-1. Sign into the [Azure Management Portal](https://manage.windowsazure.com) as the administrator of the directory you wish to customize.
-2. Select the directory you wish to customize.
-3. Select the **Configure** tab, and then select **Customize Branding**.
-4. Modify the elements you wish to customize. Note that all fields are optional.
+1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
+2. Select the directory you want to customize.
+3. In the toolbar on the top, click **Configure**.
+4. Click **Customize Branding**.
+4. Modify the elements you want to customize. Note that all fields are optional.
 5. Click **Save**.
 
-It can take up to an hour for users to see any new change you made to the sign in page branding.
+It can take up to an hour for users to see any new change you made to the sign-in page branding.
 
-To add language-specific company branding:
+**To add language-specific company branding, perform the following steps:**
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), under the **Configure** tab, select **Customize Branding**.
-2. Select **Add branding for a specific language**, select the language you want to customize the logo for, and then click **Next**.
-3. Edit only the elements for which you wish to configure language-specific overrides. Note that all fields are optional. If a field is left blank, then the custom default value will be displayed instead (or the Microsoft default if a custom default is not configured).
+1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
+2. Select the directory you want to customize.
+3. In the toolbar on the top, click **Configure**.
+4. Click **Customize Branding**.
+2. Click **Add branding for a specific language**.
+3. Select the language you want to customize the logo for, and then click **Next**.
+3. Edit only the elements for which you want to configure language-specific overrides. Note that all fields are optional. If a field is left blank, then the custom default value will be displayed instead (or the Microsoft default if a custom default is not configured).
 4. Click **Save**.
 
-To remove company branding from your directory
+**To remove company branding from your directory, perform the following steps:**
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), under the **Configure** tab, select **Customize Branding**.
-2. On the Customize Branding page, select **Edit Existing Branding Settings** and then go to the next page.
+1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
+2. Select the directory you want to customize.
+3. In the toolbar on the top, click **Configure**.
+4. Click **Customize Branding**.
+5. On the Customize Branding page, select **Edit Existing Branding Settings** and then go to the next page.
 3. Depending on which elements you want to remove, do one or more of the following:
-	1. For Banner Logo, click on the check box to **Remove uploaded logo**.
-    2. For Tile Logo, click on the check box to **Remove uploaded logo**.
-    3. For Sign In Page User Name Label, clear all text.
-    4. For Sign In Page Text, clear all text.
-    5. For Sign In Page Illustration, click on the check box to **Remove illustration**.
-    6. For Sign In Page Background Color, clear all text.
+
+	a. Under **Banner Logo**, select **Remove uploaded logo**.
+
+    b. Under **Tile Logo**, select **Remove uploaded logo**.
+
+    c. Remove the text from all textboxes.
+
+    d. Click **Next**.
+
+    e. Remove the text from all textboxes.
+
 4. Click **Save** to remove the elements.
 5. If necessary, click **Customize Branding** again and repeat these steps for all language-specific branding that needs to be removed.
     All branding settings have been removed when you click **Customize Branding** and see the **Customize Default Branding** form with no existing settings configured.
@@ -172,7 +184,7 @@ Sign In Page Illustration | The illustration is a large image that is displayed 
 Sign In Page Background Color | The Sign In page background color is used in the area to the left of the Sign In page form. This is visible either when there is no Sign In page illustration present. | Must be a RGB color in hexadecimal form (example: #FFFFFF) | <p>The background color may be shown in place of the Large Illustration on low bandwidth connections</p><p>We suggest to pick the primary color of the Banner Logo</p>
 
 
-## What's next
+## Next Steps
 
 - [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [View your access and usage reports](active-directory-view-access-usage-reports.md)

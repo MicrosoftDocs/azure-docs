@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Microsoft Cloud Services and Network Security
@@ -36,7 +36,7 @@ Examples for adding VNet to VNet connections, high availability, and service cha
 Microsoft has taken a leadership position supporting compliance initiatives required by enterprise customers. The following are some of the compliance certifications for Azure:
 ![Azure Compliance Badges][1]
 
-More details can be found at: [http://azure.microsoft.com/support/trust-center/compliance/](http://azure.microsoft.com/support/trust-center/compliance/)
+More details can be found at: [http://azure.microsoft.com/support/trust-center/compliance/](https://azure.microsoft.com/support/trust-center/compliance/)
 
 Microsoft has a comprehensive approach to protect cloud infrastructure needed to run hyper-scale global services. Microsoft cloud infrastructure includes hardware, software, networks, administrative and operations staff, as well as the physical data centers.
 
@@ -315,7 +315,13 @@ Once the routing tables are created they are bound to their subnets. For the Fro
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE] There are current limitations with UDR and hybrid networks. This is being resolved in a future release, examples of how to enable your DMZ with ExpressRoute or Site-to-Site networking are discussed below in Examples 3 and 4.
+>[AZURE.NOTE] There are certain restrictions when using User Defined Routing (UDR) with ExpressRoute due to the complexity of dynamic routing used in the Azure Virtual Gateway. These are listed below:
+>
+> 1. UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure Virtual Gateway is connected.
+> 2. The ExpressRoute linked Azure Virtual Gateway cannot be the NextHop device for other UDR bound subnets.
+>
+>The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release, examples of how to enable your DMZ with ExpressRoute or Site-to-Site networking are discussed below in Examples 3 and 4.
+
 
 #### IP Forwarding Description
 A companion feature to UDR, is IP Forwarding. This is a setting on a Virtual Appliance that allows it to receive traffic not specifically addressed to the appliance and then forward that traffic to its ultimate destination.
@@ -336,7 +342,7 @@ On the firewall, forwarding rules will need to be created. Since the firewall is
  
 ![Logical View of the Firewall Rules][10]
 
->[AZURE.NOTE] Based on the Network Virtual Appliance used, the management ports will vary. In this example a Barracuda NG Firewall is referenced which uses ports 22, 801, and 807. Please consult the appliance vendor documentation to find the exact ports used for management of the device being used.
+>[AZURE.NOTE] Based on the Network Virtual Appliance used, the management ports will vary. In this example a Barracuda NextGen Firewall is referenced which uses ports 22, 801, and 807. Please consult the appliance vendor documentation to find the exact ports used for management of the device being used.
 
 #### Firewall Rules Description
 In the logical diagram above, the security subnet is not shown since the firewall is the only resource on that subnet, and this diagram is showing the firewall rules and how they logically allow or deny traffic flows and not the actual routed path. Also, the external ports selected for the RDP traffic are higher ranged ports (8014 – 8026) and were selected to somewhat align with the last two octets of the local IP address for easier readability (e.g. local server address 10.0.1.4 is associated with external port 8014), however any higher non-conflicting ports could be used.
@@ -444,9 +450,15 @@ Hybrid networking using an ExpressRoute private peering connection can be added 
 
 As shown in the figure above, ExpressRoute private peering provides a direct connection between your on-premise network and the Azure Virtual Network. Traffic transits only the service provider network and the Microsoft/Azure network, never touching the internet.
 
->[AZURE.NOTE] There is a limitation using User Defined Routing (UDR) and ExpressRoute due to the complexity of dynamic routing used on the Azure Virtual Gateway. Subnets communicating to the Azure Gateway providing the ExpressRoute connection should not have UDR applied. Also, the Azure Gateway cannot be the NextHop device for other UDR bound subnets. The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release.
+>[AZURE.NOTE] There are certain restrictions when using User Defined Routing (UDR) with ExpressRoute due to the complexity of dynamic routing used in the Azure Virtual Gateway. These are listed below:
+>
+> 1. UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure Virtual Gateway is connected.
+> 2. The ExpressRoute linked Azure Virtual Gateway cannot be the NextHop device for other UDR bound subnets.
+>
+>The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release.
 
-</br>
+<br />
+
 >[AZURE.TIP] Using ExpressRoute keeps corporate network traffic off of the internet for better security, significantly increased performance, and allows for SLAs from your ExpressRoute provider. As it relates to ExpressRoute performance, the Azure Gateway can pass up to 2Gbps with ExpressRoute, whereas with Site-to-Site VPNs the Azure Gateway maximum throughput is 200Mbps.
 
 As seen in the diagram below, with this option the environment now has two network edges, the NVA and NSG control traffic flows for intra-Azure networks and between Azure and the internet, while the gateway is a completely separate and isolated network edge between on-premise and Azure.

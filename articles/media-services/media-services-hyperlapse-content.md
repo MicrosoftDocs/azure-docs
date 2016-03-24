@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/19/2015"   
+	ms.date="03/08/2016"   
 	ms.author="adsolank"/>
 
 
@@ -28,7 +28,7 @@ Azure Media Hyperlapse is a Media Processor (MP) that creates smooth time-lapsed
 
 An Azure Media Hyperlapse job takes as input an MP4, MOV, or WMV asset file along with a configuration file that specifies which frames of video should be time-lapsed and to what speed (e.g. first 10,000 frames at 2x).  The output is a stabilized and time-lapsed rendition of the input video.
 
-For the latest Azure Media Hyperlapse updates, see [Media Services blogs](http://azure.microsoft.com/blog/topics/media-services/).
+For the latest Azure Media Hyperlapse updates, see [Media Services blogs](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## Hyperlapse an asset
 
@@ -203,13 +203,14 @@ The following method uploads a media file as an asset and creates a job with the
 
 
 
+##Media Services learning paths
 
-## Media Services learning paths
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-You can view AMS learning paths here:
+##Provide feedback
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 

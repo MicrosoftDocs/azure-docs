@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Application Insights in a Java web project | Microsoft Azure"
-	description="Monitor performance and usage of your Java website with Application Insights"
+	pageTitle="Java web app analytics with Application Insights | Microsoft Azure"
+	description="Monitor performance and usage of your Java website with Application Insights. "
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="03/02/2016"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -30,7 +30,7 @@ Application Insights supports Java apps running on Linux, Unix or Windows.
 You'll need:
 
 * Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
-* A subscription to [Microsoft Azure](http://azure.microsoft.com/). (You could start with the [free trial](http://azure.microsoft.com/pricing/free-trial/).)
+* A subscription to [Microsoft Azure](https://azure.microsoft.com/). (You could start with the [free trial](https://azure.microsoft.com/pricing/free-trial/).)
 
 *If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
 
@@ -52,7 +52,7 @@ You'll need:
 
 *Choose the appropriate way for your project.*
 
-#### If you're creating a Dynamic Web project in Eclipse...
+#### If you're using Eclipse to create a Maven or Dynamic Web project ...
 
 Use the [Application Insights SDK for Java plug-in][eclipse].
 
@@ -80,7 +80,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
     </dependencies>
 
 
-* *Build or checksum validation errors?* Try using a specific version, such as: `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors?* Try using a specific version, such as: `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Need to update to a new SDK?* Refresh your project's dependencies.
 
 #### If you're using Gradle...
@@ -98,7 +98,7 @@ Then refresh the project dependencies to get the binaries downloaded.
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).*
+* *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -117,8 +117,8 @@ Manually add the SDK:
  * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this if you don't want this telemetry automatically collected. For example, if you want to write your own.
 
 * *To update the SDK when we publish changes*
- * Download the latest [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) and replace the old ones.
- * Changes are described in the [SDK release notes](app-insights-release-notes-java.md).
+ * Download the latest [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) and replace the old ones.
+ * Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 
@@ -267,7 +267,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 Unhandled exceptions are automatically collected:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![Scroll down and click the Failures tile](./media/app-insights-java-get-started/21-exceptions.png)
 
 To collect data on other exceptions, you have two options:
 
@@ -364,11 +364,13 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 
 ## Availability web tests
 
-Application Insights can test your website at regular intervals to check that it's up and responding well. To set up, click through the empty web tests chart on the overview blade, and provide your public URL. 
+Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], scroll down to click Availability.
+
+![Scroll down, click Availability, then Add Web test](./media/app-insights-java-get-started/31-config-web-test.png)
 
 You'll get charts of response times, plus email notifications if your site goes down.
 
-![Web test example](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![Web test example](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Learn more about availability web tests.][availability] 
 

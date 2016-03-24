@@ -12,40 +12,36 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="03/07/2016"
    ms.author="larryfr"/>
 
 
 # Apache Storm tutorial: Get started with the Storm Starter samples for big data analytics on HDInsight
 
-Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Microsoft Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
-
-[AZURE.INCLUDE [preview portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Apache Storm Tutorial: Get started with the Storm Starter samples for big data analytics on HDInsight](hdinsight-apache-storm-tutorial-get-started-v1.md)
-
-   
+Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Microsoft Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time. 
 
 > [AZURE.NOTE] The steps in this article create a Windows-based HDInsight cluster. For steps to create a Linux-based Storm on HDInsight cluster, see [Apache Storm tutorial: Get started with the Storm Starter sample using data analytics on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
-## Prerequisites
+## Before you begin
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 You must have the following to successfully complete this Apache Storm tutorial:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Create a Storm cluster
 
 Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster. Use the following steps to create an Azure storage account for use with your cluster:
 
-1. Sign in to the [Azure preview portal][preview-portal].
+1. Sign in to the [Azure Portal][preview-portal].
 
 2. Select **NEW**, select __Data Analytics__, and then select __HDInsight__.
 
-	![Create a new cluster in the Azure preview portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
+	![Create a new cluster in the Azure Portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
 3. Enter a __Cluster Name__, and then select __Storm__ for the __Cluster Type__. A green check appears beside the __Cluster Name__ if it is available.
 
@@ -208,6 +204,10 @@ The Storm UI can be used to monitor the topology.
 ### Stop the topology
 
 Return to the **Topology summary** page for the word-count topology, and then select **Kill** from the **Topology actions** section. When prompted, enter 10 for the seconds to wait before stopping the topology. After the timeout period, the topology no longer appears when you visit the **Storm UI** section of the dashboard.
+
+##Delete the cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Summary
 

@@ -3,9 +3,9 @@
 	description="Learn how to take an existing WordPress web app created through the gallery in Azure and convert it to WordPress Multisite" 
 	services="app-service\web" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
-	ms.author="tomfitz"/>
+	ms.date="01/12/2016" 
+	ms.author="robmcm"/>
 
 
 
@@ -54,7 +54,7 @@ Log in to the *wp-admin* area of your web app and you should see a new item unde
 
 ![Network Setup Screen][wordpress-network-setup]
 
-This tutorial uses the *Sub-directories* site schema because it should always work, and we will be setting up custom domains for each subsite later in the tutorial. However, it should be possible to setup a subdomain install if you map a domain through the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) and setup wildcard DNS properly.
+This tutorial uses the *Sub-directories* site schema because it should always work, and we will be setting up custom domains for each subsite later in the tutorial. However, it should be possible to setup a subdomain install if you map a domain through the [Azure Portal](https://portal.azure.com) and setup wildcard DNS properly.
 
 For more information on sub-domain vs sub-directory setups see the [Types of multisite network][wordpress-codex-types-of-networks] article on the WordPress Codex.
 
@@ -79,7 +79,7 @@ The [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] 
 The **Free** [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan mode does not support adding custom domains to Web Apps. You will need to switch to **Shared** or **Standard** mode. To do this:
 
 * Log in to the Azure Portal and locate your web app. 
-* Click on the **Scale** tab in the main content area
+* Click on the **Scale up** tab in **Settings**.
 * Under **General**, select either *SHARED* or *STANDARD*
 * Click **Save**
 
@@ -138,7 +138,6 @@ Azure Web Apps allow you to add an unlimited number of domains to a web app. To 
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -43,13 +43,10 @@ Note that the reserved units are the same for Encoding and Indexing tasks.
 
 For more information, see [Managing Media Services Assets across Multiple Storage Accounts](https://msdn.microsoft.com/library/azure/dn271889.aspx) and [Working with Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
-
-
- 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

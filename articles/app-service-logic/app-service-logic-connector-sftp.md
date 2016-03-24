@@ -2,7 +2,7 @@
 	pageTitle="Using the SFTP Connector in Logic Apps | Microsoft Azure App Service"
 	description="How to create and configure the SFTP Connector or API app and use it in a logic app in Azure App Service"
 	authors="anuragdalmia"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.date="03/16/2016"
 	ms.author="sameerch"/>
 
 # Get started with the SFTP Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [SFTP API](../connectors/connectors-create-api-sftp.md).
+
 Use the SFTP Connector to move data to and from an SFTP server. You can download files from or upload files or list files to and from an SFTP server.
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the SFTP Connector to your business workflow and process data as part of this workflow within a Logic App. 

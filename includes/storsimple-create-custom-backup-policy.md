@@ -1,6 +1,4 @@
-
 <!--author=SharS last changed: 9/15/15-->
-
 
 #### To create a custom backup policy
 

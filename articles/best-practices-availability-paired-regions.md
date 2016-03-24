@@ -1,26 +1,26 @@
 <properties
-	pageTitle="Improve Business Continuity with Azure Regional Pairs"
-	description="Use Regional pairs to keep applications resilient during data center failures."
-	services="multiple"
+	pageTitle="Business continuity and disaster recovery (BCDR): Azure Paired Regions | Microsoft Azure"
+	description="Azure regional pairs ensure that applications are resilient during data center failures."
+	services="site-recovery"
 	documentationCenter=""
-	authors="rboucher"
+	authors="rayne-wiselman"
 	manager="jwhit"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
-    ms.service="backup"
+    ms.service="site-recovery"
     ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/16/2015"
-    ms.author="robb"/>
+    ms.date="03/20/2016"
+    ms.author="raynew"/>
 
-# Improve Availability using Azure Regional Pairs
+# Business continuity and disaster recovery (BCDR): Azure Paired Regions
 
-## Azure paired regions explained
+## What are paired regions?
 
-Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world containing at least one Azure Region. An Azure region is an area within a geography containing one or more datacenters.
+Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography containing one or more datacenters.
 
 Each Azure region is paired with another region within the same geography (with the exception of Brazil South which is paired with a region outside its geography), together making a regional pair.
 
@@ -43,6 +43,7 @@ Figure 1 – Azure regional pair diagram
 | Brazil        | Brazil South (1) | South Central US |
 | Australia     | Australia East   | Australia Southeast|
 | US Government | US Gov Iowa      | US Gov Virginia  |
+| India         | Central India    | South India      |
 
 Table 1 - Mapping of azure regional pairs
 
@@ -50,7 +51,7 @@ Table 1 - Mapping of azure regional pairs
 
 We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies. For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions. That means that even in the rare event of a faulty update, both regions will not be affected simultaneously. Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.
 
-## Regional pair example
+## An example of paired regions
 Figure 2 below shows a hypothetical application which uses the regional pair for disaster recovery. The green numbers highlight the cross-region activities of three Azure services (Azure Compute, Storage, and Database) and how they are configured to replicate across regions. The unique benefits of deploying across paired regions are highlighted by the orange numbers.
 
 
@@ -58,19 +59,19 @@ Figure 2 below shows a hypothetical application which uses the regional pair for
 
 Figure 2 – Hypothetical Azure regional pair
 
-## Cross-region Activities
+## Cross-region activities
 As referred to in figure 2.
 
 ![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (PaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. For more information, see [Azure Business Continuity Technical Guidance](https://msdn.microsoft.com/library/azure/hh873027.aspx)
 
-![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - Geo-Redundant storage (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information,  see [Azure Storage Redundancy Options](../storage/storage-redundancy.md).
+![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - Geo-Redundant storage (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information,  see [Azure Storage Redundancy Options](storage/storage-redundancy.md).
 
 
 ![3Green](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Databases** – With Azure SQL Standard Geo-Replication, you can configure asynchronous replication of transactions to a paired region. With Premium Geo-replication, you can configure replication to any region in the world; however, we recommend you deploy these resources in a paired region for most disaster recovery scenarios. For more information, see  [Geo-Replication in Azure SQL Database](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
 ![4Green](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager (ARM)** - ARM inherently provides logical isolation of service management components across regions. This means logical failures in one region are less likely to impact another.
 
-## Benefits of a paired region
+## Benefits of paired regions
 As referred to in figure 2.  
 
 ![5Orange](./media/best-practices-availability-paired-regions/5Orange.png)

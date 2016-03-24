@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -25,7 +25,7 @@ Window functions are used to do computation within sets of rows called *windows*
 
 This tutorial/learning guide uses two sample datasets to walk you through some sample scenario where you can apply window functions. For more information, see [U-SQL reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-The window functions are catagorized into: 
+The window functions are categorized into: 
 
 - [Reporting aggregation functions](#reporting-aggregation-functions), such as SUM or AVG
 - [Ranking functions](#ranking-functions), such as DENSE_RANK, ROW_NUMBER, NTILE, and RANK
@@ -35,9 +35,9 @@ The window functions are catagorized into:
 
 - Go through the following two tutorials:
 
-    - [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+    - [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
     - [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).
-- Create a Data Lake Analytic account as instructed in [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+- Create a Data Lake Analytic account as instructed in [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Create a Visual Studio U-SQL project as instructed in [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).
 
 ## Sample datasets
@@ -198,7 +198,7 @@ Unlike GROUP BY, there are as many output rows as input rows:
 
 The value of 165000 (the total of all salaries) is placed in each output row. That total comes from the "window" of all rows, so it includes all the salaries. 
 
-The next example demonstratees how to refine the "window" to list all the employees, the deparment, and the total salary for the department. PARTITION BY is added to the OVER clouse.
+The next example demonstrates how to refine the "window" to list all the employees, the department, and the total salary for the department. PARTITION BY is added to the OVER clause.
 
     @result=
     SELECT
@@ -225,7 +225,7 @@ Again, there are the same number of input rows as output rows. However each row 
 
 
 
-## Reporting aggration functions
+## Reporting aggregation functions
 
 Window functions also support the following aggregates:
 
@@ -243,12 +243,12 @@ The syntax:
 
 Note: 
 
-- By defalt, aggregate functions, except COUNT, ignore null values.
+- By default, aggregate functions, except COUNT, ignore null values.
 - When aggregate functions are specified along with the OVER clause, the ORDER BY clause is not allowed in the OVER clause.
 
 ### Use SUM
 
-The following example adds a totale salary by department to each input row:
+The following example adds a total salary by department to each input row:
  
     @result=
         SELECT 
@@ -340,7 +340,7 @@ The following are supported ranking functions:
 	        [ORDER BY <identifier, > …[n] [ASC|DESC]] 
 	) AS <alias>
 
-- The ORDER BY clause is optional for ranking functions. If ORDERY BY is specified then it determines the order of the ranking. If ORDER BY is not specified then U-SQL assigns values based on the order it reads record. Thus resulting into non deterministic value of row number, rank or dense rank in the case were order by clause is not specified.
+- The ORDER BY clause is optional for ranking functions. If ORDER BY is specified then it determines the order of the ranking. If ORDER BY is not specified then U-SQL assigns values based on the order it reads record. Thus resulting into non deterministic value of row number, rank or dense rank in the case were order by clause is not specified.
 - NTILE requires an expression that evaluates to a positive integer. This number specifies the number of groups into which each partition must be divided. This identifier is used only with the NTILE ranking function. 
 
 For more details on the OVER clause, see [U-SQL reference]().
@@ -607,10 +607,10 @@ The results:
 There are 6 rows in the partition where partition key is “Web” (4th row and down):
 
 - There are 6 rows with the value equal or lower than 500, so the CUME_DIST equals to 6/6=1
-- There are 5 rows with the value equal or lower than 500, so the CUME_DIST equals to 5/6=0.83
-- There are 4 rows with the value equal or lower than 500, so the CUME_DIST equals to 5/6=0.66
-- There are 3 rows with the value equal or lower than 500, so the CUME_DIST equals to 3/6=0.5. There are two rows with the same latency value.
-- There are 1 rows with the value equal or lower than 500, so the CUME_DIST equals to 1/6=1. 
+- There are 5 rows with the value equal or lower than 400, so the CUME_DIST equals to 5/6=0.83
+- There are 4 rows with the value equal or lower than 300, so the CUME_DIST equals to 4/6=0.66
+- There are 3 rows with the value equal or lower than 200, so the CUME_DIST equals to 3/6=0.5. There are two rows with the same latency value.
+- There is 1 row with the value equal or lower than 100, so the CUME_DIST equals to 1/6=0.16. 
 
 
 **Usage notes:**
@@ -738,12 +738,12 @@ PERCENTILE_DISC does not interpolate values, so the median for Web is 200 - whic
 ## See also
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
 - [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-- [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
-- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
-- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
+- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -38,7 +38,7 @@ In this guide, you will use service features which can be called from within a P
 
 ## Configure your application to use Service Bus
 
-To use the Azure Service Bus queue APIs, do the following:
+To use the Service Bus queue APIs, do the following:
 
 1. Reference the autoloader file using the [require_once][require_once] statement.
 2. Reference any classes you might use.
@@ -52,7 +52,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will always be shown, but only the classes necessary for the example to execute are referenced.
 
-## Set up an Azure Service Bus connection
+## Set up a Service Bus connection
 
 To instantiate a Service Bus client, you must first have a valid connection string in this format:
 

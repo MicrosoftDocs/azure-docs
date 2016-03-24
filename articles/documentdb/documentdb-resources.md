@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/29/2016" 
 	ms.author="anhoh"/>
 
 # DocumentDB hierarchical resource model and concepts
@@ -95,7 +95,7 @@ The values of the _self and the  _rid properties are both alternate and canonica
 ## Database accounts
 You can provision one or more DocumentDB database accounts using your Azure subscription. Each Standard tier database account will be given a minimum capacity of one S1 collection.
 
-You can [create and manage DocumentDB database accounts](documentdb-create-account.md) via the Azure portal at [http://portal.azure.com/](http://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
+You can [create and manage DocumentDB database accounts](documentdb-create-account.md) via the Azure Portal at [http://portal.azure.com/](https://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
 
 ### Database account properties
 As part of provisioning and managing a database account you can configure and read the following properties:  
@@ -107,7 +107,7 @@ Primary Key and Secondary Key|These are the primary and secondary keys that prov
 MaxMediaStorageUsageInMB (READ)|Maximum amount of media storage available for the database account.
 MediaStorageUsageInMB (READ)|Current usage of media storage for the database account.
 
-Note that in addition to provisioning, configuring and managing your database account from the Azure portal, you can also programmatically create and manage DocumentDB database accounts by using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) as well as [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
+Note that in addition to provisioning, configuring and managing your database account from the Azure Portal, you can also programmatically create and manage DocumentDB database accounts by using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) as well as [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
 
 ## Databases
 A DocumentDB database is a logical container of one or more collections and users, as shown in the following diagram. You can create any number of databases under a DocumentDB database account subject to offer limits.  

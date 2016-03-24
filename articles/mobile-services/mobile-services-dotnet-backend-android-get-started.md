@@ -5,7 +5,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="10/07/2015"
+	ms.date="03/05/2016"
 	ms.author="ricksal"/>
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Create an Android app in Azure Mobile Apps](../app-service-mobile/app-service-mobile-android-get-started.md).
 
 This tutorial shows you how to add a cloud-based backend service to an Android app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version](mobile-services-android-get-started.md) of this topic.
 
@@ -31,11 +33,11 @@ A screenshot from the completed app is below:
 
 ![](./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png)
 
-Completing this tutorial requires the [Android Developer Tools][Android Studio], which includes the Android Studio integrated development environment, and the latest Android platform. Android 4.2 or a later version is required.  
+Completing this tutorial requires the [Android Developer Tools][Android Studio], which includes the Android Studio integrated development environment, and the latest Android platform. Android 4.2 or a later version is required.
 
 The downloaded quickstart project contains the Mobile Services SDK for Android.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 
 ## <a name="create-new-service"> </a>Create a new mobile service
@@ -48,7 +50,7 @@ Now that you have created the mobile service, download your personalized mobile 
 
 1. Click the mobile service that you just created, then in the quickstart tab, click **Android** under **Choose platform** and expand **Create a new Android app**.
 
-	![][1]  
+	![][1]
 
 2. If you haven't already done so, download and install [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934), or a later version.
 
@@ -68,11 +70,11 @@ Now that you have created the mobile service, download your personalized mobile 
 
 In this section you will create a new Android app that is connected to your mobile service.
 
-1. In the [Management Portal], click **Mobile Services**, and then click the mobile service that you just created.
+1. In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
 2. In the quickstart tab, click **Android** under **Choose platform** and expand **Create a new Android app**.
 
-	![][2]  
+	![][2]
 
 3. If you haven't already done so, download and install the [Android Developer Tools][Android SDK] on your local computer or virtual machine.
 
@@ -128,4 +130,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Troubleshoot a Mobile Services .NET backend]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure App Service API app triggers" 
-	description="This article demonstrates how to implement triggers in an API App" 
+	pageTitle="App Service API app triggers | Microsoft Azure" 
+	description="How to implement triggers in an API App in Azure App Service" 
 	services="app-service\logic" 
 	documentationCenter=".net" 
 	authors="guangyang"
@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="03/16/2016" 
 	ms.author="guayan"/>
 
 # Azure App Service API app triggers
+
+>[AZURE.NOTE] This version of the article applies to API apps 2014-12-01-preview schema version.
+
 
 ## Overview
 
 This article explains how to implement API app triggers and consume them from a Logic app.
 
-If you are new to [API apps](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md), we recommend reading the multi-part series on [creating API apps](app-service-dotnet-create-api-app.md)
-
-In addition, all of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
+All of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
 
 Note that you'll need to download the following nuget package for the code in this article to build and run: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 

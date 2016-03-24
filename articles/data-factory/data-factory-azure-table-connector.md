@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from Azure Table | Azure Data Factory" 
+	pageTitle="Move data to/from Azure Table | Microsoft Azure" 
 	description="Learn how to move data to/from Azure Table Storage using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Table using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data from another data store to Azure Table and move data from Azure Table to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+
+The following sample(s) show how to copy data to and from Azure Table Storage and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+
 
 ## Sample: Copy data from Azure Table to Azure Blob
 
@@ -42,6 +45,8 @@ The sample copies data belonging to the default partition in an Azure Table to a
 	    }
 	  }
 	}
+
+Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri.   See [Linked Services](#linked-services) section for details.  
 
 **Azure Table input dataset:**
 
@@ -203,6 +208,8 @@ The sample copies data belonging to a time series from Azure blob to a table in 
 	  }
 	}
 
+Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri.   See [Linked Services](#linked-services) section for details. 
+
 **Azure Blob input dataset:**
 
 Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
@@ -317,8 +324,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        ],
 	        "typeProperties": {
 	          "source": {
-	            "type": "BlobSource",
-	            "blobColumnSeparators": ","
+	            "type": "BlobSource"
 	          },
 	          "sink": {
 	            "type": "AzureTableSink",
@@ -341,14 +347,10 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-## Azure Storage Linked Service properties
+## Linked Services
+There are two types of linked services you can use to link an Azure blob storage to an Azure data factory. They are: **AzureStorage** linked service and **AzureStorageSas** linked service. The Azure Storage linked service provides the data factory with global access to the Azure Storage. Whereas, The Azure Storage SAS (Shared Access Signature) linked service provides the data factory with restricted/time-bound access to the Azure Storage. There are no other differences between these two linked services. Choose the linked service that suits your needs. The following sections provide more details on these two linked services.
 
-You can link an Azure storage account to an Azure data factory with Azure Storage linked service. The following table provides descriptions for JSON elements specific to Azure Storage linked service.
-
-| Property | Description | Required |
-| -------- | ----------- | -------- |
-| type | The type property must be set to: AzureStorage | Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. You can get the connectionString for the Azure storage from the Azure Portal. | Yes |
+[AZURE.INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Azure Table Dataset type properties
 
@@ -360,6 +362,14 @@ The typeProperties section is different for each type of dataset and provides in
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the Azure Table Database instance that linked service refers to. | Yes
 
+### Schema by Data Factory
+For schema-free data stores such as Azure Table, the Data Factory service infers the schema in one of the following ways:  
+
+1.	If you specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service honors this structure as the schema. In this case, if a row does not contain a value for a column, a null value will be provided for it.
+2.	If you do not specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service infers the schema by using the first row in the data. In this case, if the first row does not contain the full schema, some columns will be missing in the result of copy operation.
+
+Therefore, for schema-free data sources, the best practice is to specify the structure of data using the **structure** property.
+
 ## Azure Table Copy Activity type properties
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. 
@@ -370,8 +380,19 @@ Properties available in the typeProperties section of the activity on the other 
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Use the custom query to read data. | <p>Azure table query string.</p>**Examples:**<br/> "azureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\')', SliceStart)" | No
+azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples below. | No
 azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE<br/>FALSE | No |
+
+### azureTableSourceQuery examples
+
+If Azure Table column is of string type: 
+
+	azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', SliceStart)"
+
+If Azure Table column is of datetime type: 
+
+	"azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', SliceStart, SliceEnd)"
+
 
 **AzureTableSink** supports the following properties in typeProperties section:
 

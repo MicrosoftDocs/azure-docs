@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="02/09/2016"
    ms.author="mbaldwin"/>
 
 # Authentication Scenarios for Azure AD
@@ -138,7 +138,7 @@ Each scenario listed in this document includes a sub-section that describes its 
 
 ## Application Types and Scenarios
 
-Each of the scenarios described in this document can be developed using various languages and platforms, and there are [complete code samples available on GitHub](https://github.com/AzureADSamples) for each of them. In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
+Each of the scenarios described in this document can be developed using various languages and platforms. They are all backed by complete code samples which are available in our [Code Samples guide](active-directory-code-samples.md), or directly from the corresponding [Github sample repositories](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory). In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
 
 ![Application Types and scenarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -204,7 +204,7 @@ The user’s session expires when the lifetime of the token issued by Azure AD e
 ### Single Page Application (SPA)
 
 
-This section describes authentication for a single page application that uses Azure AD to secure its web API back end. Single page applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a web API back end that runs on a server and implements the application’s business logic. In this scenario, when the user signs in, the JavaScript front end uses [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) preview and the OAuth 2.0 Implicit Grant protocol to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its web API back end, which is secured using the OWIN middleware.
+This section describes authentication for a single page application that uses Azure AD to secure its web API back end. Single page applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a web API back end that runs on a server and implements the application’s business logic. In this scenario, when the user signs in, the JavaScript front end uses [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) and the OAuth 2.0 Implicit Grant protocol to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its web API back end, which is secured using the OWIN middleware.
 
 
 #### Diagram
@@ -322,9 +322,11 @@ When the native application uses its authorization code to get a JWT access toke
 ### Web Application to Web API
 
 
-This section describes a web application that needs to get resources from a web API. In this scenario, there are two identity types that the web application can use to authenticate and call the web API: an application identity, or a delegated user identity. For the application identity type, this scenario uses OAuth 2.0 client credentials grant to authenticate as the application and access the web API. When using an application identity, the web API can only detect that the web application is calling it, as the web API does not receive any information about the user. If the application receives information about the user, it will be sent via the application protocol, and it is not signed by Azure AD. The web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem.
+This section describes a web application that needs to get resources from a web API. In this scenario, there are two identity types that the web application can use to authenticate and call the web API: an application identity, or a delegated user identity.
 
-For the delegated user identity type, the scenario can be accomplished in two ways: OpenID Connect, and OAuth 2.0 authorization code grant with a confidential client. The web application obtains an access token for the user, which proves to the web API that the user successfully authenticated to the web application and that the web application was able to obtain a delegated user identity to call the web API. This access token is sent in the request to the web API, which authorizes the user and returns the desired resource.
+*Application identity:* This scenario uses OAuth 2.0 client credentials grant to authenticate as the application and access the web API. When using an application identity, the web API can only detect that the web application is calling it, as the web API does not receive any information about the user. If the application receives information about the user, it will be sent via the application protocol, and it is not signed by Azure AD. The web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem.
+
+*Delegated user identity:* This scenario can be accomplished in two ways: OpenID Connect, and OAuth 2.0 authorization code grant with a confidential client. The web application obtains an access token for the user, which proves to the web API that the user successfully authenticated to the web application and that the web application was able to obtain a delegated user identity to call the web API. This access token is sent in the request to the web API, which authorizes the user and returns the desired resource.
 
 #### Diagram
 

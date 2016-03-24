@@ -1,32 +1,82 @@
-<properties 
-	pageTitle="Define Outputs | Microsoft Azure" 
-	description="Understanding Stream Analytics Outputs" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
-	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
+<properties
+	pageTitle="Data transformation outputs: Options for storage, analysis | Microsoft Azure"
+	description="Learn about targeting Stream Analytics data transformation outputs to data storage options. Also, use Power BI for analysis results."
+	keywords="data transformation, analysis results, data storage options"
+	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="03/16/2016"
 	ms.author="jeffstok"/>
 
-# Understanding Stream Analytics outputs
+# Target Stream Analytics data transformation outputs to analysis tools and data storage options
 
-When authoring a Stream Analytics job, one consideration is how the output of the job will be consumed. How are the consumers of the data transformation viewing the results of the Stream Analytics job? What tools will they be using to analyze the output? Is data retention or warehousing a requirement?
+When authoring a Stream Analytics job, consider how the data transformation output will be consumed. How will you view the results of the Stream Analytics job? What tools you use to show data analysis results? Is a data storage option a requirement?
 
-In order to enable a variety of application patterns, Azure Stream Analytics provides seven different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Service Bus Queues, Service Bus Topics, Power BI and Table storage are all supported outputs. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.
+In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 
+## Azure Data Lake Store
 
-## SQL Database ##
+Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. At this time, creation and configuration of Data Lake Store outputs is supported only in the Azure Classic Portal. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store Preview (if needed) are discussed in the [Data Lake output article](stream-analytics-data-lake-output.md).
 
-[Azure SQL Database](http://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. The table below lists the property names and their description for creating a SQL Database output.
+The table below lists the property names and their description needed for creating a Data Lake Store output.
+
+<table>
+<tbody>
+<tr>
+<td><B>PROPERTY NAME</B></td>
+<td><B>DESCRIPTION</B></td>
+</tr>
+<tr>
+<td>Output Alias</td>
+<td>This is a friendly name used in queries to direct the query output to this Data Lake Store.</td>
+</tr>
+<tr>
+<td>Data Lake Store Account</td>
+<td>The name of the storage account where you are sending your output. You will be presented with a drop down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
+</tr>
+<tr>
+<td>Path Prefix Pattern [<I>optional</I>]</td>
+<td>The file path used to write your files within the specified Data Lake Store Account. <BR>{date}, {time}<BR>Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}</td>
+</tr>
+<tr>
+<td>Date Format [<I>optional</I>]</td>
+<td>If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD</td>
+</tr>
+<tr>
+<td>Time Format [<I>optional</I>]</td>
+<td>If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH.</td>
+</tr>
+<tr>
+<td>Event Serialization Format</td>
+<td>Serialization format for output data. JSON, CSV, and Avro are supported.</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td>If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.</td>
+</tr>
+<tr>
+<td>Delimiter</td>
+<td>Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects.</td>
+</tr>
+</tbody>
+</table>
+
+## SQL Database
+
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well (this is a preview feature). The table below lists the property names and their description for creating a SQL Database output.
 
 | Property Name | Description |
 |---------------|-------------|
@@ -37,9 +87,9 @@ In order to enable a variety of application patterns, Azure Stream Analytics pro
 | Password | The password to connect to the database |
 | Table | The table name where the output will be written. The table name is case sensitive and the schema of this table should match exactly to the number of fields and their types being generated by your job output. |
 
-## Blob Storage ##
+## Blob storage
 
-Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud.  For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](./articles/storage-dotnet-how-to-use-blobs.md).
+Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud.  For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](../storage/storage-dotnet-how-to-use-blobs.md).
 
 The table below lists the property names and their description for creating a blob output.
 
@@ -114,11 +164,12 @@ There are a few parameters that are needed to configure Event Hub data streams a
 | Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time |
 | Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 | Format | Only applicable for JSON type. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
+
 ## Power BI
 
-[Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting.
+[Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. This capability can be used for operational dashboards, report generation and metric driven reporting.
 
-> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is not supported in the Azure Preview Portal.
+> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is supported only in the Azure Classic Portal.
 
 ### Authorize a Power BI account
 
@@ -143,6 +194,8 @@ Once you have the Power BI account authenticated, you can configure the properti
 | Table Name | Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset |
 | Group Name | To enabling sharing data with other Power BI users, write data to groups.  You can select groups inside your Power BI account or choose “My Workspace” if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
 
+For a walk-through of configuring a Power BI output and dashboard, please see the [Azure Stream Analytics & Power BI](stream-analytics-power-bi-dashboard.md) article.
+
 > [AZURE.NOTE] Do not explicitly create the dataset and table in the Power BI dashboard. The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t generate any results, the dataset and table will not be created. Also be aware that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data will be overwritten.
 
 ### Renew Power BI Authorization
@@ -157,7 +210,7 @@ To resolve this issue, stop your running job and go to your Power BI output.  Cl
 
 ## Table Storage
 
-[Azure Table storage](./articles/storage-introduction.md)  offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
+[Azure Table storage](../storage/storage-introduction.md)  offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 
 The table below lists the property names and their description for creating a table output.
 
@@ -208,7 +261,7 @@ The table below lists the property names and their description for creating a ta
 
 ## DocumentDB
 
-[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
 
 The table below lists the property names and their description for creating a DocumentDB output.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="02/29/2016"
 	ms.author="larryfr"/>
 
 # Install and use R on HDInsight Hadoop clusters
@@ -48,7 +48,7 @@ Additionally, the following R packages are installed:
 | [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | R and C++ integration. |
 | [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | Serialize/deserialize R objects to JSON |
 | [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | Functions for bitwise operations on integer vectors. |
-| [digest](Create Cryptographic Hash Digests of R Objects) | Create Cryptographic Hash Digests of R Objects. |
+| [digest](https://cran.r-project.org/web/packages/digest/index.html) | Create Cryptographic Hash Digests of R Objects. |
 | [functional](https://cran.r-project.org/web/packages/functional/index.html) | Curry, Compose, and other higher-order functions |
 | [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | Flexibly restructure and aggregate data. |
 | [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | Simple, Consistent Wrappers for Common String Operations. |
@@ -58,9 +58,12 @@ Additionally, the following R packages are installed:
 
 ## Install R using Script Actions
 
-The [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh) script action is used to install R on an HDInsight cluster. This section provides instructions about how to use the script when provisioning the cluster using the Azure portal.
+The following script action is used to install R on an HDInsight cluster. 
+    https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+    
+This section provides instructions about how to use the script when creating a new cluster using the Azure portal. 
 
-> [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Azure PowerShell, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
 
@@ -135,15 +138,10 @@ After the cluster has finished provisioning, use the following steps to use R to
 
 - [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
 
-- [Install and use Spark on HDInsight clusters][hdinsight-install-spark] for  instructions about how to use cluster customization to install and use Spark on HDInsight Hadoop clusters. Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications.
+- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
 
-- [Install Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
-
-- [Install Solr on HDInsight clusters](../hdinsight-hadoop-solr-install). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
 
 - [Install Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Use cluster customization to install Hue on HDInsight Hadoop clusters. Hue is a set of Web applications used to interact with a Hadoop cluster.
 
-[powershell-install-configure]: install-configure-powershell-linux.md
-[hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md

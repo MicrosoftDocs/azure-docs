@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="03/23/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Migrate your schema to SQL Data Warehouse#
 
@@ -65,7 +65,7 @@ SQL Data Warehouse supports the common business data types:
 
 You can use this query to identify columns in your data warehouse that contain incompatible types:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -115,7 +115,7 @@ Instead of:
 - **table**, convert to temporary tables
 - **timestamp**, re-work code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use binary(8) or varbinary(8) for NOT NULL or NULL row version values.
 - **varchar(max)**, use varchar(8000) or smaller for better performance
-- **uniqueidentifier**, use varbinary(8)
+- **uniqueidentifier**, use varbinary(16) or varchar(36) depending on the input format (binary or character) of your values. If the input format is character-based an optimization is possible. By converting from character to binary format, you can reduce the column storage by over 50%. In very large tables this optimization can be beneficial.
 - **user defined types**, convert back to their native types where possible
 - **xml**, use a varchar(8000) or smaller for better performance. Split across columns if needed
 

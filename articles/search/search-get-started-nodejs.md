@@ -3,8 +3,8 @@
 	description="Walk through building a search application on a hosted cloud search service on Azure using NodeJS as your programming language."
 	services="search"
 	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
+	authors="EvanBoyle"
+	manager="pablocas"
 	editor="v-lincan"/>
 
 <tags
@@ -13,18 +13,19 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
-	ms.author="heidist"/>
+	ms.date="03/08/2016"
+	ms.author="evboyle"/>
 
 # Get started with Azure Search in NodeJS
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 Learn how to build a custom NodeJS search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
 We used [NodeJS](https://nodejs.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
 
-To run this sample, you need an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com).
-
-> [AZURE.TIP] Download the source code for this tutorial at [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
+To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
 ## About the data
 
@@ -32,49 +33,22 @@ This sample application uses data from the [United States Geological Services (U
 
 In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection  information to the online data source is provided in the program code. No further configuration is necessary.
 
-> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Search service limits](search-limits-quotas-capacity.md).
 
-## Create the service
-
-1. Sign in to [Azure portal](https://portal.azure.com).
-
-2. In the Jumpbar, click **New** > **Data + Storage** > **Search**.
-
-     ![][1]
-
-3. Configure the service name, pricing tier, resource group, subscription and location. These settings are required and cannot be changed once the service is provisioned.
-
-     ![][2]
-
-	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
-
-	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
-
-		- **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
-		- **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about fifteen minutes.
-
-	- **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
-
-	- **Subscription** allows you to choose among multiple subscriptions, if you have more than one subscription.
-
-	- **Location** is the data center region. Currently, all resources must run in the same data center. Distributing resources across multiple data centers is not supported.
-
-4. Click **Create** to provision the service.
-
-Watch for notifications in the Jumpbar. A notice appears when the service is ready to use.
 
 <a id="sub-2"></a>
 ## Find the service name and api-key of your Azure Search service
 
 After you create the service, return to the portal to get the URL or `api-key`. Connections to your Search service require that you have both the URL and an `api-key` to authenticate the call.
 
-1. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard.
-
-2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+3. Select the service you want to use.
+4. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
   	![][3]
 
-3. Copy the service URL, an admin key, and a query key. You'll need all three later, when you add them to the config.js file.
+5. Copy the service URL, an admin key, and a query key. You'll need all three later, when you add them to the config.js file.
 
 ## Download the sample files
 
@@ -138,7 +112,7 @@ This is the first Azure Search tutorial based on NodeJS and the USGS dataset. Ov
 
 If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
 
 <!--Image references-->
 [1]: ./media/search-get-started-nodejs/create-search-portal-1.PNG

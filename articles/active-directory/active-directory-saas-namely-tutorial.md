@@ -3,8 +3,8 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and Namely."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="02/10/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Namely
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Namely with Azure
 
 - You can control in Azure AD who has access to Namely 
 - You can enable your users to automatically get signed-on to Namely (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ To configure the integration of Namely into Azure AD, you need to add Namely fro
 
 **To add Namely from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -72,6 +72,7 @@ To configure the integration of Namely into Azure AD, you need to add Namely fro
 ![Creating an Azure AD test user](./media/active-directory-saas-namely-tutorial/tutorial_namely_01.png)<br>
 7. In the results pane, select **Namely**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-namely-tutorial/tutorial_namely_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Namely based on a test user called "Britta Simon".
@@ -83,20 +84,20 @@ To configure and test Azure AD single sign-on with Namely, you need to complete 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Namely test user](##creating-a-namely-test-user)** - to have a counterpart of Britta Simon in Namely that is linked to the Azure AD representation of her.
+4. **[Creating a Namely test user](#creating-a-namely-test-user)** - to have a counterpart of Britta Simon in Namely that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Namely application. 
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Namely application. 
 
 
 
 
 **To configure Azure AD single sign-on with Namely, perform the following steps:**
 
-1. In the Azure AD portal, on the **Namely** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure classic portal, on the **Namely** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Namely** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -136,14 +137,14 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. Click **Enable SAML**. 
 
-    b. In the Azure portal, on the **Configure single sign-on at Namely** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity provider DDO url** textbox. 
+    b. In the Azure classic portal, on the **Configure single sign-on at Namely** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity provider DDO url** textbox. 
 
     c. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Identity provider certificate** textbox.    
 
     d. Click **Save**.
 
 
-6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. 
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
 <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
@@ -153,12 +154,12 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br>
 In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Creating an Azure AD test user](./media/active-directory-saas-namely-tutorial/create_aaduser_09.png) <br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -226,7 +227,7 @@ The objective of this section is to create a user called Britta Simon in Namely.
 
     b. In the **Last name** textbox, type **Simon**.
 
-    c. In the **Email** textbox, type Britta's email address in the Azure portal.
+    c. In the **Email** textbox, type Britta's email address in the Azure classic portal.
 
     d. Click **Save**.
 
@@ -241,7 +242,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 **To assign Britta Simon to Namely, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **Namely**.

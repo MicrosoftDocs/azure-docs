@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -67,6 +67,8 @@ The granularities available depend on the time range you select. The explicit gr
 ## Metrics Explorer
 
 Click through any chart on the overview blade to see a more detailed set of related charts and grids. You can edit these charts and grids to focus on the details you're interested in.
+
+Or you can just click the Metrics Explorer button in the head of the overview blade.
 
 For example, click through the web app's Failed Requests chart:
 
@@ -192,11 +194,11 @@ What you see is what gets exported. Change the time range or filters if you want
 
 ### Continuous Export
 
-If you want data continuously exported so that you can process it externally, consider using [Continous export](app-insights-export-telemetry.md).
+If you want data continuously exported so that you can process it externally, consider using [Continuous export](app-insights-export-telemetry.md).
 
 ### Power BI
 
-If you want even richer views of your data, you can [export to Power BI](app-insights-export-power-bi.md).
+If you want even richer views of your data, you can [export to Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Next steps
 

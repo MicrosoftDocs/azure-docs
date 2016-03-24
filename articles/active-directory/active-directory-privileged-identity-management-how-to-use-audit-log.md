@@ -1,35 +1,34 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: How To Use the Audit Log"
+   pageTitle="How to use the audit log | Microsoft Azure"
    description="Learn how to use the audit log in the Azure Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="03/17/2016"
+   ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: How To Use the Audit Log
+# Azure AD Privileged Identity Management: How to use the audit log
 
-## Using the Audit Log
-You can use the Privileged Identity Management audio log to see all of the user assignments and activations within a given time period.
+You can use the Privileged Identity Management (PIM) audit log to see all of the user assignments and activations within a given time period.
 
-## Navigating to the Audit Log
-You can access the audit log by clicking Audit history in the PIM dashboard.
+## Navigating to the audit log
+You can access the audit log by clicking **Audit history** in the PIM dashboard.
 
-## The Audit Log Graph
-You can use the audit log view the total activations, max activations per day, and average activations per day in a line graph.  You can also filter the data by role if there is more than one role in the audit history.
+## The audit log graph
+You can use the audit log to view the total activations, max activations per day, and average activations per day in a line graph.  You can also filter the data by role if there is more than one role in the audit history.
 
-Sort by time, action, or role using the **time**, **action** or **role** buttons.
+Sort by time, action, or role using the **time**, **action**, or **role** buttons.
 
-## The Audit Log List
+## The audit log list
 The columns in the audit log list are:
 
 - **Requestor** - who requested the role activation.
@@ -40,7 +39,7 @@ The columns in the audit log list are:
 - **Reasoning** - if any text was entered into the reason field during activation, it will show up here.
 - **Expiration** - if the expiration year is 9999 then the user has the role permanently.
 
-## Filtering the Audit Log
+## Filtering the audit log
 
 You can also filter the information that shows up in the audit log by clicking the **Filter** button.  The **Update chart parameters blade** will appear.
 
@@ -52,7 +51,7 @@ When you choose the **Custom** button, you will be given a **From** date field a
 
 Check or uncheck the **Role** checkbox next to each role you want included or excluded from the log.
 
-Once you have all the filters for the audit log set, click update to filter the data in the log.  If the data doesn't appear right away, click the **Refresh** button.
+Once you have all the filters for the audit log set, click update to filter the data in the log.  If the data doesn't appear right away, refresh the page.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps

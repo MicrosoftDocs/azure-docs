@@ -3,9 +3,9 @@
 	description="Learn how to use the Azure blob service to upload, list, download, and delete blobs. Code samples are written in PHP."
 	documentationCenter="php"
 	services="storage"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="tomfitz"/>
+	ms.date="02/17/2016"
+	ms.author="robmcm"/>
 
 # How to use blob storage from PHP
 
@@ -42,7 +42,7 @@ In this guide, you use service features, which can be called within a PHP applic
 
 To use the Azure blob service APIs, you need to:
 
-1. Reference the autoloader file using the [require_once][require_once] statement, and
+1. Reference the autoloader file using the [require_once] statement, and
 2. Reference any classes you might use.
 
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
@@ -290,16 +290,15 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 
 Now that you've learned the basics of the Azure blob service, follow these links to learn about more complex storage tasks.
 
-- See the MSDN reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visit the [Azure Storage team blog](http://blogs.msdn.com/b/windowsazurestorage/)
-- See the PHP block blob example at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
-- See the PHP page blob example at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
-
+- See the [PHP block blob example](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
+- See the [PHP page blob example](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
+- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+ 
 For more information, see also the [PHP Developer Center](/develop/php/).
 
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents

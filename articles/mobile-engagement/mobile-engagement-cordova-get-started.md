@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for Cordova/Phonegap
@@ -64,7 +64,7 @@ We will create a basic app with Cordova to demonstrate the integration:
 		$ cordova platform add ios 
 		$ cordova run ios
 
-3. Execute the following to configure your project for **Android** and run it in the Android emulator:
+3. Execute the following to configure your project for **Android** and run it in the Android emulator. Make sure that your Android SDK Emulator settings have its Target as Google APIs (Google Inc.) with the CPU / ABI as Google APIs ARM.  
 
 		$ cordova platform add android
 		$ cordova run android
@@ -231,7 +231,7 @@ We will now create a simple Push Notification campaign that will send a push to 
 [Overview of all methods available with Cordova Mobile Engagement SDK](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://go.microsoft.com/?linkid=9864553
+[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 

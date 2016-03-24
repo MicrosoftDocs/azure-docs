@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight article index for Azure portal | Microsoft Azure"
-   description="An index page with links to articles about HDInsight on the Azure portal. Microsoft recommends the Azure preview portal for new Hadoop clusters on HDInsight."
+   pageTitle="HDInsight article index for Azure Classic Portal | Microsoft Azure"
+   description="An index page with links to articles about HDInsight on the Azure Classic Portal. Microsoft recommends the Azure Portal for new Hadoop clusters on HDInsight."
    services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
@@ -16,25 +16,25 @@
    ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
-# HDInsight article index for the Azure portal
+# HDInsight article index for the Azure Classic Portal
 
-Use this index page to find articles covering HDInsight on the [Azure portal](https://manage.windowsazure.com/). Azure HDInsight is a cloud distribution of open-source Hadoop and the Hortonworks Data Platform.
+Use this index page to find articles covering HDInsight on the [Azure Classic Portal](https://manage.windowsazure.com/). Azure HDInsight is a cloud distribution of open-source Hadoop and the Hortonworks Data Platform.
 
 
-> [AZURE.IMPORTANT]  This documentation index page is for customers who already have solutions deployed to the current Azure portal.
+> [AZURE.IMPORTANT]  This documentation index page is for customers who already have solutions deployed to the current Azure Classic Portal.
 >
-> Microsoft recommends using the **Azure preview portal** for new HDInsight clusters:
+> Microsoft recommends using the **Azure Portal** for new HDInsight clusters:
 >
-> * [Go to HDInsight preview portal documentation](/documentation/services/hdinsight/)
-> * [Go to the Azure preview portal](https://portal.azure.com/)
+> * [Go to HDInsight Portal documentation](/documentation/services/hdinsight/)
+> * [Go to the Azure Portal](https://portal.azure.com/)
 >
-> For an explanation of the advantages of the preview portal, see [DevOps just got a whole lot more awesome](/overview/preview-portal/).
+> For an explanation of the advantages of the Portal, see [DevOps just got a whole lot more awesome](/overview/preview-portal/).
 >
-> HDInsight on the Azure portal will not receive upgrades after July 2015 and is replaced by the Azure preview portal.
+> HDInsight on the Azure Classic Portal will not receive upgrades after July 2015 and is replaced by the Azure Portal.
 
 ## Get started
 
-If you're new to Hadoop on HDInsight, go to the [HDInsight documentation page](/documentation/services/hdinsight/) to get started with the Azure preview portal.
+If you're new to Hadoop on HDInsight, go to the [HDInsight documentation page](/documentation/services/hdinsight/) to get started with the Azure Portal.
 
 ## Linux
 
@@ -58,10 +58,9 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 * [Serialize data in Hadoop with the Microsoft Avro Library](hdinsight-dotnet-avro-serialization.md)
 * [Process and analyze JSON documents using Hive](hdinsight-using-json-in-hive.md)
 * [Use Python with Hive and Pig](hdinsight-python.md)
-* [Optimize Hive queries for Hadoop](hdinsight-hadoop-optimize-hive-query–v1.md)
+* [Optimize Hive queries for Hadoop](hdinsight-hadoop-optimize-hive-query.md)
 * [Run Pig jobs using the .NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md )
 * [Use C# user-defined functions with Hive and Pig streaming](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Develop C# Hadoop streaming programs](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 ## HBase: NoSQL database
 
@@ -71,7 +70,7 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 
 ## Apache Storm: Stream query
 
-* [Get started with the Storm Starter samples](hdinsight-apache-storm-tutorial-get-started-v1.md)
+* [Get started with the Storm Starter samples](hdinsight-apache-storm-tutorial-get-started.md)
 * [Deploy and manage Apache Storm topologies](hdinsight-storm-deploy-monitor-topology.md)
 * [Develop C# topologies for Apache Storm using Hadoop tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Develop Java-based topologies for a basic word-count application with Apache Storm and Maven](hdinsight-storm-develop-java-topology.md)
@@ -81,7 +80,7 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 
 ## Apache Spark
 
-For articles about using native Apache Spark clusters in the Azure preview portal, go to the [HDInsight documentation page](/documentation/services/hdinsight/).
+For articles about using native Apache Spark clusters in the Azure Portal, go to the [HDInsight documentation page](/documentation/services/hdinsight/).
 
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 * [Install and use Spark on Hadoop clusters](hdinsight-hadoop-spark-install.md)
@@ -100,9 +99,8 @@ For articles about using native Apache Spark clusters in the Azure preview porta
 ## Machine learning in HDInsight
 
 * [Generate movie recommendations by using Apache Mahout with Hadoop](hdinsight-mahout.md)
-* [Learning path: Build advanced analytics solutions](machine-learning-data-science-how-to-create-machine-learning-service.md)
-* [Learning path: Advanced data processing](machine-learning-data-science-advanced-data-processing.md)
-* [Predict taxi tips with HDInsight and Machine Learning](machine-learning-data-science-process-hive-walkthrough.md)
+* [Learning path: Build advanced analytics solutions](../machine-learning/machine-learning-walkthrough-develop-predictive-solution.md)
+* [Predict taxi tips with HDInsight and Machine Learning](../machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Extensibility
 

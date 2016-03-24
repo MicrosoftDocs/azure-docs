@@ -22,7 +22,7 @@ The properties section uses the following syntax:
        manager="manager-alias"
        editor=""
        tags="optional"
-       keywords="optional - use only to track target keywords on prioritized articles"/>
+       keywords="For use by SEO champs only. Separate terms with commas. Check with your SEO champ before you change content in this article containing these terms."/>
 
 The tags section uses the following syntax:
 
@@ -55,18 +55,23 @@ The tags section uses the following syntax:
 In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Additional values that you list will appear as tags in the published article. Values:
 
 - active-directory
-- api-management
+- active-directory-b2c
+- active-directory-ds
 - app-service\api
-- app-service\logic
-- app-service\mobile
+- api-management
+- app-service
+- app-servic\mobile
 - app-service\web
+- app-service\logic
 - application-gateway
 - application-insights
 - automation
 - azure-portal
 - azure-resource-manager
+- azure-stack
 - backup
 - batch
+- best-practice
 - billing
 - biztalk-services
 - cache
@@ -74,8 +79,11 @@ In articles that specify both a services value and a documentationCenter value, 
 - cloud-services
 - data-catalog
 - data-factory
-- documentdb
+- data-lake-analytics
+- data-lake-store
+- devtest-lab
 - dns
+- documentdb
 - expressroute
 - event-hubs
 - hdinsight
@@ -83,23 +91,28 @@ In articles that specify both a services value and a documentationCenter value, 
 - key-vault
 - load-balancer
 - machine-learning
+- marketplace
 - media-services
 - mobile-engagement
 - mobile-services
 - multi-factor-authentication
 - notification-hubs
 - operational-insights
+- operations-management-suite
+- powerapps
 - recovery-manager
 - redis-cache
 - remoteapp
 - rights-management
+- scheduler
 - search
+- security-center
 - service-bus
 - service-fabric
-- scheduler
 - site-recovery
 - sql-database
 - sql-data-warehouse
+- sql-reporting
 - storage
 - store
 - storsimple
@@ -139,7 +152,7 @@ In articles that specify both a services value and a documentationCenter value, 
   - billing
   - mysql
 
-![](./media/article-metadata/checkmark-small.png)**keywords**: Optional. This attribute is meant to record keywords that the author has decided to specifically track and target to improve search results for the specific topic. The keywords are not published to the article and have no functionality impact. Validation does not require this attribute.
+![](./media/article-metadata/checkmark-small.png)**keywords**: Optional. For use by SEO champs only. Separate terms with commas. **Check with your SEO champ before you change or delete content in this article containing these terms.** This attribute records keywords the SEO champ has targeted and is tracking in order to improve search rank. The keywords do not render in the published HTML. Validation does not require this attribute.
 
 ## Attributes and values for the tags section
 
@@ -148,6 +161,8 @@ In articles that specify both a services value and a documentationCenter value, 
  If a page applies to multiple services, choose the service to which it most directly applies; for instance, an article that uses an app hosted on web sites to demonstrate Service Bus functionality should have the **service-bus** value, rather than **web-sites**. If a page applies to multiple services equally, choose **multiple**. If a page does not apply to any services (this will be rare), choose **NA**.
 
  - **active-directory**
+ - **active-directory-b2c**
+ - **active-directory-ds**
  - **api-management**
  - **app-service**: Only applies to general conceptual material on App Service
  - **app-service-api**
@@ -155,18 +170,26 @@ In articles that specify both a services value and a documentationCenter value, 
  - **app-service-mobile**
  - **app-service-web**
  - **application-insights**
+ - **application-gateway**
  - **automation**
  - **azure-resource-manager**
  - **azure-security**
+ - **azure-stack**
  - **backup**
  - **batch**
+ - **best-practice**
  - **biztalk-services**
  - **billing**
  - **cache**
  - **cdn**
  - **cloud-services**
+ - **data-catalog**
+ - **data-lake-store**
+ - **data-lake-analytics**
+ - **devtest-lab**
  - **expressroute**
  - **hdinsight**
+ - **internet-of-things**
  - **iot-hub**
  - **key-vault**
  - **machine-learning**
@@ -179,11 +202,13 @@ In articles that specify both a services value and a documentationCenter value, 
  - **na**: The page does not apply to any services (rare)
  - **notification-hubs**
  - **operational-insights**
+ - **powerapps**
  - **recovery-manager**
  - **redis-cache**
  - **remoteapp**
  - **rights-management**
  - **scheduler**
+ - **security-center**
  - **service-bus**
  - **service-fabric**
  - **site-recovery**: formerly recovery-services
@@ -226,7 +251,7 @@ In articles that specify both a services value and a documentationCenter value, 
 
  - **dev-center-home-page**: Azure.com only.  A dev center home page, e.g. /develop/net/
 
- - **get-started-article**: assign to articles that are featured in the Get Started section of the left navigation for a service.
+ - **get-started-article**: assign to articles that are featured in the Get Started or Overview section of the left navigation for a service.
 
  - **hero-article**: a "hero" tutorial that is designed to provide an introduction to a service or feature that gets visitors started using the service quickly and drives free-trial sign-ups and MSDN activations. Assign this value ONLY to articles that are featured at the top of the documentation landing page for your service.
 

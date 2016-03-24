@@ -3,7 +3,7 @@
    description="Article provides an introduction for generating, collecting, and analyzing security logs from services hosted on Azure.  It is intended for IT professionals and security analysts who deal with information asset management on a daily basis, including those responsible for their organization's security and compliance efforts."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="TerryLanfear"
+   authors="nayak-mahesh"
    manager="msStevenPo"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="12/10/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Microsoft Azure security and audit log management
 
-Azure enables customers to perform security event generation and collection from Azure Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) roles to central storage in their subscriptions. Customers can then use [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/) to aggregate and analyze the collected events. In addition, these collected events can be exported to on-premises security information and event management (SIEM) systems for ongoing monitoring.
+Azure enables customers to perform security event generation and collection from Azure Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) roles to central storage in their subscriptions. Customers can then use [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/) to aggregate and analyze the collected events. In addition, these collected events can be exported to on-premises security information and event management (SIEM) systems for ongoing monitoring.
 
 The Azure security logging, analysis, and monitoring lifecycle includes:
 
@@ -34,7 +34,7 @@ Security events are raised in the Windows Event Log for the **System**, **Securi
 
 >[AZURE.NOTE] When using Windows Event Forwarding (WEF) or Azure Diagnostics (explained in the [Log Collection](#log-collection) section) to pull logs from Cloud Services or virtual machines, consider the potential impact of system outages. For example, if your WEF environment goes down for some time, you either need to make sure the log size is big enough to account for a longer time duration or be prepared for possible log data loss.
 
-For Cloud Services applications that are deployed in Azure and virtual machines created from the [Azure Virtual Machines Marketplace](http://azure.microsoft.com/marketplace/virtual-machines/#microsoft), a set of operating system security events are enabled by default. Customers can add, remove, or modify events to be audited by customizing the operating system audit policy. For more information, see [Security Policy Settings Reference](http://technet.microsoft.com/library/jj852210.aspx).
+For Cloud Services applications that are deployed in Azure and virtual machines created from the [Azure Virtual Machines Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/#microsoft), a set of operating system security events are enabled by default. Customers can add, remove, or modify events to be audited by customizing the operating system audit policy. For more information, see [Security Policy Settings Reference](http://technet.microsoft.com/library/jj852210.aspx).
 
 You can use the following methods to generate additional logs from operating system (such as audit policy changes) and Windows components (such as IIS):
 
@@ -93,7 +93,7 @@ Some key differences between these two technologies are included in the table be
 ##	Security event data collection with Windows Event Forwarding
 For domain-joined Azure Virtual Machines, you can configure WEF by using Group Policy settings in the same manner as for on-premises domain-joined computers. For more information, see [Hybrid Cloud](http://www.microsoft.com/server-cloud/solutions/hybrid-cloud.aspx).
 
-Using this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using [ExpressRoute](http://azure.microsoft.com/services/expressroute/) or site-to-site VPN, and then join the virtual machines that you have in Azure to the corporate domain. Afterwards, you can configure WEF from the domain-joined machines.
+Using this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using [ExpressRoute](https://azure.microsoft.com/services/expressroute/) or site-to-site VPN, and then join the virtual machines that you have in Azure to the corporate domain. Afterwards, you can configure WEF from the domain-joined machines.
 
 Event forwarding is broken into two parts: the source and the collector. The source is the computer in which the security logs are generated. The collector is the centralized server that collects and consolidates the event logs. IT administrators can subscribe to events so that they can receive and store events that are forwarded from remote computers (the event source). For more information, see [Configure Computers to Forward and Collect Events](http://technet.microsoft.com/library/cc748890.aspx).
 
@@ -108,7 +108,7 @@ The following diagram shows a high-level data flow for security data collection 
 
 ![][1]
 
-Azure Diagnostics moves logs from customer Cloud Services applications and [Azure Virtual Machines](virtual-machines-about.md) to Azure Storage. Based on a log format, some data is stored in Azure tables and some in blobs. Data that is collected in [Azure Storage](storage-introduction.md) can be downloaded to on-premises SIEM systems by using Azure Storage client library for monitoring and analysis.
+Azure Diagnostics moves logs from customer Cloud Services applications and [Azure Virtual Machines](virtual-machines/virtual-machines-linux-about.md) to Azure Storage. Based on a log format, some data is stored in Azure tables and some in blobs. Data that is collected in [Azure Storage](storage-introduction.md) can be downloaded to on-premises SIEM systems by using Azure Storage client library for monitoring and analysis.
 
 Additionally, HDInsight can be used for further analysis of the data in the cloud. Following are some examples of security data collection that use Azure Diagnostics.
 
@@ -583,7 +583,7 @@ To view the **Operation Logs**, open the [Azure Management Portal](https://manag
 ## Additional resources
 The following resources provide general information about Microsoft Azure and related Microsoft services:
 
-- [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/)
+- [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/)
 
     Information on how security and privacy are embedded into the development of Azure and how Azure meets a broad set of international and industry-specific compliance standards
 

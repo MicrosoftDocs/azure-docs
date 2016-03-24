@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -70,7 +70,15 @@ According to this scoping filter, users must satisfy the following criteria, in 
 3. They must be work in either San Francisco or Canada.
 
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Automate User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
+- [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
+- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
+- [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png

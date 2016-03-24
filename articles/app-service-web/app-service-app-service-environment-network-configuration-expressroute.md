@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="stefsch"/>	
 
 # Network Configuration Details for App Service Environments with ExpressRoute 
@@ -30,7 +30,7 @@ There are network connectivity requirements for App Service Environments that ma
 
 
 -  Outbound network connectivity to Azure Storage endpoints worldwide.  This includes endpoints located in the same region as the App Service Environment, as well as storage endpoints located in **other** Azure regions.  Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* and *file.core.windows.net*.  
--  Outbound network connectivity to Sql DB endpoints located in the same region as the App Service Environment.  SQl DB endpoints resolve under the following domain:  *database.windows.net*.
+-  Outbound network connectivity to Sql DB endpoints located in the same region as the App Service Environment.  Sql DB endpoints resolve under the following domain:  *database.windows.net*.
 -  Outbound network connectivity to the Azure management plane endpoints (both ASM and ARM endpoints).  This includes outbound connectivity to both *management.core.windows.net* and *management.azure.com*. 
 -  Outbound network connectivity to *ocsp.msocsp.com*.  This is needed to support SSL functionality.
 -  The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points.  If these endpoints cannot be resolved, App Service Environment creation attempts will fail, and existing App Service Environments will be marked as unhealthy.
@@ -38,7 +38,7 @@ There are network connectivity requirements for App Service Environments that ma
 -  The outbound network path cannot travel through internal corporate proxies, nor can it be force tunneled to on-premises.  Doing so changes the effective NAT address of outbound network traffic from the App Service Environment.  Changing the NAT address of an App Service Environment's outbound network traffic will cause connectivity failures to many of the endpoints listed above.  This results in failed App Service Environment creation attempts, as well as previously healthy App Service Environments being marked as unhealthy.  
 -  Inbound network access to required ports for App Service Environments must be allowed as described in this [article][requiredports].
 
-The DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.  If for any reason the DNS configuration is changed after an App Service Environment has been created, developers can force an App Service Environment to pick up the new DNS configuration.  Triggering a rolling environment reboot using the "Restart" icon located at the top of the App Service Environment management blade in the [new management portal][NewPortal] will cause the environment to pick up the new DNS configuration.
+The DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.  If for any reason the DNS configuration is changed after an App Service Environment has been created, developers can force an App Service Environment to pick up the new DNS configuration.  Triggering a rolling environment reboot using the "Restart" icon located at the top of the App Service Environment management blade in the [Azure Portal][NewPortal] will cause the environment to pick up the new DNS configuration.
 
 The inbound network access requirements can be met by configuring a [network security group][NetworkSecurityGroups] on the App Service Environment's subnet to allow the required access as described in this [article][requiredports].
 

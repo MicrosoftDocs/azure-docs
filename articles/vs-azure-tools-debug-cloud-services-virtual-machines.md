@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Debugging an Azure cloud service or virtual machine in Visual Studio | Microsoft Azure"
-   description="Debugging a Cloud Service or Virtual Machine in Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+	pageTitle="Debugging an Azure cloud service or virtual machine in Visual Studio | Microsoft Azure"
+	description="Debugging a Cloud Service or Virtual Machine in Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="TomArcher"
+	manager="douge"
+	editor="" />
 <tags 
-   ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="10/28/2015"
-   ms.author="patshea" />
+	ms.service="visual-studio-online"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="02/04/2016"
+	ms.author="tarcher" />
 
 # Debugging an Azure cloud service or virtual machine in Visual Studio
 

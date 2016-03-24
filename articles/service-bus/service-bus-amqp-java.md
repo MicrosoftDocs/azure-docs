@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
-# Using Service Bus from Java with AMQP 1.0
+# Use Service Bus from Java with AMQP 1.0
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-The Java Message Service (JMS) is a standard API for working with message-oriented middleware on the Java platform. Azure Service Bus has been tested with the AMQP 1.0 based JMS client library developed by the Apache Qpid project. This library supports the full JMS 1.1 API and can be used with any AMQP 1.0 compliant messaging service. This scenario is also supported in Service Bus for Windows Server (Service Bus on-premises). For more information, see [AMQP in Service Bus for Windows Server][].
+The Java Message Service (JMS) is a standard API for working with message-oriented middleware on the Java platform. Microsoft Azure Service Bus has been tested with the AMQP 1.0 based JMS client library developed by the Apache Qpid project. This library supports the full JMS 1.1 API and can be used with any AMQP 1.0 compliant messaging service. This scenario is also supported in [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (on-premises Service Bus). For more information, see [AMQP in Service Bus for Windows Server][].
 
-## Downloading the Apache Qpid AMQP 1.0 JMS client library
+## Download the Apache Qpid AMQP 1.0 JMS client library
 
 For information about downloading the latest version of the Apache Qpid JMS AMQP 1.0 client library, visit [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
@@ -35,7 +35,7 @@ You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 dist
 
 -   qpid-amqp-1-0-common-[version].jar
 
-## Working with Service Bus queues, topics, and subscriptions from JMS
+## Work with Service Bus queues, topics, and subscriptions from JMS
 
 ### Java Naming and Directory Interface (JNDI)
 
@@ -57,7 +57,7 @@ topic.TOPIC = topic1
 queue.QUEUE = queue1
 ```
 
-#### Configuring the connection factory
+#### Configure the connection factory
 
 The entry used to define a **ConnectionFactory** in the Qpid Properties File JNDI Provider is of the following format:
 
@@ -82,9 +82,9 @@ Where `[namespace]`, `[username]`, and `[password]` have the following meanings:
 
 | Name          | Meaning                                                                        |   |   |   |   |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | The Service Bus namespace obtained from the Azure portal.                      |   |   |   |   |
-| `[username]`  | The Service Bus issuer name obtained from the Azure portal.                    |   |   |   |   |
-| `[password]`  | URL-encoded form of the Service Bus issuer key obtained from the Azure portal. |   |   |   |   |
+| `[namespace]` | The Service Bus namespace obtained from the [Azure classic portal][].                      |   |   |   |   |
+| `[username]`  | The Service Bus issuer name obtained from the [Azure classic portal][].                    |   |   |   |   |
+| `[password]`  | URL-encoded form of the Service Bus issuer key obtained from the [Azure classic portal][]. |   |   |   |   |
 
 > [AZURE.NOTE] You must URL-encode the password manually. A useful URL encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -101,7 +101,7 @@ Then in order to define a **ConnectionFactory** object named `SBCONNECTIONFACTOR
 connectionfactory.SBCONNECTIONFACTORY = amqps://owner:abcdefg@test.servicebus.windows.net
 ```
 
-#### Configuring destinations
+#### Configure destinations
 
 The entry that defines a destination in the Qpid Properties File JNDI Provider is of the following format:
 
@@ -130,7 +130,7 @@ To define a logical JMS destination named "TOPIC" that maps to a Service Bus top
 topic.TOPIC = topic1
 ```
 
-### Sending messages using JMS
+### Send messages using JMS
 
 The following code shows how to send a message to a Service Bus topic. It is assumed that `SBCONNECTIONFACTORY` and `TOPIC` are defined in a **servicebus.properties** configuration file as described in the previous section.
 
@@ -151,7 +151,7 @@ TextMessage message = session.createTextMessage("This is a text string");
 producer.send(message);
 ```
 
-### Receiving messages using JMS
+### Receive messages using JMS
 
 The following code shows `how` to receive a message from a Service Bus topic subscription. It is assumed that `SBCONNECTIONFACTORY` and TOPIC are defined in a **servicebus.properties** configuration file as described in the previous section. It is also assumed that the subscription name is `subscription1`.
 
@@ -444,3 +444,4 @@ Ready to learn more? Visit the following links:
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
+[Azure classic portal]: http://manage.windowsazure.com

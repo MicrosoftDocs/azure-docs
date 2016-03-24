@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/05/2015"
+   ms.date="01/15/2016"
    ms.author="jroth" />
 
 # Azure SQL Database General Limitations and Guidelines
@@ -32,12 +32,6 @@ This topic provides general limitations and guidelines for Azure SQL Database. F
 ## SQL Server Agent/Jobs
 
 Microsoft Azure SQL Database does not support SQL Server Agent or jobs. You can, however, run SQL Server Agent on your on-premises SQL Server and connect to Microsoft Azure SQL Database.
-
-## Transactions
-
-Azure SQL Database does not support distributed transactions, which are transactions that affect several resources. For more information, see [Distributed Transactions (ADO.NET)](https://msdn.microsoft.com/library/ms254973.aspx). SQL Database may not preserve the uncommitted timestamp values of the current database (DBTS) across failovers.
-
-> [AZURE.NOTE] In certain situations, a transaction can be automatically promoted to a distributed transaction. For more information, see [System.Transactions Integration with SQL Server](https://msdn.microsoft.com/library/ms172070.aspx).
 
 ## SQL Server Collation Support
 
@@ -59,9 +53,9 @@ Additionally, login and user names cannot contain the \ character (Windows Authe
 
 ## Additional Guidelines
 
-- In addition to the general limitations outlined in this article, SQL Database has specific resource quotas and limitations based on your [service tier](sql-database-service-tiers.md). For detailed description of service tier limits, see [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+- In addition to the general limitations outlined in this article, SQL Database has specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
 
-- For other SQL Database limits, see [Azure SQL Database Resource Limits](sql-database-limits.md).
+- For other SQL Database limits, see [Azure SQL Database Resource Limits](sql-database-resource-limits.md).
 
 - For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
 

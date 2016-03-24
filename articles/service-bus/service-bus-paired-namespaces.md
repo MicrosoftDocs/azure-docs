@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Service Bus paired namespaces | Microsoft Azure"
-   description="Paired namespace implementation details and cost"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Service Bus paired namespaces | Microsoft Azure"
+    description="Paired namespace implementation details and cost"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/18/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Paired Namespace implementation details and cost implications
 
@@ -107,7 +107,7 @@ Within an application that hosts the syphon, once the primary or secondary [Mess
 
 ## Next steps
 
-See [Asynchronous messaging patterns and high availability] for a detailed discussion of Service Bus asynchronous messaging. 
+See [Asynchronous messaging patterns and high availability][] for a detailed discussion of Service Bus asynchronous messaging. 
 
   [PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
   [SendAvailabilityPairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx
@@ -117,9 +117,6 @@ See [Asynchronous messaging patterns and high availability] for a detailed discu
   [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
   [TimeoutException]: https://msdn.microsoft.com/library/azure/system.timeoutexception.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-  [0]: ./media/service-bus-paired-namespaces/IC673405.png
-  [1]: ./media/service-bus-paired-namespaces/IC673406.png
-  [2]: ./media/service-bus-paired-namespaces/IC673407.png
   [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
   [TimeSpan]: https://msdn.microsoft.com/library/azure/system.timespan.aspx
   [PingPrimaryInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.pingprimaryinterval.aspx
@@ -128,3 +125,6 @@ See [Asynchronous messaging patterns and high availability] for a detailed discu
   [ContentType]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx
   [TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
   [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md
+  [0]: ./media/service-bus-paired-namespaces/IC673405.png
+  [1]: ./media/service-bus-paired-namespaces/IC673406.png
+  [2]: ./media/service-bus-paired-namespaces/IC673407.png

@@ -13,22 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 
 # Performance considerations for Traffic Manager
 
-
-Common question regarding Azure Traffic Manager deals with potential performance problems that it might cause.  The questions are typically along the lines of “How much latency will Traffic Manager add to my website?”, “My monitoring site says that my website was slow for a couple hours yesterday – were there any Traffic Manager issues at that time?”, “Where are the Traffic Manager servers? I want to make sure they are in the same datacenter as my website so that performance isn’t impacted”.
-
-This page will talk about the direct performance impact that Traffic Manager can cause to a website.  If you have a website in East US and one in Asia and your East US is failing the Traffic Manager probes, then all of your users will be directed to your Asia website and you will see performance impacts, but this performance impact has nothing to do with Traffic Manager itself.
+This page explains performance considerations using Traffic Manager. Scenarios like: You have a website in US region and one in Asia and one of them is failing health check for traffic manager probes, all of your users will be directed the healthy region, and the behavior can appear as    performance problem, but it would be an expected behavior based on the distance for the user request.
 
   
 
 ## Important note about how Traffic Manager works
-
-[Traffic Manager Overview](traffic-manager-overview.md) is an excellent resource to learn how Traffic Manager works, but there is a lot of information on that page and picking out the key information relating to performance can be difficult.  The important points to look at in the MSDN documentation is step #5 and #6 from Image 3, which I will explain in more detail here:
 
 - Traffic Manager essentially only does one thing – DNS resolution.  This means that the only performance impact that Traffic Manager can have on your website is the initial DNS lookup.
 - A point of clarification about the Traffic Manager DNS lookup.  Traffic Manager populates, and regularly updates, the normal Microsoft DNS root servers based on your policy and the probe results.  So even during the initial DNS lookup there is no involvement by Traffic Manager since the DNS request is handled by the normal Microsoft DNS root servers.  If Traffic Manager goes ‘down’ (ie. a failure in the VMs doing the policy probing and DNS updating) then there will be no impact to your Traffic Manager DNS name since the entries in the Microsoft DNS servers will still be preserved – the only impact will be that probing and updating based on policy will not happen (ie. if your primary site goes down, Traffic Manager will not be able to update DNS to point to your failover site).
@@ -77,21 +72,12 @@ http://www.whatsmydns.net/ – This site will do a DNS lookup from 20 different 
 
 http://www.digwebinterface.com – Similar to the watchmouse site, but this one shows more detailed DNS information including CNAMEs and A records.  Make sure you check the ‘Colorize output’ and ‘Stats’ under options, and select ‘All’ under Nameservers.
 
-## Conclusion
-
-Given the above information we know that the only performance impact that Traffic Manager will have on a website is the first DNS lookup (times vary, but average ~50 ms), and then 0 performance impact for the duration of the DNS TTL (300 seconds default), and then again a refresh the DNS cache after the TTL expires.  So the answer to the question “How much latency will Traffic Manager add to my website?" is, essentially, zero.
-
-
 ## Next Steps
 
 
-[About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md)
+[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
 
-[What is Traffic Manager?](../traffic-manmager-overview.md)
-
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
 

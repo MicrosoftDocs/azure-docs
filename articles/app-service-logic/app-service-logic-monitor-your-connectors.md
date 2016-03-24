@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mandia"/>
 
 # Manage and Monitor your built-in API Apps and Connectors
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
 
 You created a built-in API App. Now what? 
 
@@ -94,7 +96,7 @@ Contributor | Have full access to the management experience. Cannot give access 
 Reader | Can view all resources except secrets.
 User Access Administrator | Can view all resources, create/manage roles, and create/manage support tickets.
 
-See [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md).
+See [Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md).
 
 You can easily add users and assign them specific roles to your API App. The portal shows you the users that have access and their assigned role:
 
@@ -115,13 +117,13 @@ You can easily add users and assign them specific roles to your API App. The por
 > These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. [Manage API apps](../app-service-api/app-service-api-manage-in-portal.md) provides more information on what you can do in these blades with your custom-created API app. 
 
 
->[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required and no commitments.
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can create a short-lived starter logic app in App Service. No credit cards required and no commitments.
 
 ## Read More
 
 [Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/>
 [Connectors and API Apps List in App Service](app-service-logic-connectors-list.md)<br/>
-[Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md)<br/>
+[Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md)<br/>
 [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)
 
 

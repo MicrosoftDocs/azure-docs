@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="How to register data sources"
    description="How-to article highlighting how to register data sources with Azure Data Catalog, including the metadata fields extracted, and the data sources supported during preview."
    services="data-catalog"
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/06/2015"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
@@ -30,24 +30,7 @@ See the [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutor
 Once the data source has been registered, the Catalog tracks its location and indexes its metadata, so that users can search, browse, and discover the data source, and then use its location to connect to it using the application or tool of their choice.
 
 ## Sources supported
-In the current preview, **Azure Data Catalog** supports the registration of these data sources and object types:
-
-* SQL Server Database Engine Tables and Views
-* Oracle Database Tables and Views
-* SQL Server Analysis Services Multidimensional Dimensions, Measures, and KPIs
-* SQL Server Analysis Services Tabular Tables
-* SQL Server Reporting Services Reports
-* Azure Storage Blobs and Directories
-* HDFS Files and Directories
-* Apache Hive Tables
-* Teradata Tables and Views
-
-> [AZURE.NOTE] SQL Server support also includes Microsoft Azure SQL Database and Microsoft Azure SQL Data Warehouse
-
-<br/>
-
-> [AZURE.NOTE] SQL Server Reporting Services support is for native mode servers only – SharePoint mode is not yet supported
-
+Please refer to [Data Catalog DSR](data-catalog-dsr.md) for the list of currently supported data sources.
 <br/>
 
 
@@ -86,7 +69,6 @@ These statistics are then copied into the Catalog along with the structural and 
 
 > [AZURE.NOTE]  Text and date columns will not include average or standard deviation statistics in their data profile.
 
-
 ## Updating registrations
 
 Registering a data source will make it discoverable in the **Azure Data Catalog** using the metadata and optional preview extracted during registration. If the data source needs to be updated in the Catalog (for example, if the schema of an object has changed, or tables originally excluded should be included, or a user wants to update the data included in the previews) the data source registration tool can be re-run.
@@ -95,3 +77,6 @@ Re-registering an already-registered data source performs a merge “upsert” o
 
 ## Summary
 Registering a data source with **Azure Data Catalog** makes that data source easier to discover and understand, by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, it can then be annotated, managed, and discovered using the **Azure Data Catalog** portal.
+
+## See also
+- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to register data sources.

@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Get started configuring an internet facing load balancer using Azure Resource Manager
@@ -109,7 +109,7 @@ Create a public IP address to be used by frontend IP pool:
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
->[AZURE.NOTE]The public IP address domain name label property will be the FQDN for the load balancer. 
+>[AZURE.NOTE]The public IP address domain name label property will be the prefix for the FQDN of the load balancer. 
 
 ## Create Front end IP pool and backend address pool
 
@@ -242,7 +242,7 @@ PS C:\> $backendnic1
 
 Use the command Add-AzureVMNetworkInterface to assign the NIC to a virtual Machine.
 
-You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) option 4 or 5.
+You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example) option 4 or 5.
 
 ## Update an existing load balancer
 

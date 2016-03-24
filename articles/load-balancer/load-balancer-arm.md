@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
 # Azure Resource Manager Support for Load Balancer 
 
-Azure Resource Manager (ARM) is the new management framework for services in Azure. Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](../azure-preview-portal-using-resource-groups.md).
+Azure Resource Manager (ARM) is the new management framework for services in Azure. Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. 
 
 ## Concepts
 
@@ -46,7 +46,7 @@ Templates include Virtual Machines, Virtual Networks, Availability Sets, Network
 
 [Learn more about templates](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[Learn more about Network Resources](../resource-groups-networking)
+[Learn more about Network Resources](../virtual-network/resource-groups-networking)
 
 Templates using Azure Load Balancer can be found in a [GitHub repository](https://github.com/Azure/azure-quickstart-templates) hosting a set of community generated templates
 
@@ -63,16 +63,17 @@ Examples of templates:
 
 [Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be used to create a Load Balancer. Get started with ARM cmdlets and REST APIs
 
-- [How to create a load balancer using Azure Resource Manager](../load-balancer-arm-powershell)
+- [How to create a load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md)
 
-- [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager)
+- [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager.md)
 
 - [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
-## See Also
+## Next steps
 
-[Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
+You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for an especific load balancer network traffic behavior.
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
- 
+If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). It will help to learn about idle connection behavior when you are using Azure Load Balancer. 
+
+

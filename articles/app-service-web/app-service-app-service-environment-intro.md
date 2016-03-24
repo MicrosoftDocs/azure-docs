@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="01/05/2016"
 	ms.author="stefsch"/>
 
 # Introduction to App Service Environment
@@ -84,7 +84,6 @@ For details on using an App Service Environment with ExpressRoute, see the follo
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [AppServicePlan]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[Azure preview portal]: http://portal.azure.com
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [WebApps]: http://azure.microsoft.com/documentation/articles/app-service-web-overview/

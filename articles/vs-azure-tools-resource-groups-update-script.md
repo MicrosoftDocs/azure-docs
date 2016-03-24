@@ -3,9 +3,9 @@
 	description="Describes the steps needed to manually update the PowerShell script that comes with an Azure Resource Group deployment project."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 
  <tags
 	ms.service="azure-resource-manager"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="10/30/2015"
-	ms.author="kempb" />
+	ms.date="02/04/2016"
+	ms.author="tarcher" />
 
 # Update the Azure Resource Group project PowerShell script
 
@@ -59,7 +59,7 @@ These instructions refer to line numbers. To enable line numbering in Visual Stu
 
 	```
 	$StorageAccountKey = (Get-AzureRMStorageAccountKey -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Key1
-	$StorageAccountContext = New-AzureRMStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+	$StorageAccountContext = (Get-AzureRmStorageAccount -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Context
 	```
 
 1. In line 87, replace the following code:
@@ -94,19 +94,12 @@ These instructions refer to line numbers. To enable line numbering in Visual Stu
 		-Location $ResourceGroupLocation `
 		-Verbose -Force -ErrorAction Stop
 
-	Test-AzureRmResourceGroupDeployment `
+	New-AzureRMResourceGroupDeployment `
+		-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
 		-ResourceGroupName $ResourceGroupName `
 		-TemplateFile $TemplateFile `
 		-TemplateParameterFile $TemplateParametersFile `
 		@OptionalParameters `
-		-ErrorAction Stop 	
-
-	New-AzureRMResourceGroupDeployment
-		-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
-	    -ResourceGroupName $ResourceGroupName `
-	    -TemplateFile $TemplateFile `
-	    -TemplateParameterFile $TemplateParametersFile `
-	    @OptionalParameters `
 		-Verbose -Force
 	```
 
@@ -212,19 +205,12 @@ New-AzureRMResourceGroup `
 	-Location $ResourceGroupLocation `
 	-Verbose -Force -ErrorAction Stop
 
-Test-AzureRmResourceGroupDeployment `
+New-AzureRMResourceGroupDeployment `
+	-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
 	-ResourceGroupName $ResourceGroupName `
 	-TemplateFile $TemplateFile `
 	-TemplateParameterFile $TemplateParametersFile `
 	@OptionalParameters `
-	-ErrorAction Stop 	
-
-New-AzureRMResourceGroupDeployment
-	-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $TemplateFile `
-    -TemplateParameterFile $TemplateParametersFile `
-    @OptionalParameters `
 	-Verbose -Force
 
 ```

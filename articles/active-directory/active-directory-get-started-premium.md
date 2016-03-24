@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015"
+	ms.date="01/26/2016"
 	ms.author="markvi"/>
 
 # Getting started with Azure Active Directory Premium
@@ -21,7 +21,7 @@
 Azure Active Directory comes in three editions: Free, Basic, and Premium. The Free edition is included with an Azure or Office 365 subscription. The Basic and Premium editions are available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) or the [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) program. Azure and Office 365 subscribers can also buy Active Directory Premium online. [Sign in here](https://portal.office.com/Commerce/Catalog.aspx) to buy it.
 
 > [AZURE.NOTE]
-Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Azure Active Directory Premium is also included in the **Enterprise Mobility Suite**. Enterprise Mobility Suite is a cost effective way for organizations to use Microsoft Intune, Azure Rights Management and the Active Directory Premium services together under one licensing plan. For more information, see the [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web site.
 

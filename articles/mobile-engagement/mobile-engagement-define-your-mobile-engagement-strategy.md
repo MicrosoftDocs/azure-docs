@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="03/01/2016"
 	ms.author="piyushjo" />
 
 # Define your Mobile Engagement strategy
@@ -119,7 +119,12 @@ All of this type of data can be augmented with parameters (*extra-information* i
 	![][2]
 
 ### Next steps
+
 - Visit [Mobile Engagement Concepts] to learn more about basic Mobile Engagement concepts.
+- Visit [Create a Mobile Engagement App](mobile-engagement-create.md) to create a new Mobile Engagement App Collection in Azure and start managing your apps with the Mobile Engagement portal.
+- Visit [Best practices](mobile-engagement-getting-started-best-practices.md) to go into details.
+- Visit [Gaming App scenario](mobile-engagement-gaming-scenario.md) to learn about implementing Mobile Engagement with a sample gaming app. 
+- Visit [Media App scenario](mobile-engagement-media-scenario.md) to learn about implementing Mobile Engagement with a sample media app. 
 - Visit [Tutorials] to learn more about the implementation.
 
 <!-- Images. -->
@@ -129,3 +134,4 @@ All of this type of data can be augmented with parameters (*extra-information* i
 <!-- URLs. -->
 [Mobile Engagement Concepts]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutorials]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
+

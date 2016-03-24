@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="03/11/2016"
 	ms.author="danlep"/>
-
-
 
 # Quotas and limits for the Azure Batch service
 
@@ -37,13 +35,18 @@ Batch accounts per region per subscription|1|50
 ## Other limits
 Resource|Maximum Limit
 ---|---
-Tasks per compute node|4 x number of node cores
+Tasks per compute node                | 4 x number of node cores
+Applications per Batch account        | 20
+Application packages per application | 40
+Application package size (each)       | Approx. 195GB<sup>1</sup>
+
+<sup>1</sup> Azure Storage limit for maximum block blob size
 
 ## View Batch quotas
 
-View your Batch account quotas in the [Azure preview portal](https://portal.azure.com).
+View your Batch account quotas in the [Azure portal](https://portal.azure.com).
 
-1. In the preview portal, click **Batch accounts** and then the name of your Batch account.
+1. In the portal, click **Batch accounts** and then the name of your Batch account.
 
 2. On the account blade, click **Settings** > **Properties**.
 
@@ -53,11 +56,11 @@ View your Batch account quotas in the [Azure preview portal](https://portal.azur
 
 ## Increase a quota
 
-Use the following steps to request a quota increase in the Azure preview portal (you can also request an increase in the [Azure portal](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
+Use the following steps to request a quota increase in the Azure portal (you can also request an increase in the [Azure classic portal](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
 
-1. On the dashboard of the preview portal, click **Help + support**.
+1. On the dashboard of the portal, click **Help + support**.
 
-2. Click **Create support request > Basics**.
+2. Click **New support request > Basics**.
 
 3. On the **Basics** blade, do the following:
 
@@ -65,7 +68,7 @@ Use the following steps to request a quota increase in the Azure preview portal 
 
 	b. Select your subscription.
 
-	c. In **Service**, select **Batch Service**.
+	c. In **Quota type**, select **Batch**.
 
 	d. In **Support plan**, select **Azure Support Plan - Developer**.
 
@@ -73,7 +76,7 @@ Use the following steps to request a quota increase in the Azure preview portal 
 
 4. On the **Problem** blade, do the following:
 
-	a. In **Problem type**, select **Batch**.
+	a. Select a **Severity** according to your business impact.
 
 	b. In **Details**, list the quota or quotas you want to change in a particular account and the new limits you want.
 
@@ -89,7 +92,7 @@ Azure support will contact you. Completing the request can take up to 2 business
 
 * [Create and manage an Azure Batch account](batch-account-create-portal.md)
 
-* [API basics for Azure Batch](batch-api-basics.md)
+* [Azure Batch feature overview](batch-api-basics.md)
 
 * [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 

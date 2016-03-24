@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Monitoring and Troubleshooting Guide for VMM and Hyper-V Site Protection" 
+	pageTitle="Monitor and troubleshoot protection for virtual machines and physical servers | Microsoft Auzre" 
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to monitor and troubleshoot  VMM or Hyper-V Site protection." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 	
-# Monitor and troubleshoot protection for VMware, VMM, Hyper-V and Physical sites
+# Monitor and troubleshoot protection for virtual machines and physical servers
 
 This Monitoring and Troubleshooting Guide enables you to learn tracking the replication health and troubleshooting techniques for Azure Site Recovery.
 

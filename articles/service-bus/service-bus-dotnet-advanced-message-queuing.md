@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 # How to use AMQP 1.0 with the Service Bus .NET API
@@ -22,11 +22,11 @@ The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire
 
 Support for AMQP 1.0 in Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.
 
-This article explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET applications using the Service Bus .NET API. There is a companion article that explains how to do the same using the standard Java Message Service (JMS) API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
+This article explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET applications using the Service Bus .NET API. There is a [companion article](service-bus-java-how-to-use-jms-api-amqp.md) that explains how to do the same using the standard Java Message Service (JMS) API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
 
 ## Get started with Service Bus
 
-This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to Use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md).
+This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure classic portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md).
 
 ## Download the Service Bus SDK
 
@@ -63,7 +63,7 @@ The value of the **Microsoft.ServiceBus.ConnectionString** setting is the Servic
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-Where `[namespace]` and `[SAS key]` are obtained from the Azure portal. For more information, see [How to Use Service Bus Queues][].
+Where `[namespace]` and `[SAS key]` are obtained from the [Azure classic portal][]. For more information, see [How to use Service Bus queues][].
 
 When using AMQP, the connection string is appended with `;TransportType=Amqp`, which tells the client library to make its connection to Service Bus using AMQP 1.0.
 
@@ -320,5 +320,6 @@ Now that you've read an overview of Service Bus and AMQP with .NET, see the foll
 
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
-* [How to Use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md)
+* [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
  
+[Azure classic portal]: http://manage.windowsazure.com

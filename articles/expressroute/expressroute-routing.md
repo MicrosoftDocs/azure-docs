@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 
@@ -38,7 +38,7 @@ You can use either private IP addresses or public IP addresses to configure the 
  - If a /29 subnet is used, it will be split into two /30 subnets. 
 	 - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
 	 - For each of the /30 subnets, you must the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	 - You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.  
+	 - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
 
 #### Example for private peering
 
@@ -59,7 +59,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 - If a /29 subnet is used, it will be split into two /30 subnets. 
 	- The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
 	- For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	- You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.
+	- You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 Make sure that your IP address and AS number are registered to you in one of the registries listed below.
 
@@ -67,10 +67,9 @@ Make sure that your IP address and AS number are registered to you in one of the
 - [APNIC](https://www.apnic.net/)
 - [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
-- [RIPE NCC](https://www.ripe.net/)
+- [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Dynamic route exchange
@@ -79,7 +78,7 @@ Routing exchange will be over eBGP protocol. EBGP sessions are established betwe
 
 ## Autonomous System numbers
 
-Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved AS 65515 for internal use. Both 16 and 32 bit AS numbers are supported. You can use private AS numbers for Azure private peering. You must use public AS numbers registered to you for Azure public and Microsoft peering.
+Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved AS 65515 for internal use. Both 16 and 32 bit AS numbers are supported.
 
 There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging you. Route metrics are not required to be identical.
 
@@ -104,7 +103,8 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
 **Note:** Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 
-## Support for BGP communities
+## Support for BGP communities (Coming Soon)
+
 
 This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
@@ -118,32 +118,37 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 
 Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.
 
-| **Geopolitical Region** | **Microsoft Azure region (Same applies to Office 365)** | **BGP community value** |
+| **Geopolitical Region** | **Microsoft Azure region** | **BGP community value** |
 |---|---|---|
-| **North America** |    | 12076:51201 |
+| **North America** |    |  |
 |    | East US | 12076:51004 |
 |    | East US 2 | 12076:51005 |
 |    | West US | 12076:51006 |
 |    | North Central US | 12076:51007 |
 |    | South Central US | 12076:51008 |
 |    | Central US | 12076:51009 |
-| **South America** |  | 12076:51202 |
+|    | Canada Central | 12076:51020 |
+|    | Canada East | 12076:51021 |
+| **South America** |  |  |
 |    | Brazil South | 12076:51014 |
-| **Europe** |    | 12076:51203 |
+| **Europe** |    |  |
 |    | North Europe | 12076:51003 |
 |    | West Europe | 12076:51002 |
-| **Asia Pacific** |    | 12076:51204 |
+|    | UK North    | 12076:51022 |
+|    | UK South 2 | 12076:51023 |
+| **Asia Pacific** |    |   |
 |    | East Asia | 12076:51010 |
 |    | Southeast Asia | 12076:51011 |
-| **Japan** | Japan East | 12076:51012 |
+| **Japan** |     |   |
+|    | Japan East | 12076:51012 |
 |    | Japan West | 12076:51013 |
-| **Australia** | Australia East | 12076:51015 |
+| **Australia** |    |   | 
+|    | Australia East | 12076:51015 |
 |    | Australia Southeast | 12076:51016 |
-| **India** | India South | 12076:51019 |
+| **India** |    |   |
+|    | India South | 12076:51019 |
 |    | India West | 12076:51018 |
 |    | India Central | 12076:51017 |
-| **Global** | **Only supported and published when premium add-on is enabled** | 12076:51000 |
-| **Anycast** |   | 12076:51250 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
@@ -163,14 +168,14 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 ### Manipulating routing preferences
 
-Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for the [availability SLA](http://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the AS-PATH on route advertisements to influence traffic flow from Microsoft into your network.
+Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for the [availability SLA](https://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the AS-PATH on route advertisements to influence traffic flow from Microsoft into your network.
 
 ## Next steps
 
 - Configure your ExpressRoute connection.
 
-	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	- [Configure routing](expressroute-howto-routing-classic.md)
-	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+	- [Create an ExpressRoute circuit for the classic deployment model](expressroute-howto-circuit-classic.md) or [Create and modify an ExpressRoute circuit using Azure Resource Manager](expressroute-howto-circuit-arm.md)
+	- [Configure routing for the classic deployment model](expressroute-howto-routing-classic.md) or [Configure routing for the Resource Manager deployment model](expressroute-howto-routing-arm.md)
+	- [Link a classic VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) or [Link a Resource Manager VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
 
 

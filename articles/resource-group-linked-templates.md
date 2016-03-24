@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
 # Using linked templates with Azure Resource Manager
@@ -106,6 +106,12 @@ The following example shows how to use a base URL to create two URLs for linked 
                 "jumpbox": 0
             }
         }
+    }
+
+You can also use [deployment()](../resource-group-template-functions/#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This is useful if your template location changes (maybe due to versioning) or you want to avoid hard coding URLs in the template file. 
+
+    "variables": {
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
     }
 
 ## Passing values back from a linked template

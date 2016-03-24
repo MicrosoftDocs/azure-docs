@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/07/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Network Resource Provider
@@ -254,22 +254,12 @@ You can deploy services to Azure from a template by using PowerShell, AzureCLI, 
 ![Sample template deployment](./media/resource-groups-networking/Figure6.png)
 
 
-## See Also
-
-[Azure Networking API reference](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-[Azure PowerShell reference for networking](https://msdn.microsoft.com/library/azure/mt163510.aspx)
+## Next steps
 
 [Azure Resource Manager Template Language](../resource-group-authoring-templates.md)
 
 [Azure Networking – commonly used templates](https://github.com/Azure/azure-quickstart-templates)
 
-[Compute Resource Provider](../virtual-machines-azurerm-versus-azuresm)
+[Compute Resource Provider](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure Resource Manager Overview](../resource-group-overview)
-
-[Role based access control in Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx) 
-
-[Using Tags in Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn848368.aspx)
-
-[Template deployments](https://msdn.microsoft.com/library/azure/dn790549.aspx) 
+[Azure Resource Manager Overview](../resource-group-overview.md)

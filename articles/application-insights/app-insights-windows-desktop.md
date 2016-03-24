@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps, services and worker roles
@@ -37,9 +37,9 @@ You can choose which standard data collectors you want to use (for example to mo
 
     (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
 
-2.  Take a copy of the Instrumentation Key.
+2.  Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created.
 
-    ![Click Properties, select the key, and press ctrl+C](./media/app-insights-windows-desktop/02-props.png)
+    ![Click Essentials, select the key, and press ctrl+C](./media/app-insights-windows-desktop/02-props.png)
 
 ## <a name="sdk"></a>Install the SDK in your application
 
@@ -183,7 +183,7 @@ By contrast, the persistence channel buffers telemetry in a file, before sending
 
 ### To use the persistence channel
 
-1. Import the NuGet package [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel).
+1. Import the NuGet package [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3).
 2. Include this code in your app, in a suitable initialization location:
  
     ```C# 
@@ -274,7 +274,7 @@ namespace ConsoleApplication1
 ```
 
 
-The code of the persistence channel is on [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel). 
+The code of the persistence channel is on [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel). 
 
 
 ## <a name="usage"></a>Next Steps

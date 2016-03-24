@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="02/16/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB server-side programming: Stored procedures, database triggers, and UDFs
@@ -50,7 +50,9 @@ This approach of *“JavaScript as a modern day T-SQL”* frees application deve
 	-	It adds an abstraction layer on top of the raw data, which enables data architects to evolve their applications independently from the data. This is particularly advantageous when the data is schema-less, due to the brittle assumptions that may need to be baked into the application if they have to deal with data directly.  
 	-	This abstraction lets enterprises keep their data secure by streamlining the access from the scripts.  
 
-The creation and execution of database triggers, stored procedure and custom query operators is supported through the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), and [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) in many platforms including .NET, Node.js and JavaScript. **This tutorial uses the [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
+The creation and execution of database triggers, stored procedure and custom query operators is supported through the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](documentdb-sdk-dotnet.md) in many platforms including .NET, Node.js and JavaScript.
+
+**This tutorial uses the [Node.js SDK with Q Promises](http://azure.github.io/azure-documentdb-node-q/)** to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
 ## Stored procedures
 
@@ -92,7 +94,7 @@ Once the stored procedure is registered, we can execute it against the collectio
 		});
 
 
-The context object provides access to all operations that can be performed on DocumentDB storage, as well as access to the request and response objects. In this case, we used the response object to set the body of the response that was sent back to the client. For more details, refer to the [DocumentDB JavaScript server SDK documentation](http://dl.windowsazure.com/documentDB/jsserverdocs/).  
+The context object provides access to all operations that can be performed on DocumentDB storage, as well as access to the request and response objects. In this case, we used the response object to set the body of the response that was sent back to the client. For more details, refer to the [DocumentDB JavaScript server SDK documentation](http://azure.github.io/azure-documentdb-js-server/).  
 
 Let us expand on this example and add more database related functionality to the stored procedure. Stored procedures can create, update, read, query and delete documents and attachments inside the collection.    
 
@@ -551,7 +553,7 @@ The following JavaScript constructs do not get optimized for DocumentDB indices:
 * Control flow (e.g. if, for, while)
 * Function calls
 
-For more information, please see our [Server-Side JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+For more information, please see our [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/).
 
 ### Example: Write a stored procedure using the JavaScript query API
 
@@ -751,7 +753,7 @@ __.chain()
 </table>
 
 ## Runtime support
-[DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+[DocumentDB JavaScript server side SDK](http://azure.github.io/azure-documentdb-js-server/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Security
 JavaScript stored procedures and triggers are sandboxed so that the effects of one script do not leak to the other without going through the snapshot transaction isolation at the database level. The runtime environments are pooled but cleaned of the context after each run. Hence they are guaranteed to be safe of any unintended side effects from each other.
@@ -760,7 +762,7 @@ JavaScript stored procedures and triggers are sandboxed so that the effects of o
 Stored procedures, triggers and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. This ensures invocations of stored procedures are fast and have a low footprint.
 
 ## Client SDK support
-In addition to the [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) client, DocumentDB supports [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/), and [Python SDKs](http://dl.windowsazure.com/documentDB/pythondocs/). Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
+In addition to the [Node.js](documentdb-sdk-node.md) client, DocumentDB supports [.NET](documentdb-sdk-dotnet.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/), and [Python SDKs](documentdb-sdk-python.md). Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -793,7 +795,7 @@ In addition to the [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) cl
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx) to create a pre-trigger and create a document with the trigger enabled. 
+This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx) to create a pre-trigger and create a document with the trigger enabled. 
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -903,20 +905,21 @@ Here the pre-trigger to be run with the request is specified in the x-ms-documen
 
 ## Sample code
 
-You can find more server-side code examples (including [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)) on our [Github repository](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples).
+You can find more server-side code examples (including [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) on our [Github repository](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Want to share your awesome stored procedure? Please, send us a pull-request! 
 
 ## Next steps
 
-Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure Preview portal using Script Explorer. For more information, see [View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer](documentdb-view-scripts.md).
+Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure Portal using Script Explorer. For more information, see [View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer](documentdb-view-scripts.md).
 
 You may also find the following references and resources useful in your path to learn more about DocumentDB server-side programming:
 
 - [Azure DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 - [JSON](http://www.json.org/) 
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
--	[JavaScript – JSON type system](http://www.json.org/js.html) 
--	[Secure and Portable Database Extensibility](http://dl.acm.org/citation.cfm?id=276339) 
--	[Service Oriented Database Architecture](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	[Hosting the .NET Runtime in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
+- [JavaScript – JSON type system](http://www.json.org/js.html) 
+- [Secure and Portable Database Extensibility](http://dl.acm.org/citation.cfm?id=276339) 
+- [Service Oriented Database Architecture](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [Hosting the .NET Runtime in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)

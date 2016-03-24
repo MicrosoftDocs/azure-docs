@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/28/2015" 
+    ms.date="02/02/2016" 
     ms.author="elizapo" />
 
 
@@ -49,7 +49,7 @@ Ok, how do I create one?
 - Provide full access to on-premises network + Azure VNET.
 - Includes domain join access for apps and data. Remote applications can authentication against your on-premises Active Directory - they can then access resources in your domain.
 - Enable advanced monitoring and management with existing System Center solutions and Windows Group Policies (through a custom image built on Windows Server 2012 R2)
-- Support [Express Route](http://azure.microsoft.com/services/expressroute/) to connect your Azure VNET to your local VNET.
+- Support [Express Route](https://azure.microsoft.com/services/expressroute/) to connect your Azure VNET to your local VNET.
 
 Create using the **Create with VNET** option and DO choose to join a domain.
 
@@ -80,7 +80,7 @@ If you want to use Azure AD accounts, you need to make sure that your Azure AD t
 
 Using Azure AD + on-premises Active Directory is a prerequisite for a hybrid collection. You need to use AD Connect to integrate the two directories. But you do have some choice when it comes to how you configure AD Connect. 
 
-There are 2 AD Connect scenarios - using password synchronization or using AD federation. Check out the [AD Connect information](active-directory-aadconnect.md) to figure out which of these works best for you.
+There are 2 AD Connect scenarios - using password synchronization or using AD federation. Check out the [AD Connect information](../active-directory/active-directory-aadconnect.md) to figure out which of these works best for you.
 
 You can also use Azure AD + AD with a cloud collection. Make sure you follow the same set up steps.
 

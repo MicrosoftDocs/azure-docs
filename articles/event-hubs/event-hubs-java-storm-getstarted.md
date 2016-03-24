@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -36,7 +36,7 @@ In order to complete this tutorial you will need the following:
 
 ## Create an Event Hub
 
-1. Log on to the [Azure management portal], and click **NEW** at the bottom of the screen.
+1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
 
 2. Click **App Services**, then **Service Bus**, then **Event Hub**, and then **Quick Create**.
 
@@ -100,7 +100,7 @@ The following resources are available for developing applications integrating Ev
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Azure management portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs Overview]: event-hubs-overview.md
 
