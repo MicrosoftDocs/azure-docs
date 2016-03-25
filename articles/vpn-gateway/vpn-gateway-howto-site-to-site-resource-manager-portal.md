@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/23/2016"
+   ms.date="03/25/2016"
    ms.author="cherylmc"/>
 
 # Create a resource manager VNet with a Site-to-Site VPN connection using the Azure Portal

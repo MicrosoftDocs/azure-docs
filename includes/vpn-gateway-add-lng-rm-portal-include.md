@@ -4,9 +4,9 @@
 
 	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. On the **Create local network gateway blade**, **Name** your local network gateway object.
+2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
  
-3. Configure an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.
+3. Specify an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.
 
 4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces.
  
