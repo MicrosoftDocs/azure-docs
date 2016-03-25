@@ -38,7 +38,7 @@ also, start moving to the new APIs
 - After migration completes, start updating your Logic apps to use the [managed APIs](./apis-list.md) where possible. For example, you can start using Dropbox v2, whereever you are using DropBox v1.
 
 
-# What's next
+## What's next
 -  [Learn how to manually migrate your Logic apps](../app-service-logic/app-service-logic-schema-2015-08-01.md)
 
 
