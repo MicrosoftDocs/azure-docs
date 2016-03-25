@@ -14,7 +14,7 @@ The following extensions are critical to enabling, re-enabling, or disabling bas
 
 |VM Extension Name|Feature Description|More Information
 |---|---|---|
-|VMAccessAgent (Windows)|Create, update, and reset user information and RDP and SSH connection configurations.|[Windows](../articles/virtual-machines/virtual-machines-windows-classic-extensions-customscript.md)
+|VMAccessAgent (Windows)|Create, update, and reset user information and RDP and SSH connection configurations.|[Windows](../articles/virtual-machines/virtual-machines-windows-reset-rdp.md)
 |VMAccessForLinux (Linux)|Create, update, and reset user information and RDP and SSH connection configurations.|[Linux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
 ##Deployment and Configuration Management
