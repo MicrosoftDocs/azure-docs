@@ -40,7 +40,7 @@ A1. Azure Backup supports the following list of operating systems
 |Windows Server 2008 SP2	|64 bit|	Standard, Enterprise, Datacenter, Foundation|
 
 **Q2. Where can I download the latest Azure Backup agent?** <br/>
-A2. You can download the latest agent for backing up Windows Server, System Center DPM, or Windows client, from  [here](http://aka.ms/azurebackup_agent). If you want to backup a virtual machine, use the VM Agent (which automatically installs the proper extension). The VM Agent is already present on virtual machines created from the Azure gallery.
+A2. You can download the latest agent for backing up Windows Server, System Center DPM, or Windows client, from  [here](http://aka.ms/azurebackup_agent). If you want to back up a virtual machine, use the VM Agent (which automatically installs the proper extension). The VM Agent is already present on virtual machines created from the Azure gallery.
 
 **Q3. Which version of SCDPM server is supported?** <br/>
 A3. We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup of SCDPM (UR6 as of July 2015)
@@ -65,7 +65,7 @@ A9. Backup data is sent to the datacenter of the Backup Service to which it is r
 
 **Q10. What happens if I rename a Windows server that is backing up data to Azure?**
 A10. When you rename a server, all currently configured backups are stopped.
-You will need to register the new name of the server with the Backup vault. Since this is a new registration, the first backup operation is a full backup, and not an incremental backup. If you need to recover data that was previously backed up to the vault with the old server name, you can recover that data using the [**Another server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) option in the **Recover Data** wizard.
+You need to register the new name of the server with the Backup vault. When you create a new registration, the first backup operation is a full backup, and not an incremental backup. If you need to recover data that was previously backed up to the vault with the old server name, you can recover that data using the [**Another server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) option in the **Recover Data** wizard.
 
 
 **Q11. What types of drives can I backup files and folders from?** <br/>
@@ -108,10 +108,10 @@ A16: No. The vault is created at a subscription level and cannot be reassigned t
 A17: Yes. The agent service converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the online backup service.
 
 **Q18. If I cancel a backup job once it has started, is the transferred backup data deleted?** <br/>
-A18: No. The backup vault stores the backed-up data that had been transferred up to the point of the cancellation. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data the next backup process can validate the integrity of the files. The next backup triggered would be incremental over the data that had been backed up previously. An incremental backup provides better utilization of bandwidth, so that you do not need to transfer the same data repeatedly.
+A18: No. The backup vault stores the backed-up data that had been transferred up to the point of the cancellation. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files. The next backup triggered would be incremental over the data that had been backed up previously. An incremental backup provides better utilization of bandwidth, so that you do not need to transfer the same data repeatedly.
 
 **Q19. Why am I seeing the warning "Azure Backups have not been configured for this server" even though I had scheduled regular backups previously?** <br/>
-A19: This warning will occur when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-backup-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
+A19: This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-backup-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
 
 **Q20. What firewall rules should be configured for Azure Backup?** <br/>
 A20. For seamless protection of on-premises-to-Azure and workload-to-Azure data, it is recommended that you allow your firewall to communicate with the following URLs:
@@ -129,7 +129,7 @@ A21. Absolutely. Azure Backup provides VM-level backup for Azure VMs using the V
 A22. You can install the Azure Backup agent on the Guest Windows OS and back up files and folders to temporary storage. However, please note that backups fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
 
 **Q23. What is the length of file path that can be specified as part of Azure Backup policy using Azure Backup agent?** <br/>
-A23. Azure Backup agent relies on NTFS. The [filepath length specification is limited by Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). In case of backing up files with file path length greater than the ones specified by Windows API, customers can choose to backup the parent folder or the disk drive of backup files.  
+A23. Azure Backup agent relies on NTFS. The [file path length specification is limited by the Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). If you have a file path greater than what is allowed by the Windows API, you can back up the parent folder, or the disk drive, of the desired files.  
 
 **Q24 What characters are allowed in file path of Azure Backup policy using Azure Backup agent?** <br/>
 A24. Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) as part of file specification.  
@@ -178,11 +178,11 @@ A6. No. Retention policies can only be applied on backup points. In the followin
 **Q7. Is an incremental copy transferred for the retention policies scheduled?** <br/>
 A7. No, the incremental copy is sent based on the time mentioned in the backup schedule page. The points that can be retained are determined based on the retention policy.
 
-**Q8. If backup is retained for a long duration, does it take a significant time to recover the data (say the oldest point)?** <br/>
-A8. No – the time taken to recovery the oldest or the latest point is one and the same. Each recovery point behaves like a full point.
+**Q8. If a backup is retained for a long duration, does it take more time to recover an older data point?** <br/>
+A8. No – the time to recover the oldest or the newest point is the same. Each recovery point behaves like a full point.
 
 **Q9. If each recovery point is like a full point, does it impact the total billable backup storage?**<br/>
-A9.  Typical long-term retention point products store backup data as full points. The full points are storage *inefficient* but are easier and faster to restore. Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time. Azure Backup’s unique storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This data storage approach ensures that your ingress and egress bandwidth is used efficiently. Both the amount of data storage and the time needed to recover the data, is kept to a minimum.
+A9.  Typical long-term retention point products store backup data as full points. The full points are storage *inefficient* but are easier and faster to restore. Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time. Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This data storage approach ensures that your ingress and egress bandwidth is used efficiently. Both the amount of data storage and the time needed to recover the data, is kept to a minimum.
 
 **Q10. Is there a limit on the number of recovery points that can be created?**<br/>
 A10. No. We have eliminated limits on recovery points. You can create as many recovery points as you desire.
@@ -223,7 +223,7 @@ A4. The key used to encrypt the backup data is present only on the customer prem
 
   ```PS C:\> Net stop obengine```
 
-2. Copy the cache space folder to a different drive with sufficient space. You should copy the files from the cache space folder instead of moving them. The original cache space can be removed after confirming the backups are working with the new cache space.
+2. Do not move the files. Instead, copy the cache space folder to a different drive with sufficient space. The original cache space can be removed after confirming the backups are working with the new cache space.
 
 3. Update the following registry entries with the path to the new cache space folder.<br/>
 
