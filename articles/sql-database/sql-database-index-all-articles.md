@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/24/2016"
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,7 @@ This topic lists every topic that applies directly to the SQL Database service o
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
 | 4 | [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md) | Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then, run a sample query using Transact-SQL (T-SQL). |
-| 5 | [Create a scalable elastic database pool for SQL databases in Azure portal](sql-database-elastic-pool-portal.md) | How to add an scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases. |
+| 5 | [Create a scalable elastic database pool for SQL databases in Azure portal](sql-database-elastic-pool-create-portal.md) | How to add an scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases. |
 | 6 | [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) | Learn how to develop an ASP.NET MVC 5 app with a SQL Database back-end, add authentication and authorization, and deploy it to Azure. |
 | 7 | [SQL Database tutorial: Create a SQL database in minutes using sample data and the Azure portal](sql-database-get-started.md) | SQL Database tutorial: Create a first SQL database in minutes in the Azure portal with sample data. Learn how to set up a hosting server and firewall rule. |
 | 8 | [Using SQL Database from .NET (C#)](sql-database-develop-dotnet-simple.md) | Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database. |
