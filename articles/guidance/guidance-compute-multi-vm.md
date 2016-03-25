@@ -272,11 +272,11 @@ goto :eof
 
 <!-- Links -->
 [3-tier-blueprint]: guidance-compute-3-tier-vm.md
-[availability set]: ../virtual-machines/virtual-machines-manage-availability.md
+[availability set]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
 [app gateway]: ../application-gateway/application-gateway-ssl-arm.md
 [azure-automation]: https://azure.microsoft.com/en-us/documentation/services/automation/
-[azure-cli]: ../virtual-machines/virtual-machines-command-line-tools.md
+[azure-cli]: ../virtual-machines-command-line-tools.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [health probe log]: ../load-balancer/load-balancer-monitor-log.md
 [health probes]: ../load-balancer/load-balancer-overview.md#service-monitoring

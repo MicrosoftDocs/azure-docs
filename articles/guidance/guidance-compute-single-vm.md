@@ -23,7 +23,7 @@ This article outlines a set of proven practices for running a single Windows VM 
 
 > [AZURE.WARNING] There is no up-time SLA for single VMs on Azure. Use this configuration for development and test, but not as a production deployment.
 
-Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments. There are several ways to use Resource Manager, including the [Azure Portal][azure-portal], [Azure PowerShell][azure-powershell], [Azure CLI][azure-cli] commands, or [Resource Manager templates][arm-templates]. This article includes an example using the Azure CLI.
+Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
 Provisioning a single VM in Azure involves more moving parts than the core VM itself. There are compute, networking, and storage elements.  
 
@@ -159,7 +159,7 @@ To resize a VM:
 
     Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.
 
-- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated. (See the [Azure VM FAQ][vm-faq].)
+- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated.
 
     Use the following CLI command to de-allocate a VM:
 
@@ -199,7 +199,7 @@ To resize a VM:
 
 - Look at [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-## Azure CLI commands (example)
+## Example deployment script
 
 The following Windows batch script executes the [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagram.
 
@@ -311,27 +311,24 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 
 <!-- links -->
 
-[arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
+[arm-templates]: ../virtual-machines/virtual-machines-windows-cli-deploy-templates.md
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
-[azure-cli]: ../virtual-machines/virtual-machines-command-line-tools.md
-[azure-portal]: ../azure-portal/resource-group-portal.md
-[azure-powershell]: ../powershell-azure-resource-manager.md
+[azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-storage]: ../storage/storage-introduction.md
 [blob-snapshot]: ../storage/storage-blob-snapshots.md
 [blob-storage]: ../storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
-[data-disk]: ../virtual-machines/virtual-machines-disks-vhds.md
+[data-disk]: ../virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../azure-security-disk-encryption.md
 [enable-monitoring]: ../azure-portal/insights-how-to-use-diagnostics.md
-[fqdn]: ../virtual-machines/virtual-machines-create-fqdn-on-portal.md
+[fqdn]: ../virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
-[manage-vm-availability]: ../virtual-machines/virtual-machines-manage-availability.md
+[manage-vm-availability]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: guidance-compute-multi-vm.md
 [naming conventions]: guidance-naming-conventions.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
-[password-reset]: ../virtual-machines/virtual-machines-windows-reset-password.md
-[planned-maintenance]: ../virtual-machines/virtual-machines-planned-maintenance.md
+[planned-maintenance]: ../virtual-machines/virtual-machines-windows-planned-maintenance.md
 [premium-storage]: ../storage/storage-premium-storage.md
 [rbac]: ../active-directory/role-based-access-control-configure.md
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
@@ -339,13 +336,11 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-manager-overview]: ../resource-group-overview.md
 [security-center]: https://azure.microsoft.com/en-us/services/security-center/
-[security-extensions]: ../virtual-machines/virtual-machines-extensions-features.md#security-and-protection
-[select-vm-image]: ../virtual-machines/virtual-machines-linux-cli-ps-findimage.md
+[select-vm-image]: ../virtual-machines/virtual-machines-windows-cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [static-ip]: ../virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Use Security Center]: ../security-center/security-center-get-started.md#use-security-center
-[virtual-machine-sizes]: ../virtual-machines/virtual-machines-linux-sizes.md
+[virtual-machine-sizes]: ../virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
-[vm-faq]: ../virtual-machines/virtual-machines-questions.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/

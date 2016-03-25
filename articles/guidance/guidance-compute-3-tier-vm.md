@@ -458,8 +458,8 @@ goto :eof
 <!-- links -->
 
 [azure-administration]: ../automation/automation-intro/
-[azure-availability-sets]: ../virtual-machines/virtual-machines-manage-availability/#configure-each-application-tier-into-separate-availability-sets
-[azure-cli]: ../virtual-machines/virtual-machines-command-line-tools.md
+[azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability/#configure-each-application-tier-into-separate-availability-sets
+[azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault/
 [azure-load-balancer]: ../load-balancer/load-balancer-overview/
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
@@ -479,6 +479,6 @@ goto :eof
 [resource-manager-overview]: ../resource-group-overview.md
 [rfc1918]: http://tools.ietf.org/html/rfc1918
 [sql-alwayson]: https://msdn.microsoft.com/en-us/library/hh510230.aspx
-[vm-planned-maintenance]: ../virtual-machines/virtual-machines-planned-maintenance.md
+[vm-planned-maintenance]: ../virtual-machines/virtual-machines-windows-planned-maintenance.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [vnet faq]: ../virtual-network/virtual-networks-faq/
