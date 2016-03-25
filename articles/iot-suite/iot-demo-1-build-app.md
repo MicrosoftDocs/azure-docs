@@ -69,7 +69,7 @@ Install:
 
 -   [Azure development tools](https://azure.microsoft.com/downloads/) – Gives you the SDK for running apps in Azure, command line tools for managing Azure.
 
--   [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Required to build the [microservice](https://azure.microsoft.com/documentation/articles/service-fabric-get-started/) extension.
+-   [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Required to build the [microservice](../service-fabric/service-fabric-get-started.md) extension.
 
 Visual Studio extensions: Check that under Tools, you see Android, iOS, Xamarin…. If not, open **Control Panel**, **Programs and Features**, **Microsoft** **Visual Studio 2015**, **Modify**. Under **Cross-Platform development**, choose **C\#/.Net (Xamarin).** While you’re there, check that **GitHub** is installed.
 
@@ -182,7 +182,7 @@ The [mobile apps are developed in Xamarin](https://developer.xamarin.com/guides/
 
 Microsoft Azure provides a wealth of different services that you can use to build cloud applications. Although many can be used individually (such as App Service/Web Apps), they’re at their best when interconnected to form an integrated system like that we use in MyDriving.
 
-It’s possible to create and interconnect Azure services manually, but it’s much quicker and more reliable to use Azure Resource Manager (ARM) templates. [ARM](https://azure.microsoft.com/documentation/articles/resource-group-overview/) automates the deployment of a solution’s resources and making the interconnections between them.
+It’s possible to create and interconnect Azure services manually, but it’s much quicker and more reliable to use Azure Resource Manager (ARM) templates. [ARM](../resource-group-overview.md) automates the deployment of a solution’s resources and making the interconnections between them.
 
 You’ll find the template for the MyDriving system in the GitHub repository under [Scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). It provides a very comprehensive and concise view of how the different services in our architecture are interconnected. We explain all these in detail in the *MyDriving Reference Guide*, but you can learn a lot just by reading through the template itself.
 
@@ -285,7 +285,7 @@ We assume:
 | [HockeyApp](http://hockeyapp.net/pricing/) <br/> Distribute beta apps, collect feedback, usage & crash data.                                                                                                                                      | Two free apps for new users.<br/> $30/month thereafter.  | $0    |
 | [Xamarin](https://store.xamarin.com/)<br/> Code on a uniform platform for multiple devices. | Free trial. <br/>$25/month thereafter.| $0    |
 | [SQL Instance](https://azure.microsoft.com/pricing/details/sql-database/) for Azure App Service| Basic tier; single database model | $5             |
-| [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric/) (optional)  | Run a local cluster | $0             |
+| [Service Fabric](../service-fabric/services/service-fabric.md) (optional)  | Run a local cluster | $0             |
 | [Power BI](https://powerbi.microsoft.com/pricing/)<br/> Versatile displays and investigation of streamed and static data.| Free tier: 1GB, 10k rows/hour, daily refresh <br/> \# $10/user/month for [higher limits](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), more connection options, collaboration    | $0             |
 | [Storage](https://azure.microsoft.com/pricing/details/storage/)   | L (Locally Redundant) &lt; 100G $0.024/GB  | $3             |
 | [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/)                                                                                                                       | $0.60 per activity \* (8 - 5 FOC)| $2             |
@@ -296,7 +296,7 @@ We assume:
 
 See also:
 
--   Summary of [Azure service quotas and limits](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits).
+-   Summary of [Azure service quotas and limits](../azure-subscription-service-limits/#iot-hub-limits).
 
 -   Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
@@ -401,7 +401,7 @@ For mobile apps, we deploy to HockeyApp:
 
 ## Application Insights
 
-[Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-overview/) collects telemetry about the performance and usage of your web services both during debugging and when they’re live. It helps you both detect and diagnose any issues or failures. The Application Insights SDK sends telemetry from the app to the Application Insights resource in Azure, where you can explore the analyses and search the diagnostics.
+[Application Insights](../app-insights/app-insights-overview.md) collects telemetry about the performance and usage of your web services both during debugging and when they’re live. It helps you both detect and diagnose any issues or failures. The Application Insights SDK sends telemetry from the app to the Application Insights resource in Azure, where you can explore the analyses and search the diagnostics.
 
 We recommend Application Insights for the [Mobile App Service project](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService).
 
@@ -413,7 +413,7 @@ After you deploy and run the API project, using the MyDriving mobile app, for ex
 
 ![](./media/iot-demo-1-build-app/image11.png)
 
-You can also set up [Application Insights availability](https://azure.microsoft.com/en-gb/documentation/articles/app-insights-monitor-web-app-availability) tests. These will ping your site from various locations around the world, and will send you an email if it responds slowly or not at all.
+You can also set up [Application Insights availability](../app-insights/app-insights-monitor-web-app-availability.md) tests. These will ping your site from various locations around the world, and will send you an email if it responds slowly or not at all.
 
 ## Feedback 
 
