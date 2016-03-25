@@ -17,3 +17,6 @@
    ms.author="derrickv"/>
 
 # Power BI Embedded JavaScript API
+
+Public Preview has a JavaScript API. You can view the API in the **Power BI Embedded** sample in powerbi.js. We will expand the description of the JavaScript API as we move towards General Availability.
+ 

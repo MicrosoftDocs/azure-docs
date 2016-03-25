@@ -18,7 +18,7 @@
 
 # Power BI Embedded .NET API
 
-**Microsoft Power BI Embedded** Preview is primarily focused on exposing the majority of existing Power BI API functionality  as part of an Azure service for you to develop your applications with.  Additionally, you will be able to programmatically provision, develop and deploy the necessary resources and Power BI content.
+**Microsoft Power BI Embedded** Preview is primarily focused on exposing the majority of existing Power BI API functionality as part of an Azure service for you to develop your applications with. Additionally, you will be able to programmatically provision, develop and deploy the necessary resources and Power BI content.
 
 You can use the **Power BI API** to create and manage Power BI content workspaces. With the API, you can
   - Import a Power BI desktop file (PBIX) into a workspace using key based authentication.
@@ -38,7 +38,6 @@ Here are some of the classes and methods that are used in the **Power BI Embedde
 |---|---
 |[GetReports(IReports, String, String)]( https://msdn.microsoft.com/library/microsoft.powerbi.api.beta.reportsextensions.getreports.aspx)|Gets a list of reports available within the specified workspace
 |[GetReportsAsync(IReports, String, String, CancellationToken)]( https://msdn.microsoft.com/library/microsoft.powerbi.api.beta.reportsextensions.getreportsasync.aspx)|Gets a list of reports available within the specified workspace
-
 
 ## Microsoft.PowerBI.Security Namespace
 
