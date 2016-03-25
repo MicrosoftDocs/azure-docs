@@ -83,7 +83,9 @@ Xamarin Studio will create the app in which we will integrate Mobile Engagement.
 
 ###Add permissions and a service declaration
 
-1. Add these permissions to the Manifest.xml of your project immediately before or after the `<application>` tag:
+1. Open up the **Manifest.xml** file under the Properties folder. Select Source tab so that you directly update the XML source.
+ 
+2. Add these permissions to the Manifest.xml (which can be found under the **Properties** folder) of your project immediately before or after the `<application>` tag:
 
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -92,7 +94,7 @@ Xamarin Studio will create the app in which we will integrate Mobile Engagement.
 		<uses-permission android:name="android.permission.VIBRATE" />
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
-2. Add the following between the `<application>` and `</application>` tags to declare the agent service:
+3. Add the following between the `<application>` and `</application>` tags to declare the agent service:
 
 		<service
  			android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -100,7 +102,7 @@ Xamarin Studio will create the app in which we will integrate Mobile Engagement.
  			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
-3. In the code you just pasted, replace `"<Your application name>"` in the label. This is displayed in the **Settings** menu where users can see services running on the device. You can add the word "Service" in that label for example.
+4. In the code you just pasted, replace `"<Your application name>"` in the label. This is displayed in the **Settings** menu where users can see services running on the device. You can add the word "Service" in that label for example.
 
 ###Send a screen to Mobile Engagement
 
