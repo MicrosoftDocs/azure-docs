@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/25/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Get started with Service Fabric Reliable Services
 
-An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications by using [Reliable Services](service-fabric-reliable-services-introduction.md).
+An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications with [Reliable Services](service-fabric-reliable-services-introduction.md).
 
 ## Create a stateless service
 
@@ -42,7 +42,7 @@ Your solution now contains two projects:
 
 Open the **HelloWorldStateless.cs** file in the service project. In Service Fabric, a service can run any business logic. The service API provides two entry points for your code:
 
- - An open-ended entry point method, called *RunAsync*, where you can begin executing any workloads. These can include long-running compute workloads.
+ - An open-ended entry point method, called *RunAsync*, where you can begin executing any workloads, including long-running compute workloads.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -114,7 +114,9 @@ Select **Stateful Service** and name it *HelloWorldStateful*. Click **OK**.
 
 ![Use the New Project dialog box to create a new Service Fabric stateful service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-Your application should now have two services: the stateless service *HelloWorld* and the stateful service *HelloWorldStateful*.
+Your application should now have two services: the stateless service *HelloWorldStateless* and the stateful service *HelloWorldStateful*.
+
+A stateful service has the same entry points as a stateless service. The main difference is the availability of a *state provider* that can store state reliably. Service Fabric comes with a state provider implementation called [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), which lets you create replicated data structures through the Reliable State Manager. A stateful Reliable Service uses this state provider by default.
 
 Open **HelloWorldStateful.cs** in *HelloWorldStateful*, which contains the following RunAsync method:
 
@@ -150,25 +152,25 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ### RunAsync
 
-A stateful service has the same entry points as a stateless service. The main difference is the availability of Reliable Collections and the state manager. `RunAsync()` operates similarly in stateful and stateless services. However, in a stateful service, the platform performs additional work on your behalf before it executes `RunAsync()`. This work can include ensuring that the state manager and Reliable Collections are ready to use.
+`RunAsync()` operates similarly in stateful and stateless services. However, in a stateful service, the platform performs additional work on your behalf before it executes `RunAsync()`. This work can include ensuring that the Reliable State Manager and Reliable Collections are ready to use.
 
-### Reliable Collections and the state manager
+### Reliable Collections and the Reliable State Manager
 
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-*IReliableDictionary* is a dictionary implementation that you can use to reliably store state in the service. This is part of the built-in [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) in Service Fabric. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. This approach makes your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
+*IReliableDictionary* is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. Reliable Collections make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
 Reliable Collections can store any .NET type, including your custom types, with a couple of caveats:
 
- - Service Fabric makes your state highly available by *replicating* state across nodes and storing it to local disk. This means that everything that is stored in Reliable Collections must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure that your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when you use the default serializer.
+ - Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Collections store your data to local disk on each replica. This means that everything that is stored in Reliable Collections must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure that your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when you use the default serializer.
 
  - Objects are replicated for high availability when you commit transactions on Reliable Collections. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
 
-    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because those changes will not be replicated automatically.
+    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must re-insert the object back into the dictionary or use one of the *update* methods on the dictionary.
 
-The state manager manages Reliable Collections for you. You can simply ask the state manager for a reliable collection by name at any time and at any place in your service. The state manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The state manager handles this work for you, and it's optimized for repeat visits.
+The Reliable State Manager manages Reliable Collections for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
 
 ### Transactional and asynchronous operations
 
@@ -183,9 +185,9 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, except LINQ. However, operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections are *replicated* and persisted to disk. For high availability, these operations are sent to other replicas of the service on different nodes.
+Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, except LINQ. Operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
 
-Reliable Collection operations are *transactional*, so that you can keep state consistent across multiple Reliable Collections and operations. For example, you may dequeue a work item from a reliable queue, perform an operation on it, and save the result in a reliable dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or none of it will. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
+Reliable Collection operations are *transactional*, so that you can keep state consistent across multiple Reliable Collections and operations. For example, you may dequeue a work item from a Reliable Queue, perform an operation on it, and save the result in a Reliable Dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
 ## Run the application
 
