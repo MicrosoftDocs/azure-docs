@@ -20,7 +20,7 @@
 You can modify stateful Reliable Services' default configurations by using the configuration package (Config) or the service implementation (code).
 
 + **Config** - Configuration via the config package is accomplished by changing the Settings.xml file that is generated in the Microsoft Visual Studio package root under the Config folder for each service in the application.
-+ **Code**   - Configuration via code is accomplished by overriding StatefulService.CreateReliableStateManager and creating a ReliableStateManager by using a  ReliableStateManagerConfiguration object with the appropriate options set.
++ **Code**   - Configuration via code is accomplished by creating a ReliableStateManager using a  ReliableStateManagerConfiguration object with the appropriate options set.
 
 By default, the Azure Service Fabric runtime looks for predefined section names in the Settings.xml file and consumes the configuration values while creating the underlying runtime components.
 
