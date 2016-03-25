@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
+	ms.date="03/25/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Expensify with Az
 
 - You can control in Azure AD who has access to Expensify
 - You can enable your users to automatically get signed-on to Expensify (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -83,7 +83,7 @@ To configure and test Azure AD single sign-on with Expensify, you need to comple
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Expensify test user](#creating-a-Expensify-test-user)** - to have a counterpart of Britta Simon in Expensify that is linked to the Azure AD representation of her.
+4. **[Creating a Expensify test user](#creating-a-expensify-test-user)** - to have a counterpart of Britta Simon in Expensify that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
