@@ -13,93 +13,138 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="02/09/2016"      
+    ms.date="03/25/2016"      
     ms.author="arramac"/> 
 
 # Partition and scale data in DocumentDB
 
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps. 
 
-You can achieve near-infinite scale in terms of storage and throughput for your DocumentDB application by horizontally partitioning your data - a concept commonly referred to as **sharding**.  DocumentDB accounts can be scaled linearly with cost via stackable units a.k.a. **collections**. How you best partition your data across collections will depend on your data format and access patterns. 
+Data in DocumentDB collections are stored within one or more partitions. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. You can achieve near-infinite scale in terms of storage and throughput for your DocumentDB application by horizontally partitioning your data. 
 
 After reading this article on data scaling you will be able to answer the following questions:   
 
- - What is hash and range partitioning?
- - When would you use each partitioning technique and why?
- - How do you go about building a partitioned application on Azure DocumentDB?
+## Partitioning in DocumentDB
 
-This article presents some concepts about sharding. If you're ready to write code that partitions data using the DocumentDB SDKs, take a look at [Partitioning data with the DocumentDB SDK](documentdb-sharding.md).
+When you create a collection in DocumentDB, you'll notice that there's a **partition key property** configuration value that you can specify. This is an important setting as this determines what JSON property (or path) within your documents can be used by distribute to split your data among multiple servers or partitions. 
 
-## Collections = Partitions
+All the machinery behind distributing data across partitions, partitioning and re-partitioning based on scale needs, and routing query requests to the right partitions is handled automatically by the DocumentDB service. Partitioning is completely transparent to your application - functionality like fast order of millisecond reads and writes, SQL and LINQ queries, JavaScript based transactional logic, consistency levels, and fine-grained access control work the sane across partitioned and single-partitioned collections.
 
-Before we dive deeper on data scaling and partitioning techniques, it is important to understand what a collection is and what it isn't. As you may already know, a collection is a container for your JSON documents. Collections in DocumentDB are not just *logical* containers, but also *physical* containers. They are the transaction boundary for stored procedures and triggers, and the entry point to queries and CRUD operations. Each collection is assigned a reserved amount of throughput which is not shared with other collections in the same account. Therefore you can scale out your application both in terms of storage and throughput by adding more collections, and then distributing your documents across them.
+## Working with Partition Keys
 
-Collections are not the same as tables in relational databases. Collections do not enforce schema. Therefore you can store different types of documents with diverse schemas in the same collection. You can however choose to use collections to store objects of a single type like you would with tables. The best model depends only on how the data appears together in queries and transactions.
+The following sample shows a .NET snippet to create a collection to store device telemetry data of 20,000 request units per second of throughput. Here we set the deviceId as the partition key since we know that (a) since there are a large number of devices, writes can be distributed across partitions evenly and allowing us to scale the database to ingest massive volumes and (b) many of the requests like fetching the latest reading for a device are scoped to a single deviceId and can be retrieved from a single parttion.
 
-## Partitioning with DocumentDB
+    DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+    await client.CreateDatabaseAsync(new Database { Id = "db" });
 
-There are two approaches that can be used for partitioning data with Azure DocumentDB (or any distributed system for that matter) - and these are *range partitioning*, and *hash partitioning*. This involves picking a single JSON property name within your document as your *partition key*, commonly the natural ID property, e.g. "userID" for user storage or "deviceId" for IoT scenarios. For time series data, the "timestamp" is used as the partition key since data is usually inserted and looked up by time ranges. While it is common to use a single property, this could be a different property for different kinds of documents, e.g., use "id" for user documents, and "ownerUserId" for comments. The next step is to route all operations like creates and queries to the right collection(s) using the partition key included in a request.
+    // Collection for device telemetry. Here the JSON property deviceId will be used as the partition key to 
+    // spread across partitions. Configured for 10K RU/s throughput and an indexing policy that supports 
+    // sorting against any number or string property.
+    DocumentCollection myCollection = new DocumentCollection();
+    myCollection.Id = "coll";
+    myCollection.PartitionKey.Paths.Add("/deviceId");
 
-Let's take a look at these techniques in some more detail.
+    await client.CreateDocumentCollectionAsync(
+        UriFactory.CreateDatabaseUri("db"),
+        myCollection,
+        new RequestOptions { OfferThroughput = 20000 });
+        
+This request makes a REST API call to DocumentDB, and the service will provision a number of partitions based on the requested throughput. Now, let's insert data into DocumentDB. Here's a sample class containing a device reading.
 
-## Range partitioning
+    public class DeviceReading
+    {
+        [JsonProperty("id")]
+        public string Id;
 
-In range partitioning, partitions are assigned based on whether the partition key is within a certain range. This is commonly used for partitioning with *time stamp* properties (e.g., eventTime between Feb 1, 2015 and Feb 2, 2015). 
+        [JsonProperty("deviceId")]
+        public string DeviceId;
 
-> [AZURE.TIP] You should use Range partitioning if your queries are restricted to specifc range values against the partition key.
+        [JsonConverter(typeof(IsoDateTimeConverter))]
+        [JsonProperty("readingTime")]
+        public DateTime ReadingTime;
 
-A special case of range partitioning is when the range is a single value. This is commonly used for partitioning by discrete values like region (e.g. the partition for Scandinavia contains Norway, Denmark, and Sweden). 
+        [JsonProperty("metricType")]
+        public string MetricType;
 
-> [AZURE.TIP] Range partitioning offers the highest degree of control in managing a multi-tenant application. You can assign multiple tenants to a single collection, single tenant to a single collection, or even a single tenant across multiple collections. 
+        [JsonProperty("unit")]
+        public string Unit;
 
-## Hash partitioning
+        [JsonProperty("metricValue")]
+        public double MetricValue;
+      }
 
-In hash partitioning, partitions are assigned based on the value of a hash function, allowing you to evenly distribute requests and data across a number of partitions. This is commonly used to partition data produced or consumed from a large number of distinct clients, and is useful for storing user profiles, catalog items, and IoT ("Internet of Things") device telemetry data. 
+    // Create a document. Here the partition key is extracted as "XMS-0001" based on the collection definition
+    await client.CreateDocumentAsync(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"),
+        new DeviceReading
+        {
+            Id = "XMS-001-FE24C",
+            DeviceId = "XMS-0001",
+            MetricType = "Temperature",
+            MetricValue = 105.00,
+            Unit = "Fahrenheit",
+            ReadingTime = DateTime.UtcNow
+        });
 
-> [AZURE.TIP] You should use hash partitioning whenever there are too many entities to enumerate (e.g. users or devices) and the request rate is fairly uniform across entities.
 
-## Choosing the right partitioning technique
+Let's read the document by it's partition key and id, update it, and then as a final step, delete it by partition key and id.
 
-So which partitioning technique is right for you? It depends on the type of data and your common access patterns. Picking the right partitioning technique at design time allows you to avoid technical debt, and handle growth in data size and request volumes.
+    // Read document. Needs the partition key and the ID to be specified
+    Document result = await client.ReadDocumentAsync(
+      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+      new RequestOptions { PartitionKey = new object[] { "XMS-0001" }});
 
-- **Range partitioning** is generally used in the context of dates, as it gives you an easy and natural mechanism for aging out partitions by timestamp. It is also useful when queries are generally constrained to a time range since that is aligned with the partitioning boundaries. It also allows you to group and organize unordered and unrelated sets of data in a natural way e.g., group tenants by organization or states by geographic region. Range also offers fine-grained control for migrating data between collections. 
-- **Hash partitioning** is useful for uniform load balancing of requests to make effective use of your provisioned storage and throughput. Using *consistent hashing* algorithms allow you to minimize the amount of data that has to be moved when adding or removing a partition.
+    DeviceReading reading = (DeviceReading)(dynamic)result;
 
-You don't have to choose just one partitioning technique. A *composite* of these techniques can also be useful depending on the scenario. For example, if you're storing vehicle telemetry data, a good approach would be to partition device telemetry data by range on timestamp for easy manageability of partitions, then sub-partition on VIN (vehicle identification number) in order to scale-out for throughput (range-hash composite partitioning).
+    // Update the document. Partition key is not required, again extracted from the document
+    reading.MetricValue = 104;
+    reading.ReadingTime = DateTime.UtcNow;
 
-## Developing a partitioned application
-There are three key design areas to look at when developing a partitioned application on DocumentDB.
+    await client.ReplaceDocumentAsync(
+      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+      reading);
 
-- How you route your creates and reads (including queries) to the right collections.
-- How you persist and retrieve your partition resolution configuration, a.k.a. partition maps.
-- How you add/remove partitions as your data and request volume increases.
+    // Delete document. Needs partition key
+    await client.DeleteDocumentAsync(
+      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+      new RequestOptions { PartitionKey = new object[] { "XMS-0001" } });
 
-Let's take a closer look at each of these areas.
+When you query data in partitioned collections, DocumentDB automatically routes ther query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
 
-## Routing creates and queries
+    // Query using partition key
+    IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(UriFactory.CreateDocumentCollectionUri("db", "coll"))
+        .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 
-Routing document creation requests is straight-forward for both hash and range partitioning. The document is created on the partition from the hash or range value corresponding to the partition key.
+The following query does not have a filter on the partition key (DeviceId) and is fanned out to all partitions where it is executed against the partition's index. Note that you have to specify the EnableCrossPartitionQuery to instruct the SDK to execute a query across partitions.
 
-Queries and reads should typically be scoped to a single partition key, so queries can be fanned out to only the matching partitions. Queries across all data however, would require you to *fan-out* the request across multiple partitions, then merge the results. Keep in mind that some queries might have to perform custom logic to merge results for e.g. when fetching the top N results.
+    // Query across partition keys
+    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+        new FeedOptions { EnableCrossPartitionQuery = true })
+        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 
-## Managing your partition map
 
-You also need to decide how you will store your partition map, how your clients load it and receive updates when it changes, and how it is shared across multiple clients. If the partition map does not change often, you can simply save it in your application config file. 
+## How do I pick a Partition key
 
-If not, you can store it in any persistent store. A common design pattern we've seen in production is to serialize partition maps as JSON, and store them within DocumentDB collections as well. Clients can then cache the map in order to avoid the extra round trips, and then poll for changes periodically. If your clients might modify the shard map, ensure that they use a consistent naming schema and use optimistic concurrency (eTags) to allow consistent updates to the partition map.
+The choice of the partition key is an important decision that you’ll have to make at design time. This value of this property within each JSON document or request will be used by DocumentDB to distribute documents among the available partitions:
+* ACID transactions can be served against documents with the same partition key
+* Documents with the same partition key are stored in same partition so that queries get the benefit of data locality and lower latency
 
-## Adding and removing partitions to scale data
+Here are a few examples for how to pick the partition key for your application:
 
-With DocumentDB, you can add and remove collections at any time and use them to store new incoming data or re-balance data available on existing collections. Review the [Limits](documentdb-limits.md) page for the number of collections. You can always call us to increase these limits.
+* If you’re implementing a user profile backend, then the user ID is a good choice for partition key.
+* If you’re storing IoT data e.g. device state, a device ID is a good choice for partition key
+* If you’re using DocumentDB for logging time-series data, then the date part of the timestamp is a good choice for partition key
+* If you have a multi-tenant architecture, the tenant ID is a good choice for partition key
 
-Adding and removing a new partition with range partitioning is straightforward. For example, adding a new geographic region or new time range for recent data, you just need to append the new partitions to the partition map. Splitting an existing partition into multiple partitions, or merge two partitions requires a little more effort. You need to either 
+Note that in some use cases (like the IoT and user profiles described above), the partition key might be the same as your id (document key). In others like the time series data, you might have a partition key that’s different than the id.
 
-- Take the shard offline for reads.
-- Route reads to both the partitions using the old partitioning configuration as well as the new partitioning configuration during migration. Note that transactions and consistency level guarantees will not be available until migration is complete.
+If you are implementing a multi-tenant application using DocumentDB, there are two major patterns for implementing tenancy with DocumentDB – one partition key per tenant, and one collection per tenant. Here are the pros and cons for each:
 
-Hashing is relatively more complicated for adding and removing partitions. Simple hashing techniques will cause shuffling, and require most of the data to get moved around. Using **consistent hashing** ensures that only a fraction of data needs to get moved.
+* One Partition Key per tenant: In this model, tenants are collocated within a single collection. But queries and inserts for documents within a single tenant can be performed against a single partition. You can also implement transactional logic across all documents within a tenant. Since multiple tenants share a collection, you can save storage and throughput costs by pooling resources for tenants within a single collection rather than provisioning extra headroom for each tenant. The drawback is that you do not have performance isolation per tenant
+* One Collection per tenant: In this model, each tenant has its own collection. In this model, you can reserve performance per tenant. With DocumentDB’s new consumption based pricing model, this model is more cost-effective for multi-tenant applications.
 
-A relatively easy way to add new partitions without requiring data movement is to  "spill over" your data to a fresh collection, and then fan-out requests across both the old and new collections. This approach, however, should be used only in rare situations (e.g. spill over in peak time workloads and to hold data temporarily until it can be moved).
+You can also use a combination/tiered approach that collocates small tenants and migrates larger tenants to their own collection.
 
 ## Next Steps
 In this article, we've introduced some common techniques on how you can partition data with DocumentDB, and when to use which technique or combination of techniques. 
