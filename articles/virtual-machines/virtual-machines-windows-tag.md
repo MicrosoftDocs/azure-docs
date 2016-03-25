@@ -1,6 +1,6 @@
 <properties
    pageTitle="How to Tag a VM | Microsoft Azure"
-   description="Learn about tagging a Windows Azure virtual achine created using the Resource Manager deployment model"
+   description="Learn about tagging a Windows virtual achine created in Azure using the Resource Manager deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="mmccrory"
@@ -24,7 +24,7 @@ This article describes different ways to tag a Windows virtual machine in Azure 
 
 [AZURE.INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
-# Tagging with PowerShell
+## Tagging with PowerShell
 
 To create, add, and delete tags through PowerShell, you first need to set up your [PowerShell environment with Azure Resource Manager][]. Once you have completed the setup, you can place tags on Compute, Network, and Storage resources at creation or after the resource is created via PowerShell. This article will concentrate on viewing/editing tags placed on Virtual Machines.
 
