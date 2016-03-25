@@ -1,4 +1,4 @@
-### To add additional address space to your VNet
+### To add address space
 
 1. To add additional address space, click **All settings** to open the **Settings** blade. 
 
@@ -6,7 +6,7 @@
 
 	![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### To add additional subnets 
+### To add subnets 
 
 1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
 
