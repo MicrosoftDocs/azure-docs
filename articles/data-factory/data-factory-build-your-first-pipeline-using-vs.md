@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="spelluru"/>
 
 # Build your Azure first data factory using Microsoft Visual Studio
@@ -256,7 +256,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
-	> [ACOM.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
+	> [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
 3. Save the **HiveActivity1.json** file.
 
 ### Add partitionweblogs.hql and input.log as a dependency 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="03/23/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Blob using Azure Data Factory
@@ -172,8 +172,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        ],
 	        "typeProperties": {
 	          "source": {
-	            "type": "BlobSource",
-	            "blobColumnSeparators": ","
+	            "type": "BlobSource"
 	          },
 	          "sink": {
 	            "type": "SqlSink"
@@ -513,5 +512,6 @@ false | mergeFiles | For a source folder Folder1 with the following structure:<b
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 

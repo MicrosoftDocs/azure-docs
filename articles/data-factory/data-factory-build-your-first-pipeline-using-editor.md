@@ -70,7 +70,7 @@ In this step, you will link your Azure Storage account to your data factory. For
 1.	Click **Author and deploy** on the **DATA FACTORY** blade for **GetStartedDF**. This launches the Data Factory Editor. 
 	 
 	![Author and deploy tile](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
-2.	Click **New data store** and choose **Azure storage**
+2.	Click **New data store** and choose **Azure storage**.
 	
 	![Azure Storage linked service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
@@ -80,7 +80,7 @@ In this step, you will link your Azure Storage account to your data factory. For
 
 	![Deploy button](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   After the linked service is deployed successfully, the **Draft-1** window should disappear and you will see **StorageLinkedService** in the tree view on the left. 
+   After the linked service is deployed successfully, the **Draft-1** window should disappear and you will see **AzureStorageLinkedService** in the tree view on the left. 
 	![Storage Linked Service in menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)	
 
  
@@ -100,7 +100,7 @@ In this step, you will link an on-demand HDInsight cluster to your data factory.
 		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "linkedServiceName": "StorageLinkedService"
+		      "linkedServiceName": "AzureStorageLinkedService"
 		    }
 		  }
 		}
@@ -124,12 +124,12 @@ In this step, you will link an on-demand HDInsight cluster to your data factory.
 
 	See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 3. Click **Deploy** on the command bar to deploy the linked service. 
-4. Confirm that you see both **StorageLinkedService** and **HDInsightOnDemandLinkedService** in the tree view on the left.
+4. Confirm that you see both **AzureStorageLinkedService** and **HDInsightOnDemandLinkedService** in the tree view on the left.
 
 	![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## Create datasets
-In this step, you will create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
+In this step, you will create datasets to represent the input and output data for Hive processing. These datasets refer to the **AzureStorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
 ### Create input dataset
 
@@ -142,7 +142,7 @@ In this step, you will create datasets to represent the input and output data fo
 			"name": "AzureBlobInput",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "input.log",
 		            "folderPath": "adfgetstarted/inputdata",
@@ -165,7 +165,7 @@ In this step, you will create datasets to represent the input and output data fo
 	| Property | Description |
 	| :------- | :---------- |
 	| type | The type property is set to AzureBlob because data resides in Azure blob storage. |  
-	| linkedServiceName | refers to the StorageLinkedService you created earlier. |
+	| linkedServiceName | refers to the AzureStorageLinkedService you created earlier. |
 	| fileName | This property is optional. If you omit this property, all the files from the folderPath are picked. In this case, only the input.log is processed. |
 	| type | The log files are in text format, so we will use TextFormat. | 
 	| columnDelimiter | columns in the log files are delimited by , (comma) |
@@ -186,7 +186,7 @@ Now, you will create the output dataset to represent the output data stored in t
 		  "name": "AzureBlobOutput",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adfgetstarted/partitioneddata",
 		      "format": {
@@ -210,7 +210,7 @@ Now, you will create the output dataset to represent the output data stored in t
 ## Create pipeline
 In this step, you will create your first pipeline with a **HDInsightHive** activity. Note that input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly (see below). The settings for the output dataset and the activity scheduler must match. At this time, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. The properties used in the following JSON are explained at the end of this section. 
 
-1. In the **Data Factory Editor**, click **Elipsis (…)** and then click **New pipeline**.
+1. In the **Data Factory Editor**, click **Elipsis (…) More commands** and then click **New pipeline**.
 	
 	![new pipeline button](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copy and paste the snippet below to the Draft-1 window.
@@ -226,7 +226,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 		                "type": "HDInsightHive",
 		                "typeProperties": {
 		                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-		                    "scriptLinkedService": "StorageLinkedService",
+		                    "scriptLinkedService": "AzureStorageLinkedService",
 		                    "defines": {
 		                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
 		                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -254,15 +254,15 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2014-02-01T00:00:00Z",
-		        "end": "2014-02-02T00:00:00Z",
+		        "start": "2016-02-01T00:00:00Z",
+		        "end": "2016-02-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
  
 	In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process Data on an HDInsight cluster.
 	
-	The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **StorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
+	The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **AzureStorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
 
 	The **defines** section is used to specify the runtime settings that will be passed to the hive script as Hive configuration values (e.g ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
@@ -270,9 +270,13 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
-	>[ACOM.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
+	> [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
 
-3. Confirm that you see the input.log file in the adfgetstarted/inputdata folder in the Azure blob storage, and click **Deploy** on the command bar to deploy the pipeline. Since the **start** and **end** times are set in the past and **isPaused** is set to false, the pipeline (activity in the pipeline) runs immediately after you deploy. 
+3. Confirm the following: 
+	1. **input.log** file exists in the **inputdata** folder of the **adfgetstarted** container in the Azure blob storage
+	2. **partitionweblogs.hql** file exists in the **script** folder of the **adfgetstarted** container in the Azure blob storage. Please complete the prerequisite steps in the [Tutorial Overview](data-factory-build-your-first-pipeline.md) if you don't see these files. 
+	3. Confirm that you replaced **storageaccountname** with the name of your storage account in the pipeline JSON. 
+2. Click **Deploy** on the command bar to deploy the pipeline. Since the **start** and **end** times are set in the past and **isPaused** is set to false, the pipeline (activity in the pipeline) runs immediately after you deploy. 
 4. Confirm that you see the pipeline in the tree view.
 
 	![Tree view with pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
