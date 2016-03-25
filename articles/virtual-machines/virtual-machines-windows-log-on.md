@@ -51,7 +51,7 @@ In the Azure portal, you use the **Connect** button to start a Remote Desktop se
 
  	In most cases, the credentials are the local account user name and password that you specified when you created the virtual machine. The domain is the name of the virtual machine entered as *vmname*&#92;*username*.  
 	
-	If the virtual machine belongs to a domain in your organization, make sure the user name includes the name of the domain in the format *Domain*&#92;*Username*. The account need to be in the Admnistrators group or have been granted remote access privledges to the VM.
+	If the virtual machine belongs to a domain in your organization, make sure the user name includes the name of the domain in the format *Domain*&#92;*Username*. The account needs to be in the Administrators group or have been granted remote access privileges to the VM.
 	
 	If the virtual machine is a domain controller, type the user name and password of a domain administrator account for that domain.
 
