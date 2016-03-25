@@ -18,7 +18,7 @@
 
 # Aggregation in Analytics
 
-[Analytics](app-analytics.md) is the big-data analytical feature of 
+[Analytics](app-analytics.md) lets you run powerful queries over the telemetry from your app collected by 
 [Application Insights](app-insights-overview.md). These pages describe its query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]

@@ -17,7 +17,8 @@
 	ms.author="awills"/>
 
 # Analytics samples for Application Insights
-[Analytics](app-analytics.md) is the big-data analytical feature of 
+
+[Analytics](app-analytics.md) lets you run powerful queries over the telemetry from your app collected by 
 [Application Insights](app-insights-overview.md). These pages describe its query lanquage.
 There's also 
 a [tour of the language](app-analytics-tour.md), which is recommended for getting started.
