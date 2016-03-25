@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/22/2016" 
+	ms.date="03/30/2016" 
 	ms.author="mimig"/>
 
 # How to create a DocumentDB collection using the Azure portal
@@ -40,27 +40,37 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
 	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
 
-6. Select a pricing tier for the new collection. Each collection you create is a billable entity. For more information about the performance levels available, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
+6. Select a partitioning mode for the collection. A single partition has a reserved storage capacity of 10GB, whereas a partitioned collection can scale to handle larger data sets. 
+   
+    - If you select **Single Partition**, you then select one of the following **Indexing Policies**. 
 
-7. Select one of the following **Indexing Policies**. 
+		**Default**. This policy uses hash indexing for strings and range indexing for numbers. It is best for equality queries against strings, ORDER BY, and range and equality queries on numbers. This policy has a lower index storage overhead and includes geospatial indexing.
+	
+		**Range**. This policy is best when you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than **Default** and includes geospatial indexing.
 
-	- **Default**. This policy uses hash indexing for strings and range indexing for numbers. It is best for equality queries against strings, ORDER BY, and range and equality queries on numbers. This policy has a lower index storage overhead and includes geospatial indexing.
-	- **Hash**. This policy is best when you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than **Default** and includes geospatial indexing.
+		For more information about the indexing policies, see [DocumentDB indexing policies](documentdb-indexing-policies.md). 
 
-	For more information about the indexing policies, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
+    	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-7.png)
 
-8. Click **OK** at the bottom of the screen to create the new collection. 
+    	Then skip to step 9.
 
+    - If you select **Partitioned**, continue to step 7.
 
-9. The new collection now appears in the **Collections** lens on the **Database** blade.
+7. Select the **Throughput** for the partitioned collection. 
+
+8. Select the **Partition Key** for the collection. 
+
+9. Click **OK** at the bottom of the screen to create the new collection. 
+
+10. The new collection now appears in the **Collections** lens on the **Database** blade.
  
 	![Screen shot of the new collection in the Database blade - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-9.png)
 
 ## What is a DocumentDB collection? 
 
-A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the performance level associated with the collection. 
+A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the performance level associated with the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
 
-Collections are the transaction boundary for stored procedures and triggers, and the entry point to queries and CRUD operations. Each collection has a reserved amount of throughput specific to that collection, which is not shared with other collections in the same account. Therefore, you can scale out your application both in terms of storage and throughput by adding more collections, and then distributing your documents across them.
+Collections are automatically partitioned into one or more physical servers by DocumentDB. When you create a collection, you can specify the provisioned throughput in terms of request units per second and a partition key property. The value of this property will be used by DocumentDB to distribute documents among partitions and route requests like queries. The partition key value also acts as the transaction boundary for stored procedures and triggers. Each collection has a reserved amount of throughput specific to that collection, which is not shared with other collections in the same account. Therefore, you can scale out your application both in terms of storage and throughput. 
 
 Collections are not the same as tables in relational databases. Collections do not enforce schema, in fact DocumentDB does not enforce any schemas, it's a schema-free database. Therefore you can store different types of documents with diverse schemas in the same collection. You can choose to use collections to store objects of a single type like you would with tables. The best model depends only on how the data appears together in queries and transactions.
 
