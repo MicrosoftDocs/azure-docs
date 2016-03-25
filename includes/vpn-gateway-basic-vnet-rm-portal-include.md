@@ -8,7 +8,8 @@ To create a VNet by using the Azure portal, follow the steps below. If are doing
 
 3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Resource Manager**, and then click **Create**.
 
-	![resourcegroup](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcegroup200.png)
+
+	![Select Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
 
 4. On the **Create virtual network** blade, configure the VNet settings. In this blade, you'll add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces. This is a current limitation of the portal. The values that you use will depend on the configuration you want to create. Be sure to refer to your planned configuration values. 
 

@@ -8,7 +8,7 @@ You can verify a VPN connection in the Azure portal by navigating to **Virtual n
 
 ### To verify your connection using PowerShell
 
-It is also possible to verify that your connection succeeded by using *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. In the future, we'll have a cmdlet for this. You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All.
+It is also possible to verify that your connection succeeded by using `Get-AzureRmVirtualNetworkGatewayConnection –Debug`. In the future, we'll have a cmdlet for this. You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All.
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
