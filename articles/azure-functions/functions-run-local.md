@@ -66,7 +66,7 @@ For details about these requirements, including environment variables that you h
 	* AzureWebJobsStorage
 	* AzureWebJobsDashboard
 
-	As an alternative, you can use the `connectionStrings` collection of the *app.config* file in the WebJobs.Script.Host and WebJobs.Script.WebHost projects.
+	As an alternative, you can use the `connectionStrings` collection of the *app.config* file in the WebJobs.Script.Host project, or the web.config file in the WebJobs.Script.WebHost project.
 
 3. Make sure any other environment variables that you need are set. (See preceding **Conditional prerequisites** section).
 
