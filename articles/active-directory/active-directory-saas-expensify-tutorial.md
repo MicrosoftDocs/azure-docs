@@ -72,6 +72,7 @@ To configure the integration of Expensify into Azure AD, you need to add Expensi
 ![Creating an Azure AD test user](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_01.png)<br>
 7. In the results pane, select **Expensify**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Expensify based on a test user called "Britta Simon".
