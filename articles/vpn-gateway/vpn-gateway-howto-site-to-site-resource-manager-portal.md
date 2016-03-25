@@ -56,7 +56,7 @@ When using these steps as an exercise, you can use the following values:
 
 
 
-<a name="values"/>**Configuration values for TestVNet1:**
+### <a name="values"></a>Sample configuration values for this exercise
 
 - VNet Name: TestVNet1
 - Address Space: 10.11.0.0/16 and 10.12.0.0/16
