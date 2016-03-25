@@ -1,4 +1,4 @@
-### To create a gateway subnet in the Azure portal, do the following:
+### To create a gateway subnet in the Azure portal
 
 1. In the portal, navigate to the virtual network to which you want to connect a gateway. On the blade for your virtual network, click the **Settings** icon at the top of the blade to expand the Setting blade. 
 2. On the **Settings** blade, click **Subnets** to expand the Subnets blade.
