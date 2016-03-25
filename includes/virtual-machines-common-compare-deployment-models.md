@@ -1,4 +1,4 @@
-The inclusion of compute, network, and storage capabilities with the Azure Resource Manager will fundamentally simplify the deployment and management of complex applications running on IaaS. Many applications require a combination of resources, including a Virtual Network, Storage Account, Virtual Machine, and a Network Interface. The Azure Resource Manager offers the ability to construct a JSON template to deploy and manage all these resources together as a single application.
+
 
 
 ## Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager
