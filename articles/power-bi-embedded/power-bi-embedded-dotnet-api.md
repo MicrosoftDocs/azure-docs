@@ -44,6 +44,6 @@ Here are some of the classes and methods that are used in the **Power BI Embedde
 
 ### PowerBIToken Methods
 |Name| Description
-|-|
+|---|---
 |[CreateDevToken(String, Guid)]( https://msdn.microsoft.com/library/mt670215.aspx)|Creates a developer token with default expiration used to access Power BI platform services
 |[CreateProvisionToken(String)]( https://msdn.microsoft.com/library/mt670218.aspx)|Creates a provision token with default expiration used to manages workspaces within a workspace collection
