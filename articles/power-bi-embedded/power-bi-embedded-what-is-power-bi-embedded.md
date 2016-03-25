@@ -82,13 +82,14 @@ These tokens are used for the various phases of your interactions with **Microso
 
 ### Generating App Tokens
 
-The SDKs  that have been provided for the Preview let you generate the tokens.  You must first call the CreatexxxToken() method, then call Generate() with the signing key retrieved from the **Workspace Collection**.  The basic **Create** methods for token generate are as follows:  
+The SDKs provided for the Preview let you generate tokens. You must first call one of the Create___Token() methods, then call Generate() with the signing key retrieved from the Workspace Collection. The basic Create methods for tokens are defined in the Microsoft.PowerBI.Security.PowerBIToken class, and are as follows:
 
--	CreateProvisionToken
--	CreateDevToken
--	CreateReportEmbedToken
+-	[CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx)
+-	[CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx)
+-	[CreateReportEmbedToken]( https://msdn.microsoft.com/library/mt710366.aspx)
 
-These methods are defined in the Microsoft.PowerBI.Security.PowerBIToken class. See, [Get started sample](power-bi-embedded-get-started-sample.md) .
+For an example of how to use [CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx) and [CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx), see [Get started with Microsoft Power BI Embedded sample code](power-bi-embedded-get-started-sample.md).
+
 
 ## See Also
 - [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
