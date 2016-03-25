@@ -55,6 +55,7 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [What's new](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
 [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 [Get started with PowerApps now](../power-apps/powerapps-get-started-azure-portal.md)  
+[Migrate existing Logic apps to the latest schema version](connectors-schema-migration.md) 
 
 <!--API Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
