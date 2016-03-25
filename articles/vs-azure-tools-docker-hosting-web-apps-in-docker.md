@@ -26,7 +26,7 @@ supports Docker on Ubuntu, CoreOS, and Windows. This tutorial walks you through 
 ## 1. Prerequisites
 The following is needed to complete this tutorial:
 
-- Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](./virtual-machines/virtual-machines-docker-machine.md)
+- Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](./virtual-machines/virtual-machines-linux-classic-docker-machine.md)
 - Install [Visual Studio 2015](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
 - Install [Visual Studio 2015 Tools for Docker - Preview](https://visualstudiogallery.msdn.microsoft.com/0f5b2caa-ea00-41c8-b8a2-058c7da0b3e4)
 
