@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/25/2016"
    ms.author="jeffstok"/>
 
 # Get started using R Server on HDInsight
 
-The premium tier offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight cluster using the Spark cluster type, then run an R script that demonstrates using both MapReduce and Spark for distributed computations.
+The premium tier offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight, then run an R script that demonstrates using Spark for distributed R computations.
 
 ![Diagram of the workflow for this document](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -53,7 +53,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 4. Select __Select Cluster Type__. On the __Cluster Type__ blade, select the following options:
 
-    * __Cluster Type__: Spark
+    * __Cluster Type__: R Server on Spark
     
     * __Cluster Tier__: Premium
 
@@ -103,13 +103,17 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
     > [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
 
-## Connect to the Spark cluster
+## Connect to the R Server edge node
 
-Connect to the Spark on HDInsight cluster using SSH:
+Connect to R Server edge node of the HDInsight cluster using SSH:
 
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
     
-If you used a password to secure your SSH user account, you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+> [AZURE.NOTE] You can also find the `RServer.CLUSTERNAME.ssh.azurehdinsight.net` address in the Azure portal by selecting your cluster, then __All Settings__, __Apps__, and __RServer__. This will display the SSH Endpoint information for the edge node.
+>
+> ![Image of the SSH Endpoint for the edge node](./media/hdinsight-getting-started-with-r/sshendpoint.png)
+    
+If you used a password to secure your SSH user account, you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@RServer.CLUSTERNAME.ssh.azurehdinsight.net`.
     
 For more information on using SSH with Linux-based HDInsight, see the following articles:
 
@@ -119,7 +123,7 @@ For more information on using SSH with Linux-based HDInsight, see the following 
 
 Once connected, you will arrive at a prompt similar to the following.
 
-    username@hn0-clustername:~$
+    username@ed00-myrser:~$
 
 ## Use the R console
 
@@ -154,15 +158,19 @@ Once connected, you will arrive at a prompt similar to the following.
 
         >
 
-2. From the `>` prompt, you can enter R code. RevoScaleR is included with the R server on HDInsight, so you can easily interact with Hadoop from your R scripts. Use the following command to view the root of the default file system for the HDInsight cluster.
+2. From the `>` prompt, you can enter R code. R server includes packages that allow you to easily interact with Hadoop and run distributed computations. For example, use the following command to view the root of the default file system for the HDInsight cluster.
 
         rxHadoopListFiles("/")
     
     You can also use the WASB style addressing.
     
         rxHadoopListFiles("wasb:///")
+
+##Use a compute context
+
+A compute context allows you to control whether computation will be performed locally on the edge node, or whether it will be distributed across the nodes in the HDInsight cluster.
         
-3. Use the following to copy example data to `wasb:///example/data/
+1. From the R console, use the following to load example data into the default storage for HDInsight.
 
         # Set the NameNode and port for the cluster
         myNameNode <- "default"
@@ -170,7 +178,7 @@ Once connected, you will arrive at a prompt similar to the following.
         # Set the HDFS (WASB) location of example data
         bigDataDirRoot <- "/example/data"
         # Source for the data to load
-        source <-system.file("SampleData/AirlineDemoSmall.csv", package="RevoScaleR")
+        source <- system.file("SampleData/AirlineDemoSmall.csv", package="RevoScaleR")
         # Directory in bigDataDirRoot to load the data into
         inputDir <- file.path(bigDataDirRoot,"AirlineDemoSmall") 
         # Make the directory
@@ -178,7 +186,7 @@ Once connected, you will arrive at a prompt similar to the following.
         # Copy the data from source to input
         rxHadoopCopyFromLocal(source, inputDir)
 
-4. Next, let's create some Factors and define a data source so that we can work with the data.
+2. Next, let's create some Factors and define a data source so that we can work with the data.
 
         # Define the HDFS (WASB) file system
         hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, 
@@ -198,7 +206,7 @@ Once connected, you will arrive at a prompt similar to the following.
                             colInfo  = colInfo, 
                             fileSystem = hdfsFS)
 
-4. Let's run a linear regression over the data using the local compute context.
+3. Let's run a linear regression over the data using the local compute context.
 
         # Set a local compute context
         rxSetComputeContext("local")
@@ -218,25 +226,7 @@ Once connected, you will arrive at a prompt similar to the following.
         F-statistic:  1238 on 7 and 582620 DF,  p-value: < 2.2e-16
         Condition number: 10.6542
 
-5. Next, let's try using MapReduce for the compute context. The MapReduce context will distribute the processing over all the worker nodes in the HDInsight cluster as a MapReduce job.
-
-        # Define the compute context to use MapReduce
-        myHadoopMRCluster <- RxHadoopMR(consoleOutput=TRUE,
-                                        nameNode = myNameNode,
-                                        port=myPort,
-                                        hadoopSwitches="-libjars /etc/hadoop/conf") 
-        # Set compute context 
-        rxSetComputeContext(myHadoopMRCluster)
-        # Run a linear regression 
-        system.time(
-            modelMapReduce <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS) 
-        )
-        # Display a summary
-        summary(modelMapReduce)
-
-    When you run this script, you will notice that the output generated by the MapReduce process is displayed. This happens because we set `consoleOutput=TRUE` when we set the compute context.
-
-6. Next, let's run the same linear regression using the Spark context.
+4. Next, let's run the same linear regression using the Spark context. The Spark context will distribute the processing over all the worker nodes in the HDInsight cluster.
 
         # Define the Spark compute context 
         mySparkCluster <- RxSpark(consoleOutput=TRUE) 
@@ -249,14 +239,66 @@ Once connected, you will arrive at a prompt similar to the following.
         # Display a summary
         summary(modelSpark)
 
-    As with the MapReduce context, the output of Spark processing is written to the console because we set `consoleOutput=TRUE`.
-
-7. You can also start tasks directly using `rxExcec`. For example, the following will start four tasks to retrieve the nodename.
-
-        rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+    The output of Spark processing is written to the console because we set `consoleOutput=TRUE`.
     
-    If you are still using the Spark or MapReduce context, this will return the nodename value for the worker nodes that the tasks are ran on.
+    > [AZURE.NOTE] You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Computer context options for R Server on HDInsight premium](hdinsight-r-server-storage.md).
 
+##Distribute R code to multiple nodes
+
+With R Server you can easily take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This is useful when doing a parameter sweep or simulations. The following is an example of how to use `rxExec`.
+
+    rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+    
+If you are still using the Spark or MapReduce context, this will return the nodename value for the worker nodes that the code (`Sys.info()["nodename"]`) is ran on. For example, on a four node cluster, you may receive output similar to the following.
+
+    $rxElem1
+        nodename
+    "wn3-myrser"
+
+    $rxElem2
+        nodename
+    "wn0-myrser"
+
+    $rxElem3
+        nodename
+    "wn3-myrser"
+
+    $rxElem4
+        nodename
+    "wn3-myrser"
+
+##Install R packages
+
+If you would like to install additional R packages on the edge node, you can use `install.packages()` directly from within the R console when connected to the egde node through SSH. However, if you need to install R packages on the worker nodes of the cluster, you must use a Script Action.
+
+Script Actions are Bash scripts that are used to make configuration changes to the HDInsight cluster, or to install additional software. In this case, to install additional R packages. To install additional packages using a Script Action, use the following steps.
+
+> [AZURE.IMPORTANT] Using Script Actions to install additional R packages can only be used after the cluster has been created. It should not be used during cluster creation, as the script relies on R Server being completely installed and configured.
+
+1. From the [Azure portal](https://portal.azure.com), select your R Server on HDInsight cluster.
+
+2. From the cluster blade, select __All Settings__, and then __Script Actions__. From the __Script Actions__ blade, select __Submit New__ to submit a new Script Action.
+
+    ![Image of script actions blade](./media/hdinsight-getting-started-with-r/newscriptaction.png)
+
+3. From the __Submit script action__ blade, provide the following information.
+
+    * __Name__: A friendly name to used to identify this script
+    * __Bash script URI__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
+    * __Head__: This should be __unchecked__
+    * __Worker__: This should be __Checked__
+    * __Zookeeper__: This should be __Unchecked__
+    * __Parameters__: The R packages to be installed. For example, `bitops stringr arules`
+    * __Persist this script...__: This should be __Checked__
+    
+    > [AZURE.IMPORTANT] If the R package(s) you install require system libraries to be, then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
+    >
+    >For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).
+    
+    ![Adding a script action](./media/hdinsight-getting-started-with-r/scriptaction.png)
+
+4. Select __Create__ to run the script. Once the script completes, the R packages will be available on all worker nodes.
+    
 ## Next steps
 
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
