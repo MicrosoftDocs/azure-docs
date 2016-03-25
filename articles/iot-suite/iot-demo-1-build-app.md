@@ -95,9 +95,11 @@ Alternatively, if you want to keep up to date with or contribute to our code, cl
 
 ## Build the demo app
 
-Open the top solution in Visual Studio:
+Open these solutions in Visual Studio:
 
--   src/MyDriving.sln
+-   src\MobileApps\MyDriving.sln
+-   src\MobileAppService\MyDrivingService.sln
+-   src\Extensions\ServiceFabric\VINLookUpApplication\VINLookUpApplication.sln
 
 You’ll get prompts to:
 
@@ -401,9 +403,9 @@ For mobile apps, we deploy to HockeyApp:
 
 [Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-overview/) collects telemetry about the performance and usage of your web services both during debugging and when they’re live. It helps you both detect and diagnose any issues or failures. The Application Insights SDK sends telemetry from the app to the Application Insights resource in Azure, where you can explore the analyses and search the diagnostics.
 
-The [Mobile App Service project](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService) in the repository comes with the Application Insights SDK installed, and if you ran the Azure template, it will have set up an Application Insights resource in Azure (on the free pricing tier). You’ll now need to connect them together. (Until you do that, you’ll be able to see Application Insights diagnostics in Visual Studio’s diagnostics window during debugging, but you won’t see anything in the portal. The real point of Application Insights is to monitor your deployed app, so it’s worth doing this last easy step.)
+We recommend Application Insights for the [Mobile App Service project](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService).
 
-In Visual Studio, right-click the API project and choose **Configure Application Insights**. You might be asked to provide your sign-in to Azure. Then pick the Application Insights resource that was set up by the template. (You can also set up a new one if you prefer.)
+In Visual Studio, right-click the API project and choose **Add Application Insights**. You might be asked to provide your sign-in to Azure. 
 
 ![](./media/iot-demo-1-build-app/image10.png)
 
