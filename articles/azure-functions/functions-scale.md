@@ -22,21 +22,30 @@
      
 ## Introduction
 
-One of best advantages of Azure Functions is that resources are only consumed as needed by your running code. 
-If more compute power is needed to process your requests faster, the platform scales up to ensure you're making the most out of it.  
+One of the advantages of Azure Functions is that resources are only consumed as needed by your running code. This means that you don’t pay for idle VM’s or have to reserve capacity for when you might need it. Instead, the platform allocates compute power when your code is running, scaling up as necessary to handle load, and then back down again when code is not running.
 
-The Dynamic Hosting Plan is being introduced so you are only charged by the amount of seconds your code was running in 
-the selected memory size for your Function App.
+The mechanism for this new capability is the Dynamic Hosting Plan. This new hosting plan provides a dynamic container for your code which scales up on demand, while you are charged only for the amount of memory your code uses and the time it takes to execute as measured in Gigabyte seconds.  
 
-This article gives an overview if  the platform handles scaling up and down, as well as how the Dynamic Hosting Plan works. 
-If you are not yet familiar with Azure Functions, make sure to check the Azure Functions Overview for some basic info: ADD LINK           
+This article provides an overview of how the Dynamic Hosting Plan works and how the platform scales on demand to run you code. 
 
-### Configuring your Function App
+If you are not yet familiar with Azure Functions, make sure to check the [Azure Functions Overview](functions-overview.md) to better understand its capabilities.           
 
-There are two main setting related to scaling: 
-* App Hosting Plan or Dynamic Hosting Plan 
-* Memory Size 
+## Configuring your Function App
 
-![]()
+There are two main settings related to scaling: 
+* [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Hosting Plan 
+* Memory Size for the execution environment 
 
-[AZURE.INCLUDE [dynamic compute](../../includes/functions-dynamic-compute.md)]
+The cost of a function changes depending on the type of hosting plan you select. With Dynamic hosting plans, cost is a function of execution time, memory size, and number of executions. With changes only accruing when you are actually running code. 
+
+Regular hosting plans allow you to host your functions on existing VM’s which might also be used to run other code. After paying for these VM’s each month, there is no extra charge for execution functions on them. 
+
+![Azure Functions Scale Diagram](media/functions-scale/azure-functions-scale-diagram.png)
+
+## Choosing a Hosting Plan
+
+When creating functions apps you can select to run them on a Dynamic Hosting Plan (new!) or a regular [App Service Plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+In the App Service Plan, your functions will run on a dedicated VM, just like web apps work today (for Basic, Standard or Premium SKUs). 
+This dedicated VM is allocated to your apps and/or functions and is available regardless of any code being actively executed. This is a good option if you have existing VM’s that are already running other code but which are not fully utilized or if you expect to be running functions continuously or near continuously. Using a VM decouples cost from both run time and memory size, allowing you to limit the cost of large numbers of long running functions to the cost of the one or more VM’s they run on.
+
+[AZURE.INCLUDE [Dynamic Hosting Plan](../../includes/functions-dynamic-hosting-plan.md)]
