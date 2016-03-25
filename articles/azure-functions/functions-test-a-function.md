@@ -134,7 +134,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 The recommended tool to test most of your functions is Postman. To install Postman, see [Get Postman](https://www.getpostman.com/). Postman provides control over many more attributes of an HTTP request.
 
-> Use the REST Client in which you are comfortable. Here are some alternatives to Postman:
+> [AZURE.TIP] Use the REST Client in which you are comfortable. Here are some alternatives to Postman:
 > * [Fiddler](http://www.telerik.com/fiddler)
 > * [Paw](https://luckymarmot.com/paw)
 
