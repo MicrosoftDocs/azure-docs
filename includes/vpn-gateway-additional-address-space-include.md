@@ -12,4 +12,5 @@
 
 2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
 
-	![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsub250.png)		
+
+	![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)		
