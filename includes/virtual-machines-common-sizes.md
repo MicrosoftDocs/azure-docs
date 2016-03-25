@@ -1,9 +1,5 @@
 
 
-## Overview
-
-This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.  It also provides deployment considerations to be aware of when you're planning to use these resources. For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
-
 To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 The standard sizes consist of several series: A, D, DS, G, and GS. Considerations for some of these sizes include:
