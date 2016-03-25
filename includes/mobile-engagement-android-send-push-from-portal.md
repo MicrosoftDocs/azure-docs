@@ -2,9 +2,7 @@
 
 To allow Mobile Engagement to send push notifications on your behalf, you need to grant it access to your API Key. This is done by configuring and entering your key into the Mobile Engagement portal.
 
-1. Navigate to your Mobile Engagement portal
-
-	From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
+1. From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
 
 	![](./media/mobile-engagement-android-send-push/engage-button.png)
 

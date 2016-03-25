@@ -117,7 +117,7 @@ Make sure that you have Android SDK installed on your machine before attempting 
 
 ###Update the EngagementConfiguration
 
-1. Open up the **EngagementConfiguration** script file from the SDK folder and update the **ANROID\_GOOGLE\_NUMBER** with the **Google Project Number** you obtained earlier from the Google Cloud Developer portal. This is a string value so make sure to enclose it in double quotes. 
+1. Open up the **EngagementConfiguration** script file from the SDK folder and update the **ANDROID\_GOOGLE\_NUMBER** with the **Google Project Number** you obtained earlier from the Google Cloud Developer portal. This is a string value so make sure to enclose it in double quotes. 
 
 	![][75]
 
@@ -133,7 +133,9 @@ Make sure that you have Android SDK installed on your machine before attempting 
 
 2. Add the following to the `Start()` method
 
-	EngagementReachAgent.Initialize();
+		EngagementReachAgent.Initialize();
+
+3. Now that the app is updated, deploy and run the app on a device per the instructions provided below. 
 
 [AZURE.INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
