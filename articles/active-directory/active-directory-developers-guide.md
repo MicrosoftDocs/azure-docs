@@ -89,16 +89,13 @@ These articles provide a foundation reference for REST and authentication librar
 
 - [Azure Active Directory samples](https://github.com/azure-samples?query=active-directory): The easiest way to navigate the list of samples is by using the [index of code samples](active-directory-code-samples.md).
 
+- [ADAL for .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): Documentation for the .NET authentication library.
 
 ### Graph API
 
 - [Graph API reference](https://msdn.microsoft.com/library/azure/hh974476.aspx): REST reference for the Azure Active Directory Graph API. [View the interactive Graph API reference experience](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 - [Graph API permission scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): OAuth 2.0 permission scopes that are used to control the access that an app has to directory data in a tenant.
-
-### Authentication libraries
-
-- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): Documentation for the .NET authentication libary.
 
 ### Authentication protocols
 
