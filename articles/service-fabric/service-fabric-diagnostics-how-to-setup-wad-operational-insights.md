@@ -30,42 +30,11 @@ Operational Insights identifies the sources of the different types of logs uploa
 These tools will be used to perform some of the operations in this document:
 
 * [Azure PowerShell](../powershell-install-configure.md)
-* [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
-* [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
 * [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
-* [Azure Resource Manager](../resource-group-overview.md)
-
-
-## Different log sources that you may want to collect
-In the article detailing [how to collection logs and send them to Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) there is a step by step guide on how to enable logs being sent to an Azure storage account. Some of the information is duplicated here, but consult that [article](service-fabric-diagnostics-how-to-setup-wad.md) for additional details. This article will show how to collection different event types:
-
-1. **Service Fabric logs:** Emitted by the platform to standard ETW and EventSource channels. Logs can be one of several types:
-  - Operational events: Logs for operations performed by the Service Fabric platform. Examples include creation of applications and services, node state changes, and upgrade information.
-  - [Actor Programming Model events](service-fabric-reliable-actors-diagnostics.md)
-  - [Reliable Services Programming Model events](service-fabric-reliable-services-diagnostics.md)
-2. **Application events:** Events emitted from your services code and written out by using the EventSource helper class provided in the Visual Studio templates. For more information on how to write logs from your application, refer to [this article about monitoring and diagnosing services in a local machine setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-
-
-## Deploy the Diagnostics extension
-The first step in collecting logs is to deploy the Diagnostics extension on each of the VMs in the Service Fabric cluster. The Diagnostics extension collects logs on each VM and uploads them to the storage account you specify. The steps vary a little based on whether you use the Azure portal or Azure Resource Manager and if the deployment is being done as part of cluster creation or for a cluster that already exists. Let's look at the steps for each scenario.
-
-### Deploy the Diagnostics extension as part of cluster creation through the portal
-To deploy Diagnostics to the VMs in the cluster as part of cluster creation, the Diagnostics setting shown in the image below is used. The Support Logs are **Enabled** by default and the Application Diagnostics are **Disabled** by default. After the cluster has been created, these setting cannot be changed using the portal.
-![Azure Diagnostics setting in portal for cluster creation](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
-
-The Support Logs are **required** by the Azure support team to revolve any support requests that you create. These logs are collected in real-time and will be stored in the storage account created in the current resource group. The Application Diagnostics configures application level events, [Actor events](service-fabric-reliable-actors-diagnostics.md), [Reliable Service events](service-fabric-reliable-services-diagnostics.md) and some system level Service Fabric events to be stored into Azure storage. Operational Insights can then pick up the events from the storage account. When creating a cluster using the portal it is recommended that you export the template after the deployment has completed. Templates can be exported from the portal by
-1. Open your resource group
-2. Select **Settings** to display the Settings panel
-3. Select **Deployments** to display the Deployment history panel
-4. Select a deployment to display the details of the deployment
-5. Select **Export Template** to display the Template panel
-6. Select **Save to file** to export a .zip file containing the template, parameter and PowerShell files.
-
-After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run.
 
 
 ## Set up Operational Insights to view and search cluster logs
-Once Diagnostics is set up on the cluster and is uploading logs to a storage account, the next step is to set up Operational Insights so you can view, search, and query all the cluster logs through the of the Operational Insights portal.
+In the article detailing [how to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) there is a step by step guide on how to enable logs being sent to an Azure storage account. Once Diagnostics is set up on the cluster and is uploading logs to a storage account, the next step is to set up Operational Insights so you can view, search, and query all the cluster logs through the of the Operational Insights portal.
 
 ### Create an Operational Insights Workspace
 To see the steps for creating an Operational Insights workspace, go to the article below. Note that it describes two different ways to create a workspace. Choose the Azure portal and subscription-based approach. You will need the name of the Operational Insights workspace in the later sections of this document. Create the Operational Insights workspace by using the same subscription that you used to create all the cluster resources, including storage accounts.
