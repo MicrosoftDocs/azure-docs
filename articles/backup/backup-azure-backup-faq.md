@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/23/2016"
+	 ms.date="03/24/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup service- FAQ
@@ -218,21 +218,21 @@ A4. The key used to encrypt the backup data is present only on the customer prem
 ## Backup cache
 
 **Q1. How do I change the cache location specified for the Azure Backup agent?**<br/>
-
-1. Stop the Backup engine by executing the following command in an elevated command prompt:
+A1. Go sequentially through the bullet list below to change the cache location.
+- Stop the Backup engine by executing the following command in an elevated command prompt:
 
   ```PS C:\> Net stop obengine```
 
-2. Do not move the files. Instead, copy the cache space folder to a different drive with sufficient space. The original cache space can be removed after confirming the backups are working with the new cache space.
+- Do not move the files. Instead, copy the cache space folder to a different drive with sufficient space. The original cache space can be removed after confirming the backups are working with the new cache space.
 
-3. Update the following registry entries with the path to the new cache space folder.<br/>
+- Update the following registry entries with the path to the new cache space folder.<br/>
 
 |Registry path | Registry Key | Value |
 | ------ | ------- | ------|
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *New cache folder location* |
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *New cache folder location* |
 
-4. Re-start the Backup engine by executing the following command in an elevated command prompt:
+- Re-start the Backup engine by executing the following command in an elevated command prompt:
 
   ```PS C:\> Net start obengine```
 
