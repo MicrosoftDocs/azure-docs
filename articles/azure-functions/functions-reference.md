@@ -327,7 +327,7 @@ For package management, use a *project.json* file. Most things that work with th
 
 ## Bindings
 
-Most of these bindings are easily managed via the portal's integrate UX, but in case you wish to understand the underlying functionality, plus some tips and tricks, we've documented each binding in this section.
+The available bindings are documented in this section. Most of these bindings are easily managed via the Azure portal's **Integrate** UI, but the portal doesn't explain all of the functionality and options for each binding.
 
 This is a table of all our supported bindings.
 
@@ -335,9 +335,9 @@ This is a table of all our supported bindings.
 
 ### <a id="queuetrigger"></a> Azure Storage - queue trigger
 
-To poll a storage queue, you specify the name of the queue to poll and the variable name for the queue message.
+To poll a storage queue, provide the name of the queue to poll and the variable name for the queue message. 
 
-Sample *function.json*:
+This *function.json* example uses a storage queue trigger:
 
 ```JSON
 {
@@ -361,19 +361,7 @@ The queue message can be deserialized to any of the following types:
 * `byte[]`
 * `CloudQueueMessage`
 
-Here is C# code that works with the preceding *function.json* example.
-
-```CSHARP
-using System;
-using System.Threading.Tasks;
-
-public static void Run(string myQueueItem, TraceWriter log)
-{
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
-}
-```
-
-You can get queue metadata in your function by using the following variable names:
+You can get queue metadata in your function by using these variable names:
 
 * expirationTime
 * insertionTime
@@ -383,7 +371,7 @@ You can get queue metadata in your function by using the following variable name
 * dequeueCount
 * queueTrigger (another way to retrieve the queue message text as a string)
 
-The following C# code example retrieves queue metadata.
+This C# code example retrieves and logs queue metadata.
 
 ```CSHARP
 using System;
@@ -412,16 +400,16 @@ public static void Run(string myQueueItem,
 
 ### Azure Storage - queue output
 
-To create a new storage queue message, you provide the name of the queue to create messages in, and the content of the message to create.
+To write a new storage queue message, provide the name of the queue to create messages in, and the content of the message to create.
 
-Sample *function.json* for a function that is triggered by a queue message and writes a queue message:
+This *function.json* example uses a queue trigger and writes a queue message.
 
 ```JSON
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "azurefunctions4e62e828_STORAGE",
+      "connection": "",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -430,14 +418,21 @@ Sample *function.json* for a function that is triggered by a queue message and w
       "name": "myQueue",
       "type": "queue",
       "queueName": "samples-workitems-out",
-      "connection": "azurefunctions4e62e828_STORAGE",
+      "connection": "",
       "direction": "out"
     }
   ],
   "disabled": false
 }``` 
 
-Here is sample C# code that works with the preceding *function.json* example.
+The `queue` binding can serialize the following types to a queue message.
+
+* `out string` (creates queue message if parameter value is non-null when the function ends)
+* `out byte[]` (works like string) 
+* `out CloudQueueMessage` (works like string) 
+* `out POCO` (a serializable type, creates a message with a null object if the parameter is null when the function ends)
+
+This sample C# code writes a single queue message for each input queue message.
 
 ```CSHARP
 using System;
@@ -449,7 +444,7 @@ public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
 }
 ```
 
-To create multiple messages in a C# function, make the parameter type for the output queue `ICollector<T>` or `IAsyncCollector<T>`, as shown in the following example:
+This sample C# code writes multiple messages by using  `ICollector<T>` (use `IAsyncCollector<T>` in an async function).
 
 ```CSHARP
 using System;
@@ -462,23 +457,13 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-The `queue` binding works with the following types.
-
-* `out string` (creates queue message if parameter value is non-null when the function ends)
-* `out byte[]` (works like string) 
-* `out CloudQueueMessage` (works like string) 
-* `out POCO` (a serializable type, creates a message with a null object if the parameter is null when the function ends)
-* `ICollector`
-* `IAsyncCollector`
-* `CloudQueue` (for creating messages manually using the Azure Storage API directly)
-
 ### Azure Storage - blob trigger
 
-To trigger a function when a blob is created or updated, you provide a `path` that specifies the container to monitor, and optionally a blob name pattern. 
+To trigger a function when a blob is created or updated,  provide a path that specifies the container to monitor, and optionally a blob name pattern. 
 
 You can restrict the types of blobs that trigger the function by specifying a pattern with a fixed value for the file extension. If you set the `path` to  *samples/{name}.png*, only *.png* blobs in the *samples* container will trigger the function.
 
-Sample *function.json*:
+This *function.json* example uses a blob trigger.
 
 ```JSON
 {
@@ -497,23 +482,23 @@ Sample *function.json*:
 
 ### Azure Storage - blob input/output
 
-Sample *function.json*:
-
-```JSON
-``` 
-
 ### Azure Storage - tables input/output
 
-Sample *function.json*:
+### Azure Service Bus triggers and bindings
 
-```JSON
-``` 
+To use a Service Bus trigger or binding, set up the function app by adding a connection string for your Service Bus namespace in an app setting named AzureWebJobsServiceBus. 
 
-### Azure Service Bus - queue or topic trigger
+1. On the Function App blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
 
-To poll a Service Bus queue or topic, you provide the name of the queue or topic and the variable name to use for the message in the function code.
+2. In the **Settings** blade, click **Application Settings**.
 
-Sample *function.json*:
+3. Scroll down to the App settings section, and add an entry with **Key** = AzureWebJobsServiceBus and **Value** = the connection string for your Service Bus namespace.
+
+### </a> Azure Service Bus - queue or topic trigger
+
+To poll a Service Bus queue or topic, provide the name of the queue or topic to poll and the variable name for the queue or topic message.
+
+This *function.json* example uses a Service Bus queue or topic  trigger.
 
 ```JSON
 {
@@ -530,37 +515,83 @@ Sample *function.json*:
 }
 ```
 
+This C# example code writes a log message for each Service Bus queue or topic message.
+
+```CSHARP
+using System;
+using System.Threading.Tasks;
+
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Verbose($"C# Service Bus queue trigger function processed: {myQueueItem}");
+}
+```
+ 
 ### Azure Service Bus - queue or topic output
 
-To create a new Service Bus queue message, you provide the name of the queue to create messages in, and the content of the message to create.
+To use a Service Bus trigger or binding, set up the function app by adding a connection string named AzureWebJobsServiceBus. For directions, see [Service Bus queue or topic trigger](#sbqueue) earlier in this article. 
 
-Sample *function.json*:
+To create a new Service Bus queue or topic message, provide the name of the queue to create messages in, and the content of the message to create. 
+
+The following *function.json* example uses a timer trigger and and writes messages to a Service Bus queue.
 
 ```JSON
 {
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myQueueItem",
-            "type": "serviceBusTrigger",
-            "direction": "in",
-            "queueName": "samples-input",
-            "subscriptionName": ""
-        }
-    ]
+  "bindings": [
+    {
+      "schedule": "0/10 * * * * *",
+      "runOnStartup": true,
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "OutPutQueueItem",
+      "type": "serviceBus",
+      "queueName": "tomssbqueue",
+      "subscriptionName": "",
+      "direction": "out"
+    }
+  ],
+  "disabled": true
 }
 ``` 
 
+The output parameter for creating a Service Bus queue message can be any of the following types.
+
+* `string` (creates queue message if parameter value is non-null when the function ends)
+* `byte[]` (works like string) 
+* `BrokeredMessage` (works like string) 
+* A serializable POCO (creates a message with a null object if the parameter is null when the function ends)
+
+Here is C# code that works with the preceding *function.json* file to write a `string` message to a Service Bus queue.
+
+```CSHARP
+using System;
+
+public static void Run(TimerInfo myTimer, out string OutPutQueueItem, TraceWriter log)
+{
+    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}"); 
+    OutPutQueueItem = $"C# Timer trigger function executed at: {DateTime.Now}";
+    
+}
+```
+
+Here is C# code that creates multiple messages by using `ICollector<T>` (use `IAsyncCollector<T>` in an async function).
+
+```CSHARP
+using System;
+
+public static void Run(TimerInfo myTimer, ICollector<string> OutPutQueueItem, TraceWriter log)
+{
+    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}"); 
+    OutPutQueueItem.Add($"C# Timer trigger function executed at: {DateTime.Now} (item 1)");
+    OutPutQueueItem.Add($"C# Timer trigger function executed at: {DateTime.Now} (item 2)");
+}
+```
+
 ### Azure Service Bus - EventHub trigger
 
-Sample *function.json*:
-
-```JSON
-``` 
 
 ### Azure Service Bus - EventHub output
 
-Sample *function.json*:
-
-```JSON
-``` 
