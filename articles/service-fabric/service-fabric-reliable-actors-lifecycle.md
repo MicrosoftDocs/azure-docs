@@ -3,9 +3,9 @@
    description="Explains Service Fabric Reliable Actor lifecycle, garbage collection, and manually deleting actors and their state"
    services="service-fabric"
    documentationCenter=".net"
-   authors="vturecek"
+   authors="amanbha"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/25/2016"
-   ms.author="vturecek"/>
+   ms.author="amanbha"/>
 
 
 # Actor lifecycle, automatic garbage collection, and manual delete
@@ -38,41 +38,43 @@ When an actor is deactivated, the following occurs:
 
 > [AZURE.TIP] The Fabric Actors runtime emits some [events related to actor activation and deactivation](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). They are useful in diagnostics and performance monitoring.
 
-## Actor garbage collection
-The Actors runtime periodically scans for actors that have not been used for some period of time, and it deactivates them. Once the actors are deactivated, they can be garbage collected by the common language runtime (CLR). Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. 
+### Actor garbage collection
+When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
 
-What counts as “being used” for the purpose of garbage collection?
+What counts as “being used” for the purpose of deactivation and garbage collection?
 
 - Receiving a call
 - `IRemindable.ReceiveReminderAsync` method being invoked (applicable only if the actor uses reminders)
 
 > [AZURE.NOTE] if the actor uses timers and its timer callback is invoked, it does **not** count as "being used".
 
-Before we go into the details of garbage collection, it is important to define the following terms:
+Before we go into the details of deactivation, it is important to define the following terms:
 
-- *Scan interval*. This is the interval at which the Actors runtime scans its Active Actors table for actors that can be garbage collected. The default value for this is 1 minute.
-- *Idle timeout*. This is the amount of time that an actor needs to remain unused (idle) before it can be garbage collected. The default value for this is 60 minutes.
+- *Scan interval*. This is the interval at which the Actors runtime scans its Active Actors table for actors that can be deactivated and garbage collected. The default value for this is 1 minute.
+- *Idle timeout*. This is the amount of time that an actor needs to remain unused (idle) before it can be deactivated and garbage collected. The default value for this is 60 minutes.
 
-Typically, you do not need to change these defaults. However, if necessary, these intervals can be changed at an assembly level for all actor types in that assembly or at an actor-type level by using the `ActorGarbageCollection` attribute. The example below shows the change in the garbage collection intervals for HelloActor.
+Typically, you do not need to change these defaults. However, if necessary, these intervals can be changed through `ActorServiceSettings` when registering your [Actor Service](service-fabric-reliable-actors-platform.md):
 
 ```csharp
-[ActorGarbageCollection(IdleTimeoutInSeconds = 10, ScanIntervalInSeconds = 2)]
-class HelloActor : Actor, IHello
+public class Program
 {
-    public Task<string> SayHello(string greeting)
+    public static void Main(string[] args)
     {
-        return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
+        ActorRuntime.RegisterActorAsync<MyActor>((context, actorType) =>
+                new ActorService(context, actorType,
+                    settings:
+                        new ActorServiceSettings()
+                        {
+                            ActorGarbageCollectionSettings =
+                                new ActorGarbageCollectionSettings(10, 2)
+                        }))
+            .GetAwaiter()
+            .GetResult();
     }
 }
 ```
 
-To change the default value of the `ActorGarbageCollection` attribute at the assembly level, add following snippet to `AssemblyInfo.cs`.
-
-```csharp
-[assembly: ActorGarbageCollection(IdleTimeoutInSeconds = 10, ScanIntervalInSeconds = 2)]
-```
-
-For each actor in its Active Actors table, the Actors runtime keeps track of the amount of time that it has been idle (i.e. not used). The Actors runtime checks each of the actors every `ScanIntervalInSeconds` to see if it can be garbage collected and collects it if it has been idle for `IdleTimeoutInSeconds`.
+For each active actor, the actor runtime keeps track of the amount of time that it has been idle (i.e. not used). The actor runtime checks each of the actors every `ScanIntervalInSeconds` to see if it can be garbage collected and collects it if it has been idle for `IdleTimeoutInSeconds`.
 
 Anytime an actor is used, its idle time is reset to 0. After this, the actor can be garbage collected only if it again remains idle for `IdleTimeoutInSeconds`. Recall that an actor is considered to have been used if either an actor interface method an actor reminder callback is executed. An actor is **not** considered to have been used if its timer callback is executed.
 
