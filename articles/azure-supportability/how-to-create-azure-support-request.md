@@ -10,10 +10,12 @@ Based on customer feedback, we’ve updated the support request experience to fo
 You can create a support request from the top navigation menu or directly from a resource blade.
 
 **From the top navigation bar**
+
 ![New Support Request](./media/how-to-create-azure-support-request/NewSupportRequest.png)
 
 **From a resource blade**
-![In context](./media/how-to-create-azure-support-request/incontext.png)
+
+![In context](./media/how-to-create-azure-support-request/Incontext.png)
 
 ## Basics
 The first step of the support request process gathers basic information about your issue and your support plan.
