@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy popular application frameworks using templates | Microsoft Azure"
-   description="Create popular application frameworks by using Azure Resource Manager templates to install Active Directory, Docker, and many more."
+   pageTitle="Deploy popular application frameworks on Windows VMs | Microsoft Azure"
+   description="Create popular application frameworks on Windows VMs using Azure Resource Manager templates to install Active Directory, Docker, and many more."
    services="virtual-machines-windows"
    documentationCenter="virtual-machines"
    authors="squillace"
@@ -19,6 +19,6 @@
 
 # Deploy popular application frameworks by using Azure Resource Manager templates
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+Workloads usually require many resources to function according to design. Azure Resource Manager templates make it possible for you to not only define how applications are configured, but also how the resources are deployed to support configured applications. This article introduces you to the most popular templates in the gallery and gives you information for using the Azure portal, Azure CLI, or PowerShell to deploy them. You can also [deploy popular application frameworks on Linux VMs using Azure Resource Manager templates](virtual-machines-linux-app-frameworks.md).
 
 [AZURE.INCLUDE [virtual-machines-common-app-frameworks](../../includes/virtual-machines-common-app-frameworks.md)]
