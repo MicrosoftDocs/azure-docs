@@ -16,7 +16,6 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
  
 # Analytcis statements in Application Insights
 

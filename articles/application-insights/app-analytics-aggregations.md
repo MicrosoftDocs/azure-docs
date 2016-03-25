@@ -16,7 +16,6 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
 # Aggregation in Analytics
 
 [Analytics](app-analytics.md) is the powerful search feature of 
@@ -24,7 +23,6 @@
  Analytics query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
-
 
 
 ## summarize operator
