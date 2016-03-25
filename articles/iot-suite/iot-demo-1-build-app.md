@@ -419,12 +419,6 @@ You can also set up [Application Insights availability](https://azure.microsoft.
 
 Because we created MyDriving to help jumpstart your own IoT systems, we certainly want to hear from you about how well it works! Let us know if you run into difficulties or challenges, if there is an extension point that would make it more suitable to your scenario, if you find a more efficient way to accomplish certain needs, or if you have any other suggestions for improving MyDriving or this documentation.
 
-To give feedback:
-
--   File an [issue on GitHub](https://github.com/Azure-Samples/MyDriving/issues).
-
--   Discuss questions in the MyDriving Gitter room.
-
--   Leave a comment on the MyDriving post on the Azure blog.
+To give feedback, file an [issue on GitHub], or leave a comment below (en-us edition).
 
 We look forward to hearing from you!

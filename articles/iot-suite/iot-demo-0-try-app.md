@@ -149,9 +149,9 @@ You can find out more about how the app uses data from the OBD adaptor and about
 
 Because we created MyDriving to help jumpstart your own IoT systems, we certainly want to hear from you about how well it works! Let us know if you run into difficulties or challenges, if there is an extension point that would make it more suitable to your scenario, if you find a more efficient way to accomplish certain needs, or if you have any other suggestions for improving MyDriving or this documentation.
 
-Within the MyDriving app itself, you can use the built-in HockeyApp feedback mechanism—on iOS and Android just give your phone a shake, or use the Feedback menu command. You can also give feedback through the [HockeyApp portal].
+Within the MyDriving app itself, you can use the built-in HockeyApp feedback mechanism: on iOS and Android just give your phone a shake, or use the Feedback menu command. You can also give feedback through the [HockeyApp portal].
 
-To give feedback on the rest of the system, file an [issue on GitHub], or leave a comment below (en-us edition).
+You can also file an [issue on GitHub], or leave a comment below (en-us edition).
 
 We look forward to hearing from you!
 
