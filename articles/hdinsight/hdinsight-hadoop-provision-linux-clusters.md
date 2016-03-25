@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/21/2016"
+   	ms.date="03/25/2016"
    	ms.author="jgao"/>
 
 
@@ -26,14 +26,15 @@ A Hadoop cluster consists of several virtual machines (nodes) which are used for
 
 ##Cluster types
 
-Currently, HDInsight provides 4 different types of clusters, each with a set of components to provide certain functionalities: 
+Currently, HDInsight provides 5 different types of clusters, each with a set of components to provide certain functionalities: 
 
 | Cluster type | Use this if you need... |
 | ------------ | ----------------------------- |
-| Hadoop       | query and analysis (batch jobs)     |
-| HBase        | NoSQL data storage            |
-| Storm        | Real-time event processing |
-| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing |
+| Hadoop       | Query and analysis (batch jobs).     |
+| HBase        | NoSQL data storage.            |
+| Storm        | Real-time event processing. |
+| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing. |
+| R Server on Spark | R supports a variety of big data statistics, predictive modeling, and machine learning capabilities. |
 
 Each cluster type has its own terminology for nodes within the cluster, as well as the number of nodes and the default VM size for each node type:
 
@@ -50,6 +51,25 @@ Each cluster type has its own terminology for nodes within the cluster, as well 
 
 You can add other components such as Hue or R to these basic types by using [Script Actions](#customize-clusters-using-script-action).
 
+## Cluster tiers
+
+Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and [Premium tier](hdinsight-hadoop-premium-tier.md). The Premium tier includes R and other additional components. The premium tier is only supported on HDInsight version 3.4. 
+
+The following table lists the HDInsight cluster type and Premium tier support matrix.
+
+| Cluster type | Standard tier | Premium tier |
+|--------------|---------------|--------------|
+| Hadoop       | Yes           | Yes          |
+| Spark        | Yes           | Yes          |
+| HBase        | Yes           | No           |
+| Storm        | Yes           | No           |
+| R Server on Spark | No | Yes |
+
+This table will be updated as more cluster types are included in the HDInsight Premium tier. The following sceenshoot shows the Azure portal information for choosing cluster types and tiers:
+
+![HDInsight premium tier configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+
+
 ## Basic configuration options
 
 The following are the basic configuration options for creating an HDInsight cluster.
@@ -63,7 +83,7 @@ The following are the basic configuration options for creating an HDInsight clus
 
 - **Cluster type** 
 
-    See [Cluster types](#cluster-types).
+    See [Cluster types](#cluster-types) and [Cluster tiers](#cluster-tiers).
 
 - **Operating system**
 
