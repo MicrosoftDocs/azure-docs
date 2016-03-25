@@ -38,7 +38,7 @@ These steps assume that you've already created an Azure virtual machine using th
 
 2. In the SSH window, type the following command.  Note that the output from `waagent` may vary slightly depending on the version of this utility:
 
-	`sudo waagent -deprovision`
+	`sudo waagent -deprovision+user`
 
 	This command will attempt to clean the system and make it suitable for re-provisioning. This operation performs the following tasks:
 
