@@ -45,17 +45,17 @@ Azure Functions makes achieving complicated integration and connectivity tasks t
 
 Feature | Supported | Notes 
 --------|-----------|-------
-Build Custom Backend | <span class="wa-check wa-check-green"></span> | &nbsp; 
-Compute On-Demand | <span class="wa-check wa-check-green"></span> | &nbsp;
-Bring Your Own Code | <span class="wa-check wa-check-green"></span> | App Services: C#, node.js, Python, F#, PHP, batch, Java or any executable
-Pay Per Use & Pricing Model | <span class="wa-check wa-check-green"></span> | Price competitive pay per use, options for using memory more efficiently, support for dedicated compute
-Integrated Security Model | <span class="wa-cancel"></span> | &nbsp;
-Event Driven Trigger | <span class="wa-check wa-check-green"></span> | &nbsp;
-On-Premises Connectivity | <span class="wa-check wa-check-green"></span> | App Service support hybrid connection and VNET integration 
-Development Experience | <span class="wa-check wa-check-green"></span> | Azure has out of the box DevOps features (CI/CD, Slots, etc.) and Local Development support 
-Code-less SaaS & PaaS Connectors | <span class="wa-check wa-check-green"></span> | Azure has input/output bindings, making connecting moving data between services a code-less gesture
-Open Source | <span class="wa-check wa-check-green"></span> | &nbsp;
-Community Extensions | <span class="wa-check wa-check-green"></span> | &nbsp;
+Build Custom Backend | &#10004; | &nbsp; 
+Compute On-Demand | &#10004; | &nbsp;
+Bring Your Own Code | &#10004; | App Services: C#, node.js, Python, F#, PHP, batch, Java or any executable
+Pay Per Use & Pricing Model | &#10004; | Price competitive pay per use, options for using memory more efficiently, support for dedicated compute
+Integrated Security Model | &nbsp; | &nbsp;
+Event Driven Trigger | &#10004; | &nbsp;
+On-Premises Connectivity | &#10004; | App Service support hybrid connection and VNET integration 
+Development Experience | &#10004; | Azure has out of the box DevOps features (CI/CD, Slots, etc.) and Local Development support 
+Code-less SaaS & PaaS Connectors | &#10004; | Azure has input/output bindings, making connecting moving data between services a code-less gesture
+Open Source | &#10004; | &nbsp;
+Community Extensions | &#10004; | &nbsp;
 
 ### Integrations
 
