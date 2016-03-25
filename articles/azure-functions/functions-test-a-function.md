@@ -22,10 +22,10 @@
 
 ## Overview
 
-In this tutorial, we will walk through different approaches to testing functions. We will define a http trigger function that accepts input through a query string parameter, or the request body. The default **HttpTrigger Nodejs Function** template code supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
+In this tutorial, we will walk through different approaches to testing functions. We will define a http trigger function that accepts input through a query string parameter, or the request body. The default **HttpTrigger Node.js Function** template code supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
 
 
-## Creating a function for testing
+## Create a function for testing
 
 For most of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template when creating the test function in the [Azure Portal].
 
@@ -132,7 +132,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 
 
-## Testing with the run button
+## Test with the functions portal run button
 
 The portal provides a **Run** button which will allow you to do some limited testing. You can provide a request body using the run button but, you can't provide query string parameters or update request headers.
 
@@ -161,7 +161,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 
 
-## Testing with Postman
+## Test with Postman
 
 The recommended tool to test most of your functions is Postman. To install Postman, see [Get Postman](https://www.getpostman.com/). Postman provides control over many more attributes of an HTTP request.
 
@@ -197,7 +197,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 
 
-## Testing with Node.js code
+## Test with Code: Node.js
 
 You can use Node.js code to execute a http request to test your Azure Function. 
 
@@ -269,7 +269,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 	2016-03-23T08:09:01.153 Processing User Information...
 	2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
-## Testing with a timer trigger
+## Test with a timer trigger
 
 Some functions, can't be truly tested with the tools mentioned previously. For example, a queue trigger function which runs when a message is dropped into [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). You could always write code to drop a message into your queue but, there is another approach to test with functions directly.  
 
@@ -278,7 +278,7 @@ You could use a timer trigger configured with a queue output binding. That timer
 For more in-depth information on using bindings with Azure Functions, see the [Azure Functions developer reference](functions-reference.md). 
 
 
-#### Create queue trigger for testing
+### Create queue trigger for testing
 
 To demonstrate this approach, we will first create a queue trigger function that we want to test for a queue named `queue-newusers`. This function will process name and address information for a new user dropped into Azure queue storage. 
 
@@ -293,7 +293,7 @@ To demonstrate this approach, we will first create a queue trigger function that
 4. Leave this portal browser window opened so you can monitor the log entries for the default queue function template code.
 
 
-#### Create a timer trigger to drop a message in the queue
+### Create a timer trigger to drop a message in the queue
 
 1. Open the [Azure Portal] in a new browser window and navigate to your Function app.
 2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code will execute testing your queue function. Then click **Create**. If you want the test to run every 30 seconds you can use the following cron expression:
@@ -346,7 +346,7 @@ In the browser window for the queue function, you will see the each message bein
 	
 
 
-## Testing a blob trigger using Storage Explorer
+## Test a blob trigger using Storage Explorer
 
 You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
