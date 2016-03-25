@@ -41,23 +41,6 @@ To remove all tags, you can use the **–T** parameter in the `azure vm set` com
 Now that we have applied tags to our resources via PowerShell, Azure CLI, and the Portal, let’s take a look at the usage details to see the tags in the billing portal.
 
 
-## Viewing your tags in the usage details
-
-Tags placed on Compute, Network, and Storage resources through the Azure Resource Manager will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
-
-Click on **Download usage details** to view the usage details in your subscription.
-
-![Usage details in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-usage-details.png)
-
-Select your billing statement and the **Version 2** usage details:
-
-![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag/azure-portal-version2-usage-details.png)
-
-From the usage details, you can see all of the tags in the **Tags** column:
-
-![Tags column in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-column.png)
-
-By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
 
 
 ## Additional resources

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Set up endpoints on a classic virtual machine | Microsoft Azure"
-	description="Learn to set up endpoints in the Azure classic portal to allow communication with a virtual machine in Azure."
+	pageTitle="Set up endpoints on a classic Windows VM | Microsoft Azure"
+	description="Learn to set up endpoints in the Azure classic portal to allow communication with a Windows virtual machine in Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-# How to set up endpoints on a classic Azure virtual machine
+# How to set up endpoints on a classic Windows virtual machine in Azure
 
 
 
