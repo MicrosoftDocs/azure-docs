@@ -4,7 +4,7 @@ To create a VNet by using the Azure portal, follow the steps below. If are doing
 
 2. Click **New** **>** **Networking** **>** **Virtual Network**.
 
-	![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnet650.png)
+	![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
 
 3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Resource Manager**, and then click **Create**.
 
