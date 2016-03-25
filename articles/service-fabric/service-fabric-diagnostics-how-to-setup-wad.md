@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/18/2016"
+   ms.date="03/25/2016"
    ms.author="toddabel"/>
 
 
-# Collect logs from a Service Fabric cluster using Azure Diagnostics
+# How to collect logs with Azure Diagnostics
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location makes it easy to analyze and troubleshoot issues in your cluster or in the applications and services running in that cluster. One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage. The logs are really not that useful directly in storage, but an external process can be used to read the events from storage and place them into a product such as [Operational Insights](https://azure.microsoft.com/services/operational-insights/), Elastic Search or another solution.
-
-## Suggested reading
-
-* [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
-* [Azure Resource Manager](../resource-group-overview.md)
 
 ## Prerequisites
 These tools will be used to perform some of the operations in this document:
 
+* [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
+* [Azure Resource Manager](../resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
 
