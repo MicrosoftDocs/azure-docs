@@ -1,5 +1,5 @@
 1. Locate your virtual network gateway and click **All settings** to open the **Settings** blade.
-2. On the settings blade, click **Connections**, and then click **Add** at the top of the blade to open the **Add connection** blade.
+2. On the **Settings** blade, click **Connections**, and then click **Add** at the top of the blade to open the **Add connection** blade.
 
 	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal/addconnect250.png)
 
