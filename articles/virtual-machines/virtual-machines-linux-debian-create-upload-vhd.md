@@ -70,18 +70,18 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 
 	**Debian 6.x "Wheezy"**
 
-	deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
-	deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
-	deb http://debian-archive.trafficmanager.net/debian-azure wheezy main
-	deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
+		deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure wheezy main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
 
 	**Debian 7.x "Jessie"**
 
-	deb http://debian-archive.trafficmanager.net/debian jessie-backports main
-	deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
-	deb http://debian-archive.trafficmanager.net/debian-azure jessie main
-	deb-src http://debian-archive.trafficmanager.net/debian-azure jessie main
+		deb http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure jessie main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure jessie main
 
 
 7. Install the Azure Linux Agent:
@@ -91,11 +91,11 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 
 8. For Debian 7, it is required to run the 3.16-based kernel from the wheezy-backports repository. First create a file called /etc/apt/preferences.d/linux.pref with the following contents:
 
-	Package: linux-image-amd64 initramfs-tools
-	Pin: release n=wheezy-backports
-	Pin-Priority: 500
+		Package: linux-image-amd64 initramfs-tools
+		Pin: release n=wheezy-backports
+		Pin-Priority: 500
 
-Then run "sudo apt-get install linux-image-amd64" to install the new kernel.
+	Then run "sudo apt-get install linux-image-amd64" to install the new kernel.
 
 8. Deprovision the virtual machine and prepare it for provisioning on Azure and run:
 
