@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/25/2016"
    ms.author="jeffstok"/>
 
 # Get started using R Server on HDInsight
@@ -103,13 +103,15 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
     > [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
 
-## Connect to the Spark cluster
+## Connect to the R Server edge node
 
-Connect to the Spark on HDInsight cluster using SSH:
+Connect to R Server edge node of the HDInsight cluster using SSH:
 
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
     
-If you used a password to secure your SSH user account, you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+> [AZURE.NOTE] You can also find the `RServer.CLUSTERNAME.ssh.azurehdinsight.net` address in the Azure portal by selecting your cluster, then __Settings__, __Apps__, and __RServer__. This will display the SSH Endpoint information for the edge node.
+    
+If you used a password to secure your SSH user account, you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@RServer.CLUSTERNAME.ssh.azurehdinsight.net`.
     
 For more information on using SSH with Linux-based HDInsight, see the following articles:
 
@@ -119,7 +121,7 @@ For more information on using SSH with Linux-based HDInsight, see the following 
 
 Once connected, you will arrive at a prompt similar to the following.
 
-    username@hn0-clustername:~$
+    username@ed00-myrser:~$
 
 ## Use the R console
 
