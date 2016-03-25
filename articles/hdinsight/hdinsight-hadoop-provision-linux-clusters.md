@@ -53,7 +53,7 @@ You can add other components such as Hue or R to these basic types by using [Scr
 
 ## Cluster tiers
 
-Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and [Premium tier](hdinsight-hadoop-premium-tier.md). The Premium tier includes R and other additional components. The premium tier is only supported on HDInsight version 3.4. 
+Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and [Premium tier](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). The Premium tier includes R and other additional components. The premium tier is only supported on HDInsight version 3.4. 
 
 The following table lists the HDInsight cluster type and Premium tier support matrix.
 
