@@ -35,4 +35,4 @@ This article should help setting up Azure SUSE Linux VMs for running SAP and giv
 
 Updated: December 2015
 
-[This article can be found here](../articles/virtual-machines/virtual-machines-linux-sap-on-suse-quickstart.md)
+[This article can be found here](virtual-machines-linux-sap-on-suse-quickstart.md)

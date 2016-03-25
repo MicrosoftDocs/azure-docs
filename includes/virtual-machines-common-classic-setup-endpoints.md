@@ -1,10 +1,4 @@
 
-
-
-All virtual machines that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
-
-When you create a virtual machine in the Azure classic portal, common endpoints like those for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are typically created for you automatically, depending on the operating system you choose. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
-
 Each endpoint has a *public port* and a *private port*:
 
 - The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
