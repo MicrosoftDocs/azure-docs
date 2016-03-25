@@ -1,33 +1,5 @@
 
 
-
-
-
-## Table of commonly used images
-
-
-| PublisherName                        | Offer                                 | Sku                         |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic                        | CentOS                                     | 7                                |
-| OpenLogic                        | CentOS                                     | 7.1                              |
-| CoreOS                           | CoreOS                                     | Beta                             |
-| CoreOS                           | CoreOS                                     | Stable                           |
-| MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             |
-| MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             |
-| Microsoft                        | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         |
-| Microsoft                        | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    |
-| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      |
-| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      |
-| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  |
-| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               |
-| MicrosoftWindowsServer           | WindowsServer                              | 2008-R2-SP1 |
-| MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          |
-| MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           |
-
-
 ## Azure CLI
 
 > [AZURE.NOTE] This article describes how to navigate and select virtual machine images, using a recent installation of either the Azure CLI or Azure PowerShell. As a prerequisite, you would need to change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. 
