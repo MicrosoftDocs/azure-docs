@@ -152,3 +152,8 @@ The Reliable Actors runtime emits the following events related to [actor activat
 |---|---|---|---|---|
 |ActorActivated|5|Informational|0x1|An actor has been activated.|
 |ActorDeactivated|6|Informational|0x1|An actor has been deactivated.|
+
+## Next steps
+ - [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
+ - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)

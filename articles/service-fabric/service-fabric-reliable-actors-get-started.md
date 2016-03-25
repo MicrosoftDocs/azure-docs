@@ -126,11 +126,11 @@ During the deployment process, you can see the progress in the **Output** window
 
 
 ## Next steps
-- [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
-- [Actor state management](service-fabric-reliable-actors-state-management.md)
-- [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-- [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-- [Sample code](https://github.com/Azure/servicefabric-samples)
+ - [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
+ - [Actor state management](service-fabric-reliable-actors-state-management.md)
+ - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+ - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->

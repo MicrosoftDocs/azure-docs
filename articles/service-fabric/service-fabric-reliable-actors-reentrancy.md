@@ -41,3 +41,6 @@ class MyActor : Actor, IMyActor
 ```
 
 ## Next steps
+ - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+ - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)

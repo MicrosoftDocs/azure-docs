@@ -235,7 +235,12 @@ ActorProxy.Create<IMyActor>(new ActorId(1234));
 When using GUIDs and strings, the values are hashed to an Int64. However, when explicitly providing an Int64 to an `ActorId`, the Int64 will map directly to a partition without further hashing. This can be used to control which partition actors are placed in.
 
 ## Next steps
+ - [Actor state management](service-fabric-reliable-actors-state-management.md)
+ - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+ - [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)
 
+ 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png
 [2]: ./media/service-fabric-reliable-actors-platform/app-deployment-scripts.png

@@ -119,3 +119,8 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 As shown above, the `UnregisterReminder` method accepts an `IActorReminder` interface. The actor base class supports a `GetReminder` method that can be used to retrieve the `IActorReminder` interface by passing in the reminder name. This is convenient because the actor does not need to persist the `IActorReminder` interface that was returned from the `RegisterReminder` method call.
 
 ## Next Steps
+ - [Actor events](service-fabric-reliable-actors-events.md)
+ - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+ - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+ - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)
