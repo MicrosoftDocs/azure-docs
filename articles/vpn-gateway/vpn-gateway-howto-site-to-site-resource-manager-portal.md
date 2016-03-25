@@ -126,9 +126,8 @@ If you are creating this configuration as an exercise, refer to these [values](#
 ## 8. Create the Site-to-Site VPN connection
 
 Next, you'll create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. 
-If you are creating this configuration as an exercise, refer to these [values](#values) when creating your connection.
 
-Before beginning this section, verify that your virtual network gateway and local network gateways have finished creating.
+Before beginning this section, verify that your virtual network gateway and local network gateways have finished creating. If you are creating this configuration as an exercise, refer to these [values](#values) when creating your connection.
 
 
 [AZURE.INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]

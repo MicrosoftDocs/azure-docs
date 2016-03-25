@@ -6,7 +6,7 @@
 4. On the **Add subnet** blade, name your subnet **GatewaySubnet**. You should not name it anything else, or the gateway will not work.
 5. Add the IP **address range** for your gateway. Please verify the gateway subnet setting is correct for your configuration.
 
-	![Add the gateway subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsub250.png)
+	![Add the gateway subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet250.png)
 	
 6. Click **OK** at the bottom of the blade to create the subnet.
 
