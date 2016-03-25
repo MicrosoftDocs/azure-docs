@@ -1,11 +1,12 @@
 <properties
-	 pageTitle="How to create an Azure support request"
+	 pageTitle="How to create an Azure support request | Microsoft Azure"
 	 description="How to create an Azure support request."
 	 services="Azure Supportability"
 	 documentationCenter=""
 	 authors="ganganarayanan"
 	 manager="scotthit"
 	 editor=""/>
+	 
 <tags
 	 ms.service="azure-supportability"
 	 ms.workload="na"
@@ -17,7 +18,7 @@
 
 # How to create an Azure support request
 
-﻿## Summary
+## Summary
 Azure customers can create and manage support requests in the Azure portal, [portal.azure.com](www.portal.azure.com).
 Based on customer feedback, we’ve updated the support request experience to focus on three main goals:
 
@@ -86,5 +87,5 @@ Note: The maximum severity level depends on your support plan. [Learn more](http
 ## Feedback
 We are always open to feedback and suggestions! Please send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us via [Twitter](https://twitter.com/azuresupport) or [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
 
-**Learn more**
+## Learn more
 [Azure Support FAQ](https://azure.microsoft.com/support/faq)
