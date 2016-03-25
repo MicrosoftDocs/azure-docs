@@ -60,7 +60,7 @@ If you need environment variables defined for a specific task, that isn't shared
 </ServiceDefinition>
 ```
 
-Variables can also use a [valid Azure XPath value](https://msdn.microsoft.com/library/azure/hh404006.aspx) to reference something about the deployment. Instead of using the `value` attribute, define a [RoleInstanceValue] child element.
+Variables can also use a [valid Azure XPath value](cloud-services-role-config-xpath.md) to reference something about the deployment. Instead of using the `value` attribute, define a [RoleInstanceValue] child element.
 
 ```xml
 <Variable name="PathToStartupStorage">
