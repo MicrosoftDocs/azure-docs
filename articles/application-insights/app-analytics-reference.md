@@ -28,7 +28,6 @@
 ## Regular expressions
 
 
-
 [> General description of regular expressions](https://github.com/google/re2/wiki/Syntax).
 
 This page lists the regular expression syntax accepted by RE2. 
