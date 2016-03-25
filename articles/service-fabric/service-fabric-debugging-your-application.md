@@ -3,7 +3,7 @@
    description="Improve the reliability and performance of your services by developing and debugging them in Visual Studio on a local development cluster."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/28/2016"
-   ms.author="jesseb"/>
+   ms.date="03/25/2016"
+   ms.author="vturecek"/>
 
 # Debug your Service Fabric application by using Visual Studio
 
@@ -34,7 +34,7 @@ You can save time and money by deploying and debugging your Azure Service Fabric
 
     ![View diagnostic events in real time][diagnosticevents]
 
-5. You can also open the **Diagnostic Events** window in Server Explorer.  Under **Azure**, right-click **Service Fabric Cluster** > **View Diagnostic Events**.
+5. You can also open the **Diagnostic Events** window in Cloud Explorer.  Under **Azure**, right-click **Service Fabric** > *select a cluster* > **View Streaming Traces**.
 
     ![Open the diagnostic events window][viewdiagnosticevents]
 
