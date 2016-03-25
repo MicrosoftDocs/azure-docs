@@ -6,7 +6,7 @@
 	authors="genlin"
 	manager="felixwu"
 	editor=""
-	tags="storage,top-support-issue"/>
+	tags="storage"/>
 
 <tags
 	ms.service="storage"
