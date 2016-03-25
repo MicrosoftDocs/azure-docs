@@ -105,13 +105,13 @@ The gateway subnet prefix for some configurations requires a subnet of /28 or la
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## 5. Create the gateway
+## 5. Create the virtual network gateway
 
 If you are creating this configuration as an exercise, refer to these [values](#values) when creating your gateway.
 
 [AZURE.INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## 6. Configure the local network gateway
+## 6. Create the local network gateway
 
 In a virtual network, the collection of settings called the *local network gateway* typically refers to your on-premises location. You'll give the local network gateway a name by which Azure can refer to it. You can modify the prefixes that you add here, but there are specific steps that you'll have to follow. The steps are in the [To modify IP address prefixes for a local site](#modifylng) section of this article.
 
