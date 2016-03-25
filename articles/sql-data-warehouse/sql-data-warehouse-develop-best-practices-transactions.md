@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/27/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimizing transactions for SQL Data Warehouse
@@ -89,7 +89,7 @@ Below are four examples explaining how to optimise your code for fully logged op
 ### Optimizing large delete operations using CTAS
 If you need to delete a large amount of data in a table or a partition it often makes more sense to `SELECT` the data you wish to keep instead; creating a new table with [CTAS][]. Once created, use a pair of [RENAME OBJECT][] commands to switch the names of the tables over.
 
-```
+```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
 
 --Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
@@ -124,7 +124,7 @@ In the example below a full table update has been converted to a `CTAS` so that 
 
 In this case we are retrospectively adding a discount amount to the sales in the table:
 
-```
+```sql
 --Step 01. Create a new table containing the "Update". 
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
@@ -192,7 +192,7 @@ The steps to perform a partition switch are as follows:
 
 However, to help identify the partitions to switch we will first need to build a helper procedure such as the one below. 
 
-```
+```sql
 CREATE PROCEDURE dbo.partition_data_get
 	@schema_name		   NVARCHAR(128)
 ,	@table_name			   NVARCHAR(128)
@@ -240,7 +240,7 @@ This procedure maximises code re-use and keeps the partition switching example m
 
 The code below demonstrates the five steps mentioned above to achieve a full partition switching routine.
 
-```
+```sql
 --Create a partitioned aligned empty table to switch out the data 
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
@@ -346,7 +346,7 @@ For large data modification operations it may make sense to divide the operation
 
 An working example is provided below. The batch size has been set to a trivial number to highlight the technique. In reality the batch size would be significantly larger. 
 
-```
+```sql
 SET NO_COUNT ON;
 IF OBJECT_ID('tempdb..#t') IS NOT NULL
 BEGIN

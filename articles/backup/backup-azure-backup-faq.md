@@ -3,7 +3,7 @@
    description="Answers to frequently asked questions about the backup agent, backup and retention, recovery, security and other common questions about the Azure Backup solution."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
+   authors="markgalioto"
    manager="jwhit"
    editor=""
    keywords="backup solution; backup service"/>
@@ -14,11 +14,11 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="01/28/2016"
+	 ms.date="03/23/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup service- FAQ
-The following is a list of commonly asked questions about Azure Backup. If you have additional questions about the Azure Backup service, you can use the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) to post your questions, or you can ask the question in the Disqus section of this article or a related article. Our community replies quickly, and if a question is asked often, we add it to this article.
+This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Installation & Configuration
 **Q1. What is the list of supported operating systems from which I can back up to Azure using Azure Backup?** <br/>
@@ -40,7 +40,7 @@ A1. Azure Backup supports the following list of operating systems
 |Windows Server 2008 SP2	|64 bit|	Standard, Enterprise, Datacenter, Foundation|
 
 **Q2. Where can I download the latest Azure Backup agent?** <br/>
-A2. You can download the latest agent from [here](http://aka.ms/azurebackup_agent). Use Azure Backup agent on Windows Server, SCDPM server, or Windows client.
+A2. You can download the latest agent for backing up Windows Server, System Center DPM, or Windows client, from  [here](http://aka.ms/azurebackup_agent). If you want to backup a virtual machine, use the VM Agent (which automatically installs the proper extension). The VM Agent is already present on virtual machines created from the Azure gallery.
 
 **Q3. Which version of SCDPM server is supported?** <br/>
 A3. We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup of SCDPM (UR6 as of July 2015)
@@ -128,10 +128,10 @@ A21. Absolutely. Azure Backup provides VM-level backup for Azure VMs using the V
 **Q22. Can I install the Azure Backup agent on an Azure VM to back up files and folders present on temporary storage provided by the Azure VM?** <br/>
 A22. You can install the Azure Backup agent on the Guest Windows OS and back up files and folders to temporary storage. However, please note that backups fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
 
-**Q23. What is the length of file path that can be specified as part of Azure Backup policy using Azure Backup agent?** <br>  
+**Q23. What is the length of file path that can be specified as part of Azure Backup policy using Azure Backup agent?** <br/>
 A23. Azure Backup agent relies on NTFS. The [filepath length specification is limited by Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). In case of backing up files with file path length greater than the ones specified by Windows API, customers can choose to backup the parent folder or the disk drive of backup files.  
 
-**Q24 What characters are allowed in file path of Azure Backup policy using Azure Backup agent?** <br>  
+**Q24 What characters are allowed in file path of Azure Backup policy using Azure Backup agent?** <br/>
 A24. Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) as part of file specification.  
 
 
@@ -190,7 +190,7 @@ A10. No. We have eliminated limits on recovery points. You can create as many re
 **Q11. Why is the amount of data transferred in backup not equal to the amount of data I backed up?**<br/>
 A11. All the data that is backed up is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
 
-**Q12. Is there a way to adjust the amount of bandwidth used by the Backup service?**
+**Q12. Is there a way to adjust the amount of bandwidth used by the Backup service?**<br/>
 A12. Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. Adjust the amount of bandwidth and the times when you use that bandwidth. See [Network Throttling](../backup-configure-vault.md#enable-network-throttling), for more information.
 
 
@@ -217,15 +217,15 @@ A4. The key used to encrypt the backup data is present only on the customer prem
 
 ## Backup cache
 
-**Q1. How do I change the cache location specified for the Azure Backup agent?**
+**Q1. How do I change the cache location specified for the Azure Backup agent?**<br/>
 
 1. Stop the Backup engine by executing the following command in an elevated command prompt:
 
-```PS C:\> Net stop obengine```
+  ```PS C:\> Net stop obengine```
 
 2. Copy the cache space folder to a different drive with sufficient space. You should copy the files from the cache space folder instead of moving them. The original cache space can be removed after confirming the backups are working with the new cache space.
 
-3. Update the following registry entries with the path to the new cache space folder.
+3. Update the following registry entries with the path to the new cache space folder.<br/>
 
 |Registry path | Registry Key | Value |
 | ------ | ------- | ------|
