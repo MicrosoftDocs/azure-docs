@@ -17,14 +17,39 @@
    ms.date="03/24/2016"
    ms.author="tomfitz"/>
 
-# Resolve common errors when deploying resources to Azure
+# Resolve common errors when deploying resources to Azure with Azure Resource Manager
 
 This topic describes how you can resolve some of the common errors you may encounter when deploying resources to Azure. For information about troubleshooting deployments, see 
 [Troubleshooting resource group deployments](resource-manager-troubleshoot-deployments-portal.md).
 
 You can avoid some errors by validating your template and parameters prior to deployment. For examples of validating your template, see [Deploy resources with Azure Resource Manager template](resource-group-template-deploy.md).
 
-## Check which locations support the resource
+## Resource name already exists
+
+For some resources, most notably Storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure. 
+You can create a unique name by concatenating your naming convention with the result of the [uniqueString](./resource-group-template-functions/#uniquestring) function.
+ 
+    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
+    "type": "Microsoft.Storage/storageAccounts", 
+
+## Cannot find resource during deployment
+
+Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your 
+template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app is dependent on the App Service plan, 
+Resource Manager will create both resources at the same time. You will receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property 
+on the web app. You can prevent this error by setting the dependency in the web app.
+
+    {
+      "apiVersion": "2015-08-01",
+      "type": "Microsoft.Web/sites",
+      ...
+      "dependsOn": [
+        "[variables('hostingPlanName')]"
+      ],
+      ...
+    }
+
+## Location not available for resource
 
 When specifying a location for a resource, you must use one of the locations that supports the resource. Before you enter a location for a resource, use one of the following commands to verify that the location 
 supports the resource type.
@@ -67,6 +92,9 @@ Which returns the supported locations:
 For Azure CLI, you can use **azure location list**. Because the list of locations can be long, and there are many providers, you can use tools to examine providers and locations before you use a location that isn't available yet. The following script uses **jq** to discover the locations where the resource provider for Azure virtual machines is available.
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
+    
+Which returns the supported locations:
+    
     {
       "name": "Microsoft.Compute/virtualMachines",
       "location": "East US,East US 2,West US,Central US,South Central US,North Europe,West Europe,East Asia,Southeast Asia,Japan East,Japan West"
@@ -76,22 +104,19 @@ For Azure CLI, you can use **azure location list**. Because the list of location
 
 For REST API, see [Get information about a resource provider](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
-## Create unique resource names
+## Quota exceeded
 
-For some resources, most notably Storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure. 
-You can create a unique name by concatenating your naming convention with the result of the [uniquestring](./resource-group-template-functions/#uniquestring) function.
+You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. 
+If you attempt to deploy a virtual machine with more cores than the permitted amount, you will receive an error stating the quota has been exceeded. 
+For complete quota information, see [Azure subscription and service limits, quotas, and constraints](./azure-subscription-service-limits.md).
 
-## Authentication, subscription, role, and quota issues
-
-There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory. Regardless how you manage your Azure resource groups, the identity you use to sign in to your account must be an Azure Active Directory object. This identity can be a work or school account that you created or was assigned to you, or you can create a Service Principal for applications.
-
-But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, and examine the deployment logs for your resource group. You might find that while you have permissions for some resources, you do not have permissions for others. Using the Azure CLI, you can examine Azure Active Directory tenants and users using the `azure ad` commands. (For a complete list of Azure CLI commands, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](./virtual-machines/azure-cli-arm-commands.md).)
-
-You might also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, and other scopes. Confirm to your satisfaction that you have the resources available to deploy correctly. For complete quota information, see [Azure subscription and service limits, quotas, and constraints](./azure-subscription-service-limits.md).
-
-To examine your own subscription's quotas for cores, you should use the `azure vm list-usage` command in the Azure CLI and the **Get-AzureRmVMUsage** cmdlet in PowerShell. The following shows the command in the Azure CLI, and illustrates that the core quota for a free trial account is 4:
+To examine your subscription's quotas for cores, you can use the `azure vm list-usage` command in the Azure CLI. The following example illustrates that the core quota for a 
+free trial account is 4:
 
     azure vm list-usage
+    
+Which returns:
+    
     info:    Executing command vm list-usage
     Location: westus
     data:    Name   Unit   CurrentValue  Limit
@@ -105,28 +130,38 @@ If you were to try to deploy a template that creates more than 4 cores into the 
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
 
+Or in PowerShell, you can use the **Get-AzureRmVMUsage** cmdlet.
+
+    Get-AzureRmVMUsage
+    
+Which returns:
+
+    ...
+    CurrentValue : 0
+    Limit        : 4
+    Name         : {
+                     "value": "cores",
+                     "localizedValue": "Total Regional Cores"
+                   }
+    Unit         : null
+    ...
+
 In these cases, you should go to the portal and file a support issue to raise your quota for the region into which you want to deploy.
 
 > [AZURE.NOTE] Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 Resource Manager cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 resource Manager cores in all regions.
-<!-- -->
-To be specific about cores, for example, you can check the regions for which you should request the appropriate quota amount by using the following command, which pipes out to **jq** for json parsing.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
 
+
+## Authorization failed
+
+You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. 
+Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, it will not be 
+able to create new resources. In that case, you should see an error message indicating that authorization failed.
+
+For more information about role-based access control, see [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
+
+In addition to role-based access control, you deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the 
+subscription. For example, an administrator can require that a particular tag value be provided for a resource type. If you have not fulfilled the policy requirements, you will receive an error during 
+deployment. For more information about policies, see [Use Policy to manage resources and control access](./resource-manager-policy.md).
 
 ## Check resource provider registration
 
@@ -165,52 +200,24 @@ You are asked to confirm the registration, and then returned a status.
 
 To see whether the provider is registered for use using the Azure CLI, use the `azure provider list` command (the following is a truncated example of the output).
 
-        azure provider list
-        info:    Executing command provider list
-        + Getting ARM registered providers
-        data:    Namespace                        Registered
-        data:    -------------------------------  -------------
-        data:    Microsoft.Compute                Registered
-        data:    Microsoft.Network                Registered  
-        data:    Microsoft.Storage                Registered
-        data:    microsoft.visualstudio           Registered
-        data:    Microsoft.Authorization          Registered
-        data:    Microsoft.Automation             NotRegistered
-        data:    Microsoft.Backup                 NotRegistered
-        data:    Microsoft.BizTalkServices        NotRegistered
-        data:    Microsoft.Features               Registered
-        data:    Microsoft.Search                 NotRegistered
-        data:    Microsoft.ServiceBus             NotRegistered
-        data:    Microsoft.Sql                    Registered
-        info:    provider list command OK
+    azure provider list
+        
+Which returns all available resource providers and your registration status:
+        
+    info:    Executing command provider list
+    + Getting ARM registered providers
+    data:    Namespace                        Registered
+    data:    -------------------------------  -------------
+    data:    Microsoft.Compute                Registered
+    data:    Microsoft.Network                Registered  
+    data:    Microsoft.Storage                Registered
+    data:    microsoft.visualstudio           Registered
+    ...
+    info:    provider list command OK
 
-Again, if you want more information about providers, including their regional availability, type `azure provider list --json`. The following selects only the first one in the list to view:
+To register a resource provider, use the `azure provider register` command, and specify the *namespace* to register.
 
-        azure provider list --json | jq '.[0]'
-        {
-          "resourceTypes": [
-            {
-              "apiVersions": [
-                "2014-02-14"
-              ],
-              "locations": [
-                "North Central US",
-                "East US",
-                "West US",
-                "North Europe",
-                "West Europe",
-                "East Asia"
-              ],
-              "properties": {},
-              "name": "service"
-            }
-          ],
-          "id": "/subscriptions/<guid>/providers/Microsoft.ApiManagement",
-          "namespace": "Microsoft.ApiManagement",
-          "registrationState": "Registered"
-        }
-
-If a provider requires registration, use the `azure provider register <namespace>` command, where the *namespace* value comes from the preceding list.
+    azure provider register Microsoft.Cdn
 
 ### REST API
 
@@ -218,7 +225,7 @@ To get registration status, see [Get information about a resource provider](http
 
 To register a provider, see [Register a subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
-## Resolve custom script extension errors
+## Custom script extension errors
 
 If you encounter an error with a custom script extension when deploying a virtual machine, see [Troubleshooting Azure Windows VM extension failures](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) 
 or [Troubleshooting Azure Linux VM extension failures](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
