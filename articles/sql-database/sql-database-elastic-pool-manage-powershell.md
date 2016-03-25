@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Monitor and manage an elastic database pool (PowerShell) 
+# Monitor, manage, and size an elastic database pool with PowerShell 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
@@ -35,7 +35,7 @@ You need to be running Azure PowerShell 1.0 or higher. For detailed information,
 
 
 
-## Create a new elastic database in an elastic database pool
+## Create a new elastic database in a pool
 
 To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter.
 
@@ -43,34 +43,34 @@ To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Move a stand-alone database into an elastic database pool
+## Move a stand-alone database into a pool
 
 To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet and set the **ElasticPoolName** parameter. 
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Change performance settings of an elastic database pool
+## Change performance settings of a pool
 
-To change performance settings of an elastic database pool, use the [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet. 
+To change performance settings of a pool, use the [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet. 
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
-## Get the status of elastic database pool operations
+## Get the status of pool operations
 
-You can track the status of elastic database pool operations including creation and updates using the [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) cmdlet.
+You can track the status of pool operations including creation and updates using the [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) cmdlet.
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
-## Get the status of moving an elastic database into and out of an elastic database pool
+## Get the status of moving an elastic database into and out of a pool
 
 You can track the status of elastic database operations including creation and updates using the [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx) cmdlet.
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Get usage data for an elastic database pool
+## Get usage data for a pool
 
 Metrics that can be retrieved as a percentage of the resource pool limit:   
 
@@ -113,7 +113,7 @@ Export to a CSV file:
 
 These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a standalone database, except for the following semantic difference 
 
-* For this API metrics retrieved are expressed as a percentage of the per databaseDtuMax (or equivalent cap for the underlying metric like CPU, IO etc) set for that elastic database pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per DB cap limit for that resource in the parent elastic database pool. 
+* For this API metrics retrieved are expressed as a percentage of the per databaseDtuMax (or equivalent cap for the underlying metric like CPU, IO etc) set for that pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per DB cap limit for that resource in the parent pool. 
 
 Get the metrics:
 
@@ -132,7 +132,7 @@ Export to a CSV file:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
-## Monitor and manage an elastic database pool PowerShell example
+## Monitor and manage a pool PowerShell example
 
 
     $subscriptionId = '<Azure subscription id>'
@@ -171,7 +171,7 @@ Export to a CSV file:
 
 ## Next steps
 
-- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool.
+- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
 
 
 ## Elastic database reference

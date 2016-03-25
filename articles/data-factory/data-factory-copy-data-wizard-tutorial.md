@@ -63,6 +63,8 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 ## Create pipeline
 
 1. On the Data Factory home page, click the **Copy data** tile to launch **Copy Wizard**. 
+
+	> [AZURE.NOTE] If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.
 2. In the **Properties** page:
 	1. Enter **CopyFromBlobToAzureSql** for **Task name**
 	2. Enter **description** (optional).

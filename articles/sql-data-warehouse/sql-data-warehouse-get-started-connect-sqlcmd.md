@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connect and query with SQLCMD
@@ -55,7 +55,7 @@ To connect to a specific instance of SQL Data Warehouse when using sqlcmd you wi
 
 Therefore, to connect to a SQL Data Warehouse instance, you would enter the following:
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 ```
 
@@ -63,7 +63,7 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 After connection, you can issue any supported Transact-SQL statements against the instance.
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 1> SELECT COUNT(*) FROM dbo.FactInternetSales;
 2> GO
