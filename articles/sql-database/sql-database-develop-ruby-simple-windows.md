@@ -27,7 +27,7 @@ This topic presents a Ruby code sample that runs on a Windows computer running W
 
 ## Step 1: Configure Development Environment
 
-[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx#Ubuntu-Linux)
+[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx#Windows)
 
 ## Step 2: Create a SQL database
 
