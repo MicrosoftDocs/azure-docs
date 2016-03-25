@@ -16,13 +16,12 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
  
 # Analytcis statements in Application Insights
 
 [Analytics](app-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage, AIQL.
+ Analytics query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 

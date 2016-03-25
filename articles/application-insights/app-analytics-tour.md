@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 
@@ -23,7 +23,7 @@
 
 [Analytics](app-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage, AIQL.
+ Analytics query lanquage.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -73,10 +73,12 @@ Choose columns and adjust their positions:
 
 ![Click column selection at upper right of results](./media/app-analytics-tour/030.png)
 
+
 Expand any item to see the detail:
  
 ![Choose Table, and use Configure Columns](./media/app-analytics-tour/040.png)
 
+> [AZURE.NOTE] Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Be aware that sorting this way doesn't always show you the actual highest or lowest items. For that, you should use the `top` or `sort` operator. 
 
 ## [Top](app-analytics-aggregations.md#top) and [sort](app-analytics-aggregations.md#sort)
 

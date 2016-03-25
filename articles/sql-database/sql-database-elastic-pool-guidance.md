@@ -117,8 +117,10 @@ For more flexible resource usage assessments that allow ad hoc sizing estimates 
 In cases where you can't use tooling, the following step-by-step can help you estimate whether a pool is more cost-effective than single databases:
 
 1.	Estimate the eDTUs needed for the pool as follows:
-MAX(<*Total number of DBs* X *average DTU utilization per DB*>,
-<*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
+
+    MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
+    <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
+
 2.	Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool.  Then determine the eDTU pool size that provides this amount of storage.  For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 3.	Take the larger of the eDTU estimates from Step 1 and Step 2.
 4.	See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.

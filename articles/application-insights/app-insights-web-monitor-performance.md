@@ -110,43 +110,52 @@ Selecting any metric will disable the others that can't appear on the same chart
 
 ## System performance counters
 
-Some of the metrics you can choose from are [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows provides a wide variety of them, and you can also define your own.
+
+Windows provides a wide variety of performance counters, and you can also define your own.
 
 (For applications hosted on Azure, [send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md).)
 
-This example shows performance counters that are available by default. We have [added a separate chart](app-insights-metrics-explorer.md#editing-charts-and-grids) for each counter, and named the chart by [saving it as a favorite](app-insights-metrics-explorer.md#editing-charts-and-grids):
+To see a set of common  [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters), open the **Servers** blade. You can also choose counters by editing a chart and selecting a metric from the performance counters section:
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
+The complete set of metrics available on your system can be determined on Windows systems by using the PowerShell command [`Get-Counter -ListSet *`](https://technet.microsoft.com/library/hh849685.aspx).
 
-If the counters you want aren't in the properties list, you can add them to the set that the SDK collects. Open ApplicationInsights.config and edit the performance collector directive:
+If the counters you want aren't in the metrics list, you can add them to the set that the SDK collects. Open ApplicationInsights.config and edit the performance collector directive:
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
         <Add PerformanceCounter="\Sales(electronics)\# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-The format is `\Category(instance)\Counter"` or for categories that don't have instances, just `\Category\Counter`. To discover what counters are available in your system, read [this introduction](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
+You can capture both standard counters, and those you have implemented yourself. `\Objects\Processes` is available on all Windows systems; `\Sales...` is an example of a custom counter that might be implemented in a web server. 
+
+The format is `\Category(instance)\Counter"` or for categories that don't have instances, just `\Category\Counter`.
+
 
 `ReportAs` is required for counter names that contain characters other than these: letters, round brackets, forward slahes, hyphens, underscores, spaces and dots.
 
-If you specify an instance, it will be collected as a property "CounterInstanceName" of the reported metric.
+If you specify an instance, it will be collected as a dimension "CounterInstanceName" of the reported metric.
 
-If you prefer, you can write code to have the same effect:
+### Collecting performance counters in code
+
+To collect system performance counters and push them to Application Insights, you can use the snippet below:
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+Or you can do the same thing with custom metrics you created:
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(electronics)\# Items Sold", "Items sold"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
-In addition, if you want to collect system performance counters and push them to Application Insights, you can use the snippet below:
-
-    var perfCollectorModule = new PerformanceCollectorModule();
-    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
-    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+In addition, if you want 
 
 ### Exception counts
 

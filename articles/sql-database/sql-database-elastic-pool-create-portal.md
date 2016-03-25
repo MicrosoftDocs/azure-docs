@@ -11,25 +11,25 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="03/24/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a scalable elastic database pool for SQL databases in Azure portal
+# Create a scalable elastic database pool for SQL databases with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
-- [C#](sql-database-elastic-pool-create-csharp.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
+- [C#](sql-database-elastic-pool-create-csharp.md)
 
-This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) in the [Azure portal](https://portal.azure.com/). There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service, which has built-in intelligence that recommends a pool setup if it will be more cost-efficient for you based on database past usage telemetry. 
+This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) with the [Azure portal](https://portal.azure.com/). There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends a pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
 
 You can add multiple pools to a server, but you can't add databases from different servers into the same pool. To create a pool, you need at least one database in a V12 server. If you don't have one, see [Create your first Azure SQL database](sql-database-get-started.md). You can create a pool with only one database, but pools are only cost-efficient with multiple databases. See [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Pools are only available with SQL Database V12 servers. If you have an earlier version server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
+> [AZURE.NOTE] Pools are only available with SQL Database V12 servers. If you have databases on a V11 server, you can [use a PowerShell script to identify them as candidates for a pool](sql-database-elastic-pool-database-assessment-powershell.md) on a V12 server, and then [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
 
 ##Create a new pool
 1. In the [Azure portal](http://portal.azure.com/) click **SQL servers**, and then click the server that contains the databases you want to add to a pool.

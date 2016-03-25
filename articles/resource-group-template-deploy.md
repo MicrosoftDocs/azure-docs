@@ -287,7 +287,7 @@ For details about KeyVault reference to pass secure values, see [Pass secure val
 ](resource-manager-keyvault-parameter.md)
 
 ## Next steps
-- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](./virtual-machines/arm-template-deployment.md)
+- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md)
 - For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
 - To learn about the sections of the Azure Resource Manager template, see [Authoring templates](resource-group-authoring-templates.md)

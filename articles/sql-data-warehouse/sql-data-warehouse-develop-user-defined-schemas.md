@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # User-defined schemas in SQL Data Warehouse
@@ -47,7 +47,7 @@ If schemas have already been used then you have a few options:
 
 1. Implement user-defined schemas based on database names
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
 GO
 CREATE SCHEMA [edw]; -- edw previously database name for the data warehouse
@@ -65,7 +65,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 
 2. Retain legacy schema names by pre-pending them to the table name. Use schemas for the workload boundary.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
 GO
 CREATE SCHEMA [edw]; -- edw defines the data warehouse boundary
@@ -83,7 +83,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 
 3. Retain legacy schema names using views
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
 GO
 CREATE SCHEMA [edw]; -- stg defines the data warehouse boundary
