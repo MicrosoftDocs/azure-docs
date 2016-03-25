@@ -20,7 +20,7 @@
 Microsoft Azure is a growing collection of integrated public cloud services including analytics, Virtual Machines, databases, mobile, networking, storage, and web — ideal for hosting your solutions.  Microsoft Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
  
 ## Azure Virtual Machines
-Azure virtual machines allow you deploy a wide range of computing solutions in an agile way. Deploy a Windows or Linux virtual machine from the image gallery or a custom created one from any one of our growing list of partners.  You can deploy virtually any workload and any language on nearly any operating system. Still don't see what you are looking for?  Don't worry - you can also bring your own images from on-premises. 
+Azure virtual machines allow you to deploy a wide range of computing solutions in an agile way. You can deploy virtually any workload and any language on nearly any operating system - Windows, Linux, or a custom created one from any one of our growing list of partners. Still don't see what you are looking for?  Don't worry - you can also bring your own images from on-premises. 
  
 ## Getting Started with Linux in Microsoft Azure
 
@@ -29,7 +29,7 @@ Use Microsoft Azure Virtual Machines, Storage, and Networking together to provid
 1. A free trial account. [Go get one](https://azure.microsoft.com/pricing/free-trial/).
 2. The Azure Command-line Interface for Linux, Mac, and Windows (the Azure CLI). [Install it](../xplat-cli-install.md).
 3. A Linux VM. [Create it](virtual-machines-linux-quick-create-cli.md).
-4. More information about Linux and Azure, including how to qualify for the Service Level Agreement (SLA). **Read this document, even if you hate legal documents**.
+4. More information about Linux and Azure, including how to qualify for the [Service Level Agreement (SLA)](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/). **Read this document, even if you hate legal documents**.
 
 ## Logistics: Regions, Distributions, Availability, VM Sizes and Quotas
 ### Regions
