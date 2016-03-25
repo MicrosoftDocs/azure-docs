@@ -22,12 +22,12 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
 
-If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, this article describes how to reset the local administrator password or reset the Remote Desktop service configuration.
+If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, you can reset the local administrator password or reset the Remote Desktop service configuration.
 
-Depending on the deployment model of your virtual machine, you can either use the portal or the VM Access extension in Azure PowerShell. If you are using Azure PowerShell, make sure you have the latest Azure PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
+Depending on the deployment model of your virtual machine, you can either use the Azure portal or the VM Access extension in Azure PowerShell. If you are using PowerShell, make sure you have the latest PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 
-> [AZURE.TIP] You can check the version of Azure PowerShell that you have installed with the `Get-Module azure | format-table version` command. 
+> [AZURE.TIP] You can check the version of PowerShell that you have installed with the `Get-Module azure | format-table version` command. 
 
 
 ## Windows VMs in classic deployment model
@@ -43,11 +43,11 @@ You can also try resetting the name and password of the local administrator acco
 
 ![](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 
-Click on **Save** after entering the new username and password. 
+Click on **Save** after entering the new username and password.
 
 ### VMAccess extension and PowerShell
 
-Make sure the VM Agent is installed on the virtual machine. The VMAccess extension doesn't need to be installed before you can use it, as long as the VM Agent is available. Verify that the VM Agent is already installed by using the following command. Replace the "myCloudService" and "myVM" by the names of your cloud service and your VM respectively. You can find these out by running `Get-AzureVM` without any parameters. 
+Make sure the VM Agent is installed on the virtual machine. The VMAccess extension doesn't need to be installed before you can use it, as long as the VM Agent is available. Verify that the VM Agent is already installed by using the following command. Replace the "myCloudService" and "myVM" by the names of your cloud service and your VM respectively. You can find these out by running `Get-AzureVM` without any parameters.
 
 	$vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 	write-host $vm.VM.ProvisionGuestAgent
@@ -90,12 +90,12 @@ This command sets the fDenyTSConnections registry value to 0, enabling Remote De
 
 ## Windows VMs in Resource Manager deployment model
 
-The Azure portal currently does not support resetting the remote access or login credentials for virtual machines created using the Resource Manager. 
+The Azure portal currently does not support resetting the remote access or login credentials for virtual machines created using the Resource Manager.
 
 
 ### VMAccess extension and PowerShell
 
-Make sure you have Azure PowerShell 1.0 or above installed and you have logged in to your account using the `Login-AzureRmAccount` cmdlet. 
+Make sure you have Azure PowerShell 1.0 or above installed and you have logged in to your account using the `Login-AzureRmAccount` cmdlet.
 
 #### **Reset the local administrator account password**
 
@@ -106,7 +106,7 @@ Create your local admin account credentials by using the following command:
 	$cred=Get-Credential
 
 If you type a different name than the current account, the VMAccess extension command below will rename the local administrator account, assign the password to that account, and issue a Remote Desktop log off. If the local administrator account is disabled, the VMAccess extension will enable it.
-	
+
 Use the VM access extension to set the new credentials as follows:
 
 	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus -UserName $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
@@ -125,7 +125,7 @@ OR<br>
 
 	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
 
-	
+
 > [AZURE.TIP] Both the `Set-AzureRmVMAccessExtension` and `Set-AzureRmVMExtension` add a new named VM access agent to the virtual machine. At any point, a VM can only have a single VM access agent. To set the VM access agent properties successively, remove the access agent set previously by using either `Remove-AzureRmVMAccessExtension` or `Remove-AzureRmVMExtension`. Starting from Azure PowerShell version 1.2.2, you can avoid this step when using `Set-AzureRmVMExtension` with a `-ForceRerun` option. Make sure to use the same name for the VM access agent as set by the previous command when using the `-ForceRerun` option.
 
 
