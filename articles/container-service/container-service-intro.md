@@ -32,10 +32,11 @@ applications on Microsoft Azure.
 ![ACS provides a means to manage containerize applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
 <br /><br />
 
-ACS leverages Docker to ensure that your application containers are
-fully portable. It also supports your choice of Marathon, Chronos and
-Apache Mesos or Docker Swarm to ensure that these applications can be
-scaled to thousands, even tens of thousands of containers.
+ACS leverages the Docker container format to ensure that your
+application containers are fully portable. It also supports your
+choice of Marathon and Apache Mesos or Docker Swarm to ensure that
+these applications can be scaled to thousands, even tens of thousands
+of containers.
 
 The Azure Container Service enables you to take advantage of the
 enterprise grade features of Azure while still maintaining application
@@ -45,18 +46,18 @@ Using Azure Container Service
 -----------------------------
 
 Our goal with the Azure Container Service is to provide a container
-hosting environment, using open source tools and technologies, which are
-popular among our customers today. To this end, we expose the standard
-API endpoints for Docker and your chosen orchestrator. Using these
+hosting environment, using open source tools and technologies, which
+are popular among our customers today. To this end, we expose the
+standard API endpoints for your chosen orchestrator. Using these
 endpoints you can leverage any software that is capable of talking to
 those endpoints. For example, in the case of the Docker Swarm endpoint
-you might choose to use Docker Compose, while for Apache Mesos you may
+you might choose to use Docker CLI, while for Apache Mesos you may
 choose to use the DCOS CLI.
 
 Creating a Docker Cluster Using Azure Container Service
 -------------------------------------------------------
 
-To begin using Azure Container Service, an ACS cluster will be deployed using an Azure Resource Manager template. This deployment can be configured with different size and availability options, and will be configured with either Apache Mesos Mesos or Docker Swarm. Azure Resource Manager Templates can be deployed through the Azure port, using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying and ACS cluster, see [Deploy an Azure container Service Cluster](./container-service-deployment.md).
+To begin using Azure Container Service, an ACS cluster will be deployed using an Azure Resource Manager template. This deployment can be configured with different size and availability options, and will be configured with either Apache Mesos Mesos or Docker Swarm. Azure Resource Manager Templates can be deployed through the Azure portal, using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying and ACS cluster, see [Deploy an Azure container Service Cluster](./container-service-deployment.md).
 
 Deploying an Application
 ------------------------
@@ -74,13 +75,13 @@ users and contributors.
 
 ![ACS configured for Swarm showing agents and masters.](media/acs-intro/acs-mesos.png)
 
-Mesos packs an impressive features set.
+Mesos packs an impressive feature set.
 
 -   Scalability to 10,000s of nodes
 
 -   Fault-tolerant replicated master and slaves using ZooKeeper
 
--   Support for Docker containers
+-   Support for Docker formatted containers
 
 -   Native isolation between tasks with Linux Containers
 
@@ -98,9 +99,9 @@ Service. By default, ACS includes the Marathon and Chronos frameworks.
 #### Using Marathon and Chronos
 
 Marathon is a cluster-wide init and control system for services in
-cgroups or, in the case of ACS, Docker containers. It is an ideal
-partner to Chronos, a fault tolerant job scheduler for Mesos which
-handles dependencies and time based schedules.
+cgroups or, in the case of ACS, Docker format containers. It is an
+ideal partner to Chronos, a fault tolerant job scheduler for Mesos
+which handles dependencies and time based schedules.
 
 Marathon and Chronos provide a Web UI from which you can deploy your
 applications. You will access this at an URL that looks something like

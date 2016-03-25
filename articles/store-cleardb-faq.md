@@ -31,7 +31,7 @@ You have several options:
 
 * [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 
-* [Single instance of MySQL running on an Azure VM](virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)
+* [Single instance of MySQL running on an Azure VM](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)
 
 ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you. When you run your own MySQL cluster or database on an Azure Virtual Machine you have to set up the MySQL server and keep it updated with patches.
 
@@ -55,7 +55,7 @@ The default database option is Titan, which is $3.50. We don’t show the cost d
 
 ## I am running MySQL on my own Azure virtual machine. Can I connect my Azure web app to my database?
 
-Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](../virtual-machines/virtual-machines-mysql-windows-server-2008r2.md).
+Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md).
 
 ## In which countries are ClearDB Premium MySQL clusters supported?
 
