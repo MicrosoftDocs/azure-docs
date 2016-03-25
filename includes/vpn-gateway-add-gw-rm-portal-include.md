@@ -15,7 +15,7 @@
 	
 	![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
 
-11. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway will appear as a connected device. You can also click on the connected device (your virtual network gateway) to view more information.
+11. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway will appear as a connected device. You can click on the connected device (your virtual network gateway) to view more information.
 
 
 
