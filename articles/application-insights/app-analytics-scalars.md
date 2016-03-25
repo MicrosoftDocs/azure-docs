@@ -20,9 +20,8 @@
 # Scalar expressions in Analytics
 
 
-[Analytics](app-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage.
+[Analytics](app-analytics.md) is the big-data analytical feature of 
+[Application Insights](app-insights-overview.md). These pages describe its query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
