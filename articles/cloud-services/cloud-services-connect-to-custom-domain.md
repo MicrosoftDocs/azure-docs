@@ -3,7 +3,7 @@
   description="Learn how to connect your web/worker roles to a custom AD Domain using Powershell and AD Domain Extension"
   services="cloud-services"
   documentationCenter=""
-  authors="adegeo"
+  authors="Thraka"
   manager="timlt"
   editor=""/>
 
