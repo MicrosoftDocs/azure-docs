@@ -114,7 +114,7 @@ If you are creating this configuration as an exercise, refer to these [values](#
 
 ## 6. Create a local network gateway
 
-In a virtual network, the collection of settings called the *local network gateway* typically refers to your on-premises location. You'll give the local network gateway a name by which Azure can refer to it. You can modify the prefixes that you add here, but there are specific steps that you'll have to follow. The steps are in the [To modify IP address prefixes for a local site](#modifylng) section of this article.
+In a virtual network, the collection of settings called the *local network gateway* typically refers to your on-premises location. You'll give the local network gateway a name by which Azure can refer to it. 
 
 If you are creating this configuration as an exercise, refer to these [values](#values) when adding your local site.
 
@@ -136,10 +136,6 @@ Before beginning this section, verify that your virtual network gateway and loca
 ## 9. Verify the VPN connection
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
-
-## <a name="modifylng"></a>Modifying IP address prefixes for a local network gateway
-
-[AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
 ## Next steps
 
