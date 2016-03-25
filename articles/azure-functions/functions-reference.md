@@ -354,12 +354,16 @@ This *function.json* example uses a storage queue trigger:
 }
 ```
 
+#### Queue trigger supported types
+
 The queue message can be deserialized to any of the following types:
 
 * `string`
-* A POCO type if the message has been serialized as JSON.   
 * `byte[]`
+* JSON object   
 * `CloudQueueMessage`
+
+#### Queue trigger metadata
 
 You can get queue metadata in your function by using these variable names:
 
@@ -400,7 +404,7 @@ public static void Run(string myQueueItem,
 
 ### Azure Storage - queue output
 
-To write a new storage queue message, provide the name of the queue to create messages in, and the content of the message to create.
+To write a new storage queue message, provide the name of the queue to create messages in, and a variable name for the content of the message to create.
 
 This *function.json* example uses a queue trigger and writes a queue message.
 
@@ -425,12 +429,16 @@ This *function.json* example uses a queue trigger and writes a queue message.
   "disabled": false
 }``` 
 
+#### Queue output supported types
+
 The `queue` binding can serialize the following types to a queue message.
 
-* `out string` (creates queue message if parameter value is non-null when the function ends)
-* `out byte[]` (works like string) 
-* `out CloudQueueMessage` (works like string) 
-* `out POCO` (a serializable type, creates a message with a null object if the parameter is null when the function ends)
+* `string` (creates queue message if parameter value is non-null when the function ends)
+* `byte[]` (works like string) 
+* `CloudQueueMessage` (works like string) 
+* JSON object (creates a message with a null object if the parameter is null when the function ends)
+
+##### Queue output code example
 
 This sample C# code writes a single queue message for each input queue message.
 
@@ -459,11 +467,11 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ### Azure Storage - blob trigger
 
+> [AZURE.NOTE] The Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
+
 To trigger a function when a blob is created or updated,  provide a path that specifies the container to monitor, and optionally a blob name pattern. 
 
-You can restrict the types of blobs that trigger the function by specifying a pattern with a fixed value for the file extension. If you set the `path` to  *samples/{name}.png*, only *.png* blobs in the *samples* container will trigger the function.
-
-This *function.json* example uses a blob trigger.
+This *function.json* example triggers on any blobs that are added to the samples-workitems container.
 
 ```JSON
 {
@@ -480,7 +488,118 @@ This *function.json* example uses a blob trigger.
 }
 ```
 
-### Azure Storage - blob input/output
+#### Blob trigger supported types
+
+Blobs can be deserialized to these types.
+
+* string
+* `TextReader`
+* `Stream`
+* `ICloudBlob`
+* `CloudBlockBlob`
+* `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
+* `IEnumerable<CloudPageBlob>`
+* Other types deserialized by [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
+
+#### Blob trigger code example
+
+This C# code logs the contents of each blob that is added to the container.
+
+```CSHARP
+using System;
+using System.Threading.Tasks;
+
+public static void Run(string myBlob, TraceWriter log)
+{
+    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+}
+```
+
+#### Blob trigger name patterns
+
+You can specify a blob name pattern in the `path`. For example:
+
+```JSON
+"path": "input/original-{name}",
+```
+
+This path would find a blob named *original-Blob1.txt* in the *input* container, and the value of the `name` variable in function code would be `Blob1`.
+
+Another example:
+
+```JSON
+"path": "input/{blobname}.{blobextension}",
+```
+
+This path would also find a blob named *original-Blob1.txt*, and the value of the blobname and blobextension variables in function code would be *original-Blob1* and *txt*.
+
+You can restrict the types of blobs that trigger the function by specifying a pattern with a fixed value for the file extension. If you set the `path` to  *samples/{name}.png*, only *.png* blobs in the *samples* container will trigger the function.
+
+If you need to specify a name pattern for blob names that have curly braces in the name, double the curly braces. For example, if you want to find blobs in the *images* container that have names like this:
+
+		{20140101}-soundfile.mp3
+
+use this for the `path` property:
+
+		images/{{20140101}}-{name}
+
+In the example, the *name* placeholder value would be *soundfile.mp3*. 
+
+#### Blob receipts
+
+The WebJobs SDK makes sure that no blob trigger function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
+
+Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure storage account specified by the AzureWebJobsStorage connection string. A blob receipt has the following  information:
+
+* The function that was called for the blob ("*{WebJob name}*.Functions.*{Function name}*", for example: "WebJob1.Functions.CopyBlob")
+* The container name
+* The blob type ("BlockBlob" or "PageBlob")
+* The blob name
+* The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+
+If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the *azure-webjobs-hosts* container.
+
+### Azure Storage - blob output
+
+To write a new blob, provide the name of the container to create the blob in, and variable names for blob name and content.
+
+This *function.json* example uses a queue trigger and writes a blob.
+
+```JSON
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "azurefunctions4e62e828_STORAGE",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myBlob",
+      "type": "blob",
+      "path": "samples-workitems/{name}",
+      "connection": "azurefunctions4e62e828_STORAGE",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+#### Blob output supported types
+
+The `queue` binding can serialize the following types to a blob.
+
+##### Blob output code example
+
+This sample C# code writes a single blob for each input queue message.
+
+```CSHARP
+```
 
 ### Azure Storage - tables input/output
 
@@ -562,7 +681,7 @@ The output parameter for creating a Service Bus queue message can be any of the 
 * `string` (creates queue message if parameter value is non-null when the function ends)
 * `byte[]` (works like string) 
 * `BrokeredMessage` (works like string) 
-* A serializable POCO (creates a message with a null object if the parameter is null when the function ends)
+* JSON object (creates a message with a null object if the parameter is null when the function ends)
 
 Here is C# code that works with the preceding *function.json* file to write a `string` message to a Service Bus queue.
 
