@@ -62,41 +62,6 @@ For real apps, you can use an icon that is suitable for notifications per [Andro
 >[AZURE.TIP] To be sure to use correct icon resolutions, you can look at [these examples](https://www.google.com/design/icons).
 Scroll down to the **Notification** section, click an icon, and then click `PNGS` to download the icon drawable set. You can see what drawable folders with which resolution to use for each version of the icon.
 
-##Create a Google Cloud Messaging project with API key
-
->[AZURE.NOTE] To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
-
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials, and then click **Create Project**.
-
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)   
-
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
-
-2. Enter a project name, accept the terms of service, and click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
-
-3. Make a note of the project number in the **Projects** section. You will need it later in the tutorial to populate in the Android Manifest file. 
-
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
-
-4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click **Cloud Messaging for Android**. Then on the next page click **Enable API** and accept the terms of service. 
-
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
-
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
-
-5. Click **Credentials**, and then click **Add Credential**->**API Key** 
-
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
-
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
-
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
-
-
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png) 
-
-7. Make a note of the **API KEY** value. You will use this API key value later to configure in the "Native Push" section.
-
 ###Enable your app to receive GCM push notifications
 
 1. Paste the following into your Manifest.xml between the `<application>` and `</application>` tags after replacing the `project number` obtained from your Google Play console. The \n is intentional so make sure that you end the project number with it.
@@ -126,60 +91,6 @@ Scroll down to the **Notification** section, click an icon, and then click `PNGS
 		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
 		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-###Grant Mobile Engagement access to your GCM API Key
 
-To allow Mobile Engagement to send push notifications on your behalf, you need to grant it access to your API Key. This is done by configuring and entering your key into the Mobile Engagement portal.
-
-1. Navigate to your Mobile Engagement portal
-
-	From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
-
-	![](./media/mobile-engagement-android-send-push/engage-button.png)
-
-2. Then click the **Settings** -> **Native Push** section to enter your GCM Key:
-
-	![](./media/mobile-engagement-android-send-push/engagement-portal.png)
-
-3. Click the **Edit** icon in front of **API Key** in the **GCM Settings** section as shown below:
-
-	![](./media/mobile-engagement-android-send-push/native-push-settings.png)
-
-4. In the pop-up, paste the GCM Server Key you obtained before and then click **Ok**.
-
-	![](./media/mobile-engagement-android-send-push/api-key.png)
-
-##<a id="send"></a>Send a notification to your app
-
-We will now create a simple push notification campaign that sends a push notification to our app.
-
-1. Navigate to the **REACH** tab in your Mobile Engagement portal.
-
-2. Click **New announcement** to create your push notification campaign.
-
-	![](./media/mobile-engagement-android-send-push/new-announcement.png)
-
-3. Set up the first field of your campaign through the following steps:
-
-	![](./media/mobile-engagement-android-send-push/campaign-first-params.png)
-
-	a. Name your campaign.
-
-	b. Select the **Delivery type** as *System notification -> Simple*: This is the simple Android push notification type that features a title and a small line of text.
-
-	c. Select **Delivery time** as *Any time* to allow the app to receive a notification whether the app is started or not.
-
-	d. In the notification text type the **Title** which will be in bold in the push.
-
-	e. Then type your **Message**
-
-4. Scroll down, and in the **Content** section, select **Notification only**.
-
-	![](./media/mobile-engagement-android-send-push/campaign-content.png)
-
-5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
-
-6. Last step: click **Activate** to activate your campaign to send push notifications.
-
-	![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
 

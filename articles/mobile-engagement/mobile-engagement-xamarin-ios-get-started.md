@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="03/17/2016"
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for Xamarin.iOS Apps
@@ -26,7 +26,7 @@ In this tutorial, you create a blank Xamarin.iOS app that collects basic data an
 This tutorial requires the following:
 
 + [Xamarin Studio](http://xamarin.com/studio) 
-+ [Mobile Engagement Xamarin SDK](http://www.nuget.org/)
++ [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Xamarin.iOS apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 

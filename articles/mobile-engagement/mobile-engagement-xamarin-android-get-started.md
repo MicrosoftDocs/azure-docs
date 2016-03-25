@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="03/17/2016"
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for Xamarin.Android Apps
@@ -26,7 +26,7 @@ This tutorial demonstrates the simple broadcast scenario using Mobile Engagement
 This tutorial requires the following:
 
 + [Xamarin Studio](http://xamarin.com/studio) [You can also use Visual Studio with Xamarin extension but this tutorial uses Xamarin Studio for instructions]
-+ [Mobile Engagement Xamarin SDK](http://www.nuget.org/)
++ [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Android apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
@@ -106,6 +106,8 @@ Xamarin Studio will create the app in which we will integrate Mobile Engagement.
 
 In order to start sending data and ensuring the users are active, you must send at least one screen to the Mobile Engagement backend. For doing this - ensure that the `MainActivity` inherits from `EngagementActivity` instead of `Activity`.
 
+	public class MainActivity : EngagementActivity
+
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
 [AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
@@ -115,7 +117,11 @@ In order to start sending data and ensuring the users are active, you must send 
 Mobile Engagement allows you to interact with and REACH your users with push notifications and in-app messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
 The following sections sets up your app to receive them.
 
+[AZURE.INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+
 [AZURE.INCLUDE [Enable in-app messaging](../../includes/mobile-engagement-android-send-push.md)]
+
+[AZURE.INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-xamarin-android-get-started/1.png

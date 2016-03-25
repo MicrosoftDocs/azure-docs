@@ -157,7 +157,11 @@ The following sections sets up your app to receive them.
 
 	![][11]
 
+[AZURE.INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+
 [AZURE.INCLUDE [Enable in-app messaging](../../includes/mobile-engagement-android-send-push.md)]
+
+[AZURE.INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
 <!-- URLs. -->
 [Mobile Engagement Android SDK]: https://aka.ms/vq9mfn
