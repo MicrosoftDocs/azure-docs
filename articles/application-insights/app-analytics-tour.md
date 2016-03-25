@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="A tour through Application Insights Analytics" 
-	description="Short samples of all the main queries in Application Insights Analytics, 
-	             the powerful search tool for Application Insights." 
+	pageTitle="A tour through Analytics in Application Insights" 
+	description="Short samples of all the main queries in Analytics, 
+	             the powerful search tool of Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 
  
-# A tour through Application Insights Analytics
+# A tour of Analytics in Application Insights
 
 
-Application Insights Analytics is a powerful diagnostic search engine for your [Application Insights](app-insights-overview.md) telemetry.
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -71,10 +73,12 @@ Choose columns and adjust their positions:
 
 ![Click column selection at upper right of results](./media/app-analytics-tour/030.png)
 
+
 Expand any item to see the detail:
  
 ![Choose Table, and use Configure Columns](./media/app-analytics-tour/040.png)
 
+> [AZURE.NOTE] Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Be aware that sorting this way doesn't always show you the actual highest or lowest items. For that, you should use the `top` or `sort` operator. 
 
 ## [Top](app-analytics-aggregations.md#top) and [sort](app-analytics-aggregations.md#sort)
 
@@ -438,7 +442,7 @@ Use [let](./app-analytics-syntax.md#let-statements) to separate out the parts of
     | take 30
 ```
 
-> Tip: In the AI Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
+> Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
