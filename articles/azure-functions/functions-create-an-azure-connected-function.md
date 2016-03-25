@@ -18,10 +18,11 @@
    ms.date="03/09/2016"
    ms.author="yochayk@microsoft.com"/>
    
-# Create an azure connected function
-In this short video you will learn how to create Azure Function that listens to messages on an Azure Queue and copy the message an Azure Blob. 
+# Create an Azure Function which binds to an Azure service
    
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+
+In this short video you will learn how to create an Azure Function that listens to messages on an Azure Queue and copies the messages to an Azure Blob. 
 
 [AZURE.VIDEO ]
 
