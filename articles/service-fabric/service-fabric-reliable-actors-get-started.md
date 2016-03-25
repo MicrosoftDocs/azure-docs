@@ -69,7 +69,7 @@ public interface IMyActor : IActor
 }
 ```
 
-* **The actor service project (MyActor)**. This is the project used to define the Service Fabric service that is going to host the actor. It contains the implementation of the actor. An actor implementation is a class that derives from the base type `Actor` and impleemnts the interface(s) that are defined in the MyActor.Interfaces project.
+* **The actor service project (MyActor)**. This is the project used to define the Service Fabric service that is going to host the actor. It contains the implementation of the actor. An actor implementation is a class that derives from the base type `Actor` and implements the interface(s) that are defined in the MyActor.Interfaces project.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
