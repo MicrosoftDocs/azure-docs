@@ -22,7 +22,7 @@
 
 ## Overview
 
-In this tutorial, we will walk through a different approaches to testing functions. We will define a http trigger function that accepts input through a query string parameter, or the request body. The default **HttpTrigger Nodejs Function** template code supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
+In this tutorial, we will walk through different approaches to testing functions. We will define a http trigger function that accepts input through a query string parameter, or the request body. The default **HttpTrigger Nodejs Function** template code supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
 
 
 ## Creating a function for testing
