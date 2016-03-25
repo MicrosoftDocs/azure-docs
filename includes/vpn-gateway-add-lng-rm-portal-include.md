@@ -12,5 +12,6 @@
 7. For **Location**, verify that the location is the same as the virtual network gateway that this local network gateway will be associated with.
 8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
 9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard.
+10. When the local network gateway has been created, it will open in the portal for you to view.
 
 	
