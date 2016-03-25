@@ -7,7 +7,7 @@
 	 manager="scotthit"
 	 editor=""/>
 <tags
-	 ms.service="Azure Supportability"
+	 ms.service="azure-supportability"
 	 ms.workload="na"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
@@ -15,7 +15,9 @@
 	 ms.date="03/24/2016"
 	 ms.author="gangan"/>
 
-﻿# Summary
+# How to create an Azure support request
+
+﻿## Summary
 Azure customers can create and manage support requests in the Azure portal, [portal.azure.com](www.portal.azure.com).
 Based on customer feedback, we’ve updated the support request experience to focus on three main goals:
 
