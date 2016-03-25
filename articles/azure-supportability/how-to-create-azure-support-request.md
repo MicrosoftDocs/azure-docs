@@ -19,7 +19,7 @@
 # How to create an Azure support request
 
 ## Summary
-Azure customers can create and manage support requests in the Azure portal, [https://portal.azure.com](https://www.portal.azure.com).
+Azure customers can create and manage support requests in the Azure portal, [https://portal.azure.com](https://portal.azure.com).
 Based on customer feedback, we’ve updated the support request experience to focus on three main goals:
 
 1. Streamlined: Reduce clicks and blades to make the process of submitting a support request simple.
