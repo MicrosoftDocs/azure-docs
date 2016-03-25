@@ -3,7 +3,7 @@
 	description="What is R on HDInsight and how to use R for creating applications for big data analysis."
 	services="hdinsight"
 	documentationCenter=""
-	authors="nitinme"
+	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="03/29/2016"
-   ms.author="nitinme"/>
+   ms.author="jeffstok"/>
 
 
 # Overview: R Server on HDInsight
@@ -65,7 +65,7 @@ To score on-premise after creating your model, you could serialize the model in 
 
 Most of the R packages you use will be needed on the edge node since the main portion of your R scripts will run there. To install additional R packages on the edge node you can use the usual `install.packages()` method in R.
   
-In most cases you would not need to install additional R packages on the data nodes if you are just using routines from the ScaleR library to run across the cluster. However, you may need additional packages to support use of **rxExec** or **RxDataStep** execution on the data nodes. In such cases these additional packages must be specified through use of a script action when you create the cluster. For more information, see [Creating an HDInsight cluster with R Server]().   
+In most cases you would not need to install additional R packages on the data nodes if you are just using routines from the ScaleR library to run across the cluster. However, you may need additional packages to support use of **rxExec** or **RxDataStep** execution on the data nodes. In such cases these additional packages must be specified through use of a script action after you create the cluster. For more information, see [Creating an HDInsight cluster with R Server](hdinsight-hadoop-r-server-get-started.md).   
   
 ### Changing Hadoop Map Reduce Memory Settings 
 
@@ -97,6 +97,14 @@ The fees associated with an HDInsight Premium cluster with R Server are structur
 
 ## Next steps
 
-<< ADD LINKS HERE >>
+Follow the links below to read more about how to use the R Server with HDInsight clusters.
+
+- [Getting Started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md)
+
+- [Add RStudio Server to HDInsight premium](hdinsight-hadoop-r-server-install-r-studio.md)
+
+- [Compute context options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-compute-contexts.md)
+
+- [Azure Storage options for R Server on HDInsight premium](hdinsight-hadoop-r-server-storage.md)
 
  
