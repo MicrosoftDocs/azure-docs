@@ -2,7 +2,7 @@
 
 1. In the Azure Portal, navigate to **New** **>** **Networking** **>** **Local network gateway**.
 
-	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/localnetgate250.png)
+	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
 2. On the **Create local network gateway blade**, **Name** your local network gateway object. 
 3. Configure an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.
