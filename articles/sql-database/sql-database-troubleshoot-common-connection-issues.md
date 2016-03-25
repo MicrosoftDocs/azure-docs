@@ -24,7 +24,7 @@ Connection issues to Azure SQL database can at a very high level be classified a
 
 If your application is experiencing transient errors, review the following topics for additional tips about how to troubleshoot and reduce these errors:
 
-- [Troubleshooting Database <x> on Server <y> is unavailable (Error: Error 40613)](sql-database-troubleshoot-connection.md)
+- [Troubleshooting Database <x> on Server <y> is unavailable (Error: 40613)](sql-database-troubleshoot-connection.md)
 - [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](sql-database-connectivity-issues.md)
 
 If the application persistently fails to connect to SQL Azure Database, it usually indicates an issue with one of the following:
