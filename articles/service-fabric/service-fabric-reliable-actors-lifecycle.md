@@ -22,12 +22,16 @@ An actor is activated the first time a call is made to any of its methods. An ac
 
 ## Actor activation
 
+When an actor is activated, the following occurs:
+
 - When a call comes for an actor and one is not already active, a new actor is created.
-- The actor's state is loaded (if it is a stateful actor).
+- The actor's state is loaded if it's maintaining state.
 - The `OnActivateAsync` method (which can be overridden in the actor implementation) is called.
-- The actor is added to an Active Actors table.
+- The actor is now considered active.
 
 ## Actor deactivation
+
+When an actor is deactivated, the following occurs:
 
 - When an actor is not used for some period of time, it is removed from the Active Actors table.
 - The `OnDeactivateAsync` method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor.
@@ -42,7 +46,7 @@ What counts as “being used” for the purpose of garbage collection?
 - Receiving a call
 - `IRemindable.ReceiveReminderAsync` method being invoked (applicable only if the actor uses reminders)
 
-It is worth noting that if the actor uses timers and its timer callback is invoked, it does **not** count as "being used".
+> [AZURE.NOTE] if the actor uses timers and its timer callback is invoked, it does **not** count as "being used".
 
 Before we go into the details of garbage collection, it is important to define the following terms:
 
@@ -72,11 +76,11 @@ For each actor in its Active Actors table, the Actors runtime keeps track of the
 
 Anytime an actor is used, its idle time is reset to 0. After this, the actor can be garbage collected only if it again remains idle for `IdleTimeoutInSeconds`. Recall that an actor is considered to have been used if either an actor interface method an actor reminder callback is executed. An actor is **not** considered to have been used if its timer callback is executed.
 
-The diagram below contains an example to illustrate these concepts.
+The following diagram shows the lifecycle of a single actor to illustrate these concepts.
 
 ![Example of idle time][1]
 
-The example assumes that there is only one active actor in the Active Actors table. The example shows the impact of actor method calls, reminders, and timers on the lifetime of this actor. The following points about the example are worth mentioning:
+The example shows the impact of actor method calls, reminders, and timers on the lifetime of this actor. The following points about the example are worth mentioning:
 
 - ScanInterval and IdleTimeout are set to 5 and 10 respectively. (Units do not matter here, since our purpose is only to illustrate the concept.)
 - The scan for actors to be garbage collected happens at T=0,5,10,15,20,25, as defined by the scan interval of 5.
@@ -85,7 +89,7 @@ The example assumes that there is only one active actor in the Active Actors tab
 - An actor reminder callback executes at T=14 and further delays the garbage collection of the actor.
 - During the garbage collection scan at T=25, the actor's idle time finally exceeds the idle timeout of 10, and the actor is garbage collected.
 
-Note that an actor will never be garbage collected while it is executing one of its methods, no matter how much time is spent in executing that method. As mentioned earlier, the execution of actor interface methods and reminder callbacks prevents garbage collection by resetting the actor's idle time to 0. The execution of timer callbacks does not reset the idle time to 0. However, the garbage collection of the actor is deferred until the timer callback has completed execution.
+An actor will never be garbage collected while it is executing one of its methods, no matter how much time is spent in executing that method. As mentioned earlier, the execution of actor interface methods and reminder callbacks prevents garbage collection by resetting the actor's idle time to 0. The execution of timer callbacks does not reset the idle time to 0. However, the garbage collection of the actor is deferred until the timer callback has completed execution.
 
 ## Deleting actors and their state
 
@@ -103,10 +107,10 @@ await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
 
 Deleting an actor has the following effects depending on whether or not the actor is currently active:
-- **Active Actor:**
+- **Active Actor**
  - Actor is removed from active actors list and is deactivated.
  - Its state is deleted permanently.
-- **Inactive Actor:**
+- **Inactive Actor**
  - Its state is deleted permanently.
 
 Note that an actor cannot call delete on itself from one of its actor methods because the actor cannot be deleted while executing within an actor call context, in which the runtime has obtained a lock around the actor call to enforce single-threaded access.

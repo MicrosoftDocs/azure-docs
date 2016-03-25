@@ -116,7 +116,7 @@ The Reliable Actors runtime publishes the following performance counters related
 |Service Fabric Actor|# of actor calls waiting for actor lock|Number of pending actor calls waiting to acquire the per-actor lock that enforces turn-based concurrency|
 
 ### Actor state management events and performance counters
-The Reliable Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-introduction.md#actor-state-management).
+The Reliable Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-state-management).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
@@ -129,16 +129,8 @@ The Reliable Actors runtime publishes the following performance counters related
 |---|---|---|
 |Service Fabric Actor|Average milliseconds per save state operation|Time taken to save actor state in milliseconds|
 
-### Events related to stateless actor instances
-The Reliable Actors runtime emits the following events related to [stateless actor instances](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
-
-|Event name|Event ID|Level|Keyword|Description|
-|---|---|---|---|---|
-|ServiceInstanceOpen|3|Informational|0x1|Stateless actor instance opened. This implies that the actors for this partition can be created inside this instance (and possibly other instances too).|
-|ServiceInstanceClose|4|Informational|0x1|Stateless actor instance closed. This implies that the actors for this partition will no longer be created inside this instance. No new requests will be delivered to actors already created within this instance. The actors will be destroyed after any in-progress requests are completed.|
-
-### Events related to stateful actor replicas
-The Reliable Actors runtime emits the following events related to [stateful actor replicas](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+### Events related to actor service replicas
+The Reliable Actors runtime emits the following events related to [actor service replicas](service-fabric-reliable-actors-platform.md).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
