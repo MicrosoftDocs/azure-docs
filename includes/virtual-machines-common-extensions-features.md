@@ -14,8 +14,8 @@ The following extensions are critical to enabling, re-enabling, or disabling bas
 
 |VM Extension Name|Feature Description|More Information
 |---|---|---|
-|VMAccessAgent (Windows)|Create, update, and reset user information and RDP and SSH connection configurations.|[Windows](../articles/virtual-machines/virtual-machines-windows-reset-rdp.md)
-|VMAccessForLinux (Linux)|Create, update, and reset user information and RDP and SSH connection configurations.|[Linux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
+|VMAccessAgent (Windows)|Create, update, and reset user information and RDP connection configurations.|[Windows](../articles/virtual-machines/virtual-machines-windows-classic-extensions-customscript.md)
+|VMAccessForLinux (Linux)|Create, update, and reset user information and SSH connection configurations.|[Linux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
 ##Deployment and Configuration Management
 
@@ -27,10 +27,10 @@ The following extensions support different kinds of deployment and configuration
 |**Octopus Deploy** (DSC Extension-based)|Supports automated deployment of ASP.NET web applications and Windows Services into development, test, and production environments.|[Getting Started with Octopus Deploy](http://docs.octopusdeploy.com/display/OD/Getting%20started)|
 |**Visual Studio Release Manager** (DSC Extension-based)|Supports continuous deployment with Visual Studio.|[Automate deployments with Release Management](https://msdn.microsoft.com/Library/vs/alm/Release/overview)|
 |**CentosChefClient**|||
-|**ChefClient**|Creates a Chef client on Windows. (Can also use the DSC extension, below.)|[Chef and Microsoft Azure](https://www.getchef.com/solutions/azure/)|
+|**ChefClient**|Creates a Chef client on Windows. (Can also use the DSC Extension, below.)|[Chef and Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
 |**DockerExtension**|Installs the Docker daemon to support remote Docker commands.|[How to Use the Docker Virtual Machine Extension](../articles/virtual-machines/virtual-machines-linux-dockerextension.md)For more extensive information, see the [Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
-|**DSC**|PowerShell DSC (Desired State Configuration) extension.|[Azure PowerShell DSC (Desired State Configuration) extension](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
+|**DSC**|PowerShell DSC (Desired State Configuration) Extension.|[Azure PowerShell DSC (Desired State Configuration) extension](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
 |**PuppetEnterpriseAgent**|Implements the features of Puppet Enterprise. |[Puppet on Azure](http://puppetlabs.com/solutions/microsoft)|
 |**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Invokes custom scripts on the VM at any time: startup or during lifetime.|[Custom Script Extension](../articles/virtual-machines/virtual-machines-windows-classic-extensions-customscript.md) | [Linux](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)|
 |**AzureCATExtensionHandler**|Consumes the diagnostic data collected by **IaaSDiagnostics** and few other data sources such as [Azure Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343270.aspx) and transforms it into an aggregated data set appropriate for SAP Host control process to consume|[Azure Enhanced Monitoring for SAP](https://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
@@ -54,13 +54,13 @@ Supports common operations management features and behavior. See also the sectio
 
 |**VM Extension Name**|Feature Description|More Information|
 |---|---|---|
-|**AzureVmLogCollector**|You can use the **AzureVMLogCollector** extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs. |[AzureLogCollector Extension](../articles/virtual-machines/virtual-machines-windows-log-collector-extension.md)|
+|**AzureVmLogCollector**|You can use the **AzureVMLogCollector** Extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs. |[AzureLogCollector Extension](../articles/virtual-machines/virtual-machines-windows-log-collector-extension.md)|
 |**IaaSDiagnostics**|Enables, disables, and configures Azure Diagnostics, and is also used by the **AzureCATExtensionHandler** to support SAP monitoring.|[Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
-|**OSPatchingForLinux**|Enables the Azure VM administrators to automate the VM OS updates with the customized configurations. You can use the OSPatching extension to configure OS updates for your virtual machines, including: Specify how often and when to install OS patches, Specify what patches to install, and Configure the reboot behavior after updates|[OS Patching Extension Blog Post](https://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). See also the readme and source on Github at [OS Patching Extension](https://github.com/Azure/azure-linux-extensions).|
+|**OSPatchingForLinux**|Enables the Azure VM administrators to automate the VM OS updates with the customized configurations. You can use the OSPatching Extension to configure OS updates for your virtual machines, including: Specify how often and when to install OS patches, specify what patches to install, and configure the reboot behavior after updates|[OS Patching Extension Blog Post](https://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). See also the readme and source on GitHub at [OS Patching Extension](https://github.com/Azure/azure-linux-extensions).|
 
 ##Developing and Debugging
 
-These VM extensions are listed here for completeness, as they provide support for Visual Studio-related features and are not intended to be used directly.
+These VM Extensions are listed here for completeness, as they provide support for Visual Studio-related features and are not intended to be used directly.
 
 |VM Extension Name|Feature Description|More Information|
 |---|---|---|
