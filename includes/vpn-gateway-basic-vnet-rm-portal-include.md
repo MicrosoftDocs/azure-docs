@@ -29,5 +29,3 @@ To create a VNet by using the Azure portal, follow the steps below. If are doing
 9. After clicking Create, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile will change as the VNet is being created.
 
 	![Creating virtual network tile](./media/vpn-gateway-basic-vnet-rm-portal-include/submitvnet150.png)
-
-10. Once your VNet has been created, you can make changes to it such as adding additional address space, subnets, and DNS servers.

@@ -86,6 +86,8 @@ If you are creating a new VNet as an exercise, you can refer to these [values](#
 
 ## 2. Add additional address space and subnets
 
+You can add additional address space and subnets to your VNet once it has been created.
+
 [AZURE.INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)] 
 
 ## <a name="dns"></a>3. Specify a DNS server
