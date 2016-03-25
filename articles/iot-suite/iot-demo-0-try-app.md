@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="MyDriving Azure IoT example - quick start " 
+	pageTitle="MyDriving Azure IoT Example - Quick Start | Microsoft Azure" 
 	description="Get started with an app that's a comprehensive demonstration of how to architect an IoT system with Microsoft Azure, including stream analytics, machine learning, event hubs." 
 	services="application-insights" 
     documentationCenter=""
@@ -151,13 +151,7 @@ Because we created MyDriving to help jumpstart your own IoT systems, we certainl
 
 Within the MyDriving app itself, you can use the built-in HockeyApp feedback mechanism—on iOS and Android just give your phone a shake, or use the Feedback menu command. You can also give feedback through the [HockeyApp portal].
 
-To give feedback on the rest of the system:
-
--   File an [issue on GitHub].
-
--   Discuss issues in the MyDriving Gitter room.
-
--   Leave a comment on the MyDriving post on the Azure blog.
+To give feedback on the rest of the system, file an [issue on GitHub], or leave a comment below (en-us edition).
 
 We look forward to hearing from you!
 

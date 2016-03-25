@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="MyDriving Azure IoT example - build it" 
+	pageTitle="MyDriving Azure IoT Example - Build It | Microsoft Azure" 
 	description="Build an app that's a comprehensive demonstration of how to architect an IoT system with Microsoft Azure, including stream analytics, machine learning, event hubs." 
 	services="application-insights" 
     documentationCenter=""
