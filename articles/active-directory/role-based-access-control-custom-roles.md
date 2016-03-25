@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Custom Roles in Azure RBAC | Microsoft Azure"
-	description="Generate a report that lists all changes in access to your Azure subscriptions with Role-Based Access Control over the past 90 days."
+	description="Learn how to define custom roles with Azure Role-Based Access Control for more precise identity management in your Azure subscription."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="03/22/2016"
+	ms.date="03/25/2016"
 	ms.author="kgremban"/>
 
 
