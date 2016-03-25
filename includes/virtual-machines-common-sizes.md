@@ -1,10 +1,6 @@
 
 
-## Overview
-
-This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.  It also provides deployment considerations to be aware of when you're planning to use these resources. For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
-
-To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
 
 The standard sizes consist of several series: A, D, DS, G, and GS. Considerations for some of these sizes include:
 
@@ -14,7 +10,7 @@ The standard sizes consist of several series: A, D, DS, G, and GS. Consideration
 
 *   G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
 
-*   DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage.md).
+*   DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
 *   The A-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
@@ -22,13 +18,13 @@ The standard sizes consist of several series: A, D, DS, G, and GS. Consideration
 *   The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
 
 
-The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/). For more details about storage for VMss, see [About disks and VHDs for virtual machines ](virtual-machines-linux-about-disks-vhds.md).
+The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/). 
 
 
 The following considerations might help you decide on a size:
 
 
-* The A8-A11 sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. For detailed information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+* The A8-A11 sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. For detailed information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 
 *	Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
@@ -86,7 +82,7 @@ The following tables show the sizes and the capacities they provide.
 
 ## Standard tier: A-series - compute-intensive instances
 
-Note: For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Note: For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
 |---|---|---|---|---|---|---|---|
@@ -135,7 +131,7 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_DS13 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  256 MB per second | high |
 |Standard_DS14 |16|112|8|Local SSD disk = 224 GB |32|576| 50,000  512 MB per second | very high |
 
-*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage.md).
+*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 ## Standard tier: G-series
 
@@ -170,6 +166,6 @@ In the classic deployment model, some VM size names are slightly different in CL
 
 ## Next steps
 
-- Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-- Learn more [about the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) for workloads like High-performance Computing (HPC).
+- Learn about [azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
+- Learn more [about the A8, A9, A10, and A11 compute intensive instances](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) for workloads like High-performance Computing (HPC).
 
