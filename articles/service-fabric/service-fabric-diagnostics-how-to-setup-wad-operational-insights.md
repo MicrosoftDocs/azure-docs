@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/18/2016"
+   ms.date="03/25/2016"
    ms.author="toddabel"/>
 
 
@@ -25,17 +25,16 @@ Azure [Operational Insights](https://azure.microsoft.com/services/operational-in
 
 Operational Insights identifies the sources of the different types of logs uploaded from a Service Fabric cluster by the names of the storage tables that they are stored in. This means the Azure Diagnostics extension must be configured to upload the logs to storage tables with names that match what Operational Insights will look for. The configuration settings examples in this document will show you what the names of the storage tables should be.
 
-## Suggested reading
-
-* [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
-* [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
-* [Azure Resource Manager](../resource-group-overview.md)
 
 ## Prerequisites
 These tools will be used to perform some of the operations in this document:
 
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
+* [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
+* [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
+* [Azure Resource Manager](../resource-group-overview.md)
+
 
 ## Different log sources that you may want to collect
 In the article detailing [how to collection logs and send them to Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) there is a step by step guide on how to enable logs being sent to an Azure storage account. Some of the information is duplicated here, but consult that [article](service-fabric-diagnostics-how-to-setup-wad.md) for additional details. This article will show how to collection different event types:
