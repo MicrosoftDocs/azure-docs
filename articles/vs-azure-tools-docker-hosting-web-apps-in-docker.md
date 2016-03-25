@@ -118,7 +118,7 @@ This can be done either via the classic Azure portal or via Windows PowerShell:
 
 ## 7. Test the app running on Azure
 
-Once the publish process has finished, open the browser of your choice and navigate to your Docker Host Virtual Machine's IP address, specifying a port of 5000. 
+Once the publish process has finished, open the browser of your choice and navigate to your Docker Host Virtual Machine's IP address, specifying a port of 80. 
 You should see results similar to the following.
 
 ![View your application][8]
