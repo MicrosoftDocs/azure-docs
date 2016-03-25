@@ -49,6 +49,7 @@ Depending on the severity of your issue, you may be asked to indicate if you wou
 After you create the support request, you can view the details from the ‘Manage Support Requests’ page.
 
 **From the top navigation bar**
+
 ![Manage Support Request link](./media/how-to-create-azure-support-request/ManageSupportRequest-link.png)
 
 On the Manage support requests page, you can view all support requests and their status.
