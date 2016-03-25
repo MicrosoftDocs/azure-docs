@@ -6,7 +6,7 @@ Microsoft Azure periodically performs updates across the globe to improve the re
 
 However, some updates do require a reboot to your virtual machines to apply the required updates to the infrastructure. The virtual machines are shut down while we patch the infrastructure, and then the virtual machines are restarted.
 
-Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned. This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned maintenance, see [Understand planned versus unplanned maintenance](virtual-machines-windows-manage-availability.md).
+Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned. This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned maintenance, see [Understand planned versus unplanned maintenance](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
 
 ## Memory-preserving updates
 
@@ -24,7 +24,7 @@ There are two kinds of virtual machine configurations: multi-instance and single
 
 The multi-instance configuration provides redundancy across physical machines, power, and network, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should serve the same purpose to your application.
 
-For more information about configuring your virtual machines for high availability, refer to [Manage the Availability of your Virtual Machines](virtual-machines-windows-manage-availability.md).
+For more information about configuring your virtual machines for high availability, refer to [Manage the Availability of your Virtual Machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
 
 By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.
 
@@ -39,7 +39,7 @@ In a multi-instance configuration update, virtual machines are updated in a way 
 
 Each virtual machine in your availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that will be rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
 
-For more information about update domains and fault domains, see [Configure multiple virtual machines in an availability set for redundancy](virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+For more information about update domains and fault domains, see [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 To prevent update domains from going offline at the same time, the maintenance is performed by shutting down each virtual machine in an update domain, applying the update to the host machines, restarting the virtual machines, and moving on to the next update domain. The planned maintenance event ends after all update domains have been updated.
 
@@ -99,7 +99,7 @@ US Gov Iowa | US Gov Virginia
 
 
 <!--Link references-->
-[Virtual Machines Manage Availability]: virtual-machines-windows-hero-tutorial.md
+[Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
