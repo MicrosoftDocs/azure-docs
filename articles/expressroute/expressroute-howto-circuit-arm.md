@@ -78,7 +78,7 @@ The following example shows how to create a 200-Mbps ExpressRoute circuit throug
 Make sure that you specify the correct SKU tier and SKU family:
 
 - SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify "Standard" to get the standard SKU or "Premium" for the premium add-on.
-- SKU family determines the billing type. You can specify "Metereddata" for a metered data plan and "Unlimiteddata" for an unlimited data plan. **Note:** After you've created a circuit, you will not be able to change the billing type.
+- SKU family determines the billing type. You can specify "Metereddata" for a metered data plan and "Unlimiteddata" for an unlimited data plan. **Note:** You can change the billing type from "Metereddata" to "Unlimiteddata", but you can't change the type from "Unlimiteddata" to "Metereddata".
 
 The response contains the service key. You can get detailed descriptions of all parameters by running the following:
 
