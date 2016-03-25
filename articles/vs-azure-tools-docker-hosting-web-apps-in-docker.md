@@ -106,6 +106,7 @@ This can be done either via the classic Azure portal or via Windows PowerShell:
         ```PowerShell
         C:\PS>Get-AzureVM -ServiceName "<your_cloud_service_name>" -Name "<your_vm_name>" | Add-AzureEndpoint -Name "<endpoint_name>" -Protocol "tcp" -PublicPort 80 -LocalPort 80 | Update-AzureVM
         ```
+
 ## 6. Run the app
 
 1.  From the Visual Studio toolbar, select the **Release** configuration
