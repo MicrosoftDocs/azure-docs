@@ -32,10 +32,8 @@ A **Workspace Collection** is the top level Azure resource and a container for t
 
 Let’s walk through the steps to build a **Workspace Collection** using the Azure Portal.
 
-   1.	Open and sign into the Azure Portal
-    ```
-    [http://portal.azure.com](http://portal.azure.com)
-    ```
+   1.	Open and sign into the Azure Portal: [http://portal.azure.com](http://portal.azure.com)
+
    2.	Click **+ New** on the top panel.
 
    ![](media\power-bi-embedded-get-started\create-workspace-1.png)
@@ -91,7 +89,7 @@ While two keys are listed, only one key is needed at a time. The second key is p
 
 ## Writing your first report
 
-Now that you have created an instance of Power BI for your application you will need to create some Power BI datasets and the reports that you wish to embed. These can be created by using the **Power BI Desktop** tool. To learn more about downloading the Power BI desktop for free, please see the following: [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Or, to quickly get started, you can download the sample [Profit and Loss Data Modeling and Analysis] PBIX (http://go.microsoft.com/fwlink/?LinkId=780547).
+Now that you have created an instance of Power BI for your application you will need to create some Power BI datasets and the reports that you wish to embed. These can be created by using the **Power BI Desktop** tool. To learn more about downloading the Power BI desktop for free, please see the following: [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Or, to quickly get started, you can download the sample [Profit and Loss Data Modeling and Analysis PBIX]  (http://go.microsoft.com/fwlink/?LinkId=780547).
 
 Once you install **Power BI Desktop**, you can then create your first dataset and report following the instructions here: [Getting started with Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started).
 
