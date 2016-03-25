@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="03/25/2016"
 	ms.author="jeedes"/>
 
 
@@ -72,7 +72,7 @@ To configure the integration of Trakstar into Azure AD, you need to add Trakstar
 ![Creating an Azure AD test user](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_01.png)<br>
 7. In the results pane, select **Trakstar**, and then click **Complete** to add the application.
 <br><br>
-
+![Creating an Azure AD test user](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_02.png)<br>
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Trakstar based on a test user called "Britta Simon".
 
