@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/08/2016"
+   ms.date="03/22/2016"
    ms.author="rickbyh"/>
 
 # SQL Database security: Manage database access and login security  
@@ -28,7 +28,7 @@ In Microsoft Azure SQL Database, when you sign up for the service, the provision
 
 The Azure SQL Database server-level principal account always has permission to manage all server-level and database-level security. This topic describes how you can use the server-level principal and other accounts to manage logins and databases in SQL Database.
 
-Azure users accessing SQL Database through Azure Role-Based Access Control and the Azure Resource Manager REST API receive permissions from their Azure Roles. The actions of the Azure role members are executed for them by the Database Engine. They are not affected by the Database Engine permissions model, and are not covered by this topic. For more information, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles/#sql-db-contributor).
+Azure users accessing SQL Database through Azure Role-Based Access Control (RBAC) and the Azure Resource Manager REST API receive permissions from their Azure Roles. These roles provide access to the management plane operations but not to the data plane operations. These management plane operations include the ability to read various properties and schema elements in SQL Database. And permits creating, deleting and configuring some server-level features that relate to SQL Database. Many of these management plane operations are the items you can see and configure when using the Azure portal. When using the RBAC roles, the actions of the Azure role members inside the database (such as listing tables) are executed for them by the Database Engine so they are not affected by the standard SQL Server permission system of GRANT/REVOKE/DENY statements. The RBAC roles do not include the ability to read or change data, because those are data plane operations. For more information, see [RBAC: Built-in roles](active-directory/role-based-access-built-in-roles.md/#sql-db-contributor).
 
 > [AZURE.IMPORTANT] SQL Database V12 allows users to authenticate at the database by using contained database users. Contained database users do not require logins. This makes databases more portable but reduces the ability of the server-level principal to control access to the database. Enabling contained database users has important security impacts. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx), [Contained Databases](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
