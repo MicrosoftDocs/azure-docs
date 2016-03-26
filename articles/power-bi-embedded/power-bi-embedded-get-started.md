@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 <tags
-   ms.service="powerbi-embedded"
+   ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"

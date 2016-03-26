@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 <tags
-   ms.service="powerbi-embedded"
+   ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -29,3 +29,8 @@ To help you get started, we created a sample web app. To get start with the samp
 
   -	Embed content
     - Securely embed a report
+
+## See also
+
+- [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)

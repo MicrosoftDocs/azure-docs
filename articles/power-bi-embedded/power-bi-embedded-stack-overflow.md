@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 <tags
-   ms.service="powerbi-embedded"
+   ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -24,3 +24,8 @@ Here are a couple of useful Stack Overflow links:
 
 - [Power BI](http://stackoverflow.com/questions/tagged/powerbi)
 - [C#](http://stackoverflow.com/questions/tagged/c%23)
+
+## See also
+
+- [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)

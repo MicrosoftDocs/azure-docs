@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 <tags
-   ms.service="powerbi-embedded"
+   ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -258,7 +258,8 @@ Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report
 ## See also
 
 - [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Power BI Embedded JavaScript API](power-bi-embedded-javascript-api.md)
+- [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
+- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)
 
 
 [Burbeck92] Burbeck, Steve. "Application Programming in Smalltalk-80: How to use Model-View-Controller (MVC)."University of Illinois in Urbana-Champaign (UIUC) Smalltalk Archive. Available at: http://st-www.cs.illinois.edu/users/smarch/st-docs/mvc.html.

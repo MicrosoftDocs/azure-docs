@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 <tags
-   ms.service="powerbi-embedded"
+   ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -46,3 +46,8 @@ Here are some of the classes and methods that are used in the **Power BI Embedde
 |---|---
 |[CreateDevToken(String, Guid)]( https://msdn.microsoft.com/library/mt670215.aspx)|Creates a developer token with default expiration used to access Power BI platform services
 |[CreateProvisionToken(String)]( https://msdn.microsoft.com/library/mt670218.aspx)|Creates a provision token with default expiration used to manages workspaces within a workspace collection
+
+## See also
+
+- [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)

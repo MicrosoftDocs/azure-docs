@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 <tags
-   ms.service="powerbi-embedded"
+   ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -21,3 +21,8 @@
 With **Microsoft Power BI Embedded**, you can use a REST API to programmatically develop applications that integrate **Power BI Reports** into your applications.
 
 To learn about the **Power BI Embedded** REST API, see [Power BI REST Operations](https://msdn.microsoft.com/library/mt711493).
+
+## See also
+
+- [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)

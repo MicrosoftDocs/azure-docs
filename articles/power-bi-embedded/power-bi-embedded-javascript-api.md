@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 <tags
-   ms.service="powerbi-embedded"
+   ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -20,5 +20,7 @@
 
 Public Preview has a JavaScript API. You can view the API in the **Power BI Embedded** sample in powerbi.js. We will expand the description of the JavaScript API as we move towards General Availability.
 
-## See Also
+## See also
+
 - [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)

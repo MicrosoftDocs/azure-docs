@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 <tags
-   ms.service="powerbi-embedded"
+   ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -18,3 +18,8 @@
 
 # Power BI Embedded Community
 During public preview, please go to [Microsoft Power BI Community/developer](http://community.powerbi.com/t5/Developer/bd-p/Developer) for community help. In [Microsoft Power BI Community](http://community.powerbi.com/), you can also interact with community members for help using **Power BI Desktop** and **Power BI Service**.
+
+## See also
+
+- [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)
