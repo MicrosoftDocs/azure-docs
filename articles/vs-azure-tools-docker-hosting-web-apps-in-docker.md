@@ -93,9 +93,6 @@ Follow these steps to run your app.
 
 ![Launch app][2]
 
-## 7. Test the app running on Azure
-
-Once the publish process has finished, open the browser of your choice and navigate to your Docker Host Virtual Machine's IP address. 
 You should see results similar to the following.
 
 ![View your app][3]
