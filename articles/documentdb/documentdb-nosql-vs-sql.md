@@ -100,16 +100,17 @@ Then go to [Next steps](#next-steps) for free trial information.
 
 ## What are the Microsoft SQL offerings?
 
-Microsoft has four SQL offerings: 
+Microsoft has five SQL offerings: 
 
-- [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+- [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
 - [Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)
+- [Analytics Platform System (on-premises appliance)](https://www.microsoft.com/en-us/server-cloud/products/analytics-platform-system/)
 
 If you're interested in SQL Server on a Virtual Machine or SQL Database, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md) to learn more about the differences between the two.
 
-If SQL Server sounds like the best option, then go to [SQL Server Editions](https://www.microsoft.com/server-cloud/products/sql-server-editions/overview.aspx) to learn more about what the different versions of SQL offer.
+If SQL sounds like the best option, then go to [SQL Server](https://www.microsoft.com/server-cloud/products/) to learn more about what our Microsoft SQL products and services have to offer.
 
 Then go to [Next steps](#next-steps) for free trial and evaluation links.
 
@@ -117,8 +118,15 @@ Then go to [Next steps](#next-steps) for free trial and evaluation links.
 
 We invite you to learn more about our SQL and NoSQL products by trying them out for free. 
 
-|Product|Free trial and evaluation information|
-|---|---|
-|[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)<br><br>[Azure Table Storage](https://azure.microsoft.com/services/storage/)<br><br>[Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)<br><br>[Azure Redis Cache](https://azure.microsoft.com/services/cache/)<br><br>[Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)<br><br>[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)|You can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) and receive $200 to spend on Azure.|
-|[SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)<br><br>[SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Spin up an [evaluation version of SQL Server 2016 on a virtual machine](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/).<br><br>Or see [SQL Server Evaluations](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).|
+- For all Azure services, you can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) and receive $200 to spend on any of the Azure services.
+    - [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
+    - [Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)
+    - [Azure Redis Cache](https://azure.microsoft.com/services/cache/)
+    - [Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)
+    - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+    - [Azure Table Storage](https://azure.microsoft.com/services/storage/)
+
+- You can spin up an [evaluation version of SQL Server 2016 on a virtual machine](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/) or download an [evaluation version of SQL Server](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).
+    - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
+    - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
