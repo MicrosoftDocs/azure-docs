@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="MyDriving Azure IoT Example - Build It | Microsoft Azure" 
 	description="Build an app that's a comprehensive demonstration of how to architect an IoT system with Microsoft Azure, including stream analytics, machine learning, event hubs." 
 	services="application-insights" 
@@ -271,7 +271,7 @@ We assume:
 
 -   100 users with 4 trips per day.
 
-**Notice that, if you’re new to Azure, there’s a [free trial account](https://azure.microsoft.com/free/).**
+>[AZURE.NOTE] if you’re new to Azure, there’s a [free trial account](https://azure.microsoft.com/free/).
 
 | **Service/Component**  | **Notes** | **Cost/month** |
 |--------|--------|----------------|
@@ -401,19 +401,26 @@ For mobile apps, we deploy to HockeyApp:
 
 ## Application Insights
 
-[Application Insights](../app-insights/app-insights-overview.md) collects telemetry about the performance and usage of your web services both during debugging and when they’re live. It helps you both detect and diagnose any issues or failures. The Application Insights SDK sends telemetry from the app to the Application Insights resource in Azure, where you can explore the analyses and search the diagnostics.
+[Application Insights](../app-insights/app-insights-overview.md) collects telemetry about the performance and usage of your web services. The Application Insights SDK sends telemetry from the service to the Application Insights resource in Azure.
 
-We recommend Application Insights for the [Mobile App Service project](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService).
+Browse to the Application Insights resource that the template set up. There you can explore charts of the performance of your [Mobile App Service project](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService). They show server requests and response times, failures, and exception counts. There are also charts of dependency response times - that is, calls to the database and to REST APIs such as Machine Learning. If there are any performance problems, you'll be able to see what piece of your system is causing them.
 
-In Visual Studio, right-click the API project and choose **Add Application Insights**. You might be asked to provide your sign-in to Azure. 
+![Example performance chart](./media/iot-solution-build-system/image11.png)
 
-![](./media/iot-solution-build-system/image10.png)
+If you have a web service you set up by hand, it's easy to get the same charts:
 
-After you deploy and run the API project, using the MyDriving mobile app, for example, to make requests, browse the Application Insights resource in Azure to see performance charts, search the diagnostic telemetry, and set up alerts.
+![On the web service blade, choose Tools, Extensions, Add. Select Application Insights.](./media/iot-solution-build-system/image12.png)
 
-![](./media/iot-solution-build-system/image11.png)
+The feature works by instrumenting your application with the Application Insights SDK. 
 
-You can also set up [Application Insights availability](../app-insights/app-insights-monitor-web-app-availability.md) tests. These will ping your site from various locations around the world, and will send you an email if it responds slowly or not at all.
+You can add custom telemetry (or instrument an application running somewhere outside Azure) by [adding the Application Insights SDK](../application-insights/app-insights-asp-net.md) at development time. This is useful to log metrics that depend on the application, such as users' average trip length or total mileage. 
+
+![In Visual Studio, right-click the project and choose Add Application Insights](./media/iot-solution-build-system/image10.png) 
+
+Application Insights will send alert emails if it sees unusual numbers of failure responses, and you can also set up your own alerts on various metrics such as response times.
+
+Just to be sure that your web service is always up and running, you can set up [availability tests](../app-insights/app-insights-monitor-web-app-availability.md), which ping your site from various locations around the world every fifteen minutes. Again, you'll get an email if there seems to be a problem.
+
 
 ## Feedback 
 
