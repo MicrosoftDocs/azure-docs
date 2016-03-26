@@ -48,6 +48,7 @@ The table below can help you decide the best connectivity option for your soluti
 [AZURE.INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 
+
 ### <a name="gwrequire"></a>Consider gateway requirements by VPN type and SKU
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
