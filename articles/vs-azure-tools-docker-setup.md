@@ -25,7 +25,7 @@ The following tools need to be installed.
 
 - [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
 
-## Configuring and testing the Docker client 
+## Configuring the Docker client with Windows PowerShell
 
 To configure a Docker client, simply open Windows PowerShell, and perform the following steps:
 
