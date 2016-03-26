@@ -100,6 +100,10 @@ Each function has a folder that contains code file(s), *function.json*, and othe
 
 When setting up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code. You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.
 
+### Parallel execution
+
+When multiple triggering events occur faster than a single function instance can process them, The Azure Functions runtime may call multiple instances of the function. If a function app is using the [Dynamic Hosting Plan](functions-scale.md#dynamic-hosting-plan), the concurrent execution limit is 4. 
+
 ## Node/JavaScript API
 
 The Node/JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, as well as receiving and sending data via bindings.
@@ -360,15 +364,13 @@ For package management, use a *project.json* file. Most things that work with th
 
 The available bindings are documented in this section. Most of these bindings are easily managed via the Azure portal's **Integrate** UI, but the portal doesn't explain all of the functionality and options for each binding.
 
-This is a table of all our supported bindings.
+This is a table of all supported bindings.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
 ### <a id="queuetrigger"></a> Azure Storage - queue trigger
 
-To poll a storage queue, provide the name of the queue to poll and the variable name for the queue message. 
-
-This *function.json* example uses a storage queue trigger:
+The *function.json* file provides the name of the queue to poll and the variable name for the queue message. For example:
 
 ```JSON
 {
@@ -387,7 +389,7 @@ This *function.json* example uses a storage queue trigger:
 
 #### Queue trigger supported types
 
-The queue message can be deserialized to any of the following types:
+The queue message can be deserialized to any of these types:
 
 * `string`
 * `byte[]`
@@ -406,7 +408,7 @@ You can get queue metadata in your function by using these variable names:
 * dequeueCount
 * queueTrigger (another way to retrieve the queue message text as a string)
 
-This C# code example retrieves and logs queue metadata.
+This C# code example retrieves and logs queue metadata:
 
 ```csharp
 using System;
@@ -435,9 +437,7 @@ public static void Run(string myQueueItem,
 
 ### Azure Storage - queue output
 
-To write a new storage queue message, provide the name of the queue to create messages in, and a variable name for the content of the message to create.
-
-This *function.json* example uses a queue trigger and writes a queue message.
+The *function.json* file provides the name of the output queue and a variable name for the content of the message. This example uses a queue trigger and writes a queue message.
 
 ```JSON
 {
@@ -462,7 +462,7 @@ This *function.json* example uses a queue trigger and writes a queue message.
 
 #### Queue output supported types
 
-The `queue` binding can serialize the following types to a queue message.
+The `queue` binding can serialize the following types to a queue message:
 
 * `string` (creates queue message if parameter value is non-null when the function ends)
 * `byte[]` (works like string) 
@@ -471,7 +471,7 @@ The `queue` binding can serialize the following types to a queue message.
 
 ##### Queue output code example
 
-This sample C# code writes a single queue message for each input queue message.
+This C# code example writes a single output queue message for each input queue message.
 
 ```csharp
 using System;
@@ -483,7 +483,7 @@ public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
 }
 ```
 
-This sample C# code writes multiple messages by using  `ICollector<T>` (use `IAsyncCollector<T>` in an async function).
+This C# code example writes multiple messages by using  `ICollector<T>` (use `IAsyncCollector<T>` in an async function):
 
 ```csharp
 using System;
@@ -498,11 +498,7 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ### Azure Storage - blob trigger
 
-> [AZURE.NOTE] The Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
-
-To trigger a function when a blob is created or updated,  provide a path that specifies the container to monitor, and optionally a blob name pattern. 
-
-This *function.json* example triggers on any blobs that are added to the samples-workitems container.
+The *function.json* provides a path that specifies the container to monitor, and optionally a blob name pattern. This example triggers on any blobs that are added to the samples-workitems container.
 
 ```JSON
 {
@@ -519,9 +515,11 @@ This *function.json* example triggers on any blobs that are added to the samples
 }
 ```
 
+> [AZURE.NOTE] The Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
+
 #### Blob trigger supported types
 
-Blobs can be deserialized to these types.
+Blobs can be deserialized to these types:
 
 * string
 * `TextReader`
@@ -537,7 +535,7 @@ Blobs can be deserialized to these types.
 
 #### Blob trigger code example
 
-This C# code logs the contents of each blob that is added to the container.
+This C# code example logs the contents of each blob that is added to the container.
 
 ```csharp
 using System;
@@ -565,7 +563,7 @@ Another example:
 "path": "input/{blobname}.{blobextension}",
 ```
 
-This path would also find a blob named *original-Blob1.txt*, and the value of the blobname and blobextension variables in function code would be *original-Blob1* and *txt*.
+This path would also find a blob named *original-Blob1.txt*, and the value of the `blobname` and `blobextension` variables in function code would be *original-Blob1* and *txt*.
 
 You can restrict the types of blobs that trigger the function by specifying a pattern with a fixed value for the file extension. If you set the `path` to  *samples/{name}.png*, only *.png* blobs in the *samples* container will trigger the function.
 
@@ -577,15 +575,15 @@ use this for the `path` property:
 
 		images/{{20140101}}-{name}
 
-In the example, the *name* placeholder value would be *soundfile.mp3*. 
+In the example, the `name` variable value would be *soundfile.mp3*. 
 
 #### Blob receipts
 
-The WebJobs SDK makes sure that no blob trigger function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
+The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
 
 Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure storage account specified by the AzureWebJobsStorage connection string. A blob receipt has the following  information:
 
-* The function that was called for the blob ("*{WebJob name}*.Functions.*{Function name}*", for example: "WebJob1.Functions.CopyBlob")
+* The function that was called for the blob ("*{function app name}*.Functions.*{function name}*", for example: "functionsf74b96f7.Functions.CopyBlob")
 * The container name
 * The blob type ("BlockBlob" or "PageBlob")
 * The blob name
@@ -593,27 +591,32 @@ Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure
 
 If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the *azure-webjobs-hosts* container.
 
-### Azure Storage - blob output
+### Azure Storage - blob input and output
 
-To write a new blob, provide the name of the container to create the blob in, and variable names for blob name and content.
-
-This *function.json* example uses a queue trigger and writes a blob.
+The *function.json* provides the name of the container and variable names for blob name and content. This example uses a queue trigger to copy a blob:
 
 ```JSON
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "azurefunctions4e62e828_STORAGE",
+      "connection": "",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
     },
     {
-      "name": "myBlob",
+      "name": "myInputBlob",
       "type": "blob",
-      "path": "samples-workitems/{name}",
-      "connection": "azurefunctions4e62e828_STORAGE",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "",
       "direction": "out"
     }
   ],
@@ -621,15 +624,33 @@ This *function.json* example uses a queue trigger and writes a blob.
 }
 ``` 
 
-#### Blob output supported types
+#### Blob input and output supported types
 
-The `queue` binding can serialize the following types to a blob.
+The `blob` binding can serialize or deserialize the following types:
+
+* `Stream`
+* `TextReader`
+* `TextWriter`
+* `string` (for output blob: creates a blob only if the string parameter is non-null when the function returns)
+* JSON object (for output blob: creates a blob as null object if parameter value is null when the function ends)
+* `CloudBlobStream` (output only)
+* `ICloudBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
 
 ##### Blob output code example
 
-This sample C# code writes a single blob for each input queue message.
+This C# code example copies a blob whose name is received in a queue message.
 
 ```CSHARP
+using System;
+using System.Threading.Tasks;
+
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+{
+    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputBlob = myInputBlob;
+}
 ```
 
 ### Azure Storage - tables input/output
@@ -646,9 +667,7 @@ To use a Service Bus trigger or binding, set up the function app by adding a con
 
 ### </a> Azure Service Bus - queue or topic trigger
 
-To poll a Service Bus queue or topic, provide the name of the queue or topic to poll and the variable name for the queue or topic message.
-
-This *function.json* example uses a Service Bus queue or topic  trigger.
+The *function.json* file provides the name of the queue or topic to poll and the variable name for the queue or topic message. For example:
 
 ```JSON
 {
@@ -665,7 +684,7 @@ This *function.json* example uses a Service Bus queue or topic  trigger.
 }
 ```
 
-This C# example code writes a log message for each Service Bus queue or topic message.
+This C# code example writes a log message for each Service Bus queue or topic message received.
 
 ```csharp
 using System;
@@ -681,9 +700,7 @@ public static void Run(string myQueueItem, TraceWriter log)
 
 To use a Service Bus trigger or binding, set up the function app by adding a connection string named AzureWebJobsServiceBus. For directions, see [Service Bus queue or topic trigger](#sbqueue) earlier in this article. 
 
-To create a new Service Bus queue or topic message, provide the name of the queue to create messages in, and the content of the message to create. 
-
-The following *function.json* example uses a timer trigger and and writes messages to a Service Bus queue.
+The *function.json* file provides the name of the queue and the variable name for the content of the message. The following example uses a timer trigger and and writes messages to a Service Bus queue.
 
 ```JSON
 {
@@ -707,6 +724,8 @@ The following *function.json* example uses a timer trigger and and writes messag
 }
 ``` 
 
+#### Service Bus queue or topic supported types
+
 The output parameter for creating a Service Bus queue message can be any of the following types.
 
 * `string` (creates queue message if parameter value is non-null when the function ends)
@@ -714,7 +733,9 @@ The output parameter for creating a Service Bus queue message can be any of the 
 * `BrokeredMessage` (works like string) 
 * JSON object (creates a message with a null object if the parameter is null when the function ends)
 
-Here is C# code that works with the preceding *function.json* file to write a `string` message to a Service Bus queue.
+### Service Bus queue or topic code example
+
+This C# code example works with the preceding *function.json* file to write a single `string` message to a Service Bus queue.
 
 ```csharp
 using System;
@@ -727,7 +748,7 @@ public static void Run(TimerInfo myTimer, out string OutPutQueueItem, TraceWrite
 }
 ```
 
-Here is C# code that creates multiple messages by using `ICollector<T>` (use `IAsyncCollector<T>` in an async function).
+This C# code example creates multiple messages by using `ICollector<T>` (use `IAsyncCollector<T>` in an async function):
 
 ```csharp
 using System;
@@ -744,4 +765,3 @@ public static void Run(TimerInfo myTimer, ICollector<string> OutPutQueueItem, Tr
 
 
 ### Azure Service Bus - EventHub output
-
