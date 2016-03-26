@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/23/2016"
+   ms.date="03/26/2016"
    ms.author="bscholl"/>
 
 #Service Fabric container integration
@@ -68,7 +68,7 @@ defines the container image contoso/frontend.
 2. **Service Fabric Services inside a container**   
 In this scenario you build Service Fabric stateless and stateful services the same way you are buillding native Service Fabric services and package them inside a container.
 This will give you all the benefits of native Service Fabric services, such as networking naming service support, self-reporting of instance’s load metrics
-and integration with code, config, & data upgrades, just to name a few.
+and integration with code, config, & data upgrades, just to name a few, in addition to higher isolation levels provided through containers.
  
     Figure 2 shows a Service Fabric cluster with running containers that communicate with Service Fabric on the host machine.
 
