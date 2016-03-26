@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="03/28/2016"
 	ms.author="deonhe"/>
 
 # List of Managed APIs
