@@ -2,7 +2,7 @@
 	pageTitle="Get Started with Azure Mobile Engagement for Xamarin.Android"
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Xamarin.Android Apps."
 	services="mobile-engagement"
-	documentationCenter="android"
+	documentationCenter="xamarin"
 	authors="piyushjo"
 	manager=""
 	editor="" />
@@ -10,8 +10,8 @@
 <tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dontnet"
 	ms.topic="hero-article"
 	ms.date="03/25/2016"
 	ms.author="piyushjo" />
@@ -28,7 +28,7 @@ This tutorial requires the following:
 + [Xamarin Studio](http://xamarin.com/studio) [You can also use Visual Studio with Xamarin extension but this tutorial uses Xamarin Studio for instructions]
 + [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
-> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Android apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your Android app
 

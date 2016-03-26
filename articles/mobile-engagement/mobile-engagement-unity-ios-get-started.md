@@ -2,7 +2,7 @@
 	pageTitle="Get Started with Azure Mobile Engagement for Unity iOS deployment"
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Unity apps deploying to iOS devices."
 	services="mobile-engagement"
-	documentationCenter="ios"
+	documentationCenter="unity"
 	authors="piyushjo"
 	manager=""
 	editor="" />
@@ -10,7 +10,7 @@
 <tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
+	ms.tgt_pltfrm="mobile-unity-ios"
 	ms.devlang="dontnet"
 	ms.topic="hero-article"
 	ms.date="03/25/2016"
@@ -29,7 +29,7 @@ This tutorial requires the following:
 + [Mobile Engagement Unity SDK](https://aka.ms/azmeunitysdk)
 + XCode Editor
 
-> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Unity iOS apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started).
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your iOS app
 
