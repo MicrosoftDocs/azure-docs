@@ -126,9 +126,10 @@ The local network gateway typically refers to your on-premises location. In the 
 
 Selecting the correct gateway type for your topology is critical. Your gateway will not work properly if you select the wrong type. The gateway type specifies how the gateway itself connects and is a required configuration setting for the Resource Manager deployment model.
 
-**Gateway types**
+The gateway types are:
 
-[AZURE.INCLUDE [vpn-gateway-table-gwtype](../../includes/vpn-gateway-table-gwtype-include.md)] 
+- Vpn
+- ExpressRoute
 
 
 ### <a name="vpntype"></a>About VPN types
