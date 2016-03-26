@@ -31,6 +31,7 @@ The following is needed to complete this tutorial:
 - Install [Visual Studio 2015 Tools for Docker - Preview](https://visualstudiogallery.msdn.microsoft.com/0f5b2caa-ea00-41c8-b8a2-058c7da0b3e4)
 
 ## 2. Create an ASP.NET 5 web app
+The following steps will guide you through creating a basic ASP.NET 5 app that will be used in this tutorial.
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
