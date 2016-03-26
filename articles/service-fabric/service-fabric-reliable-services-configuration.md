@@ -127,3 +127,7 @@ The MaxRecordSizeInKB setting defines the maximum size of a record that can be w
 
 The SharedLogId and SharedLogPath settings are always used together to make a service use a separate shared log from the default shared log for the node. For best efficiency, as many services as
 possible should specify the same shared log. Shared log files should be placed on disks that are used solely for the shared log file to reduce head movement contention. We expect that this value would need to be changed in only rare cases.
+
+## Next steps
+ - [Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
+ - [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
