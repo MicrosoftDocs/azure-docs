@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="02/19/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # NoSQL Node.js tutorial: DocumentDB Node.js console application  

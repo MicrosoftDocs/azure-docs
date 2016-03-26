@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 #DocumentDB as a high-performance key-value database
