@@ -37,12 +37,20 @@ How does this work? When you create a collection in DocumentDB, you'll notice th
 
 For example, consider an application that stores data about employees and their departments in DocumentDB. Let's choose `"department"` as the partition key property, in order to scale out data by department. Every document in DocumentDB must contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }, { "Department": "Marketing", "id": "0002" }, and { "Department": "Sales", "id": "0001" }`. In other words, the compound property of (partition key, id) is the partition key for your collection.
 
-> [AZURE.NOTE] For scenarios that do not need large volumes of storage or throughput, you can omit specifying the partition key for a collection. These single-partition collections have scalability and storage limits of a single partition, i.e. up to 10 GB of storage and up to 10,000 request units per second.
+For scenarios that do not need large volumes of storage or throughput, you can omit specifying the partition key for a collection. These **single-partition collections** have scalability and storage limits of a single partition, i.e. up to 10 GB of storage and up to 10,000 request units per second. Here's a table of the differences between single-partition and partitioned collections:
+
+ | Single Partition Collection | Partitioned Collection
+---|---|---
+Partition Key | None | Required
+Primary Key for Document | "id" | compound key partition key and "id"
+Minimum Storage | 0 GB | 0 GB
+Maximum Storage | 10 GB | Unlimited (250 GB by default)
+Minimum Throughput | 400 request units per second | 10,100 request units per second
+Maximum Throughput | 10,000 request units per second | Unlimited (250,000 request units per second by default)
+API versions | All | API 2015-12-16 and newer
 
 ## Partition Keys
-The choice of the partition key is an important decision that you’ll have to make at design time. This value of this property within each JSON document or request will be used by DocumentDB to distribute documents among the available partitions. Your choice of partition key should balance the need to enables the use of transactions against the requirement to distribute your entities across multiple partitions to ensure a scalable solution.
-
-An ideal partition key is one that enables you to use efficient queries and that has sufficient partitions to ensure your solution is scalable. Typically, you will find that your entities will have a suitable property that distributes your entities across sufficient partitions.
+The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. Let's take a look at how the choice of partition key impacts the performance of your application.
 
 ### Partitioning and Provisioned Throughput
 DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **request units (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation.  The simplest operation - a read of a 1KB operation with eventual consistency consumes 1 request unit. This is the same 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
