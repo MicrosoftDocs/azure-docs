@@ -18,35 +18,42 @@
 
 # Partitioning and scaling in Azure DocumentDB
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. This article provides an overview of how partitioning works with DocumentDB, and describes how you can configure DocumentDB collections to effectively scale your applicitons.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. This article provides an overview of how partitioning works in DocumentDB, and describes how you can configure DocumentDB collections to effectively scale your applications.
 
-After reading this article on data scaling you will be able to answer the following questions:   
+After reading this article, you will be able to answer the following questions:   
+* How does partitioning work in Azure DocumentDB?
+* How do I configure partitioning in DocumentDB
+* What are partition keys, and how do I pick the right partition key for my application?
 
 ## Partitioning in DocumentDB
 
-Data in DocumentDB collections are stored within one or more partitions. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. DocumentDB collections are practically unlimited in terms of storage and throughput. 
+In DocumentDB, you can store and query schema-less JSON data called collections with order-of-millisecond response times at any scale. Data within collections is stored within one or more partitions, the number of partitions determined based on the storage size and the provisioned throughput of the collection. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. DocumentDB collections are **practically unlimited** in terms of storage and throughput. 
 
 ![Partitioned collections in DocumentDB][2] 
 
-Distributing data across partitions, partitioning and re-partitioning based on scale needs, and routing query requests to the right partitions are handled automatically by the DocumentDB service. Partitioning is completely transparent to your application - functionality like fast order of millisecond reads and writes, SQL and LINQ queries, JavaScript based transactional logic, consistency levels, and fine-grained access control work the sane across partitioned and single-partitioned collections.
+Partitioning is completely transparent to your application. Distributing data across partitions and routing query requests to the right partitions is handled automatically by the DocumentDB service. DocumentDB supports fast reads and writes, SQL and LINQ queries, JavaScript based transactional logic, consistency levels, and fine-grained access control for data stored within these partitioned collections.
 
-How does this work? When you create a collection in DocumentDB, you'll notice that there's a **partition key property** configuration value that you can specify. This is an important setting as this determines what JSON property (or path) within your documents can be used by distribute to split your data among multiple servers or partitions. DocumentDB will hash the partition key value and use the hashed result to determine the partition in which the JSON document will be stored. All documents with the same partition key will be stored in the same partition. It is possible for two items to have the same partition key value, but those two items must have different sort key values.
+How does this work? When you create a collection in DocumentDB, you'll notice that there's a **partition key property** configuration value that you can specify. This is the JSON property (or path) within your documents can be used by DocumentDB to distribute your data among multiple servers or partitions. DocumentDB will hash the partition key value and use the hashed result to determine the partition in which the JSON document will be stored. All documents with the same partition key will be stored in the same partition. 
 
-For example, consider a use case where you store data about employees and their departments in DocumentDB. Here we have chosen `"department"` as the partition key property. Every document must also contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }, { "Department": "Marketing", "id": "0002" }, and { "Department": "Sales", "id": "0001" }`.
+For example, consider an application that stores data about employees and their departments in DocumentDB. Let's choose `"department"` as the partition key property, in order to scale out data by department. Every document in DocumentDB must contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }, { "Department": "Marketing", "id": "0002" }, and { "Department": "Sales", "id": "0001" }`. In other words, the compound property of (partition key, id) is the partition key for your collection.
 
-## Partition keys
+> [AZURE.NOTE] For scenarios that do not need large volumes of storage or throughput, you can omit specifying the partition key for a collection. These single-partition collections have scalability and storage limits of a single partition, i.e. up to 10 GB of storage and up to 10,000 request units per second.
+
+## Partition Keys
 The choice of the partition key is an important decision that you’ll have to make at design time. This value of this property within each JSON document or request will be used by DocumentDB to distribute documents among the available partitions. Your choice of partition key should balance the need to enables the use of transactions against the requirement to distribute your entities across multiple partitions to ensure a scalable solution.
-
-At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution. At the other extreme, you could store one document per partition key, which would be highly scalable but would prevent you from using cross document transactions via stored procedures and triggers.
 
 An ideal partition key is one that enables you to use efficient queries and that has sufficient partitions to ensure your solution is scalable. Typically, you will find that your entities will have a suitable property that distributes your entities across sufficient partitions.
 
 ### Partitioning and Provisioned Throughput
-DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of request units (RU) per second. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation.  The simplest operation - a read of a 1KB operation with eventual consistency consumes 1 request unit. This is the same 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
+DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **request units (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation.  The simplest operation - a read of a 1KB operation with eventual consistency consumes 1 request unit. This is the same 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
 
 When DocumentDB stores documents, it distributes them evenly among partitions based on the partition key value i.e. the throughput per partition = (total throughput per collection)/ (number of partitions). In order to achieve the full throughput of the collection, you must have a workload that evenly distributes requests among a number of distinct partition key values.
 
+In order to create a partitioned collection, you must specify a provisioned throughput greater than **10,000 request units per second**. By default, collections are configured to store up to 250 GB of storage and scale up to 250,000 request units per second. If you need higher storage or throughput per collection, please contact [Azure Support](documentdb-increase-limits) to have these increased for your account.
+
 ### Working with Partition Keys
+
+Azure DocumentDB added support for automatic partitioning with [REST API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). In order to create partitioned collections, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python). 
 
 The following sample shows a .NET snippet to create a collection to store device telemetry data of 20,000 request units per second of throughput. Here we set the deviceId as the partition key since we know that (a) since there are a large number of devices, writes can be distributed across partitions evenly and allowing us to scale the database to ingest massive volumes and (b) many of the requests like fetching the latest reading for a device are scoped to a single deviceId and can be retrieved from a single parttion.
 
@@ -65,7 +72,7 @@ The following sample shows a .NET snippet to create a collection to store device
         myCollection,
         new RequestOptions { OfferThroughput = 20000 });
         
-This request makes a REST API call to DocumentDB, and the service will provision a number of partitions based on the requested throughput. Now, let's insert data into DocumentDB. Here's a sample class containing a device reading.
+This method makes a REST API call to DocumentDB, and the service will provision a number of partitions based on the requested throughput. Now, let's insert data into DocumentDB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.
 
     public class DeviceReading
     {
@@ -103,7 +110,7 @@ This request makes a REST API call to DocumentDB, and the service will provision
         });
 
 
-Let's read the document by it's partition key and id, update it, and then as a final step, delete it by partition key and id.
+Let's read the document by it's partition key and id, update it, and then as a final step, delete it by partition key and id. Note that the reads include a PartitionKey value (corresponding to the `x-ms-documentdb-partitionkey` request header in the REST API).
 
     // Read document. Needs the partition key and the ID to be specified
     Document result = await client.ReadDocumentAsync(
@@ -128,10 +135,11 @@ Let's read the document by it's partition key and id, update it, and then as a f
 When you query data in partitioned collections, DocumentDB automatically routes ther query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
 
     // Query using partition key
-    IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(UriFactory.CreateDocumentCollectionUri("db", "coll"))
+    IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
+    	UriFactory.CreateDocumentCollectionUri("db", "coll"))
         .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 
-The following query does not have a filter on the partition key (DeviceId) and is fanned out to all partitions where it is executed against the partition's index. Note that you have to specify the EnableCrossPartitionQuery to instruct the SDK to execute a query across partitions.
+The following query does not have a filter on the partition key (DeviceId) and is fanned out to all partitions where it is executed against the partition's index. Note that you have to specify the EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` in the REST API) to instruct the SDK to execute a query across partitions.
 
     // Query across partition keys
     IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
@@ -141,7 +149,6 @@ The following query does not have a filter on the partition key (DeviceId) and i
 
 
 ## Designing for Partitioning
-
 The choice of the partition key is an important decision that you’ll have to make at design time. This value of this property within each JSON document or request will be used by DocumentDB to distribute documents among the available partitions.
 
 ### Partition key as the transaction boundary
@@ -175,12 +182,10 @@ If you are implementing a multi-tenant application using DocumentDB, there are t
 You can also use a combination/tiered approach that collocates small tenants and migrates larger tenants to their own collection.
 
 ## Next Steps
-In this article, we've introduced some common techniques on how you can partition data with DocumentDB, and when to use which technique or combination of techniques. 
+In this article, we've described how partitioning works in Azure DocumentDB, how you can create partitioned collections, and how you can pick a good partition key for your application. 
 
--   Next, take a look at this [article](documentdb-sharding.md) on how you can partition data using partition resolvers with the DocumentDB SDK. 
--   Download one of the [supported SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx)
--   Contact us through the [MSDN support forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) if you have questions.
-   
+-   Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)
+-   Learn about [provisioned throughput in DocumentDB](documentdb-performance-levels.md)
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
