@@ -16,23 +16,37 @@
     ms.date="03/25/2016"      
     ms.author="arramac"/> 
 
-# Partition and scale data in DocumentDB
+# Partitioning and scaling in Azure DocumentDB
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps. 
-
-Data in DocumentDB collections are stored within one or more partitions. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. You can achieve near-infinite scale in terms of storage and throughput for your DocumentDB application by horizontally partitioning your data. 
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. This article provides an overview of how partitioning works with DocumentDB, and describes how you can configure DocumentDB collections to effectively scale your applicitons.
 
 After reading this article on data scaling you will be able to answer the following questions:   
 
 ## Partitioning in DocumentDB
 
-When you create a collection in DocumentDB, you'll notice that there's a **partition key property** configuration value that you can specify. This is an important setting as this determines what JSON property (or path) within your documents can be used by distribute to split your data among multiple servers or partitions. 
+Data in DocumentDB collections are stored within one or more partitions. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. DocumentDB collections are practically unlimited in terms of storage and throughput. 
 
 ![Partitioned collections in DocumentDB][2] 
 
-All the machinery behind distributing data across partitions, partitioning and re-partitioning based on scale needs, and routing query requests to the right partitions is handled automatically by the DocumentDB service. Partitioning is completely transparent to your application - functionality like fast order of millisecond reads and writes, SQL and LINQ queries, JavaScript based transactional logic, consistency levels, and fine-grained access control work the sane across partitioned and single-partitioned collections.
+Distributing data across partitions, partitioning and re-partitioning based on scale needs, and routing query requests to the right partitions are handled automatically by the DocumentDB service. Partitioning is completely transparent to your application - functionality like fast order of millisecond reads and writes, SQL and LINQ queries, JavaScript based transactional logic, consistency levels, and fine-grained access control work the sane across partitioned and single-partitioned collections.
 
-## Working with Partition Keys
+How does this work? When you create a collection in DocumentDB, you'll notice that there's a **partition key property** configuration value that you can specify. This is an important setting as this determines what JSON property (or path) within your documents can be used by distribute to split your data among multiple servers or partitions. DocumentDB will hash the partition key value and use the hashed result to determine the partition in which the JSON document will be stored. All documents with the same partition key will be stored in the same partition. It is possible for two items to have the same partition key value, but those two items must have different sort key values.
+
+For example, consider a use case where you store data about employees and their departments in DocumentDB. Here we have chosen `"department"` as the partition key property. Every document must also contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }, { "Department": "Marketing", "id": "0002" }, and { "Department": "Sales", "id": "0001" }`.
+
+## Partition keys
+The choice of the partition key is an important decision that you’ll have to make at design time. This value of this property within each JSON document or request will be used by DocumentDB to distribute documents among the available partitions. Your choice of partition key should balance the need to enables the use of transactions against the requirement to distribute your entities across multiple partitions to ensure a scalable solution.
+
+At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution. At the other extreme, you could store one document per partition key, which would be highly scalable but would prevent you from using cross document transactions via stored procedures and triggers.
+
+An ideal partition key is one that enables you to use efficient queries and that has sufficient partitions to ensure your solution is scalable. Typically, you will find that your entities will have a suitable property that distributes your entities across sufficient partitions.
+
+### Partitioning and Provisioned Throughput
+DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of request units (RU) per second. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation.  The simplest operation - a read of a 1KB operation with eventual consistency consumes 1 request unit. This is the same 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
+
+When DocumentDB stores documents, it distributes them evenly among partitions based on the partition key value i.e. the throughput per partition = (total throughput per collection)/ (number of partitions). In order to achieve the full throughput of the collection, you must have a workload that evenly distributes requests among a number of distinct partition key values.
+
+### Working with Partition Keys
 
 The following sample shows a .NET snippet to create a collection to store device telemetry data of 20,000 request units per second of throughput. Here we set the deviceId as the partition key since we know that (a) since there are a large number of devices, writes can be distributed across partitions evenly and allowing us to scale the database to ingest massive volumes and (b) many of the requests like fetching the latest reading for a device are scoped to a single deviceId and can be retrieved from a single parttion.
 
@@ -126,14 +140,25 @@ The following query does not have a filter on the partition key (DeviceId) and i
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 
 
-## How do I pick a Partition key
+## Designing for Partitioning
 
-The choice of the partition key is an important decision that you’ll have to make at design time. This value of this property within each JSON document or request will be used by DocumentDB to distribute documents among the available partitions:
-* ACID transactions can be served against documents with the same partition key
-* Documents with the same partition key are stored in same partition so that queries get the benefit of data locality and lower latency
+The choice of the partition key is an important decision that you’ll have to make at design time. This value of this property within each JSON document or request will be used by DocumentDB to distribute documents among the available partitions.
 
+### Partition key as the transaction boundary
+Your choice of partition key should balance the need to enables the use of transactions against the requirement to distribute your entities across multiple partitions to ensure a scalable solution. At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution. At the other extreme, you could store one document per partition key, which would be highly scalable but would prevent you from using cross document transactions via stored procedures and triggers. An ideal partition key is one that enables you to use efficient queries and that has sufficient partitions to ensure your solution is scalable. Typically, you will find that your entities will have a suitable property that distributes your entities across sufficient partitions.
+
+
+    await client.ExecuteStoredProcedureAsync<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"),
+        "XMS-001-FE24C",
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") });
+
+
+## Avoiding storage and performance bottlenecks 
+It is also important to pick a property which allows writes to be distrubuted across a number of distinct values. Requests to the same partition key cannot exceed the throughput of a single partition, and will be throttled. So it is important to pick a partition key that does not result in hot spots within your application. The total storage size for documents with the same partition key can also not exceed 10 GB in storage. 
+
+## Examples of good partition keys
 Here are a few examples for how to pick the partition key for your application:
-
 * If you’re implementing a user profile backend, then the user ID is a good choice for partition key.
 * If you’re storing IoT data e.g. device state, a device ID is a good choice for partition key
 * If you’re using DocumentDB for logging time-series data, then the date part of the timestamp is a good choice for partition key
@@ -141,6 +166,7 @@ Here are a few examples for how to pick the partition key for your application:
 
 Note that in some use cases (like the IoT and user profiles described above), the partition key might be the same as your id (document key). In others like the time series data, you might have a partition key that’s different than the id.
 
+## Partitioning and multi-tenancy
 If you are implementing a multi-tenant application using DocumentDB, there are two major patterns for implementing tenancy with DocumentDB – one partition key per tenant, and one collection per tenant. Here are the pros and cons for each:
 
 * One Partition Key per tenant: In this model, tenants are collocated within a single collection. But queries and inserts for documents within a single tenant can be performed against a single partition. You can also implement transactional logic across all documents within a tenant. Since multiple tenants share a collection, you can save storage and throughput costs by pooling resources for tenants within a single collection rather than provisioning extra headroom for each tenant. The drawback is that you do not have performance isolation per tenant
