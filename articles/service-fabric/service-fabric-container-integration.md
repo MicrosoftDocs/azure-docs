@@ -72,7 +72,7 @@ and integration with code, config, & data upgrades, just to name a few, in addit
  
     Figure 2 shows a Service Fabric cluster with running containers that communicate with Service Fabric on the host machine.
 
-    ![SF Services in containers](./media/service-fabric-container-integration/sfcontainers.png)   
+    ![SF Services in containers](./media/service-fabric-container-integration/containercluster.png)   
 
     At a very high level Service Fabric accomplishes the integration with the Service Fabric runtime on the host by mount the Service Fabric host directories as a data volume.
 
