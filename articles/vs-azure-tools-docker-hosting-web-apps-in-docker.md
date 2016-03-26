@@ -44,16 +44,17 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
 1.  In the Visual Studio **Solution Explorer**, locate the **Properties** folder and expand it.
 1.  Open the *Docker.props* file.
 
-    ![Open the Docker.props file][5] 
+    ![Open the Docker.props file][0] 
 
-1.  Change the value of **DockerMachineName** to the name of your remote Docker host. 
+1.  Change the value of **DockerMachineName** to the name of your remote Docker host. If you do not know the name of your remote Docker host, 
+run ```docker-machine ls``` at the Windows PowerShell prompt. Use the value listed under the **Name** column. 
 
-    ![Change Docker Machine name][6]
+    ![Change Docker Machine name][1]
 
 1.  Restart Visual Studio.
 
 ## 5. Configure the Azure Docker Host endpoint
-Before deploying your application from Visual Studio to Azure, add endpoint 80 to your Docker Host Virtual Machine so you can view your application from the browser later.
+Before deploying your app from Visual Studio to Azure, add endpoint 80 to your Docker Host Virtual Machine so you can view your app from the browser later.
 This can be done either via the classic Azure portal or via Windows PowerShell: 
 
 - **Use the classic Azure portal to configure the Azure Docker Host endpoint**
@@ -79,24 +80,27 @@ This can be done either via the classic Azure portal or via Windows PowerShell:
         C:\PS>Get-AzureVM -ServiceName "<your_cloud_service_name>" -Name "<your_vm_name>" | Add-AzureEndpoint -Name "<endpoint_name>" -Protocol "tcp" -PublicPort 80 -LocalPort 80 | Update-AzureVM
         ```
 
-## 6. Run the app
+## 6. Build and run the app
+When deploying to remote hosts, the volume mapping feature used for Edit & Refresh development will not function. 
+Therefore, you'll need to use the *release configuration* when building your app to avoid the volume mapping configuration.  
+Follow these steps to run your app.
 
 1.  From the Visual Studio toolbar, select the **Release** configuration
 
 1.  Change the launch target to **Docker**.
 
-1.  Tap the **Docker** icon to run the application.
+1.  Tap the **Docker** icon to build and run the app.
 
-![Launch application][7]
+![Launch app][2]
 
 ## 7. Test the app running on Azure
 
-Once the publish process has finished, open the browser of your choice and navigate to your Docker Host Virtual Machine's IP address, specifying a port of 80. 
+Once the publish process has finished, open the browser of your choice and navigate to your Docker Host Virtual Machine's IP address. 
 You should see results similar to the following.
 
-![View your application][8]
+![View your app][3]
 
-[5]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
-[6]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
-[7]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
-[8]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
+[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
+[1]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
+[2]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
+[3]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
