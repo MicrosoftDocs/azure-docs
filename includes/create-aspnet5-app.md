@@ -2,7 +2,7 @@
 
 1. The **New Project** dialog will display.
 
-	![New Project dialog][./media/create-aspnet5-app/create-web-app.png]
+	![New Project dialog](./media/create-aspnet5-app/create-web-app.png)
 
 1. Under the **Templates** section of the **New Project** dialog, select **Visual C# > Web**.
 
@@ -14,7 +14,7 @@
 
 1. The **New ASP.NET Project** dialog will display.
 
-	![New ASP.NET Project dialog][./media/create-aspnet5-app/choose-template.png]
+	![New ASP.NET Project dialog](./media/create-aspnet5-app/choose-template.png)
 
 1. Under ASP.NET 5 Templates, select ASP.NET Web Application.
 
