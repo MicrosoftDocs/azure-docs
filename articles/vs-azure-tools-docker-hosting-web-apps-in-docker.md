@@ -47,7 +47,7 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
     ![Open the Docker.props file][0] 
 
 1.  Change the value of **DockerMachineName** to the name of your remote Docker host. If you do not know the name of your remote Docker host, 
-run ```docker-machine ls``` at the Windows PowerShell prompt. Use the value listed under the **Name** column. 
+run ```docker-machine ls``` at the Windows PowerShell prompt. Use the value listed under the **Name** column for the desired host. 
 
     ![Change Docker Machine name][1]
 
