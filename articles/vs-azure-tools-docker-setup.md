@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/25/2016"
+   ms.date="03/26/2016"
    ms.author="tarcher" />
 
 # Configure the Docker client
@@ -27,25 +27,25 @@ The following tools need to be installed.
 
 ## Configuring and testing the Docker client 
 
-1. Create a default docker host instance by issuing the following command at a command prompt.
+To configure a Docker client, simply open Windows PowerShell, and perform the following steps:
 
-		docker-machine create --driver virtualbox default
+1. Create a default docker host instance.
+
+    ```PowerShell
+    docker-machine create --driver virtualbox default
+    ```
  
-1. Verify the default instance is configured and running by issuing the following command at the command prompt. (You should see an instance named `default' running.
+1. Verify the default instance is configured and running. (You should see an instance named `default' running.
 
 		docker-machine ls 
 		
 	![][0]
  
-1. Set default as the current host by issuing the following command at the command prompt.
+1. Set default as the current host, and configure your shell.
 
-		docker-machine env default
+        docker-machine env default | Invoke-Expression
 
-1. Issue the following command to configure your shell.
-
-		FOR /f "tokens=*" %i IN ('docker-machine env default') DO %i
-
-1. The following command should display an empty response of active containers running.
+1. Display the active Docker containers. The list should be empty.
 
 		docker ps
 
