@@ -67,7 +67,7 @@ Install:
 
 -   [**SQLite for Universal Windows Platform**](https://visualstudiogallery.msdn.microsoft.com/4913e7d5-96c9-4dde-a1a1-69820d615936). Required to build the Windows Phone 10 code.
 
--   [Azure development tools](https://azure.microsoft.com/downloads/) – Gives you the SDK for running apps in Azure, command line tools for managing Azure.
+-   [Azure SDK for VS2015](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) – Gives you the SDK for running apps in Azure, command line tools for managing Azure.
 
 -   [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Required to build the [microservice](../service-fabric/service-fabric-get-started.md) extension.
 
