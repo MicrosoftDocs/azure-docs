@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Navigate and select VM images | Microsoft Azure"
-   description="Learn how to determine the publisher, offer, and SKU for images when creating an Azure virtual machine with the Resource Manager deployment model."
+   pageTitle="Navigate and select Linux VM images | Microsoft Azure"
+   description="Learn how to determine the publisher, offer, and SKU for images when creating a Linux virtual machine with the Resource Manager deployment model."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="squillace"
@@ -18,6 +18,18 @@
    ms.date="12/08/2015"
    ms.author="rasquill"/>
 
-# Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI
+# Navigate and select Linux virtual machine images in Azure with CLI or Powershell
+
+
+**Table of commonly used Linux images**
+
+
+| PublisherName                        | Offer                                 | Sku                         |
+|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
+| OpenLogic                        | CentOS                                     | 7                                |
+| OpenLogic                        | CentOS                                     | 7.1                              |
+| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      |
+| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      |
+
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
