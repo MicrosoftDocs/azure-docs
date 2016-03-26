@@ -33,9 +33,9 @@ Read on to learn more about the key features of SQL Data Warehouse.
 
 ### Massively Parallel Processing (MPP) architecture
 
-SQL Data Warehouse uses Microsoft’s massively parallel processing (MPP) architecture, designed to run some of the world's largest on-premises data warehouses
+SQL Data Warehouse uses Microsoft’s massively parallel processing (MPP) architecture, designed to run some of the world's largest on-premises data warehouses.
 
-Our MPP architecture spreads your data across many independent distributions.  These distributions are stored in redundant, geo-replicated Azure storage blobs and linked to Compute nodes for query execution. This enables us to take a divide and conquer approach when running complex T-SQL queries. When processing, a Control node parses the query, and then each Compute node "conquers" its portion of the data in parallel. 
+Our MPP architecture spreads your data across 60 shared-nothing storage and processing units. The data is stored in redundant, geo-replicated Azure Storage Blobs and linked to Compute nodes for query execution. With this architecture, we can take a divide and conquer approach to running complex T-SQL queries. When processing, the Control node parses the query, and then each Compute node "conquers" its portion of the data in parallel. 
 
 By combining our MPP architecture and Azure storage capabilities, SQL Data Warehouse can:
 
@@ -49,12 +49,12 @@ The architecture is described in detail below.
 ![SQL Data Warehouse Architecture][1]
 
 
-- **Control node:** The Control node "controls" the system. It is the front end that interacts with all applications and connections. In SQL Data Warehouse, the Control node is powered by SQL Database, and connecting to it looks and feels the same. Under the surface, the Control node coordinates all of the data movement and computation required to run parallel queries on your distributed data. When you submit a T-SQL query to SQL Data Warehouse, the Control node transforms it into separate queries that will run on each Compute node in parallel.
+- **Control node:** The Control node "controls" the system. It is the front end that interacts with all applications and connections. In SQL Data Warehouse, the Control node is powered by SQL Database, and connecting to it looks and feels the same. Under the surface, the Control node coordinates all of the data movement and computation required to run parallel queries on your distributed data. When you submit a TSQL query to SQL Data Warehouse, the Control node transforms it into separate queries that will run on each Compute node in parallel.
 
-- **Compute Nodes:** The Compute nodes serve as the power behind SQL Data Warehouse. They are SQL Databases which process your query steps and manage your data. When you add data, SQL Data Warehouse distributes the rows using your Compute nodes. The Compute nodes are also the workers that run the parallel queries on your data. After processing, they pass the results back to the Control node. To finish the query, the Control node aggregates the results and returns the final result
+- **Compute Nodes:** The Compute nodes serve as the power behind SQL Data Warehouse. They are SQL Databases which process your query steps and manage your data. When you add data, SQL Data Warehouse distributes the rows using your Compute nodes. The Compute nodes are also the workers that run the parallel queries on your data. After processing, they pass the results back to the Control node. To finish the query, the Control node aggregates the results and returns the final result.
 
 
-- **Storage:** Your data is stored in Azure Storage Blobs. When Compute nodes interact with your data, they write and read directly to and from blob storage. Since Azure storage expands transparently and limitlessly, SQL Data Warehouse can do the same. Since your storage is separate from compute nodes, SQL Data Warehouse can automatically scale storage separately from scaling compute, and vice-versa.  Azure Storage is also fully fault tolerant and streamlines backup and restore.
+- **Storage:** Your data is stored in Azure Storage Blobs. When Compute nodes interact with your data, they write and read directly to and from blob storage. Since Azure storage expands transparently and limitlessly, SQL Data Warehouse can do the same. Since compute and storage are independent, SQL Data Warehouse can automatically scale storage separately from scaling compute, and vice-versa.  Azure Storage is also fully fault tolerant and streamlines the backup and restore process.
    
 
 - **Data Movement Service:** Data Movement Service (DMS) is our technology for moving data between the nodes. DMS gives the Compute nodes access to data they need for joins and aggregations. DMS is not an Azure service. It is a Windows service that runs alongside SQL Database on all the nodes. Since DMS runs behind the scenes, you won't interact with it directly. However, when you look at query plans you will notice they include some DMS operations since data movement is necessary in some shape or form to run each query in parallel.
