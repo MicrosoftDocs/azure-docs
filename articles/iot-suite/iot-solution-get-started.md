@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="MyDriving Azure IoT Example - Quick Start | Microsoft Azure" 
 	description="Get started with an app that's a comprehensive demonstration of how to architect an IoT system with Microsoft Azure, including stream analytics, machine learning, event hubs." 
 	services="application-insights" 
@@ -47,7 +47,7 @@ On your device:
         (If you’re using Windows 10, use the Edge browser.)
         *Build 2016 attendees* – sign in with the same MSA email you registered for the conference, using one of the Microsoft buttons. You’re already signed up to HockeyApp.
 
-        ![](./media/iot-demo-0-try-app/image1.png)
+        ![](./media/iot-solution-get-started/image1.png)
 
 3.  **Download and install** the app from here:
 
@@ -63,7 +63,7 @@ If you’re at Build 2016, download the app as a member of our test team on Hock
 
 1.  On your iOS device, sign in to <https://rink.hockeyapp.net>.
     Use one of the Microsoft sign-in buttons, and sign in with the same MSA email you registered with the conference. (Don’t use the email and password fields.)
-    ![](./media/iot-demo-0-try-app/image1.png)
+    ![](./media/iot-solution-get-started/image1.png)
 
 2.  In the HockeyApp Dashboard, select MyDriving and download it.
 
@@ -127,21 +127,21 @@ You can find out more about how the app uses data from the OBD adaptor and about
 **Start** the app. There’s an initial Quickstart to walk you through how it works.
 
 -   **Track your trips.** Tap the record button (big red circle at bottom of screen) to start a trip, and tap again to end.
-    ![](./media/iot-demo-0-try-app/image2.png)
+    ![](./media/iot-solution-get-started/image2.png)
 
 -   Each time you start a trip, if there’s no OBD device, you’ll be asked if you want to use the simulator. The simulator creates fictional engine data from speed values from the phone’s location service.
 
 -   At the end of a trip, you get a summary:
 
-    ![](./media/iot-demo-0-try-app/image3.png)
+    ![](./media/iot-solution-get-started/image3.png)
 
 -   **Review your trips:**
 
-    ![](./media/iot-demo-0-try-app/image4.png)
+    ![](./media/iot-solution-get-started/image4.png)
 
 -   **Review your profile**:
 
-    ![](./media/iot-demo-0-try-app/image5.png)
+    ![](./media/iot-solution-get-started/image5.png)
 
 -   **Send us your test feedback** using the button in the app, or just give your phone a shake! This will automatically attach a screenshot, so that we’ll know what you’re talking about. And if there should be any unfortunate crashes, HockeyApp collects the crash logs to tell us about them.
 
@@ -159,7 +159,7 @@ We look forward to hearing from you!
 
 -   Explore the *{Token:RefGuide}* to understand how we’ve designed and built the entire MyDriving system.
 
--   [Create and deploy a system of your own](iot-demo-1-build-app.md) using our Azure Resource Manager scripts! The *{Token:RefGuide}* also guides you through areas where you’ll make the most customizations.
+-   [Create and deploy a system of your own](iot-solution-build-system.md) using our Azure Resource Manager scripts! The *{Token:RefGuide}* also guides you through areas where you’ll make the most customizations.
 
   [from GitHub]: https://github.com/Azure-Samples/MyDriving
   [using Xamarin]: https://developer.xamarin.com/guides/ios/getting_started/installation/

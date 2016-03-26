@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="MyDriving Azure IoT Example - Build It | Microsoft Azure" 
 	description="Build an app that's a comprehensive demonstration of how to architect an IoT system with Microsoft Azure, including stream analytics, machine learning, event hubs." 
 	services="application-insights" 
@@ -23,7 +23,7 @@ MyDriving is an Internet of Things (IoT) solution that gathers data from your ca
 
 We created the MyDriving solution to give you a jumpstart in creating your own IoT system. From the repo you can get Azure Resource Manager scripts to deploy the backend architecture into your own Azure account, from which point you can reconfigure the different services, modify the queries to suit your own data, and so on. You can find these scripts along with code for the mobile app, the Azure App Service API project, and more on <https://github.com/Azure-Samples/MyDriving>.
 
-If you haven't tried the app yet, here is the [Getting started guide](iot-demo-0-try-app.md).
+If you haven't tried the app yet, look at the [Get started guide](iot-solution-get-started.md).
 
 Here are the main steps to get going. Note that many of them are optional.
 
@@ -47,7 +47,7 @@ The following setup is for developing the full solution: iOS, Android and Window
 
 We use Visual Studio with Xamarin on Windows to develop and manage all the code. Xamarin on iOS is used through an agent to build and run the iOS code.
 
-![](./media/iot-demo-1-build-app/image1.png)
+![](./media/iot-solution-build-system/image1.png)
 
 You don’t need the Mac if you don’t want to include iOS as a target platform.
 
@@ -308,14 +308,14 @@ HockeyApp manages the distribution of your device Android, iOS or Windows app to
 
 Now you’re in your app dashboard.
 
-![](./media/iot-demo-1-build-app/image2.png)
+![](./media/iot-solution-build-system/image2.png)
 
 Repeat the process for each platform that your app runs on.
 
 -   [**Invite test users**](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). You get a URL to recruit testers users. They’ll be able to sign up to your team, download the app and send you feedback.
 
 -   Or if you’d prefer a more open beta release, set the distribution to public: click **Manage App, Distribution, Download = Public.** Now anyone can download your app and send you feedback, and they’ll see a notification when you post a new version. And you might get some crash reports from them too.
-    ![](./media/iot-demo-1-build-app/image3.png)
+    ![](./media/iot-solution-build-system/image3.png)
 
 -   [**Link crash reports to Visual Studio Team Services**](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs): click **Manage App, Visual Studio Team Services**.
     HockeyApp can automatically create work items in Team Services when there are crash reports, or when feedback is received.
@@ -328,7 +328,7 @@ Repeat the process for each platform that your app runs on.
 
 To use Xamarin, you incorporate the [Xamarin.UITests](https://developer.xamarin.com/guides/testcloud/uitest/intro-to-uitest/) SDK into your app, which comes as a NuGet package. You’ll find it in the demo app, and it’s included when you create new test projects with the Xamarin templates.
 
-![](./media/iot-demo-1-build-app/image4.png)
+![](./media/iot-solution-build-system/image4.png)
 
 An example test project is included with the app in the repository: in [MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService), look under [src](https://github.com/Azure-Samples/MyDriving/tree/master/src)/MobileApps/[MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileApps/MyDriving)/MyDriving.UITests/
 
@@ -340,7 +340,7 @@ We use Team Services on this project mostly for its build and test features. But
 
 The steps in the build and release definitions use a variety of plug-in services that are available in the Team Services [Marketplace](https://marketplace.visualstudio.com/VSTS). In addition to basic utilities to run command lines or copy files, there are services that invoke builds by Xamarin, Android and other vendors, and that interface to HockeyApp.
 
-![](./media/iot-demo-1-build-app/image5.png)
+![](./media/iot-solution-build-system/image5.png)
 
 ### Build definitions
 
@@ -382,7 +382,7 @@ If you’d like to see the full details of our configuration, see section 4.7 of
 
 The trigger for the main builds is set to Continuous Integration – that is, the build is run every time code is checked in to the master branch.
 
-![](./media/iot-demo-1-build-app/image6.png)
+![](./media/iot-solution-build-system/image6.png)
 
 ### Release definitions
 
@@ -390,14 +390,14 @@ Release definitions are set up in much the same way.
 
 For the web service, we set up deployment as an Azure web app:
 
-![](./media/iot-demo-1-build-app/image7.png)
+![](./media/iot-solution-build-system/image7.png)
 
 And set the release trigger to continuous deployment – that is, every checkin followed by a successful build results in an update to the web app:
 
-![](./media/iot-demo-1-build-app/image8.png)
+![](./media/iot-solution-build-system/image8.png)
 
 For mobile apps, we deploy to HockeyApp:
-![](./media/iot-demo-1-build-app/image9.png)
+![](./media/iot-solution-build-system/image9.png)
 
 ## Application Insights
 
@@ -407,11 +407,11 @@ We recommend Application Insights for the [Mobile App Service project](https://g
 
 In Visual Studio, right-click the API project and choose **Add Application Insights**. You might be asked to provide your sign-in to Azure. 
 
-![](./media/iot-demo-1-build-app/image10.png)
+![](./media/iot-solution-build-system/image10.png)
 
 After you deploy and run the API project, using the MyDriving mobile app, for example, to make requests, browse the Application Insights resource in Azure to see performance charts, search the diagnostic telemetry, and set up alerts.
 
-![](./media/iot-demo-1-build-app/image11.png)
+![](./media/iot-solution-build-system/image11.png)
 
 You can also set up [Application Insights availability](../app-insights/app-insights-monitor-web-app-availability.md) tests. These will ping your site from various locations around the world, and will send you an email if it responds slowly or not at all.
 
