@@ -31,7 +31,7 @@ by introducing Hyper-V containers. Figure 1 shows the different isolation levels
 ![Isolation Levels](./media/service-fabric-container-integration/processtovm.png)
 
 Service Fabric will support the different types of containers discussed above. We are looking to enable this functionality shortly after GA. This document provides
-a first look at the upcoming Service Fabric container integration, it's scenarios and implementation.
+an early look at the upcoming Service Fabric container integration, it's scenarios and implementation.
 
 For more information on Docker and Windows Containers in general, see Mark Russinovich's blog post 
 about [containers, docker, windows and trends ](https://azure.microsoft.com/en-us/blog/containers-docker-windows-and-trends/).
