@@ -44,7 +44,7 @@ Site Recovery can replicate most apps running on these VMs and physical servers.
 There are currently two different architectures available for replicating VMware VMs or physical Windows/Linux servers to Azure:
 
 - [Legacy architecture](site-recovery-vmware-to-azure-classic-legacy.md): This architecture shouldn't be used for new deployments. 
-- [Enhanced architecture](site-recovery-vmware-to-azure.md): This is the latest architecture and should be used for all new deployments. If you've already deployed this scenario using the legacy architecture [learn about migration](site-recovery-vmware-to-azure-classic-legacy.md#migrate-to-the-enhanced-deployment).
+- [Enhanced architecture](site-recovery-vmware-to-azure-classic.md): This is the latest architecture and should be used for all new deployments. If you've already deployed this scenario using the legacy architecture [learn about migration](site-recovery-vmware-to-azure-classic-legacy.md#migrate-to-the-enhanced-deployment).
 
 In the enhanced deployment you set up an on-premises management server with all Site Recovery components. On each machine you want to protect you automatically push (or manually install) the Mobility service. After initial replication the Mobility service on each machine sends delta replication data to the process server, which optimizes it before sending it to Azure storage.
 
