@@ -16,7 +16,7 @@
    ms.date="03/26/2016"
    ms.author="bscholl"/>
 
-#Service Fabric container integration
+#Orchestrating containers with Service Fabric
 
 ## Introduction
 At a high level containers can be seen as encapsulated, individually deployable components running as isolated instances on the same kernel leveraging operating 
@@ -28,9 +28,9 @@ of containers and monitor them individually. That said there are scenarios where
 better security isolation than provided by cgroups and namespaces, for example in hostile multi-tenant scenarios. Windows addresses that higher isoliation need 
 by introducing Hyper-V containers. Figure 1 shows the different isolation levels.   
 
-![Isolation Levels](./media/service-fabric-container-integration/containerisolation.png)
+![Isolation Levels](./media/service-fabric-container-integration/processtovm.png)
 
-Service Fabric will support the different types of containers discussed above. This document provides
+Service Fabric will support the different types of containers discussed above. We are looking to enable this functionality shortly after GA. This document provides
 a first look at the upcoming Service Fabric container integration, it's scenarios and implementation.
 
 For more information on Docker and Windows Containers in general, see Mark Russinovich's blog post 
@@ -42,7 +42,7 @@ From a user perspective Service Fabric will support two container scenarios:
 
 1. **Guest Container**
 In this use case you can take advantage of Service Fabric's cluster management and orchestration capabilities 
-in the same way as guest executables do. Click [here](service-fabric-deploy-multiple-apps.md) for more information on running guest executables in Service Fabric. You would just define a container image and additional parameters such as environment variables in the ServiceManifest.xml.
+in the same way as guest executables do. Click [here](service-fabric-deploy-existing-app.md) for more information on running guest executables in Service Fabric. You would just define a container image and additional parameters such as environment variables in the ServiceManifest.xml.
 The image can be located either in Docker Hub, a Docker Trusted registry or a private registry. Service Fabric will pull down the image, in case it is not already in the local registry, and 
 launch a container based on arguments you provide. Below is an early example of a ServiceManifest.xml that 
 defines the container image contoso/frontend. 
@@ -63,7 +63,6 @@ defines the container image contoso/frontend.
      . . . 
     </ServiceManifest>
     ```
-    If you run multiple containers with services that need to communicate with each other your are responsible for service registry, service discovery and service monitoring. 
 
 2. **Service Fabric Services inside a container**   
 In this scenario, you build Service Fabric stateless and stateful services the same way you are building native Service Fabric services and package them inside a container.
@@ -74,7 +73,7 @@ and integration with code, config, & data upgrades, just to name a few, in addit
 
     ![SF Services in containers](./media/service-fabric-container-integration/containercluster.png)   
 
-    At a very high level Service Fabric accomplishes the integration with the Service Fabric runtime on the host by mount the Service Fabric host directories as a data volume.
+    At a very high level Service Fabric accomplishes the integration with the Service Fabric runtime on the host system by using Docker data volumes.
 
 ## Summary
 This article was a quick introduction of what is coming with regards to Service Fabric container integration. The biggest take away should be that Service Fabric
