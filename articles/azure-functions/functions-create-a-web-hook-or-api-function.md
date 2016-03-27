@@ -22,8 +22,9 @@
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
 
-[AZURE.VIDEO ]
+In this short video, you will learn how to create an Azure Function in Node.js that listens to messages from a GitHub webhook.
 
-[See this video on Channel 9]()
+[AZURE.VIDEO ]
+&nbsp;
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]

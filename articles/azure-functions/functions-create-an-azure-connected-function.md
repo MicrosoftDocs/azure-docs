@@ -22,10 +22,9 @@
    
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
 
-In this short video you will learn how to create an Azure Function that listens to messages on an Azure Queue and copies the messages to an Azure Blob. 
+In this short video, you will learn how to create an Azure Function that listens to messages on an Azure Queue and copies the messages to an Azure Blob. 
 
 [AZURE.VIDEO ]
-
-[See this video on Channel 9]()
+&nbsp;
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
