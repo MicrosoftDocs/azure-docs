@@ -46,6 +46,7 @@ in the same way as guest executables do. Click [here](service-fabric-deploy-exis
 The image can be located either in Docker Hub, a Docker Trusted registry or a private registry. Service Fabric will pull down the image, in case it is not already in the local registry, and 
 launch a container based on arguments you provide. Below is an early example of a ServiceManifest.xml that 
 defines the container image contoso/frontend. 
+
     ```xml
     <ServiceManifest Name=“ContosoServiceTypePkg" Version="1.0">
      <ServiceTypes>
