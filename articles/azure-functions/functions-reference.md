@@ -297,7 +297,6 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 If you need import namespaces, you can do so as usual, with the `using` clause.
 
 ```csharp
-using System;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -319,7 +318,6 @@ For framework assemblies, you can add references by using the `#r "AssemblyName"
 ```csharp
 #r "System.Web.Http"
 
-using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -411,7 +409,6 @@ You can get queue metadata in your function by using these variable names:
 This C# code example retrieves and logs queue metadata:
 
 ```csharp
-using System;
 using System.Threading.Tasks;
 
 public static void Run(string myQueueItem, 
@@ -434,6 +431,16 @@ public static void Run(string myQueueItem,
         $"dequeueCount={dequeueCount}");
 }
 ```
+
+#### Poison queue messages
+
+Messages whose content causes a function to fail are called *poison messages*. When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated. The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.
+
+The SDK will call a function up to 5 times to process a queue message. If the fifth try fails, the message is moved to a poison queue.
+
+The poison queue is named *{originalqueuename}*-poison. You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed. 
+
+If you want to handle poison messages manually, you can get the number of times a message has been picked up for processing by checking `dequeueCount`.
 
 ### Azure Storage - queue output
 
@@ -474,7 +481,6 @@ The `queue` binding can serialize the following types to a queue message:
 This C# code example writes a single output queue message for each input queue message.
 
 ```csharp
-using System;
 using System.Threading.Tasks;
 
 public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
@@ -486,7 +492,6 @@ public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
 This C# code example writes multiple messages by using  `ICollector<T>` (use `IAsyncCollector<T>` in an async function):
 
 ```csharp
-using System;
 using System.Threading.Tasks;
 
 public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
@@ -538,7 +543,6 @@ Blobs can be deserialized to these types:
 This C# code example logs the contents of each blob that is added to the container.
 
 ```csharp
-using System;
 using System.Threading.Tasks;
 
 public static void Run(string myBlob, TraceWriter log)
@@ -590,6 +594,19 @@ Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure
 * The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
 If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the *azure-webjobs-hosts* container.
+
+#### Handling poison blobs
+
+When a blob trigger function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
+
+The queue message for poison blobs is a JSON object that contains the following properties:
+
+* FunctionId (in the format *{function app name}*.Functions.*{function name}*)
+* BlobType ("BlockBlob" or "PageBlob")
+* ContainerName
+* BlobName
+* ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+
 
 ### Azure Storage - blob input and output
 
@@ -643,7 +660,6 @@ The `blob` binding can serialize or deserialize the following types:
 This C# code example copies a blob whose name is received in a queue message.
 
 ```CSHARP
-using System;
 using System.Threading.Tasks;
 
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
@@ -684,10 +700,20 @@ The *function.json* file provides the name of the queue or topic to poll and the
 }
 ```
 
+#### Service Bus queue or topic supported types
+
+The Service Bus queue message can be deserialized to any of the following types:
+
+* `string` (creates queue message if parameter value is non-null when the function ends)
+* `byte[]` (works like string) 
+* `BrokeredMessage` (works like string) 
+* JSON object (creates a message with a null object if the parameter is null when the function ends)
+
+#### Service Bus queue trigger C# code example
+
 This C# code example writes a log message for each Service Bus queue or topic message received.
 
 ```csharp
-using System;
 using System.Threading.Tasks;
 
 public static void Run(string myQueueItem, TraceWriter log)
@@ -695,8 +721,14 @@ public static void Run(string myQueueItem, TraceWriter log)
     log.Verbose($"C# Service Bus queue trigger function processed: {myQueueItem}");
 }
 ```
- 
-### Azure Service Bus - queue or topic output
+
+#### How Service Bus queue or topic trigger works
+
+The SDK receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+
+Service Bus does its own poison queue handling which cannot be controlled or configured by the WebJobs SDK. 
+
+### Service Bus - queue or topic output
 
 To use a Service Bus trigger or binding, set up the function app by adding a connection string named AzureWebJobsServiceBus. For directions, see [Service Bus queue or topic trigger](#sbqueue) earlier in this article. 
 
@@ -738,8 +770,6 @@ The output parameter for creating a Service Bus queue message can be any of the 
 This C# code example works with the preceding *function.json* file to write a single `string` message to a Service Bus queue.
 
 ```csharp
-using System;
-
 public static void Run(TimerInfo myTimer, out string OutPutQueueItem, TraceWriter log)
 {
     log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}"); 
@@ -751,8 +781,6 @@ public static void Run(TimerInfo myTimer, out string OutPutQueueItem, TraceWrite
 This C# code example creates multiple messages by using `ICollector<T>` (use `IAsyncCollector<T>` in an async function):
 
 ```csharp
-using System;
-
 public static void Run(TimerInfo myTimer, ICollector<string> OutPutQueueItem, TraceWriter log)
 {
     log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}"); 
