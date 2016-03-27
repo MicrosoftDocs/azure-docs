@@ -92,12 +92,12 @@ Here is a code snippet for changing the offer type:
 
 	//Fetch the resource to be updated
 	Offer offer = client.CreateOfferQuery()
-	                          .Where(r => r.ResourceLink == "collection selfLink")    
-	                          .AsEnumerable()
-	                          .SingleOrDefault();
+		              .Where(r => r.ResourceLink == collection.SelfLink)    
+		              .AsEnumerable()
+		              .SingleOrDefault();
 	                          
-	//Change the user mode to All
-	offer.OfferType = "S3";
+	// Set the throughput to 50,000 request units per second
+	offer = new OfferV2(offer, 50000);
 	                    
 	//Now persist these changes to the database by replacing the original resource
 	Offer updated = await client.ReplaceOfferAsync(offer);

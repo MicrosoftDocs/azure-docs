@@ -43,60 +43,9 @@ Yes, DocumentDB supports cross-document transactions expressed as JavaScript sto
 DocumentDB is a good choice for new web, mobile, gaming and IoT applications where automatic scale, predictable performance, fast order of millisecond response times, and the ability to query over schema-free data is important. DocumentDB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user generated content and data are [common use cases for DocumentDB](documentdb-use-cases.md).  
 
 ### How does DocumentDB offer predictable performance?
-When you create a collection, you reserve throughput in terms of request units (RU) per second. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation.  The simplest operation - a read of a 1KB operation with eventual consistency consumes 1 request unit. 
+A Request Unit (RU) is the measure of throughput in DocumentDB. 1 RU corresponds to the throughput of the GET of a 1KB document. Every operation in DocumentDB, including reads, writes, SQL queries, and stored procedure executions has a deterministic Request Unit value based on the throughput required to complete the operation. Instead of thinking about CPU, IO and memory and how they each impact your application throughput, you can think in terms of a single Request Unit measure.
 
-A read consumes the same 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. All operations against DocumentDB, including complex operations like SQL queries have a predictable RU value which can be determined at development time. If you know the size of your documents and the count of each operation (reads, writes and queries) to support for your application, you can provision the exact amount of throughput required for your application's needs. 
-
-For example, here's a table that shows how many request units to provision at three different document sizes (1KB, 4KB, and 64KB) and at two different performance levels (500 reads/second + 100 writes/second and 500 reads/second + 500 writes/second). 
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p><strong>Document size</strong></p></td>
-            <td valign="top"><p><strong>Reads/second</strong></p></td>
-            <td valign="top"><p><strong>Writes/second</strong></p></td>
-            <td valign="top"><p><strong>Request units</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>1 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1) + (100 * 5) = 1,000 RU/s</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>1 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 5) + (100 * 5) = 3,000 RU/s</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>4 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1.3) + (100 * 7) = 1,350 RU/s</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>4 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 1.3) + (500 * 7) = 4,150 RU/s</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>64 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 10) + (100 * 48) = 9,800 RU/s</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>64 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 10) + (500 * 48) = 29,000 RU/s</p></td>
-        </tr>
-    </tbody>
-</table>
-
-Learn more about request units [here](documentdb-performance-levels.md).
+Each DocumentDB collection can be reserved with provisioned throughput in terms of Request Units of throughput per second. For applications of any scale, you can benchmark individual requests to measure their request unit values, and provision collections to handle the sum total of request units across all requests. You can also scale up or scale down your collection’s throughput as the needs of your application evolve. For more information about request units and for help determining your collection needs, please read [Manage Performance and Capacity](documentdb-manage.md).
 
 ### Is DocumentDB HIPAA compliant?
 Yes, DocumentDB is HIPAA compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).

@@ -40,18 +40,23 @@ For example, consider an application that stores data about employees and their 
 The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. Let's take a look at how the choice of partition key impacts the performance of your application.
 
 ### Partitioning and Provisioned Throughput
-DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **request units (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation.  The simplest operation - a read of a 1KB operation with eventual consistency consumes 1 request unit. This is the same 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
+DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **request units (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation. A read of a 1 kB document with Session consistency consumes 1 request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
 
 When DocumentDB stores documents, it distributes them evenly among partitions based on the partition key value. The throughput is also distributed evenly among the available partitions i.e. the throughput per partition = (total throughput per collection)/ (number of partitions). 
 
 > [AZURE.NOTE] In order to achieve the full throughput of the collection, you must choose a good partition key, and design your workload to evenly distribute requests among a number of distinct partition key values.
 
 ## Single Partition and Partitioned Collections
-In order to create a partitioned collection, you must specify a provisioned throughput greater than **10,000 request units per second**. By default, collections are configured to store up to 250 GB of storage and scale up to 250,000 request units per second. If you need higher storage or throughput per collection, please contact [Azure Support](documentdb-increase-limits) to have these increased for your account.
+DocumentDB supports the creation of both single-partition and partitioned collections. 
+
+- **Partitioned collections** can span multiple partitions and support unlimited amount of storage and throughput. You must specify a partition key for the collection.
+- **Single-partition collections** have the scalability and storage limits of a single partition. You do not have to specify a partition key for these collections. 
 
 ![Partitioned collections in DocumentDB][2] 
 
-For scenarios that do not need large volumes of storage or throughput, you can omit specifying the partition key for a collection. These **single-partition collections** have scalability and storage limits of a single partition, i.e. up to 10 GB of storage and up to 10,000 request units per second. 
+For scenarios that do not need large volumes of storage or throughput, single partition collections are a good fit. Note that single-partition collections have the scalability and storage limits of a single partition, i.e. up to 10 GB of storage and up to 10,000 request units per second. 
+
+Partitioned collections can support unlimited storage and throughput. The default offers however are configured to store up to 250 GB of storage and scale up to 250,000 request units per second. If you need higher storage or throughput per collection, please contact [Azure Support](documentdb-increase-limits) to have these increased for your account.
 
 The following table lists differences in working with a single-partition and partitioned collections:
 
@@ -99,7 +104,6 @@ The following table lists differences in working with a single-partition and par
         </tr>
     </tbody>
 </table>
-
 ## Working with the SDKs
 
 Azure DocumentDB added support for automatic partitioning with [REST API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). In order to create partitioned collections, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python). 
