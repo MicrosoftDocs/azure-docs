@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure the Docker client | Microsoft Azure"
-   description="Step-by-step instructions to configure and test the default instance of the Docker machine"
+   pageTitle="Configure a Docker Host with VirtualBox | Microsoft Azure"
+   description="Step-by-step instructions to configure a default Docker instance using Docker Machine and VirtualBox"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -12,13 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/26/2016"
+   ms.date="03/27/2016"
    ms.author="tarcher" />
 
-# Configure the Docker client
+# Configure a Docker Host with VirtualBox
 
 ## Overview
-This article will guide you through making sure that the default instance of Docker machine is configured and running.
+This article guides you through configuring a default Docker instance using Docker Machine and VirtualBox. 
+If you’re using the [Docker for Windows beta](http://beta.docker.com/), this configuration is not necessary.
 
 ## Prerequisites
 The following tools need to be installed.
