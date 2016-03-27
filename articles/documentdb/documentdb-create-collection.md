@@ -40,25 +40,11 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
 	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
 
-6. Select a partitioning mode for the collection. A single partition has a reserved storage capacity of 10GB, whereas a partitioned collection can scale to handle larger data sets. 
-   
-    - If you select **Single Partition**, you then select one of the following **Indexing Policies**. 
+6. Select a partitioning mode for the collection, either **Single Partition** or **Partitioned**. A single partition has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second. A partitioned collection can scale to handle 250GB of storage over multiple partitions, and can have throughput levels from 10,100-250,000 request units/second. 
 
-		**Default**. This policy uses hash indexing for strings and range indexing for numbers. It is best for equality queries against strings, ORDER BY, and range and equality queries on numbers. This policy has a lower index storage overhead and includes geospatial indexing.
-	
-		**Range**. This policy is best when you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than **Default** and includes geospatial indexing.
+7. Select the **Throughput** for the partitioned collection. One Request Unit (RU) corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md).
 
-		For more information about the indexing policies, see [DocumentDB indexing policies](documentdb-indexing-policies.md). 
-
-    	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-7.png)
-
-    	Then skip to step 9.
-
-    - If you select **Partitioned**, continue to step 7.
-
-7. Select the **Throughput** for the partitioned collection. 
-
-8. Select the **Partition Key** for the collection. 
+8. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Partitioning data in DocumentDB](documentdb-partition-data.md).
 
 9. Click **OK** at the bottom of the screen to create the new collection. 
 
