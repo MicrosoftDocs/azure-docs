@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dontnet"
+	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="03/25/2016"
 	ms.author="piyushjo" />
