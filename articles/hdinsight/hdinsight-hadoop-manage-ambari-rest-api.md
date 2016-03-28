@@ -157,15 +157,21 @@ You can then use this information with the [Azure CLI](../xplat-cli-install.md) 
     
 2. Retrieve the configuration for the component and tag by using the following command.
 
-        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .config) | .tag |= $newtag' > newconfig.json
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     
     Curl retrieves the JSON document, then jq is used to make some modifications to create a template that we can use to add/modify configuration values. Specifically it does the following:
     
-    * Gets the contents of the .items[] array
-    * Deletes the __href__, __version__, and __config__ elements, as these aren't needed to submit changes
-    * Adds a new __tag__ element and sets it's value to __version#################__ where the numeric portion is based on the current date
+    * Creates a root document for the new desired configuration
+    * Gets the contents of the .items[] array and adds it under the __desired_config__ element.
+    * Deletes the __href__, __version__, and __Config__ elements, as these aren't needed to submit a new configuration
+    * Adds a new __tag__ element and sets it's value to __version#################__ where the numeric portion is based on the current date. Each configuration must have a unique tag.
     
     Finally, the data is saved to the __newconfig.json__ document.
+
+3. Open the __newconfig.json__ document and modify/add values in the __properties__ object. For example, change the value of __"spark.yarn.am.memory"__ from __"1g"__ to __"3g"__ and add a new element for "spark.kryoserializer.buffer.max" with a value of "256m".
+
+        "spark.kyroserializer.buffer.max": "256m",
+        "spark.yarn.am.memory": "3g",
 
 ##Next steps
 
