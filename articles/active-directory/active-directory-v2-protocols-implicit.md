@@ -41,6 +41,8 @@ The entire implicit sign in flow looks something like this - each of the steps a
 
 To initially sign the user into your app, you can send an [OpenID Connect](active-directory-v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint:
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3c702abc0ac63e068fc8)
+
 ```
 // Line breaks for legibility only
 
@@ -52,12 +54,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_mode=fragment
 &state=12345
 &nonce=678910
-```
-
-> [AZURE.TIP] Try pasting the below request into a browser!
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910
 ```
 
 | Parameter | | Description |
@@ -138,6 +134,8 @@ Now that you've signed the user into your single page app, you can get access to
 
 In the normal OpenID Connect/OAuth flow, you would do this by making a request to the v2.0 `/token` endpoint.  However, the v2.0 endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question.  Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs: 
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3c702abc0ac63e068fc8)
+
 ```
 // Line breaks for legibility only
 
@@ -150,12 +148,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &prompt=none
 &domain_hint=organizations
 &login_hint=myuser@mycompany.com
-```
-
-> [AZURE.TIP] Try pasting the below request into a browser! (but if you want it to succeed, modify the domain_hint & login_hint values first)
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=organizations&login_hint=myuser@mycompany.com
 ```
 
 | Parameter | | Description |
