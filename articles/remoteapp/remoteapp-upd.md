@@ -149,8 +149,13 @@ NO, data stored anywhere on the VM other than in the UPD will be lost. There is 
 ## How do I mount an Azure File share on a VM, using PowerShell?
 
 You can use the Net-PSDrive cmdlet to mount the drive, as follows:
+
     New-PSDrive -Name <drive-name> -PSProvider FileSystem -Root \\<storage-account-name>.file.core.windows.net\<share-name> -Credential :<storage-account-name>
-        
+
+
 You can also save your credentials by running the following:
+
     cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+
+
 That lets you skip the -Credential parameter in the New-PSDrive cmdlet.
