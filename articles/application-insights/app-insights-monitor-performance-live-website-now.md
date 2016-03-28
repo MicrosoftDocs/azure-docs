@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="03/09/2016"
 	ms.author="awills"/>
 
 
@@ -154,7 +154,7 @@ You need to open some outgoing ports in your server's firewall to allow Status M
  -	`management.azure.com:443`
  -	`login.windows.net:443`
  -	`login.microsoftonline.com:443`
- -	`secure.addcdn.microsoftonline-p.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
  -	`auth.gfx.ms:443`
  -	`login.live.com:443`
 + Installation:

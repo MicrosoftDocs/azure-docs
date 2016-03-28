@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="The summarize statement and aggregation functions in Application Analytics" 
-	description="Reference for aggregation functions and the summarize statement in Application Analytics, 
-	             the powerful search tool for Application Insights. " 
+	pageTitle="Summarize and aggregation in Analytics in Application Insights" 
+	description="Reference for aggregation functions and the summarize statement in Analytics, 
+	             the powerful search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,21 +13,19 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
+# Aggregation in Analytics
 
-# Aggregation in Application Analytics
-
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL.
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 
-
-## `summarize` operator
+## summarize operator
 
 Produces a table that aggregates the content of the input table.
 
@@ -45,9 +43,9 @@ Produces a table that aggregates the content of the input table.
 ### Syntax
 
     T | summarize
-         [  [Column =] Aggregation [`,` ...]]
+         [  [ Column = ] Aggregation [ , ... ]]
          [ by
-            [Column =] GroupExpression [`,` ...]]
+            [ Column = ] GroupExpression [ , ... ]]
 
 **Arguments**
 
@@ -55,7 +53,7 @@ Produces a table that aggregates the content of the input table.
 * *Aggregation:* A call to an aggregation function such as `count()` or `avg()`, with column names as arguments. See the list of aggregation functions below.
 * *GroupExpression:* An expression over the columns, that provides a set of distinct values. Typically it's either a column name that already provides a restricted set of values, or `bin()` with a numeric or time column as argument. 
 
-If you provide a numeric or time expression without using `bin()`, Application Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
+If you provide a numeric or time expression without using `bin()`, Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
 
 If you don't provide a *GroupExpression,* the whole table is summarized in a single output row.
 
@@ -85,10 +83,11 @@ If we want to group by a continuous scalar such as a number or time, we have to 
 
     requests
     | summarize count() 
-      by duration_range=bin(duration, 1)
+      by bin(duration, 1000)/1000
 
 ![result](./media/app-analytics-aggregations/04.png)
 
+(The request duration field is a number in milliseconds.)
  
 ## Tips
 
@@ -155,7 +154,7 @@ Now let's find the average session durations for clients in different cities:
     | top 50 by duration_by_city
 ```
 
-We added the `location_City` column to the `by` clause so that it will pass through the first summarize operation. Assuming all the events of one client session happen in the same city, it won't add to the number of outputs of the summarize.
+We added the `client_City` column to the `by` clause so that it will pass through the first summarize operation. Assuming all the events of one client session happen in the same city, it won't add to the number of outputs of the summarize.
 
 
 ![](./media/app-analytics-aggregations/durationcity.png)
@@ -174,9 +173,7 @@ requests
 | sort by max_pop_tod asc
 ```
 
-
-
-## Aggregation functions
+## AGGREGATIONS
 
 ## any 
 
@@ -196,6 +193,8 @@ traces
 | top 10 by count_level desc 
 ```
 
+<a name="argmin"></a>
+<a name="argmax"></a>
 ## argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
@@ -207,13 +206,13 @@ Finds a row in the group that minimizes/maximises *ExprToMaximize*, and returns 
 
 **Examples**
 
-Show cheapest supplier of each product:
+For each request name, show when the longest request occurred:
 
-    Supplies | summarize argmin(Price, Supplier) by Product
+    requests | summarize argmax(duration, timestamp) by name
 
-Show all the details, not just the supplier name:
+Show all the details of the longest request, not just the timestamp:
 
-    Supplies | summarize argmin(Price, *) by Product
+    requests | summarize argmax(duration, *) by name
 
 
 Find the lowest value of each metric, together with its timestamp and other data:
@@ -239,9 +238,36 @@ Calculates the average of *Expression* across the group.
 
 Returns the minimal schema that admits all values of *DynamicExpression*. 
 
-The parameter column type should be `dynamic`. 
+The parameter column type should be `dynamic` - an array or property bag. 
 
-**Tip:** If `buildschema(json_column)` gives a syntax error: Is your `json_column` a string rather than a dynamic object? If so, you need `buildschema(parsejson(json_column))`.
+**Example**
+
+    exceptions | summarize buildschema(details)
+
+Result:
+
+    { "`indexer`":
+     {"id":"string",
+       "parsedStack":
+       { "`indexer`": 
+         {  "level":"int",
+            "assembly":"string",
+            "fileName":"string",
+            "method":"string",
+            "line":"int"
+         }},
+      "outerId":"string",
+      "message":"string",
+      "type":"string",
+      "rawStack":"string"
+    }}
+
+Notice that `indexer` is used to mark where you should use a numeric index. For this schema, some valid paths would be (assuming these example indexes are in range):
+
+    details[0].parsedStack[2].level
+    details[0].message
+    arraylength(details)
+    arraylength(details[0].parsedStack)
 
 **Example**
 
@@ -283,7 +309,7 @@ The syntax of the returned schema is:
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
-They are equivalent to a subset of the TypeScript type annotations, encoded as a CSL dynamic value. In Typescript, the example schema would be:
+They are equivalent to a subset of the TypeScript type annotations, encoded as a dynamic value. In Typescript, the example schema would be:
 
     var someobject: 
     { 
@@ -362,6 +388,9 @@ Calculates the minimum of *Expr*.
 
 **Tip**: This gives you the min or max on its own - for example, the highest or lowest price. But if you want other columns in the row - for example, the name of the supplier with the lowest price - use [argmin or argmax](#argmin-argmax).
 
+
+<a name="percentile"></a>
+<a name="percentiles"></a>
 ## percentile, percentiles
 
     percentile(Expression, Percentile)
@@ -375,26 +404,35 @@ Like `percentile()`, but calculates a number of percentile values (which is fast
 **Examples**
 
 
-The value of `Duration` that is larger than 95% of the sample set and smaller than 5% of the sample set:
+The value of `duration` that is larger than 95% of the sample set and smaller than 5% of the sample set, calculated for each request name:
 
-    CallDetailRecords | summarize percentile(Duration, 95) by continent
+    request 
+    | summarize percentile(duration, 95)
+      by name
 
+Omit "by..." to calculate for the whole table.
 
-Simultaneously calculate 5, 50 (median) and 95:
+Simultaneously calculate several percentiles for different request names:
 
-    CallDetailRecords 
-    | summarize percentiles(Duration, 5, 50, 95) by continent
+    
+    requests 
+    | summarize 
+        percentiles(duration, 5, 20, 50, 80, 95) 
+      by name
 
 ![](./media/app-analytics-aggregations/percentiles.png)
 
-The results show that in Europe, 5% of calls are shorter than 11.55s, 50% of calls are shorter than 3 minutes 18.46 seconds, and 95% of calls are shorter than 40 minutes 48 seconds.
+The results show that for the request /Events/Index, 5% of requests are responded to in less than 2.44s,  half of them in 3.52s, and 5% are slower than 6.85s.
 
 
 Calculate multiple statistics:
 
-    CallDetailRecords 
-    | summarize percentiles(Duration, 5, 50, 95), avg(Duration)
-
+    requests 
+    | summarize 
+        count(), 
+        avg(Duration),
+        percentiles(Duration, 5, 50, 95)
+      by name
 
 #### Estimation error in percentiles
 

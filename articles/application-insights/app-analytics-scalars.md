@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Scalar expressions in Application Analytics" 
-	description="Numbers, strings, dynamic expressions and types in Application Analytics, 
-	             the powerful search tool for Application Insights." 
+	pageTitle="Scalar expressions in Analytics in Application Insights" 
+	description="Numbers, strings, dynamic expressions and types in Analytics, 
+	             the powerful search tool of Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,17 +13,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
  
-# Scalar expressions in Application Analytics
+# Scalar expressions in Analytics
 
 
-[Application Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Analytics query lanuage, CSL.
+[Analytics](app-analytics.md) is the powerful search feature of 
+[Application Insights](app-insights-overview.md). These pages describe the
+ Analytics query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -39,7 +38,7 @@ Application Analytics query lanuage, CSL.
 
 
 
-"Scalar" means values like numbers or strings that can occupy a single cell in a CSL table. Scalar expressions are built from scalar functions and operators and evaluate to scalar values. `sqrt(score)/100 > target+2` is a scalar expression.
+"Scalar" means values like numbers or strings that can occupy a single cell in a table. Scalar expressions are built from scalar functions and operators and evaluate to scalar values. `sqrt(score)/100 > target+2` is a scalar expression.
 
 "Scalar" also includes arrays and composite objects, which can also be stored in a single database cell.
 
@@ -295,7 +294,7 @@ Expression | Result
 The following expression calculates a histogram of durations,
 with a bucket size of 1 second:
 
-```CSL
+```AIQL
 
     T | summarize Hits=count() by bin(Duration, 1s)
 ```
@@ -435,7 +434,7 @@ for all instantiations.
 
 All rows with a timestamp in the past hour:
 
-```CSL
+```AIQL
 
     T | where timestamp > ago(1h)
 ```
@@ -462,7 +461,7 @@ The `timespan` since midnight at the beginning of the preceding Sunday, rounded 
 
 **Examples**
 
-```CSL
+```AIQL
 dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
 dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 ```
@@ -512,7 +511,7 @@ The current UTC clock time as a `datetime`.
 
 Determines the interval since the event identified by the predicate:
 
-```CSL
+```AIQL
 T | where ... | extend Elapsed=now() - timestamp
 ```
 
@@ -569,7 +568,7 @@ Backslash (`\`) is used to escape characters such as `\t` (tab), `\n` (newline) 
 
 ### Obfuscated String Literals
 
-Obfuscated string literals are strings that Application Analytics will obscure when outputting the string (for example, when tracing). The obfuscation process replaces all obfuscated characters by a start (`*`) character.
+Obfuscated string literals are strings that Analytics will obscure when outputting the string (for example, when tracing). The obfuscation process replaces all obfuscated characters by a start (`*`) character.
 
 To form an obfuscated string literal, prepend `h` or 'H'. For example:
 
@@ -670,7 +669,7 @@ If there's no match, or the type conversion fails: `null`.
 The example string `Trace` is searched for a definition for `Duration`. 
 The match is converted to `real`, then multiplied it by a time constant (`1s`) so that `Duration` is of type `timespan`. In this example, it is equal to 123.45 seconds:
 
-```CSL
+```AIQL
 ...
 | extend Trace="A=1, B=2, Duration=123.45, ..."
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s) 
@@ -678,7 +677,7 @@ The match is converted to `real`, then multiplied it by a time constant (`1s`) s
 
 This example is equivalent to `substring(Text, 2, 4)`:
 
-```CSL
+```AIQL
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
@@ -746,7 +745,7 @@ Replace all regex matches with another string.
 
 This statement:
 
-```CSL
+```AIQL
 range x from 1 to 5 step 1
 | extend str=strcat('Number is ', tostring(x))
 | extend replaced=replace(@'is (\d+)', @'was: \1', str)
@@ -857,35 +856,96 @@ Converts a string to upper case.
     guid(00000000-1111-2222-3333-055567f333de)
 
 
-## Dynamic type
+## Arrays and objects - dynamic types
 
 [literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
 <br/>
 [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
-Dynamic type means that an object might be of any type: its type is determined at run time. The elements in arrays and property bags have dynamic type - each element can have its own type.
 
-For example, here's the result of a query on an Application Insights event. The value in customDimensions is dynamic.
+Here's the result of a query on an Application Insights exception. The value in `details` is an array.
 
 ![](./media/app-analytics-scalars/310.png)
 
-
-**To get the values out of this, you must convert it `todynamic`, and then cast the result:**
+**Indexing:** Index arrays and objects just as in JavaScript:
 
     exceptions | take 1
-    | extend clientReqId = tostring(todynamic(customDimensions).ClientRequestId),
-             retries = toint(todynamic(customDimensions).RetryCount)
+    | extend 
+        line = details[0].parsedStack[0].line,
+        stackdepth = arraylength(details[0].parsedStack)
 
-`todynamic` is required because the structured object is sent in the telemetry as a JSON string. The outer cast (`toint` or `tostring` in this example) is required because when you get a field from a structured object, its type is not known to the compiler.
+* But use `arraylength` and other Analytics functions (not ".length"!)
 
-It's sometimes difficult to see the paths you need to access a deeply structured object. Use [treepath](#treepath) to enumerate them.
+**Casting** In some cases it's necessary to cast an element that you extract from an object, because its type could vary. For example, `summarize...to` needs a specific type:
 
-### Dynamic literals
+    exceptions 
+    | summarize count() 
+      by toint(details[0].parsedStack[0].line)
 
-To create a dynamic literal, use `parsejson` with a JSON string argument:
+    exceptions 
+    | summarize count() 
+      by tostring(details[0].parsedStack[0].assembly)
+
+**Literals** To create an explicit array or property-bag object, write it as a JSON string and cast:
+
+    todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
+
+
+**mvexpand:** To pull apart the properties of an object into separate rows, use mvexpand:
+
+    exceptions | take 1 
+    | mvexpand details[0].parsedStack[0]
+
+
+![](./media/app-analytics-scalars/410.png)
+
+
+**treepath:** To find all the paths in a complex object:
+
+    exceptions | take 1 | project timestamp, details 
+    | extend path = treepath(details) 
+    | mvexpand path
+
+
+![](./media/app-analytics-scalars/420.png)
+
+**buildschema:** To find the minimum schema that admits all values of the expression in the table:
+
+    exceptions | summarize buildschema(details)
+
+Result:
+
+    { "`indexer`":
+     {"id":"string",
+       "parsedStack":
+       { "`indexer`": 
+         {  "level":"int",
+            "assembly":"string",
+            "fileName":"string",
+            "method":"string",
+            "line":"int"
+         }},
+      "outerId":"string",
+      "message":"string",
+      "type":"string",
+      "rawStack":"string"
+    }}
+
+Notice that `indexer` is used to mark where you should use a numeric index. For this schema, some valid paths would be (assuming these example indexes are in range):
+
+    details[0].parsedStack[2].level
+    details[0].message
+    arraylength(details)
+    arraylength(details[0].parsedStack)
+
+
+
+### Array and object literals
+
+To create a dynamic literal, use `parsejson` (alias `todynamic`) with a JSON string argument:
 
 * `parsejson('[43, 21, 65]')` - an array of numbers
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` - a dictionary
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
 * `parsejson('21')` - a single value of dynamic type containing a number
 * `parsejson('"21"')` - a single value of dynamic type containing a string
 
@@ -900,36 +960,6 @@ T
 | extend n = person.name, add = person.address.street
 ```
 
-
-### Casting dynamic objects
-
-After subscripting a dynamic object, you must cast the value to a simple type.
-
-|Expression | Value | Type|
-|---|---|---|
-| X | parsejson('[100,101,102]')| array|
-|X[0]|parsejson('100')|dynamic|
-|toint(X[1])|101| int|
-
-To subscript a dictionary, use either the `dict.key` or `dict["key"]` notation - they're equivalent.
-
-|Expression | Value | Type|
-|---|---|---|
-| Y | parsejson('{"a1":100, "a b c":"2015-01-01"}')| dictionary|
-|Y.a1|parsejson('100')|dynamic|
-|Y["a b c"]| parsejson("2015-01-01")|dynamic|
-|todate(Y["a b c"])|datetime(2015-01-01)| datetime|
-
-Cast functions are:
-
-* `toint()`
-* `tolong()`
-* `todouble()`
-* `todatetime()`
-* `totimespan()`
-* `tostring()`
-* `toguid()`
-* `todynamic()`
 
 <a name="operators"></a>
 ### Operators and functions over dynamic types
@@ -1065,11 +1095,11 @@ that looks like this:
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-then the following CSL Fragment retrieves the value of the `duration` slot
+then the following fragment retrieves the value of the `duration` slot
 in the object, and from that it retrieves two slots, `duration.value` and
  `duration.min` (`118.0` and `110.0`, respectively).
 
-```CSL
+```AIQL
 T
 | ...
 | extend d=parsejson(context_custom_metrics) 
@@ -1100,14 +1130,14 @@ the array.
 
 The following example returns `[1, 4, 7]`:
 
-```CSL
+```AIQL
 range(1, 8, 3)
 ```
 
 The following example returns an array holding all days
 in the year 2015:
 
-```CSL
+```AIQL
 
     range(datetime(2015-01-01), datetime(2015-12-31), 1d)
 ```

@@ -3,7 +3,7 @@
 	description="Learn how to download and install the Azure SDK for PHP."
 	documentationCenter="php"
 	services="app-service\web"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="12/16/2015"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Download the Azure SDK for PHP
 

@@ -12,8 +12,8 @@
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/03/2016"
+	ms.topic="get-started-article"
+	ms.date="03/08/2016"
 	ms.author="juliako"/>
 
 

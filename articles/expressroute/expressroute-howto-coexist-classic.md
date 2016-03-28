@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/18/2016"
    ms.author="cherylmc"/>
 
 # Configure ExpressRoute and Site-to-Site coexisting connections
@@ -34,6 +34,7 @@ ExpressRoute circuits must be pre-configured before you follow the instructions 
 - **Point-to-site is not supported:** You can't enable point-to-site VPN connections to the same VNet that is connected to ExpressRoute. Point-to-site VPN and ExpressRoute cannot coexist for the same VNet.
 - **Forced tunneling cannot be enabled on the Site-to-Site VPN gateway:** You can only "force" all Internet-bound traffic back to your on-premises network via ExpressRoute. 
 - **Only standard or high performance gateways:** You must use a standard or high performance gateway for both the ExpressRoute gateway and the Site-to-Site VPN gateway. See [Gateway SKUs](../vpn-gateway/vpn-gateway-about-vpngateways.md) for information about gateway SKUs.
+- **Only route-based VPN gateway:** You must use a route-based VPN gateway. See [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) for information about the route-based VPN gateway.
 - **Static route requirement:** If your local network is connected to both ExpressRoute and a Site-to-Site VPN, you must have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet.
 - **ExpressRoute gateway must be configured first:** You must create the ExpressRoute gateway first before you add the Site-to-Site VPN gateway.
 
@@ -188,7 +189,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 
 1. You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. Note that the cmdlets that you'll use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
 
-2. Delete the existing Site-to-Site VPN gateway. Use the following cmdlet, replacing the values with your own.
+2. Delete the existing ExpressRoute or Site-to-Site VPN gateway. Use the following cmdlet, replacing the values with your own.
 
 	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
 

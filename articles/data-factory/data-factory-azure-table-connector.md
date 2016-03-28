@@ -380,7 +380,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Use the custom query to read data. | <p>Azure table query string. See examples below. | No
+azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples below. | No
 azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE<br/>FALSE | No |
 
 ### azureTableSourceQuery examples
@@ -526,7 +526,8 @@ In this case data factory will automatically do the type conversions including t
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 
 
 

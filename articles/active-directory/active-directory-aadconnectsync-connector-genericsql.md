@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Generic SQL Connector technical reference
@@ -22,9 +22,11 @@ This article describes the Generic SQL Connector. The article applies to the fol
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Must use hotfix 4.1.3461.0 or later [KB2870703](https://support.microsoft.com/kb/2870703).
+    -   Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
 
 For MIM2016 and FIM2010R2 the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
+
+To see this Connector in action, see the [Generic SQL Connector step-by-step](active-directory-aadconnectsync-connector-genericsql-step-by-step.md) article.
 
 ## Overview of the Generic SQL Connector
 
@@ -78,9 +80,9 @@ The Connectivity screen is the first when you create a new Generic SQL Connector
 
 The database should support one of the authentication methods mentioned below.
 
-- **Windows authentication**: The authenticating database will use the Windows credentials to verify the user. In this case the service account used by the synchronization service will be used. This account will need permissions to the database.
+- **Windows authentication**: The authenticating database will use the Windows credentials to verify the user. The user name/password specified will be used to authenticate with the database. This account will need permissions to the database.
 - **SQL authentication**: The authenticating database will use the user name/password defined one the Connectivity screen to connect to the database. If you store the user name/pasword in the DSN file, the credentials provided on the Connectivity screen has precedence.
-- **Azure SQL Database authentication**: For more information see [Connect to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+- **Azure SQL Database authentication**: For more information see [Connect to SQL Database By Using Azure Active Directory Authentication](..\sql-database\sql-database-aad-authentication.md)
 
 **DN is Anchor**: If you select this option, the DN will also be used as the anchor attribute. It can be used for a simple implementation but also has the following limitations:
 

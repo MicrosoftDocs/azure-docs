@@ -193,7 +193,7 @@ Consider the following points when deciding whether to deploy background tasks i
 ### More information
 
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
-- [Azure Virtual Machines FAQ](virtual-machines-questions.md)
+- [Azure Virtual Machines FAQ](virtual-machines/virtual-machines-linux-classic-faq.md)
 
 ## Design considerations
 

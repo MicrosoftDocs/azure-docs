@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/04/2016"
+   ms.date="03/23/2016"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -52,7 +52,7 @@ The following software requirements are for the optional StorSimple components (
  
 ## Networking requirements for your StorSimple device
 
-Your StorSimple device is a locked-down device. However, ports need to be opened in your firewall to allow for iSCSI, cloud, or management traffic. The following table lists the ports that need to be opened in your firewall. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
+Your StorSimple device is a locked-down device. However, ports need to be opened in your firewall to allow for iSCSI, cloud, and management traffic. The following table lists the ports that need to be opened in your firewall. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
 
 | Port No.<sup>1,2</sup> | In or out | Port scope | Required | Notes |
 |------------------------|-----------|------------|----------|-------| 
@@ -72,6 +72,25 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 <sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
 
 > [AZURE.IMPORTANT] Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+
+### URL patterns for firewall rules 
+
+Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your StorSimple device and the StorSimple Manager service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. This in turn will require the network administrator to monitor and update firewall rules for your StorSimple as and when needed. 
+
+We recommend that you set your firewall rules for outbound traffic, based on StorSimple fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
+
+> [AZURE.NOTE] The device (source) IPs should always be set to all the enabled network interfaces. The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+
+
+| URL pattern                                                      | Component/Functionality                                           | Device IPs                           |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`   | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus| Cloud-enabled network interfaces        |
+|`http://*.backup.windowsazure.com`|Device registration| DATA 0 only|
+|`http://crl.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
+| `https://*.core.windows.net/*`                                   | Azure storage accounts and monitoring                                | Cloud-enabled network interfaces        |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update servers<br>                             | Controller fixed IPs only               |
+| `http://*.deploy.akamaitechnologies.com`                         |Akamai CDN |Controller fixed IPs only   |
+| `https://*.partners.extranet.microsoft.com/*`                    | Support package                                                  | Cloud-enabled network interfaces        |
 
 ### Routing metric
 
@@ -103,7 +122,7 @@ Update 2 has several networking-related improvements and the routing metrics has
 
 - A set of predetermined values have been assigned to network interfaces. 	
 		
-- Consider an example table shown below with values assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway. Note the values assgined here are example values only.
+- Consider an example table shown below with values assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway. Note the values assigned here are example values only.
 
 		
 	| Network interface | Cloud-enabled | Cloud-disabled with gateway |
@@ -150,7 +169,7 @@ Update 2 has several networking-related improvements and the routing metrics has
 
 In addition to the above networking requirements, for the optimal performance of your StorSimple solution, please adhere to the following best practices:
 
-- Ensure that your StorSimple device has a dedicated 40 Mbps bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications.
+- Ensure that your StorSimple device has a dedicated 40 Mbps bandwidth (or more) available at all times. This bandwidth should not be shared (or allocation should be guaranteed through the use of QoS policies) with any other applications.
 
 - Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.
 
@@ -241,7 +260,7 @@ StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosur
 
 - If an EBOD enclosure controller module fails, make sure that the other controller module is active before you replace the failed module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- During an EBOD controller module oreplacement, continuously monitor the status of the component in the StorSimple Manager service by accessing **Maintenance** - **Hardware** status.
+- During an EBOD controller module replacement, continuously monitor the status of the component in the StorSimple Manager service by accessing **Maintenance** > **Hardware status**.
 
 - If an SAS cable fails or requires replacement (Microsoft Support should be involved to make such a determination), make sure that you remove only the SAS cable that requires replacement.
 
