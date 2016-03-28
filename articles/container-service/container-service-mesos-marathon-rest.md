@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Containter Service container management with the REST API | Microsoft Azure"
+   pageTitle="Azure Container Service container management with the REST API | Microsoft Azure"
    description="Deploy containers to an Azure Container Service Mesos cluster by using the Marathon REST API."
    services="container-service"
    documentationCenter=""
@@ -20,13 +20,12 @@
 
 # Container management with the REST API
 
-Mesos provides an environment for deploying and scaling clustered workload, while abstracting the underlying hardware. On top of Mesos, there is a framework that manages scheduling and executing compute workloads.
+Mesos provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of Mesos, there is a framework that manages scheduling and executing compute workloads.
 
 While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a Mesos cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles.
 
 - [Deploying an Azure Container Service cluster](./container-service-deployment.md)
 - [Connecting to an Azure Container Service cluster](./container-service-connect.md)
-
 
 After you are connected to the Azure Container Service cluster, you can access the Mesos and related REST APIs through http://localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoint can be reached at `http://localhost/marathon/v2/`. For more information on the various APIs, see the Mesosphere documentation for the [Marathon
 API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
@@ -52,8 +51,7 @@ curl localhost/marathon/v2/apps
 
 ## Deploy a Docker-formatted container
 
-You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the Mesos agent to port
-80 of the container.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the Mesos agent to port 80 of the container.
 
 ```json
 {
