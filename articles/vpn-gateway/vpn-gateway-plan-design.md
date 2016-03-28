@@ -172,7 +172,7 @@ This table lists the deployment model that forced-tunneling is available for, th
 
 ## Next steps
 
-See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
+See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateways](vpn-gateway-about-vpngateways.md) for more information to help you with your design. For more information on connection topologies, see [Connection toplogies](vpn-gateway-topology.md).
 
 
 
