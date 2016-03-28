@@ -91,7 +91,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
     
     ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)
 
-8. Select **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Leave the number of worker nodes that you need for the cluster at the default of `4`. The estimated cost of the cluster will be shown within the blade.
+8. Select **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Unless you know that you'll need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
 
     ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
@@ -220,7 +220,7 @@ A compute context allows you to control whether computation will be performed lo
         # Display a summary 
         summary(modelLocal) 
 
-    You should see output similar that ends with lines similar to the following.
+    You should see output that ends with lines similar to the following.
     
         Residual standard error: 40.39 on 582620 degrees of freedom
         Multiple R-squared: 0.01465
@@ -293,7 +293,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
     * __Parameters__: The R packages to be installed. For example, `bitops stringr arules`
     * __Persist this script...__: This should be __Checked__
     
-    > [AZURE.IMPORTANT] If the R package(s) you install require system libraries to be, then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
+    > [AZURE.IMPORTANT] If the R package(s) you install require system libraries to be added, then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
     >
     >For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).
     
