@@ -22,8 +22,7 @@
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
 
-[AZURE.VIDEO project-indy-quick-start]
-
-[See this video on Channel 9]()
+[AZURE.VIDEO ]
+&nbsp;
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]

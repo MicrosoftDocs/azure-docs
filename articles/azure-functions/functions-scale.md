@@ -32,7 +32,8 @@ If you are not yet familiar with Azure Functions, make sure to check the [Azure 
 
 ## Configuring your Function App
 
-There are two main settings related to scaling: 
+There are two main settings related to scaling:
+
 * [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Hosting Plan 
 * Memory Size for the execution environment 
 
