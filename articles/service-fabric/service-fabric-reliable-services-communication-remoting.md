@@ -23,7 +23,7 @@ For services that are not tied to a particular communication protocol or stack, 
 Setting up remoting for a service is done in two simple steps:
 
 1. Create an interface for your service to implement. This interface defines the methods that will be available for a remote procedure call on your service. The methods must be task-returning asynchronous methods. The interface must implement `Microsoft.ServiceFabric.Services.Remoting.IService` to signal that the service has a remoting interface.
-2. Use `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime.FabricTransportServiceRemotingListener` in your service. This is an `ICommunicationListener` implementation that provides remoting capabilities.
+2. Use `FabricTransportServiceRemotingListener` in your service. This is an `ICommunicationListener` implementation that provides remoting capabilities.
 
 For example, this Hello World service exposes a single method to get "Hello World" over a remote procedure call:
 
