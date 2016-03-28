@@ -22,7 +22,7 @@ Security is one of the most important aspects of communication. Reliable Service
 ## Securing the service when using service remoting
 Setting up secure remoting for a service is done using following steps:
 
-1. Let's use a previous [example](service-fabric-reliable-services-communication-remoting.md) which talks about how to set up reliable service remoting. We start with an interface `IHelloWorldStateful` which defines the methods that will be available for a remote procedure call on your service. And your service will be using a `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime.FabricTransportServiceRemotingListener`. This is an `ICommunicationListener` implementation that provides remoting capabilities.
+1. Let's use a previous [example](service-fabric-reliable-services-communication-remoting.md) which talks about how to set up reliable service remoting. We start with an interface `IHelloWorldStateful` which defines the methods that will be available for a remote procedure call on your service. And your service will be using a `FabricTransportServiceRemotingListener` which is under the `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namespace. This is an `ICommunicationListener` implementation that provides remoting capabilities.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -182,7 +182,7 @@ Setting up secure remoting for a service is done using following steps:
 
     If the client is not running as part of a service, you can create a client_name.settings.xml file in the same location where the client_name.exe is and create a TransportSettings section in that file.
 
-    Similar to the service, in the client settings.xml/client_name.settings.xml also if you add a `TransportSettings` section without any *prefix*, `FabricTransportListenerSettings` will by default load all the settings from this section.
+    Similar to the service, in the client settings.xml/client_name.settings.xml also if you add a `TransportSettings` section without any *prefix*, `FabricTransportSettings` will by default load all the settings from this section.
 
     In that case the above code is even further simplified.  
 
