@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="03/25/2016"
 	ms.author="sstein" />
 
 # Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query
@@ -41,6 +41,8 @@ When working with SQL Database, you should use the most recent version of SSMS. 
 4. Type the **Login** and **Password** you set up when you created the server, and then click **Connect** to connect to SQL Database.
 
 	![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-connect-query-ssms/1-connect.png)
+
+5. If you haven't already established a connection to Azure, SSMS will ask you for your Azure login information.
 
 ### If the connection fails
 
