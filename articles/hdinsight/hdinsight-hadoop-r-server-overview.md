@@ -45,7 +45,7 @@ The R scripts you create and run can use any of the 8000+ open source packages i
 
 ## Operationalizing a Model
 
-When your data modeling is complete, you can operationalize the model to make predictions on new data, such as scoring, both in Azure and on-premises. Scoring indicates which parameters are critical to calibrate for your model to make accurate predictions. Here are a few examples.
+When your data modeling is complete, you can operationalize the model to make predictions on new data, also known as scoring, both in Azure and on-premises. Here are a few examples.
 
 ### Scoring in HDInsight
 
