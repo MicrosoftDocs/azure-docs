@@ -1,6 +1,6 @@
 <properties
    pageTitle="Quick Create a Linux VM on Azure using the CLI | Microsoft Azure"
-   description="Create a new Linux VM on Microsoft Azure using the Azure CLI from Mac, Linux, or Windows."
+   description="Quick Create a Linux VM on Azure using the CLI."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="03/04/2016"
+   ms.date="03/28/2016"
    ms.author="v-livech"/>
 
 
