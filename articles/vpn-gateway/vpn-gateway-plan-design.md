@@ -132,7 +132,7 @@ The tables below show the VPN type as it maps to each connection configuration. 
 
 [AZURE.INCLUDE [vpn-gateway-table-vpntype](../../includes/vpn-gateway-table-vpntype-include.md)] 
 
-### <a name="devices"></a>4. Select a VPN device for Site-to-Site connections
+### <a name="devices"></a>3. Select a VPN device for Site-to-Site connections
 
 To configure a Site-to-Site connection, regardless of deployment model, you will need the following items:
 
@@ -141,7 +141,7 @@ To configure a Site-to-Site connection, regardless of deployment model, you will
 
 You will need to have experience configuring your VPN device to create a Site-to-Site configuration. For more information about VPN devices, see [About VPN devices](vpn-gateway-about-vpn-devices.md). The VPN devices article contains information about validated devices, requirements for devices that have not been validated, and links to the device configuration documents for each device if they are available.
 
-### <a name="forcedtunnel"></a>5. Consider forced-tunnel routing
+### <a name="forcedtunnel"></a>4. Consider forced-tunnel routing
 
 For most configurations, you can configure forced tunneling. Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. 
 
