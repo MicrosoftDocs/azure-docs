@@ -64,7 +64,7 @@ There are 3 VPN Gateway SKUs:
 - High Performance
 
 
-**Gateway types and aggregate throughput estimates**
+#### Gateway types and aggregate throughput estimates
 
 The table below shows the gateway types and the estimated aggregate throughput. 
 Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
