@@ -60,6 +60,8 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
     Leave the other options at the default values, then use the __Select__ button to save the cluster type.
     
     ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
+    
+    > [AZURE.NOTE] You can also add R Server to other HDInsight cluster types (such as Hadoop or HBase,) by selecting the cluster type, and then selecting __Premium__.
 
 5. Select **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can select **Create New** and then enter the name of the new resource group. A green check will appear to indicate that the new group name is available.
 
@@ -303,13 +305,12 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
 
-- [Add RStudio Server to HDInsight premium](hdinsight-r-server-install-r-studio.md)
+- [Add RStudio Server to HDInsight premium](hdinsight-hadoop-r-server-install-r-studio.md)
 
-- [Computer context options for R Server on HDInsight premium](hdinsight-r-server-storage.md)
+- [Compute context options for R Server on HDInsight premium](hdinsight-hadoop-r-server-compute-contexts.md)
 
-- [Upload data to R Server on HDInsight premium](hdinsight-r-server-data-upload.md)
+- [Azure Storage options for R Server on HDInsight premium](hdinsight-hadoop-r-server-storage.md)
 
-- [Azure Storage options for R Server on HDInsight premium](hdinsight-r-server-storage.md)
 
-- [Known issues with R Server on HDInsight](hdinsight-r-server-known-issues.md)
+
 
