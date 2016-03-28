@@ -1,5 +1,5 @@
 <properties
-	pageTitle="When to use NoSQL vs SQL | Microsoft Azure"
+	pageTitle="When to use NoSQL vs SQL | Microsoft Azure"when to use NoSQL
 	description="Compare the benefits of using non-relational NoSQL solutions versus SQL solutions. Learn whether one of the Microsoft Azure NoSQL services or SQL Server solutions best fits your scenario."
 	keywords="nosql vs sql, when to use NoSQL, sql vs nosql"
 	services="documentdb"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/23/2016"
+	ms.date="03/28/2016"
 	ms.author="mimig"/>
 
 # NoSQL vs SQL
@@ -23,7 +23,7 @@ SQL Server and relational databases (RDBMS) have been the go-to databases for ov
 
 NoSQL is a category of databases distinctly different from SQL databases. NoSQL means "Not-SQL" or "Not Only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, and column family stores, which are popular with gaming, social, and IoT apps.
 
-![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview.png)
+![NoSQL vs SQL overview diagram demonstrating common scenarios and data models](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview.png)
 
 The goal of this article is to help you learn about the differences between NoSQL and SQL, and provide you with an introduction to the NoSQL and SQL offerings from Microsoft.  
 
@@ -33,7 +33,7 @@ Let's imagine you're building a new social engagement site. Users can create pos
 
 So how do you store this data? If you're familiar with SQL, you might start drawing something like this:
 
-![Relational data model for social engagement site](./media/documentdb-nosql-vs-sql/nosql-vs-sql-social.png)
+![NoSQL vs SQL diagram showing the relational data model for a social engagement site](./media/documentdb-nosql-vs-sql/nosql-vs-sql-social.png)
 
 So far, so good, but now think about the structure of a single post and how to display it. If you want to show the post and the associated images, audio, video, comments, points, and user info on a website or application, you'd have to perform a query with eight table joins just to retrieve the content. Now imagine a stream of posts that dynamically load and appear on the screen and you can easily predict that it's going to require thousands of queries and many joins to complete the task.
 
@@ -64,7 +64,7 @@ You can then build on this solution using other Azure services:
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used to store massive amounts of data such as login information, and data for usage analytics.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)  can be used to build knowledge and intelligence that can provide feedback to the process and help deliver the right content to the right users.
 
-![Relational data model for social engagement site](./media/documentdb-nosql-vs-sql/nosql-vs-sql-solution.png)
+![NoSQL vs SQL diagram showing the Azure services used in a social media engagement scenario](./media/documentdb-nosql-vs-sql/nosql-vs-sql-solution.png)
 
 This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](documentdb-social-media-apps.md). 
 
@@ -72,7 +72,7 @@ This social engagement site is just one one scenario in which a NoSQL database i
 
 The following table compares the main differences between NoSQL and SQL. 
 
-![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
+![NoSQL vs SQL diagram showing when to use NoSQL and when to use SQL. SQL vs NoSQL comparison](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
 
 If a NoSQL database best suits your requirements, continue to the next section to learn more about the NoSQL services available from Azure. Otherwise, if a SQL database best suits your needs, skip to [What are the Microsoft SQL offerings?](#what-are-the-microsoft-sql-offerings)
 
@@ -87,7 +87,7 @@ Azure has four fully-managed NoSQL services:
 
 The following comparison chart maps out the key differentiators for each service. Which one most accurately describes the needs of your application? 
 
-![Azure DocumentDB](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
+![NoSQL vs SQL diagram showing when to use NoSQL offerings from Microsoft Azure, including DocumentDB, Table Storage, HBase as a part of HDInsight, and Redis Cache](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
 
 If one or more of these services might meet the needs of your application, learn more with the following resources: 
 
