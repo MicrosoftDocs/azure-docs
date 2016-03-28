@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Replace a disk drive on a StorSimple device | Microsoft Azure"
-   description="Explains how to replace a disk drive on a StorSimple primary or an EBOD enclosure."
+   description="Explains how to replace a disk drive on a StorSimple primary enclosure or an EBOD enclosure."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
