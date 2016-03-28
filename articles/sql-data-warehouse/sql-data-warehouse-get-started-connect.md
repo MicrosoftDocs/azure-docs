@@ -42,7 +42,7 @@ To find the fully qualified server name.
     ![Full server name][1]
 
 ## Step 2: Connect to your SQL database
-For the best experience, use Visual Studio 2015 with the [latest SQL Server Data Tools (SSDT) Update](https://msdn.microsoft.com/en-us/library/mt204009.aspx).
+For the best experience, use Visual Studio 2015 with the [latest SQL Server Data Tools (SSDT) Update](https://msdn.microsoft.com/library/mt204009.aspx).
 
 1. Open Visual Studio 2013 or 2015.
 2. Open SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
