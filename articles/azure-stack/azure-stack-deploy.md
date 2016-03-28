@@ -19,27 +19,28 @@
 # Before you deploy Azure Stack POC
 
 Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
+These requirements apply to the Azure Stack POC only and might change for future releases.
+
 
 ## Hardware
 
-These requirements apply to the Azure Stack POC only and might change for future releases.
-
 | Component | Minimum  | Recommended |
 |---|---|---|
+| Disk drives: Operating System | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
+| Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). | 4 disks. Each disk provides a minimum of 250 GB of capacity. |
 | Compute: CPU | Dual-Socket: 12 Physical Cores  | Dual-Socket: 16 Physical Cores |
 | Compute: Memory | 96 GB RAM  | 128 GB RAM |
 | Compute: BIOS | Hyper-V Enabled (with SLAT support)  | Hyper-V Enabled (with SLAT support) |
 | Network: NIC | Windows Server 2012 R2 Certification required for NIC; no specialized features required | Windows Server 2012 R2 Certification required for NIC; no specialized features required |
-| Disk drives: Operating System | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). | 4 disks. Each disk provides a minimum of 250 GB of capacity. |
 | HW logo certification | [Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)|
 
-**Data disk drive configuration:** All data drives must be of the same type (SAS or SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided)
+**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
 
-**HBA configuration options:**
- 1. (Preferred) Simple HBA
- 2. RAID HBA – Adapter must be configured in “pass through” mode
- 3. RAID HBA – Disks should be configured as Single-Disk, RAID-0
+**HBA configuration options**
+ 
+- (Preferred) Simple HBA
+- RAID HBA – Adapter must be configured in “pass through” mode
+- RAID HBA – Disks should be configured as Single-Disk, RAID-0
 
 **Supported bus and media type combinations**
 
@@ -73,15 +74,7 @@ Sample OEM configurations are available.
 
 ## Microsoft Azure Active Directory accounts
 
-To deploy Azure Stack POC, you must have a valid Microsoft Azure AD account that is the directory administrator for at least one Azure Active Directory. If you don’t have any existing Azure AD account, you can create one for free at [*http://azure.microsoft.com/en-us/pricing/free-trial/*](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
-
-This Azure AD account is used as the service administrator account for the environment. The service administrator can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
-
-Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This will be the day 0 administrator.
-
-You should also create at least one account so you can sign in to the Azure Stack POC as a tenant. Or add users from other AD accounts into your tenant accounts. See Appendix A for instructions on how to add a user in Azure Active Directory.
-
->[AZURE.NOTE] The Azure Stack POC supports Azure Active Directory authentication only.
+1. Create an Azure AD account that is the directory administrator for at least one Azure Active Directory. If you already have one, you can use that. Otherwise, you can create one for free at  [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
 
 | **Azure Active Directory account**  | **Supported?** |
 |---|---|
@@ -89,6 +82,13 @@ You should also create at least one account so you can sign in to the Azure Stac
 | Microsoft Account with valid Public Azure Subscription  | Yes |
 | Organization ID with valid China Azure Subscription  | Yes |
 | Organization ID with valid US Government Azure Subscription  | No |
+
+Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This Azure AD account is used as the service administrator account for the environment. The service administrator can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
+
+2. [Create](azure-stack-add-new-user-aad.md) at least one account so you can sign in to the Azure Stack POC as a tenant.
+
+>[AZURE.NOTE] The Azure Stack POC supports Azure Active Directory authentication only.
+
 
 ## Network
 
