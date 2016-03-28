@@ -32,10 +32,10 @@ Click to see the [SDK Content](mobile-engagement-windows-store-sdk-content.md)
 
 ##Release notes
 
-###3.3.1 (02/18/2016)
+###3.4.0
 
--   Fix conflicts between web announcement's HTML content and SDK's HTML page.
--   Stability improvements.
+-   Reach overlay improvements.
+-   Add the "TestLogLevel" API to manage console logs emitted by the SDK.
 
 For earlier version please see the [complete release notes](mobile-engagement-windows-store-release-notes.md)
 

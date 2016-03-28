@@ -18,6 +18,11 @@
 
 #Windows Universal Apps SDK Release Notes
 
+##3.4.0
+
+-   Reach overlay improvements.
+-   Add the "TestLogLevel" API to manage console logs emitted by the SDK.
+
 ##3.3.1 (02/18/2016)
 
 -   Fix conflicts between web announcement's HTML content and SDK's HTML page.
