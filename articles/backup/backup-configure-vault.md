@@ -19,7 +19,7 @@
 
 
 # Back up a Windows Server or client to Azure
-This article covers the procedures you need to prepare your environment and back up a Windows Server (or client) to Azure. It also covers considerations for deploying your backup solution. If you're interested in trying Azure Backup for the first time, this article will quickly walk you through the process.
+This article covers the procedures you need to follow to prepare your environment and back up a Windows Server (or client) to Azure. It also covers considerations for deploying your backup solution. If you're interested in trying Azure Backup for the first time, this article quickly walks you through the process.
 
 ![Create vault](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -31,7 +31,7 @@ To back up files and folders from a Windows Server or client you need to create 
 
 ### To create a backup vault
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com/).
+1. Sign in to [the Azure portal](https://manage.windowsazure.com/).
 
 2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault**, and then choose **Quick Create**.
 
@@ -61,7 +61,7 @@ To back up files and folders from a Windows Server or client you need to create 
 
     a. Click on the vault you just created.
 
-    b. On the **Quick Start** page, select **Configure**.
+    b. On the Quick Start page, select **CONFIGURE**.
 
     ![Configure Vault status](./media/backup-configure-vault/configure-vault.png)
 
@@ -72,9 +72,9 @@ To back up files and folders from a Windows Server or client you need to create 
     d. In the left navigation pane, click **Recovery Services** to return to the list of resources for Recovery Services.
 
 ## Step 2: Download the vault credential file
-The on-premises machine (Windows Server or Windows client) needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using *vault credentials*. The vault credential file is downloaded through a secure channel from the Azure portal. The Azure Backup service is unaware of the certificate private key, which does not persist in the portal or the service.
+The on-premises machine (Windows Server or Windows client) needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved by using *vault credentials*. The vault credential file is downloaded through a secure channel from the Azure portal. The Backup service is unaware of the certificate private key, which does not persist in the portal or the service.
 
-Learn more about [using vault credentials to authenticate with the Azure Backup service](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
+Learn more about [using vault credentials to authenticate with the Backup service](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
 ### To download the vault credential file to a local machine
 
@@ -82,7 +82,7 @@ Learn more about [using vault credentials to authenticate with the Azure Backup 
 
     ![IR complete](./media/backup-configure-vault/rs-left-nav.png)
 
-2.  On the **Quick Start** page, click **Download vault credentials**.
+2.  On the Quick Start page, click **Download vault credentials**.
 
     The portal will generate a vault credential using a combination of the vault name and the current date. The vault credentials file is used only during the registration workflow and expires after 48 hours.
 
@@ -92,8 +92,8 @@ Learn more about [using vault credentials to authenticate with the Azure Backup 
 
     >[AZURE.NOTE] Make sure the vault credential file is saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, verify that you have the permissions to access it.
 
-## Step 3: Download, install, and register the Azure backup agent
-After creating the Azure backup vault and downloading the vault credentials, an agent must be installed on each of your Windows computers (Windows Server or Windows client).
+## Step 3: Download, install, and register the Backup agent
+After creating the Backup vault and downloading the vault credentials, an agent must be installed on each of your Windows machines (Windows Server or Windows client).
 
 ### To download, install, and register the agent
 
@@ -117,7 +117,7 @@ After creating the Azure backup vault and downloading the vault credentials, an 
 
 6. Click **Install** to begin the agent installation.
 
-    The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not already installed) to complete the installation.
+    The Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not already installed) to complete the installation.
 
 7. Once the agent is installed, click **Proceed to Registration** to continue with the workflow.
 
@@ -125,7 +125,7 @@ After creating the Azure backup vault and downloading the vault credentials, an 
 
     The vault credentials file is only valid for 48 hours after it’s downloaded from the portal. If you encounter any error in this screen (for example, “Vault credentials file provided has expired”), sign in to the portal and download the vault credentials file again.
 
-    Ensure that the vault credentials file is available in a location that can be accessed by the setup application. If you encounter access-related errors, copy the vault credentials file to a temporary location on the same computer and retry the operation.
+    Ensure that the vault credentials file is available in a location that can be accessed by the setup application. If you encounter access-related errors, copy the vault credentials file to a temporary location on the same machine and retry the operation.
 
     If you encounter an invalid vault credential error (for example, “Invalid vault credentials provided"), the file is either corrupted or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error is typically seen if the user clicks the **Download vault credential** option in quick succession. In this case, only the last vault credential file is valid.
 
@@ -135,9 +135,9 @@ After creating the Azure backup vault and downloading the vault credentials, an 
 
     > [AZURE.WARNING] If you lose or forget the passphrase, Microsoft cannot help recover the backup data. You own the encryption passphrase and Microsoft does not have visibility into the passphrase you use. Save the file in a secure location because it will be required during a recovery operation.
 
-    The **Register Server Wizard** registers the server with Microsoft Azure Backup.
+    The **Register Server Wizard** registers the server with Backup.
 
-10. Once the **encryption key** is set, leave the **Launch Microsoft Azure Recovery Services Agent** checkbox checked, and click **Close**.
+10. Once the **encryption key** is set, leave the **Launch Microsoft Azure Recovery Services Agent** check box selected, and click **Close**.
 
 ## Step 4: Complete the initial backup
 
@@ -149,15 +149,15 @@ After completing the initial backup, the backup policy creates backup points tha
 
 ### Schedule the backup
 
-1. Open the Microsoft Azure Backup agent (it will open automatically if you left the **Launch Microsoft Azure Recovery Services Agent** checkbox checked when you closed the Register Server Wizard, or you can find it by searching your machine for *Microsoft Azure Backup*).
+1. Open the Microsoft Azure Backup agent. (It will open automatically if you left the **Launch Microsoft Azure Recovery Services Agent** check box selected when you closed the Register Server Wizard.) You can find it by searching your machine for **Microsoft Azure Backup**).
 
-    ![Launch the Microsoft Azure Backup Agent](./media/backup-configure-vault/snap-in-search.png)
+    ![Launch the Azure Backup Agent](./media/backup-configure-vault/snap-in-search.png)
 
-2. In the Microsoft Azure Backup agent, click **Schedule Backup**.
+2. In the Backup agent, click **Schedule Backup**.
 
     ![Schedule a Windows Server backup](./media/backup-configure-vault/schedule-backup-close.png)
 
-3. On the Schedule Backup Wizard Getting started screen, click **Next**.
+3. On the Getting started screen, click **Next**.
 
 4. On the Select Items to Backup screen, click **Add Items**.
 
@@ -167,11 +167,11 @@ After completing the initial backup, the backup policy creates backup points tha
 
 7. On the Specify Backup Schedule screen, specify the **backup schedule**, and then click **Next**.
 
-You can schedule daily backups (with a maximum of 3 times per day) or weekly backups.
+You can schedule daily backups (at a maximum rate of three times per day) or weekly backups.
 
-    ![Items for Windows Server Backup](./media/backup-configure-vault/specify-backup-schedule-close.png)
+    ![Items for Windows Server backup](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
-    >[AZURE.NOTE] Specifying the backup schedule is explained in detail in this [article](backup-azure-backup-cloud-as-tape.md).
+	>[AZURE.NOTE] For more information about how to specify the backup schedule see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
 
 8. On the Select Retention Policy screen, select the **Retention Policy** for the backup copy, and then click **Next**.
 
@@ -187,7 +187,7 @@ You can schedule daily backups (with a maximum of 3 times per day) or weekly bac
 
 ### Enable network throttling (optional)
 
-The Azure Backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling of data transfer applies to back up and restore activities.
+The Backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling applies to back up and restore activities.
 
 1. In the Backup agent, click **Change Properties**.
 
@@ -213,7 +213,7 @@ The Azure Backup agent provides network throttling. Throttling controls how netw
 
 3. Click **Close** to close the wizard. You can do this before the backup process finishes and it will continue to run in the background.
 
-After the initial backup is completed,  the *Job completed* status is reflected in the **Azure Backup console**.
+After the initial backup is completed,  the **Job completed** status is reflected in the Backup console.
 
 ![IR complete](./media/backup-configure-vault/ircomplete.png)
 
