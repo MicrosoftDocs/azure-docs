@@ -35,6 +35,6 @@ When you create a Windows virtual machine in the Azure classic portal, common en
 
 * To use an Azure PowerShell cmdlet to set up a VM endpoint, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 
-* To use an Azure PowerShell cmdlet to manage an ACL on an endpoint, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../articles/virtual-network/virtual-networks-acl-powershell.md).
+* To use an Azure PowerShell cmdlet to manage an ACL on an endpoint, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
-* If you created a virtual machine in the Resource Manager deployment model, you can also use Azure PowerShell to [create an Internet-facing load balancer](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md).
+* If you created a virtual machine in the Resource Manager deployment model, you can also use Azure PowerShell to [create an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
