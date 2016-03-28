@@ -409,8 +409,6 @@ You can get queue metadata in your function by using these variable names:
 This C# code example retrieves and logs queue metadata:
 
 ```csharp
-using System.Threading.Tasks;
-
 public static void Run(string myQueueItem, 
     DateTimeOffset expirationTime, 
     DateTimeOffset insertionTime, 
@@ -481,19 +479,15 @@ The `queue` binding can serialize the following types to a queue message:
 This C# code example writes a single output queue message for each input queue message.
 
 ```csharp
-using System.Threading.Tasks;
-
-public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+public static void Run(string myQueueItem, out string myOutputQueueItem, TraceWriter log)
 {
-    myQueue = myQueueItem + "(next step)";
+    myOutputQueueItem = myQueueItem + "(next step)";
 }
 ```
 
 This C# code example writes multiple messages by using  `ICollector<T>` (use `IAsyncCollector<T>` in an async function):
 
 ```csharp
-using System.Threading.Tasks;
-
 public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
 {
     myQueue.Add(myQueueItem + "(step 1)");
@@ -543,8 +537,6 @@ Blobs can be deserialized to these types:
 This C# code example logs the contents of each blob that is added to the container.
 
 ```csharp
-using System.Threading.Tasks;
-
 public static void Run(string myBlob, TraceWriter log)
 {
     log.Verbose($"C# Blob trigger function processed: {myBlob}");
@@ -660,8 +652,6 @@ The `blob` binding can serialize or deserialize the following types:
 This C# code example copies a blob whose name is received in a queue message.
 
 ```CSHARP
-using System.Threading.Tasks;
-
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
@@ -714,8 +704,6 @@ The Service Bus queue message can be deserialized to any of the following types:
 This C# code example writes a log message for each Service Bus queue or topic message received.
 
 ```csharp
-using System.Threading.Tasks;
-
 public static void Run(string myQueueItem, TraceWriter log)
 {
     log.Verbose($"C# Service Bus queue trigger function processed: {myQueueItem}");
@@ -732,7 +720,7 @@ Service Bus does its own poison queue handling which cannot be controlled or con
 
 To use a Service Bus trigger or binding, set up the function app by adding a connection string named AzureWebJobsServiceBus. For directions, see [Service Bus queue or topic trigger](#sbqueue) earlier in this article. 
 
-The *function.json* file provides the name of the queue and the variable name for the content of the message. The following example uses a timer trigger and and writes messages to a Service Bus queue.
+The *function.json* file provides the name of the queue and the variable name for the content of the message.  For a topic, it also provides the name of the subscription. The following example uses a timer trigger and and writes messages to a Service Bus queue.
 
 ```JSON
 {
