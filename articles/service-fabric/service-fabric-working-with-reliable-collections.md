@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="3/28/2016"
+    ms.date="03/28/2016"
     ms.author="jeffreyr" />
 
 # Working with Reliable Collections
@@ -196,10 +196,10 @@ Alternatively, you can perform what is typically referred to as a 2-phase upgrad
 
 For more information about Data Contract Versioning, see:
 
-[Forward-Compatible Data Contracts](https://msdn.microsoft.com/en-us/library/ms731083.aspx)
+[Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx)
 
-[Data Contract Versioning](https://msdn.microsoft.com/en-us/library/ms731138.aspx)
+[Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx)
 
-[Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/en-us/library/ms733734.aspx)
+[Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/library/ms733734.aspx)
 
-[IExtensibleDataObject](https://msdn.microsoft.com/en-us/library/system.runtime.serialization.iextensibledataobject.aspx)
+[IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
