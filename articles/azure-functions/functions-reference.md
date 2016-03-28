@@ -100,6 +100,10 @@ Each function has a folder that contains code file(s), *function.json*, and othe
 
 When setting up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code. You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.
 
+### Parallel execution
+
+When multiple triggering events occur faster than a single function instance can process them, The Azure Functions runtime may call multiple instances of the function. If a function app is using the [Dynamic Hosting Plan](functions-scale.md#dynamic-hosting-plan), the concurrent execution limit is 4. 
+
 ## Node/JavaScript API
 
 The Node/JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, as well as receiving and sending data via bindings.
@@ -225,27 +229,32 @@ There isn't, yet, any direct support for auto-compiling TypeScript/CoffeeScript 
 
 The C# experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json` and there are predefined names for accessing things like the function logger and cancellation tokens.
 
-Azure Functions currently supports only .NET v4.6.
+The Azure Functions runtime supports .NET v4.6.
 
 ### How .csx works
 
-The `.csx` format allows for you to write less "boilerplate" and focus on writing just a C# function. For Azure Functions, you just include any packages or libraries you need up top, as usual, and instead of wrapping everything in a class, you can just run your function. If you need to include any classes, for instance to define POCO objects, you can include a class inside the same file.
+The `.csx` format allows to write less "boilerplate" and focus on writing just a C# function. For Azure Functions, you just include any assembly references and namespaces you need up top, as usual, and instead of wrapping everything in a namespace and class, you can just define your `Run` method. If you need to include any classes, for instance to define POCO objects, you can include a class inside the same file.
 
 ### Binding to arguments
 
 The various bindings are bound to a C# function via the `name` property in the *function.json* configuration. Each binding has its own supported types which is documented per binding; for instance, a blob trigger can support a string, a POCO, or several other types. You can use the type which best suits your need. 
 
 ```csharp
-public static void Run(string myBlob, out POCOObject myQueue)
+public static void Run(string myBlob, out MyClass myQueueItem)
 {
     log.Verbose($"C# Blob trigger function processed: {myBlob}");
-    myQueue = new POCOObject();
+    myQueueItem = new MyClass() { Id = "myid" };
+}
+
+public class MyClass
+{
+    public string Id { get; set; }
 }
 ```
 
 ### Logging
 
-To log output to your streaming logs in C#, you can include a `TraceWriter` class (we recommend naming it `log`). We recommend you avoid `Console.Write` in Azure Functions.
+To log output to your streaming logs in C#, you can include a `TraceWriter` typed argument. We recommend that you name it `log`. We recommend you avoid `Console.Write` in Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -270,7 +279,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ### Cancellation Token
 
-In certain cases, you may have operations which are sensitive to being shut down. While it's always best to write code which can handle crashing, in cases where you want to handle graceful shutdown requests, you can use a [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). You must make your function `async` in order to use a `CancellationToken`. 
+In certain cases, you may have operations which are sensitive to being shut down. While it's always best to write code which can handle crashing,  in cases where you want to handle graceful shutdown requests, you define a [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typed argument.  A `CancellationToken` will be provided if a host shutdown is triggered. 
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -283,34 +292,58 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
     }
 ```
 
-### Using libraries
+### Importing namespaces
 
-If you need to reference other libraries, you can reference them in the same way you're used to.
+If you need import namespaces, you can do so as usual, with the `using` clause.
 
 ```csharp
-using System;
 using System.Net;
 using System.Threading.Tasks;
 
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 ```
+The following namespaces are automatically imported and are therefore optional:
 
-### Requiring external libraries
+* `System`
+* `System.Collections.Generic`
+* `System.Linq`
+* `System.Net.Http`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`.
 
-You can add external libraries using the `#r "library"` syntax. 
+### Referencing External Assemblies
+
+For framework assemblies, you can add references by using the `#r "AssemblyName"` directive.
 
 ```csharp
 #r "System.Web.Http"
 
-using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 ```
+The following assemblies are automatically added by the Azure Functions hosting environment:
 
-If you have your own library which you name *mylib.dll* and upload to the function's folder, you can reference it with `#r "mylib.dll"`. You can use a relative path to reference libraries shared by multiple functions.
+* `mscorlib`,
+* `System`
+* `System.Core`
+* `System.Xml`
+* `System.Net.Http`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`
+* `Microsoft.Azure.WebJobs.Extensions`
+* `System.Web.Http`
+* `System.Net.Http.Formatting`.
+
+In addition, the following assemblies are special cased and may be referenced by simplename (e.g. `#r "AssemblyName"`):
+
+* `Newtonsoft.Json`
+* `Microsoft.AspNet.WebHooks.Receivers`
+* `Microsoft.AspNEt.WebHooks.Common`.
+
+If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`).
 
 ### Package management
 
@@ -327,17 +360,15 @@ For package management, use a *project.json* file. Most things that work with th
 
 ## Bindings
 
-Most of these bindings are easily managed via the portal's integrate UX, but in case you wish to understand the underlying functionality, plus some tips and tricks, we've documented each binding in this section.
+The available bindings are documented in this section. Most of these bindings are easily managed via the Azure portal's **Integrate** UI, but the portal doesn't explain all of the functionality and options for each binding.
 
-This is a table of all our supported bindings.
+This is a table of all supported bindings.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
-### <a id="queuetrigger"></a> Azure Storage - queue trigger
+### Azure Storage triggers and bindings
 
-To poll a storage queue, you specify the name of the queue to poll and the variable name for the queue message.
-
-Sample *function.json*:
+For all Azure Storage triggers and bindings, the *function.json* file includes a `connection` property. For example:
 
 ```JSON
 {
@@ -354,26 +385,45 @@ Sample *function.json*:
 }
 ```
 
-The queue message can be deserialized to any of the following types:
+If you leave `connection` empty, the trigger or binding will work with the default storage account for the function app. If you want the trigger or binding to work with a different storage account, create an app setting in the function app that points to the storage account you want to use, and set `connection` to the app setting name. To add an app setting, follow these steps:
 
-* `string`
-* A POCO type if the message has been serialized as JSON.   
-* `byte[]`
-* `CloudQueueMessage`
+1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
 
-Here is C# code that works with the preceding *function.json* example.
+2. In the **Settings** blade, click **Application Settings**.
 
-```CSHARP
-using System;
-using System.Threading.Tasks;
+3. Scroll down to the **App settings** section, and add an entry with **Key** = *{some unique value of your choice}* and **Value** = the connection string for the storage account.
 
-public static void Run(string myQueueItem, TraceWriter log)
+### <a id="queuetrigger"></a> Azure Storage - queue trigger
+
+The *function.json* file provides the name of the queue to poll and the variable name for the queue message. For example:
+
+```JSON
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myQueueItem",
+            "type": "queueTrigger",
+            "direction": "in",
+            "queueName": "myqueue-items",
+            "connection":""
+        }
+    ]
 }
 ```
 
-You can get queue metadata in your function by using the following variable names:
+#### Queue trigger supported types
+
+The queue message can be deserialized to any of these types:
+
+* `string`
+* `byte[]`
+* JSON object   
+* `CloudQueueMessage`
+
+#### Queue trigger metadata
+
+You can get queue metadata in your function by using these variable names:
 
 * expirationTime
 * insertionTime
@@ -383,12 +433,9 @@ You can get queue metadata in your function by using the following variable name
 * dequeueCount
 * queueTrigger (another way to retrieve the queue message text as a string)
 
-The following C# code example retrieves queue metadata.
+This C# code example retrieves and logs queue metadata:
 
-```CSHARP
-using System;
-using System.Threading.Tasks;
-
+```csharp
 public static void Run(string myQueueItem, 
     DateTimeOffset expirationTime, 
     DateTimeOffset insertionTime, 
@@ -410,18 +457,26 @@ public static void Run(string myQueueItem,
 }
 ```
 
+#### Poison queue messages
+
+Messages whose content causes a function to fail are called *poison messages*. When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated. The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.
+
+The SDK will call a function up to 5 times to process a queue message. If the fifth try fails, the message is moved to a poison queue.
+
+The poison queue is named *{originalqueuename}*-poison. You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed. 
+
+If you want to handle poison messages manually, you can get the number of times a message has been picked up for processing by checking `dequeueCount`.
+
 ### Azure Storage - queue output
 
-To create a new storage queue message, you provide the name of the queue to create messages in, and the content of the message to create.
-
-Sample *function.json* for a function that is triggered by a queue message and writes a queue message:
+The *function.json* file provides the name of the output queue and a variable name for the content of the message. This example uses a queue trigger and writes a queue message.
 
 ```JSON
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "azurefunctions4e62e828_STORAGE",
+      "connection": "",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -430,31 +485,36 @@ Sample *function.json* for a function that is triggered by a queue message and w
       "name": "myQueue",
       "type": "queue",
       "queueName": "samples-workitems-out",
-      "connection": "azurefunctions4e62e828_STORAGE",
+      "connection": "",
       "direction": "out"
     }
   ],
   "disabled": false
 }``` 
 
-Here is sample C# code that works with the preceding *function.json* example.
+#### Queue output supported types
 
-```CSHARP
-using System;
-using System.Threading.Tasks;
+The `queue` binding can serialize the following types to a queue message:
 
-public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+* `string` (creates queue message if parameter value is non-null when the function ends)
+* `byte[]` (works like string) 
+* `CloudQueueMessage` (works like string) 
+* JSON object (creates a message with a null object if the parameter is null when the function ends)
+
+##### Queue output code example
+
+This C# code example writes a single output queue message for each input queue message.
+
+```csharp
+public static void Run(string myQueueItem, out string myOutputQueueItem, TraceWriter log)
 {
-    myQueue = myQueueItem + "(next step)";
+    myOutputQueueItem = myQueueItem + "(next step)";
 }
 ```
 
-To create multiple messages in a C# function, make the parameter type for the output queue `ICollector<T>` or `IAsyncCollector<T>`, as shown in the following example:
+This C# code example writes multiple messages by using  `ICollector<T>` (use `IAsyncCollector<T>` in an async function):
 
-```CSHARP
-using System;
-using System.Threading.Tasks;
-
+```csharp
 public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
 {
     myQueue.Add(myQueueItem + "(step 1)");
@@ -462,23 +522,9 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-The `queue` binding works with the following types.
-
-* `out string` (creates queue message if parameter value is non-null when the function ends)
-* `out byte[]` (works like string) 
-* `out CloudQueueMessage` (works like string) 
-* `out POCO` (a serializable type, creates a message with a null object if the parameter is null when the function ends)
-* `ICollector`
-* `IAsyncCollector`
-* `CloudQueue` (for creating messages manually using the Azure Storage API directly)
-
 ### Azure Storage - blob trigger
 
-To trigger a function when a blob is created or updated, you provide a `path` that specifies the container to monitor, and optionally a blob name pattern. 
-
-You can restrict the types of blobs that trigger the function by specifying a pattern with a fixed value for the file extension. If you set the `path` to  *samples/{name}.png*, only *.png* blobs in the *samples* container will trigger the function.
-
-Sample *function.json*:
+The *function.json* provides a path that specifies the container to monitor, and optionally a blob name pattern. This example triggers on any blobs that are added to the samples-workitems container.
 
 ```JSON
 {
@@ -495,25 +541,166 @@ Sample *function.json*:
 }
 ```
 
-### Azure Storage - blob input/output
+> [AZURE.NOTE] The Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
 
-Sample *function.json*:
+#### Blob trigger supported types
+
+Blobs can be deserialized to these types:
+
+* string
+* `TextReader`
+* `Stream`
+* `ICloudBlob`
+* `CloudBlockBlob`
+* `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
+* `IEnumerable<CloudPageBlob>`
+* Other types deserialized by [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
+
+#### Blob trigger code example
+
+This C# code example logs the contents of each blob that is added to the container.
+
+```csharp
+public static void Run(string myBlob, TraceWriter log)
+{
+    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+}
+```
+
+#### Blob trigger name patterns
+
+You can specify a blob name pattern in the `path`. For example:
 
 ```JSON
+"path": "input/original-{name}",
+```
+
+This path would find a blob named *original-Blob1.txt* in the *input* container, and the value of the `name` variable in function code would be `Blob1`.
+
+Another example:
+
+```JSON
+"path": "input/{blobname}.{blobextension}",
+```
+
+This path would also find a blob named *original-Blob1.txt*, and the value of the `blobname` and `blobextension` variables in function code would be *original-Blob1* and *txt*.
+
+You can restrict the types of blobs that trigger the function by specifying a pattern with a fixed value for the file extension. If you set the `path` to  *samples/{name}.png*, only *.png* blobs in the *samples* container will trigger the function.
+
+If you need to specify a name pattern for blob names that have curly braces in the name, double the curly braces. For example, if you want to find blobs in the *images* container that have names like this:
+
+		{20140101}-soundfile.mp3
+
+use this for the `path` property:
+
+		images/{{20140101}}-{name}
+
+In the example, the `name` variable value would be *soundfile.mp3*. 
+
+#### Blob receipts
+
+The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
+
+Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure storage account specified by the AzureWebJobsStorage connection string. A blob receipt has the following  information:
+
+* The function that was called for the blob ("*{function app name}*.Functions.*{function name}*", for example: "functionsf74b96f7.Functions.CopyBlob")
+* The container name
+* The blob type ("BlockBlob" or "PageBlob")
+* The blob name
+* The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+
+If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the *azure-webjobs-hosts* container.
+
+#### Handling poison blobs
+
+When a blob trigger function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
+
+The queue message for poison blobs is a JSON object that contains the following properties:
+
+* FunctionId (in the format *{function app name}*.Functions.*{function name}*)
+* BlobType ("BlockBlob" or "PageBlob")
+* ContainerName
+* BlobName
+* ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+
+
+### Azure Storage - blob input and output
+
+The *function.json* provides the name of the container and variable names for blob name and content. This example uses a queue trigger to copy a blob:
+
+```JSON
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ``` 
+
+#### Blob input and output supported types
+
+The `blob` binding can serialize or deserialize the following types:
+
+* `Stream`
+* `TextReader`
+* `TextWriter`
+* `string` (for output blob: creates a blob only if the string parameter is non-null when the function returns)
+* JSON object (for output blob: creates a blob as null object if parameter value is null when the function ends)
+* `CloudBlobStream` (output only)
+* `ICloudBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
+
+##### Blob output code example
+
+This C# code example copies a blob whose name is received in a queue message.
+
+```CSHARP
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+{
+    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputBlob = myInputBlob;
+}
+```
 
 ### Azure Storage - tables input/output
 
-Sample *function.json*:
+### Azure Service Bus triggers and bindings
 
-```JSON
-``` 
+To use a Service Bus trigger or binding, set up the function app by adding a connection string for your Service Bus namespace in an app setting named AzureWebJobsServiceBus. 
 
-### Azure Service Bus - queue or topic trigger
+1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
 
-To poll a Service Bus queue or topic, you provide the name of the queue or topic and the variable name to use for the message in the function code.
+2. In the **Settings** blade, click **Application Settings**.
 
-Sample *function.json*:
+3. Scroll down to the **App settings** section, and add an entry with **Key** = AzureWebJobsServiceBus and **Value** = the connection string for your Service Bus namespace.
+
+### </a> Azure Service Bus - queue or topic trigger
+
+The *function.json* file provides the name of the queue or topic to poll and the variable name for the queue or topic message. For example:
 
 ```JSON
 {
@@ -530,37 +717,94 @@ Sample *function.json*:
 }
 ```
 
-### Azure Service Bus - queue or topic output
+#### Service Bus queue or topic supported types
 
-To create a new Service Bus queue message, you provide the name of the queue to create messages in, and the content of the message to create.
+The Service Bus queue message can be deserialized to any of the following types:
 
-Sample *function.json*:
+* `string` (creates queue message if parameter value is non-null when the function ends)
+* `byte[]` (works like string) 
+* `BrokeredMessage` (works like string) 
+* JSON object (creates a message with a null object if the parameter is null when the function ends)
+
+#### Service Bus queue trigger C# code example
+
+This C# code example writes a log message for each Service Bus queue or topic message received.
+
+```csharp
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Verbose($"C# Service Bus queue trigger function processed: {myQueueItem}");
+}
+```
+
+#### How Service Bus queue or topic trigger works
+
+The SDK receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+
+Service Bus does its own poison queue handling which cannot be controlled or configured by the WebJobs SDK. 
+
+### Service Bus - queue or topic output
+
+To use a Service Bus trigger or binding, set up the function app by adding a connection string named AzureWebJobsServiceBus. For directions, see [Service Bus queue or topic trigger](#sbqueue) earlier in this article. 
+
+The *function.json* file provides the name of the queue and the variable name for the content of the message.  For a topic, it also provides the name of the subscription. The following example uses a timer trigger and and writes messages to a Service Bus queue.
 
 ```JSON
 {
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myQueueItem",
-            "type": "serviceBusTrigger",
-            "direction": "in",
-            "queueName": "samples-input",
-            "subscriptionName": ""
-        }
-    ]
+  "bindings": [
+    {
+      "schedule": "0/10 * * * * *",
+      "runOnStartup": true,
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "OutPutQueueItem",
+      "type": "serviceBus",
+      "queueName": "tomssbqueue",
+      "subscriptionName": "",
+      "direction": "out"
+    }
+  ],
+  "disabled": true
 }
 ``` 
 
+#### Service Bus queue or topic supported types
+
+The output parameter for creating a Service Bus queue message can be any of the following types.
+
+* `string` (creates queue message if parameter value is non-null when the function ends)
+* `byte[]` (works like string) 
+* `BrokeredMessage` (works like string) 
+* JSON object (creates a message with a null object if the parameter is null when the function ends)
+
+### Service Bus queue or topic code example
+
+This C# code example works with the preceding *function.json* file to write a single `string` message to a Service Bus queue.
+
+```csharp
+public static void Run(TimerInfo myTimer, out string OutPutQueueItem, TraceWriter log)
+{
+    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}"); 
+    OutPutQueueItem = $"C# Timer trigger function executed at: {DateTime.Now}";
+    
+}
+```
+
+This C# code example creates multiple messages by using `ICollector<T>` (use `IAsyncCollector<T>` in an async function):
+
+```csharp
+public static void Run(TimerInfo myTimer, ICollector<string> OutPutQueueItem, TraceWriter log)
+{
+    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}"); 
+    OutPutQueueItem.Add($"C# Timer trigger function executed at: {DateTime.Now} (item 1)");
+    OutPutQueueItem.Add($"C# Timer trigger function executed at: {DateTime.Now} (item 2)");
+}
+```
+
 ### Azure Service Bus - EventHub trigger
 
-Sample *function.json*:
-
-```JSON
-``` 
 
 ### Azure Service Bus - EventHub output
-
-Sample *function.json*:
-
-```JSON
-``` 
