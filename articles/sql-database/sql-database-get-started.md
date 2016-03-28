@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="03/25/2016"
 	ms.author="jeffreyg"/>
 
 # SQL Database tutorial: Create a SQL database in minutes using sample data and the Azure portal
@@ -116,3 +116,8 @@ Now that you've completed this SQL Database tutorial and created a database with
 - If you're ready to start coding, see [Connect and query your SQL database with C#](sql-database-connect-query.md) and [Using SQL database from .NET (C#)](sql-database-develop-dotnet-simple.md). See the [Quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md) for Node.js, Python, Ruby, Java, PHP and C++ samples and how-to's in addition to C#.
 
 - If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) to learn more.
+
+
+## Additional resources
+
+- [All topics for Azure SQL Database service](sql-database-index-all-articles.md), an index
