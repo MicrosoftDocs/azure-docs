@@ -88,6 +88,7 @@ Setting up secure remoting for a service is done using following steps:
 
         ```xml
         <!--Section name should always end with "TransportSettings"-->
+        <!--Here we are using a prefix "HelloWorldStateful"-->
         <Section Name="HelloWorldStatefulTransportSettings">
             <Parameter Name="MaxMessageSize" Value="10000000" />
             <Parameter Name="SecurityCredentialsType" Value="X509" />
@@ -113,6 +114,28 @@ Setting up secure remoting for a service is done using following steps:
             };
         }
         ```
+
+         If you add a `TransportSettings` section in the settings.xml without any prefix, `FabricTransportListenerSettings` will by default load all the settings from this section.
+
+         ```xml
+         <!--"TransportSettings" section without any prefix-->
+         <Section Name="TransportSettings">
+             ...
+         </Section>
+         ```
+         In this case the `CreateServiceReplicaListeners` method will look like this.
+
+         ```csharp
+         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+         {
+             return new[]
+             {
+                 return new[]{
+                         new ServiceReplicaListener(
+                             (context) => new FabricTransportServiceRemotingListener(context,this))};
+             };
+         }
+         ```
 
 3. When calling methods on a secure service using the remoting stack, instead of using `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class to create a service proxy, we use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory` and pass in the `FabricTransportSettings` which contains the `SecurityCredentials`
 
@@ -148,7 +171,7 @@ Setting up secure remoting for a service is done using following steps:
     ```csharp
 
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
-        (c) => new FabricTransportServiceRemotingClientFactory(FabricTransportSettings.LoadFrom("SectionName")));
+        (c) => new FabricTransportServiceRemotingClientFactory(FabricTransportSettings.LoadFrom("TransportSettingsPrefix")));
 
     IHelloWorldStateful client = serviceProxyFactory.CreateServiceProxy<IHelloWorldStateful>(
         new Uri("fabric:/MyApplication/MyHelloWorldService"));
@@ -158,6 +181,19 @@ Setting up secure remoting for a service is done using following steps:
     ```
 
     If the client is not running as part of a service, you can create a client_name.settings.xml file in the same location where the client_name.exe is and create a TransportSettings section in that file.
+
+    Similar to the service, in the client settings.xml/client_name.settings.xml also if you add a `TransportSettings` section without any *prefix*, `FabricTransportListenerSettings` will by default load all the settings from this section.
+
+    In that case the above code is even further simplified.  
+
+    ```csharp
+
+    IHelloWorldStateful client = ServiceProxy.Create<IHelloWorldStateful>(
+                 new Uri("fabric:/MyApplication/MyHelloWorldService"));
+
+    string message = await client.GetHelloWorld();
+
+    ```
 
 ## Securing the service when using WCF-based communication stack
 
