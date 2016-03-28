@@ -41,7 +41,7 @@ To start working with resources, you must [create a DocumentDB database account]
 
 |Resource 	|Description
 |-----------|-----------
-|Database account	|A database account is associated with a set of databases and a fixed amount of blob storage for attachments (preview feature). You can create one or more database accounts using your Azure subscription. Every standard database account is allocated a minimum capacity of one S1 collection. For more information, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+|Database account	|A database account is associated with a set of databases and a fixed amount of blob storage for attachments (preview feature). You can create one or more database accounts using your Azure subscription. For more information, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
 |Database	|A database is a logical container of document storage partitioned across collections. It is also a users container.
 |User	|The logical namespace for scoping permissions. 
 |Permission	|An authorization token associated with a user for access to a specific resource.

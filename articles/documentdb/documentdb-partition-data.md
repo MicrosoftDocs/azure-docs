@@ -104,6 +104,7 @@ The following table lists differences in working with a single-partition and par
         </tr>
     </tbody>
 </table>
+
 ## Working with the SDKs
 
 Azure DocumentDB added support for automatic partitioning with [REST API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). In order to create partitioned collections, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python). 
