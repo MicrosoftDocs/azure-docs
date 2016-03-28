@@ -82,7 +82,7 @@ Setting up secure remoting for a service is done using following steps:
             return x509Credentials;
         }
         ```
-    2. Using [settings.xml](service-fabric-application-model.md)
+    2. Using [Config Package](service-fabric-application-model.md)
 
         Add a `TransportSettings` section in the settings.xml
 
