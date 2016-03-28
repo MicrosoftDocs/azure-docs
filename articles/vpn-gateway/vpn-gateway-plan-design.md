@@ -22,13 +22,8 @@ When planning and designing your cross-premises and VNet-to-VNet connections can
 
 ## Planning
 
-1. When planning your VPN gateway connection, you can start with [Compare cross-premises connectivity options](#compare) if you are planning to connect to your on-premises environment. 
-2. Next, consider the [Gateway requirements](#gwrequire) table.
-3. See the [Gateway SKU](#gwsku) section to help decide which SKU is right for your design.
-4. See the [Workflow](#wf) section to understand the common workflow for cloud connectivity.
 
-
-### <a name="compare"></a>Compare cross-premises connectivity options
+### <a name="compare"></a>1. Compare cross-premises connectivity options
 
 If you have decided that you want to connect your on-premises sites securely to a virtual network, you have three different ways to do so: Site-to-Site, Point-to-Site, and ExpressRoute. Compare the different cross-premises connections that are available. The option you choose can depend on a variety of considerations, such as:
 
@@ -49,12 +44,12 @@ The table below can help you decide the best connectivity option for your soluti
 
 
 
-### <a name="gwrequire"></a>Consider gateway requirements by VPN type and SKU
+### <a name="gwrequire"></a>2. Consider gateway requirements by VPN type and SKU
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
 
-#### <a name="gwsku"></a> About VPN Gateway SKUs 
+#### <a name="gwsku"></a>3. About VPN Gateway SKUs 
 
 When you create a VPN gateway, you'll need to specify the gateway SKU that you want to use. 
 There are 3 VPN Gateway SKUs:
@@ -73,7 +68,7 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 
 
 
-### <a name="wf"></a> Workflow
+### <a name="wf"></a>4. Workflow
 
 The following list outlines the common workflow for cloud connectivity:
 
