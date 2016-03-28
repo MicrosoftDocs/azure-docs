@@ -21,7 +21,7 @@
 
 # Linux and open-source computing on Azure
 
-This document attempts to list in one place all the topics written by Microsoft and its partners about running Linux-based Virtual Machines as well as other open-source compute environments and applications on Microsoft Azure. Articles that describe the classic deployment model only are noted, as are those that use the Resource Manager deployment model. Articles that lack a deployment model note describe both deployment models.
+This document attempts to list in one place all the classic deployment model topics written by Microsoft and its partners about running Linux-based Virtual Machines as well as other open-source compute environments and applications on Microsoft Azure. 
 
 As both Azure and the open-source computing world are fast-moving targets, it is almost certain that this document is out of date, *despite* the fact that we shall do our best to continually add newer topics and remove out-of-date ones. If we've missed one, please let us know in the comments, or submit a pull request to our [GitHub repo](https://github.com/Azure/azure-content/).
 
@@ -34,9 +34,9 @@ The sections are broken down on the right of this page. (Links may occur in more
 - [Azure Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/)
 - [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
 - [Events and Demonstrations: Microsoft Openness CEE](http://www.opennessatcee.com/)
-- \[Classic Deployment]: [How to: Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distros.md))
+- [How to: Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distros.md))
 - [Notes: General Linux Requirements to Run in Azure](virtual-machines-linux-create-upload-generic.md)
-- \[Classic Deployment]: [Notes: General Introduction for Linux on Azure](virtual-machines-linux-intro-on-azure.md)
+- [Notes: General Introduction for Linux on Azure](virtual-machines-linux-intro-on-azure.md)
 
 ## Distros
 
@@ -46,20 +46,20 @@ There are tons of Linux distributions, usually broken down by the package manage
 
 Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and apt-get package management.
 
-3. \[Classic Deployment]: [How to: MySQL Clusters](virtual-machines-linux-classic-mysql-cluster.md)
-4. \[Classic Deployment]: [How to: Node.js and Cassandra](virtual-machines-linux-classic-cassandra-nodejs.md)
-6. \[Classic Deployment]: [Geeking out: Running ASP.NET 5 on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
+3. [How to: MySQL Clusters](virtual-machines-linux-classic-mysql-cluster.md)
+4. [How to: Node.js and Cassandra](virtual-machines-linux-classic-cassandra-nodejs.md)
+6. [Geeking out: Running ASP.NET 5 on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 
 ### CentOS
 
 The CentOS Linux distribution is a stable, predictable, manageable and reproduceable platform derived from the sources of Red Hat Enterprise Linux (RHEL).
 
-4. \[Classic Deployment]: [Blog: How to Deploy a CentOS VM Image from OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
-6. \[Classic Deployment]: [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](../service-bus/service-bus-amqp-apache.md/)
+4. [Blog: How to Deploy a CentOS VM Image from OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
+6. [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](../service-bus/service-bus-amqp-apache.md/)
 
 ### SUSE Linux Enterprise Server and openSUSE
 
-11. \[Classic Deployment]: [How to: Install and Run MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
+11. [How to: Install and Run MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
 13. [[SUSE forum] How to: Move to a New Patch Server](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
 14. [Images: SUSE Linux Enterprise Server for SAP Cloud Appliance  Library](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
 
@@ -68,15 +68,15 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 CoreOS is a small, optimized distro for pure compute scale with a high degree of control for customization.
 
 10. [Image Gallery](https://azure.microsoft.com/marketplace/partners/coreos/)  
-11. \[Classic Deployment]: [How to: Use CoreOS on Azure](virtual-machines-linux-classic-coreos-howto.md)
-12. \[Classic Deployment]: [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-classic-coreos-fleet-get-started.md)
+11. [How to: Use CoreOS on Azure](virtual-machines-linux-classic-coreos-howto.md)
+12. [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-classic-coreos-fleet-get-started.md)
 
 
 ### FreeBSD
 
 12. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Date&search=FreeBSD)
-13. \[Classic Deployment]: [Blog: Running FreeBSD in Azure](https://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
-14. \[Classic Deployment]: [Blog: Easy Deploy FreeBSD](http://msopentech.com/blog/2014/10/24/easy-deploy-freebsd-microsoft-azure-vm-depot/)
+13. [Blog: Running FreeBSD in Azure](https://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
+14. [Blog: Easy Deploy FreeBSD](http://msopentech.com/blog/2014/10/24/easy-deploy-freebsd-microsoft-azure-vm-depot/)
 15. [Blog: Deploying a Customized FreeBSD Image](http://msopentech.com/blog/2014/05/14/deploy-customize-freebsd-virtual-machine-image-microsoft-azure/)
 18. [Marketplace: Kaspersky AV for Linux File Server](https://azure.microsoft.com/marketplace/partners/kaspersky-lab/kav-for-lfs-kav-for-lfs/)
 
@@ -84,22 +84,22 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 1. [The basics: Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md)
 5. [The basics: Selecting Linux Usernames](virtual-machines-linux-usernames.md)
-6. \[Classic Deployment]: [The basics: Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-classic-log-on.md)
+6. [The basics: Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-classic-log-on.md)
 7. [The basics: SSH](virtual-machines-linux-ssh-from-linux.md)
-8. \[Classic Deployment]: [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
+8. [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
 9. [The basics: Using Root](virtual-machines-linux-use-root-privileges.md)
-10. \[Classic Deployment]: [The basics: Attaching a Data Disk to a Linux VM](virtual-machines-linux-classic-attach-disk.md)
-11. \[Classic Deployment]: [The basics: Detaching a Data Disk from a Linux VM](virtual-machines-linux-classic-detach-disk.md)
+10. [The basics: Attaching a Data Disk to a Linux VM](virtual-machines-linux-classic-attach-disk.md)
+11. [The basics: Detaching a Data Disk from a Linux VM](virtual-machines-linux-classic-detach-disk.md)
 12. [Blogging the basics: Optimizing Storage, Disks, and Performance with Linux and Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 13. [The basics: RAID](virtual-machines-linux-configure-raid.md)
-14. \[Classic Deployment]: [The basics: Capturing a Linux VM to Make a Template](virtual-machines-linux-classic-capture-image.md)
+14. [The basics: Capturing a Linux VM to Make a Template](virtual-machines-linux-classic-capture-image.md)
 15. [The basics: The Azure Linux Agent](virtual-machines-linux-agent-user-guide.md)
 16. [The basics: Azure VM Extensions and Features](virtual-machines-windows-extensions-features.md)
-17. \[Classic Deployment]: [The basics: Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-windows-classic-inject-custom-data.md)
-18. \[Classic Deployment]: [Blogging the basics: Building Highly Available Linux on Azure in 12 Steps](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. \[Classic Deployment]: [Blogging the basics: Automate Provisioning Linux on Azure with Azure CLI, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-23. \[Classic Deployment]: [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) reference
-24. \[Classic Deployment]: [GlusterFS on Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
+17. [The basics: Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-windows-classic-inject-custom-data.md)
+18. [Blogging the basics: Building Highly Available Linux on Azure in 12 Steps](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
+19. [Blogging the basics: Automate Provisioning Linux on Azure with Azure CLI, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
+23. [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) reference
+24. [GlusterFS on Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
 ## Community images and repositories
 4. [GitHub](https://github.com/Azure/) &mdash; for the Azure CLI, and many other tools and projects.
