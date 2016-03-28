@@ -116,7 +116,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [AZURE.TIP] Try executing this request in Postman! (Don't forget to replace the `code`)
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+    [![Run in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------------- |
@@ -179,7 +179,7 @@ Error responses will look like:
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs by including it in the `Authorization` header:
 
 > [AZURE.TIP] Execute this request in Postman! (Replace the `Authorization` header first)
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+    [![Run in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 ```
 GET /v1.0/me/messages
@@ -206,7 +206,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [AZURE.TIP] Try executing this request in Postman! (Don't forget to replace the `refresh_token`)
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+    [![Run in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | -------- |
