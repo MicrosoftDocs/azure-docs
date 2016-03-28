@@ -134,4 +134,6 @@ class Sample
 
 ## Next steps
 
-[Code sample: Retry logic in C# for connecting to SQL Database](sql-database-develop-csharp-retry-windows.md)
+Learn how to use retry logic by handling transient error codes to make your code more resilient here:  [Code sample: Retry logic in C# for connecting to SQL Database](sql-database-develop-csharp-retry-windows.md)
+
+Learn more about possible error codes here:  [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md)
