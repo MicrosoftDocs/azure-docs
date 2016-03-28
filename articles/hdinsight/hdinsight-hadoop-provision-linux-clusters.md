@@ -53,11 +53,11 @@ You can add other components such as Hue or R to these basic types by using [Scr
 
 ## Cluster tiers
 
-Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and [Premium tier](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). The Premium tier includes R and other additional components. The premium tier is only supported on HDInsight version 3.4. 
+Azure HDInsight provides the big data cloud offerings in two categories: Standard and [Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). HDInsight Premium includes R and other additional components. HDInsight Premium is only supported on HDInsight version 3.4. 
 
-The following table lists the HDInsight cluster type and Premium tier support matrix.
+The following table lists the HDInsight cluster type and HDInsight Premium support matrix.
 
-| Cluster type | Standard tier | Premium tier |
+| Cluster type | Standard | Premium  |
 |--------------|---------------|--------------|
 | Hadoop       | Yes           | Yes          |
 | Spark        | Yes           | Yes          |
@@ -65,9 +65,9 @@ The following table lists the HDInsight cluster type and Premium tier support ma
 | Storm        | Yes           | No           |
 | R Server on Spark | No | Yes |
 
-This table will be updated as more cluster types are included in the HDInsight Premium tier. The following sceenshoot shows the Azure portal information for choosing cluster types and tiers:
+This table will be updated as more cluster types are included in the HDInsight Premium. The following screenshot shows the Azure portal information for choosing cluster types:
 
-![HDInsight premium tier configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 
 ## Basic configuration options
