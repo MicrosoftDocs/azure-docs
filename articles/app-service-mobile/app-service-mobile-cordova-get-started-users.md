@@ -57,7 +57,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
     An example Content-Security-Policy (implemented for Azure Active Directory) is as follows:
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'
 			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
     You should replace `https://login.windows.net` with the OAuth host from the table above.  Consult the [Content-Security-Policy documentation] for more information about this meta tag.
@@ -90,7 +90,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
     Note that this code replace the existing code that creates the table reference and refreshes the UI.
 
-    The login() method starts authentication with the provider. The login() method is an async function that returns a JavaScript Promise.  The rest of the initialization is placed inside the promise response so that it is not executed until the login() method completes. 
+    The login() method starts authentication with the provider. The login() method is an async function that returns a JavaScript Promise.  The rest of the initialization is placed inside the promise response so that it is not executed until the login() method completes.
 
 4. In the code that you just added, replace `SDK_Provider_Name` with the name of your login provider. For example, for Azure Active Directory, use `client.login('aad')`.
 
@@ -102,8 +102,17 @@ Next, you will update the app to authenticate users before requesting resources 
 * Learn more [About Authentication] with Azure App Service.
 * Continue the tutorial by adding [Push Notifications] to your Apache Cordova app.
 
+Learn how to use the SDKs.
+
+* [Apache Cordova SDK]
+* [ASP.NET Server SDK]
+* [Node.js Server SDK]
+
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Content-Security-Policy documentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Push Notifications]: app-service-mobile-cordova-get-started-push.md
 [About Authentication]: app-service-mobile-auth.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md

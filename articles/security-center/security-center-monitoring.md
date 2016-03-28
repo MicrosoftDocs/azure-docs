@@ -36,7 +36,7 @@ On the **Resources security health** tile you can to monitor the security state 
 
 ![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
 
-If Security Center identifies a vulnerability that needs to addressed, such as a VM with missing security updates or a subnet without a [network security group](virtual-networks-nsg.md), it will be listed here. 
+If Security Center identifies a vulnerability that needs to addressed, such as a VM with missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here. 
 
 ###Monitor virtual machines
 When you click on **Virtual machines** in the **Resources security health** tile, the **Virtual machines** blade will open with more details about onboarding and prevention steps as well as a list of all VMs that are monitored by Security Center as shown below.
@@ -116,8 +116,8 @@ Similar to the virtual machines resource health information, this blade provides
 
 The networking status breakdown section lists potential security issues and offers recommendations. Possible issues can include:
 
-- [ACLs on endpoints](virtual-machines-set-up-endpoints.md) not enabled
-- [Network Security Groups](virtual-networks-nsg.md) not enabled
+- [ACLs on endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) not enabled
+- [Network Security Groups](../virtual-network/virtual-networks-nsg.md) not enabled
 - Healthy Subnets and access in NSG not restricted are listed. 
  
 When you click in one of those recommendations a new blade will open with more details regarding the recommendation as shown in the example below. 
@@ -134,7 +134,7 @@ In the **Networking** section, there is a hierarchical view of the resource grou
 
 ![Network tree](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
 
-This section divides [Resource Manager-based VMs from classic VMs](resource-manager-deployment-model.md). This helps you to quickly identify whether Azure Service Management or Azure Resource Management networking capabilities are available to the virtual machine. If you decide to access the properties of a network interface card from this location, you will need to expand the subnet and click on the VM name. If you perform this action for a Resource Manager-based VM, a new blade similar to the one below will appear.
+This section divides [Resource Manager-based VMs from classic VMs](../resource-manager-deployment-model.md). This helps you to quickly identify whether Azure Service Management or Azure Resource Management networking capabilities are available to the virtual machine. If you decide to access the properties of a network interface card from this location, you will need to expand the subnet and click on the VM name. If you perform this action for a Resource Manager-based VM, a new blade similar to the one below will appear.
 
 ![Network tree](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
 
@@ -168,7 +168,7 @@ When you click on the database to address this recommendation, the **Auditing & 
 To enable the auditing, simply select **ON** under the **Auditing** option and then click **Save**.
 
 ###Monitor applications
-If your Azure workload has applications located in [resource manager VMs](resource-manager-deployment-model.md) with exposed web ports (TCP ports 80 and 443), Security Center can monitor those to identify potential security issues and recommend remediation steps. When you click in the **Applications** tile, the **Applications** blade will open up with a series of recommendations in the prevention steps section. It also shows the application breakdown per host/virtual IP as shown below.
+If your Azure workload has applications located in [resource manager VMs](../resource-manager-deployment-model.md) with exposed web ports (TCP ports 80 and 443), Security Center can monitor those to identify potential security issues and recommend remediation steps. When you click in the **Applications** tile, the **Applications** blade will open up with a series of recommendations in the prevention steps section. It also shows the application breakdown per host/virtual IP as shown below.
 
 ![Applications security health](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
