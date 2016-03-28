@@ -164,7 +164,7 @@ The `context.bindings` object collects all your input and output data. The data 
 var author = context.bindings.myInput.name;
 // Similarly, you can set your output data
 context.bindings.myOutput = { 
-        some_text: "hello world", 
+        some_text: 'hello world', 
         a_number: 1 };
 ```
 
@@ -191,7 +191,21 @@ The `context.log` method allows you to output log statements that are correlated
 ```javascript
 /* You can use context.log to log output specific to this 
 function. You can access your bindings via context.bindings */
-context.log({hello: "world"}); // logs: { "hello": "world" } 
+context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
+```
+
+The `context.log` method supports the same parameter format that the Node [util.format method](https://nodejs.org/api/util.html#util_util_format_format) supports. So, for example, code like this:
+
+```javascript
+context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
+context.log('Request Headers = ' + JSON.stringify(req.headers));
+```
+
+can be written like this:
+
+```javascript
+context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
+context.log('Request Headers = ', req.headers);
 ```
 
 ### HTTP triggers: context.req and `context.res
