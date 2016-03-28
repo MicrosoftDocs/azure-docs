@@ -1,0 +1,81 @@
+<properties
+	pageTitle="Vertically Scale Azure Virtual Machine with Azure Automation | Microsoft Azure"
+	description="How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="singhkay"
+	manager="drewm"
+	editor=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/28/2016"
+	ms.author="singhkay"/>
+
+# Vertically Scale Azure Virtual Machine with Azure Automation
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model]
+
+Vertical scaling is the process of increasing or decreasing the resources of a machine in response to the workload. In Azure this can be accomplished by changing the size of the Virtual Machine. This can help in the following scenarios
+
+- If the Virtual Machine is not being used frequently, you can resize it down to a smaller size to reduce your monthly costs
+- If the Virtual Machine is seeing a peak load, it can be resized to a larger size to increase its capacity
+
+The outline for the steps to accomplish this is as below
+1. Setup Azure Automation to access your Virtual Machines
+2. Import the Azure Automation Vertical Scale runbooks into your subscription
+3. Add a webhook to your runbook
+4. Add an alert to your Virtual Machine
+
+## Setup Azure Automation to access your Virtual Machines
+
+In this section you will accomplish the following tasks
+* Create a user in your Active Directory
+* Create an AutomationPSCredential with the user's login information
+* Setup the user to access the resources in your subscription
+
+Before you can being executing Azure Automation runbooks in your subscription you need to give Azure Automation access to your subscription. This is done by creating another user in your Active Directory. Then you need to create an AutomationPSCredential which allows the user to authenticate against Azure and run PowerShell commands that will resize your Virtual Machine.
+
+A walkthrough of creating a user and an AutomationPSCredential can be read in the following article
+
+[Configuring Azure Automation](../automation/automation-configuring.md)
+
+After creating a user you will need to make that user a co-admin for your classic resources and giving it an "Owner" role for your Azure Resource Manager resources.
+
+You'll need to use the Classic Portal to allow the user to access classic Virtual Machines.
+[TODO: IMAGE OF CLASSIC PORTAL]
+
+You'll need to use the Azure Portal to allow the user to access the Azure Resource Manager Virtual Machines.
+[TODO: IMAGE OF NEW PORTAL]
+
+## Import the Azure Automation Vertical Scale runbooks into your subscription
+
+The runbooks that are needed for Vertically Scaling your Virtual Machine are already published in the Azure Automation Runbook Gallery. You will need to import them into your subscription. The best way to accomplish this is to follow this tutorial
+
+[Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
+
+## Add a webhook to your runbook
+
+Once you've imported the runbooks you'll need to add a webhook to the runbook so it can be triggered by an alert from a Virtual Machine. The details of creating a webhook for your Runbook can be read here
+
+[Azure Automation webhooks](../automation/automation-webhooks.md)https://azure.microsoft.com/en-us/documentation/articles/automation-webhooks/.
+
+Make sure you copy the webhook before closing the webhook dialog as you will need this in the next section.
+
+## Add an alert to your Virtual Machine
+
+1. Select Virtual Machine settings
+2. Select "Alert rules"
+3. Select "Add alert"
+4. Select a metric to fire the alert on
+5. Select a condition, which when fulfilled will cause the alert to fire
+6. Select a threshold for the condition in Step 5. to be fulfilled
+7. Select a period over which the monitoring service will check for the condition and threshold in Steps 5 & 6
+8. Paste in the webhook you copied from the previous section.
+
+![Add Alert to Virtual Machine](./media/add-alert-webhook.png)
