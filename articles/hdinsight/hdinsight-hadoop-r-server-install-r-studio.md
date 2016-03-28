@@ -49,7 +49,7 @@ In this article you will learn how to install the community (free) version of RS
 
 		wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/InstallRStudio.sh
 
-4. Change the permissions on the custom script file and run the script. Use the following command.
+4. Change the permissions on the custom script file and run the script. Use the following commands.
 
 		chmod 755 InstallRStudio.sh
 		./InstallRStudio.sh
@@ -69,7 +69,7 @@ In this article you will learn how to install the community (free) version of RS
 
 	Exit the SSH session.
 
-6. Create an SSH tunnel to the cluster by mapping `localhost:8787` on the HDInsight cluster to the client machine.
+6. Create an SSH tunnel to the cluster by mapping `localhost:8787` on the HDInsight cluster to the client machine. You must create an SSH tunnel before opening a new browser session.
 
 	* On a Linux client or a Windows client (using [Cygwin](http://www.redhat.com/services/custom/cygwin/)), open a terminal session and use the following command.
 
@@ -91,7 +91,7 @@ In this article you will learn how to install the community (free) version of RS
 		4. Click **Add** to add the settings, and then click **Open** to open an SSH connection.
 		5. When prompted, log in to the server. This will establish an SSH session and enable the tunnel.
 
-7. Open a web browser and enter the following URL.
+7. Open a web browser and enter the following URL based on the port you entered for the tunnel.
 
 		http://localhost:8787/ 
 

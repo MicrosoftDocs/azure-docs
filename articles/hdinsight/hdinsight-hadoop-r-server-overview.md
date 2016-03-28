@@ -37,11 +37,11 @@ You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as 
   
 ## Accessing R Server on the Cluster
 
-Once you have created a cluster with R Server, you can connect to the R Console on the edge node of the cluster through SSH/Putty, or through a browser if you choose to optionally install the RStudio Server IDE on the edge node. For more information on installing RStudio Server, [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
+Once you have created a cluster with R Server, you can connect to the R Console on the edge node of the cluster through SSH/Putty, or through a browser if you choose to optionally install the RStudio Server IDE on the edge node. For more information on installing RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
 
 ## Developing and Running R Scripts
 
-The R scripts you create and run can use any of the 8000+ open source packages in addition to the parallelized and distributed routines in the ScaleR library. A script executed in R Server on the edge node will be run there using the R interpreter, except for those steps that call one of ScaleR functions with a compute context set to Hadoop Map Reduce (RxHadoopMR) or Spark (RxSpark). In those cases, the function will be executed in a distributed fashion across those data (task) nodes of the cluster associated with the referenced data. For more information on the different compute context options see [Compute context options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-compute-contexts.md).
+The R scripts you create and run can use any of the 8000+ open source packages in addition to the parallelized and distributed routines in the ScaleR library. A script executed in R Server on the edge node will be run there using the R interpreter, except for those steps that call one of ScaleR functions with a compute context set to Hadoop Map Reduce (RxHadoopMR) or Spark (RxSpark). In those cases, the function will be executed in a distributed fashion across those data (task) nodes of the cluster associated with the referenced data. For more information on the different compute context options see [Compute context options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md).
 
 ## Operationalizing a Model
 
@@ -101,10 +101,10 @@ Follow the links below to read more about how to use the R Server with HDInsight
 
 - [Getting Started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md)
 
-- [Add RStudio Server to HDInsight premium](hdinsight-hadoop-r-server-install-r-studio.md)
+- [Add RStudio Server to HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 
-- [Compute context options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-compute-contexts.md)
+- [Compute context options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md)
 
-- [Azure Storage options for R Server on HDInsight premium](hdinsight-hadoop-r-server-storage.md)
+- [Azure Storage options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
  
