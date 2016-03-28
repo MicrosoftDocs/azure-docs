@@ -321,14 +321,14 @@ And here's how you can modify an existing collection to take advantage of spatia
 **Modify an existing collection with spatial indexing**
 
     Console.WriteLine("Updating collection with spatial indexing enabled in indexing policy...");
-    collection.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point)); ; 
+    collection.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point));
     await client.ReplaceDocumentCollectionAsync(collection);
 
     Console.WriteLine("Waiting for indexing to complete...");
     long indexTransformationProgress = 0;
     while (indexTransformationProgress < 100)
     {
-        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(collection.SelfLink);
+        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));
         indexTransformationProgress = response.IndexTransformationProgress;
 
         await Task.Delay(TimeSpan.FromSeconds(1));

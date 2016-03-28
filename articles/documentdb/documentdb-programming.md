@@ -788,13 +788,13 @@ In addition to the [Node.js](documentdb-sdk-node.md) client, DocumentDB supports
 	};
 	
 	// register stored procedure
-	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(collection.SelfLink, markAntiquesSproc);
+	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
 	dynamic document = new Document() { Id = "Borges_112" };
 	document.Title = "Aleph";
 	document.Year = 1949;
 	
 	// execute stored procedure
-	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
+	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
 
 
 This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx) to create a pre-trigger and create a document with the trigger enabled. 
@@ -811,7 +811,7 @@ This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/a
 	    TriggerType = TriggerType.Pre
 	};
 	
-	Document createdItem = await client.CreateDocumentAsync(collection.SelfLink, new Document { Id = "documentdb" },
+	Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
 	    new RequestOptions
 	    {
 	        PreTriggerInclude = new List<string> { "CapitalizeName" },
@@ -829,7 +829,7 @@ And the following example shows how to create a user defined function (UDF) and 
 	    }"
 	};
 	
-	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
+	foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
 	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
