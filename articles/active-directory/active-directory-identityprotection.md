@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -36,7 +36,7 @@ The preview of Azure Active Directory Identity Protection has the following limi
 
 - Security policies do not work for federated domains
 
-- Risk events are not detected for federated domains
+- Risk events are are only detected for apps federating with Azure Active Directory
 
 ##Getting Started
 

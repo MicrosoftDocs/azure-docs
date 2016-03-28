@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Scalar expressions in Application Insights Analytics" 
-	description="Numbers, strings, dynamic expressions and types in Application Insights Analytics, 
-	             the powerful search tool for Application Insights." 
+	pageTitle="Scalar expressions in Analytics in Application Insights" 
+	description="Numbers, strings, dynamic expressions and types in Analytics, 
+	             the powerful search tool of Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
  
-# Scalar expressions in Application Insights Analytics
+# Scalar expressions in Analytics
 
 
-[Application Insights Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
-Application Insights Analytics query lanuage, AIQL.
+[Analytics](app-analytics.md) lets you run powerful queries over the telemetry from your app collected by 
+[Application Insights](app-insights-overview.md). These pages describe its query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -39,7 +37,7 @@ Application Insights Analytics query lanuage, AIQL.
 
 
 
-"Scalar" means values like numbers or strings that can occupy a single cell in a AIQL table. Scalar expressions are built from scalar functions and operators and evaluate to scalar values. `sqrt(score)/100 > target+2` is a scalar expression.
+"Scalar" means values like numbers or strings that can occupy a single cell in a table. Scalar expressions are built from scalar functions and operators and evaluate to scalar values. `sqrt(score)/100 > target+2` is a scalar expression.
 
 "Scalar" also includes arrays and composite objects, which can also be stored in a single database cell.
 
@@ -569,7 +567,7 @@ Backslash (`\`) is used to escape characters such as `\t` (tab), `\n` (newline) 
 
 ### Obfuscated String Literals
 
-Obfuscated string literals are strings that AI Analytics will obscure when outputting the string (for example, when tracing). The obfuscation process replaces all obfuscated characters by a start (`*`) character.
+Obfuscated string literals are strings that Analytics will obscure when outputting the string (for example, when tracing). The obfuscation process replaces all obfuscated characters by a start (`*`) character.
 
 To form an obfuscated string literal, prepend `h` or 'H'. For example:
 
@@ -875,7 +873,7 @@ Here's the result of a query on an Application Insights exception. The value in 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* But use `arraylength` and other AIQL functions (not ".length"!)
+* But use `arraylength` and other Analytics functions (not ".length"!)
 
 **Casting** In some cases it's necessary to cast an element that you extract from an object, because its type could vary. For example, `summarize...to` needs a specific type:
 
@@ -1096,7 +1094,7 @@ that looks like this:
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-then the following AIQL Fragment retrieves the value of the `duration` slot
+then the following fragment retrieves the value of the `duration` slot
 in the object, and from that it retrieves two slots, `duration.value` and
  `duration.min` (`118.0` and `110.0`, respectively).
 
