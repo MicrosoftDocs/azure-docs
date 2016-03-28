@@ -90,12 +90,12 @@ This example for the Resource Manager deployment model specifies the `-VpnType` 
 
 Each configuration requires a specific connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
 
-- IPSec
+- IPsec
 - Vnet2Vnet
 - ExpressRoute
 - VPNClient
 
-In the example below, we are creating a Site-to-Site connection, which requires the connection type "IPSec".
+In the example below, we are creating a Site-to-Site connection, which requires the connection type "IPsec".
 
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
