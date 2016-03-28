@@ -60,6 +60,8 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
     Leave the other options at the default values, then use the __Select__ button to save the cluster type.
     
     ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
+    
+    > [AZURE.NOTE] You can also add R Server to other HDInsight cluster types (such as Hadoop or HBase,) by selecting the cluster type, and then selecting __Premium__.
 
 5. Select **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can select **Create New** and then enter the name of the new resource group. A green check will appear to indicate that the new group name is available.
 
