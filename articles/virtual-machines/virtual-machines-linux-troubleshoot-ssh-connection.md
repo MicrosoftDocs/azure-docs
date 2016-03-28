@@ -230,7 +230,7 @@ To eliminate your organization edge device as the source of failure, check that 
 
 ![Diagram that highlights organization edge device](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service and use it. For more information, see [Create a virtual machine running Linux in Azure](virtual-machines-linux-cli-create.md). Delete the resource group or virtual machine and cloud service when you are done with your testing.
+If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service and use it. For more information, see [Create a virtual machine running Linux in Azure](virtual-machines-linux-quick-create-cli.md). Delete the resource group or virtual machine and cloud service when you are done with your testing.
 
 If you can create an SSH connection with a computer directly attached to the Internet, check your organization edge device for:
 
@@ -248,7 +248,7 @@ To eliminate the cloud service endpoint and ACL as the source of the failure, fo
 
 ![Diagram that highlights cloud service endpoint and ACL](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-If you do not have another VM in the same virtual network, you can easily create a new one. For more information, see [Create a virtual machine running Linux in Azure](virtual-machines-linux-cli-create.md). Delete the extra VM when you are done with your testing.
+If you do not have another VM in the same virtual network, you can easily create a new one. For more information, see [Create a virtual machine running Linux in Azure](virtual-machines-linux-quick-create-cli.md). Delete the extra VM when you are done with your testing.
 
 If you can create an SSH connection with a VM in the same virtual network, check:
 

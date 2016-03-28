@@ -29,7 +29,7 @@ In this article, you will learn how to install and configure MySQL on an Azure v
 ##Install MySQL on your virtual machine
 
 > [AZURE.NOTE] You must already have a Microsoft Azure virtual machine running Linux in order to complete this tutorial. Please see the
-[Azure Linux VM tutorial](virtual-machines-linux-cli-create.md) to create and set up a Linux VM with `mysqlnode` as the VM name and `azureuser` as user before proceeding.
+[Azure Linux VM tutorial](virtual-machines-linux-quick-create-cli.md) to create and set up a Linux VM with `mysqlnode` as the VM name and `azureuser` as user before proceeding.
 
 In this case, use 3306 port as the MySQL port.  
 
