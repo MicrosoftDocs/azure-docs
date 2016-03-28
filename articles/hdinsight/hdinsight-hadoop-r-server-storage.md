@@ -20,7 +20,7 @@
 
 # Azure Storage options for R Server on HDInsight premium
 
-R Server on an HDI cluster has access to both Azure Blob and Azure Data Lake storage as means of persisting data, code, result objects from analysis, etc.
+R Server on an HDI cluster has access to both Azure Blob, and soon Azure Data Lake storage, as means of persisting data, code, result objects from analysis, etc.
 
 When you create a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated to hold the file system for the cluster you create, i.e. the Hadoop Distributed File System (HDFS).  For the purposes of performance, the HDInsight cluster is created in the same data center as the primary storage account you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
 
