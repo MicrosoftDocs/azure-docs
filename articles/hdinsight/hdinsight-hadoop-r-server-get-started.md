@@ -243,7 +243,7 @@ A compute context allows you to control whether computation will be performed lo
 
     The output of Spark processing is written to the console because we set `consoleOutput=TRUE`.
     
-    > [AZURE.NOTE] You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Computer context options for R Server on HDInsight premium](hdinsight-r-server-storage.md).
+    > [AZURE.NOTE] You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight premium](hdinsight-hadoop-r-server-compute-contexts.md).
 
 ##Distribute R code to multiple nodes
 
