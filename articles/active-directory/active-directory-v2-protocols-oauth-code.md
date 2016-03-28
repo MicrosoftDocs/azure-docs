@@ -115,7 +115,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-> [AZURE.TIP] Try executing this reqeust in Postman! (Don't forget to replace the `code`)
+> [AZURE.TIP] Try executing this request in Postman! (Don't forget to replace the `code`)
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3c702abc0ac63e068fc8)
 
 | Parameter | | Description |
@@ -178,7 +178,7 @@ Error responses will look like:
 ## Use the access token
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs by including it in the `Authorization` header:
 
-> [AZURE.TIP] Try executing this reqeust in Postman! (Don't forget to replace the `Authorization` header)
+> [AZURE.TIP] Execute this request in Postman! (Replace the `Authorization` header first)
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3c702abc0ac63e068fc8)
 
 ```
@@ -205,7 +205,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh	  // NOTE: Only required for web apps
 ```
 
-> [AZURE.TIP] Try executing this reqeust in Postman! (Don't forget to replace the `refresh_token`)
+> [AZURE.TIP] Try executing this request in Postman! (Don't forget to replace the `refresh_token`)
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3c702abc0ac63e068fc8)
 
 | Parameter | | Description |

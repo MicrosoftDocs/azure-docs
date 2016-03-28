@@ -37,8 +37,6 @@ When your web app needs to authenticate the user, it can direct the user to the 
 - The `response_type` parameter must include `id_token`
 - The request must include the `nonce` parameter
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3c702abc0ac63e068fc8)
-
 ```
 // Line breaks for legibility only
 
@@ -51,6 +49,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 &nonce=678910
 ```
+
+> [AZURE.TIP] Click the link below to execute this request! After signing in, your browser should be redirected to `https://localhost/myapp/` with an `id_token` in the address bar.  Note that this request uses `response_mode=query` (for tutorial purposes only).  It is recommended to use `response_mode=form_post`.
+    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
@@ -150,8 +151,6 @@ The full OpenID Connect sign-in and token acquisition flow looks something like 
 ## Get access tokens
 To acquire access tokens, you'll need to slightly modify the sign in request from above:
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3c702abc0ac63e068fc8)
-
 ```
 // Line breaks for legibility only
 
@@ -166,6 +165,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &state=12345						 				 // Any value, provided by your app
 &nonce=678910										 // Any value, provided by your app
 ```
+
+> [AZURE.TIP] Click the link below to execute this request! After signing in, your browser should be redirected to `https://localhost/myapp/` with an `id_token` and a `code` in the address bar.  Note that this request uses `response_mode=query` (for tutorial purposes only).  It is recommended to use `response_mode=form_post`.
+    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 By including permission scopes in the request and using `response_type=code+id_token`, the v2.0 endpoint will ensure that the user has consented to the permissions indicated in the `scope` query parameter, and return your app an authorization code to exchange for an access token.
 
