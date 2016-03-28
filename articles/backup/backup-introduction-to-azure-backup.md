@@ -55,8 +55,8 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | Component | Benefits | Limitations | Recovery granularity |
 | --- | --- | --- | --- |
 | Azure Backup (MARS) agent | <li>Can backup files and folders on a Windows OS machine, be it physical or virtual (VMs can be anywhere on-premises or Azure)<li>No separate backup server required<li>Uses Azure Backup Vault | <li>Three times a day backup/file level restore<li>File/folder/volume level restore only, not application aware<li>No support for Linux | files/folders/volumes |
-| System Center Data Protection Manager | <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V) | <li>Lack of heterogeneous support (VMware VM backup, Oracle workload back up).  | files/folders/volumes<br>/VMs/applications |
-| Microsoft Azure Backup Server | <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V)<li>Does not require a System Center license | <li>Lack of heterogeneous support (VMware VM backup, Oracle workload back up).<li>Always requires live Azure subscription<li>No support for tape backup | files/folders/volumes<br>/VMs/applications |
+| System Center Data Protection Manager | <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V) | <li>Lack of heterogeneous support (VMware VM back up, Oracle workload back up).  | files/folders/volumes<br>/VMs/applications |
+| Microsoft Azure Backup Server | <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V)<li>Does not require a System Center license | <li>Lack of heterogeneous support (VMware VM back up, Oracle workload back up).<li>Always requires live Azure subscription<li>No support for tape backup | files/folders/volumes<br>/VMs/applications |
 | Azure IaaS VM Backup | <li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric level backup with no backup infrastructure needed<li>Uses Azure Backup vault | <li>Once a day back up/disk level restore<li>Cannot back up on-premises | VMs<br>Individual disks |
 
 ## Which applications and workloads can be backed up?
@@ -85,7 +85,7 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Functionality
-These five tables summarize how Backup functionality is handled in each component.
+These five tables summarize how backup functionality is handled in each component.
 
 ### Storage
 
