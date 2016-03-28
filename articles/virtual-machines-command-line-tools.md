@@ -19,7 +19,7 @@
 
 # Azure CLI commands in Azure Service Management (asm) mode
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines/azure-cli-arm-commands.md).
 
 This article provides syntax and options for Azure CLI commands you'd commonly use to create and manage Azure resources in the classic deployment model. You access these commands by running the CLI in Azure Service Management (asm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. 
 
@@ -1463,7 +1463,7 @@ This commands removes all rows of data from the table.
 
 ### <a name="Mobile_Scripts"></a>Commands to manage scripts
 
-Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](../mobile-services/mobile-services-how-to-use-server-scripts.md).
+Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [options] [servicename]**
 
