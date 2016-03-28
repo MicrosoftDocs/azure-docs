@@ -704,8 +704,6 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-### Azure Storage - tables input/output
-
 ### Azure Service Bus triggers and bindings
 
 To use a Service Bus trigger or binding, set up the function app by adding a connection string for your Service Bus namespace in an app setting named AzureWebJobsServiceBus. 
@@ -821,8 +819,3 @@ public static void Run(TimerInfo myTimer, ICollector<string> OutPutQueueItem, Tr
     OutPutQueueItem.Add($"C# Timer trigger function executed at: {DateTime.Now} (item 2)");
 }
 ```
-
-### Azure Service Bus - EventHub trigger
-
-
-### Azure Service Bus - EventHub output
