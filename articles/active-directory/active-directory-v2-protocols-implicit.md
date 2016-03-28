@@ -149,10 +149,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &login_hint=myuser@mycompany.com
 ```
 
-> [AZURE.TIP] Try copy & pasting this request into a browser tab! (Don't forget to replace the `domain_hint` and the `login_hint` values with the correct values for your user)
-    ```
-    https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint={{consumers-or-organizations}}&login_hint={{your-username}}
-    ```
+> [AZURE.TIP] Try copy & pasting the below request into a browser tab! (Don't forget to replace the `domain_hint` and the `login_hint` values with the correct values for your user)
+
+```
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint={{consumers-or-organizations}}&login_hint={{your-username}}
+```
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
