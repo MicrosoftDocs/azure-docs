@@ -58,7 +58,7 @@ No. In fact, we encourage data enthusiasts, those curious about data science, an
 
 **Can I enter with my colleagues as a team?**
 
-The Competition platform currently does not support team participation. Each competition entry is tied to a single user identity. Please register a new workspace for your team if you want to participate as a team.
+The Competition platform currently does not support team participation. Each competition entry is tied to a single user identity. 
 
 **Do I need to pay to participate in a competition?**
 
