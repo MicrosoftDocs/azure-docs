@@ -16,9 +16,9 @@
    ms.date="03/22/2016"
    ms.author="mcoskun"/>
 
->[AZURE.NOTE] It is critical to backup and restore your data (and test that it works as expected) so you can recover from data loss scenarios.
-
 # Back up and restore Reliable Services
+
+>[AZURE.NOTE] It is critical to backup and restore your data (and test that it works as expected) so you can recover from data loss scenarios.
 
 Azure Service Fabric is a high-availability platform and replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases it is desirable for the service to back up data (to an external store).
 
