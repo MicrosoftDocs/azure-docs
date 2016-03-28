@@ -15,11 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-<<<<<<< HEAD
 	ms.date="03/27/2015"
-=======
-	ms.date="03/25/2016"
->>>>>>> ef96c6e290622c3719c1d5823d4b6e2a204f88ed
 	ms.author="jeffreyg"/>
 
 # SQL Database tutorial: Create a SQL database in minutes using the Azure portal

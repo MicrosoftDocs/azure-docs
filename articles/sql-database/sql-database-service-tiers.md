@@ -32,7 +32,7 @@ Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and 
 
 >[AZURE.NOTE] Web and Business editions are retired. Please read the [Sunset FAQ](https://azure.microsoft.com/pricing/details/sql-database/web-business/) if you plan to continue using Web and Business editions.
 
-### Single database service tiers and performance levels
+## Single database service tiers and performance levels
 For single databases there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database, **with zero downtime for your application.** See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
 
 Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-v12-whats-new.md). In situations where the underlying hardware in Azure hosts multiple databases, your database still gets a guaranteed set of resources, and the expected performance characteristics of your database are not affected.
@@ -43,7 +43,7 @@ For a better understanding of DTUs, see the [DTU section](#understanding-dtus) i
 
 >[AZURE.NOTE] For a detailed explanation of all other rows in this service tiers table, see [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
-### Elastic pool service tiers and performance in eDTUs
+## Elastic pool service tiers and performance in eDTUs
 In addition to creating and scaling a single database, you also have the option of managing multiple databases within an [elastic pool](sql-database-elastic-pool.md). All of the databases in an elastic pool share a common set of resources. The performance characteristics are measured by *elastic Database Transaction Units* (eDTUs). As with single databases, pools come in three service tiers: **Basic**, **Standard**, and **Premium**. For pools, these three service tiers still define the overall performance limits and several features.
 
 Pools allow elastic databases to share and consume DTU resources without needing to assign a specific performance level to the databases in the pool. For example, a single database in a Standard pool can go from using 0 eDTUs to the maximum database eDTU you set up when you configure the pool. This allows multiple databases with varying workloads to efficiently use eDTU resources available to the entire pool. See [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md) for details.
@@ -54,7 +54,7 @@ The following table describes the characteristics of pool service tiers.
 
 Each database within a pool also adheres to the single-database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 2400 - 28800, but an individual database within that pool has a database limit of 300 sessions (the limit for a single Basic database as specified in the previous section).
 
-### Understanding DTUs
+## Understanding DTUs
 
 [AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
 
