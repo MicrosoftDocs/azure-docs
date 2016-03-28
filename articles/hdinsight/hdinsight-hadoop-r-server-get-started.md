@@ -311,6 +311,13 @@ Now that you understand how to create a new HDInsight cluster that includes R Se
 
 - [Azure Storage options for R Server on HDInsight premium](hdinsight-hadoop-r-server-storage.md)
 
+### Azure Resource Manager templates
 
+If you're interested in automating the creation of R Server on HDInsight using Azure Resource Manager templates, see the following example templates.
 
+* [Create an R Server on HDInsight cluster using an SSH public key](http://go.microsoft.com/fwlink/p/?LinkID=780809)
+* [Create an R Server on HDInsight cluster using an SSH password](http://go.microsoft.com/fwlink/p/?LinkID=780810)
 
+Both templates create a new HDInsight cluster and associated storage account, and can be used from the Azure CLI, Azure PowerShell, or the Azure Portal.
+
+For generic information on using ARM templates, see [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
