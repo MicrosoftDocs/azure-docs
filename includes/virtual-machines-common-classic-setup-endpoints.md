@@ -34,7 +34,7 @@ The new endpoint will be listed on the **Endpoints** page.
 
 ![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-To use an Azure PowerShell cmdlet to set this up, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). If you are using the Azure CLI in Service Management mode, use the **azure vm endpoint create** command.
+ 
 
 ## Manage the ACL on an endpoint
 
@@ -60,9 +60,7 @@ You can use rules to allow only traffic from specific computers corresponding to
 
 The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List?](../articles/virtual-network/virtual-networks-acl.md).
 
-To use an Azure PowerShell cmdlet to set this up, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../articles/virtual-network/virtual-networks-acl-powershell.md).
 
 
-## Additional resources
 
-[Get started creating an Internet facing load balancer in Resource Manager using PowerShell](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md)
+
