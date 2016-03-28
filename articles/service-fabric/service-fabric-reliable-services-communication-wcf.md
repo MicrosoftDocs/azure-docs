@@ -120,4 +120,4 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-* [Securing communication for Reliable Services Fabric](service-fabric-reliable-services-secure-communication.md)
+* [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)

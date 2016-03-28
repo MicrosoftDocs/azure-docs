@@ -72,4 +72,4 @@ The remoting framework propagates exceptions thrown at the service to the client
 
 * [WCF communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
-* [Securing communication for Reliable Services Fabric](service-fabric-reliable-services-secure-communication.md)
+* [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
