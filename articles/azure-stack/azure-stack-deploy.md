@@ -85,7 +85,7 @@ Sample OEM configurations are available.
 
   Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
 
-2. [Create](azure-stack-add-new-user-aad.md) at least one account so you can sign in to the Azure Stack POC as a tenant.
+2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the Azure Stack POC as a tenant.
 
 >[AZURE.NOTE] The Azure Stack POC supports Azure Active Directory authentication only.
 
