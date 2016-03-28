@@ -229,7 +229,7 @@ The following table provides description for JSON elements specific to DB2 linke
 | password | Specify password for the user account you specified for the username. | No |
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. | Yes |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises DB2 data source. 
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises DB2 data source. 
 
 
 ## DB2 dataset type properties
@@ -314,6 +314,7 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 
 

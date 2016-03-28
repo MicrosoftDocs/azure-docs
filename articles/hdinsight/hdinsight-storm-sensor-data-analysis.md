@@ -402,6 +402,9 @@ Before running the topology, you must prepare HBase to accept the data.
 
 When you have started the topology on the Storm cluster and processed data, you can use the `scan 'SensorData'` command again to verify that data was inserted into HBase.
 
+## Delete your clusters
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights for ASP.NET" 
-	description="Analyze performance, availability and usage patterns of your on-premises or Microsoft Azure web application by using Application Insights." 
+	pageTitle="Web app analytics for ASP.NET with Application Insights" 
+	description="Performance, availability and usage analytics for your ASP.NET website, hosted on-premises or in Azure." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/28/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-The Application Insights SDK sends telemetry from your live web application to the Azure portal, where you can sign in and see charts of your app's performance and usage. 
+The Application Insights SDK sends analytics telemetry from your live web application to the Azure portal, where you can sign in and see charts of your app's performance and usage. 
 
 ![Example performance monitoring charts](./media/app-insights-asp-net/10-perf.png)
 
@@ -94,7 +94,7 @@ The free text search works on any fields in the events. For example, search for 
 
 ### Exceptions
 
-If you have [set up exception monitoring](app-insights-asp-net-exception-mvc.md), exception reports will show in the Search window. 
+If you have [set up exception monitoring](app-insights-asp-net-exceptions.md), exception reports will show in the Search window. 
 
 Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
 
@@ -126,7 +126,7 @@ Open Search to investigate individual requests and their associated events.
 
 [Learn more about search](app-insights-diagnostic-search.md)
 
-* *No associated events?* Set up [server exceptions](app-insights-asp-net-exception-mvc.md) and [dependencies](app-insights-asp-net-dependencies.md).
+* *No associated events?* Set up [server exceptions](app-insights-asp-net-exceptions.md) and [dependencies](app-insights-asp-net-dependencies.md).
 
 
 ## No data?
@@ -173,7 +173,7 @@ This is particularly useful if you have some [custom telemetry](app-insights-api
 ## Next steps
 
 - [User & page data](../article/application-insights/app-insights-javascript.md#selector1)
-- [Exceptions](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [Exceptions](../article/application-insights/app-insights-asp-net-exceptions.md#selector1)
 - [Dependencies](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 

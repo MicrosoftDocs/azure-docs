@@ -40,11 +40,11 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
 
 	![CDN load blade](./media/cdn-preload-endpoint/cdn-load-blade.png)
 
-4. Enter the full path of each asset you wish to load (e.g., */pictures/kitten.png*) in the **Path** textbox.
+4. Enter the full path of each asset you wish to load (e.g., `/pictures/kitten.png`) in the **Path** textbox.
 
 	> [AZURE.TIP] More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
 	>
-	> Paths must be a relative URL.  Asterisk (*) may be used as a wildcard.  
+	> Paths must be a relative URL that fits the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`.  Each asset must have its own path.  There is no wildcard functionality for pre-loading assets.
 
     ![Load button](./media/cdn-preload-endpoint/cdn-load-paths.png)
 
@@ -52,6 +52,7 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
 
 	![Load button](./media/cdn-preload-endpoint/cdn-load-button.png)
 
+> [AZURE.NOTE] There is a limitation of 10 load requests per minute per CDN profile.
 
 ## See also
 - [Purge an Azure CDN endpoint](cdn-purge-endpoint.md)

@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
@@ -81,8 +81,6 @@ The installation should have also installed several local services. The followin
 ![Hadoop ecosystem services listed in the emulator window.][image-hdi-emulator-services]
 
 The services related to the HDInsight Emulator are not started by default. To start the services, from the Hadoop command line, run **start\_local\_hdp_services.cmd** under C:\hdp (default location). To automatically start the services after the computer restarts, run **set-onebox-autostart.cmd**.  
-
-For known issues with installing and running the HDInsight Emulator, see the [HDInsight Emulator Release Notes](hdinsight-emulator-release-notes.md). The installation log is located at **C:\HadoopFeaturePackSetup\HadoopFeaturePackSetupTools\gettingStarted.winpkg.install.log**.
 
 ##<a name="vstools"></a>Use Emulator with HDInsight Tools for Visual Studio
 
@@ -509,7 +507,6 @@ In this MapReduce tutorial, you installed the HDInsight Emulator - a Hadoop sand
 - [Get started using Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
 - [Develop C# Hadoop streaming MapReduce programs for HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
-- [HDInsight Emulator release notes](hdinsight-emulator-release-notes.md)
 - [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
@@ -522,7 +519,6 @@ In this MapReduce tutorial, you installed the HDInsight Emulator - a Hadoop sand
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
-[hdinsight-emulator-release-notes]: hdinsight-emulator-release-notes.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md

@@ -2,7 +2,7 @@
 	pageTitle="Use Logic App features | Microsoft Azure" 
 	description="Learn how to use the advanced features of logic apps." 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/28/2016"
 	ms.author="stepsic"/> 
 	
 # Use Logic Apps features
@@ -30,9 +30,9 @@ Before you complete this topic, you should complete the steps in [Create a new l
 
 You may find the following documents useful:
 
-- [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/dn948513.aspx) - including how to invoke Logic apps directly
-- [Language reference](https://msdn.microsoft.com/library/azure/dn948512.aspx) - a comprehensive list of all supported functions/expressions
-- [Trigger and action types](https://msdn.microsoft.com/library/azure/dn948511.aspx) - the different types of actions and the inputs they take
+- [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/mt643787.aspx) - including how to invoke Logic apps directly
+- [Language reference](https://msdn.microsoft.com/library/azure/mt643789.aspx) - a comprehensive list of all supported functions/expressions
+- [Trigger and action types](https://msdn.microsoft.com/library/azure/mt643939.aspx) - the different types of actions and the inputs they take
 - [Overview of App Service](../app-service/app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
 
 ## Adding conditional logic
@@ -41,11 +41,11 @@ Although the original flow works, there are some areas that could be improved.
 
 
 ### Conditional
-This logic app may result in you getting a lot of emails. The following steps add additional logic to make sure that you only receive an email when the tweet comes from someone with a certain number of followers. 
+This logic app may result in you getting a lot of emails. The following steps add logic to make sure that you only receive an email when the tweet comes from someone with a certain number of followers. 
 
-1. Click the plus and find the action *Get User* for twitter.
+1. Click the plus and find the action *Get User* for Twitter.
 
-2. Pass in the **Tweeted by** field from the trigger to get the information about the twitter user.
+2. Pass in the **Tweeted by** field from the trigger to get the information about the Twitter user.
 
 	![Get user](./media/app-service-logic-use-logic-app-features/getuser.png)
 
@@ -59,7 +59,12 @@ This logic app may result in you getting a lot of emails. The following steps ad
 
 	![Conditional](./media/app-service-logic-use-logic-app-features/conditional.png)
 
-7.  Finally, drag-and-drop the email box into the **If Yes** box. This will mean you'll only get emails when the follower count is met. 
+7.  Finally, drag-and-drop the email box into the **If Yes** box. This will mean you'll only get emails when the follower count is met.
+
+## Repeating over a list with forEach
+
+The forEach loop specifies an array to repeat an action over. If it is not an array the flow fails. As an example, if you have action1 that outputs an array of messages, and you want to send each message, you can include this forEach statement in the properties of your action: forEach : "@action('action1').outputs.messages"
+ 
 
 ## Using the code view to edit a Logic App
 
@@ -90,7 +95,7 @@ The following updates your existing logic app to use parameters for the query te
 2. Scroll to the `twitterconnector` action, locate the query value, and replace it with `#@{parameters('topic')}`.
 	You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
  
-Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](http://msdn.microsoft.com/library/mt643788(Azure.100).aspx).
+Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](https://msdn.microsoft.com/library/mt643787.aspx).
 
 Now, when you click **Save**, every hour you get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Load sample data into SQL Data Warehouse
@@ -28,10 +28,12 @@ Follow these simple steps to load the Adventure Works Sample database to SQL DW.
 
 3. Edit the extracted file aw_create.bat and set the following variables found at the top of the file.  Be sure to leave no whitespace between the "=" and the parameter.  Below are examples of how your edits might look.
 
-    	server=mylogicalserver.database.windows.net
-    	user=mydwuser
-    	password=Mydwpassw0rd
-    	database=mydwdatabase
+    ```
+    server=mylogicalserver.database.windows.net
+    user=mydwuser
+    password=Mydwpassw0rd
+    database=mydwdatabase
+    ```
 
 4. From a Windows cmd prompt, run the edited aw_create.bat.  Be sure you are in the directory where you saved your edited version of aw_create.bat.
 This script will...
@@ -48,22 +50,28 @@ Once you've loaded some sample data into your SQL Data Warehouse, you can quickl
 
 Example of simple select statement to get all the info of the employees:
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 Example of a more complex query using constructs such as GROUP BY to look at the total amount for all sales on each day:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 Example of a SELECT with a WHERE clause to filter out orders from before a certain date:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 SQL Data Warehouse supports almost all T-SQL constructs which SQL Server supports.  Any differences are documented in our [migrate code][] documentation.
 

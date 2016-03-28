@@ -3,7 +3,7 @@
    description="How to transfer an Azure subscription to another user, and some frequently asked questions (FAQ) about the process"
    services="billing"
    documentationCenter=""
-   authors="curtand"
+   authors="genlin"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="12/21/2015"
-   ms.author="curtand;kareni;ruchic"/>
+   ms.date="03/04/2016"
+   ms.author="genli"/>
 
 # Transferring an Azure subscription
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Analyze data with Azure Machine Learning
@@ -29,35 +29,35 @@ To step through this tutorial, you need
 [Create a SQL Data Warehouse][] shows you how to provision a database with sample data. If you already have a SQL Data Warehouse database but do not have sample data, you can [load sample data manually][]
 
 
-## Step 1: Get Data 
+## Step 1: Get Data
 We will read the data from dbo.vTargetMail view in the AdventureWorksDW database.
 
 1. Sign into [Azure Machine Learning studio][] and click on my experiments.
 2. Click **+NEW** and select **Blank Experiment**.
 3. Enter a name for your experiment: Targeted Marketing.
 4. Drag the **Reader** module from the modules pane into the canvas.
-5. Specify the details of your SQL Data Warehouse database in the Properties pane. 
+5. Specify the details of your SQL Data Warehouse database in the Properties pane.
 6. Specify the database **query** to read the data of interest.
-   
-   ```
-   SELECT [CustomerKey]
-      ,[GeographyKey]
-      ,[CustomerAlternateKey]
-      ,[MaritalStatus]
-      ,[Gender]
-      ,cast ([YearlyIncome] as int) as SalaryYear
-      ,[TotalChildren]
-      ,[NumberChildrenAtHome]
-      ,[EnglishEducation]
-      ,[EnglishOccupation]
-      ,[HouseOwnerFlag]
-      ,[NumberCarsOwned]
-      ,[CommuteDistance]
-      ,[Region]
-      ,[Age]
-      ,[BikeBuyer]
-  FROM [dbo].[vTargetMail]
-   ```
+
+```sql
+SELECT [CustomerKey]
+  ,[GeographyKey]
+  ,[CustomerAlternateKey]
+  ,[MaritalStatus]
+  ,[Gender]
+  ,cast ([YearlyIncome] as int) as SalaryYear
+  ,[TotalChildren]
+  ,[NumberChildrenAtHome]
+  ,[EnglishEducation]
+  ,[EnglishOccupation]
+  ,[HouseOwnerFlag]
+  ,[NumberCarsOwned]
+  ,[CommuteDistance]
+  ,[Region]
+  ,[Age]
+  ,[BikeBuyer]
+FROM [dbo].[vTargetMail]
+```
 
 Run the experiment by clicking **Run** under the experiment canvas.
 ![Run the experiment][1]
@@ -126,7 +126,9 @@ You will see two more columns added to your test dataset.
 - Scored Probabilities: the likelihood that a customer is a bike buyer.
 - Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
 
-Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. As next steps, you can use this model to make predictions for new customers and publish this model as a web service or write results back to SQL Data Warehouse. 
+Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. As next steps, you can use this model to make predictions for new customers and publish this model as a web service or write results back to SQL Data Warehouse.
+
+## Next Steps
 
 To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure][].
 
@@ -152,4 +154,3 @@ To learn more about building predictive machine learning models, refer to [Intro
 [Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [load sample data manually]: sql-data-warehouse-get-started-manually-load-samples.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-

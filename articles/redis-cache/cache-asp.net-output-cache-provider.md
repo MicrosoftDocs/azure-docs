@@ -4,7 +4,7 @@
    services="redis-cache"
    documentationCenter="na"
    authors="steved0x"
-   manager="dwrede"
+   manager="erikre"
    editor="tysonn" />
 <tags 
    ms.service="cache"
