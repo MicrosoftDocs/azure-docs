@@ -21,7 +21,7 @@
 
 Microsoft Azure DocumentDB now allows access using drivers for MongoDB.  Using this preview functionality, applications can easily and transparently communicate with DocumentDB using existing, community supported Apache License drivers for MongoDB.  Developers can use their current tools and skills for MongoDB to build applications that leverage DocumentDB, a fully managed and scalable NoSQL database service backed by industry leading SLAs. 
 
-We are currently onboarding customers to the preview this new functionality.  If you want to be considered for the preview, follow the directions below to request access to the preview program and we will contact you once you're approved.    
+We are currently onboarding customers to preview this new functionality.  If you want to be considered for the preview, follow the directions below to request access to the preview program and we will contact you once you're approved.    
 
 ## Prerequisites
 
