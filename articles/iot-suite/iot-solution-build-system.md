@@ -203,6 +203,7 @@ Now you're in your app dashboard.
 
 Repeat the process for each platform that your app runs on.
 
+- Use the [App Id](http://support.hockeyapp.net/kb/app-management-2/how-to-find-the-app-id) from the dashboard to send crash data and feedback from your app. In MyDriving, update the ids in src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs 
 -   [**Invite test users**](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). You get a URL to recruit testers users. They'll be able to sign up to your team, download the app and send you feedback.
 
 -   Or if you'd prefer a more open beta release, set the distribution to public: click **Manage App, Distribution, Download = Public.** Now anyone can download your app and send you feedback, and they'll see a notification when you post a new version. And you might get some crash reports from them too.
