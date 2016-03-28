@@ -39,15 +39,15 @@ Here are the main steps to get going. Note that many of them are optional.
 
 -   [**Power BI**](https://powerbi.microsoft.com/) (optional), to create rich visualizations of data across the entire system.
 
-> [AZURE.NOTE] You don’t need a GitHub account to access the MyDriving code on [https://github.com/Azure-Samples/MyDriving](https://github.com/Azure-Samples/MyDriving).
+> [AZURE.NOTE] You don't need a GitHub account to access the MyDriving code on [https://github.com/Azure-Samples/MyDriving](https://github.com/Azure-Samples/MyDriving).
 
 ## Install development tools
 
 The following setup is for developing the full solution: iOS, Android and Windows Phone 10 cross-platform app, with an Azure backend.
 
-As an alternative, you can use Xamarin Studio on either Mac or Windows to develop the mobile apps if you aren’t working on the Azure backend.
+As an alternative, you can use Xamarin Studio on either Mac or Windows to develop the mobile apps if you aren't working on the Azure backend.
 
-There’s a longer [description of this setup here](https://msdn.microsoft.com/library/mt613162.aspx).
+There's a longer [description of this setup here](https://msdn.microsoft.com/library/mt613162.aspx).
 
 ### Windows development machine
 
@@ -65,7 +65,7 @@ Install:
 
 -   [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Required to build the [microservice](../service-fabric/service-fabric-get-started.md) extension.
 
-Visual Studio extensions: Check that under Tools, you see Android, iOS, Xamarin…. If not, open **Control Panel**, **Programs and Features**, **Microsoft** **Visual Studio 2015**, **Modify**. Under **Cross-Platform development**, choose **C\#/.Net (Xamarin).** While you’re there, check that **GitHub** is installed.
+Visual Studio extensions: Check that under Tools, you see Android, iOS, Xamarin…. If not, open **Control Panel**, **Programs and Features**, **Microsoft** **Visual Studio 2015**, **Modify**. Under **Cross-Platform development**, choose **C\#/.Net (Xamarin).** While you're there, check that **GitHub** is installed.
 
 ### Mac development machine
 
@@ -75,7 +75,7 @@ The Mac (Yosemite or later) is required if you want to develop iOS. Although we 
 
 (As an alternative, you can use Xamarin Studio directly on the Mac to develop cross-platform apps.)
 
-You don’t need the Mac if you don’t want to include iOS as a target platform.
+You don't need the Mac if you don't want to include iOS as a target platform.
 
 Install:
 
@@ -97,6 +97,14 @@ Alternatively, if you want to keep up to date with or contribute to our code, cl
 
 > git clone <https://github.com/Azure-Samples/MyDriving.git>
 
+## Bing maps developer code
+
+[Register for a Bing Maps API Key](https://msdn.microsoft.com/en-us/library/ff428642.aspx). 
+
+You need to replace this in line 22 in `src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs`
+
+
+
 ## Build the demo app
 
 Open these solutions in Visual Studio:
@@ -105,27 +113,27 @@ Open these solutions in Visual Studio:
 -   src\MobileAppService\MyDrivingService.sln
 -   src\Extensions\ServiceFabric\VINLookUpApplication\VINLookUpApplication.sln
 
-You’ll get prompts to:
+You'll get prompts to:
 
 -   Trust some potentially untrustworthy projects. Choose to open them if you want to go ahead.
 
--   Set Developer mode if you’re working on a fresh Windows 10 machine.
+-   Set Developer mode if you're working on a fresh Windows 10 machine.
 
 -   Provide your Xamarin credentials.
 
--   Connect to the Xamarin Mac. If you don’t have a Mac, right-click the iOS project in Visual Studio, and choose **Unload project**.
+-   Connect to the Xamarin Mac. If you don't have a Mac, right-click the iOS project in Visual Studio, and choose **Unload project**.
 
 Rebuild the solution.
 
 ### Trouble building?
 
-These are some quirks we’ve sometimes come across:
+These are some quirks we've sometimes come across:
 
--   VINLookupApplication project doesn’t load: make sure you installed the [Azure SDK for VS2015](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
+-   VINLookupApplication project doesn't load: make sure you installed the [Azure SDK for VS2015](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
 
--   Service Fabric project doesn’t build: build the interfaces projects first, and make sure you installed the Service Fabric SDK.
+-   Service Fabric project doesn't build: build the interfaces projects first, and make sure you installed the Service Fabric SDK.
 
--   Android app doesn’t build:
+-   Android app doesn't build:
 
     -   Open Tools, Android, Android SDK Manager, and make sure Android 6 (API 23)/SDK Platform is installed.
 
@@ -134,7 +142,7 @@ These are some quirks we’ve sometimes come across:
 
 ## Get to know the code
 
-In the solution, you’ll find:
+In the solution, you'll find:
 
 -   Azure extensions
 
@@ -182,15 +190,54 @@ The [mobile apps are developed in Xamarin](https://developer.xamarin.com/guides/
 
 -   [Xamarin + Windows Phone](https://developer.xamarin.com/guides/cross-platform/windows/phone/)
 
+
+## HockeyApp
+
+HockeyApp manages the distribution of your device Android, iOS or Windows app to test users, notifying users of new releases. It also collects useful crash reports, user feedback with screenshots, as well as usage metrics.
+
+[Start by uploading](http://support.hockeyapp.net/kb/app-management-2/how-to-create-a-new-app) your build app. Then sign in to HockeyApp (<https://rink.hockeyapp.net>) from your development machine. On the developer dashboard, click **New App**, and drag the built files onto the window. (Later, you can automate your build service to do this.)
+
+Now you're in your app dashboard.
+
+![](./media/iot-solution-build-system/image2.png)
+
+Repeat the process for each platform that your app runs on.
+
+-   [**Invite test users**](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). You get a URL to recruit testers users. They'll be able to sign up to your team, download the app and send you feedback.
+
+-   Or if you'd prefer a more open beta release, set the distribution to public: click **Manage App, Distribution, Download = Public.** Now anyone can download your app and send you feedback, and they'll see a notification when you post a new version. And you might get some crash reports from them too.
+    ![](./media/iot-solution-build-system/image3.png)
+
+-   [**Link crash reports to Visual Studio Team Services**](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs): click **Manage App, Visual Studio Team Services**.
+    HockeyApp can automatically create work items in Team Services when there are crash reports, or when feedback is received.
+
+> Read more at <https://hockeyapp.net>.
+
+## Xamarin Test Cloud
+
+[Xamarin Test Cloud](https://developer.xamarin.com/guides/testcloud/introduction-to-test-cloud/) automates UI testing on real devices in the cloud. Using the NUnit framework, you write tests that run your app through the user interface.
+
+To use Xamarin, you incorporate the [Xamarin.UITests](https://developer.xamarin.com/guides/testcloud/uitest/intro-to-uitest/) SDK into your app, which comes as a NuGet package. You'll find it in the demo app, and it's included when you create new test projects with the Xamarin templates.
+
+![](./media/iot-solution-build-system/image4.png)
+
+An example test project is included with the app in the repository: in [MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService), look under [src](https://github.com/Azure-Samples/MyDriving/tree/master/src)/MobileApps/[MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileApps/MyDriving)/MyDriving.UITests/
+
+If you use Visual Studio Team Services build, it's easy to write Xamarin UI unit tests and run them as part of your build.
+
 ## Deploy Azure services
 
-Microsoft Azure provides a wealth of different services that you can use to build cloud applications. Although many can be used individually (such as App Service/Web Apps), they’re at their best when interconnected to form an integrated system like that we use in MyDriving.
+Please refer to the detailed instructions in **scripts/README.md** to perform an automatic deployment of Azure services and Team Services Build services.
 
-It’s possible to create and interconnect Azure services manually, but it’s much quicker and more reliable to use Azure Resource Manager (ARM) templates. [ARM](../resource-group-overview.md) automates the deployment of a solution’s resources and making the interconnections between them.
+### What does the deployment script do?
 
-You’ll find the template for the MyDriving system in the GitHub repository under [Scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). It provides a very comprehensive and concise view of how the different services in our architecture are interconnected. We explain all these in detail in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), but you can learn a lot just by reading through the template itself.
+Microsoft Azure provides a wealth of different services that you can use to build cloud applications. Although many can be used individually (such as App Service/Web Apps), they're at their best when interconnected to form an integrated system like that we use in MyDriving.
 
-> **Note**: most Azure services have an associated cost depending on the pricing tier. If you’re new to Azure, you can [try it out for free](https://azure.microsoft.com/free/). However, if you don’t plan on using certain components in the MyDriving system, be sure to remove them to avoid incurring costs. See *Estimated operations costs* below for a summary of typical service expenses.
+It's possible to create and interconnect Azure services manually, but it's much quicker and more reliable to use Azure Resource Manager (ARM) templates. [ARM](../resource-group-overview.md) automates the deployment of a solution's resources and making the interconnections between them.
+
+You'll find the template for the MyDriving system in the GitHub repository under [Scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). It provides a very comprehensive and concise view of how the different services in our architecture are interconnected. We explain all these in detail in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), but you can learn a lot just by reading through the template itself.
+
+> [AZURE.NOTE] Most Azure services have an associated cost depending on the pricing tier. If you're new to Azure, you can [try it out for free](https://azure.microsoft.com/free/). However, if you don't plan on using certain components in the MyDriving system, be sure to remove them to avoid incurring costs. See *Estimated operations costs* below for a summary of typical service expenses.
 
 #### Edit the template
 
@@ -207,15 +254,15 @@ The scenario\_complete.params.json file enables you to override various default 
 
 In scenario\_complete.json:
 
--   Search for “baseName” and change to a name you’d like to use.
+-   Search for "baseName" and change to a name you'd like to use.
 
--   Search on “Create” – each of these sections creates a resource.
+-   Search on "Create" – each of these sections creates a resource.
 
 -   Set sqlServerAdminLogin and sqlServerAdminPassword to suitable values.
 
 -   Before deleting a section that creates a resource, check whether it has dependents by searching for its name elsewhere in the file. Note that each section creating a service includes a *dependsOn* section that lists its dependencies.
 
-Here’s what the template configures; details are in the [Reference Guide](http://aka.ms/mydrivingdocs):
+Here's what the template configures; details are in the [Reference Guide](http://aka.ms/mydrivingdocs):
 
 | **Service**                 | **Description and details**  
 |---|----
@@ -237,7 +284,7 @@ Here’s what the template configures; details are in the [Reference Guide](http
 
 #### Run the template
 
-There are detailed instructions in scripts/README.md
+There are **detailed instructions in scripts/README.md**
 
 To provision all these services in your own Azure account using the script, do one of the following:
 
@@ -249,9 +296,9 @@ To provision all these services in your own Azure account using the script, do o
     deploy.ps1 *location* *resourceGroupName*
     ```
 
- -   *location* is the [Azure location](https://azure.microsoft.com/regions/) such as ‘North Europe’. Use Get-AzureLocation to find a list of available locations.
+ -   *location* is the [Azure location](https://azure.microsoft.com/regions/) such as 'North Europe' or 'west us'. Use `Get-AzureLocation` to find a list of available locations.
 
- -   *resourceGroupName* is the name you’d like to give the group that all the resources will belong to. When you’re finished with the resources, you’ll be able to delete them all together by deleting this group.
+ -   *resourceGroupName* is the name you'd like to give the group that all the resources will belong to. When you're finished with the resources, you'll be able to delete them all together by deleting this group.
 
 -   Run DeploymentScripts/Bash/deploy.sh with Bash.
 
@@ -259,84 +306,11 @@ To provision all these services in your own Azure account using the script, do o
 
 Note that each time the template is run, it creates a new set of resources with new names. To delete the resources, go to the portal and delete the resource group.
 
-#### Estimated operational costs
+If the script fails for any reason, you can re-run it.
 
-It’s remarkably inexpensive to run an app like this one at small scale. Many of the services have free entry-level tiers, so that development and small-scale operation costs very little. And of course, your own apps don’t have to use all the features demonstrated in MyDriving.
+The script gives you the option of configuring continuous integration in Visual Studio Team Services. If you have set up a Team Services project, you'll have a URL https://yourAccountName.visualstudio.com. Enter the complete URL when asked. You can give it a new or existing name for a Team Services project. 
 
-Here’s a rough estimate of the costs of setting up the development configuration for MyDriving.
 
-We also note some alternatives that we did *not* use. \#
-
-We assume:
-
--   A team of no more than five (+ observing stakeholders).
-
--   Running for about a month.
-
--   100 users with 4 trips per day.
-
->[AZURE.NOTE] if you’re new to Azure, there’s a [free trial account](https://azure.microsoft.com/free/).
-
-| **Service/Component**  | **Notes** | **Cost/month** |
-|--------|--------|----------------|
-| [Visual Studio 2015 Community](https://www.visualstudio.com/products/visual-studio-community-vs) with [Xamarin](https://visualstudiogallery.msdn.microsoft.com/dcd5b7bd-48f0-4245-80b6-002d22ea6eee) <br/>Cross platform dev environment.| Visual Studio Community. <br/>(\# Need [VS Pro](https://www.visualstudio.com/vs-2015-product-editions) for [Xamarin.Forms](https://xamarin.com/forms), to design cross-platform from a single code base.)  | $0   |
-| [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) <br/>2-way data connection to devices. | 8,000 Messages + 0.5 KB/Message Free | $0             |
-| [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/)  <br/>   High-volume stream data processing.                                                                                                                                                              | Charge $0.031 per streaming unit per hour, while enabled. You choose the number of streaming units you want; more to scale up. | $23            |
-| [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)<br/> Adaptive responses.                                                                                                                                                                              |  $10/seat/month <br/>                                                                                                                                                                                 + 3h experiment \* $1 / experiment hour <br/>                                                                                                                                                           + 3.5h API CPU \* $2 /production CPU hour <br/>                                                                                                                                                          API CPU time assumes 5min/day retraining, though this would rise with more input data;                   <br/>                                                                                                                                                                     + 2min/day scoring to process 400 trips/day.  | $20            |
-| [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/)  <br/> host mobile backend                                                                                                                                                                              | Tier B1 – production web apps | $56            |
-| [Visual Studio Team Services ](https://azure.microsoft.com/pricing/details/visual-studio-team-services/)  <br/> Build, unit test and release management. Task management. | Private Agents, 5 users| $0             |
-| [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) <br/>Monitor perf & usage of web services and sites.| Free Tier  | $0             |
-| [HockeyApp](http://hockeyapp.net/pricing/) <br/> Distribute beta apps, collect feedback, usage & crash data.                                                                                                                                      | Two free apps for new users.<br/> $30/month thereafter.  | $0    |
-| [Xamarin](https://store.xamarin.com/)<br/> Code on a uniform platform for multiple devices. | Free trial. <br/>$25/month thereafter.| $0    |
-| [SQL Instance](https://azure.microsoft.com/pricing/details/sql-database/) for Azure App Service| Basic tier; single database model | $5             |
-| [Service Fabric](../service-fabric/services/service-fabric.md) (optional)  | Run a local cluster | $0             |
-| [Power BI](https://powerbi.microsoft.com/pricing/)<br/> Versatile displays and investigation of streamed and static data.| Free tier: 1GB, 10k rows/hour, daily refresh <br/> \# $10/user/month for [higher limits](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), more connection options, collaboration    | $0             |
-| [Storage](https://azure.microsoft.com/pricing/details/storage/)   | L (Locally Redundant) &lt; 100G $0.024/GB  | $3             |
-| [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/)                                                                                                                       | $0.60 per activity \* (8 - 5 FOC)| $2             |
-| [HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) (on-demand cluster) <br/>  For daily retraining   | 3 A3 nodes at $0.32/hr for 1 hour daily X 31 days | $30            |
-| [Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/)  | Basic with $11/month throughput unit + $0.028 ingress | $11            |
-| OBD Dongle  || $12            |
-| **Total**|    | **$157**       |
-
-See also:
-
--   Summary of [Azure service quotas and limits](../azure-subscription-service-limits/#iot-hub-limits).
-
--   Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-
-## HockeyApp
-
-HockeyApp manages the distribution of your device Android, iOS or Windows app to test users, notifying users of new releases. It also collects useful crash reports, user feedback with screenshots, as well as usage metrics.
-
-[Start by uploading](http://support.hockeyapp.net/kb/app-management-2/how-to-create-a-new-app) your build app. Then sign in to HockeyApp (<https://rink.hockeyapp.net>) from your development machine. On the developer dashboard, click **New App**, and drag the built files onto the window. (Later, you can automate your build service to do this.)
-
-Now you’re in your app dashboard.
-
-![](./media/iot-solution-build-system/image2.png)
-
-Repeat the process for each platform that your app runs on.
-
--   [**Invite test users**](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). You get a URL to recruit testers users. They’ll be able to sign up to your team, download the app and send you feedback.
-
--   Or if you’d prefer a more open beta release, set the distribution to public: click **Manage App, Distribution, Download = Public.** Now anyone can download your app and send you feedback, and they’ll see a notification when you post a new version. And you might get some crash reports from them too.
-    ![](./media/iot-solution-build-system/image3.png)
-
--   [**Link crash reports to Visual Studio Team Services**](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs): click **Manage App, Visual Studio Team Services**.
-    HockeyApp can automatically create work items in Team Services when there are crash reports, or when feedback is received.
-
-> Read more at <https://hockeyapp.net>.
-
-## Xamarin Test Cloud
-
-[Xamarin Test Cloud](https://developer.xamarin.com/guides/testcloud/introduction-to-test-cloud/) automates UI testing on real devices in the cloud. Using the NUnit framework, you write tests that run your app through the user interface.
-
-To use Xamarin, you incorporate the [Xamarin.UITests](https://developer.xamarin.com/guides/testcloud/uitest/intro-to-uitest/) SDK into your app, which comes as a NuGet package. You’ll find it in the demo app, and it’s included when you create new test projects with the Xamarin templates.
-
-![](./media/iot-solution-build-system/image4.png)
-
-An example test project is included with the app in the repository: in [MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService), look under [src](https://github.com/Azure-Samples/MyDriving/tree/master/src)/MobileApps/[MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileApps/MyDriving)/MyDriving.UITests/
-
-If you use Visual Studio Team Services build, it’s easy to write Xamarin UI unit tests and run them as part of your build.
 
 ## Visual Studio Team Services
 
@@ -370,9 +344,9 @@ We have build definitions for each of the main targets; and variations for featu
 
     -   MyDriving.Xamarin.UWP-Regression
 
-If you’d like to see the full details of our configuration, see section 4.7 of the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), *Build and Release Configuration.* They follow the same general pattern:
+If you'd like to see the full details of our configuration, see section 4.7 of the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), *Build and Release Configuration.* They follow the same general pattern:
 
-1.  NuGet package restore. We don’t keep compiled code in the repository, so the first steps of each build are to restore the required NuGet packages.
+1.  NuGet package restore. We don't keep compiled code in the repository, so the first steps of each build are to restore the required NuGet packages.
 
 2.  License activation. The build is performed in the cloud, so where we need a licence – in particular, for the Xamarin build service – we have to activate our licence on the current build machine. Then we de-activate it immediately afterwards, to allow it to be used on another machine.
 
@@ -424,6 +398,55 @@ You can add custom telemetry (or instrument an application running somewhere out
 Application Insights will send alert emails if it sees unusual numbers of failure responses, and you can also set up your own alerts on various metrics such as response times.
 
 Just to be sure that your web service is always up and running, you can set up [availability tests](../app-insights/app-insights-monitor-web-app-availability.md), which ping your site from various locations around the world every fifteen minutes. Again, you'll get an email if there seems to be a problem.
+
+
+
+## Estimated operational costs
+
+It's remarkably inexpensive to run an app like this one at small scale. Many of the services have free entry-level tiers, so that development and small-scale operation costs very little. And of course, your own apps don't have to use all the features demonstrated in MyDriving.
+
+Here's a rough estimate of the costs of setting up the development configuration for MyDriving.
+
+We also note some alternatives that we did *not* use. \#
+
+We assume:
+
+-   A team of no more than five (+ observing stakeholders).
+
+-   Running for about a month.
+
+-   100 users with 4 trips per day.
+
+>[AZURE.NOTE] if you're new to Azure, there's a [free trial account](https://azure.microsoft.com/free/).
+
+| **Service/Component**  | **Notes** | **Cost/month** |
+|--------|--------|----------------|
+| [Visual Studio 2015 Community](https://www.visualstudio.com/products/visual-studio-community-vs) with [Xamarin](https://visualstudiogallery.msdn.microsoft.com/dcd5b7bd-48f0-4245-80b6-002d22ea6eee) <br/>Cross platform dev environment.| Visual Studio Community. <br/>(\# Need [VS Pro](https://www.visualstudio.com/vs-2015-product-editions) for [Xamarin.Forms](https://xamarin.com/forms), to design cross-platform from a single code base.)  | $0   |
+| [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) <br/>2-way data connection to devices. | 8,000 Messages + 0.5 KB/Message Free | $0             |
+| [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/)  <br/>   High-volume stream data processing.                                                                                                                                                              | Charge $0.031 per streaming unit per hour, while enabled. You choose the number of streaming units you want; more to scale up. | $23            |
+| [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)<br/> Adaptive responses.                                                                                                                                                                              |  $10/seat/month <br/>                                                                                                                                                                                 + 3h experiment \* $1 / experiment hour <br/>                                                                                                                                                           + 3.5h API CPU \* $2 /production CPU hour <br/>                                                                                                                                                          API CPU time assumes 5min/day retraining, though this would rise with more input data;                   <br/>                                                                                                                                                                     + 2min/day scoring to process 400 trips/day.  | $20            |
+| [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/)  <br/> host mobile backend                                                                                                                                                                              | Tier B1 – production web apps | $56            |
+| [Visual Studio Team Services ](https://azure.microsoft.com/pricing/details/visual-studio-team-services/)  <br/> Build, unit test and release management. Task management. | Private Agents, 5 users| $0             |
+| [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) <br/>Monitor perf & usage of web services and sites.| Free Tier  | $0             |
+| [HockeyApp](http://hockeyapp.net/pricing/) <br/> Distribute beta apps, collect feedback, usage & crash data.                                                                                                                                      | Two free apps for new users.<br/> $30/month thereafter.  | $0    |
+| [Xamarin](https://store.xamarin.com/)<br/> Code on a uniform platform for multiple devices. | Free trial. <br/>$25/month thereafter.| $0    |
+| [SQL Instance](https://azure.microsoft.com/pricing/details/sql-database/) for Azure App Service| Basic tier; single database model | $5             |
+| [Service Fabric](../service-fabric/services/service-fabric.md) (optional)  | Run a local cluster | $0             |
+| [Power BI](https://powerbi.microsoft.com/pricing/)<br/> Versatile displays and investigation of streamed and static data.| Free tier: 1GB, 10k rows/hour, daily refresh <br/> \# $10/user/month for [higher limits](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), more connection options, collaboration    | $0             |
+| [Storage](https://azure.microsoft.com/pricing/details/storage/)   | L (Locally Redundant) &lt; 100G $0.024/GB  | $3             |
+| [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/)                                                                                                                       | $0.60 per activity \* (8 - 5 FOC)| $2             |
+| [HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) (on-demand cluster) <br/>  For daily retraining   | 3 A3 nodes at $0.32/hr for 1 hour daily X 31 days | $30            |
+| [Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/)  | Basic with $11/month throughput unit + $0.028 ingress | $11            |
+| OBD Dongle  || $12            |
+| **Total**|    | **$157**       |
+
+See also:
+
+-   Summary of [Azure service quotas and limits](../azure-subscription-service-limits/#iot-hub-limits).
+
+-   Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+
+
 
 ## Reference Guide
 
