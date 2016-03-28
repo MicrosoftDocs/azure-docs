@@ -22,17 +22,19 @@ Use the command line to deploy Azure Resource Manager templates to the Azure Sta
 
 ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
+
+
 1.   Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
 
-[Download the Windows CLI](http://aka.ms/azstack-windows-cli)
+  [Download the Windows CLI](http://aka.ms/azstack-windows-cli)
 
-[Download the Mac CLI](http://aka.ms/azstack-linux-cli)
+  [Download the Mac CLI](http://aka.ms/azstack-linux-cli)
 
-[Download the Linux CLI](http://aka.ms/azstack-mac-cli)
+  [Download the Linux CLI](http://aka.ms/azstack-mac-cli)
 
->[AZURE.NOTE]
->
-> + If you’re on a Mac or Linux machine, you can also get the CLI by using the command `npm install -g azure-cli@0.9.11`</br>
+
+  If you’re on a Mac or Linux machine, you can also get the CLI by using the command `npm install -g azure-cli@0.9.11`</br>
+
 
 
 2.  Use the following command to add the Azure Stack environment:
@@ -42,10 +44,8 @@ ARM templates deploy and provision all of the resources for your application in 
 3.  Log in using the following command (replace *username* with your username).
 
 		azure login -e AzureStack -u “<username>”
-
->[AZURE.NOTE]
->
-> + If you're getting certificate validation issues, disable certificate validation by running the command `set NODE_TLS_REJECT_UNAUTHORIZED=0`
+  
+  If you're getting certificate validation issues, disable certificate validation by running the command `set NODE_TLS_REJECT_UNAUTHORIZED=0`
 
 4. Set the Azure configuration mode to ARM by using the following command.
 
