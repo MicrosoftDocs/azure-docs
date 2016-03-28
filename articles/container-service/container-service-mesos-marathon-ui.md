@@ -29,7 +29,7 @@ While frameworks are available for many popular workloads, this document will de
 
 ## Explore the Mesos UI
 
-With a Secure Shell (SSH) tunnel established, browse to http://localhost/Mesos. This will load the Mesos web UI. From the page, you can gather information about the Mesos cluster-- such as activated agents, task status, and resource availability.
+With a Secure Shell (SSH) tunnel established, browse to http://localhost/Mesos. This will load the Mesos web UI. From the page, you can gather information about the Mesos cluster--such as activated agents, task status, and resource availability.
 
 ![Create deployment UI 1](media/ui1.png)
 
