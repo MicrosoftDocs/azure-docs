@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
 
-[AZURE.VIDEO ]
+[AZURE.VIDEO create-your-first-azure-function]
 &nbsp;
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
