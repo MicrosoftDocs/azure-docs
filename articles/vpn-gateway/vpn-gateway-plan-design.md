@@ -49,7 +49,7 @@ The table below can help you decide the best connectivity option for your soluti
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
 
-#### <a name="gwsku"></a>3. About VPN Gateway SKUs 
+#### <a name="gwsku"></a>About VPN Gateway SKUs 
 
 When you create a VPN gateway, you'll need to specify the gateway SKU that you want to use. 
 There are 3 VPN Gateway SKUs:
@@ -68,7 +68,7 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 
 
 
-### <a name="wf"></a>4. Workflow
+### <a name="wf"></a>3. Workflow
 
 The following list outlines the common workflow for cloud connectivity:
 
