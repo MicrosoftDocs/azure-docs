@@ -32,7 +32,7 @@ In DocumentDB, you can store and query schema-less JSON documents with order-of-
 
 Partitioning is completely transparent to your application. DocumentDB supports fast reads and writes, SQL and LINQ queries, JavaScript based transactional logic, consistency levels, and fine-grained access control via REST API calls to a single collection resource. The service handles distributing data across partitions and routing query requests to the right partition. 
 
-How does this work? When you create a collection in DocumentDB, you'll notice that there's a **partition key property** configuration value that you can specify. This is the JSON property (or path) within your documents can be used by DocumentDB to distribute your data among multiple servers or partitions. DocumentDB will hash the partition key value and use the hashed result to determine the partition in which the JSON document will be stored. All documents with the same partition key will be stored in the same partition. 
+How does this work? When you create a collection in DocumentDB, you'll notice that there's a **partition key property** configuration value that you can specify. This is the JSON property (or path) within your documents that can be used by DocumentDB to distribute your data among multiple servers or partitions. DocumentDB will hash the partition key value and use the hashed result to determine the partition in which the JSON document will be stored. All documents with the same partition key will be stored in the same partition. 
 
 For example, consider an application that stores data about employees and their departments in DocumentDB. Let's choose `"department"` as the partition key property, in order to scale out data by department. Every document in DocumentDB must contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }`, and `{ "Department": "Sales", "id": "0001" }`. In other words, the compound property of (partition key, id) is the primary key for your collection.
 
@@ -188,7 +188,7 @@ Let's read the document by it's partition key and id, update it, and then as a f
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
       new RequestOptions { PartitionKey = new object[] { "XMS-0001" } });
 
-When you query data in partitioned collections, DocumentDB automatically routes ther query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
+When you query data in partitioned collections, DocumentDB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
 
     // Query using partition key
     IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
@@ -219,15 +219,15 @@ The choice of the partition key is an important decision that you’ll have to m
 Your choice of partition key should balance the need to enables the use of transactions against the requirement to distribute your entities across multiple partitions to ensure a scalable solution. At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution. At the other extreme, you could store one document per partition key, which would be highly scalable but would prevent you from using cross document transactions via stored procedures and triggers. An ideal partition key is one that enables you to use efficient queries and that has sufficient partitions to ensure your solution is scalable. 
 
 ### Avoiding storage and performance bottlenecks 
-It is also important to pick a property which allows writes to be distrubuted across a number of distinct values. Requests to the same partition key cannot exceed the throughput of a single partition, and will be throttled. So it is important to pick a partition key that does not result in **"hot spots"** within your application. The total storage size for documents with the same partition key can also not exceed 10 GB in storage. 
+It is also important to pick a property which allows writes to be distributed across a number of distinct values. Requests to the same partition key cannot exceed the throughput of a single partition, and will be throttled. So it is important to pick a partition key that does not result in **"hot spots"** within your application. The total storage size for documents with the same partition key can also not exceed 10 GB in storage. 
 
 ### Examples of good partition keys
 Here are a few examples for how to pick the partition key for your application:
 
 * If you’re implementing a user profile backend, then the user ID is a good choice for partition key.
-* If you’re storing IoT data e.g. device state, a device ID is a good choice for partition key
-* If you’re using DocumentDB for logging time-series data, then the date part of the timestamp is a good choice for partition key
-* If you have a multi-tenant architecture, the tenant ID is a good choice for partition key
+* If you’re storing IoT data e.g. device state, a device ID is a good choice for partition key.
+* If you’re using DocumentDB for logging time-series data, then the date part of the timestamp is a good choice for partition key.
+* If you have a multi-tenant architecture, the tenant ID is a good choice for partition key.
 
 Note that in some use cases (like the IoT and user profiles described above), the partition key might be the same as your id (document key). In others like the time series data, you might have a partition key that’s different than the id.
 
