@@ -103,7 +103,7 @@ These five tables summarize how Backup functionality is handled in each componen
 The Backup vault is the preferred storage target across all components. System Center DPM and Backup Server also provide the option to have a local disk copy. However, only System Center DPM provides the option to write data to a tape storage device.
 
 #### Incremental backup
-Every component supports incremental backup regardless of the target storage (disk, tape, backup vault). Incremental ensures that backups are storage and time efficient, by transferring only those changes made since the last backup.
+Every component supports incremental backup regardless of the target storage (disk, tape, backup vault). Incremental backup ensures that backups are storage and time efficient, by transferring only those changes made since the last backup.
 
 #### Compression
 Backups are compressed to reduce the required storage space. The only component that does not use compression is the VM extension. With VM extension, all backup data is copied from the customer storage account to the backup vault in the same region without compressing it. While going without compression slightly inflates the storage used, storing the data without compression allows for faster restore times.
@@ -160,7 +160,7 @@ Because the VM extension reads the data directly from the Azure storage account 
 If you are backing up your data to a backup server (DPM or Backup Server), traffic from the primary server to the backup server can be compressed to save on bandwidth.
 
 #### Network Throttling
-The Azure Backup agent provides throttling capability, which allows you to control how network bandwidth is used during data transfer. Throttling can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling of data transfer applies to back up and restore activities.
+The Azure Backup agent provides throttling capability, which allows you to control how network bandwidth is used during data transfer. Throttling can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling for data transfer applies to back up and restore activities.
 
 ### Backup and retention
 
@@ -200,7 +200,7 @@ Try out a simple Azure Backup. For instructions, see one of these tutorials:
 - [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
 - [Try Azure VM Backup](backup-azure-vms-first-look.md)
 
-Because those tutorials help you back up quickly, they show you only the most direct path for backing up your data. For additional information about the type of backup you want to do, see:
+Because those tutorials help you back up quickly, they show you only the most direct path for backing up your data. For additional information about the type of back up you want to do, see:
 
 - [Back up Windows machine](backup-configure-vault.md)
 - [Back up application workloads](backup-azure-microsoft-azure-backup.md)
