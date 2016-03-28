@@ -366,6 +366,33 @@ This is a table of all supported bindings.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
+### Azure Storage triggers and bindings
+
+For all Azure Storage triggers and bindings, the *function.json* file includes a `connection` property. For example:
+
+```JSON
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myQueueItem",
+            "type": "queueTrigger",
+            "direction": "in",
+            "queueName": "myqueue-items",
+            "connection":""
+        }
+    ]
+}
+```
+
+If you leave `connection` empty, the trigger or binding will work with the default storage account for the function app. If you want the trigger or binding to work with a different storage account, create an app setting in the function app that points to the storage account you want to use, and set `connection` to the app setting name. To add an app setting, follow these steps:
+
+1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
+
+2. In the **Settings** blade, click **Application Settings**.
+
+3. Scroll down to the **App settings** section, and add an entry with **Key** = *{some unique value of your choice}* and **Value** = the connection string for the storage account.
+
 ### <a id="queuetrigger"></a> Azure Storage - queue trigger
 
 The *function.json* file provides the name of the queue to poll and the variable name for the queue message. For example:
@@ -665,11 +692,11 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 To use a Service Bus trigger or binding, set up the function app by adding a connection string for your Service Bus namespace in an app setting named AzureWebJobsServiceBus. 
 
-1. On the Function App blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
+1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
 
 2. In the **Settings** blade, click **Application Settings**.
 
-3. Scroll down to the App settings section, and add an entry with **Key** = AzureWebJobsServiceBus and **Value** = the connection string for your Service Bus namespace.
+3. Scroll down to the **App settings** section, and add an entry with **Key** = AzureWebJobsServiceBus and **Value** = the connection string for your Service Bus namespace.
 
 ### </a> Azure Service Bus - queue or topic trigger
 
