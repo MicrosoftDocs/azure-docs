@@ -129,6 +129,44 @@ You can then use this information with the [Azure CLI](../xplat-cli-install.md) 
 
     For example, if you want the file to appear in HDInsight at wasb://example/data/filename.txt, then __BLOBPATH__ would be `example/data/filename.txt`.
 
+##Example: Update Ambari configuration
+
+1. Get the current configuration, which Ambari stores as the "desired configuration":
+
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_configs"
+        
+    This will return a JSON document containing the current configuration (identified by the _tag_ value,) for the components installed on the cluster. For example, the following is an excerpt from the data returned from a Spark cluster type.
+    
+        "spark-metrics-properties" : {
+            "tag" : "INITIAL",
+            "user" : "admin",
+            "version" : 1
+        },
+        "spark-thrift-fairscheduler" : {
+            "tag" : "INITIAL",
+            "user" : "admin",
+            "version" : 1
+        },
+        "spark-thrift-sparkconf" : {
+            "tag" : "INITIAL",
+            "user" : "admin",
+            "version" : 1
+        }
+
+    From this list, you need to copy the name of the component (for example, __spark\_thrift\_sparkconf__ and the __tag__ value.
+    
+2. Retrieve the configuration for the component and tag by using the following command.
+
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .config) | .tag |= $newtag' > newconfig.json
+    
+    Curl retrieves the JSON document, then jq is used to make some modifications to create a template that we can use to add/modify configuration values. Specifically it does the following:
+    
+    * Gets the contents of the .items[] array
+    * Deletes the __href__, __version__, and __config__ elements, as these aren't needed to submit changes
+    * Adds a new __tag__ element and sets it's value to __version#################__ where the numeric portion is based on the current date
+    
+    Finally, the data is saved to the __newconfig.json__ document.
+
 ##Next steps
 
 For a complete reference of the REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
