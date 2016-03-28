@@ -19,7 +19,7 @@
 
 # Building and Deploying the MyDriving Solution to your environment
 
-MyDriving is an Internet of Things (IoT) solution that gathers data from your car, processes it using machine learning, and presents it on your mobile phone. The backend consists of a variety of services provided by Microsoft Azure, and the clients can be any of three makes of phone. 
+MyDriving is an Internet of Things (IoT) solution that gathers data from your car, processes it using machine learning, and presents it on your mobile phone. The backend consists of a variety of services provided by Microsoft Azure, and the clients can be Android, iOS or Windows 10 phones. 
 
 We created the MyDriving solution to give you a jumpstart in creating your own IoT system. From the repo you can get Azure Resource Manager scripts to deploy the backend architecture into your own Azure account, from which point you can reconfigure the different services, modify the queries to suit your own data, and so on. You can find these scripts along with code for the mobile app, the Azure App Service API project, and more on <https://github.com/Azure-Samples/MyDriving>.
 
@@ -45,12 +45,6 @@ Here are the main steps to get going. Note that many of them are optional.
 
 The following setup is for developing the full solution: iOS, Android and Windows Phone 10 cross-platform app, with an Azure backend.
 
-We use Visual Studio with Xamarin on Windows to develop and manage all the code. Xamarin on iOS is used through an agent to build and run the iOS code.
-
-![](./media/iot-solution-build-system/image1.png)
-
-You don’t need the Mac if you don’t want to include iOS as a target platform.
-
 As an alternative, you can use Xamarin Studio on either Mac or Windows to develop the mobile apps if you aren’t working on the Azure backend.
 
 There’s a longer [description of this setup here](https://msdn.microsoft.com/library/mt613162.aspx).
@@ -75,13 +69,23 @@ Visual Studio extensions: Check that under Tools, you see Android, iOS, Xamarin�
 
 ### Mac development machine
 
-The Mac (Yosemite or later) is required if you want to develop iOS. You can also use Xamarin Studio on the Mac to develop cross-platform apps. But most of our team work on Visual Studio on Windows, using the Mac as a build and signing machine.
+The Mac (Yosemite or later) is required if you want to develop iOS. Although we use Visual Studio with Xamarin on Windows to develop and manage all the code, Xamarin uses an agent installed on a Mac in order to build and sign the iOS code.
+
+![](./media/iot-solution-build-system/image1.png)
+
+(As an alternative, you can use Xamarin Studio directly on the Mac to develop cross-platform apps.)
+
+You don’t need the Mac if you don’t want to include iOS as a target platform.
 
 Install:
 
 -   [**Xamarin Studio** for iOS](https://developer.xamarin.com/guides/ios/getting_started/installation/mac/). You can also set up Visual Studio and Xamarin on a Mac running a Windows virtual machine. See [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/en-us/library/mt488770.aspx) on MSDN.
 
 -   (Optional) [Azure development tools](https://azure.microsoft.com/downloads/).
+
+Enable remote login on the Mac. Open System Preferences, Sharing and check Remote Login.
+
+When you open an iOS project in Visual Studio on Windows, the Xamarin plug-in will prompt you for the id of the Mac.
 
 ## Fetch the GitHub repo
 
@@ -176,7 +180,7 @@ The [mobile apps are developed in Xamarin](https://developer.xamarin.com/guides/
 
 ### Windows Phone
 
--   -   
+-   [Xamarin + Windows Phone](https://developer.xamarin.com/guides/cross-platform/windows/phone/)
 
 ## Deploy Azure services
 
@@ -184,7 +188,7 @@ Microsoft Azure provides a wealth of different services that you can use to buil
 
 It’s possible to create and interconnect Azure services manually, but it’s much quicker and more reliable to use Azure Resource Manager (ARM) templates. [ARM](../resource-group-overview.md) automates the deployment of a solution’s resources and making the interconnections between them.
 
-You’ll find the template for the MyDriving system in the GitHub repository under [Scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). It provides a very comprehensive and concise view of how the different services in our architecture are interconnected. We explain all these in detail in the *MyDriving Reference Guide*, but you can learn a lot just by reading through the template itself.
+You’ll find the template for the MyDriving system in the GitHub repository under [Scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). It provides a very comprehensive and concise view of how the different services in our architecture are interconnected. We explain all these in detail in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), but you can learn a lot just by reading through the template itself.
 
 > **Note**: most Azure services have an associated cost depending on the pricing tier. If you’re new to Azure, you can [try it out for free](https://azure.microsoft.com/free/). However, if you don’t plan on using certain components in the MyDriving system, be sure to remove them to avoid incurring costs. See *Estimated operations costs* below for a summary of typical service expenses.
 
@@ -211,7 +215,7 @@ In scenario\_complete.json:
 
 -   Before deleting a section that creates a resource, check whether it has dependents by searching for its name elsewhere in the file. Note that each section creating a service includes a *dependsOn* section that lists its dependencies.
 
-Here’s what the template configures; details are in the *{Token:RefGuide}*:
+Here’s what the template configures; details are in the [Reference Guide](http://aka.ms/mydrivingdocs):
 
 | **Service**                 | **Description and details**  
 |---|----
@@ -366,7 +370,7 @@ We have build definitions for each of the main targets; and variations for featu
 
     -   MyDriving.Xamarin.UWP-Regression
 
-If you’d like to see the full details of our configuration, see section 4.7 of the Reference Guide, *Build and Release Configuration.* They follow the same general pattern:
+If you’d like to see the full details of our configuration, see section 4.7 of the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), *Build and Release Configuration.* They follow the same general pattern:
 
 1.  NuGet package restore. We don’t keep compiled code in the repository, so the first steps of each build are to restore the required NuGet packages.
 
@@ -420,6 +424,10 @@ You can add custom telemetry (or instrument an application running somewhere out
 Application Insights will send alert emails if it sees unusual numbers of failure responses, and you can also set up your own alerts on various metrics such as response times.
 
 Just to be sure that your web service is always up and running, you can set up [availability tests](../app-insights/app-insights-monitor-web-app-availability.md), which ping your site from various locations around the world every fifteen minutes. Again, you'll get an email if there seems to be a problem.
+
+## Reference Guide
+
+We recommend the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), which is a comprehensive description of the design of the system and its components.
 
 
 ## Feedback 
