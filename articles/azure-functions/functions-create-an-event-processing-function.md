@@ -24,7 +24,7 @@
 
 In this short video, you will learn how to create an Azure Function in C# that runs based on an event timer to clean up rows in a database table.
 
-[AZURE.VIDEO ]
+[AZURE.VIDEO create-an-event-processing-azure-function]
 &nbsp;
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
