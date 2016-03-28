@@ -130,3 +130,8 @@ class Sample
     }
 }
 ```
+
+
+## Next steps
+
+[Code sample: Retry logic in C# for connecting to SQL Database](sql-database-develop-csharp-retry-windows.md)
