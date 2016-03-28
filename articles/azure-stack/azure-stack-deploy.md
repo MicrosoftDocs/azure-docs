@@ -63,6 +63,8 @@ These requirements apply to the Azure Stack POC only and might change for future
 Sample OEM configurations are available.
 
 
+
+
 ## Operating system
 
 | | **Requirements**  |
@@ -76,12 +78,12 @@ Sample OEM configurations are available.
 
 1. Create an Azure AD account that is the directory administrator for at least one Azure Active Directory. If you already have one, you can use that. Otherwise, you can create one for free at  [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
 
-  | **Azure Active Directory account**  | **Supported?** |
-  |---|---|
-  | Organization ID with valid Public Azure Subscription  | Yes |
-  | Microsoft Account with valid Public Azure Subscription  | Yes |
-  | Organization ID with valid China Azure Subscription  | Yes |
-  | Organization ID with valid US Government Azure Subscription  | No |
+| **Azure Active Directory account**  | **Supported?** |
+|---|---|
+| Organization ID with valid Public Azure Subscription  | Yes |
+| Microsoft Account with valid Public Azure Subscription  | Yes |
+| Organization ID with valid China Azure Subscription  | Yes |
+| Organization ID with valid US Government Azure Subscription  | No |
 
   Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
 
