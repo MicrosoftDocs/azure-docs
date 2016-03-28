@@ -117,6 +117,8 @@ Yes, you can bring your existing R code in ML Studio and run it in the same expe
 
 No, that is not supported, however custom R and Python code can be used to define a module.
 
+**How many modules can I execute in parallel in my experiment?**
+At most 4 modules per experiments.
 
 ### Data processing
 
