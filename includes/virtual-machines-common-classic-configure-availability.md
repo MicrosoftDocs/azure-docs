@@ -38,7 +38,7 @@ To use the Azure classic portal:
 
 	![Create an availability set for a new virtual machine](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
 
-6. On the fourth screen, click the extensions that you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure VM Agent and VM Extensions](virtual-machines-windows-classic-agents-and-extensions.md).
+6. On the fourth screen, click the extensions that you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure VM Agent and VM Extensions](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
 
 7.	Click the arrow to create the virtual machine and the availability set.
 
@@ -47,8 +47,8 @@ To use the Azure classic portal:
 To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see the following:
 
 
-- [Use Azure PowerShell to create and preconfigure Linux-based virtual machines](virtual-machines-linux-classic-createpowershell.md)
-- [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md)
+- [Use Azure PowerShell to create and preconfigure Linux-based virtual machines](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
+- [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
 
@@ -87,9 +87,9 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 [Option 1: Create a virtual machine and an availability set at the same time]: #createset
 [Option 2: Add an existing virtual machine to an availability set]: #addmachine
 
-[Load balancing for Azure infrastructure services]: virtual-machines-linux-load-balance.md
-[Manage the availability of virtual machines]: virtual-machines-linux-manage-availability.md
+[Load balancing for Azure infrastructure services]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
+[Manage the availability of virtual machines]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 
-[Create a virtual machine running Windows]: virtual-machines-windows-hero-tutorial.md
-[Virtual Network overview]: virtual-networks-overview.md
+[Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
 [Articles for virtual machines in Service Management]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines 
