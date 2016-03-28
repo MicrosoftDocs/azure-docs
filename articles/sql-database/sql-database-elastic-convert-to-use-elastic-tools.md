@@ -3,8 +3,8 @@
    description="Convert sharded databases to use elastic database tools by creating a shard map manager"
    services="sql-database"
    documentationCenter=""
-   authors="jhubbard"
-   manager="silvia doomra"
+   authors="silviadoomra"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/23/2016"
-   ms.author="carlrab"/>
+   ms.date="03/28/2016"
+   ms.author="silviadoomra,sidneyh"/>
 
 # Convert existing databases to use elastic database tools
 
