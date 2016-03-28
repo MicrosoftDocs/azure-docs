@@ -168,7 +168,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 	2016-03-23T08:04:57.763 Processing User Information...
 	2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
     
-## Test a blob trigger using Storage Explorer
+### Test a blob trigger using Storage Explorer
 
 You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
