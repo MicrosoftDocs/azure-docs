@@ -18,9 +18,9 @@
 
 # Analytics samples for Application Insights
 
-[Analytics](app-analytics.md) is a powerful search engine for your 
-[Application Insights](app-insights-overview.md) telemetry. These pages describe the
- Analytics query language. There's also 
+[Analytics](app-analytics.md) lets you run powerful queries over the telemetry from your app collected by 
+[Application Insights](app-insights-overview.md). These pages describe its query lanquage.
+There's also 
 a [tour of the language](app-analytics-tour.md), which is recommended for getting started.
 
 
