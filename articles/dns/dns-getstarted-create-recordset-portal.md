@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="03/28/2016"
    ms.author="cherylmc"/>
 
 
@@ -75,13 +75,20 @@ CNAME record sets cannot co-exist with other record sets with the same name. For
 The following example will walk you through how to create a record set and records by using the Azure portal. We'll use the DNS 'A' record type. For other record types see [How to manage DNS records](dns-operations-recordsets.md)
 
 1. Log in to the Azure portal.
+
 2. Navigate to the DNS zone blade in which you want to create a record set.
-3. In your DNS zone blade, at the top of the blade click **Record set** to open the **Add record set** blade.
-4. In the **Add record set** blade, name your records set. For example, you could name your record set "**www**".
+
+3. In your DNS zone blade, at the top of the blade click **Record set** to open the **Add record set** blade. media new recordset500.png![new record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
+
+4. In the **Add record set** blade, name your records set. For example, you could name your record set "**www**".![add record set](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
+
 5. Type, select the type of record you want to create. For example, **A**.
+
 6. Set the **TTL**. The default in the portal is 1 hour.
+
 7. Add the IP addresses, one IP address per line. Using the suggested record set name and record type from above, this adds the IPv4 IP addresses to the A record for the www record set.
-8. When you have finished added IP addresses, click **OK**. The DNS record set will create.
+
+8. When you have finished added IP addresses, click **OK** at the bottom of the blade. The DNS record set will create.
 
 
 

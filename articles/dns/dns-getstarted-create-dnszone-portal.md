@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="03/28/2016"
    ms.author="cherylmc"/>
 
 # Creating and managing a DNS zone in the Azure portal
