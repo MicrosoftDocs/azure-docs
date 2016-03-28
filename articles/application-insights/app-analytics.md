@@ -17,14 +17,11 @@
 	ms.author="awills"/>
 
 
-
-
 # Analytics in Application Insights
 
 
-[Analytics](app-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage.
+[Analytics](app-analytics.md) lets you run powerful queries over the telemetry from your app collected by 
+[Application Insights](app-insights-overview.md). These pages describe its query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -69,6 +66,8 @@ The language has many attractive features:
 >[AZURE.NOTE] We recommend starting with the [language tour](app-analytics-tour.md).
 
 
+
+
 ## Connect to your Application Insights data
 
 
@@ -77,6 +76,9 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-analytics/001.png)
 
 
+## Limits
+
+At present, query results are limited to just over a week of past data.
 
 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -73,6 +73,7 @@ To configure the integration of Ultipro into Azure AD, you need to add Ultipro f
 ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_01.png)<br>
 7. In the results pane, select **Ultipro**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Ultipro based on a test user called "Britta Simon".
