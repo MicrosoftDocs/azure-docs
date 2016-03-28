@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="03/28/2016"
-   ms.author="SilviaDoomra,sidneyh"/>
+   ms.author="SilviaDoomra"/>
 
 # Convert existing databases to use elastic database tools
 
@@ -66,11 +66,17 @@ The question is now whether to create one of the following options:
 2. Range mapping
 3. List mapping on a single database 
 
-If you are using a single-tenant database model, use the list mapping. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management
+If you are using a single-tenant database model, use the list mapping. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
+
+![List mapping][1]
 
 In contrast, the multi-tenant database model assigns several tenants to a database (and you can distribute groups of tenants across multiple databases. This is a viable model when the amount of data per tenant is expected to be small. 
 
-A third option is to use a list mapping to assign multiple ranges to a single database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10.  
+![Range mapping][2]
+
+A third option is to use a list mapping to assign multiple ranges to a single database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
+
+![Muliple tenants on single DB][3] 
 
 
 ## Option 1: create a shard map for a list mapping
@@ -112,7 +118,7 @@ Note that to utilize this mapping pattern, tenant id values needs to be continuo
 
 After the creation of shard map, the next step involves adding the range mappings for all the tenant id range – database associations:
 
-# Create the mappings and associate it with the new shards 
+## Create the mappings and associate it with the new shards 
 
 	Add-RangeMapping 
 	-KeyType $([int]) 
@@ -136,3 +142,11 @@ Information about the existing shards and the mappings associated with them can 
 Get the PowerShell scripts from [Azure SQL DB-Elastic Database tools sripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+
+[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]  
+
+<!--Image references-->
+[1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
+[2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png
+[3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
+ 
