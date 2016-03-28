@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/26/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create SQL Data Warehouse using Powershell
@@ -29,9 +29,9 @@
 
 If you're not already set-up with PowerShell, you need to download and configure it.
 
-1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on this installer, see [How to install and configure Azure PowerShell][]
 2. To run the module, at the start window type **Windows PowerShell**.
-3. Run this cmdlet to login to Azure Resource Manager. For more information, see [How to install and configure Azure PowerShell][].
+3. Run this cmdlet to login to Azure Resource Manager.
 
 	```Powershell
 	Login-AzureRmAccount
