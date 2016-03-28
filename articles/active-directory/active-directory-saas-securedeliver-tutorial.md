@@ -72,7 +72,7 @@ To configure the integration of Secure Deliver into Azure AD, you need to add Se
 ![Creating an Azure AD test user](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
 7. In the results pane, select **Secure Deliver**, and then click **Complete** to add the application.
 <br><br>
-
+![Creating an Azure AD test user](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_02.png)<br>
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Secure Deliver based on a test user called "Britta Simon".
 
