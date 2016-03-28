@@ -1,4 +1,22 @@
-# Working with Service Fabric’s Reliable Collections
+<properties
+    pageTitle="Working with Reliable Collections | Microsoft Azure"
+    description="Learn the best practices for working with Reliable Collections."
+    services="service-fabric"
+    documentationCenter=".net"
+    authors="jeffreyr"
+    manager="timlt"
+    editor="" />
+
+<tags
+    ms.service="multiple"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="multiple"
+    ms.date="3/28/2016"
+    ms.author="jeffreyr" />
+
+# Working with Reliable Collections
 
 Service Fabric offers a stateful programming model available to .NET developers via Reliable Collections. Specifically, Service Fabric provides reliable dictionary and reliable queue classes. When you use these classes, your state is partitioned (for scalability), replicated (for availability), and transacted within a partition (for ACID semantics). Let’s look at a typical usage of a reliable dictionary object and see what its actually doing.
 
@@ -37,7 +55,7 @@ In the code above, the call to CommitAsync commits all of the transaction’s op
 
 If CommitAsync is not called (usually due to an exception being thrown), then the ITransaction object gets disposed. When disposing an uncommitted ITransaction object, Service Fabric appends abort information to the local node’s log file and nothing needs to be sent to any of the secondary replicas. And then, any locks associated with keys that were manipulated via the transaction are released.
 
-## Common Pitfalls and How to Avoid them
+## Common pitfalls and how to avoid them
 Now that you understand how the reliable collections work internally, let’s take a look at some common misuses of them. See the code below:
 
 ~~~
@@ -114,7 +132,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ~~~
 
-## Define Immutable Data Types to Prevent Programmer Error
+## Define immutable data types to prevent programmer error
 
 Ideally, we’d like the compiler to report errors when you accidentally produce code that mutates state of an object that you are supposed to consider immutable. But, the C# compiler does not have the ability to do this. So, to avoid potential programmer bugs, we highly recommend that you define the types you use with reliable collections to be immutable types. Specifically, this means that you stick to core value types (such as numbers [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, and the like). And, of course, you can also use String. It is best to avoid collection properties as serializing and deserializing them can frequently can hurt performance. However, if you want to use collection properties, we highly recommend the use of .NET’s immutable collections library (System.Collections.Immutable). This library is available for download from http://nuget.org. We also recommend sealing your classes and making fields read-only whenever possible.
 
@@ -168,7 +186,7 @@ public struct ItemId {
 }
 ~~~
 
-## Schema Versioning (Upgrades)
+## Schema versioning (upgrades)
 
 Internally, Reliable Collections serialize your objects using .NET’s DataContractSerializer. The serialized objects are persisted to the primary replica’s local disk and are also transmitted to the secondary replicas. As your service matures, it’s likely you’ll want to change the kind of data (schema) your service requires. You must approach versioning of your data with great care. First and foremost, you must always be able to deserialize old data. Specifically, this means your deserialization code must be infinitely backward compatible: Version 333 of your service code must be able to operate on data placed in a reliable collection by version 1 of your service code 5 years ago.
 
