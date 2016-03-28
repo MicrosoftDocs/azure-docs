@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Statements in Analytics Application Insights" 
 	description="Queries, expressions, and let statements in Analytics, 
 	             the powerful search tool of Application Insights." 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="03/28/2016" 
 	ms.author="awills"/>
 
  
