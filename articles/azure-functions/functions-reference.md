@@ -60,6 +60,7 @@ The `function.json` file contains configuration specific to a function, includin
     ]
 }
 ```
+
 You can prevent the runtime from running the function by setting the `disabled` property to `true`.
 
 The `bindings` property is where you configure both triggers and bindings. Each binding shares a few common settings and some settings which are specific to a particular type of binding. Every binding requires the following settings:
@@ -302,6 +303,7 @@ using System.Threading.Tasks;
 
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 ```
+
 The following namespaces are automatically imported and are therefore optional:
 
 * `System`
@@ -324,6 +326,7 @@ using System.Threading.Tasks;
 
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 ```
+
 The following assemblies are automatically added by the Azure Functions hosting environment:
 
 * `mscorlib`,
@@ -490,7 +493,8 @@ The *function.json* file provides the name of the output queue and a variable na
     }
   ],
   "disabled": false
-}``` 
+}
+``` 
 
 #### Queue output supported types
 
