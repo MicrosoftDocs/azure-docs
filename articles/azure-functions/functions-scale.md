@@ -32,7 +32,8 @@ If you are not yet familiar with Azure Functions, make sure to check the [Azure 
 
 ## Configuring your Function App
 
-There are two main settings related to scaling: 
+There are two main settings related to scaling:
+
 * [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Hosting Plan 
 * Memory Size for the execution environment 
 
@@ -44,7 +45,7 @@ Regular hosting plans allow you to host your functions on existing VM’s which 
 
 ## Choosing a Hosting Plan
 
-When creating functions apps you can select to run them on a Dynamic Hosting Plan (new!) or a regular [App Service Plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+When creating functions apps you can select to run them on a Dynamic Hosting Plan (new!) or a regular [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 In the App Service Plan, your functions will run on a dedicated VM, just like web apps work today (for Basic, Standard or Premium SKUs). 
 This dedicated VM is allocated to your apps and/or functions and is available regardless of any code being actively executed. This is a good option if you have existing VM’s that are already running other code but which are not fully utilized or if you expect to be running functions continuously or near continuously. Using a VM decouples cost from both run time and memory size, allowing you to limit the cost of large numbers of long running functions to the cost of the one or more VM’s they run on.
 
