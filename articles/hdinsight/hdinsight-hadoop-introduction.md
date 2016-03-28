@@ -216,7 +216,7 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 
 * State-of-the-art Hadoop components. For details, see [What's new in the Hadoop cluster versions provided by HDInsight?][component-versioning].
 
-* High availability and reliability of clusters.  A second head node has been added to the Hadoop clusters deployed by HDInsight to increase the availability of the service. Standard implementations of Hadoop clusters typically have a single head node. HDInsight removes this single point of failure with the addition of a secondary head node. The switch to a new HA cluster configuration doesn't change the price of the cluster, unless customers create clusters with an extra-large head node instead of the default large-size node. 
+* High availability and reliability of clusters.  A second head node has been added to the Hadoop clusters deployed by HDInsight to increase the availability of the service. Standard implementations of Hadoop clusters typically have a single head node. HDInsight removes this single point of failure with the addition of a secondary head node. The switch to a new HA cluster configuration doesn't change the price of the cluster, unless customers create clusters with an extra-large head node instead of the default large-size node.
 
 	See [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) for details.
 
@@ -269,7 +269,7 @@ Build on this introduction to Hadoop in the cloud and big data analysis with the
 
 * [Azure SQL Database](/documentation/services/sql-database/): Documentation, tutorials, and videos for SQL Database.
 
-* [SQL Database on the Azure Portal](sql-database-manage-portal.md): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
+* [SQL Database on the Azure Portal](../sql-database/sql-database-manage-portal.md): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
 
 * [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304): Download page for a SQL Database sample database.
 
