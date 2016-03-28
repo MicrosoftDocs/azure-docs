@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Quick Create a Linux VM on Azure using the CLI | Microsoft Azure"
-   description="Quick Create a Linux VM on Azure using the CLI."
+   pageTitle="Quickly Create a Linux VM on Azure using the CLI | Microsoft Azure"
+   description="Quickly Create a Linux VM on Azure using the CLI."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -17,7 +17,7 @@
    ms.author="v-livech"/>
 
 
-# Quick Create a Linux VM on Azure using the CLI
+# Quickly Create a Linux VM on Azure using the CLI
 
 This article shows how to quickly create a new Linux VM using the `azure vm quick-create` command from [the Azure CLI](../../xplat-cli-install.md).
 
