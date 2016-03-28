@@ -33,8 +33,8 @@ This function template by default is basically a hello world function that echos
 Update the function with the following code which we will use for testing:
 
 	module.exports = function (context, req) {
-	    context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
-	    context.log('Request Headers = ' + JSON.stringify(req.headers));
+	    context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
+        context.log('Request Headers = ', req.headers);
 	
 	    // If Query string name parameter not provided, check body
 	    if (typeof req.query.name == 'undefined') 
