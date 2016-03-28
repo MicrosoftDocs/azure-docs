@@ -29,7 +29,7 @@ Here are the main steps to get going. Note that many of them are optional.
 
 ## Sign up for Accounts
 
--   [**Visual Studio Dev Essentials**](https://www.visualstudio.com/en-us/products/visual-studio-dev-essentials-vs.aspx). This free program provides easy access to many developer tools and services including Visual Studio, Visual Studio Team Services, and Azure, and gives you $25/month credit on Azure for twelve months. It also includes subscriptions to Pluralsight training and Xamarin University. You can also sign up separately for free tiers of [Azure](https://azure.com) and [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx), but these do not provide Azure credits.
+-   [**Visual Studio Dev Essentials**](https://www.visualstudio.com/products/visual-studio-dev-essentials-vs.aspx). This free program provides easy access to many developer tools and services including Visual Studio, Visual Studio Team Services, and Azure, and gives you $25/month credit on Azure for twelve months. It also includes subscriptions to Pluralsight training and Xamarin University. You can also sign up separately for free tiers of [Azure](https://azure.com) and [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx), but these do not provide Azure credits.
 
 -   [**HockeyApp**](https://rink.hockeyapp.net/) (optional), for managing test distribution of mobile apps and collecting telemetry.
 
@@ -79,7 +79,7 @@ You don't need the Mac if you don't want to include iOS as a target platform.
 
 Install:
 
--   [**Xamarin Studio** for iOS](https://developer.xamarin.com/guides/ios/getting_started/installation/mac/). You can also set up Visual Studio and Xamarin on a Mac running a Windows virtual machine. See [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/en-us/library/mt488770.aspx) on MSDN.
+-   [**Xamarin Studio** for iOS](https://developer.xamarin.com/guides/ios/getting_started/installation/mac/). You can also set up Visual Studio and Xamarin on a Mac running a Windows virtual machine. See [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) on MSDN.
 
 -   (Optional) [Azure development tools](https://azure.microsoft.com/downloads/).
 
@@ -99,7 +99,7 @@ Alternatively, if you want to keep up to date with or contribute to our code, cl
 
 ## Bing maps developer code
 
-[Register for a Bing Maps API Key](https://msdn.microsoft.com/en-us/library/ff428642.aspx). 
+[Register for a Bing Maps API Key](https://msdn.microsoft.com/library/ff428642.aspx). 
 
 You need to replace this in line 22 in `src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs`
 
@@ -379,7 +379,7 @@ For mobile apps, we deploy to HockeyApp:
 
 ## Application Insights
 
-[Application Insights](../app-insights/app-insights-overview.md) collects telemetry about the performance and usage of your web services. The Application Insights SDK sends telemetry from the service to the Application Insights resource in Azure.
+[Application Insights](../application-insights/app-insights-overview.md) collects telemetry about the performance and usage of your web services. The Application Insights SDK sends telemetry from the service to the Application Insights resource in Azure.
 
 Browse to the Application Insights resource that the template set up. There you can explore charts of the performance of your [Mobile App Service project](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService). They show server requests and response times, failures, and exception counts. There are also charts of dependency response times - that is, calls to the database and to REST APIs such as Machine Learning. If there are any performance problems, you'll be able to see what piece of your system is causing them.
 
@@ -397,7 +397,7 @@ You can add custom telemetry (or instrument an application running somewhere out
 
 Application Insights will send alert emails if it sees unusual numbers of failure responses, and you can also set up your own alerts on various metrics such as response times.
 
-Just to be sure that your web service is always up and running, you can set up [availability tests](../app-insights/app-insights-monitor-web-app-availability.md), which ping your site from various locations around the world every fifteen minutes. Again, you'll get an email if there seems to be a problem.
+Just to be sure that your web service is always up and running, you can set up [availability tests](../application-insights/app-insights-monitor-web-app-availability.md), which ping your site from various locations around the world every fifteen minutes. Again, you'll get an email if there seems to be a problem.
 
 
 
