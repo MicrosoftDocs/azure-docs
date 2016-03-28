@@ -1,9 +1,3 @@
-| Compute Options    | Audience   |
-| ------------------ | --------   |
-| [App Service]      | Scalable Web Apps, Mobile Apps, API Apps, and Logic Apps for any device |
-| [Cloud Services]   | Highly available, scalable n-tier cloud apps with more control of the OS |
-| [Virtual Machines] | Customized Windows and Linux VMs with complete control of the OS |
-
 <a name="tellmevm"></a>
 ## Tell me about virtual machines
 

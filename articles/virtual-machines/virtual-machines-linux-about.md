@@ -28,6 +28,12 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 
 This table helps you compare the choices offered by Azure.
 
+| Compute Options    | Audience   |
+| ------------------ | --------   |
+| [App Service]      | Scalable Web Apps, Mobile Apps, API Apps, and Logic Apps for any device |
+| [Cloud Services]   | Highly available, scalable n-tier cloud apps with more control of the OS |
+| [Virtual Machines] | Customized Windows and Linux VMs with complete control of the OS |
+
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## Next steps
