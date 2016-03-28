@@ -59,7 +59,8 @@ For the best experience, use Visual Studio 2015 with the [latest SQL Server Data
 
     - **Server name**. Enter the *server name* we located previously.
     - **Authentication**. Select SQL Server Authentication.
-    - **Login** and **password**. Enter login and password for the Azure SQL server.
+    - **User Name** and **Password**. Enter user name and password for the Azure SQL server.
+    - **Database Name**.  Enter the database name for the SQL DW database.
     - Click **Connect**.
 
 1. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
