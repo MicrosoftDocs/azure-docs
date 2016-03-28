@@ -41,13 +41,15 @@ The Azure portal exposes most of the cluster properties. Using Azure ARM templat
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
     ![Creating a new cluster in the Azure Portal](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
+3. Enter **Cluster Name**: This name must be globally unique.
+4. Click **Select cluster Type**, and then select:
 
-3. Enter:
-
-    - **Cluster Name**: This name must be globally unique.
-    - **Cluster Type**: If you don't know what to choose, select **Hadoop**.
-    - **Cluter Operating System**: Select **Linux**.
+    - **Cluster Type**: If you don't know what to choose, select **Hadoop**. It is the most popular cluster type.
+    - **Operating System**: Select **Linux**.
     - **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+    - **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+    
+    ![HDInsight premium tier configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 4. Click **Subscription** to select the Azure subscription that will be used for the cluster.
 
@@ -158,7 +160,7 @@ The Azure portal exposes most of the cluster properties. Using Azure ARM templat
 ##Customize clusters
 
 - See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-- See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md).
+- See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 ##Delete the cluster
 
