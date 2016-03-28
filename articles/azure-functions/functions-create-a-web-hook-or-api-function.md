@@ -24,7 +24,7 @@
 
 In this short video, you will learn how to create an Azure Function in Node.js that listens to messages from a GitHub webhook.
 
-[AZURE.VIDEO ]
+[AZURE.VIDEO create-a-web-hook-or-api-azure-function]
 &nbsp;
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]

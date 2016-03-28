@@ -33,8 +33,8 @@ This function template by default is basically a hello world function that echos
 Update the function with the following code which we will use for testing:
 
 	module.exports = function (context, req) {
-	    context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
-	    context.log('Request Headers = ' + JSON.stringify(req.headers));
+	    context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
+        context.log('Request Headers = ', req.headers);
 	
 	    // If Query string name parameter not provided, check body
 	    if (typeof req.query.name == 'undefined') 
@@ -89,11 +89,11 @@ Update the function with the following code which we will use for testing:
 	function ProcessNewUserInformation(context, name, address)
 	{    
 	    context.log('Processing User Information...');            
-	    echoString = "Hello " + name;
+	    echoString = 'Hello ' + name;
 	    
 	    if (typeof address != 'undefined')
 	    {
-	        echoString += "\n" + "The address you provided is " + address;
+	        echoString += '\n' + 'The address you provided is ' + address;
 	    }
 	    
 	    context.res = {
@@ -168,7 +168,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 	2016-03-23T08:04:57.763 Processing User Information...
 	2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
     
-## Test a blob trigger using Storage Explorer
+### Test a blob trigger using Storage Explorer
 
 You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
