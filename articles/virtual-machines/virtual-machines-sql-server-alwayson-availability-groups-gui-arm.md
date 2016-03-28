@@ -54,7 +54,7 @@ This tutorial assumes the following:
 
 - You already have an Azure account. If you don't have one, [sign up for a trial account](http://azure.microsoft.com/pricing/free-trial/).
 
-- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-classic-portal-sql.md)
+- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
 - You already have a solid understanding of AlwaysOn availability groups. For more information, see [AlwaysOn availability groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Provision a SQL Server virtual machine in Azure Resource Manager (GUI) | Microsoft Azure"
+	pageTitle="Provision a SQL Server virtual machine in the Azure Portal | Microsoft Azure"
 	description="Create an SQL Server virtual machine in Azure Resource Manager mode. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -15,21 +15,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/22/2015"
+	ms.date="03/24/2016"
 	ms.author="mikeray" />
 
-# Provision a SQL Server virtual machine in Azure Resource Manager
+# Provision a SQL Server virtual machine in the Azure Portal
 
-> [AZURE.SELECTOR]
-- [Classic portal](virtual-machines-windows-classic-portal-sql.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-create.md)
-- [Azure Resource Manager portal](virtual-machines-windows-portal-sql-server-provision.md)
-
-<br/>
-
->[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+## Overview
 
 This end-to-end tutorial shows you how to provision an Azure virtual machine in the portal using Azure Resource Manager model and configure SQL Server from a template in the Azure gallery.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. You can select one of the VM images form the gallery, and with a few clicks provision the VM to your Azure environment.
 

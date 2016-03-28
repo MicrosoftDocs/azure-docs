@@ -16,8 +16,6 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
-
-
 # PowerShell script for identifying databases suitable for an elastic database pool
 
 The sample PowerShell script in this article estimates the aggregate eDTU values for user databases in a SQL Database server. The script collects data while it runs, and for a typical production workload, you should run the script for at least a day. Ideally, you want to run the script for a duration that represents your databases' typical workload--that is, long enough to capture data that represents normal and peak utilization for the databases. Running the script a week or even longer will likely give a more accurate estimate.
