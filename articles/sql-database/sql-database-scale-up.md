@@ -19,13 +19,18 @@
 
 # Change the service tier and performance level (pricing tier) of a SQL database
 
-**Single database**
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
 This article shows how to change the service tier and performance level of your SQL database with the [Azure portal](https://portal.azure.com). 
+
+
+Note that changing the service tier and/or performance level of a database creates a replica of the original database with the new performance level, and then switches connections over to the replica. No data is lost during this process but right at the moment of switching to the replica there is a brief window in which connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. Very infrequently, especially if there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.  
+
+The duration of the entire scale-up process depends on both the size and service tier of the database before and after the change. For example, for a 250 GB database that is changing to, from, or within a Standard service tier, the process should complete within 6 hours. For a database of the same size that is changing performance levels within the Premium service tier, it should complete within 3 hours.
+
 
 Use the information in [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-server-portal.md) and [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md) to determine the appropriate service tier and performance level for your Azure SQL Database.
 
@@ -37,10 +42,6 @@ Use the information in [Upgrade SQL Database Web/Business Databases to New Servi
 - You can make up to four individual database changes (service tier or performance levels) within a 24 hour period.
 - The new properties for the database are not applied until the changes are complete.
 
-
-Note that changing the service tier and/or performance level of a database creates a replica of the original database with the new performance level, and then switches connections over to the replica. No data is lost during this process but right at the moment of switchover there is a brief window in which connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. Very infrequently, especially if there are large numbers of transactions in flight at the point that connections are disabled, this window may be longer.  
-
-The duration of the entire scale-up process depends on both the size and service tier of the database before and after the change. For example, for a 250 GB database that is changing to, from, or within a Standard service tier, the process should complete within 6 hours. For a database of the same size that is changing performance levels within the Premium service tier, it should complete within 3 hours.
 
 
 **To complete this article you need the following:**
