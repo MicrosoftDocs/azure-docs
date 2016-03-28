@@ -24,16 +24,16 @@ This article covers the procedures you need to follow to prepare your environmen
 ![Create vault](./media/backup-configure-vault/initial-backup-process.png)
 
 ## Before you start
-To back up a Windows Server (or client) to Azure, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
+To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
 ## Step 1: Create a backup vault
-To back up files and folders from a Windows Server or client, you need to create a backup vault in the geographic region where you want to store the data.
+To back up files and folders from a server or client, you need to create a backup vault in the geographic region where you want to store the data.
 
 ### To create a backup vault
 
 1. Sign in to [the Azure portal](https://manage.windowsazure.com/).
 
-2. Click **NEW** > **DATA SERVICES** > **RECOVERY SERVICES** > **BACKUP VAULT**, and then choose **QUICK CREATE	**.
+2. Click **NEW** > **DATA SERVICES** > **RECOVERY SERVICES** > **BACKUP VAULT**, and then choose **QUICK CREATE**.
 
 3. For the **NAME** parameter, enter a friendly name for the backup vault. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens. This name needs to be unique for each subscription.
 
@@ -49,11 +49,11 @@ To back up files and folders from a Windows Server or client, you need to create
 
     ![Creating vault status](./media/backup-configure-vault/recovery-services-select-vault.png)
 
-4. Select the **storage redundancy** option by following the steps that are described here.
+4. Select the storage redundancy option by following the steps described here.
 
     >[AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 
-    If you are using Azure as a primary backup storage endpoint (for example, you are backing up to Azure from a Windows Server), consider picking (the default) [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option.
+    If you are using Azure as a primary backup storage endpoint (for example, you are backing up to Azure from a server), consider picking (the default) [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option.
 
     If you are using Azure as a tertiary backup storage endpoint (for example, you are using SCDPM to store a local backup copy on-premises and using Azure for  long term retention needs),  consider choosing [locally redundant storage](../storage/storage-redundancy.md#locally-redundant-storage). This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
 
@@ -88,7 +88,7 @@ Learn more about [using vault credentials to authenticate with the Backup servic
 
     The vault credential file can be downloaded from the portal.
 
-3. Click **Save** to download the vault credential files to the Downloads folder of the local account. You can also select **Save As** from the **Save** menu to specify a location for the vault credential file.
+3. Click **Save** to download the vault credential file to the Downloads folder of the local account. You can also select **Save As** from the **Save** menu to specify a location for the vault credential file.
 
     >[AZURE.NOTE] Make sure the vault credential file is saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, verify that you have the permissions to access it.
 
@@ -121,14 +121,14 @@ After creating the Backup vault and downloading the vault credential file, an ag
 
     Ensure that the vault credential file is available in a location that can be accessed by the setup application. If you encounter access-related errors, copy the vault credential file to a temporary location on the same machine and retry the operation.
 
-    If you encounter an invalid vault credential error (such as “Invalid vault credentials provided"), the file is either damaged or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error can also occur if the user clicks the **Download vault credential** option several times in quick succession. In this case, only the last vault credential file is valid.
+    If you encounter an invalid vault credential error (such as “Invalid vault credentials provided"), the file is either damaged or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error can also occur if a user clicks the **Download vault credential** option several times in quick succession. In this case, only the last vault credential file is valid.
 
 9. On the Encryption Setting page, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
 
 10. Click **Finish**. The Register Server Wizard registers the server with Backup.
 
 
-    > [AZURE.WARNING] If you lose or forget the passphrase, Microsoft cannot help recover the backup data. You own the encryption passphrase and Microsoft does not have visibility into the passphrase you use. Save the file in a secure location because it will be required during a recovery operation.
+    > [AZURE.WARNING] If you lose or forget the passphrase, Microsoft cannot help you recover the backup data. You own the encryption passphrase and Microsoft does not have visibility into the passphrase you use. Save the file in a secure location because it will be required during a recovery operation.
 
 11. Once the encryption key is set, leave the **Launch Microsoft Azure Recovery Services Agent** check box selected, and then click **Close**.
 
@@ -193,7 +193,7 @@ The Backup agent provides network throttling. Throttling controls how network ba
 
 3. Once you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**.
 
-    The bandwidth values begin at 512 kilobytes per second (Kbps) and can go up to 1023 megabytes per second (Mbps). You can also designate the start and finish for **Work hours**, and which days of the week are considered work days. Hours outside of the designated work hours are considered non-work hours.
+    The bandwidth values begin at 512 kilobytes per second (Kbps) and can go up to 1023 megabytes per second (Mbps). You can also designate the start and finish for **Work hours**, and which days of the week are considered work days. Hours outside of designated work hours are considered non-work hours.
 
 4. Click **OK**.
 
@@ -205,7 +205,7 @@ The Backup agent provides network throttling. Throttling controls how network ba
 
 2. On the Confirmation page, review the settings the Back Up Now wizard will use to back up the machine and click **Back Up**.
 
-3. Click **Close** to close the wizard. You can do this before the backup process finishes and it will continue to run in the background.
+3. Click **Close** to close the wizard. If you do this before the backup process finishes, the wizard continues to run in the background.
 
 After the initial backup is completed, the **Job completed** status displays in the Backup console.
 
