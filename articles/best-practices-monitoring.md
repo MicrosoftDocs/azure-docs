@@ -468,7 +468,7 @@ To optimize the use of bandwidth, you can elect to transfer less urgent data in 
 #### _Pulling and pushing instrumentation data_
 The instrumentation data-collection subsystem can actively retrieve instrumentation data from the various logs and other sources for each instance of the application (the _pull model_). Or, it can act as a passive receiver that waits for the data to be sent from the components that constitute each instance of the application (the _push model_).
 
-One approach to implementing the pull model is to use monitoring agents that run locally with each instance of the application. A monitoring agent is a separate process that periodically retrieves (pulls) telemetry data collected at the local node and writes this information directly to centralized storage that all instances of the application share. This is the mechanism that Azure Diagnostics implements. Each instance of an Azure web or worker role can be configured to capture diagnostic and other trace information that's stored locally. The monitoring agent that runs alongside each instance copies the specified data to Azure Storage. The article [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md) provides more details on this process. Some elements, such as IIS logs, crash dumps, and custom error logs, are written to blob storage. Data from the Windows event log, ETW events, and performance counters is recorded in table storage. Figure 3 illustrates this mechanism.
+One approach to implementing the pull model is to use monitoring agents that run locally with each instance of the application. A monitoring agent is a separate process that periodically retrieves (pulls) telemetry data collected at the local node and writes this information directly to centralized storage that all instances of the application share. This is the mechanism that Azure Diagnostics implements. Each instance of an Azure web or worker role can be configured to capture diagnostic and other trace information that's stored locally. The monitoring agent that runs alongside each instance copies the specified data to Azure Storage. The article [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services/cloud-services-dotnet-diagnostics.md) provides more details on this process. Some elements, such as IIS logs, crash dumps, and custom error logs, are written to blob storage. Data from the Windows event log, ETW events, and performance counters is recorded in table storage. Figure 3 illustrates this mechanism.
 
 ![Illustration of using a monitoring agent to pull information and write to shared storage](media/best-practices-monitoring/PullModel.png)
 
@@ -639,11 +639,11 @@ In many cases, batch processes can generate reports according to a defined sched
 - [Priority Queue Pattern](https://msdn.microsoft.com/library/dn589794.aspx) shows how to prioritize queued messages so that urgent requests are received and can be processed before less urgent messages.
 
 ## More information
-- [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
+- [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](./storage/storage-monitoring-diagnosing-troubleshooting.md)
 - [Azure: Telemetry Basics and Troubleshooting](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
-- [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md)
+- [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/)
-- [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+- [How to use Service Bus queues](./service-bus/service-bus-dotnet-how-to-use-queues.md)
 - [SQL Server business intelligence in Azure Virtual Machines](./virtual-machines/virtual-machines-sql-server-business-intelligence.md)
-- [Receive alert notifications](insights-receive-alert-notifications.md) and [Track service health](insights-service-health.md)
-- [Application Insights](app-insights-get-started.md)
+- [Receive alert notifications](./azure-portal/insights-receive-alert-notifications.md) and [Track service health](./azure-portal/insights-service-health.md)
+- [Application Insights](./application-insights/app-insights-get-started.md)
