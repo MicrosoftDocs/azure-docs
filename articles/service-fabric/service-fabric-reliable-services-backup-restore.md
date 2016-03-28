@@ -144,7 +144,7 @@ Note that:
 
 - The string that represents the backup folder path and the paths of files inside the backup folder can be greater than 255 characters, depending on the FabricDataRoot path and Application Type name's length. This can cause some .NET methods, like **Directory.Move**, to throw the **PathTooLongException** exception. One workaround is to directly call kernel32 APIs, like **CopyFile**.
 
-# Backup and restore Reliable Actors
+## Backup and restore Reliable Actors
 
 Backup and restore for Reliable Actors builds on the backup and restore functionality provided by reliable services. The service owner should create a custom Actor service that derives from **ActorService** (which is a Service Fabric reliable service hosting actors) and then do backup/restore similar to reliable services as described above in previous sections. Since backups will be taken on a per-partition basis, states for all actors in that particular partition will be backed up (and restoration is similar and will happen on a per-partition basis).
 
@@ -153,7 +153,7 @@ Note that:
 1) When you create a custom actor service, you will need to register the custom actor service as well while registering the actor. See **ActorRuntime.RegistorActorAsync**.
 2) The **KvsActorStateProvider** currently only supports full backup. Support for incremental backup with come in future versions. Also the option **RestorePolicy.Safe** is ignored by the **KvsActorStateProvider**.
 
-# Testing Backup and Restore 
+## Testing Backup and Restore 
 
 It is important to ensure that critical data is being backed up, and can be restored from. This can be done by invoking the **Invoke-ServiceFabricPartitionDataLoss** cmdlet in PowerShell that can induce data loss in a particular partition to test whether the data backup and restore functionality for your service is working as expected.  It is also possible to programmatically invoke data loss and restore from that event as well. 
 
