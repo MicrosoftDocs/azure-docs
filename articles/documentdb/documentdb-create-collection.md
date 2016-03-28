@@ -62,7 +62,12 @@ Collections are not the same as tables in relational databases. Collections do n
 
 ## Other ways to create a DocumentDB collection
 
-Collections do not have to be created using the portal, you can also create them using the [DocumentDB SDKs](documentdb-sdk-dotnet.md). For C# code samples showing how to work with collections by using the DocumentDB .NET SDK, see the [C# collection samples](documentdb-dotnet-samples.md#collection-examples). For Node.js code samples showing how to work with collections by using the DocumentDB Node.js SDK, see the [Node.js collection samples](documentdb-nodejs-samples.md#collection-examples).
+Collections do not have to be created using the portal, you can also create them using the [DocumentDB SDKs](documentdb-sdk-dotnet.md) and the REST API. 
+
+- For a C# code sample, see the [C# collection samples](documentdb-dotnet-samples.md#collection-examples). 
+- For a Node.js code sample, see the [Node.js collection samples](documentdb-nodejs-samples.md#collection-examples).
+- For a Python code sample, see [Python collection samples](documentdb-python-samples.md#collection-examples).
+- For a REST API sample, see [Create a Collection](https://msdn.microsoft.com/library/azure/mt489078.aspx).
 
 ## Troubleshooting
 
