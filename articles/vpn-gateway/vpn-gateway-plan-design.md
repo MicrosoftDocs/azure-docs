@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/14/2016"
+   ms.date="03/28/2016"
    ms.author="cherylmc"/>
 
 # Planning and design for VPN Gateway
 
-When planning and designing your cross-premises and VNet-to-VNet connections can be either very simple or quite complicated, depending on your networking needs. You can find more information about VPN Gateways in the [About VPN Gateways](vpn-gateway-about-vpngateways.md) article.
+When planning and designing your cross-premises and VNet-to-VNet connections can be either very simple or quite complicated, depending on your networking needs.
 
 ## Planning
 
@@ -114,6 +114,15 @@ The gateway types are:
 
 - Vpn
 - ExpressRoute
+
+#### About connection types
+
+Each configuration requires a specific connection type. The connection types are:
+
+- IPsec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
 
 
 #### <a name="vpntype"></a>About VPN types
