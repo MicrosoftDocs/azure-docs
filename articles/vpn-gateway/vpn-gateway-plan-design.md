@@ -46,9 +46,6 @@ The table below can help you decide the best connectivity option for your soluti
 
 ### <a name="gwrequire"></a>2. Consider gateway requirements by VPN type and SKU
 
-[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
-
-
 #### <a name="gwsku"></a>About VPN Gateway SKUs 
 
 When you create a VPN gateway, you'll need to specify the gateway SKU that you want to use. 
@@ -58,17 +55,20 @@ There are 3 VPN Gateway SKUs:
 - Standard
 - High Performance
 
+[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
-#### Gateway types and aggregate throughput estimates
 
-The table below shows the gateway types and the estimated aggregate throughput. 
+
+### 3. Gateway types and aggregate throughput estimates
+
+The table below shows the gateway types and the estimated aggregate throughput. The estimated aggregate throughput may be a deciding factor for your design.
 Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
 
 
-### <a name="wf"></a>3. Workflow
+### <a name="wf"></a>4. Workflow
 
 The following list outlines the common workflow for cloud connectivity:
 
