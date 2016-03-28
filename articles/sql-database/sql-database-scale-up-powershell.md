@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="03/26/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -27,9 +27,10 @@
 
 This article shows how to change the service tier and performance level of your SQL database with PowerShell.
 
-Use the information in [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-server-portal.md) and [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md) to determine the appropriate service tier and performance level for your Azure SQL Database.
+Note that changing the service tier and/or performance level of a database creates a replica of the original database with the new performance level, and then switches connections over to the replica. No data is lost during this process but right at the moment of switching to the replica there is a brief window in which connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. Very infrequently, especially if there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.  
 
-> [AZURE.IMPORTANT] Changing the service tier and performance level of a SQL database is an online operation. This means your database will remain online and available during the entire operation with no downtime.
+The duration of the entire scale-up process depends on both the size and service tier of the database before and after the change. For example, a 250 GB database that is changing to, from, or within a Standard service tier, should complete within 6 hours. For a database of the same size that is changing performance levels within the Premium service tier, it should complete within 3 hours.
+
 
 - To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
 - When upgrading a database with [Geo-Replication](sql-database-geo-replication-portal) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
