@@ -38,7 +38,9 @@ To create a record set in the Azure portal, see [Create DNS records using the Az
 ## To view a record set
 
 1. In the Azure portal, navigate to your DNS zone blade.
+
 2. You can search for the record set and select it from the listed items. Click the record set to select it. This will open the record set properties.
+![search record set](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
 ## To add a new record to a record set
@@ -47,9 +49,17 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 
 
 1. From the record set properties blade for your dns zone, click the record set that you want to add a record to.
+
+	![search record set](./media/dns-operations-recordsets-portal/selectset500.png)
+
 2. Specify the record settings by filling in the fields.
-2. Click **Save** to save your settings at the top of the page before closing the blade.
-3. In the corner, you will see that the record is saving.
+
+2. Click **Save** at the top of the blade to save your settings before closing the blade.
+
+3. In the corner, you will see that the record is saving
+
+	![save record](./media/dns-operations-recordsets-portal/saved200.png)
+
 4. Once the record has been saved, the values for the record set on the DNS blade will reflect the new record.
 
 
@@ -58,8 +68,15 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 When updating a record in an existing record set, the available fields you can update depend on the type of record you are working with. To update a record:
 
 1. From the record set properties blade for your record set, search for the record.
-2. Modify the available settings.
-3. Click **Save** at the top of the blade to save your settings.
+
+2. Modify the record. When you modify a record, you can either change the available settings for the record, such as the IP address. Or you can remove the record entirely, as shown in the example below, by clicking **Remove**.
+
+	![modify record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
+
+3. Click **Save** at the top of the blade to save your settings. You'll see the notification that the record is saving in the upper right corner.
+
+	![save record](./media/dns-operations-recordsets-portal/saved200.png)
+	
 3. Once the record has been saved, the values for the record set on the DNS blade will reflect the updated record.
 
 
