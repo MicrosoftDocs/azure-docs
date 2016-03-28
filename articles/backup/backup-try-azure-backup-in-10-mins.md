@@ -83,7 +83,7 @@ To back up your files and folders, you need to create a backup vault in the geog
 
     If you selected **Locally Redundant**, click **Save** since **Geo Redundant** is the default option.
 
-    d. To return to the list of resources for **Recovery Services**, click **Recovery Services** in the left navigation pane..
+    d. To return to the list of resources for **Recovery Services**, click **Recovery Services** in the left navigation pane.
 
     ![Recovery services](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
