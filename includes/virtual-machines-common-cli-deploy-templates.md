@@ -1160,7 +1160,7 @@ Remember that you can redeploy to a resource group, but if you are done with one
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>Task: Show the log for a resource group deployment
 
-This one is common while you're creating or using templates. The call to display the deployment logs for a group is `azure group log show <groupname>`, which displays quite a bit of information that's useful for understanding why something happened -- or didn't. (For more information on troubleshooting your deployments, as well as other information about issues, see [Troubleshooting resource group deployments in Azure](../articles/resource-group-deploy-debug.md).)
+This one is common while you're creating or using templates. The call to display the deployment logs for a group is `azure group log show <groupname>`, which displays quite a bit of information that's useful for understanding why something happened -- or didn't. (For more information on troubleshooting your deployments, as well as other information about issues, see [Troubleshooting resource group deployments in Azure](../articles/resource-manager-troubleshoot-deployments-cli.md).)
 
 To target specific failures, for example, you might use tools like **jq** to query things a bit more precisely, such as which individual failures you need to correct. The following example uses **jq** to parse a deployment log for **lbgroup**, looking for failures.
 
