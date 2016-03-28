@@ -46,7 +46,6 @@ The table below can help you decide the best connectivity option for your soluti
 
 ### <a name="gwrequire"></a>2. Consider gateway requirements by VPN type and SKU
 
-#### <a name="gwsku"></a>About VPN Gateway SKUs 
 
 When you create a VPN gateway, you'll need to specify the gateway SKU that you want to use. 
 There are 3 VPN Gateway SKUs:
@@ -92,19 +91,15 @@ The sections below discuss the VPN gateway basics. Additionally, you will want t
 
 #### <a name="subnets"></a>About subnets
 
-When planning and designing the connection that will work best for your environment, it is very important to consider the IP address ranges and subnets that you have available to use. You'll always need to create a gateway subnet for your virtual network that is large enough to support the design requirements. You'll also need to take great care not to overlap your subnets between multiple networks.
+When planning and designing the connection that will work best for your environment, it is very important to consider the IP address ranges and subnets that you have available to use.
 
-
-##### <a name="overlap"></a>Avoid overlapping subnets or prefixes
+You'll need to create a gateway subnet for your VNet to configure a VPN gateway. All gateway subnets must be named GatewaySubnet to work properly. Be sure not to name your gateway subnet a different name, and don't deploy VMs or anything else to the gateway subnet. For more information about gateway subnets, see the [Gateway subnet](vpn-gateway-about-vpngateways.md#gwsub) section in the About VPN Gateways article.
 
 When you are creating connections, in many cases you will need to be concerned about overlapping subnet address ranges between your connections. An overlapping subnet is when one virtual network or on-premises location contains the same address space that the other location contains. This means that you'll need your network engineers for your local on-premises networks to carve out a range for you to use for your Azure IP addressing space/subnets. You'll need address space that is not being used on the local on-premises network. 
 
 Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. Creating a VNet-to-VNet connection will fail If if your subnets overlap and an IP address exists in both the sending and destination VNets. In this case, Azure can't route the data to the other VNet because the destination address is part of the sending VNet. 
 
 
-##### <a name="gwsubnet"></a>Create a gateway subnet
-
-You'll need to create a gateway subnet for your VNet to configure a VPN gateway. All gateway subnets must be named GatewaySubnet to work properly. Be sure not to name your gateway subnet a different name, and don't deploy VMs or anything else to the gateway subnet. For more information about gateway subnets, see the [Gateway subnet](vpn-gateway-about-vpngateways.md#gwsub) section in the About VPN Gateways article.
 
 #### <a name="local"></a>About local network gateways
 
