@@ -17,12 +17,12 @@
 	ms.date="03/17/2016"
 	ms.author="dkshir"/>
 
-# How to reset the Remote Desktop service or its login password in a Windows Azure VM
+# How to reset the Remote Desktop service or its login password in a Windows VM
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
 
-If you can't connect to a Windows Azure virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, you can reset the local administrator password or reset the Remote Desktop service configuration.
+If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, you can reset the local administrator password or reset the Remote Desktop service configuration.
 
 Depending on the deployment model of your virtual machine, you can either use the Azure portal or the VM Access extension in Azure PowerShell. If you are using PowerShell, make sure you have the latest PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
@@ -30,11 +30,11 @@ Depending on the deployment model of your virtual machine, you can either use th
 > [AZURE.TIP] You can check the version of PowerShell that you have installed with the `Get-Module azure | format-table version` command.
 
 
-## Windows Azure VMs in classic deployment model
+## Windows VMs in the classic deployment model
 
 ### Azure portal
 
-For the virtual machines created using the classic deployment model, you can use the [Azure portal](https://portal.azure.com) to reset the Remote Desktop service. Select the following: **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Reset Remote...**. The following page appears.
+For virtual machines created using the classic deployment model, you can use the [Azure portal](https://portal.azure.com) to reset the Remote Desktop service. Select the following: **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Reset Remote...**. The following page appears.
 
 
 ![Reset RDP configuration page](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
