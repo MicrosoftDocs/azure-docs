@@ -380,7 +380,7 @@ This section shows how to create a Premium Storage account using the Azure Porta
 
 #### II. Create an Azure virtual machine via Azure Portal
 
-You must create a DS, DSv2 or GS series VM to be able to use Premium Storage. Follow the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-tutorial.md) to create a new DS, DSv2 or GS virtual machine.
+You must create a DS, DSv2 or GS series VM to be able to use Premium Storage. Follow the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) to create a new DS, DSv2 or GS virtual machine.
 
 #### III. Attach a premium storage data disk via Azure Portal
 
