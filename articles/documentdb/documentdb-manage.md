@@ -18,9 +18,9 @@
 	ms.author="mimig"/>
 
 # Learn about capacity and document storage in DocumentDB
-DocumentDB is a fully managed, scalable document oriented NoSQL database service for JSON documents.  With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
+DocumentDB is a fully managed, scalable document oriented NoSQL database service for JSON documents. With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
 
-You can get started with DocumentDB by [creating a database account](documentdb-create-account.md) through the [Azure Portal](https://portal.azure.com/). DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput. These units are provisioned by creating database collections within your database account. Each collection includes 10GB of database storage with reserved throughput. If the throughput requirements of your application change, you dynamically change this by setting the [performance level](documentdb-performance-levels.md) for each collection.  
+You can get started with DocumentDB by [creating a database account](documentdb-create-account.md) through the [Azure Portal](https://portal.azure.com/). DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput. These units are provisioned by creating database collections within your database account. Each collection with reserved throughput. If the throughput requirements of your application change, you dynamically change this by setting the [performance level](documentdb-performance-levels.md) for each collection.  
 
 When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
 
