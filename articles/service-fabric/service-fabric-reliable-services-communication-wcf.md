@@ -86,7 +86,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Client code can use the **WcfCommunicationClientFactory** along with the **WcfCommunicationClient** which impliments **ServicePartitionClient** to determine the service endpoint and communicate with the service.
+Client code can use the **WcfCommunicationClientFactory** along with the **WcfCommunicationClient** which implements **ServicePartitionClient** to determine the service endpoint and communicate with the service.
 
 ```csharp
 // Create binding
