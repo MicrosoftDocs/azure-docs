@@ -21,48 +21,47 @@
    
 # Azure Functions Overview
 
-## Life's about to get a whole lot easier 
+## A faster way to functions
 
-Write any function under a minute - either when you need a simple job to cleanse a database or to build functionality that processes millions of messages from connected devices. User your development language of choice (C#, Node.JS, Python and more). Pay only for the time your code runs and trust Azure to scale as needed.
+Write any function under a minute - either when you need a simple job to cleanse a database or to build functionality that processes millions of messages from connected devices. Use your development language of choice (C#, Node.JS, Python and more). Pay only for the time your code runs and trust Azure to scale as needed.
 
-## Understanding Azure Functions
+Azure functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can [get started with your first function](functions-create-first-azure-function.md) in just minutes.
 
-### I'd like to learn more about Azure Functions
+## What can I do with Functions?
 
-* What are the [Supported Features]() and [integration Partners]()
-* [How much does Azure Functions cost?]()
+Azure Functions is a great solution for processing data, and integrating systems, working with the internet of things (IoT), and building simple APIs and microservices.
 
-### Getting Started
+Functions includes a gallery of templates for common scenarios, including:
+* Responding to a GitHub webhook request
+* Resizing an image that was uploaded to Azure Storage
+* Working with order processing queues
+* And much more! 
 
-* [Create my first Azure Functions via Template]()
-* [Create my first Azure Functions from Scratch]()
+For a deeper look at how Functions works and some example configurations, see the [Developer Reference](functions-reference.md).
 
-## Feature Scope
+## Features
 
-Azure Functions makes achieving complicated integration and connectivity tasks trivial. With this core set of capabilities, developers using Azure Functions can become even more productive by focusing only on their goal rather than putting together infrastructure pieces.
+Azure Functions is a full-featured, enterprise-ready platform that comes with features to make complicated integration and connectivity tasks trivial. With this core set of capabilities, developers using Azure Functions can become even more productive by focusing only on their goal rather than putting together infrastructure pieces.
 
-### Features
+The following features are included with Azure Functions:
+* **Choice of language** - Write functions using C#, Node.js, Python, F#, PHP, batch, bash, Java, or any executable.
+* **Pay-per-use pricing model** - Pay only for the time spent running your code. See the Dynamic App Service Plan option in the [pricing section](#pricing) below.
+* **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.
+* **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
+* **Code-less integration** - Easily leverage Azure services and software-as-a-service (SaaS) offerings. See the [integrations section](#integrations) below for some examples.  
+* **Flexible development** - Modify your functions with an in-portal editor, or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and more.
+* **Open-source** - Functions is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script). 
 
-Feature | Supported | Notes 
---------|-----------|-------
-Build Custom Backend | &#10004; | &nbsp; 
-Compute On-Demand | &#10004; | &nbsp;
-Bring Your Own Code | &#10004; | App Services: C#, node.js, Python, F#, PHP, batch, Java or any executable
-Pay Per Use & Pricing Model | &#10004; | Price competitive pay per use, options for using memory more efficiently, support for dedicated compute
-Integrated Security Model | &nbsp; | &nbsp;
-Event Driven Trigger | &#10004; | &nbsp;
-On-Premises Connectivity | &#10004; | App Service support hybrid connection and VNET integration 
-Development Experience | &#10004; | Azure has out of the box DevOps features (CI/CD, Slots, etc.) and Local Development support 
-Code-less SaaS & PaaS Connectors | &#10004; | Azure has input/output bindings, making connecting moving data between services a code-less gesture
-Open Source | &#10004; | &nbsp;
-Community Extensions | &#10004; | &nbsp;
+### <a name="integrations"></a>Integrations
 
-### Integrations
-
-Azure Functions supports a variety of integrations with Azure and 3rd-party services. You can use these to trigger your function and start execution or to serve as input and output for your code. The table below shows some examples integrations supported by Azure Functions.
+Azure Functions supports a variety of integrations with Azure and 3rd-party services. You can use these to trigger your function and start execution or to serve as input and output for your code. The table below shows some example integrations supported by Azure Functions.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
-## How much does Functions cost?
+## <a name="pricing"></a>How much does Functions cost?
 
-Full pricing details are available on the [Pricing]() page.
+There are two ways to run Azure Functions: using a Dynamic App Service Plan and using a Classic App Service plan.
+
+In a **Dynamic App Service Plan**, you don't have to worry about resource management. Whenever your function is run, Azure will provide all of the necessary computational resources. You only pay for the time that your code spends running. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions).
+
+A **Classic App Service Plan** allows you to run functions just like your web, mobile, and API apps. Thiss is a great solution if you are already using App Service for other applications - your functions can run on the same plan for no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
