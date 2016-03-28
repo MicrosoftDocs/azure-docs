@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/23/2016"
+   ms.date="03/28/2016"
    ms.author="alkohli" />
 
 # Replace a disk drive on your StorSimple device
@@ -78,7 +78,7 @@ Drives can be removed and replaced while the system is operating.
 
 1. To identify the failed disk, in the Azure classic portal, go to **Devices** > **Maintenance** > **Hardware Status**. Because a disk can fail in the primary enclosure and/or in an EBOD enclosure (if you are using a 8600 model), look at the status of the disks under **Shared Components** and under **EBOD enclosure Shared Components**. A failed disk in either enclosure will be shown with a red status.
 
-2. Locate the drives in the front of the primary enclosure or the EBOD enclosure. For the failed disk, the amber LED will be lit.
+2. Locate the drives in the front of the primary enclosure or the EBOD enclosure. 
 
 3. If the disk is unlocked, proceed to the next step. If the disk is locked, unlock it by following the procedure in [Disengage the antitamper lock](#disengage-the-antitamper-lock).
 
