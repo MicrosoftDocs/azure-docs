@@ -1,5 +1,8 @@
 #Instructions for deploying SQL Server Resource Provider Adaptor on Azure Stack PoC
 
+
+this is a dummy file
+
 This article shows the detailed instructions for each step, so that you
 can start [using SQL databases on Azure Stack](#using-sql-databases-on-azure-stack)
 
