@@ -27,3 +27,7 @@ When you create a Linux virtual machine in the Azure classic portal, common endp
  
 
 [AZURE.INCLUDE [virtual-machines-common-classic-setup-endpoints](../../includes/virtual-machines-common-classic-setup-endpoints.md)]
+
+## Next steps
+
+* You can also create a VM endpoint by using the Azure Command-Line Interface in [Service Management mode](../virtual-machines-command-line-tools.md). Run the **azure vm endpoint create** command.
