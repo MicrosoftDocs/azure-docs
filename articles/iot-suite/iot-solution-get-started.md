@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="MyDriving Azure IoT Example - Quick Start | Microsoft Azure" 
 	description="Get started with an app that's a comprehensive demonstration of how to architect an IoT system with Microsoft Azure, including stream analytics, machine learning, event hubs." 
 	services="application-insights" 
@@ -18,9 +18,12 @@
 
 # MyDriving IoT system: Quick start
 
-MyDriving is a system that demonstrates the design and implementation of a typical [Internet of Things](iot-suite-overview.md) (IoT) solution that gathers telemetry from devices, processes that data in the cloud, and applies machine learning to provide an adaptive response. The demonstration logs data about your car trips, using data both from your mobile phone and an On-board Diagnostics (OBD) adaptor that collects information from your car’s control system. It uses this data to provide feedback on your driving style in comparison to other users. The purpose of MyDriving is to get you started creating your own IoT solution.
+MyDriving is a system that demonstrates the design and implementation of a typical [Internet of Things](iot-suite-overview.md) (IoT) solution that gathers telemetry from devices, processes that data in the cloud, and applies machine learning to provide an adaptive response. The demonstration logs data about your car trips, using data both from your mobile phone and an On-board Diagnostics (OBD) adaptor that collects information from your car’s control system. It uses this data to provide feedback on your driving style in comparison to other users. 
 
-But before that, let’s get you going with the MyDriving app itself as a member of our test user team. This gives you an experience of the app and the whole system as a consumer before delving into the architecture. It also introduces you to HockeyApp — a cool way of managing the alpha and beta distributions of your apps to test users.
+
+![](./media/iot-solution-get-started/image5.png)
+
+The purpose of MyDriving is to get you started creating your own IoT solution. But before that, let’s get you going with the MyDriving app itself as a member of our test user team. This gives you an experience of the app and the whole system as a consumer before delving into the architecture. It also introduces you to HockeyApp — a cool way of managing the alpha and beta distributions of your apps to test users.
 
 ## Use the Mobile Experience
 
@@ -83,7 +86,7 @@ For now, you can build and deploy the app yourself:
 
 -   Build and deploy [using Xamarin].
 
-Find more details in the Reference Guide.
+Find more details in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs).
 
 ## Get an OBD Adaptor (optional)
 
@@ -120,7 +123,7 @@ If you are using:
 
 If you don’t have an OBD adaptor, the app will still send location and speed data from the phone's GPS receiver to the backend and will ask if you want to generate and send simulated OBD data.
 
-You can find out more about how the app uses data from the OBD adaptor and about options for creating your own OBD device in Section 2.1 "IoT Devices" in the *{Token:RefGuide} *
+You can find out more about how the app uses data from the OBD adaptor and about options for creating your own OBD device in Section 2.1 "IoT Devices" in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs).
 
 ## Using the App
 
@@ -157,9 +160,9 @@ We look forward to hearing from you!
 
 ## Next steps
 
--   Explore the *{Token:RefGuide}* to understand how we’ve designed and built the entire MyDriving system.
+-   Explore the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs) to understand how we’ve designed and built the entire MyDriving system.
 
--   [Create and deploy a system of your own](iot-solution-build-system.md) using our Azure Resource Manager scripts! The *{Token:RefGuide}* also guides you through areas where you’ll make the most customizations.
+-   [Create and deploy a system of your own](iot-solution-build-system.md) using our Azure Resource Manager scripts! The [MyDriving Reference Guide](http://aka.ms/mydrivingdocs) also guides you through areas where you’ll make the most customizations.
 
   [from GitHub]: https://github.com/Azure-Samples/MyDriving
   [using Xamarin]: https://developer.xamarin.com/guides/ios/getting_started/installation/
