@@ -89,11 +89,11 @@ Update the function with the following code which we will use for testing:
 	function ProcessNewUserInformation(context, name, address)
 	{    
 	    context.log('Processing User Information...');            
-	    echoString = "Hello " + name;
+	    echoString = 'Hello ' + name;
 	    
 	    if (typeof address != 'undefined')
 	    {
-	        echoString += "\n" + "The address you provided is " + address;
+	        echoString += '\n' + 'The address you provided is ' + address;
 	    }
 	    
 	    context.res = {
