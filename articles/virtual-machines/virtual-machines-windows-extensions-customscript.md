@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Using the Custom Script extension for Windows VMs With Azure Resource Manager templates
