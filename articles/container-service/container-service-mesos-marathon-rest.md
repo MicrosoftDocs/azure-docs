@@ -31,7 +31,7 @@ After you are connected to the Azure Container Service cluster, you can access t
 API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
 [Chronos API](https://mesos.github.io/chronos/docs/api.html), and the
 Apache documentation for the [Mesos Scheduler
-API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
+API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## Gather information from Mesos and Marathon
 
