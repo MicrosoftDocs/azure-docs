@@ -36,10 +36,14 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
 ## Gather information from Mesos and Marathon
 
-Before deploying containers to the Mesos cluster, gather some information about the Mesos cluster such as the names and current status of the Mesos agents. To do so, query the `master/slaves` endpoint on a Mesos master. If everything goes well, you will see a list of Mesos agents and several properties for each.   
+Before deploying containers to the Mesos cluster, gather some
+information about the Mesos cluster such as the names and current
+status of the Mesos agents. To do so, query the `master/slaves`
+endpoint of the Mesos REST API. If everything goes well, you will see
+a list of Mesos agents and several properties for each.
 
 ```bash
-curl http://localhost/master/slaves
+curl http://localhost/mesos/master/slaves
 ```
 
 Now, use the Marathon `/apps` endpoint to check for current application deployments to the Mesos cluster. If this is a new cluster, you will see an empty array for apps.
