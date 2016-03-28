@@ -81,43 +81,37 @@ The following list outlines the common workflow for cloud connectivity:
 
 ## Design
 
-1. Start by looking at the [Connection toplogies](vpn-gateway-topology.md) article. The article contains basic diagrams, the deployment models for each topology (Resource Manager or classic), and which deployment tools you can use to deploy your configuration. 
+### 1. Select a connection topology
 
-2. Become familiar with the basics below, as they could affect your design.
-	- [Subnets](#subnets)
-	- [Local network gateways](#local)
-	- [VPN types](#vpntype)
-	- [Gateway types](#gwtype)
-	- [Gateway requirements](#gwrequire) 
-	- [Networking services limitations](../articles/azure-subscription-service-limits.md#networking-limits)
-	
-4. If you have decided that you want to use a Site-to-Site configuration, you'll need to select and configure a VPN device. See the [VPN device](#devices) section for more information.
+Start by looking at the [Connection toplogies](vpn-gateway-topology.md) article. The article contains basic diagrams, the deployment models for each topology (Resource Manager or classic), and which deployment tools you can use to deploy your configuration. 
 
-5. If you are designing a Site-to-Site connection and want to redirect or "force" all Internet-bound traffic back to your on-premises location for inspection and auditing, see the [Forced tunneling](#forcedtunnel) section. 
+### 2. Understand the design basics
+
+The sections below discuss the VPN gateway basics. Additionally, you will want to take into consideration the [Networking services limitations](../articles/azure-subscription-service-limits.md#networking-limits).
 
 
-### <a name="subnets"></a>About subnets
+#### <a name="subnets"></a>About subnets
 
 When planning and designing the connection that will work best for your environment, it is very important to consider the IP address ranges and subnets that you have available to use. You'll always need to create a gateway subnet for your virtual network that is large enough to support the design requirements. You'll also need to take great care not to overlap your subnets between multiple networks.
 
 
-#### <a name="overlap"></a>Avoid overlapping subnets or prefixes
+##### <a name="overlap"></a>Avoid overlapping subnets or prefixes
 
 When you are creating connections, in many cases you will need to be concerned about overlapping subnet address ranges between your connections. An overlapping subnet is when one virtual network or on-premises location contains the same address space that the other location contains. This means that you'll need your network engineers for your local on-premises networks to carve out a range for you to use for your Azure IP addressing space/subnets. You'll need address space that is not being used on the local on-premises network. 
 
 Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. Creating a VNet-to-VNet connection will fail If if your subnets overlap and an IP address exists in both the sending and destination VNets. In this case, Azure can't route the data to the other VNet because the destination address is part of the sending VNet. 
 
 
-#### <a name="gwsubnet"></a>Create a gateway subnet
+##### <a name="gwsubnet"></a>Create a gateway subnet
 
 You'll need to create a gateway subnet for your VNet to configure a VPN gateway. All gateway subnets must be named GatewaySubnet to work properly. Be sure not to name your gateway subnet a different name, and don't deploy VMs or anything else to the gateway subnet. For more information about gateway subnets, see the [Gateway subnet](vpn-gateway-about-vpngateways.md#gwsub) section in the About VPN Gateways article.
 
-### <a name="local"></a>About local network gateways
+#### <a name="local"></a>About local network gateways
 
 The local network gateway typically refers to your on-premises location. In the classic deployment model, the local network gateway was referred to as a Local Site. You'll give the local network gateway a name, the public IP address of the on premise VPN device, and specify the address prefixes that are located on the on-premises location. Azure will look at the destination address prefixes for network traffic, consult the configuration that you have specified for your local network gateway, and route packets accordingly. You can modify these address prefixes as needed. For more information about local network gateways, see the [Local network gateways](vpn-gateway-about-vpngateways.md#lng) section in the About VPN Gateways article.
 
 
-### <a name="gwtype"></a>About gateway types
+#### <a name="gwtype"></a>About gateway types
 
 Selecting the correct gateway type for your topology is critical. Your gateway will not work properly if you select the wrong type. The gateway type specifies how the gateway itself connects and is a required configuration setting for the Resource Manager deployment model.
 
@@ -127,7 +121,7 @@ The gateway types are:
 - ExpressRoute
 
 
-### <a name="vpntype"></a>About VPN types
+#### <a name="vpntype"></a>About VPN types
 
 Each configuration requires a specific VPN type in order to work. If you are combining two configurations, such as creating a Site-to-Site connection and a Point-to-Site connection to the same VNet, you must use a VPN type that satisfies both connection requirements. In the case of Point-to-Site and Site-to-Site coexisting connections, you must use a route-based VPN type when working with the Azure Resource Manager deployment model, or a dynamic gateway if you are working with the classic deployment mode.
 
@@ -138,8 +132,7 @@ The tables below show the VPN type as it maps to each connection configuration. 
 
 [AZURE.INCLUDE [vpn-gateway-table-vpntype](../../includes/vpn-gateway-table-vpntype-include.md)] 
 
-
-### <a name="devices"></a>About VPN devices for Site-to-Site connections
+### <a name="devices"></a>4. Select a VPN device for Site-to-Site connections
 
 To configure a Site-to-Site connection, regardless of deployment model, you will need the following items:
 
@@ -148,7 +141,7 @@ To configure a Site-to-Site connection, regardless of deployment model, you will
 
 You will need to have experience configuring your VPN device to create a Site-to-Site configuration. For more information about VPN devices, see [About VPN devices](vpn-gateway-about-vpn-devices.md). The VPN devices article contains information about validated devices, requirements for devices that have not been validated, and links to the device configuration documents for each device if they are available.
 
-### <a name="forcedtunnel"></a>About forced-tunnel routing
+### <a name="forcedtunnel"></a>5. Consider forced-tunnel routing
 
 For most configurations, you can configure forced tunneling. Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. 
 
