@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="03/25/2016"
 	ms.author="jeffreyg"/>
 
 # SQL Database tutorial: Create a SQL database in minutes using sample data and the Azure portal
@@ -34,7 +34,7 @@ This SQL Database tutorial shows you how to create a first SQL database in just 
 
 You'll need an Azure account and subscription before you start. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE] This SQL Database tutorial covers setting up a database using Microsoft's relational database management system (RDBMS) in the cloud, Azure SQL Database. Another option is to run SQL Server on an Azure Virtual Machine. See [Understanding Azure SQL Database and SQL Server in Azure VMs](data-management-azure-sql-database-and-sql-server-iaas.md) for a quick comparison, or you can see [Provision a SQL server virtual machine](virtual-machines-provision-sql-server.md) to get started with a virtual machine.
+> [AZURE.NOTE] This SQL Database tutorial covers setting up a database using Microsoft's relational database management system (RDBMS) in the cloud, Azure SQL Database. Another option is to run SQL Server on an Azure Virtual Machine. See [Understanding Azure SQL Database and SQL Server in Azure VMs](data-management-azure-sql-database-and-sql-server-iaas.md) for a quick comparison, or you can see [Provision a SQL server virtual machine](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) to get started with a virtual machine.
 
 ## Step 1: sign in and start SQL database setup
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -116,3 +116,8 @@ Now that you've completed this SQL Database tutorial and created a database with
 - If you're ready to start coding, see [Connect and query your SQL database with C#](sql-database-connect-query.md) and [Using SQL database from .NET (C#)](sql-database-develop-dotnet-simple.md). See the [Quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md) for Node.js, Python, Ruby, Java, PHP and C++ samples and how-to's in addition to C#.
 
 - If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) to learn more.
+
+
+## Additional resources
+
+- [All topics for Azure SQL Database service](sql-database-index-all-articles.md), an index

@@ -270,7 +270,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
-	>[ACOM.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
+	> [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
 
 3. Confirm the following: 
 	1. **input.log** file exists in the **inputdata** folder of the **adfgetstarted** container in the Azure blob storage

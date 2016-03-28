@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="03/04/2015"
+   ms.date="03/04/2016"
    ms.author="genli"/>
 
 # Transferring an Azure subscription

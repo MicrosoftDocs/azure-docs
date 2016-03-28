@@ -58,6 +58,7 @@ In the example above, you have 2 VM's called "sqlsvc1" and "sqlsvc2" running in 
 You can find more details creating a SQL AlwaysOn [Using the Portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 
+
 ## See Also
 
 [Get started configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)

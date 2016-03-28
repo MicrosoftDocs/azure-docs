@@ -38,7 +38,7 @@ You'll learn:
 
 * How to create a new App Service web app while you create a new web project in Visual Studio.
 * How to deploy a web project to an App Service web app by using Visual Studio.
-* How to use the [Azure Portal](/overview/preview-portal/) to monitor and manage your web app.
+* How to use the [Azure Portal](/features/azure-portal/) to monitor and manage your web app.
 
 At the end of the tutorial, a [Troubleshooting](#troubleshooting) section gives ideas on what to do if something doesn't work, and a [Next steps](#next-steps) section provides links to other tutorials that go into more depth about how to use Azure App Service.
 
@@ -146,9 +146,11 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	![Web app created in Azure App Service Activity window](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
-	And you can see the web app in **Cloud Explorer**.
+	And you can see the web app in the Visual Studio **Cloud Explorer** window.
 
 	![Web app created in Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
+	
+	This window lets you view and manage a wide range of Azure resources. The screen shot only shows web apps, but you'll see more resource types in your **Cloud Explorer** window. Right-click a resource such as your web app to see the options you have for managing it.
 
 ## Deploy the web project to the Azure web app
 

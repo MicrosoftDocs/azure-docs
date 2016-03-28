@@ -225,6 +225,9 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 
 >[AZURE.IMPORTANT] Ensure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and CRM Online.
 
+### Do I need to enable Azure Public Peering to connect to Office 365 services and CRM Online?
+No, you only need to enable Microsoft Peering. Authentication traffic to Azure AD will be sent through Microsoft Peering. 
+
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services and CRM Online?
 Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services and make sure that you have enabled premium add-on. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
 
