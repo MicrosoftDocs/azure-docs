@@ -31,11 +31,13 @@ There is only one command to issue:
 
 1. `azure vm quick-create`
 
-In the following command examples, please replace values between &lt; and &gt; with values from your own environment.
+## Detailed Walk Through
 
-## Create the Linux VM
+### Create the Linux VM
 
 In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to create a VM quickly. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).) It will look something like the following.
+
+In the following command examples, please replace values between &lt; and &gt; with values from your own environment.
 
 ```bash
 # Create the Linux VM using prompts
@@ -125,18 +127,17 @@ info:    vm quick-create command OK
 
 You can now SSH into your VM on the default SSH port 22.
 
-## Detailed Walkthrough
-
 The `azure vm quick-create` quickly creates a VM so you can log in and get working. It does not have a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](virtual-machines-linux-cli-deploy-templates.md), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
 
 The example above creates:
 
+- an Azure Resource Group to deploy the VM into
 - an Azure Storage account to hold the .vhd file that is the VM image
 - an Azure Virtual Network and subnet to provide connectivity to the VM
 - a virtual Network Interface Card (NIC) to associate the VM with the network
-- a public IP address and subdomain prefix to provide an internet address for external use
+- a public IP address and subdomain prefix to provide an internet address for external use and then creates the Linux VM inside that environment.
 
-and then creates the Linux VM inside that environment. This VM is exposed directly to the Internet, and is only secured by a username and password.
+This VM is exposed directly to the Internet, and is only secured by a username and password.
 
 ## Next Steps
 
