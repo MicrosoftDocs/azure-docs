@@ -33,9 +33,7 @@ Monitoring, detecting, diagnosing, and troubleshooting allow for services to con
 
 Service Fabric emits ETW events to help application developers understand what's happening in the platform. If you haven't already done so, go ahead and follow the steps in [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). This information will help you get an application up and running with the Diagnostics Events Viewer showing the trace messages.
 
-1. If the diagnostics events window does not automatically show, Go to the **Server Explorer** tab in Visual Studio, right-click **Service Fabric Cluster,** and choose **View Diagnostic Events** in the context menu.
-
-  ![Open the Visual Studio diagnostics events viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+1. If the diagnostics events window does not automatically show, Go to the **View** tab in Visual Studio, choose **Other Windows** and then **Diagnostic Events Viewer**.
 
 2. Each event has standard metadata information that tells you the node, application and service the event is coming from. You can also filter the list of events by using the **Filter events** box at the top of the events window. For example, you can filter on **Node Name** or **Service Name.** And when you're looking at event details, you can also pause by using the **Pause** button at the top of the events window and resume later without any loss of events.
 
