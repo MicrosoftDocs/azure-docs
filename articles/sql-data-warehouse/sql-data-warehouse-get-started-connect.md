@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/26/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connect to SQL Data Warehouse with Visual Studio
@@ -42,8 +42,9 @@ To find the fully qualified server name.
     ![Full server name][1]
 
 ## Step 2: Connect to your SQL database
+For the best experience, use Visual Studio 2015 with the [latest SQL Server Data Tools (SSDT) Update](https://msdn.microsoft.com/library/mt204009.aspx).
 
-1. Open Visual Studio.
+1. Open Visual Studio 2013 or 2015.
 2. Open SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
 
     ![SQL Server Object Explorer][2]
@@ -58,7 +59,8 @@ To find the fully qualified server name.
 
     - **Server name**. Enter the *server name* we located previously.
     - **Authentication**. Select SQL Server Authentication.
-    - **Login** and **password**. Enter login and password for the Azure SQL server.
+    - **User Name** and **Password**. Enter user name and password for the Azure SQL server.
+    - **Database Name**.  Enter the database name for the SQL DW database.
     - Click **Connect**.
 
 1. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
