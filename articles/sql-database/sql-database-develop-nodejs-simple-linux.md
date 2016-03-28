@@ -28,7 +28,7 @@ This topic presents a Node.js code sample that runs on Ubuntu Linux. The sample 
 
 ## Step 1: Configure Development Environment
 
-[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Ubuntu-Linux)
+[Prerequisites for using the Tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Ubuntu-Linux)
 
 ## Step 2: Create a SQL database
 

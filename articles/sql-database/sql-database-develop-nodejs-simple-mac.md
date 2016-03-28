@@ -28,7 +28,7 @@ This topic presents a Node.js code sample that runs on Mac OS X. The sample conn
 
 ## Step 1: Configure Development Environment
 
-[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Mac)
+[Prerequisites for using the Tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Mac)
 
 ## Step 2: Create a SQL database
 

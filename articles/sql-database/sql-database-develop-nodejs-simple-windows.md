@@ -28,7 +28,7 @@ This topic presents a Node.js code sample that you can use to connect to Azure S
 
 ## Step 1: Configure Development Environment
 
-[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Windows)
+[Prerequisites for using the tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Windows)
 
 ## Step 2: Create a SQL database
 

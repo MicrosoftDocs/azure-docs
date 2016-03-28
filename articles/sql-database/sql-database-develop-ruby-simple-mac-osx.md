@@ -22,11 +22,11 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
-This topic presents a Ruby code sample that runs on Mac computer running Yosemite to connect to an Azure SQL Database database.
+This topic presents a Ruby code sample that runs on Mac computer running Yosemite to connect to an Azure SQL Database.
 
 ## Step 1: Configure Development Environment
 
-[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx#Ubuntu-Linux)
+[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx#Mac) 
 
 ## Step 2: Create a SQL database
 
