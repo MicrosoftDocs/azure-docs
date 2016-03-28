@@ -65,7 +65,7 @@ Each performance level has an associated request unit (RU) rate limit. This is t
 
 DocumentDB allows for a rich set of database operations including queries, queries with user-defined functions (UDFs), stored procedures and triggers. The processing cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit as a single measure for the resources required to perform various database operations and service an application request.
 
-Collections can be created through the [Microsoft Azure portal](https://portal.azure.com) or any of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The DocumentDB APIs allow you to specify the performance level of a collection. 
+Collections can be created through the [Microsoft Azure portal](https://portal.azure.com), the [REST API](https://msdn.microsoft.com/library/azure/mt489078.aspx) or any of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The DocumentDB APIs allow you to specify the performance level of a collection. 
 
 > [AZURE.NOTE] The performance level of a collection can be adjusted through the APIs or the [Microsoft Azure portal](https://portal.azure.com/). Performance level changes are expected to complete within 3 minutes.
 
