@@ -69,9 +69,9 @@ When updating a record in an existing record set, the available fields you can u
 
 1. From the record set properties blade for your record set, search for the record.
 
-2. Modify the record. When you modify a record, you can either change the available settings for the record, such as the IP address. Or you can remove the record entirely, as shown in the example below, by clicking **Remove**.
+2. Modify the record. When you modify a record, you can either change the available settings for the record, such as the IP address. 
 
-	![modify record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
+	![modify record](./media/dns-operations-recordsets-portal/modifyrecord2500.png)
 
 3. Click **Save** at the top of the blade to save your settings. You'll see the notification that the record is saving in the upper right corner.
 
@@ -86,8 +86,13 @@ When updating a record in an existing record set, the available fields you can u
 You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set. See [Delete a record set](#delete) below for more information.
 
 1. From the record set properties blade for your record set, search for the record.
-2. Modify the available settings.
+
+2. Click the record that you want to remove. Then click **Remove**.
+
+	![modify record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
+
 3. Click **Save** at the top of the blade to save your settings.
+
 3. Once the record has been removed, the values for the record set on the DNS blade will reflect the record was removed.
 
 
