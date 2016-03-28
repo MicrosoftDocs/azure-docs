@@ -28,7 +28,7 @@ The following is needed to complete this tutorial:
 
 - Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](./virtual-machines/virtual-machines-linux-classic-docker-machine.md)
 - Install [Visual Studio 2015](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
-- Install [Visual Studio 2015 Tools for Docker - Preview](https://visualstudiogallery.msdn.microsoft.com/0f5b2caa-ea00-41c8-b8a2-058c7da0b3e4)
+- Install [Visual Studio 2015 Tools for Docker - Preview](http://aka.ms/DockerToolsForVS)
 
 ## 2. Create an ASP.NET 5 web app
 The following steps will guide you through creating a basic ASP.NET 5 app that will be used in this tutorial.
