@@ -48,10 +48,10 @@ A walkthrough of creating a user and an AutomationPSCredential can be read in th
 After creating a user you will need to make that user a co-admin for your classic resources and giving it an "Owner" role for your Azure Resource Manager resources.
 
 You'll need to use the Classic Portal to allow the user to access classic Virtual Machines.
-[TODO: IMAGE OF CLASSIC PORTAL]
+![Old Portal co-admin](./media/virtual-machines-vertical-scaling-automation/old-portal-automation-user.png)
 
 You'll need to use the Azure Portal to allow the user to access the Azure Resource Manager Virtual Machines.
-[TODO: IMAGE OF NEW PORTAL]
+![New Portal admin](./media/virtual-machines-vertical-scaling-automation/new-portal-automation-user.png)
 
 ## Import the Azure Automation Vertical Scale runbooks into your subscription
 
@@ -63,7 +63,7 @@ The runbooks that are needed for Vertically Scaling your Virtual Machine are alr
 
 Once you've imported the runbooks you'll need to add a webhook to the runbook so it can be triggered by an alert from a Virtual Machine. The details of creating a webhook for your Runbook can be read here
 
-[Azure Automation webhooks](../automation/automation-webhooks.md)https://azure.microsoft.com/en-us/documentation/articles/automation-webhooks/.
+[Azure Automation webhooks](../automation/automation-webhooks.md)
 
 Make sure you copy the webhook before closing the webhook dialog as you will need this in the next section.
 
@@ -78,4 +78,4 @@ Make sure you copy the webhook before closing the webhook dialog as you will nee
 7. Select a period over which the monitoring service will check for the condition and threshold in Steps 5 & 6
 8. Paste in the webhook you copied from the previous section.
 
-![Add Alert to Virtual Machine](./media/add-alert-webhook.png)
+![Add Alert to Virtual Machine](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook.png)
