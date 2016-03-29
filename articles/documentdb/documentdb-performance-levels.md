@@ -31,7 +31,7 @@ After reading this article, you'll be able to answer the following questions:
 
 Each DocumentDB collection created under a Standard account is provisioned with an associated performance level. Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections. DocumentDB supports both user-defined performance levels and pre-defined performance levels.  
 
-Each performance level has an associated request unit (RU) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. 
+Each performance level has an associated [request unit (RU)](http://go.microsoft.com/fwlink/?LinkId=735027) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -156,6 +156,7 @@ To learn more about pricing and managing data with Azure DocumentDB, explore the
 - [Managing DocumentDB capacity](documentdb-manage.md) 
 - [Modeling data in DocumentDB](documentdb-modeling-data.md)
 - [Partitioning data in DocumentDB](documentdb-partition-data.md)
+- [Request units](http://go.microsoft.com/fwlink/?LinkId=735027)
 
 To learn more about DocumentDB, see the Azure DocumentDB [documentation](https://azure.microsoft.com/documentation/services/documentdb/). 
 
