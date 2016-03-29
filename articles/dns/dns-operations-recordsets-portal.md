@@ -66,13 +66,13 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 4. Once the record has been saved, the values for the record set on the DNS blade will reflect the new record.
 
 
-## To update a record in an existing record set
+## To update a record
 
 When updating a record in an existing record set, the available fields you can update depend on the type of record you are working with. To update a record:
 
 1. From the record set properties blade for your record set, search for the record.
 
-2. Modify the record. When you modify a record, you can either change the available settings for the record, such as the IP address. 
+2. Modify the record. When you modify a record, you can either change the available settings for the record, such as the IP address, as shown in the example below. 
 
 	![modify record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
