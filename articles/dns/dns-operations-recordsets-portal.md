@@ -106,7 +106,7 @@ You can use the Azure portal to remove records from a record set. Note that remo
 
 1. From the **Record set properties** blade for your record set, click **Delete**. 
 
-	![delete record set](./media/dns-operations-recordsets-portal/deletercordset500.png)
+	![delete record set](./media/dns-operations-recordsets-portal/deleterecordset500.png)
 
 2. A message will appear asking if you want to delete the record set 'name_ of _ record _set'.
 
