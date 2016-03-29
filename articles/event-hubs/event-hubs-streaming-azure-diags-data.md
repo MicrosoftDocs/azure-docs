@@ -58,7 +58,7 @@ The EventHub sink must also be declared and defined in the **PrivateConfig** sec
 	    <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
 	  </PrivateConfig>
 
-The **SharedAccessKeyName** must match a SAS key and policy that has been defined in the **ServiceBus/EventHub** namespace.  This can be done by browsing to the EventHub dashboard in the classic Azure Portal, clicking on the **Configure** tab, and setting up a named policy (e.g. “SendRule”) that has *Send* permissions.  The **StorageAccount** is also declared in the **PrivateConfig**.  There is no need to change values here especially if they are working.  In this example we leave the values empty, which is a sign that a downstream asset will set the values; e.g. the *ServiceConfiguration.Cloud.cscfg* environment config file will set the environment appropriate names and keys.  
+The **SharedAccessKeyName** must match a SAS key and policy that has been defined in the **ServiceBus/EventHub** namespace.  This can be done by browsing to the EventHub dashboard in the [classic Azure portal](https://manage.windowsazure.com), clicking on the **Configure** tab, and setting up a named policy (e.g. “SendRule”) that has *Send* permissions.  The **StorageAccount** is also declared in the **PrivateConfig**.  There is no need to change values here especially if they are working.  In this example we leave the values empty, which is a sign that a downstream asset will set the values; e.g. the *ServiceConfiguration.Cloud.cscfg* environment config file will set the environment appropriate names and keys.  
 
 >[AZURE.WARNING] Be aware that the EventHub SAS key is stored in plain text in the *.wadcfgx* file.  Oftentimes this is checked in to source code control or as an asset in your build server, so you should protect as appropriate.  It is recommended to use a SAS key here with *Send only* permissions so that any malicious user could - at most - only write to the EventHub, but never listen to, or manage it.  When the application is deployed using Visual Studio or script, the **PrivateConfig** is written to a location that can never be read again, so that is protected post-deployment.  
 
@@ -220,7 +220,7 @@ Remember to replace the the values in angle brackets in the **Main** function be
 	Try looking in the Azure Storage table that contains logs and errors for Azure diagnostics itself: **WADDiagnosticInfrastructureLogsTable**.  One option is to use a tool such as [Azure Storage Explorer](http://www.storageexplorer.com) to connect to this storage account, view this table, and add a Query for TimeStamp in the last 24 hours.  You can use the tool to export the CSV, and open it in an application such as Microsoft Excel, as Excel makes it easy to search for calling-card strings like "EventHub" to see what error is reported.  
 
 ## Next steps
-•	Learn more about EventHubs here
+•	[Learn more about EventHubs](https://azure.microsoft.com/services/event-hubs/) 
 
 ## Appendix: Complete Azure diagnostics configuration file (.wadcfgx) example
 	<?xml version="1.0" encoding="utf-8"?>
