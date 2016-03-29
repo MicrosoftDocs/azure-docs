@@ -40,15 +40,19 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
 	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
 
-6. Select a partitioning mode for the collection, either **Single Partition** or **Partitioned**. A single partition has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second. A partitioned collection can scale to handle 250GB of storage over multiple partitions, and can have throughput levels from 10,100-250,000 request units/second.
+6. If you are going to create a collection with a single partition, click the arrow to select a pricing tier, then click View All, then select a performance level for the collection. For more information about the performance levels available, see [Performance levels in DocumentDB](documentdb-performance-levels.md). Each collection you create is a billable entity.
 
-7. Select the **Throughput** for the partitioned collection. One Request Unit (RU) corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md).
+	If you are going to create a partitioned collection, skip to step 7 as you do not need to select a pricing tier.  
 
-8. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Partitioning data in DocumentDB](documentdb-partition-data.md).
+7. Select a **Partitioning mode** for the collection, either **Single Partition** or **Partitioned**. A single partition has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second. A partitioned collection can scale to handle 250GB of storage over multiple partitions, and can have throughput levels from 10,100-250,000 request units/second.
 
-9. Click **OK** at the bottom of the screen to create the new collection. 
+8. Select the **Throughput** for the partitioned collection. One Request Unit (RU) corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md).
 
-10. The new collection now appears in the **Collections** lens on the **Database** blade.
+9. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Partitioning data in DocumentDB](documentdb-partition-data.md).
+
+10. Click **OK** at the bottom of the screen to create the new collection. 
+
+11. The new collection now appears in the **Collections** lens on the **Database** blade.
  
 	![Screen shot of the new collection in the Database blade - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-9.png)
 
