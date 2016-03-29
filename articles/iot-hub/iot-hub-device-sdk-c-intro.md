@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/23/2016"
+     ms.date="03/29/2016"
      ms.author="obloch"/>
 
 # Introducing the Azure IoT device SDK for C
@@ -158,6 +158,12 @@ We'll use this sample application to walk you through what’s required to use t
 
 ### Initializing the library
 
+Before you start working with the libraries, you should initialize the platform:
+
+```
+platform_init();
+```
+
 To start working with the libraries you must first allocate an IoT Hub client handle:
 
 ```
@@ -236,10 +242,11 @@ Note that you use the **IoTHubMessage\_GetByteArray** function to retrieve the m
 
 ### Uninitializing the library
 
-When you’re done sending events and receiving messages, you can uninitialize the IoT library. To do so, issue the following function call:
+When you’re done sending events and receiving messages, you can uninitialize the IoT library and platform. To do so, issue the following function calls:
 
 ```
 IoTHubClient_Destroy(iotHubClientHandle);
+platform_deinit();
 ```
 
 This frees up the resources previously allocated by the **IoTHubClient\_CreateFromConnectionString** function.
@@ -271,6 +278,8 @@ The following sections walk you through the key parts of this sample.
 To start working with the **serializer** library, you must call the initialization APIs:
 
 ```
+platform_init();
+
 serializer_init(NULL);
 
 IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
@@ -452,9 +461,10 @@ When you’re done sending data and receiving messages, you can uninitialize the
     IoTHubClient_Destroy(iotHubClientHandle);
 }
 serializer_deinit();
+platform_deinit();
 ```
 
-Each of these three functions align with the three initialization functions described previously. Calling these APIs ensures that you free previously allocated resources.
+Each of these four functions align with the three initialization functions described previously. Calling these APIs ensures that you free previously allocated resources.
 
 ## Next Steps
 
