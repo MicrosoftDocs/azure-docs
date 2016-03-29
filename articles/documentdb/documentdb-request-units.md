@@ -124,15 +124,30 @@ Consider the following ~1KB document:
 
 The following table shows approximate request unit charges for typical operations on this document (the approximate request unit charge assumes that the account consistency level is set to “Session” and that all documents are automatically indexed):
 
-Operation|Request Unit Charge ---|--- Create document|~15 RU Read document|~1 RU Query document by id|~2.5 RU
+Operation|Request Unit Charge 
+---|---
+Create document|~15 RU 
+Read document|~1 RU
+Query document by id|~2.5 RU
 
 Additionally, this table shows approximate request unit charges for typical queries used in the application:
 
-Query|Request Unit Charge ---|--- Select food by id|~2.5 RU Select foods by manufacturer|~7 RU Select by food group and order by weight|~70 RU Select top 10 foods in a food group|~10 RU
+Query|Request Unit Charge 
+---|--- 
+Select food by id|~2.5 RU 
+Select foods by manufacturer|~7 RU 
+Select by food group and order by weight|~70 RU 
+Select top 10 foods in a food group|~10 RU
 
 With this information, we can estimate the RU requirements for this application given the number of operations and queries we expect per second:
 
-Operation/Query|Estimated number per second|Required RUs ---|---|--- Create document|10|150 Read document|100|100 Select foods by manufacturer|25|175 Select by food group|10|700 Select top 10|15|150 Total|155|1275
+Operation/Query|Estimated number per second|Required RUs 
+---|---|--- 
+Create document|10|150 
+Read document|100|100 
+Select foods by manufacturer|25|175 
+Select by food group|10|700 
+Select top 10|15|150 Total|155|1275
 
 In this case, we expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, we would provision 1,300 RU/s for this application's collection.
 
