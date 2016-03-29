@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a Linux VM from the CLI | Microsoft Azure"
-   description="Create a new Linux VM on Microsoft Azure using the Azure CLI from Mac, Linux, or Windows."
+   pageTitle="Quickly Create a Linux VM on Azure using the CLI | Microsoft Azure"
+   description="Quickly Create a Linux VM on Azure using the CLI."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="03/04/2016"
+   ms.date="03/28/2016"
    ms.author="v-livech"/>
 
 
-# Create a Linux VM from the Azure CLI for Dev and Test
+# Quickly Create a Linux VM on Azure using the CLI
 
-This topic shows how to quickly create a Linux VM in a basic Azure environment using the `azure vm quick-create` command from [the Azure CLI](../xplat-cli-install.md) for trial, testing, and other short-lived scenarios. The VM is accessed by password and is open to the internet. For production or other longer-running scenarios, you should create a secured [Linux VM using Azure templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md).
+This article shows how to quickly create a new Linux VM using the `azure vm quick-create` command from [the Azure CLI](../xplat-cli-install.md).
 
-## Prerequisites
+[AZURE.NOTE] This topic shows how to quickly create a Linux VM in a basic Azure environment for trial, testing, and other short-lived scenarios. You should create more secure Azure environments for your Linux VMs to use them for production or other longer-running scenarios.  
 
-You'll need the following an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) placed in resource mode by typing `azure config mode arm` and logged in to Azure by typing `azure login` and following the prompts. Current version: 0.9.16.
+Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group (we will create a RG below), and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
 
 ## Quick Command Summary
 
@@ -31,25 +31,27 @@ There is only one command to issue:
 
 1. `azure vm quick-create`
 
-In the following command examples, please replace values between &lt; and &gt; with values from your own environment. 
+## Detailed Walk Through
 
-## Create the Linux VM
+### Create the Linux VM
 
 In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to create a VM quickly. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).) It will look something like the following.
+
+In the following command examples, please replace values between &lt; and &gt; with values from your own environment.
 
 ```bash
 # Create the Linux VM using prompts
 username@macbook$ azure vm quick-create
 info:    Executing command vm quick-create
-Resource group name: quickcreate
-Virtual machine name: quickcreate
+Resource group name: exampleResourceGroup
+Virtual machine name: exampleVMname
 Location name: westus
 Operating system Type [Windows, Linux]: linux
 ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: canonical:ubuntuserver:14.04.2-LTS:latest
 User name: ops
 Password: *********
 Confirm password: *********
-+ Looking up the VM "quickcreate"
++ Looking up the VM "exampleVMname"
 info:    Using the VM Size "Standard_D1"
 info:    The [OS, Data] Disk or image configuration requires storage account
 + Looking up the storage account cli133501687
@@ -71,12 +73,12 @@ info:    PublicIP with given name "quick-westu-1363648838-pip" not found, creati
 + Creating NIC "quick-westu-1363648838-nic"
 + Looking up the NIC "quick-westu-1363648838-nic"
 + Creating VM "quickcreate"
-+ Looking up the VM "quickcreate"
++ Looking up the VM "exampleVMname"
 + Looking up the NIC "quick-westu-1363648838-nic"
 + Looking up the public ip "quick-westu-1363648838-pip"
-data:    Id                              :/subscriptions/<guid>/resourceGroups/quickcreate/providers/Microsoft.Compute/virtualMachines/quickcreate
+data:    Id                              :/subscriptions/<guid>/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMname
 data:    ProvisioningState               :Succeeded
-data:    Name                            :quickcreate
+data:    Name                            :exampleVMname
 data:    Location                        :westus
 data:    Type                            :Microsoft.Compute/virtualMachines
 data:
@@ -99,7 +101,7 @@ data:        Vhd:
 data:          Uri                       :https://cli1361687.blob.core.windows.net/vhds/cli350d386daac1f01c-os-1457063387485.vhd
 data:
 data:    OS Profile:
-data:      Computer Name                 :quickcreate
+data:      Computer Name                 :exampleVMname
 data:      User Name                     :ops
 data:      Linux Configuration:
 data:        Disable Password Auth       :false
@@ -125,18 +127,17 @@ info:    vm quick-create command OK
 
 You can now SSH into your VM on the default SSH port 22.
 
-## Detailed Walkthrough
-
-The `azure vm quick-create` quickly creates a VM so you can log in and get working. It does not have a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](virtual-machines-linux-cli-deploy-templates.md), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md). 
+The `azure vm quick-create` quickly creates a VM so you can log in and get working. It does not have a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](virtual-machines-linux-cli-deploy-templates.md), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
 
 The example above creates:
 
+- an Azure Resource Group to deploy the VM into
 - an Azure Storage account to hold the .vhd file that is the VM image
 - an Azure Virtual Network and subnet to provide connectivity to the VM
 - a virtual Network Interface Card (NIC) to associate the VM with the network
-- a public IP address and subdomain prefix to provide an internet address for external use
+- a public IP address and subdomain prefix to provide an internet address for external use and then creates the Linux VM inside that environment.
 
-and then creates the Linux VM inside that environment. This VM is exposed directly to the Internet, and is only secured by a username and password. 
+This VM is exposed directly to the Internet, and is only secured by a username and password.
 
 ## Next Steps
 
