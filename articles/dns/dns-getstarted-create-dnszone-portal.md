@@ -55,7 +55,7 @@ You can add Tags in the Azure portal by using the **Settings** blade for your DN
 
 3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade. 
 
-	![Create zone](./media/dns-getstarted-create-dnszone-portal/createzone250.png)
+	![Create zone](./media/dns-getstarted-create-dnszone-portal/newzone250.png)
 
 4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. [See About DNS Zone Names](#names) in the section above.
 
@@ -86,7 +86,7 @@ Creating a DNS zone also creates the following DNS records, which you can view i
 2. In the lower part of the blade, you can see the record sets for the DNS zone.
 
 
-	![zone](./media/dns-getstarted-create-dnszone-portal/namedzoneblade500.png)
+	![zone](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
 
 
 
