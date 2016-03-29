@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Back up a Windows Server or client to Azure | Microsoft Azure"
 	description="Back up Windows Servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
