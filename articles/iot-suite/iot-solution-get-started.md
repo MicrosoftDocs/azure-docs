@@ -23,7 +23,7 @@ MyDriving is a system that demonstrates the design and implementation of a typic
 
 ![](./media/iot-solution-get-started/image5.png)
 
-The purpose of MyDriving is to get you started creating your own IoT solution. But before that, let’s get you going with the MyDriving app itself as a member of our test user team. This gives you an experience of the app and the whole system as a consumer before delving into the architecture. It also introduces you to HockeyApp — a cool way of managing the alpha and beta distributions of your apps to test users.
+The real purpose of MyDriving is to get you started creating your own IoT solution. But before that, let’s get you going with the MyDriving app itself - as a member of our test user team. This gives you an experience of the app and the  system behind it as a consumer, before delving into the architecture. It also introduces you to HockeyApp — a cool way of managing the alpha and beta distributions of your apps to test users.
 
 ## Use the Mobile Experience
 
@@ -43,11 +43,14 @@ On your device:
 
 2.  **Join our beta test team**.
 
-    *HockeyApp makes it easy to distribute early releases of your app to test users. *
+    HockeyApp makes it easy to distribute early releases of your app to test users.
+
+    On your mobile device:
 
     -   **Sign up/sign in to** HockeyApp at <https://rink.hockeyapp.net>.
     
         (If you’re using Windows 10, use the Edge browser.)
+
         *Build 2016 attendees* – sign in with the same MSA email you registered for the conference, using one of the Microsoft buttons. You’re already signed up to HockeyApp.
 
         ![](./media/iot-solution-get-started/image1.png)
@@ -66,6 +69,7 @@ If you’re at Build 2016, download the app as a member of our test team on Hock
 
 1.  On your iOS device, sign in to <https://rink.hockeyapp.net>.
     Use one of the Microsoft sign-in buttons, and sign in with the same MSA email you registered with the conference. (Don’t use the email and password fields.)
+
     ![](./media/iot-solution-get-started/image1.png)
 
 2.  In the HockeyApp Dashboard, select MyDriving and download it.
@@ -90,38 +94,34 @@ Find more details in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs
 
 ## Get an OBD Adaptor (optional)
 
-This is the part that makes this a real Internet of Things system! You can use the app without a real one, but it’s more fun with the real thing, and they aren’t expensive.
+This is the part that makes this a real Internet of Things system! You can use the app without one, but it’s more fun with the real thing, and they aren’t expensive.
 
 On-Board Diagnostics (OBD) is the feature of your car that the garage uses to tune it up and diagnose odd noises and warning lamps. Unless your car is of great antiquity, you’ll find a socket under the dashboard. With the right connector, you can get metrics of the engine’s performance and make certain adjustments. An OBD connector can be purchased cheaply from the usual places. It connects using Bluetooth or WiFi to an app on your phone.
 
-But in this case, we’re going to connect your car to the Cloud. Yes, the OBD connects to the app on your phone, but our app just works as a relay: Your car’s telemetry is sent straight on to the MyDriving IoT Hub, where it’s processed in a pipeline incorporating machine learning, to log your road trips and assess your driving style.
+But in this case, we’re going to connect your car to the Cloud. OK, the direct connection from the OBD is to your phone; but our app works as a relay. Your car's telemetry is sent straight on to the MyDriving IoT Hub, where it's processed to log your road trips and assess your driving style.
 
 ### Connect an OBD device
 
-If you are using:
-
--   an **Android or Windows** phone you need a **Bluetooth-enabled OBD II** adaptor.
-
--   an **iOS** phone you need a **WiFi-enabled** OBD adaptor.
 
 1.  Check that your car has the OBD connector (it probably does unless you’re into vintage automobiles). It will be located somewhere in the cabin, typically behind a flap underneath the dashboard.
 
 2.  Obtain an OBD adaptor. We used these types:
 
-    -   [BAFX Products 34t5 Bluetooth OBDII Scan Tool] for **Android and Windows** devices.
+    If you are using:
 
-    -   [ScanTool OBDLink MX Wi-Fi: OBD Adapter/Diagnostic Scanner] for **iOS**.
+    -   an **Android or Windows** phone, you need a **Bluetooth-enabled OBD II** adaptor. We used [BAFX Products 34t5 Bluetooth OBDII Scan Tool].
+
+    -   an **iOS** phone, you need a **WiFi-enabled** OBD adaptor. We used [ScanTool OBDLink MX Wi-Fi: OBD Adapter/Diagnostic Scanner].
 
 3.  Follow the instructions that come with your OBD adaptor to connect it to your phone.
 
     -   A Bluetooth adaptor must be paired with the phone, in the Settings page.
 
     -   A WiFi adaptor must have an address in the range 192.168.xxx.xxx.
-        In iOS settings, connect t
 
 4.  If you have several cars, you can get a separate adaptor for each (max 3).
 
-If you don’t have an OBD adaptor, the app will still send location and speed data from the phone's GPS receiver to the backend and will ask if you want to generate and send simulated OBD data.
+If you don’t have an OBD adaptor, the app will still send location and speed data from the phone's GPS receiver to the backend and will ask if you want to simulate an OBD.
 
 You can find out more about how the app uses data from the OBD adaptor and about options for creating your own OBD device in Section 2.1 "IoT Devices" in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs).
 
@@ -130,11 +130,13 @@ You can find out more about how the app uses data from the OBD adaptor and about
 **Start** the app. There’s an initial Quickstart to walk you through how it works.
 
 -   **Track your trips.** Tap the record button (big red circle at bottom of screen) to start a trip, and tap again to end.
+
+
     ![](./media/iot-solution-get-started/image2.png)
 
--   Each time you start a trip, if there’s no OBD device, you’ll be asked if you want to use the simulator. The simulator creates fictional engine data from speed values from the phone’s location service.
+-   Each time you start a trip, if there’s no OBD device, you’ll be asked if you want to use the simulator. 
 
--   At the end of a trip, you get a summary:
+-   At the end of a trip, click the stop button, and you get a summary:
 
     ![](./media/iot-solution-get-started/image3.png)
 
@@ -150,7 +152,7 @@ You can find out more about how the app uses data from the OBD adaptor and about
 
 ## Feedback 
 
-Because we created MyDriving to help jumpstart your own IoT systems, we certainly want to hear from you about how well it works! Let us know if you run into difficulties or challenges, if there is an extension point that would make it more suitable to your scenario, if you find a more efficient way to accomplish certain needs, or if you have any other suggestions for improving MyDriving or this documentation.
+Because we created MyDriving to help jumpstart your own IoT systems, we certainly want to hear from you about how well it works. Let us know if you run into difficulties or challenges, if there is an extension point that would make it more suitable to your scenario, if you find a more efficient way to accomplish certain needs, or if you have any other suggestions for improving MyDriving or this documentation.
 
 Within the MyDriving app itself, you can use the built-in HockeyApp feedback mechanism: on iOS and Android just give your phone a shake, or use the Feedback menu command. You can also give feedback through the [HockeyApp portal].
 
@@ -162,7 +164,7 @@ We look forward to hearing from you!
 
 -   Explore the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs) to understand how we’ve designed and built the entire MyDriving system.
 
--   [Create and deploy a system of your own](iot-solution-build-system.md) using our Azure Resource Manager scripts! The [MyDriving Reference Guide](http://aka.ms/mydrivingdocs) also guides you through areas where you’ll make the most customizations.
+-   [Create and deploy a system of your own](iot-solution-build-system.md) using our Azure Resource Manager scripts. The [MyDriving Reference Guide](http://aka.ms/mydrivingdocs) also guides you through areas where you’ll make the most customizations.
 
   [from GitHub]: https://github.com/Azure-Samples/MyDriving
   [using Xamarin]: https://developer.xamarin.com/guides/ios/getting_started/installation/
