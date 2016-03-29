@@ -17,6 +17,8 @@
 	ms.author="daleche"/>
 
 # Troubleshoot "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later" error
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
 When an application connects to an Azure SQL database, you receive the following error message:
 
 ```
@@ -26,8 +28,6 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 > [AZURE.NOTE] This error message is typically transient (short-lived).
 
 This error occurs when the Azure database is being moved (or reconfigured) and your application loses its connection to the SQL database. SQL database reconfiguration events occurs because of a planned event (for example, a software upgrade) or an unplanned event (for example, a process crash, or load balancing). Most reconfiguration events are generally short-lived and should be completed in less than 60 seconds at most. However, these events can occasionally take longer to finish, such as when a large transaction causes a long-running recovery.
-
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Steps to resolve transient connectivity issues
 1.	Check the [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) for any known outages that occurred during the time during which the errors were reported by the application.
