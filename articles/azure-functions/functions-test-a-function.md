@@ -33,16 +33,16 @@ The default function template is basically a hello world function that echos bac
 Update the function with the following code which we will use for testing:
 
 	module.exports = function(context, req) {
-	    context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
-	    context.log('Request Headers = ' + JSON.stringify(req.headers));    
+	    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+	    context.log("Request Headers = " + req.headers);    
 	
 	    if (req.query.name || (req.body && req.body.name)) {
-	        if (typeof req.query.name != 'undefined') {
-	            context.log('Name was provided as a query string param...'); 
+	        if (typeof req.query.name != "undefined") {
+	            context.log("Name was provided as a query string param..."); 
 	            ProcessNewUserInformation(context, req.query.name);
 	        }
 	        else {
-	            context.log('Processing user info from request body...'); 
+	            context.log("Processing user info from request body..."); 
 	            ProcessNewUserInformation(context, req.body.name, req.body.address);
 	        }
 	    }
@@ -57,14 +57,14 @@ Update the function with the following code which we will use for testing:
 	
 	function ProcessNewUserInformation(context, name, address)
 	{    
-	    context.log('Processing User Information...');            
-	    context.log('name = ' + name);            
+	    context.log("Processing User Information...");            
+	    context.log("name = " + name);            
 	    echoString = "Hello " + name;
 	    
-	    if (typeof address != 'undefined')
+	    if (typeof address != "undefined")
 	    {
 	        echoString += "\n" + "The address you provided is " + address;
-	        context.log('address = ' + address);            
+	        context.log("address = " + address);            
 	    }
 	    
 	    context.res = {
@@ -72,6 +72,8 @@ Update the function with the following code which we will use for testing:
 	            body: echoString
 	        };
 	}
+
+
 ## Test a function with Tools
 
 ### Test with a browser
@@ -282,22 +284,22 @@ Make sure to set:
 
 Code Example:
 
-	var http = require('http');
+	var http = require("http");
 	
-	//var nameQueryString = "xname=Wes%20Query%20String%20Test%20From%20Node.js";
+	var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
 	
 	var nameBodyJSON = {
-	    name : 'Wes testing with Node.JS code',
-	    address : 'Dallas, T.X. 75201'
+	    name : "Wes testing with Node.JS code",
+	    address : "Dallas, T.X. 75201"
 	};
 	
 	var bodyString = JSON.stringify(nameBodyJSON);
 	
 	var options = {
-	  host: 'functionsExample.azurewebsites.net',
-	//  path: '/api/WesmcHttpTriggerNodeJS1/?code=<your code>&' + nameQueryString,
-	  path: '/api/WesmcHttpTriggerNodeJS1/?code=<your code>',
-	  method: 'POST',
+	  host: "functions841def78.azurewebsites.net",
+	  //path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9&" + nameQueryString,
+	  path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9",
+	  method: "POST",
 	  headers : {
 	      "Content-Type":"application/json",
 	      "Content-Length": Buffer.byteLength(bodyString)
@@ -305,12 +307,12 @@ Code Example:
 	};
 	
 	callback = function(response) {
-	  var str = ''
-	  response.on('data', function (chunk) {
+	  var str = ""
+	  response.on("data", function (chunk) {
 	    str += chunk;
 	  });
 	
-	  response.on('end', function () {
+	  response.on("end", function () {
 	    console.log(str);
 	  });
 	}
