@@ -46,10 +46,10 @@ To create a record set in the Azure portal, see [Create DNS records using the Az
 
 ## Add a new record to an existing record set
 
-You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers. Record sets of type CNAME can contain at most 1 record.
+You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers. Record sets of type CNAME can contain at most one record.
 
 
-1. From the record set properties blade for your dns zone, click the record set that you want to add a record to.
+1. From the record set properties blade for your DNS zone, click the record set that you want to add a record to.
 
 	![select set](./media/dns-operations-recordsets-portal/selectset500.png)
 
