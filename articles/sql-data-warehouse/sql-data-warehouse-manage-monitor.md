@@ -3,7 +3,7 @@
    description="Learn how to monitor your workload using DMVs."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,39 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="03/28/2016"
+   ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitor your workload using DMVs
 
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload and investigate query execution in Azure SQL Data Warehouse.
 
-
-
 ## Monitor Connections
 
-You can use the *sys.dm_pdw_nodes_exec_connections* view to retrieve information about the connections established to your Azure SQL Data Warehouse database. In addition, the *sys.dm_exec_sessions* view is helpful when retrieving information about all active user connections.
+The view *sys.dm_pdw_exec_sessions* allows you to monitor connections to your Azure SQL Data Warehouse database.
 
 ```sql
-SELECT * FROM sys.dm_pdw_nodes_exec_connections;
-SELECT * FROM sys.dm_pdw_nodes_exec_sessions;
-
-```
-
-
-Use the following query to retrieve the information on the current connection.
-
-```sql
-SELECT *
-FROM sys.dm_pdw_nodes_exec_connections AS c
-   JOIN sys.dm_pdw_nodes_exec_sessions AS s
-   ON c.session_id = s.session_id
-WHERE c.session_id = @@SPID;
-
+SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
 
 ## Investigate Query Execution
-You might encounter situations where your query is not completing or is running longer than expected. In such cases you can use the following steps to collect data and narrow down the issue.
+To monitor query execution, start with *sys.dm_pdw_exec_requests*.  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is also assigned sequentially for each new query.  The session_id is also important to see all queries for a given logon.
+
+In the scenario where you would like to investigate query execution, here are some common steps to follow.
 
 ### STEP 1: Find the query to investigate
 
@@ -53,11 +39,11 @@ You might encounter situations where your query is not completing or is running 
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the longest running queries
-SELECT * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
+-- Find the 10 longest running queries
+SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
-Save the Request ID of the query.
+Note the Request ID of the query.
 
 ### STEP 2: Check if the query is waiting for resources
 
@@ -81,7 +67,7 @@ WHERE waits.request_id = 'QID33188'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-The results of the above query will show you the wait state of your request.
+The results of the above query will show you the wait state of your query.
 
 - If the query is waiting on resources from another query, then the state will be **AcquireResources**.
 - If the query has all the required resources and is not waiting, then the state will be **Granted**. In this case, proceed to look at the query steps.
@@ -120,7 +106,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 ```
 
 
-Use the following query to retrieve the SQL Server execution plan for the SQL Step on a particular node.
+If the query is currently running, following query can be used to retrieve the SQL Server execution plan for the currently running SQL Step for a particular distribution.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -129,8 +115,6 @@ Use the following query to retrieve the SQL Server execution plan for the SQL St
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ```
-
-
 
 ### STEP 4b: Find the execution progress of a DMS Step
 
