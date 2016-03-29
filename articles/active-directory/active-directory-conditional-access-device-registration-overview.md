@@ -53,9 +53,9 @@ You can view and enable/disable registered devices using the Administrator Porta
 
 By default, two-factor authentication is not enabled for the service. However, two-factor authentication is recommended when registering a device.
 
-- Before requiring two-factor authentication for this service, you must configure a two-factor authentication provider in Azure Active Directory and configure your user accounts for Multi-Factor Authentication, see [Adding Multi-Factor Authentication to Azure Active Directory](multi-factor-authentication-get-started-cloud.md)
+- Before requiring two-factor authentication for this service, you must configure a two-factor authentication provider in Azure Active Directory and configure your user accounts for Multi-Factor Authentication, see [Adding Multi-Factor Authentication to Azure Active Directory](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 
-- If you are using AD FS with Windows Server 2012 R2, you must configure a two-factor authentication module in AD FS, see [Using Multi-Factor Authentication with Active Directory Federation Services](multi-factor-authentication-get-started-server.md).
+- If you are using AD FS with Windows Server 2012 R2, you must configure a two-factor authentication module in AD FS, see [Using Multi-Factor Authentication with Active Directory Federation Services](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 ## Configure Azure Active Directory Device Registration discovery
 Windows 7 and Windows 8.1 devices will discover the Device Registration service by combining the user account name with a well-known Device Registration server name.
