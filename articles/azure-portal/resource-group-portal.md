@@ -110,7 +110,7 @@ After pinning the section to the dashboard, you will see the summary on the dash
 
 And, selecting it immediately takes you to more details about the data.
 
-### Deleting resource groups
+### Delete resource group
 
 Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you are deleting a resource group since there might be other resources linked to it. You can see the linked resources in the resource map and take the necessary steps to avoid any unintentional consequences when you delete resource groups. The linked resources will not be deleted but they may not operate as expected.
 
