@@ -27,7 +27,7 @@ Both of these capabilities restore to a new database on the same server. It is i
 
 
 ## Recover a live database
-Azure SQL Data Warehouse service protects all live databases with database snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. Database snapshost are also created when you pause or drop your database and are retained for 7 days. In the event of user error causing unintended data modification, you can restore the database to any of the restore points within the retention period.
+Azure SQL Data Warehouse service protects all live databases with database snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. Database snapshots are also created when you pause or drop your database and are retained for 7 days. In the event of user error causing unintended data modification, you can restore the database to any of the restore points within the retention period.
 
 
 ### Azure Portal
