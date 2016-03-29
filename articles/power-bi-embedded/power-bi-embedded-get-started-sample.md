@@ -12,7 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="power-bi-embedded"
+   ms.workload="powerbi"
+   ms.owner="nickcald"
    ms.date="03/08/2016"
    ms.author="derrickv"/>
 
@@ -32,9 +33,9 @@ Let’s take a high level look at the steps involved to get started with the sam
 
 The following will walk you through setting up your Visual Studio development environment to access the Preview components
 
-1. Download and unzip the [PowerBI-embedded.zip](http://go.microsoft.com/fwlink/?LinkId=761493) file.
+1. Download and unzip the [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) sample on GitHub.
 
-2. Open **PowerBIPrivatePreview.sln** in Visual Studio.
+2. Open **PowerBI-embedded.sln** in Visual Studio.
 
 3. Build solution.
 
@@ -119,19 +120,9 @@ The Power BI Embedded service uses App Tokens for authentication and authorizati
 The next section explores the Power BI Embedded sample code.
 
 ## Explore the sample code
-The **Microsoft Power BI Embedded** preview sample is an example dashboard web app that shows how to integrate **Power BI** reports. It has a Model-View-Controller (MVC) design pattern to demonstrates best practices. This section will highlight parts of the sample code that you can explore within the web app solution.
+The **Microsoft Power BI Embedded** preview sample is an example dashboard web app that shows how to integrate **Power BI** reports. It has a Model-View-Controller (MVC) design pattern to demonstrates best practices. This section will highlight parts of the sample code that you can explore within the web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes [Burbeck92]. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
 
-First, some background about the Model-View-Controller (MVC) design pattern.
-
-The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes [Burbeck92]:
-
-- **Model**: The model manages the behavior and data of the application domain, responds to requests for information about its state (usually from the view), and responds to instructions to change state (usually from the controller).
-
-- **View**: The view manages the display of information.
-
-- **Controller**: The controller interprets the mouse inputs from the user, informing the model and/or the view to change as appropriate.
-
-With the Model-View-Controller (MVC) design pattern in mind, the **Microsoft Power BI Embedded** preview sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution.
+The **Microsoft Power BI Embedded** preview sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution.
 
 > [AZURE.NOTE] This section is a summary of the sample code which shows how the code was written. We will expand the description of the sample as we move towards General Availability (GA). To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
 
@@ -197,7 +188,7 @@ CreatePowerBIClient()
 
     private IPowerBIClient CreatePowerBIClient(PowerBIToken token)
     {
-        var jwt = token.Generate(signingKey);
+        var jwt = token.Generate(accessKey);
         var credentials = new TokenCredentials(jwt, "AppToken");
         var client = new PowerBIClient(credentials)
         {
@@ -214,7 +205,7 @@ ActionResult Reports()
         var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
         using (var client = this.CreatePowerBIClient(devToken))
         {
-            var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId.ToString());
+            var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
 
             var viewModel = new ReportsViewModel
             {
@@ -233,14 +224,14 @@ Task<ActionResult> Report(string reportId)
         var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
         using (var client = this.CreatePowerBIClient(devToken))
         {
-            var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId.ToString());
+            var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
             var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
             var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, Guid.Parse(report.Id));
 
             var viewModel = new ReportViewModel
             {
                 Report = report,
-                AccessToken = embedToken.Generate(this.signingKey)
+                AccessToken = embedToken.Generate(this.accessKey)
             };
 
             return View(viewModel);

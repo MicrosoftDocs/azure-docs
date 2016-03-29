@@ -12,7 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="power-bi-embedded"
+   ms.workload="powerbi"
+   ms.owner="nickcald"
    ms.date="03/08/2016"
    ms.author="derrickv"/>
 
@@ -56,7 +57,7 @@
 
 10.	**How is this service priced?**
 
-    Power BI Embedded is currently in preview. Customers purchase the service through two primary licensing vehicles: the Microsoft Online Subscription Program (MOSP) or through an Enterprise VL Program.
+    Power BI Embedded is currently in preview and will be available at no cost until May 1, 2016. Starting on May 1, 2016, the service will be priced per render. Customers may purchase the service through two primary licensing vehicles: the Microsoft Online Subscription Program (MOSP) or the Enterprise VL Program. 
 
     You may use the Power BI Embedded service within an application you develop only if your application (1) adds primary and significant functionality to our service and is not primarily a substitute for any Power BI service, and (2) is provided solely for external users.  You may not use the Power BI Embedded service within internal business applications.
 

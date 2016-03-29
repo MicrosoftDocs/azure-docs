@@ -12,7 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="power-bi-embedded"
+   ms.workload="powerbi"
+   ms.owner="nickcald"
    ms.date="03/08/2016"
    ms.author="derrickv"/>
 

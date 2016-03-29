@@ -12,9 +12,11 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="power-bi-embedded"
+   ms.workload="powerbi"
+   ms.owner="nickcald"
    ms.date="03/08/2016"
-   ms.author="derrickv"/>
+   ms.author="derrickv"
+   />
 
 # Power BI Embedded Community
 During public preview, please go to [Microsoft Power BI Community/developer](http://community.powerbi.com/t5/Developer/bd-p/Developer) for community help. In [Microsoft Power BI Community](http://community.powerbi.com/), you can also interact with community members for help using **Power BI Desktop** and **Power BI Service**.
