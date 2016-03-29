@@ -59,9 +59,9 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 
 2. Click **Save** at the top of the blade to save your settings before closing the blade.
 
-3. In the corner, you will see that the record is saving
+3. In the corner, you will see that the record is saving.
 
-	![save record](./media/dns-operations-recordsets-portal/saved150.png)
+	![save record](./media/dns-operations-recordsets-portal/saving150.png)
 
 4. Once the record has been saved, the values for the record set on the DNS blade will reflect the new record.
 
@@ -72,16 +72,16 @@ When updating a record in an existing record set, the available fields you can u
 
 1. From the record set properties blade for your record set, search for the record.
 
-2. Modify the record. When you modify a record, you can either change the available settings for the record. In the example below, the IP address is in the process of being modified. Once the IP address has been filled in, the will validate the modification and you can then save the record at the top of the blade.
+2. Modify the record. When you modify a record, you can either change the available settings for the record. In the example below, we clicked the IP address field and the IP address is in the process of being modified.
 
 	![modify record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
-3. Click **Save** at the top of the blade to save your settings. You'll see the notification that the record is saving in the upper right corner.
+3. Click **Save** at the top of the blade to save your settings. You'll see the notification that the record has been saved in the upper right corner.
 
 	
 	![save record](./media/dns-operations-recordsets-portal/saved150.png)
 
-	![save record](./media/dns-operations-recordsets-portal/saving150.png)
+
 
 3. Once the record has been saved, the values for the record set on the DNS blade will reflect the updated record.
 
@@ -95,7 +95,7 @@ You can use the Azure portal to remove records from a record set. Note that remo
 
 2. Click the record that you want to remove. Then click **Remove**.
 
-	![modify record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
+	![remove record](./media/dns-operations-recordsets-portal/removerecord500.png)
 
 3. Click **Save** at the top of the blade to save your settings.
 
