@@ -31,7 +31,7 @@ There are three kinds of administrator roles in Microsoft Azure:
 
 ## How to add an admin for a subscription
 
-**Azure new portal**
+**Azure portal**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -50,7 +50,7 @@ There are three kinds of administrator roles in Microsoft Azure:
 	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
 5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
 
-	![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
 
 **Azure classic portal**
 
