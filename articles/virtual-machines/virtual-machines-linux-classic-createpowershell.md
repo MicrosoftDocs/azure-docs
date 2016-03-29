@@ -269,7 +269,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[How to install and configure Azure PowerShell](powershell-install-configure.md)
+[How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
 [How to log on to a virtual machine running Linux](virtual-machines-linux-classic-log-on.md)
 
