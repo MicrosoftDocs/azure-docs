@@ -44,6 +44,7 @@ Collections are automatically partitioned into one or more physical servers by D
 Collections can be created through the [Azure Portal](https://portal.azure.com/) or through any one of the [DocumentDB SDKs](documentdb-sdk-dotnet.md).   
  
 ## Request units and database operations
+
 When you create a collection, you reserve throughput in terms of request units (RU) per second. Instead of thinking about and managing hardware resources, you can think of a **request unit** as a single measure for the resources required to perform various database operations and service an application request. A read of a 1 KB document consumes the same 1 RU regardless of the number of items stored in the collection or the number of concurrent requests running at the same. All requests against DocumentDB, including complex operations like SQL queries have a predictable RU value which can be determined at development time. If you know the size of your documents and the frequency of each operation (reads, writes and queries) to support for your application, you can provision the exact amount of throughput to meet your application's needs, and scale your database up and down as your performance needs change. 
 
 Each collection can be reserved with throughput in blocks of 100 request units per second, from hundreds up to millions of request units per second. The provisioned throughput can be adjusted throughout the life of a collection to adapt to the changing processing needs and access patterns of your application. For more information, see [DocumentDB performance levels](documentdb-performance-levels.md). 
@@ -61,6 +62,8 @@ There are several factors that impact the request units consumed for an operatio
 - Data consistency. When using data consistency levels of Strong or Bounded Staleness, additional units will be consumed to read documents.
 - Indexed properties. An index policy on each collection determines which properties are indexed by default. You can reduce your request unit consumption by limiting the number of indexed properties. 
 - Document indexing. By default each document is automatically indexed, you will consume fewer request units if you choose not to index some of your documents.
+
+For more information, see [DocumentDB request units](documentdb-request-units.md). 
 
 For example, here's a table that shows how many request units to provision at three different document sizes (1KB, 4KB, and 64KB) and at two different performance levels (500 reads/second + 100 writes/second and 500 reads/second + 500 writes/second). The data consistency was configured at Session, and the indexing policy was set to None.
 
@@ -112,6 +115,7 @@ For example, here's a table that shows how many request units to provision at th
 </table>
 
 Queries, stored procedures, and triggers consume request units based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.  
+
 
 ## Choice of consistency level and throughput
 The choice of default consistency level has an impact on the throughput and latency. You can set the default consistency level both programmatically and through the Azure Portal. You can also override the consistency level on a per request basis. By default, the consistency level is that of session which provides monotonic read/writes and read your write guarantees. Session consistency is great for user-centric applications and provides an ideal balance of consistency and performance trade-offs.    
