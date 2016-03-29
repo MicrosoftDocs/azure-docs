@@ -4,8 +4,8 @@
 	keywords="json database, document database"
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
-	editor="mimig1" 
+	manager="jhubbard" 
+	editor="" 
 	documentationCenter=""/>
 
 <tags 
