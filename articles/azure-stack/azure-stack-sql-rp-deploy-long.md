@@ -24,7 +24,7 @@ You will need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 im
 
 To deploy a resource provider, your PowerShell Integrated Scripting Environment (ISE) must be run as an administrator. For this reason, you will need to allow cookies and JavaScript in your Internet Explorer profile used for logging into Azure Active Directory (e.g. for both administrator and user seperatley)
 
-##### Turn off IE Enhanced Security####
+##### Turn off IE Enhanced Security#####
 
 1.  Sign in to the Azure Stack proof-of-concept (PoC) computer as an AzureStack/administrator, and then open Server Manager.
 
@@ -34,7 +34,7 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 
 4.  Turn off **IE Enhanced Security Configuration** for both Admins and Users.
 
-#####Enable cookies#####
+#####Enable cookies######
 
 1.  On the Windows Start screen, select **All apps**, select **Windows accessories**, right-click **Internet Explorer**, point to **More**,and then select **Run as an administrator**.
 
