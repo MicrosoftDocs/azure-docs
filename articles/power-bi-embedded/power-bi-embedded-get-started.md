@@ -28,7 +28,7 @@ To learn more about Power BI Embedded, see [What is Power BI Embedded](power-bi-
 A **Workspace Collection** is the top-level Azure resource and a container for the content that will be embedded. A *Workspace Collection** can be created two ways:
 
    -	Manually using the Azure Portal
-   -	Programmatically using the ARM APIs
+   -	Programmatically using the Azure Resource Manager(ARM) APIs
 
 Let's walk through the steps to build a **Workspace Collection** using the Azure Portal.
 
@@ -91,7 +91,7 @@ While two keys are listed, only one key is needed at a time. The second key is p
 
 Now that you have created an instance of Power BI for your application you, will need to create some Power BI datasets and the reports that you wish to embed. These can be created by using the **Power BI Desktop** tool. To learn more about downloading the Power BI desktop for free, please see the following: [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Or, to quickly get started, you can download the sample [Profit and Loss Data Modeling and Analysis PBIX]  (http://go.microsoft.com/fwlink/?LinkId=780547).
 
-Once you install **Power BI Desktop**, you can then create your first dataset and report following the instructions here: [Getting started with Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started).
+Once you install **Power BI Desktop**, you can then create your first dataset and report following the instructions here: [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started).
 
 With Power BI Desktop, when you connect to your data source, it is always possible to import a copy of the data into the Power BI Desktop. For some data sources, an alternative approach is available: connect directly to the data source using **DirectQuery**.
 
