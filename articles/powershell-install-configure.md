@@ -16,11 +16,11 @@
 	ms.date="01/06/2016"
 	ms.author="coreyp"/>
 
-# How to install and configure Azure PowerShell#
+# How to install and configure Azure PowerShell
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure  CLI</a></div>
 
-##What is Azure PowerShell?#
+##What is Azure PowerShell?
 Azure PowerShell is a set of modules that provide cmdlets to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, the cmdlets can be used for the same tasks as the Azure Management Portal, such as creating and configuring cloud services, virtual machines, virtual networks, and web apps.
 
 <a id="Install"></a>
