@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/08/2016" 
+	ms.date="03/30/2016" 
 	ms.author="johnmac"/>
 
 # Performance levels in DocumentDB
@@ -112,7 +112,7 @@ The Azure Portal is one option available to you when managing your collections' 
 
 ![Changing pricing tier][1]
 
-##Changing performance levels using the .NET SDK
+## Changing performance levels using the .NET SDK
 
 Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx), but the process is similar for our other [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). If you are new to our .NET SDK, please visit our [getting started tutorial](documentdb-get-started.md).
 
