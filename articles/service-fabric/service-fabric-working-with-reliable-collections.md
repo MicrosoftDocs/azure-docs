@@ -3,7 +3,7 @@
     description="Learn the best practices for working with Reliable Collections."
     services="service-fabric"
     documentationCenter=".net"
-    authors="jeffreyr"
+    authors="JeffreyRichter"
     manager="timlt"
     editor="" />
 

@@ -3,7 +3,7 @@
    description="Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine."
    services="service-fabric"
    documentationCenter=".net"
-   authors="toddabel"
+   authors="ms-toddabel"
    manager="timlt"
    editor=""/>
 
