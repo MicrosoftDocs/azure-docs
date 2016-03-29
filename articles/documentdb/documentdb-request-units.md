@@ -2,8 +2,8 @@
 	pageTitle="Request Units in DocumentDB | Microsoft Azure" 
 	description="Learn about how to understand, specify, and estimate request unit requirements in DocumentDB." 
 	services="documentdb" 
-	authors="stbaro" 
-	manager="johnmac" 
+	authors="stephbaron" 
+	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
 
