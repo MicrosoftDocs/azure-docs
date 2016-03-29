@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mingzhan"/>
+	ms.date="03/14/2016" 
+	ms.author="szark"/>
 
 
 
@@ -26,6 +26,8 @@
 ##Introduction
 
 The Azure Linux Agent (/usr/sbin/waagent) manages interaction between a virtual machine and the Azure Fabric Controller. It does the following:
+
+> [AZURE.NOTE] Please see the Azure Linux agent [README](https://github.com/Azure/WALinuxAgent/blob/2.0/README) for the latest version of this guide.
 
 * **Image Provisioning**
   - Create a user account
@@ -208,14 +210,14 @@ If a path to an executable program is specified, it is invoked when waagent has 
 Type: String  
 Default: None
 
-If a path to an executable program is specified, the program is invoked when the Fabric indicates that a configuration file is available for the virtual machine. The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the configuration file changes. A sample file is provided in the Appendix. The current path of this file is /var/lib/waagent/HostingEnvironmentConfig.xml.
+If a path to an executable program is specified, the program is invoked when the Fabric indicates that a configuration file is available for the virtual machine. The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the configuration file changes. The current path of this file is /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
 Type: String  
 Default: None
 
-If a path to an executable program is specified, the program is invoked when the Fabric indicates that a new network topology layout is available for the virtual machine.The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the network topology changes (due to service healing for example). A sample file is provided in the Appendix. The current location of this file is /var/lib/waagent/SharedConfig.xml.
+If a path to an executable program is specified, the program is invoked when the Fabric indicates that a new network topology layout is available for the virtual machine.The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the network topology changes (due to service healing for example). The current location of this file is /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled:**
 
