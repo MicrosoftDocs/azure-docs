@@ -10,7 +10,7 @@ The following diagram shows a typical IoT solution architecture. Note that it do
 
 ![IoT solution architecture][img-solution-architecture]
 
-> [AZURE.NOTE] For an in-depth IoT discussion of IoT architecture see the [Microsoft Azure IoT services: Reference Architecture][lnk-refarch].
+> [AZURE.NOTE] For an in-depth discussion of IoT architecture see the [Microsoft Azure IoT services: Reference Architecture][lnk-refarch].
 
 ### Device connectivity
 
@@ -50,4 +50,4 @@ The presentation and business connectivity layer allows end users to interact wi
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  iot-hub-protocol-gateway.md
-[lnk-refarch]: http://aka.ms/azureiotrefarch
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
