@@ -38,7 +38,7 @@ Azure Active Directory Device Registration includes support for iOS, Android, an
 You need to enable Azure AD Device Registration in the Azure Portal so that mobile devices  can discover the service by looking for well-known DNS records. You must configure your company DNS so that Windows 10, Windows 8.1, Windows 7, Android and iOS devices can discover and use the service.
 You can view and enable/disable registered devices using the Administrator Portal in Azure Active Directory. 
 
-###To enable Azure Active Directory Device Registration Service
+### Enable Azure Active Directory Device Registration Service
 
 1. Sign in to the Microsoft Azure portal as Administrator.
 2. On the left pane, select **Active Directory**.
