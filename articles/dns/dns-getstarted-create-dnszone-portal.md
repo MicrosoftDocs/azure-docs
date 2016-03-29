@@ -83,7 +83,7 @@ Creating a DNS zone also creates the following records:
 
 You can view the records from the Azure portal
 
-1. From your DNS zone blade, click on **All settings** to open the **Settings blade** for the DNS zone. 
+1. From your **DNS zone** blade, click on **All settings** to open the **Settings blade** for the DNS zone. 
 
 	![zone](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 
@@ -99,7 +99,7 @@ You can view the records from the Azure portal
 
 You can delete the DNS zone directly from the portal. Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created. 
 
-1. Locate the DNS zone blade for the zone you want to delete, then click **Delete** at the top of the blade.
+1. Locate the **DNS zone** blade for the zone you want to delete, then click **Delete** at the top of the blade.
  
 2. A message will appear letting you know that you must delete all records sets, except the NS and SOA records that were automatically created. If you have deleted your record sets, click **Yes**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.  
 

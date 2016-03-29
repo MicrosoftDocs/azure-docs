@@ -74,13 +74,15 @@ The following example will walk you through how to create a record set and recor
 
 1. Log in to the Azure portal.
 
-2. Navigate to the DNS zone blade in which you want to create a record set.
+2. Navigate to the **DNS zone** blade in which you want to create a record set.
 
-3. In your DNS zone blade, at the top of the blade click **Record set** to open the **Add record set** blade.  
-![new record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
+3. In your DNS zone blade, at the top of the blade click **Record set** to open the **Add record set** blade. 
+ 
+	![new record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
-4. In the **Add record set** blade, name your records set. For example, you could name your record set "**www**".  
-![add record set](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
+4. In the **Add record set** blade, name your records set. For example, you could name your record set "**www**".
+  
+	![add record set](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
 
 5. Type, select the type of record you want to create. For example, **A**.
 

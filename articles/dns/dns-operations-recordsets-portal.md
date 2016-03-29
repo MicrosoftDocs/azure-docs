@@ -49,7 +49,7 @@ To create a record set in the Azure portal, see [Create DNS records using the Az
 You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers. Record sets of type CNAME can contain, at most, one record.
 
 
-1. From the record set properties blade for your DNS zone, click the record set that you want to add a record to.
+1. From the **Record set properties** blade for your DNS zone, click the record set that you want to add a record to.
 
 	![select set](./media/dns-operations-recordsets-portal/selectset500.png)
 
@@ -70,7 +70,7 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 
 When updating a record in an existing record set, the available fields you can update depend on the type of record you are working with. 
 
-1. From the record set properties blade for your record set, search for the record.
+1. From the **Record set properties** blade for your record set, search for the record.
 
 2. Modify the record. When you modify a record, you can either change the available settings for the record. In the example below, we clicked the IP address field and the IP address is in the process of being modified.
 
@@ -91,7 +91,7 @@ When updating a record in an existing record set, the available fields you can u
 
 You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set. 
 
-1. From the record set properties blade for your record set, search for the record.
+1. From the **Record set properties** blade for your record set, search for the record.
 
 2. Click the record that you want to remove. Then click **Remove**.
 
