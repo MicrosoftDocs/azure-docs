@@ -82,8 +82,25 @@ This privilege is expressed in the following values
 
 ## Reliability Tier in a Node Type
 
-blah blah:
+Reliability Tier is used to set the number of replicas of the system services that you want to run in this cluster on the primary node type. The more the number of replicas, the more reliable the system services are in your cluster.  
 
+The reliability tier can take the following values
+
+1. Platinum - Run the System services with a target replica set count of 9
+
+3. Gold - Run the System services with a target replica set count of 7
+
+2. Silver - Run the System services with a target replica set count of 5
+  
+3. Bronze -  Run the System services with a target replica set count of 3
+
+
+**Note -** 
+
+
+1. The reliability tier you choose determines the minimum number of nodes your primary node type must have. The tier has no bearing on the max size of the cluster. So you can have a 20 node cluster, that is running at Bronze reliability. 
+
+2. At any time your can choose to update the reliability of your cluster from one tier to another. Doing this will trigger the fabric upgrades needed to change the system services replica set count.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
