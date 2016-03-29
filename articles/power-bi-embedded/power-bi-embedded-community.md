@@ -6,6 +6,7 @@
    authors="dvana"
    manager="NA"
    editor=""
+   owner="nickcald"
    tags=""/>
 <tags
    ms.service="power-bi-embedded"
@@ -13,7 +14,6 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.owner="nickcald"
    ms.date="03/08/2016"
    ms.author="derrickv"
    />
