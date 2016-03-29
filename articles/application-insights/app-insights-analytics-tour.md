@@ -41,13 +41,12 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 
 Data points that log user operations (typically HTTP requests received by your web app) are stored in a table called `requests`. Each row is a telemetry data point received from the Application Insights SDK in your app.
 
-Let's start by examining a few sample rows of the table.
+Let's start by examining a few sample rows of the table:
 
-> [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't put blank lines in one statement. To keep several queries in the window, separate them with blank lines.
+![results](./media/app-insights-analytics-tour/010.png)
 
-Here's the result:
+> [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't put blank lines in a statement. Blank lines are a convenient way to keep several separate queries in the window.
 
-![results](./media/app-insights-analytics-tour/020.png)
 
 Choose columns and adjust their positions:
 
