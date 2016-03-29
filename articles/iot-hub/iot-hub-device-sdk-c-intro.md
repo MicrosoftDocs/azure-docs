@@ -158,11 +158,7 @@ We'll use this sample application to walk you through what’s required to use t
 
 ### Initializing the library
 
-Before you start working with the libraries, you should initialize the platform:
-
-```
-platform_init();
-```
+> [AZURE.NOTE] Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQPS on Linux you must initialize the OpenSSL library. The samples in the [GitHub repository](https://github.com/Azure/azure-iot-sdks) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdks) to determine whether you need to include any platform initialization code in your client.
 
 To start working with the libraries you must first allocate an IoT Hub client handle:
 
@@ -242,11 +238,10 @@ Note that you use the **IoTHubMessage\_GetByteArray** function to retrieve the m
 
 ### Uninitializing the library
 
-When you’re done sending events and receiving messages, you can uninitialize the IoT library and platform. To do so, issue the following function calls:
+When you’re done sending events and receiving messages, you can uninitialize the IoT library. To do so, issue the following function call:
 
 ```
 IoTHubClient_Destroy(iotHubClientHandle);
-platform_deinit();
 ```
 
 This frees up the resources previously allocated by the **IoTHubClient\_CreateFromConnectionString** function.
@@ -278,8 +273,6 @@ The following sections walk you through the key parts of this sample.
 To start working with the **serializer** library, you must call the initialization APIs:
 
 ```
-platform_init();
-
 serializer_init(NULL);
 
 IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
@@ -461,10 +454,9 @@ When you’re done sending data and receiving messages, you can uninitialize the
     IoTHubClient_Destroy(iotHubClientHandle);
 }
 serializer_deinit();
-platform_deinit();
 ```
 
-Each of these four functions align with the three initialization functions described previously. Calling these APIs ensures that you free previously allocated resources.
+Each of these three functions align with the three initialization functions described previously. Calling these APIs ensures that you free previously allocated resources.
 
 ## Next Steps
 

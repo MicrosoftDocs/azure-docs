@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/29/2016"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK for C – more about IoTHubClient
@@ -31,7 +31,6 @@ We'll use the **IoTHubClient** SDK samples to explain these topics. If you want 
 The previous article described the basic operation of the **IotHubClient** within the context of the **iothub\_client\_sample\_amqp** application. For example, it explained how to initialize the library using this code.
 
 ```
-platform_init();
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
@@ -53,7 +52,6 @@ The article also showed how to free resources using code such as the following.
 
 ```
 IoTHubClient_Destroy(iotHubClientHandle);
-platform_deinit();
 ```
 
 However there are companion functions to each of these APIs:
