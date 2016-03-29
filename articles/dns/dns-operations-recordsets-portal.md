@@ -61,7 +61,7 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 
 3. In the corner, you will see that the record is saving
 
-	![save record](./media/dns-operations-recordsets-portal/saved200.png)
+	![save record](./media/dns-operations-recordsets-portal/saved150.png)
 
 4. Once the record has been saved, the values for the record set on the DNS blade will reflect the new record.
 
@@ -78,7 +78,6 @@ When updating a record in an existing record set, the available fields you can u
 
 3. Click **Save** at the top of the blade to save your settings. You'll see the notification that the record is saving in the upper right corner.
 
-	![save record](./media/dns-operations-recordsets-portal/saved200.png)
 	
 	![save record](./media/dns-operations-recordsets-portal/saved150.png)
 
