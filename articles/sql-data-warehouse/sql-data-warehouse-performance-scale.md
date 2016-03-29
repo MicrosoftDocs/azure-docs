@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Elastic performance and scale with SQL Data Warehouse
@@ -40,7 +40,7 @@ To increase the compute power you can add more DWUs to the service using the sca
 
 In the [Azure Classic Portal][], you can click the 'Scale' icon at the top of your SQL Data Warehouse page and then use the slider to increase or decrease the amount of DWUs applied to your Data Warehouse before clicking 'Save'.  If you would rather change the scale programmatically, the T-SQL code below shows how to adjust the DWU allocation for your SQL Data Warehouse:
 
-```
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
@@ -49,7 +49,7 @@ Please note that this T-SQL should be run against your logical server, and not a
 
 You can also achieve the same with result using Powershell using the code below:
 
-```
+```Powershell
 Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
 ```
 
@@ -64,20 +64,18 @@ Pause and resume of your compute power can be done through the [Azure Classic Po
 
 The code below shows how to perform a pause using PowerShell:
 
-```
+```Powershell
 Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
 "Server01" –DatabaseName "Database02"
 ```
 
 Resuming the service is also very straightforward with PowerShell:
 
-```
+```Powershell
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 For more details on how to use PowerShell please refer to [Using PowerShell cmdlets and REST APIs with SQL Data Warehouse][].
-
-
 
 ## Next steps
 For the performance overview, see [performance overview][].

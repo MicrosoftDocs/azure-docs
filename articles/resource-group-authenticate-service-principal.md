@@ -287,8 +287,11 @@ To authenticate from a .NET application, include the following code. After retri
     }        
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred);
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
         
 
@@ -518,7 +521,10 @@ To authenticate from a .NET application, include the following code. After retri
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
     var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
        
 To get more information about using certificates and Azure CLI, see [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) 
