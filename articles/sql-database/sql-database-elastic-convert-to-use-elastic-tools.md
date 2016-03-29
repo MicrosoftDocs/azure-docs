@@ -32,7 +32,7 @@ For more information about the ShardMapManager, see [Shard map management](sql-d
 ## Preparation of the shard map manager database
 You can use a new or existing database as the shard map manager. This is a one-time operation. 
 
-## Preparation step 1: create a shard map manager
+## Step 1: create a shard map manager
 Note that a database acting as shard map manager shouldn’t be the same database as a shard. 
 
 	# Create a shard map manager. 
@@ -55,7 +55,7 @@ After creation, you can retrieve the shard map manager with this cmdlet. This st
 	-SqlDatabaseName '<smm_db_name>' 
 
   
-## Step 2:  Create a shard map
+## Step 2: create a shard map
 
 The choice is to create one of the following models: 
 
