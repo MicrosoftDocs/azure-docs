@@ -18,11 +18,13 @@
 
 # Convert existing databases to use elastic database tools
 
-If you have an existing scaled-out, sharded solution, you can take advantage of the Elastic database tools by using the techniques described here. Using the tools includes the [Elastic Database client library](sql-database-elastic-database-client-library.md) and the split-merge tool. The techniques can be implemented using either the .NET Framework client library, or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
+If you have an existing scaled-out, sharded solution, you can take advantage of the Elastic database tools by using the techniques described here. After conversion, you can use the [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
+
+These techniques can be implemented using either the .NET Framework client library, or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
 There are four steps:
 
-1. Preparation of the shard map manager database.
+1. Prepare the shard map manager database.
 2. Create the shard map.
 3. Prepare the individual shards.  
 2. Add the mappings to the shard map.
