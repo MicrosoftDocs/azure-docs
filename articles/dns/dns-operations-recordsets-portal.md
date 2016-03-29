@@ -30,7 +30,7 @@ This guide will show how to create and manage record sets and records for your D
 
 It is important to understand the distinction between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
 
-## To create a record set
+## To create a new record set and a record
 
 To create a record set in the Azure portal, see [Create DNS records using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
@@ -44,7 +44,7 @@ To create a record set in the Azure portal, see [Create DNS records using the Az
 	![search record set](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## To add a new record
+## To add a new record to an existing record set
 
 You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers. Record sets of type CNAME can contain at most 1 record.
 
@@ -66,7 +66,7 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 4. Once the record has been saved, the values for the record set on the DNS blade will reflect the new record.
 
 
-## To update a record
+## To update a record in an existing record set
 
 When updating a record in an existing record set, the available fields you can update depend on the type of record you are working with. To update a record:
 
@@ -84,7 +84,7 @@ When updating a record in an existing record set, the available fields you can u
 
 
 
-## To remove a record
+## To remove a record from a record set
 
 You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set. See [Delete a record set](#delete) below for more information.
 
@@ -115,13 +115,14 @@ You can use the Azure portal to remove records from a record set. Note that remo
 ## Working with  NS and SOA records
 
 NS and SOA records that are automatically created are managed differently from other record types.
+
 ### Modifying SOA records
 
-You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’), but you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL. See [this article](dns-operations-recordsets.md) for more information about how to do this using PowerShell.
+You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’), but you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL.
 
 ### Modifying NS records at zone apex
 
-You cannot add to, remove or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’).  The only change permitted is to modify the record set TTL.  See [this article](dns-operations-recordsets.md) for more information about how to do this using PowerShell.
+You cannot add to, remove or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’).  The only change permitted is to modify the record set TTL.
 
 ### Deleting SOA or NS record sets
 
@@ -129,7 +130,7 @@ You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) t
 
 ## See Also
 
-[Get started creating record sets and records](dns-getstarted-create-recordset.md)<BR>
-[Manage DNS zones](dns-operations-dnszones.md)<BR>
+[Get started creating record sets and records](dns-getstarted-create-recordset-portal.md)
+[Manage DNS zones](dns-operations-dnszones-portal.md)
 [Automate operations using .NET SDK](dns-sdk.md)
  

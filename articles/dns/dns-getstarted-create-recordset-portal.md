@@ -55,8 +55,6 @@ Azure DNS manages DNS records using record sets. A record set is the collection 
 
 Records sets of type SOA and CNAME are an exception; the DNS standards do not permit multiple records with the same name for these types.
 
-To create a record set in the apex of the zone, use the record name "@", including the quotation marks. This is a common DNS convention, especially for MX records.
-
 The Time-to-Live, or TTL, specifies how long each record is cached by clients before being re-queried. In the above example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
 
 #### Wildcard record sets
@@ -90,15 +88,22 @@ The following example will walk you through how to create a record set and recor
 
 7. Add the IP addresses, one IP address per line. Using the suggested record set name and record type from above, this adds the IPv4 IP addresses to the A record for the www record set.
 
-8. When you have finished added IP addresses, click **OK** at the bottom of the blade. The DNS record set will create.
+8. When you have finished added IP addresses, click **OK** at the bottom of the blade. The DNS record set will be created.
+
+## Test your DNS zone by using DNS tools
+
+
+If you haven’t yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are shown in the Essentials pane of your DNS zone blade. See the article [Delegate your domain to Azure DNS](dns-domain-delegation.md) for more information.
+
+You can test your DNS zone by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
 
 
 
 ## Next Steps
 
-[How to manage DNS zones](dns-operations-dnszones.md)
+[How to manage DNS zones](dns-operations-dnszones-portal.md)
 
-[How to manage DNS records](dns-operations-recordsets.md)<BR>
+[How to manage DNS records](dns-operations-recordsets-portal.md)
 
 [Automate Azure Operations with .NET SDK](dns-sdk.md)
  
