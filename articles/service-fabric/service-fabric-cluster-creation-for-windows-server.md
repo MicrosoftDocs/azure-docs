@@ -21,11 +21,11 @@
 
 Azure Service Fabric allows the creation of Service Fabric clusters on any virtual machines or computers running Windows Server. Linux support is coming later. This means you can deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected, be it on-premises or with any cloud provider. Service Fabric provides a setup package for you to create such Service Fabric clusters.
 
-This article walks you through the steps for creating a cluster using "Deploy Anywhere" package on-premises, though it can be easily adapted for any other environment such as other clouds.
+This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on-premises, though it can be easily adapted for any other environment such as other clouds.
 
-## Microsoft Azure Service Fabric "deploy anywhere" package
+## Microsoft Azure Service Fabric standalone package
 
-The "Deploy anywhere" package for Windows Server 2012 R2 or Windows Server 2012 deployments is MicrosoftAzureServiceFabricWindowsServer&lt;version&gt;.zip
+The standalone package for Service Fabric for Windows Server 2012 R2 deployments is named as  MicrosoftAzureServiceFabricWindowsServer&lt;version&gt;.zip
 
 In the download package you will find the following files.
 
@@ -39,7 +39,7 @@ In the download package you will find the following files.
 |RemoveServiceFabricCluster.ps1|PowerShell script for cluster removal as per the settings in the ClusterConfig.JSON.|
 
 ## Planning and preparation for cluster deployment
-Review and act on the following steps prior to moving on to the next section - Deployment of your cluster.
+Review and act on the following steps prior to moving on to the next section (Deployment of your cluster).
 
 ### Step 1: Plan your cluster infrastructure
 You are about to deploy a service fabric cluster to the machines you own, so you get to decide on what kinds of failures you want the cluster to survive, say for example - do you need separate power lines, internet connections etc that feed these machines. These are in addition to thinking through, the physical security like the physical location of these machines, who needs access to them etc.  Once you make these decisions, you logically map the machines to the various Fault Domains (scroll down for definition). <br> The infrastructure planning for production clusters will be far more involved than the test only clusters.
@@ -107,7 +107,7 @@ Once you have modified the cluster configuration in the JSON doc and added all t
 This script can be run on any machine that has admin access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on, may or may not be part of the cluster.
 
 ```
-C:\ServiceFabricDeployAnywherePackage> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\ServiceFabricDeployAnywherePackage\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\ServiceFabricDeployAnywherePackage\MicrosoftAzureServiceFabric.cab
+C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
 ```
 
 
