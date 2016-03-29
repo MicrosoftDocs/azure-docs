@@ -21,7 +21,7 @@
 This article shows you sample PowerShell commands to help you quickly access Azure Insights monitoring features. Azure Insights allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.  
 
 ## Set up PowerShell
-If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) .
+If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](../powershell-install-configure.md) .
 
 ## Examples in this article
 
@@ -233,7 +233,7 @@ To view a list of available metrics and their units for various Azure services, 
 
 ## Create and manage AutoScale settings
 A resource, such as a Web app, VM, Cloud Service or VM Scale Set can have only one autoscale setting configured for it.
-However, each autoscale setting can have multiple profiles. For example, one for a performance-based scale profile and a second one for a schedule based profile. Each profile can have multiple rules configured on it. For more information about Autoscale, see [How to Autoscale an Application](https://azure.microsoft.com/documentation/articles/cloud-services-how-to-scale/).
+However, each autoscale setting can have multiple profiles. For example, one for a performance-based scale profile and a second one for a schedule based profile. Each profile can have multiple rules configured on it. For more information about Autoscale, see [How to Autoscale an Application](../cloud-services/cloud-services-how-to-scale.md).
 
 Here are the steps we will use:
 
