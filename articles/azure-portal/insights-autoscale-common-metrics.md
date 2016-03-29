@@ -44,7 +44,7 @@ You can generate a list of the metrics by using the following command in PowerSh
 
 
 ```
-Get-AzureMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 You can create an alert for the following metrics.
@@ -88,7 +88,7 @@ When you create a new VM (v2) in Azure, diagnostics is enabled by default by usi
 You can generate a list of the metrics by using the following command in PowerShell.
 
 ```
-Get-AzureMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  You can create an alert for the following metrics.
@@ -146,7 +146,7 @@ You can also perform autoscale based on common web server metrics such as the Ht
 You can generate a list of the Web Apps metrics by using the following command in PowerShell.
 
 ```
-Get-AzureMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 You can alert on or scale by these metrics.

@@ -22,14 +22,14 @@ The following sections in this document will help you understand the best practi
 
 ## Autoscale concepts
 
-	- A resource can have only *one* autoscale setting
-	- An autoscale setting can have one or more profiles and each profile can have one or more autoscale rules.
-	- An autoscale setting scales instances horizontally, which is *out* by increasing the instances and *in* by decreasing the number of instances.
-	- An autoscale setting has a maximum, minimum, and default value of instances.
-	- An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale out or scale in. You can view a list of metrics that autoscale can scale by at [Azure Insights autoscaling common metrics](insights-autoscale-common-metrics.md).
-	- All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale out when the average CPU across all instances is greater than 80%.
-	- You will always receive failure notifications via email. Specifically, the owner, contributor, and readers of the target resource will receive email. You will also always receive a *recovery* email when autoscale recovers from a failure and starts functioning normally.
-	- You can opt-in to receive a successful scale action notification via email and webhooks.
+- A resource can have only *one* autoscale setting
+- An autoscale setting can have one or more profiles and each profile can have one or more autoscale rules.
+- An autoscale setting scales instances horizontally, which is *out* by increasing the instances and *in* by decreasing the number of instances.
+ An autoscale setting has a maximum, minimum, and default value of instances.
+- An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale out or scale in. You can view a list of metrics that autoscale can scale by at [Azure Insights autoscaling common metrics](insights-autoscale-common-metrics.md).
+- All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale out when the average CPU across all instances is greater than 80%.
+- You will always receive failure notifications via email. Specifically, the owner, contributor, and readers of the target resource will receive email. You will also always receive a *recovery* email when autoscale recovers from a failure and starts functioning normally.
+- You can opt-in to receive a successful scale action notification via email and webhooks.
 
 ## Autoscale best practices
 
@@ -54,7 +54,8 @@ For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* an
 We *do not recommend* autoscale settings like the examples below with the same or very similar threshold values for out and in conditions:
 
 - Increase instances by 1 count when Thread Count <= 600
-- Decrease instances by 1 count when Thread Count >= 600
+- Decrease instances by 1 count when Thread Count >= 600
+
 
 Let's look at an example of what can lead to a behavior that may seem confusing. Assume there are 2 instances to begin with and then the average number of threads per instance grows to 625. Autoscale scales out adding a 3rd instance. Next, assume that the average thread count across instance falls to 575. Before scaling down, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x  3 (current instance count) = 1,725 / 2 (final number of instances when scaled down) = 862.5 threads. This means Autoscale will have to immediately scale out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled up again, the whole process would repeat, leading to an infinite loop. To avoid this *flappy* situation, Autoscale does not scale down at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This could confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
 
@@ -73,7 +74,7 @@ Let's review how this example works. Assume there are 2 instances to start with.
 Let's illustrate it with an example to ensure you understand the behavior better.
 
 - Increase instances by 1 count when Storage Queue message count >= 50
-- Decrease instances by 1 count when Storage Queue message count <= 10
+- Decrease instances by 1 count when Storage Queue message count <= 10
 
 Assume there are 2 instances to start with. Next, assume that messages keep coming and when you review the storage queue, the total count reads 50. You might assume that autoscale should start a scale out action. However, note that it is still 50/2 = 25 messages per instance. So, scale out does not occur. For the first scale out to happen, the total message count in the storage queue should be 100. Next, assume that the total message count reaches 100. A 3rd instance is added due to a scale out action. The next scale out action will not happen until the total message count in the queue reaches 300. Let's look at the scale in action. Assume that the number of instances is 3. The first scale in action happens when the total messages in the queue reaches 30, making it 30/3 = 10 messages per instance, which is the scale in threshold.
 

@@ -35,10 +35,10 @@ You must set up an email rule, a webhook rule and then tell the rules to start w
 ## Authentication
 There are two authentication URI forms:
 
-	1. Token-based authentication by saving the webhook URI with a token Id as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-	2. Basic authentication by using a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+1. Token-based authentication by saving the webhook URI with a token Id as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+2. Basic authentication by using a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
-## Audit Log Event Notification Webhook Payload Schema
+## Audit log event notification webhook payload schema
 When a new event becomes available, the alert on audit log events executes the configured webhook with event metadata in the webhook payload. The following example shows the webhook payload schema:
 
 ```

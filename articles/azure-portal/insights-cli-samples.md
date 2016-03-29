@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Insights: Azure Insights CLI quick start samples. | Microsoft Azure"
-	description="Sample CLI (cross-platform command line interface) commands for Azure Insights - a Microsoft Azure service which allows you to autoScale Cloud Services, Virtual Machines, and Web Apps, send alert notifications, or call web URLs based on values of configured telemetry data."
+	description="Sample CLI command can help you access Azure Insights monitoring features. Azure Insights is a Microsoft Azure service which allows you to autoScale Cloud Services, Virtual Machines, and Web Apps, send alert notifications, or call web URLs based on values of configured telemetry data."
 	authors="kamathashwin"
 	manager=""
 	editor=""
@@ -198,7 +198,7 @@ node bin\azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0
 
 
 ## Autoscale
-Use the information in this section to work with diagnostic settings.
+Use the information in this section to work with Autoscale settings. You'll need to modify these examples.
 
 ### Get Autoscale settings for a resource group
 
