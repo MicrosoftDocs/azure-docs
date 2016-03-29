@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="03/29/2016"
 	ms.author="vakarand"/>
 
 
@@ -31,7 +31,7 @@ The following table is a list of requirements for using Azure AD Connect Health.
 |The Azure AD Connect Health Agent is installed on each targeted server| Azure AD Connect Health requires that an agent be installed on targeted servers in order to provide the data that is viewed in the portal. </br></br>For example, in order to get data on your AD FS on-premises infrastructure, the agent must be installed on the AD FS servers, AD FS Proxy servers and Web Application Proxy servers. </br></br>**Important:** The account you use when installing the agents must be a work or school account and cannot be a Microsoft account.   For more information see [Sign up for Azure as an organization](sign-up-organization.md)|
 |Outbound connectivity to the Azure service endpoints|During installation and runtime, the agent requires connectivity to the Azure AD Connect Health service end points listed below. If you block outbound connectivity make sure that the following are added to the allowed list: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Firewall ports on the server running the agent.| The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.</br></br><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li>
-|Allow the following websites if IE Enhanced Security is enabled|The following websites need to be allowed if IE Enhanced Security is enabled on the server that is going to have the agent installed.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory For example: https://sts.contoso.com</li>
+|Allow the following websites if IE Enhanced Security is enabled|The following websites need to be allowed if IE Enhanced Security is enabled on the server that is going to have the agent installed.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https://sts.contoso.com</li>
 
 
 
@@ -134,7 +134,7 @@ To verify the agent has been installed, open services and look for the following
 
 ![Verify Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE] Remember that using Azure AD Connect Health requires Azure AD Premium.  If you do not have Azure AD Premium you will not be able to complete the configuration in the Azure portal.  For more information see the requirements [here](active-directory-aadconnect-health-agent-install.md#requirements).
+> [AZURE.NOTE] Remember that using Azure AD Connect Health requires Azure AD Premium.  If you do not have Azure AD Premium you will not be able to complete the configuration in the Azure portal.  For more information see the requirements [here](active-directory-aadconnect-health-agent-install.md#requirements).
 
 
 ## Manual Azure AD Connect Health for Sync registration
