@@ -36,7 +36,7 @@ For the companion topic for Windows-based virtual machines, see [Use Azure Power
 
 ## Install Azure PowerShell
 
-If you haven't done so already, [install and configure Azure PowerShell](powershell-install-configure.md). Then, open an Azure PowerShell command prompt.
+If you haven't done so already, [install and configure Azure PowerShell](../powershell-install-configure.md). Then, open an Azure PowerShell command prompt.
 
 ## Set your subscription and storage account
 
