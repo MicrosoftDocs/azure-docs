@@ -16,7 +16,7 @@
    ms.date="03/28/2016"
    ms.author="carlrab"/>
 
-# SQL Server database migration to SQL Database in the cloud
+#Getting Started with Temporal Tables in Azure SQL Database
 
 Temporal Tables are a new programmability feature of Azure SQL Database that allows you to track and analyze the full history of changes in your data, without the need for custom coding. Temporal Tables keep data closely related to time context so that stored facts can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution.
 
@@ -61,7 +61,11 @@ CREATE TABLE WebsiteUserInfo
 
 When you create system-versioned temporal table, the accompanying history table with the default configuration is automatically created. The default history table contains a clustered B-tree index on the period columns (end, start) with page compression enabled. This configuration is optimal for the majority of scenarios in which temporal tables are used, especially for [data auditing](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0). 
 
-In this particular case, we aim to perform time-based trend analysis over a longer data history and with bigger data sets, so the storage choice for the history table is a clustered columnstore index. A clustered columnstore provides very good compression and performance for analytical queries. Temporal Tables give you the flexibility to configure indexes on the current and temporal tables completely independently. The following script shows how default index on history table can be changed to the clustered columnstore:
+In this particular case, we aim to perform time-based trend analysis over a longer data history and with bigger data sets, so the storage choice for the history table is a clustered columnstore index. A clustered columnstore provides very good compression and performance for analytical queries. Temporal Tables give you the flexibility to configure indexes on the current and temporal tables completely independently. 
+
+**Note**: Columnstore indexes are only available in the premium service tier.
+
+The following script shows how default index on history table can be changed to the clustered columnstore:
 
 ````
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
@@ -183,6 +187,7 @@ Alternatively, use latest [SSDT](https://msdn.microsoft.com/library/mt204009.asp
 ##Controlling retention of historical data
 
 With system-versioned temporal tables, the history table may increase the database size more than regular tables. A large and ever-growing history table can become an issue both due to pure storage costs as well as imposing a performance tax on temporal querying. Hence, developing a data retention policy for managing data in the history table is an important aspect of planning and managing the lifecycle of every temporal table. With Azure SQL Database, you have the following approaches for managing historical data in the temporal table:
+
 - [Table Partitioning](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 - [Custom Cleanup Script](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
