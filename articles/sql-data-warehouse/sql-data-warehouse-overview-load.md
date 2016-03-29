@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/28/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load data into SQL Data Warehouse
@@ -92,7 +92,7 @@ Now that your data resides in Azure storage blobs, we will import it into your S
 
 3. **Create an external file format.**  External file formats are reusable as well, you will only need to create one if you are uploading a new type of file.
 
-4. **Create an external data source.**  When pointing at a storage account, an external data source can be used when loading from the same container. For your 'LOCATION' parameter, use a location of the format: 'wasbs://mycontainer@ test.blob.core.windows.net/path'.
+4. **Create an external data source.**  When pointing at a storage account, an external data source can be used when loading from the same container. For your 'LOCATION' parameter, use a location of the format: 'wasbs://mycontainer@ test.blob.core.windows.net'.
 
 ```sql
 -- Creating master key
