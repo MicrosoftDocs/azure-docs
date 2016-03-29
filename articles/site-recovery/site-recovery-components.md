@@ -18,7 +18,7 @@
 
 # How does Azure Site Recovery work?
 
-Read this article to understand the underlying architecture of the Auzre Site Recovery service and the components that make it work. 
+Read this article to understand the underlying architecture of the Azure Site Recovery service and the components that make it work. 
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -29,7 +29,7 @@ Organizations need a business continuity and disaster recovery (BCDR) strategy t
 
 Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary site. When outages occur in your primary location, you fail over to the secondary site to keep apps and workloads available. You fail back to your primary location when it returns to normal operations.
 
-Site Recovery can be be deployed to orchestrate replication in a number of scenarios:
+Site Recovery can be deployed to orchestrate replication in a number of scenarios:
 
 - **Replicate VMware virtual machines**: You can replicate on-premises VMware virtual machines to [Azure](site-recovery-vmware-to-azure-classic.md) or to a [secondary datacenter](site-recovery-vmware-to-vmware.md).
 - **Replicate physical machines**: You can replicate physical machines running Windows or Linux to [Azure](site-recovery-vmware-to-azure-classic.md) or to a [secondary datacenter](site-recovery-vmware-to-vmware.md).
@@ -94,7 +94,7 @@ To deploy this scenario during Site Recovery deployment you'll install the Azure
 - On-premises: 
 	- **VMM server**: At least one VMM server set up with at least one VMM private cloud. The server should be running on System Center 2012 R2 and should have internet connectivity. If you want to ensure that Azure VMs are connected to a network after failover you'll need to set up network mapping. To do this your source VMs should be connected to a VMM VM network. That VM network should be linked to a logical network that's associated with the cloud.
 	- **Hyper-V server**: At least one Hyper-V host server located in the VMM cloud. The Hyper-V hosts should be running Windows Server 2012 R2.
-	- **Protected machines**: The source Hyper-V host server should have an least one VM that you want to protect.
+	- **Protected machines**: The source Hyper-V host server should have at least one VM that you want to protect.
 	
 - Azure: 
 	- **Azure account**: You'll need a Microsoft Azure account.
@@ -137,7 +137,7 @@ To replicate Hyper-V VMs that aren't managed in VMM clouds to Azure you install 
 ### On-premises
 
 - **Hyper-V server**: At least one Hyper-V host server. The Hyper-V hosts should be running Windows Server 2012 R2.
-- **Protected machines**: The source Hyper-V host server should have an least one VM that you want to protect.
+- **Protected machines**: The source Hyper-V host server should have at least one VM that you want to protect.
 	
 ### Azure
 
@@ -149,7 +149,7 @@ To replicate Hyper-V VMs that aren't managed in VMM clouds to Azure you install 
 
 ## Replicate Hyper-V VMs in VMM clouds to Azure
 
-To deploy this scenario, during during Site Recovery deployment you install the Azure Site Recovery Provider on the VMM server, and the Azure Recovery Services agent on the Hyper-V host. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. The agent handles data replication data over HTTPS 443. Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage (at rest) is also encrypted.
+To deploy this scenario, during Site Recovery deployment you install the Azure Site Recovery Provider on the VMM server, and the Azure Recovery Services agent on the Hyper-V host. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. The agent handles data replication data over HTTPS 443. Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage (at rest) is also encrypted.
 
 ![VMM to Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
@@ -157,7 +157,7 @@ To deploy this scenario, during during Site Recovery deployment you install the 
 
 - **VMM server**: At least one VMM server set up with at least one VMM private cloud. The server should be running on System Center 2012 R2 and should have internet connectivity. If you want to ensure that Azure VMs are connected to a network after failover you'll need to set up network mapping. To do this you need to connect source VMs to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.
 - **Hyper-V server**: At least one Hyper-V host server located in the VMM cloud. The Hyper-V hosts should be running Windows Server 2012 R2.
-- **Protected machines**: The source Hyper-V host server should have an least one VM that you want to protect.
+- **Protected machines**: The source Hyper-V host server should have at least one VM that you want to protect.
 	
 ### Azure
 
@@ -175,9 +175,9 @@ To deploy this scenario, during Site Recovery deployment you'll install the Azur
 
 ### On-premises
 
-- **VMM server**: We recommend a VMM server in the primary site and one in the secondary site, each containing at least one VMM private cloud.The server should be running at least System Center 2012 SP1 with latest updates, and connected to the internet. Clouds should have the Hyper-V capability profile set.
+- **VMM server**: We recommend a VMM server in the primary site and one in the secondary site, each containing at least one VMM private cloud. The server should be running at least System Center 2012 SP1 with latest updates, and connected to the internet. Clouds should have the Hyper-V capability profile set.
 - **Hyper-V server**: Hyper-V host servers should be located in the primary and secondary VMM clouds. The host servers should be running at least Windows Server 2012 with the latest updates installed, and connected to the internet.
-- **Protected machines**: The source Hyper-V host server should have an least one VM that you want to protect.
+- **Protected machines**: The source Hyper-V host server should have at least one VM that you want to protect.
 	
 ### Azure
 
@@ -188,7 +188,7 @@ You'll need an Azure subscription.
 
 ## Replicate Hyper-V VMs to a secondary datacenter with SAN replication
 
-In this scenario during Site Recovery deployoment you'll install the Azure Site Recovery Provider on VMM servers. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. Data is replicated between the primary and secondary storage arrays using synchronous SAN replication.
+In this scenario during Site Recovery deployment you'll install the Azure Site Recovery Provider on VMM servers. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. Data is replicated between the primary and secondary storage arrays using synchronous SAN replication.
 
 ![SAN replication](./media/site-recovery-components/arch-onprem-onprem-san.png)
 
@@ -197,7 +197,7 @@ In this scenario during Site Recovery deployoment you'll install the Azure Site 
 - **SAN array**: A [supported SAN array](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) managed by the primary VMM server. The SAN shares a network infrastructure with another SAN array in the secondary site.
 - **VMM server**: We recommend a VMM server in the primary site and one in the secondary site, each containing at least one VMM private cloud. The server should be running at least System Center 2012 SP1 with latest updates, and connected to the internet. Clouds should have the Hyper-V capability profile set.
 - **Hyper-V server**: Hyper-V host servers located in the primary and secondary VMM clouds. The host servers should be running at least Windows Server 2012 with the latest updates installed, and connected to the internet.
-- **Protected machines**: The source Hyper-V host server should have an least one VM that you want to protect.
+- **Protected machines**: The source Hyper-V host server should have at least one VM that you want to protect.
 	
 ### Azure
 
