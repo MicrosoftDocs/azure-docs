@@ -1,6 +1,6 @@
 <properties
    pageTitle="How to Tag a VM | Microsoft Azure"
-   description="Learn about tagging a Windows virtual achine created in Azure using the Resource Manager deployment model"
+   description="Learn about tagging a Windows virtual machine created in Azure using the Resource Manager deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="mmccrory"
