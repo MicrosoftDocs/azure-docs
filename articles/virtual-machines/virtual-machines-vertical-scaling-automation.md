@@ -47,10 +47,12 @@ A walkthrough of creating a user and an AutomationPSCredential can be read in th
 
 After creating a user you will need to make that user a co-admin for your classic resources and giving it an "Owner" role for your Azure Resource Manager resources.
 
-You'll need to use the Classic Portal to allow the user to access classic Virtual Machines.
+The user needs to be added as a co-admin in the Classic Portal to be able to access classic resources.
+
 ![Old Portal co-admin](./media/virtual-machines-vertical-scaling-automation/old-portal-automation-user.png)
 
 You'll need to use the Azure Portal to allow the user to access the Azure Resource Manager Virtual Machines.
+
 ![New Portal admin](./media/virtual-machines-vertical-scaling-automation/new-portal-automation-user.png)
 
 ## Import the Azure Automation Vertical Scale runbooks into your subscription
@@ -60,6 +62,7 @@ The runbooks that are needed for Vertically Scaling your Virtual Machine are alr
 [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
 
 The runbooks that need to be imported are shown in the image below
+
 ![Import runbooks](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
 
 ## Add a webhook to your runbook
