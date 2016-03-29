@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="03/26/2016"
    ms.author="chackdan"/>
 
 
@@ -22,7 +22,7 @@
 This page helps you set up an Azure Service Fabric cluster. Your subscription must have enough cores to deploy the IaaS VMs that will make up this cluster.
 
 
-## Create the cluster
+## Search for the Service fabric cluster resource 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -35,39 +35,55 @@ This page helps you set up an Azure Service Fabric cluster. Your subscription mu
 
 3. Select **Service Fabric Cluster** from the list.
 
-4. Navigate to the **Service Fabric Cluster** blade, click **Create**, and provide details about your cluster.
+4. Navigate to the **Service Fabric Cluster** blade, click **Create**, 
 
-5. Under **Create a new resource group**, give the resource group the same name as the cluster. This is useful for finding them later, especially when you are trying to make changes to your deployment or delete your cluster.
+6. You will now be presented with a **Create Service Fabric cluster** blade, that lists out 4 steps. 
+
+## Create Service fabric cluster - Step 1 Basics
+
+In the Basics blade you need to provide the basic details for your cluster.
+
+8. Enter the name of your cluster
+
+9. Choose the **User Name** and **Password** for the VM remote desktop.
+
+11. Make sure to select the **Subscription** that you want your cluster to be deployed to, especially if you have multiple subscriptions.
+
+13. Create a **new resource group**, it is best to give it the same name as the cluster, since it helps in finding them later, especially when you are trying to make changes to your deployment or delete your cluster.
 
     >[AZURE.NOTE] Although you can decide to use an existing resource group, it is a good practice to create a new resource group. This makes it easy to delete clusters that you do not need.
 
  	![Screen shot of creating a new resource group.][CreateRG]
 
-6. Make sure to select the **Subscription** that you want your cluster to be deployed to, especially if you have multiple subscriptions.
 
-7. Select a **Location** from the drop-down list. The default value is **West US**.
+7. Select a **Location** from the drop-down list. The default value is **West US**. Press OK to complete the step1 - Basics
 
-8. Configure your **Node Type**. The node type can be seen as equivalent to roles in cloud services. Node types define the VM sizes, the number of VMs, and their properties. Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs. To configure your node type:
+## Create Service fabric cluster - Step 2 - Cluster Configuration 
 
-	a. Select the VM size/pricing tier that you need. The default is D4 Standard, but if you are just going to use this cluster for testing your application, you can select D2 or any smaller VM.
+10. Let me first tell you what a **Node Type** is. The node type can be seen as equivalent to roles in cloud services. Node types define the VM sizes, the number of VMs, and their properties. Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs. this is the node type were service fabric system services are placed. Consider the following to decide on your need for multiple Node types. 
 
-	b. Choose the number of VMs. You can scale up or down the number of VMs in a node type later on, but the first node type must have at least five VMs.
-
-	c. Choose a name for your node type (1 to 12 characters containing only letters and numbers).
-
-	d. Choose the **User Name** and **Password** for the VM remote desktop.
-
-	e. If you need multiple node types in your cluster, consider the following issues. (If you are planning to deploy a cluster with a single node type, skip to step 9.)
-
-	* Suppose you want to deploy an application that contains a front-end service and a back-end service. You want to put the front-end service on smaller VMs (VM sizes like A2, D2, and so on) that have ports open to the Internet. But you want to put the back-end service, which is computation intensive, on larger VMs (with VM sizes like D4, D6, D12, and so on) that are not Internet facing.
+	* The application that you want to deploy contains a front-end service and a back-end service. You want to put the front-end service on smaller VMs (VM sizes like D2), and they have ports open to the Internet, but you want to put the back-end service, which is computation intensive, on larger VMs (with VM sizes like D4, D6, D15, and so on) that are not Internet facing.
 
 	* Although you can put both the services on one node type, we recommended that you place them in a cluster with two node types. Each node type can have distinct properties like Internet connectivity, VM size, and the number of VMs that can be scaled independently.
 
 	* Define a node type that will have at least five VMs first. The other node types can have a minimum of one VM.
+ 
+13.  To configure your node type:
+
+	a. Choose a name for your node type (1 to 12 characters containing only letters and numbers).
+
+	b. The minumum size of VMs for the primary node type is driven by the durablity tier you choose for the cluster. The default for the durablity tier is Bronze. Read more on how to [choose the service fabric cluster reliability and durability](service-fabric-cluster-capacity.md) document.
+
+	b. Select the VM size/pricing tier. The default is D4 Standard, but if you are just going to use this cluster for testing your application, you can select D2 or any smaller VM.
+
+	c. The minumum number of VMs for the primary node type is driven by the reliablity tier you choose. The default for the reliablity tier is Silver. Read more on how to [choose the service fabric cluster reliability and durability](service-fabric-cluster-reliability-and-durability.md) document.
+
+	c. Choose the number of VMs for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minumum is driven by the reliablity level that you have choosen. Other node types can have a minumum of 1 VM.
+	
 
   	![Screen shot of creating a node type.][CreateNodeType]
 
-9. If you plan to deploy your applications to the cluster right away, then add ports that you want to open for your applications on an **Application ports** node type (or on node types that you created). You can add ports to the node type later by modifying the load balancer that is associated with this node type. (Add a probe and then add the probe to the load balancer rules.) Doing it now is a bit easier, since the portal automation will add the needed probes and rules to the load balancer:
+9. If you plan to deploy your applications to the cluster right away, then add ports that you want to open for your applications on an **Application ports** node type (or on node types that you created). You can add ports to the node type later by modifying the load balancer that is associated with this node type. (Add a probe and then add the probe to the load balancer rules.) Doing it now is a bit easier, since the portal automation will add the needed probes and rules to the load balancer: 
 
 	a. You can find the application ports in your service manifests, which are a part of the application package. Go to each of your applications, open the service manifests, and take note of all the input endpoints that your applications needs to communicate with the outside world.
 
@@ -78,31 +94,30 @@ This page helps you set up an Azure Service Fabric cluster. Your subscription mu
 
 10. You do not need to configure **Placement Properties** because a default placement property of "NodeTypeName" is added by the system. You can add more if your application requires it.
 
-## Configure security
+11. You do not need to configure **Capacity Properties** ,but is recommended, since you can use it in your applications to report load to the system and there by influencing the placement and resource balancing decisions that the system makes in the service fabric cluster. Read more on service fabric resource balancing starting with  [this document](service-fabric-cluster-resource-balancer-architecture.md).
+
+12. Continue the above steps for all the node types.
+
+14. Configure cluster **diagnostics**. By default, diagnostics are enabled on your cluster to assist with troubleshooting issues. If you want to disable diagnostics change the **Status** toggle to **Off**. Turning off diagnostics is **not** recommended.
+
+15. Optionally: Set the Service **Fabric cluster settings**, With this is advanced option, you can change the default settings for the Service Fabric cluster. We recommended that you do not change the defaults unless you are certain that your application or cluster requires it.
+
+
+
+## Create Service fabric cluster - Step 3 Configure security
 
 At this time, Service Fabric supports securing clusters only via an X509 certificate. Before starting this process, you will need to upload your certificate to Key Vault. Refer to [Service Fabric cluster security](service-fabric-cluster-security.md) for more details on how to do this.
 
-Securing your cluster is optional but is highly recommended. If you choose not to secure your cluster, toggle the **Security Mode** to **None**.
+Securing your cluster is optional but is highly recommended. If you choose not to secure your cluster, toggle the **Security Mode** to **UnSecure**. Please note - you **will not** be able to update an unsecure cluster to a secure one at a later time. 
 
 Security considerations and instructions are documented at [Service Fabric cluster security](service-fabric-cluster-security.md).
 
 ![Screen shot of security configurations on Azure portal.][SecurityConfigs]
 
-## Optional: Configure diagnostics
-
-By default, diagnostics are enabled on your cluster to assist with troubleshooting issues. If you want to disable diagnostics:
-
-1. Navigate to the **Diagnostics Configurations** blade.
-
-2. Change the **Status** toggle to **Off**.
-
-## Optional: Set the Service Fabric cluster settings
-
-With this is advanced option, you can change the default settings for the Service Fabric cluster. We recommended that you do not change the defaults unless you are certain that your application or cluster requires it.
 
 ## Complete the cluster creation
 
-To complete the cluster creation, click **Summary** to see the configurations that you have provided, or download the Azure Resource Manager template that will be used to deploy your cluster. After you have provided the mandatory settings, the **Create** button will be enabled and you can start the cluster creation process by clicking it.
+To complete the cluster creation, click **Summary** to see the configurations that you have provided, or download the Azure Resource Manager template that will be used to deploy your cluster. After you have provided the mandatory settings, the **OK** button will be enabled and you can start the cluster creation process by clicking it.
 
 You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper-right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you will see **Deploying Service Fabric Cluster** pinned to the **Start** board.
 
@@ -202,7 +217,7 @@ Each of the NodeTypes you specify in your cluster results in a VMSS getting set 
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 - [Service Fabric cluster security](service-fabric-cluster-security.md)
 - [Service Fabric health model introduction](service-fabric-health-introduction.md)
-- [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md)
+- [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md) 
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
