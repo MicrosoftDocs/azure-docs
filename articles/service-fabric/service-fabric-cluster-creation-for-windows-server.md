@@ -31,7 +31,7 @@ In the download package you will find the following files.
 
 |**File name**|**Short description**|
 |-----------------------|--------------------------|
-|AzureServiceFabricDeployAnywhere.cab|The cab file that contains the binaries that will be deployed to each machine in the cluster.|
+|MicrosoftAzureServiceFabric.cab|The cab file that contains the binaries that will be deployed to each machine in the cluster.|
 |ClusterConfig.JSON|Cluster Configuration file that contains all the settings for the cluster including the information for each machine that is part of the cluster.|
 |EULA.txt|The license terms for the use of Microsoft Azure Service Fabric "deploy anywhere" package. [Click here](http://go.microsoft.com/fwlink/?LinkID=733084) if you would like to download a copy of the EULA now.|
 |Readme.txt|Link to the release notes and Basic installation instructions .It is a small subset of the instructions you will find on this page.|
@@ -86,12 +86,12 @@ When you specify UDs in the ClusterConfig.JSON, You get to choose the name of th
 
 "upgradeDomain": "Blue"
 
-### Step 5: Download the "Deploy Anywhere" package
-Download the latest [MicrosoftAzureServiceFabricWindowsServer&lt;version&gt;.zip](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the downloaded package to your deployment machine or on one of the machines that will be the part of your cluster.
+### Step 5: Download the standalone package for Service Fabric for Windows Server 
+[Download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package either to a deployment machine that is not part of the cluster or on one of the machines that will be part of your cluster.
 
 ## Deploy your Cluster
 
-After you have gone steps outlined in the planning and preparation section above, you are now ready to deploy your cluster.
+After you have gone through steps outlined in the planning and preparation section above, you are now ready to deploy your cluster.
 
 ### Step 1: Modify cluster configuration
 Open the ClusterConfig.JSON from the package you downloaded. You can use any editor of your choice. Modify the following settings:
