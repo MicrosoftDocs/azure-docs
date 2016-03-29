@@ -35,13 +35,13 @@ The application project consists of:
 
 - The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder.
 
-### Stateless Service
+### Stateless service
 When you add a new stateless service, Visual Studio adds a service project to your solution that includes a type descended from `StatelessService`. The service increments a local variable in a counter.
 
-### Stateful Service
+### Stateful service
 When you add a new stateful service, Visual Studio adds a service project to your solution that includes a type descended from `StatefulService`. The service increments a counter in its `RunAsync` method and stores the result in a `ReliableDictionary`.
 
-### Actor Service
+### Actor service
 When you add a new reliable actor, Visual Studio adds two projects to your solution: an actor project and an interface project.
 
 The actor project provides methods for setting and getting the value of a counter that is reliably persisted within the actor's state. The interface project provides an interface that other services can use to invoke the actor.
