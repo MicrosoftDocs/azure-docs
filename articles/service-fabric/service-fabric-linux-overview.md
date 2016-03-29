@@ -19,7 +19,7 @@
 # Service Fabric Limited Preview on Linux
 
 
-A successful platform must be cloud agnostic as well as Operating System agnostic offering maximum customization power and choice for customers.  Hence, we recently announced the availability of a Limited Preview of Service Fabric on Linux. A key benefit of Linux support is you have complete customization when you build an application (including OS specific dependencies) using Service Fabric in addition to avoiding the obvious Operating System lock-in. This also increases your potential to reach out to a broader set of customer base since different customers can have varying requirements for the environments where they want to run your applications, for example Healthcare and Financial industry customers may have different needs than an Automaker or a Travel business. 
+successful platform must be cloud agnostic as well as Operating System agnostic offering maximum customization power and choice for customers.  Hence, we recently announced the availability of a Limited Preview of Service Fabric on Linux. A key benefit of Linux support is you have complete customization when you build an application (including OS specific dependencies) using Service Fabric in addition to avoiding the obvious Operating System lock-in. This also increases your potential to reach out to a broader set of customer base since different customers can have varying requirements for the environments where they want to run your applications, for example Healthcare and Financial industry customers may have different needs than an Automaker or a Travel business. 
 
 
  
