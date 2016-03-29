@@ -131,9 +131,11 @@ You cannot add to, remove or modify the records in the automatically-created NS 
 
 You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that are created automatically when the zone is created.  They will be deleted automatically when deleting the zone.
 
-## See Also
+## Next steps
 
 [Get started creating record sets and records](dns-getstarted-create-recordset-portal.md)
+
 [Manage DNS zones](dns-operations-dnszones.md)
+
 [Automate operations using .NET SDK](dns-sdk.md)
  

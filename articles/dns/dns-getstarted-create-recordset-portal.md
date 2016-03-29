@@ -98,12 +98,6 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 You can test your DNS zone by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
 
 
+## Next steps
 
-## Next Steps
-
-[How to manage DNS zones](dns-operations-dnszones.md)
-
-[How to manage DNS records](dns-operations-recordsets-portal.md)
-
-[Automate Azure Operations with .NET SDK](dns-sdk.md)
- 
+For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md). For information about automating dns, [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
