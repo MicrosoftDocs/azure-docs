@@ -20,7 +20,7 @@
 # Create and preconfigure a Linux virtual machine using Azure Powershell
 
 > [AZURE.SELECTOR]
-- [Azure CLI](virtual-machines-linux-cli-create.md)
+- [Azure CLI](virtual-machines-linux-classic-createportal.md)
 - [PowerShell](virtual-machines-linux-classic-createpowershell.md)
 
 
