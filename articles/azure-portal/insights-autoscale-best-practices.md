@@ -18,7 +18,7 @@
 
 # Best practices for Azure Insights autoscaling
 
-If you are unfamiliar with Autoscale in Azure, see [Getting Started with Autoscale](insights-autoscale-get-started.md). This document provides best practices for autoscale settings.
+The following sections in this document will help you understand the best practices for Autoscale in Azure Insights. After reviewing this information, you'll be better able to effectively use Autoscale in your Azure infrastructure.
 
 ## Autoscale concepts
 
