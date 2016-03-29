@@ -6,7 +6,6 @@
    authors="dvana"
    manager="NA"
    editor=""
-   owner="nickcald"
    tags=""/>
 <tags
    ms.service="power-bi-embedded"

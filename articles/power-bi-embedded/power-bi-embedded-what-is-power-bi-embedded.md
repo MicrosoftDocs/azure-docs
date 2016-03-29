@@ -13,7 +13,6 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.owner="nickcald"
    ms.date="03/08/2016"
    ms.author="jocaplan"/>
 
