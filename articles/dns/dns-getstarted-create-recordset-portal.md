@@ -68,7 +68,7 @@ To create a wildcard record set, use the record set name "\*", or a name whose f
 CNAME record sets cannot co-exist with other record sets with the same name. For example, you cannot create a CNAME with the relative name "www" and an A record with the relative name "www" at the same time. Since the zone apex (name = ‘@’) always contains the NS and SOA record sets created when the zone is created, this means you cannot create a CNAME record set at the zone apex. These constraints arise from the DNS standards, they are not limitations of Azure DNS.
 
 
-## To create a record set and a record
+## To create a new record set and a record
 
 The following example will walk you through how to create a record set and records by using the Azure portal. We'll use the DNS 'A' record type. For other record types see [How to manage DNS records](dns-operations-recordsets.md)
 

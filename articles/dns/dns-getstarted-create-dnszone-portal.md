@@ -96,7 +96,7 @@ You can delete the DNS zone directly from the portal. Before deleting a DNS zone
 
 1. Locate the DNS zone blade for the zone you want to delete, then click **Delete** at the top of the blade.
  
-2. A message will appear letting you know that you must delete all records sets, except NS and SOA records that were automatically created. If you have deleted your record sets, click **Yes**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.  
+2. A message will appear letting you know that you must delete all records sets, except the NS and SOA records that were automatically created. If you have deleted your record sets, click **Yes**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.  
 
 
 ## Next steps
