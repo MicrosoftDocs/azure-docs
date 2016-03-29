@@ -101,7 +101,7 @@ You can test your DNS zone by using DNS tools such as nslookup, dig, or the [Res
 
 ## Next Steps
 
-[How to manage DNS zones](dns-operations-dnszones-portal.md)
+[How to manage DNS zones](dns-operations-dnszones.md)
 
 [How to manage DNS records](dns-operations-recordsets-portal.md)
 
