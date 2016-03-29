@@ -57,7 +57,7 @@ You can use the Graph Explorer for the Azure AD Graph API to query the directory
 
 The following is the output you would see if you were to navigate to the Graph Explorer, select Use Demo Company, and enter `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` to display all of the users in the demo directory:
 
-![Azure AD graph api explorer](./media/active-directory-graph-api-quickstart/screen_shot.png)
+![Azure AD graph api explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Load the Graph Explorer**: To load the tool, navigate to [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Click **Use Demo Company** to run the Graph Explorer against data from a sample tenant. You do not need credentials to use the demo company. Alternatively, you can click **Sign in** and sign in with your Azure AD account credentials to run the Graph Explorer against your tenant. If you run Graph Explorer against your own tenant, either you or your administrator will need to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Graph Explorer.
 
