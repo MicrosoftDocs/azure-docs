@@ -133,4 +133,4 @@ You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) t
 
 ## Next steps
 
-For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md). For information about automating dns, [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
+For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md). For information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
