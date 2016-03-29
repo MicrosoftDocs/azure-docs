@@ -37,7 +37,7 @@ requests
 | count
 ```
     
-Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](app-insights-analytics-scalars.md) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
+Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](##scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
 
 A query may be prefixed by one or more [let clauses](#let-clause), which define scalars, tables, or functions that can be used within the query.
 
@@ -184,8 +184,6 @@ Get extended activities from a log in which some entries mark the start and end 
 
 ```
 
-[About join flavors](app-insights-analytics-samples.md#join-flavors).
-
 ## let clause
 
 **Tabular let - naming a table**
@@ -204,7 +202,7 @@ Get extended activities from a log in which some entries mark the start and end 
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-A let clause binds a name to a tablular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
+A let clause binds a name to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
 
 **Syntax**
 
@@ -214,7 +212,7 @@ A let clause binds a name to a tablular result, scalar value or function. The cl
 
     let name = (parameterName : type [, ...]) { plain_query }; query
 
-* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](app-insights-analytics-scalars.md#dynamic-type)
+* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
 * *plain_query:* A query not prefixed by a let-clause.
 
 **Examples**
@@ -323,7 +321,6 @@ Two modes of property-bag expansions are supported:
 
 Splits an exception record into rows for each item in the details field.
 
-See [Chart count of live activites over time](app-insights-analytics-samples.md#concurrent-activities).
 
 
 ## parse operator
@@ -463,8 +460,6 @@ T
 ```
 
 
-[More examples](app-insights-analytics-samples.md#activities).
-
 
 ## range operator
 
@@ -493,7 +488,7 @@ Generates a single-column table of values. Notice that it doesn't have a pipelin
 on the highest value, if *step* steps over this value).
 * *Step:* The difference between two consecutive values. 
 
-The arguments must be numeric, date or timespan values. They can't reference the columns of any table. (If you want to compute the range based on an input table, use the [range *function*](app-insights-analytics-scalars.md#range), maybe with the [mvexpand operator](#mvexpand-operator).) 
+The arguments must be numeric, date or timespan values. They can't reference the columns of any table. (If you want to compute the range based on an input table, use the [range *function*](#range), maybe with the [mvexpand operator](#mvexpand-operator).) 
 
 **Returns**
 
@@ -613,9 +608,6 @@ A table that shows the number, average request duration and set of cities in eac
 
 A table that shows how many items have prices in each interval  [0,10.0], [10.0,20.0], and so on. This example has a column for the count and one for the price range. All other input columns are ignored.
 
-[More examples](app-insights-analytics-aggregations.md).
-
-
 
 **Syntax**
 
@@ -626,8 +618,8 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 
 **Arguments**
 
-* *Column:* Optional name for a result column. Defaults to a name derived from the expression.
-* *Aggregation:* A call to an [aggregation function](app-insights-analytics-aggregations.md) such as `count()` or `avg()`, with column names as arguments. See the [list of aggregation functions](app-insights-analytics-aggregations.md).
+* *Column:* Optional name for a result column. Defaults to a name derived from the expression. 
+* *Aggregation:* A call to an aggregation function such as `count()` or `avg()`, with column names as arguments. See [aggregations](#aggregations).
 * *GroupExpression:* An expression over the columns, that provides a set of distinct values. Typically it's either a column name that already provides a restricted set of values, or `bin()` with a numeric or time column as argument. 
 
 If you provide a numeric or time expression without using `bin()`, Analytics automatically applies it with an interval of `1h` for times, or `1.0` for numbers.
@@ -752,7 +744,7 @@ Filters a table to the subset of rows that satisfy a predicate.
 **Arguments**
 
 * *T:* The tabular input whose records are to be filtered.
-* *Predicate:* A `boolean` [expression](app-insights-analytics-scalars.md#boolean) over the columns of *T*. It is evaluated for each row in *T*.
+* *Predicate:* A `boolean` [expression](#boolean) over the columns of *T*. It is evaluated for each row in *T*.
 
 **Returns**
 
@@ -762,7 +754,7 @@ Rows in *T* for which *Predicate* is `true`.
 
 To get the fastest performance:
 
-* **Use simple comparisons** between column names and constants. ('Constant' means constant over the table - so `now()` and `ago()` are OK, and so are scalar values assigned using a [`let` statement](app-insights-analytics-syntax.md#let-statements).)
+* **Use simple comparisons** between column names and constants. ('Constant' means constant over the table - so `now()` and `ago()` are OK, and so are scalar values assigned using a [`let` clause](#let-clause).)
 
     For example, prefer `where Timestamp >= ago(1d)` to `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -987,7 +979,7 @@ Returns a `dynamic` (JSON) array of the set of distinct values that *Expr* takes
 
 ![](./media/app-insights-analytics-aggregations/makeset.png)
 
-See also the [`mvexpand` operator](app-insights-analytics-queries.md#mvexpand-operator) for the opposite function.
+See also the [`mvexpand` operator](#mvexpand-operator) for the opposite function.
 
 
 ## max, min
@@ -1295,7 +1287,7 @@ Notice that there are other ways of achieving this effect:
 
 ### bin
 
-Rounds values down to an integer multiple of a given bin size. Used a lot in the [`summarize by`](app-analytics-queries.md#summarize-operator) query. If you have a scattered set of values, they will be grouped into a smaller set of specific values.
+Rounds values down to an integer multiple of a given bin size. Used a lot in the [`summarize by`](#summarize-operator) query. If you have a scattered set of values, they will be grouped into a smaller set of specific values.
 
 Alias `floor`.
 
@@ -1676,7 +1668,7 @@ The number of times that the search string can be matched in the container. Plai
 
     extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
 
-Get a match for a [regular expression](app-analytics-reference.md#regular-expressions) from a text string. Optionally, it then converts the extracted substring to the indicated type.
+Get a match for a [regular expression](#regular-expressions) from a text string. Optionally, it then converts the extracted substring to the indicated type.
 
 **Syntax**
 
@@ -1684,7 +1676,7 @@ Get a match for a [regular expression](app-analytics-reference.md#regular-expres
 
 **Arguments**
 
-* *regex:* A [regular expression](app-analytics-reference.md#regular-expressions).
+* *regex:* A [regular expression](#regular-expressions).
 * *captureGroup:* A positive `int` constant indicating the
 capture group to extract. 0 stands for the entire match, 1 for the value matched by the first '('parenthesis')' in the regular expression, 2 or more for subsequent parentheses.
 * *text:* A `string` to search.
