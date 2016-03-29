@@ -92,13 +92,6 @@ With this information, you can now find exactly the image you want by calling th
 
 Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
-### Video walkthrough
-
-This video demonstrates the above steps using the CLI.
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
-
-
 ## PowerShell
 
 With PowerShell, type `Switch-AzureMode AzureResourceManager`. See [Using Azure CLI with Resource Manager](../articles/xplat-cli-azure-resource-manager.md) and [Using Azure PowerShell with Azure Resource Manager](../articles/powershell-azure-resource-manager.md) for more complete update and configuration details.
