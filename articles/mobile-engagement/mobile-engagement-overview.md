@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article" 
 	ms.date="01/04/2016"
 	ms.author="piyushjo;matt-gibbs" />
 
@@ -45,7 +45,7 @@ Microsoft has a longstanding commitment to privacy, which is an integral part of
 
 ###Next Steps:
 
-[Create an Azure Mobile Engagement application](mobile-engagement-create-account.md)
+[Create an Azure Mobile Engagement application](mobile-engagement-create.md)
 
 [Best practices and process to create your Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
