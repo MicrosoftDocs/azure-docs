@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="03/30/2016"
 	ms.author="micurd"/>
 
 # Azure Storage Explorers
@@ -52,7 +52,7 @@ We've only provided a snapshot of the available Azure Storage Explorers. These t
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>Trial</td>
+    <td>Y</td>
     <td>X</td>
     <td></td>
     <td></td>
@@ -63,8 +63,8 @@ We've only provided a snapshot of the available Azure Storage Explorers. These t
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td></td>
+    <td>X</td>
+    <td>X</td>
     <td></td>
     <td>Y</td>
     <td></td>
