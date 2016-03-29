@@ -103,10 +103,10 @@ See [Debug a pipeline with custom activity](data-factory-use-custom-activities.m
 
 ## Use Azure Portal to troubleshoot 
 
-### Using the portal blades
+### Using portal blades
 See [Monitor pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) for steps. 
 
-### Using the Monitor and Manage App
+### Using Monitor and Manage App
 See [Monitor and manage data factory pipelines using Monitor and Manage App](data-factory-monitor-manage-app.md) for details. 
 
 ## Use Azure PowerShell to troubleshoot
