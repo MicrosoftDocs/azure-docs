@@ -30,12 +30,12 @@ This guide will show how to create and manage record sets and records for your D
 
 It is important to understand the distinction between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
 
-## To create a new record set and a record
+## Create a new record set and a record
 
 To create a record set in the Azure portal, see [Create DNS records using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
 
-## To view a record set
+## View a record set
 
 1. In the Azure portal, navigate to your DNS zone blade.
 
@@ -44,7 +44,7 @@ To create a record set in the Azure portal, see [Create DNS records using the Az
 	![search record set](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## To add a new record to an existing record set
+## Add a new record to an existing record set
 
 You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers. Record sets of type CNAME can contain at most 1 record.
 
@@ -66,7 +66,7 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 4. Once the record has been saved, the values for the record set on the DNS blade will reflect the new record.
 
 
-## To update a record
+## Update a record
 
 When updating a record in an existing record set, the available fields you can update depend on the type of record you are working with. To update a record:
 
@@ -88,9 +88,9 @@ When updating a record in an existing record set, the available fields you can u
 
 
 
-## To remove a record from a record set
+## Remove a record from a record set
 
-You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set. See [Delete a record set](#delete) below for more information.
+You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set. See [Delete a record set](#delete), in the section below, for more information.
 
 1. From the record set properties blade for your record set, search for the record.
 
@@ -103,7 +103,7 @@ You can use the Azure portal to remove records from a record set. Note that remo
 3. Once the record has been removed, the values for the record set on the DNS blade will reflect the record was removed.
 
 
-## <a name="delete"></a>To delete a record set
+## <a name="delete"></a>Delete a record set
 
 1. From the record set properties blade for your record set, click **Delete**. Note: Make sure you are on the "Record set properties" blade and not on the DNS zone blade.
 
