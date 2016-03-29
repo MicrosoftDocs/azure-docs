@@ -16,102 +16,106 @@
    ms.date="03/04/2016"
    ms.author="genli"/>
 
-# How to add or change Azure administrator roles
+# Transferring an Azure subscription
 
-There are three kinds of administrator roles in Microsoft Azure:
+Do you:
 
-| Administrative role   | Limit  | Description
-| ------------- | ------------- |---------------|
-|Account Administrator (AA)  | 1 per Azure account  |This is the person who signed up for or bought Azure subscriptions, and is authorized to access the [Account Center](https://account.windowsazure.com/Home/Index) and perform various management tasks. These include being able to create subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator.
-| Service Administrator (SA) | 1 per Azure subscription  |This role is authorized to manage services in the [Azure portal](https://portal.azure.com). By default, for a new subscription, the Account Administrator is also the Service Administrator.|
-|Co-administrator (CA) in the [Azure classic portal](https://manage.windowsazure.com)|200 per subscription| This role has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories. |
+- Need to hand over billing ownership of your Azure subscription to someone else?
+- Want to change the account used to sign up for Azure? Perhaps you used your Microsoft Account but meant to use your work or school account instead?
+- Want to move your Azure subscription from one directory to another?
+- Have Azure and Office 365 in different tenants and want to consolidate?
 
-> [AZURE.NOTE] Azure Active Directory Role-based Access Control (RBAC) allows users to be added to multiple roles. For more information, see [Azure Active Directory Role-based Access Control](./active-directory/role-based-access-control-configure.md).
+You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own, no matter which country you operate in.
 
-## How to add an admin for a subscription
+## How to transfer an Azure subscription
 
-**Azure portal**
+1.  Sign in at <https://account.windowsazure.com/Subscriptions>
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+2.  Select the subscription to transfer.
 
-2. On the Hub menu, select **Subscription** > *the subscription that you want the admin to access*.
+3.  Click the **Transfer Subscription** option.
 
-	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
+    ![Azure account subscriptions tab](./media/billing-subscription-transfer/image1.png)
 
-3. In the subscription blade, select **Settings**> **Users**.
+4.  Follow the prompts to specify the recipient.
 
-	![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. In the Users blade, select **Add**>**Select a role** > **Owner**.
+    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
 
-	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5.  The recipient will automatically get an email with a acceptance link.
 
-	**Note**
-	- The owner role has same access privileges as co-administrator. This role does not have access privilege to the [Azure Account Center](https://account.windowsazure.com/subscriptions).
-	- The owners you added through the [Azure portal](https://portal.azure.com) cannot manage services in the [Azure classic portal](https://manage.windowsazure.com).  
+    ![Subscription transfer email to recipient](./media/billing-subscription-transfer/image3.png)
 
-5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
+6.  The recipient clicks on the link and follows the instructions,
+    including entering their payment information.
 
-	![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+    ![First subscription transfer web page](./media/billing-subscription-transfer/image4.PNG)
 
-**Azure classic portal**
+    ![Second subscription transfer web page](./media/billing-subscription-transfer/image5.PNG)
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/).
+7. Success! The subscription is now transferred.
 
-2. In the navigation pane, select **Settings**> **Administrators**> **Add**. </br>
+## Frequently asked questions (FAQ)
 
-	![addcodmin](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
+-   **Does a subscription transfer result in any service downtime?**
 
-3. Type the email address of the person you want to add as Co-administrator and then select the subscription that you want the Co-administrator to access.</br>
+    There is no impact to the service. This effectively cancels the
+    subscription under the current Account Administrator and creates a
+    new one under the recipient’s account, but associates the underlying
+    Azure services with the new subscription. The subscription ID
+    remains the same.
 
-	![addcoadmin2](./media/billing-add-change-azure-subscription-administrator/addcoadmin2.png)</br>
+-   **How do I use this mechanism to change the directory for subscription?**-   
+    An Azure subscription is created in the directory that the Account Admin belongs to. So, in order to change the directory, just transfer the subscription to a user account in the target directory. When that user completes the steps to accept transfer, the subscription will automatically move to the target directory.
 
-The following email address can be added as a Co-Administrator:
+-   **If I take over billing ownership of a subscription from another
+    organization, will they continue to have access to my resources?**
 
-* **Microsoft Account** (formerly Windows Live ID) </br>
- You can use a Microsoft Account to sign in to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone, and Xbox LIVE.
-* **Organizational account**</br>
- An organizational account is an account that is created under Azure Active Directory. The organizational account address resembles the following:
-	user@&lt;your domain&gt;.onmicrosoft.com
+    If the subscription is transferred to another tenant, the users associated with the previous tenant will lose access to the subscription. Even if a user is not a Service Admin or Co-admin anymore, they might still have access to the subscription through other security mechanisms. These include:
+    - Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
+    -	Access keys for services like Storage. For more information, see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+    -	Remote Access credentials for services like Azure Virtual Machines
 
-### Limitations and restrictions
+    This is not a complete list. The recipient should consider updating any secrets associated with the service if they need to restrict access to their resources. Most resources can be updated as follows:
 
- * Each subscription is associated with an Azure AD directory (also known as the Default Directory). To find the Default Directory the subscription is associated with, go to the [Azure classic portal](https://manage.windowsazure.com/), select **Settings** > **Subscriptions**. Check the subscription ID to find the Default Directory.
+    1.   Go to the Azure portal:   [*https://portal.azure.com*](https://portal.azure.com)
 
- * If you are logged in with a Microsoft Account, you can only add other Microsoft Accounts or users within the Default Directory as Co-Administrator.
+    2.    Click Browse All -&gt; All Resources
 
- * If you are logged in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but cannot add john@notcontoso.com unless john@noncontoso.com is the user in Default Directory. Users logged in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
+    3.    Select the resource. This opens the resource blade.
 
- * Now that it is possible to log into Azure with an organizational account, here are the changes to Service Administrator and Co-administrator account requirements:
+    4.    In the resource blade, click **Settings**. Here you can view and update existing secrets.
 
-	Login Method| Add Microsoft Account or users within Default Directory as CA or SA?  |Add organizational account in the same organization as CA or SA? |Add organizational account in different organization as CA or SA?
-	------------- | ------------- |---------------|---------------
-	Microsoft Account |Yes|No|No
-	Organizational Account|Yes|Yes|No
 
-## How to change Service Administrator for a subscription
+-   **If I transfer the subscription in the middle of the billing cycle,
+    does the recipient pay for the entire billing cycle?**
 
-Only the Account Administrator can change the Service Administrator for a subscription.
+    The sender is responsible for payment for any usage that was reported up to the point that the transfer is completed. The recipient is responsible for usage reported from the time of
+    transfer onwards. There may be some usage that took place before transfer but was reported afterwards. This will be included in the recipient’s bill.
 
-1. Log on into [Azure Account Center](https://account.windowsazure.com/subscriptions) by using the Account Administrator.
+-   **Does the recipient have access to usage and billing history?**
 
-2. Select the subscription you want to change.
+    At this time, the only information revealed to the recipient is the amount of the last bill (or the current balance, if the subscription was transferred before the first bill was generated). The rest of the usage and billing history does not transfer with the subscription.
 
-3. On the right side, click **Edit subscription** details. </br>
+-   **Can the offer be changed during a transfer?**
 
-	![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
+    The offer must remain the same. To change your offer, you must [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new Service Administrator. </br>
+-   **Can I transfer a subscription to a user account in another
+    country?**
 
-	![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+    No, at this time this is not supported. The recipient’s user account must be in the same country.
 
-## How to change the Account Administrator
+-   **Can the recipient use a different payment mechanism?**
 
-To transfer ownership of the Azure account to another account, see [Transferring an Azure subscription](billing-subscription-transfer.md).
+    Yes. There are limitations here: now the subscription billing history is split across two accounts. But the advantage is that you can do this without having to [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-## Next Steps
+## Next steps after accepting ownership of a subscription
 
-* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](./active-directory/active-directory-understanding-resource-access.md)
-
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated directory.md)
-
-* For more information on how Azure Active Directory relates to your Azure subscription, see [Assigning administrator roles in Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md)
+1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure classic portal](https://manage.windowsazure.com) by going to Settings. [Learn more](http://go.microsoft.com/fwlink/?LinkID=533293).
+2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com) [Learn more about RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
+3. Update credentials associated with this subscription's services. These include:
+    - Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
+    -	Access keys for services like Storage. For more information, see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+    -	Remote Access credentials for services like Azure Virtual Machines
+4. Update billing alerts for this subscription, at the [Azure Account Center](https://account.windowsazure.com/Subscriptions)  [Learn more](http://go.microsoft.com/fwlink/?LinkID=533292)
+5. 	If you’re working with a partner, consider updating the partner ID on this subscription. You can do this in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
