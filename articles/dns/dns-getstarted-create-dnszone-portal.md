@@ -29,7 +29,7 @@
 
 This article will walk you through the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
 
-The domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site).  A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain you will first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
+The domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site).  A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain, you will first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
 
 ### <a name="names"></a>About DNS zone names
  
@@ -61,7 +61,7 @@ You can add Tags in the Azure portal by using the **Settings** blade for your DN
 
 5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists. 
 
-6. From the **Location** dropdown, specify the location of the resource group. The location for the actual DNS zone resource is "global" and you don't need to specify it in the portal.
+6. From the **Location** dropdown, specify the location of the resource group. Note that this setting refers to the location of the resource group, not the location for DNS zone. The actual DNS zone resource is automatically "global" and is not something that you can (or need to) specify in the portal.
 
 7. You can leave the **Pin to dashboard** checkbox selected if you want to easily locate your new zone on your dashboard. Then click **Create**.
 
