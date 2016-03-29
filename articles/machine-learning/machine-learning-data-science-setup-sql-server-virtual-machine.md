@@ -173,7 +173,7 @@ If your VM image does not include data disks, i.e., disks other than C drive (OS
 
  > [AZURE.NOTE] Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
-To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md), which will guide you through:
+To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](virtual-machines-windows-classic-attach-disk.md), which will guide you through:
 
 1. Attaching empty disk(s) to the virtual machine provisioned in earlier steps
 2. Initialization of the new disk(s) in the virtual machine

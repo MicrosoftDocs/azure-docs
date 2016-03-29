@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="03/24/2016"
 	ms.author="onewth"/>
 
 # Upgrading to Version 2 of the Text Analytics API #
 
-This guide will take you through the process of upgrading your code from using the [first version of the API](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-apps-text-analytics/) to using the second version. 
+This guide will take you through the process of upgrading your code from using the [first version of the API](machine-learning-apps-text-analytics/) to using the second version. 
 
-If you have not used the API and would like to learn more, you can **[learn more about the API here](http://go.microsoft.com/fwlink/?LinkID=759711)** or **[follow the Quick Start Guide](http://go.microsoft.com/fwlink/?LinkID=760860)**. For technical reference, refer to the **[API Definition](http://go.microsoft.com/fwlink/?LinkID=759346)**.
+If you have not used the API and would like to learn more, you can **[learn more about the API here](//go.microsoft.com/fwlink/?LinkID=759711)** or **[follow the Quick Start Guide](//go.microsoft.com/fwlink/?LinkID=760860)**. For technical reference, refer to the **[API Definition](//go.microsoft.com/fwlink/?LinkID=759346)**.
 
 ### Part 1. Get a new key ###
 
 First, you will need to get a new API key from the **Azure Portal**:
 
-1. Navigate to the Text Analytics service through the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
+1. Navigate to the Text Analytics service through the [Cortana Analytics Gallery](//gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
 
 1. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
 
@@ -58,7 +58,7 @@ Update the submitted header values as shown below. Note that the account key is 
 
 **Version 2**
 
-    https://oxfordibiza.azure-api.net/text/analytics/v2.0/
+    https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/
 
 ### Part 4a. Update the formats for sentiment, key phrases and languages ###
 
@@ -75,7 +75,7 @@ GET endpoints have now been deprecated, so all input should be submitted as a PO
 
 #### Input formats ####
 
-Note that only POST format is now accepted, so you should reformat any input which previously used the single document endpoints accordingly.
+Note that only POST format is now accepted, so you should reformat any input which previously used the single document endpoints accordingly. Inputs are not case sensitive.
 
 **Version 1 (batch)**
 
@@ -199,8 +199,8 @@ Note that only POST format is now accepted, so you should reformat any input whi
 
 | |Version 1 endpoint | Version 2 endpoint|
 |---|---|---|
-|Topics (submit)|```StartTopicDetection```|```topics```|
-|Topics (operation)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
+|Submit for topic detection (POST)|```StartTopicDetection```|```topics```|
+|Fetch topic results (GET)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
 
 #### Input formats ####
 
@@ -253,7 +253,7 @@ Previously, when the job finished, you would receive the following JSON output, 
 
 The response will now include a header value as follows, where `operation-location` is used as the endpoint to poll for the results:
 
-    'operation-location': 'https://cognitive.microsoft.com/language/text-analytics/v2.0/operations/<operationId>'
+    'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
 #### Operation results ####
 
@@ -278,10 +278,14 @@ The response will now include a header value as follows, where `operation-locati
 
 **Version 2 (GET)**
 
-As before, **poll the output every minute** until the output is returned. When the new API has finished, a status reading `succeeded` will be returned. This will then include the output results in the format shown below:
+As before, **periodically poll the output** (the suggested period is every minute) until the output is returned. 
+
+When the topics API has finished, a status reading `succeeded` will be returned. This will then include the output results in the format shown below:
 
     {
         "status": "succeeded",
+        "createdDateTime": "string",
+        "operationType": "topics",
         "processingResult": {
             "topics" : [{
             "id" : "string"
