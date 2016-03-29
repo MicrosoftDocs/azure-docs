@@ -74,7 +74,7 @@ When updating a record in an existing record set, the available fields you can u
 
 2. Modify the record. When you modify a record, you can either change the available settings for the record, such as the IP address. 
 
-	![modify record](./media/dns-operations-recordsets-portal/modifyrecord2500.png)
+	![modify record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
 3. Click **Save** at the top of the blade to save your settings. You'll see the notification that the record is saving in the upper right corner.
 
