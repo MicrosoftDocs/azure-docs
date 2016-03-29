@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="03/28/2016"
    ms.author="larryfr"/>
 
 # Information about using HDInsight on Linux
@@ -242,6 +242,7 @@ If the cluster already provides a version of a component as a standalone jar fil
 
 ## Next steps
 
+* [Migrate from Windows-based HDInsight to Linux-based](hdinsight-migrate-from-windows-to-linux.md)
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

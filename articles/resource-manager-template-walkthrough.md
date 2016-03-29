@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="03/29/2016"
    ms.author="navale;tomfitz"/>
    
 # Resource Manager Template Walkthrough
 
-This topic walks you through the steps of creating a Resource Manager template. It assumes you are familiar with the Azure services you want to deploy, but are not familiar with how you would represent that infrastructure in a template. You will create a template that is based on the [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates), but the techniques can be applied to any template you need to create.
+This topic walks you through the steps of creating a Resource Manager template. You will create a template that is based on the [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates). The techniques you learn can be applied to any template you need to create.
 
 Let's take a look at a common architecture:
 
@@ -314,7 +314,7 @@ You will create 2 virtual machines, using copyIndex() function, as you did in cr
 The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReference` is used to define the image publisher, offer, sku and version. 
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
-To find the relevant properties for a marketplace image, follow the [VM searching](./virtual-machines/resource-groups-vm-searching.md) article.
+To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) or [select Windows virtual machine images](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
 For images published by 3rd party vendors, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
 
 
