@@ -24,8 +24,8 @@
 - [Azure Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-This article shows how to change the service tier and performance level of your SQL database with the [Azure portal](https://portal.azure.com). 
 
+Service tiers and performance levels describe the features and resources available for your SQL database and can be updated as the needs of your application change. For details, see [Service Tiers](sql-database-service-tiers.md).
 
 Note that changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process but during the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. Very infrequently, especially if there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.  
 
