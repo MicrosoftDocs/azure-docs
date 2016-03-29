@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Back up a Windows Server or client to Azure | Microsoft Azure"
 	description="Back up Windows Servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
@@ -20,7 +19,7 @@
 
 
 # Back up a Windows Server or client to Azure
-This article covers the procedures you need to follow to prepare your environment for backing up a Windows Server (or client) to Azure. It also covers considerations for deploying your backup solution. If you're interested in trying Azure Backup for the first time, this article quickly walks you through the process.
+This article covers the procedures you need to follow to prepare your environment and back up a Windows Server (or client) to Azure. It also covers considerations for deploying your backup solution. If you're interested in trying Azure Backup for the first time, this article quickly walks you through the process.
 
 ![Create vault](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -38,7 +37,7 @@ To back up files and folders from a server or client, you need to create a backu
 
 3. For the **NAME** parameter, enter a friendly name for the backup vault. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens. This name needs to be unique for each subscription.
 
-4. For the **REGION** parameter, select the geographic region for the backup vault. This choice determines the geographic region where your backup data is sent. By choosing a geographic region close to your location, you can reduce network latency when backing up to Azure.
+4. For the **REGION** parameter, select the geographic region for the backup vault. This choice determines the geographic region where your backup data is sent. By choosing a geographic region that's close to your location, you can reduce network latency when backing up to Azure.
 
 5. Click **CREATE VAULT**.
 
@@ -94,11 +93,11 @@ Learn more about [using vault credentials to authenticate with the Backup servic
     >[AZURE.NOTE] Make sure the vault credential file is saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, verify that you have the permissions to access it.
 
 ## Step 3: Download, install, and register the Backup agent
-After creating the Backup vault and downloading the vault credential file, an agent must be installed on each of your Windows machines.
+After creating the backup vault and downloading the vault credential file, an agent must be installed on each of your Windows machines.
 
 ### To download, install, and register the agent
 
-1. Click **RECOVERY SERVICES**, then select the backup vault that you want to register with a server.
+1. Click **RECOVERY SERVICES**, and then select the backup vault that you want to register with a server.
 
 2. On the Quick Start page, click the agent **For Windows Server or System Center Data Protection Manager or Windows client**. Then click **Save**.
 
@@ -116,15 +115,15 @@ After creating the Backup vault and downloading the vault credential file, an ag
 
 8. Once the agent is installed, click **Proceed to Registration** to continue with the workflow.
 
-9. On the Vault Identification page, browse to and select the vault credential file you previously downloaded.
+9. On the Vault Identification page, browse to and select the vault credential file that you previously downloaded.
 
     The vault credential file is only valid for 48 hours after it’s downloaded from the portal. If you encounter an error on this page (such as “Vault credentials file provided has expired”), sign in to the portal and download the vault credential file again.
 
     Ensure that the vault credential file is available in a location that can be accessed by the setup application. If you encounter access-related errors, copy the vault credential file to a temporary location on the same machine and retry the operation.
 
-    If you encounter an invalid vault credential error (such as “Invalid vault credentials provided"), the file is either damaged or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error can also occur if a user clicks the **Download vault credential** option several times in quick succession. In this case, only the last vault credential file is valid.
+    If you encounter a vault credential error such as “Invalid vault credentials provided", the file is either damaged or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error can also occur if a user clicks the **Download vault credential** option several times in quick succession. In this case, only the last vault credential file is valid.
 
-9. On the Encryption Setting page, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
+9. On the Encryption Setting page, you can either generate a passphrase or provide a passphrase (with a minimum of 16 characters). Remember to save the passphrase in a secure location.
 
 10. Click **Finish**. The Register Server Wizard registers the server with Backup.
 
@@ -137,7 +136,7 @@ After creating the Backup vault and downloading the vault credential file, an ag
 
 The initial backup includes two key tasks:
 - Creating the backup schedule
-- Backing up files and folder for the first time
+- Backing up files and folders for the first time
 
 After completing the initial backup, the backup policy creates backup points that you can use if you need to recover the data. The backup policy does this based on the schedule that you define.
 
@@ -204,7 +203,7 @@ The Backup agent provides network throttling. Throttling controls how network ba
 
     ![Windows Server backup now](./media/backup-configure-vault/backup-now.png)
 
-2. On the Confirmation page, review the settings the Back Up Now wizard will use to back up the machine and click **Back Up**.
+2. On the Confirmation page, review the settings that the Back Up Now Wizard will use to back up the machine. Then click **Back Up**.
 
 3. Click **Close** to close the wizard. If you do this before the backup process finishes, the wizard continues to run in the background.
 
