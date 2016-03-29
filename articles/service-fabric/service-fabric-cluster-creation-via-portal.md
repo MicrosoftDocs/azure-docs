@@ -60,7 +60,7 @@ In the Basics blade you need to provide the basic details for your cluster.
 
 ## Step 2 - Configure the cluster
 
-10. Let me first tell you what a **Node Type** is. The node type can be seen as equivalent to roles in cloud services. Node types define the VM sizes, the number of VMs, and their properties. Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs. this is the node type were service fabric system services are placed. Consider the following to decide on your need for multiple Node types.
+10. Let me first tell you what a **Node Type** is. The node type can be seen as equivalent to roles in cloud services. Node types define the VM sizes, the number of VMs, and their properties. Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs. this is the node type were Service Fabric system services are placed. Consider the following to decide on your need for multiple Node types.
 
 	* The application that you want to deploy contains a front-end service and a back-end service. You want to put the front-end service on smaller VMs (VM sizes like D2), and they have ports open to the Internet, but you want to put the back-end service, which is computation intensive, on larger VMs (with VM sizes like D4, D6, D15, and so on) that are not Internet facing.
 
@@ -72,11 +72,11 @@ In the Basics blade you need to provide the basic details for your cluster.
 
 	a. Choose a name for your node type (1 to 12 characters containing only letters and numbers).
 
-	b. The minumum size of VMs for the primary node type is driven by the durablity tier you choose for the cluster. The default for the durablity tier is Bronze. Read more on how to [choose the service fabric cluster reliability and durability](service-fabric-cluster-capacity.md) document.
+	b. The minumum size of VMs for the primary node type is driven by the durablity tier you choose for the cluster. The default for the durablity tier is Bronze. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-capacity.md) document.
 
 	b. Select the VM size/pricing tier. The default is D4 Standard, but if you are just going to use this cluster for testing your application, you can select D2 or any smaller VM.
 
-	c. The minumum number of VMs for the primary node type is driven by the reliablity tier you choose. The default for the reliablity tier is Silver. Read more on how to [choose the service fabric cluster reliability and durability](service-fabric-cluster-reliability-and-durability.md) document.
+	c. The minumum number of VMs for the primary node type is driven by the reliablity tier you choose. The default for the reliablity tier is Silver. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-reliability-and-durability.md) document.
 
 	c. Choose the number of VMs for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minumum is driven by the reliablity level that you have choosen. Other node types can have a minumum of 1 VM.
 
@@ -94,7 +94,7 @@ In the Basics blade you need to provide the basic details for your cluster.
 
 10. You do not need to configure **Placement Properties** because a default placement property of "NodeTypeName" is added by the system. You can add more if your application requires it.
 
-11. You do not need to configure **Capacity Properties** ,but is recommended, since you can use it in your applications to report load to the system and there by influencing the placement and resource balancing decisions that the system makes in the service fabric cluster. Read more on service fabric resource balancing starting with  [this document](service-fabric-cluster-resource-balancer-architecture.md).
+11. You do not need to configure **Capacity Properties** ,but is recommended, since you can use it in your applications to report load to the system and there by influencing the placement and resource balancing decisions that the system makes in the Service Fabric cluster. Read more on Service Fabric resource balancing starting with  [this document](service-fabric-cluster-resource-manager-architecture.md).
 
 12. Continue the above steps for all the node types.
 
