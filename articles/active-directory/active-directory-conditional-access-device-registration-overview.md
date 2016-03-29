@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Device Registration Overview | Microsoft Azure"
+	pageTitle="Azure Active Directory Device Registration overview | Microsoft Azure"
 	description="is the foundation for device-based conditional access scenarios. When a device is registered, Azure Active Directory Device Registration provisions the device with an identity which is used to authenticate the device when the user signs in."
 	services="active-directory"
 	keywords="device registration, enable device registration, device registration and MDM"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="03/29/2016"
 	ms.author="femila"/>
 
 # Get started with Azure Active Directory Device Registration
@@ -35,16 +35,8 @@ Azure Active Directory Device Registration includes support for iOS, Android, an
  
 ##Setting up Azure Active Directory Device Registration
 
-The following settings are available for the Azure Active Directory Device Registration service:
-
-Enable Azure AD Device Registration in the Azure Portal.
-
-Mobile devices discover the service by looking for well-known DNS records. You must configure your company DNS so that Windows 10, Windows 8.1, Windows 7, Android and iOS devices can discover and use the service.
-
+You need to enable Azure AD Device Registration in the Azure Portal so that mobile devices  can discover the service by looking for well-known DNS records. You must configure your company DNS so that Windows 10, Windows 8.1, Windows 7, Android and iOS devices can discover and use the service.
 You can view and enable/disable registered devices using the Administrator Portal in Azure Active Directory. 
-
-## Enable Azure Active Directory Device Registration
-The following section describes how to enable the Azure Active Directory Device Registration Service for your directory.
 
 ###To enable Azure Active Directory Device Registration Service
 
@@ -79,13 +71,13 @@ For example, if you use two UPN suffixes at your organization named @contoso.com
 
 ## View and manage device objects in Azure Active Directory
 1. From the Azure Administrator portal, you can view, block, and unblock devices. A device that is blocked will no longer have access to applications that are configured to allow only registered devices.
-1. Log on to the Microsoft Azure Portal as Administrator.
-1. On the left pane, select **Active Directory**.
-1. Select your directory.
-1. Select the **Users** tab. Then select a user to view their devices
-1. Select the **Devices** tab.
-1. Select **Registered Devices** from the drop down menu.
-1. Here you can view, block, or unblock the users registered devices. 
+2. Log on to the Microsoft Azure Portal as Administrator.
+3. On the left pane, select **Active Directory**.
+4. Select your directory.
+5. Select the **Users** tab. Then select a user to view their devices
+6. Select the **Devices** tab.
+7. Select **Registered Devices** from the drop down menu.
+8. Here you can view, block, or unblock the users registered devices. 
 
 ## Additional topics
 
