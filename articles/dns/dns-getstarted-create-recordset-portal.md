@@ -70,7 +70,7 @@ CNAME record sets cannot co-exist with other record sets with the same name. For
 
 ## To create a new record set and a record
 
-The following example will walk you through how to create a record set and records by using the Azure portal. We'll use the DNS 'A' record type. For other record types see [How to manage DNS records](dns-operations-recordsets.md)
+The following example will walk you through how to create a record set and records by using the Azure portal. We'll use the DNS 'A' record type.
 
 1. Log in to the Azure portal.
 
