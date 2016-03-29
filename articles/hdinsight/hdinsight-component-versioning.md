@@ -26,7 +26,7 @@ Find out about the different service levels offered by HDInsight as well as the 
 
 Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table below section lists the features that are available **only** as part of Premium. Features that are not explicitly called out in the table here are available as part of Standard.
 
->[AZURE.NOTE] The HDInsight Premium offering is currently in Preview.
+>[AZURE.NOTE] The HDInsight Premium offering is currently in Preview and available only for Linux clusters.
 
 | HDInsight Premium feature | Description |
 |--------------|---------------|
