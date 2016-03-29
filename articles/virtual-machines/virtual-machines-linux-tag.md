@@ -45,7 +45,7 @@ Now that we have applied tags to our resources via PowerShell, Azure CLI, and th
 
 ## Next steps
 
-* * To learn more about tagging your Azure resources, see [Azure Resource Manager Overview][] and [Using Tags to organize your Azure Resources][].
+* To learn more about tagging your Azure resources, see [Azure Resource Manager Overview][] and [Using Tags to organize your Azure Resources][].
 * To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill][] and [Gain insights into your Microsoft Azure resource consumption][].
 
 
