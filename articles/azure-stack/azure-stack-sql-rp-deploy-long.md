@@ -1,4 +1,4 @@
-#Instructions for deploying SQL Server Resource Provider Adaptor on Azure Stack PoC
+#Instructions for deploying SQL Server Resource Provider Adaptor on Azure Stack PoC#
 
 
 this is a dummy file
@@ -7,39 +7,34 @@ This article shows the detailed instructions for each step, so that you
 can start [using SQL databases on Azure Stack](#using-sql-databases-on-azure-stack)
 
 [TOC]
-
-##Prerequisites - Before you deploy 
+##Prerequisites - Before you deploy##
 
 Before you deploy SQL resource providers, you'll need to create a
 default Windows Server image with .NET 3.5, turn off Internet Explorer
 (IE) Enhanced Security, and install the latest version of Azure
 PowerShell.
 
-####Create an image of Windows Server including .NET 3.5
+####Create an image of Windows Server including .NET 3.5####
 
 You will need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of WindowsServer2012R2 including .NET
 3.5](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-add-image-pir/#create-an-image-of-windowsserver2012r2-including-net-35).
 >This step is not needed if you downloaded the Azure Stack bits after 2/23/2016, as the default base Windows Server 2012 R2 image now includes .NET 3.5 framework in this download.
 
-####Turn off IE Enhanced Security and enable cookies
+####Turn off IE Enhanced Security and enable cookies####
 
 To deploy a resource provider, your PowerShell Integrated Scripting Environment (ISE) must be run as an administrator. For this reason, you will need to allow cookies and JavaScript in your Internet Explorer profile used for logging into Azure Active Directory (e.g. for both administrator and user seperatley)
 
-##### Turn off IE Enhanced Security
+##### Turn off IE Enhanced Security####
 
-1.  Sign in to the Azure Stack proof-of-concept (PoC) computer as an
-    AzureStack/administrator, and then open Server Manager.
+1.  Sign in to the Azure Stack proof-of-concept (PoC) computer as an AzureStack/administrator, and then open Server Manager.
 
-2.  Turn off **IE Enhanced Security Configuration** for both Admins
-    and Users.
+2.  Turn off **IE Enhanced Security Configuration** for both Admins and Users.
 
-3.  Sign in to the **ClientVM.AzureStack.local** virtual machine as an
-    administrator, and then open Server Manager.
+3.  Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
 
-4.  Turn off **IE Enhanced Security Configuration** for both Admins
-    and Users.
+4.  Turn off **IE Enhanced Security Configuration** for both Admins and Users.
 
-#####Enable cookies
+#####Enable cookies#####
 
 1.  On the Windows Start screen, select **All apps**, select **Windows accessories**, right-click **Internet Explorer**, point to **More**,and then select **Run as an administrator**.
 
@@ -47,33 +42,25 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 
 3.  In Internet Explorer, select the Tools (gear) icon &gt; **Internet options** &gt;  **Privacy** tab.
 
-4.  Select **Advanced**, make sure that both **Accept** buttons are
-    selected, select **OK**, and then select **OK** again.
+4.  Select **Advanced**, make sure that both **Accept** buttons are selected, select **OK**, and then select **OK** again.
 
-5.  Close Internet Explorer and restart PowerShell ISE as
-    an administrator.
+5.  Close Internet Explorer and restart PowerShell ISE as an administrator.
 
-#### Install an Azure Stack compatible release of Azure PowerShell
+#### Install an Azure Stack compatible release of Azure PowerShell####
 
 1.  Uninstall any existing Azure PowerShell from your Client VM
 
-2.  Sign in to the Azure Stack POC machine as
-    an AzureStack/administrator.
+2.  Sign in to the Azure Stack POC machine as an AzureStack/administrator.
 
-2.  Using Remote Desktop Connection, sign in to the
-    **ClientVM.AzureStack.local** virtual machine as an administrator.
+2.  Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
 
-3.  Open the Control Panel, click **Uninstall a program** &gt; the
-    **Azure PowerShell** entry &gt; **Uninstall**.
+3.  Open the Control Panel, click **Uninstall a program** &gt; the **Azure PowerShell** entry &gt; **Uninstall**.
 
-4.  Download and install the latest Azure PowerShell ++that Supports
-    Azure Stack++ from <http://aka.ms/azstackpsh>.
+4.  Download and install the latest Azure PowerShell ++that Support Azure Stack++ from <http://aka.ms/azstackpsh>.
 
-5.  You can run this verification PowerShell script to make sure that
-    you can connect to your Azure Stack instance (a logon web page
-    should appear).
+5.  You can run this verification PowerShell script to make sure that you can connect to your Azure Stack instance (a logon web page should appear).
 
-##Bootstrap the resource provider deployment PowerShell and Prepare for deployment
+##Bootstrap the resource provider deployment PowerShell and Prepare for deployment##
 
 1. Connect the Azure Stack POC remote desktop to clientVm.AzureStack.Local and sign in as azurestack\\azurestackuser.
 
@@ -82,8 +69,7 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 3.  Run the D:\\SQLRP\\Bootstrap.cmd file as an administrator (azurestack\\administrator). This opens the Bootstrap.ps1 file in PowerShell ISE.
 When the PowerShell ISE windows completes loading (see screenshot) run the bootstrap script by clicking the “play” button or pressing F5. Two major tabs will load, each containing all the scripts and files necessary to deploy your SQL Resource Provider.
 
-  ![](media/image3.png){width="0.7798611111111111in" height="0.6673611111111111in"}![](media/image4.jpg){width="3.381981627296588in" height="2.113739063867017in"}
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![](media/1strun.png)
 
 1.  Select the **Prepare Prerequisites** tab**.**
 
