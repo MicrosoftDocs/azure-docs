@@ -92,7 +92,7 @@ Get-AzureRmLog -MaxEvents 1000
 
 >[AZURE.NOTE] `Get-AzureRmLog` only provides 15 days of history. Using the **-MaxEvents** parameter allows you to query the last N events, beyond 15 days. To access events older than 15 days, use the REST API or SDK (C# sample using the SDK). If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
 
-## Retrieve Alerts History
+## Retrieve alerts history
 To view all alert events, you can query the Azure Resource Manager (ARM) logs using the following examples.
 
 ```
@@ -108,7 +108,7 @@ Get-AzureRmAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/provide
 The `Get-AzureRmAlertHistory` cmdlet supports various parameters. More information, see [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
 
 
-## Retrieve Information on Alert Rules
+## Retrieve information on alert rules
 All of the following commands act on a Resource Group named "montest".
 
 View all the properties of the alert rule:
@@ -131,14 +131,14 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 `Get-AzureRmAlertRule` supports other parameters. See [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) for more information.
 
-## Create Alert rules
+## Create alert rules
 You can use the `Add-AlertRule` cmdlet to create, update or disable an alert rule.
 
 You can create email and webhook properties using  `New-AzureRmAlertRuleEmail` and `New-AzureRmAlertRuleWebhook`, respectively. In the Alert rule cmdlet, assign these as actions to the **Actions** property of the Alert Rule.
 
 The next section contains a sample that shows you how to create an Alert Rule with various parameters.
 
-### Alert Rule on a Metric
+### Alert rule on a metric
 The following table describes the parameters and values used to create an alert using a metric.
 
 
@@ -282,8 +282,8 @@ Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -Reso
 
 For more information about managing Autoscale settings, see [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
 
-## AutoScale History
-The following example shows you how you can view recent autoscale and alert events. Use the audit log search to view the AutoScale history.
+## Autoscale history
+The following example shows you how you can view recent autoscale and alert events. Use the audit log search to view the Autoscale history.
 
 ```
 Get-AzureRmLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
@@ -297,7 +297,7 @@ Get-AzureRmAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/p
 
 For more information, see [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
 
-### View details for an Autoscale setting
+### View details for an autoscale setting
 You can use the `Get-Autoscalesetting` cmdlet to retrieve more information about the autoscale setting.
 
 The following example shows details about all autoscale settings in the resource group 'myrg1'.
@@ -312,7 +312,7 @@ The following example shows details about all autoscale settings in the resource
 Get-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting -DetailedOutput
 ```
 
-### Remove an Autoscale Setting
+### Remove an autoscale setting
 You can use the `Remove-Autoscalesetting` cmdlet to delete an autoscale setting.
 
 ```
