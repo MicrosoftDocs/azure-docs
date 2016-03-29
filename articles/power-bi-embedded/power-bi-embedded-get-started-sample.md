@@ -242,8 +242,9 @@ Task<ActionResult> Report(string reportId)
 Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report**. Here is a code snippet from the powerbi.js in the **Microsoft Power BI Embedded** preview sample.
 
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '&lt;iframe style="width:100%;height:100%;"
-      src="' + embedUrl + '" scrolling="no" allowfullscreen="true"&gt;&lt;/iframe&gt;';
+    var iframeHtml = '<iframe style="width:100%;height:100%;"
+      src="' + embedUrl + '" scrolling="no" allowfullscreen="true">
+      </iframe>';
 
 ## See also
 
