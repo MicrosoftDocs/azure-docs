@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="03/29/2016"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using the Ambari REST API
@@ -38,11 +38,21 @@ Ambari is provided by default with Linux-based HDInsight clusters.
 
 ##REST API
 
-The base URI for the Ambari REST API on HDInsight is https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, where __CLUSTERNAME__ is the name of your cluster. 
+The base URI for the Ambari REST API on HDInsight is https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, where __CLUSTERNAME__ is the name of your cluster.
 
-> [AZURE.IMPORTANT] Connecting to Ambari on HDInsight requires HTTPS. You must also authenticate to Ambari using the admin account name (the default is __admin__,) and password you provided when the cluster was created.
+> [AZURE.IMPORTANT] While the cluster name in the fully qualified domain name (FQDN) part of the URI (CLUSTERNAME.azurehdinsight.net,) is case-insensitive, other occurrences in the URI are case-sensitive. For example, if your cluster is named MyCluster, the following are valid URIs:
+>
+> `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster`
+> `https://MyCluster.azurehdinsight.net/api/v1/clusters/MyCluster`
+>
+> The following URIs will return an error because the second occurrence of the name is not the correct case.
+>
+> `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster`
+> `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
 
-The following is an example of using cURL to perform a GET request against the REST API:
+Connecting to Ambari on HDInsight requires HTTPS. You must also authenticate to Ambari using the admin account name (the default is __admin__,) and password you provided when the cluster was created.
+
+The following is an example of using cURL to make a GET request against the REST API:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
     
@@ -155,23 +165,72 @@ You can then use this information with the [Azure CLI](../xplat-cli-install.md) 
 
     From this list, you need to copy the name of the component (for example, __spark\_thrift\_sparkconf__ and the __tag__ value.
     
-2. Retrieve the configuration for the component and tag by using the following command.
+2. Retrieve the configuration for the component and tag by using the following command. Replace __spark-thrift-sparkconf__ and __INITIAL__ with the component and tag that you want to retrieve the configuration for.
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     
     Curl retrieves the JSON document, then jq is used to make some modifications to create a template that we can use to add/modify configuration values. Specifically it does the following:
     
+    * Creates a unique value containing the string "version" and the date, which is stored in __newtag__
     * Creates a root document for the new desired configuration
     * Gets the contents of the .items[] array and adds it under the __desired_config__ element.
     * Deletes the __href__, __version__, and __Config__ elements, as these aren't needed to submit a new configuration
     * Adds a new __tag__ element and sets it's value to __version#################__ where the numeric portion is based on the current date. Each configuration must have a unique tag.
     
-    Finally, the data is saved to the __newconfig.json__ document.
+    Finally, the data is saved to the __newconfig.json__ document. The document structure will appear similar to the following:
+    
+        {
+            "Clusters": {
+                "desired_config": {
+                "tag": "version1459260185774265400",
+                "type": "spark-thrift-sparkconf",
+                "properties": {
+                    ....
+                 },
+                 "properties_attributes": {
+                     ....
+                 }
+            }
+        }
 
-3. Open the __newconfig.json__ document and modify/add values in the __properties__ object. For example, change the value of __"spark.yarn.am.memory"__ from __"1g"__ to __"3g"__ and add a new element for "spark.kryoserializer.buffer.max" with a value of "256m".
+3. Open the __newconfig.json__ document and modify/add values in the __properties__ object. For example, change the value of __"spark.yarn.am.memory"__ from __"1g"__ to __"3g"__ and add a new element for __"spark.kryoserializer.buffer.max"__ with a value of __"256m"__.
 
-        "spark.kyroserializer.buffer.max": "256m",
         "spark.yarn.am.memory": "3g",
+        "spark.kyroserializer.buffer.max": "256m",
+
+    Save the file once you are done making modifications.
+
+4. Use the following to submit the updated configuration to Ambari.
+
+        cat newconfig.json | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
+        
+    This command pipes the contents of the __newconfig.json__ file to the curl request, which submits it to the cluster as the new desired configuration. This will return a JSON document. The __versionTag__ element in this document should match the version you submitted, and the __configs__ object will contain the configuration changes you requested.
+
+###Example: Restart a service
+
+At this point, if you look at the Ambari web UI, the Spark service will indicate that it needs to be restarted before the new configuration can take effect. Use the following steps to restart the service.
+
+1. Use the following to enable maintenance mode for the Spark service.
+
+        echo '{"RequestInfo": {"context": "turning on maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
+
+    This sends a JSON document to the server (contained in the `echo` statement,) that turns maintenance mode on.
+    You can verify that the service is now in maintenance mode using the following request.
+    
+        curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK" | jq .ServiceInfo.maintenance_state
+        
+    This will return a value of `"ON"`.
+
+3. Next, use the following to turn the service off.
+
+        echo '{"RequestInfo": {"context" :"Stopping the Spark service"}, "Body": {"ServiceInfo": {"state": "INSTALLED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
+        
+
+4. Finally, use the following to start the service.
+
+        echo '{"RequestInfo": {"context" :"Restarting the Spark service"}, "Body": {"ServiceInfo": {"state": "STARTED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
+
+Once the service has restarted, it will be using the new configuration settings.
 
 ##Next steps
 
