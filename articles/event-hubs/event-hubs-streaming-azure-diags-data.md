@@ -31,8 +31,8 @@ This article will show you how to configure Azure diagnostics with EventHub from
 ## Prerequisites
 EventHub sinking in Azure diagnostics is supported in all developer environments and compute types - Cloud Service, VM, VMSS, and Servic Fabric - that support WAD, starting in the Azure SDK 2.9 and corresponding Azure Tools for Visual Studio.
   
-- [Azure SDK for .NET 2.9 or higher](https://azure.microsoft.com/en-us/downloads/)
-- [Visual Studio 2013 or higher](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+- [Azure SDK for .NET 2.9 or higher](https://azure.microsoft.com/downloads/)
+- [Visual Studio 2013 or higher](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - Prior successful configuration of Azure diagnostics configuration in the application using a *.wadcfgx* file per the article, [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 - EventHub namespace provisioned per the article, [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)
 
