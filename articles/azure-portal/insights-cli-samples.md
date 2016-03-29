@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Insights CLI quick start samples"
+	pageTitle="Azure Insights: Azure Insights CLI quick start samples. | Microsoft Azure"
 	description="Sample CLI (cross-platform command line interface) commands for Azure Insights - a Microsoft Azure service which allows you to autoScale Cloud Services, Virtual Machines, and Web Apps, send alert notifications, or call web URLs based on values of configured telemetry data."
 	authors="kamathashwin"
 	manager=""

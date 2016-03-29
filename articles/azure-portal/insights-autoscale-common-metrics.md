@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Insights autoscaling common metrics"
+	pageTitle="Azure Insights: Azure Insights autoscaling common metrics. | Microsoft Azure"
 	description="Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps."
 	authors="kamathashwin"
 	manager=""

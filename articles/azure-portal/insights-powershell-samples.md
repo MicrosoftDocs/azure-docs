@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Insights PowerShell quick start samples"
+	pageTitle="Azure Insights: Azure Insights PowerShell quick start samples. | Microsoft Azure"
 	description="Sample PowerShell commands for Azure Insights - a Microsoft Azure service which allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data."
 	authors="kamathashwin"
 	manager=""

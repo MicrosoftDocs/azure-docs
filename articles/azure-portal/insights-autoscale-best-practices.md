@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Best practices for Azure Insights autoscaling"
+	pageTitle="Azure Insights: Best practices for Azure Insights autoscaling. | Microsoft Azure"
 	description="Learn principles to effectively use autoscaling in Azure Insights."
 	authors="kamathashwin"
 	manager=""

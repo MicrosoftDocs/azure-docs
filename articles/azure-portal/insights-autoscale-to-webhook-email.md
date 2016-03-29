@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use autoscale actions to send email and webhook alert notifications in Azure Insights"
+	pageTitle="Azure Insights: Use autoscale actions to send email and webhook alert notifications. | Microsoft Azure"
 	description="See how to use autoscale actions to call web URLs or send email notifications in Azure Insights. "
 	authors="kamathashwin"
 	manager=""

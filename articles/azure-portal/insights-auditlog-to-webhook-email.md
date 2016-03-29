@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use audit logs to send email and webhook alert notifications in Azure Insights"
+	pageTitle="Azure Insights: Use audit logs to send email and webhook alert notifications in Azure Insights. | Microsoft Azure"
 	description="See how to use service auditlog entries to call web URLs or send email notifications in Azure Insights. "
 	authors="kamathashwin"
 	manager=""
