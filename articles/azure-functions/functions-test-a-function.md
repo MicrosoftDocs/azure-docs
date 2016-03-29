@@ -283,7 +283,7 @@ Make sure to set:
 
 Code Example:
 
-	var http = require('http');
+	var http = require("http");
 	
 	var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
 	
