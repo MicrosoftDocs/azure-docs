@@ -124,7 +124,7 @@ There are two primary benefits to using **DirectQuery**:
 
 To ensure that queries sent to the underlying data source have acceptable performance, limitations are imposed on measures by default. Advanced users can choose to bypass this limitation by selecting **File > Options** and then **Settings > Options > DirectQuery**, then selecting the option **Allow unrestricted measures in DirectQuery mode**. When that option is selected, any DAX expression that is valid for a measure can be used. Users must be aware, however, that some expressions that perform very well when the data is imported may result in very slow queries to the backend source when in DirectQuery mode.
 
-After you save the work that you have done in the Power BI Desktop, a PBIX file will be created. This file contains both your dataset and report. It is this file that you will programmatically deploy to your workspaces using the [Power BI Import API](https://msdn.microsoft.com/en-US/library/mt711504.aspx). You can use additional APIs to change the server and database that your dataset is pointing and set a service account credential that the dataset will use to connect to your database.
+After you save the work that you have done in the Power BI Desktop, a PBIX file will be created. This file contains both your dataset and report. It is this file that you will programmatically deploy to your workspaces using the [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx). You can use additional APIs to change the server and database that your dataset is pointing and set a service account credential that the dataset will use to connect to your database.
 
 ## Next Steps
 In the previous steps, you created a workspace collection and your first report and dataset. Now it is time to learn how to write code for **Power BI Embedded**. To help you get started, we created a sample web app. To get start with the sample web app, please go to [Get started with sample](power-bi-embedded-get-started-sample.md). The sample shows you how to:
@@ -140,6 +140,6 @@ In the previous steps, you created a workspace collection and your first report 
 ## See Also
 - [Get started with sample](power-bi-embedded-get-started-sample.md)
 - [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Getting started with Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started)
+- [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
 - [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527)
