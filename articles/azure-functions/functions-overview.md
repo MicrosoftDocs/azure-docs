@@ -32,6 +32,7 @@ Azure functions is a solution for easily running small pieces of code, or "funct
 Azure Functions is a great solution for processing data, and integrating systems, working with the internet of things (IoT), and building simple APIs and microservices.
 
 Functions includes a gallery of templates for common scenarios, including:
+
 * Responding to a GitHub webhook request
 * Resizing an image that was uploaded to Azure Storage
 * Working with order processing queues
@@ -44,14 +45,14 @@ For a deeper look at how Functions works and some example configurations, see th
 Azure Functions is a full-featured, enterprise-ready platform that comes with features to make complicated integration and connectivity tasks trivial. With this core set of capabilities, developers using Azure Functions can become even more productive by focusing only on their goal rather than putting together infrastructure pieces.
 
 The following features are included with Azure Functions:
-
-* **Choice of language** - Write functions using C#, Node.js, Python, F#, PHP, batch, bash, Java, or any executable.
-* **Pay-per-use pricing model** - Pay only for the time spent running your code. See the Dynamic App Service Plan option in the [pricing section](#pricing) below.
-* **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.
-* **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
+    
+* **Choice of language** - Write functions using C#, Node.js, Python, F#, PHP, batch, bash, Java, or any executable.  
+* **Pay-per-use pricing model** - Pay only for the time spent running your code. See the Dynamic App Service Plan option in the [pricing section](#pricing) below.  
+* **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
+* **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
 * **Code-less integration** - Easily leverage Azure services and software-as-a-service (SaaS) offerings. See the [integrations section](#integrations) below for some examples.  
-* **Flexible development** - Modify your functions with an in-portal editor, or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and more.
-* **Open-source** - Functions is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script). 
+* **Flexible development** - Modify your functions with an in-portal editor, or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and more.  
+* **Open-source** - Functions is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ### <a name="integrations"></a>Integrations
 
