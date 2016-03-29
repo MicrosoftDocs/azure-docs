@@ -33,7 +33,7 @@ If the application persistently fails to connect to SQL Azure Database, it usual
 - Network reconfiguration on the client side: for example, a new IP address or a proxy server.
 - User error: for example, mistyped connection parameters, such as the server name in the connection string.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Steps to resolve persistent connectivity issues
 1.	Set up [firewall rules](sql-database-configure-firewall-settings.md) to allow the client IP address.
