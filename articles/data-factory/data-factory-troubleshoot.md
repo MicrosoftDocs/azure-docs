@@ -19,7 +19,7 @@
 # Troubleshoot Data Factory issues
 This article provides troubleshooting tips for issues when using Azure Data Factory. This does not all the possible issues when using the service, but it covers some issues and general troubleshooting tips.   
 
-## Problems/Troubleshooting tips
+## Troubleshooting tips
 
 ### Error: The subscription is not registered to use namespace 'Microsoft.DataFactory'
 If you receive this error, the Azure Data Factory resource provider has not been registered on your machine. Please do the following: 
@@ -101,13 +101,15 @@ Additionally, there is a second JSON property additionalLinkedServiceNames where
 ### Problem: Custom .NET activity fails
 See [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#debug-the-pipeline) for detailed steps. 
 
-## Use Azure Portal/Azure PowerShell to troubleshoot 
+## Use Azure Portal to troubleshoot 
 
 ### Using the portal blades
 See [Monitor pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) for steps. 
 
 ### Using the Monitor and Manage App
 See [Monitor and manage data factory pipelines using Monitor and Manage App](data-factory-monitor-manage-app.md) for details. 
+
+## Use Azure PowerShell to troubleshoot
 
 ### Use Azure PowerShell to troubleshoot an error  
 See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) for details. 
