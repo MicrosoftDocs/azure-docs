@@ -22,16 +22,16 @@ This article describes how to use Dynamic Management Views (DMVs) to monitor you
 
 ## Monitor Connections
 
-The view [sys.dm_pdw_exec_sessions][] allows you to monitor connections to your Azure SQL Data Warehouse database.
+The [sys.dm_pdw_exec_sessions][] view allows you to monitor connections to your Azure SQL Data Warehouse database.  This view contains active sessions as well as a history of recently disconnected sessions.  The session_id is the primary key for this view and is assigned sequentially for each new logon.
 
 ```sql
 SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
 
 ## Investigate Query Execution
-To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is also assigned sequentially for each new query.  The session_id is also important to see all queries for a given logon.
+To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is assigned sequentially for each new query.  Qyerying this table for a given session_id will show all queries for a given logon.
 
-In the scenario where you would like to investigate query execution, here are some common steps to follow.
+In the scenario where you would like to investigate query execution for a particular query, here are some common steps to follow.
 
 ### STEP 1: Find the query to investigate
 
@@ -43,7 +43,7 @@ SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
-Note the Request ID of the query.
+Note the Request ID of the query which you would like to investigate.
 
 ### STEP 2: Check if the query is waiting for resources
 
@@ -70,11 +70,11 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 The results of the above query will show you the wait state of your query.
 
 - If the query is waiting on resources from another query, then the state will be **AcquireResources**.
-- If the query has all the required resources and is not waiting, then the state will be **Granted**. In this case, proceed to look at the query steps.
+- If the query has all the required resources and is not waiting, then the state will be **Granted**.  In this case, proceed to look at the query steps.
 
-### STEP 3: Find the longest running step of the query
+### STEP 3: Find the longest running step of the query plan
 
-Use the Request ID to retrieve a list of all the distributed query steps from [sys.dm_pdw_request_steps][]. Find the long-running step by looking at the total elapsed time.
+Use the Request ID to retrieve a list of the query plan steps from [sys.dm_pdw_request_steps][]. Find the long-running step by looking at the total elapsed time.
 
 ```sql
 
