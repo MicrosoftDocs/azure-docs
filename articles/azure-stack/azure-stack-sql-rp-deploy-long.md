@@ -69,7 +69,7 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 3.  Run the D:\\SQLRP\\Bootstrap.cmd file as an administrator (azurestack\\administrator). This opens the Bootstrap.ps1 file in PowerShell ISE.
 When the PowerShell ISE windows completes loading (see screenshot) run the bootstrap script by clicking the “play” button or pressing F5. Two major tabs will load, each containing all the scripts and files necessary to deploy your SQL Resource Provider.
 
-![](media/1strun.png)
+![](media/azure-stack-sql-rp-deploy-long/1strun.png) 
 
 1.  Select the **Prepare Prerequisites** tab**.**
 
