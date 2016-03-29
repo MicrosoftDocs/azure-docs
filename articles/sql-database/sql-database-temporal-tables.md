@@ -26,7 +26,7 @@ This article illustrates the steps to utilize Temporal Tables in an application 
 
 The database model for this scenario is very simple – user activity metric is represented with a single integer field, **PageVisited**, and is captured along with basic information on the user profile. Additionally, for time based analysis, you would keep a series of rows for each user, where every row represents the number of pages a particular user visited within a specific period of time.
 
-![Schema](./media/sql-database-temporal-tables/Azuretemporal1.png)
+![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
 Fortunately, you do not need to put any effort in your app to maintain this activity information. With Temporal Tables, this process is automated - giving you full flexibility during website design and more time to focus on the data analysis itself. The only thing you have to do is to ensure that **WebSiteInfo** table is configured as [temporal system-versioned](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). The exact steps to utilize Temporal Tables in this scenario are described below.
 
@@ -38,11 +38,11 @@ Depending on whether you are starting new development or upgrading existing appl
 
 Use context menu item “New System-Versioned Table” in SSMS Object Explorer to open the query editor with a temporal table template script and then use “Specify Values for Template Parameters” (Ctrl+Shift+M) to populate the template:
 
-![SSMSNewTable](./media/sql-database-temporal-tables/Azuretemporal2.png)
+![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
 In SSDT, chose “Temporal Table (System-Versioned)” template when adding new items to the database project. That will open table designer and enable you to easily specify the table layout:
 
-![SSDTNewTable](./media/sql-database-temporal-tables/Azuretemporal3.png)
+![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
 You can also a create temporal table by specifying the Transact-SQL statements directly, as shown in the example below. Note that the mandatory elements of every temporal table are the PERIOD definition and the SYSTEM_VERSIONING clause with a reference to another user table that will store historical row versions:
 
@@ -71,7 +71,7 @@ WITH (DROP_EXISTING = ON);
 
 Temporal Tables are represented in the Object Explorer with the specific icon for easier identification, while its history table is displayed as a child node.
 
-![AlterTable](./media/sql-database-temporal-tables/Azuretemporal4.png)
+![AlterTable](./media/sql-database-temporal-tables/AzureTemporal4.png)
 
 ###Alter existing table to temporal
 
@@ -108,7 +108,7 @@ WHERE [UserID] = 1;
 
 It is important to notice that the update query doesn’t need to know the exact time when the actual operation occurred nor how historical data will be preserved for future analysis. Both aspects are automatically handled by the Azure SQL Database. The following diagram illustrates how history data is being generated on every update.
 
-![TemporalArchitecture](./media/sql-database-temporal-tables/Azuretemporal5.png)
+![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
 ##Step 3: Perform historical data analysis
 
@@ -150,7 +150,7 @@ WHERE [UserID] = 1;
 
 Graphic visualization is especially convenient for temporal queries as you can show trends and usage patterns in an intuitive way very easily:
 
-![TemporalGraph](./media/sql-database-temporal-tables/Azuretemporal6.png)
+![TemporalGraph](./media/sql-database-temporal-tables/AzureTemporal6.png)
 
 ##Evolving table schema
 
