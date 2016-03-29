@@ -206,9 +206,9 @@ You can then use this information with the [Azure CLI](../xplat-cli-install.md) 
         
     This command pipes the contents of the __newconfig.json__ file to the curl request, which submits it to the cluster as the new desired configuration. This will return a JSON document. The __versionTag__ element in this document should match the version you submitted, and the __configs__ object will contain the configuration changes you requested.
 
-###Example: Restart a service
+###Example: Restart a service component
 
-At this point, if you look at the Ambari web UI, the Spark service will indicate that it needs to be restarted before the new configuration can take effect. Use the following steps to restart the service.
+At this point, if you look at the Ambari web UI, the Spark service will indicate that it needs to be restarted before the new configuration can take effect. Use the following steps to restart the service. Looking more carefully will indicate 
 
 1. Use the following to enable maintenance mode for the Spark service.
 
@@ -225,12 +225,31 @@ At this point, if you look at the Ambari web UI, the Spark service will indicate
 
         echo '{"RequestInfo": {"context" :"Stopping the Spark service"}, "Body": {"ServiceInfo": {"state": "INSTALLED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
         
+    You will receive a response similar to the following.
+    
+        {
+            "href" : "http://10.0.0.18:8080/api/v1/clusters/CLUSTERNAME/requests/29",
+            "Requests" : {
+                "id" : 29,
+                "status" : "Accepted"
+            }
+        }
+    
+    The `href` value returned by this URI is using the internal IP address of the cluster node. To use it from outside the cluster, replace the `10.0.0.18:8080' portion with the FQDN of the cluster. For example, the following will retrieve the status of the request.
+    
+        curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME/api/v1/clusters/CLUSTERNAME/requests/29" | jq .Requests.request_status
+    
+    If this value returns `"COMPLETED"` then the request has finished.
 
-4. Finally, use the following to start the service.
+4. Once the previous request completes, use the following to start the service.
 
         echo '{"RequestInfo": {"context" :"Restarting the Spark service"}, "Body": {"ServiceInfo": {"state": "STARTED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
 
-Once the service has restarted, it will be using the new configuration settings.
+    Once the service has restarted, it will be using the new configuration settings.
+
+5. Finally, use the following to turn off maintenance mode.
+
+        echo '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
 
 ##Next steps
 
