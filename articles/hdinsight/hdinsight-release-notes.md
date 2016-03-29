@@ -31,7 +31,7 @@ The full version numbers for HDInsight clusters deployed with this release:
 * HDInsight (Windows)		3.3.0.875.2159884  (HDP 2.3.3.1-16)
 * HDInsight	(Linux)			3.2.1000.0.7193255   (HDP	2.2.9.1-8 - unchanged)
 * HDInsight (Linux)			3.3.1000.0.7193255   (HDP 2.3.3.1-7 - unchanged)
-* HDInsight (Linux)			3.4.1000.0.7195842   
+* HDInsight (Linux)			3.4.1000.0.7195842   (HDP 2.4.1.0-327)
 * SDK			1.5.8
 
 This release contains the following updates.
