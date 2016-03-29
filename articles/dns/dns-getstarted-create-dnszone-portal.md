@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/28/2016"
+   ms.date="03/29/2016"
    ms.author="cherylmc"/>
 
 # Creating and managing a DNS zone in the Azure portal
@@ -76,14 +76,19 @@ You can add Tags in the Azure portal by using the **Settings** blade for your DN
 
 ## View DNS zone records
 
-Creating a DNS zone also creates the following DNS records, which you can view in the Azure portal on the blade for your DNS zone:
+Creating a DNS zone also creates the following records:
 
 - The "Start of Authority" (SOA) record. The SOA is present at the root of every DNS zone.
 - The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
+You can view the records from the Azure portal
+
 1. From your DNS zone blade, click on **All settings** to open the **Settings blade** for the DNS zone. 
 
-2. In the lower part of the blade, you can see the record sets for the DNS zone.
+	![zone](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
+
+
+2. In the lower part of the Essentials pane, you can see the record sets for the DNS zone.
 
 
 	![zone](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
