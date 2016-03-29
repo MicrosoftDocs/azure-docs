@@ -69,7 +69,7 @@ $GeoRestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
+>[AZURE.NOTE] For server foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
 
 ### REST API
 Use REST to programmatically perform database recovery.
