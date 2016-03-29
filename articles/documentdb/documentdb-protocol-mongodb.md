@@ -3,9 +3,9 @@
 	description="Learn about DocumentDB with protocol support for MongoDB." 
 	keywords="json database, document database"
 	services="documentdb" 
-	authors="stbaro" 
-	manager="johnmac" 
-	editor="mimig" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="" 
 	documentationCenter=""/>
 
 <tags 
