@@ -20,9 +20,9 @@
 
 Azure Stack App Service is Azure App Service brought to on-premises installation. In Azure Stack App Service Technical Preview 1 (TP1), only the Web Apps aspect of App Service is available.
 
-The current Azure Stack Web Apps deployment will create an instance of each of the five required role types. It will also create a file server. Although you can add more instances for each of the role types, remember that there is not much space for virtual machines (VMs) in TP1. The current capabilities for Azure Stack App Service are primarily foundation capabilities that are needed to manage the system and host web apps.  
+The current Azure Stack Web Apps deployment will create an instance of each of the five required role types. It will also create a file server. Although you can add more instances for each of the role types, remember that there is not much space for virtual machines (VMs) in TP1. The current capabilities for Azure Stack App Service are primarily foundational capabilities that are needed to manage the system and host web apps.  
 
-There is no support for the Azure Stack App Service preview releases. Don't put production workloads on this preview release. There is also no upgrade between Azure Stack App Service preview releases. The primary purposes of these preview releases are to show what we are providing and to obtain feedback.  
+There is no support for the Azure Stack App Service preview releases. Don't put production workloads on this preview release. There is also no upgrade between Azure Stack App Service preview releases. The primary purpose of these preview releases is to show what we are providing and to obtain feedback.  
 
 The Azure Stack Web Apps resource provider uses the same code that the Web Apps feature in Azure App Service uses. As a result, some common concepts are worth describing. In Web Apps, the pricing container for web apps is called the App Service plan. It represents the set of dedicated virtual machines that are used to hold your apps. Within a given subscription, you can have multiple App Service plans. This is also true in Azure Stack Web Apps.  
 
@@ -34,7 +34,7 @@ In Azure Stack Web Apps, resource provider administrators can define the worker 
 
 Azure Stack Web Apps uses the same UI that Web Apps in Azure App Service uses. Some features are disabled and aren't yet functional in Azure Stack. This is because Azure-specific expectations or services that those features require aren't yet available in Azure Stack.
 
-There are two portals for the Azure Stack App Service: the resource provider administration portal and the end-user tenant portal.
+There are two portals for Azure Stack App Service: the resource provider administration portal and the end-user tenant portal.
 
 ### Resource provider administration portal TP1 features
 
@@ -71,7 +71,7 @@ There are several steps that you need to perform before you start installing Azu
 ### Enable cookies  
 
 1. Select **Start** > **All apps** > **Windows accessories**. Right-click **Internet Explorer**, and then select **More** and **Run as an administrator**.  
-2. If you are prompted, select **Use recommended security** and then **OK**.  
+2. If you are prompted, select **Use recommended security**, and then select **OK**.  
 3. In Internet Explorer, select **Tools** (the gear icon) > **Internet Options** > **Privacy** tab.  
 4. Select **Advanced**. Make sure that both **Accept** check boxes are selected, and then select **OK** and **OK** again.  
 5. Close Internet Explorer, and then restart PowerShell ISE as an administrator.  
@@ -81,11 +81,11 @@ There are several steps that you need to perform before you start installing Azu
 1. Sign in to the Azure Stack POC machine as an Azure Stack administrator.  
 2. Using Remote Desktop Connection, sign in to the `ClientVM.AzureStack.local` virtual machine as an administrator.  
 3. Open **Control Panel**, and select **Uninstall a program**. Right-click **Microsoft Azure PowerShell - November 2015**, and select **Uninstall**.  
-4. Download and install the latest version of Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).  
+4. [Download](http://aka.ms/webpi-azps) and install the latest version of Azure PowerShell.  
 
 ### Consider SQL Server
 
-By default, the Azure Resource Manager template for the Azure Stack App Service is set to use the instance of SQL Server that is installed with the Azure Stack SQL Server resource provider. When you install the SQL Server resource provider, keep track of the resource group that was used to install it, as well as the system administrator password. You need both when you install Azure Stack Web Apps.
+By default, the Azure Resource Manager template for Azure Stack App Service is set to use the instance of SQL Server that is installed with the Azure Stack SQL Server resource provider. When you install the SQL Server resource provider, keep track of the resource group that was used to install it, as well as the system administrator password. You need both when you install Azure Stack Web Apps.
 
 You also have the option of deploying/leveraging another SQL Server instance. You can choose which SQL Server instance to leverage when you deploy the Web Apps Azure Resource Manager template, by using the template parameters. Whichever option you choose, make sure that the SQL Server VM and the Web Apps resource provider are in the same resource group.
 
@@ -151,7 +151,7 @@ Approve the license terms, and then select **Next**.
 
 ![Azure Stack App Service Technical Preview 1 Microsoft Software License Terms][3]
 
-In this step, provide the storage account and storage account access key that you created for this Web Apps deployment. You can copy the storage account name and key from the Azure Stack portal. You can also get the name and key by going to the storage account resource, and then selecting **Settings** and **Access keys**. The Azure Stack DNS suffix will be the domain for the Azure Stack. In this case, it's `azurestack.local`.
+In this step, provide the storage account and storage account access key that you created for this Web Apps deployment. You can copy the storage account name and key from the Azure Stack portal. You can also get the name and key by going to the storage account resource, and then selecting **Settings** and **Access keys**. The Azure Stack DNS suffix will be the domain for Azure Stack. In this case, it's `azurestack.local`.
 
 ![Azure Stack App Service Technical Preview 1 storage account and storage account access key][4]
 
@@ -175,7 +175,7 @@ Open Notepad and paste the contents of your clipboard immediately. You can't imm
 
 After you kick off this command with the correct information, it will:
 
-- Create a storage account. This is in addition to the one you created earlier.
+- Create a storage account. This is in addition to the one that you created earlier.
 - Create VMs for each Web Apps role type.
 - Create a VM to act as the file server.
 - Install the Azure Stack Web Apps resource provider software.
@@ -234,7 +234,7 @@ New-AzureRmResourceGroupDeployment
 -TemplateFile https://appservicesetup.blob.azurestack.local/appservice-template/AzureStackAppServiceTemplate.json
 ```
 
-To make sure the deployment was successful, go to the Azure Stack portal, click **Resource Groups**, and then click the WebSitesSQL resource group. A green check mark next to the resource provider name indicates that it deployed successfully. This will take a couple of hours to complete.
+To make sure that the deployment was successful, go to the Azure Stack portal, click **Resource Groups**, and then click the WebSitesSQL resource group. A green check mark next to the resource provider name indicates that it deployed successfully. This will take a couple of hours to complete.
 
 ### Step 4: Create DNS records for the front-end and management server load balancers
 
@@ -253,7 +253,7 @@ Azure account credential = administrator@contoso.onmicrosoft.com
 
 ### Step 5: Register the newly deployed Azure Stack Web Apps resource provider with Azure Resource Manager
 
-This step could be performed by going into the portal and doing it manually. But to make things more consistent with the earlier steps, a script has been provided for this purpose. Run the Register-AppServiceResourceProvider.ps1 script. The syntax is:
+You can perform this step by going into the portal and doing it manually. But to make things more consistent with the earlier steps, you can use a script that has been provided for this purpose. Run the Register-AppServiceResourceProvider.ps1 script. The syntax is:
 
 ```
 Register-AppServiceResourceProvider.ps1 <AAD tenant ID> <Azure account credential> <resource provider admin credential>
