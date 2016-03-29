@@ -55,9 +55,12 @@ You'll need to use the Azure Portal to allow the user to access the Azure Resour
 
 ## Import the Azure Automation Vertical Scale runbooks into your subscription
 
-The runbooks that are needed for Vertically Scaling your Virtual Machine are already published in the Azure Automation Runbook Gallery. You will need to import them into your subscription. The best way to accomplish this is to follow this tutorial
+The runbooks that are needed for Vertically Scaling your Virtual Machine are already published in the Azure Automation Runbook Gallery. You will need to import them into your subscription. You can learn how to import runbooks by reading the following article.
 
 [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
+
+The runbooks that need to be imported are shown in the image below
+![Import runbooks](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
 
 ## Add a webhook to your runbook
 
