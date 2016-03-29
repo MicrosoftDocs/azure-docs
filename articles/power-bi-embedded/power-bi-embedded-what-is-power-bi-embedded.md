@@ -33,7 +33,7 @@ In the **Microsoft Power BI Embedded** usage model, licensing for Power BI is no
 
 ![](media\powerbi-embedded-whats-is\model.png)
 
-As mentioned earlier, **Microsoft Power BI Embedded** is an Azure service.  Like any other service in Azure, resources can be provisioned through the Azure ARM APIs.  The resource that can be provisioned in this case is a **Power BI Workspace Collection**.
+As mentioned earlier, **Microsoft Power BI Embedded** is an Azure service.  Like any other service in Azure, resources can be provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx).  The resource that can be provisioned in this case is a **Power BI Workspace Collection**.
 ## Workspace Collection
 
 A **Workspace Collection** is the top-level Azure container for resources which contains 0 or more **Workspaces**.  A **Workspace** **Collection** has all of the standard Azure properties, as well as the following:

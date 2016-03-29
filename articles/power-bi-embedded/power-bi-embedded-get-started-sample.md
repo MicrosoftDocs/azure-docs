@@ -53,7 +53,7 @@ The following will walk you through setting up your Visual Studio development en
 
     d.	Import a PBIX file using option 6.
 
-    - If prompted, provide the friendly name for your DataSet. You should see a response like:
+    - If prompted, select a friendly name for your DataSet. You should see a response like:
 
       - Checking import state... Publishing
       - Checking import state... Succeeded
@@ -62,7 +62,7 @@ The following will walk you through setting up your Visual Studio development en
 
     f.	Select option 8 to retrieve the Embed URL that you should use to add the report to your application.
 
-5.	In **web.config** in the PowerBI-embedded web application within the same solution.
+5.	In **web.config** in the EmbedSample web application within the same solution.
 
     a.	Add your **AccessKey**, **WorkspaceCollection** name and **WorkspaceId** to the appSettings section.
 
