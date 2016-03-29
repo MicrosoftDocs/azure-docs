@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a on-premises or poly-cloud Azure Service Fabric cluster" package | Microsoft Azure"
-   description="Learn how to create an Azure Service Fabric cluster on any machine (physical or virtual) be it on-premises or other clouds."
+   pageTitle="Create a on-premises or poly-cloud Azure Service Fabric cluster | Microsoft Azure"
+   description="Learn how to create an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in the cloud."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -19,11 +19,11 @@
 
 # Create an Azure Service Fabric cluster on-premises or in the cloud
 
-Azure Service Fabric allows the creation of Service Fabric clusters on any virtual machines or computers running Windows Server. Linux support is coming later. This means you can deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected, be it on-premises or with any cloud provider. Service Fabric provides a setup package for you to create such Service Fabric clusters.
+Azure Service Fabric allows the creation of Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment where you have a set of Windows Server computers that are interconnected, be it on-premises or with any cloud provider. Service Fabric provides a setup package for you to create such Service Fabric clusters.
 
 This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on-premises, though it can be easily adapted for any other environment such as other clouds.
 
-## Microsoft Azure Service Fabric standalone package
+## Service Fabric standalone package
 
 The standalone package for Service Fabric for Windows Server 2012 R2 deployments is named *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip* and can be downloaded [here](http://go.microsoft.com/fwlink/?LinkId=730690).
 
