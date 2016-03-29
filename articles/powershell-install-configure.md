@@ -36,8 +36,9 @@ Installing Azure PowerShell 1.0 and greater from WebPI is the same as it was for
 
 Once the installation completes, your ```$env:PSModulePath``` setting should include the directories containing the Azure PowerShell cmdlets.
 
-> [AZURE.NOTE] There is a known issue with PowerShell **$env:PSModulePath** that can occur when installing from WebPI. If your computer requires a restart due to system updates or other installations, it may cause the **$env:PSModulePath** to not include the path where Azure PowerShell is installed. If this occurs, you may see a message like the following when attempting to use Azure PowerShell cmdlets after the installation or upgrade.
+> [AZURE.NOTE] There is a known issue with PowerShell **$env:PSModulePath** that can occur when installing from WebPI. If your computer requires a restart due to system updates or other installations, it may cause updates **$env:PSModulePath** to not include the path where Azure PowerShell is installed. If this occurs, you may see a 'cmdlet not recognized' message when attempting to use Azure PowerShell cmdlets after the installation or upgrade. If this occurs, restarting the machine should fix the problem.
 
+If you receive a message like the following when attempting to load or execute cmdlets:
 ```
 PS C:\> Get-AzureRmResource
 Get-AzureRmResource : The term 'Get-AzureRmResource' is not recognized as the name of a cmdlet, function,
