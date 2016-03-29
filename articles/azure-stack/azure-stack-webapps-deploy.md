@@ -30,7 +30,7 @@ In Azure, there are shared and dedicated workers. A shared worker supports high-
 
 In Azure Stack Web Apps, resource provider administrators can define the worker tiers that they want to make available. They can define them so that they have multiple sets of shared workers or different sets of dedicated workers, based on their unique web hosting needs. By using those worker tier definitions, they can then define their own pricing SKUs.
 
-## TP1 Web Apps portal features
+## Web Apps portal TP1 features
 
 Azure Stack Web Apps uses the same UI that Web Apps in Azure App Service uses. Some features are disabled and aren't yet functional in Azure Stack. This is because Azure-specific expectations or services that those features require aren't yet available in Azure Stack.
 
@@ -39,6 +39,7 @@ There are two portals for the Azure Stack App Service: the resource provider adm
 ### Resource provider administration portal TP1 features
 
 By using this portal, you can:
+
 - Manage roles.
 - View system properties.
 - Manage credentials and certificates.
@@ -50,6 +51,7 @@ By using this portal, you can:
 ### End-user portal TP1 features
 
 By using this portal, you can:
+
 - Create an empty web app and a web app with SQL.
 - Create WordPress, Django, Orchard, and DNN (DotNetNuke) web apps.
 - Create multiple App Service plans, as in Azure.
@@ -133,7 +135,7 @@ The appservice.exe installer will:
 6.	Upload the files to the Azure Stack storage account that is specified.
 7.	Present information that is needed to kick off the Azure Resource Manager template.
 
-As an administrator, run appservice.exe. The UI screens for the installer appear as shown:
+As an administrator, run appservice.exe. The UI screens for the installer appear as shown.
 
 >[AZURE.NOTE] You must use an elevated account (local or domain administrator) to execute the installer. If you sign in as `azurestack\azurestackuser`, you will be prompted for elevated credentials.
 
