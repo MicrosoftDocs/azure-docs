@@ -110,7 +110,18 @@ If we want to group by a continuous scalar such as a number or time, we have to 
 
 ## Examples
 
-Find the minimum and maximum timestamp of all records in the Activities table. There is no group-by clause, so there is just one row in the output:
+#### Count requests
+
+Find the numbers of requests of each name over the past hour:
+
+    requests | where timestamp > ago(1h)
+    | summarize req_count = sum(itemCount) by name
+
+> [AZURE.NOTE] Instead of simply counting the request data points, use the itemCount property. This compensates for any [sampling](app-insights-sampling.md) that may be in operation. For example, if sampling is set at 33%, itemCount will be 3 in each data point.
+
+#### Min and Max
+
+Find the minimum and maximum timestamp of all records in the requests stream. There is no group-by clause, so there is just one row in the output:
 
 ```
 
@@ -119,7 +130,7 @@ requests | summarize Min = min(timestamp), Max = max(timestamp)
 
 |`Min`|`Max`
 |---|---
-|`1975-06-09 09:21:45` | `2015-12-24 23:45:00`
+|`2015-12-09 09:21:45` | `2015-12-24 23:45:00`
 
 
 
@@ -327,6 +338,8 @@ They are equivalent to a subset of the TypeScript type annotations, encoded as a
 Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predicate* is specified, returns the total number of records in the group. 
 
 **Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
+
+> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
    
 
 ## dcount

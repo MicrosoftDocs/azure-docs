@@ -36,36 +36,16 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
 
-## [Count](app-insights-analytics-aggregations.md#count) rows
-
-Metrics such as performance counters are stored in a table called metrics. Each row is a telemetry data point received from the Application Insights SDK in an app. To find out how big the table is, we'll pipe its content into an operator that simply counts the rows:
-
-```AIQL
 	
-    requests | count
-```
+## [Take](app-insights-analytics-aggregations.md#take): show me n rows
+
+Data points that log user operations (typically HTTP requests received by your web app) are stored in a table called `requests`. Each row is a telemetry data point received from the Application Insights SDK in your app.
+
+Let's start by examining a few sample rows of the table.
 
 > [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't put blank lines in one statement. To keep several queries in the window, separate them with blank lines.
 
 Here's the result:
-
-
-![](./media/app-insights-analytics-tour/010.png)
-
-	
-[`Count`](app-insights-analytics-aggregations.md#count) is one of many [Query operators](app-insights-analytics-queries.md) that we can arrange in a pipe, filtering, reshaping and joining the data in multiple stages.
-	
-## [Take](app-insights-analytics-aggregations.md#take): show me n rows
-
-
-Let's see some data - what's in a sample 5 rows?
-
-```AIQL
-
-	requests | take 5
-```
-
-And here's what we get:
 
 ![results](./media/app-insights-analytics-tour/020.png)
 
@@ -158,48 +138,48 @@ Using [`extend`](app-insights-analytics-aggregations.md#extend) is less verbose 
 
 ## [Summarize](app-insights-analytics-aggregations.md#summarize): aggregate groups of rows
 
-By looking at a sample of a table, we can see the fields where the different telemetry data are reported. For example, `exception | take 20` quickly shows us that exception messages are reported in a field called `outerExceptionType`. 
+`Summarize` applies a specified *aggregation function* over groups of rows. 
 
-But instead of plowing through individual instances, let's ask how many exceptions have been reported, of each type:
+For example, the time your web app takes to respond to a request is reported in the field `duration`. Let's see the average response time to all requests:
 
-```AIQL
+![](./media/app-insights-analytics-tour/410.png)
 
-	exceptions 
-    | summarize count() by outerExceptionType
-```
-
-![](./media/app-insights-analytics-tour/210.png)
-
-`Summarize` groups together rows that have the same values in the fields named in the `by` clause, yielding a single result row for each group. So in this case, there's a row for each exception type. The aggregation function `count()` counts up the rows in each group, providing a column in the result.
+Or we could separate the result into requests of different names:
 
 
-There's a range of [aggregation functions](app-insights-analytics-aggregations.md), and you can use several of them in one summarize operator to produce several computed columns. 
+![](./media/app-insights-analytics-tour/420.png)
 
-For example, let's list the HTTP requests for which these exceptions occur. Again by inspecting a sample of  the exception table, you'll notice that the HTTP request paths are reported in a column named `operation_Name`. 
+`Summarize` collects the data points in the stream into groups for which the `by` clause evaluates equally. Each value in the `by` expression - each operation name in the above example - results in a row in the result table. 
 
-```AIQL
+Or we could group results by time of day:
 
-    exceptions 
-    | summarize count(), makeset(operation_Name)
-      by outerExceptionType	      
-```
+![](./media/app-insights-analytics-tour/430.png)
 
-![](./media/app-insights-analytics-tour/220.png)
+Notice how we're using the `bin` function (aka `floor`). If we just used `by timestamp`, every input row would end up in its own little group. For any continuous scalar like times or numbers, we have to break the continuous range into a manageable number of discrete values, and `bin` - which is really just the familiar rounding-down `floor` function - is the easiest way to do that.
 
-The aggregation function `makeset()` creates a set of all the specified values in each group. As it happens in this example, there's only one operation that gives rise to each exception.
+We can use the same technique to reduce ranges of strings:
 
 
-The result of a summarize has:
+![](./media/app-insights-analytics-tour/440.png)
 
-* each column named in `by`;
-* plus a column for each aggregation expression;
-* a row for each combination of `by` values.
+Notice that you can use `name=` to set the name of a result column, either in the aggregation expressions or the by-clause.
+
+### Counting data points
+
+`sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events will be retained as a data point in Application Insights, so that for each data point you see, there are `itemCount` events. Summing up itemCount therefore gives a good estimate of the original number of events.
 
 
-## Summarize by scalar values
+![](./media/app-insights-analytics-tour/510.png)
+
+There's also a `count()` aggregation, for cases where you really do want to count the number of rows in a group.
 
 
-You can use scalar (numeric, time, or interval) values in the by clause. But numbers usually fill a continuous range. To group the data points, you'll want to assign them to bins of discrete values. The `bin` function is useful for this:
+There's a range of [aggregation functions](app-insights-analytics-aggregations.md).
+
+
+## Charting the results
+
+
 
 ```AIQL
 
@@ -208,11 +188,12 @@ You can use scalar (numeric, time, or interval) values in the by clause. But num
          by bin(timestamp, 1d)
 ```
 
+By default, results display as a table:
+
 ![](./media/app-insights-analytics-tour/225.png)
 
-`bin` reduces all the timestamps to intervals of 1 day. It's an alias of `floor`, a function familiar from most languages. It simply reduces every value to the nearest multiple of the modulus that you specify, so that `summarize` can assign the rows to groups of a sensible size. (Without it, we'd have a result row for every separate fraction of a second, which wouldn't summarize the data at all.) 
 
-We can do better than the table view here. Let's look at the results in the chart view with the vertical bar option:
+We can do better than the table view. Let's look at the results in the chart view with the vertical bar option:
 
 ![Click Chart, then choose Vertical bar chart and assign x and y axes](./media/app-insights-analytics-tour/230.png)
 
