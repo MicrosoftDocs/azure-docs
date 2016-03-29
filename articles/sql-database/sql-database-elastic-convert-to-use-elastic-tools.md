@@ -20,7 +20,7 @@
 
 If you have an existing scaled-out, sharded solution, you can take advantage of the Elastic database tools by using the techniques described here. After conversion, you can use the [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
 
-These techniques can be implemented using either the .NET Framework client library, or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
+These techniques can be implemented using either the [.NET Framework client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
 There are four steps:
 
