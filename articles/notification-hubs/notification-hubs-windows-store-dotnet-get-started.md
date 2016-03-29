@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/14/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Getting started with Notification Hubs for Windows Store Apps
