@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+	ms.date="03/28/2016"
+	ms.author="iainfou"/>
 
 
 # How to install and configure Trend Micro Deep Security as a Service on a Windows VM

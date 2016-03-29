@@ -1,7 +1,5 @@
 
 
-Workloads usually require many resources to function according to design. Azure Resource Manager templates make it possible for you to not only define how applications are configured, but also how the resources are deployed to support configured applications. This article introduces you to the most popular templates in the gallery and gives you information for using the Azure portal, Azure PowerShell, or Azure CLI to deploy them.
-
 ## Applications
 
 From this table you can find more information about the parameters that are used in the template, you can inspect the template before you deploy it, or you can deploy the template directly from the Azure portal.
