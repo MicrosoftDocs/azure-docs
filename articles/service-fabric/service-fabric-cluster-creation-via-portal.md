@@ -94,7 +94,7 @@ In the Basics blade you need to provide the basic details for your cluster.
 
 10. You do not need to configure **Placement Properties** because a default placement property of "NodeTypeName" is added by the system. You can add more if your application requires it.
 
-11. You do not need to configure **Capacity Properties** ,but is recommended, since you can use it in your applications to report load to the system and there by influencing the placement and resource balancing decisions that the system makes in the service fabric cluster. Read more on service fabric resource balancing starting with  [this document](service-fabric-resource-balancer-architecture.md).
+11. You do not need to configure **Capacity Properties** ,but is recommended, since you can use it in your applications to report load to the system and there by influencing the placement and resource balancing decisions that the system makes in the service fabric cluster. Read more on service fabric resource balancing starting with  [this document](service-fabric-cluster-resource-balancer-architecture.md).
 
 12. Continue the above steps for all the node types.
 
