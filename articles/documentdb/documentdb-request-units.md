@@ -144,7 +144,7 @@ Select top 10 foods in a food group|~10 RU|10
 
 >[AZURE.NOTE]RU charges vary based on the number of documents returned.
 
-With this information, we can estimate the RU requirements for this application given the number of operations and queries we expect per second (
+With this information, we can estimate the RU requirements for this application given the number of operations and queries we expect per second:
 
 Operation/Query|Estimated number per second|Required RUs 
 ---|---|--- 
@@ -163,7 +163,7 @@ Recall that request unit consumption is evaluated as a rate per second. For appl
 	Status Line: RequestRateTooLarge
 	x-ms-retry-after-ms :100
 
-If you are using the .NET Client SDK and LINQ queries, then most of the time you never have to deal with this exception, as the current version of the .NET Client SDK implicitly catches this response, respects the server-specified retry-after header, and retries the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed
+If you are using the .NET Client SDK and LINQ queries, then most of the time you never have to deal with this exception, as the current version of the .NET Client SDK implicitly catches this response, respects the server-specified retry-after header, and retries the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 
 If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a DocumentClientException with status code 429 to the application. In cases such as this, you may consider handling retry behavior and logic in your application's error handling routines or increasing the reserved throughput for the collection.
 
