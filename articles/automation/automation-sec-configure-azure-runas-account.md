@@ -58,6 +58,7 @@ The following steps will have you run a PowerShell script which will create the 
 * An Automation certificate asset in the specified automation account named **AzureRunAsCertificate**, which holds the certificate used in the service principal.
 * An Automation connection asset in the specified automation account named **AzureRunAsConnection**, which holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.<br>
 
+Hi this is a test.
 
 1. Save the following script on your computer.  In this example, save it with the filename **New-AzureServicePrincipal.ps1**.  
 
