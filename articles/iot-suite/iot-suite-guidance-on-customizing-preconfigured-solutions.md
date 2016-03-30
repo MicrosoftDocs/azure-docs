@@ -66,7 +66,7 @@ Included in the remote monitoring solution source code (referenced above), is a 
 
 The preconfigured simulator in the remote monitoring preconfigured solution is a cooler device that emits temperature and humidity telemetry, you can modify the simulator in the [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob ) project when you've forked the GitHub repository.
 
-Additionally, Azure IoT provides a [C SDK Sample](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
+Additionally, Azure IoT provides a [C SDK Sample](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
 
 ### Building and using your own (physical) device
 
