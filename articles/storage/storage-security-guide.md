@@ -595,11 +595,11 @@ Here’s what each row means:
 
 For more information about CORS and how to enable it, please check out these resources.
 
--   [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](https://azure.microsoft.com/en-us/documentation/articles/storage-cors-support/)
+-   [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on Azure.com](https://azure.microsoft.com/en-us/documentation/articles/storage-cors-support/)
 
 	This article provides an overview of CORS and how to set the rules for the different storage services.
 
--   [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx)
+-   [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
 	This is the reference documentation for CORS support for the Azure Storage Services. This has links to articles applying to each storage service, and shows an example and explains each element in the CORS file.
 
