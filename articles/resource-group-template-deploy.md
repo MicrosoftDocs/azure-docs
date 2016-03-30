@@ -16,7 +16,7 @@
    ms.date="03/21/2016"
    ms.author="tomfitz"/>
 
-# Deploy a resources with Azure Resource Manager template
+# Deploy resources with Azure Resource Manager templates
 
 This topic explains how to use Azure Resource Manager templates to deploy your Resources to Azure. It shows how to deploy your Resources by using either Azure PowerShell, Azure CLI, REST API, or the Azure portal. 
 
@@ -287,7 +287,7 @@ For details about KeyVault reference to pass secure values, see [Pass secure val
 ](resource-manager-keyvault-parameter.md)
 
 ## Next steps
-- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](./virtual-machines/arm-template-deployment.md)
+- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md)
 - For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
 - To learn about the sections of the Azure Resource Manager template, see [Authoring templates](resource-group-authoring-templates.md)

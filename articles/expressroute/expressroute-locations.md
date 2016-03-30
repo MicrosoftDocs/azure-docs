@@ -64,8 +64,9 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 |**Cologix** | Supported | Coming soon | Montreal+, Toronto |
 | **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Supported | Amsterdam, Dublin, London |
 | **Comcast** | Supported | Not Supported | Silicon Valley, Washington DC |
-| **CoreSite** | Supported | Supported | Los Angeles | 
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Supported | Supported | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
+| **euNetworks** |  Supported | Supported | Amsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Supported | Supported | Osaka, Tokyo |
 | **[InterCloud]( https://www.intercloud.com/)** | Supported | Supported | Amsterdam, London, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supported | Supported | Amsterdam, London |
@@ -134,6 +135,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 |**Connectivity provider**|**Exchange**|**Peering locations**|
 |---|---|---|
+|**Alaska Communications**|Equinix|Seattle|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 ## ExpressRoute system integrators

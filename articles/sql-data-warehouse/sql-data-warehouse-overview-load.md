@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load data into SQL Data Warehouse
@@ -43,7 +43,7 @@ In the following sections we will take a look at each step in great depth and pr
 
 In order to prep your files for movement to Azure, you will need to export them to flat files.  This is best done using the BCP Command-line Utility.  If you do not have the utility yet, it can be downloaded with the [Microsoft Command Line Utilities for SQL Server][].  A sample BCP command might look like the following:
 
-```
+```sql
 bcp "select top 10 * from <table>" queryout "<Directory>\<File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
 or
 bcp <table> out "<Directory>\<File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
@@ -53,7 +53,7 @@ To maximize throughput, you can try parallelizing the process by running multipl
 
 In addition, as we will be loading using PolyBase, please note that PolyBase does not yet support UTF-16, and all files must be in UTF-8.  This can easily be accomplished by including the '-c' flag in your BCP command or you can also convert flat files from UTF-16 to UTF-8 with the below code:
 
-```
+```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
@@ -92,9 +92,9 @@ Now that your data resides in Azure storage blobs, we will import it into your S
 
 3. **Create an external file format.**  External file formats are reusable as well, you will only need to create one if you are uploading a new type of file.
 
-4. **Create an external data source.**  When pointing at a storage account, an external data source can be used when loading from the same container. For your 'LOCATION' parameter, use a location of the format: 'wasbs://mycontainer@ test.blob.core.windows.net/path'.
+4. **Create an external data source.**  When pointing at a storage account, an external data source can be used when loading from the same container. For your 'LOCATION' parameter, use a location of the format: 'wasbs://mycontainer@ test.blob.core.windows.net'.
 
-```
+```sql
 -- Creating master key
 CREATE MASTER KEY;
 
@@ -133,7 +133,7 @@ After configuring PolyBase, you can load data directly into your SQL Data Wareho
 
 1. Use the 'CREATE EXTERNAL TABLE' command to define the structure of your data.  To make sure you capture the state of your data quickly and efficiently, we recommend scripting out the SQL Server table in SSMS, and then adjusting by hand to account for the external table differences. After creating an external table in Azure it will continue to point to the same location, even if data is updated or additional data is added.  
 
-```
+```sql
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE <External Table Name>
 (
@@ -148,7 +148,7 @@ WITH
 
 2. Load data with a 'CREATE TABLE...AS SELECT' statement.
 
-```
+```sql
 CREATE TABLE <Table Name>
 WITH
 (
@@ -170,7 +170,7 @@ In addition to the `CREATE TABLE...AS SELECT` statement, you can also load data 
 Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
 
 
-```
+```sql
 create statistics [<name>] on [<Table Name>] ([<Column Name>]);
 create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 ```
