@@ -24,4 +24,4 @@ The following table describes the limits and quota enforcements of DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](../articles/documentdb/documentdb-increase-limits.md).
+Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md).

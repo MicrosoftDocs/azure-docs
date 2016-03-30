@@ -1,6 +1,6 @@
 ﻿<properties
    pageTitle="Azure Data Catalog frequently asked questions"
-   description="Frequently asked questions about Azure Data Catalog preview, including capabilities for data source discovery, annotation, and management."
+   description="Frequently asked questions about Azure Data Catalog, including capabilities for data source discovery, annotation, and management."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/04/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog frequently asked questions
@@ -39,7 +39,7 @@ A: Microsoft **Azure Data Catalog** is a fully managed service hosted in the Mic
 
 ## Q: What is the Azure Data Catalog region availability?
 
-During preview, **Azure Data Catalog** services are available only in the following data centers:
+**Azure Data Catalog** services are currently available in the following data centers:
 
 - West US
 - East US
@@ -58,14 +58,13 @@ The Standard Edition of **Azure Data Catalog** supports up to 100,000 registered
 
 Please refer to [Data Catalog DSR](data-catalog-dsr.md) for the list of currently supported data sources.
 
-
 ## Q: How do I request support for another data source?
 
 Feature requests and other feedback can be submitted in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q: How do I get started with Azure Data Catalog?
 
-The best place to get started is by following the instructions in [Getting Started with Data Catalog](../data-catalog-get-started/). This article is an end-to-end tour of the capabilities in the public preview.
+The best place to get started is by following the instructions in [Getting Started with Data Catalog](../data-catalog-get-started/). This article is an end-to-end overview of the capabilities in the service.
 
 ## Q: How do I register my data?
 
@@ -106,10 +105,6 @@ You can delete an object from **Azure Data Catalog** by selecting the object in 
 
 An expert is a person who has an informed perspective about a data object. An object can have multiple experts. An expert does not need to be the “owner” for an object; the expert is simply someone who knows how the data can and should be used.
 
-## Q: What is the SLA for preview?
-
-During **Azure Data Catalog** preview, there is no explicit service level agreement.
-
 ## Q: How do I share information with the Azure Data Catalog team if I encounter problems?
 
 Please use the **Azure Data Catalog** forum to report problems, share information, and ask questions. The forum can be found at http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
@@ -140,10 +135,6 @@ A: Select the data assets in the **Azure Data Catalog**, and click the “Take O
 ## Q: How do I update the registration for a data asset to that changes in the data source are reflected in the Catalog?
 
 A: To update the metadata for data assets that are already registered in the Catalog, simply re-register the data source that contains the assets. Any changes in the data source, such as columns being added or removed from tables or views, will be updated in the Catalog, but any annotations provided by users will be maintained.
-
-## Q: How do I ask questions or get help when working with Azure Data Catalog?
-
-If you encounter problems or require assistance with the **Azure Data Catalog** preview, please post in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q: My question isn’t answered here – what should I do?
 
