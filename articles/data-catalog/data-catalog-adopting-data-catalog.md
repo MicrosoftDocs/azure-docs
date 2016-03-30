@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/28/2016"
+   ms.date="03/28/2016"
    ms.author="derrickv"/>
 
 # Adopting Azure Data Catalog
