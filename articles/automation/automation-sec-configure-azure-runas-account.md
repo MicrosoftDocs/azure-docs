@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/29/2016"
+    ms.date="03/30/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
@@ -45,20 +45,20 @@ In this section, you will perform the following steps to create a new Azure Auto
 When complete, the Automation account is created with a Certificate asset named **AzureRunAsCertificate** that has a one year lifespan, and a Connection asset named **AzureRunAsConnection**.  
 
 ## Update an Automation Account using PowerShell
-The following steps describe how to update an existing Automation account and create the service principal using PowerShell.
+The procedure below updates an existing Automation account and creates the service principal using PowerShell.  This procedure is necessary if you created an account but declined to create the Run As account.
 
 Before proceeding, please verify the following:
 
 1. You have downloaded and installed the [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297)
 2. You have created an automation account.  This account will be referenced as the value for parameters –AutomationAccountName and -ApplicationDisplayName in the script below.
 
-The following steps will have you run a PowerShell script which will create the following:
+The PowerShell script will configure the following:
 
 * An Azure AD application that can be authenticated with the self-signed cert, a service principal account for this application in Azure AD, and assign the Contributor role (you could change this to owner or any other role) for this account in your current subscription.  For further information, please review the [Role-based access control in Azure Automation](../automation/automation-role-based-access-control.md) article.  
 * An Automation certificate asset in the specified automation account named **AzureRunAsCertificate**, which holds the certificate used in the service principal.
 * An Automation connection asset in the specified automation account named **AzureRunAsConnection**, which holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.<br>
 
-Hi this is a test.
+### Run the PowerShell script
 
 1. Save the following script on your computer.  In this example, save it with the filename **New-AzureServicePrincipal.ps1**.  
 
