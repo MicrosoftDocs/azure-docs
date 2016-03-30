@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/29/2016"
+   ms.date="03/30/2016"
    ms.author="tarcher" />
 
 # Streaming Azure diagnostics data in the hot path using EventHub
 
 ## Overview
-Azure diagnostics (WAD) provides flexible ways to collect metrics and logs from compute VMs, and transfer to Azure Storage.  Starting in March 2016 (SDK 2.9) time frame, there is now the ability to sink Azure diagnostics to completely custom data sources and transfer hot path data in seconds using Azure EventHub.  
+Azure diagnostics provides flexible ways to collect metrics and logs from compute VMs, and transfer to Azure Storage.  Starting in March 2016 (SDK 2.9) time frame, there is now the ability to sink Azure diagnostics to completely custom data sources and transfer hot path data in seconds using Azure EventHub.  
 
 Supported data types include:
 
@@ -31,11 +31,13 @@ Supported data types include:
 This article will show you how to configure Azure diagnostics with EventHub from end to end.  Guidance is also provided for common scenarios such as customizing which logs and metrics get sinked to EventHub, how to change configuration in each environment, one example of many how you can view EventHub stream data, and how to troubleshoot the connection.    
 
 ## Prerequisites
-EventHub sinking in Azure diagnostics is supported in all developer environments and compute types - Cloud Service, VM, VMSS, and Servic Fabric - that support WAD, starting in the Azure SDK 2.9 and corresponding Azure Tools for Visual Studio.
+EventHub sinking in Azure diagnostics is supported in all compute types - Cloud Service, VM, VMSS, and Servic Fabric - that support WAD, starting in the Azure SDK 2.9 and corresponding Azure Tools for Visual Studio.
   
-- [Azure SDK for .NET 2.9 or higher](https://azure.microsoft.com/downloads/)
+- Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or higher](https://azure.microsoft.com/downloads/) targets this by default)
 - [Visual Studio 2013 or higher](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-- Prior successful configuration of Azure diagnostics configuration in the application using a *.wadcfgx* file per the article, [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+- Prior successful configuration of Azure diagnostics configuration in the application using a *.wadcfgx* file using one of the following methods:
+	- Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+	- Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
 - EventHub namespace provisioned per the article, [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)
 
 ## Connecting Azure diagnostics to the EventHub sink
@@ -64,7 +66,7 @@ The EventHub sink must also be declared and defined in the **PrivateConfig** sec
 
 The **SharedAccessKeyName** must match a SAS key and policy that has been defined in the **ServiceBus/EventHub** namespace.  This can be done by browsing to the EventHub dashboard in the [classic Azure portal](https://manage.windowsazure.com), clicking on the **Configure** tab, and setting up a named policy (e.g. “SendRule”) that has *Send* permissions.  The **StorageAccount** is also declared in the **PrivateConfig**.  There is no need to change values here especially if they are working.  In this example we leave the values empty, which is a sign that a downstream asset will set the values; e.g. the *ServiceConfiguration.Cloud.cscfg* environment config file will set the environment appropriate names and keys.  
 
->[AZURE.WARNING] Be aware that the EventHub SAS key is stored in plain text in the *.wadcfgx* file.  Oftentimes this is checked in to source code control or as an asset in your build server, so you should protect as appropriate.  It is recommended to use a SAS key here with *Send only* permissions so that any malicious user could - at most - only write to the EventHub, but never listen to, or manage it.  When the application is deployed using Visual Studio or script, the **PrivateConfig** is written to a location that can never be read again, so that is protected post-deployment.  
+>[AZURE.WARNING] Be aware that the EventHub SAS key is stored in plain text in the *.wadcfgx* file.  Oftentimes this is checked in to source code control or as an asset in your build server, so you should protect as appropriate.  It is recommended to use a SAS key here with *Send only* permissions so that any malicious user could - at most - only write to the EventHub, but never listen to, or manage it. 
 
 ## Configuring  Azure diagnostics logs and metrics to sink with EventHub
 As discussed earlier, all default and custom diagnostics data (i.e., metrics and logs) is automatically sinked to Azure Storage in the configured intervals.  With EventHub (and any additional sink), you have the option to specify any root or leaf node in the hierarchy to be sinked with the EventHub.  This includes ETW events, Performance Counters, Windows Event Logs and Application Logs.   
@@ -105,7 +107,7 @@ The following example shows how a developer can take control and limit the amoun
 
 In this example, the sink is applied to logs and is filtered only to Error level trace.
  
-## Deploying and Updating the application & diagnostics config
+## Deploying and Updating a Cloud Service application & diagnostics config
 
 The easiest path to deploying the application along with EventHub sink configuration is using Visual Studio.  To view and make desired edits, open the *.wadcfgx* file in Visual Studio, which is stored in the *Cloud Service Project -> Roles -> (RoleName) ->diagnostics.wadcfgx* file, and save when complete.  
 
@@ -117,7 +119,7 @@ In the following figure, the EventHub dashboard shows healthy sending of WAD dat
 
 ![][0]  
   
->[AZURE.NOTE] When you make updates to the Azure diagnostics config file (.wadcfgx), it is recommended to push the update using the entire application deployment process.  If you push just the config file itself, it is currently required that you push both the **PublicConfig** and - most importantly - the **PrivateConfig** sections at the same time.  The **PrivateConfig** section is not round-tripped automatically, and hence, you need to assert the EventHub SAS key upon each deployment update.  Visual Studio-based tools do this automatically in the package build process.  If an update is pushed without **PrivateConfig**, expect to see the EventHub sink and activity cease to work (see [Troubleshooting](#troubleshooting-the-eventhub-sink) for recovery steps).  
+>[AZURE.NOTE] When you make updates to the Azure diagnostics config file (.wadcfgx), it is recommended to push the updates to the entire application plus the config using either Visual Studio publish or Windows PowerShell script.  
 
 ## Viewing hot path data
 
