@@ -20,8 +20,8 @@
 # Create a virtual network with a site-to-site VPN connection using the Azure classic portal
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure portal - classic](vpn-gateway-site-to-site-create.md)
+- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure Portal - Classic](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 

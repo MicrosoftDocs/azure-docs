@@ -14,7 +14,7 @@
 
 6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
 
-7. For **Location**, verify that the location is the same as the virtual network gateway that this local network gateway will be associated with.
+7. For **Location**, if you are creating a new local network gateway, you can use the same location as the virtual network gateway. But, this is not required. The local network gateway can be in a different location. 
 
 8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
 

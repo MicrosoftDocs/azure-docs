@@ -20,8 +20,8 @@
 # Create a resource manager VNet with a Site-to-Site VPN connection using the Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure portal - classic](vpn-gateway-site-to-site-create.md)
+- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure Portal - Classic](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
@@ -69,18 +69,19 @@ When using these steps as an exercise, you can use the following values:
 - Resource Group: TestRG1
 - Location: East US
 - DNS Server: 8.8.8.8
-- Gateway Name: VNet1GW (not the same thing as a Gateway Subnet name)
+- Gateway Name: VNet1GW
 - Public IP: VNet1GWIP
 - VPN Type: RouteBased
-- Connection Type: Vpn
-- Local Network Gateway Name: VNet1LocalNet
-- Connection Name: VNet1s2s
+- Connection Type: IPsec
+- Gateway Type: Vpn
+- Local Network Gateway Name: Site2
+- Connection Name: VNet1toSite2
 
 
 
 ## 1. Create a virtual network 
 
-If you already have created a virtual network, verify that the settings are compatible with your vpn gateway design, paying particular attention to any subnets that may overlap with other networks. You can then jump to [Specify a DNS server](#dns).
+If you already have created a virtual network, verify that the settings are compatible with your VPN gateway design, paying particular attention to any subnets that may overlap with other networks. You can then jump to [Specify a DNS server](#dns).
 
 If you are creating a new VNet as an exercise, you can refer to these [values](#values) when creating your VNet.
 
@@ -116,7 +117,7 @@ If you are creating this configuration as an exercise, refer to these [values](#
 
 ## 6. Create a local network gateway
 
-In a virtual network, the collection of settings called the *local network gateway* typically refers to your on-premises location. You'll give the local network gateway a name by which Azure can refer to it. 
+The *local network gateway* refers to your on-premises location. You'll give the local network gateway a name by which Azure can refer to it. 
 
 If you are creating this configuration as an exercise, refer to these [values](#values) when adding your local site.
 
