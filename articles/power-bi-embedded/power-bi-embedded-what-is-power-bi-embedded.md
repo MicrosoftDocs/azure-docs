@@ -47,7 +47,7 @@ A **Workspace Collection** is the top-level Azure container for resources which 
 A **Workspace** is a container of Power BI content which includes Datasets, Reports and Dashboards.  A **Workspace** is empty when first created.  During Preview, all content will be authored using the Power BI desktop application and you'll upload it to one of your workspaces using the [Power BI REST APIs](http://docs.powerbi.apiary.io/reference).
 
 ## Using Workspace Collections and Workspaces
-**Workspace Collections** and **Workspaces** are containers of content that are used and organized in whichever way best fits the design of the application you are building. There will be many different ways that you could arrange the content within them. You may choose to put all content within one workspace and then later use security and permissions to further subdivide it amongst your customers. You may also choose to put all of your customers in separate workspaces so that there is some separation between them. Or, you may choose to organize users by region rather than by customer. This flexible design allows you to choose the best way to organize content.
+**Workspace Collections** and **Workspaces** are containers of content that are used and organized in whichever way best fits the design of the application you are building. There will be many different ways that you could arrange the content within them. You may choose to put all content within one workspace and then later use app tokens to further subdivide it amongst your customers. You may also choose to put all of your customers in separate workspaces so that there is some separation between them. Or, you may choose to organize users by region rather than by customer. This flexible design allows you to choose the best way to organize content.
 ## Data Sources in Preview
 
 We will be enabling a limited set of data sources for Preview, as follows:
@@ -66,7 +66,7 @@ Cached datasets can be used in Preview.  However, you cannot refresh cached data
 
 ## Authentication and authorization with app tokens
 
-**Microsoft Power BI Embedded** defers to your application to perform all the necessary user Authentication and Authorization.  There is no explicit requirement that your end-users be customers of Azure AD.  Instead, your application will express authorization to render a Power BI report to the **Microsoft Power BI Embedded** via **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wishes to render a report.  See [App Tokens](power-bi-embedded-get-started-sample.md#key-flow).
+**Microsoft Power BI Embedded** defers to your application to perform all the necessary user Authentication and Authorization. There is no explicit requirement that your end-users be customers of Azure AD.  Instead, your application will express authorization to render a Power BI report to the **Microsoft Power BI Embedded** via **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wishes to render a report.  See [App Tokens](power-bi-embedded-get-started-sample.md#key-flow).
 
 ![](media\powerbi-embedded-whats-is\app-tokens.png)
 
