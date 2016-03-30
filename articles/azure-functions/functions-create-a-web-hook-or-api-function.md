@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a WebHook/API function | Microsoft Azure"
+   pageTitle="Create a web hook or API Azure Function | Microsoft Azure"
    description="Use Azure Functions to create a function that is invoked by a WebHook or API call."
    services="azure-functions"
    documentationCenter="na"

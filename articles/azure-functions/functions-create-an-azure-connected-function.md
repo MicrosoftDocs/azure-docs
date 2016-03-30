@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create an Azure Connected Azure Function | Microsoft Azure"
+   pageTitle="Create an Azure Function which binds to an Azure service | Microsoft Azure"
    description="Build an Azure Function, a serverless application, which interacts with other Azure Services."
    services="functions"
    documentationCenter="dev-center-name"
