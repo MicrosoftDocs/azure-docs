@@ -150,14 +150,6 @@ After you bind the function to the table as a predicate, the following things ar
 
 You can't drop the inline table\-valued function as long as a table is using the function as its filter predicate.
 
-## How Stretch Database applies the filter predicate
-Stretch Database applies the filter predicate to the table and determines eligible rows by using the CROSS APPLY operator. For example:
-
-```tsql
-SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column2)
-```
-If the function returns a non\-empty result for the row, the row is eligible to be migrated.
-
 ## Filter rows by date
 The following example migrates rows where the **date** column contains a value earlier than January 1, 2016.
 
@@ -398,6 +390,14 @@ COMMIT ;
     		WHERE (@column1 >= 1 AND @column1 <= 200 OR @column1 = 300) AND @column2 > 1000
     GO
     ```
+
+## How Stretch Database applies the filter predicate
+Stretch Database applies the filter predicate to the table and determines eligible rows by using the CROSS APPLY operator. For example:
+
+```tsql
+SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column2)
+```
+If the function returns a non\-empty result for the row, the row is eligible to be migrated.
 
 ## Replace an existing filter predicate
 You can replace a previously specified filter predicate by running the ALTER TABLE statement again and specifying a new value for the FILTER\_PREDICATE parameter. For example:
