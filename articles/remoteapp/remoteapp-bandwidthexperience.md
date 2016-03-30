@@ -27,4 +27,4 @@ When you are looking at the overall network bandwidth required for Azure RemoteA
 
 When you evaluate your network bandwidth needs, make sure to consider all of these factors working as a system.
 
-Now, go back to the [main network bandwidth article](remoteapp-bandwidth.md), or move on to testing your [network bandwidth](remoteapp-bandwidthtests.ms).
+Now, go back to the [main network bandwidth article](remoteapp-bandwidth.md), or move on to testing your [network bandwidth](remoteapp-bandwidthtests.md).
