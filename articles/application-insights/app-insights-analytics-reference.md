@@ -2082,6 +2082,18 @@ The [bracket] notatation and dot notation are equivalent:
 * Use `parsejson()` if you need to extract more than one value from the JSON.
 * Consider having the JSON parsed at ingestion by declaring the type of the column to be dynamic.
 
+#### JSON Path expressions
+
+|||
+|---|---|
+|`$`|Root object|
+|`@`|Current object|
+|`.` or `[0]` | Child|
+|`[0]`|Array subscript|
+
+*(We don't currently implement wildcards, recursion, union, or slices.)*
+
+
 
 
 ### parsejson
