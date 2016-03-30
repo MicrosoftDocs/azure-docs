@@ -59,7 +59,7 @@ You can enable Stretch Database for an existing table or create a new table with
 ### Common options
 Use the following options when you run CREATE TABLE or ALTER TABLE to enable Stretch Database on a table.
 
--   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify  a predicate to select rows to migrate if the table contains both historical and current data. The predicate must call an inline table\-valued function. For more info, see [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
+-   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify  a predicate to select rows to migrate if the table contains both historical and current data. The predicate must call an inline table\-valued function. For more info, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
 
     >   [AZURE.NOTE] If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
@@ -76,7 +76,7 @@ Here's an example that migrates the entire table and begins data migration immed
 ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md).
+Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 ALTER TABLE <table name>
@@ -96,7 +96,7 @@ Here's an example that migrates the entire table and begins data migration immed
 CREATE TABLE <table name> ...
     WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md).
+Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 CREATE TABLE <table name> ...
