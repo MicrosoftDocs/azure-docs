@@ -607,7 +607,7 @@ For more information about CORS and how to enable it, please check out these res
 
 	This is a link to the initial blog article announcing CORS and showing how to use it.
 
-##Frequently Asked Questions
+##Frequently asked questions about Azure Storage security
 
 1.  **How can I verify the integrity of the blobs I’m transferring into or out of Azure Storage if I can’t use the HTTPS protocol?**
 
