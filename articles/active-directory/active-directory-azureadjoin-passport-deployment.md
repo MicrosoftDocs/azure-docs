@@ -3,6 +3,7 @@
 	description="Deployment instructions to enable Microsoft Passport in your organization."
 	services="active-directory"
 	documentationCenter=""
+	keywords="configure Microsoft Passport, Microsoft Passport for Work deployment"
 	authors="femila"
 	manager="stevenpo"
 	editor=""
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
