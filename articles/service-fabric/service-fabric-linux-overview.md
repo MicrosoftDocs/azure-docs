@@ -30,7 +30,7 @@ You can build [guest executable services](service-fabric-deploy-existing-app.md)
 
 ## Participate in the preview
 
-If you are interested in being considered for the limited preview program, [please fill out the survey](http://aka.ms/sflinuxsurvey](http://aka.ms/sflinuxsurvey) so that we can better understand your scenario and requirements. The preview will be very small at first and will expand over time.
+If you are interested in being considered for the limited preview program, [please fill out the survey](http://aka.ms/sflinuxsurvey) so that we can better understand your scenario and requirements. The preview will be very small at first and will expand over time.
 
 Please note that Service Fabric on Linux will be conceptually equivalent to what is available on Windows (except for OS specifics and programming language support), so most of our [existing documentation](http://aka.ms/servicefabricdocs) applies and will help you get familiar with the technology.
 
