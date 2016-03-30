@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/08/2016" 
+	ms.date="03/30/2016" 
 	ms.author="johnmac"/>
 
 # Performance levels in DocumentDB
@@ -31,7 +31,7 @@ After reading this article, you'll be able to answer the following questions:
 
 Each DocumentDB collection created under a Standard account is provisioned with an associated performance level. Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections. DocumentDB supports both user-defined performance levels and pre-defined performance levels.  
 
-Each performance level has an associated request unit (RU) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. 
+Each performance level has an associated [request unit (RU)](http://go.microsoft.com/fwlink/?LinkId=735027) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -112,7 +112,7 @@ The Azure Portal is one option available to you when managing your collections' 
 
 ![Changing pricing tier][1]
 
-##Changing performance levels using the .NET SDK
+## Changing performance levels using the .NET SDK
 
 Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx), but the process is similar for our other [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). If you are new to our .NET SDK, please visit our [getting started tutorial](documentdb-get-started.md).
 
@@ -156,6 +156,7 @@ To learn more about pricing and managing data with Azure DocumentDB, explore the
 - [Managing DocumentDB capacity](documentdb-manage.md) 
 - [Modeling data in DocumentDB](documentdb-modeling-data.md)
 - [Partitioning data in DocumentDB](documentdb-partition-data.md)
+- [Request units](http://go.microsoft.com/fwlink/?LinkId=735027)
 
 To learn more about DocumentDB, see the Azure DocumentDB [documentation](https://azure.microsoft.com/documentation/services/documentdb/). 
 
