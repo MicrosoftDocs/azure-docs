@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="03/31/2016"
    ms.author="jesseb; mikhegn"/>
 
 # Debug your Service Fabric application by using Visual Studio
+
+## Debug a local Service Fabric application
 
 You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
 
@@ -34,14 +36,16 @@ You can save time and money by deploying and debugging your Azure Service Fabric
 
     ![View diagnostic events in real time][diagnosticevents]
 
-5. You can also open the **Diagnostic Events** window in Server Explorer.  Under **Azure**, right-click **Service Fabric Cluster** > **View Diagnostic Events**.
+5. You can also open the **Diagnostic Events** window in Cloud Explorer.  Under **Service Fabric**, right-click any node and choose **View Streaming Traces**.
 
-    ![Open the diagnostic events window][viewdiagnosticevents]
+    ![Open the diagnostic events window][viewstreamingtraces]
+
+    If you want to filter your traces to a specific service or application, simply enable streaming traces on that specific service or application. 
 
 6. The diagnostic events can be seen in the automatically generated **ServiceEventSource.cs** file and are called from application code.
 
     ```csharp
-    ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, Service.ServiceTypeName);
+    ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());
     ```
 
 7. The **Diagnostic Events** window supports filtering, pausing, and inspecting events in real-time.  The filter is a simple string search of the event message, including its contents.
@@ -58,7 +62,9 @@ You can save time and money by deploying and debugging your Azure Service Fabric
 
 If your Service Fabric applications are running on a Service Fabric cluster in Azure, you are able to remotely debug these, directly from Visual Studio.
 
-   > [AZURE.NOTE] The feature requires Service Fabric Tools for Visual Studio (part of the [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015)) and [Azure Tools for Visual Studio 2.9](http://go.microsoft.com/fwlink/?LinkId=746481).
+    > [AZURE.WARNING] Remote debugging is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications  
+
+    > [AZURE.NOTE] The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/en-us/downloads/).
 
 1. Navigate to your cluster in **Cloud Explorer**, right-click and choose **Enable Debugging**
 
@@ -93,7 +99,10 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
 
 You are also able to stream traces directly from a remote cluster node to Visual Studio. This feature allows you to stream ETW trace events, produced on a Service Fabric cluster node, directly in Visual Studio.
 
-   > [AZURE.NOTE] The remote streaming traces feature described here is only available on Service Fabric managed clusters in Microsoft Azure. The feature requires Service Fabric Tools for Visual Studio (part of the [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015)) and [Azure Tools for Visual Studio 2.9](http://go.microsoft.com/fwlink/?LinkId=746481).
+    > [AZURE.WARNING] Streaming traces is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
+    > In a production scenario, you should rely on forwarding events using Azure Diagnostics.
+
+    > [AZURE.NOTE] The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/en-us/downloads/).
 
 1. Navigate to your cluster in **Cloud Explorer**, right-click and choose **Enable Streaming Traces**
 
@@ -103,7 +112,7 @@ You are also able to stream traces directly from a remote cluster node to Visual
 
 2. Expand the **Nodes** element in **Cloud Explorer**, right-click the node you want to stream traces from and choose **View Streaming Traces**
 
-    ![View streaming traces][viewstreamingtraces]
+    ![View remote streaming traces][viewremotestreamingtraces]
     
     Repeat step 2 for as many nodes as you want to see traces from. Each nodes stream will show up in a dedicated window.
     
