@@ -33,6 +33,25 @@ The outline for the steps to accomplish this is as below
 3. Add a webhook to your runbook
 4. Add an alert to your Virtual Machine
 
+> [AZURE.NOTE] Because of the size of the first Virtual Machine, the sizes it can be resized to maybe limited due to the availability of the other sizes in the cluster current Virtual Machine is deployed in. In the published automation runbooks that allow vertical scaling we take care of this case and only scale within the sizes below
+VM size pairs
+
+>| VM sizes scaling pair |   |
+|---|---|
+|  Basic_A0 |  Basic_A4 |
+|  Standard_A0 | Standard_A4 |
+|  Standard_A5 | Standard_A7  |
+|  Standard_A8 | Standard_A9  |
+|  Standard_A10 |  Standard_A11 |
+|  Standard_D1 |  Standard_D4 |
+|  Standard_D11 | Standard_D14  |
+|  Standard_DS1 |  Standard_DS4 |
+|  Standard_DS11 | Standard_DS14  |
+|  Standard_D1v2 |  Standard_D5v2 |
+|  Standard_D11v2 |  Standard_D14v2 |
+|  Standard_G1 |  Standard_G5 |
+|  Standard_GS1 |  Standard_GS5 |
+
 ## Setup Azure Automation to access your Virtual Machines
 
 In this section you will accomplish the following tasks
