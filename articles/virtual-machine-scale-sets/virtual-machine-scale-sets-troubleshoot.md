@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
+	ms.workload="na"
 	ms.tgt_pltfrm="windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -72,6 +72,6 @@ Some things to consider include:
 
     Once you’ve been through these steps, you could try the forums on [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), or [Stack overflow](http://stackoverflow.com/questions/tagged/azure), or log a support call. Be prepared to share the template and a view of the performance data.
 
-[audit]: ./media/vmss-autoscale-troubleshoot/image3.png
-[explorer]: ./media/vmss-autoscale-troubleshoot/image1.png
-[tables]: ./media/vmss-autoscale-troubleshoot/image4.png
+[audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
+[explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
+[tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
