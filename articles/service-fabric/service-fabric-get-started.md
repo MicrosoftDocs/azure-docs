@@ -30,7 +30,7 @@ The following operating system versions are supported for development:
 
 ## Install the runtime, SDK, and tools
 
-The Web Platform Installer performs the installation of the Service Fabric components. There are three options for installation:
+The Web Platform Installer offers three configurations for Service Fabric development:
 
 - [Install the Service Fabric runtime, SDK, and tools for Visual Studio 2015][full-bundle-vs2015]
 - [Install the Service Fabric runtime, SDK, and tools for Visual Studio "15" Preview][full-bundle-dev15]
