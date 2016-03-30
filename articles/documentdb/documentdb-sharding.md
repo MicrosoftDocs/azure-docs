@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # How to partition data in DocumentDB with the .NET SDK
 
-Azure DocumentDB is a document database service that enables you to seamlessly scale your account through provisioning of collections using the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) and [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) (also called **sharding**). In order to make it easier to develop partitioned applications and reduce the amount of boiler-plate code required for partitioning tasks, we have added functionality in the .NET, Node.js, and Java SDKs that makes it easier to build applications that are scaled out across multiple partitions.
+Azure DocumentDB supports collections that can scale up to [large volumes of storage and throughput](documentdb-partition-data.md). However, there are use cases where it is beneficial to have fine grained control over partitioning behavior. In order to reduce the boiler-plate code required for partitioning tasks, we have added functionality in the .NET, Node.js, and Java SDKs that makes it easier to build applications that are scaled out across multiple collections.
 
 In this article, we'll take a look at the classes and interfaces in the .NET SDK and how you can use them to develop partitioned applications.
 
@@ -26,8 +26,8 @@ In this article, we'll take a look at the classes and interfaces in the .NET SDK
 
 Before we dig deeper into partitioning, let's recap some basic DocumentDB concepts that relate to partitioning. Every Azure DocumentDB database account consists of a set of databases, each containing multiple collections, each of which can contain stored procedures, triggers, UDFs, documents, and related attachments. Collections can be treated as partitions in DocumentDB and have the following properties:
 
-- Collections are physical partitions, not just logical containers. Hence there is a performance benefit in querying or processing documents which are located within the same collection.
-- Collections are the boundary for ACID transactions, i.e., stored procedures and triggers.
+- Collections offer performance isolation. Hence there is a performance benefit in collating similar documents within the same collection. For example, for time series data, you might want to place data for the last month, that is frequently queried, within a collection with higher provisioned throughput whereas older data is placed within collections with low provisioned throughput.
+- ACID transactions i.e. stored procedures and triggers cannot span a collection. Transactions are scoped within a single partition key value within a collection.
 - Collections do not enforce a schema, so they can be used for JSON documents of the same type or different types.
 
 Starting with version [1.1.0 of the Azure DocumentDB .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), you can perform document operations directly against a database. Internally the [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) uses the PartitionResolver that you have specified for the database to route requests to the appropriate collection.
@@ -136,12 +136,12 @@ The samples are open source and we encourage you to submit pull requests with co
 >[AZURE.NOTE] Collection creates are rate-limited by DocumentDB, so some of the sample methods shown here might take a few minutes to complete.
 
 ##FAQ
-**Why does DocumentDB support client-side partitioning vs. server-side partitioning?**
+** Does DocumentDB support server-side partitioning?**
 
-DocumentDB supports client-side partitioning for a couple of reasons:
+Yes, DocumentDB supports [server-side partitioning](documentdb-partition-data.md). DocumentDB also supports client-side partitioning via client-side partition resolvers for more advanced use cases.
 
-- It is really difficult to abstract away the concept of a collection from developers without compromising one of the three among consistent indexing/querying, high availability and ACID transaction guarantees. 
-- Document databases often require flexibility in terms of defining partitioning strategies, which a server-side approach might not be able to accommodate. 
+** When should I use server-side vs. client-side partitioning?**
+For the majority of use cases, we recommend the use of server-side partitioning since it handles the administrative tasks of partitioning data and routing requests. However, if you need range partitioning or have a specialized use case for performance isolation between different values of partition keys, then client-side partitioning might be the best approach.
 
 **How do I add or remove a collection to my partitioning scheme?**
 
@@ -156,9 +156,9 @@ You can serialize the partitioner state as JSON and store in configuration files
 You can chain PartitionResolvers by implementing your own IPartitionResolver that internally uses one or more existing resolvers. Take a look at TransitionHashPartitionResolver in the samples project for an example.
 
 ##References
-* [Partitioning code samples on Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
-* [Partitioning data with DocumentDB concepts](documentdb-partition-data.md)
+* [Partitioning data with DocumentDB](documentdb-partition-data.md)
 * [DocumentDB collections and performance levels](documentdb-performance-levels.md)
+* [Partitioning code samples on Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
 * [DocumentDB .NET SDK Documentation at MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net)
 * [DocumentDB Limits](documentdb-limits.md)
