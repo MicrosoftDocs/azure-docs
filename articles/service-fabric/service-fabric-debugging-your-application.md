@@ -62,9 +62,9 @@ You can save time and money by deploying and debugging your Azure Service Fabric
 
 If your Service Fabric applications are running on a Service Fabric cluster in Azure, you are able to remotely debug these, directly from Visual Studio.
 
-    > [AZURE.WARNING] Remote debugging is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications  
+> [AZURE.NOTE] The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/en-us/downloads/).    
 
-    > [AZURE.NOTE] The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/en-us/downloads/).
+> [AZURE.WARNING] Remote debugging is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
 
 1. Navigate to your cluster in **Cloud Explorer**, right-click and choose **Enable Debugging**
 
@@ -99,10 +99,10 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
 
 You are also able to stream traces directly from a remote cluster node to Visual Studio. This feature allows you to stream ETW trace events, produced on a Service Fabric cluster node, directly in Visual Studio.
 
-    > [AZURE.WARNING] Streaming traces is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
-    > In a production scenario, you should rely on forwarding events using Azure Diagnostics.
+> [AZURE.NOTE] The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/en-us/downloads/).
 
-    > [AZURE.NOTE] The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/en-us/downloads/).
+> [AZURE.WARNING] Streaming traces is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
+> In a production scenario, you should rely on forwarding events using Azure Diagnostics.
 
 1. Navigate to your cluster in **Cloud Explorer**, right-click and choose **Enable Streaming Traces**
 
