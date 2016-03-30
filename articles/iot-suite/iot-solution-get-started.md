@@ -60,6 +60,13 @@ On your device:
     -   Android: <http://rink.io/spMyDrivingAndroid>
 
     -   Windows 10 Phone: <http://rink.io/spMyDrivingUWP>
+    
+*Any issues launching on Windows 10 Phone?* Might be your phone is an update or two behind. Make sure you've got the latest updates, or install:
+
+ - Microsoft.NET.Native.Framework.1.2.appx 
+ - Microsoft.NET.Native.Runtime.1.1.appx 
+ - Microsoft.VCLibs.ARM.14.00.appx 
+   
 
 ## iOS installation
 
