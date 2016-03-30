@@ -1,7 +1,6 @@
 <properties 
    pageTitle="Basic Azure CLI Commands in Azure Resource Manager mode | Microsoft Azure"
    services="virtual-machines" 
-   title="Using Azure CLI with Azure Resource Manager" 
    authors="RicksterCDN" 
    manager="timlt" 
    editor="tysonn" 
