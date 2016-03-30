@@ -44,7 +44,7 @@ Including data profiles when registering data assets helps users answer question
 -	What are some of the anomalies of the data source?
 -	What are possible challenges of integrating this data into my application?
 
-> [AZURE.NOTE] You can also add documentation to an asset to describe how data could be integrated into an application. See [How to document data sources](data-catalog-documentation.md).
+> [AZURE.NOTE] You can also add documentation to an asset to describe how data could be integrated into an application. See [How to document data sources](data-catalog-how-to-documentation.md).
 
 
 <a name="howto"/>
