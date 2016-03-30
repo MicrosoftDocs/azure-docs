@@ -208,7 +208,7 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', req.headers);
 ```
 
-### HTTP triggers: context.req and `context.res
+### HTTP triggers: context.req and context.res
 
 In the case of HTTP Triggers, because it is such a common pattern to use `req` and `res` for the HTTP request and response objects, we decided to make it easy to access those on the context object, instead of forcing you to use the full `context.bindings.name` pattern.
 
@@ -819,3 +819,6 @@ public static void Run(TimerInfo myTimer, ICollector<string> OutPutQueueItem, Tr
     OutPutQueueItem.Add($"C# Timer trigger function executed at: {DateTime.Now} (item 2)");
 }
 ```
+
+### Azure Mobile Apps easy tables bindings
+
