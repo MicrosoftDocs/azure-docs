@@ -25,7 +25,24 @@ We created the MyDriving solution to give you a jumpstart in creating your own I
 
 If you haven't tried the app yet, look at the [Get started guide](iot-solution-get-started.md).
 
-Here are the main steps to get going. Note that many of them are optional.
+## What do you have to create?
+
+There's a detailed account of the architecture in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs). In summary, there are several pieces we set up, and that you would set up to create a similar project:
+
+* **Client app**. It runs on Android, iOS and Windows 10 phones. We use the Xamarin platform to share much of the code, which is stored on GitHub under `src/MobileApp`. The app actually performs two distinct functions:
+ * **Relay telemetry** from the OBD device and from its own location service to the system's cloud backend.
+ * **User interface** that allows users to query about their recorded road trips.
+* **Cloud service** that ingests the road trip data in real time and processes it. The main work of creating this service is to choose, parameterize and wire up a variety of Azure services. Some of the parts require scripts to filter and process the incoming data. We use an **Azure Resource Management (ARM)** template to configure all the parts.
+* **Mobile service app**. This is the web service behind the user interface part of the device app. Its main job is to query the database of stored processed data. Its code is on GitHub under `src/MobileAppService`.
+* **Visual Studio with Xamarin** is our development environment. Xamarin - which exists both a component of Visual Studio and as a stand-alone IDE - is used to build the cross-platform device code. To build the iOS code, it's necessary to have an instance of Xamarin running on an OSX machine, though if required it can be run as an agent, managed from Visual Studio.
+* **Unit testing** of the device apps is performed in Xamarin Test Cloud.
+* **GitHub** is the repository where we store all the code, scripts and templates.
+* **Visual Studio Team Services** is a cloud service used to manage the continuous build and test of the web service and device apps.
+* **HockeyApp** is used to distribute releases of the device code. As well as managing distribution, it collects crash and usage reports and user feedback.
+* **Application Insights** monitors the mobile web service.
+
+
+So let's see how we set up all of that. Note that many of the steps are optional.
 
 ## Sign up for Accounts
 
