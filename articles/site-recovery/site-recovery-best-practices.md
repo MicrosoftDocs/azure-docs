@@ -18,13 +18,15 @@
 
 # Prepare for Azure Site Recovery deployment
 
-Read this article for a high level overview of the deployment requirements for each replication scenario supported by the Azure Site Recovery service. After you read the general requirements for each scenario there's a link to the prerequisites section of each deployment walkthrough that contains specific deployment details.
+Read this article for a high level overview of the deployment requirements for each replication scenario supported by the Azure Site Recovery service. After you read the general requirements for each scenario link to specific deployment details in the prerequisites section of each deployment article.
 
 After reading this article post any comments or questions at the bottom of the article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Overview
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
+Organizations need a business continuity and disaster recovery (BCDR) strategy that a determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy center's around solutions that keep business data safe and recoverable, and workloads continuously available, when disaster occurs.
+
+Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary site to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Site Recovery can be used in a number of scenarios and can protect a number of workloads. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
 
 
 ## Requirements for replicating Hyper-V virtual machines
