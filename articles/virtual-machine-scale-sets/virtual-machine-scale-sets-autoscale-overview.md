@@ -43,7 +43,7 @@ Automatically change the capacity of your scale set by using a combination of th
 
 ### Configure the Azure Diagnostics extension
 
-Automatic scaling can only be done if metrics collection is successful on each virtual machine in the scale set. The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities that meets the metrics collection needs of the autoscale resource. You can install the extension as part of the Resource Manager template. [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md) provides more information about using the extension.
+Automatic scaling can only be done if metrics collection is successful on each virtual machine in the scale set. The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities that meets the metrics collection needs of the autoscale resource. You can install the extension as part of the Resource Manager template. [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md) provides more information about using the extension.
 
 This example shows the variables that are used in the template to configure the diagnostics extension:
 
@@ -206,5 +206,5 @@ After a cooldown period of five minutes, if the average number of threads on the
 
 ## Next Steps
 
-1. Get started creating your first scale set by using the information in [Create a Windows Virtual Machine Scale Set](virtual-machine-scale-sets-windows-create.md) or [Create a Linux Virtual Machine Scale Set](virtual-machine-scale-sets-linux-create.md)
+1. Get started creating your first scale set by using the information in [Create a Windows Virtual Machine Scale Set](virtual-machine-scale-sets-windows-create.md).
 2. Take a look at [Autoscale Windows Virtual Machine Scale Sets](virtual-machine-scale-sets-windows-autoscale.md) or [Autoscale Linux Virtual Machine Scale Sets](virtual-machine-scale-sets-linux-autoscale.md) to see an example of how to create a scale set with automatic scaling configured.
