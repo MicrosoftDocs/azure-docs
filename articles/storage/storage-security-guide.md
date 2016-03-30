@@ -242,11 +242,9 @@ that provides information about the access allowed and the length of time for wh
 	&se=2015-12-10T22%3A23%3A26Z (end time, in UTC time and URL encoded)
 	&sr=b (resource is a blob)
 	&sp=r (read access)
-
-&sip=168.1.5.60-168.1.5.70 (requests can only come from this range of IP addresses)
-
-&spr=https (only allow HTTPS requests)
-&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
+	&sip=168.1.5.60-168.1.5.70 (requests can only come from this range of IP addresses)
+	&spr=https (only allow HTTPS requests)
+	&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 
 ####How the Shared Access Signature is authenticated by the Azure Storage Service
 
