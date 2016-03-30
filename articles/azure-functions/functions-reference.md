@@ -91,7 +91,7 @@ parentFolder (for example, wwwroot)
  | | | - ... packages ...
  | | - package.json
  | - mycsharpfunction
- | | - funciton.json
+ | | - function.json
  | | - run.csx
 ```
 
@@ -103,7 +103,13 @@ When setting up a project for deploying functions to a function app in Azure App
 
 ### Parallel execution
 
-When multiple triggering events occur faster than a single function instance can process them, The Azure Functions runtime may call multiple instances of the function. If a function app is using the [Dynamic Hosting Plan](functions-scale.md#dynamic-hosting-plan), the concurrent execution limit is 4. 
+When multiple triggering events occur faster than a single function instance can process them, The Azure Functions runtime may call multiple instances of the function. If a function app is using the [Dynamic Hosting Plan](functions-scale.md#dynamic-hosting-plan), the concurrent execution limit is 4.
+
+### Azure Functions Pulse  
+
+Pulse is a live event stream which shows how often your function runs, as well as successes and failures. You can also monitor your average execution time. We’ll be adding more features and customization to it over time. You can access the **Pulse** page from the **Monitoring** tab.
+
+>[AZURE.NOTE] Pulse doesn’t yet work for non-dynamic Function Apps, but it will shortly! 
 
 ## Node/JavaScript API
 
