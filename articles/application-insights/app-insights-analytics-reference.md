@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="03/30/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -22,11 +22,13 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
+*Use your browser search to find language elements in this page, which combines the contents of the Queries, Aggregations and Scalars pages.* 
+
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 
 
-## QUERIES
+## Queries and operators
 
 A query over your telemetry is made up of a reference to a source stream, followed by a pipeline of filters. For example:
 
@@ -54,7 +56,7 @@ A query may be prefixed by one or more [let clauses](#let-clause), which define 
 > `T` is used in query examples below to denote the preceding pipeline or source table.
 > 
 
-## count operator
+### count operator
 
 The `count` operator returns the number of records (rows) in the input record set.
 
@@ -79,7 +81,7 @@ requests | count
 
 
 
-## extend operator
+### extend operator
 
      T | extend duration = stopTime - startTime
 
@@ -116,7 +118,7 @@ traces
 ```
 
 
-## join operator
+### join operator
 
     Table1 | join (Table2) on CommonColumn
 
@@ -184,7 +186,7 @@ Get extended activities from a log in which some entries mark the start and end 
 
 ```
 
-## let clause
+### let clause
 
 **Tabular let - naming a table**
 
@@ -235,7 +237,7 @@ Self-join:
       on session_id
     | extend duration = stop - start 
 
-## limit operator
+### limit operator
 
      T | limit 5
 
@@ -256,7 +258,7 @@ There's an implicit limit on the number of rows returned to the client, even if 
 
 
 
-## mvexpand operator
+### mvexpand operator
 
     T | mvexpand listColumn 
 
@@ -323,7 +325,7 @@ Splits an exception record into rows for each item in the details field.
 
 
 
-## parse operator
+### parse operator
 
     T | parse "I am 63 next birthday" with "I am" Year:int "next birthday"
 
@@ -422,7 +424,7 @@ StormEvents
 ```
 
 
-## project operator
+### project operator
 
     T | project cost=price*quantity, price
 
@@ -461,7 +463,7 @@ T
 
 
 
-## range operator
+### range operator
 
     range LastWeek from ago(7d) to now() step 1d
 
@@ -526,7 +528,7 @@ range timestamp from ago(4h) to now() step 1m
 Shows how the `range` operator can be used to create
 a small, ad-hoc, dimension table which is then used to introduce zeros where the source data has no values.
 
-## reduce operator
+### reduce operator
 
     exceptions | reduce by outerMessage
 
@@ -559,14 +561,14 @@ For example, the result of `reduce by city` might include:
 | Paris | 27163 |
 
 
-## render directive
+### render directive
 
     T | render [ table | timechart  | barchart | piechart ]
 
 Render directs the presentation layer how to show the table. It should be the last element of the pipe. It's a convenient alternative to using the controls on the display, allowing you to save a query with a particular presentation method.
 
 
-## sort operator 
+### sort operator 
 
     T | sort by country asc, price desc
 
@@ -593,7 +595,7 @@ Traces
 ```
 All rows in table Traces that have a specific `ActivityId`, sorted by their timestamp.
 
-## summarize operator
+### summarize operator
 
 Produces a table that aggregates the content of the input table.
  
@@ -640,12 +642,12 @@ Although you can provide arbitrary expressions for both the aggregation and grou
 
 
 
-## take operator
+### take operator
 
 Alias of [limit](#limit-operator)
 
 
-## top operator
+### top operator
 
     T | top 5 by Name desc
 
@@ -669,7 +671,7 @@ selection is actually from the "bottom" or "top" of the range.
 `top 5 by name` is superficially equivalent to `sort by name | take 5`. However, it runs faster and always returns sorted results, whereas `take` makes no such guarantee.
 
 
-## union operator
+### union operator
 
      Table1 | union Table2, Table3
 
@@ -729,7 +731,7 @@ exceptions
 
 This more efficient version produces the same result. It filters each table before creating the union.
 
-## where operator
+### where operator
 
      T | where fruit=="apple"
 
@@ -777,9 +779,9 @@ Notice that we put the comparison between two columns last, as it can't utilize 
 
 
 
-## AGGREGATIONS
+## Aggregrations and summarize
 
-## any 
+### any 
 
     any(Expression)
 
@@ -799,7 +801,7 @@ traces
 
 <a name="argmin"></a>
 <a name="argmax"></a>
-## argmin, argmax
+### argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
@@ -830,13 +832,13 @@ Find the lowest value of each metric, together with its timestamp and other data
  
 
 
-## avg
+### avg
 
     avg(Expression)
 
 Calculates the average of *Expression* across the group.
 
-## buildschema
+### buildschema
 
     buildschema(DynamicExpression)
 
@@ -903,7 +905,7 @@ The schema tells us that:
 * "t" is an array of strings.
 * Every property is implicitly optional, and any array may be empty.
 
-#### Schema model
+##### Schema model
 
 The syntax of the returned schema is:
 
@@ -924,7 +926,7 @@ They are equivalent to a subset of the TypeScript type annotations, encoded as a
     }
 
 
-## count
+### count
 
     count([ Predicate ])
 
@@ -935,7 +937,7 @@ Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predic
 > [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
    
 
-## dcount
+### dcount
 
     dcount( Expression [ ,  Accuracy ])
 
@@ -955,7 +957,7 @@ Returns an estimate of the number of distinct values of *Expr* in the group. (To
 
 ![](./media/app-insights-analytics-aggregations/dcount.png)
 
-## makelist
+### makelist
 
     makelist(Expr [ ,  MaxListSize ] )
 
@@ -963,7 +965,7 @@ Returns a `dynamic` (JSON) array of all the values of *Expr* in the group.
 
 * *MaxListSize* is an optional integer limit on the maximum number of elements returned (default is *128*).
 
-## makeset
+### makeset
 
     makeset(Expression [ , MaxSetSize ] )
 
@@ -982,7 +984,7 @@ Returns a `dynamic` (JSON) array of the set of distinct values that *Expr* takes
 See also the [`mvexpand` operator](#mvexpand-operator) for the opposite function.
 
 
-## max, min
+### max, min
 
     max(Expr)
 
@@ -997,7 +999,7 @@ Calculates the minimum of *Expr*.
 
 <a name="percentile"></a>
 <a name="percentiles"></a>
-## percentile, percentiles
+### percentile, percentiles
 
     percentile(Expression, Percentile)
 
@@ -1040,7 +1042,7 @@ Calculate multiple statistics:
         percentiles(Duration, 5, 50, 95)
       by name
 
-#### Estimation error in percentiles
+##### Estimation error in percentiles
 
 The percentiles aggregate provides an approximate value using [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf). 
 
@@ -1049,19 +1051,19 @@ A few important points:
 * The bounds on the estimation error vary with the value of the requested percentile. The best accuracy is at the ends of [0..100] scale, percentiles 0 and 100 are the exact minimum and maximum values of the distribution. The accuracy gradually decreases towards the middle of the scale. It is worst at the median and is capped at 1%. 
 * Error bounds are observed on the rank, not on the value. Suppose percentile(X, 50) returned value of Xm. The estimation guarantees that at least 49% and at most 51% of the values of X are less than Xm. There is no theoretical limit on the difference  between Xm and actual median value of X.
 
-## stdev
+### stdev
 
      stdev(Expr)
 
 Returns the standard deviation of *Expr* over the group.
 
-## variance
+### variance
 
     variance(Expr)
 
 Returns the variance of *Expr* over the group.
 
-## sum
+### sum
 
     sum(Expr)
 
@@ -1880,7 +1882,7 @@ Converts a string to upper case.
     guid(00000000-1111-2222-3333-055567f333de)
 
 
-## Arrays and objects - dynamic types
+## Arrays, objects and dynamic
 
 [literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
 <br/>
@@ -1985,7 +1987,6 @@ T
 ```
 
 
-<a name="operators"></a>
 ### Operators and functions over dynamic types
 
 |||
@@ -2067,7 +2068,7 @@ This function performs a JsonPath query into dataSource which contains a valid J
 
 **Example**
 
-The [bracket] notatation and dot notation are equivalent:
+The [bracket] notation and dot notation are equivalent:
 
     ... | extend AvailableMB = extractjson("$.hosts[1].AvailableMB", EventText, typeof(int)) | ...
 
@@ -2082,7 +2083,7 @@ The [bracket] notatation and dot notation are equivalent:
 * Use `parsejson()` if you need to extract more than one value from the JSON.
 * Consider having the JSON parsed at ingestion by declaring the type of the column to be dynamic.
 
-#### JSON Path expressions
+### JSON Path expressions
 
 |||
 |---|---|
@@ -2134,7 +2135,7 @@ T
 
 
 
-### range
+#### range
 
 The `range()` function (not to be confused with the `range` operator)
 generates a dynamic array holding a series of equally-spaced values.
