@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Create a new OneDrive API in PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-onedrive.md)
+- [Logic apps](../articles/connectors/connectors-create-api-onedrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
 
 Add the Onedrive API to your organization's (tenant) app service environment. 
@@ -78,7 +78,7 @@ A new OneDrive app is created. You can use this app in your OneDrive API configu
 
 ## See the REST APIs
 
-[Onedrive REST API](../connectors/create-api-onedrive.md) reference.
+[Onedrive REST API](../connectors/connectors-create-api-onedrive.md) reference.
 
 ## Summary and next steps
 In this topic, you added the OneDrive API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 

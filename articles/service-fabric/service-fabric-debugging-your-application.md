@@ -3,7 +3,7 @@
    description="Improve the reliability and performance of your services by developing and debugging them in Visual Studio on a local development cluster."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="03/31/2016"
-   ms.author="jesseb; mikhegn"/>
+   ms.author="jesseb; mikhegn; vturecek"/>
 
 # Debug your Service Fabric application by using Visual Studio
 
