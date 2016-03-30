@@ -40,7 +40,7 @@ Here are the topics to be covered in this article:
 
 -   Encryption at Rest
 
-    We will talk about Storage Service Encryption, and how you can enable it for a storage account, resulting in your block blobs and page blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus Storage Service Encryption versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+    We will talk about Storage Service Encryption, and how you can enable it for a storage account, resulting in your block blobs and page blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus Storage Service Encryption vegood lucrsus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
 
 -   Using Storage Analytics to audit access of Azure Storage
 
@@ -236,12 +236,12 @@ A Shared Access Signature is a set of query parameters appended to the URL point
 
 that provides information about the access allowed and the length of time for which the access is permitted. Here is an example; this URI provides read access to a blob for five minutes. Note that SAS query parameters must be URL Encoded, such as %3A for colon (:) or %20 for a space.
 
-http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
-?sv=2015-04-05 (storage service version)
-&st=2015-12-10T22%3A18%3A26Z (start time, in UTC time and URL encoded)
-&se=2015-12-10T22%3A23%3A26Z (end time, in UTC time and URL encoded)
-&sr=b (resource is a blob)
-&sp=r (read access)
+	http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
+	?sv=2015-04-05 (storage service version)
+	&st=2015-12-10T22%3A18%3A26Z (start time, in UTC time and URL encoded)
+	&se=2015-12-10T22%3A23%3A26Z (end time, in UTC time and URL encoded)
+	&sr=b (resource is a blob)
+	&sp=r (read access)
 
 &sip=168.1.5.60-168.1.5.70 (requests can only come from this range of IP addresses)
 
@@ -505,7 +505,7 @@ You can see that you can use the logs to track any kind of calls to a storage ac
 
 These is an article listed in the resources below that provides the list of the many fields in the logs and what they are used for. Here is the list of fields in order:
 
-<version-number>;<request-start-time>;<**operation-type**>;<**request-status**>;<http-status-code>;<end-to-end-latency-in-ms>;<server-latency-in-ms>;<**authentication-type**>;<requester-account-name>;<owner-account-name>;<service-type>;<request-url>;<requested-object-key>;<request-id-header>;<operation-count>;<requester-ip-address>;<request-version-header>;<request-header-size>;<request-packet-size>;<response-header-size>;<response-packet-size>;<request-content-length>;<request-md5>;<server-md5>;<etag-identifier>;<last-modified-time>;<conditions-used>;<user-agent-header>;<referrer-header>;<client-request-id>
+<version-number>;<request-start-time>;<<strong>operation-type</strong>>;<<strong>request-status</strong>>;<http-status-code>;<end-to-end-latency-in-ms>;<server-latency-in-ms>;<<strong>authentication-type</strong>>;<requester-account-name>;<owner-account-name>;<service-type>;<request-url>;<requested-object-key>;<request-id-header>;<operation-count>;<requester-ip-address>;<request-version-header>;<request-header-size>;<request-packet-size>;<response-header-size>;<response-packet-size>;<request-content-length>;<request-md5>;<server-md5>;<etag-identifier>;<last-modified-time>;<conditions-used>;<user-agent-header>;<referrer-header>;<client-request-id>
 
 We’re interested in the entries for GetBlob, and how they are authenticated, so we need to look for entries with operation-type “Get-Blob”, and check the request-status (4<sup>th</sup> column) and the authorization-type (8<sup>th</sup> column).
 
@@ -573,34 +573,15 @@ One thing to note is that CORS allows access, but it does not provide authentica
 
 By default, CORS is disabled on all services. You can enable CORS by using the REST API or the storage client library to call one of the methods to set the service policies. When you do that, you include a CORS rule, which is in XML. Here’s an example of a CORS rule that has been set using the Set Service Properties operation for the Blob Service for a storage account. You can perform that operation using the storage client library or the REST APIs for Azure Storage.
 
-`<Cors>    
-    <CorsRule>
-        <AllowedOrigins>http://www.contoso.com, http://www.fabrikam.com</AllowedOrigins>
-        <AllowedMethods>PUT,GET</AllowedMethods>
-        <AllowedHeaders>x-ms-meta-data*,x-ms-meta-target*,x-ms-meta-abc</AllowedHeaders>
-        <ExposedHeaders>x-ms-meta-*</ExposedHeaders>
-        <MaxAgeInSeconds>200</MaxAgeInSeconds>
-    </CorsRule>
-<Cors>`
-
-
-&lt;Cors&gt;
-
-&lt;CorsRule&gt;
-
-&lt;AllowedOrigins&gt;http://www.contoso.com, http://www.fabrikam.com&lt;/AllowedOrigins&gt;
-
-&lt;AllowedMethods&gt;PUT,GET&lt;/AllowedMethods&gt;
-
-&lt;AllowedHeaders&gt;x-ms-meta-data\*,x-ms-meta-target\*,x-ms-meta-abc&lt;/AllowedHeaders&gt;
-
-&lt;ExposedHeaders&gt;x-ms-meta-\*&lt;/ExposedHeaders&gt;
-
-&lt;MaxAgeInSeconds&gt;200&lt;/MaxAgeInSeconds&gt;
-
-&lt;/CorsRule&gt;
-
-&lt;Cors&gt;
+	<Cors>    
+	    <CorsRule>
+	        <AllowedOrigins>http://www.contoso.com, http://www.fabrikam.com</AllowedOrigins>
+	        <AllowedMethods>PUT,GET</AllowedMethods>
+	        <AllowedHeaders>x-ms-meta-data*,x-ms-meta-target*,x-ms-meta-abc</AllowedHeaders>
+	        <ExposedHeaders>x-ms-meta-*</ExposedHeaders>
+	        <MaxAgeInSeconds>200</MaxAgeInSeconds>
+	    </CorsRule>
+	<Cors>
 
 Here’s what each row means:
 
