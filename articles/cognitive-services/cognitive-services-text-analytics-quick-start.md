@@ -13,16 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="03/24/2016"
 	ms.author="onewth"/>
 
-<a name="HOLTop"></a>
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
 
-This document describes how to onboard your service or application to use the [Text Analytics APIs](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2).
-You can use these APIs to detect sentiment, key phrases, topics and language from your text. You can find more details on the Text Analytics APIs the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2).
+<a name="HOLTop"></a>
 
-This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-apps-text-analytics/).
+This document describes how to onboard your service or application to use the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711).
+You can use these APIs to detect sentiment, key phrases, topics and language from your text. [Click here to see an interactive demo of the experience.](//go.microsoft.com/fwlink/?LinkID=759712)
+
+Please refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+
+This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](machine-learning-apps-text-analytics/).
 
 By the end of this tutorial, you will be able to programatically detect:
 
@@ -49,18 +52,18 @@ Let's get started!
 
 In this task, you will sign up for the text analytics service.
 
-1. Navigate to the Text Analytics service through the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
-
-1. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
+1. Navigate to **Cognitive Services** in the [Azure Portal](//go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
 
 1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
 
-1. After you sign up for Text Analytics, you'll be given an **API Key**. Copy this key, as you'll need it when using the API services.
+1. Complete the other fields and create your account.
+
+1. After you sign up for Text Analytics, find your **API Key**. Copy the primary key, as you will need it when using the API services.
 
 
 ## Task 2 - Detect sentiment, key phrases and languages ####
 
-It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](http://text-analytics-demo.azurewebsites.net) returns.
+It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](//go.microsoft.com/fwlink/?LinkID=759712) returns.
 
 **Tip!** For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
 
@@ -88,9 +91,9 @@ It's easy to detect sentiment, key phrases and languages in your text. You will 
 
 1. Make a **POST** call to the system with the input for sentiment, key phrases and language. The URLs will look as follows:
 
-        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/sentiment
-        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/keyPhrases
-        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/languages
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
 1. This call will return a JSON formatted response with the IDs and detected properties. An example of the output for sentiment is shown below (with error details excluded). In the case of sentiment, a score between 0 and 1 will be returned for each document:
 
@@ -190,15 +193,15 @@ Follow these steps to detect topics in your text.
 
 1. Using the same headers as defined in Task 2, make a **POST** call to the topics endpoint:
 
-        POST https://cognitive.microsoft.com/language/text-analytics/v2.0/topics
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
 
 1. This will return an `operation-location` as the header in the response, where the value is the URL to query for the resulting topics:
 
-        'operation-location': 'https://cognitive.microsoft.com/language/text-analytics/v2.0/operations/<operationId>'
+        'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
 1. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
 
-        GET https://cognitive.microsoft.com/language/text-analytics/v2.0/operations/<operationId>
+        GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 
 1. The endpoint will return a response including `{"status": "notstarted"}` before processing, `{"status": "running"}` while processing and `{"status": "succeeded"}` with the output once completed. You can then consume the output which will be in the following format (note details like error format and dates have been excluded from this example):
 
@@ -236,4 +239,4 @@ Follow these steps to detect topics in your text.
 
 ## Next steps ##
 
-Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](http://powerbi.microsoft.com) to visualize your data, as well as automating your insights to give you a real-time view of your text data.
+Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data, as well as automating your insights to give you a real-time view of your text data.

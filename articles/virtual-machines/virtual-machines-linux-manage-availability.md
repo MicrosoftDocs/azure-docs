@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage the availability of VMs | Microsoft Azure"
-	description="Learn how to use multiple virtual machines to ensure high availability for your Azure application."
+	pageTitle="Manage the availability of Linux VMs | Microsoft Azure"
+	description="Learn how to use multiple virtual machines to ensure high availability for your Linux application in Azure"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="kenazk"
@@ -18,6 +18,8 @@
 	ms.author="kenazk"/>
 
 # Manage the availability of Linux virtual machines
+
+Learn ways to set up and manage multiple virtual machines to ensure high availability for your Linux application in Azure. You can also [manage the availability of Windows virtual machines](virtual-machines-windows-manage-availability.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

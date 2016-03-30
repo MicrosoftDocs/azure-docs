@@ -18,15 +18,13 @@
 
 # Application Insights: Analytics reference material
 
-[Analytics](app-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage.
+[Analytics](app-analytics.md) lets you run powerful queries over the telemetry from your app collected by 
+[Application Insights](app-insights-overview.md). These pages describe its query lanquage.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## Regular expressions
-
 
 
 [> General description of regular expressions](https://github.com/google/re2/wiki/Syntax).

@@ -24,7 +24,7 @@ In CTP 3.1 through RC1, the option to specify a predicate isn't available in the
 
 If you don't specify a filter predicate, the entire table is migrated.
 
-    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+>   [AZURE.NOTE] If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
 ## Basic requirements for the inline table\-valued function
 The inline table\-valued function required for a Stretch Database filter function looks like the following example.
@@ -176,7 +176,7 @@ You can't use subqueries or non\-deterministic functions such as RAND() or GETDA
     GO
     ```
 
--   The following example uses the the BETWEEN and NOT BETWEEN operators. This usage is valid because the resulting predicate conforms to the rules described here after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
+-   The following example uses the BETWEEN and NOT BETWEEN operators. This usage is valid because the resulting predicate conforms to the rules described here after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate_example3(@column1 int, @column2 int)
