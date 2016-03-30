@@ -33,8 +33,7 @@ The outline for the steps to accomplish this is as below
 3. Add a webhook to your runbook
 4. Add an alert to your Virtual Machine
 
-> [AZURE.NOTE] Because of the size of the first Virtual Machine, the sizes it can be resized to maybe limited due to the availability of the other sizes in the cluster current Virtual Machine is deployed in. In the published automation runbooks that allow vertical scaling we take care of this case and only scale within the sizes below
-VM size pairs
+> [AZURE.NOTE] Because of the size of the first Virtual Machine, the sizes it can be scaled to, may be limited due to the availability of the other sizes in the cluster current Virtual Machine is deployed in. In the published automation runbooks used in this article we take care of this case and only scale within the below VM size pairs. This means that your Standard_D1v2 Virtual Machine will not suddenly be scale up to Standard_G5 or scaled down to Basic_A0.
 
 >| VM sizes scaling pair |   |
 |---|---|
