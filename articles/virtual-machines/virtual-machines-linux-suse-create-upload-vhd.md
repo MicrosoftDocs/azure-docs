@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="03/25/2016"
 	ms.author="szark"/>
 
 # Prepare a SLES or openSUSE virtual machine for Azure

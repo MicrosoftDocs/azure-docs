@@ -126,7 +126,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		var DocDBUtils = {
 		    getOrCreateDatabase: function (client, databaseId, callback) {
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            query: 'SELECT * FROM root r WHERE r.id= @id',
 		            parameters: [{
 		                name: '@id',
 		                value: databaseId
@@ -223,7 +223,6 @@ That takes care of all the initial setup and configuration, now let’s get down
 		        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
 		            if (err) {
 		                callback(err);
-
 		            } else {
 		                self.database = db;
 		                docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
@@ -293,7 +292,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		        var self = this;
 		
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            query: 'SELECT * FROM root r WHERE r.id = @id',
 		            parameters: [{
 		                name: '@id',
 		                value: itemId
