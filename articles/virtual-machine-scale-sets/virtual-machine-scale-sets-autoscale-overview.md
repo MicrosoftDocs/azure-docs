@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Automatic scaling and Virtual Machine Scale Sets | Microsoft Azure"
-	description="Learn about using diagnostics and autoscale resources to autoscale virtual machines in a scale set.
+	description="Learn about using diagnostics and autoscale resources to autoscale virtual machines in a scale set."
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -43,7 +43,7 @@ Automatically change the capacity of your scale set by using a combination of th
 
 ### Configure the Azure Diagnostics extension
 
-Automatic scaling can only be done if metrics collection is successful on each virtual machine in the scale set. The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities that meets the metrics collection needs of the autoscale resource. You can install the extension as part of the Resource Manager template. [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md) provides more information about using the extension.
+Automatic scaling can only be done if metrics collection is successful on each virtual machine in the scale set. The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities that meets the metrics collection needs of the autoscale resource. You can install the extension as part of the Resource Manager template. [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md) provides more information about using the extension.
 
 This example shows the variables that are used in the template to configure the diagnostics extension:
 
@@ -201,10 +201,10 @@ After a cooldown period of five minutes, if the average number of threads on the
 - [Azure portal](https://portal.azure.com/) - You can currently get a limited amount of information using the portal.
 - [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool to explore the current state of your scale set.
 - [Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/) - Cmdlets such as **Get-AzureRmResource** or **Get-Autoscalesetting** can be used to get information about your scale set.
-- [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/) - Use the **azure resource show** command to get information about your set.
+- [Azure CLI](../xplat-cli-azure-resource-manager.md) - Use the **azure resource show** command to get information about your set.
 - Connect to the jumpbox virtual machine just like you would any other machine and then you can remotely access the virtual machines in the scale set to monitor individual processes.
 
 ## Next Steps
 
-1. Get started creating your first scale set by using the information in [Create a Windows Virtual Machine Scale Set](virtual-machine-scale-sets-windows-create.md) or [Create a Linux Virtual Machine Scale Set](virtual-machine-scale-sets-linux-create.md)
+1. Get started creating your first scale set by using the information in [Create a Windows Virtual Machine Scale Set](virtual-machine-scale-sets-windows-create.md).
 2. Take a look at [Autoscale Windows Virtual Machine Scale Sets](virtual-machine-scale-sets-windows-autoscale.md) or [Autoscale Linux Virtual Machine Scale Sets](virtual-machine-scale-sets-linux-autoscale.md) to see an example of how to create a scale set with automatic scaling configured.
