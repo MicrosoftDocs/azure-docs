@@ -23,7 +23,7 @@ This is an example of how to create a Virtual Machine Scale Set(VMSS), it create
 
 ## First Steps
 Ensure you have the latest Azure PowerShell module installed, this will contain the PowerShell commandlets needed to maintain and create VMSS.
-Go to the commandline tools [here](https://azure.microsoft.com/en-us/downloads/) for the latest available Azure Modules.
+Go to the commandline tools [here](http://aka.ms/webpi-azps) for the latest available Azure Modules.
 
 To find VMSS related commandlets, use the search string \*VMSS\*.
 
