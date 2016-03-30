@@ -114,7 +114,7 @@ Add an classify SANs in the VMM console:
 	- [How to select a method for creating logical units in VMM](https://technet.microsoft.com/library/gg610624.aspx)
 	- [How to provision storage logical units in VMM](https://technet.microsoft.com/library/gg696973.aspx)
 
-	>[AZURE.NOTE] You shouldn't add VMs VHDs to LUNs that aren't added to and located in a Site Recovery replication group. If you do they won't be detected by Site Recovery.
+	>[AZURE.NOTE] After you've enable replication for a machine you shouldn't add VHDs for it to LUNs that aren't located in a Site Recovery replication group. If you do they won't be detected by Site Recovery.
 
 2. Then allocate storage capacity to the Hyper-V host cluster so that VMM can deploy virtual machine data to the provisioned storage:
 
@@ -315,6 +315,8 @@ With this option VMM uses intelligent placement to optimally place the virtual m
 	![Enable protection](./media/site-recovery-vmm-san/enable-protect.png)
 
 After virtual machines are enabled for protection they appear in the Azure Site Recovery console. You can view virtual machine properties, track status, and fail over replication groups that contain multiple virtual machines. Note that in SAN replication all virtual machines associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It’s important to group your replication groups properly and place only associated virtual machines together.
+
+>[AZURE.NOTE] After you've enable replication for a machine you shouldn't add VHDs for it to LUNs that aren't located in a Site Recovery replication group. If you do they won't be detected by Site Recovery.
 
 You can track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover.
 
