@@ -2089,6 +2089,7 @@ The [bracket] notatation and dot notation are equivalent:
 |`$`|Root object|
 |`@`|Current object|
 |`[0]`|Array subscript|
+|`.` or `[0]` | Child|
 
 *(We don't currently implement wildcards, recursion, union, or slices.)*
 
