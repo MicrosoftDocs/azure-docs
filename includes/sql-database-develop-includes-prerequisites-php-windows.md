@@ -1,7 +1,4 @@
 
-## Prerequisites
-
-
 To run the PHP code sample given in this topic, your client computer must have the following software items installed:
 
 
