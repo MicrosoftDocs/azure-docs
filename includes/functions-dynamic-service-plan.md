@@ -1,6 +1,6 @@
-## Dynamic Hosting Plan
+## Dynamic Service Plan
 
-In the Dynamic plan, your function apps will be assigned to a function app instance. If needed more instances will be added dynamically.
+In the Dynamic Service Plan, your function apps will be assigned to a function app instance. If needed more instances will be added dynamically.
 Those instances can span across multiple computing resources, making the most out of the available Azure infrastructure. Moreover, your functions will run in parallel minimizing the total time needed to process requests. Execution time for each function is added up, in seconds, and aggregated by the containing function app. With cost driven by the number of instances, their memory size, and total execution time as measured in Gigabyte seconds. This is an excellent option if your compute needs are intermittent or your job times tend to be very short as it allows you to only pay for compute resources when they are actually in use.   
 
 ### Memory tier
