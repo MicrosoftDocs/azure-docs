@@ -876,7 +876,7 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Code example for creating multiple table entities
+#### Creating multiple table entities
 
 To add entities to a table in a C# function, use `ICollector<T>` or `IAsyncCollector<T>` where `T` specifies the schema of the entities you want to add. Typically, the type you use with *ICollector* derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to.
 
