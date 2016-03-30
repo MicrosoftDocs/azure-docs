@@ -39,7 +39,7 @@ Cons:
 If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../xplat-cli-install.md) [connected to your Azure account](../xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a VMSS:
 
 ```bash
-# make sure we are in ARM mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in ARM mode 
 azure config mode arm
 
 # quick-create a VMSS
