@@ -463,7 +463,6 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize | Integer. (unit = Row Count) | No (Default = 10000) |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No | 
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. See repeatability section below for more details. | A query statement.  | No |
-| sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. See repeatability section below for more details. | Column name of a column with data type of binary(32). | No |
 
 #### SqlDWSink example
 
@@ -474,6 +473,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
         "writeBatchTimeout": "00:05:00",
     }
 
+
+> [AZURE.IMPORTANT] The sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse at this time. Therefore, please use Mechanism 1. 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 
