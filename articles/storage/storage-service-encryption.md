@@ -29,12 +29,12 @@ Azure Storage provides a comprehensive set of security capabilities which togeth
 
 This screenshot shows where to find the Storage Service Encryption setting using the [Azure Portal](https://azure.portal.com) Click on Encryption to continue.
 
-![Portal Screenshot showing Encryption option](./media/storage-service-side-encryption/image1.png)
+![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
 
 
 After you click the Encryption setting, you can enable or disable Storage Service Encryption.
 
-![Portal Screenshot showing Encryption properties](./media/storage-service-side-encryption/image2.png)
+![Portal Screenshot showing Encryption properties](./media/storage-service-encryption/image2.png)
 
 ##Availability
 
@@ -96,7 +96,7 @@ When the registration status is returned as “Registered”, your subscription 
 
 You can enable encryption using the [Azure Portal](https://portal.azure.com).
 
-> [AZURE.NOTE] If you want to programmatically enable or disable the Server-Side Encryption on a storage account, you can use the [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/en-us/library/azure/mt163683.aspx). We will be adding this ability to the [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/en-us/library/azure/mt131037.aspx), Azure PowerShell and Azure CLI soon.
+> [AZURE.NOTE] If you want to programmatically enable or disable the Storage Service Encryption on a storage account, you can use the [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/en-us/library/azure/mt163683.aspx). We will be adding this ability to the [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/en-us/library/azure/mt131037.aspx), Azure PowerShell and Azure CLI soon.
 
 ###Step 4: Copy data to storage account
 
