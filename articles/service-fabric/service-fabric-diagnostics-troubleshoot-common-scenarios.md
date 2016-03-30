@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="03/30/2016"
    ms.author="mattrow"/>
 
 
@@ -21,7 +21,7 @@
 When you're running services on your developer computer, it is easy to use [Visual Studio's debugging tools](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). For remote clusters, [health reports](service-fabric-view-entities-aggregated-health.md) are always a good place to start. The easiest ways to access these reports are through PowerShell or [SFX](service-fabric-visualizing-your-cluster.md). This article assumes that you are debugging a remote cluster and have a basic understanding of how to use either of these tools.
 
 ##Application crash
-The "Partition is below target replica or instance count" report is a good indication that your service is crashing. To find out where your service is crashing takes a little more investigation. When your service is running at scale, your best friend will be a set of well-thought-out traces.  We suggest that you try [Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) for collecting and viewing those traces.
+The "Partition is below target replica or instance count" report is a good indication that your service is crashing. To find out where your service is crashing takes a little more investigation. When your service is running at scale, your best friend will be a set of well-thought-out traces.  We suggest that you try [Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) for collecting those traces and using a solution such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) for viewing and searching the traces.
 
 ![SFX Partition Health](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
 
