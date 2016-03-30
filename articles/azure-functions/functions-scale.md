@@ -41,8 +41,6 @@ The cost of a function changes depending on the type of hosting plan you select.
 
 Regular hosting plans allow you to host your functions on existing VM’s which might also be used to run other code. After paying for these VM’s each month, there is no extra charge for execution functions on them. 
 
-![Azure Functions Scale Diagram](media/functions-scale/azure-functions-scale-diagram.png)
-
 ## Choosing a Hosting Plan
 
 When creating functions apps you can select to run them on a Dynamic Hosting Plan (new!) or a regular [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
