@@ -2073,6 +2073,18 @@ The [bracket] notatation and dot notation are equivalent:
 
     ... | extend AvailableMD = extractjson("$['hosts'][1]['AvailableMB']", EventText, typeof(int)) | ...
 
+#### JSON Path expressions
+
+|||
+|---|---|
+|`$`|Root object|
+|`@`|Current object|
+|`.` or `[ ]` | Child|
+|`[ ]`|Array subscript|
+
+*(We don't currently implement wildcards, recursion, union, or slices.)*
+
+
 **Performance tips**
 
 * Apply where-clauses before using `extractjson()`
