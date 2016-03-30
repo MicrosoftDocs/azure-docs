@@ -72,7 +72,7 @@ To back up files and folders from a server or client, you need to create a backu
     d. In the left navigation pane, click **Recovery Services** to return to the list of resources for Recovery Services.
 
 ## Step 2: Download the vault credential file
-The on-premises machine needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved through *vault credentials*. The vault credential file is downloaded through a secure channel from the Azure portal. The Backup service is unaware of the certificate private key, which does not persist in the portal or the service.
+The on-premises machine needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved through *vault credentials*. The vault credential file is downloaded through a secure channel from the Azure portal. The certificate private key does not persist in the portal or the service.
 
 Learn more about [using vault credentials to authenticate with the Backup service](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
@@ -90,7 +90,7 @@ Learn more about [using vault credentials to authenticate with the Backup servic
 
 3. Click **Save** to download the vault credential file to the Downloads folder of the local account. You can also select **Save As** from the **Save** menu to specify a location for the vault credential file.
 
-    >[AZURE.NOTE] Make sure the vault credential file is saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, verify that you have the permissions to access it.
+    >[AZURE.NOTE] Make sure the vault credential file is saved in a location that can be accessed from your machine. If it is stored in a file share or server message block, verify that you have the permissions to access it.
 
 ## Step 3: Download, install, and register the Backup agent
 After you create the backup vault and download the vault credential file, an agent must be installed on each of your Windows machines.
