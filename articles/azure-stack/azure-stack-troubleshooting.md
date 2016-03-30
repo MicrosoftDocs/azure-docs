@@ -277,14 +277,13 @@ If you create a virtual machine from the default gallery, the virtual machine wo
  
 To get around this issue, try either of these options:
 
-- Deploy a [virtual machine template](https://github.com/Azure/AzureStack-QuickStart-Templates) with the correct DNS settings (192.168.0.2).
-- Deploy the virtual machine from the default gallery and then follow these steps:
+- Option 1: Deploy a [virtual machine template](https://github.com/Azure/AzureStack-QuickStart-Templates) with the correct DNS settings (192.168.0.2).
+- Option 2: Deploy the virtual machine from the default gallery and then follow these steps:
     1. Update the DNS for Vnet and set the DNS to Custom DNS, with Primary DNS server 192.168.100.2 (ignore the **Invalid argument** error for secondary DNS server).
-    2. Update the DNS for the network adapter and set the DNS to Custom DNS, with Primary DNS server 192.168.100.2 (ignore the **Invalid argument** error for secondary DNS server).
-    3. Create a new Security inbound rule to allow the connection with the following settings:
-      ![Security inbound rule](media/azure-stack-troubleshooting/vm-no-internet.png) 
-    4. From the portal, shut down the virtual machine and then restart it.
-
+    ![Set Custom DNS](media/azure-stack-troubleshooting/customdns.png) 
+    2. From the portal, shut down the virtual machine and then restart it.
+    ![Stop and restart the virtual machine](media/azure-stack-troubleshooting/vmstopstart.png) 
+    
 
 ## Next steps
 
