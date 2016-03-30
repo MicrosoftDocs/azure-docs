@@ -28,7 +28,7 @@ Now check out the following articles for the details, including factors to consi
 
 - [Network bandwidth and quality of experience](remoteapp-bandwidthexperience.md)
 - [Testing your network bandwidth usage using some common scenarios](remoteapp-bandwidthtests.md)
-- [Quick guidelines if you don't have the time or ability to test](remoteapp-bandwidthguidelinese.md)
+- [Quick guidelines if you don't have the time or ability to test](remoteapp-bandwidthguidelines.md)
 
 
 ## What are we not including?
