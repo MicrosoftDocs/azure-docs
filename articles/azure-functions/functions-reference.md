@@ -823,7 +823,7 @@ public class Person
 
 #### Code example for creating multiple table entities
 
-To write multiple entities in a C# function, bind the `name` vaariable to `ICollector<T>` or `IAsyncCollector<T>`, as shown in the following *function.json* and *run.csx* examples. 
+To write multiple entities in a C# function, bind the `name` variable to `ICollector<T>` or `IAsyncCollector<T>`, as shown in the following *function.json* and *run.csx* examples. 
 
 ```JSON
 {
