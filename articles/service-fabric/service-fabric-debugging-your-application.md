@@ -54,7 +54,7 @@ You can save time and money by deploying and debugging your Azure Service Fabric
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-# Debug a remote Service Fabric application
+## Debug a remote Service Fabric application
 
 If your Service Fabric applications are running on a Service Fabric cluster in Azure, you are able to remotely debug these, directly from Visual Studio.
 
@@ -89,7 +89,7 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
     
     ![Disable remote debugging][disableremotedebugging]
 
-# Streaming traces from a remote cluster node
+## Streaming traces from a remote cluster node
 
 You are also able to stream traces directly from a remote cluster node to Visual Studio. This feature allows you to stream ETW trace events, produced on a Service Fabric cluster node, directly in Visual Studio.
 
