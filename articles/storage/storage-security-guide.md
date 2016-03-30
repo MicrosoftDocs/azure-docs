@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Storage Security Guide | Microsoft Azure"
+	pageTitle="Azure Storage security guide | Microsoft Azure"
 	description="Details the many methods of securing Azure Storage, including but not limited to RBAC, Storage Service Encryption, Client-side Encryption, SMB 3.0, and Azure Disk Encryption."
 	services="storage"
 	documentationCenter=".net"
@@ -16,7 +16,7 @@
 	ms.date="03/29/2016"
 	ms.author="robinsh"/>
 
-#Azure Storage Security Guide
+#Azure Storage security guide
 
 ##Overview
 
