@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<properties 
-	pageTitle="The Cortana Intelligence Process in action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Microsoft Azure" 
-	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset" 
-	services="machine-learning,hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-=======
 <properties
 	pageTitle="The Cortana Analytics Process in action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Microsoft Azure"
 	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset"
@@ -14,7 +5,6 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
->>>>>>> 5edcfc3271d1737298c357ae3a945aebbbb8090d
 	editor="cgronlun" />
 
 <tags
