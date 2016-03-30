@@ -140,7 +140,7 @@ Here is a brief description of the encryption/decryption workflow:
 
 -   All encryption keys are stored, encrypted, and managed by Microsoft.
 
-##FAQ
+##Frequently asked questions about Storage Service Encryption for Data at Rest
 
 **Q: I have an existing Classic Storage Account. Can I enable SSE on it?**
 
