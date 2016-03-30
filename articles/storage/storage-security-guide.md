@@ -348,7 +348,7 @@ Note that while Azure File Shares can be used with Unix, the Linux SMB client do
 
     This article shows how to mount an Azure File Share on a Linux system and upload/download files.
 
--   [Get started with Azure File storage on Windows](https://azure.microsoft.com/en-us/documentation/articles/storage-how-to-use-files-linux/)
+-   [Get started with Azure File storage on Windows](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-files/)
 
 	This article gives an overview of Azure File shares and how to mount and use them using PowerShell and .NET.
 
