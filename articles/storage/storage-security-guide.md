@@ -501,7 +501,7 @@ You can see that you can use the logs to track any kind of calls to a storage ac
 
 These is an article listed in the resources below that provides the list of the many fields in the logs and what they are used for. Here is the list of fields in order:
 
-<version-number>;<request-start-time>;<<strong>operation-type</strong>>;<<strong>request-status</strong>>;<http-status-code>;<end-to-end-latency-in-ms>;<server-latency-in-ms>;<<strong>authentication-type</strong>>;<requester-account-name>;<owner-account-name>;<service-type>;<request-url>;<requested-object-key>;<request-id-header>;<operation-count>;<requester-ip-address>;<request-version-header>;<request-header-size>;<request-packet-size>;<response-header-size>;<response-packet-size>;<request-content-length>;<request-md5>;<server-md5>;<etag-identifier>;<last-modified-time>;<conditions-used>;<user-agent-header>;<referrer-header>;<client-request-id>
+![Snapshot of fields in a log file](./media/storage-security-guide/image3.png)
 
 We’re interested in the entries for GetBlob, and how they are authenticated, so we need to look for entries with operation-type “Get-Blob”, and check the request-status (4<sup>th</sup> column) and the authorization-type (8<sup>th</sup> column).
 
