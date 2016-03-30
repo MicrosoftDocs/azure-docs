@@ -1070,6 +1070,266 @@ Returns the sum of *Expr* over the group.
 
 
 
+**buildschema:** To find the minimum schema that admits all values of the expression in the table:
+
+    exceptions | summarize buildschema(details)
+
+Result:
+
+    { "`indexer`":
+     {"id":"string",
+       "parsedStack":
+       { "`indexer`": 
+         {  "level":"int",
+            "assembly":"string",
+            "fileName":"string",
+            "method":"string",
+            "line":"int"
+         }},
+      "outerId":"string",
+      "message":"string",
+      "type":"string",
+      "rawStack":"string"
+    }}
+
+Notice that `indexer` is used to mark where you should use a numeric index. For this schema, some valid paths would be (assuming these example indexes are in range):
+
+    details[0].parsedStack[2].level
+    details[0].message
+    arraylength(details)
+    arraylength(details[0].parsedStack)
+
+
+
+### Array and object literals
+
+To create a dynamic literal, use `parsejson` (alias `todynamic`) with a JSON string argument:
+
+* `parsejson('[43, 21, 65]')` - an array of numbers
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('21')` - a single value of dynamic type containing a number
+* `parsejson('"21"')` - a single value of dynamic type containing a string
+
+Note that, unlike JavaScript, JSON mandates the use of double-quotes (`"`) around strings. Therefore, it is generally easier to quote a JSON-encoded string literals using single-quotes (`'`).
+
+This example creates a dynamic value and then uses its fields:
+
+```
+
+T
+| extend person = parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')
+| extend n = person.name, add = person.address.street
+```
+
+
+<a name="operators"></a>
+### Operators and functions over dynamic types
+
+|||
+|---|---|
+| *value* `in` *array*| True if there is an element of *array* that == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
+| *value* `!in` *array*| True if there is no element of *array* that == *value*
+|[`arraylength(`array`)`](#arraylength)| Null if it isn't an array
+|[`extractjson(`path,object`)`](#extractjson)|Uses path to navigate into object.
+|[`parsejson(`source`)`](#parsejson)| Turns a JSON string into a dynamic object.
+|[`range(`from,to,step`)`](#range)| An array of values
+|[`mvexpand` listColumn](app-analytics-queries.md#mvexpand-operator) | Replicates a row for each value in a list in a specified cell.
+|[`summarize buildschema(`column`)`](app-analytics-queries.md#summarize-operator) |Infers the type schema from column content
+|[`summarize makelist(`column`)` ](app-analytics-queries.md#summarize-operator)| Flattens groups of rows and puts the values of the column in an array.
+|[`summarize makeset(`column`)`](app-analytics-queries.md#summarize-operator) | Flattens groups of rows and puts the values of the column in an array, without duplication.
+
+### Dynamic objects in let clauses
+
+
+[Let clauses](app-analytics-queries.md#let-clause) store dynamic values as strings, so these two clauses are equivalent, and both need the `parsejson` (or `todynamic`) before being used:
+
+    let list1 = '{"a" : "somevalue"}';
+    let list2 = parsejson('{"a" : "somevalue"}');
+
+    T | project parsejson(list1).a, parsejson(list2).a
+
+
+
+
+### arraylength
+
+The number of elements in a dynamic array.
+
+**Syntax**
+
+    arraylength(array)
+
+**Arguments**
+
+* *array:* A `dynamic` value.
+
+**Returns**
+
+The number of elements in *array*, or `null` if *array* is not an array.
+
+**Examples**
+
+```
+arraylength(parsejson('[1, 2, 3, "four"]')) == 4
+arraylength(parsejson('[8]')) == 1
+arraylength(parsejson('[{}]')) == 1
+arraylength(parsejson('[]')) == 0
+arraylength(parsejson('{}')) == null
+arraylength(parsejson('21')) == null
+```
+
+
+
+### extractjson
+
+    extractjson("$.hosts[1].AvailableMB", EventText, typeof(int))
+
+Get a specified element out of a JSON text using a path expression. Optionally convert the extracted string to a specific type.
+
+
+**Syntax**
+
+```
+
+    string extractjson(jsonPath, dataSource)?? 
+    resulttype extractjson(jsonPath, dataSource, typeof(resulttype))??
+```
+
+
+**Returns**
+
+This function performs a JsonPath query into dataSource which contains a valid JSON string, optionally converting that value to another type depending on the third argument.
+
+
+
+**Example**
+
+The [bracket] notatation and dot notation are equivalent:
+
+    ... | extend AvailableMB = extractjson("$.hosts[1].AvailableMB", EventText, typeof(int)) | ...
+
+    ... | extend AvailableMD = extractjson("$['hosts'][1]['AvailableMB']", EventText, typeof(int)) | ...
+
+#### JSON Path expressions
+
+|||
+|---|---|
+|`$`|Root object|
+|`@`|Current object|
+|`.` or `[ ]` | Child|
+|`[ ]`|Array subscript|
+
+*(We don't currently implement wildcards, recursion, union, or slices.)*
+
+
+**Performance tips**
+
+* Apply where-clauses before using `extractjson()`
+* Consider using a regular expression match with [extract](#extract) instead. This can run very much faster, and is effective if the JSON is produced from a template.
+* Use `parsejson()` if you need to extract more than one value from the JSON.
+* Consider having the JSON parsed at ingestion by declaring the type of the column to be dynamic.
+
+
+
+### parsejson
+
+Interprets a `string` as a [JSON value](http://json.org/)) and returns the value as `dynamic`. It is superior to using `extractjson()` when you need to extract more than one element of a JSON compound object.
+
+**Syntax**
+
+    parsejson(json)
+
+**Arguments**
+
+* *json:* A JSON document.
+
+**Returns**
+
+An object of type `dynamic` specified by *json*.
+
+**Example**
+
+In the following example, when `context_custom_metrics` is a `string`
+that looks like this: 
+
+```
+{"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
+```
+
+then the following fragment retrieves the value of the `duration` slot
+in the object, and from that it retrieves two slots, `duration.value` and
+ `duration.min` (`118.0` and `110.0`, respectively).
+
+```AIQL
+T
+| ...
+| extend d=parsejson(context_custom_metrics) 
+| extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
+```
+
+
+
+### range
+
+The `range()` function (not to be confused with the `range` operator)
+generates a dynamic array holding a series of equally-spaced values.
+
+**Syntax**
+
+    range(start, stop, step)
+
+**Arguments**
+
+* *start:* The value of the first element in the resulting array. 
+* *stop:* The value of the last element in the resulting array,
+or the least value that is greater than the last element in the resulting
+array and within an integer multiple of *step* from *start*.
+* *step:* The difference between two consecutive elements of
+the array.
+
+**Examples**
+
+The following example returns `[1, 4, 7]`:
+
+```AIQL
+range(1, 8, 3)
+```
+
+The following example returns an array holding all days
+in the year 2015:
+
+```AIQL
+
+    range(datetime(2015-01-01), datetime(2015-12-31), 1d)
+```
+
+### todynamic
+
+    todynamic('{"a":"a1", "b":["b1", "b2"]}')
+
+Converts a string to a dynamic value.
+
+### treepath
+
+    treepath(dynamic_object)
+
+Enumerates all the path expressions that identify leaves in a dynamic object. 
+
+**Returns**
+
+An array of path expressions.
+
+**Examples**
+
+    treepath(parsejson('{"a":"b", "c":123}')) 
+    =>       ["['a']","['c']"]
+    treepath(parsejson('{"prop1":[1,2,3,4], "prop2":"value2"}'))
+    =>       ["['prop1']","['prop1'][0]","['prop2']"]
+    treepath(parsejson('{"listProperty":[100,200,300,"abcde",{"x":"y"}]}'))
+    =>       ["['listProperty']","['listProperty'][0]","['listProperty'][0]['x']"]
+
+Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 

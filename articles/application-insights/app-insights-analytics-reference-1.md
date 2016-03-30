@@ -777,6 +777,1190 @@ Notice that we put the comparison between two columns last, as it can't utilize 
 
 
 
+## AGGREGATIONS
+
+## any 
+
+    any(Expression)
+
+Randomly selects one row of the group and returns the value of the specified expression.
+
+This is useful, for example, when some column has a large number of similar values (e.g., an "error text" column) and you want to sample that column once per a unique value of the compound group key. 
+
+**Example**  
+
+```
+
+traces 
+| where timestamp > now(-15min)  
+| summarize count(), any(message) by operation_Name 
+| top 10 by count_level desc 
+```
+
+<a name="argmin"></a>
+<a name="argmax"></a>
+## argmin, argmax
+
+    argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
+    argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
+
+Finds a row in the group that minimizes/maximises *ExprToMaximize*, and returns the value of *ExprToReturn* (or `*` to return the entire row).
+
+**Tip**: The passed-through columns are automatically renamed. To make sure you're using the right names, inspect the results using `take 5` before you pipe the results into another operator.
+
+**Examples**
+
+For each request name, show when the longest request occurred:
+
+    requests | summarize argmax(duration, timestamp) by name
+
+Show all the details of the longest request, not just the timestamp:
+
+    requests | summarize argmax(duration, *) by name
+
+
+Find the lowest value of each metric, together with its timestamp and other data:
+
+    metrics 
+    | summarize minValue=argmin(value, *) 
+      by name
+
+
+![](./media/app-insights-analytics-aggregations/argmin.png)
+ 
+
+
+## avg
+
+    avg(Expression)
+
+Calculates the average of *Expression* across the group.
+
+## buildschema
+
+    buildschema(DynamicExpression)
+
+Returns the minimal schema that admits all values of *DynamicExpression*. 
+
+The parameter column type should be `dynamic` - an array or property bag. 
+
+**Example**
+
+    exceptions | summarize buildschema(details)
+
+Result:
+
+    { "`indexer`":
+     {"id":"string",
+       "parsedStack":
+       { "`indexer`": 
+         {  "level":"int",
+            "assembly":"string",
+            "fileName":"string",
+            "method":"string",
+            "line":"int"
+         }},
+      "outerId":"string",
+      "message":"string",
+      "type":"string",
+      "rawStack":"string"
+    }}
+
+Notice that `indexer` is used to mark where you should use a numeric index. For this schema, some valid paths would be (assuming these example indexes are in range):
+
+    details[0].parsedStack[2].level
+    details[0].message
+    arraylength(details)
+    arraylength(details[0].parsedStack)
+
+**Example**
+
+Assume the input column has three dynamic values:
+
+| |
+|---|
+|`{"x":1, "y":3.5}`
+|`{"x":"somevalue", "z":[1, 2, 3]}`
+|`{"y":{"w":"zzz"}, "t":["aa", "bb"], "z":["foo"]}`
+
+
+The resulting schema would be:
+
+    { 
+      "x":["int", "string"], 
+      "y":["double", {"w": "string"}], 
+      "z":{"`indexer`": ["int", "string"]}, 
+      "t":{"`indexer`": "string"} 
+    }
+
+The schema tells us that:
+
+* The root object is a container with four properties named x, y, z and t.
+* The property called "x" that could be either of type "int" or of type "string".
+* The property called "y" that could of either of type "double", or another container with a property called "w" of type "string".
+* The ``indexer`` keyword indicates that "z" and "t" are arrays.
+* Each item in the array "z" is either an int or a string.
+* "t" is an array of strings.
+* Every property is implicitly optional, and any array may be empty.
+
+#### Schema model
+
+The syntax of the returned schema is:
+
+    Container ::= '{' Named-type* '}';
+    Named-type ::= (name | '"`indexer`"') ':' Type;
+	Type ::= Primitive-type | Union-type | Container;
+    Union-type ::= '[' Type* ']';
+    Primitive-type ::= "int" | "string" | ...;
+
+They are equivalent to a subset of the TypeScript type annotations, encoded as a dynamic value. In Typescript, the example schema would be:
+
+    var someobject: 
+    { 
+      x?: (number | string), 
+      y?: (number | { w?: string}), 
+      z?: { [n:number] : (int | string)},
+      t?: { [n:number]: string } 
+    }
+
+
+## count
+
+    count([ Predicate ])
+
+Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predicate* is specified, returns the total number of records in the group. 
+
+**Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
+
+> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
+   
+
+## dcount
+
+    dcount( Expression [ ,  Accuracy ])
+
+Returns an estimate of the number of distinct values of *Expr* in the group. (To list the distinct values, use [`makeset`](#makeset).)
+
+*Accuracy*, if specified, controls the balance between speed and accuracy.
+
+ * `0` = the least accurate and fastest calculation.
+ * `1` the default, which balances accuracy and calculation time; about 0.8% error.
+ * `2` = most accurate and slowest calculation; about 0.4% error.
+
+**Example**
+
+    pageViews 
+    | summarize countries=dcount(client_City) 
+      by client_CountryOrRegion
+
+![](./media/app-insights-analytics-aggregations/dcount.png)
+
+## makelist
+
+    makelist(Expr [ ,  MaxListSize ] )
+
+Returns a `dynamic` (JSON) array of all the values of *Expr* in the group. 
+
+* *MaxListSize* is an optional integer limit on the maximum number of elements returned (default is *128*).
+
+## makeset
+
+    makeset(Expression [ , MaxSetSize ] )
+
+Returns a `dynamic` (JSON) array of the set of distinct values that *Expr* takes in the group. (Tip: to just count the distinct values, use [`dcount`](#dcount).)
+  
+*  *MaxSetSize* is an optional integer limit on the maximum number of elements returned (default is *128*).
+
+**Example**
+
+    pageViews 
+    | summarize countries=makeset(client_City) 
+      by client_CountryOrRegion
+
+![](./media/app-insights-analytics-aggregations/makeset.png)
+
+See also the [`mvexpand` operator](#mvexpand-operator) for the opposite function.
+
+
+## max, min
+
+    max(Expr)
+
+Calculates the maximum of *Expr*.
+    
+    min(Expr)
+
+Calculates the minimum of *Expr*.
+
+**Tip**: This gives you the min or max on its own - for example, the highest or lowest price. But if you want other columns in the row - for example, the name of the supplier with the lowest price - use [argmin or argmax](#argmin-argmax).
+
+
+<a name="percentile"></a>
+<a name="percentiles"></a>
+## percentile, percentiles
+
+    percentile(Expression, Percentile)
+
+Returns an estimate for *Expression* of the specified percentile in the group. The accuracy depends on the density of population in the region of the percentile.
+    
+    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+
+Like `percentile()`, but calculates a number of percentile values (which is faster than calculating each percentile individually).
+
+**Examples**
+
+
+The value of `duration` that is larger than 95% of the sample set and smaller than 5% of the sample set, calculated for each request name:
+
+    request 
+    | summarize percentile(duration, 95)
+      by name
+
+Omit "by..." to calculate for the whole table.
+
+Simultaneously calculate several percentiles for different request names:
+
+    
+    requests 
+    | summarize 
+        percentiles(duration, 5, 20, 50, 80, 95) 
+      by name
+
+![](./media/app-insights-analytics-aggregations/percentiles.png)
+
+The results show that for the request /Events/Index, 5% of requests are responded to in less than 2.44s,  half of them in 3.52s, and 5% are slower than 6.85s.
+
+
+Calculate multiple statistics:
+
+    requests 
+    | summarize 
+        count(), 
+        avg(Duration),
+        percentiles(Duration, 5, 50, 95)
+      by name
+
+#### Estimation error in percentiles
+
+The percentiles aggregate provides an approximate value using [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf). 
+
+A few important points: 
+
+* The bounds on the estimation error vary with the value of the requested percentile. The best accuracy is at the ends of [0..100] scale, percentiles 0 and 100 are the exact minimum and maximum values of the distribution. The accuracy gradually decreases towards the middle of the scale. It is worst at the median and is capped at 1%. 
+* Error bounds are observed on the rank, not on the value. Suppose percentile(X, 50) returned value of Xm. The estimation guarantees that at least 49% and at most 51% of the values of X are less than Xm. There is no theoretical limit on the difference  between Xm and actual median value of X.
+
+## stdev
+
+     stdev(Expr)
+
+Returns the standard deviation of *Expr* over the group.
+
+## variance
+
+    variance(Expr)
+
+Returns the variance of *Expr* over the group.
+
+## sum
+
+    sum(Expr)
+
+Returns the sum of *Expr* over the group.                      
+
+
+## Scalars
+
+[casts](#casts) | [comparisons](#scalar-comparisons)
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+
+The supported types are:
+
+| Type      | Additional name(s)   | Equivalent .NET type |
+| --------- | -------------------- | -------------------- |
+| `bool`    | `boolean`            | `System.Boolean`     |
+| `datetime`| `date`               | `System.DateTime`    |
+| `dynamic` |                      | `System.Object`      |
+| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
+| `int`     |                      | `System.Int32`       |
+| `long`    |                      | `System.Int64`       |
+| `double`  | `real`               | `System.Double`      |
+| `string`  |                      | `System.String`      |
+| `timespan`| `time`               | `System.TimeSpan`    |
+
+### Casts
+
+You can cast from one type to another. In general, if the conversion makes sense, it will work:
+
+    todouble(10), todouble("10.6")
+    toint(10.6) == 11
+    floor(10.6) == 10
+	toint("200")
+    todatetime("2016-04-28 13:02")
+    totimespan("1.5d"), totimespan("1.12:00:00")
+    toguid("00000000-0000-0000-0000-000000000000")
+    tostring(42.5)
+    todynamic("{a:10, b:20}")
+
+### Scalar comparisons
+
+||
+---|---
+`<` |Less
+`<=`|Less or Equals
+`>` |Greater
+`>=`|Greater or Equals
+`<>`|Not Equals
+`!=`|Not Equals 
+`in`| Right operand is a (dynamic) array and left operand is equal to one of its elements.
+`!in`| Right operand is a (dynamic) array and left operand is not equal to any of its elements.
+
+
+
+
+### gettype
+
+**Returns**
+
+A string representing the underlying storage type of its single argument. This is particularly useful when have values of kind `dynamic`: in this case `gettype()` will reveal how a value is encoded.
+
+**Examples**
+
+|||
+---|---
+`gettype("a")` |`"string" `
+`gettype(111)` |`"long" `
+`gettype(1==1)` |`"int8" (*) `
+`gettype(now())` |`"datetime" `
+`gettype(1s)` |`"timespan" `
+`gettype(parsejson('1'))` |`"int" `
+`gettype(parsejson(' "abc" '))` |`"string" `
+`gettype(parsejson(' {"abc":1} '))` |`"dictionary"` 
+`gettype(parsejson(' [1, 2, 3] '))` |`"array"` 
+`gettype(123.45)` |`"real" `
+`gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
+`gettype(parsejson(''))` |`"null"`
+
+
+
+### hash
+
+**Syntax**
+
+    hash(source [, mod])
+
+**Arguments**
+
+* *source*: The source scalar the hash is calculated on.
+* *mod*: The modulo value to be applied on the hash result.
+
+**Returns**
+
+The xxhash (long)value of the given scalar, modulo the given mod value (if specified).
+
+**Examples**
+
+```
+hash("World")                   // 1846988464401551951
+hash("World", 100)              // 51 (1846988464401551951 % 100)
+hash(datetime("2015-01-01"))    // 1380966698541616202
+```
+### iff
+
+The `iff()` function evaluates the first argument (the predicate), and returns either
+the value of either the second or third arguments depending on whether the predicate
+is `true` or `false`. The second and third arguments must be of the same type.
+
+**Syntax**
+
+    iff(predicate, ifTrue, ifFalse)
+
+
+**Arguments**
+
+* *predicate:* An expression that evaluates to a `boolean` value.
+* *ifTrue:* An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `true`.
+* *ifFalse:* An expression that gets evaluated and its value returned from the function if *predicate* evaluates to `false`.
+
+**Returns**
+
+This function returns the value of *ifTrue* if *predicate* evaluates to `true`,
+or the value of *ifFalse* otherwise.
+
+**Example**
+
+```
+iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
+```
+
+<a name="isnull"/></a>
+<a name="isnotnull"/></a>
+<a name="notnull"/></a>
+### isnull, isnotnull, notnull
+
+    isnull(parsejson("")) == true
+
+Takes a single argument and tells whether it is null.
+
+**Syntax**
+
+
+    isnull([value])
+
+
+    isnotnull([value])
+
+
+    notnull([value])  // alias for isnotnull
+
+**Returns**
+
+True or false depending on the whether the value is null or not null.
+
+
+|x|isnull(x)
+|---|---
+| "" | false
+|"x" | false
+|parsejson("")|true
+|parsejson("[]")|false
+|parsejson("{}")|false
+
+**Example**
+
+    T | where isnotnull(PossiblyNull) | count
+
+Notice that there are other ways of achieving this effect:
+
+    T | summarize count(PossiblyNull)
+
+
+
+
+## Boolean 
+
+### Boolean Literals
+
+	true == 1
+    false == 0
+    gettype(true) == "int8"
+    typeof(bool) == typeof(int8)
+
+### Boolean operators
+
+	and 
+    or 
+
+    
+
+## Numbers
+
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
+| [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+### Numeric literals
+
+|||
+|---|---
+|`42`|`long`
+|`42.0`|`real`
+
+### Arithmetic operators
+
+|| |
+|---|-------------|
+| + | Add         |
+| - | Subtract    |
+| * | Multiply    |
+| / | Divide      |
+| % | Modulo      |
+||
+|`<` |Less
+|`<=`|Less or Equals
+|`>` |Greater
+|`>=`|Greater or Equals
+|`<>`|Not Equals
+|`!=`|Not Equals 
+
+
+
+
+### bin
+
+Rounds values down to an integer multiple of a given bin size. Used a lot in the [`summarize by`](#summarize-operator) query. If you have a scattered set of values, they will be grouped into a smaller set of specific values.
+
+Alias `floor`.
+
+**Syntax**
+
+     bin(value, roundTo)
+
+**Arguments**
+
+* *value:* A number, date, or timespan. 
+* *roundTo:* The "bin size". A number, date or timespan that divides *value*. 
+
+**Returns**
+
+The nearest multiple of *roundTo* below *value*.  
+ 
+    (toint((value/roundTo)-0.5)) * roundTo
+
+**Examples**
+
+Expression | Result
+---|---
+`bin(4.5, 1)` | `4.0`
+`bin(time(16d), 7d)` | `14d`
+`bin(datetime(1953-04-15 22:25:07), 1d)`|  `datetime(1953-04-15)`
+
+
+The following expression calculates a histogram of durations,
+with a bucket size of 1 second:
+
+```AIQL
+
+    T | summarize Hits=count() by bin(Duration, 1s)
+```
+
+### floor
+
+An alias for [`bin()`](#bin).
+
+
+### rand
+
+A random number generator.
+
+* `rand()` - a real number between 0.0 and 1.0
+* `rand(n)` - an integer between 0 and n-1
+
+
+
+
+### sqrt
+
+The square root function.  
+
+**Syntax**
+
+    sqrt(x)
+
+**Arguments**
+
+* *x:* A real number >= 0.
+
+**Returns**
+
+* A positive number such that `sqrt(x) * sqrt(x) == x`
+* `null` if the argument is negative or cannot be converted to a `real` value. 
+
+
+
+
+### toint
+
+    toint(100)        // cast from long
+    toint(20.7) == 21 // nearest int from double
+    toint(20.4) == 20 // nearest int from double
+    toint("  123  ")  // parse string
+    toint(a[0])       // cast from dynamic
+    toint(b.c)        // cast from dynamic
+
+### tolong
+
+    tolong(20.7) == 21 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
+
+
+### todouble
+
+    todouble(20) == 20.0 // conversion from long or int
+    todouble(" 12.34 ")  // parse string
+    todouble(a[0])       // cast from dynamic
+    todouble(b.c)        // cast from dynamic
+
+
+
+## Date and time
+
+
+[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+
+### Date and time literals
+
+|||
+---|---
+**datetime**|
+`datetime("2015-12-31 23:59:59.9")`<br/>`datetime("2015-12-31")`|Times are always in UTC. Omitting the date gives a time today.
+`now()`|The current time.
+`now(`-*timespan*`)`|`now()-`*timespan*
+`ago(`*timespan*`)`|`now()-`*timespan*
+**timespan**|
+`2d`|2 days
+`1.5h`|1.5 hour 
+`30m`|30 minutes
+`10s`|10 seconds
+`0.1s`|0.1 second
+`100ms`| 100 millisecond
+`10microsecond`|
+`1tick`|100ns
+`time("15 seconds")`|
+`time("2")`| 2 days
+`time("0.12:34:56.7")`|`0d+12h+34m+56.7s`
+
+### Date and time expressions
+
+Expression |Result
+---|---
+`datetime("2015-01-02") - datetime("2015-01-01")`| `1d`
+`datetime("2015-01-01") + 1d`| `datetime("2015-01-02")`
+`datetime("2015-01-01") - 1d`| `datetime("2014-12-31")`
+`2h * 24` | `2d`
+`2d` / `2h` | `24`
+`datetime("2015-04-15T22:33") % 1d` | `timespan("22:33")`
+`bin(datetime("2015-04-15T22:33"), 1d)` | `datetime("2015-04-15T00:00")`
+||
+`<` |Less
+`<=`|Less or Equals
+`>` |Greater
+`>=`|Greater or Equals
+`<>`|Not Equals
+`!=`|Not Equals 
+
+
+
+
+### ago
+
+Subtracts the given timespan from the current
+UTC clock time. Like `now()`, this function can be used multiple times
+in a statement and the UTC clock time being referenced will be the same
+for all instantiations.
+
+**Syntax**
+
+    ago(a_timespan)
+
+**Arguments**
+
+* *a_timespan*: Interval to subtract from the current UTC clock time
+(`now()`).
+
+**Returns**
+
+    now() - a_timespan
+
+**Example**
+
+All rows with a timestamp in the past hour:
+
+```AIQL
+
+    T | where timestamp > ago(1h)
+```
+
+
+
+### dayofweek
+
+    dayofweek(datetime("2015-12-14")) == 1d  // Monday
+
+The integer number of days since the preceding Sunday, as a `timespan`.
+
+**Syntax**
+
+    dayofweek(a_date)
+
+**Arguments**
+
+* `a_date`: A `datetime`.
+
+**Returns**
+
+The `timespan` since midnight at the beginning of the preceding Sunday, rounded down to an integer number of days.
+
+**Examples**
+
+```AIQL
+dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
+dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
+```
+
+### getmonth
+
+Get the month number (1-12) from a datetime.
+
+**Example**
+
+    ... | extend month = getmonth(datetime(2015-10-12))
+
+    --> month == 10
+
+### getyear
+
+Get the year from a datetime.
+
+**Example**
+
+    ... | extend year = getyear(datetime(2015-10-12))
+
+    --> year == 2015
+
+### now
+
+    now()
+    now(-2d)
+
+The current UTC clock time, optionally offset by a given timespan. This function can be used multiple times in a statement and the clock time being referenced will be the same for all instances.
+
+**Syntax**
+
+    now([offset])
+
+**Arguments**
+
+* *offset:* A `timespan`, added to the current UTC clock time. Default: 0.
+
+**Returns**
+
+The current UTC clock time as a `datetime`.
+
+    now() + offset
+
+**Example**
+
+Determines the interval since the event identified by the predicate:
+
+```AIQL
+T | where ... | extend Elapsed=now() - timestamp
+```
+
+### startofmonth
+
+    startofmonth(date)
+
+The start of the month containing the date.
+
+### startofyear
+
+    startofyear(date)
+
+The start of the year containing the date.
+
+
+### todatetime
+
+Alias `datetime()`.
+
+     todatetime("2016-03-28")
+     todatetime("03/28/2016")
+     todatetime("2016-03-28 14:34")
+     todatetime("03/28/2016 2:34pm")
+     todatetime("2016-03-28T14:34.5Z")
+     todatetime(a[0])  // cast a dynamic type
+     todatetime(b.c)   // cast a dynamic type
+
+### totimespan
+
+Alias `timespan()`.
+
+    totimespan("21d")
+    totimespan("21h")
+    totimespan(request.duration)
+
+
+## String
+
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+
+
+### String Literals
+
+The rules are the same as in JavaScript.
+
+Strings may be enclosed either in single or double quote characters. 
+
+Backslash (`\`) is used to escape characters such as `\t` (tab), `\n` (newline) and instances of the enclosing quote character.
+
+* `'this is a "string" literal in single \' quotes'`
+* `"this is a 'string' literal in double \" quotes"`
+* `@"C:\backslash\not\escaped\with @ prefix"`
+
+### Obfuscated String Literals
+
+Obfuscated string literals are strings that Analytics will obscure when outputting the string (for example, when tracing). The obfuscation process replaces all obfuscated characters by a start (`*`) character.
+
+To form an obfuscated string literal, prepend `h` or 'H'. For example:
+
+```
+h'hello'
+h@'world' 
+h"hello"
+```
+
+### String comparisons
+
+Operator|Description|Case-Sensitive|True example
+---|---|---|---
+`==`|Equals |Yes| `"aBc" == "aBc"`
+`<>`|Not equals|Yes| `"abc" <> "ABC"`
+`=~`|Equals |No| `"abc" =~ "ABC"`
+`!~`|Not equals |No| `"aBc" !~ "xyz"`
+`has`|Right-hand-side (RHS) is a whole term in left-hand-side (LHS)|No| `"North America" has "america"`
+`!has`|RHS is not a full term in LHS|No|`"North America" !has "amer"` 
+`contains` | RHS occurs as a subsequence of LHS|No| `"FabriKam" contains "BRik"`
+`!contains`| RHS does not occur in LHS|No| `"Fabrikam" !contains "xyz"`
+`containscs` | RHS occurs as a subsequence of LHS|Yes| `"FabriKam" contains "Kam"`
+`!containscs`| RHS does not occur in LHS|Yes| `"Fabrikam" !contains "Kam"`
+`startswith`|RHS is an initial subsequence of LHS.|No|`"Fabrikam" startswith "fab"`
+`matches regex`|LHS contains a match for RHS|Yes| `"Fabrikam" matches regex "b.*k"`
+
+
+Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains` or `startswith`. The first of these queries runs faster:
+
+    EventLog | where continent has "North" | count;
+	EventLog | where continent contains "nor" | count
+
+
+
+
+
+### countof
+
+    countof("The cat sat on the mat", "at") == 3
+    countof("The cat sat on the mat", @"\b.at\b", "regex") == 3
+
+Counts occurrences of a substring in a string. Plain string matches may overlap; regex matches do not.
+
+**Syntax**
+
+    countof(text, search [, kind])
+
+**Arguments**
+
+* *text:* A string.
+* *search:* The plain string or [regular expression](app-analytics-reference.md#regular-expressions) to match inside *text*.
+* *kind:* `"normal"|"regex"` Default `normal`. 
+
+**Returns**
+
+The number of times that the search string can be matched in the container. Plain string matches may overlap; regex matches do not.
+
+**Examples**
+
+|||
+|---|---
+|`countof("aaa", "a")`| 3 
+|`countof("aaaa", "aa")`| 3 (not 2!)
+|`countof("ababa", "ab", "normal")`| 2
+|`countof("ababa", "aba")`| 2
+|`countof("ababa", "aba", "regex")`| 1
+|`countof("abcabc", "a.c", "regex")`| 2
+    
+
+
+
+### extract
+
+    extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
+
+Get a match for a [regular expression](#regular-expressions) from a text string. Optionally, it then converts the extracted substring to the indicated type.
+
+**Syntax**
+
+    extract(regex, captureGroup, text [, typeLiteral])
+
+**Arguments**
+
+* *regex:* A [regular expression](#regular-expressions).
+* *captureGroup:* A positive `int` constant indicating the
+capture group to extract. 0 stands for the entire match, 1 for the value matched by the first '('parenthesis')' in the regular expression, 2 or more for subsequent parentheses.
+* *text:* A `string` to search.
+* *typeLiteral:* An optional type literal (e.g., `typeof(long)`). If provided, the extracted substring is converted to this type. 
+
+**Returns**
+
+If *regex* finds a match in *text*: the substring matched against the indicated capture group *captureGroup*, optionally converted to *typeLiteral*.
+
+If there's no match, or the type conversion fails: `null`. 
+
+**Examples**
+
+The example string `Trace` is searched for a definition for `Duration`. 
+The match is converted to `real`, then multiplied it by a time constant (`1s`) so that `Duration` is of type `timespan`. In this example, it is equal to 123.45 seconds:
+
+```AIQL
+...
+| extend Trace="A=1, B=2, Duration=123.45, ..."
+| extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s) 
+```
+
+This example is equivalent to `substring(Text, 2, 4)`:
+
+```AIQL
+extract("^.{2,2}(.{4,4})", 1, Text)
+```
+
+<a name="notempty"></a>
+<a name="isnotempty"></a>
+<a name="isempty"></a>
+### isempty, isnotempty, notempty
+
+    isempty("") == true
+
+True if the argument is an empty string or is null.
+See also [isnull](#isnull).
+
+
+**Syntax**
+
+    isempty([value])
+
+
+    isnotempty([value])
+
+
+    notempty([value]) // alias of isnotempty
+
+**Returns**
+
+Indicates whether the argument is an empty string or isnull.
+
+|x|isempty(x)
+|---|---
+| "" | true
+|"x" | false
+|parsejson("")|true
+|parsejson("[]")|false
+|parsejson("{}")|false
+
+
+**Example**
+
+
+    T | where isempty(fieldName) | count
+
+
+
+
+### replace
+
+Replace all regex matches with another string.
+
+**Syntax**
+
+    replace(regex, rewrite, text)
+
+**Arguments**
+
+* *regex:* The [regular expression](https://github.com/google/re2/wiki/Syntax) to search *text*. It can contain capture groups in '('parentheses')'. 
+* *rewrite:* The replacement regex for any match made by *matchingRegex*. Use `\0` to refer to the whole match, `\1` for the first capture group, `\2` and so on for subsequent capture groups.
+* *text:* A string.
+
+**Returns**
+
+*text* after replacing all matches of *regex* with evaluations of *rewrite*. Matches do not overlap.
+
+**Example**
+
+This statement:
+
+```AIQL
+range x from 1 to 5 step 1
+| extend str=strcat('Number is ', tostring(x))
+| extend replaced=replace(@'is (\d+)', @'was: \1', str)
+```
+
+Has the following results:
+
+| x    | str | replaced|
+|---|---|---|
+| 1    | Number is 1.000000  | Number was: 1.000000|
+| 2    | Number is 2.000000  | Number was: 2.000000|
+| 3    | Number is 3.000000  | Number was: 3.000000|
+| 4    | Number is 4.000000  | Number was: 4.000000|
+| 5    | Number is 5.000000  | Number was: 5.000000|
+ 
+
+
+
+### split
+
+    split("aaa_bbb_ccc", "_") == ["aaa","bbb","ccc"]
+
+Splits a given string according to a given delimiter and returns a string array with the conatined substrings. Optionally, a specific substring can be returned if exists.
+
+**Syntax**
+
+    split(source, delimiter [, requestedIndex])
+
+**Arguments**
+
+* *source*: The source string that will be splitted according to the given delimiter.
+* *delimiter*: The delimiter that will be used in order to split the source string.
+* *requestedIndex*: An optional zero-based index `int`. If provided, the returned string array will contain the requested substring if exists. 
+
+**Returns**
+
+A string array that contains the substrings of the given source string that are delimited by the given delimiter.
+
+**Examples**
+
+```
+split("aa_bb", "_")           // ["aa","bb"]
+split("aaa_bbb_ccc", "_", 1)  // ["bbb"]
+split("", "_")                // [""]
+split("a__b")                 // ["a","","b"]
+split("aabbcc", "bb")         // ["aa","cc"]
+```
+
+
+
+
+### strcat
+
+    strcat("hello", " ", "world")
+
+Concatenates between 1 and 16 arguments, which must be strings.
+
+### strlen
+
+    strlen("hello") == 5
+
+Length of a string.
+
+### substring
+
+    substring("abcdefg", 1, 2) == "bc"
+
+Extract a substring from a given source string starting from a given index. Optionally, the length of the requested substring can be specified.
+
+**Syntax**
+
+    substring(source, startingIndex [, length])
+
+**Arguments**
+
+* *source:* The source string that the substring will be taken from.
+* *startingIndex:* The zero-based starting character position of the requested substring.
+* *length:* An optional parameter that can be used to specify the requested number of characters in the substring. 
+
+**Returns**
+
+A substring from the given string. The substring starts at startingIndex (zero-based) character position and continues to the end of the string or length characters if specified.
+
+**Examples**
+
+```
+substring("123456", 1)        // 23456
+substring("123456", 2, 2)     // 34
+substring("ABCD", 0, 2)       // AB
+```
+
+### tolower
+
+    tolower("HELLO") == "hello"
+
+Converts a string to lower case.
+
+### toupper
+
+    toupper("hello") == "HELLO"
+
+Converts a string to upper case.
+
+
+
+## GUIDs
+
+    guid(00000000-1111-2222-3333-055567f333de)
+
+
+## Arrays and objects - dynamic types
+
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
+<br/>
+[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+
+
+Here's the result of a query on an Application Insights exception. The value in `details` is an array.
+
+![](./media/app-analytics-scalars/310.png)
+
+**Indexing:** Index arrays and objects just as in JavaScript:
+
+    exceptions | take 1
+    | extend 
+        line = details[0].parsedStack[0].line,
+        stackdepth = arraylength(details[0].parsedStack)
+
+* But use `arraylength` and other Analytics functions (not ".length"!)
+
+**Casting** In some cases it's necessary to cast an element that you extract from an object, because its type could vary. For example, `summarize...to` needs a specific type:
+
+    exceptions 
+    | summarize count() 
+      by toint(details[0].parsedStack[0].line)
+
+    exceptions 
+    | summarize count() 
+      by tostring(details[0].parsedStack[0].assembly)
+
+**Literals** To create an explicit array or property-bag object, write it as a JSON string and cast:
+
+    todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
+
+
+**mvexpand:** To pull apart the properties of an object into separate rows, use mvexpand:
+
+    exceptions | take 1 
+    | mvexpand details[0].parsedStack[0]
+
+
+![](./media/app-analytics-scalars/410.png)
+
+
+**treepath:** To find all the paths in a complex object:
+
+    exceptions | take 1 | project timestamp, details 
+    | extend path = treepath(details) 
+    | mvexpand path
+
+
+![](./media/app-analytics-scalars/420.png)
+
+**buildschema:** To find the minimum schema that admits all values of the expression in the table:
+
+    exceptions | summarize buildschema(details)
+
+Result:
+
+    { "`indexer`":
+     {"id":"string",
+       "parsedStack":
+       { "`indexer`": 
+         {  "level":"int",
+            "assembly":"string",
+            "fileName":"string",
+            "method":"string",
+            "line":"int"
+         }},
+      "outerId":"string",
+      "message":"string",
+      "type":"string",
+      "rawStack":"string"
+    }}
+
+Notice that `indexer` is used to mark where you should use a numeric index. For this schema, some valid paths would be (assuming these example indexes are in range):
+
+    details[0].parsedStack[2].level
+    details[0].message
+    arraylength(details)
+    arraylength(details[0].parsedStack)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
