@@ -1078,6 +1078,6 @@ This example sends a notification for a [template registration](../notification-
 	 
 	public static void Run(string myQueueItem,  out string notification, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
-        notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
+		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+		notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
 	}
