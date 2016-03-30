@@ -27,9 +27,9 @@ In this Step, you will learn how to place an Order for an SSL Certificate of you
 
 1.	In the **[Azure Portal](https://portal.azure.com/)**, click Browse and Type “App Service Certificates” in search bar and select “App Service Certificates” from the result and Click Add. 
 
-![insert image of create using browse](./media/purchase-ssl-web-site/browse.jpg)
+![insert image of create using browse](./media/app-service-web-app-service-web-purchase-ssl-web-site/browse.jpg)
 
-![insert image of create using browse](./media/purchase-ssl-web-site/add.jpg)
+![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/add.jpg)
 2.	Enter **friendly name** for your SSL Certificate.
 3.	Enter **Host Name**
 
@@ -51,7 +51,7 @@ In this Step, you will learn how to place an Order for an SSL Certificate of you
            
          See **[Web Apps Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/)** for more information.
 
-![insert image of certificate SKU](./media/purchase-ssl-web-site/SKU.jpg)
+![insert image of certificate SKU](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
 
 > [AZURE.NOTE]
 > SSL Certificate creation will take anywhere from 1 – 10 minutes. This process performs multiple steps in background that are otherwise very cumbersome to perform manually.  
@@ -62,7 +62,7 @@ In this Step, you will learn how to place an Store an SSL Certificate that you p
 
 1.	Once the SSL Certificate purchase is complete You will need to manually open **App Service Certificates** Resource blade by browsing to it again (See Step 1 above)   
 
-![insert image of ready to store in KV](./media/purchase-ssl-web-site/ReadyKV.jpg)
+![insert image of ready to store in KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
 
 You will notice that Certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificates.
  
@@ -70,7 +70,7 @@ You will notice that Certificate status is **“Pending Issuance”** as there a
 
 3.	From **“Key Vault Status”** Blade click on **“Key Vault Repository”** to choose an existing Key Vault to store this certificate **OR “Create New Key Vault”** to create new Key Vault inside same subscription and resource group.
  
-![insert image of create new KV](./media/purchase-ssl-web-site/NEWKV.jpg)
+![insert image of create new KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
 > [AZURE.NOTE]
 > Azure Key Vault has very minimal charges for storing this certificate. The cost will be roughly around $0.03 cents (USD)
@@ -95,7 +95,7 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
         2. Click on **“Verify”** button to complete this step.
         3. Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
         
-        ![insert image of App Service Verification](./media/purchase-ssl-web-site/AppVerify.jpg)     
+        ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
 
     b) **Domain Verification** 
 
@@ -153,11 +153,11 @@ In this Step, you will learn how to assign this newly purchased certificate to y
 4.	In the **Settings**, Click **Custom domains and SSL.**
 5.	In the **certificates section**, click **Import Certificate** and select the Certificate that you just purchased
 
-![insert image of Import Certificate](./media/purchase-ssl-web-site/ImportCertificate.jpg)
+![insert image of Import Certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
 
 6. In the **ssl bindings** section of the **SSL Settings** tab, use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
 
-![insert image of SSL Bindings](./media/purchase-ssl-web-site/SSLBindings.jpg)
+![insert image of SSL Bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
 
        •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
        •	SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however           older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
@@ -171,7 +171,7 @@ If you selected **IP based SSL** and your custom domain is configured using an A
 
 1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Dashboard** page of your app, in the **quick glance** section. It will be listed as **Virtual IP Address:**
 
-![insert image of IP SSL](./media/purchase-ssl-web-site/IPSSL.jpg)
+![insert image of IP SSL](./media/app-service-web-purchase-ssl-web-site/IPSSL.jpg)
 
    Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
 
@@ -185,7 +185,7 @@ At this point, you should be able to visit your app using HTTPS:// instead of HT
 
 2. Click on **"Rekey"** Button to initiate the process. This process can take 1-10 minutes to complete. 
 
-![insert image of ReKey SSL](./media/purchase-ssl-web-site/ReKey.jpg)
+![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
 3. Rekeying your certificate will roll the certificate with a new certificate issued from the certificate authority.
 4. You will not be charged for the Rekeing for the lifetime of the certificate. 

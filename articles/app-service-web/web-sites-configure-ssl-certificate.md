@@ -20,6 +20,10 @@
 
 #Enable HTTPS for an app in Azure App Service
 
+> [AZURE.SELECTOR]
+- [Buy SSL Certificate for Web Apps](web-sites-purchase-ssl-web-site.md)
+- [Enable SSL for your custom domain](../../includes/configure-ssl-web-site.md)
+
+
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-[AZURE.INCLUDE [configure-ssl-web-site](../../includes/configure-ssl-web-site.md)]
