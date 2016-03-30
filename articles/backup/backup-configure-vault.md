@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Back up a Windows server or client to Azure | Microsoft Azure"
-	description="Back up Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
+	description="Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
@@ -53,7 +53,7 @@ To back up files and folders from a server or client, you need to create a backu
 
     >[AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation and before any machines are registered to the vault. After an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 
-    If you are using Azure as a primary backup storage endpoint (for example, you are backing up to Azure from a server), consider picking (the default) [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option.
+    If you are using Azure as a primary backup storage endpoint (for example, you are backing up to Azure from a Windows server), consider picking (the default) [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option.
 
     If you are using Azure as a tertiary backup storage endpoint (for example, you are using System Center Data Protection Manager to store a local backup copy on-premises and using Azure for long-term retention needs), consider choosing [locally redundant storage](../storage/storage-redundancy.md#locally-redundant-storage). This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
 
@@ -99,7 +99,7 @@ After you create the backup vault and download the vault credential file, an age
 
 1. Click **Recovery Services**, and then select the backup vault that you want to register with a server.
 
-2. On the Quick Start page, click the agent **For Windows Server or System Center Data Protection Manager or Windows client**. Then click **Save**.
+2. On the Quick Start page, click the agent **Agent for Windows Server or System Center Data Protection Manager or Windows client**. Then click **Save**.
 
     ![Save agent](./media/backup-configure-vault/agent.png)
 
@@ -140,7 +140,7 @@ After the backup policy completes the initial backup, it creates backup points t
 
 ### To schedule the backup
 
-1. Open the Microsoft Azure Backup agent. (It will open automatically if you left the **Launch Microsoft Azure Recovery Services Agent** check box selected when you closed the Register Server Wizard.) You can find it by searching your machine for **Microsoft Azure Backup**).
+1. Open the Microsoft Azure Backup agent. (It will open automatically if you left the **Launch Microsoft Azure Recovery Services Agent** check box selected when you closed the Register Server Wizard.) You can find it by searching your machine for **Microsoft Azure Backup**.
 
     ![Launch the Azure Backup agent](./media/backup-configure-vault/snap-in-search.png)
 
@@ -161,7 +161,6 @@ After the backup policy completes the initial backup, it creates backup points t
 You can schedule daily backups (at a maximum rate of three times per day) or weekly backups.
 
 ![Items for Windows Server backup](./media/backup-configure-vault/specify-backup-schedule-close.png)
-
 
 >[AZURE.NOTE] For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
 
@@ -197,7 +196,7 @@ The Backup agent provides network throttling. Throttling controls how network ba
 
 4. Click **OK**.
 
-### To use the Back Up Now Wizard
+### To back up now
 
 1. In the Backup agent, click **Back Up Now** to complete the initial seeding over the network.
 
