@@ -24,7 +24,7 @@ Virtual Machine Scale Sets (VMSSes) allow you to manage multiple VMs as a set. A
 
 Pros:
 
-1. High availability. Each VMSS puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [../virtual-machines-manage-availability.md](../virtual-machines-manage-availability.md)). 
+1. High availability. Each VMSS puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](virtual-machines-linux-manage-availability.md)).
 2. Easy integration with Azure Load Balancer and App Gateway.
 3. Easy integration with Azure Autoscale.
 4. Simplified deployment, management, and clean up of VMs.
@@ -34,11 +34,12 @@ Cons:
 
 1. Cannot attach data disks to VM instances in a VMSS. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
 
-# Quick-Create Using Azure CLI
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/en-us/pricing/free-trial/) and the [Azure CLI](../xplat-cli-install.md) [connected to your Azure account](../xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a VMSS:
+## Quick-Create Using Azure CLI
+
+If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../xplat-cli-install.md) [connected to your Azure account](../xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a VMSS:
 
 ```bash
-# make sure we are in ARM mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in ARM mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a VMSS
@@ -91,10 +92,10 @@ FQDN=${split_line[3]}
 ssh -p 50000 $FQDN
 ```
 
-# More Information
+## Next Steps
 
-For general information, check out the [main landing page for VMSSes](https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/).
+For general information, check out the [main landing page for VMSSes](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-For documentation, check out the [main documentation page for VMSSes](https://azure.microsoft.com/en-us/documentation/services/virtual-machines-scale-sets/).
+For documentation, check out the [main documentation page for VMSSes](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).
 
 For example ARM templates using VMSSes, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
