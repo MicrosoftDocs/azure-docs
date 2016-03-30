@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Service Fabric Limited Preview on Linux | Microsoft Azure"
+   pageTitle="Azure Service Fabric on Linux | Microsoft Azure"
    description="Service Fabric clusters support Linux and Java, which means you'll be able to deploy and host Service Fabric applications written in Java on Linux."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,14 +16,24 @@
    ms.date="03/29/2016"
    ms.author="SubramaR"/>
 
-# Service Fabric limited preview on Linux
+# Service Fabric on Linux
 
-A successful platform must be cloud agnostic as well as operating system agnostic, giving customers the most choice and customization power. Recently we announced the availability of a limited preview of Service Fabric on Linux. A key benefit of Linux support is you have complete customization when you build an application (including OS specific dependencies) using Service Fabric.  In addition, you avoid being locked in a specific operating system. This also increases your potential to reach out to a broader set of customers since different customers can have varying requirements for the environments where they want to run your applications. For example, healthcare and financial industry customers may have different needs than an automaker or a travel business.
+Service Fabric is currently available as a limited preview on Linux, enabling you to build, deploy, and manage highly available, highly scalable applications in that environment just as you would on Windows. In addition, the high-level Service Fabric frameworks (Reliable Services and Reliable Actors) can now be built in Java.
 
 ## Supported operating systems and programming languages
 
-The limited preview will support the creation of one-box development clusters as well as multi-machine clusters in Azure running Ubuntu Server 15.10. In this preview Java is the only supported language for creating Service Fabric applications. Any existing application can run as a guest executable, however, the same as in a cluster created on Windows Server. Support for C# development is planned, along with support for other OS versions.
+The limited preview supports the creation of one-box development clusters as well as multi-machine clusters in Azure running Ubuntu Server 15.10.
+
+You can build [guest executable services](service-fabric-deploy-existing-app.md) with any language or framework. You can also use Java to build services based on the Reliable Services and Reliable Actor frameworks.
+
+>[AZURE.NOTE] Reliable Collections are not supported in Java yet.
 
 ## Participate in the preview
 
-If you are interested in being considered for participation in the limited preview program (there are only a limited number of seats available), please fill out the survey at [http://aka.ms/sflinux](http://aka.ms/sflinux).
+If you are interested in being considered for the limited preview program, [please fill out the survey](http://aka.ms/sflinuxsurvey](http://aka.ms/sflinuxsurvey) so that we can better understand your scenario and requirements. The preview will be very small at first and will expand over time.
+
+Please note that Service Fabric on Linux will be conceptually equivalent to what is available on Windows (except for OS specifics and programming language support), so most of our [existing documentation](http://aka.ms/servicefabricdocs) applies and will help you get familiar with the technology.
+
+## Next steps
+
+Get familiar with the [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) programming frameworks.
