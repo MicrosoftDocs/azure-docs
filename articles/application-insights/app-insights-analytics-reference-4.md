@@ -1180,27 +1180,24 @@ arraylength(parsejson('21')) == null
 
 
 
-### extractjson
+#### JSON Path expressions
 
-    extractjson("$.hosts[1].AvailableMB", EventText, typeof(int))
+|||
+|---|---|
+|`$`|Root object|
+|`@`|Current object|
+|`.` or `[ ]` | Child|
+|`[ ]`|Array subscript|
 
-Get a specified element out of a JSON text using a path expression. Optionally convert the extracted string to a specific type.
-
-
-**Syntax**
-
-```
-
-    string extractjson(jsonPath, dataSource)?? 
-    resulttype extractjson(jsonPath, dataSource, typeof(resulttype))??
-```
+*(We don't currently implement wildcards, recursion, union, or slices.)*
 
 
-**Returns**
+**Performance tips**
 
-This function performs a JsonPath query into dataSource which contains a valid JSON string, optionally converting that value to another type depending on the third argument.
-
-
+* Apply where-clauses before using `extractjson()`
+* Consider using a regular expression match with [extract](#extract) instead. This can run very much faster, and is effective if the JSON is produced from a template.
+* Use `parsejson()` if you need to extract more than one value from the JSON.
+* Consider having the JSON parsed at ingestion by declaring the type of the column to be dynamic.
 
 
 ### parsejson
