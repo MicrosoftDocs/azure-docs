@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="03/29/2016"
 	ms.author="singhkay"/>
 
 # Vertically scale Azure virtual machine with Azure Automation
@@ -27,6 +27,7 @@ Vertical scaling is the process of increasing or decreasing the resources of a m
 - If the Virtual Machine is seeing a peak load, it can be resized to a larger size to increase its capacity
 
 The outline for the steps to accomplish this is as below
+
 1. Setup Azure Automation to access your Virtual Machines
 2. Import the Azure Automation Vertical Scale runbooks into your subscription
 3. Add a webhook to your runbook
@@ -35,6 +36,7 @@ The outline for the steps to accomplish this is as below
 ## Setup Azure Automation to access your Virtual Machines
 
 In this section you will accomplish the following tasks
+
 * Create a user in your Active Directory
 * Create an AutomationPSCredential with the user's login information
 * Setup the user to access the resources in your subscription
