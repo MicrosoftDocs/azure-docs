@@ -26,4 +26,4 @@
 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
+[AZURE.INCLUDE [web-sites-purchase-ssl-web-site](web-sites-purchase-ssl-web-site.md)]
