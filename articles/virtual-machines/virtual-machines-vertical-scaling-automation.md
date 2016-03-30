@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vertically Scale Azure Virtual Machine with Azure Automation | Microsoft Azure"
+	pageTitle="Vertically scale Azure virtual machine with Azure Automation | Microsoft Azure"
 	description="How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="03/28/2016"
 	ms.author="singhkay"/>
 
-# Vertically Scale Azure Virtual Machine with Azure Automation
+# Vertically scale Azure virtual machine with Azure Automation
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model]
 
@@ -84,4 +84,6 @@ Make sure you copy the webhook before closing the webhook dialog as you will nee
 7. Select a period over which the monitoring service will check for the condition and threshold in Steps 5 & 6
 8. Paste in the webhook you copied from the previous section.
 
-![Add Alert to Virtual Machine](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook.png)
+![Add Alert to Virtual Machine 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
+
+![Add Alert to Virtual Machine 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
