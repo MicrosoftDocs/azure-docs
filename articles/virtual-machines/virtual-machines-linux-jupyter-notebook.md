@@ -102,7 +102,7 @@ As an example, this is how you can install Anaconda on Ubuntu
 	rm -rf anaconda/
 
 	# Update Jupyter to the latest install and generate its config file
-	sudo /anaconda3/bin/conda install -f jupyter -y
+	sudo /anaconda3/bin/conda install jupyter -y
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
@@ -146,7 +146,7 @@ Next, we will edit the profile's configuration file, which is the
 `jupyter_notebook_config.py` file in the directory you are in.  Note that this file may not exist -- just create it if that is the case.  This
 file has a number of fields and by default all are commented out.  You can open
 this file with any text editor of your liking, and you should ensure that it
-has at least the following content. Be sure to replace the password with the sha1 from the previous step.
+has at least the following content. **Be sure to replace the c.NotebookApp.password in the config with the sha1 from the previous step**.
 
     c = get_config()
 
@@ -157,7 +157,7 @@ has at least the following content. Be sure to replace the password with the sha
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed :wqtraffic on that port
+    # our Azure setup, where we've allowed traffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
