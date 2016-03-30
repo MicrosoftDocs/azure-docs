@@ -71,9 +71,9 @@ When using these steps as an exercise, you can use the following values:
 - DNS Server: 8.8.8.8
 - Gateway Name: VNet1GW
 - Public IP: VNet1GWIP
-- VPN Type: RouteBased
-- Connection Type: IPsec
-- Gateway Type: Vpn
+- VPN Type: Route-based
+- Connection Type: Site-to-site (IPsec)
+- Gateway Type: VPN
 - Local Network Gateway Name: Site2
 - Connection Name: VNet1toSite2
 
