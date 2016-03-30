@@ -290,8 +290,6 @@ For more detailed information on using Shared Access Signatures and Stored Acces
 
 	-	[Constructing a service SAS](https://msdn.microsoft.com/en-us/library/dn140255.aspx)
 
-	-	[Account SAS](https://msdn.microsoft.com/library/mt584140.aspx)
-
 	-	[Constructing an account SAS](https://msdn.microsoft.com/en-us/library/mt584140.aspx)
 
 -   These are tutorials for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
