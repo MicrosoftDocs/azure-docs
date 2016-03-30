@@ -19,7 +19,7 @@
 
 # Vertically scale Azure virtual machine with Azure Automation
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager deployment model]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model
 
 Vertical scaling is the process of increasing or decreasing the resources of a machine in response to the workload. In Azure this can be accomplished by changing the size of the Virtual Machine. This can help in the following scenarios
 
@@ -43,7 +43,7 @@ Before you can being executing Azure Automation runbooks in your subscription yo
 
 A walkthrough of creating a user and an AutomationPSCredential can be read in the following article
 
-[Configuring Azure Automation](../automation/automation-configuring.md)
+* [Configuring Azure Automation](../automation/automation-configuring.md)
 
 After creating a user you will need to make that user a co-admin for your classic resources and giving it an "Owner" role for your Azure Resource Manager resources.
 
@@ -59,7 +59,7 @@ You'll need to use the Azure Portal to allow the user to access the Azure Resour
 
 The runbooks that are needed for Vertically Scaling your Virtual Machine are already published in the Azure Automation Runbook Gallery. You will need to import them into your subscription. You can learn how to import runbooks by reading the following article.
 
-[Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
+* [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
 
 The runbooks that need to be imported are shown in the image below
 
@@ -69,7 +69,7 @@ The runbooks that need to be imported are shown in the image below
 
 Once you've imported the runbooks you'll need to add a webhook to the runbook so it can be triggered by an alert from a Virtual Machine. The details of creating a webhook for your Runbook can be read here
 
-[Azure Automation webhooks](../automation/automation-webhooks.md)
+* [Azure Automation webhooks](../automation/automation-webhooks.md)
 
 Make sure you copy the webhook before closing the webhook dialog as you will need this in the next section.
 
