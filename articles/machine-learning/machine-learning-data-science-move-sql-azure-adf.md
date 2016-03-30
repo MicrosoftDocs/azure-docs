@@ -23,7 +23,7 @@
 
 This topic shows how to move data from an on-premise SQL Server Database to a SQL Azure Database via Azure Blob Storage using the Azure Data Factory (ADF).
 
-The **menu** below links to topics that describe how to ingest data into other target environments where the data can be stored and processed during the Cortana Analytics Process (CAPS).
+The **menu** below links to topics that describe how to ingest data into other target environments where the data can be stored and processed during the Cortana Intelligence Process (CAPS).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 

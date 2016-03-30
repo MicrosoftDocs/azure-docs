@@ -28,13 +28,13 @@ The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC li
 >[AZURE.NOTE] The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it is not, please refer to [Move data to SQL Server on Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) topic for instructions on how to move your data to SQL Server on Azure.
 
 **Why sample your data?**
-If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Intelligence Process is to enable fast prototyping of the data processing functions and machine learning models.
 
 The **menu** below links to topics that describe how to sample data from various storage environments. 
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-This sampling task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Cortana Intelligence Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##<a name="SQL"></a>Using SQL
 
@@ -118,9 +118,9 @@ You can use the following sample code to save the down-sampled data to a file an
  
 ![reader blob][2]
 
-## The Cortana Analytics Process in Action example
+## The Cortana Intelligence Process in Action example
 
-For an end-to-end walkthrough example of the Cortana Analytics Process a using a public dataset, see [Cortana Analytics Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Cortana Intelligence Process a using a public dataset, see [Cortana Intelligence Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png

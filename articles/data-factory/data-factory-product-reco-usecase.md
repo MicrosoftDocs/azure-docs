@@ -18,7 +18,7 @@
 
 # Use Case - Product Recommendations 
 
-Azure Data Factory is one of many services used to implement the Cortana Analytics Suite of solution accelerators.  See [Cortana Analytics Suite](http://www.microsoft.com/cortanaanalytics) page for details about this suite. In this document, we describe a common use case that Azure users have already solved and implemented using Azure Data Factory and other Cortana Analytics component services.
+Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  See [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) page for details about this suite. In this document, we describe a common use case that Azure users have already solved and implemented using Azure Data Factory and other Cortana Intelligence component services.
 
 ## Scenario
 
@@ -36,7 +36,7 @@ Third, the recommendations must be immediately deliverable to the user to provid
 
 ## Solution Overview
 
-This example use case has been solved and implemented by real Azure users with Azure Data Factory and other Cortana Analytics component services, including [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/) to ingest, prepare, transform, analyze, and publish the final data.
+This example use case has been solved and implemented by real Azure users with Azure Data Factory and other Cortana Intelligence component services, including [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/) to ingest, prepare, transform, analyze, and publish the final data.
 
 The online retailer uses an Azure Blob store, an on-premises SQL server, Azure SQL DB, and a relational data mart as their data storage options throughout the workflow.  The blob store contains customer information, customer behavior data, and product information data. The product information data includes product brand information and a product catalog stored on-premises in a SQL data warehouse. 
 

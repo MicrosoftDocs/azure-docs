@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Submit Hive Queries to Hadoop clusters in the Cortana Analytics Process  | Microsoft Azure" 
+	pageTitle="Submit Hive Queries to Hadoop clusters in the Cortana Intelligence Process  | Microsoft Azure" 
 	description="Process Data from Hive Tables" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" /> 
 
-#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Cortana Analytics Process
+#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Cortana Intelligence Process
 
 This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. Hive queries can be submitted by using: 
 

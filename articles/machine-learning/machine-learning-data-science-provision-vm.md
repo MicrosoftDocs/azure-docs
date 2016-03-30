@@ -147,5 +147,5 @@ Here are some next steps to continue your learning and exploration.
 * Navigate to **C:\Program Files\Microsoft\MRO-for-RRE\8.0\R-3.2.2\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
 * Read the article: [Ten things you can do on the Data science Virtual Machine](http://aka.ms/dsvmtenthings)
 * Learn how to build end to end analytical solutions systematically using the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples using the Cortana Analytics Suite. We have also provided an icon on the Start menu and desktop on the virtual machine for easy access 
+* Visit the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) for machine learning and data analytics samples using the Cortana Intelligence Suite. We have also provided an icon on the Start menu and desktop on the virtual machine for easy access 
 

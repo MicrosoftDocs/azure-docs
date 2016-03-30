@@ -183,5 +183,5 @@ or,
 
 ## Advanced Analytics Process and Technology in Action Example
 
-For an end-to-end walkthrough example using the Cortana Analytics Process with a public dataset, see [Cortana Analytics Process in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example using the Cortana Intelligence Process with a public dataset, see [Cortana Intelligence Process in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  

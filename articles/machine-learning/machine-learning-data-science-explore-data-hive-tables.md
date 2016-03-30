@@ -22,7 +22,7 @@
 
 This document provides sample Hive scripts that are used to explore data in Hive tables.
 
-The **menu** below links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
+The **menu** below links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the Cortana Intelligence Process (CAP).
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 

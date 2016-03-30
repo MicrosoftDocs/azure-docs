@@ -20,7 +20,7 @@
 
 ## Introduction
 
-This document covers how to sample data that is stored three Azure locations typically used when analyzing and modeling data in the Cortana Analytics Process:
+This document covers how to sample data that is stored three Azure locations typically used when analyzing and modeling data in the Cortana Intelligence Process:
 
 - **Azure blob container data** is sampled by downloading it programmatically and then sampling it with sample Python code.
 - **SQL Server data** is sampled using both SQL and the Python Programming Language. 
@@ -30,11 +30,11 @@ The **menu** below links to the topics that describe how to sample data from eac
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-This sampling task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Cortana Intelligence Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## Why sample data?
 
-If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Intelligence Process is to enable fast prototyping of the data processing functions and machine learning models.
 
 
 

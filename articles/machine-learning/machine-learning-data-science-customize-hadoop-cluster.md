@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Customize Hadoop clusters for the Cortana Analytics Process | Microsoft Azure" 
+	pageTitle="Customize Hadoop clusters for the Cortana Intelligence Process | Microsoft Azure" 
 	description="Popular Python modules made available in custom Azure HDInsight Hadoop clusters."
 	services="machine-learning" 
 	documentationCenter="" 
@@ -16,15 +16,15 @@
 	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
-# Customize Azure HDInsight Hadoop clusters for the Cortana Analytics Process 
+# Customize Azure HDInsight Hadoop clusters for the Cortana Intelligence Process 
 
 ## Introduction
 
-This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. This customization prepares the cluster for use with the Cortana Analytics Process. It also shows how to access the headnode to submit custom jobs to the cluster.
+This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. This customization prepares the cluster for use with the Cortana Intelligence Process. It also shows how to access the headnode to submit custom jobs to the cluster.
 
 This customization makes many popular Python modules that are included in Anaconda conveniently available for use in user defined functions (UDFs) that are designed to process Hive records in the cluster. For instructions on the procedures used in this scenario, see [Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process](machine-learning-data-science-hive-queries.md).
 
-The menu below links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
+The menu below links to topics that describe how to set up the various data science environments used by the Cortana Intelligence Process (CAPS).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 

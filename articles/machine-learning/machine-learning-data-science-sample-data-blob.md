@@ -23,13 +23,13 @@
 This document covers sampling data stored in Azure blob storage by downloading it programmatically and then sampling it with sample Python code. The steps to do so are as follows:
 
 **Why sample your data?**
-If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Intelligence Process is to enable fast prototyping of the data processing functions and machine learning models.
 
 The **menu** below links to topics that describe how to sample data from various storage environments. 
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-This sampling task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Cortana Intelligence Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Download and down-sample data

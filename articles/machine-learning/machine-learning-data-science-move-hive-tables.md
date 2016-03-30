@@ -22,7 +22,7 @@
 ## Introduction
 In **this document**, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
 
-This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Cortana Analytics Process (CAPS).
+This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Cortana Intelligence Process (CAPS).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 

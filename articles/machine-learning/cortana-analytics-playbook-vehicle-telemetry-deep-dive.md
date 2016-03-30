@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Vehicle telemetry analytics solution playbook: deep dive into the solution | Microsoft Azure" 
-	description="Use the capabilities of Cortana Analytics to gain real-time and predictive insights on vehicle health and driving habits." 
+	description="Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 

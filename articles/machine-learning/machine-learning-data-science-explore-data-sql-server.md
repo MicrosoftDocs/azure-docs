@@ -22,7 +22,7 @@
 
 This document covers how to explore data that is stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
 
-The **menu** below links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
+The **menu** below links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the Cortana Intelligence Process (CAP).
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -70,8 +70,8 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
 
 Now you can work with the Pandas data frame as covered in topics [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md).
 
-## Cortana Analytics Process in Action Example
+## Cortana Intelligence Process in Action Example
 
-For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Cortana Intelligence Process using a public dataset, see [The Cortana Intelligence Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
  

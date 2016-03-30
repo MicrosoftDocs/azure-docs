@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Explore data in the Cortana Analytics Process | Microsoft Azure" 
+	pageTitle="Explore data in the Cortana Intelligence Process | Microsoft Azure" 
 	description="How to explore data in various storage enviromnents." 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -16,9 +16,9 @@
 	ms.date="02/08/2016" 
 	ms.author="bradsev" /> 
 
-#Explore data in the Cortana Analytics Process
+#Explore data in the Cortana Intelligence Process
 
-This document covers how to explore data in four different environments typically used in the Cortana Analytics Process:
+This document covers how to explore data in four different environments typically used in the Cortana Intelligence Process:
 
 - **Azure blob container** data is explored using the [Pandas](http://pandas.pydata.org/) Python package.
 - **SQL Server data** data is explored by using SQL and by using a programming language like Python.

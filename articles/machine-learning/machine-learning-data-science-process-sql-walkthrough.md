@@ -1,5 +1,5 @@
 <properties
-	pageTitle="The Cortana Analytics Process in action: using SQL Server | Microsoft Azure"
+	pageTitle="The Cortana Intelligence Process in action: using SQL Server | Microsoft Azure"
 	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning"
 	documentationCenter=""
@@ -17,9 +17,9 @@
 	ms.author="mohabib;fashah;bradsev"/>
 
 
-# The Cortana Analytics Process in action: using SQL Server
+# The Cortana Intelligence Process in action: using SQL Server
 
-In this tutorial, you walkthrough building and deploying a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows the Cortana Analytics Process (CAP) workflow.
+In this tutorial, you walkthrough building and deploying a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows the Cortana Intelligence Process (CAP) workflow.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description

@@ -19,7 +19,7 @@
 
 # Create an Azure Machine Learning workspace 
 
-This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
+This menu links to topics that describe how to set up the various data science environments used by the Cortana Intelligence Process (CAPS).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 

@@ -19,7 +19,7 @@
 
 # Scenarios for advanced analytics in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled by the Cortana Analytics Process (CAP). It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
+This article outlines the variety of sample data sources and target scenarios that can be handled by the Cortana Intelligence Process (CAP). It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
@@ -305,8 +305,8 @@ The following diagram summarizes the scenarios described above and the Advanced 
 For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see:
 
 
-* [Cortana Analytics Process in action: using SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Cortana Intelligence Process in action: using SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
+* [Cortana Intelligence Process in action: using HDInsight Hadoop clusters](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
