@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # View, edit, create, and upload JSON documents using DocumentDB Document Explorer

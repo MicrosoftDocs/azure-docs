@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with Azure Table storage using .NET | Microsoft Azure"
-	description="Store unstructured data in the cloud using Azure Table storage, Microsoft's NoSQL data store. Get started with simple Table storage operations, including creating and deleting tables and inserting, updating, deleting, and querying data."
+	description="Store structured data in the cloud using Azure Table storage, Microsoft's NoSQL data store. Get started with simple Table storage operations, including creating and deleting tables and inserting, updating, deleting, and querying data."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="03/27/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Overview
 
-Azure Table storage is a service that stores unstructured NoSQL data in the cloud. Table storage is a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data. 
+Azure Table storage is a service that stores structured NoSQL data in the cloud. Table storage is a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data. 
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
 
@@ -300,7 +300,7 @@ show you how to override this behavior.
 	   // Change the phone number.
 	   updateEntity.PhoneNumber = "425-555-0105";
 
-	   // Create the InsertOrReplace TableOperation.
+	   // Create the Replace TableOperation.
 	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
 	   // Execute the operation.

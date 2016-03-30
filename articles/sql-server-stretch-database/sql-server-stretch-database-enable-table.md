@@ -61,7 +61,7 @@ Use the following options when you run CREATE TABLE or ALTER TABLE to enable Str
 
 -   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify  a predicate to select rows to migrate if the table contains both historical and current data. The predicate must call an inline table\-valued function. For more info, see [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
 
-        > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+    >   [AZURE.NOTE] If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
     In CTP 3.1 through RC1, this option is not available in the Enable Database for Stretch wizard. You have to use the CREATE TABLE or ALTER TABLE statement to configure a table for Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 

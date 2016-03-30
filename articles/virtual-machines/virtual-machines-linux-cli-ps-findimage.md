@@ -15,11 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="12/08/2015"
+   ms.date="03/14/2016"
    ms.author="rasquill"/>
 
 # Navigate and select Linux virtual machine images in Azure with CLI or Powershell
 
+This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Linux VM images are:
 
 **Table of commonly used Linux images**
 

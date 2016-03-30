@@ -12,25 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.topic="hero-article" 
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for Cordova/Phonegap
 
-> [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users for a mobile application developed with Cordova.
 
 In this tutorial, we will create a blank Cordova app using Mac and then integrate Mobile Engagement SDK. It collects basic analytics data and receives push notifications using Apple Push Notification System (APNS) for iOS and Google Cloud Messaging (GCM) for Android. We will deploy this to an iOS or Android device for testing. 
 
-> [AZURE.IMPORTANT] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 
 This tutorial requires the following:
 

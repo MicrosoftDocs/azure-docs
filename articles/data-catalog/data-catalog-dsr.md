@@ -3,8 +3,8 @@
    description="Specification of the currently supported data sources."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
-   ms.author="trhabe"/>
+   ms.date="03/28/2016"
+   ms.author="maroche"/>
 
 # Azure Data Catalog supported data sources
 
@@ -441,20 +441,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
       </td>
     </tr>
 
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual Cluster</td>
-      <td>N/A</td>
-      <td>
-        <font size=2>
-            protocol:  cosmos
-            <br>authentication:  {basic, windows}
-            <br>address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        </font>
-      </td>
-    </tr>
+
 
     <tr>
       <td>SQL Server Reporting Services</td>
@@ -539,52 +526,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
             <br>
-            <br>*basic/anonymous available only over https
-        </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream</td>
-      <td>Virtual Cluster</td>
-      <td>
-        <font size=2>
-            protocol:  cosmos
-            <br>authentication:  {basic, windows}
-            <br>address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream Set</td>
-      <td>Virtual Cluster</td>
-      <td>
-        <font size=2>
-            protocol:  cosmos
-            <br>authentication:  {basic, windows}
-            <br>address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>View</td>
-      <td>Virtual Cluster</td>
-      <td>
-        <font size=2>
-            protocol:  cosmos
-            <br>authentication:  {basic, windows}
-            <br>address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>*basic/anonymous available only over https*
         </font>
       </td>
     </tr>
@@ -700,7 +642,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
             <br>
-            <br>*basic/anonymous available only over https
+            <br>*basic/anonymous available only over https*
         </font>
       </td>
     </tr>
@@ -1280,7 +1222,7 @@ server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Kpi}
             <br>
-            <br>*basic/anonymous available only over https
+            <br>*basic/anonymous available only over https*
         </font>
       </td>
     </tr>
@@ -1354,7 +1296,7 @@ server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType:  {Table}
             <br>
-            <br>*basic/anonymous available only over https
+            <br>*basic/anonymous available only over https*
         </font>
       </td>
     </tr>
