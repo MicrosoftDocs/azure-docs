@@ -1,6 +1,6 @@
 <properties
-	pageTitle="What Are VM Scale Sets | Microsoft Azure"
-	description="Learn about VM Scale Sets"
+	pageTitle="What Are VM Scale Sets? | Microsoft Azure"
+	description="Learn about VM Scale Sets."
 	keywords="linux virtual machine,virtual machine scale sets" 
 	services="virtual-machine-linux"
 	documentationCenter=""
