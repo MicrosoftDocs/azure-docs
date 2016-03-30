@@ -64,6 +64,7 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
 
 > [AZURE.NOTE] The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).    
 
+<!-- -->
 > [AZURE.WARNING] Remote debugging is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
 
 1. Navigate to your cluster in **Cloud Explorer**, right-click and choose **Enable Debugging**
@@ -101,6 +102,7 @@ You are also able to stream traces directly from a remote cluster node to Visual
 
 > [AZURE.NOTE] The feature requires [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).
 
+<!-- -->
 > [AZURE.WARNING] Streaming traces is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
 > In a production scenario, you should rely on forwarding events using Azure Diagnostics.
 
@@ -141,6 +143,6 @@ You are also able to stream traces directly from a remote cluster node to Visual
 [conditionalbreakpoint]: ./media/service-fabric-debugging-your-application/conditionalbreakpoint.png
 [disableremotedebugging]: ./media/service-fabric-debugging-your-application/disableremotedebugging.png
 [enablestreamingtraces]: ./media/service-fabric-debugging-your-application/enablestreamingtraces.png
-[viewstreamingtraces]: ./media/service-fabric-debugging-your-application/viewstreamingtraces.png
 [viewingstreamingtraces]: ./media/service-fabric-debugging-your-application/viewingstreamingtraces.png
+[viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
