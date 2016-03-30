@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="03/23/2016"
+	ms.date="03/30/2016"
 	ms.author="chrande"/>
 
 # Azure Functions developer reference
@@ -988,5 +988,84 @@ public static void Run(TimerInfo myTimer, ICollector<string> OutPutQueueItem, Tr
 }
 ```
 
-### Azure Mobile Apps easy tables bindings
+### Azure Notification Hub output binding
 
+Your functions can send push notifications using a configured Azure Notification Hub with a very few lines of code. However, the notification hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register for notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) and click your target client platform at the top.
+
+The function.json file provides the following properties for use with a notification hub output binding:
+
+- **name** : Variable name used in function code for the notification hub message.
+- **hubName** : Name of the notification hub resource in the Azure portal.
+- **tagExpression** : Tag expressions allow you to specify that notifications be delivered to a set of devices who have registered to receive notifications that match the tag expression.  For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-routing-tag-expressions.md).
+- **connection** : This connection string must be an **Application Setting** connection string set to the *DefaultFullSharedAccessSignature* value for your notification hub. The *DefaultFullSharedAccessSignature* connection string value can be accessed from the **keys** button in the main blade of your notification hub resource in the Azure portal. 
+ 
+Example function.json:
+
+	{
+	  "bindings": [
+	    {
+	      "name": "notification",
+	      "type": "notificationHub",
+	      "tagExpression": "",
+	      "hubName": "my-notification-hub",
+	      "connection": "MyHubConnectionString",
+	      "direction": "out"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+
+#### Azure Notification Hub connection string setup
+
+To use a Notification hub binding, set up the function app by adding a connection string for the *DefaultFullSharedAccessSignature* for your notification hub. This connection string provides your function access permission to send notification messages.
+
+1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
+
+2. In the **Settings** blade, click **Application Settings**.
+
+3. Scroll down to the **Connection strings** section, and add an named entry for *DefaultFullSharedAccessSignature* value for you notification hub. Change the type to **Custom**.
+4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
+
+
+#### Azure Notification Hub timer Node.js example 
+
+This example sending a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `location` and `message`.
+
+	module.exports = function (context, myTimer) {
+	    var timeStamp = new Date().toISOString();
+	   
+	    if(myTimer.isPastDue)
+	    {
+	        context.log('Node.js is running late!');
+	    }
+	    context.log('Node.js timer trigger function ran!', timeStamp);  
+	     context.bindings.notification = {
+	        location: "Redmond",
+	        message: "Hello from Node!"
+	    };
+	    context.done();
+	};
+
+#### Azure Notification Hub queue trigger C# example
+
+This example sending a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `message`.
+
+
+	using System;
+	using System.Threading.Tasks;
+	using System.Collections.Generic;
+	 
+	public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
+	{
+	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+        notification = GetTemplateProperties(myQueueItem);
+		//Note: notification can also be a valid json string
+	}
+	 
+	private static IDictionary<string, string> GetTemplateProperties(string message)
+	{
+	    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+	    templateProperties["message"] = message;
+	    return templateProperties;
+}
