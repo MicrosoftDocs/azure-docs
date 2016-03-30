@@ -22,22 +22,22 @@
 
 Azure Container Service makes it simpler for you to create,
 configure, and manage a cluster of virtual machines that are
-preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills or draw upon a large and growing body of community expertise to deploy and manage container-based applications on Microsoft Azure.
+preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
 
 <br />
-![Azure Container Service provides a means to manage containerize applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
+![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
 <br /><br />
 
-Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and Apache Mesos or Docker Swarm so that these applications can be scaled to thousands of containers, even tens of thousands.
+Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and Apache Mesos or Docker Swarm so that you can scale these applications to thousands of containers, even tens of thousands.
 
 By using Azure Container Service, you can take advantage of the
-enterprise-grade features of Azure, while still maintaining application portability, including portability at the orchestration layers.
+enterprise-grade features of Azure, while still maintaining application portability--including portability at the orchestration layers.
 
 Using Azure Container Service
 -----------------------------
 
 Our goal with the Azure Container Service is to provide a container
-hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator. By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). While for Apache Mesos, you might choose to use the DCOS CLI.
+hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator. By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For Apache Mesos, you might choose to use the DCOS CLI.
 
 Creating a Docker cluster by using Azure Container Service
 -------------------------------------------------------
@@ -52,7 +52,7 @@ Mesos (with DCOS Marathon and DCOS Chronos frameworks) for orchestration.
 
 ### Using Apache Mesos
 
-Apache Mesos is an open-source project housed at the Apache Software
+Apache Mesos is an open-source project that is housed at the Apache Software
 Foundation. It lists some of the [biggest names in
 IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as
 users and contributors.
@@ -63,7 +63,7 @@ Mesos includes an impressive feature set:
 
 -   Scalability to 10,000's of nodes
 
--   Fault-tolerant replicated master and slaves using ZooKeeper
+-   Fault-tolerant replicated master and slaves using Apache ZooKeeper
 
 -   Support for Docker-formatted containers
 
@@ -71,13 +71,13 @@ Mesos includes an impressive feature set:
 
 -   Multiresource scheduling (memory, CPU, disk, and ports)
 
--   Java, Python and C++ APIs for developing new parallel applications
+-   Java, Python, and C++ APIs for developing new parallel applications
 
 -   A web UI for viewing cluster state
 
-Mesos has support for a large number of
+Mesos supports a large number of
 [frameworks](http://mesos.apache.org/documentation/latest/frameworks/)
-that you can use for scheduling workloads on the Azure Container
+that you can use for scheduling workloads on Azure Container
 Service. By default, Azure Container Service includes the Marathon and Chronos frameworks.
 
 #### Using Marathon and Chronos
@@ -85,12 +85,12 @@ Service. By default, Azure Container Service includes the Marathon and Chronos f
 Marathon is a cluster-wide init and control system for services in
 cgroups--or, in the case of Azure Container Service, Docker-formatted containers. It is an ideal partner to Chronos, which is a fault-tolerant job scheduler for Mesos that handles dependencies and time-based schedules.
 
-Marathon and Chronos provide a Web UI from which you can deploy your applications. You can access this at an URL that looks something like
+Marathon and Chronos provide a web UI from which you can deploy your applications. You can access this at a URL that looks something like
 `http://DNS\_PREFIX.REGION.cloudapp.azure.com`
 where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [Container management through the web UI](./container-service-mesos-marathon-ui.md).
 
 You can also use the REST APIs for communicating with Marathon and
-Chronos. There are a number of client libraries that are available for each tool. They cover a variety of languages and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for these schedulers. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container using the Marathon REST API, see [Container management with the REST API](./container-service-mesos-marathon-rest.md).
+Chronos. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for these schedulers. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [Container management with the REST API](./container-service-mesos-marathon-rest.md).
 
 ### Using Docker Swarm
 
