@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="03/30/2016"
 	ms.author="daleche"/>
 
 
@@ -560,8 +560,9 @@ public bool IsTransient(Exception ex)
 ```
 
 
-## More information
+## Next steps
 
+- For troubleshooting other common Azure SQL Database connection issues, see [Troubleshoot common connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md)
 
 - [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
