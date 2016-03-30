@@ -41,7 +41,7 @@ Before you can set up the build machine, you need to create a [service principal
 
 ### Install Azure PowerShell and sign in
 
-1.     Install PowerShellGet.
+1.  Install PowerShellGet.
 
     a. If you are running Windows 10 with the latest updates, you can skip this step (PowerShellGet is already installed).
 
