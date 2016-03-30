@@ -122,11 +122,11 @@ DNS servers within a virtual network can forward DNS queries to Azure's recursiv
 
 DNS forwarding also enables inter-vnet DNS resolution and allows your on-premise machines to resolve Azure-provided hostnames.  In order to resolve a VM's hostname, the DNS server VM must reside in the same virtual network and be configured to forward hostname queries to Azure.  As the DNS suffix is different in each vnet, you can use conditional forwarding rules to send DNS queries to the correct vnet for resolution.  The following image shows two vnets and an on-premise network doing inter-vnet DNS resolution using this method:
 
-![Inter-vnet DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
+![Inter-vnet DNS](./media/virtual-machines-linux-azure-dns/inter-vnet-dns.png)
 
 When using Azure-provided name resolution, the Internal DNS suffix is provided to each VM using DHCP.  When using your own name resolution solution, this suffix is not supplied to VMs because it interferes with other DNS architectures.  To refer to machines by FQDN, or to configure the suffix on your VMs, the suffix can be determined using PowerShell or the API:
 
--  For ARM-managed vnets, the suffix is available via the [network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx) resource or via the [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) cmdlet.    
+-  For Azure Resource Management managed vnets, the suffix is available via the [network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx) resource or you can run the command `azure network public-ip show <resource group> <pip name>` to display the details of your public IP, including the FQDN of the nic.    
 
 
 If forwarding queries to Azure doesn't suit your needs, you will need to provide your own DNS solution.  Your DNS solution will need to:
