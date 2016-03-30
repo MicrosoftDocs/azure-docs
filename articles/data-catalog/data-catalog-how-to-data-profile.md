@@ -64,7 +64,7 @@ To discover data assets that include a data profile, you can include **has:table
 
 ## Viewing data profile information
 
-Once you find a suitable data source with a profile you can view the data profile details. To view the data profile, select a data asset and choose **Data Profile** in the Data Catalog portal window.
+Once you find a suitable data source with a profile, you can view the data profile details. To view the data profile, select a data asset and choose **Data Profile** in the Data Catalog portal window.
 
 ![](media\data-catalog-data-profile\data-catalog-view.png)
 
