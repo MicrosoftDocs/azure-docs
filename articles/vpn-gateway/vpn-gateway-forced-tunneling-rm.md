@@ -74,9 +74,10 @@ In the example, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, 
 
 Verify that you have the following items below before beginning your configuration.
 
-- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell cmdlets (1.0 or later). The necessary cmdlets for this configuration are not present in versions earlier than 1.0. You can download and install this version from the Windows PowerShell section of the [Download page](https://azure.microsoft.com/downloads/). If you aren't familiar with installing and configuring PowerShell, please see [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information. 
+- You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+
 
 ### Configuration steps
 
@@ -90,7 +91,7 @@ Verify that you have the following items below before beginning your configurati
 
 2. Specify the subscription that you want to use. 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 		
 3. Create a resource group.
 
