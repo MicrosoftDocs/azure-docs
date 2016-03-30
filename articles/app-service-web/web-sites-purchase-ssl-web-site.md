@@ -47,7 +47,7 @@ In this Step, you will learn how to place an Order for an SSL Certificate of you
 
 1.	In the **[Azure Portal](https://portal.azure.com/)**, click Browse and Type “App Service Certificates” in search bar and select “App Service Certificates” from the result and Click Add. 
 
-![insert image of create using browse](./media/app-service-web-app-service-web-purchase-ssl-web-site/browse.jpg)
+![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
 
 ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/add.jpg)
 2.	Enter **friendly name** for your SSL Certificate.
