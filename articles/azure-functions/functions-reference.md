@@ -998,7 +998,7 @@ The function.json file provides the following properties for use with a notifica
 - **name** : Variable name used in function code for the notification hub message.
 - **hubName** : Name of the notification hub resource in the Azure portal.
 - **tagExpression** : Tag expressions allow you to specify that notifications be delivered to a set of devices who have registered to receive notifications that match the tag expression.  For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-routing-tag-expressions.md).
-- **connection** : This connection string must be an **Application Setting** connection string set to the *DefaultFullSharedAccessSignature* value for your notification hub. The *DefaultFullSharedAccessSignature* connection string value can be accessed from the **keys** button in the main blade of your notification hub resource in the Azure portal. 
+- **connection** : This connection string must be an **Application Setting** connection string set to the *DefaultFullSharedAccessSignature* value for your notification hub. 
  
 Example function.json:
 
@@ -1019,7 +1019,9 @@ Example function.json:
 
 #### Azure Notification Hub connection string setup
 
-To use a Notification hub binding, set up the function app by adding a connection string for the *DefaultFullSharedAccessSignature* for your notification hub. This connection string provides your function access permission to send notification messages.
+To use a Notification hub output binding you must configure the connection string for the hub. You can do this on the *Integrate* tab by simply selecting your notification hub or creating a new one. 
+
+You can also manually add a connection string for an existing hub by adding a connection string for the *DefaultFullSharedAccessSignature* to your notification hub. This connection string provides your function access permission to send notification messages. The *DefaultFullSharedAccessSignature* connection string value can be accessed from the **keys** button in the main blade of your notification hub resource in the Azure portal. To manually add a connection string for your hub, use the following steps: 
 
 1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
 
@@ -1031,7 +1033,7 @@ To use a Notification hub binding, set up the function app by adding a connectio
 
 #### Azure Notification Hub timer Node.js example 
 
-This example sending a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `location` and `message`.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `location` and `message`.
 
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();
@@ -1041,7 +1043,7 @@ This example sending a notification for a [template registration](../notificatio
 	        context.log('Node.js is running late!');
 	    }
 	    context.log('Node.js timer trigger function ran!', timeStamp);  
-	     context.bindings.notification = {
+	    context.bindings.notification = {
 	        location: "Redmond",
 	        message: "Hello from Node!"
 	    };
@@ -1050,7 +1052,7 @@ This example sending a notification for a [template registration](../notificatio
 
 #### Azure Notification Hub queue trigger C# example
 
-This example sending a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `message`.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `message`.
 
 
 	using System;
@@ -1069,4 +1071,14 @@ This example sending a notification for a [template registration](../notificatio
 	    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
 	    templateProperties["message"] = message;
 	    return templateProperties;
-}
+	}
+
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `message` using a valid JSON string.
+
+	using System;
+	 
+	public static void Run(string myQueueItem,  out string notification, TraceWriter log)
+	{
+	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+        notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
+	}
