@@ -30,15 +30,6 @@ The source code for the preconfigured solutions is available on GitHub in the fo
 
 The source code for the preconfigured solutions is provided to demonstrate the patterns and practices used to implement the end-to-end functionality of an IoT solution using Azure IoT Suite. You can find more information about how to build and deploy the solutions in the GitHub repositories.
 
-## Manage the permissions in a preconfigured solution
-The solution portal for each preconfigured solution is created as a new Azure Active Directory application. You can manage the permissions for your solution portal (AAD application) as follows:
-
-1. Open to the [Azure classic portal](https://manage.windowsazure.com).
-2. Navigate to the AAD application by selecting **Applications my company owns** and then clicking the check mark.
-3. Navigate to **Users** and assign members in your Azure Active Directory tenant to a role. 
-
-By default, the application is provisioned with **Administrator**, **Read Only**, and **Implicit Read Only** roles. **Implicit Read Only** is granted to users who are members of the Azure Active Directory tenant, but have not been assigned a role. You can modify the [RolePermissions.cs](https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs ) once you've forked the GitHub repository and then redeploy your solution. 
-
 ## Changing the preconfigured rules
 
 The remote monitoring solution includes three [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobs to implement device information, telemetry and rules logic displayed  for the solution.
