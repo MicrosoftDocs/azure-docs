@@ -23,7 +23,7 @@
 
 This topic shows how to move data from an on-premise SQL Server Database to a SQL Azure Database via Azure Blob Storage using the Azure Data Factory (ADF).
 
-The **menu** below links to topics that describe how to ingest data into other target environments where the data can be stored and processed during the Cortana Intelligence Process (CAPS).
+The **menu** below links to topics that describe how to ingest data into other target environments where the data can be stored and processed during the Cortana Analytics Process (CAP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -42,7 +42,7 @@ We set up an ADF pipeline that composes two data migration activities that toget
 * copy data from an on-premise SQL Server database to an Azure Blob Storage account
 * copy data from the Azure Blob Storage account to an Azure SQL Database.
 
-**Reference**: The steps shown here have been adapted from the more detailed tutorial [Enable your pipelines to work with on-premises data](data-factory-use-onpremises-datasources.md) provided by the ADF team and references to the relevant sections of that topic are provided when appropriate.
+**Reference**: The steps shown here have been adapted from the more detailed tutorial [Enable your pipelines to work with on-premises data](../data-factory/data-factory-use-onpremises-datasources.md) provided by the ADF team and references to the relevant sections of that topic are provided when appropriate.
 
 
 ## <a name="prereqs"></a>Prerequisites
@@ -50,8 +50,8 @@ This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* Access to an **Azure SQL Database**. If you must setup an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](sql-database-get-started.md) provides information on how to provision a new instance of a Azure SQL Database.
-* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+* Access to an **Azure SQL Database**. If you must setup an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of a Azure SQL Database.
+* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 > [AZURE.NOTE] This procedure uses the [Azure Portal](https://ms.portal.azure.com/).
 
@@ -64,18 +64,18 @@ You can either adapt the procedure provided here to a set of your own data or fo
 
 ##<a name="create-adf"></a> Create an Azure Data Factory
 
-The instructions for creating a new Azure Data Factory and a resource group in the [Azure Portal](https://ms.portal.azure.com/) are provided [Create an Azure Data Factory](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
+The instructions for creating a new Azure Data Factory and a resource group in the [Azure Portal](https://ms.portal.azure.com/) are provided [Create an Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
 
 ## Install and configure up the Data Management Gateway
 
 To enable your pipelines in an Azure data factory to work with an on-premise SQL Server, you need to add it as a linked service to the data factory. To create a Linked Service for the on-premise SQL Server, you must first download and install Microsoft Data Management Gateway onto the on-premise computer and configure the linked service for the on-premises data source to use the gateway. The Data Management Gateway serializes and deserializes the source and sink data on the computer where it is hosted.
 
-For set-up instructions and details on Data Management Gateway, see [Enable your pipelines to work with on-premises data](data-factory-use-onpremises-datasources.md)
+For set-up instructions and details on Data Management Gateway, see [Enable your pipelines to work with on-premises data](../data-factory/data-factory-use-onpremises-datasources.md)
 
 
 ## <a name="adflinkedservices"></a>Create linked services to connect to the data resources
 
-A linked service defines the information needed for Azure Data Factory to connect to a data resource. The step-by-step procedure for creating linked services is provided in [Create linked services](data-factory-use-onpremises-datasources.md#step-2-create-linked-services).
+A linked service defines the information needed for Azure Data Factory to connect to a data resource. The step-by-step procedure for creating linked services is provided in [Create linked services](../data-factory/data-factory-use-onpremises-datasources.md#step-2-create-linked-services).
 
 We have three resources in this scenario for which linked services are needed.
 

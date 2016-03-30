@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Submit Hive Queries to Hadoop clusters in the Cortana Intelligence Process  | Microsoft Azure" 
+	pageTitle="Submit Hive Queries to Hadoop clusters in the Cortana Analytics Process  | Microsoft Azure" 
 	description="Process Data from Hive Tables" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" /> 
 
-#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Cortana Intelligence Process
+#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Cortana Analytics Process
 
 This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. Hive queries can be submitted by using: 
 
@@ -36,7 +36,7 @@ This article assumes that you have:
  
 * Created an Azure storage account. If you need instructions for this task, see [Create an Azure Storage account](../hdinsight-get-started.md#storage) 
 * Provisioned an Hadoop cluster with the HDInsight service.  If you need instructions, see [Provision an HDInsight cluster](../hdinsight-get-started.md#provision).
-* Uploaded the data to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow the instructions provided at [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
+* Uploaded the data to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow the instructions provided at [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
 * Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
