@@ -28,19 +28,13 @@ The following operating system versions are supported for development:
 - Windows Server 2012 R2
 - Windows 10
 
-### Visual Studio 2015
-
-The tools for Service Fabric require at least Visual Studio 2015, which you can find on the [Visual Studio website][2].
-
-> [AZURE.NOTE] If you aren't running one of the supported OS versions or would prefer not to install Visual Studio on your computer, you can set up an Azure virtual machine with Windows Server 2012 R2 and Visual Studio preinstalled. You can do this by using an image from the Azure virtual machine gallery.
-
 ## Install the runtime, SDK, and tools
 
-The Web Platform Installer performs the installation of the Service Fabric components. There are three options for installation:
+The Web Platform Installer offers three configurations for Service Fabric development:
 
-- [Install the Service Fabric runtime, SDK, and tools for Visual Studio 2015](full-bundle-vs2015)
-- [Install the Service Fabric runtime, SDK, and tools for Visual Studio "15" Preview](full-bundle-dev15)
-- [Install the Service Fabric runtime and SDK only (no Visual Studio tools)](core-sdk)
+- [Install the Service Fabric runtime, SDK, and tools for Visual Studio 2015][full-bundle-vs2015]
+- [Install the Service Fabric runtime, SDK, and tools for Visual Studio "15" Preview][full-bundle-dev15]
+- [Install the Service Fabric runtime and SDK only (no Visual Studio tools)][core-sdk]
 
 
 ## Enable PowerShell script execution
