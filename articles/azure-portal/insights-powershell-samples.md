@@ -229,7 +229,6 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 A full list of available options for `Get-AzureRmMetricDefinition` is available at [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-To view a list of available metrics and their units for various Azure services, see [WEB PAGE TITLE HERE](http://link).
 
 ## Create and manage AutoScale settings
 A resource, such as a Web app, VM, Cloud Service or VM Scale Set can have only one autoscale setting configured for it.
