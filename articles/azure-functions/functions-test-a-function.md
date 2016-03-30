@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/29/2016"
+   ms.date="03/30/2016"
    ms.author="wesmc"/>
 
 # Testing Azure Functions
@@ -34,7 +34,7 @@ Update the function with the following code which we will use for testing:
 
 	module.exports = function(context, req) {
 	    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-	    context.log("Request Headers = " + req.headers);    
+	    context.log("Request Headers = " + JSON.stringify(req.headers));    
 	
 	    if (req.query.name || (req.body && req.body.name)) {
 	        if (typeof req.query.name != "undefined") {
@@ -222,11 +222,10 @@ To demonstrate this approach, we will first create a queue trigger function that
 #### Create a timer trigger to drop a message in the queue
 
 1. Open the [Azure Portal] in a new browser window and navigate to your Function app.
-2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code will execute testing your queue function. Then click **Create**. If you want the test to run every 30 seconds you can use the following cron expression:
+2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code will execute testing your queue function. Then click **Create**. If you want the test to run every 30 seconds you can use the following [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression):
 
 		*/30 * * * * *
 
-	For more information on cron expressions, see [Cron](https://wikipedia.org/wiki/Cron).
 
 2. Click the **Integrate** tab for your new timer trigger.
 3. Under **Output**, click the **+ New Output** button. Then click **queue** and the **Select** button.
