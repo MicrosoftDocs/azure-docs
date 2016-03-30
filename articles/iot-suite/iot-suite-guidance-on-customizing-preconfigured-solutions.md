@@ -81,6 +81,65 @@ Additionally, Azure IoT provides a [C SDK Sample](https://github.com/Azure/azure
 
 The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries for connecting numerous device types (languages and operating systems) into IoT solutions.
 
+## Manually setting up application roles
+
+The following procedure describes how to add **Admin** and **ReadOnly** application roles to a preconfigured solution. Note that preconfigured solutions provisioned from the azureiotsuite.com site already include the **Admin** and **ReadOnly** roles.
+
+Members of the **ReadOnly** role can see the dashboard and the device list, but are not allowed to add devices, change device attributes, or send commands.  Members of the **Admin** role have full access to all the functionality in the solution.
+
+1. Go to the [Azure classic portal][lnk-classic-portal].
+
+2. Select **Active Directory**.
+
+3. Click the name of the AAD tenant you used when you provisioned your solution.
+
+4. Click **Applications**.
+
+5. Click the name of the application that matches your preconfigured solution name. If you don't see your application in the list, select **Applications my company owns** in the **Show** drop down and click the check mark.
+
+6.  At the bottom of the page, click **Manage Manifest** and then **Download Manifest**.
+
+7. This downloads a .json file to your local machine.  Open this file for editing in a text editor of your choice.
+
+8. On the third line of the .json file, you will find:
+
+  ```
+  "appRoles" : [],
+  ```
+  Replace this with the following:
+
+  ```
+  "appRoles": [
+  {
+  "allowedMemberTypes": [
+  "User"
+  ],
+  "description": "Administrator access to the application",
+  "displayName": "Admin",
+  "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "isEnabled": true,
+  "value": "Admin"
+  },
+  {
+  "allowedMemberTypes": [
+  "User"
+  ],
+  "description": "Read only access to device information",
+  "displayName": "Read Only",
+  "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
+  "isEnabled": true,
+  "value": "ReadOnly"
+  } ],
+  ```
+
+9. Save the updated .json file (you can overwrite the existing file).
+
+10.  In the Azure Management Portal, at the bottom of the page, select **Manage Manifest** then **Upload Manifest** to upload the .json file you saved in the previous step.
+
+11. You have now added the **Admin** and **ReadOnly** roles to your application.
+
+12. To assign one of these roles to a user in your directory, see [Permissions on the azureiotsuite.com site][lnk-permissions].
+
 ## Feedback
 
 Have a customization you'd like to see covered in this document? Please add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), or comment on this article below. 
@@ -90,3 +149,4 @@ Have a customization you'd like to see covered in this document? Please add feat
 For more information about IoT devices, see the [Azure IoT Developer Site](https://azure.microsoft.com/develop/iot/) to find links and documentation.
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[lnk-permissions]: iot-suite-permissions.md
