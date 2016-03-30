@@ -155,11 +155,3 @@ Here is an example for setting the role size to be [Standard_D2](General purpose
 ...
 </WebRole>
 ```
-
-## Next steps
-
-[Package your cloud service application](cloud-services-model-and-package.md)
-
-[Deploy your cloud service in the portal](cloud-services-how-to-create-deploy-portal.md)
-
-[Create a cloud service in Visual Studio](..\vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)  
