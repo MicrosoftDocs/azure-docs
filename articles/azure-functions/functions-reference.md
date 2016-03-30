@@ -768,12 +768,14 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 The *function.json* for storage tables provides several properties:
 
-* The name of the variable to use in code for the table binding
-* The name of the table
-* The partition key (optional)
-* The row key (optional)
-* The maximum number of rows to read (input only)
-* A filter expression (input only)
+* `name` - The name of the variable to use in code for the table binding.
+* `tableName`
+* `partitionKey` (optional)
+* `rowKey` (optional)
+* `take` - The maximum number of rows to read.
+* `filter` - Filter expression.
+
+The `take` and `filter` properties do not apply to C# since you can accomplish the same purpose by using the `IQueryable` object that is provided by the Functions runtime. The `partitionKey` property only applies to C# when you're binding to a single entity by providing both `partitionKey` and `rowKey`.
 
 This example uses a queue trigger to read a single table row.
 
@@ -830,8 +832,6 @@ To read multiple entities from a table in a C# function, use an `IQueryable<T>` 
 
 The following *function.json* and C# code example reads all rows from a table. The C# code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`.
 
-The `function.json` file includes properties intended to enable you to filter by partition key or by a filter expression, but these features are not yet fully implemented in this preview release.
-
 ```json
 {
   "bindings": [
@@ -847,8 +847,6 @@ The `function.json` file includes properties intended to enable you to filter by
       "type": "table",
       "tableName": "Person2",
       "partitionKey": "",
-      "take": 100,
-      "filter": "",
       "connection": "",
       "direction": "in"
     }
