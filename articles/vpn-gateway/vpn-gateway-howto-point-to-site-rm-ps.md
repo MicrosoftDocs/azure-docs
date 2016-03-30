@@ -26,6 +26,8 @@ A Point-to-Site configuration allows you to create a secure connection to your v
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address to work. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About cross-premises connections](vpn-gateway-cross-premises-options.md).
 
+This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the **Resource Manager deployment model** (Service Management).
+
 **About Azure deployment models**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
@@ -35,7 +37,6 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
 ![Point-to-Site-diagram](./media/vpn-gateway-point-to-site-create/point2site.png "point-to-site")
-
 
 
 ## About this configuration
