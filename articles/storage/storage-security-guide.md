@@ -212,7 +212,7 @@ Storage account keys are 512-bit strings created by Azure that, along with the s
 
 For example, you can read blobs, write to queues, create tables, and modify files. Many of these actions can be performed through the Azure Portal, or using one of many Storage Explorer applications. You can also write code to use the REST API or one of the Storage Client Libraries to perform these operations.
 
-As discussed in the section on the [Management Plane Security](#management-plant-security), access to the storage keys for a Classic storage account can be granted by giving full access to the Azure subscription. Access to the storage keys for a storage account using the Azure Resource Manager model can be controlled through Role-Based Access Control (RBAC).
+As discussed in the section on the [Management Plane Security](#management-plane-security), access to the storage keys for a Classic storage account can be granted by giving full access to the Azure subscription. Access to the storage keys for a storage account using the Azure Resource Manager model can be controlled through Role-Based Access Control (RBAC).
 
 ###How to delegate access to objects in your account using Shared Access Signatures and Stored Access Policies
 
