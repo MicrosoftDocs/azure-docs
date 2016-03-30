@@ -281,7 +281,7 @@ To get around this issue, try either of these options:
 - Option 2: Deploy the virtual machine from the default gallery and then follow these steps:
     1. Update the DNS for Vnet and set the DNS to Custom DNS, with Primary DNS server 192.168.100.2 (ignore the **Invalid argument** error for secondary DNS server).
     ![Set Custom DNS](media/azure-stack-troubleshooting/customdns.png) 
-    2. From the portal, shut down the virtual machine and then restart it.
+    2. From the portal, stop the virtual machine and then restart it.
     ![Stop and restart the virtual machine](media/azure-stack-troubleshooting/vmstopstart.png) 
     
 
