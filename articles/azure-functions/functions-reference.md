@@ -768,6 +768,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 The *function.json* for storage tables provides several properties:
 
+* The name of the variable to use in code for the table binding
 * The name of the table
 * The partition key (optional)
 * The row key (optional)
@@ -802,9 +803,11 @@ This example uses a queue trigger to read a single table row.
 }
 ```
 
-#### Code example to read a single table entity
+#### Reading a single table entity
 
-The following C# code example works with the preceding *function.json* file to to read a single table entity. The queue message has the row key value and the table entity is read into a POCO type that is defined in the *run.csx* file.
+To read a single entity from a table in a C# function, the type that you use for the entity can derive from `TableEntity` or implement `ITableEntity`, but it doesn't have to. 
+
+The following C# code example works with the preceding *function.json* file to to read a single table entity. The queue message has the row key value and the table entity is read into a type that is defined in the *run.csx* file. The type includes `PartitionKey` and `RowKey` properties and does not derive from `TableEntity`. 
 
 ```csharp
 public static void Run(string myQueueItem, Person personInTable, TraceWriter log)
@@ -821,9 +824,13 @@ public class Person
 }
 ``` 
 
-#### Code example to read multiple table entities
+#### Reading multiple table entities
+
+To read multiple entities from a table in a C# function, use an `IQueryable<T>` parameter where type `T` derives from `TableEntity` or implements `ITableEntity`.
 
 The following *function.json* and C# code example reads all rows from a table. The C# code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`.
+
+The `function.json` file includes properties intended to enable you to filter by partition key or by a filter expression, but these features are not yet fully implemented in this preview release.
 
 ```json
 {
@@ -871,7 +878,9 @@ public class Person : TableEntity
 
 #### Code example for creating multiple table entities
 
-To write multiple entities in a C# function, bind the `name` variable to `ICollector<T>` or `IAsyncCollector<T>`, as shown in the following *function.json* and *run.csx* examples. 
+To add entities to a table in a C# function, use `ICollector<T>` or `IAsyncCollector<T>` where `T` specifies the schema of the entities you want to add. Typically, the type you use with *ICollector* derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to.
+
+The following *function.json* and *run.csx* examples show how to write multiple table entities.
 
 ```json
 {
