@@ -229,11 +229,12 @@ The following PowerShell script pre-processes the source file, and exports it to
         
     $tableName_log4j = "log4jlogs"
     $exportDir_log4j = "/tutorials/usesqoop/data"
+    $sqljdbcdriver = "/user/oozie/share/lib/sqoop/sqljdbc41.jar"
         
     # Submit a Sqoop job
     $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by ' ' -m 1"`
-        -Files "/user/oozie/share/lib/sqoop/sqljdbc41.jar"
+        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1" `
+        -Files $sqljdbcdriver
 
     $sqoopJob = Start-AzureRmHDInsightJob `
                     -ClusterName $hdinsightClusterName `
