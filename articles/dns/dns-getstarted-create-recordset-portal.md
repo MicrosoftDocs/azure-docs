@@ -102,4 +102,4 @@ You can test your DNS zone by using DNS tools such as nslookup, dig, or the [Res
 
 ## Next steps
 
-For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md). For information about automating dns, [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
+For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md). For information about automating DNS, [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
