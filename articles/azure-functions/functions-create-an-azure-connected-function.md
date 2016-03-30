@@ -24,7 +24,7 @@
 
 In this short video, you will learn how to create an Azure Function that listens to messages on an Azure Queue and copies the messages to an Azure Blob. 
 
-[AZURE.VIDEO ]
+[AZURE.VIDEO create-an-azure-function-which-binds-to-an-azure-service]
 &nbsp;
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
