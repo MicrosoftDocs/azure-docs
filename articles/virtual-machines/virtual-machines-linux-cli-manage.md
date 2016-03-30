@@ -1,6 +1,9 @@
 <properties 
    pageTitle="Basic Azure CLI Commands in Azure Resource Manager mode | Microsoft Azure"
-   services="virtual-machines" 
+   description="These are the basic Azure CLI commands to get you started managing your VMs in Azure Resource Manager mode"
+   keywords="linux virtual machines, Azure Resource Manager, Azure CLI"
+   services="virtual-machines-linux"
+   documentationcenter=""
    authors="RicksterCDN" 
    manager="timlt" 
    editor="tysonn" 
@@ -62,7 +65,7 @@ You should see something like the following:
 
 ### Step 4: Start to use Azure CLI to interact with your Subscription
 
-The rest of this article will assume you are working in the Azure Resource Management mode. If for some reason you are in Service Manager mode, type 'azure config mode arm' to switch back to Azure Resource Manager mode.  This is the recommended mode of working with Azure going forward.  Should you need to work with previously created Azure Service Manager resources, you can change your mode to the legacy Azure Service Manager mode by typing `azure config mode asm`. 
+The rest of this article will assume you are working in the Azure Resource Management mode. If for some reason you are in Service Managemnt mode, type `azure config mode arm` to switch back to Azure Resource Manager mode.  This is the recommended mode of working with Azure going forward.  Should you need to work with previously created Azure Service Management resources, you can change your mode to the legacy Azure Service Manager mode by typing `azure config mode asm`. 
 
 ### Basic Azure Resource Manager commands in Azure CLI
 
