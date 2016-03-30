@@ -38,7 +38,7 @@ You can save time and money by deploying and debugging your Azure Service Fabric
 
 5. You can also open the **Diagnostic Events** window in Cloud Explorer.  Under **Service Fabric**, right-click any node and choose **View Streaming Traces**.
 
-    ![Open the diagnostic events window][viewstreamingtraces]
+    ![Open the diagnostic events window][viewdiagnosticevents]
 
     If you want to filter your traces to a specific service or application, simply enable streaming traces on that specific service or application. 
 
