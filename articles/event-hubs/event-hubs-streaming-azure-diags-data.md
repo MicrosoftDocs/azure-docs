@@ -24,8 +24,10 @@ Supported data types include:
 
 - ETW events
 - Performance Counters
-- Windows Event Logs and Application Logs.   
-
+- Windows Event Logs 
+- Application Logs
+- WAD infrastructure logs
+ 
 This article will show you how to configure Azure diagnostics with EventHub from end to end.  Guidance is also provided for common scenarios such as customizing which logs and metrics get sinked to EventHub, how to change configuration in each environment, one example of many how you can view EventHub stream data, and how to troubleshoot the connection.    
 
 ## Prerequisites
@@ -47,7 +49,9 @@ Azure diagnostics always sinks logs and metrics, by default, to an Azure Storage
 
 In this example, the EventHub URL is set to the fully qualified namespace of the EventHub (ServiceBus namespace  + “/” + EventHub name).  
 
-The EventHub URL is displayed in the [classic Azure portal](https://manage.windowsazure.com) on the EventHub’s dashboard.  The EventHub name can be set to any valid string – it is just the friendly name. 
+The EventHub URL is displayed in the [classic Azure portal](https://manage.windowsazure.com) on the EventHub’s dashboard.  
+
+The Sink name can be set to any valid string as long as the same value is used consistently throughout the config file. 
 
 **Note:** There may be additional sinks configured in this section such as "applicationInsights".  Azure diagnostics allows one or more sinks to be defined, provided that each sink is also declared in the **PrivateConfig** section.  
 
@@ -119,7 +123,8 @@ In the following figure, the EventHub dashboard shows healthy sending of WAD dat
 
 As discussed earlier, there are many use-cases for listening to and processing EventHub data.
   
-One simple approach is to create a small test console application to listen to the EventHub and print the output stream.  The following code may be placed in a console application.  
+One simple approach is to create a small test console application to listen to the EventHub and print the output stream.  The following code (that is explained in more detail
+in the article, [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)) may be placed in a console application.  
 
 Note that the console application must include the [EventProcessor Nuget package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
