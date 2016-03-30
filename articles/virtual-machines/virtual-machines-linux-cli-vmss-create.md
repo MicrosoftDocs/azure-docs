@@ -2,7 +2,7 @@
 	pageTitle="What Are VM Scale Sets? | Microsoft Azure"
 	description="Learn about VM Scale Sets."
 	keywords="linux virtual machine,virtual machine scale sets" 
-	services="virtual-machine-linux"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="gatneil"
 	manager="madhana"
@@ -10,7 +10,7 @@
 	tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machine-linux"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
