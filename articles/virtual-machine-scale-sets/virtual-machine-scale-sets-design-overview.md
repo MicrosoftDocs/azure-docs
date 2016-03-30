@@ -11,7 +11,7 @@
 
 <tags
 	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
+	ms.workload="na"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
@@ -20,7 +20,7 @@
 
 # Designing VM Scale Sets For Scale (PUBLIC PREVIEW)
 
-This topic will discuss design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, please refer to [Virtual Machine Scale Sets Overview](virtual-machinescale-sets-overview.md).
+This topic will discuss design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, please refer to [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md).
 
 
 ## Storage

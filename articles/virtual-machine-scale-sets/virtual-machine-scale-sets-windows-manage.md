@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="virtual-machine-scale-sets"
-	ms.workload=""
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"

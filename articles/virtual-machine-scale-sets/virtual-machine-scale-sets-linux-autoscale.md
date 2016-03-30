@@ -35,7 +35,7 @@ In this tutorial, you deploy the following resources and extensions:
 - Microsoft.Insights.VMDiagnosticsSettings
 - Microsoft.Insights/autoscaleSettings
 
-For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-compare-deployment-models.md).
 
 The template that you build in this tutorial is similar to a template that can be found in the template gallery. To learn more, see [Deploy a simple VM Scale Set with Linux VMs and a Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-linux-jumpbox/).
 
