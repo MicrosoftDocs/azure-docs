@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
+   ms.date="03/30/2016"
    ms.author="cherylmc" />
 
 # Configure a Point-to-Site connection to a virtual network using PowerShell
@@ -30,7 +30,7 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-**Deployment models and tools for Site-to-Site connections**
+**Deployment models and tools for Point-to-Site connections**
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
