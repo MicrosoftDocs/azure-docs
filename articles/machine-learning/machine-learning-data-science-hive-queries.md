@@ -127,7 +127,7 @@ We describe the following data wrangling tasks in this section using Hive in Azu
 1. [Data Exploration](#hive-dataexploration)
 2. [Feature Generation](#hive-featureengineering)
 
-> [AZURE.NOTE] The sample Hive queries assume that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
+> [AZURE.NOTE] The sample Hive queries assume that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
 
 ###<a name="hive-dataexploration"></a>Data Exploration
 Here are a few sample Hive scripts that can be used to explore data in Hive tables.
