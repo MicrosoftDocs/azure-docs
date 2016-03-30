@@ -232,7 +232,8 @@ The following PowerShell script pre-processes the source file, and exports it to
         
     # Submit a Sqoop job
     $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by ' ' -m 1"
+        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by ' ' -m 1"`
+        -Files "/user/oozie/share/lib/sqoop/sqljdbc41.jar"
 
     $sqoopJob = Start-AzureRmHDInsightJob `
                     -ClusterName $hdinsightClusterName `
