@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Azure RemoteApp - testing your network bandwidth usage using some common scenarios | Microsoft Azure"
+    pageTitle="Azure RemoteApp - testing your network bandwidth usage with some common scenarios | Microsoft Azure"
 	description="Learn how about common usage scenarios that can help you figure out your network bandwidth needs for Azure RemoteApp."
 	services="remoteapp"
 	documentationCenter="" 
@@ -15,11 +15,12 @@
     ms.date="03/30/2016" 
     ms.author="elizapo" />
     
-# Azure RemoteApp - testing your network bandwidth usage using some common scenarios
+# Azure RemoteApp - testing your network bandwidth usage with some common scenarios
 
-The following usage tests can help you figure out your network bandwidth usage. Run these tests for a set time period and measure the bandwidth needed for each scenario. If you have the capability, you can also measure the network packet loss and network jitter to understand the network patterns that will be created in your specific environment.
+As we discussed in [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md), the best way to figure out what the impact of Azure RemoteApp to your network is to run some usage tests. Run these tests for a set time period and measure the bandwidth needed for each scenario. If you have the capability, you can also measure the network packet loss and network jitter to understand the network patterns that will be created in your specific environment.
+
     
-When evaluating the bandwidth usage, remember that usage varies between different users within your company. For example, text readers and writers usually consume less bandwidth than users that work with video. For best results, study your own user needs and create a mix of the following scenarios that best represents the users in your company. 
+When evaluating the bandwidth usage, remember that usage varies between different users within your company. For example, text readers and writers usually consume less bandwidth than users that work with video. For best results, study your own user needs and create a mix of the following scenarios that best represents the users in your company. Remember to [review the factors that impact bandwidth usage and user experience](remoteapp-bandwidthexperience.md) - that will help you identify the ideal tests.
 
 First read about the tests, pick your mix, and then run them. You can use the table below to help track performance.
 
@@ -77,7 +78,7 @@ About the table:
  - **Recommended** contains the network bandwidth recommended for good or excellent experience. It is usually one step higher than the value in the corresponding **Average experience** column.
  - **Notes** include observations and comments.
  
- | Test                  | Average experience | Noticeable issues (break point) | Recommended network bandwidth | Notes                                                              |
+| Test                  | Average experience | Noticeable issues (break point) | Recommended network bandwidth | Notes                                                              |
 |-----------------------|--------------------|---------------------------------|-------------------------------|--------------------------------------------------------------------|
 | Executive/complex PPT | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s many animations are lost                                   |
 | Simple PPT            | 5 MB/s              | 256 KB/s                         | 10 MB/s                        | At 256 KB/s the slides load with noticeable delay                   |
@@ -89,4 +90,7 @@ About the table:
 
 To evaluate the network bandwidth per user, create a mix of the above scenarios and the corresponding proportion of required network bandwidth. Pick the highest number needed for your scenarios. Since users almost never use the system alone, consider some reserve for users that work simultaneously on the same network.
      
-    
+## Learn more
+[Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
+[Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
+[Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)

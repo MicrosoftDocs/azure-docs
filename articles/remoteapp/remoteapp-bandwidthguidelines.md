@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Azure RemoteApp network bandwidth - general guidelines | Microsoft Azure"
-	description="Learn  some generic network bandwidth guidelines for your Azure RemoteApp collections and apps."
+	description="Understand some basic network bandwidth guidelines for your Azure RemoteApp collections and apps."
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -35,3 +35,8 @@ Azure RemoteApp does best on 100 MB LAN. At the 10 MB/s network profile, when ji
 
 ## Word typing (Word remote input)
 This is a low-bandwidth usage scenario. At 256 KB/s we provide as good of an experience as LAN.
+
+## Learn more
+[Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
+[Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
+[Azure RemoteApp - tseting your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)

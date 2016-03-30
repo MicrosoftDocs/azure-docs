@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Azure RemoteApp network bandwidth estimation guidelines | Microsoft Azure"
+    pageTitle="Estimate Azure RemoteApp network bandwidth usage | Microsoft Azure"
 	description="Learn about the network bandwidth requirements for your Azure RemoteApp collections and apps."
 	services="remoteapp"
 	documentationCenter="" 
@@ -16,7 +16,7 @@
     ms.date="03/30/2016" 
     ms.author="elizapo" />
 
-# Azure RemoteApp network bandwidth estimation guidelines 
+# Estimate Azure RemoteApp network bandwidth usage 
 
 Azure RemoteApp uses the Remote Desktop Protocol (RDP) to communicate between applications running in the Azure cloud and your users. This article provides some basic guidelines you can use to estimate that network usage and potentially evaluate network bandwidth usage per Azure RemoteApp user.
 
@@ -26,8 +26,8 @@ Before we go further - note that we assume RDP provides a good to excellent expe
 
 Now check out the following articles for the details, including factors to consider, baseline recommendations, and what we did not include in our estimates.
 
-- [Network bandwidth and quality of experience](remoteapp-bandwidthexperience.md)
-- [Testing your network bandwidth usage using some common scenarios](remoteapp-bandwidthtests.md)
+- [How do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
+- [Testing your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
 - [Quick guidelines if you don't have the time or ability to test](remoteapp-bandwidthguidelines.md)
 
 
