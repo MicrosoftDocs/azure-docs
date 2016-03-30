@@ -24,21 +24,19 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
-## Prerequisites
-
-### .NET Framework
+## Step 1:  Configure Development Environment
 
 .NET Framework is pre-installed with Windows. For Linux and Mac OS X you can download .NET Framework from the [Mono Project](http://www.mono-project.com/).
 
-### A SQL database
+## Step 2: Create a SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.  
 
-## Step 1:  Get Connection String
+## Step 3:  Get Connection String
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## Step 2:  Connect
+## Step 4:  Connect
 
 The [System.Data.SqlClient.SqlConnection class](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) is used to connect to SQL Database.
 
@@ -58,7 +56,7 @@ class Sample
 }
 ```
 
-## Step 3: Execute a query
+## Step 5: Execute a query
 
 The [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) and [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) classes can be used to retrieve a result set from a query against SQL Database. Note that System.Data.SqlClient also supports retrieving data into an offline [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx).   
 
@@ -98,7 +96,7 @@ class Sample
 
 ```  
 
-## Step 4: Insert a row
+## Step 6: Insert a row
 
 In this example you will see how to execute an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://msdn.microsoft.com/library/ms179610.aspx) value.  
 
@@ -132,3 +130,10 @@ class Sample
     }
 }
 ```
+
+
+## Next steps
+
+Learn how to use retry logic by handling transient error codes to make your code more resilient here:  [Code sample: Retry logic in C# for connecting to SQL Database](sql-database-develop-csharp-retry-windows.md)
+
+Learn more about possible error codes here:  [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md)
