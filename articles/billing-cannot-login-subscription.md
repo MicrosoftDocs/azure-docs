@@ -26,7 +26,7 @@ This article will help you troubleshoot some common causes of login issues.
 
 An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com/).
 
-For more information about Azure administrator roles, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md)
+For more information about Azure administrator roles, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
 
 ## Is your subscription associated with a Microsoft account or Organizational account?
 
