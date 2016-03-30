@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Azure Conditional Access Preview for SaaS Apps
@@ -50,6 +50,7 @@ This section describes how to configure per-application access rules.
 ##Understanding access rules
 
 This section gives a detailed description of the access rules supported in the Azure Conditional Application Access Preview.
+
 ### Specifying the users the access rules apply to
 
 By default the policy will apply to all users that have access to the application. However you can also restrict the policy to users that are members of the specified security groups. The **Add Group** button is used to select one or more groups from the group selection dialog that the access rule will apply to. This dialog can also be used to remove selected groups. When the rules are selected to apply to Groups, the access rules will only be enforced for users that belong to one of the specified security groups.
@@ -81,7 +82,7 @@ Configure federation services to provide multi-factor authentication
 
 For federated tenants, multi-factor authentication (MFA) may performed by Azure Active Directory or by the on-premises AD FS server.
 
-By default, MFA will occur at a page hosted by Azure Active Directory. In order to configure MFA on-premises, the –SupportsMFA property must be set to true in Azure Active Directory, by using the Azure AD module for Windows PowerShell.
+By default, MFA will occur at a page hosted by Azure Active Directory. In order to configure MFA on-premises, the –SupportsMFA property must be set to **true** in Azure Active Directory, by using the Azure AD module for Windows PowerShell.
 
 The following example shows how to enable on-premises MFA by using the [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) on the contoso.com tenant:
 
@@ -91,4 +92,5 @@ In addition to setting this flag, the federated tenant AD FS instance must be co
 
 ##Related Articles
 
+- [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md)
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
