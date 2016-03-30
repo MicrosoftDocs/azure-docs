@@ -131,7 +131,7 @@ When using Azure-provided name resolution, the Internal DNS suffix is provided t
 
 If forwarding queries to Azure doesn't suit your needs, you will need to provide your own DNS solution.  Your DNS solution will need to:
 
--  Provide appropriate hostname resolution, e.g. via [DDNS](virtual-networks-name-resolution-ddns.md).  Note, if using DDNS you may need to disable DNS record scavenging as Azure's DHCP leases are very long and scavenging may remove DNS records prematurely. 
+-  Provide appropriate hostname resolution, e.g. via [DDNS](virtual-networks-name-resolution-dns.md).  Note, if using DDNS you may need to disable DNS record scavenging as Azure's DHCP leases are very long and scavenging may remove DNS records prematurely. 
 -  Provide appropriate recursive resolution to allow resolution of external domain names.
 -  Be accessible (TCP and UDP on port 53) from the clients it serves and be able to access the internet.
 -  Be secured against access from the internet, to mitigate threats posed by external agents.
