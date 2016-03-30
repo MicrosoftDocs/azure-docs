@@ -205,7 +205,7 @@ can be written like this:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
-context.log('Request Headers = ', req.headers);
+context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 ### HTTP triggers: context.req and `context.res
@@ -383,6 +383,67 @@ This is a table of all supported bindings.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
+### Timer trigger
+
+The *function.json* file provides a schedule expression and a switch that indicates whether the function should be triggered immediately.
+
+```JSON
+{
+  "bindings": [
+    {
+      "schedule": "0 * * * * *",
+      "runOnStartup": true,
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+The timer trigger handles multi-instance scale-out automatically: only a single instance of a particular timer function will be running across all instances.
+
+#### Format of schedule expression
+
+The schedule expression can be a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields:  {second} {minute} {hour} {day} {month} {day of the week}. Many of the cron expression documents you find online omit the {second} field, so if you copy from one of those you'll have to adjust for the extra field. 
+
+The schedule expression may also be in the format *hh:mm:ss* to specify the delay between each time the function is triggered. 
+
+Here are some schedule expression examples.
+
+To trigger once every 5 minutes:
+
+```JSON
+"schedule": "0 */5 * * * *",
+"runOnStartup": false,
+```
+
+To trigger immediately and then every two hours thereafter:
+
+```JSON
+"schedule": "0 0 */2 * * *",
+"runOnStartup": true,
+```
+
+To trigger every 15 seconds:
+
+```JSON
+"schedule": "00:00:15",
+"runOnStartup": false,
+```
+
+#### Timer trigger code example
+
+This C# code example writes a single log each time the function is triggered.
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");    
+}
+```
+
 ### Azure Storage triggers and bindings
 
 For all Azure Storage triggers and bindings, the *function.json* file includes a `connection` property. For example:
@@ -519,7 +580,7 @@ The `queue` binding can serialize the following types to a queue message:
 * `CloudQueueMessage` (works like string) 
 * JSON object (creates a message with a null object if the parameter is null when the function ends)
 
-##### Queue output code example
+#### Queue output code example
 
 This C# code example writes a single output queue message for each input queue message.
 
@@ -702,6 +763,113 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
     log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
+```
+### Azure Storage - tables input and output
+
+The *function.json* for storage tables provides several properties:
+
+* The name of the table
+* The partition key (optional)
+* The row key (optional)
+* The maximum number of rows to read (input only)
+* A filter expression (input only)
+
+This example uses a queue trigger to read a single table row.
+
+```JSON
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personInTable",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "take": 1,
+      "filter": "",
+      "connection": "",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+#### Code example to read a single table entity
+
+The following C# code example works with the preceding *function.json* file to to read a single table entity. The queue message has the row key value and the table entity is read into a POCO type that is defined in the *run.csx* file.
+
+```csharp
+public static void Run(string myQueueItem, Person personInTable, TraceWriter log)
+{
+    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Verbose($"Name in Person entity: {personInTable.Name}");
+}
+
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+}
+``` 
+
+#### Code example for creating multiple table entities
+
+To write multiple entities in a C# function, bind the `name` variable to `ICollector<T>` or `IAsyncCollector<T>`, as shown in the following *function.json* and *run.csx* examples. 
+
+```JSON
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "partitionKey": "",
+      "rowKey": "",
+      "connection": "",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```csharp
+public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
+{
+    for (int i = 1; i < 10; i++)
+        {
+            log.Verbose($"Adding Person entity {i}");
+            tableBinding.Add(
+                new Person() { 
+                    PartitionKey = "Test", 
+                    RowKey = i.ToString(), 
+                    Name = "Name" + i.ToString() }
+                );
+        }
+
+}
+
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+}
+
 ```
 
 ### Azure Service Bus triggers and bindings
