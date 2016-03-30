@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Azure Storage Security Guide | Microsoft Azure"
+	description="Details the many methods of securing Azure Storage, including but not limited to RBAC, Storage Service Encryption, Client-side Encryption, SMB 3.0, and Azure Disk Encryption."
+	services="storage"
+	documentationCenter=".net"
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn"/>
+
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="03/29/2016"
+	ms.author="robinsh"/>
+
 #Azure Storage Security Guide
 
 ##Overview
@@ -298,7 +316,7 @@ For more detailed information on using Shared Access Signatures and Stored Acces
 
 	-	[Constructing an Account SAS](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx)
 
-    This is the reference article for account-level SAS; it includes an example of IP ACLing.
+    	This is the reference article for account-level SAS; it includes an example of IP ACLing.
 
 -   Authentication
 
@@ -614,7 +632,7 @@ For more information about CORS and how to enable it, please check out these res
 
 ##Frequently Asked Questions
 
-1.  ####How can I verify the integrity of the blobs I’m transferring into or out of Azure Storage if I can’t use the HTTPS protocol?
+1.  **How can I verify the integrity of the blobs I’m transferring into or out of Azure Storage if I can’t use the HTTPS protocol?**
 
 	MD5 checking can be used on both PUT and GET operations when working with Azure Blob Storage using the REST APIs. If for any reason you might use HTTP instead of HTTPS, you should consider using MD5 checking. Storing the MD5 value ensures that it is available in case you want to download the blob using HTTP at a later date. If you are certain you’re only going to use HTTPS, then using MD5 checking is redundant because HTTPS provides transport level security.
 
@@ -624,7 +642,7 @@ For more information about CORS and how to enable it, please check out these res
 
 	For more information, please check out the [Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
 
-2.  ####What about FIPS-Compliance for the U.S. Government?
+2.  **What about FIPS-Compliance for the U.S. Government?**
 
 	The United States Federal Information Processing Standard (FIPS) defines cryptographic algorithms approved for use by U.S. Federal government computer systems for the protection of sensitive data. Enabling FIPS mode on a Windows server or desktop tells the OS that only FIPS-validated cryptographic algorithms should be used. If an application uses non-compliant algorithms, the applications will break. With.NET Framework versions 4.5.2 or higher, the application automatically switches the cryptography algorithms to use FIPS-compliant algorithms when the computer is in FIPS mode.
 
