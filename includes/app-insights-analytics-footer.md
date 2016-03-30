@@ -12,5 +12,7 @@
  - Numbers, strings, and other expressions used to form query parameters.
 - [Using](../articles/application-insights/app-insights-analytics-using.md)
  - Using Analytics.
+- [Reference](../articles/application-insights/app-insights-analytics-reference.md)
+ - One-page reference combining the Queries, Aggregations and Scalars pages.
 
 
