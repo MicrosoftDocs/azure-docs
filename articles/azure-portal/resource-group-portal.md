@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/24/2016" 
+	ms.date="03/29/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -30,7 +30,7 @@ You can also manage resources through Azure PowerShell and Azure CLI. For more i
 [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md). For more information about deploying solutions through Visual Studio,
 see [Creating and deploying Azure resource groups through Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-## Create resource group
+## Create and manage resource groups
 
 To create an empty resource group, select **New**, **Management**, and **Resource Group**.
 
@@ -39,8 +39,6 @@ To create an empty resource group, select **New**, **Management**, and **Resourc
 You give it a name and location, and, if necessary, select a subscription.
 
 ![set group values](./media/resource-group-portal/set-group-properties.png)
-
-## Deploy resources
 
 After your resource group has been created, you can deploy resources to it. To start deployment, simply select **New** and the type of resource you would like to deploy.
 
@@ -63,7 +61,15 @@ Your deployment will begin. This could take a few minutes. When the deployment h
 
 ![view notification](./media/resource-group-portal/view-notification.png)
 
-## Browse resource groups
+### Add resources to an existing resource group
+
+You can add resources to a resource group using the **Add** command on the resource group blade.
+
+![add resource](./media/resource-group-portal/add-resource.png)
+
+You can select the resource you want from the available list.
+
+### Browse resource groups
 
 You can browse all resource groups by clicking **Resource groups**.
 
@@ -103,6 +109,13 @@ After pinning the section to the dashboard, you will see the summary on the dash
 ![view dashboard](./media/resource-group-portal/view-startboard.png)
 
 And, selecting it immediately takes you to more details about the data.
+
+### Delete resource group
+
+Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you are deleting a resource group since there might be other resources linked to it. You can see the linked resources in the resource map and take the necessary steps to avoid any unintentional consequences when you delete resource groups. The linked resources will not be deleted but they may not operate as expected.
+
+![delete group](./media/resource-group-portal/delete-group.png)
+
 
 ## View past deployments
 
@@ -146,20 +159,6 @@ By selecting any of the operations, you can see greater details, including which
 
 For more information about viewing the audit logs, see [Audit operations with Resource Manager](../resource-group-audit.md).
 
-## Add resources to resource groups
-
-You can add resources to a resource group using the **Add** command on the resource group blade.
-
-![add resource](./media/resource-group-portal/add-resource.png)
-
-You can select the resource you want from the available list.
-
-## Deleting resource groups
-
-Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you are deleting a resource group since there might be other resources linked to it. You can see the linked resources in the resource map and take the necessary steps to avoid any unintentional consequences when you delete resource groups. The linked resources will not be deleted but they may not operate as expected.
-
-![delete group](./media/resource-group-portal/delete-group.png)
-
 ## Tag resources
 
 You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags through the portal, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
@@ -193,6 +192,14 @@ Within the subscription blade, you will see a burn rate.
 And, a breakdown of costs by resource type.
 
 ![resource cost](./media/resource-group-portal/cost-by-resource.png)
+
+## Access control for Azure dashboards
+
+Access to the information displayed by most tiles in the portal are governed by Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md).  In order to seamlessly integrate dashboards into the ecosystem all published dashboards are implemented as Azure resources.  From an access control perspective dashboards are no different from a virtual machine or a storage account.  
+
+Here is an example.  Let's say you have an Azure subscription and various members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors will be able to list, view, create, modify, or delete dashboards within the subscription.  Users who are readers will be able to list and view dashboards, but cannot modify or delete them.  Users with reader access will be able to make local edits to a published dashboard (e.g. when troubleshooting an issue), but will not be given the option to publish those changes back to the server.  They will have the option to make a private copy of the dashboard for themselves.  
+
+Note that the individual tiles on the dashboard will enforce their own access control requirements based on the resources they are showing data for.  This means that you can design a dashboard that can be shared more broadly while still protecting the data on individual tiles.
 
 ## Next Steps
 

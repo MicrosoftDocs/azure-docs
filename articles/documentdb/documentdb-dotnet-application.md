@@ -280,63 +280,62 @@ The first thing to do here is add a class that contains all the logic to connect
 
 	with the following code.
 
-		
-	public static class DocumentDBRepository<T> where T : class
-	{
-		private static readonly string DatabaseId = ConfigurationManager.AppSettings["database"];
-		private static readonly string CollectionId = ConfigurationManager.AppSettings["collection"];
-		private static DocumentClient client;
-
-		public static void Initialize()
+		public static class DocumentDBRepository<T> where T : class
 		{
-			client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
-			CreateDatabaseIfNotExistsAsync().Wait();
-			CreateCollectionIfNotExistsAsync().Wait();
+			private static readonly string DatabaseId = ConfigurationManager.AppSettings["database"];
+			private static readonly string CollectionId = ConfigurationManager.AppSettings["collection"];
+			private static DocumentClient client;
+	
+			public static void Initialize()
+			{
+				client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
+				CreateDatabaseIfNotExistsAsync().Wait();
+				CreateCollectionIfNotExistsAsync().Wait();
+			}
+	
+			private static async Task CreateDatabaseIfNotExistsAsync()
+			{
+				try
+				{
+					await client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(DatabaseId));
+				}
+				catch (DocumentClientException e)
+				{
+					if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+					{
+						await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+					}
+					else
+					{
+						throw;
+					}
+				}
+			}
+	
+			private static async Task CreateCollectionIfNotExistsAsync()
+			{
+				try
+				{
+					await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
+				}
+				catch (DocumentClientException e)
+				{
+					if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+					{
+						await client.CreateDocumentCollectionAsync(
+							UriFactory.CreateDatabaseUri(DatabaseId),
+							new DocumentCollection { Id = CollectionId },
+							new RequestOptions { OfferThroughput = 1000 });
+					}
+					else
+					{
+						throw;
+					}
+				}
+			}
 		}
 
-		private static async Task CreateDatabaseIfNotExistsAsync()
-		{
-			try
-			{
-				await client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(DatabaseId));
-			}
-			catch (DocumentClientException e)
-			{
-				if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-				{
-					await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
-				}
-				else
-				{
-					throw;
-				}
-			}
-		}
-
-		private static async Task CreateCollectionIfNotExistsAsync()
-		{
-			try
-			{
-				await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
-			}
-			catch (DocumentClientException e)
-			{
-				if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-				{
-					await client.CreateDocumentCollectionAsync(
-						UriFactory.CreateDatabaseUri(DatabaseId),
-						new DocumentCollection { Id = CollectionId },
-						new RequestOptions { OfferThroughput = 1000 });
-				}
-				else
-				{
-					throw;
-				}
-			}
-		}
-	}
-
-> [AZURE.TIP] When creating a new DocumentCollection you can supply an optional RequestOptions parameter of OfferType, which allows you to specify the performance level of the new collection. If this parameter is not passed the default offer type will be used. For more on DocumentDB offer types please refer to [DocumentDB Performance Levels](documentdb-performance-levels.md)
+		> [AZURE.TIP] When creating a new DocumentCollection you can supply an optional RequestOptions parameter of OfferType, which allows you to specify the performance level of the new collection. If this parameter is not passed the default offer type will be used. For more on DocumentDB offer types please refer to [DocumentDB Performance Levels](documentdb-performance-levels.md)
 
 3. We're reading some values from configuration, so open the **Web.config** file of your application and add the following lines under the `<AppSettings>` section.
 	
