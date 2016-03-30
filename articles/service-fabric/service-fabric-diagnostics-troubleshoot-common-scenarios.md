@@ -34,7 +34,7 @@ These are the most common exceptions to see before the service is initialized.
 | System.IO.FileNotFoundException | This error is often due to missing assembly dependencies. Check the CopyLocal property in Visual Studio or the global assembly cache for the node.
 | System.Runtime.InteropServices.COMException at System.Fabric.Interop.NativeRuntime+IFabricRuntime.RegisterStatefulServiceFactory(IntPtr, IFabricStatefulServiceFactory)|This indicates that the registered service type name does not match the service manifest. |
 
-[Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) can be configured to upload the application event log for all your nodes automatically.
+[Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) can be configured to upload the application event log for all your nodes automatically.
 
 ###RunAsync() or OnActivateAsync()
 If the crash happens during the initialization or running of your registered service type or actor, the exception will be caught by Azure Service Fabric. You can view these from the EventSource providers detailed in the "Next steps" section.
