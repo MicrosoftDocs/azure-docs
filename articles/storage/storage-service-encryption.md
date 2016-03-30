@@ -27,7 +27,7 @@ The following sections provide detailed guidance on how to use the Storage Servi
 
 Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPs, or SMB 3.0. Storage Service Encryption is a new feature of Azure Storage that will encrypt data when it is written to your Azure Storage supporting block blobs, page blobs and append blobs. This feature can be enabled for new storage accounts using the Azure Resource Manager (ARM) deployment model and is available for all redundancy levels (LRS, ZRS, GRS, RA-GRS). Storage Service Encryption is available for both Standard and Premium Storage, handling encryption, decryption, and key management in a totally transparent fashion. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. The Preview section below has details on how one can on board the preview program for Storage Service Encryption. 
 
-This screenshot shows where to find the Storage Service Encryption setting using the [Azure Portal](https://azure.portal.com) Click on Encryption to continue.
+This screenshot shows where to find the Storage Service Encryption setting using the [Azure Portal](https://azure.portal.com). Click on Encryption to continue.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
 
@@ -90,9 +90,9 @@ When the registration status is returned as “Registered”, your subscription 
 
 ###Step 1: [Sign up for the Preview](#registering-for-preview).
 
-###Step 2: [Create a new storage account](storage-create-storage-account.md)
+###Step 2: [Create a new storage account](storage-create-storage-account.md).
 
-###Step 3: Enable encryption
+###Step 3: Enable encryption.
 
 You can enable encryption using the [Azure Portal](https://portal.azure.com).
 
@@ -106,13 +106,13 @@ AzCopy is a Windows command-line utility designed for copying data to and from M
 
 To learn more, please visit [Transfer data with the AzCopy Command Line Utility](storage-use-azcopy.md).
 
-#### Using Storage Client Libraries
+#### Using the Storage Client Libraries
 
 You can upload and download data to and from blob storage using our rich set of Storage Client Libraries including .NET, C++, Java, Android, Node.js, PHP, Python, and Ruby.
 
 To learn more, please visit our [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md).
 
-#### Using Storage Explorer
+#### Using a Storage Explorer
 
 A Storage explorer can be used to create storage accounts, upload and download data, view contents of blobs, and navigate through directories. Many support both Classic and ARM storage accounts.
 
@@ -120,7 +120,7 @@ You can use one of these to upload blobs to your storage account with encryption
 
 To learn more, please visit [Azure Storage Explorers](storage-explorers.md).
 
-###Step 5: Query Status of Encrypted Data
+###Step 5: Query the status of the encrypted data
 
 Once SSE is widely available, an updated version of the Storage Client libraries will be deployed that allow you to query the state of an object to determine if it is encrypted or not.
 
