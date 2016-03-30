@@ -93,7 +93,7 @@ Selecting the __Settings__ icon, or the __All settings__ link, will display the 
 
 * __Azure Storage Keys__: Displays information on the Azure Storage accounts used by the cluster. Selecting a storage account will load the Storage account blade for the selected account.
 
-* __Cluster AAD Identity__: Displays information on the Service Principal for this HDInsight cluster. The Service Principal is used to access Azure Data Lake Store. If you did not associate your cluster with Azure Data Lake Store during cluster creation, the entries on this blade will display __Not Configured__. For more information on using Azure Data Lake Store with HDInsight, see [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md).
+* __Cluster AAD Identity__: Displays information on the Service Principal for this HDInsight cluster. The Service Principal is used to access Azure Data Lake Store. If you did not associate your cluster with Azure Data Lake Store during cluster creation, the entries on this blade will display __Not Configured__. For more information on using Azure Data Lake Store with HDInsight, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ### <a name="scaling"></a>Scaling
 
