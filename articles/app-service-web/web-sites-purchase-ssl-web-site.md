@@ -1,3 +1,23 @@
+<properties
+	pageTitle="Buy and Configure an SSL Certificate for your Azure App Service"
+	description="Learn how to Buy and Configure an SSL Certificate for your Azure App Service."
+	services="app-service"
+	documentationCenter=".net"
+	authors="apurvajo"
+	manager="stefsch"
+	editor="cephalin"
+	tags="buy-ssl-certificates"/>
+
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/30/2016"
+	ms.author="apurvajo"/>
+
+
 #Buy and Configure an SSL Certificate for your Azure App Service
 
 > [AZURE.NOTE]
