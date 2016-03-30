@@ -178,7 +178,7 @@ Note: it is recommended to use only one of the keys in all of your applications 
 
 ####Resources
 
--   [About Azure Storage Accounts](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+-   [About Azure Storage Accounts](storage-create-storage-account.md#regenerate-storage-access-keys)
 
 	This article gives an overview of storage accounts and discusses viewing, copying, and regenerating storage access keys.
 
