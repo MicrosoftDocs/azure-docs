@@ -99,7 +99,7 @@ Yes, Basic series databases can be upgraded in-place (Basic 60 through Basic 500
 
 ## When I migrate my resources from one subscription to another, does my ClearDB MySQL database get migrated as well?  
 
-When you perform resource migration across subscriptions, some [limitations](app-service-move-resources.md) apply. A ClearDB MySQL database is a third party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
+When you perform resource migration across subscriptions, some [limitations](./app-service-web/app-service-move-resources.md) apply. A ClearDB MySQL database is a third party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
 
 ## Can I purchase Scalable WordPress with an Enterprise Agreement (EA) subscription?
 
