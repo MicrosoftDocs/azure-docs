@@ -50,7 +50,7 @@ The configuration for a Point-to-Site connection is broken down into 3 sections.
 ## Section 1 - Create a virtual network and a VPN gateway
 
 
-### Step 1: Create a virtual network
+### Part 1: Create a virtual network
 
 1. Log in to the **Azure classic portal** (Not the Azure Portal).
 
@@ -79,7 +79,7 @@ The configuration for a Point-to-Site connection is broken down into 3 sections.
 
 9. When your virtual network has been created, you will see **Created** listed under **Status** on the networks page in the Azure classic portal. Once your virtual network has been created, you can create your dynamic routing gateway.
 
-### Step 2: Create a dynamic routing gateway
+### Part 2: Create a dynamic routing gateway
 
 The gateway type must be configured as dynamic. Static routing gateways will not work with this feature.
 
@@ -93,7 +93,7 @@ Certificates are used to authenticate VPN clients for Point-to-Site VPNs. You ca
 
 If you want to use a self-signed certificate, the steps below will walk you through the process. If you are planning to use an enterprise certificate solution, the steps within each section will be different, but you'll still need to perform the following steps:
 
-### Step 1: Identify or generate a root certificate
+### Part 1: Identify or generate a root certificate
 
 If you are not using an enterprise certificate solution, you'll need to generate a self-signed root certificate. The steps in this section were written for Windows 8. For Windows 10 steps, you can refer to [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md).
 
@@ -109,7 +109,7 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-### Step 2: Upload the root certificate .cer file to the Azure classic portal
+### Part 2: Upload the root certificate .cer file to the Azure classic portal
 
 You'll need to upload the corresponding .cer file for each root certificate to Azure. You can upload up to 20 certificates.
 
@@ -119,7 +119,7 @@ You'll need to upload the corresponding .cer file for each root certificate to A
 
 3. On the **Upload Certificate** page, browse for the .cer root certificate, and then click the checkmark.
 
-### Step 3: Generate a client certificate
+### Part 3: Generate a client certificate
 
 The steps below are for generating a client certificate from the self-signed root certificate. The steps in this section were written for Windows 8. For Windows 10 steps, you can refer to [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). If you are using an enterprise certificate solution, follow the guidelines for the solution you are using. 
 
@@ -133,7 +133,7 @@ The steps below are for generating a client certificate from the self-signed roo
 
 4. All certificates are stored in your Personal certificate store on your computer. Check *certmgr* to verify. You can generate as many client certificates as needed based on this procedure. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network.
 
-## Section 3: Export and install the client certificate
+## Section 3 - Export and install the client certificate
 
 Installing a client certificate on each computer that you want to connect to the virtual network is a mandatory step. The steps below will walk you through installing the client certificate manually.
 
@@ -145,7 +145,7 @@ Installing a client certificate on each computer that you want to connect to the
 
 To connect to the virtual network, you'll also need to configure your VPN client. The client requires both a client certificate and the proper VPN client configuration in order to connect. To configure your VPN client, perform the following steps, in order.
 
-### Step 1: Create the VPN client configuration package
+### Part 1: Create the VPN client configuration package
 
 1. In the Azure classic portal, on the **Dashboard** page for your virtual network, navigate to the quick glance menu in the right corner and click the VPN package that pertains to the client that you want to connect to your virtual network.
 
@@ -167,7 +167,7 @@ The following client operating systems are supported:
 
 5. After you generate and download the VPN client package from the Azure classic portal, you can install the client package on the client computer from which you want to connect to your virtual network. If you plan to install the VPN client package to multiple client computers, make sure that they each also have a client certificate installed. The VPN client package contains configuration information to configure the VPN client software built into Windows. The package does not install additional software.
 
-### Step 2: Install the VPN configuration package on the client and start the connection
+### Part 2: Install the VPN configuration package on the client and start the connection
 
 1. Copy the configuration file locally to the computer that you want to connect to your virtual network and double click the .exe file. Once the package has installed, you can start the VPN connection.
 Note that the configuration package is not signed by Microsoft. You may want to sign the package using your organization's signing service, or sign it yourself using [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). It's OK to use the package without signing. However, if the package isn't signed, a warning will appear when you install the package.
@@ -177,7 +177,7 @@ Note that the configuration package is not signed by Microsoft. You may want to 
 5. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
 6. You are now connected to your virtual network and have full access to any service and virtual machine hosted in your virtual network.
 
-### Step 3: Verify the VPN connection
+### Part 3: Verify the VPN connection
 
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
 2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site connectivity address range that you specified when you created your VNet. The results should be something similar to this:
