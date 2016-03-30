@@ -1200,6 +1200,16 @@ Get a specified element out of a JSON text using a path expression. Optionally c
 
 This function performs a JsonPath query into dataSource which contains a valid JSON string, optionally converting that value to another type depending on the third argument.
 
+#### JSON Path expressions
+
+|||
+|---|---|
+|`$`|Root object|
+|`@`|Current object|
+|`.` or `[ ]` | Child|
+|`[ ]`|Array subscript|
+
+*(We don't currently implement wildcards, recursion, union, or slices.)*
 
 
 
