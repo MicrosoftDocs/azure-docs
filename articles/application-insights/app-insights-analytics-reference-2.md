@@ -1180,6 +1180,108 @@ arraylength(parsejson('21')) == null
 
 
 
+
+### parsejson
+
+Interprets a `string` as a [JSON value](http://json.org/)) and returns the value as `dynamic`. It is superior to using `extractjson()` when you need to extract more than one element of a JSON compound object.
+
+**Syntax**
+
+    parsejson(json)
+
+**Arguments**
+
+* *json:* A JSON document.
+
+**Returns**
+
+An object of type `dynamic` specified by *json*.
+
+**Example**
+
+In the following example, when `context_custom_metrics` is a `string`
+that looks like this: 
+
+```
+{"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
+```
+
+then the following fragment retrieves the value of the `duration` slot
+in the object, and from that it retrieves two slots, `duration.value` and
+ `duration.min` (`118.0` and `110.0`, respectively).
+
+```AIQL
+T
+| ...
+| extend d=parsejson(context_custom_metrics) 
+| extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
+```
+
+
+
+### range
+
+The `range()` function (not to be confused with the `range` operator)
+generates a dynamic array holding a series of equally-spaced values.
+
+**Syntax**
+
+    range(start, stop, step)
+
+**Arguments**
+
+* *start:* The value of the first element in the resulting array. 
+* *stop:* The value of the last element in the resulting array,
+or the least value that is greater than the last element in the resulting
+array and within an integer multiple of *step* from *start*.
+* *step:* The difference between two consecutive elements of
+the array.
+
+**Examples**
+
+The following example returns `[1, 4, 7]`:
+
+```AIQL
+range(1, 8, 3)
+```
+
+The following example returns an array holding all days
+in the year 2015:
+
+```AIQL
+
+    range(datetime(2015-01-01), datetime(2015-12-31), 1d)
+```
+
+### todynamic
+
+    todynamic('{"a":"a1", "b":["b1", "b2"]}')
+
+Converts a string to a dynamic value.
+
+### treepath
+
+    treepath(dynamic_object)
+
+Enumerates all the path expressions that identify leaves in a dynamic object. 
+
+**Returns**
+
+An array of path expressions.
+
+**Examples**
+
+    treepath(parsejson('{"a":"b", "c":123}')) 
+    =>       ["['a']","['c']"]
+    treepath(parsejson('{"prop1":[1,2,3,4], "prop2":"value2"}'))
+    =>       ["['prop1']","['prop1'][0]","['prop2']"]
+    treepath(parsejson('{"listProperty":[100,200,300,"abcde",{"x":"y"}]}'))
+    =>       ["['listProperty']","['listProperty'][0]","['listProperty'][0]['x']"]
+
+Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
+
+
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 
