@@ -39,17 +39,19 @@ Once the installation completes, your ```$env:PSModulePath``` setting should inc
 > [AZURE.NOTE] There is a known issue with PowerShell **$env:PSModulePath** that can occur when installing from WebPI. If your computer requires a restart due to system updates or other installations, it may cause updates **$env:PSModulePath** to not include the path where Azure PowerShell is installed. If this occurs, you may see a 'cmdlet not recognized' message when attempting to use Azure PowerShell cmdlets after the installation or upgrade. If this occurs, restarting the machine should fix the problem.
 
 If you receive a message like the following when attempting to load or execute cmdlets:
+
 ```
-PS C:\> Get-AzureRmResource
-Get-AzureRmResource : The term 'Get-AzureRmResource' is not recognized as the name of a cmdlet, function,
-script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is
-correct and try again.
-At line:1 char:1
-+ Get-AzureRmResource
-+ ~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (get-azurermresourcefork:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
+    PS C:\> Get-AzureRmResource
+    Get-AzureRmResource : The term 'Get-AzureRmResource' is not recognized as the name of a cmdlet, function,
+    script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is
+    correct and try again.
+    At line:1 char:1
+    + Get-AzureRmResource
+    + ~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : ObjectNotFound: (get-azurermresourcefork:String) [], CommandNotFoundException
+        + FullyQualifiedErrorId : CommandNotFoundException
 ```
+
 This can be corrected by restarting the machine.
 
 ###Installing Azure PowerShell from the PowerShell Gallery
