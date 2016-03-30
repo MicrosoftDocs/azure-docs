@@ -26,7 +26,7 @@ Supported data types include:
 - Performance Counters
 - Windows Event Logs 
 - Application Logs
-- WAD infrastructure logs
+- Azure diagnostics infrastructure logs
  
 This article will show you how to configure Azure diagnostics with EventHub from end to end.  Guidance is also provided for common scenarios such as customizing which logs and metrics get sinked to EventHub, how to change configuration in each environment, one example of many how you can view EventHub stream data, and how to troubleshoot the connection.    
 
