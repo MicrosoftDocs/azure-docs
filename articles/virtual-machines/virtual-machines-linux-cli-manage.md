@@ -15,7 +15,7 @@
    ms.date="03/29/2016"
    ms.author="rclaus" />
 
-## Using Azure CLI with Azure Resource Manager (ARM)
+## Using Azure CLI with Azure Resource Manager
 
 Before you can use the Azure CLI with Resource Manager commands and templates to deploy Azure resources and workloads using resource groups, you will need an account with Azure. If you do not have an account, you can get a [free Azure trial here](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -32,7 +32,7 @@ You can also install the Azure CLI using popular package managers and as a Linux
 
 ### Step 2: Verify the Azure CLI version
 
-To use Azure CLI for imperative commands and ARM templates, you need to have at least version 0.9.16. To verify your version, type `azure --version`. You should see something like:
+To use Azure CLI for imperative commands and Azure Resource Manager templates, you need to have at least version 0.9.16. To verify your version, type `azure --version`. You should see something like:
 
     $ azure --version
     0.9.16 (node: 5.2.0)
