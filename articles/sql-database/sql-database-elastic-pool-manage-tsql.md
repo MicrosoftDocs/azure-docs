@@ -12,19 +12,19 @@
     ms.service="sql-database"
     ms.devlang="NA"
     ms.topic="get-started-article"
-    ms.tgt_pltfrm="powershell"
+    ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
     ms.date="03/30/2016"
     ms.author="sidneyh"/>
 
-# Create or move an Azure SQL database into an elastic pool using T-SQL  
+# Manage an elastic database pool with Transact-SQL  
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-Use the [Create Database (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) and [Alter Database(Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx) commands to create and move databases into and out of elastic pools. The elastic pool must exist before you can use these commands. Use the Azure portal or C# or PowerShell to create the pool. These commands affect only databases, therefore properties of the pool itself (such as min and max eDTUs) cannot be changed with these T-SQL commands.
+Use the [Create Database (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) and [Alter Database(Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx) commands to create and move databases into and out of elastic pools. The elastic pool must exist before you can use these commands. These commands affect only databases. Properties of the pool itself (such as min and max eDTUs) cannot be changed with T-SQL commands.
 
 Tip: To monitor the service objectives of all databases, use the [sys.database\_service \_objectives](https://msdn.microsoft.com/library/mt712619(SQL.130).aspx) view. 
 
