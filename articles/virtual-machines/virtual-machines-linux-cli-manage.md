@@ -1,9 +1,9 @@
 <properties 
    pageTitle="Basic Azure CLI Commands in Azure Resource Manager mode | Microsoft Azure"
-   description="These are the basic Azure CLI commands to get you started managing your VMs in Azure Resource Manager mode"
+   description="Basic Azure CLI commands to get you started managing your VMs in Azure Resource Manager mode"
    keywords="linux virtual machines, Azure Resource Manager, Azure CLI"
    services="virtual-machines-linux"
-   documentationcenter=""
+   documentationcenter="na"
    authors="RicksterCDN" 
    manager="timlt" 
    editor="tysonn" 
@@ -18,7 +18,7 @@
    ms.date="03/29/2016"
    ms.author="rclaus" />
 
-## Using Azure CLI with Azure Resource Manager
+# Using Azure CLI with Azure Resource Manager
 
 Before you can use the Azure CLI with Resource Manager commands and templates to deploy Azure resources and workloads using resource groups, you will need an account with Azure. If you do not have an account, you can get a [free Azure trial here](https://azure.microsoft.com/pricing/free-trial/).
 
