@@ -358,7 +358,7 @@ Note that while Azure File Shares can be used with Unix, the Linux SMB client do
 
     This article announces the general availability of Azure File Storage and provides technical details about the SMB 3.0 encryption.
 
-###Using Client-side encryption to secure data that you send to storage***
+###Using Client-side encryption to secure data that you send to storage
 
 Another option that helps you ensure that your data is secure while being transferred between a client application and Storage is Client-side Encryption. The data is encrypted before being transferred into Azure Storage. When retrieving the data from Azure Storage, the data is decrypted after it is received on the client side. Even though the data is encrypted going across the wire, we recommend that you also use HTTPS, as it has data integrity checks built in which help mitigate network errors affecting the integrity of the data.
 
