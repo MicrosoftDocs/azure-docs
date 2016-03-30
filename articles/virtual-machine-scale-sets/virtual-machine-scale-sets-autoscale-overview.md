@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Automatic scaling and Virtual Machine Scale Sets | Microsoft Azure"
-	description="Learn about using diagnostics and autoscale resources to autoscale virtual machines in a scale set.
+	description="Learn about using diagnostics and autoscale resources to autoscale virtual machines in a scale set."
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -201,7 +201,7 @@ After a cooldown period of five minutes, if the average number of threads on the
 - [Azure portal](https://portal.azure.com/) - You can currently get a limited amount of information using the portal.
 - [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool to explore the current state of your scale set.
 - [Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/) - Cmdlets such as **Get-AzureRmResource** or **Get-Autoscalesetting** can be used to get information about your scale set.
-- [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/) - Use the **azure resource show** command to get information about your set.
+- [Azure CLI](../xplat-cli-azure-resource-manager.md) - Use the **azure resource show** command to get information about your set.
 - Connect to the jumpbox virtual machine just like you would any other machine and then you can remotely access the virtual machines in the scale set to monitor individual processes.
 
 ## Next Steps
