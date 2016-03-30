@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Configure software RAID on avirtual machine running Linux | Microsoft Azure" 
+	pageTitle="Configure software RAID on a virtual machine running Linux | Microsoft Azure" 
 	description="Learn how to use mdadm to configure RAID on Linux in Azure." 
 	services="virtual-machines-linux" 
 	documentationCenter="" 
-	authors="szarkos" 
-	writer="szark" 
+	authors="rickstercdn"  
 	manager="timlt" 
-	editor=""
+	editor="tysonn"
 	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
@@ -16,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/25/2016" 
-	ms.author="szark"/>
+	ms.author="rclaus"/>
 
 
 
@@ -25,9 +24,7 @@ It's a common scenario to use software RAID on Linux virtual machines in Azure t
 
 
 ## Attaching data disks
-Two or more empty data disks will typically be needed to configure a RAID device.  This article will not go into detail on how to attach data disks to a Linux virtual machine.  Please see the Microsoft Azure article [attach a disk](virtual-machines-windows-classic-attach-disk.md#attachempty) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
-
->[AZURE.NOTE] The ExtraSmall VM size does not support more than one data disk attached to the virtual machine.  Please see [Virtual Machine and Cloud Service Sizes for Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) for detailed information about VM sizes and the number of data disks supported.
+Two or more empty data disks will typically be needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article will not go into detail on how to provision and attach data disks to a Linux virtual machine.  Please see the Microsoft Azure article [attach a disk](virtual-machines-linux-add-disk.md) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
 
 ## Install the mdadm utility

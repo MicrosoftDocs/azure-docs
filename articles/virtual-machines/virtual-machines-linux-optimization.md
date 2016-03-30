@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/29/2016"
 	ms.author="rclaus"/>
 
 # Optimize your Linux VM on Azure
