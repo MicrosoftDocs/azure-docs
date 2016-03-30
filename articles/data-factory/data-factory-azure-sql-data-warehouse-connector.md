@@ -474,9 +474,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     }
 
 
-> [AZURE.IMPORTANT] The sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse at this time. Therefore, please use Mechanism 1. 
-
-[AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
+s[AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
