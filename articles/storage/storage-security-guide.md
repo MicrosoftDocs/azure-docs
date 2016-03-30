@@ -344,15 +344,15 @@ Note that while Azure File Shares can be used with Unix, the Linux SMB client do
 
 ###Using Client-side encryption to secure data that you send to storage***
 
-Another option that helps you ensure that your data is secure while being transferred between a client application and Storage is Client-Side Encryption. The data is encrypted before being transferred into Azure Storage. When retrieving the data from Azure Storage, the data is decrypted after it is received on the client side. Even though the data is encrypted going across the wire, we recommend that you also use HTTPS, as it has data integrity checks built in which help mitigate network errors affecting the integrity of the data.
+Another option that helps you ensure that your data is secure while being transferred between a client application and Storage is Client-side Encryption. The data is encrypted before being transferred into Azure Storage. When retrieving the data from Azure Storage, the data is decrypted after it is received on the client side. Even though the data is encrypted going across the wire, we recommend that you also use HTTPS, as it has data integrity checks built in which help mitigate network errors affecting the integrity of the data.
 
 Client-side encryption is also a method for encrypting your data at rest, as the data is stored in its encrypted form. We’ll talk about this in more detail in the section on [Encryption at Rest](#encryption-at-rest).
 
 ##Encryption at Rest
 
-There are three Azure features that provide encryption at rest. Azure Disk Encryption is used to encrypt the OS and data disks in IaaS Virtual Machines. The other two – Client-Side Encryption and Storage Service Encryption – are both used to encrypt data in Azure Storage. Let’s look at each of these, and then do a comparison and see when each one can be used.
+There are three Azure features that provide encryption at rest. Azure Disk Encryption is used to encrypt the OS and data disks in IaaS Virtual Machines. The other two – Client-side Encryption and Storage Service Encryption – are both used to encrypt data in Azure Storage. Let’s look at each of these, and then do a comparison and see when each one can be used.
 
-While you can use Client-Side Encryption to encrypt the data in transit (which is also stored in its encrypted form in Storage), you may prefer to simply use HTTPS during the transfer, and have some way for the data to be automatically encrypted when it is stored. There are two ways to do this -- Azure Disk Encryption and Storage Service Encryption. One is used to directly encrypt the data on OS and data disks used by VMs, and the other is used to encrypt data written to Azure Blob Storage.
+While you can use Client-side Encryption to encrypt the data in transit (which is also stored in its encrypted form in Storage), you may prefer to simply use HTTPS during the transfer, and have some way for the data to be automatically encrypted when it is stored. There are two ways to do this -- Azure Disk Encryption and Storage Service Encryption. One is used to directly encrypt the data on OS and data disks used by VMs, and the other is used to encrypt data written to Azure Blob Storage.
 
 ###Storage Service Encryption
 
@@ -370,7 +370,7 @@ If you want to try this feature with a storage account created prior to the afor
 
 As with most previews, this should not be used in production until the feature becomes Generally Available.
 
-###Client-Side Encryption
+###Client-side Encryption
 
 We mentioned client-side encryption when discussing the encryption of the data in transit. This feature allows you to programmatically encrypt your data in a client application before sending it across the wire to be written to Azure Storage, and to programmatically decrypt your data after retrieving it from Azure Storage.
 
