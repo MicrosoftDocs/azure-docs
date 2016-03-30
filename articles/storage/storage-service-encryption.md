@@ -27,9 +27,9 @@ The following sections provide detailed guidance on how to use the Storage Servi
 
 Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPs, or SMB 3.0. Storage Service Encryption is a new feature of Azure Storage that will encrypt data when it is written to your Azure Storage supporting block blobs, page blobs and append blobs. This feature can be enabled for new storage accounts using the Azure Resource Manager (ARM) deployment model and is available for all redundancy levels (LRS, ZRS, GRS, RA-GRS). Storage Service Encryption is available for both Standard and Premium Storage, handling encryption, decryption, and key management in a totally transparent fashion. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. The Preview section below has details on how one can on board the preview program for Storage Service Encryption. 
 
-This screenshot shows where to find the Storage Service Encryption setting using the [Azure Portal](https://azure.portal.com). Click on Encryption to continue.
+<!--This screenshot shows where to find the Storage Service Encryption setting using the [Azure Portal](https://azure.portal.com). Click on Encryption to continue.
 
-![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
+![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)--> 
 
 
 After you click the Encryption setting, you can enable or disable Storage Service Encryption.
