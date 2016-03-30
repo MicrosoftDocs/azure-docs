@@ -150,3 +150,4 @@ For more information about IoT devices, see the [Azure IoT Developer Site](https
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-classic-portal]: https://manage.windowsazure.com
