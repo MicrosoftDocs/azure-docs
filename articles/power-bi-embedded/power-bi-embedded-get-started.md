@@ -25,7 +25,7 @@ To learn more about Power BI Embedded, see [What is Power BI Embedded](power-bi-
 ![](media\power-bi-embedded-get-started\introduction.png)
 
 ## Creating a workspace collection
-A **Workspace Collection** is the top-level Azure resource and a container for the content that will be embedded. A *Workspace Collection** can be created two ways:
+A **Workspace Collection** is the top-level Azure resource and a container for the content that will be embedded. A **Workspace Collection** can be created two ways:
 
    -	Manually using the Azure Portal
    -	Programmatically using the Azure Resource Manager(ARM) APIs
@@ -36,12 +36,12 @@ Let's walk through the steps to build a **Workspace Collection** using the Azure
 
    2.	Click **+ New** on the top panel.
 
-   ![](media\power-bi-embedded-get-started\create-workspace-1.png)
+       ![](media\power-bi-embedded-get-started\create-workspace-1.png)
 
    3.	Under **Data + Analytics** click **Power BI Embedded**.
    4.	On the creation blade, enter the required information:
 
-   ![](media\power-bi-embedded-get-started\create-workspace-2.png)
+       ![](media\power-bi-embedded-get-started\create-workspace-2.png)
 
   **Workspace Collection Name**
 
@@ -99,9 +99,9 @@ With Power BI Desktop, when you connect to your data source, it is always possib
 
 The differences between selecting **Import** and **DirectQuery** are the following:
 
-**Import** – the selected tables and columns are imported into Power BI Desktop. As you create or interact with a visualization, Power BI Desktop uses the imported data. You must refresh the data, which imports the full data set again, to see any changes that occurred to the underlying data since the initial import or the most recent refresh.
+**Import** – The selected tables and columns are imported into Power BI Desktop. As you create or interact with a visualization, Power BI Desktop uses the imported data. You must refresh the data, which imports the full data set again, to see any changes that occurred to the underlying data since the initial import or the most recent refresh.
 
-**DirectQuery** – no data is imported or copied into Power BI Desktop. The selected tables and columns appear in your Power BI Desktop **Fields** list. As you create or interact with a visualization, Power BI Desktop queries the underlying data source, which means you're always viewing current data.
+**DirectQuery** – No data is imported or copied into Power BI Desktop. The selected tables and columns appear in your Power BI Desktop **Fields** list. As you create or interact with a visualization, Power BI Desktop queries the underlying data source, which means you're always viewing current data.
 
 Many data modeling and data transformations are available when using **DirectQuery**, though with some limitations. When creating or interacting with a visualization, the underlying source must be queried and the time necessary to refresh the visualization is dependent on the performance of the underlying data source. When the data necessary to service the request has recently been requested, Power BI Desktop uses recent data to reduce the time required to display the visualization. Selecting **Refresh** from the **Home** ribbon will ensure all visualizations are refreshed with current data.
 

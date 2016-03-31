@@ -82,7 +82,7 @@ These tokens are used for the various phases of your interactions with **Microso
 
 ### Generating App Tokens
 
-The SDKs provided for the Preview let you generate tokens. First, call one of the Create___Token() methods. Second, call the Generate() method with the access key retrieved from the Workspace Collection. The basic Create methods for tokens are defined in the Microsoft.PowerBI.Security.PowerBIToken class, and are as follows:
+The SDKs provided for the Preview let you generate tokens. First, call one of the Create___Token() methods. Second, call the Generate() method with the access key retrieved from the **Workspace Collection**. The basic Create methods for tokens are defined in the Microsoft.PowerBI.Security.PowerBIToken class, and are as follows:
 
 -	[CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx)
 -	[CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx)

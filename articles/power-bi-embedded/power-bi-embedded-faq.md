@@ -54,6 +54,7 @@
 
     Power BI Embedded is now available as a preview Azure service without a formal SLA. An SLA will be provided when the service moves from preview to general availability.
 
+<a name="price"/>
 10.	**How is this service priced?**
 
     Power BI Embedded is currently in preview and will be available at no cost until May 1, 2016. Starting on May 1, 2016, the service will be priced per render. Customers may purchase the service through two primary licensing vehicles: the Microsoft Online Subscription Program (MOSP) or the Enterprise VL Program.
@@ -86,11 +87,11 @@
 
 15.	**Does my application end-user need a Power BI license?**
 
-    No. Your application’s end-users are not required to buy a separate Power BI subscription to access the in-app data visualizations. In the Power BI Embedded model, the Application Provider, will be billed for the service through the Azure consumption meter. Please refer to the pricing and licensing page [here](http://go.microsoft.com/fwlink/?LinkId=760527).
+    No. Your application’s end-users are not required to buy a separate Power BI subscription to access the in-app data visualizations. In the Power BI Embedded model, the Application Provider, will be billed for the service through the Azure consumption meter. Please refer to the [Pricing and licensing page](http://go.microsoft.com/fwlink/?LinkId=760527).
 
 16.	**How does user authentication work with Power BI Embedded?**
 
-    The Power BI Embedded service uses App Tokens for authentication and authorization instead of explicit end-user authentication.  In the App Token model, your application manages authentication and authorization for your end-users.  Then, when necessary, your app creates and sends the App Tokens which tells our service to render the requested report. This design does not require your app to use Azure Active Directory for user authentication and authorization, although you can do this.  For more information on App Tokens, please refer to the documentation page [here](http://www.azure.com/documentation).
+    The Power BI Embedded service uses App Tokens for authentication and authorization instead of explicit end-user authentication.  In the App Token model, your application manages authentication and authorization for your end-users.  Then, when necessary, your app creates and sends the App Tokens which tells our service to render the requested report. This design does not require your app to use Azure Active Directory for user authentication and authorization, although you can do this.  For more information on App Tokens, please refer to the [App Tokens](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started-sample/#key-flow) documentation page.
 
 17.	**What data sources are currently supported with Power BI Embedded?**
 
@@ -104,11 +105,11 @@
 
 19.	**Where can I learn more?**
 
-    You can visit the Power BI Embedded documentation page [here](http://go.microsoft.com/fwlink/?LinkId=760526) . You can stay up-to-date about this service by visiting the Power BI developer [blog](http://blogs.msdn.com/powerbidev) or by visiting the Power BI developer center at dev.powerbi.com. You can also ask questions at Stackoverflow by visiting [this](http://stackoverflow.com/questions/tagged/powerbi) page.
+    You can visit the [Power BI Embedded documentation page](http://go.microsoft.com/fwlink/?LinkId=760526). You can stay up-to-date about this service by visiting the [Power BI developer blog](http://blogs.msdn.com/powerbidev) or by visiting the Power BI developer center at dev.powerbi.com. You can also ask questions at [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 20.	**How do I get started?**
 
-    You can get started for free now! If you have an Azure subscription, you can now provision Power BI Embedded from the Azure portal directly.  You can also create you free Azure account [here](https://azure.microsoft.com/free/). Once you have provisioned the Power BI Embedded service, you can easily use Power BI REST APIs directly, or use the developer SDK available on [GitHub](https://github.com/PowerBI) . Samples are provided on how to leverage the developer SDK.
+    You can get started for free now! If you have an Azure subscription, you can now provision Power BI Embedded from the Azure portal directly.  You can also create you [free Azure account](https://azure.microsoft.com/free/). Once you have provisioned the Power BI Embedded service, you can easily use Power BI REST APIs directly, or use the developer SDK available on [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472) . Samples are provided on how to leverage the developer SDK.
 
 ## See also
 
