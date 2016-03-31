@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # Using PowerShell cmdlets and REST APIs with SQL Data Warehouse
@@ -40,6 +40,18 @@ Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
 ```
 
+## List of PowerShell cmdlets
+
+The following PowerShell cmdlets are available to use with Azure SQL Data Warehouse:
+
+- [New-AzureRmSqlDatabase][]
+- [Get-AzureRmSqlDatabase][]
+- [Set-AzureRmSqlDatabase][]
+- [Remove-AzureRmSqlDatabase][]
+- [Suspend-AzureRmSqlDatabase][]
+- [Resume-AzureRmSqlDatabase][]
+- [Get-AzureRmSqlDatabaseRestorePoints][]
+
 ## Suspend-AzureRmSqlDatabase
 
 For the command reference, see [Suspend-AzureRmSqlDatabase][].
@@ -62,7 +74,7 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## Resume-AzureSqlDatabase
+## Resume-AzureRmSqlDatabase
 
 For the command reference, see [Resume-AzureRmSqlDatabase][]
 
@@ -127,11 +139,12 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
-[Get-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/dn546735.aspx
-[Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
+[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
+[Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
+[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
+[Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Suspend-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619337.aspx
+[Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
+[Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
 
 <!--Other Web references-->
-[gog]: http://google.com/
-[yah]: http://search.yahoo.com/
-[msn]: http://search.msn.com/
