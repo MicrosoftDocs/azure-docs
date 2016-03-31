@@ -1,6 +1,6 @@
 ﻿<properties
-   pageTitle="Azure Data Catalog prerequisites"
-   description="What do I need to get started with Azure Data Catalog?"
+   pageTitle="Azure Data Catalog prerequisites | Microsoft Azure"
+   description="Azure Data Catalog prerequisites - what you need to get started with Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
-# What do I need to get started with Azure Data Catalog?
+# Azure Data Catalog prerequisites
 
-## Azure Data Catalog prerequisites
+## What do I need to get started with Azure Data Catalog?
 
 There are a few things you’ll need to take care of before you can set up **Azure Data Catalog**. Don’t worry – they won’t take long!
 
