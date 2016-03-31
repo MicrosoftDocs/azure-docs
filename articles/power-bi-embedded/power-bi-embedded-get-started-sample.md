@@ -21,7 +21,7 @@
 Here are some resources to help you get started using **Microsoft Power BI Embedded** preview:
 
  -	Sample code. See [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493).
- -	API docs. See [Power BI Embedded API](https://msdn.microsoft.com/library/mt711493(Azure.100).aspx).
+ -	API docs. See [Power BI Embedded API](https://msdn.microsoft.com/library/mt711493.aspx).
  -	SDKs (available via NuGet). See [Power BI Embedded SDK](http://go.microsoft.com/fwlink/?LinkId=746472).
 
 Let’s take a high level look at the steps involved to get started with the sample applications.
@@ -244,5 +244,5 @@ Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report
 ## See also
 
 - [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
-- [Get started with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)
+- [Common Microsoft Power BI Embedded Preview scenarios](power-bi-embedded-scenarios.md)
+- [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)

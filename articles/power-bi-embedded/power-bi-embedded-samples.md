@@ -32,4 +32,4 @@ To help you get started, we created a sample web app. You can download it and re
 ## See also
 
 - [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Get started with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)
+- [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)

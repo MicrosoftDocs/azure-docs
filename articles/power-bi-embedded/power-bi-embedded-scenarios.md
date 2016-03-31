@@ -30,6 +30,6 @@ Here are some scenarios for using **Power BI Embedded** in your applications.
 
 ## See Also
 
-- [Get started with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)
+- [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 - [Get started sample](power-bi-embedded-get-started.md)
 - [Extend Power BI with custom visuals](https://powerbi.microsoft.com/custom-visuals/)
