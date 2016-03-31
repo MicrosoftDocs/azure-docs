@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="03/31/2016"
 	ms.author="dariac"/>
     
 # Local Git Deployment to Azure App Service
 
 This tutorial shows you how to deploy your app to [Azure App Service] from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal].  
-Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Tools for Mac and Linux] as described [here](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-get-started/).
+Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-get-started/).
 
 ## Prerequisites
 
@@ -28,8 +28,8 @@ To complete this tutorial, you need:
 - Git. You can download the installation binary [here](http://www.git-scm.com/downloads).  
 - Basic knowledge of Git.
 - A Microsoft Azure account. If you don't have an account, you can 
-[sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
-[activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+[sign up for a free trial](https://azure.microsoft.com/en-us/pricing/free-trial) or 
+[activate your Visual Studio subscriber benefits](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details).
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.  
 
@@ -54,7 +54,7 @@ App Service supports applications created in a variety of programming languages.
     - Using a text editor, create a new file named **index.html** at the root of the Git repository
     - Add the following text as the contents for the index.html file and save it: *Hello Git!*
         
-2. From the command-line, verify that you are in the root of your Git repository. Then use the following command to add files to your repository:
+2. From the command-line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
 
 		git add -A 
 
@@ -99,8 +99,6 @@ Use the following steps to publish your app to App Service using Local Git.
 
 	You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
        
-	> [AZURE.NOTE] The repository created for your app expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the app.
-
 5. Go back to your app in the Azure Portal. A log entry of your most recent push should be displayed in the **Deployments** blade. 
 
 	![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -172,17 +170,15 @@ The following are errors or problems commonly encountered when using Git to publ
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
 * [Continous Deployment to Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-continous-deployment)
-* [How to use PowerShell for Azure]
-* [How to use the Azure Command-Line Tools for Mac and Linux]
+* [How to use PowerShell for Azure](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure)
+* [How to use the Azure Command-Line Interface](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install)
 
 [Azure App Service]: https://azure.microsoft.com/en-us/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [Azure Portal]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Azure Command-Line Tools for Mac and Linux]: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
-[How to use PowerShell for Azure]: ../articles/install-configure-powershell.md
-[How to use the Azure Command-Line Tools for Mac and Linux]: ../articles/xplat-cli-install.md
+[Azure Command-Line Interface]: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
