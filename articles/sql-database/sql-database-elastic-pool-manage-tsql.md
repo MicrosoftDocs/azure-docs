@@ -46,22 +46,23 @@ Use the ALTER DATABASE command with the MODIFY and set SERVICE_OBJECTIVE option 
 	-- Move the database named db1 to a pool named P1M125  
 
 
-## Move a single database from a performance level for single databases into into an elastic pool 
+## Move a database into an elastic pool 
 Use the ALTER DATABASE command with the MODIFY and set SERVICE_OBJECTIVE option as ELASTIC_POOL; set the name to the name of the target pool.
 
 	ALTER DATABASE db28 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
-## Move a database from an elastic pool to a performance level for single databases
+## Move a database out of an elastic pool
 Use the ALTER DATABASE command and set the SERVICE_OBJECTIVE to one of the performance levels (S0, S1, etc).
 
 	ALTER DATABASE db28 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.
 
-## View the mapping of databases to elastic pools in a server
-Use the [sys.database\_service \_objectives view](https://msdn.microsoft.com/library/mt712619) to see the mapping of databases to service objectives. A service objective is either a performance level for single databases or "ElasticPool" for databases in an elastic pool. For databases in an elastic pool, the name of the elastic pool can be identified by value in the elastic_pool_name column. 
+## List databases in an elastic pool
+Use the [sys.database\_service \_objectives view](https://msdn.microsoft.com/library/mt712619) to list the database in an elastic pool. Log in to the master database to query the view.
 
 >[AZURE.NOTE] Currently the service_objective_column for databases in elastic pools returns an internal token of the service objective string. This will be replaced by the string "ElasticPool."
+>
 
 	SELECT d.name, 
     slo.*  
@@ -69,13 +70,15 @@ Use the [sys.database\_service \_objectives view](https://msdn.microsoft.com/lib
 	JOIN sys.database_service_objectives slo  
 	ON d.database_id = slo.database_id;
 
-## Monitor resource usage of databases in elastic pools
+## Monitor resource usage elastic pools
 
-Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/library/mt280062.aspx) to examine the resource usage statistics of all elastic pools on a logical server. Log in to the master database to run the view.
+Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/library/mt280062.aspx) to examine the resource usage statistics of an elastic pool on a logical server. Log in to the master database to query the view.
 
 	SELECT * FROM sys.elastic_pool_resource_stats 
 	ORDER BY end_time DESC;
 
+## Monitor resource usage of a database in an elastic pool
+Use the [sys.dm \_resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) or [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx) to examine the resource usage statistics of a database in an elastic pool. This process is similar to querying resource usage for any single database.
 
 ## Next steps
 
