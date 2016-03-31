@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Container Service container management with the REST API | Microsoft Azure"
+   pageTitle="Azure Container Service container management through the REST API | Microsoft Azure"
    description="Deploy containers to an Azure Container Service Mesos cluster by using the Marathon REST API."
    services="container-service"
    documentationCenter=""
@@ -18,11 +18,11 @@
    ms.date="02/16/2016"
    ms.author="nepeters"/>
 
-# Container management with the REST API
+# Container management through the REST API
 
 Mesos provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of Mesos, there is a framework that manages scheduling and executing compute workloads.
 
-While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a Mesos cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles.
+Although frameworks are available for many popular workloads, this document describes how you can create and scale container deployments by using Marathon. Before working through these examples, you need a Mesos cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
 - [Deploying an Azure Container Service cluster](./container-service-deployment.md)
 - [Connecting to an Azure Container Service cluster](./container-service-connect.md)
@@ -35,10 +35,13 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## Gather information from Mesos and Marathon
 
-Before deploying containers to the Mesos cluster, gather some information about the Mesos cluster, such as the names and current status of the Mesos agents. To do so, query the `master/slaves` endpoint on a Mesos master. If everything goes well, you will see a list of Mesos agents and several properties for each.   
+Before you deploy containers to the Mesos cluster, gather some
+information about the Mesos cluster, such as the names and current
+status of the Mesos agents. To do so, query the `master/slaves`
+endpoint of the Mesos REST API. If everything goes well, you will see a list of Mesos agents and several properties for each.
 
 ```bash
-curl http://localhost/master/slaves
+curl http://localhost/mesos/master/slaves
 ```
 
 Now, use the Marathon `/apps` endpoint to check for current application deployments to the Mesos cluster. If this is a new cluster, you will see an empty array for apps.
@@ -92,7 +95,7 @@ curl localhost/marathon/v2/apps
 
 ## Scale your containers
 
-You can also use the Marathon API to scale out or scale in application deployments. In the previous example, you deployed one instance of an application. Let's scale this out to three instances of an application. To do so, create a JSON file with the following JSON text, and store it in an accessible location.
+You can also use the Marathon API to scale out or scale in application deployments. In the previous example, you deployed one instance of an application. Let's scale this out to three instances of an application. To do so, create a JSON file by using the following JSON text, and store it in an accessible location.
 
 ```json
 { "instances": 3 }
@@ -149,7 +152,7 @@ Create your own JSON file, or use the sample provided at [Azure Container Servic
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-You can also use the Marathon API to scale out or scale in application deployments. In the previous example, you deployed one instance of an application. Let's scale this out to three instances of an application. To do so, create a JSON file with the following JSON text, and store it in an accessible location.
+You can also use the Marathon API to scale out or scale in application deployments. In the previous example, you deployed one instance of an application. Let's scale this out to three instances of an application. To do so, create a JSON file by using the following JSON text, and store it in an accessible location.
 
 ```json
 { "instances": 3 }

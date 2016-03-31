@@ -21,10 +21,8 @@
 
 # Using Analytics in Application Insights
 
-
-[Analytics](app-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage.
+[Analytics](app-analytics.md) lets you run powerful queries over the telemetry from your app collected by 
+[Application Insights](app-insights-overview.md). These pages describe its query lanquage.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -57,12 +55,15 @@ Write a query beginning with the names of any of the tables listed on the left. 
 
 ![](./media/app-analytics-using/140.png)
 
-## Sorting
+## Arranging the results
 
-You can sort your results either by using [sort](app-analytics-queries.md#sort-operator) as the last operator of a query, or by clicking the column headers.
-
+You can pick the columns you'd like to see. Expand any item to see all the returned column values.
 
 ![](./media/app-analytics-using/030.png)
+
+> [AZURE.NOTE] Click the head of a column as a quick way to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. So, sorting this way doesn't always show you the actual highest or lowest items. For that, you should use the [top](app-analytics-queries.md#top-operator) or [sort](app-analytics-queries.md#sort-operator) operator. 
+
+But it's good practice to use the [take](app-analytics-queries.md#take-operator), [top](app-analytics-queries.md#top-operator) or [summarize](app-analytics-queries.md#summarize-operator) operators to avoid downloading huge tables from the server. There is anyway an automatic limit of about 10k rows per query.
 
 
 ## Diagrams
@@ -98,6 +99,8 @@ After you've run a query, you can download a .csv file. Click **Export, to Excel
 4. Edit credentials if needed and now you can build your report.
 
     ![](./media/app-analytics-using/260.png)
+
+
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 

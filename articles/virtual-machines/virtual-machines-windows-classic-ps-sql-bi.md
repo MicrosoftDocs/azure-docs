@@ -1,13 +1,13 @@
-<properties 
+<properties
 	pageTitle="SQL Server Business Intelligence | Microsoft Azure"
 	description="This topic uses resources created with the classic deployment model, and describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs)."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -19,8 +19,8 @@
 # SQL Server Business Intelligence in Azure Virtual Machines
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
- 
- 
+
+
 The Microsoft Azure Virtual Machine gallery includes images that contain SQL Server installations. The SQL Server editions supported in the gallery images are the same installation files you can install to on-premises computers and virtual machines. This topic summarizes the SQL Server Business Intelligence (BI) Features installed on the images and configuration steps required after a virtual machine is provisioned. This topic also describes supported deployment topologies for BI features and best practices.
 
 ## License Considerations
@@ -42,18 +42,18 @@ The Microsoft Azure Virtual Machine gallery includes several images that contain
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) The following PowerShell script returns the list of Azure images that contain “SQL-Server” in the ImageName:
 
 	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
-	
+
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
 	$thumbPrint = "" # REQUIRED: Provide your certificate thumbprint.
 	$certificate = Get-Item cert:\currentuser\my\$thumbPrint # REQUIRED: If your certificate is in a different store, provide it here.-Ser  store is the one specified with the -ss parameter on MakeCert
-	
+
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
@@ -99,7 +99,7 @@ The following table summarizes the Business Intelligence features installed on t
 - A best practice for disk management is to store data, log, and backup files on drives other than **C**: and **D**:. For example, create data disks **E**: and **F**:.
 
 	- The drive caching policy for the default drive **C**: is not optimal for working with data.
-	
+
 	- The **D**: drive is a temporary drive that is used primarily for the page file. The **D**: drive is not persisted and is not saved in blob storage. Management tasks such as a change to the virtual machine size reset the **D**: drive. It is recommended to **NOT** use the **D**: drive for database files, including tempdb.
 
 	For more information on creating and attaching disks, see [How to Attach a Data Disk to a Virtual Machine](virtual-machines-windows-classic-attach-disk.md).
@@ -165,11 +165,11 @@ There are two common workflows for connecting to an Azure Virtual Machine:
 - Connect to the virtual machine with Windows Remote Desktop Connection. In the user interface of the remote desktop:
 
 	1. Type the **cloud service name** as the computer name.
-	
+
 	1. Type colon (:) and the public port number that is configured for the TCP remote desktop endpoint.
-		
+
 		Myservice.cloudapp.net:63133
-		
+
 		For more information, see [What is a cloud service?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 **Start Reporting Services Configuration Manager.**
@@ -268,7 +268,7 @@ If you want to connect to Report Manager on the virtual machine from a remote co
 
 1. Open port 80 in the virtual machine’s firewall.
 
-1. Browse to report manager using Azure Virtual Machine **DNS Name** as the server name in the URL. For example: 
+1. Browse to report manager using Azure Virtual Machine **DNS Name** as the server name in the URL. For example:
 
 	**Report manager**: http://uebi.cloudapp.net/reportserver
 	**Report server**: http://uebi.cloudapp.net/reports
@@ -280,11 +280,11 @@ If you want to connect to Report Manager on the virtual machine from a remote co
 The following table summarizes some of the options available to publish existing reports from an on-premises computer to the report server hosted on the Microsoft Azure Virtual Machine:
 
 - **Report Builder**: The virtual machine includes the click-once version of Microsoft SQL Server Report Builder. To start Report builder the first time on the virtual machine:
-											
+
 	1. Start your browser with administrative privileges.
-	
+
 	1. Browse to report manager on the virtual machine and click **Report Builder** in the ribbon.
-	
+
 	For more information, see [Installing, Uninstalling, and Supporting Report Builder](https://technet.microsoft.com/library/dd207038.aspx).
 
 - **SQL Server Data Tools**: VM:  SQL Server Data Tools is installed on the virtual machine and can be used to create **Report Server Projects** and reports on the virtual machine. SQL Server Data Tools can publish the reports to the report server on the virtual machine.
@@ -296,11 +296,11 @@ The following table summarizes some of the options available to publish existing
 - Create a .VHD hard drive that contains reports and then upload and attach the drive.
 
 	1. Create a .VHD hard drive on your local computer that contains your reports.
-	
+
 	1. Create and install a management certificate.
-	
+
 	1. Upload the VHD file to Azure using the Add-AzureVHD cmdlet [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md).
-	
+
 	1. Attach the disk to the virtual machine.
 
 ## Install other SQL Server Services and features
@@ -376,13 +376,13 @@ This section summarizes Microsoft Azure Virtual Machine Endpoints to create and 
 - If you are using a single VM and the following two items are true, you do not need to create VM endpoints and you do not need to open the ports in the firewall on the VM.
 
 	- You do not remotely connect to the SQL Server features on the VM. Establishing a remote desktop connection to the VM and accessing the SQL Server features locally on the VM is not considered a remote connection to the SQL Server features.
-	
+
 	- You do not join the VM to an on-premises domain through Azure Virtual Networking or another VPN tunneling solution.
 
-- If the virtual machine is not joined to a domain but you want to remotely connect to the SQL Server features on VM: 
+- If the virtual machine is not joined to a domain but you want to remotely connect to the SQL Server features on VM:
 
 	- Open the ports in the firewall on the VM.
-	
+
 	- Create virtual machine Endpoints for the noted ports (*).
 
 - If the virtual machine is joined to a domain using a VPN tunnel such as Azure Virtual Networking, then the endpoints are not required. However open the ports in the firewall on the VM.
@@ -414,7 +414,7 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 
 - [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-- [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-classic-portal-sql.md)
+- [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
 - [How to Attach a Data Disk to a Virtual Machine](virtual-machines-windows-classic-attach-disk.md)
 
