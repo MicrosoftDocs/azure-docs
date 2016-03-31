@@ -59,10 +59,12 @@ Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC
 ### Authorization for management vs. data operations
 Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. The following table provides some examples of this:
 
-| Management operations (controlled with RBAC) | Data level operations (not controlled with RBAC) |  
-| -------------------------------------------- | ------------------------------------------------ |  
-| create/read/update/delete a Storage Account | create/read/update/delete blobs or tables within the Storage Account |  
-| create/read/update/delete a SQL DB | create/read/update/delete SQL tables within the DB |  
+
+| Management operations (controlled with RBAC) | Data level operations (not controlled with RBAC)                     |  
+| -------------------------------------------- | ------------------------------------------------                     |  
+| create/read/update/delete a Storage Account  | create/read/update/delete blobs or tables within the Storage Account |  
+| create/read/update/delete a SQL DB           | create/read/update/delete SQL tables within the DB                   |  
+
 
 ## Manage access using the Azure portal
 ### View access
