@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Configure automatic device registration for Windows 8.1 domain joined devices
 
-You can use an Active Directory Group Policy to configure your Windows 8.1 domain joined devices to automatically register with Azure AD. To configure the Group Policy, you must have at least one domain joined Windows Server 2012 R2 or Windows 8.1 machine with the Group Policy Management feature installed.Once this Group Policy is enabled for your domain, any domain user that logs into the machine will be automatically and silently registered with a device object in Azure AD. There will be one device object in Azure AD for every registered user of the physical device.Be sure to read through and complete the prerequisites from the Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices.
+You can use an Active Directory Group Policy to configure your Windows 8.1 domain joined devices to automatically register with Azure AD. To configure the Group Policy, you must have at least one domain joined Windows Server 2012 R2 or Windows 8.1 machine with the Group Policy Management feature installed. Once this Group Policy is enabled for your domain, any domain user that logs into the machine will be automatically and silently registered with a device object in Azure AD. There will be one device object in Azure AD for every registered user of the physical device.Be sure to read through and complete the prerequisites from the Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices.
 
 ## Configure the Group Policy for your Windows 8.1 domain joined devices
 
@@ -48,9 +48,12 @@ This process must be repeated for each domain user that has signed into the mach
    ` %SystemRoot%\System32\AutoWorkplace.exe leave`
    
 This command must be run in the context of each domain user that has signed into the machine.
-Event Viewer & Errors for Windows 8.1 domain joined devices
 
-The Windows Event Log on the Windows 8.1 machine will display messages related to device registration. You will find messages for both successful and unsuccessful events. The Event Log can be found in the Event Viewer under Applications and Services **Logs** > **Microsoft** > **Windows > Workplace Join**.
+##Event Viewer & Errors for Windows 8.1 domain joined devices
+
+The Windows Event Log on a Windows 8.1 machine displays messages related to device registration. You will find messages for both successful and unsuccessful events. 
+
+The Event Log can be found in the Event Viewer under Applications and Services **Logs** > **Microsoft** > **Windows > Workplace Join**.
 
 ##Additional details
 
