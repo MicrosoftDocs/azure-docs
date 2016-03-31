@@ -43,9 +43,13 @@ In this section, you will perform the following steps to create a new Azure Auto
 5. If you have more than one subscription, specify the one for the new account, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 6. Verify the value **Yes** is selected for the **Create Azure Run As account** option, and click the **Create** button.  
 
+    ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
+
     >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against ARM resources. 
 
-    ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
+    ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
+
+    >[AZURE.NOTE] If you receive a permission denied error message after clicking the **Create** button, this is because your account is not a member of the Subscription admins role.  
 
 7. While Azure creates the Automation account, you can track the progress under **Notifications** from the menu.
 
@@ -136,7 +140,6 @@ The PowerShell script will configure the following:
     $TenantID = $SubscriptionInfo | Select TenantId -First 1
 
     # Create the automation resources
-    Remove-AzureRmAutomationCertificate -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name AzureRunAsCertificate -Force -ErrorAction SilentlyContinue | write-verbose
     New-AzureRmAutomationCertificate -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Path $CertPath -Name AzureRunAsCertificate -Password $CertPassword -Exportable | write-verbose
 
     # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
