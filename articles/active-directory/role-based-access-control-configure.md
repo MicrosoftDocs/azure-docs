@@ -47,7 +47,8 @@ The rest of the RBAC roles in Azure allow management of specific Azure resources
 - Each **resource** belongs to only one resource group.
 
 Access that you grant at parent scopes is inherited at child scopes. For example:
-- You assign the Reader role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
+
+- You assign the Reader role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.  
 - You assign the Contributor role to an application at the resource group scope. It can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
 ### Azure RBAC vs. classic subscription administrators
@@ -58,9 +59,8 @@ Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC
 ### Authorization for management vs. data operations
 Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. The following table provides some examples of this:
 
-
 | Management operations (controlled with RBAC) | Data level operations (not controlled with RBAC) |  
-| ---- | ---- |  
+| -------------------------------------------- | ------------------------------------------------ |  
 | create/read/update/delete a Storage Account | create/read/update/delete blobs or tables within the Storage Account |  
 | create/read/update/delete a SQL DB | create/read/update/delete SQL tables within the DB |  
 
