@@ -56,13 +56,14 @@ The PowerShell script will configure the following:
 
 * An Azure AD application that can be authenticated with the self-signed cert, a service principal account for this application in Azure AD, and assign the Contributor role (you could change this to owner or any other role) for this account in your current subscription.  For further information, please review the [Role-based access control in Azure Automation](../automation/automation-role-based-access-control.md) article.  
 * An Automation certificate asset in the specified automation account named **AzureRunAsCertificate**, which holds the certificate used in the service principal.
-* An Automation connection asset in the specified automation account named **AzureRunAsConnection**, which holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.<br>
+* An Automation connection asset in the specified automation account named **AzureRunAsConnection**, which holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.  
+
 
 ### Run the PowerShell script
 
 1. Save the following script on your computer.  In this example, save it with the filename **New-AzureServicePrincipal.ps1**.  
 
- ```
+    ```
     #Requires - RunAsAdministrator
     Param (
     [Parameter(Mandatory=$true)]
@@ -141,11 +142,11 @@ The PowerShell script will configure the following:
     Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
     $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId.SubscriptionId}
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
- ```
-
+    ```
+<br>
 
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
-3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, and *-CertPlainPassword*.<br>
+3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, and *-CertPlainPassword*.<br> 
     ```.\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -ApplicationDisplayName <DisplayNameofAutomationAccount> -CertPlainPassword "<StrongPassword>"```
 <br>
 
@@ -154,18 +155,16 @@ The PowerShell script will configure the following:
 
 4. After the script completes successfully, proceed to the next section to test and verify the new credential configuration.
 
-### Verify authentication as Service Principal
+### Verify authentication 
 Next we will perform a small test to confirm you are able to successfully authenticate using the new service principal. If you’re unable to successfully authenticate, go back to Step 1 and confirm each of the previous steps again.    
 
 1. In the Azure Portal, open the Automation account created earlier.  
 2. Click on the **Runbooks** tile to open the list of runbooks.
 3. Create a new runbook by clicking on the **Add a runbook** button and then in the **Add Runbook** blade, select **Create a new runbook**.
 4. Give the runbook the name *Test-SecPrin-Runbook* and select PowerShell for the **Runbook Type**.  Click **Create** to create the runbook.
-5. In the **Edit PowerShell Runbook** blade, paste the following code on the canvas:<br>
-       ```
-       $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-       Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-       ```
+5. In the **Edit PowerShell Runbook** blade, paste the following code on the canvas:<br>  
+    ```$Conn = Get-AutomationConnection -Name AzureRunAsConnection Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint```  
+<br>
 6. Save the runbook by clicking **Save**.
 7. Click **Test pane** to open the **Test** blade.
 8. Click **Start** to start the test.
@@ -176,7 +175,7 @@ Next we will perform a small test to confirm you are able to successfully authen
 12. Close the **Edit PowerShell Runbook** blade.
 13. Close the **Test-SecPrin-Runbook** blade.
 
-The above code used to verify if the new account is setup correctly, is what you will use in all of your PowerShell runbooks to authenticate in Azure Automation to manage ARM resources. Of course, you can continue to authenticate with the Automation account you have been currently using.
+The above code used to verify if the new account is setup correctly, is what you will use in your PowerShell runbooks to authenticate in Azure Automation to manage ARM resources. Of course, you can continue to authenticate with the Automation account you've currently been using.  
 
 ## Next Steps
 - For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
