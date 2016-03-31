@@ -21,15 +21,15 @@
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
-This article describes best practice for connecting an on-premises network with an Azure virtual network (VNet) running in the cloud by using Azure ExpressRoute. The networks are connected by a private circuit supplied by a third-party connectivity provider. The private circuit effectively extends your on-premises network into the cloud without passing through the Internet, giving you faster and more secure access than using a VPN gateway. ExpressRoute supports bandwidths of up to 10 Gbps (depending upon your location and connectivity provider).
+This article describes best practices for connecting an on-premises network with to networks and services on Azure by using Azure ExpressRoute. ExpressRoute connections are made using a private dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. ExpressRoute connections do not go over the internet giving you predictable bandwidth along with faster access compared to a VPN connection. ExpressRoute supports bandwidths of up to 10 Gbps (depending on the connectivity provider).
 
-> [AZURE.NOTE] A connectivity provider is a network service provider that can provide peering services with Microsoft to support direct access to Azure within a particular region. [Microsoft partners with local providers in different regions][microsoft-provider-peers].
+> [AZURE.NOTE] An ExpressRoute connection can be made via an Exchange provider or a Network service provider which provides peering services with Microsoft. [Microsoft partners with local providers in different regions][microsoft-provider-peers].
 
-Using ExpressRoute, you can connect to your web applications running in the cloud, and you can also access Azure services that provide a public endpoint, such as Azure storage. Additionally, you can connect directly to Office 365 services. 
+Express route can be used to extend your network into Azure. In addition, you can access Azure services that provide a public endpoint, such as Azure storage through the logical connection referred to as an ExpressRoute circuit. Additionally, you can connect directly to Office 365 services.
 
 Typical use-cases for this architecture include:
 
-- Hybrid applications comprising components and services running on-premises and elements running in the cloud.
+- Hybrid applications where workloads are distributed between an on-premises network and Azure.
 
 - Applications running large-scale, mission-critical workloads that require a high degree of scalability.
 
@@ -43,23 +43,23 @@ Typical use-cases for this architecture include:
 
 ## Architecture blueprint
 
-This architecture comprises the elements highlighted in the following diagram:
+This following diagram highlights the important elements in the architecture:
 
 ![IaaS: hybrid-expressroute](./media/arch-iaas-hybrid-expressroute.png)
 
-- **N-tier cloud application.** This is the cloud-based part of the system and can be arbitrarily complex, comprising multiple tiers and subnets connected by using Azure load balancers. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups (NSGs)][azure-network-security-group]. For maximum security, each subnet should be closed to all traffic originating from outside the VNet. Connections are performed by using **private peering** utilizing addresses which are private to the VNet. Private peering is bi-directional; connections can be initiated by the cloud application or from on-premises.
+- **Azure Virtual Networks** These are VNets in Azure. Each VNet may include workloads having multiple tiers, with multiple subnets connected through Azure load balancers. The VNets could reside in multiple subscriptions. Connections are performed by using **private peering** utilizing addresses which are private to the VNet.
 
 > [AZURE.NOTE] This architecture treats the cloud application as a single entity which is addressed separately. See [Implementing a Multi-tier Architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
 
-- **Azure public services.** These are Azure services that can be utilized within a hybrid application. These services are also available across the Internet, but accessing them via an ExpressRoute circuit makes them quicker to reach. Protection is also enhanced as traffic does not have to traverse a public network. Connections are performed by using **public peering**; traffic is routed to [IP address ranges published by Microsoft][datacenter-ip-ranges] and the ExpressRoute circuit performs a NAT translation of on-premises traffic to an endpoint in one of these ranges. Connections over a public peering can only be initiated from on-premises.
+- **Azure public services.** These are Azure services that can be utilized within a hybrid application. These services are also available across the Internet, but accessing them via an ExpressRoute circuit provides low latency and more predictable performance since traffic does not go through the internet. Connections are performed by using **public peering**; traffic is routed to [IP address ranges published by Microsoft][datacenter-ip-ranges] and the ExpressRoute circuit performs a NAT translation of on-premises traffic to an endpoint in one of these ranges. Connections over a public peering can only be initiated from on-premises.
 
 - **Office 365 services.** These are the publicly available Office 365 applications and services provided by Microsoft. Connections are performed by using **Microsoft peering**, with addresses that are either owned by your organization or supplied by your connectivity provider.
 
-- **On-premises corporate network.** This is the network and devices, computers, and other machinery running in the corporate datacenter. This hardware supports all on-premises computing activities.
+- **On-premises corporate network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
-- **Provider edge routers.** These are routers that connect the on-premises network to the circuit managed by the provider.
+- **Internet edge routers.** These are routers that connect the on-premises network to the circuit managed by the provider.
 
-- **Microsoft edge routers.** These are routers at a Microsoft datacenter, controlled and managed by Microsoft. These routers enable a connectivity provider to connect their circuits directly to the datacenter.
+- **Microsoft edge routers.** These are two routers in an active-active highly available configuration. These routers enable a connectivity provider to connect their circuits directly to the datacenter.
 
 - **ExpressRoute circuit.** This is a layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
@@ -91,7 +91,7 @@ The following high-level steps outline a process for implementing this architect
 
 	If your service provider is a Telco:
 
-	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /29 subnet that is outside the range of you on-premises network(s) and Azure VNet(s). 
+	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /29 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
 
 		> [AZURE.NOTE] The service provider may provide an online portal for you to supply this information.
 
@@ -111,9 +111,9 @@ The following high-level steps outline a process for implementing this architect
 
 	- Wait for the provider to provision the circuit.
 
-- Configure routing for the ExpressRoute circuit. 
+- Configure routing for the ExpressRoute circuit.
 
-	If your connectivity provider is a Telco, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes. 
+	If your connectivity provider is a Telco, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
 
 	<a name="address-space></a>If your connectivity provider is an IXP, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expresroute-routing] for details. Use the following command to add a network peering for routing traffic:
 
@@ -145,14 +145,14 @@ Note the following points:
 ## Availability recommendations
 
 > ExpressRoute does not support router redundancy protocols such as HSRP and VRRP to implement high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly-available connections to your network, Microsoft Azure provisions you with two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
- 
+
 - If you are using an IXP connectivity provider, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router, and the secondary circuit to the other. This will give you a highly available connection at both ends of the connection. This is necessary if you require the ExpressRoute SLA. See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
 
 	The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a public peering and a private peering (each peering is designated a pair of /30 address spaces, as described in the [previous section](#address-space)).
 
 	![IaaS: hybrid-expressroute](./media/arch-iaas-hybrid-expressroute-redundant-routers.png)
 
-- If you are using a Telco connectivity provider, verify that it provides redundant BGP sessions that handle availability for you. 
+- If you are using a Telco connectivity provider, verify that it provides redundant BGP sessions that handle availability for you.
 
 - Configure a Site-to-Site VPN as a failover path for ExpressRoute. This is only applicable to a private peering. For Azure and Office 365 services, use the Internet as the failover path.
 
@@ -171,7 +171,7 @@ Note the following points:
 > [AZURE.NOTE] ExpressRoute offers two pricing plans to customers, based on metering or unlimited data. See [ExpressRoute pricing][expressroute-pricing] for details. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Additionally, IXPs can offer higher bandwidth than Telcos. Use the `azure network express-route provider list` command to see the providers available in your region and the bandwidths that they offer.
 >
 > A single ExpressRoute circuit can support a number of peerings and VNet links. See [ExpressRoute limits][expressroute-limits] for more information.
-> 
+>
 > For an extra charge, ExpressRoute Premium Add-on provides:
 >
 > - Up to 10,000 routes per circuit. Without ExpressRoute Premium Add-on, the limit is 4,000 routes per circuit.
