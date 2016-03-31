@@ -19,6 +19,10 @@
 
 # First look: Backing up Azure virtual machines
 
+> [AZURE.SELECTOR]
+- [Back up ARM VMs](backup-azure-vms-first-look-arm.md)
+- [Back up Classic mode VMs](backup-azure-vms-first-look.md)
+
 This article is a tutorial that will take you through the set of steps for preparing your Azure environment to back up an Azure virtual machine (VM). This tutorial assumes you already have a VM in your Azure subscription and that you have taken the measures to allow the backup service to access the VM. At a high level, here are the steps that you will complete.  
 
 ![High-level view of VM backup process](./media/backup-azure-vms-first-look/BackupAzureVM.png)
