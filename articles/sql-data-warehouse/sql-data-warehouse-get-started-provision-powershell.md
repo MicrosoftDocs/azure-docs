@@ -88,7 +88,8 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 
 <!--Article references-->
 [migrate]: ./sql-data-warehouse-overview-migrate.md
-[develop]: ./sql-data-warehouse-overview-develop/.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-load-with-bcp.md
 [load sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Powershell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [REST API]: https://msdn.microsoft.com/library/azure/dn505719.aspx
