@@ -58,7 +58,7 @@ An **Asset** is made up from its name, location and type as well as annotations 
 
 Annotations are items that represent metadata about Assets.
 
-Examples of annotations are description, tags, schema, documentation, etc… A full list of the asset types and annotation types are in the Asset Object model section.
+Examples of annotations include descriptions, tags, schema, and documentation. A full list of the asset types and annotation types are in the [Asset Object model](#asset-model) section below.
 
 ## Crowdsourcing annotations and user perspective (multiplicity of opinion)
 
@@ -82,6 +82,7 @@ The UX can then choose how to display the combination. There are three different
 -	Another pattern is “Merge”. In this pattern all the values from the different users are merged together, with duplicate removed. Examples of this pattern in the Azure Data Catalog portal UX are the tags and experts properties.
 -	A third pattern is “last writer wins”. In this pattern only the most recent value typed in is shown. friendlyName is an example of this pattern.
 
+<a name="asset-model"/>
 ## Asset object model
 
 As introduced in the Key Concepts section, the **Azure Data Catalog** object model includes items, which can be assets or annotations. Items have properties, which can be optional or required. Some properties apply to all items. Some properties apply to all assets. Some properties apply only to specific asset types.

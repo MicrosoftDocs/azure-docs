@@ -42,7 +42,7 @@ The following will walk you through setting up your Visual Studio development en
 
     ![](media\powerbi-embedded-get-started-sample\console.png)
 
-    a.	Select option 5 to **Create a new workspace within existing collection**.
+    a.	Select option 5 to **Provision a new workspace in an existing workspace collection**.
 
     <a name="keys"/>
     b.	Enter your subscription id, workspace collection and access key when prompted (These can be found in the Azure Portal). To learn about the app token key flow, see [How does app token flow work?](#key-flow).
@@ -51,7 +51,7 @@ The following will walk you through setting up your Visual Studio development en
 
     c.	Copy and save the newly created workspace id to use later (this can also be found in the Azure Portal after it is created).
 
-    d.	Import a PBIX file using option 6.
+    d.	Select option 6 to **Import PBIX Desktop file into an existing workspace**.
 
     - If prompted, select a friendly name for your **Dataset**. You should see a response like:
 
@@ -59,8 +59,6 @@ The following will walk you through setting up your Visual Studio development en
       - Checking import state... Succeeded
 
     e.	If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
-
-    f.	Select option 8 to retrieve the **Embed URL** that you should use to add the report to your application.
 
 5.	In **web.config** in the **EmbedSample** web application, edit the **appSettings** as follows:
 
