@@ -42,7 +42,7 @@ Cons:
 
 For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/).
 
-For more documentation, check out the [main documentation page for scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+For more documentation, check out the [main documentation page for scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
 For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
 
