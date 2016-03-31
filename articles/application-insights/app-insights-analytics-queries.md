@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="03/30/2016" 
 	ms.author="awills"/>
 
 # Queries in Analytics
@@ -181,7 +181,6 @@ Get extended activities from a log in which some entries mark the start and end 
 
 ```
 
-[About join flavors](app-insights-analytics-samples.md#join-flavors).
 
 ## let clause
 
@@ -320,7 +319,6 @@ Two modes of property-bag expansions are supported:
 
 Splits an exception record into rows for each item in the details field.
 
-See [Chart count of live activites over time](app-insights-analytics-samples.md#concurrent-activities).
 
 
 ## parse operator
@@ -459,8 +457,6 @@ T
     B=2*B                      // Calculate a new column B from the old B
 ```
 
-
-[More examples](app-insights-analytics-samples.md#activities).
 
 
 ## range operator
@@ -759,7 +755,7 @@ Rows in *T* for which *Predicate* is `true`.
 
 To get the fastest performance:
 
-* **Use simple comparisons** between column names and constants. ('Constant' means constant over the table - so `now()` and `ago()` are OK, and so are scalar values assigned using a [`let` statement](app-insights-analytics-syntax.md#let-statements).)
+* **Use simple comparisons** between column names and constants. ('Constant' means constant over the table - so `now()` and `ago()` are OK, and so are scalar values assigned using a [`let` clause](#let-clause).)
 
     For example, prefer `where Timestamp >= ago(1d)` to `where floor(Timestamp, 1d) == ago(1d)`.
 

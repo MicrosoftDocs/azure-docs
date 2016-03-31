@@ -17,12 +17,12 @@
     ms.author="chhavib;olgali"/>
 
 # Use sample experiments to create new experiments
-When you want to create an experiment, look for examples in Machine Learning team sample experiments and experiments shared by the Machine Learning community. You also can ask questions or post comments about experiments in the [Cortana Analytics Gallery](http://gallery.azureml.net/)
+When you want to create an experiment, look for examples in Machine Learning team sample experiments and experiments shared by the Machine Learning community. You also can ask questions or post comments about experiments in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Browse the Cortana Analytics Gallery
-1. Go to the [Gallery](http://gallery.azureml.net/)
+## Browse the Cortana Intelligence Gallery
+1. Go to the [Gallery](http://gallery.cortanaintelligence.com/)
 2. Browse either by going to **Trending Experiments** or **Microsoft samples**.
 3. Use search and filters to narrow results:
 ![](./media/machine-learning-sample-experiments/image1.png) 
