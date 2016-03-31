@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/21/2016"
+   ms.date="04/04/2016"
    ms.author="mikewasson"/>
 
 # Running a Single Windows VM on Azure
@@ -211,23 +211,40 @@ The script uses the naming conventions described in [Recommended Naming Conventi
 ECHO OFF
 SETLOCAL
 
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Set up variables for deploying resources to Azure.
+:: Change these variables for your own deployment.
+
+:: The APP_NAME variable must not exceed 4 characters in size.
+:: If it does the 15 character size limitation of the VM name may be exceeded.
+
+SET APP_NAME=app1
+SET LOCATION=eastus2
+SET ENVIRONMENT=dev
+SET USERNAME=testuser
+
+
+:: For Windows, use the following command to get the list of URNs:
+:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
+SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
+
+:: For a list of VM sizes see:
+::   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
+:: To see the VM sizes available in a region:
+:: 	azure vm sizes --location <location>
+SET VM_SIZE=Standard_DS1
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 IF "%2"=="" (
     ECHO Usage: %0 subscription-id admin-password
     EXIT /B
     )
 
-:: Set up variables to build out the naming conventions for deploying
-:: the cluster
-
-SET LOCATION=eastus2
-SET APP_NAME=app1
-SET ENVIRONMENT=dev
-SET USERNAME=testuser
-SET PASSWORD=%2
-
 :: Explicitly set the subscription to avoid confusion as to which subscription
 :: is active/default
 SET SUBSCRIPTION=%1
+SET PASSWORD=%2
 
 :: Set up the names of things using recommended conventions
 SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
@@ -240,13 +257,6 @@ SET SUBNET_NAME=%APP_NAME%-subnet
 SET VNET_NAME=%APP_NAME%-vnet
 SET VHD_STORAGE=%VM_NAME:-=%st0
 SET DIAGNOSTICS_STORAGE=%VM_NAME:-=%diag
-
-:: For Windows, use the following command to get the list of URNs:
-:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
-SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
-
-:: For a list of VM sizes see...
-SET VM_SIZE=Standard_DS1
 
 :: Set up the postfix variables attached to most CLI commands
 SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
