@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="03/29/2016"
 	ms.author="daleche"/>
 
 # Troubleshoot common connection issues to Azure SQL Database
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
 Connection issues to Azure SQL Database can be broadly classified as any of the following:
 
 - Transient errors (short-lived or intermittent)
@@ -24,7 +26,7 @@ Connection issues to Azure SQL Database can be broadly classified as any of the 
 
 If your application is experiencing transient errors, review the following topics for tips about how to troubleshoot and reduce the frequency of these errors:
 
-- [Troubleshooting Database <x> on Server <y> is unavailable (Error: 40613)](sql-database-troubleshoot-connection.md)
+- [Troubleshooting Database &lt;x&gt; on Server &lt;y&gt; is unavailable (Error: 40613)](sql-database-troubleshoot-connection.md)
 - [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](sql-database-connectivity-issues.md)
 
 If the application persistently fails to connect to SQL Azure Database, it usually indicates an issue with one of the following:
@@ -32,7 +34,6 @@ If the application persistently fails to connect to SQL Azure Database, it usual
 - Firewall configuration. The Azure SQL database or client-side firewall is blocking connections to Azure SQL Database.
 - Network reconfiguration on the client side: for example, a new IP address or a proxy server.
 - User error: for example, mistyped connection parameters, such as the server name in the connection string.
-
 
 ## Steps to resolve persistent connectivity issues
 1.	Set up [firewall rules](sql-database-configure-firewall-settings.md) to allow the client IP address.

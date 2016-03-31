@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="03/29/2016"
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ A Media Services account is associated with a Reserved Unit Type which determine
 
 In addition to specifying the reserved unit type, you can specify to provision your account with reserved units. The number of provisioned  reserved units determines the number of media tasks that can be processed concurrently in a given account. For example, if your account has 5 reserved units, then 5 media tasks will be running concurrently as long as there are tasks to be processed. The remaining tasks will wait in the queue and will get picked up for processing sequentially as soon as a running task finishes. If an account does not have any reserved units provisioned, then tasks will be picked up sequentially. In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.
 
-## Choosing tween different reserved unit types
+## Choosing between different reserved unit types
 
 The following table helps you make decision when choosing between different encoding speeds. It also provides a few benchmark cases and provides SAS URLs that you can use to download videos on which you can perform your own tests:
 
