@@ -19,7 +19,7 @@
 # Local Git Deployment to Azure App Service
 
 This tutorial shows you how to deploy your app to [Azure App Service] from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal].  
-Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-get-started/).
+Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](app-service-web-get-started.md).
 
 ## Prerequisites
 
@@ -28,8 +28,8 @@ To complete this tutorial, you need:
 - Git. You can download the installation binary [here](http://www.git-scm.com/downloads).  
 - Basic knowledge of Git.
 - A Microsoft Azure account. If you don't have an account, you can 
-[sign up for a free trial](https://azure.microsoft.com/en-us/pricing/free-trial) or 
-[activate your Visual Studio subscriber benefits](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details).
+[sign up for a free trial](https://azure.microsoft.com/pricing/free-trial) or 
+[activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.  
 
@@ -169,11 +169,11 @@ The following are errors or problems commonly encountered when using Git to publ
 
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
-* [Continous Deployment to Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-continous-deployment)
-* [How to use PowerShell for Azure](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure)
-* [How to use the Azure Command-Line Interface](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install)
+* [Continous Deployment to Azure App Service](app-service-continous-deployment.md)
+* [How to use PowerShell for Azure](../powershell-install-configure.md)
+* [How to use the Azure Command-Line Interface](../xplat-cli-install.md)
 
-[Azure App Service]: https://azure.microsoft.com/en-us/documentation/articles/app-service-changes-existing-services/
+[Azure App Service]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [Azure Portal]: https://portal.azure.com
 [Git website]: http://git-scm.com
