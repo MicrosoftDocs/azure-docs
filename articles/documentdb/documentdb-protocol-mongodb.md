@@ -52,6 +52,6 @@ To request access to the preview, perform the following steps.
 
 
 ## Next steps
-- Once you've been approved for the preview, you will receive a welcome email with instructions on how to create your account and get started 
+- Once you've been approved for the preview, you will receive a welcome email with instructions on how to create your account and get started.
 
  
