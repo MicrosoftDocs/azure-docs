@@ -46,7 +46,7 @@ You can configure CORS in the Azure portal or by using [Azure Resource Manager](
 
 	![Select CORS in Settings blade](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 
-11. In the text box enter the URL(s) that you want to allow JavaScript calls to come from.
+11. In the text box enter the URL or URLs that you want to allow JavaScript calls to come from.
 
 
 	For example, if you deployed your JavaScript application to a web app named todolistangular, enter "https://todolistangular.azurewebsites.net". As an alternative, you can enter an asterisk (*) to specify that all origin domains are accepted.
@@ -56,7 +56,7 @@ You can configure CORS in the Azure portal or by using [Azure Resource Manager](
 
 	![Click Save](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
-	After you click **Save**, the API app will accept JavaScript calls from the specified URL(s).
+	After you click **Save**, the API app will accept JavaScript calls from the specified URLs.
 
 ### Configure CORS by using Azure Resource Manager tools
 
@@ -78,7 +78,7 @@ The remainder of this article is a continuation of the .NET getting-started seri
 
 ## Deploy the ToDoListAngular project to a new web app
 
-In [the first tutorial](app-service-api-dotnet-get-started.md) you created a middle tier API app and a data tier API app. In this tutorial you create a single-page application (SPA) web app that calls the middle tier API app. For the SPA to work you will have to enable CORS on the middle tier API app. 
+In [the first tutorial](app-service-api-dotnet-get-started.md), you created a middle tier API app and a data tier API app. In this tutorial you create a single-page application (SPA) web app that calls the middle tier API app. For the SPA to work you have to enable CORS on the middle tier API app. 
 
 In the [ToDoList sample application](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list), the ToDoListAngular project is a simple AngularJS client that calls the middle tier ToDoListAPI Web API project. The JavaScript code in the *app/scripts/todoListSvc.js* file calls the API by using the AngularJS HTTP provider. 
 
@@ -104,7 +104,7 @@ In the [ToDoList sample application](https://github.com/Azure-Samples/app-servic
 
 ### Create a new web app for the ToDoListAngular project
 
-The procedure to create a new web app and deploy a project to it is the same as you saw in the first tutorial in this series, except that the app type is **Web App** instead of **API App**.
+The procedure to create a new web app and deploy a project to it is similar to what you saw in the first tutorial in this series. The only difference is that the app type is **Web App** instead of **API App**.
 
 1. In **Solution Explorer**, right-click the ToDoListAngular project, and then click **Publish**.
 
@@ -116,15 +116,15 @@ The procedure to create a new web app and deploy a project to it is the same as 
 
 5. Choose the Azure **Subscription** you want to work with.
 
-6. In the **Resource Group** drop-down, choose the same resource group you created earlier.
+6. In the **Resource Group** drop-down list, choose the same resource group you created earlier.
 
-4. In the **App Service Plan** drop-down, choose the same plan you created earlier. 
+4. In the **App Service Plan** drop-down list, choose the same plan you created earlier. 
 
 7. Click **Create**.
 
 	Visual Studio creates the web app, creates a publish profile for it, and displays the **Connection** step of the **Publish Web** wizard.
 
-	Before you click **Publish** in the **Publish Web** wizard, you'll configure the new web app to call the middle tier API app that is running in App Service. 
+	Don't click **Publish** yet. In the following section, you configure the new web app to call the middle tier API app that is running in App Service. 
 
 ### Set the middle tier URL in web app settings
 
@@ -140,7 +140,7 @@ The procedure to create a new web app and deploy a project to it is the same as 
 
 4. Click **Save**.
 
-	When the code runs in Azure, this value will now override the localhost URL that is in the Web.config file. 
+	When the code runs in Azure, this value overrides the localhost URL that is in the *Web.config* file. 
 
 	The code that gets the setting value is in *index.cshtml*:
 
@@ -184,15 +184,15 @@ The procedure to create a new web app and deploy a project to it is the same as 
 
 3. In the browser window that displays the AngularJS UI, click the **To Do List** link.
 
-	The JavaScript code tries to call the middle tier API app, but the call fails because the front end is running in a different domain (the web app URL) than the back end (the API app URL). The browser's Developer Tools Console window shows a cross-origin error message.
+	The JavaScript code tries to call the middle tier API app, but the call fails because the front end is running in a different domain than the back end. The browser's Developer Tools Console window shows a cross-origin error message.
 
 	![Cross-origin error message](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
 
 ## Configure CORS for the middle tier API app
 
-In this section you configure the ToDoListAPI API app to allow JavaScript calls from the web app that you created for the ToDoListAngular project.
+In this section, you configure the ToDoListAPI API app to allow JavaScript calls from the web app that you created for the ToDoListAngular project.
  
-8. In a browser go to the [Azure portal](https://portal.azure.com/).
+8. In a browser, go to the [Azure portal](https://portal.azure.com/).
 
 2. Click **App Services**, and then click the ToDoListAPI (middle tier) API app.
 
@@ -202,7 +202,7 @@ In this section you configure the ToDoListAPI API app to allow JavaScript calls 
 
 	![Select CORS in portal](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 
-12. In the text box enter the URL for the ToDoListAngular (front end) web app. For example, if you deployed the ToDoListAngular project to a web app named todolistangular0121, allow calls from the URL `https://todolistangular0121.azurewebsites.net`.
+12. In the text box, enter the URL for the ToDoListAngular (front end) web app. For example, if you deployed the ToDoListAngular project to a web app named todolistangular0121, allow calls from the URL `https://todolistangular0121.azurewebsites.net`.
 
 	As an alternative, you can enter an asterisk (*) to specify that all origin domains are accepted.
 
@@ -210,7 +210,7 @@ In this section you configure the ToDoListAPI API app to allow JavaScript calls 
 
 	![Click Save](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
-	After you click **Save**, the API app will accept JavaScript calls from the specified URL(s). In this screen shot, the ToDoListAPI0223 API app will accept JavaScript client calls from the ToDoListAngular web app.
+	After you click **Save**, the API app will accept JavaScript calls from the specified URL. In this screen shot, the ToDoListAPI0223 API app will accept JavaScript client calls from the ToDoListAngular web app.
 
 ### Test the application with CORS enabled
 
@@ -222,7 +222,7 @@ In this section you configure the ToDoListAPI API app to allow JavaScript calls 
 
 ## App Service CORS versus Web API CORS
 
-In a Web API project you can install the [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet package to specify in code which domains your API will accept JavaScript calls from.
+In a Web API project, you can install the [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet package to specify in code which domains your API will accept JavaScript calls from.
  
 Web API CORS support is more flexible than App Service CORS support. For example, in code you can specify different accepted origins for different action methods, while for App Service CORS you specify one set of accepted origins for all of an API app's methods.
 
@@ -264,7 +264,7 @@ The following steps summarize the process for enabling Web API CORS support. For
 		    [EnableCors(origins:"*", headers:"*", methods: "*")]
 		    public class ToDoListController : ApiController
  
-	> **Note**: Use of wildcards for all of the parameters with the `EnableCors` attribute is intended only for demonstration purposes, and will open your API up to all origins and all HTTP requests. Use this attribute with caution.
+	> **Note**: Use this attribute with caution. Specifying wildcards for all of the parameters opens your API up to all origins and all HTTP requests. The settings shown here are only for demonstration purposes.
 
 ## Troubleshooting
 
@@ -278,4 +278,4 @@ To learn more about Visual Studio features that simplify troubleshooting, see [T
 
 ## Next steps 
 
-In this article you saw how to enable App Service CORS support so that client JavaScript code can call an API in a different domain. In the next article in the API Apps getting started series, you'll learn about [authentication for App Service API apps](app-service-api-authentication.md).
+In this article, you saw how to enable App Service CORS support so that client JavaScript code can call an API in a different domain. In the next article in the API Apps getting started series, you learn about [authentication for App Service API apps](app-service-api-authentication.md).
