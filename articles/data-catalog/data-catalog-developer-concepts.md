@@ -24,7 +24,7 @@ Microsoft **Azure Data Catalog** is a fully managed cloud service that provides 
 
 The **Azure Data Catalog** conceptual model is based on four key concepts: The **Catalog**, **Users**, **Assets**, and **Annotations**.
 
-![concept][1]
+![](media/data-catalog-developer-concepts/concept2.png)
 
 *Figure 1 - Azure Data Catalog simplified conceptual model*
 
@@ -274,65 +274,62 @@ Special security principal <Everyone> has objectId "00000000-0000-0000-0000-0000
 
   **Body**
 
-  {
-    "roles": [
-      {
-        "role": "Contributor",
-        "members": [
-          {
-            "objectId": "00000000-0000-0000-0000-000000000201"
-          }
-        ]
-      }
-    ]
-  }
+    {
+      "roles": [
+        {
+          "role": "Contributor",
+          "members": [
+            {
+              "objectId": "00000000-0000-0000-0000-000000000201"
+            }
+          ]
+        }
+      ]
+    }
 
   **Assign owners and restrict visibility for an existing root item**
   **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
-  {
-    "roles": [
-      {
-        "role": "Owner",
-        "members": [
-          {
-            "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
-            "upn": "user1@contoso.com"
+    {
+      "roles": [
+        {
+          "role": "Owner",
+          "members": [
+            {
+              "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
+              "upn": "user1@contoso.com"
+            },
+            {
+              "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
+              "upn": "user2@contoso.com"
+            }
+          ]
+        }
+      ],
+      "permissions": [
+        {
+          "principal": {
+            "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
+            "upn": "user3@contoso.com"
           },
-          {
-            "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
-            "upn": "user2@contoso.com"
-          }
-        ]
-      }
-    ],
-    "permissions": [
-      {
-        "principal": {
-          "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
-          "upn": "user3@contoso.com"
+          "rights": [
+            {
+              "right": "Read"
+            }
+          ]
         },
-        "rights": [
-          {
-            "right": "Read"
-          }
-        ]
-      },
-      {
-        "principal": {
-          "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
-          "upn": "user4@contoso.com"
-        },
-        "rights": [
-          {
-            "right": "Read"
-          }
-        ]
-      }
-    ]
-  }
+        {
+          "principal": {
+            "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
+            "upn": "user4@contoso.com"
+          },
+          "rights": [
+            {
+              "right": "Read"
+            }
+          ]
+        }
+      ]
+    }
 
   > [AZURE.NOTE] In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
-
-  <!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept2.png

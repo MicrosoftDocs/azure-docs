@@ -32,7 +32,7 @@ A **Workspace Collection** is the top-level Azure resource and a container for t
 
 Let's walk through the steps to build a **Workspace Collection** using the Azure Portal.
 
-   1.	Open and sign into the Azure Portal: [http://portal.azure.com](http://portal.azure.com)
+   1.	Open and sign into the Azure Portal: [http://portal.azure.com](http://portal.azure.com).
 
    2.	Click **+ New** on the top panel.
 

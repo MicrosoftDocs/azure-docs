@@ -39,7 +39,7 @@ Like any other service in Azure, resources for **Microsoft Power BI Embedded** c
 
 A **Workspace Collection** is the top-level Azure container for resources that contains 0 or more **Workspaces**.  A **Workspace** **Collection** has all of the standard Azure properties, as well as the following:
 
--	**Access Keys** – Keys used when securely calling the Power BI APIs (described in a later section)
+-	**Access Keys** – Keys used when securely calling the Power BI APIs (described in a later section).
 -	**Users** – Azure Active Directory (AAD) users that have administrator rights to manage the Power BI Workspace Collection through the Azure portal or ARM API.
 -	**Region** – As part of provisioning a **Workspace Collection**, you can select a region to be provisioned in. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
 
