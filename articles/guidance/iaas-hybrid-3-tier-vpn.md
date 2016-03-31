@@ -76,7 +76,7 @@ The following high-level steps outline a process for implementing this architect
 
 - Create an Azure VNet. The address space of the VNet must not overlap with the on-premises network. For example, the diagram above uses the address space 10.20.0.0/16 for the VNet.
 
-- Create a separate subnet named `GatewaySubnet`, with an address range of /28. Avoid placing this subnet in the middle of the address space. The best practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.240/28.  A quick formula to calculate the CIDR is as follows:
+- Create a separate subnet named `GatewaySubnet`, with an address range of /28. Avoid placing this subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.240/28.  A quick formula to calculate the CIDR is as follows:
     1. Decide on the size of gateway subnet (/29 is the minimum, but choose /28 if ExpressRoute may be used down the road).
     2. Set the variable bits in the address space of the VNet to 1, up to the bits being used by the gateway subnet, then set the remaining bits to 0.
     3. Convert the resulting bits to decimal and express it as an address space with the prefix length set to the size of the gateway subnet.
