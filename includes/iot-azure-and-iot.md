@@ -14,9 +14,9 @@ The following diagram shows a typical IoT solution architecture. Note that it do
 
 ### Device connectivity
 
-In this IoT solution architecture, devices send telemetry, such as temperature readings, to a cloud endpoint for storage and processing. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, a device might retrieve a command that instructs it to change the frequency at which it samples data.
+In this IoT solution architecture, devices send telemetry, such as temperature readings, to a cloud endpoint for storage and processing. In a predictive maintenance scenario, the back end might use the stream of temperature data to determine when the device requires maintenance. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, a device might retrieve a command that instructs it to change the frequency at which it samples data. In a predictive maintenance scenario, a command might instruct the device to change its behavior when the back end determines that maintenance is due.
 
-One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the solution back end. IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. IoT devices:
+One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the solution back end to enable the device to send telemetry and retrieve commands. IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. IoT devices:
 
 - Are often embedded systems with no human operator.
 - Can be located in remote locations, where physical access is very expensive.
@@ -28,7 +28,7 @@ One of the biggest challenges facing IoT projects is how to reliably and securel
 
 In addition to the requirements above, any IoT solution must also deliver scale, security, and reliability. The resulting set of connectivity requirements is hard and time-consuming to implement using traditional technologies such as web containers and messaging brokers. Azure IoT Hub and the IoT Device SDKs make it easier to implement solutions that meet these requirements.
 
-A device can communicate directly with a cloud gateway endpoint, or if the device cannot use any of the communications protocols that the cloud gateway supports, it can connect through an intermediate gateway, such as the [IoT Hub protocol gateway][lnk-protocol-gateway], that performs protocol translation. The 
+A device can communicate directly with a cloud gateway endpoint, or if the device cannot use any of the communications protocols that the cloud gateway supports, it can connect through an intermediate gateway, such as the [IoT Hub protocol gateway][lnk-protocol-gateway], that performs protocol translation. For example, from the Common Industrial Protocol (CIP) to AMQPS.
 
 ### Data processing and analytics
 
@@ -43,7 +43,7 @@ IoT solutions can include automatic feedback loops. For example, an analytics mo
 
 ### Presentation and business connectivity
 
-The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports. For example, an operator can check on the status of particular shipping trucks and see any alerts raised by the system. This layer also allows integration of the IoT solution back end with existing line-of-business applications to tie into enterprise business processes or workflows.
+The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports that can display both historical data or near real-time data. For example, an operator can check on the status of particular shipping trucks and see any alerts raised by the system. This layer also allows integration of the IoT solution back end with existing line-of-business applications to tie into enterprise business processes or workflows such as a scheduling system that books a maintenance engineer.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 

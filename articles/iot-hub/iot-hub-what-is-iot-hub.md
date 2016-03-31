@@ -27,6 +27,8 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 - Provides extensive monitoring for device connectivity and device identity management events.
 - Includes device libraries for the most popular languages and platforms.
 
+The article [Comparison of IoT Hub and Event Hubs][lnk-compare] describes the key differences between these two services and highlights the advantages of using IoT Hub in your IoT solutions.
+
 ![IoT Hub as cloud gateway][img-architecture]
 
 ## IoT device-connectivity challenges
@@ -47,7 +49,7 @@ In addition to the requirements above, any IoT solution must also deliver scale,
 
 Azure IoT Hub addresses the device-connectivity challenges in the following ways:
 
--   **Per-device authentication and secure connectivity**. You can provision each device with its own security key to enable it to connect to IoT Hub. The [IoT Hub identity registry][lnk-devguide-identityregistry] stores device identities and keys in a solution. A solution back end can whitelist and blacklist individual devices, which enables complete control over device access.
+-   **Per-device authentication and secure connectivity**. You can provision each device with its own [security key][lnk-devguide-security] to enable it to connect to IoT Hub. The [IoT Hub identity registry][lnk-devguide-identityregistry] stores device identities and keys in a solution. A solution back end can whitelist and blacklist individual devices, which enables complete control over device access.
 
 -   **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations and device connectivity events. This enables your IoT solution to easily identify connectivity issues, such as devices that try to connect with wrong credentials, send messages too frequently, or reject all cloud-to-device messages.
 
@@ -64,8 +66,6 @@ These benefits are generic to many communication patterns. IoT Hub currently ena
 -   **Reliable cloud-to-device messaging (or *commands*).** The solution back end can use IoT Hub to send messages with an at-least-once delivery guarantee to individual devices. Each message has an individual time-to-live setting, and the back end can request both delivery and expiration receipts. This ensures full visibility into the life cycle of a cloud-to-device message. You can then implement business logic that includes operations that run on devices.
 
 You can also implement other common patterns, such as file upload and download, by taking advantage of IoT-specific features in IoT Hub. These features include consistent device identity management, connectivity monitoring, and scale.
-
-The article [Comparison of IoT Hub and Event Hubs][lnk-compare] describes the key differences between these two services and highlights the advantages of using IoT Hub in your IoT solutions.
 
 ## Gateways
 
@@ -108,6 +108,7 @@ To learn more about Azure IoT Hub, see these links:
 [lnk-gateway]: iot-hub-protocol-gateway.md
 [lnk-field-gateway]: iot-hub-guidance.md#field-gateways
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-wns]: https://msdn.microsoft.com/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
