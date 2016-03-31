@@ -30,6 +30,8 @@ When you evaluate your network bandwidth needs, make sure to consider all of the
 Now, go back to the [main network bandwidth article](remoteapp-bandwidth.md), or move on to testing your [network bandwidth](remoteapp-bandwidthtests.md).
 
 ## Learn more
-[Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
-[Azure RemoteApp - testing your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
-[Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)
+- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
+
+- [Azure RemoteApp - testing your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
+
+- [Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)

@@ -91,6 +91,8 @@ About the table:
 To evaluate the network bandwidth per user, create a mix of the above scenarios and the corresponding proportion of required network bandwidth. Pick the highest number needed for your scenarios. Since users almost never use the system alone, consider some reserve for users that work simultaneously on the same network.
      
 ## Learn more
-[Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
-[Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
-[Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)
+- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
+
+- [Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
+
+- [Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)
