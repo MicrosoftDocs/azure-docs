@@ -28,7 +28,7 @@ preconfigured to run containerized applications. It uses an optimized configurat
 ![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
 <br /><br />
 
-Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and Apache Mesos or Docker Swarm so that you can scale these applications to thousands of containers, even tens of thousands.
+Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and Apache Mesos or Docker Swarm so that you can scale these applications to thousands of containers, or even tens of thousands.
 
 By using Azure Container Service, you can take advantage of the
 enterprise-grade features of Azure, while still maintaining application portability--including portability at the orchestration layers.
