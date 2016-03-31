@@ -27,7 +27,7 @@ We are currently onboarding customers to preview this new functionality.  If you
 
 Before requesting access to the preview program, you must have the following.
 
-- **An Azure subscription**. See [Create your free Azure account today](https://azure.microsoft.com/en-us/free/).
+- **An Azure subscription**. See [Create your free Azure account today](https://azure.microsoft.com/free/).
 
 ## Request Access to the DocumentDB Protocol Support for MongoDB Preview  
 
