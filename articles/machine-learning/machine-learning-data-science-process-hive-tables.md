@@ -172,7 +172,7 @@ Here are a few sample Hive scripts that can be used to explore data in Hive tabl
 
 In this section, we describe ways of generating features using Hive queries.
 
-> [AZURE.NOTE] The sample Hive queries in this section assumes that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Submit Hive Queries to HDInsight Hadoop clusters](machine-learning-data-science-hive-queries.md) to upload data to Hive tables first.
+> [AZURE.NOTE] The sample Hive queries in this section assumes that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
 
 Once you have generated additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, which can then be joined with the original table.  
 

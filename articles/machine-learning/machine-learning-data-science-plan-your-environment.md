@@ -77,7 +77,7 @@ Take the Azure Machine Learning Studio environment for example:
 [Data formats and data types supported](machine-learning-data-science-import-data.md#data-formats-and-data-types-supported) section.
 - For information on data limitations for Azure Machine Learning Studio, see the **How large can the data set be for my modules?** section of [Importing and exporting data for Machine Learning](machine-learning-faq.md#machine-learning-studio-questions)
 
-For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md).
+For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
 
 ## Data quality questions: exploration and pre-processing
 
@@ -106,7 +106,7 @@ There are lots of options here depending on what languages and development envir
 
 
 ## Identify your advanced analytics scenario
-Once you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md).
+Once you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
 
 
 
