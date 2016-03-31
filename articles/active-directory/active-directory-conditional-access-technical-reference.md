@@ -51,11 +51,11 @@ Conditional access rules that use an “At work” network, rely on trusted IP r
 Trusted IP ranges can be configured in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. The inside corpnet claim is not used since it is not available for longer lived sessions, such as refresh tokens in mobile applications.
 
 ## Per-application rules
-Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional access rules can be configured on a the ‘**Configure**’ tab of the application. 
+Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional access rules can be configured on the **Configure** tab of the application. 
 
 Rules currently offered:
 
-- **Require multi-factor authenticatio**n
+- **Require multi-factor authentication**
  - All users that this policy is applied to will be required to authenticate via multi-factor authentication at least once.
  
 - **Require multi-factor authentication when not at work**
