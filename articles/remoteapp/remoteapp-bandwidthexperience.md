@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/29/2016" 
+    ms.date="03/31/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp - how do network bandwidth and quality of experience work together?
 
-When you are looking at the overall network bandwidth required for Azure RemoteApp, keep in mind the following factors - these are all part of a dynamic system that impacts the overall user experience. 
+When you are looking at the [overall network bandwidth](remoteapp-bandwidth.md) required for Azure RemoteApp, keep in mind the following factors - these are all part of a dynamic system that impacts the overall user experience. 
 
 - **Network bandwidth** - Usually, the higher the bandwidth, the better the user experience. This is true in cases where a single user or a small number of users are using the app with a content that does not need to send lots of bits back and forth.
 - **Current network conditions** - A set of parameters (loss, latency, jitter) on the same network at a given time can impact the application streaming experience, meaning a lowered overall user experience. For example, a lossy network or network with high latency will make the user experience bad even on a network with 1000MB bandwidth. The loss and latency vary based on the number of users that are on the same network and what those users are doing (for example, watching videos, downloading or uploading large files, printing).
