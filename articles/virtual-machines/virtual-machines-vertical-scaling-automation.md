@@ -59,7 +59,7 @@ In this section you will accomplish the following tasks
 * Create an AutomationPSCredential with the user's login information
 * Setup the user to access the resources in your subscription
 
-Before you can being executing Azure Automation runbooks in your subscription you need to give Azure Automation access to your subscription. This is done by creating another user in your Active Directory. Then you need to create an AutomationPSCredential which allows the user to authenticate against Azure and run PowerShell commands that will resize your Virtual Machine.
+Before you can begin executing Azure Automation runbooks in your subscription you need to give Azure Automation access to your subscription. This is done by creating another user in your Active Directory. Then you need to create an AutomationPSCredential which allows the user to authenticate against Azure and run PowerShell commands that will resize your Virtual Machine.
 
 A walkthrough of creating a user and an AutomationPSCredential can be read in the following article
 
