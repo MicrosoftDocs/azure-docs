@@ -38,13 +38,14 @@ In this section, you will perform the following steps to create a new Azure Auto
 
 1. Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.
 2. Select **Automation Accounts**.
-3. In the Automation Accounts blade, click **Add**.<br>![Add Automation Account](media/automation-sec-configure-azure-runas-account/add-automation-account-properties.png)
+3. In the Automation Accounts blade, click **Add**.<br>![Add Automation Account](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 4. In the **Add Automation Account** blade, in the **Name** box type in a name for your new Automation account.
 5. If you have more than one subscription, specify the one for the new account, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 6. Verify the value **Yes** is selected for the **Create Azure Run As account** option, and click the **Create** button.  
-<br>
-    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against ARM resources.
-<br> 
+
+    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against ARM resources. 
+
+    ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
 7. While Azure creates the Automation account, you can track the progress under **Notifications** from the menu.
 
