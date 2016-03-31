@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="03/30/2016"
+    ms.date="03/31/2016"
     ms.author="sidneyh"/>
 
 # Manage an elastic database pool with Transact-SQL  
@@ -40,14 +40,14 @@ All databases in an elastic pool inherit the service tier of the elastic pool (B
 
 
 ## Move a database between elastic pools
-Use the ALTER DATABASE command with the MODIFY and SERVICE_OBJECTIVE option; set the name to the target pool.
+Use the ALTER DATABASE command with the MODIFY and set SERVICE_OBJECTIVE option as ELASTIC_POOL; set the name to the name of the target pool.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [PM125] ));
 	-- Move the database named db1 to a pool named P1M125  
 
 
 ## Move a database from a performance level for single databases into into an elastic pool 
-Use the ALTER DATABASE command with the MODIFY and SERVICE_OBJECTIVE option; set the name to the target pool.
+Use the ALTER DATABASE command with the MODIFY and set SERVICE_OBJECTIVE option as ELASTIC_POOL; set the name to the name of the target pool.
 
 	ALTER DATABASE db28 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
@@ -59,13 +59,23 @@ Use the ALTER DATABASE command and set the SERVICE_OBJECTIVE to one of the perfo
 	-- Changes the database into a stand-alone database with the service objective S1.
 
 ## View the mapping of databases to elastic pools in a server
-Use the [sys.database\_service \_objectives](https://msdn.microsoft.com/library/mt712619(SQL.130).aspx) view to see the mapping of databases to service objectives. A service objective is either a performance level for single databases or an elastic pool. If the service objective is an elastic pool, then the name of the elastic pool can be identified by elastic_pool_name. Note that in the case of an elastic pool, the result in the service_objective column will be deprecated and be replaced with ‘ElasticPool’. 
+Use the [sys.database\_service \_objectives view](https://msdn.microsoft.com/library/mt712619) to see the mapping of databases to service objectives. A service objective is either a performance level for single databases or "ElasticPool" for databases in an elastic pool. For databases in an elastic pool, the name of the elastic pool can be identified by value in the elastic_pool_name column. 
+
+>[AZURE.NOTE] Currently the service_objective_column for databases in elastic pools returns an internal token of the service objective string. This will be replaced by the string "ElasticPool."
 
 	SELECT d.name, 
     slo.*  
 	FROM sys.databases d 
 	JOIN sys.database_service_objectives slo  
 	ON d.database_id = slo.database_id;
+
+## Review resource usage of databases in elastic pools
+
+Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/library/mt280062.aspx) to examine the resource usage statistics of all elastic pools on a logical server. Log in to the master database to run the view.
+
+	SELECT * FROM sys.elastic_pool_resource_stats 
+	ORDER BY end_time DESC;
+
 
 ## Next steps
 
