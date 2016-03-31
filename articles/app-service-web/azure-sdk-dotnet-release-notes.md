@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="juliako"/>
 
 
@@ -22,6 +22,10 @@
 
 This topic contains links to Azure SDK for .NET Release Notes. 
 
+
+##Azure SDK for .NET 2.9 Release Notes
+
+[Azure SDK for .NET 2.9 Release Notes](azure-sdk-dotnet-release-notes-2_9.md)
 
 ##Azure SDK for .NET 2.8 Release Notes
 
