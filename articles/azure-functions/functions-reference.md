@@ -1062,7 +1062,6 @@ This example sends a notification for a [template registration](../notification-
 	{
 	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
         notification = GetTemplateProperties(myQueueItem);
-		//Note: notification can also be a valid json string
 	}
 	 
 	private static IDictionary<string, string> GetTemplateProperties(string message)
