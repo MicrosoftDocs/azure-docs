@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="31/03/2016" 
+	ms.date="03/31/2016" 
 	ms.author="awills"/>
  
 # What is Application Insights?
