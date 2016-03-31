@@ -44,7 +44,7 @@ No. The domain provided by Azure AD Domain Services is a managed domain. You do 
 ### Administration and Operations
 
 #### Can I connect to the domain controller for my managed domain using Remote Desktop?
-No. Since this is a managed domain you do not have the ability to connect to domain controllers for the domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD tools installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
+No. Since this is a managed domain, you do not have the ability to connect to domain controllers for the domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
 
 #### I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
 Any of the user accounts you’ve added to the administrative group (i.e. ‘AAD DC Administrators’) would be able to domain join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
@@ -59,7 +59,7 @@ No. Group memberships cannot be modified on domains serviced by Azure AD Domain 
 No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
 
 #### Can I modify DNS records provided by Azure AD Domain Services?
-Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Administrator' permissions to modify DNS records in the managed domain. These users can use the DNS Manager console on a Windows server joined to the managed domain in order to manage DNS. You can get the DNS Manager console, after installing 'DNS Server Tools' as part of the 'Remote Server Administration Tools' optional feature on the server. More information on [utilities for administering, monitoring and troubleshooting DNS](https://technet.microsoft.com/library/cc753579.aspx) is available on TechNet.
+Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Administrator' privileges, in order to modify DNS records in the managed domain. These users can use the DNS Manager console on a Windows server joined to the managed domain, in order to manage DNS. In order to use the DNS Manager console, install 'DNS Server Tools', which is part of the 'Remote Server Administration Tools' optional feature on the server. More information on [utilities for administering, monitoring and troubleshooting DNS](https://technet.microsoft.com/library/cc753579.aspx) is available on TechNet.
 
 ### Billing and availability
 
