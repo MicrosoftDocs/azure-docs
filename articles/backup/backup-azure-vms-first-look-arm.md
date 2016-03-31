@@ -186,7 +186,7 @@ To create a policy:
 
     - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
 
-    ![Daily backup policy](./media/backup-azure-vms-first-look-arm/backup-policy-daily.png)
+    ![Daily backup policy](./media/backup-azure-vms-first-look-arm/backup-policy-daily.png) <br/>
 
     - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the hour, and select the new hour.
 
