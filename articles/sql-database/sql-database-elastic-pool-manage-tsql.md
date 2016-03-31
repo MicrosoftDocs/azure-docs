@@ -17,7 +17,7 @@
     ms.date="03/31/2016"
     ms.author="sidneyh"/>
 
-# Manage an elastic database pool with Transact-SQL  
+# Monitor and manage an elastic database pool with Transact-SQL  
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
@@ -46,7 +46,7 @@ Use the ALTER DATABASE command with the MODIFY and set SERVICE_OBJECTIVE option 
 	-- Move the database named db1 to a pool named P1M125  
 
 
-## Move a database from a performance level for single databases into into an elastic pool 
+## Move a single database from a performance level for single databases into into an elastic pool 
 Use the ALTER DATABASE command with the MODIFY and set SERVICE_OBJECTIVE option as ELASTIC_POOL; set the name to the name of the target pool.
 
 	ALTER DATABASE db28 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
@@ -69,7 +69,7 @@ Use the [sys.database\_service \_objectives view](https://msdn.microsoft.com/lib
 	JOIN sys.database_service_objectives slo  
 	ON d.database_id = slo.database_id;
 
-## Review resource usage of databases in elastic pools
+## Monitor resource usage of databases in elastic pools
 
 Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/library/mt280062.aspx) to examine the resource usage statistics of all elastic pools on a logical server. Log in to the master database to run the view.
 
