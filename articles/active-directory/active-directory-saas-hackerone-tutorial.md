@@ -23,7 +23,7 @@ In this tutorial, you integrate HackerOne with Azure Active Directory (Azure AD)
 
 - You can control in Azure AD who has access to HackerOne
 - You can enable your users to automatically get signed-on to HackerOne (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -54,7 +54,7 @@ The scenario outlined in this tutorial consists of two main building blocks:
 
 
 ## Adding HackerOne from the gallery
-To configure the integration of HackerOne into Azure AD, you need to add HackerOne from the gallery to your list of managed SaaS apps.
+To configure how HackerOne integrates into Azure AD, you need to add HackerOne from the gallery to your list of managed SaaS apps.
 
 **To add HackerOne from the gallery, perform the following steps:**
 
@@ -86,7 +86,7 @@ To configure the integration of HackerOne into Azure AD, you need to add HackerO
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with HackerOne based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in HackerOne to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in HackerOne needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in HackerOne to a user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in HackerOne needs to be established.
 
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in HackerOne.
 
@@ -100,11 +100,11 @@ To configure and test Azure AD single sign-on with HackerOne, you need to comple
 
 ### Configuring Azure AD Single Sign-On
 
-In this section, you enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your HackerOne application.
+In this section, you enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your HackerOne application.
 
 **To configure Azure AD single sign-on with HackerOne, perform the following steps:**
 
-1. In the Azure AD portal, on the **HackerOne** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure classic portal, on the **HackerOne** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
  ![Configure Single Sign-On][6]
 
@@ -154,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure AD portal and t
 	e. Click **Run test** button and make sure the test works. If it does, request review for your SAML settings to HackerOne support team via support@hackerone.com and then they will approve them.
       ![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
 
-6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
   ![Azure AD Single Sign-On][10]
 
@@ -225,9 +225,9 @@ In the Users list, select **Britta Simon**.
 
 In this section, you create a user called Britta Simon in HackerOne. HackerOne supports just-in-time provisioning, which is enabled by default.
 
-You don't need to take any action in this section. A new user will be created during an attempt to access HackerOne if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+You don't need to take any action in this section. A new user is created when you access HackerOne if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
 
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the HackerOne support team.
+> [AZURE.NOTE] If you need to create a user manually, you need to contact the HackerOne support team.
 
 
 ### Assigning the Azure AD test user
