@@ -121,7 +121,7 @@ The following diagram builds on the topology shown in [Running multiple Windows 
 
 ## Manageability
 
-- Individual VMs should have diagnostics enabled to provide health and performance data. Examine the [audit logs](azure-audit-logs) to view provisioning actions and other events.
+- Individual VMs should have diagnostics enabled to provide health and performance data. Examine the [audit logs][azure-audit-logs] to view provisioning actions and other events.
 
 - Simplify management of the entire system by using centralized administration tools such as [Azure Automation][azure-administration], [Microsoft Operations Management Suite][operations-management-suite], [Chef][chef], or [Puppet][puppet]. These tools can consolidate diagnostic and health information captured from multiple VMs to provide an overall view of the system.
 
@@ -458,7 +458,8 @@ goto :eof
 <!-- links -->
 
 [azure-administration]: ../automation/automation-intro.md
-[azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md/#configure-each-application-tier-into-separate-availability-sets
+[azure-audit-logs]: ../resource-group-audit.md
+[azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md#configure-each-application-tier-into-separate-availability-sets
 [azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault.md
 [azure-load-balancer]: ../load-balancer/load-balancer-overview.md
