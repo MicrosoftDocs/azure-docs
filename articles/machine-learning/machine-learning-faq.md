@@ -117,6 +117,10 @@ Yes, you can bring your existing R code in ML Studio and run it in the same expe
 
 No, that is not supported, however custom R and Python code can be used to define a module.
 
+**How many modules can I execute in parallel in my experiment?**  
+
+You can execute up to 4 modules in parallel in an experiment.
+
 
 ### Data processing
 
@@ -165,7 +169,7 @@ Currently new custom modules can only be created in R.
 
 **What R packages are available in Machine Learning Studio?**
 
-Machine Learning Studio supports 400+ CRAN R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio supports 400+ CRAN R packages today, and here is the the [current list](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) of all included packages. Also, see [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to retreive this list yourself. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Is it possible to build a custom R module?**
 
