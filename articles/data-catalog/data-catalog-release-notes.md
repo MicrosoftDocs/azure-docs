@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Azure Data Catalog release notes"
+   pageTitle="Azure Data Catalog release notes | Microsoft Azure"
    description="Release notes for Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog release notes
