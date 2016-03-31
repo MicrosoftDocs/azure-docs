@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prepare the physical machine"
-	description="Prepare the physical machine"
+	pageTitle="Add a SQL Server resource provider to Azure Stack"
+	description="Add a SQL Server resource provider to Azure Stack"
 	services="azure-stack"
 	documentationCenter=""
 	authors="Dumagar"
