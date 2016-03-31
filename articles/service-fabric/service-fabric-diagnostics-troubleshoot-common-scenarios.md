@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Troubleshoot common issues | Microsoft Azure"
+   pageTitle="Troubleshooting with event tracing | Microsoft Azure"
    description="The most common issues encountered while deploying services on Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="mattrow"/>
 
 
@@ -29,10 +29,14 @@ The "Partition is below target replica or instance count" report is a good indic
 Any exceptions before the service type is initialized will cause the process to crash. For these types of crashes, the application event log will show the error from your service.
 These are the most common exceptions to see before the service is initialized.
 
-| Error | Description |
-| --- | --- |
-| System.IO.FileNotFoundException | This error is often due to missing assembly dependencies. Check the CopyLocal property in Visual Studio or the global assembly cache for the node.
-| System.Runtime.InteropServices.COMException at System.Fabric.Interop.NativeRuntime+IFabricRuntime.RegisterStatefulServiceFactory(IntPtr, IFabricStatefulServiceFactory)|This indicates that the registered service type name does not match the service manifest. |
+***System.IO.FileNotFoundException***
+
+This error is often due to missing assembly dependencies. Check the CopyLocal property in Visual Studio or the global assembly cache for the node.
+
+***System.Runtime.InteropServices.COMException***
+ *at System.Fabric.Interop.NativeRuntime+IFabricRuntime.RegisterStatefulServiceFactory(IntPtr, IFabricStatefulServiceFactory)*
+ 
+ This indicates that the registered service type name does not match the service manifest.
 
 [Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) can be configured to upload the application event log for all your nodes automatically.
 

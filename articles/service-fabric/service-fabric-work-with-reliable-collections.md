@@ -190,16 +190,17 @@ public struct ItemId {
 
 Internally, Reliable Collections serialize your objects using .NET’s DataContractSerializer. The serialized objects are persisted to the primary replica’s local disk and are also transmitted to the secondary replicas. As your service matures, it’s likely you’ll want to change the kind of data (schema) your service requires. You must approach versioning of your data with great care. First and foremost, you must always be able to deserialize old data. Specifically, this means your deserialization code must be infinitely backward compatible: Version 333 of your service code must be able to operate on data placed in a reliable collection by version 1 of your service code 5 years ago.
 
-Furthermore, service code is upgraded one upgrade domain at a time. So, during an upgrade, you have two different versions of your service code running simultaneously. You must avoid having the new version of your service code use the new schema as old versions of your service code might not be able to handle the new schema. When possible, you should design each version of your service to be forward compatible by 1 version. Specifically, this means that V1 of your service code should be able to simply ignore any schema elements it does not explicitly handle. However, it must be able to save any data it doesn’t explicitly know about and simply write it back out when updating a dictionary key or value. __Note: While you can modify the schema of a key, you must ensure that your key’s hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.__
+Furthermore, service code is upgraded one upgrade domain at a time. So, during an upgrade, you have two different versions of your service code running simultaneously. You must avoid having the new version of your service code use the new schema as old versions of your service code might not be able to handle the new schema. When possible, you should design each version of your service to be forward compatible by 1 version. Specifically, this means that V1 of your service code should be able to simply ignore any schema elements it does not explicitly handle. However, it must be able to save any data it doesn’t explicitly know about and simply write it back out when updating a dictionary key or value. 
+
+[AZURE.WARNING]While you can modify the schema of a key, you must ensure that your key’s hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
   
 Alternatively, you can perform what is typically referred to as a 2-phase upgrade. With a 2-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn’t execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a 2-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
 
-For more information about Data Contract Versioning, see:
+## Next Steps
+[Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx) to learn about creating forward compatible data contracts
 
-[Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx)
+[Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx) to learn best practices on versioning data contracts
 
-[Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx)
+[Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/library/ms733734.aspx) to learn how to implement version tolerant data contracts
 
-[Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/library/ms733734.aspx)
-
-[IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
+[IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx) to learn how to provide a data structure that can interoperate across multiple versions
