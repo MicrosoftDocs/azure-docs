@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="03/30/2016"
-	ms.author="markgal;jimpark"/>
+	ms.author="markgal; jimpark"/>
 
 
 # First look: Back up ARM VMs to a Recovery Services vault
@@ -23,7 +23,7 @@
 - [Back up ARM VMs](backup-azure-vms-first-look-arm.md)
 - [Back up Classic mode VMs](backup-azure-vms-first-look.md)
 
-This tutorial takes you through the set of steps of creating a Recovery Services vault, and backing up an Azure virtual machine (VM). This tutorial is for use with Recovery Services vaults which can be used to protect IaaS v.2 or Azure Resource Manager (ARM)-based VMs. Recovery Services vaults exist in the Azure portal; they are not available in the Classic portal. assumes you already have a VM in your Azure subscription and that you have taken the measures to allow the backup service to access the VM.
+This tutorial takes you through the set of steps of creating a Recovery Services vault, and backing up an Azure virtual machine (VM). This tutorial is for use with Recovery Services vaults which can be used to protect IaaS v.2 or Azure Resource Manager (ARM)-based VMs. Recovery Services vaults exist in the Azure portal; they are not available in the Classic portal.
 
 >[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM. Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article is for use with Resource Manager and ARM-based VMs.
 
