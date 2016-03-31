@@ -14,10 +14,15 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/24/2016"
+	 ms.date="03/30/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup service- FAQ
+
+> [AZURE.SELECTOR]
+- [Backup FAQ for Classic mode](backup-azure-backup-faq.md)
+- [Backup FAQ for ARM mode](backup-azure-backup-ibiza-faq.md)
+
 This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Installation & Configuration
