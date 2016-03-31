@@ -186,7 +186,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 3. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
-4. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRPPassw0rd* for the manifest credentials.
+4. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRpPassw0rd* for the manifest credentials.
 
 5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
 
