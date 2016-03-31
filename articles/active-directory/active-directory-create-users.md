@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/24/2016"
+	ms.date="03/31/2016"
 	ms.author="curtand;viviali"/>
 
 # Add or change users in Azure Active Directory
 
-You must add an account to your directory of your tenant for every user who will access a Microsoft cloud service. Added users do not have administrator permissions by default, but you can assign roles to them at any time.
+You must add an account to the directory of your tenant for every user who will access a Microsoft cloud service. Added users do not have administrator permissions by default, but you can assign roles to them at any time.
 
 ## Add a user
 
@@ -77,21 +77,19 @@ The only linkage between the two accounts is that the user always authenticates 
 
 If a user is deleted in their home directory or they cancel their Microsoft account, the external user still exists in your directory. However, the user can't access resources in your directory because the user can no longer authenticate with their home directory or Microsoft account.
 
-Here are services that currently support access by Azure AD external users:
+### Services that currently support access by Azure AD external users
 
 - **Azure classic portal**: allows an external user who is an administrator of multiple directories to manage each of those directories
 - **SharePoint Online**: allows an external user to access SharePoint Online authorized resources if external sharing is enabled
 - **Dynamics CRM**: allows an external user to access authorized resources in Dynamics CRM if the user is licensed via PowerShell
+- **Dynamics AX**: allows an external user to access authorized resources in Dynamics AX if the user is licensed via PowerShell. The limitations for [Azure AD external users](#known-limitations-of-azure-ad-external-users) and [Guest users](#guest-user-management-and-limitations) apply to external users in Dynamics AX as well.
 
-Here are the known limitations of Azure AD external users:
+### Known limitations of Azure AD external users
 
 - External users who are admins cannot add users from partner companies to directories (B2B collaboration) outside their home directory
 - External users cannot consent to multi-tenant applications in directories outside of their home directory
-- Visual Studio Online does not currently support access by external users\*
 - PowerBI does not currently support access by external users
 - Office Portal does not support licensing external users
-
-\* Visual Studio Online does allow access by external users that authenticate using Microsoft accounts, but not external users that authenticate using work or school accounts.
 
 ## Guest user management and limitations
 
