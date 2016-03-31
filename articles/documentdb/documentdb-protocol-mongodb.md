@@ -19,7 +19,7 @@
 
 # DocumentDB Protocol Support for MongoDB
 
-Microsoft Azure DocumentDB now allows access using drivers for MongoDB.  Using this preview functionality, applications can easily and transparently communicate with DocumentDB using existing, community supported Apache License drivers for MongoDB.  Developers can use their current tools and skills for MongoDB to build applications that leverage DocumentDB, a fully managed and scalable NoSQL database service backed by industry leading SLAs. 
+Microsoft Azure DocumentDB can now be accessed using existing drivers for MongoDB.  Using this preview functionality, applications can easily and transparently communicate with DocumentDB using existing, community supported Apache License drivers for MongoDB.  Developers can use their current tools and skills for MongoDB to build applications that leverage DocumentDB, a fully managed and scalable NoSQL database service backed by industry leading SLAs. 
 
 We are currently onboarding customers to preview this new functionality.  If you want to be considered for the preview, follow the directions below to request access to the preview program and we will contact you once you're approved.    
 
@@ -27,7 +27,7 @@ We are currently onboarding customers to preview this new functionality.  If you
 
 Before requesting access to the preview program, you must have the following.
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- **An Azure subscription**. See [Create your free Azure account today](https://azure.microsoft.com/free/).
 
 ## Request Access to the DocumentDB Protocol Support for MongoDB Preview  
 
@@ -52,6 +52,6 @@ To request access to the preview, perform the following steps.
 
 
 ## Next steps
-- Once you've been approved for the preview, you will receive a welcome email with instructions on how to create your account and get started 
+- Once you've been approved for the preview, you will receive a welcome email with instructions on how to create your account and get started.
 
  

@@ -21,11 +21,12 @@
 **Microsoft Power BI Embedded** Preview is primarily focused on exposing the majority of existing Power BI API functionality as part of an Azure service for you to develop your applications with. Additionally, you will be able to programmatically provision, develop and deploy the necessary resources and Power BI content.
 
 You can use the **Power BI API** to create and manage Power BI content workspaces. With the API, you can
+
   - Import a Power BI desktop file (PBIX) into a workspace using key based authentication.
   - Modify connection strings of a dataset.
   - Get **Reports** to integrate into your own app.
   - Set credentials for a dataset to be able to talk to the correct source datasource.
-  - To learn more about the **Power BI API**, see [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md).
+  - To learn more about the **Power BI API**, see [Get started with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md).
 
 See the [Power BI Reference on MSDN](https://msdn.microsoft.com/library/mt669800.aspx).
 
@@ -50,4 +51,4 @@ Here are some of the classes and methods that are used in the **Power BI Embedde
 ## See also
 
 - [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)
+- [Get started with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)
