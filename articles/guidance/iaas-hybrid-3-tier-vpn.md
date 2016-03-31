@@ -43,26 +43,21 @@ The following diagram highlights the components in this architecture:
 
 - **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
-- **[VPN appliance][vpn-appliance].** This is a device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. See [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliances] for a list of supported VPN appliances.
+- **VPN appliance.** This is a device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. 
 
-    > [AZURE.NOTE] For information on configuring selected VPN appliances for connecting to an Azure VPN Gateway, see the instructions for the appropriate device in the [list of VPN devices supported by Azure][vpn-appliance].
+    > [AZURE.NOTE] For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to an Azure VPN Gateway, see the instructions for the appropriate device in the [list of VPN devices supported by Azure][vpn-appliance].
 
 - **N-tier cloud application.** This is the application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups (NSGs)][azure-network-security-group]. For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security].
 
     > [AZURE.NOTE] This article describes the cloud application as a single entity. See [Implementing a Multi-tier Architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
 
-- **[Virtual network (VNET)][azure-virtual-network].** The cloud application and the Azure VPN Gateway are placed into the same VNet.
+- **[Virtual network (VNet)][azure-virtual-network].** The cloud application and the Azure VPN Gateway are placed into the same VNet.
 
 - **[Azure VPN Gateway][azure-vpn-gateway].** The VPN gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
 - **Gateway subnet.** The Azure VPN Gateway is held in its own subnet, which is subject to various requirements (see [Implementing this architecture](#implementing), below).
 
 - **Internal load balancer.** Network traffic from the VPN Gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
-
-
-The Azure VPN Gateway consists of the following elements:
-
-![IaaS: gateway-components](./media/arch-iaas-hybrid-3-tier-gateway-components.png)
 
 - **Virtual network gateway.** This is a resource that provides a virtual VPN appliance for the VNet. It is responsible for routing traffic from the on-premises network to the VNet.
 
@@ -81,7 +76,18 @@ The following high-level steps outline a process for implementing this architect
 
 - Create an Azure VNet. The address space of the VNet must not overlap with the on-premises network. For example, the diagram above uses the address space 10.20.0.0/16 for the VNet.
 
-- Create a separate subnet named `GatewaySubnet`, with an address range of /28. Avoid placing this subnet in the middle of the address space. The best practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.240/28.
+- Create a separate subnet named `GatewaySubnet`, with an address range of /28. Avoid placing this subnet in the middle of the address space. The best practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.240/28.  A quick formula to calculate the CIDR is as follows:
+    1. Decide on the size of gateway subnet (/29 is the minimum, but choose /28 if ExpressRoute may be used down the road).
+    2. Set the variable bits in the address space of the VNet to 1, up to the bits being used by the gateway subnet, then set the remaining bits to 0.
+    3. Convert the resulting bits to decimal and express it as an address space with the prefix length set to the size of the gateway subnet.
+
+    ```
+    For example:
+    
+    For a VNet with an IP address range of 10.20.0.0/16
+    Applying step #2 above becomes 10.20.0b11111111.0b11110000
+    Converting that to decimal and expressing it as an address space yields 10.20.255.240/28
+    ```
 
 - Allocate a public IP address for the virtual network gateway.
 
@@ -97,7 +103,7 @@ The following high-level steps outline a process for implementing this architect
 
 - Open any ports required by the cloud application in the on-premises network.
 
-- Create appropriate NSG rules for the subnets to permit requests from the on-premises application. All requests from the on-premises application should be routed through the internal load balancer.
+- Create an internal load balancer to handle the on-premises network traffic.
 
 - Test the configuration to verify that:
 
@@ -117,7 +123,7 @@ Note the following points:
 
 - Ensure that the on-premises routing infrastructure is configured to forward requests intended for addresses in the Azure VNet to the VPN device.
 
-- The on-premises VPN appliance must have a public IP address that can be accessed by the Azure VPN Gateway. The VPN device cannot be located behind a NAT.
+- The on-premises VPN appliance must have a public IP address that can be accessed by the Azure VPN Gateway. The VPN device cannot be located behind a NAT device.
 
 - Use the Azure VPN Gateway type that most closely matches your requirements and which is enabled by your VPN appliance:
 
@@ -141,9 +147,9 @@ Note the following points:
 
 ## Availability
 
-- If you need to ensure that the on-premises network remains available to the Azure VPN Gateway, [implement a failover cluster][implementing-a-failover-cluster] for the on-premises VPN Gateway.
+- If you need to ensure that the on-premises network remains available to the Azure VPN Gateway, implement a failover cluster for the on-premises VPN Gateway.
 
-- If your organization has multiple on-premises sites, create [multi-site connections][vpn-gateway-multi-site] to one or more Azure VNETs. This approach requires dynamic (route-based) routing, so ensure that the on-premises VPN Gateway supports this feature.
+- If your organization has multiple on-premises sites, create [multi-site connections][vpn-gateway-multi-site] to one or more Azure VNets. This approach requires dynamic (route-based) routing, so ensure that the on-premises VPN Gateway supports this feature.
 
 See [SLA for VPN Gateway][sla-for-vpn-gateway] for the details about the VPN Gateway SLA.
 
@@ -153,7 +159,7 @@ See [SLA for VPN Gateway][sla-for-vpn-gateway] for the details about the VPN Gat
 
     > [AZURE.NOTE] Currently, pre-shared keys cannot be stored in Azure Key Vault.
 
-- Ensure that the on-premises VPN appliance uses an encryption method that is [compatible for the Azure VPN Gateway][vpn-appliance]. For policy-based routing, the Azure VPN Gateway supports the AES256, AES128, and 3DES encryption algorithms. Route-based gateways support AES256 and 3DES.
+- Ensure that the on-premises VPN appliance uses an encryption method that is [compatible with the Azure VPN Gateway][vpn-appliance-ipsec]. For policy-based routing, the Azure VPN Gateway supports the AES256, AES128, and 3DES encryption algorithms. Route-based gateways support AES256 and 3DES.
 
 - If your on-premises VPN appliance is on a perimeter network that has a firewall between the perimeter network and the Internet, you might have to configure [additional firewall rules][additional-firewall-rules] to allow the site-to-site VPN connection.
 
@@ -173,7 +179,7 @@ See [SLA for VPN Gateway][sla-for-vpn-gateway] for the details about the VPN Gat
 
     ![IaaS: partitioned-vnet](./media/arch-iaas-hybrid-3-tier-partitioned-vpn.png)
 
-- Replicating an on-premises Active Directory domain controller in the VNet, and implementing DNS in the VNet, can help to reduce some of the security-related and administrative traffic flowing from on-premises to the cloud. For more information, see [Next Steps](#next-steps)
+- Replicating an on-premises Active Directory domain controller in the VNet, and implementing DNS in the VNet, can help to reduce some of the security-related and administrative traffic flowing from on-premises to the cloud. For more information, see [Next Steps](#next-steps).
 
 ## Monitoring and manageability
 
@@ -461,7 +467,7 @@ The script in this section uses [Azure CLI][azure-cli] commands to connect an on
 
 This script assumes that you have:
 
-- [Created and prepared your on-premises network][create-on-prem-network] with an address space of 10.10.0.0/16.
+- Created and [prepared your on-premises network][create-on-prem-network] with an address space of 10.10.0.0/16.
 
 - Installed and configured an on-premises VPN device with a public IP address. This example uses a fictitious IP address of 40.50.60.70.
 
@@ -492,9 +498,9 @@ SET ON_PREMISES_ADDRESS_SPACE=10.10.0.0/16
 SET ON_PREMISES_PUBLIC_IP=40.50.60.70
 :: This gives the gateway an IP range 10.20.255.240 - 10.20.255.254
 SET GATEWAY_SUBNET_IP_RANGE=10.20.255.240/28
-:: This give the internal subnet an IP range of 10.20.0.1 - 10.20.127.254 
+:: This give the internal subnet an IP range of 10.20.0.1 - 10.20.127.254
 SET INTERNAL_SUBNET_IP_RANGE=10.20.0.0/17
-:: We'll put this at the end of the subnet 
+:: We'll put this at the end of the subnet
 SET INTERNAL_LOAD_BALANCER_FRONTEND_IP_ADDRESS=10.20.127.254
 
 :: Set up the names of things using recommended conventions
@@ -626,7 +632,7 @@ GOTO :eof
 
 - [Configuring and managing DNS in a VNet][configuring-dns].
 
-- [Using on-premises Stormshield network security appliances across a VPN][stormshield]
+- [Using on-premises Stormshield network security appliances across a VPN][stormshield].
 
 <!-- links -->
 
@@ -636,19 +642,18 @@ GOTO :eof
 [azure-cli]: ../virtual-machines/virtual-machines-command-line-tools.md
 [azure-portal]: ../azure-portal/resource-group-portal.md
 [azure-powershell]: ../powershell-azure-resource-manager.md
-[azure-virtual-network]: https://azure.microsoft.com/documentation/articles/virtual-networks-overview/
-[vpn-appliance]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpn-devices/
+[azure-virtual-network]: ../virtual-networks-overview.md
+[vpn-appliance]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-network-security-group]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[vpn-gateway-multi-site]: https://azure.microsoft.com/documentation/articles/vpn-gateway-multi-site/
-[implementing-a-failover-cluster]: https://azure.microsoft.com/blog/building-a-highly-available-on-premises-vpn-gateway/
+[vpn-gateway-multi-site]: ../vpn-gateway/vpn-gateway-multi-site.md
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
-[network-security-group]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[sla-for-vpn-gateway]: https://azure.microsoft.com/en-gb/support/legal/sla/vpn-gateway/v1_0/
-[additional-firewall-rules]: https://technet.microsoft.com/library/dn786406.aspx
+[network-security-group]: ../virtual-network/virtual-networks-nsg.md
+[sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway/v1_0/
+[additional-firewall-rules]: https://technet.microsoft.com/library/dn786406.aspx#firewall
 [nagios]: https://www.nagios.org/
 [azure-vpn-gateway-diagnostics]: http://blogs.technet.com/b/keithmayer/archive/2014/12/18/diagnose-azure-virtual-network-vpn-connectivity-issues-with-powershell.aspx
 [ping]: https://technet.microsoft.com/library/ff961503.aspx
@@ -659,15 +664,16 @@ GOTO :eof
 [gateway-diagnostic-logs]: http://blogs.technet.com/b/keithmayer/archive/2015/12/07/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs.aspx
 [troubleshooting-vpn-errors]: https://blogs.technet.microsoft.com/rrasblog/2009/08/12/troubleshooting-common-vpn-related-errors/
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
-[create-on-prem-network]: https://technet.microsoft.com/en-us/library/dn786406.aspx
-[create-azure-vnet]: https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-classic-cli/
+[create-on-prem-network]: https://technet.microsoft.com/library/dn786406.aspx#routing
+[create-azure-vnet]: ../virtual-network/virtual-networks-create-vnet-classic-cli.md
 [azure-vm-diagnostics]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/
-[application-insights]: https://azure.microsoft.com/documentation/articles/app-insights-overview-usage/
+[application-insights]: ../application-insights/app-insights-overview-usage.md
 [forced-tunnelling]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-forced-tunneling/
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
-[vpn-appliances]: https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-about-vpn-devices/
-[installing-ad]: https://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/
+[vpn-appliances]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
+[installing-ad]: ../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md
 [deploying-ad]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [creating-dns]: https://blogs.msdn.microsoft.com/mcsuksoldev/2014/03/04/creating-a-dns-server-in-azure-iaas/
-[configuring-dns]: https://azure.microsoft.com/documentation/articles/virtual-networks-manage-dns-in-vnet/
+[configuring-dns]: ../virtual-network/virtual-networks-manage-dns-in-vnet.md
 [stormshield]: https://azure.microsoft.com/marketplace/partners/stormshield/stormshield-network-security-for-cloud/
+[vpn-appliance-ipsec]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md/#ipsec-parameters
