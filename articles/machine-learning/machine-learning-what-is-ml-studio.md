@@ -56,9 +56,9 @@ Click the **Studio** tab and you'll be asked to sign in using your Microsoft acc
 
 ### Gallery
 
-Click the **Gallery** tab and you'll be taken to the Cortana Analytics Gallery. The Gallery is a place where a community of data scientists and developers can share solutions created using components of the Cortana Analytics Suite.
+Click the **Gallery** tab and you'll be taken to the Cortana Intelligence Gallery. The Gallery is a place where a community of data scientists and developers can share solutions created using components of the Cortana Intelligence Suite.
 
-For more information about the Gallery, see [Share and discover solutions in the Cortana Analytics Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+For more information about the Gallery, see [Share and discover solutions in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## Components of an experiment
 
