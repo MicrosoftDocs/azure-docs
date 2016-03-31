@@ -18,6 +18,11 @@
 	 ms.author="trinadhk; markgal; jimpark;"/>
 
 # Public Preview release of Azure Backup service- FAQ
+
+> [AZURE.SELECTOR]
+- [Backup FAQ for Classic mode](backup-azure-backup-faq.md)
+- [Backup FAQ for ARM mode](backup-azure-backup-ibiza-faq.md)
+
 This article provides information specific to the Azure Backup service Public Preview release. This article is updated when new frequently-asked questions arrive, and it supplements the [Azure Backup FAQ](backup-azure-backup-faq). The Azure Backup FAQ provides the full set of questions and answers about the Azure Backup service.  
 
 You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
