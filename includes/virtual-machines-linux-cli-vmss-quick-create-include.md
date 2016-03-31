@@ -55,10 +55,3 @@ FQDN=${split_line[3]}
 # example to ssh into VM "0":
 ssh -p 50000 negat@$FQDN
 ```
-
-## Next Steps
-
-For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/).
-
-
-For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).

@@ -21,3 +21,10 @@
 # Quick-Create A Scale Set Using The Azure CLI
 
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
+
+## Next Steps
+
+For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+
+For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/).
+
