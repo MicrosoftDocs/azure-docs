@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
-	ms.topic="get-started"
+	ms.topic=""
 	ms.date="03/26/2016"
 	ms.author="cephalin"/>
 
