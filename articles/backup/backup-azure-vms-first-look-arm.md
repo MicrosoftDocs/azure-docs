@@ -29,9 +29,9 @@ This tutorial takes you through the set of steps for creating a Recovery Service
 
 At a high level, here are the steps that you will complete.  
 
-1. [Create a Recovery Services vault for a VM](backup-azure-vms-first-look-arm.md#step-1---create-a-recovery-services-vault-for-a-VM).
-2. [Use the Azure portal to select a Scenario, set Policy, and identify items to protect](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect).
-3. [Run the initial backup](backup-azure-vms-first-look-arm.md#step-3---initial-backup).
+1. Create a Recovery Services vault for a VM.
+2. Use the Azure portal to select a Scenario, set Policy, and identify items to protect.
+3. Run the initial backup.
 
 
 
@@ -223,7 +223,7 @@ The backup extension is installed by the Backup service whether or not the VM is
 
 ## Troubleshooting information
 If you have issues accomplishing some of the tasks in this article, please consult the
-[Troubleshooting guidance](backup-azure-vms-troubleshoot.md). 
+[Troubleshooting guidance](backup-azure-vms-troubleshoot.md).
 
 
 ## Questions?
