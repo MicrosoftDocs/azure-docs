@@ -108,9 +108,9 @@ You are also able to stream traces directly from a remote cluster node to Visual
 
 1. Navigate to your cluster in **Cloud Explorer**, right-click and choose **Enable Streaming Traces**
 
-   ![Enable remote streaming traces][enablestreamingtraces]
+    ![Enable remote streaming traces][enablestreamingtraces]
     
-   This will kick-off the process of enabling the streaming traces extension on your cluster nodes, as well as required network configurations.
+    This will kick-off the process of enabling the streaming traces extension on your cluster nodes, as well as required network configurations.
 
 2. Expand the **Nodes** element in **Cloud Explorer**, right-click the node you want to stream traces from and choose **View Streaming Traces**
 
