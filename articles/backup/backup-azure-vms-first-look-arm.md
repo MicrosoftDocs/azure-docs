@@ -23,7 +23,7 @@
 - [Back up ARM VMs](backup-azure-vms-first-look-arm.md)
 - [Back up Classic mode VMs](backup-azure-vms-first-look.md)
 
-This tutorial takes you through the set of steps of creating a Recovery Services vault, and backing up an Azure virtual machine (VM). This tutorial is for use with Recovery Services vaults which can be used to protect IaaS v.2 or Azure Resource Manager (ARM)-based VMs. Recovery Services vaults exist in the Azure portal; they are not available in the Classic portal.
+This tutorial takes you through the set of steps for creating a Recovery Services vault and backing up an Azure virtual machine (VM). This tutorial is for use with Recovery Services vaults which can be used to protect IaaS v.2 or Azure Resource Manager (ARM)-based VMs.
 
 >[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM. Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article is for use with Resource Manager and ARM-based VMs.
 
@@ -40,7 +40,7 @@ At a high level, here are the steps that you will complete.
 A Recovery Services vault is an entity that stores all the backups and recovery points that have been created over time. The Recovery Services vault also contains the backup policy applied to the protected VMs.
 
 >[AZURE.NOTE] Backing up VMs is a local process. You cannot back up VMs from one location to a Recovery Services vault in another location. So, for every Azure location that has VMs to be backed up, at least one Recovery Services vault must exist in that location.
-)
+
 
 To create a Recovery Services vault:
 
@@ -62,13 +62,13 @@ To create a Recovery Services vault:
 
 4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
 
-5. Click **Subscription** to see the available list of subscription. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
 6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Using the Azure Portal to deploy and manage your Azure resources](../azure-portal/resource-group-portal.md)
 
 7. Click **Location** to select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
 
-    >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, you will need to create a Recovery Services vault in each region - although complete the creation of the vault in the first location before going to the next. There is no need to specify storage accounts to store the backup data--the Recovery Services vault and the Azure Backup service handle this automatically.
+    >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, you will need to create a Recovery Services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the Recovery Services vault and the Azure Backup service handle this automatically.
 
 8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal.
 Once your vault is created, it opens in the portal.
@@ -81,7 +81,7 @@ Once your vault is created, it opens in the portal.
 
     After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
-## Step 2 - Select Scenario set Policy and Define Items to Protect
+## Step 2 - Select scenario set policy and define items to protect
 Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
 
 1. If you already have a Recovery Services vault open, proceed to step 2. If you do not have a Recovery Services vault open, but are in the Azure portal,
@@ -141,7 +141,9 @@ Once a backup policy has been deployed on the virtual machine, that does not mea
 
 ![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**. To run **Back up Now**:
+Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**.
+
+To run **Back up Now**:
 
 1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines** <br/>
     ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
@@ -170,10 +172,28 @@ Unless your initial backup is due to begin very soon, it is recommended that you
 
     When the backup job is finished, the status is *Completed*.
 
+## Defining a backup policy
+
+A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. The backup policy interface looks like this:
+
+![Backup policy](./media/backup-azure-vms-first-look-arm/backup-policy.png)
+
+To create a policy:
+
+1. For **Policy Name** give the Policy a name.
+
+2. For **Backup Frequency**, choose how often data snapshots are taken. Snapshots can be taken at Daily or Weekly intervals. If you choose a Daily interval, then select the time of the day to take the snapshot. If you choose Weekly intervals, select the days of the week as well as the time of those days to take the snapshot.
+
+3. By default, daily, weekly, monthly and yearly intervals are selected for the **Retention Range**. Uncheck the box for any retention range limit you do not want to use.
+
+    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
+
+    In the corresponding controls, specify the interval(s) to use. Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
+
 
 ## Install the VM Agent on the virtual machine
 
-The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. However, VMs that are migrated from on-premises datacenters would not have the VM Agent installed. In such a case, the VM Agent needs to be installed explicitly. Before you attempt to back up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). If you creating a custom VM, [ensure that the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) before the virtual machine is provisioned.
+This information is provided in case it is needed. The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. However, if your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. VMs that are migrated from on-premises datacenters would not have the VM Agent installed. In such a case, the VM Agent needs to be installed. If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). If you creating a custom VM, [ensure that the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) before the virtual machine is provisioned.
 
 Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
@@ -192,24 +212,6 @@ Once the VM Agent is installed on the virtual machine, the Azure Backup service 
 
 The backup extension is installed by the Backup service whether or not the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service will continue to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
 
-
-## Defining a backup policy
-
-A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. The backup policy interface looks like this:
-
-![Backup policy](./media/backup-azure-vms-first-look-arm/backup-policy.png)
-
-To create a policy:
-
-1. For **Policy Name** give the Policy a name.
-
-2. For **Backup Frequency**, choose how often data snapshots are taken. Snapshots can be taken at Daily or Weekly intervals. If you choose a Daily interval, then select the time of the day to take the snapshot. If you choose Weekly intervals, select the days of the week as well as the time of those days to take the snapshot.
-
-3. By default, daily, weekly, monthly and yearly intervals are selected for the **Retention Range**. Uncheck the box for any retention range limit you do not want to use.
-
-    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
-
-    In the corresponding controls, specify the interval(s) to use. Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
 
 
 ## Next steps
