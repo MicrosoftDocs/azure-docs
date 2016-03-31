@@ -52,15 +52,15 @@ be followed on any operating system that is capable of running Node.js.
 
         yo express
         
-    Choose the following options when prompted:
-
-    `? Would you like to create a new directory for your project?` **`Yes`**  
-    `? Enter directory name` **`<appname>`**  
-    `? Select a version to install:` **`MVC`**  
-    `? Select a view engine to use:` **`Jade`**  
-    `? Select a css preprocessor to use (Sass Requires Ruby):` **`None`**  
-    `? Select a database to use:` **`None`**
-    `? Select a build tool to use:` **`Grunt`**
+    Choose the following options when prompted:  
+    <pre class="prettyprint">
+    `? Would you like to create a new directory for your project?` **Yes**  
+    `? Enter directory name` **&lt;appname>**  
+    `? Select a version to install:` **MVC**  
+    `? Select a view engine to use:` **Jade**  
+    `? Select a css preprocessor to use (Sass Requires Ruby):` **None**  
+    `? Select a database to use:` **None**
+    `? Select a build tool to use:` **Grunt**
 
 3. `CD` to the root directory of your new app and start it to make sure it runs in your development environment:
 
