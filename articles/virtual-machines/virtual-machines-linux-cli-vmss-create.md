@@ -18,4 +18,22 @@
 	ms.date="03/24/2016"
 	ms.author="gatneil"/>
 
+# What Are Virtual Machine Scale Sets?
+
+Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
+
+Pros:
+
+1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](../articles/virtual-machines/virtual-machines-manage-availability.md)). 
+2. Easy integration with Azure Load Balancer and App Gateway.
+3. Easy integration with Azure Autoscale.
+4. Simplified deployment, management, and clean up of VMs.
+5. Support common Windows and Linux flavors, as well as custom images.
+
+Cons:
+
+1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
+
+## Quick-Create Using Azure CLI
+
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
