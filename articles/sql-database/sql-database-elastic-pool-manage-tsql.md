@@ -20,9 +20,9 @@
 # Manage an elastic database pool with Transact-SQL  
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-create-portal.md)
-- [C#](sql-database-elastic-pool-csharp.md)
-- [PowerShell](sql-database-elastic-pool-powershell.md)
+- [Azure portal](sql-database-elastic-pool-manage-portal.md)
+- [C#](sql-database-elastic-pool-manage-csharp.md)
+- [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 Use the [Create Database (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) and [Alter Database(Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx) commands to create and move databases into and out of elastic pools. The elastic pool must exist before you can use these commands. These commands affect only databases. Creation of new pools and the setting of pool properties (such as min and max eDTUs) cannot be changed with T-SQL commands.
 
