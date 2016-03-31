@@ -11,7 +11,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
-	ms.topic="get-started"
+	ms.topic="get-started-article"
 	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 

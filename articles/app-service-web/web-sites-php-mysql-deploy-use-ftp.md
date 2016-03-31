@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
-	ms.topic="get-started" 
+	ms.topic="get-started-article" 
 	ms.date="01/12/2016" 
 	ms.author="robmcm"/>
 

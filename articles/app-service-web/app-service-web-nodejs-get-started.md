@@ -12,9 +12,9 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
-	ms.topic="get-started"
+	ms.topic="get-started-article"
 	ms.date="03/26/2016"
-	ms.author="cephalin,robmcm"/>
+	ms.author="cephalin;robmcm"/>
 
 # Get started with Node.js web apps in Azure App Service
 
