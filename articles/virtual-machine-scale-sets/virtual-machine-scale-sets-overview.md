@@ -33,7 +33,7 @@ Take a look at these videos for more about VM scale sets:
 
 VM scale sets can be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-A set of example templates for VM scale sets can be found in the Azure Quickstart teamplates GitHub repository here:
+A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository here:
 
 [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) - look for templates with _vmss_ in the title.
 
@@ -59,7 +59,7 @@ It is currently recommended you use the [Azure Resource Explorer](https://resour
 
 This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
 
- - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
+ - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
 
  - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set. E.g.
 
@@ -92,7 +92,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 - Spread out the first letters of storage account names as much as possible.  The example VMSS templates in [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/) provide examples of how to do this.
 - If using custom VMs, plan for no more than 40 VMs per VM scale set, in a single storage account.  You will need the image pre-copied into the storage account before you can begin VM scale set deployment. See the FAQ for more information.
 - Plan for no more than 2048 VMs per VNET.  This limit will be increased in the future.
-- The number of VMs you can create is limited by your Compute core quota in any region. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: _azure vm list-usage_, and the following PowerShell command: _Get-AzureRmVMUsage_ (if using a version of PowerShell below 1.0 use _Get-AzureVMUsage_).
+- The number of VMs you can create is limited by your Compute core quota in any region. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: `azure vm list-usage`, and the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
 
 ## VM scale set frequently asked questions
 
@@ -116,11 +116,11 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 - External data service (e.g. remote DB, Azure tables, Azure blobs)
 
-**Q.** Which Azure regions support for VM scale sets?
+**Q.** Which Azure regions support VM scale sets?
 
 **A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
 
-**Q.** How do you create a VM scale sets using a custom image?
+**Q.** How do you create VM scale sets using a custom image?
 
 **A.** Leave the vhdContainers property blank, for example:
 
