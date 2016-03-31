@@ -31,14 +31,14 @@ Conditional Access rules are supported across various Azure AD application types
 
 ## Enable access rules
 
-Each rule can be enabled or disabled on a per application bases. When rules are ‘**ON**’ they will be enabled and enforced for users accessing the application. When they are ‘**OFF**’ they will not be used and will not impact the users sign in experience.
+Each rule can be enabled or disabled on a per application bases. When rules are **ON** they will be enabled and enforced for users accessing the application. When they are **OFF** they will not be used and will not impact the users sign in experience.
 
 ## Applying rules to specific users
-Rules can be applied to specific sets of users based on security group by setting ‘**Apply To**’. ‘**Apply To**’ can be set to ‘**All Users**’ or ‘**Groups**'. When set to ‘**All Users**’ the rules will apply to any user with access to the application. The ‘**Groups**’ option allows specific security and distribution groups to be selected, rules will only be enforced for these groups.
+Rules can be applied to specific sets of users based on security group by setting **Apply To**. **Apply To** can be set to **All Users** or **Groups**. When set to **All Users** the rules will apply to any user with access to the application. The **Groups** option allows specific security and distribution groups to be selected, rules will only be enforced for these groups.
 
-  When deploying a rule it is common to first apply it a limited set of users, that are members of a piloting groups. Once complete the rule can be applied to “**All Users**”. This will cause the rule to be enforced for all users in the organization.
+  When deploying a rule it is common to first apply it a limited set of users, that are members of a piloting groups. Once complete the rule can be applied to **All Users**. This will cause the rule to be enforced for all users in the organization.
 
-Select groups may also be exempted from policy using the ‘**Except**’ option. Any members of these groups will be exempted even if they appear in an included group.
+Select groups may also be exempted from policy using the **Except** option. Any members of these groups will be exempted even if they appear in an included group.
 
 ## “At work” networks
 
