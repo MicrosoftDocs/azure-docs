@@ -36,7 +36,7 @@ enterprise-grade features of Azure, while still maintaining application portabil
 Using Azure Container Service
 -----------------------------
 
-Our goal with the Azure Container Service is to provide a container
+Our goal with Azure Container Service is to provide a container
 hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator. By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For Apache Mesos, you might choose to use the DCOS CLI.
 
 Creating a Docker cluster by using Azure Container Service
