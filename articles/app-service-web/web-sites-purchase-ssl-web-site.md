@@ -37,7 +37,7 @@ This article explains how to buy and configure an SSL Certificate for your **[Az
 > Please do not attempt to purchase an SSL Certificate using a subscription that does not have an Active Credit Card associated with it. This could result in your subscription being disabled. 
 
 ##<a> Purchase, Store and Assign an SSL Certificate for your custom domain </a>
-To enable HTTPS for a custom domain, such as contoso.com, you must first **[configure a custom domain name in Azure App Service.](https://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)**
+To enable HTTPS for a custom domain, such as contoso.com, you must first **[configure a custom domain name in Azure App Service.](web-sites-custom-domain-name.md)**
 
 Before requesting an SSL certificate, you must first determine which domain names will be secured by the certificate. This will determine what type of certificate you must obtain. If you just need to secure a single domain name such as contoso.com or www.contoso.com a Standard (basic) certificate is sufficient. If you need to secure multiple domain names, such as contoso.com, www.contoso.com, and mail.contoso.com, then you can get a **[wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate)**
 
@@ -119,7 +119,7 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
 
     b) **Domain Verification** 
 
-        1. This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](https://azure.microsoft.com/documentation/articles/custom-dns-web-site-buydomains-web-app/)**
+        1. This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
         
         2. Click on **“Verify”** button to complete this step.
         
@@ -165,7 +165,7 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
 In this Step, you will learn how to assign this newly purchased certificate to your App Service Apps. 
 
 > [AZURE.NOTE]
-> Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see **[Configuring a custom domain name for a web app.](https://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)**
+> Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see **[Configuring a custom domain name for a web app.](web-sites-custom-domain-name.md)**
 
 1.	In your browser, open the **[Azure Portal.](https://portal.azure.com/)**
 2.	Click the **App Service** option on the left side of the page.
@@ -214,8 +214,8 @@ At this point, you should be able to visit your app using HTTPS:// instead of HT
 7. Sync option is not available for Certificates that are not yet assigned to the Web App. 
 
 ## More Resources ##
-- [Enable HTTPS for an app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
-- [Buy and Configure a custom domain name in Azure App Service](https://azure.microsoft.com/documentation/articles/custom-dns-web-site-buydomains-web-app/)
+- [Enable HTTPS for an app in Azure App Service](web-sites-configure-ssl-certificate.md)
+- [Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
 - [Microsoft Azure Trust Center](/support/trust-center/security/)
 - [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 - [Azure Management Portal](https://manage.windowsazure.com)
