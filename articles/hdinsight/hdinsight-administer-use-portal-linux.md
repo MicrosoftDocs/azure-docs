@@ -17,7 +17,7 @@
 	ms.date="03/30/2016"
 	ms.author="larryfr"/>
 
-# Manage Hadoop clusters in HDInsight by using the Azure Portal
+#Manage Hadoop clusters in HDInsight by using the Azure Portal
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 

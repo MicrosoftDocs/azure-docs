@@ -224,7 +224,7 @@ Mahout jobs do not remove temporary data that is created while processing the jo
 >
 > ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
-##Next steps
+## Next steps
 
 Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
 
