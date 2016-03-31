@@ -156,15 +156,15 @@ After the backup policy completes the initial backup, it creates backup points t
 
 6. Click **Next**.
 
-7. On the Specify Backup Schedule page, specify the backup schedule, and then click **Next**.
+7. On the **Specify Backup Schedule** screen, specify the **backup schedule** and click **Next**.
 
-You can schedule daily backups (at a maximum rate of three times per day) or weekly backups.
+    You can schedule daily (at a maximum of 3 times per day) or weekly backups.
 
-![Items for Windows Server backup](./media/backup-configure-vault/specify-backup-schedule-close.png)
+    ![Items for Windows Server Backup](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
->[AZURE.NOTE] For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
+    >[AZURE.NOTE] Specifying the backup schedule is explained in detail in this [article](backup-azure-backup-cloud-as-tape.md).
 
-8. On the Select Retention Policy page, select the **Retention Policy** for the backup copy, and then click **Next**.
+8. On the **Select Retention Policy** screen, select the **Retention Policy** for the backup copy.
 
     The retention policy specifies the duration for which the backup will be stored. Rather than just specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.
 
