@@ -17,8 +17,12 @@
 	ms.date="03/30/2016"
 	ms.author="apurvajo"/>
 
-
 #Buy and Configure an SSL Certificate for your Azure App Service
+
+> [AZURE.SELECTOR]
+- [Buy SSL Certificate for Web Apps](web-sites-purchase-ssl-web-site.md)
+- [Enable SSL for your custom domain](web-sites-configure-ssl-certificate.md)
+
 
 > [AZURE.NOTE]
 > Although this article refers to web apps, it also applies to API apps and mobile apps.
