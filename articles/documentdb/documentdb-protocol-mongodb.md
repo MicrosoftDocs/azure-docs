@@ -19,7 +19,7 @@
 
 # DocumentDB protocol support for MongoDB
 
-Microsoft Azure DocumentDB databases can now be used as the data store for apps written for MongoDB. Using existing MongoDB drivers and this preview functionality, applications written for MongoDB can easily and transparently communicate with DocumentDB using existing, community supported Apache License drivers for MongoDB.  Developers can use their current tools and skill set for MongoDB to build applications that leverage DocumentDB's fully managed and scalable NoSQL databases. 
+Microsoft Azure DocumentDB databases can now be used as the data store for apps written for MongoDB. Using existing drivers for MongoDB and this preview functionality, applications written for MongoDB can easily and transparently communicate with DocumentDB.  Developers can use their current tools and skill set for MongoDB to build applications that leverage DocumentDB's fully managed and scalable NoSQL databases.
 
 We are currently on-boarding customers to preview this new functionality.  If you want to be considered for the preview, follow the directions below to request access to the preview program and we will contact you once you're approved.    
 
