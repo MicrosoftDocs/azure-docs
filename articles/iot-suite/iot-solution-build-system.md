@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="MyDriving Azure IoT Example - Build It | Microsoft Azure" 
 	description="Build an app that's a comprehensive demonstration of how to architect an IoT system with Microsoft Azure, including stream analytics, machine learning, event hubs." 
-	services="application-insights" 
+	services="" 
     documentationCenter=""
     suite="iot-suite"
 	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
+	ms.service="iot-suite" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
