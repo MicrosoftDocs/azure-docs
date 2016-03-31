@@ -51,6 +51,8 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 8. The next step is to select a virtual network in which you'd like Azure AD Domain Services to be available. Select the virtual network you just created in the drop-down titled **Connect domain services to this virtual network**.
    - Ensure that the virtual network you have specified belongs to an Azure region supported by Azure AD Domain Services.
    - Refer to the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services are available.
+   - Note that virtual networks belonging to a region where Azure AD Domain Services is not supported will not show up in the drop-down list.
+   - Similarly, virtual networks that were created using Azure Resource Manager (ARM-based virtual networks) will not appear in the drop-down list. This is because ARM-based virtual networks are not currently supported by Azure AD Domain Services.
 
 9. Ensure that the DNS domain name you have chosen for the managed domain does not already exist in the virtual network. This could happen in any of the following scenarios:
    - If you already have a domain with the same DNS domain name on the virtual network.
