@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="03/26/2016"
+	ms.date="03/31/2016"
 	ms.author="cephalin;robmcm"/>
 
 # Get started with Node.js web apps in Azure App Service
@@ -32,6 +32,7 @@ be followed on any operating system that is capable of running Node.js.
 
 [Azure App Service Web Apps](/services/app-service/web/)
 
+<a name="prereq"/>
 ## Prerequisites
 
 - Node.js. Installation binaries are [here](https://nodejs.org/).
@@ -66,10 +67,10 @@ be followed on any operating system that is capable of running Node.js.
 
         npm start
 
-    In your browser, navigate to http://localhost:3000 to make sure that you can see the Express home page. Once you've verified
+    In your browser, navigate to [http://localhost:3000](http://localhost:3000) to make sure that you can see the Express home page. Once you've verified
     your app runs properly, use `Ctrl-C` to stop it.
     
-1. Log in to Azure like so:
+1. Log in to Azure like so (you need [Azure CLI](#prereq) for this):
 
         azure login
 

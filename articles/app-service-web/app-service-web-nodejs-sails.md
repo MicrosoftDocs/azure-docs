@@ -12,8 +12,8 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
-	ms.topic=""
-	ms.date="03/26/2016"
+	ms.topic="article"
+	ms.date="03/31/2016"
 	ms.author="cephalin"/>
 
 # Deploy a Sails.js web app to Azure App Service
