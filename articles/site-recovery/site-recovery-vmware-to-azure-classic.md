@@ -588,7 +588,9 @@ In addition, protection status can be monitored in **Protected Items** > <protec
 3. You can modify these settings:
 
 	-  **Azure VM name**: This is the name that will be given to the machine in Azure after failover. The name must comply with Azure requirements.
-	-  **Azure VM size**: The number of network adapters is dictated by the size you specify for the target virtual machine. [Read more](../virtual-machines/virtual-machines-size-specs.md#size-tables) about sizes and adapters. Note that:
+
+	-  **Azure VM size**: The number of network adapters is dictated by the size you specify for the target virtual machine. [Read more](../virtual-machines/virtual-machines-linux-sizes.md/#size-tables) about sizes and adapters. Note that:
+
 		- When you modify the size for a virtual machine and save the settings, the number of network adapter will change when you open the **Configure** tab next time. The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virtual machine chosen. 
 			- If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
 			- If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.

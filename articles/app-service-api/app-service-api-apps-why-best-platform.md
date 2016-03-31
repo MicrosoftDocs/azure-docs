@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="API Apps overview" 
+	pageTitle="API Apps introduction | Microsoft Azure" 
 	description="Learn why Azure App Service is the best platform for developing, publishing, and hosting RESTful APIs." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="03/23/2016" 
 	ms.author="tdykstra"/>
 
 # API Apps overview
 
 API Apps is one of four app types offered by [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
+![App types in Azure App Service](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-[App Service](../app-service/app-service-value-prop-what-is.md) is a fully managed platform that brings a rich set of capabilities to web, mobile, and integration scenarios. API Apps in App Service offer features that make it easier to build, host, and consume APIs in the cloud and on-premises. Deploy your API as an API app in App Service and benefit from enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+[App Service](../app-service/app-service-value-prop-what-is.md) is a fully managed platform for web, mobile, and integration scenarios. API Apps in App Service offer features that make it easier to build, host, and consume APIs in the cloud and on-premises. Deploy your API as an API app in App Service and benefit from enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## Why API Apps?
 

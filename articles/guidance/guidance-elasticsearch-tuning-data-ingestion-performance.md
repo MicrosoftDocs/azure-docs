@@ -162,7 +162,7 @@ Start with a configuration that will meet your current requirements (perform ben
 described later in this document). You can scale a cluster later by adding more VMs running Elasticsearch
 nodes.
 
-The page [Sizes for Virtual Machines](../virtual-machines/virtual-machines-size-specs.md) on the Azure web site documents the
+The page [Sizes for Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md) on the Azure web site documents the
 various options and SKUs available for VMs.
 
 You should match the size and resources of a VM to the role that nodes running on the VM will perform.
@@ -250,7 +250,7 @@ document size in Elasticsearch against the volume of requests likely to be recei
 
 Disks based on standard storage support a maximum request rate of 500 IOPS whereas disks based on premium
 storage can operate at up to 5,000 IOPS. Premium storage disks are only available for the DS and GS
-series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](virtual-machines-size-specs/).
+series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](virtual-machines-linux-sizes/).
 
 **Persistent Data Disks**
 

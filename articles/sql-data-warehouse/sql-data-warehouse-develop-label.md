@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Use labels to instrument queries in SQL Data Warehouse
 SQL Data Warehouse supports a concept called query labels. Before going into any depth let's look at an example of one:
 
-```
+```sql
 SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query Label')
@@ -32,7 +32,7 @@ A good naming convention really helps here. For example something like ' PROJECT
 
 To search by label you can use the following query that uses the dynamic management views:
 
-```
+```sql
 SELECT  *
 FROM    sys.dm_pdw_exec_requests r
 WHERE   r.[label] = 'My Query Label'

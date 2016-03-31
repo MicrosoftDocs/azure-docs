@@ -17,7 +17,7 @@
    ms.date="03/04/2016"
    ms.author="joaoma" />
 
-# Get stated creating an internal load balancer using a template
+# Get started creating an internal load balancer using a template
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 <BR>
@@ -38,12 +38,12 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../../articles/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
 
-2. Download the [parameters](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) file to your local disk.<BR>
-3. Edit the file and save it.<BR>
+2. Download the [parameters](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) file to your local disk.
+3. Edit the file and save it.
 4. Run the **New-AzureRmResourceGroupDeployment** cmdlet to create a resource group using the template. 
 
 
-		New-AzureRmResourceGroupdeployment -Name TestRG -Location westus `
+		New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
 		    -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
 	
@@ -64,7 +64,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 
 3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json), select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
 
-4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+4. Run the **azure group deployment create** command to deploy the new internal load balancer by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
 		azure group create -n TestRG -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json -e parameters.json
 

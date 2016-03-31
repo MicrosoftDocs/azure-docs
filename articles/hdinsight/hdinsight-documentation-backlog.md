@@ -32,6 +32,7 @@ Automation  | Update the article on [analyzing sensor data using Apache Storm cl
 Storage | Article explaining WASB and Data Lake Storeas storage options | 2 | Pending | [@mumian](https://github.com/mumian) | - 
 Performance  | Performance tuning guidelines for MapReduce applications 		| 1 |  Pending | [@blackmist](https://github.com/blackmist) | -
 Performance | Performance tuning guidelines for Spark clusters |1 | Pending | [@nitinme](https://github.com/nitinme) | -
+Development | non-interactive authentication with HDInsight .NET application |2| Writing | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## How to Give Feedback on the Backlog

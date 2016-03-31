@@ -92,7 +92,7 @@ Here's an example that uses [cmdlet names)] to [task]. It includes commands that
 ## Additional Resources
 <!--At a minimum, include a link back to the migration task list article. Use the formats shown below. See create-links-markdown.md for more info -->
 <!--use this format for links to other articles, such as the migration task list. -->
-[Manage Availability](virtual-machines-manage-availability.md)
+[Manage Availability](virtual-machines-windows-manage-availability.md)
 
 <!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 

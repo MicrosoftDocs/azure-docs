@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Managing Indexes
@@ -29,13 +29,13 @@ You can optimize your index rebuild in one of two ways:
 
 Below is an example of how to rebuild a single partition:
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
 ALTER INDEX..REBUILD is best used for smaller data volumes - especially against columnstore indexes. Open, closed and compressed rowgroups are all included in the rebuild. However, if the partition is quite large then you will find that `CTAS` is the more efficient operation. An example of a full index rebuild is below
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ```
 
@@ -45,7 +45,7 @@ Refer to the [ALTER INDEX][] article for more details on this syntax.
 
 Below is an example of how to rebuild a partition using CTAS:
 
-```
+```sql
 -- Step 01. Select the partition of data and write it out to a new table using CTAS
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
@@ -82,7 +82,6 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 
 -- Step 04. Switch IN the rebuilt data
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
-
 ```
 
 ## Next steps

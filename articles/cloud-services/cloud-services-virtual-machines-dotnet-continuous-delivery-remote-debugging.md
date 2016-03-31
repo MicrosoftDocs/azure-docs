@@ -36,7 +36,7 @@ You can enable remote debugging in Azure, for cloud services or virtual machines
 
 ## Enabling remote debugging for virtual machines
 
-1. Create an Azure virtual machine. See [Create a Virtual Machine Running Windows Server](/virtual-machines/virtual-machines-windows-tutorial.md) or [Create and Manage Azure Virtual Machines in Visual Studio](/vs-azure-tools-virtual-machines-create-manage.md).
+1. Create an Azure virtual machine. See [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md) or [Create and Manage Azure Virtual Machines in Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md).
 2. On the [Azure classic portal page](http://go.microsoft.com/fwlink/p/?LinkID=269851), view the virtual machine's dashboard to see the virtual machine’s **RDP CERTIFICATE THUMBPRINT**. This value is used for the `ServerThumbprint` value in the extension configuration.
 3. Create a client certificate as outlined in [Certificates Overview for Azure Cloud Services](cloud-services-certs-create.md) (keep the .pfx and RDP certificate thumbprint).
 4. Install Azure Powershell (version 0.7.4 or later) as outlined in [How to install and configure Azure PowerShell](/powershell-install-configure.md).

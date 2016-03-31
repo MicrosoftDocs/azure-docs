@@ -142,7 +142,7 @@ dataNodeSize | Specifies the size of the data node. The default value is: Large 
 zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Small | No
  
 #### Specifying node sizes
-Please see the [Sizes of Virtual Machines](../virtual-machines/virtual-machines-size-specs.md#size-tables) article for string values you need to specify for the above properties. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7 GB memory, which may not be good enough for your scenario. 
+Please see the [Sizes of Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) article for string values you need to specify for the above properties. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7 GB memory, which may not be good enough for your scenario. 
 
 If you want to create D4 sized head nodes and worker nodes, you need to specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
 

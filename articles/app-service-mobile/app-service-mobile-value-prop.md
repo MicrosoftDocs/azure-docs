@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="02/04/2016"
 	ms.author="kirillg"/>
 

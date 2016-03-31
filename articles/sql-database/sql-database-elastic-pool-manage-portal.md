@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-This article describes how to use the Azure portal to monitor, manage, and right-size an elastic database pool and the databases in the pool. SQL Database has built-in intelligence that analyzes historical usage telemetry and proactively recommends a pool for databases when it will be more cost-effective. You can also add and remove databases before you commit to changes and see the impact on pool performance and storage. 
+This article describes how to use the Azure portal to monitor, manage, and right-size an elastic database pool and the databases in the pool. SQL Database has built-in intelligence that analyzes historical usage telemetry and proactively recommends a pool for databases when it's more cost-effective. You can also add and remove databases before you commit to changes and see the impact on pool performance and storage. 
 
 To work through the steps in this article, you'll need databases and a pool. See [create a pool](sql-database-elastic-pool-create-portal.md) if you already have databases, and the [SQL database tutorial](sql-database-get-started) if you don't. 
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load sample data into SQL Data Warehouse
@@ -51,26 +51,32 @@ You can also analyze the sample data with traditional means. As described in the
 
 We can run a simple select statement to get all the info of the employees:
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 We can also run a more complex query using constructs such as GROUP BY to look at the total amount for all sales on each day:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 We can even use the WHERE clause to filter out orders from before a certain date:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 In fact, SQL Data Warehouse supports almost all of the T-SQL constructs that SQL Server does, and you can find some of the differences in our [migrate code][] documentation.  
-
-
 
 ## Next steps
 Now that we've given you some time to warm up with the sample data check out how to [develop][], [load][], or [migrate][].

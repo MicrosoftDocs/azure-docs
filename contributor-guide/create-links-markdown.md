@@ -44,7 +44,7 @@ Article links from a subdirectory to an article in the root directory:
 
 Article in the root directory links to an article in a service subdirectory: 
 
-    [link text](service-directory/article-name.md)
+    [link text](./service-directory/article-name.md)
 
 Article in a service subdirectory links to an article that is in another service subdirectory:
 

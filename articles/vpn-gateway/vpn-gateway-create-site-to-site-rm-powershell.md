@@ -145,7 +145,7 @@ In this step, you'll create the virtual network gateway. Note that that creating
 
 Use the following values:
 
-- The **-GatewayType** for a Site-to-Site configuration is **Vpn**. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute, or -GatewayType VNet2VNet. 
+- The **-GatewayType** for a Site-to-Site configuration is **Vpn**. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute. 
 
 - The **-VpnType** can be **RouteBased** (referred to as a Dynamic Gateway in some documentation), or **PolicyBased** (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateways](vpn-gateway-about-vpngateways.md#vpntype).
 - The **-GatewaySku** can be **Basic**, **Standard**, or **HighPerformance**. 	
@@ -162,7 +162,7 @@ To find the public IP address of your virtual network gateway, use the following
 
 ## 8. Create the VPN connection
 
-Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration.
+Next, you'll create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Note that the `-ConnectionType` for Site-to-Site is **IPsec**. 
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -186,4 +186,4 @@ If you need to change the prefixes for your local network gateway, use the instr
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.

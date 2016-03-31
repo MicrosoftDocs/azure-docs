@@ -695,7 +695,6 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 - [Use Sqoop with HDInsight][hdinsight-use-sqoop]
 - [Use Hive with HDInsight][hdinsight-use-hive]
 - [Use Pig with HDInsight][hdinsight-use-pig]
-- [Develop C# Hadoop streaming jobs for HDInsight][hdinsight-develop-streaming-jobs]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-java-mapreduce]
 
 
@@ -717,7 +716,6 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 

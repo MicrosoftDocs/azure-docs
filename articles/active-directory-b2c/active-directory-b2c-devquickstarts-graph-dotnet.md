@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="03/22/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Use the Graph API
@@ -230,7 +230,7 @@ Content-Length: 338
 			"value": "joeconsumer@gmail.com"
 		}
 	],
-	"creationType": "LocalAccount",            // always set to 'NameCoexistence'
+	"creationType": "LocalAccount",            // always set to 'LocalAccount'
 	"displayName": "Joe Consumer",				// a value that can be used for displaying to the end user
 	"mailNickname": "joec",						// an email alias for the user
 	"passwordProfile": {

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Managing columnstore indexes
@@ -24,7 +24,7 @@ This article explains how to interrogate the columnstore index metadata for your
 ## Querying Columnstore metadata
 To understand the density of your columnstore index a query against the system metadata is required. Below is an example of the kind of information you can uncover.
 
-```
+```sql
 CREATE VIEW dbo.vColumnstoreDensity
 AS
 WITH CSI
@@ -73,7 +73,7 @@ FROM    CSI
 
 Once the view has been created the columnstore metadata can be easily analysed. An example query is provided below.
 
-```
+```sql
 SELECT	[table_name]
 ,		[table_partition_count]
 ,		[row_count_total]
