@@ -413,7 +413,7 @@ Note that this does not mean that you can substitute IoT Hub for Event Hubs in a
 
 For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
-> [AZURE.NOTE] When using HTTP to send device-to-cloud messages, the following strings can contain only ASCII characters: system property values, and application property names and values.
+> [AZURE.NOTE] When using HTTP to send device-to-cloud messages, property names and values can only contain ASCII alphanumeric characters plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Non-telemetry traffic
 
@@ -460,7 +460,7 @@ Each cloud-to-device message is targeted at a single device, setting the **to** 
 
 **Important**: Each device queue can hold at most 50 cloud-to-device messages. Trying to send more messages to the same device will result in an error.
 
-> [AZURE.NOTE] When sending cloud-to-device messages, the following strings can contain only ASCII characters: system property values, and application property names and values.
+> [AZURE.NOTE] When sending cloud-to-device messages, property names and values can only contain ASCII alphanumeric characters plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Message lifecycle <a id="message lifecycle"></a>
 

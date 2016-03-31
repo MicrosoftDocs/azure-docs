@@ -138,7 +138,7 @@ Configuration settings in Cloud Services are set for a VM role and apply to all 
  - **Config:** all configuration files and settings for a service.
  - **Data:** static data files associated with the service.
 
-Each of these packages can be independently versioned and upgraded. Similar to Cloud Services, a config package can be accessed programmatically through an API and events are available to notify the service of a config package change. A Settings.xml file can be used for key-value configuration and programmatic access similar to . However, unlike Cloud Services, a Service Fabric config package can contain any configuration files in any format, whether it's XML, JSON, YAML, or a custom binary format. 
+Each of these packages can be independently versioned and upgraded. Similar to Cloud Services, a config package can be accessed programmatically through an API and events are available to notify the service of a config package change. A Settings.xml file can be used for key-value configuration and programmatic access similar to the app settings section of an App.config file. However, unlike Cloud Services, a Service Fabric config package can contain any configuration files in any format, whether it's XML, JSON, YAML, or a custom binary format. 
 
 
 ### Accessing configuration
