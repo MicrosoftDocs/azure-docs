@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
+	ms.workload="na"
 	ms.tgt_pltfrm="windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -26,7 +26,7 @@
 Some things to consider include:
 
 - How many cores does each VM have, and are you loading each core?
- The example Azure Quickstart template above has a do_work.php script, which loads a single core. If you’re using a VM bigger than Standard_A1 then you’d need to run this load multiple times. Check how many cores your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/virtual-machines-size-specs.md)
+ The example Azure Quickstart template above has a do_work.php script, which loads a single core. If you’re using a VM bigger than Standard_A1 then you’d need to run this load multiple times. Check how many cores your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md)
 
 - How many VMs in the VM Scale Set, are you doing work on each one?
 
@@ -72,6 +72,6 @@ Some things to consider include:
 
     Once you’ve been through these steps, you could try the forums on [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), or [Stack overflow](http://stackoverflow.com/questions/tagged/azure), or log a support call. Be prepared to share the template and a view of the performance data.
 
-[audit]: ./media/vmss-autoscale-troubleshoot/image3.png
-[explorer]: ./media/vmss-autoscale-troubleshoot/image1.png
-[tables]: ./media/vmss-autoscale-troubleshoot/image4.png
+[audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
+[explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
+[tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png

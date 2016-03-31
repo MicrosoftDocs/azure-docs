@@ -3,9 +3,9 @@
    description="This article describes the diagnostics and performance monitoring features in the Service Fabric Reliable Actors runtime, including the events and performance counters emitted by it."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="abhishekram"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -31,7 +31,7 @@ All events that belong to the Reliable Actors EventSource are associated with on
 |---|---|
 |0x1|Set of important events that summarize the operation of the Fabric Actors runtime.|
 |0x2|Set of events that describe actor method calls. For more information, see the [introductory topic on actors](service-fabric-reliable-actors-introduction.md#actors).|
-|0x4|Set of events related to actor state. For more information, see the topic on [stateful actors](service-fabric-reliable-actors-introduction.md#stateful-actors).|
+|0x4|Set of events related to actor state. For more information, see the topic on [actor state management](service-fabric-reliable-actors-state-management.md).|
 |0x8|Set of events related to turn-based concurrency in the actor. For more information, see the topic on [concurrency](service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Performance counters
@@ -118,7 +118,7 @@ The Reliable Actors runtime publishes the following performance counters related
 |Service Fabric Actor|Average milliseconds actor lock held|Time (in milliseconds) for which the per-actor lock is held|
 
 ### Actor state management events and performance counters
-The Reliable Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-introduction.md#actor-state-management).
+The Reliable Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-state-management).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
@@ -163,3 +163,8 @@ When a client invokes a method via an actor proxy object, it results in a reques
 |Service Fabric Actor|Average milliseconds per request|Time taken (in milliseconds) by the service to process a request|
 |Service Fabric Actor|Average milliseconds for request deserialization|Time taken (in milliseconds) to deserialize actor request message when it is received at the service|
 |Service Fabric Actor|Average milliseconds for response serialization|Time taken (in milliseconds) to serialize the actor response message at the service before the response is sent to the client|
+
+## Next steps
+ - [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
+ - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)

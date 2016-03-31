@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
-	description="Create a Virtual Machine Scale Set using Powershell.
+	description="Create a Virtual Machine Scale Set using Powershell"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -182,7 +182,7 @@ You have all the resources that you need, now it's time to create the scale set.
         $ipName = "IP configuration name"
         $ipConfig = New-AzureRmVmssIpConfigurationConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Replace the text in quotes with the name that you want to use for the scale set configuration and then create it. This step includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](..\virtual-machines\virtual-machines-size-specs.md) to find a size that meets your needs. For this example, it is recommended to use Standard_A0.:
+2. Replace the text in quotes with the name that you want to use for the scale set configuration and then create it. This step includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](..\virtual-machines\virtual-machines-windows-sizes.md) to find a size that meets your needs. For this example, it is recommended to use Standard_A0.:
 
         $vmssName = "Scale set configuration name"
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0"
@@ -252,7 +252,7 @@ You have all the resources that you need, now it's time to create the scale set.
           "secrets": null
         },
 
-4. Replace the text in quotes with the name that you want to use for the storage profile, the image information, and the storage path for where the disks for the virtual machines are stored, and then create the profile. Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](..\virtual-machines\resource-groups-vm-searching.md) to find the information that you need:
+4. Replace the text in quotes with the name that you want to use for the storage profile, the image information, and the storage path for where the disks for the virtual machines are stored, and then create the profile. Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md) to find the information that you need:
 
         $storeProfile = "storage profile name"
         $imagePublisher = "image publisher name, such as MicrosoftWindowsServer"

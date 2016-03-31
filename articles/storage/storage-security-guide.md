@@ -60,7 +60,7 @@ This guide focuses on the Resource Manager model which is the recommended means 
 
 ###How to secure your storage account with Role-Based Access Control (RBAC)
 
-Let’s talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure Portal](https://portal.azure.com/), the [Azure CLI tools](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/), [PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/), or the [Azure Storage Resource Provider REST APIs](https://msdn.microsoft.com/en-us/library/azure/mt163683.aspx).
+Let’s talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure Portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Azure Storage Resource Provider REST APIs](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 With the Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Azure Active Directory. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.
 
@@ -102,31 +102,27 @@ Here are the main points that you need to know about using RBAC to access the ma
 
 ####Resources
 
--   [Azure Active Directory Role-based Access Control](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/)
+-   [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
 
     This article explains the Azure Active Directory Role-based Access Control and how it works.
 
--   [RBAC: Built in Roles](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-built-in-roles/)
+-   [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
 
     This article details all of the built-in roles available in RBAC.
 
--   [Understanding Resource Manager deployment and classic deployment](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+-   [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
 
     This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
 
--   [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azurerm-versus-azuresm/)
+-   [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
     This article explains how the Azure Compute, Network, and Storage Providers work under the ARM model.
 
--   [Azure Role-Based Access Control](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/)
-
-	This article explains what RBAC is and how it works, and talks about managing RBAC using PowerShell, the Azure CLI, and the REST API.
-
--   [Managing Role-Based Access Control with the REST API](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-manage-access-rest/)
+-   [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 
 	This article shows how to use the REST API to manage RBAC.
 
--   [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt163683.aspx)
+-   [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
 	This is the reference for the APIs you can use to manage your storage account programmatically.
 
@@ -172,7 +168,7 @@ If you are currently using Key 2, you can use the same process, but reverse the 
 
 You can migrate over a couple of days, changing each application to use the new key and publishing it. After all of them are done, you should then go back and regenerate the old key so it no longer works.
 
-Another option is to put the storage account key in an [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) as a secret and have your applications retrieve the key from there. Then when you regenerate the key and update the Azure Key Vault, the applications will not need to be redeployed because they will pick up the new key from the Azure Key Vault automatically. Note that you can have the application read the key each time you need it, or you can cache it in memory and if it fails when using it, retrieve the key again from the Azure Key Vault.
+Another option is to put the storage account key in an [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) as a secret and have your applications retrieve the key from there. Then when you regenerate the key and update the Azure Key Vault, the applications will not need to be redeployed because they will pick up the new key from the Azure Key Vault automatically. Note that you can have the application read the key each time you need it, or you can cache it in memory and if it fails when using it, retrieve the key again from the Azure Key Vault.
 
 Using Azure Key Vault also adds another level of security for your storage keys. If you use this method, you will never have the storage key hardcoded in a configuration file, which removes that avenue of somebody getting access to the keys without specific permission.
 
@@ -182,15 +178,15 @@ Note: it is recommended to use only one of the keys in all of your applications 
 
 ####Resources
 
--   [About Azure Storage Accounts](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)
+-   [About Azure Storage Accounts](storage-create-storage-account.md#regenerate-storage-access-keys)
 
 	This article gives an overview of storage accounts and discusses viewing, copying, and regenerating storage access keys.
 
--   [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/en-us/library/mt163683.aspx)
+-   [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
 
 	This article contains links to specific articles about retrieving the storage account keys and regenerating the storage account keys for an Azure Account using the REST API. Note: This is for the ARM storage accounts.
 
--   [Operations on storage accounts](https://msdn.microsoft.com/en-us/library/ee460790.aspx)
+-   [Operations on storage accounts](https://msdn.microsoft.com/library/ee460790.aspx)
 
     This article in the Storage Service Manager REST API Reference contains links to specific articles on retrieving and regenerating the storage account keys using the REST API. Note: This is for the Classic storage accounts.
 
@@ -288,35 +284,35 @@ For more detailed information on using Shared Access Signatures and Stored Acces
 
 		This article provides examples of using a service-level SAS with blobs, queue messages, table ranges, and files.
 
-	-	[Constructing a service SAS](https://msdn.microsoft.com/en-us/library/dn140255.aspx)
+	-	[Constructing a service SAS](https://msdn.microsoft.com/library/dn140255.aspx)
 
-	-	[Constructing an account SAS](https://msdn.microsoft.com/en-us/library/mt584140.aspx)
+	-	[Constructing an account SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 
 -   These are tutorials for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
 
-    -	[Shared Access Signatures, Part 1: Understanding the SAS Model](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)
+    -	[Shared Access Signatures, Part 1: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
 
         This article includes an explanation of the SAS model, examples of Shared Access Signatures, and recommendations for the best practice use of SAS. Also discussed is the revocation of the permission granted.
 
-    -	[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-2/)
+    -	[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](storage-dotnet-shared-access-signature-part-2.md)
 
         This article shows how to generate SAS URIs using the .NET storage client library.
 
 -   Limiting access by IP Address (IP ACLs)
 
-    -	[What is an endpoint Access Control List (ACLs)?](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-acl/)
+    -	[What is an endpoint Access Control List (ACLs)?](../virtual-network/virtual-networks-acl.md)
 
-    -	[Constructing a Service SAS](https://msdn.microsoft.com/en-us/library/azure/dn140255.aspx)
+    -	[Constructing a Service SAS](https://msdn.microsoft.com/library/azure/dn140255.aspx)
 
 		This is the reference article for service-level SAS; it includes an example of IP ACLing.
 
-	-	[Constructing an Account SAS](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx)
+	-	[Constructing an Account SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx)
 
     	This is the reference article for account-level SAS; it includes an example of IP ACLing.
 
 -   Authentication
 
-	-    [Authentication for the Azure Storage Services](https://msdn.microsoft.com/en-us/library/azure/dd179428.aspx)
+	-    [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 
 -   Shared Access Signatures Getting Started Tutorial
 
@@ -332,7 +328,7 @@ You should always use HTTPS when calling the REST APIs or accessing objects in s
 
 ####Resources
 
--   [Enable HTTPS for an app in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
+-   [Enable HTTPS for an app in Azure App Service](../app-service-web/web-sites-configure-ssl-certificate.md)
 
 	This article shows you how to enable HTTPS for an Azure Web App.
 
@@ -344,15 +340,15 @@ Note that while Azure File Shares can be used with Unix, the Linux SMB client do
 
 ####Resources
 
--   [How to use Azure File Storage with Linux](https://azure.microsoft.com/en-us/documentation/articles/storage-how-to-use-files-linux/)
+-   [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
     This article shows how to mount an Azure File Share on a Linux system and upload/download files.
 
--   [Get started with Azure File storage on Windows](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-files/)
+-   [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
 	This article gives an overview of Azure File shares and how to mount and use them using PowerShell and .NET.
 
--   [Inside Azure File Storage](https://azure.microsoft.com/en-us/blog/inside-azure-file-storage/)
+-   [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 
     This article announces the general availability of Azure File Storage and provides technical details about the SMB 3.0 encryption.
 
@@ -398,11 +394,11 @@ For the encryption itself, you can generate and manage your own encryption keys.
 
 ####Resources
 
--   [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/)
+-   [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 
     This article shows how to use client-side encryption with Azure Key Vault, including how to create the KEK and store it in the vault using PowerShell.
 
--   [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://azure.microsoft.com/en-us/documentation/articles/storage-client-side-encryption/)
+-   [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md)
 
     This article gives an explanation of client-side encryption, and provides examples of using the storage client library to encrypt and decrypt resources from the four storage services. It also talks about Azure Key Vault.
 
@@ -527,19 +523,19 @@ You can use the Microsoft Message Analyzer to view and analyze these logs. It in
 
 ####Resources
 
--   [Storage Analytics](https://azure.microsoft.com/en-us/documentation/articles/storage-analytics/)
+-   [Storage Analytics](storage-analytics.md)
 
 	This article is an overview of storage analytics and how to enable them.
 
--   [Storage Analytics Log Format](https://msdn.microsoft.com/en-us/library/azure/hh343259.aspx)
+-   [Storage Analytics Log Format](https://msdn.microsoft.com/library/azure/hh343259.aspx)
 
 	This article illustrates the Storage Analytics Log Format, and details the fields available therein, including authentication-type, which indicates the type of authentication used for the request.
 
--   [Monitor a Storage Account in the Azure portal](https://azure.microsoft.com/en-us/documentation/articles/storage-monitor-storage-account/)
+-   [Monitor a Storage Account in the Azure portal](storage-monitor-storage-account.md)
 
 	This article shows how to configure monitoring of metrics and logging for a storage account.
 
--   [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](https://azure.microsoft.com/en-us/documentation/articles/storage-e2e-troubleshooting/)
+-   [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md)
 
 	This articles talks about troubleshooting using the Storage Analytics and shows how to use the Microsoft Message Analyzer.
 
@@ -595,7 +591,7 @@ Here’s what each row means:
 
 For more information about CORS and how to enable it, please check out these resources.
 
--   [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on Azure.com](https://azure.microsoft.com/en-us/documentation/articles/storage-cors-support/)
+-   [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on Azure.com](storage-cors-support.md)
 
 	This article provides an overview of CORS and how to set the rules for the different storage services.
 
@@ -603,7 +599,7 @@ For more information about CORS and how to enable it, please check out these res
 
 	This is the reference documentation for CORS support for the Azure Storage Services. This has links to articles applying to each storage service, and shows an example and explains each element in the CORS file.
 
--   [Windows Azure Storage: Introducing CORS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+-   [Microsoft Azure Storage: Introducing CORS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
 	This is a link to the initial blog article announcing CORS and showing how to use it.
 
@@ -631,10 +627,10 @@ For more information about CORS and how to enable it, please check out these res
 
 	This blog article gives an overview of FIPS and explains why they don’t enable FIPS mode by default.
 
--   [FIPS 140 Validation](https://technet.microsoft.com/en-us/library/cc750357.aspx)
+-   [FIPS 140 Validation](https://technet.microsoft.com/library/cc750357.aspx)
 
 	This article provides information on how Microsoft products and cryptographic modules comply with the FIPS standard for the U.S. Federal government.
 
--   [“System cryptography: Use FIPS compliant algorithms for encryption, hashing, and signing” security settings effects in Windows XP and in later versions of Windows](https://support.microsoft.com/en-us/kb/811833)
+-   [“System cryptography: Use FIPS compliant algorithms for encryption, hashing, and signing” security settings effects in Windows XP and in later versions of Windows](https://support.microsoft.com/kb/811833)
 
 	This article talks about the use of FIPS mode in older Windows computers.
