@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="03/31/2016"
 	ms.author="maheshu"/>
 
 # Azure Active Directory Domain Services preview: FAQs
@@ -43,6 +43,9 @@ No. The domain provided by Azure AD Domain Services is a managed domain. You do 
 
 ### Administration and Operations
 
+#### Can I connect to the domain controller for my managed domain using Remote Desktop?
+No. Since this is a managed domain you do not have the ability to connect to domain controllers for the domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD tools installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
+
 #### I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
 Any of the user accounts you’ve added to the administrative group (i.e. ‘AAD DC Administrators’) would be able to domain join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
 
@@ -56,7 +59,7 @@ No. Group memberships cannot be modified on domains serviced by Azure AD Domain 
 No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
 
 #### Can I modify DNS records provided by Azure AD Domain Services?
-Yes. Users that are part of the administrative group (i.e. 'AAD DC Administrators') have DNS Admin permissions to modify the DNS records. 
+Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Administrator' permissions to modify DNS records in the managed domain. These users can use the DNS Manager console on a Windows server joined to the managed domain in order to manage DNS. You can get the DNS Manager console, after installing 'DNS Server Tools' as part of the 'Remote Server Administration Tools' optional feature on the server. More information on [utilities for administering, monitoring and troubleshooting DNS](https://technet.microsoft.com/library/cc753579.aspx) is available on TechNet.
 
 ### Billing and availability
 
