@@ -105,7 +105,7 @@ After you create the backup vault and download the vault credential file, an age
 
 3. After the MARSagentinstaller.exe file has downloaded, click **Run** (or double-click **MARSAgentInstaller.exe** from the saved location).
 
-4. 	Choose the installation folder and cache folder that are required for the agent, and then click **Next**. The cache location you specify must have free space equal to at least 5 percent of the backup data.
+4. Choose the installation folder and cache folder that are required for the agent, and then click **Next**. The cache location you specify must have free space equal to at least 5 percent of the backup data.
 
 5. You can continue to connect to the Internet through the default proxy settings. 			If you use a proxy server to connect to the Internet, on the Proxy Configuration page, select the **Use custom proxy settings** check box, and then enter the proxy server details. If you use an authenticated proxy, enter the user name and password details, and then click **Next**.
 
@@ -134,6 +134,7 @@ After you create the backup vault and download the vault credential file, an age
 
 The initial backup includes two key tasks:
 - Creating the backup schedule
+- Enabling network throttling (optional)
 - Backing up files and folders for the first time
 
 After the backup policy completes the initial backup, it creates backup points that you can use if you need to recover the data. The backup policy does this based on the schedule that you define.
@@ -156,7 +157,7 @@ After the backup policy completes the initial backup, it creates backup points t
 
 6. Click **Next**.
 
-7. On the **Specify Backup Schedule** screen, specify the **backup schedule** and click **Next**.
+7. On the **Specify Backup Schedule** page, specify the **backup schedule** and click **Next**.
 
     You can schedule daily (at a maximum rate of three times per day) or weekly backups.
 
@@ -164,7 +165,7 @@ After the backup policy completes the initial backup, it creates backup points t
 
     >[AZURE.NOTE] For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
 
-8. On the **Select Retention Policy** screen, select the **Retention Policy** for the backup copy.
+8. On the **Select Retention Policy** page, select the **Retention Policy** for the backup copy.
 
     The retention policy specifies the duration for which the backup will be stored. Rather than just specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.
 
@@ -180,7 +181,7 @@ After the backup policy completes the initial backup, it creates backup points t
 
 The Backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling applies to back up and restore activities.
 
-### To enable network throttling
+**To enable network throttling**
 
 1. In the Backup agent, click **Change Properties**.
 
