@@ -131,6 +131,8 @@ The following Windows batch script executes the [Azure CLI][azure-cli] commands 
 
 The script uses the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
 
+One of the script parameters is the IP address range to whitelist for the jumpbox. You can specify a range using CIDR notation, or a single IP address. 
+
 ```bat
 @ECHO OFF
 SETLOCAL
