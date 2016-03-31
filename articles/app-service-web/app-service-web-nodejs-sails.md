@@ -182,7 +182,7 @@ If it has started successfully, the stdout log should show you the familiar mess
     ____---___--___---___--___---___--___-__
 
     Server lifted in `D:\home\site\wwwroot`
-    To see your app, visit &#x5B;4mhttp://localhost:\\.\pipe\a76e8111-663e-449d-956e-5c5deff2d304&#x5B;24m
+    To see your app, visit http://localhost:\\.\pipe\a76e8111-663e-449d-956e-5c5deff2d304
     To shut down Sails, press <CTRL> + C at any time.
 
 ## Connect to a database in Azure
