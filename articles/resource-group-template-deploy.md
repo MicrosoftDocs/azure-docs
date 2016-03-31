@@ -16,7 +16,7 @@
    ms.date="03/21/2016"
    ms.author="tomfitz"/>
 
-# Deploy a resources with Azure Resource Manager template
+# Deploy resources with Azure Resource Manager templates
 
 This topic explains how to use Azure Resource Manager templates to deploy your Resources to Azure. It shows how to deploy your Resources by using either Azure PowerShell, Azure CLI, REST API, or the Azure portal. 
 

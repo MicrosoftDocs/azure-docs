@@ -291,7 +291,7 @@ You can also simplify the client code to use the `loginAsync()` method (naming m
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
 
-Replace the string "CustomAuth" above with the name of the contoller hosting your login action.
+Replace the string "CustomAuth" above with the name of the controller hosting your login action.
 
 >[AZURE.TIP] Using the loginAsync() approach ensures that the authentication token is attached to every subsequent call to the service.
 
