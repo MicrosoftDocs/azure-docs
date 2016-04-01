@@ -133,8 +133,8 @@ After you create the backup vault and download the vault credential file, an age
 ## Step 4: Complete the initial backup
 
 The initial backup includes two key tasks:
+
 - Creating the backup schedule
-- Enabling network throttling (optional)
 - Backing up files and folders for the first time
 
 After the backup policy completes the initial backup, it creates backup points that you can use if you need to recover the data. The backup policy does this based on the schedule that you define.
