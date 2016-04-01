@@ -337,7 +337,7 @@ When a user reports an issue, the user is often only aware of the immediate impa
 > [AZURE.NOTE] Root cause analysis might uncover inefficiencies in the design of an application. In these situations, it might be possible to rework the affected elements and deploy them as part of a subsequent release. This process requires careful control, and the updated components should be monitored closely.
 
 ### Requirements for tracing and debugging
-For tracing unexpected events and other problems, the monitoring data must provide enough information about issues that occur at a high level. The data must also provide enough detail to enable an analyst to trace back to the origins of each issue, diagnose the root cause, and reconstruct the sequence of events that occurred. A developer can then make the necessary modifications to prevent the issues from recurring.
+For tracing unexpected events and other problems, it's vital that the monitoring data provides enough information to enable an analyst to trace back to the origins of these issues and reconstruct the sequence of events that occurred. This information must be sufficient to enable an analyst to diagnose the root cause of any problems. A developer can then make the necessary modifications to prevent them from recurring.
 
 ### Data sources, instrumentation, and data-collection requirements
 Troubleshooting can involve tracing all the methods (and their parameters) invoked as part of an operation to build up a tree that depicts the logical flow through the system when a customer makes a specific request. Exceptions and warnings that the system generates as a result of this flow need to be captured and logged.
