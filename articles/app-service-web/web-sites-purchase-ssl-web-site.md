@@ -134,10 +134,8 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
         
         3. If you need to resend the verification email, Click on the **"Resend Email"** button.
          
-    * **Manual Verification**
-    
-       This is the **least convenient option** and should ONLY be used if none of the above options are feasible.
-              
+    * **Manual Verification**    
+                 
         1. **HTML Web Page Verification**
         
             * Create an HTML file named **{Domain Verification Token}**.html (You can copy the token from he Domain Verification Status Blade)
@@ -148,15 +146,14 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
             
             * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
             
-        For example, if you are buying a standard certificate for contosocertdemo.com with Domain Verification Token **‘cAGgQrKc’** then a web request made to **‘http://contosocertdemo.com/cAGgQrKc.html’** should return **cAGgQrKc.**
-        
+            For example, if you are buying a standard certificate for contosocertdemo.com with Domain Verification Token **‘cAGgQrKc’** then a web request made to **‘http://contosocertdemo.com/cAGgQrKc.html’** should return **cAGgQrKc.**
         2. **DNS TXT Record Verification**
 
             * Using your DNS manager, Create a TXT record on the **‘DZC’** subdomain with value equal to the **Domain Verification Token.**
             
             * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
                               
-        For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **cAGgQrKc**, you need to create a TXT record on dzc.contosocertdemo.com with value **cAGgQrKc.**     
+            For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **cAGgQrKc**, you need to create a TXT record on dzc.contosocertdemo.com with value **cAGgQrKc.**     
 
 
 ##<a name="bkmk_AssignCertificate"></a>Step 3: Assign Certificate to App Service App
