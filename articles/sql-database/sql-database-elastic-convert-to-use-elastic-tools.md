@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="04/1/2016"
    ms.author="SilviaDoomra"/>
 
 # Convert existing databases to use elastic database tools
 
-If you have an existing scaled-out, sharded solution, you can take advantage of the Elastic database tools by using the techniques described here. After conversion, you can use the [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
+If you have an existing scaled-out, sharded solution, you can take advantage of the Elastic database tools by using the techniques described here. After conversion, you can use the [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). Note that you must create the databases before conversion. The techniques here do not create the individual shards.
 
 These techniques can be implemented using either the [.NET Framework client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
