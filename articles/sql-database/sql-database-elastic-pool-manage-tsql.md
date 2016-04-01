@@ -70,11 +70,12 @@ Use the [sys.database\_service \_objectives view](https://msdn.microsoft.com/lib
 	JOIN sys.database_service_objectives slo  
 	ON d.database_id = slo.database_id;
 
-## Monitor resource usage elastic pools
+## Monitor resource usage of elastic pools
 
 Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/library/mt280062.aspx) to examine the resource usage statistics of an elastic pool on a logical server. Log in to the master database to query the view.
 
 	SELECT * FROM sys.elastic_pool_resource_stats 
+	WHERE elastic_pool_name = 'MyElasticPool'
 	ORDER BY end_time DESC;
 
 ## Monitor resource usage of a database in an elastic pool
