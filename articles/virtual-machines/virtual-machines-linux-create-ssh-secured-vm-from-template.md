@@ -21,22 +21,16 @@
 
 To create a Linux VMs from a template you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`).
 
+## Quick Command Summary
 
+```
+azure group create -n <exampleRGname> -l <exampleAzureRegion> [--template-uri <URL> | --template-file <path> | <template-file> -e <parameters.json file>]
+```
+
+## Detailed Walkthrough
 Templates allow you to create VMs on Azure with settings that you want to customize during the launch, things like usernames and hostnames. For this article we will focus on launching an Ubuntu VM using an Azure template that creates a network security group (NSG) with only one port open (22 for SSH) and which requires SSH keys for login.
 
 Azure Resource Manager templates are JSON files that can be used for simple one-off tasks -- like launching an Ubuntu VM as done in this article -- or to construct complex Azure configurations of entire environments like a testing, dev or production deployment from the networking to the OS to application stack deployment.
-
-
-
-## Prerequisites
-
-- An Azure account ([get a free trial!](https://azure.microsoft.com/pricing/free-trial/)), an [SSH public key file](virtual-machines-linux-mac-create-ssh-keys.md), the [Azure CLI](../xplat-cli-install.md), and then put the CLI in resource mode by typing `azure config mode arm`. Then log in to Azure with the CLI by typing `azure login`.
-
-## Quick Command Summary
-
-This deployment requires only one command, along with the selection of an option indicating where the Azure Resource Manager template resides. This topic uses a template directly from the Azure quickstart template Github repo as an example. Below, the various options merely indicate where the template -- and any parameters files -- are located.
-
-1. `azure group create -n <exampleRGname> -l <exampleAzureRegion> [--template-uri <URL> | --template-file <path> | <template-file> -e <parameters.json file>]`
 
 ## Create the Linux VM
 
