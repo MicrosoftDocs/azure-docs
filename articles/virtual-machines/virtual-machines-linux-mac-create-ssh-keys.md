@@ -63,7 +63,6 @@ Using SSH public and private keys is the most secure **and** easiest way to logi
 
 This article creates *ssh-rsa* format key files, as those are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
 
-> [AZURE.NOTE] If you are logging onto your VMs from a Windows computer, see [Use SSH keys on Windows](virtual-machines-linux-ssh-from-windows.md).
 
 ## Create the SSH Keys
 
