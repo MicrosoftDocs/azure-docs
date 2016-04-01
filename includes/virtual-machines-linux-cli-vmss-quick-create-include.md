@@ -1,4 +1,4 @@
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/en-us/pricing/free-trial/) and the [Azure CLI](../xplat-cli-install.md) [connected to your Azure account](../xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a scale set:
+If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a scale set:
 
 ```bash
 # make sure we are in ARM mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)

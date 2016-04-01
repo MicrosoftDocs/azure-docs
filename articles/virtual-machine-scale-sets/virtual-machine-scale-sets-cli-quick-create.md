@@ -26,5 +26,5 @@
 
 For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
 
-For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/).
+For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
