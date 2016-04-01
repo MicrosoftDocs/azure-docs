@@ -23,9 +23,6 @@ Templates allow you to create VMs on Azure with settings that you want to custom
 
 Azure Resource Manager templates are JSON files that can be used for simple one-off tasks -- like launching an Ubuntu VM as done in this article -- or to construct complex Azure configurations of entire environments like a testing, dev or production deployment from the networking to the OS to application stack deployment.
 
-## Goal
-
-- Create an SSH-secured Linux VM in Azure using an Azure template
 
 ## Prerequisites
 
