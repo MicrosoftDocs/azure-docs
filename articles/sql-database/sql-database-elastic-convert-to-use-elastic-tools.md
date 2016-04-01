@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="04/01/2016"
    ms.author="SilviaDoomra"/>
 
 # Convert existing databases to use elastic database tools
 
-If you have an existing scaled-out, sharded solution, you can take advantage of the Elastic database tools by using the techniques described here. After conversion, you can use the [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
+If you have an existing scaled-out, sharded solution, you can take advantage of the Elastic database tools, like [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), by using the techniques described here. 
 
 These techniques can be implemented using either the [.NET Framework client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
+
+Note that you must create the databases before executing the Add-Shard and New-ShardMapManager cmdlets. The cmdlets do not create databases for you.
 
 There are four steps:
 
@@ -32,7 +34,7 @@ There are four steps:
 For more information about the ShardMapManager, see [Shard map management](sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
 
 ## Preparation of the shard map manager database
-You can use a new or existing database as the shard map manager. This is a one-time operation. 
+You can use a new or existing database as the shard map manager. 
 
 ## Step 1: create a shard map manager
 Note that a database acting as shard map manager shouldn’t be the same database as a shard. 
