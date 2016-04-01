@@ -44,7 +44,7 @@ An Azure Multi-Factor Auth Provider is used to take advantage of features provid
 ### To create a Multi-Factor Auth Provider
 --------------------------------------------------------------------------------
 
-1. Log on to the Azure Portal as an Administrator.
+1. Log on to the Azure portal as an Administrator.
 2. On the left, select Active Directory.
 3. On the Active Directory page, at the top, select Multi-Factor Authentication Providers. Then at the bottom, click **New**.
 4. Under App Services, select Multi-Factor Auth Providers, and select Quick Create.
@@ -72,7 +72,7 @@ If you have purchased Azure MFA, Azure AD Premium, or Enterprise Mobility Suite 
 ### To assign an Azure MFA, Azure AD Premium, or Enterprise Mobility Suite License
 --------------------------------------------------------------------------------
 
-1. Sign in to the Azure Portal as an Administrator.
+1. Sign in to the Azure portal as an Administrator.
 2. On the left, select **Active Directory**.
 3. On the Active Directory page, double-click on the directory that has the users you wish to enable.
 4. At the top of the directory page, select **Licenses**.
@@ -99,7 +99,7 @@ Use the following procedure to enable MFA for your users.
 
 ### To turn on multi-factor authentication
 --------------------------------------------------------------------------------
-1.  Sign in to the Azure Management Portal as an Administrator.
+1.  Sign in to the Azure portal as an Administrator.
 2.  On the left, click Active Directory.
 3.  Under, Directory click on the directory for the user you wish to enable.
 4.  At the top, click Users.
