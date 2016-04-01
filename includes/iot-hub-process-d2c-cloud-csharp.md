@@ -37,7 +37,7 @@ You also need a Service Bus queue to enable reliable processing of interactive m
 
 ### Create the event processor
 
-1. In the current Visual Studio solution, click **File**, then **Add**, and then **New Project** to create a new Visual C# Windows project using the **Console Application** project template. Name the project **ProcessDeviceToCloudMessages**.
+1. In the current Visual Studio solution, click **File**, then **Add**, and then **New Project** to create a new Visual C# Windows project using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or higher. Name the project **ProcessDeviceToCloudMessages**.
 
     ![][10]
 
