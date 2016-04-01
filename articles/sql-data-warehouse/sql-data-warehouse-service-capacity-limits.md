@@ -32,7 +32,7 @@ Maximum values to support the most demanding analytics workloads while also ensu
 
 | Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Query             | Concurrent queries on user tables.           | 32<br/><br/>This is an upper bound for concurrent user query execution. Additional queries will go to an internal queue where they will wait to be processed. Regardless of the number of queries executing at the same time, each query is optimized to make full use of the massively parallel processing architecture.  Note: actual concurrency can be subject to additional throttling based on DWU of the database instance and selected resource class of running queries.|
+| Query             | Concurrent queries on user tables.           | 32<br/><br/>This is the maximum number of queries that can run at the same time. The actual number at any given moment depends on the Service Level Objective of the database and the resource class of the query.  When resources are not available, queries wait in an internal queue. For more information, see [Concurrency and workload management][].|
 | Query             | Queued queries on user tables.               | 1000               |
 | Query             | Concurrent queries on system views.          | 100                |
 | Query             | Queued queries on system views               | 1000               |
@@ -230,6 +230,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 
 <!--Article references-->
 [SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 

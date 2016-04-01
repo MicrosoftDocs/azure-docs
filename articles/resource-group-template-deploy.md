@@ -44,7 +44,7 @@ You specify the type of deployment through the **Mode** property, as shown in th
 
         PS C:\> Login-AzureRmAccount
 
-        Evironment : AzureCloud
+        Environment : AzureCloud
         Account    : someone@example.com
         ...
 
