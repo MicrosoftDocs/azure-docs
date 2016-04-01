@@ -1869,7 +1869,7 @@ The SIOS DataKeeper solution provides a shared disk cluster resource to Windows 
 * Having SIOS DataKeeper Cluster Edition configured in a way that it synchronously mirrors the content of the additional VHD attached volume from source VMs to additional VHD attached volume of target VM.
 * SIOS DataKeeper is abstracting the source and target local volumes and presenting them to Windows Failover Cluster as a single shared disk.
  
-You can find all details on how to install a Windows Failover Cluster with SIOS Datakeeper and SAP in the [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-sios-guide] white paper. 
+You can find all details on how to install a Windows Failover Cluster with SIOS Datakeeper and SAP in the [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] white paper. 
 
 #### High Availability for the SAP (A)SCS instance on Linux
  
