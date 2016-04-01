@@ -31,11 +31,11 @@ You need to create an IoT Hub for you simulated device to connect to. The follow
 
 
 <!-- Images. -->
-[1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
-[2]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub2.png
-[3]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub3.png
-[4]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub4.png
-[5]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub5.png
+[1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
+[2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
+[3]: ./media/iot-hub-get-started-create-hub/create-iot-hub3.png
+[4]: ./media/iot-hub-get-started-create-hub/create-iot-hub4.png
+[5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 
 <!-- Links -->
 [lnk-resource-groups]: resource-group-portal.md

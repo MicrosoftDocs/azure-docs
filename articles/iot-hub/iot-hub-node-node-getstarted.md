@@ -94,11 +94,6 @@ In this tutorial, you configured a new IoT hub in the portal and then created a 
 - [Uploading files from devices][lnk-upload-tutorial] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
 
 <!-- Images. -->
-[1]: ./media/iot-hub-node-node-getstarted/create-iot-hub1.png
-[2]: ./media/iot-hub-node-node-getstarted/create-iot-hub2.png
-[3]: ./media/iot-hub-node-node-getstarted/create-iot-hub3.png
-[4]: ./media/iot-hub-node-node-getstarted/create-iot-hub4.png
-[5]: ./media/iot-hub-node-node-getstarted/create-iot-hub5.png
 [6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
