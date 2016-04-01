@@ -43,13 +43,11 @@ Typical use-cases for this architecture include:
 
 ## Architecture blueprint
 
-This following diagram highlights the important elements in the architecture:
+This following diagram highlights the important components in the architecture:
 
 ![IaaS: hybrid-expressroute](./media/arch-iaas-hybrid-expressroute.png)
 
-- **Azure Virtual Networks** These are VNets in Azure. Each VNet may include workloads having multiple tiers, with multiple subnets connected through Azure load balancers. The VNets could reside in multiple subscriptions. Connections are performed by using **private peering** utilizing addresses which are private to the VNet.
-
-> [AZURE.NOTE] This architecture treats the cloud application as a single entity which is addressed separately. See [Implementing a Multi-tier Architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
+- **Azure Virtual Networks** These are VNets in Azure. Each VNet may include workloads having multiple tiers, with multiple subnets connected through Azure load balancers. The VNets could reside in [multiple subscriptions][expressroute-multiplesubscriptions] in the same [geo-political region][expressroute-locations]. Connections are performed by using **private peering** utilizing addresses which are private to the VNet.
 
 - **Azure public services.** These are Azure services that can be utilized within a hybrid application. These services are also available across the Internet, but accessing them via an ExpressRoute circuit provides low latency and more predictable performance since traffic does not go through the internet. Connections are performed by using **public peering**; traffic is routed to [IP address ranges published by Microsoft][datacenter-ip-ranges] and the ExpressRoute circuit performs a NAT translation of on-premises traffic to an endpoint in one of these ranges. Connections over a public peering can only be initiated from on-premises.
 
@@ -67,11 +65,11 @@ This following diagram highlights the important elements in the architecture:
 
 ## Implementing this architecture
 
-> [AZURE.NOTE] ExpressRoute connectity providers fall into one of the following categories:
+> [AZURE.NOTE] ExpressRoute connectivity providers fall into one of the following categories:
+<!--- manikrish: we need some guidance on when to use what, I removed the info on bandwidth differences since the cli command to list providers show similar bandwidth support for both these options-->
+> - **Exchange Providers (IXP)**. These are OSI Layer 2 (*data link layer*) providers that supply virtual cross-connections to Azure. An IXP provides controlled access to its network switches that act as simple bridges between your on-premises networks and Azure, giving a direct connection from LAN to LAN. The customer has to provide information to configure these bridges to route requests from one network to another.
 >
-> - **Exchange Providers (IXP)**. These are OSI Layer 2 (*data link layer*) providers that supply virtual cross-connections to the Microsoft cloud. An IXP provides controlled access to its network switches that act as simple bridges between your on-premises networks and the cloud, giving a direct connection from LAN to LAN. The customer has to provide information to configure these bridges to route requests from one network to another. An IXP circuit can typically support a bandwidth up to 10 Gbps.
->
-> - **Network Service Providers (Telco)**. These are OSI Layer 3 (*network layer*) providers that supply access to network switches that are configured by the provider to connect to Azure. These switches translate network addresses from your on-premises domain to the Microsoft domain, and route traffic between networks, often using Multiprotocol Label Switching (MPLS) or similar. Bandwidth availability through a Telco is usually up to 1 Gbps.
+> - **Network Service Providers (Telco)**. These are OSI Layer 3 (*network layer*) providers that supply access to network switches that are configured by the provider to connect to Azure. These switches translate network addresses from your on-premises domain to the Microsoft domain, and route traffic between networks, often using Multiprotocol Label Switching (MPLS) or similar.
 >
 > To obtain a list of connectivity providers available at your location, use the following Azure CLI command:
 > ```
@@ -84,13 +82,13 @@ The following high-level steps outline a process for implementing this architect
 - [Create an ExpressRoute circuit][create-expressroute-circuit]. Use the following command:
 
 	```
-	azure network express-route circuit create -p <<connectivity-provider>> -i <<peering-location>> <<resource-group>> <<circuit-name>> <<location>>
+	azure network express-route circuit create -p <<service-provider-name>> -i <<peering-location>> <<resource-group>> <<circuit-name>> -l <<location>>
 	```
 
 - Arrange for the ExpressRoute circuit to be provisioned.
 
 	If your service provider is a Telco:
-
+<!--manikrish:verify if we still need to send the /29 subnet information, the product docs just mention that the service key needs to be shared-->
 	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /29 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
 
 		> [AZURE.NOTE] The service provider may provide an online portal for you to supply this information.
@@ -102,9 +100,8 @@ The following high-level steps outline a process for implementing this architect
 	```
 
 	The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
-
 	If your service provider is an IXP:
-
+<!--manikrish:Verify if tnis is specific to IXP, product docs link below does no mention this-->
 	- Send the `ServiceKey` for the new circuit to the service provider.
 
 	- Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you are implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [ExpressRoute routing requirements][expressroute-routing-requirements].
@@ -154,21 +151,25 @@ Note the following points:
 
 - If you are using a Telco connectivity provider, verify that it provides redundant BGP sessions that handle availability for you.
 
-- Configure a Site-to-Site VPN as a failover path for ExpressRoute. This is only applicable to a private peering. For Azure and Office 365 services, use the Internet as the failover path.
+- Configure a Site-to-Site VPN as a failover path for ExpressRoute. This is only applicable to a private peering. For Azure and Office 365 services, the Internet is the only failover path.
 
+- A single virtual network can be connected to multiple express route circuits and each of those circuits can be through different service providers. This can be used for high-availability.  The throughput would be aggregated across providers.
+s
 ## Security recommendations
 
 - To maximize security, add firewalls or network security appliances between the on-premises network and the provider edge routers. This will help to restrict the inflow of unauthorized traffic from the VNet:
 
 ![IaaS: hybrid-expressroute-firewalls](./media/arch-iaas-hybrid-expressroute-firewalls.png)
 
-- By default, Azure VMs expose endpoints used for providing login access for management purposes - RDP and Remote Powershell for Windows VMs, and SSH for Linux-based VMs. To maximize security, ensure that these endpoints are not publicly accessible as this could compromise not only the VMs but also your on-premises network. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform any necessary configuration or maintenance.
+- By default, Azure VMs expose endpoints used for providing login access for management purposes - RDP and Remote Powershell for Windows VMs, and SSH for Linux-based VMs. To maximize security, ensure that these endpoints are not publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform any necessary configuration or maintenance.
 
 - If you must expose management endpoints for VMs to an external network, then use access control lists to restrict the visibility of these ports to a whitelist of IP addresses or networks.
 
+<!--manikrish: add note on issue reported about restricting access to microsoft services and o365 services only and not public sites hosted in azure -->
+
 ## Scalability recommendations
 
-> [AZURE.NOTE] ExpressRoute offers two pricing plans to customers, based on metering or unlimited data. See [ExpressRoute pricing][expressroute-pricing] for details. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Additionally, IXPs can offer higher bandwidth than Telcos. Use the `azure network express-route provider list` command to see the providers available in your region and the bandwidths that they offer.
+> [AZURE.NOTE] ExpressRoute offers two pricing plans to customers, based on metering or unlimited data. See [ExpressRoute pricing][expressroute-pricing] for details. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `azure network express-route provider list` command to see the providers available in your region and the bandwidths that they offer.
 >
 > A single ExpressRoute circuit can support a number of peerings and VNet links. See [ExpressRoute limits][expressroute-limits] for more information.
 >
@@ -187,7 +188,7 @@ Note the following points:
 	azure network express-route circuit set -b <<bandwidth-in-mbps>> <<resource-group>> <<circuit-name>>
 	```
 
-	Note that there will likely be an interruption to the network service while the bandwidth is modified. You can downgrade a circuit to a lower bandwidth if necessary.
+	You can increase the bandwidth without loss of connectivity. Downgrading the bandwidth will result in disruption in connectivity. You have to delete the circuit and recreate it with the new configuration.
 
 - Start with the standard SKU of ExpressRoute, and upgrade to ExpressRoute Premium only when required. Switch the SKU by using the following command (the `<<sku>>` parameter can be `Standard` or `Premium`):
 
@@ -195,7 +196,7 @@ Note the following points:
 	azure network express-route circuit set -e <<sku>> <<resource-group>> <<circuit-name>>
 	```
 
-	Note that, as with the bandwidth, there will likely be an interruption to the network service while the SKU is changed.
+You can upgrade the SKU without disruption. While downgrade the SKU your bandwidth consumption has be within the default limit of the standard SKU.
 
 - ExpressRoute circuits are designed to allow temporary network bursts up to two times the bandwidth limit that you procured for no additional cost. However, you should determine whether your connectivity provider supports this feature before depending on it.
 
@@ -276,8 +277,10 @@ TBD
 [ExpressRoute-provisioning]: https://azure.microsoft.com/documentation/articles/expressroute-workflows/
 [expressroute-overview]: https://azure.microsoft.com/blog/expressroute-an-overview/
 [expressroute-routing-requirements]: https://azure.microsoft.com/en-gb/documentation/articles/expressroute-routing/
+[expressroute-locations]: https://azure.microsoft.com/en-us/documentation/articles/expressroute-locations/
 [create-on-prem-network]: https://technet.microsoft.com/en-us/library/dn786406.aspx
 [create-azure-vnet]: https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-classic-cli/
 [expressroute-doc]: https://go.microsoft.com/fwlink/p/?LinkId=615122
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [expressroute-limits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#networking-limits
+[expressroute-multiplesubscriptions]: https://azure.microsoft.com/en-us/documentation/articles/expressroute-howto-linkvnet-arm/
