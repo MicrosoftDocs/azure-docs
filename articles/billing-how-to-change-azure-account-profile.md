@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to change profile information of your Azure account| Microsoft Azure"
-	description="Describes how to change profile information of your Azure account"
+	description="Describes how to change the profile of your Azure account, and answers the common questions such as why cannot change country in the Azure Account Center"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="03/31/2016"
 	ms.author="genli"/>
 
 # How to change profile information of your Azure account such as contact email, address and phone number
