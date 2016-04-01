@@ -21,7 +21,6 @@
 > [AZURE.SELECTOR]
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-[Portal - Resource Manager](expressroute-howto-circuit-portal-arm.md)
 
 
 This article describes how to create an Azure ExpressRoute circuit by using Windows PowerShell cmdlets and the Azure Resource Manager deployment model. The following steps also show you how to check the status of the circuit, update it, or delete and deprovision it.
