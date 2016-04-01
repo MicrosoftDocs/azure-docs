@@ -19,7 +19,7 @@
 
 # Create a Linux VM from the ground up using the Azure CLI
 
-To create a Linux VM you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`) and a JSON parsing tool, we are using [jq](https://stedolan.github.io/jq/) for this document.
+To create a Linux VM you will need [the Azure CLI](../xplat-cli-install/) in resource manager mode (`azure config mode arm`) and a JSON parsing tool, we are using [jq](https://stedolan.github.io/jq/) for this document.
 
 ## Quick Commands
 
