@@ -1,6 +1,6 @@
 <properties
    pageTitle="Deploy an Azure Container Service cluster | Microsoft Azure"
-   description="Deploy an Azure Container Service cluster by using the Azure portal, Azure CLI, or PowerShell."
+   description="Deploy an Azure Container Service cluster by using the Azure portal, the Azure CLI, or PowerShell."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -26,7 +26,7 @@ This document walks you through deploying an Azure Container Service cluster by 
 
 ## Create a service by using the Azure portal
 
-To deploy a Mesos or Docker Swarm cluster, select one of the following templates from GitHub. Note that *both of these templates are the same*, with the exception of the default orchestrator selection.
+To deploy a Mesos or Docker Swarm cluster, select one of the following templates from GitHub. Note that both of these templates are the same, with the exception of the default orchestrator selection.
 
 * [Mesos template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -35,7 +35,7 @@ When you select the **Deploy to Azure** button on either template page, the Azur
 
 ![Create deployment by using form](media/create-mesos-params.png)  <br />
 
-Complete the form by using this guidance, and select **OK** when done. <br />
+Complete the form by using this guidance, and select **OK** when you're done. <br />
 
 Field           | Description
 ----------------|-----------
@@ -45,7 +45,7 @@ AGENTVMSIZE     | This is the size of your agent virtual machines. Be careful to
 ADMINUSERNAME   | This is the user name that will be used for an account on each of the virtual machines and virtual machine scale sets in the Azure Container Service cluster.
 ORCHESTRATORTYPE| This is the orchestrator type to use in your Azure Container Service cluster.
 MASTERCOUNT     | This is the number of virtual machines to configure as masters for your cluster. You can select 1, but this will not provide any resilience in your cluster--we only recommend it for testing. We recommend 3 or 5 for a production cluster.
-SSHRSAPUBLICKEY	| You must use Secure Shell (SSH) for authentication against the virtual machines. This is where you add your public key. It is very important that you are careful when pasting your key value into this box. Some editors will insert line-breaks into the content, and this will break the key. Verify that your key has no line breaks, and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should look something like 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. If you need to create an SSH key, you can find guidance for [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) and [Linux](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) on the Azure documentation site.
+SSHRSAPUBLICKEY	| You must use Secure Shell (SSH) for authentication against the virtual machines. This is where you add your public key. It is very important that you're careful when you paste your key value into this box. Some editors will insert line breaks into the content, and this will break the key. Verify that your key has no line breaks, and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should look something like 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. If you need to create an SSH key, you can find guidance for [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) and [Linux](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) on the Azure documentation site.
 
 After you set appropriate values for your parameters, select
 **OK**. Next, provide a resource group name, select a region, and review and agree to the legal terms.
@@ -64,9 +64,9 @@ Now sit back and relax while the cluster is created. After the cluster is create
 
 ## Create a service by using the Azure CLI
 
-To create an instance of Azure Container Service by using the command line, you need an Azure subscription. If you don't have one, then you can sign up for a free trial. You also need to have installed and configured the Azure CLI.
+To create an instance of Azure Container Service by using the command line, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). You also need to have installed and configured the Azure CLI.
 
-To deploy a Mesos or Docker Swarm cluster, select one of the following templates from GitHub. Note that *both of these templates are the same*, with the exception of the default orchestrator selection.
+To deploy a Mesos or Docker Swarm cluster, select one of the following templates from GitHub. Note that both of these templates are the same, with the exception of the default orchestrator selection.
 
 * [Mesos template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -76,7 +76,7 @@ Next, make sure that the Azure CLI has been connected to an Azure subscription. 
 ```bash
 Azure account show
 ```
-If an Azure account is not returned, use the following to sign the CLI in to Azure.
+If an Azure account is not returned, use the following command to sign the CLI in to Azure.
 
 ```bash
 azure login -u user@domain.com
@@ -98,7 +98,7 @@ After you have created a resource group, you can create your cluster with this c
 
 - **RESOURCE_GROUP** is the name of the resource group that you want to use for this service.
 - **DEPLOYMENT_NAME** is the name of this deployment.
-- **TEMPLATE_URI** is the location of the deployment file. Note that this must be the RAW file, *not* a pointer to the GitHub UI. To find this URL, select the azuredeploy.json file in GitHub, and select the **RAW** button:
+- **TEMPLATE_URI** is the location of the deployment file. Note that this must be the RAW file, *not* a pointer to the GitHub UI. To find this URL, select the azuredeploy.json file in GitHub, and select the **RAW** button.
 
 > [AZURE.NOTE] When you run this command, the shell will prompt you for deployment parameter values.
 
@@ -126,7 +126,7 @@ To see an example parameters file named `azuredeploy.parameters.json`, look for 
 
 You can also deploy an Azure Container Service cluster with PowerShell. This document is based on the version 1.0 [Azure PowerShell module](https://azure.microsoft.com/blog/azps-1-0/).
 
-To deploy a Mesos or Docker Swarm cluster, select one of the following templates. Note that *both of these templates are the same*, with the exception of the default orchestrator selection.
+To deploy a Mesos or Docker Swarm cluster, select one of the following templates. Note that both of these templates are the same, with the exception of the default orchestrator selection.
 
 * [Mesos template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -167,7 +167,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 
 ## Next steps
 
-Now that you have a functioning cluster, see the following for connection and management details.
+Now that you have a functioning cluster, see these articles for connection and management details.
 
 - [Connect to an Azure Container Service cluster](./container-service-connect.md)
 - [Working with Azure Container Service and Mesos](./container-service-mesos-marathon-rest.md)
