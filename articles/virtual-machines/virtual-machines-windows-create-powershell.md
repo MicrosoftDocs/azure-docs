@@ -24,7 +24,7 @@
 - [PowerShell](virtual-machines-windows-create-powershell.md)
 - [PowerShell - Template](virtual-machines-windows-ps-template.md)
 - [Portal - Linux](virtual-machines-linux-portal-create.md)
-- [CLI](virtual-machines-linux-cli-create.md)
+- [CLI](virtual-machines-linux-quick-create-cli.md)
 
 <br>
 
@@ -40,7 +40,7 @@ These steps follow a fill-in-the-blanks approach for creating Azure PowerShell c
 
 There are two main options for installation, [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) and [WebPI](http://aka.ms/webpi-azps). WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. 
 
-For more information, see [Azure Powershell 1.0](https://azure.microsoft.com/en-us/blog/azps-1-0/).
+For more information, see [Azure Powershell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
 ## Step 2: Set your subscription
 
