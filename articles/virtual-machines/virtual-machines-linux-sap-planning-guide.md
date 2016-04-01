@@ -1246,6 +1246,7 @@ ___
 > 
 > * [DiskPart Command-Line Options](https://technet.microsoft.com/library/cc766465.aspx)
 > * [Automount](http://technet.microsoft.com/library/cc753703.aspx)
+> 
 > The Windows command line window should be opened as administrator.
 > 
 > If disks are attached, you need to log in into the VM to open the Windows Disk Manager. If automount is not enabled as recommended in chapter [Setting automount for attached disks][planning-guide-5.5.3],  the newly attached volume >needs to be taken online and initialized.
