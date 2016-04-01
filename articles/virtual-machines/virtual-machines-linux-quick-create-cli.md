@@ -3,7 +3,7 @@
    description="Quickly Create a Linux VM on Azure using the CLI."
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="v-livech"
+   authors="vlivech"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="04/04/2016"
-   ms.author="vlivech"/>
+   ms.author="v-livech"/>
 
 
 # Quickly Create a Linux VM on Azure using the CLI
