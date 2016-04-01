@@ -39,10 +39,10 @@ This article creates *ssh-rsa* format key files, as those are recommended for de
 
 ## Quick Command Listing
 
-In the following command examples, replace the values between &lt; and &gt; with the values from your own environment. 
+In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
 ```bash
-[username@fedora22 ~]$ ssh-keygen -t rsa -b 4096 -C "<your_user@yourdomain.com>"
+[chrisL@fedora ~]$ ssh-keygen -t rsa -b 4096 -C "<your_user@yourdomain.com>"
 
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
 
@@ -56,20 +56,20 @@ correct horse battery staple
 
 #Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
 
-[username@fedora22 ~]$ eval "$(ssh-agent -s)"
+[chrisL@fedora ~]$ eval "$(ssh-agent -s)"
 
-[username@fedora22 ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
+[chrisL@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
 
 #Copy the SSH public key to your Linux Server.
 
-[username@fedora22 ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+[chrisL@fedora ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
 
 #Test the login using keys instead of a password.
 
-[username@fedora22 ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+[chrisL@fedora ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
 
 Last login: Tue Dec 29 07:07:09 2015 from 66.215.21.201
-[username@fedora22 ~]$
+[chrisL@fedora ~]$
 
 ```
 
@@ -193,7 +193,7 @@ This SSH config gives you sections for each service to enable each to have its o
 
 `Hostname 102.160.203.241` = the IP address or DNS name for the server being logged into. This is used to route to the server and can be a external IP that maps to an internal IP.
 
-`User git` = the remote user account to use when logging into the Azure VM. 
+`User git` = the remote user account to use when logging into the Azure VM.
 
 `PubKeyAuthentication yes` = this tells SSH you want to use a SSH key to login.
 
@@ -202,7 +202,7 @@ This SSH config gives you sections for each service to enable each to have its o
 
 ## SSH into a Linux VM without a password
 
-Now that you have a SSH key pair and a configured SSH config file, you can login to your Linux VM quickly and securely. The first time you login to a server using a SSH key the command prompts you for the passphrase for that key file. 
+Now that you have a SSH key pair and a configured SSH config file, you can login to your Linux VM quickly and securely. The first time you login to a server using a SSH key the command prompts you for the passphrase for that key file.
 
 `username@macbook$ ssh fedora22`
 
