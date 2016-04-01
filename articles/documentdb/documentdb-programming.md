@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" 
-	description="Find out how to use Microsoft Azure DocumentDB to write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." 
+	pageTitle="DocumentDB programming: Stored procedures, database triggers, and UDFs | Microsoft Azure" 
+	description="Learn how to use DocumentDB to write stored procedures, database triggers, and user defined functions (UDFs) in JavaScript. Get database programing tips and more." 
+	keywords="Database triggers, stored procedure, stored procedure, database program, sproc, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="aliuy" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
-	ms.author="mimig"/>
+	ms.date="03/30/2016" 
+	ms.author="andrl"/>
 
-# DocumentDB server-side programming: Stored procedures, triggers, and UDFs
+# DocumentDB server-side programming: Stored procedures, database triggers, and UDFs
 
-Learn how DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows you to write application logic that can be shipped and executed directly on the database storage partitions 
+Learn how DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows you to write database program application logic that can be shipped and executed directly on the database storage partitions 
 
-We recommend getting started by watching the following video, where Andrew Liu provides a brief introduction to DocumentDB's server-side programming model. 
+We recommend getting started by watching the following video, where Andrew Liu provides a brief introduction to DocumentDB's server-side database programming model. 
 
 > [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
 
@@ -33,7 +34,7 @@ Then, return to this article, where you'll learn the answers to the following qu
 - How do I register and execute a stored procedure, trigger, or UDF in a RESTful manner by using HTTP?
 - What DocumentDB SDKs are available to create and execute stored procedures, triggers, and UDFs?
 
-## Introduction
+## Introduction to Stored Procedure and UDF Programming
 
 This approach of *“JavaScript as a modern day T-SQL”* frees application developers from the complexities of type system mismatches and object-relational mapping technologies. It also has a number of intrinsic advantages that can be utilized to build rich applications:  
 
@@ -49,7 +50,9 @@ This approach of *“JavaScript as a modern day T-SQL”* frees application deve
 	-	It adds an abstraction layer on top of the raw data, which enables data architects to evolve their applications independently from the data. This is particularly advantageous when the data is schema-less, due to the brittle assumptions that may need to be baked into the application if they have to deal with data directly.  
 	-	This abstraction lets enterprises keep their data secure by streamlining the access from the scripts.  
 
-The creation and execution of triggers, stored procedure and custom query operators is supported through the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), and [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) in many platforms including .NET, Node.js and JavaScript. **This tutorial uses the [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
+The creation and execution of database triggers, stored procedure and custom query operators is supported through the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](documentdb-sdk-dotnet.md) in many platforms including .NET, Node.js and JavaScript.
+
+**This tutorial uses the [Node.js SDK with Q Promises](http://azure.github.io/azure-documentdb-node-q/)** to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
 ## Stored procedures
 
@@ -71,7 +74,7 @@ Stored procedures are registered per collection, and can operate on any document
 
 	// register the stored procedure
 	var createdStoredProcedure;
-	client.createStoredProcedureAsync(collection._self, helloWorldStoredProc)
+	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
 		.then(function (response) {
 		    createdStoredProcedure = response.resource;
 		    console.log("Successfully created stored procedure");
@@ -83,7 +86,7 @@ Stored procedures are registered per collection, and can operate on any document
 Once the stored procedure is registered, we can execute it against the collection, and read the results back at the client. 
 
 	// execute the stored procedure
-	client.executeStoredProcedureAsync(createdStoredProcedure._self)
+	client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
 		.then(function (response) {
 		    console.log(response.result); // "Hello, World"
 		}, function (err) {
@@ -91,28 +94,28 @@ Once the stored procedure is registered, we can execute it against the collectio
 		});
 
 
-The context object provides access to all operations that can be performed on DocumentDB storage, as well as access to the request and response objects. In this case, we used the response object to set the body of the response that was sent back to the client. For more details, refer to the [DocumentDB JavaScript server SDK documentation](http://dl.windowsazure.com/documentDB/jsserverdocs/).  
+The context object provides access to all operations that can be performed on DocumentDB storage, as well as access to the request and response objects. In this case, we used the response object to set the body of the response that was sent back to the client. For more details, refer to the [DocumentDB JavaScript server SDK documentation](http://azure.github.io/azure-documentdb-js-server/).  
 
 Let us expand on this example and add more database related functionality to the stored procedure. Stored procedures can create, update, read, query and delete documents and attachments inside the collection.    
 
 ### Example: Write a stored procedure to create a document 
 The next snippet shows how to use the context object to interact with DocumentDB resources.
 
-	var createDocumentStoredProc = {
-	    id: "createMyDocument",
-	    body: function createMyDocument(documentToCreate) {
-	        var context = getContext();
-	        var collection = context.getCollection();
-	
-	        var accepted = collection.createDocument(collection.getSelfLink(),
-	              documentToCreate,
-				function (err, documentCreated) {
-				    if (err) throw new Error('Error' + err.message);
-				    context.getResponse().setBody(documentCreated.id)
-				});
-	        if (!accepted) return;
-	    }
-	}
+    var createDocumentStoredProc = {
+        id: "createMyDocument",
+        body: function createMyDocument(documentToCreate) {
+            var context = getContext();
+            var collection = context.getCollection();
+
+            var accepted = collection.createDocument(collection.getSelfLink(),
+                  documentToCreate,
+                  function (err, documentCreated) {
+                      if (err) throw new Error('Error' + err.message);
+                      context.getResponse().setBody(documentCreated.id)
+                  });
+            if (!accepted) return;
+        }
+    }
 
 
 This stored procedure takes as input documentToCreate, the body of a document to be created in the current collection. All such operations are asynchronous and depend on JavaScript function callbacks. The callback function has two parameters, one for the error object in case the operation fails, and one for the created object. Inside the callback, users can either handle the exception or throw an error. In case a callback is not provided and there is an error, the DocumentDB runtime throws an error.   
@@ -120,7 +123,7 @@ This stored procedure takes as input documentToCreate, the body of a document to
 In the example above, the callback throws an error if the operation failed. Otherwise, it sets the id of the created document as the body of the response to the client. Here is how this stored procedure is executed with input parameters.
 
 	// register the stored procedure
-	client.createStoredProcedureAsync(collection._self, createDocumentStoredProc)
+	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
 		.then(function (response) {
 		    var createdStoredProcedure = response.resource;
 	
@@ -131,7 +134,7 @@ In the example above, the callback throws an error if the operation failed. Othe
 		        author: "Douglas Adams"
 		    };
 	
-		    return client.executeStoredProcedureAsync(createdStoredProcedure._self,
+		    return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
 	              docToCreate);
 		}, function (error) {
 		    console.log("Error", error);
@@ -147,7 +150,7 @@ Note that this stored procedure can be modified to take an array of document bod
 
 The example described demonstrated how to use stored procedures. We will cover triggers and user defined functions (UDFs) later in the tutorial.
 
-## Transactions
+## Database program transactions
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID guarantees**. ACID is a well-known acronym that stands for four properties -  Atomicity, Consistency, Isolation and Durability.  
 
 Briefly, atomicity guarantees that all the work done inside a transaction is treated as a single unit where either all of it is committed or none. Consistency makes sure that the data is always in a good internal state across transactions. Isolation guarantees that no two transactions interfere with each other – generally, most commercial systems provide multiple isolation levels that can be used based on the application needs. Durability ensures that any change that’s committed in the database will always be present.   
@@ -219,6 +222,8 @@ In DocumentDB, JavaScript is hosted in the same memory space as the database. He
 
 This stored procedure uses transactions within a gaming app to trade items between two players in a single operation. The stored procedure attempts to read two documents each corresponding to the player IDs passed in as an argument. If both player documents are found, then the stored procedure updates the documents by swapping their items. If any errors are encountered along the way, it throws a JavaScript exception that implicitly aborts the transaction.
 
+If the collection the stored procedure is registered against is a single-partition collection, then the transaction is scoped to all the docuemnts within the collection. If the collection is partitioned, then stored procedures are executed in the transaction scope of a single partition key. Each stored procedure execution must then include a partition key value corresponding to the scope the transaction must run under. For more details, see [DocumentDB Partitioning](documentdb-partition-data.md).
+
 ### Commit and rollback
 Transactions are deeply and natively integrated into DocumentDB’s JavaScript programming model. Inside a JavaScript function, all operations are automatically wrapped under a single transaction. If the JavaScript completes without any exception, the operations to the database are committed. In effect, the “BEGIN TRANSACTION” and “COMMIT TRANSACTION” statements in relational databases are implicit in DocumentDB.  
  
@@ -234,7 +239,7 @@ In order to simplify development of stored procedures and triggers to handle tim
 
 JavaScript functions are also bounded on resource consumption. DocumentDB reserves throughput per collection based on the provisioned size of a database account. Throughput is expressed in terms of a normalized unit of CPU, memory and IO consumption called request units or RUs. JavaScript functions can potentially use up a large number of RUs within a short time, and might get rate-limited if the collection’s limit is reached. Resource intensive stored procedures might also be quarantined to ensure availability of primitive database operations.  
 
-### Example: Bulk importing data
+### Example: Bulk importing data into a database program
 Below is an example of a stored procedure that is written to bulk-import documents into a collection. Note how the stored procedure handles bounded execution by checking the Boolean return value from createDocument, and then uses the count of documents inserted in each invocation of the stored procedure to track and resume progress across batches.
 
 	function bulkImport(docs) {
@@ -286,8 +291,8 @@ Below is an example of a stored procedure that is written to bulk-import documen
 	    }
 	}
 
-## <a id="trigger"></a> Triggers
-### Pre-Triggers
+## <a id="trigger"></a> Database triggers
+### Database pre-triggers
 DocumentDB provides triggers that are executed or triggered by an operation on a document. For example, you can specify a pre-trigger when you are creating a document – this pre-trigger will run before the document is created. The following is an example of how pre-triggers can be used to validate the properties of a document that is being created:
 
 	var validateDocumentContentsTrigger = {
@@ -356,7 +361,7 @@ When triggers are registered, users can specify the operations that it can run w
 	
 	// Fails, can’t use a create trigger in a replace operation
 
-### Post-triggers
+### Database post-triggers
 Post-triggers, like pre-triggers, are associated with an operation on a document and don’t take any input parameters. They run **after** the operation has completed, and have access to the response message that is sent to the client.   
 
 The following example shows post-triggers in action:
@@ -402,7 +407,7 @@ The following example shows post-triggers in action:
 The trigger can be registered as shown in the following sample.
 
 	// register post-trigger
-	client.createTriggerAsync(collection.self, updateMetadataTrigger)
+	client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
 		.then(function(createdTrigger) { 
 		    var docToCreate = { 
 		        name: "artist_profile_1023",
@@ -454,12 +459,12 @@ The following sample creates a UDF to calculate income tax based on rates for va
 The UDF can subsequently be used in queries like in the following sample:
 
 	// register UDF
-	client.createUserDefinedFunctionAsync(collection.self, taxUdf)
+	client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
 		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
-		    return client.queryDocuments(collection.self,
+		    return client.queryDocuments('dbs/testdb/colls/testColl',
 	               query).toArrayAsync();
 		}, function(error) {
 		    console.log("Error" , error);
@@ -471,8 +476,286 @@ The UDF can subsequently be used in queries like in the following sample:
 	    console.log("Error" , error);
 	});
 
+## JavaScript language-integrated query API
+In addition to issuing queries using DocumentDB’s SQL grammar, the server-side SDK allows you to perform optimized queries using a fluent JavaScript interface without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing predicate functions into chainable function calls, with a syntax familiar to ECMAScript5's Array built-ins and popular JavaScript libraries like lodash. Queries are parsed by the JavaScript runtime to be executed efficiently using DocumentDB’s indices.
+
+> [AZURE.NOTE] `__` (double-underscore) is an alias to `getContext().getCollection()`.
+> <br/>
+> In other words, you can use `__` or `getContext().getCollection()` to access the JavaScript query API.
+
+Supported functions include:
+<ul>
+<li>
+<b>chain() ... .value([callback] [, options])</b>
+<ul>
+<li>
+Starts a chained call which must be terminated with value().
+</li>
+</ul>
+</li>
+<li>
+<b>filter(predicateFunction [, options] [, callback])</b>
+<ul>
+<li>
+Filters the input using a predicate function which returns true/false in order to filter in/out input documents into the resulting set. This behaves similar to a WHERE clause in SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>map(transformationFunction [, options] [, callback])</b>
+<ul>
+<li>
+Applies a projection given a transformation function which maps each input item to a JavaScript object or value. This behaves similar to a SELECT clause in SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>pluck([propertyName] [, options] [, callback])</b>
+<ul>
+<li>
+This is a shortcut for a map which extracts the value of a single property from each input item.
+</li>
+</ul>
+</li>
+<li>
+<b>flatten([isShallow] [, options] [, callback])</b>
+<ul>
+<li>
+Combines and flattens arrays from each input item in to a single array. This behaves similar to SelectMany in LINQ.
+</li>
+</ul>
+</li>
+<li>
+<b>sortBy([predicate] [, options] [, callback])</b>
+<ul>
+<li>
+Produce a new set of documents by sorting the documents in the input document stream in ascending order using the given predicate. This behaves similar to a ORDER BY clause in SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>sortByDescending([predicate] [, options] [, callback])</b>
+<ul>
+<li>
+Produce a new set of documents by sorting the documents in the input document stream in descending order using the given predicate. This behaves similar to a ORDER BY x DESC clause in SQL.
+</li>
+</ul>
+</li>
+</ul>
+
+
+When included inside predicate and/or selector functions, the following JavaScript constructs get automatically optimized to run directly on DocumentDB indices:
+
+* Simple operators: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Literals, including the object literal: {}
+* var, return
+
+The following JavaScript constructs do not get optimized for DocumentDB indices:
+
+* Control flow (e.g. if, for, while)
+* Function calls
+
+For more information, please see our [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/).
+
+### Example: Write a stored procedure using the JavaScript query API
+
+The following code sample is an example of how the JavaScript Query API can be used in the context of a stored procedure. The stored procedure inserts a document, given by an input parameter, and updates a metadata document, using the `__.filter()` method, with minSize, maxSize, and totalSize based upon the input document's size property.
+
+    /**
+     * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
+     */
+    function insertDocumentAndUpdateMetadata(doc) {
+      // HTTP error codes sent to our callback funciton by DocDB server.
+      var ErrorCode = {
+        RETRY_WITH: 449,
+      }
+
+      var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+        if (err) throw err;
+
+        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+        if (!doc.isMetadata && doc.size > 0) {
+          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
+          var result = __.filter(function(x) {
+            return x.isMetadata === true
+          }, function(err, feed, options) {
+            if (err) throw err;
+
+            // We assume that metadata doc was pre-created and must exist when this script is called.
+            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
+
+            // The metadata document.
+            var metaDoc = feed[0];
+
+            // Update metaDoc.minSize:
+            // for 1st document use doc.Size, for all the rest see if it's less than last min.
+            if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
+            else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
+
+            // Update metaDoc.maxSize.
+            metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
+
+            // Update metaDoc.totalSize.
+            metaDoc.totalSize += doc.size;
+
+            // Update/replace the metadata document in the store.
+            var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
+              if (err) throw err;
+              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+              //       We have to take care of that on the client side.
+            });
+            if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
+          });
+          if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
+        }
+      });
+      if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+    }
+
+## SQL to Javascript cheat sheet
+The following table presents various SQL queries and the corresponding JavaScript queries.
+
+As with SQL queries, document property keys (e.g. `doc.id`) are case-sensitive.
+
+<br/>
+<table border="1" width="100%">
+<colgroup>
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<th>SQL</th>
+<th>JavaScript Query API</th>
+<th>Details</th>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return doc;
+});
+</pre>
+</td>
+<td>Results in all documents (paginated with continuation token) as is.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg, docs.actions 
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return {
+        id: doc.id,
+        msg: doc.message,
+        actions: doc.actions
+    };
+});
+</pre>
+</td>
+<td>Projects the id, message (aliased to msg), and action from all documents.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT * 
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(doc) {
+    return doc.id === "X998_Y998";
+});
+</pre>
+</td>
+<td>Queries for documents with the predicate: id = "X998_Y998".</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+WHERE ARRAY_CONTAINS(docs.Tags, 123)
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(x) {
+    return x.Tags && x.Tags.indexOf(123) > -1;
+});
+</pre>
+</td>
+<td>Queries for documents that have a Tags property and Tags is an array containing the value 123.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.id === "X998_Y998";
+    })
+    .map(function(doc) {
+        return {
+            id: doc.id,
+            msg: doc.message
+        };
+    })
+    .value();
+</pre>
+</td>
+<td>Queries for documents with a predicate, id = "X998_Y998", and then projects the id and message (aliased to msg).</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT VALUE tag
+FROM docs
+JOIN tag IN docs.Tags
+ORDER BY docs._ts
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.Tags && Array.isArray(doc.Tags);
+    })
+    .sortBy(function(doc) {
+    	return doc._ts;
+    })
+    .pluck("Tags")
+    .flatten()
+    .value()
+</pre>
+</td>
+<td>Filters for documents which have an array property, Tags, and sorts the resulting documents by the _ts timestamp system property, and then projects + flattens the Tags array.</td>
+</tr>
+</tbody>
+</table>
+
 ## Runtime support
-[DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources.md).
+[DocumentDB JavaScript server side SDK](http://azure.github.io/azure-documentdb-js-server/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Security
 JavaScript stored procedures and triggers are sandboxed so that the effects of one script do not leak to the other without going through the snapshot transaction isolation at the database level. The runtime environments are pooled but cleaned of the context after each run. Hence they are guaranteed to be safe of any unintended side effects from each other.
@@ -481,7 +764,7 @@ JavaScript stored procedures and triggers are sandboxed so that the effects of o
 Stored procedures, triggers and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. This ensures invocations of stored procedures are fast and have a low footprint.
 
 ## Client SDK support
-In addition to the [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) client, DocumentDB supports [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/), and [Python SDKs](http://dl.windowsazure.com/documentDB/pythondocs/). Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
+In addition to the [Node.js](documentdb-sdk-node.md) client, DocumentDB supports [.NET](documentdb-sdk-dotnet.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/), and [Python SDKs](documentdb-sdk-python.md). Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -505,16 +788,16 @@ In addition to the [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) cl
 	};
 	
 	// register stored procedure
-	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(collection.SelfLink, markAntiquesSproc);
+	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
 	dynamic document = new Document() { Id = "Borges_112" };
 	document.Title = "Aleph";
 	document.Year = 1949;
 	
 	// execute stored procedure
-	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
+	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
 
 
-This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx) to create a pre-trigger and create a document with the trigger enabled. 
+This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx) to create a pre-trigger and create a document with the trigger enabled. 
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -528,7 +811,7 @@ This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/a
 	    TriggerType = TriggerType.Pre
 	};
 	
-	Document createdItem = await client.CreateDocumentAsync(collection.SelfLink, new Document { Id = "documentdb" },
+	Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
 	    new RequestOptions
 	    {
 	        PreTriggerInclude = new List<string> { "CapitalizeName" },
@@ -546,7 +829,7 @@ And the following example shows how to create a user defined function (UDF) and 
 	    }"
 	};
 	
-	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
+	foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
 	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
@@ -576,7 +859,7 @@ All DocumentDB operations can be performed in a RESTful manner. Stored procedure
 	}
 
 
-The stored procedure is registered by executing a POST request against the URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs with the body containing the stored procedure to create. Triggers and UDFs can be registered similarly by issuing a POST against /triggers and /udfs respectively.
+The stored procedure is registered by executing a POST request against the URI dbs/testdb/colls/testColl/sprocs with the body containing the stored procedure to create. Triggers and UDFs can be registered similarly by issuing a POST against /triggers and /udfs respectively.
 This stored procedure can then be executed by issuing a POST request against its resource link:
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
@@ -624,20 +907,21 @@ Here the pre-trigger to be run with the request is specified in the x-ms-documen
 
 ## Sample code
 
-You can find more server-side code examples (including [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)) on our [Github repository](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples).
+You can find more server-side code examples (including [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) on our [Github repository](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Want to share your awesome stored procedure? Please, send us a pull-request! 
 
 ## Next steps
 
-Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure Preview portal using Script Explorer. For more information, see [View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer](documentdb-view-scripts.md).
+Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure Portal using Script Explorer. For more information, see [View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer](documentdb-view-scripts.md).
 
 You may also find the following references and resources useful in your path to learn more about DocumentDB server-side programming:
 
 - [Azure DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 - [JSON](http://www.json.org/) 
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
--	[JavaScript – JSON type system](http://www.json.org/js.html) 
--	[Secure and Portable Database Extensibility](http://dl.acm.org/citation.cfm?id=276339) 
--	[Service Oriented Database Architecture](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	[Hosting the .NET Runtime in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
+- [JavaScript – JSON type system](http://www.json.org/js.html) 
+- [Secure and Portable Database Extensibility](http://dl.acm.org/citation.cfm?id=276339) 
+- [Service Oriented Database Architecture](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [Hosting the .NET Runtime in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)

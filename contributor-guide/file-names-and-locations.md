@@ -1,6 +1,6 @@
 <properties title="" pageTitle="File names and locations for Azure technical articles" description="Explains the file structure for articles and the naming conventions you should follow when you create a new article." metaKeywords="" services="" solutions="" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="required" />
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="12/16/2014" ms.author="tysonn" />
+<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="03/14/2016" ms.author="tysonn" />
 
 #File names and locations for Azure technical articles
 
@@ -13,7 +13,6 @@ Here's what you need to know:
 + [Rules]
 + [Pattern]
 + [Standard examples]
-+ [Special file naming convention for the Azure preview portal]
 + [Marketplace content]
 + [File name approval]
 
@@ -46,21 +45,6 @@ Here are a few examples of valid names that follow the pattern. :
 - virtual-machines-install-windows-server-2008r2.md
 
 
-##Special file naming convention for the Azure preview portal
-
-Right now, we have two portals running - the [general availability portal](https://manage.windowsazure.com) and the [Azure preview portal](https://portal.azure.com). To clearly identify content that has been written for the preview portal without hiding it in the metadata, we need to follow some slightly customized file naming guidance:
-
-- If the service is available only in the Azure preview portal, it's easy. Just follow the standard naming guidance.
-
-- If the service is available in both portals, and you are writing an article about the service in the preview portal, add **preview-portal** at the end of the file name before the .md extension. This will help us separate the content for that service in the old portal from content for that service in the new portal. (Don't mix portal content!)
-
-- If the article is about the preview portal itself and not specific to any service or platform, start the file name with **azure-preview-portal**.
-
-Here are some examples:
-
-- azure-preview-portal-supported-browsers-devices.md
-- storage-premium-storage-preview-portal.md
-
 ##Marketplace content
 
 To distinguish content that focuses on partner contributions to the Azure marketplace, start the file names with "marketplace". This content should not be too common, as most partner content should be created on the partners' own web sites.
@@ -81,6 +65,5 @@ It's the job of our group of pull request reviewers to review file names when a 
 [Rules]: #rules
 [Pattern]: #pattern
 [Standard examples]: #standard-examples
-[Special file naming convention for the Azure preview portal]: #special-file-naming-convention-for-the-azure-preview-portal
 [Marketplace content]: #marketplace-content
 [File name approval]: #file-name-approval

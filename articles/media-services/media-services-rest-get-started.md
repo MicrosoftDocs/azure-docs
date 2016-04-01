@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Getting Started with Delivering Video on Demand (VoD) using REST APIs" 
-	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using REST APIs" 
+	pageTitle="Get started with delivering content on demand using REST API" 
+	description="This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+ 	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
-#Getting Started with Delivering Video on Demand (VoD) using REST APIs 
+#Get started with delivering content on demand using REST API
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
 >[AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
+
 
 This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs. 
 
@@ -41,14 +42,13 @@ The following tasks are shown in this quickstart.
 1.  Create a new asset and upload a video file with REST API.
 1.  Configure streaming units with REST API.
 2.  Encode the source file into a set of adaptive bitrate MP4 files with REST API.
-1.  Configure delivery policy for the encoded asset with REST API.
 1.  Publish the asset and get streaming and progressive download URLs with REST API. 
 1.  Play your content. 
 
 
 ## <a id="create_ams"></a>Create a Media Services account using Portal
 
-1. In the [Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
+1. In the [Azure Classic Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
    
 	![Media Services Quick Create](./media/media-services-rest-get-started/wams-QuickCreate.png)
 
@@ -81,12 +81,9 @@ Two things are required when accessing Azure Media Services: an access token pro
 The following steps describe the most common workflow when using the Media Services REST API to connect to Media Services:
 
 1. Getting an access token. 
-2. Connecting to the Media Services URI. 
-	
-	>[AZURE.NOTE]
-	After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
-	> 
-	> You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
+2. Connecting to the Media Services URI.  
+
+	Remember that after successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
 3. Posting your subsequent API calls to the new URL. 
 	
 	For example, if after trying to connect, you got the following:
@@ -165,7 +162,7 @@ The following example demonstrates HTTP request to the Media Services root URI (
 	
 	GET https://media.windows.net/ HTTP/1.1
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Accept: application/json
 	Host: media.windows.net
 
@@ -191,7 +188,7 @@ The following example demonstrates HTTP request to the Media Services root URI (
 			
 	GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Accept: application/json
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -245,7 +242,7 @@ The following example shows how to create an asset.
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 45
@@ -300,7 +297,7 @@ After you upload your digital media file into a blob container, you will use the
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 164
 	
@@ -363,13 +360,13 @@ The following example shows how to create an AccessPolicy:
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 74
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
 
-**HTTP Request**
+**HTTP Response**
 
 	If successful, the following response is returned:
 	
@@ -423,7 +420,7 @@ The following example shows how to create a SAS URL Locator, as defined by the T
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 178
 	
@@ -487,7 +484,7 @@ Now that you've uploaded your file, update the FileAsset size (and other) inform
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 	{  
@@ -515,7 +512,7 @@ If successful, the following is returned:
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
 	
@@ -534,7 +531,7 @@ If successful, the following is returned:
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
 **HTTP Response**
@@ -553,7 +550,7 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of dynamic packaging, you need to do the following:
 
-- get at least one streaming unit for the **streaming endpoint **from which you plan to delivery your content (described in this section).
+- get at least one streaming unit for the **streaming endpoint **from which you plan to deliver your content (described in this section).
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
 
 With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
@@ -575,7 +572,7 @@ For example, let's get the first streaming endpoint in your account (you can hav
 	Accept: application/json;odata=verbose
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
 **HTTP Response**
@@ -595,7 +592,7 @@ If successful, the following is returned:
 	Accept: application/json;odata=verbose
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
@@ -630,7 +627,7 @@ The allocation of any new units takes around 20 minutes to complete. To check th
 	Accept: application/json;odata=verbose
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 **HTTP Response**
@@ -673,25 +670,25 @@ As was mentioned earlier, when working with Azure Media Services one of the most
 To take advantage of dynamic packaging, you need to do the following:
 
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
-- get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. 
+- get at least one streaming unit for the streaming endpoint from which you plan to deliver your content. 
 
-The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Azure Media Encoder**. The section also shows how to monitor the job processing progress. When the job is complete you you would be able to create locators that are needed to get access to your assets. 
+The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The section also shows how to monitor the job processing progress. When the job is complete you you would be able to create locators that are needed to get access to your assets. 
 
 ### Get a media processor
 
-In Media Services, a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. For the encoding task shown in this tutorial we are going to use the Azure Media Encoder.
+In Media Services, a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. For the encoding task shown in this tutorial we are going to use the Media Encoder Standard.
 
 The following code requests the encoder's id. 
 
 **HTTP Request**
 
-	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20Encoder' HTTP/1.1
+	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 
@@ -714,12 +711,12 @@ The following code requests the encoder's id.
 	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors",
 	   "value":[  
 	      {  
-	         "Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
-	         "Description":"Azure Media Encoder",
-	         "Name":"Azure Media Encoder",
+	         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+	         "Description":"Media Encoder Standard",
+	         "Name":"Media Encoder Standard",
 	         "Sku":"",
 	         "Vendor":"Microsoft",
-	         "Version":"4.4"
+	         "Version":"1.1"
 	      }
 	   ]
 	}
@@ -728,7 +725,7 @@ The following code requests the encoder's id.
 
 Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing; however, for the readability of the code examples in this topic, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/azure/dn619392.aspx) supported by the Azure Media Processor.  
+The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/mt269960) supported by the Media Encoder Standard processor.  
 
 **HTTP Request**
 	
@@ -739,7 +736,7 @@ The following example shows you how to create and post a Job with one Task set t
 	Accept: application/json;odata=verbose
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 482
 	
@@ -755,7 +752,7 @@ The following example shows you how to create and post a Job with one Task set t
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
 	         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
 				<outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      }
@@ -861,7 +858,7 @@ You can retrieve the Job status by using the State property, as shown in the fol
 	Accept: application/json;odata=verbose
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-2233-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336908022&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=RYXOraO6Z%2f7l9whWZQN%2bypeijgHwIk8XyikA01Kx1%2bk%3d
 	Host: wamsbayclus001rest-hs.net
 	Content-Length: 0
@@ -913,7 +910,7 @@ If successful, a 204 response code is returned with no message body.
 
 ### Get the output asset 
 
-In the next section we are going to configure the delivery policy for the job's output asset (the encoded asset). The following code shows how to request the output asset Id. 
+The following code shows how to request the output asset Id. 
 
 
 **HTTP Request**
@@ -925,7 +922,7 @@ In the next section we are going to configure the delivery policy for the job's 
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 
@@ -961,85 +958,6 @@ In the next section we are going to configure the delivery policy for the job's 
 	   ]
 	}
 
-
-## <a id="configure_delivery_method"></a>Configure delivery policy for the encoded asset
-
-One of the steps in the Media Services content delivery workflow is configuring asset delivery policies. Some things that the asset delivery policy configuration includes: what protocols can be used to deliver the asset (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), whether you want to dynamically encrypt your asset and how (envelope or common encryption). 
-
-The following **AssetDeliveryPolicies** HTTP Request specifies not to apply dynamic encryption (AssetDeliveryPolicyType could be one of these values: None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols (AssetDeliveryProtocol could be a combination of the following values: None = 0,        SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535). 
-
-
-### Create AssetDeliveryPolicies
-
-
-**HTTP Request**
-		
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
-	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 83
-	
-	{"Name":"Clear Policy", "AssetDeliveryPolicyType":"2","AssetDeliveryProtocol":"7"} 
-
-
-**HTTP Response**
-	
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Content-Length: 361
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Location: https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aef97ae36-b898-4b8a-b427-7819ee726276')
-	Server: Microsoft-IIS/8.5
-	request-id: 7391a4b2-995d-4fc5-aca5-a398786ea38e
-	x-ms-request-id: 7391a4b2-995d-4fc5-aca5-a398786ea38e
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Mon, 19 Jan 2015 09:13:18 GMT
-
-	{  
-	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#AssetDeliveryPolicies/@Element",
-	   "Id":"nb:adpid:UUID:ef97ae36-b898-4b8a-b427-7819ee726276",
-	   "Name":"Clear Policy",
-	   "AssetDeliveryProtocol":7,
-	   "AssetDeliveryPolicyType":2,
-	   "AssetDeliveryConfiguration":null,
-	   "Created":"2015-01-19T09:13:18.911615Z",
-	   "LastModified":"2015-01-19T09:13:18.911615Z"
-	}
-    
-
-### Link the asset delivery policy with an asset
-
-The following HTTP request associates the specified delivery policy with the specified asset.  
-
-**HTTP Request**
-
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/Assets('nb%3Acid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/$links/DeliveryPolicies HTTP/1.1
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Content-Type: application/json
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
-	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 140
-	
-	{ "uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aef97ae36-b898-4b8a-b427-7819ee726276')" }
-
-
-**HTTP Response**
-
-	HTTP/1.1 204 No Content
-    . . . 
 
 
 ## <a id="publish_get_urls"></a>Publish the asset and get streaming and progressive download URLs with REST API
@@ -1083,7 +1001,7 @@ The following example shows how to specify the AccessPolicy for read permissions
 	Accept: application/json
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
 	Host: wamsbayclus001rest-hs.net
 	Content-Length: 74
@@ -1106,7 +1024,7 @@ The following code shows how to get a URL that can be used to download a media f
 	Accept: application/json
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-b1ae-2233-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
 	Host: wamsbayclus001rest-hs.net
 	Content-Length: 182
@@ -1200,7 +1118,7 @@ The following code shows how to create a streaming URL Locator:
 	Accept: application/json
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
 	Host: wamsbayclus001rest-hs
 	Content-Length: 182
@@ -1269,22 +1187,23 @@ To stream you video, use [Azure Media Services Player](http://amsplayer.azureweb
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 
-##Next step
 
-Learn more about building Video on Demand applications [Build VoD applications](media-services-video-on-demand-workflow.md)
+##Next Steps: Media Services learning paths
 
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Additional Resources
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices</a>
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-- Anchors. -->
+## Looking for something else?
+
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
+
 
 
 <!-- URLs. -->
-  [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Management Portal]: http://manage.windowsazure.com/
+  [Azure Classic Portal]: http://manage.windowsazure.com/
 
 
- 
+

@@ -1,30 +1,29 @@
 1. Open the project file mainpage.xaml.cs and add the following code snippet to the MainPage class:
 	
         private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
+        private async Task Authenticate()
         {
             while (user == null)
             {
                 string message;
                 try
                 {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-                    message =
-                        string.Format("You are now logged in - {0}", user.UserId);
+                    user = await App.MobileServiceDotNetClient.LoginAsync(MobileServiceAuthenticationProvider.Twitter);
+                    message = string.Format("You are now logged in - {0}", user.UserId);
                 }
                 catch (InvalidOperationException)
                 {
                     message = "You must log in. Login Required";
                 }
 
-                MessageBox.Show(message);
+                var dialog = new MessageDialog(message);
+                await dialog.ShowAsync();
             }
         }
 
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
+    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Twitter login.
 
-    >[AZURE.NOTE]If you are using an identity provider other than Facebook, change the value of <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider.</p>
+    >[AZURE.NOTE]If you are using an identity provider other than Twitter, change the value of <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider.</p>
     </div>
 
 2. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 

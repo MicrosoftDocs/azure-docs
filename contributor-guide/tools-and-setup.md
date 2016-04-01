@@ -1,25 +1,39 @@
-<properties title="" pageTitle="Install and set up tools for authoring in GitHub" description="Tools and steps to get set up for authoring Azure content in GitHub." services="contributor-guide" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="carolz" />
+<properties 
+pageTitle="Install and set up tools for authoring in GitHub" 
+description="Tools and steps to get set up for authoring Azure content in GitHub." 
+services="contributor-guide" 
+documentationCenter="" 
+authors="tysonn"  
+manager="carolz" />
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/19/2015" ms.author="tysonn" />
+<tags 
+ms.service="contributor-guide"
+ ms.devlang="" 
+ ms.topic="article"
+  ms.tgt_pltfrm="" 
+  ms.workload="" 
+  ms.date="01/19/2015" 
+  ms.author="tysonn" />
 
 #Install and set up tools for authoring in GitHub
 
 Follow the steps in this article to set up tools for contributing to the Azure technical documentation. Casual and occasional contributors probably can use the GitHub UI described in step 2.
 
-If you're unfamiliar with Git, you might want to review some Git terminology. T​his StackOverflow thread contains a glossary of Git terms you'll encounter in this set of steps: [http://stackoverflow.com/questions/7076164/terminology-used-by-git](http://stackoverflow.com/questions/7076164/terminology-used-by-git​​)
+If you're unfamiliar with Git, you might want to review some Git terminology: [https://help.github.com/articles/github-glossary](https://help.github.com/articles/github-glossary). In addition, this StackOverflow thread contains a glossary of Git terms you'll encounter in this set of steps: [http://stackoverflow.com/questions/7076164/terminology-used-by-git](http://stackoverflow.com/questions/7076164/terminology-used-by-git)
 
 ## Contents
 
-- [Create a GitHub account and set up your profile]
-- [Sign up for Disqus]
-- [Determine whether you really need to follow the rest of these steps]
-- [Permissions in GitHub]
-- [Install Git for Windows]
-- [Enable two-factor authentication]
-- [Install a markdown editor]
-- [Fork the repository and copy it to your computer]
-- [Configure your user name and email locally]
-- [Next steps]
+- [Create a GitHub account and set up your profile](#create-a-github-account-and-set-up-your-profile)
+- [Sign up for Disqus](#sign-up-for-disqus)
+- [Determine whether you really need to follow the rest of these steps](#determine-whether-you-really-need-to-follow-the-rest-of-these-steps)
+- [Permissions in GitHub](#permissions-in-github)
+- [Install Git for Windows](#install-git-for-windows)
+- [Enable two-factor authentication](#enable-two-factor-authentication)
+- [Install a markdown editor](#install-a-markdown-editor)
+- [Configure Atom](#configure-atom)
+- [Fork the repository and copy it to your computer](#fork-the-repository-and-copy-it-to-your-computer)
+- [Configure your user name and email locally](#configure-your-user-name-and-email-locally)
+- [Next steps](#next-steps)
 
 ## Create a GitHub account and set up your profile
 
@@ -38,7 +52,7 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
-##Sign up for Disqus
+## Sign up for Disqus
 
 Every published Azure technical article has a comment stream provided by the Disqus service.
 
@@ -70,20 +84,24 @@ If you only need or want to make textual updates to an existing article, you pro
  That opens the easy-to-use web editor that makes it easy to submit changes. You don't need to follow the other steps in this article.
 
 ###All other changes
-You need to install the tools if you want to make any of the following sorts of changes:
+The GitHub UI does support creation of new files and dragging and dropping images. However, when you work in the UI, managing branches can be confusing so we typically recommend you install the tools and learn the commands for creating and managing articles. If you want to use the UI, see:
 
- - Major changes to an article
- - Create and publish a new article
- - Add new images or update images
- - Update an article over a period of days without publishing changes each of those days
+- [Creating files on Github](https://github.com/blog/1327-creating-files-on-github)
+- [Upload files to your repositories](https://github.com/blog/2105-upload-files-to-your-repositories)
 
- Go to the next section!
+For the following sorts of work, we strongly recommend you install and learn to use the tools:
+
+ - Making major changes to an article
+ - Creating and publishing a new article
+ - Adding new images or updating images
+ - Updating an article over a period of days without publishing changes each of those days
+ - Creating content for a release that has to go out on a certain day at a certain time
 
 ##Permissions in GitHub
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are a Microsoft employee working on Azure content, you should work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - click **Join a Team**, and join **azure-content-read**.
+If you are a Microsoft PM or writer who is working on Azure content, you must work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - sign in to GitHub using the button > click Azure > click **Join a team** or **Join another team**, and then search for and join the **azure-content-read** group.
 
 ## Install Git for Windows
 
@@ -105,6 +123,8 @@ To enable this, follow the instructions in both the following GitHub help topics
 - [About Two-Factor Authentication](https://help.github.com/articles/about-two-factor-authentication/)
 - [Creating an access token for command-line use](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
 
+When you create the token, select all the scopes available in the token-creation UI ([details on each scope](https://developer.github.com/v3/oauth/#scopes))
+
 After you enable 2FA, you have to enter the access token instead of your GitHub password at the command prompt when you try to access a GitHub repository from the command line. The access token is not the authentication code that you get in a text message when you set up 2FA. It's a long string that looks something like this:  fdd3b7d3d4f0d2bb2cd3d58dba54bd6bafcd8dee. A few notes about this:
 
 - When you create your access token, save it in a text file to make it readily accessible when you need it.
@@ -118,12 +138,21 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
 
 We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor.
 
-- We recommend GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. **Note**: Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. You find this setting under File-Settings in the Editor Settings section with the title "Tab Length". You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad. Also, the hotkey Ctrl-Shift-M toggles the preview HTML view. It's and extra package under Packages-Markdown Preview menu option. 
+- **Atom**: Most of us use GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. It has spell check. 
 
 - **Notepad**: You can use Notepad for a very lightweight option.
 
 - **Prose**: This is a lightweight, elegant, on-line, and open source markdown editor that offers a preview. Visit [http://prose.io](http://prose.io) and authorize Prose in your repository.
 
+- **[Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)** - Microsoft's entry in this space.
+
+## Configure Atom
+
+If you use Atom, you'll need to set a few things up.
+
+- Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. So, configure Atom to use 4 spaces - you can find this setting under File>Settings>Editor Settings>Tab Length. 
+- You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad. 
+- To turn on the markdown preview, click Packages>Markdown Preview>Toggle Preview. You can use Ctrl-Shift-M to toggle the preview HTML view. 
 
 ## Fork the repository and copy it to your computer
 
@@ -131,7 +160,7 @@ We author content using simple "markdown" notation in the files, rather than com
 
 2. Copy the Personal Access Token that you got from [https://github.com/settings/applications#personal-access-tokens](https://github.com/settings/applications#personal-access-tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
 
-3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open GitBash.  At the command prompt, enter the following command.  This command creates a azure-content(-pr) drectory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
+3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-content(-pr) drectory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
 
 Public repo:
 

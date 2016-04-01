@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure SSL for a cloud service - Azure" 
-	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." 
+	pageTitle="Configure SSL for a cloud service  | Microsoft Azure" 
+	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application. These examples use the Azure portal." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Configuring SSL for an application in Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
-> [AZURE.NOTE] The procedures in this task apply to Azure Cloud Services; for Websites, see [Configuring an SSL certificate for an Azure website](../web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 This task will use a production deployment; information on using a staging deployment is provided at the end of this topic.
 
@@ -46,7 +46,7 @@ The certificate must meet the following requirements for SSL certificates in Azu
 -   The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www.contoso.com**.
 -   The certificate must use a minimum of 2048-bit encryption.
 
-For test purposes, you can create and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the task below uses a self-signed certificate in which  the common name (CN) used in the certificate is **sslexample.cloudapp.net**. For details about how to create a self-signed certificate using IIS Manager, See [How to create a certificate for a role][].
+For test purposes, you can [create](cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the task below uses a self-signed certificate in which  the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
 
 Next, you must include information about the certificate in your service definition and service configuration files.
 
@@ -65,12 +65,20 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
-    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located. We have chosen to store the certificate in the CA (Certificate Authority)tore, but you can choose other options as well. See [How to associate a certificate with a service][] for more information.
+    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located.
+    
+    Permissions (`permisionLevel` attribute) can be set to one of the following:
+
+    | Permission Value  | Description |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(Default)** All role processes can access the private key. |
+    | elevated          | Only elevated processes can access the private key.|
 
 2.  In your service definition file, add an **InputEndpoint** element
     within the **Endpoints** section to enable HTTPS:
@@ -170,10 +178,7 @@ connect to it using HTTPS.
 
 ## Next steps
 
-* [How to associate a certificate with a service][]
-* [How to configure an SSL certificate on an HTTPS endpoint][]
-
-[How to create a certificate for a role]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[How to associate a certificate with a service]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/library/azure/ff795779.aspx
-[Azure Portal]: http://portal.azure.com/
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).

@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Notification Hubs from a Java back-end." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
-	ms.author="yuaxu"/>
+	ms.date="03/28/2016" 
+	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Java
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
+		
 This topic describes the key features of the new fully supported official Azure Notification Hub Java SDK. 
 This is an open source project and you can view the entire SDK code at [Java SDK]. 
 

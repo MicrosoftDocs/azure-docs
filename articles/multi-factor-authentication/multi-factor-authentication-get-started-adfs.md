@@ -4,16 +4,15 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="stevenpo" 
+	editor="curtland"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.devlang="na" ms.topic="get-started-article" 
+	ms.date="02/25/2016" 
 	ms.author="billmath"/>
 
 # Getting started with Azure Multi-Factor Authentication and Active Directory Federation Services
@@ -43,7 +42,7 @@ Caveats with app passwords for federated users:
 
 For information on setting up either Azure Multi-Factor Authentication or the Azure Multi-Factor Authentication Server with AD FS see the following:
 
-- [Secure cloud resources using Azure Multi-Factor Authentication and AD FS](multi-factor-authentication-get-started-adfs-cloud)
+- [Secure cloud resources using Azure Multi-Factor Authentication and AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
 - [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 - [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 

@@ -1,29 +1,31 @@
 <properties 
 	pageTitle="Configure web apps in Azure App Service" 
 	description="How to configure a web app in Azure App Services" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
-	authors="MikeWasson" 
+	authors="erikre" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
-	ms.author="mwasson"/>
+	ms.date="02/26/2016" 
+	ms.author="tdykstra"/>
 
 
 # Configure web apps in Azure App Service #
 
 This topic explains how to configure a web app using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+
 ## Application settings
 
-1. In the [Azure Portal](https://portal.azure.com), open the blade for the web app.
+1. In the [Azure Portal](https://portal.azure.com/), open the blade for the web app.
 2. Click **All Settings**.
 3. Click **Application Settings**.
 
@@ -72,7 +74,7 @@ This section contains name/value pairs that you web app will load on start up.
 
 Connection strings for linked resources. 
 
-For .NET apps, these connection strings are be injected into your .NET configuration `connectionStrings` settings at runtime, overriding existing entries where the key equals the linked database name. 
+For .NET apps, these connection strings are injected into your .NET configuration `connectionStrings` settings at runtime, overriding existing entries where the key equals the linked database name. 
 
 For PHP, Python, Java and Node applications, these settings will be available as environment variables at runtime, prefixed with the connection type. The environment variable prefixes are as follows: 
 
@@ -175,5 +177,4 @@ For more information, see [How to: Monitor web endpoint status](http://go.micros
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  

@@ -3,7 +3,7 @@
 	description="This topic gives an overview of Media Encoder Premium Workflow Formats formats and codecs" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Media Encoder Premium Workflow Formats and Codecs
 
 
-**Note** Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
+>[AZURE.NOTE]For premium encoder questions, email mepd at Microsoft.com.
+>
+>Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 
 This document contains a list of input and output file formats and codecs that are supported by the public preview version of the **Media Encoder Premium Workflow** encoder.
 
@@ -126,3 +128,12 @@ Note: not all of the above output formats are supported for delivery via streami
 ##Known issues
 
 If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file. 
+
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

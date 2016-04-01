@@ -3,6 +3,7 @@
 	description="Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop."
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="03/22/2016"
 	ms.author="jgao"/>
 
 
@@ -22,7 +23,7 @@
 
 Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Blob storage. It is designed as an HDFS extension to provide a seamless experience to customers. It enables the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Blob storage and HDFS are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Blob storage, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 
-##Prerequisites
+**Prerequisites**
 
 Note the following requirement before you begin:
 
@@ -61,7 +62,7 @@ Microsoft provides the following utilities to work with Azure Blob storage:
 
 The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
 
-1. [Install and configure the Azure CLI for Mac, Linux and Windows](../xplat-cli.md).
+1. [Install and configure the Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
 
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
@@ -108,7 +109,7 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](../powershell-install-configure.md).
 2. Set the values of the first five variables in the following script:
 
-		$subscriptionName = "<AzureSubscriptionName>"
+		$resourceGroupName = "<AzureResourceGroupName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
@@ -116,9 +117,7 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 		$blobName = "<BlobName>"
 
 		# Get the storage account key
-		Select-AzureSubscription $subscriptionName
-		$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
-
+		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 		# Create the storage context object
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
@@ -172,7 +171,7 @@ There are also several applications that provide a graphical interface for worki
 
 | Client | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) | | | ✔ |
+| [Azure Storage Explorer](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
@@ -181,30 +180,31 @@ There are also several applications that provide a graphical interface for worki
 
 ###<a id="storageexplorer"></a>Azure Storage Explorer
 
-*Azure Storage Explorer* is a useful tool for inspecting and altering the data in Azure Storage. It is a free tool that can be downloaded from CodePlex: [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+*Azure Storage Explorer* is a useful tool for inspecting and altering the data in blobs. It is a free, open source tool that can be downloaded from [http://storageexplorer.com/](http://storageexplorer.com/). The source code is available from this link as well.
 
 Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].  
 
-1. Run Azure Storage Explorer.
+1. Run Azure Storage Explorer. If this is the first time you have ran the Storage Explorer, you will be prompted for the ___Storage account name__ and __Storage account key__. If you have ran it before, use the __Add__ button to add a new storage account name and key.
+
+    Enter the name and key for the storage account used by your HDinsight cluster and then select __SAVE & OPEN__.
 
 	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 
-2. Click **Add Account**. After an account is added to Azure Storage Explorer, you don't need to go through this step again.
+5. In the list of containers to the left of the interface, click the name of the container that is associated with your HDInsight cluster. By default, this is the name of the HDInsight cluster, but may be different if you entered a specific name when creating the cluster.
 
-	![HDI.ASEAddAccount][image-ase-addaccount]
+6. From the tool bar, select the upload icon.
 
-3. Enter your **Storage account name** and **Storage account key**, and then click **Add Storage Account**. You can add multiple storage accounts, and each account will be displayed on a tab.
+    ![Tool bar with upload icon highlighted](./media/hdinsight-upload-data/toolbar.png)
 
-4. Under **Storage Type**, click **Blobs**.
+7. Specify a file to upload, and then click **Open**. When prompted, select __Upload__ to upload the file to the root of the storage container. If you want to upload the file to a specific path, enter the path in the __Destination__ field and then select __Upload__.
 
-	![HDI.ASEBlob][image-ase-blob]
+    ![File upload dialog](./media/hdinsight-upload-data/fileupload.png)
+    
+    Once the file has finished uploading, you can use it from jobs on the HDInsight cluster.
 
-5. Under **Container**, click the name of the container that is associated with your HDInsight cluster. When you create an HDInsight cluster, you must specify a container.  Otherwise, the cluster creation process creates one for you.
+##Mount Azure Blob Storage as Local Drive
 
-6. Under **Blob**, click **Upload**.
-
-7. Specify a file to upload, and then click **Open**.
-
+See [Mount Azure Blob Storage as Local Drive](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ##Services
 
@@ -214,7 +214,7 @@ The Azure Data Factory service is a fully managed service for composing data sto
 
 Azure Data Factory can be used to move data into Azure Blob storage, or to create data pipelines that directly use HDInsight features such as Hive and Pig.
 
-For more information, see the [Azure Data Factory documentation](http://azure.microsoft.com/documentation/services/data-factory/).
+For more information, see the [Azure Data Factory documentation](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -233,7 +233,7 @@ Azure Blob storage can also be accessed using an Azure SDK from the following pr
 * Python
 * Ruby
 
-For more information on installing the Azure SDKs, see [Azure downloads](http://azure.microsoft.com/downloads/)
+For more information on installing the Azure SDKs, see [Azure downloads](https://azure.microsoft.com/downloads/)
 
 
 ## Next steps
@@ -247,7 +247,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 
 
-[azure-management-portal]: https://manage.windowsazure.com
+[azure-management-portal]: https://porta.azure.com
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
@@ -257,9 +257,9 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
@@ -271,10 +271,9 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [Powershell-install-configure]: ../powershell-install-configure.md
 
-[azurecli]: ../xplat-cli.md
+[azurecli]: ../xplat-cli-install.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
- 

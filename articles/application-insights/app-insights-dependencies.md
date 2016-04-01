@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,43 +12,53 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Diagnosing issues with dependencies in Application Insights
 
 
-A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. In Visual Studio Application Insights, you can easily see how long your application waits for dependencies and how often a dependency call fails.
+A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. Or in your web page script, it can be an AJAX call back to the server. In Visual Studio Application Insights, you can easily see how long your application waits for dependencies and how often a dependency call fails.
 
 ## Where you can use it
 
 Out of the box dependency monitoring is currently available for:
 
 * ASP.NET web apps and services running on an IIS server or on Azure
+* [Java web apps](app-insights-java-agent.md)
+* [Web pages](https://azure.microsoft.com/blog/ajax-collection-in-application-insights/)
 
-For other types, such as Java web apps or device apps, you can write your own monitor using the TrackDependency API.
+For other types, such as device apps, you can write your own monitor using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
 The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:
 
-* SQL databases
-* ASP.NET web and wcf services
-* Local or remote HTTP calls
-* Azure DocumentDb, table, blob storage, and queue
+* ASP.NET
+ * SQL databases
+ * ASP.NET web and WCF services that use HTTP-based bindings
+ * Local or remote HTTP calls
+ * Azure DocumentDb, table, blob storage, and queue
+* Java
+ * Calls to a database through a [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) driver, such as MySQL, SQL Server, PostgreSQL or SQLite.
+* Web pages
+ * [AJAX calls](app-insights-javascript.md)
 
 Again, you could write your own SDK calls to monitor other dependencies.
 
-## Setting up dependency monitoring
+## To set up dependency monitoring
 
-To get dependency monitoring, you must:
+Install the appropriate agent for the host server.
 
-* Use [Status Monitor](app-insights-monitor-performance-live-website-now.md) on your IIS server and use it to enable monitoring
-* Add the [Application Insights Extension](../insights-perf-analytics.md) to your Azure Web App or VM.
+Platform | Install
+---|---
+IIS Server | Either [install Status Monitor on your server](app-insights-monitor-performance-live-website-now.md) or [Upgrade your application to .NET framework 4.6 or later](http://go.microsoft.com/fwlink/?LinkId=528259) 
+Azure Web App | [Application Insights Extension](../azure-portal/insights-perf-analytics.md)
+Java web server | [Java web apps](app-insights-java-agent.md)
+Web pages | [JavaScript monitor](app-insights-javascript.md) (No additional setup beyond web page monitoring)
+Cloud service |  [Use startup task](app-insights-cloudservices.md#dependencies) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
-(For an Azure VM, you can either use install the extension from the Azure control panel, or install the Status Monitor just as you would on any machine.)
+The Status Monitor for IIS Servers doesn't need you to rebuild your source project with the Application Insights SDK. 
 
-You can do the above steps to an already-deployed web app. To get standard dependency monitoring, you don't have to add Application Insights to your source project. 
-
-## Diagnosing dependency performance issues
+## <a name="diagnosis"></a> Diagnosing dependency performance issues in the web server
 
 To assess the performance of requests at your server:
 
@@ -96,7 +106,36 @@ Click through a request type and request instance, to find a failed call to a re
 ![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/app-insights-dependencies/07-faildetail.png)
 
 
-<!--Link references-->
+## Custom dependency tracking
+
+The standard dependency-tracking module automatically discovers external dependencies such as databases and REST APIs. But you might want some additional components to be treated in the same way. 
+
+You can write code that sends dependency information, using the same [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) that is used by the standard modules.
+
+For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
+
+## Ajax
+
+See [Web pages](app-insights-javascript.md).
 
 
  

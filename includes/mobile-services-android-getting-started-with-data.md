@@ -52,7 +52,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 9. Find the *ProgressFilter* class at the bottom of the file and uncomment it. This class displays a 'loading' indicator while *MobileServiceClient* is running network operations.
 
 
-10. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
+10. In the Azure classic portal, click **Mobile Services**, and then click the mobile service you just created.
 
 11. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 

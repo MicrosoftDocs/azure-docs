@@ -4,7 +4,7 @@ After the records for your domain name have propagated, you must associate them 
 >
 > You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
 
-1. In your browser, open the [Azure Management Portal](https://portal.azure.com).
+1. In your browser, open the [Azure Portal](https://portal.azure.com).
 
 2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
 

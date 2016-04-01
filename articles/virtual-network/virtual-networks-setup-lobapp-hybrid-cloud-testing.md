@@ -1,22 +1,26 @@
 <properties 
-	pageTitle="Set up a web-based LOB application in a hybrid cloud for testing" 
+	pageTitle="LOB application test environment | Microsoft Azure" 
 	description="Learn how to create a web-based, line of business application in a hybrid cloud environment for IT pro or development testing." 
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Set up a web-based LOB application in a hybrid cloud for testing
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This topic steps you through creating a hybrid cloud environment for testing an intranet line-of-business (LOB) application hosted in Microsoft Azure. Here is the resulting configuration.
 
@@ -42,7 +46,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the SQL server computer (SQL1).
 3.	Configure the LOB server (LOB1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](https://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Phase 1: Set up the hybrid cloud environment
 
@@ -62,15 +66,15 @@ Next, create an Azure Virtual Machine for SQL1 with these commands at an Azure P
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SQL1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
-	Set-AzureStorageAccount –StorageAccountName $storageacct
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for SQL1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
+	Set-AzureStorageAccount -StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Next, connect to the new SQL1 virtual machine *using the local administrator account*.
 
@@ -85,7 +89,7 @@ Next, connect to the new SQL1 virtual machine *using the local administrator acc
 
 Next, configure Windows Firewall rules to allow traffic for basic connectivity testing and SQL Server. From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.
 
-	New-NetFirewallRule -DisplayName “SQL Server” -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action allow 
+	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433,1434,5022 -Action allow 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
@@ -137,13 +141,13 @@ This is your current configuration.
 First, create an Azure Virtual Machine for LOB1 with these commands at the Azure PowerShell command prompt on your local computer.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for LOB1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for LOB1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name LOB1 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Next, connect to the LOB1 virtual machine with the CORP\User1 account credentials.
 
@@ -176,21 +180,6 @@ This is your current configuration.
  
 This environment is now ready for you to deploy your web-based application on LOB1 and test functionality and performance from the Corpnet subnet.
 
-## Additional Resources
+## Next steps
 
-[Microsoft Software Architecture Diagrams and Blueprints](http://msdn.microsoft.com/dn630664)
-
-[Hosting-Friendly Web Server Platform (IIS)](http://technet.microsoft.com/library/hh831818)
-
-[Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Azure hybrid cloud test environments](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Azure Infrastructure Services Implementation Guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
+- Set up the [production environment](../virtual-machines/virtual-machines-windows-lob-overview.md).

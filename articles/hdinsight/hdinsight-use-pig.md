@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Use Pig with Hadoop on HDInsight
@@ -42,7 +43,9 @@ For more information about Pig Latin, see [Pig Latin Reference Manual 1](http://
 
 For an example of using UDFs with Pig, see the following documents:
 
-* [Using Python with Pig and Hive in HDInsight](hdinsight-python.md)
+* [Use DataFu with Pig in HDInsight](hdinsight-hadoop-use-pig-datafu-udf.md) - DataFu is a collection of useful UDFs maintained by Apache
+
+* [Use Python with Pig and Hive in HDInsight](hdinsight-python.md)
 
 * [Use C# with Hive and Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
@@ -54,7 +57,7 @@ This example uses a *log4j* sample file, which is stored at **/example/data/samp
 
 In the previous example, the log level is ERROR.
 
-> [AZURE.NOTE] You can also generate a log4j file by using the [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](../hdinsight-use-blob-storage.md).
+> [AZURE.NOTE] You can also generate a log4j file by using the [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
@@ -93,6 +96,19 @@ HDInsight can run Pig Latin jobs by using a variety of methods. Use the followin
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md)  |           &nbsp;            |            ✔            | Linux or Windows                          | Windows                                  |
 | [Remote Desktop](hdinsight-hadoop-use-pig-remote-desktop.md)  |              ✔              |            ✔            | Windows                                   | Windows                                  |
 
+
+## Running Pig jobs on Azure HDInsight using on-premises SQL Server Integration Services
+
+You can also use SQL Server Integration Services (SSIS) to run a Pig job. The Azure Feature Pack for SSIS provides the following components that work with Pig jobs on HDInsight.
+
+
+- [Azure HDInsight Pig Task][pigtask]
+- [Azure Subscription Connection Manager][connectionmanager]
+
+
+Learn more about the Azure Feature Pack for SSIS [here][ssispack].
+
+
 ##<a id="nextsteps"></a>Next steps
 
 Now that you have learned how to use Pig with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
@@ -106,8 +122,11 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
+[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: ../hdinsight-get-started.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
@@ -126,4 +145,3 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
- 

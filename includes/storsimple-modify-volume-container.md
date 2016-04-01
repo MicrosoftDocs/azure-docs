@@ -1,20 +1,4 @@
-<properties 
-   pageTitle="Modify a volume container"
-   description="Explains how you can use the StorSimple Manager service volume containers page to modify a volume container."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
-
+<!--author=SharS last changed: 1/7/2016-->
 
 #### To modify a volume container
 
@@ -24,7 +8,7 @@
 
 3. In the **Modify Volume container** dialog box, do the following:
 
-    1. Change the name of the volume container, modify the associated bandwidth, and specify whether or not the data residing in the cloud needs to be encrypted.
+    1. Change the name of the volume container and modify the associated bandwidth setting. 
 
         ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 

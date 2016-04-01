@@ -3,7 +3,7 @@
 	description="A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use FTP deployment to Azure." 
 	services="app-service\web" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -12,12 +12,20 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
-	ms.author="tomfitz"/>
+	ms.topic="hero-article" 
+	ms.date="01/12/2016" 
+	ms.author="robmcm"/>
 
 
 #Create a PHP-MySQL web app in Azure App Service and deploy using FTP
+
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
 
 This tutorial shows you how to create a PHP-MySQL web app and how to deploy it using FTP. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and an FTP client installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
  
@@ -38,31 +46,27 @@ By following this tutorial, you will build a simple registration web app in PHP.
 Follow these steps to create a web app and a MySQL database:
 
 1. Login to the [Azure Portal][management-portal].
-2. Click the **+ New** icon on the bottom left of the portal.
+2. Click the **+ New** icon on the top left of the Azure Portal.
 
 	![Create New Azure Web Site][new-website]
 
-3. Click **Web + Mobile**, then **Web app + MySQL**.
+3. In the search type **Web app + MySQL** and click on **Web app + MySQL**.
 
 	![Custom Create a new Web Site][custom-create]
 
-4. Enter a valid name for your resource group.
+4. Click **Create**. Enter a unique app service name, a valid name for the resource group and a new service plan.
 
     ![Set resource group name][resource-group]
 
-5. Enter values for your new web app.
-
-     ![Create web app][new-web-app]
 
 6. Enter values for your new database, including agreeing to the legal terms.
 
 	![Create new MySQL database][new-mysql-db]
 	
-7. When the web app has been created, you will see the new resource group. Click the name of the web app to configure its settings.
+7. When the web app has been created, you will see the new app service blade.
 
-	![Open web app][go-to-webapp]
 
-6. Scroll down until you find **Set deployment credentials**. 
+6. Click on **Settings** > **Deployment credentials**. 
 
 	![Set deployment credentials][set-deployment-credentials]
 
@@ -216,11 +220,15 @@ You can now browse to [http://localhost/registration/index.php][localhost-index]
 
 To connect to the MySQL database that is running in Web Apps, your will need the connection information. To get MySQL connection information, follow these steps:
 
+1. From the app service web app blade click on the resource group link:
+
+	![Select Resource Group][select-resourcegroup]
+
 1. From your resource group, click the database:
 
 	![Select database][select-database]
 
-2. From the database sumamry, select **Properties**.
+2. From the database summary, select **Settings** > **Properties**.
 
     ![Select properties][select-properties]
 	
@@ -266,6 +274,9 @@ After you have connected you will be able to upload and download files as needed
 
 After uploading both `index.php` and `createtable.php`, browse to **http://[site name].azurewebsites.net/createtable.php** to create the MySQL table for the application, then browse to **http://[site name].azurewebsites.net/index.php** to begin using the application.
  
+## Next steps
+
+For more information, see the [PHP Developer Center](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
@@ -283,6 +294,7 @@ After uploading both `index.php` and `createtable.php`, browse to **http://[site
 [resource-group]: ./media/web-sites-php-mysql-deploy-use-ftp/set_group.png
 [new-web-app]: ./media/web-sites-php-mysql-deploy-use-ftp/create_wa.png
 [select-database]: ./media/web-sites-php-mysql-deploy-use-ftp/select_database.png
+[select-resourcegroup]: ./media/web-sites-php-mysql-deploy-use-ftp/select_resourcegroup.png
 [select-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/select_properties.png
 [note-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/note-properties.png
 

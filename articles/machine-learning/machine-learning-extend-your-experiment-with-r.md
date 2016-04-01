@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="02/03/2016"
 	ms.author="garye" />
 
 
-#Extend your experiment with R 
+#Extend your experiment with R
 
-You can extend the functionality of ML Studio through the R language by using the [Execute R Script][execute-r-script] module. 
+You can extend the functionality of ML Studio through the R language by using the [Execute R Script][execute-r-script] module.
 
-This module accepts multiple input datasets and it yields a single dataset as output. You can type an R script into the **R Script** parameter of the [Execute R Script][execute-r-script] module. 
+This module accepts multiple input datasets and it yields a single dataset as output. You can type an R script into the **R Script** parameter of the [Execute R Script][execute-r-script] module.
 
-You access each input port of the module by using code similar to the following: 
+You access each input port of the module by using code similar to the following:
 
     dataset1 <- maml.mapInputPort(1)
 
@@ -36,11 +36,11 @@ The list of installed packages can change. To get the complete list, include the
     out <- data.frame(installed.packages())
     maml.mapOutputPort("out")
 
-To view the package list, connect a conversion module such as [Convert to CSV][convert-to-csv] to the output of the [Execute R Script][execute-r-script] module, run the experiment, then click the output of the conversion module and select **Download**.
+To view the package list, connect a conversion module such as [Convert to CSV][convert-to-csv] to the output of the [Execute R Script][execute-r-script] module, run the experiment, then click the output of the conversion module and select **Download**. For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 
 ##Importing packages
 
-You also can import packages that are not already installed from a staged ML Studio repository by using the following commands in the [Execute R Script][execute-r-script] module and zipped package archive: 
+You also can import packages that are not already installed from a staged ML Studio repository by using the following commands in the [Execute R Script][execute-r-script] module and zipped package archive:
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
@@ -501,4 +501,3 @@ To get the complete list of packages that are currently available, see the secti
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
- 

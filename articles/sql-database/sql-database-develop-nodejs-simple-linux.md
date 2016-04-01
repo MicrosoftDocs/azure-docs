@@ -1,59 +1,44 @@
-<properties 
-	pageTitle="Connect to SQL Database by using Node.js with Tedious on Ubuntu Linux" 
+<properties
+	pageTitle="Connect to SQL Database by using Node.js with Tedious on Ubuntu Linux"
 	description="Presents a Node.js code sample you can use to connect to Azure SQL Database. The sample uses the Tedious driver to connect."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="meet-bhagdev" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="meet-bhagdev"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="mebha"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="12/17/2015"
+	ms.author="meetb"/>
 
 
 # Connect to SQL Database by using Node.js with Tedious on Ubuntu Linux
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
 This topic presents a Node.js code sample that runs on Ubuntu Linux. The sample connects to Azure SQL Database by using the Tedious driver.
 
+## Step 1: Configure Development Environment
 
-## Required software items
+[Prerequisites for using the Tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Ubuntu-Linux)
 
+## Step 2: Create a SQL database
 
-Open your terminal and install **node** and **npm**, unless they are already installed on your machine.
+See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 
+## Step 3: Get Connection Details
 
-	sudo apt-get install node
-	sudo apt-get install npm
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-
-After your machine is configured with **node** and **npm**, navigate to a directory where you plan to create your Node.js project, and enter the following commands.
-
-
-	sudo npm init
-	sudp npm install tedious
-
-
-**npm init** creates a node project. To retain the defaults during your project creation, press enter until the project is created. Now you see a **package.json** file in your project directory.
-
-
-### Create an AdventureWorks database
-
-
-The code sample in this topic expects an **AdventureWorks** test database. If you do not already have one, see [Get started with SQL Database](sql-database-get-started.md). It is important that you follow the guide to create an **AdventureWorks database template**. The examples shown below work only with the **AdventureWorks schema**. 
-
-
-## Connect to your SQL Database
+## Step 4: Connect
 
 The [new Connection](http://pekim.github.io/tedious/api-connection.html) function is used to connect to SQL Database.
 
@@ -72,7 +57,7 @@ The [new Connection](http://pekim.github.io/tedious/api-connection.html) functio
 	});
 
 
-## Execute an SQL SELECT
+## Step 5:  Execute a query
 
 
 All SQL statements are executed using the [new Request()](http://pekim.github.io/tedious/api-request.html) function. If the statement returns rows, such as a select statement, you can retreive them using the [request.on()](http://pekim.github.io/tedious/api-request.html) function. If there are no rows, [request.on()](http://pekim.github.io/tedious/api-request.html) function returns empty lists.
@@ -92,14 +77,14 @@ All SQL statements are executed using the [new Request()](http://pekim.github.io
 		console.log("Connected");
 		executeStatement();
 	});
-	
+
 	var Request = require('tedious').Request;
 	var TYPES = require('tedious').TYPES;
-	
+
 	function executeStatement() {
 		request = new Request("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function(err) {
 	  	if (err) {
-	   		console.log(err);} 
+	   		console.log(err);}
 		});
 		var result = "";
 		request.on('row', function(columns) {
@@ -113,7 +98,7 @@ All SQL statements are executed using the [new Request()](http://pekim.github.io
 		    console.log(result);
 		    result ="";
 		});
-	
+
 		request.on('done', function(rowCount, more) {
 		console.log(rowCount + ' rows returned');
 		});
@@ -121,13 +106,9 @@ All SQL statements are executed using the [new Request()](http://pekim.github.io
 	}
 
 
-## Insert a row, apply parameters, and retrieve the generated primary key
+## Step 6: Insert a row
 
-
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. In this example you will see how to execute an insert-statement, safely pass parameters which protects from SQL injection, and retrieve the auto-generated primary key value.
-
-
-The code sample in this section applies parameters to an SQL INSERT statement. The primary key value that is generated is retrieved by the program.
+In this example you will see how to execute an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://msdn.microsoft.com/library/ms179610.aspx) value.  
 
 
 	var Connection = require('tedious').Connection;
@@ -144,14 +125,14 @@ The code sample in this section applies parameters to an SQL INSERT statement. T
 		console.log("Connected");
 		executeStatement1();
 	});
-	
+
 	var Request = require('tedious').Request
 	var TYPES = require('tedious').TYPES;
-	
+
 	function executeStatement1() {
 		request = new Request("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP);", function(err) {
 		 if (err) {
-		 	console.log(err);} 
+		 	console.log(err);}
 		});
 		request.addParameter('Name', TYPES.NVarChar,'SQL Server Express 2014');
 		request.addParameter('Number', TYPES.NVarChar , 'SQLEXPRESS2014');
@@ -169,4 +150,7 @@ The code sample in this section applies parameters to an SQL INSERT statement. T
 		connection.execSql(request);
 	}
 
- 
+
+## Next steps
+
+For more information, see the [Node.js Developer Center](/develop/nodejs/).

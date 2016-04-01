@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Manage your StorSimple volume containers"
+   pageTitle="Manage your StorSimple volume containers | Microsoft Azure"
    description="Explains how you can use the StorSimple Manager service volume containers page to add, modify, or delete a volume container."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/13/2015"
+   ms.date="01/08/2016"
    ms.author="v-sharos" />
 
-# Manage your StorSimple volume containers
+# Use the StorSimple Manager service to manage StorSimple volume containers
 
 ## Overview
 
@@ -25,7 +25,7 @@ A volume container in a Microsoft Azure StorSimple device contains one or more v
 
 A volume container has the following attributes:
 
-- **Volumes** – The thinly provisioned StorSimple volumes that are contained within the volume container. A volume container may contain up to 256 thinly provisioned StorSimple volumes.
+- **Volumes** – The tiered or locally pinned StorSimple volumes that are contained within the volume container. A volume container may contain up to 256 StorSimple volumes.
 
 - **Encryption** – An encryption key that can be defined for each volume container. This key is used for encrypting the data that is sent from your StorSimple device to the cloud. A military-grade AES-256 bit key is used with the user-entered key. To secure your data, we recommend that you always enable cloud storage encryption.
 
@@ -43,7 +43,7 @@ This following procedures explain how to use the StorSimple **Volume containers*
 
 ## Add a volume container
 
-Perform the following steps to create a volume container.
+Perform the following steps to add a volume container.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
@@ -63,5 +63,5 @@ A volume container has volumes within it. It can be deleted only if all the volu
 
 ## Next steps
 
-Read more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
- 
+- Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

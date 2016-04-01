@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="02/03/2016"    
 	ms.author="juliako"/>
 
 #How to: Check Job Progress
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 When you run jobs, you often require a way to track job progress. You can check the progress by [defining a StateChanged event handler](#statechange_event_handler) or [using Azure Queue storage to monitor Media Services job notifications](#check_progress_with_queues). Both methods are described in this topic. 
 
@@ -252,7 +255,6 @@ The code example in this section does the following:
 	        }
 	 
 	
-	        // Upload a video file, and encode to Smooth Streaming format
 	        public static IJob SubmitEncodingJobWithNotificationEndPoint(string inputMediaFilePath)
 	        {
 	            // Declare a new job.
@@ -264,12 +266,12 @@ The code example in this section does the following:
 	
 	            // Get a media processor reference, and pass to it the name of the 
 	            // processor to use for the specific task.
-	            IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+	            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 	
 	            // Create a task with the conversion details, using a configuration file. 
-	            ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
+	            ITask task = job.Tasks.AddNew("My encoding Task",
 	                processor,
-	                "H264 Smooth Streaming 720p",
+	                "H264 Multiple Bitrate 720p",
 	                Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
 	
 	            // Specify the input asset to be encoded.
@@ -425,4 +427,11 @@ The example above produced the following output. You values will vary.
 	job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
 	State: Finished
 	
- 
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

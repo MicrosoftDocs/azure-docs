@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Cross-Origin Resource Sharing (CORS) Support | Microsoft Azure" 
-	description="Learn how to enable CORS Support for the Microsoft Azure Storage Services." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+<properties
+	pageTitle="Cross-Origin Resource Sharing (CORS) Support | Microsoft Azure"
+	description="Learn how to enable CORS Support for the Microsoft Azure Storage Services."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
-	ms.author="tamram;andtyler"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/19/2016"
+	ms.author="tamram"/>
 
 # Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services
 
-Beginning with version 2013-08-15, the Azure storage services support Cross-Origin Resource Sharing (CORS) for the Blob, Table, and Queue services. CORS is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. See the [CORS specification](http://www.w3.org/TR/cors/) for details on CORS.
+Beginning with version 2013-08-15, the Azure storage services support Cross-Origin Resource Sharing (CORS) for the Blob, Table, Queue, and File services. CORS is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. See the [CORS specification](http://www.w3.org/TR/cors/) for details on CORS.
 
 You can set CORS rules individually for each of the storage services, by calling [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx), and [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Once you set the CORS rules for the service, then a properly authenticated request made against the service from a different domain will be evaluated to determine whether it is allowed according to the rules you have specified.
 
@@ -134,40 +134,12 @@ The following example shows a partial request body for an operation to set CORS 
 
 Next, consider the following CORS requests:
 
-<table>
-<tr>
-<td colspan=3><b>Request</b></td>
-<td colspan=2><b>Response</b></td>
-</tr>
-<tr>
-<td><b>Method</b></td>
-<td><b>Origin</b></td>
-<td><b>Request Headers</b></td>
-<td><b>Rule Match</b></td>
-<td><b>Result</b></td>
-</tr>
-<tr>
-<td><b>PUT</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>First rule</td>
-<td>Success</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Second rule</td>
-<td>Success</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Second rule</td>
-<td>Failure</td>
-</tr>
-</table>
+Request||| Response||
+---|---|---|---|---
+**Method** |**Origin** |**Request Headers** |**Rule Match** |**Result**
+**PUT** | http://www.contoso.com |x-ms-blob-content-type | First rule |Success
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Second rule |Success
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Second rule | Failure
 
 The first request matches the first rule – the origin domain matches the allowed origins, the method matches the allowed methods, and the header matches the allowed headers – and so succeeds.
 
@@ -185,7 +157,7 @@ When the browser or another user agent caches the response from a CORS request, 
 
 Azure Storage sets the *Vary* header to **Origin** for actual GET/HEAD requests in the following cases:
 
-- When the request origin exactly matches the allowed origin defined by a CORS rule. To be an exact match, the CORS rule may not include a wildcard '*' character.
+- When the request origin exactly matches the allowed origin defined by a CORS rule. To be an exact match, the CORS rule may not include a wildcard ' * ' character.
 
 - There is no rule matching the request origin, but CORS is enabled for the storage service.
 
@@ -195,85 +167,17 @@ Note that for requests using methods other than GET/HEAD, the storage services w
 
 The following table indicates how Azure storage will respond to GET/HEAD requests based on the previously mentioned cases:
 
-<table>
-<tr>
-<td><b>Request</b></td>
-<td colspan=3><b>Account setting and result of rule evaluation</b></td>
-<td colspan=3><b>Response</b></td>
-</tr>
-<tr>
-<td><b>Origin header present on request</b></td>
-<td><b>CORS rule(s) specified for this service </b></td>
-<td><b>Matching rule exists that allows all origins(*)</b></td>
-<td><b>Matching rule exists for exact origin match</b></td>
-<td><b>Response includes Vary header set to Origin</b></td>
-<td><b>Response includes Access-Control-Allowed-Origin: "*"</b></td>
-<td><b>Response includes Access-Control-Exposed-Headers</b></td>
-</tr>
-<tr>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>No</td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>No</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-</table>
+Request|Account setting and result of rule evaluation|||Response|||
+---|---|---|---|---|---|---|---|---
+**Origin header present on request** | **CORS rule(s) specified for this service** | **Matching rule exists that allows all origins(*)** | **Matching rule exists for exact origin match** | **Response includes Vary header set to Origin** | **Response includes Access-Control-Allowed-Origin: "*"** | **Response includes Access-Control-Exposed-Headers**
+No|No|No|No|No|No|No
+No|Yes|No|No|Yes|No|No
+No|Yes|Yes|No|No|Yes|Yes
+Yes|No|No|No|No|No|No
+Yes|Yes|No|Yes|Yes|No|Yes
+Yes|Yes|No|No|Yes|No|No
+Yes|Yes|Yes|No|No|Yes|Yes
+
 
 ## Billing for CORS requests
 
@@ -290,4 +194,3 @@ Unsuccessful preflight requests will not be billed.
 [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [W3C Cross-Origin Resource Sharing Specification](http://www.w3.org/TR/cors/)
- 

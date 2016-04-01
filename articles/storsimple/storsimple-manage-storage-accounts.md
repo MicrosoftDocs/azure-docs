@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage your StorSimple storage account"
-   description="Explains how you can use the Configure page to add, edit, delete, or rotate the security keys for a storage account."
+   pageTitle="Manage your StorSimple storage account | Microsoft Azure"
+   description="Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/25/2015"
+   ms.date="12/01/2015"
    ms.author="v-sharos" />
 
-# Manage your StorSimple storage account
+# Use the StorSimple Manager service to manage your storage account
 
 ## Overview
 
@@ -28,8 +28,6 @@ The **Configure** page presents all the global service parameters that can be cr
 This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.
 
  ![Configure page](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)  
-
-**Figure 1: StorSimple Manager service configure page**
 
 Storage accounts contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
 
@@ -50,7 +48,7 @@ The most common tasks related to storage accounts that can be performed on the *
 
 There are three types of storage accounts that can be used with your StorSimple device.
 
-- **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see Step 1: Create a new service, in [Deploy your StorSimple device](storsimple-deployment-walkthrough.md). 
+- **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Step 1: Create a new service](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md). 
 - **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md). 
 - **Storage accounts outside of the service subscription** – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.
 
@@ -115,7 +113,7 @@ When you create a storage account, Microsoft Azure generates two 512-bit storage
 
 Typically, applications use only one of the keys to access your data. After a certain period of time, you can have your applications switch over to using the second key. After you have switched your applications to the secondary key, you can retire the first key and then generate a new key. Using the two keys this way allows your applications access to the data without incurring any downtime.
 
-The storage account keys are always stored in the service in an encrypted form. However, these can be reset via the StorSimple Manager service. The service can get the primary key and secondary key for all the storage accounts in the same subscription, including accounts created in the Storage service as well as the default storage accounts generated when the StorSimple Manager service service was first created. The StorSimple Manager service service will always get these keys from the Management Portal and then store them in an encrypted manner.
+The storage account keys are always stored in the service in an encrypted form. However, these can be reset via the StorSimple Manager service. The service can get the primary key and secondary key for all the storage accounts in the same subscription, including accounts created in the Storage service as well as the default storage accounts generated when the StorSimple Manager service service was first created. The StorSimple Manager service service will always get these keys from the Azure classic portal and then store them in an encrypted manner.
 
 ## Rotation workflow
 
@@ -150,4 +148,5 @@ To inform the StorSimple Manager service of the change, you will need to access 
 
 ## Next steps
 
-Learn more about [StorSimple security](storsimple-security.md) 
+- Learn more about [StorSimple security](storsimple-security.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

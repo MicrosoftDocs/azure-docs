@@ -3,7 +3,7 @@
 	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Node.js." 
 	services="" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="devinrader" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="11/25/2014" 
-	ms.author="mwasson"/>
+	ms.author="wpickett"/>
 
 
 # Using Twilio for Voice, VoIP, and SMS Messaging in Azure
@@ -235,7 +235,7 @@ We hope you love hacking node.js and Twilio on Azure!
 [purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://www.windowsazure.com/develop/nodejs/tutorials/create-a-website-(mac)/
+[azure_new_site]: /app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [twilio_dashboard]: https://www.twilio.com/user/account
 [npm]: http://npmjs.org
 [express]: http://expressjs.com

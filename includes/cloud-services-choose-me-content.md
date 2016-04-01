@@ -1,11 +1,11 @@
 <a name="tellmecs"></a>
 ## Tell me about cloud services
 
-Cloud Services is an example of Platform-as-a-Service (PaaS). Like [App Services](app-service-web-overview.md), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an [App Services](app-service-web-overview.md) are hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
+Cloud Services is an example of Platform-as-a-Service (PaaS). Like [App Service](../articles/app-service-web/app-service-web-overview.md), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an App Service is hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
 
 ![cs_diagram](./media/cloud-services-choose-me-content/diagram.png) 
 
-More control also means less ease of use; unless you need the  additional control options, it's typically quicker and easier to get a web application up and running in Websites compared to Cloud Services. 
+More control also means less ease of use; unless you need the  additional control options, it's typically quicker and easier to get a web application up and running in Web Apps in App Service compared to Cloud Services. 
 
 The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options. 
 
@@ -16,7 +16,7 @@ Any combination of these two slightly different VM hosting options are available
 * **Worker role**  
   Runs Windows Server without IIS.
 
-For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md) or [Azure Queues](../articles/storage/storage-introduction.md).)
+For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](../articles/service-bus/service-bus-fundamentals-hybrid-solutions.md) or [Azure Queues](../articles/storage/storage-introduction.md).)
 
 As the figure above suggests, all of the VMs in a single application run in the same cloud service. Because of this, users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform will [scale and deploy](../articles/cloud-services/cloud-services-how-to-scale.md) the VMs in a Cloud Services application in a way that avoids a single point of hardware failure. 
 

@@ -13,30 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 # How to use Azure Service Bus with the WebJobs SDK
 
 ## Overview
 
-This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
+This guide provides C# code samples that show how to trigger a process when an Azure Service Bus message is received. The code samples use [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
 
 The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md).
 
 The code snippets only show functions, not the code that creates the `JobHost` object as in this example:
 
-		static void Main(string[] args)
-		{
-		    JobHost host = new JobHost();
-		    host.RunAndBlock();
-		}
-		
+```
+public class Program
+{
+   public static void Main()
+   {
+      JobHostConfiguration config = new JobHostConfiguration();
+      config.UseServiceBus();
+      JobHost host = new JobHost(config);
+      host.RunAndBlock();
+   }
+}
+```
+
+A [complete Service Bus code example](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) is in the azure-webjobs-sdk-samples repository on GitHub.com.
+
 ## <a id="prerequisites"></a> Prerequisites
 
 To work with Service Bus you have to install the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet package in addition to the other WebJobs SDK packages. 
 
-You also have to set the AzureWebJobsServiceBus connection string in addition to the storage connection strings.  You can do this in the `connectionStrings` section of the Web.config file, as shown in the following example:
+You also have to set the AzureWebJobsServiceBus connection string in addition to the storage connection strings.  You can do this in the `connectionStrings` section of the App.config file, as shown in the following example:
 
 		<connectionStrings>
 		    <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
@@ -44,17 +53,19 @@ You also have to set the AzureWebJobsServiceBus connection string in addition to
 		    <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
 		</connectionStrings>
 
-For a sample project, see [Service Bus example](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). For more information, see [Get Started with the WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
+For a sample project that includes the Service Bus connection string setting in the App.config file, see [Service Bus example](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). 
+
+The connection strings can also be set in the Azure runtime environment, which then overrides the App.config settings when the WebJob runs in Azure; for more information, see [Get Started with the WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
 ## <a id="trigger"></a> How to trigger a function when a Service Bus queue message is received
 
 To write a function that the WebJobs SDK calls when a queue message is received, use the `ServiceBusTrigger` attribute. The attribute constructor takes a parameter that specifies the name of the queue to poll.
 
-### How ServicebusTrigger works
+### How ServiceBusTrigger works
 
 The SDK receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
 
-Serice Bus does its own poison queue handling, so that is neither controlled by, nor configurable in, the WebJobs SDK. 
+Service Bus does its own poison queue handling which cannot be controlled or configured by the WebJobs SDK. 
 
 ### String queue message
 
@@ -79,6 +90,13 @@ The SDK will automatically deserialize a queue message that contains JSON for a 
 		}
 
 For code samples showing how to use properties of the POCO to work with blobs and tables in the same function, see the [storage queues version of this article](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs).
+
+If your code that creates the queue message doesn't use the WebJobs SDK, use code similar to the following example:
+
+		var client = QueueClient.CreateFromConnectionString(ConfigurationManager.ConnectionStrings["AzureWebJobsServiceBus"].ConnectionString, "blobadded");
+		BlobInformation blobInformation = new BlobInformation () ;
+		var message = new BrokeredMessage(blobInformation);
+		client.Send(message);
 
 ### Types ServiceBusTrigger works with
 
@@ -136,6 +154,17 @@ To write a function that the SDK calls when a message is received on a Service B
 		}
 
 To create a message on a topic, use the `ServiceBus` attribute with a topic name the same way you use it with a queue name.
+
+## Features added in release 1.1
+
+The following features were added in release 1.1:
+
+* Allow deep customization of message processing via `ServiceBusConfiguration.MessagingProvider`.
+* `MessagingProvider` supports customization of the Service Bus `MessagingFactory` and `NamespaceManager`.
+* A `MessageProcessor` strategy pattern allows you to specify a processor per queue/topic.
+* Message processing concurrency is supported by default. 
+* Easy customization of `OnMessageOptions` via `ServiceBusConfiguration.MessageOptions`.
+* Allow [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) to be specified on `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (for scenarios where you might not have Manage rights). 
 
 ## <a id="queues"></a>Related topics covered by the storage queues how-to article
 

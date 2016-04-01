@@ -1,22 +1,26 @@
 <properties 
-	pageTitle="Set up a hybrid cloud environment for testing" 
-	description="Learn how to create a hybrid cloud environment for IT pro or development testing." 
+	pageTitle="Hybrid cloud test environment | Microsoft Azure" 
+	description="Learn how to create a hybrid cloud environment for IT pro or development testing, complete with a simplfied on-premises network." 
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Set up a hybrid cloud environment for testing
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+ 
 
 This topic steps you through creating a hybrid cloud environment with Microsoft Azure for testing. Here is the resulting configuration.
 
@@ -42,7 +46,7 @@ There are five major phases to setting up this hybrid cloud test environment:
 4.	Create the site-to-site VPN connection.
 5.	Configure DC2. 
 
-If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](https://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this topic for more information.
 
@@ -56,8 +60,8 @@ Next, log on to DC1 with the CORP\User1 credentials. To configure the CORP domai
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
-	New-ADReplicationSubnet –Name "10.0.0.0/8" –Site "TestLab"
-	New-ADReplicationSubnet –Name "192.168.0.0/16" –Site "TestVNET
+	New-ADReplicationSubnet “Name "10.0.0.0/8" “Site "TestLab"
+	New-ADReplicationSubnet “Name "192.168.0.0/16" “Site "TestVNET
 
 This is your current configuration.
 
@@ -84,15 +88,15 @@ Use these commands at an administrator-level Windows PowerShell command prompt o
 	$publicIPpreflength=<Prefix length of your public IP address>
 	[IPAddress]$publicDG="<Your ISP default gateway>"
 	[IPAddress]$publicDNS="<Your ISP DNS server(s)>"
-	Rename-NetAdapter –Name $corpnetAdapterName –NewName Corpnet
-	Rename-NetAdapter –Name $internetAdapterName –NewName Internet
-	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength –DefaultGateway $publicDG
+	Rename-NetAdapter -Name $corpnetAdapterName -NewName Corpnet
+	Rename-NetAdapter -Name $internetAdapterName -NewName Internet
+	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength “DefaultGateway $publicDG
 	Set-DnsClientServerAddress -InterfaceAlias Internet -ServerAddresses $publicDNS
 	New-NetIPAddress -InterfaceAlias "Corpnet" -IPAddress 10.0.0.2 -AddressFamily IPv4 -PrefixLength 24
 	Set-DnsClientServerAddress -InterfaceAlias "Corpnet" -ServerAddresses 10.0.0.1
 	Set-DnsClient -InterfaceAlias "Corpnet" -ConnectionSpecificSuffix corp.contoso.com
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-Out” –Protocol ICMPv4 –Direction Outbound
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Input" -Protocol ICMPv4
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Output" -Protocol ICMPv4 -Direction Outbound
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_msclient
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_server
 	ping dc1.corp.contoso.com
@@ -196,14 +200,14 @@ Next, configure DC1, APP1, and CLIENT1 to use RRAS1 as its default gateway.
  
 On DC1, run these commands at an administrator-level Windows PowerShell command prompt.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
-	Set-DhcpServerv4OptionValue –Router 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
+	Set-DhcpServerv4OptionValue -Router 10.0.0.2
 
 If the name of the interface is not Ethernet, use the **Get-NetAdapter** command to determine the interface name.
 
 On APP1, run this command at an administrator-level Windows PowerShell command prompt.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
 
 On CLIENT1, run this command at an administrator-level Windows PowerShell command prompt.
 
@@ -222,13 +226,13 @@ First, create an Azure Virtual Machine for DC2 with these commands at the Azure 
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC2."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 
 Next, log on to the new DC2 virtual machine.
@@ -287,25 +291,11 @@ This is your current configuration.
  
 Your hybrid cloud environment is now ready for testing.
 
-## Additional Resources
-
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Set up a web-based LOB application in a hybrid cloud for testing](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Azure hybrid cloud test environments](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Azure Infrastructure Services Implementation Guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
-
 ## Minimizing the ongoing costs of this environment
 
 To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the Test_VNET virtual network at the end of each business day. For more information, see [Get started with Azure Automation](../automation-create-runbook-from-samples.md). 
 
-The Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/pricing/details/virtual-network/). To minimize the costs of the VPN gateway, create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateway with these steps. 
+The Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. For the details, see [Pricing - Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/). To minimize the costs of the VPN gateway, create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateway with these steps. 
 
 1.	From the Azure Management Portal on your local computer, click **Networks** in the left pane, click **TestVNET**, and then click **Dashboard**.
 2.	In the task bar, click **Delete Gateway**. Click **Yes** when prompted. Wait until the gateway is deleted and its status changes to **The Gateway Was Not Created**.
@@ -324,3 +314,6 @@ Next, log on to RRAS1 as the local administrator and run these commands at an ad
 
 Next, go to the Azure Management Portal on your local computer and wait until the TestVNET virtual network shows a connected status.
  
+## Next steps
+
+- Set up a [SharePoint intranet farm](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), a [web-based LOB application](virtual-networks-setup-lobapp-hybrid-cloud-testing.md), or an [Office 365 Directory Synchronization (DirSync) server](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) in this environment.

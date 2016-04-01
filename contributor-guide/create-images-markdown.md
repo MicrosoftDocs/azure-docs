@@ -21,13 +21,13 @@
 
 ## Image folder creation and link syntax
 
-To use images in your ACOM article, you need to create a folder in the following location:
+For a new article, you'll need to create a folder in the following location:
 
-    ./articles/service-directory/media/article-name/` directory.
+    /articles/<service-directory>/media/<article-name>/
 
 For example:
 
-    ./articles/app-service/media/app-service-enterprise-multichannel-apps/`.
+    /articles/app-service/media/app-service-enterprise-multichannel-apps/
 
 After you create the folder and added images to it, use the following syntax to create images in your article:
 
@@ -36,7 +36,7 @@ After you create the folder and added images to it, use the following syntax to 
 ```
 Example:
 
-See [the markdown template](https://raw.githubusercontent.com/Azure/azure-content-pr/master/markdown%20templates/markdown-template-for-new-articles.md) for an example.  The image call references in this markdown template are designed so the calls are made to image references at the bottom of the template.
+See [the markdown template](../markdown%20templates/markdown-template-for-new-articles.md) for an example.  The image reference links in this markdown template are designed to be at the bottom of the template.
 
 ## Guidelines specific to azure.microsoft.com
 
@@ -50,9 +50,20 @@ Use the following guidelines when creating and including art files:
 - Use red squares of the default width provided in Paint (5 px) to call attention to particular elements in screenshots.  
 
     Example:
+
     ![This is an example of a red square used as a callout.](./media/create-images-markdown/gs13noauth.png)
 
-- Avoid whitespace on edges of screenshots.  If you crop a screenshot in a way that leaves white background at the edges, add a single pixel gray border around the image.  If using Paint, use the lighter gray in the default color pallete (0xC3C3C3). If using some other graphic app, the RGB color is R195, G195, 195. You can easily add a gray border around an image in Visio--to do this, select the image, select Line, and ensure the the correct color is set, and then change the line weight to 1 1/2 pt.  Screenshots should have a 1-pixel-wide gray border so that white areas of the screenshot do not blur into the web page.
+- Avoid whitespace on edges of screenshots. If you crop a screenshot in a way that leaves white background at the edges, add a single pixel gray border around the image.  If using Paint, use the lighter gray in the default color pallete (0xC3C3C3). If using some other graphic app, the RGB color is R195, G195, 195. You can easily add a gray border around an image in Visio--to do this, select the image, select Line, and ensure the the correct color is set, and then change the line weight to 1 1/2 pt.  Screenshots should have a 1-pixel-wide gray border so that white areas of the screenshot do not blur into the web page.
+
+    Example:
+
+    ![This is an example of a gray border around whitespace.](./media/create-images-markdown/agent.png)
+
+- Conceptual images with whitespace do not need a gray border.  
+
+    Example:
+
+    ![This is an example of a conceptual image with whitespace and no gray border.](./media/create-images-markdown/ic727360.png)
 
 - Try not to make an image too wide.  Images will be automatically resized if they are too wide. However, the resizing sometimes causes fuzziness, so we recommend that you limit the width of your images to 780 px, and manually resize images before submission if necessary.
 
@@ -60,11 +71,21 @@ Use the following guidelines when creating and including art files:
 
 - Take whole screenshots of windows when possible. When taking a screenshot of a browser window, resize your browser window to 780 px wide or less, and keep the height of the browser window as short as possible such that your application fits within the window.
 
+    Example:
+
+    ![This is an example of a browser window screenshot.](./media/create-images-markdown/helloworldlocal.png)
+
 - Use caution with what information is revealed in screenshots.  Do not reveal internal company information or personal information.
 
 - In conceptual art or diagrams, use the official icons in the Cloud and Enterprise symbol and icon set. A public set is available at http://aka.ms/CnESymbols.
 
-###Contributors' Guide Links
+- Replace personal or private information in screenshots with placeholder text enclosed in angle brackets. This includes user names, subscription IDs, and other related info. Personal names can be replaced with an [approved fictious name](https://aka.ms/ficticiousnames)(Employee-only link). Do not use the crayon or marker tip in Paint to obscure or blur personal or private information.
+
+  The following image has been correctly updated to replace the actual **subscription ID** with placeholder information:
+
+  ![Private information replaced with placeholder](./media/create-images-markdown/placeholder-in-screenshot-correct.png)
+
+### Contributors' Guide Links
 
 - [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What is application access and single sign-on with Azure Active Directory?"
+	pageTitle="What is application access and single sign-on with Azure Active Directory? | Microsoft Azure"
 	description="Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #What is application access and single sign-on with Azure Active Directory?
@@ -62,6 +62,8 @@ In this scenario, when you have already been logged into Azure AD, and you want 
 
 Azure AD can support federated single sign-on with applications that support the SAML 2.0, WS-Federation, or OpenID connect protocols.
 
+See also: [Managing Certificates for Federated Single Sign-On](active-directory-sso-certs.md)
+
 ###Password-based Single Sign-On
 
 Configuring password-based single sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from the third-party SaaS application. When you enable this feature, Azure AD collects and securely stores the user account information and the related password.
@@ -77,8 +79,12 @@ In both cases, credentials are stored in an encrypted state in the directory, an
 Password-based SSO relies on a browser extension to securely retrieve the application and user specific information from Azure AD and apply it to the service. Most third-party SaaS applications that are supported by Azure AD support this feature.
 
 For password-based SSO, the end user’s browsers can be:
-*	IE 8, IE9 and IE10 on Windows 7 or later
-*	Chrome on Windows 7 or later or MacOS X or later
+
+- Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later (See also [IE Extension Deployment Guide](active-directory-saas-ie-group-policy.md))
+- Chrome -- on Windows 7 or later, and on MacOS X or later
+- Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+
+**Note:** The password-based SSO extension will become available for Edge in Windows 10 when browser extensions become supported for Edge.
 
 ###Existing Single Sign-On
 
@@ -92,19 +98,21 @@ For select applications, Azure AD enables automated user provisioning and de-pro
 
 When a user is deleted or their information changes in Azure AD, these changes are also reflected in the SaaS application. This means, configuring automated identity lifecycle management enables administrators to control and provide automated provisioning and de-provisioning from SaaS applications. In Azure AD, this automation of identity lifecycle management is enabled by user provisioning.
 
+To learn more, see [Automated User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
+
 ##Get started with the Azure AD application gallery
 
 Ready to get started? To deploy single sign-on between Azure AD and SaaS applications that your organization uses, follow these guidelines.
 
 ###Using the Azure AD application gallery
 
-The [Azure Active Directory Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/) provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.
+The [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/) provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.
 
 ![][1]
 
 Here are some tips for finding apps by what capabilities they support:
 
-*	Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/).
+*	Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/).
 
 *	A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found [here](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
@@ -114,16 +122,16 @@ Once you’ve found your application, you can get started by follow the step-by-
 
 If your application is not found in the Azure AD application gallery, then you have these options:
 
-*	**Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](active-directory-saas-custom-apps.md).
 
 
 *	**Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:
-  * https://msdn.microsoft.com/library/azure/dn499820.aspx
-  * https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore
+  * [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
+  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**Request an app integration** - Request support for the application you need using the [Azure AD feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+*	**Request an app integration** - Request support for the application you need using the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ###Using the Azure management portal
 
@@ -160,13 +168,13 @@ Which method(s) you choose to deploy in your organization is your discretion.
 
 ###Azure AD access panel
 
-The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx), you can also utilize self-service group management capabilities through the Access Panel.
+The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), you can also utilize self-service group management capabilities through the Access Panel.
 
 ![][3]
 
 The Access Panel is separate from the Azure Management Portal and does not require users to have an Azure subscription or Office 365 subscription.
 
-For more information on the Azure AD access panel, see the [introduction to the access panel](https://msdn.microsoft.com/library/azure/dn308586.aspx).
+For more information on the Azure AD access panel, see the [introduction to the access panel](active-directory-saas-access-panel-introduction.md).
 
 ###Office 365 application launcher
 
@@ -192,15 +200,24 @@ These links are specifically-crafted URLs that send a user through the Azure AD 
 
 These links can be copied and pasted anywhere you want to provide a sign-in link to the selected application. This could be in an email, or in any custom web-based portal that you have set up for user application access. Here's an example of an Azure AD direct single sign-on URL for Twitter:
 
-https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 Similar to organization-specific URLs for the access panel, you can further customize this URL by adding one of the active or verified domains for your directory after the myapps.microsoft.com domain. This ensures any organizational branding is loaded immediately on the sign-in page without the user needing to enter their user ID first:
 
-https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 When an authorized user clicks on one of these application-specific links, they first see their organizational sign-in page (assuming they are not already signed in), and after sign-in are redirected to their app without stopping at the access panel first. If the user is missing pre-requisites to access the application, such as the password-based single sign browser extension, then the link will prompt the user to install the missing extension. The link URL also remains constant if the single sign-on configuration for the application changes.
 
 These links use the same access control mechanisms as the access panel and Office 365, and only those users or groups who have been assigned to the application in the Azure management portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they have not been granted access, and are given a link to load the access panel to view available applications for which they do have access.
+
+##Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+- [Finding unsanctioned cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+- [Introduction to Managing Access to Apps](active-directory-managing-access-to-apps.md)
+- [Comparing Capabilities for Managing External Identities in Azure AD](active-directory-b2b-compare-external-identities.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png

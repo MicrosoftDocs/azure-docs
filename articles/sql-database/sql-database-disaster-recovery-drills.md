@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="11/16/2015"
    ms.author="mihaelab"/>
 
 #Performing Disaster Recovery Drill
@@ -26,7 +26,7 @@ Performing a disaster recovery drill consists of:
 - Recovering 
 - Validate application integrity post recovery
 
-Depending how you [design for business continuity](sql-database-business-continuity.md), the workflow to execute the drill can vary. Below we describe the best practices conducting a disaster recovery drill in the context of Azure SQL Database. 
+Depending on how you [designed your application for business continuity](sql-database-business-continuity.md), the workflow to execute the drill can vary. Below we describe the best practices conducting a disaster recovery drill in the context of Azure SQL Database. 
 
 ##Geo-Restore
 
@@ -34,51 +34,31 @@ To prevent the potential data loss when conducting a disaster recovery drill, we
  
 ####Outage simulation
 
-- Simulate the outage by either deleting or renaming the source database and cause application connectivity failure. This way you can validate outage detection/alerting and measure RTO for recovery duration.
+To simulate the outage you can delete or rename the source database. This will cause application connectivity failure. 
 
 ####Recovery
 
 - Perform the Geo-Restore of the database into a different server as described [here](sql-database-disaster-recovery.md). 
-- Change the application configuration to connect to the recovered database(s) and follow the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide to complete the recovery.
+- Change the application configuration to connect to the recovered database(s) and follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 ####Validation
 
 - Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
 
-##Standard Geo-Replication
+##Geo-Replication
 
-A database that is protected using Standard Geo-Replication can only have one non-readable secondary database. The drill exercise will involve forced termination of the link, at which point the database will be unprotected. Moreover, there is a possibility of data loss, so we don’t recommend customers to perform such test on production databases. Instead we recommend creating a copy of the production environment and using it to verify the application’s failover workflow.
+For a database that is protected using Geo-Replication the drill exercise will involve planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remains in sync when the roles are switched. Unlike the unplanned failover, this operation will not result in data loss, so the drill can be performed in the production environment. 
 
 ####Outage simulation
 
-- Simulate workload on primary database. If the primary is active at the time of termination data loss might occur, which will make the drill more realistic.
-- Delete the primary database or [perform forced termination](sql-database-disaster-recovery.md) of the link on the secondary database side.
+To simulate the outage you can disable the web application or virtual machine connected to the database. This will result in the connectivity failures for the web clients.
 
 ####Recovery
 
-- Change the application configuration to connect to the former read-only secondary which will become fully accessible and the application can use it as the new primary. 
-- Follow the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide to complete the recovery.
+- Make sure the the application configuration in the DR region points to the former secondary which will become fully accessible new primary. 
+- Perform [planned failover](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) to make the secondary database a new primary
+- Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 ####Validation
 
 - Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
-
-##Active Geo-Replication
-
-The disaster recovery drill will be conducted by using a parallel target server and creating another set of read only secondaries in it. A test version of the application tier should be used to verify the operation health and data integrity by running tests against that server after forced termination. 
-
-####Outage simulation
-
-- [Create a new active geo-replication link](sql-database-business-continuity-design.md) from primary database to a secondary test server. If the primary is active at the time of termination the data loss might occur, which will make the drill more realistic.
-- [Perform forced termination](sql-database-disaster-recovery.md) of the link on the secondary database which resides on the test server.
-
-####Recovery
-
-- Change the application configuration to connect to the former read only secondary which will become available for writes after termination.
-- Follow the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide to complete the recovery.
-
-####Validation
-
-- Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
-
- 

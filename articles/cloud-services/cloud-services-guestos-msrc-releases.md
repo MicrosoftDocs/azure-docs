@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="List of updates applied to the Azure Guest OS | Azure" 
+   pageTitle="List of updates applied to the Azure Guest OS | Microsoft Azure" 
    description="The list of updates applied to Guest OS releases" 
    services="cloud-services" 
    documentationCenter="na" 
    authors="yuemlu" 
-   manager="markkie" 
+   manager="timlt" 
    editor=""/>
 
 <tags
@@ -13,12 +13,143 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+   ms.date="03/23/2016"
+   ms.author="yuemlu"/>
 
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+## March Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-023 | [3142015] | Cumulative Security Update for Internet Explorer | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-026 | [3143148] | Security Update to Graphic Fonts to Address Remote Code Execution | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-027 | [3143146] | Security Updates for Windows Media Player to address Remote Code Execution | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-028 | [3143081] | Security Update for Microsoft Windows PDF Library to Address Remote Code Execution | 4.30, 3.37 | March 8, 2016 |  
+| MS16-030 | [3143136] | Security Update for Windows OLE to Address Remote Code Execution | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-031 | [3140410] | Security Update for Microsoft Windows to Address Elevation of Privilege | 2.49 | March 8, 2016 |  
+| MS16-032 | [3143141] | Security Update to Secondary Logon to Address Elevation of Privilege | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-033 | [3143142] | Security Update to USB Mass Storage Class Driver to Address Elevation of Privilege | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-034 | [3143145] | Security Updates for Kernel-Mode Driver to address Elevation of Privilege | 4.30, 3.37, 2.49 | March 8, 2016 | | MS16-035 | [3141780] | Security Update for .NET Framework to Address Security Feature Bypass | 4.30, 3.37, 2.49 | March 8, 2016 |  
+
+
+## February Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-009 | [3134220] | Cumulative Security Update for Internet Explorer | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-013 | [3134811] | Security Update to Windows Journal to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-014 | [3134228] | Security update to Microsoft Windows to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-016 | [3136041] | Security Update to WebDAV to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-018 | [3136082] | Security Update for Windows Kernel-Mode Driver to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-019 | [3137893] | Security Update for .NET Framework to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-021 | [3133043] | Security Update for NPS RADIUS Server to Address Denial of Service | 4.29, 3.36, 2.48 | February 9, 2016 |
+| Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.29, 3.36 | February 9, 2016 |
+| Re-Release - MS15-101 | [3089662] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| Re-Release - MS15-118 | [3104507] | Security Updates for .NET Framework to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| Re-Release - MS15-128 | [3104503] | Security Updates for Microsoft Graphics Component to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+
+## January Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-001 | [3124903] | Cumulative Security Update for Internet Explorer | 4.28, 3.35, 2.47 | January 12, 2016 |
+| MS16-003 | [3125540] | Cumulative Security Update for JScript and VBScript | 2.47 | January 12, 2016 |
+| MS16-005 | [3124584] | Security Update for Windows Kernel-Mode Drivers to Address Remote Code Execution | 4.28, 3.35, 2.47 | January 12, 2016 |
+| MS16-007 | [3124901] | Security Update for Microsoft Windows to Address Remote Code Execution | 4.28, 3.35, 2.47 | January 12, 2016 |
+| MS16-008 | [3124605] | Security Update for Kernel to Address Elevation of Privilege | 4.28, 3.35, 2.47 | January 12, 2016 |
+| Microsoft Security Advisory Revision | [2755801] | Update for Vulnerabilities in Adobe Flash Player in Internet Explorer (Package KB: TBD) -  Advisory Placeholder | 4.28, 3.35 | January 12, 2016 |
+| Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.28, 3.35 | January 12, 2016 |
+| Microsoft Security Advisory | [3123479] | Deprecation of SHA-1 Hashing Algorithm for Microsoft Root Certificate Program | 4.28, 3.35, 2.47 | January 12, 2016 |
+| Microsoft Security Advisory | [2736233] | Updates for ActiveX Kill Bits | 4.28, 3.35, 2.47 | January 12, 2016 |
+
+## December Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-124 | [3116180] | Cumulative Security Update for Internet Explorer | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-126 | [3116178] | Security Update for Microsoft VBScript and JScript to Address Remote Code Execution | 2.46 | December 8, 2015 |
+| MS15-127 | [3100465] | Security Update for Microsoft Windows DNS to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-128 | [3104503] | Security Updates for Microsoft Graphics Component to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-132 | [3116162] | Security Update for Windows to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-133 | [3116130] | Security Update for Windows PGM to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-134 | [3108669] | Security Update for Windows Media Center to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-135 | [3119075] | Security Update for Windows Kernel Mode Drivers to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
+
+## November Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-112 | [3104517] | Cumulative Security Update for Internet Explorer | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-114 | [3100213] | Security Update for Windows Journal to Address Remote Code Execution | 2.45 | November 10, 2015 |
+| MS15-115 | [3105864] | Security Update for Microsoft Windows to Address Remote Code Execution | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-117 | [3101722] | Security Update for NDIS to Address Elevation of Privilege | 2.45 | November 10, 2015 |
+| MS15-118 | [3104507] | Security Updates for .NET Framework to Address Elevation of Privilege | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-119 | [3104521] | Security Update for Winsock to Address Elevation of Privilege | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-120 | [3102939] | Security Update for IPSec to Address Denial of Service | 4.26, 3.33 | November 10, 2015 |
+| MS15-121 | [3081320] | Security Update to Schannel to Address Spoofing | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-122 | [3105256] | Security Update for Kerberos to Address Security Feature Bypass | 4.26, 3.33, 2.45 | November 10, 2015 |
+| Microsoft Security Advisory | [3097966] | Inadvertently disclosed Digital Certificates Could Allow spoofing | 4.26, 3.33, 2.45 | November 10, 2015 |
+
+
+## October Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-106     | [3096441] | Cumulative Security Update for Internet Explorer  | 4.25, 3.32, 2.44 | October 13, 2015 |
+| MS15-108     | [3089659] | Security Update for JScript and VBScript to Address Potential Remote Code Execution  | 2.44 | October 13, 2015 |
+| MS15-109     | [3096443] | Security Update for Windows Shell to Address Remote Code Execution  | 4.25, 3.32, 2.44 | October 13, 2015 |
+| MS15-111     | [3096447] | Security Update for Windows Kernel to Address Elevation of Privilege  | 4.25, 3.32, 2.44 | October 13, 2015 |
+| Microsoft Security Advisory | [3092627] | September 2015 update to fix Windows or application freezes after you install security update 3076895 | 4.25, 3.32, 2.44 | October 13, 2015 |
+
+
+## September Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-093     | [3088903] | Security Update for Internet Explorer  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-094     | [3089548] | Cumulative Security Update for Internet Explorer  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-096     | [3072595] | Vulnerability in Active Directory Service Could Allow Denial of Service  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-097     | [3089656] | Vulnerabilities in Microsoft Graphics Component Could Allow Elevation of Privilege  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-098     | [3089669] | Vulnerabilities in Windows Journal Could Allow Remote Code Execution  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-101     | [3089662] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-102     | [3089657] | Vulnerabilities in Windows Task Management Could Allow Elevation of Privilege  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-105     | [3091287] | Vulnerability in Windows Hyper-V Could Allow Security Feature Bypass  | 4.24 | September 8, 2015 |
+
+
+## August Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+|  MS15-079    | [3082442] | Cumulative Security Update for Internet Explorer  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-080    | [3078662] | Vulnerabilities in Microsoft Graphics Component Could Allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-082    | [3080348] | Vulnerabilities in RDP could allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-084    | [3080129] | Vulnerabilities in XML Core Services Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-085    | [3082487] | Vulnerability in Mount Manager Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-088    | [3082458] | Unsafe Command Line Parameter Passing Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-089    | [3060716] | Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-090    | [3076949] | Vulnerability in WebDAV Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+
+
+## July Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-065    | [3076321] | Cumulative Security Update for Internet Explorer | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-066    | [3072604] | Vulnerability in VBScript could allow Remote Code Execution | 2.41 | July 14, 2015 |
+| MS15-067    | [3073094] | Vulnerability in RDP could allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-068    | [3072000] | Vulnerability in Windows Hyper-V Could Allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-069    | [3072631] | Vulnerabilities in Windows Could Allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-071    | [3068457] | Vulnerability in NETLOGON Could Allow Spoofing | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-072    | [3069392] | Vulnerability in Graphics Driver Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-073    | [3070102] | Vulnerabilities in Kernel-Mode Driver Could allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-074    | [3072630] | Vulnerability in Windows Installer Service Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-075    | [3072633] | Vulnerabilities in OLE could allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-076    | [3067505] | Vulnerability in Windows Remote Procedure Call Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-077    | [3077657] | Vulnerability in ATM Font Driver Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| NA    | [3057154] | Update to Restrict Use of DES Encryption | 4.22, 3.29, 2.41 | July 14, 2015 |
 
 ## June Guest OS
 
@@ -125,6 +256,99 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 
+
+[3142015]: http://support.microsoft.com/kb/3142015  
+[3143148]: http://support.microsoft.com/kb/3143148  
+[3143146]: http://support.microsoft.com/kb/3143146  
+[3143081]: http://support.microsoft.com/kb/3143081  
+[3143136]: http://support.microsoft.com/kb/3143136  
+[3140410]: http://support.microsoft.com/kb/3140410  
+[3143141]: http://support.microsoft.com/kb/3143141  
+[3143142]: http://support.microsoft.com/kb/3143142  
+[3143145]: http://support.microsoft.com/kb/3143145  
+[3141780]: http://support.microsoft.com/kb/3141780
+
+[3134220]: http://support.microsoft.com/kb/3134220
+[3134811]: http://support.microsoft.com/kb/3134811
+[3134228]: http://support.microsoft.com/kb/3134228
+[3136041]: http://support.microsoft.com/kb/3136041
+[3136082]: http://support.microsoft.com/kb/3136082
+[3137893]: http://support.microsoft.com/kb/3137893
+[3133043]: http://support.microsoft.com/kb/3133043
+[3109853]: http://support.microsoft.com/kb/3109853
+[3089662]: http://support.microsoft.com/kb/3089662
+[3104507]: http://support.microsoft.com/kb/3104507
+[3104503]: http://support.microsoft.com/kb/3104503
+
+[3124903]: http://support.microsoft.com/kb/3124903
+[3125540]: http://support.microsoft.com/kb/3125540
+[3124584]: http://support.microsoft.com/kb/3124584
+[3124901]: http://support.microsoft.com/kb/3124901 
+[3124605]: http://support.microsoft.com/kb/3124605
+[2755801]: http://support.microsoft.com/kb/2755399
+[3109853]: http://support.microsoft.com/kb/3109853
+[3123479]: http://support.microsoft.com/kb/3123479 
+[2736233]: http://support.microsoft.com/kb/2736233
+
+[3116180]: http://support.microsoft.com/kb/3116180
+[3116178]: http://support.microsoft.com/kb/3116178
+[3100465]: http://support.microsoft.com/kb/3100465
+[3104503]: http://support.microsoft.com/kb/3104503
+[3116162]: http://support.microsoft.com/kb/3116162
+[3116130]: http://support.microsoft.com/kb/3116130
+[3108669]: http://support.microsoft.com/kb/3108669
+[3119075]: http://support.microsoft.com/kb/3119075
+
+[3104517]: http://support.microsoft.com/kb/3104517
+[3100213]: http://support.microsoft.com/kb/3100213
+[3105864]: http://support.microsoft.com/kb/3105864
+[3101722]: http://support.microsoft.com/kb/3101722
+[3104507]: http://support.microsoft.com/kb/3104507
+[3104521]: http://support.microsoft.com/kb/3104521
+[3102939]: http://support.microsoft.com/kb/3102939
+[3081320]: http://support.microsoft.com/kb/3081320
+[3105256]: http://support.microsoft.com/kb/3105256
+[3097966]: http://support.microsoft.com/kb/3097966
+
+[3096441]: http://support.microsoft.com/kb/3096441
+[3089659]: http://support.microsoft.com/kb/3089659
+[3096443]: http://support.microsoft.com/kb/3096443
+[3096447]: http://support.microsoft.com/kb/3096447
+[3092627]: http://support.microsoft.com/kb/3092627
+
+[3088903]: http://support.microsoft.com/kb/3088903
+[3089548]: http://support.microsoft.com/kb/3089548
+[3072595]: http://support.microsoft.com/kb/3072595
+[3089656]: http://support.microsoft.com/kb/3089656
+[3089669]: http://support.microsoft.com/kb/3089669
+[3089657]: http://support.microsoft.com/kb/3089657
+[3091287]: http://support.microsoft.com/kb/3091287
+[3089662]: http://support.microsoft.com/kb/3089662
+
+[3082442]: http://support.microsoft.com/kb/3082442
+[3078662]: http://support.microsoft.com/kb/3078662
+[3080348]: http://support.microsoft.com/kb/3080348
+[3080129]: http://support.microsoft.com/kb/3080129
+[3082487]: http://support.microsoft.com/kb/3082487
+[3082458]: http://support.microsoft.com/kb/3082458
+[3060716]: http://support.microsoft.com/kb/3060716
+[3076949]: http://support.microsoft.com/kb/3076949
+[3086251]: http://support.microsoft.com/kb/3086251
+
+
+[3076321]: http://support.microsoft.com/kb/3076321
+[3072604]: http://support.microsoft.com/kb/3072604
+[3073094]: http://support.microsoft.com/kb/3073094
+[3072000]: http://support.microsoft.com/kb/3072000
+[3072631]: http://support.microsoft.com/kb/3072631
+[3068457]: http://support.microsoft.com/kb/3068457
+[3069392]: http://support.microsoft.com/kb/3069392
+[3070102]: http://support.microsoft.com/kb/3070102
+[3072630]: http://support.microsoft.com/kb/3072630
+[3072633]: http://support.microsoft.com/kb/3072633
+[3067505]: http://support.microsoft.com/kb/3067505
+[3077657]: http://support.microsoft.com/kb/3077657
+[3057154]: http://support.microsoft.com/kb/3057154
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 

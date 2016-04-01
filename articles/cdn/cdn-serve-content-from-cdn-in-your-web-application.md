@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 # Serve Content from Azure CDN in Your Web Application #
+
+> [AZURE.NOTE] This tutorial applies to the classic CDN service.  We're hard at work writing an update for the current version of CDN.
 
 This tutorial shows you how to take advantage of Azure CDN to improve the reach and performance of your Web application. Azure CDN can help improve the performance of your Web application when:
 
@@ -151,8 +153,8 @@ In this section, you have learned how to create a CDN endpoint, upload content t
 
 If you want to easily upload all of the static content in your ASP.NET Web application to your CDN endpoint, or if your deploy your Web application using continuous delivery (for an example, see [Continuous Delivery for Cloud Services in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md)), you can use Azure PowerShell to automate the synchronization of the latest content files to Azure blobs every time you deploy your Web application. For example, you can run the script at [Upload Content Files from ASP.NET Application to Azure Blobs](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) upload all the content files in an ASP.NET application. To use this script:
 
-4. From the **Start** menu, run **Microsoft Azure PowerShell**.
-5. In the Azure PowerShell window, run `Get-AzurePublishSettingsFile` to download a publish settings file for your Azure account.
+4. From the **Start** menu, run **Windows PowerShell**.
+5. In the PowerShell window, run `Get-AzurePublishSettingsFile` to download a publish settings file for your Azure account.
 6. Once you have downloaded your publish settings file, run the following: 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -220,30 +222,27 @@ There is, of course, a time and place for caching. For example, you may have con
 <a name="query"></a>
 ## Serve fresh content immediately using query strings ##
 
-In Azure CDN, you can enable query strings so that content from URLs with specific query strings are cached separately. This is a great feature to use if you want to push certain content updates to the client browsers immediately instead of waiting for the cached CDN content to expire. Suppose I publish my Web page with a version number in the URL.  
-<pre class="prettyprint">
-&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>&quot; rel=&quot;stylesheet&quot;/&gt;
-</pre>
+In Azure CDN, you can enable query strings so that content from URLs with specific query strings are cached separately. This is a great feature to use if you want to push certain content updates to the client browsers immediately instead of waiting for the cached CDN content to expire. Suppose I publish my Web page with a version number in the URL.
+  
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0" rel="stylesheet"/>
 
 When I publish a CSS update and use a different version number in my CSS URL:  
-<pre class="prettyprint">
-&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>&quot; rel=&quot;stylesheet&quot;/&gt;
-</pre>
+
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1" rel="stylesheet"/>
 
 To a CDN endpoint that has query strings enabled, the two URLs are unique to each other, and it will make a new request to my Web server to retrieve the new *bootstrap.css*. To a CDN endpoint that doesn't have query strings enabled, however, these are the same URL, and it will simply serve the cached *bootstrap.css*. 
 
 The trick then is to update the version number automatically. In Visual Studio, this is easy to do. In a .cshtml file where I would use the link above, I can specify a version number based on the assembly number.  
-<pre class="prettyprint">
-@{
-    <mark>var cdnVersion = System.Reflection.Assembly.GetAssembly(
-        typeof(MyMvcApp.Controllers.HomeController))
-        .GetName().Version.ToString();</mark>
-}
 
-...
-
-&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>&quot; rel=&quot;stylesheet&quot;/&gt;
-</pre>
+	@{
+	    var cdnVersion = System.Reflection.Assembly.GetAssembly(
+	        typeof(MyMvcApp.Controllers.HomeController))
+	        .GetName().Version.ToString();
+	}
+	
+	...
+	
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion" rel="stylesheet"/>
 
 If you change the assembly number as part of every publish cycle, then you can likewise be sure to get a unique version number every time you publish your Web app, which will remain the same until the next publish cycle. Or, you can make Visual Studio automatically increment the assembly version number every time the Web app builds by opening *Properties\AssemblyInfo.cs* in your Visual Studio project and use `*` in `AssemblyVersion`. For example:
 
@@ -255,12 +254,12 @@ With [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 Integrating Azure App Service or Azure Cloud Services with Azure CDN gives you the following advantages:
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure web app's [continuous deployment](../web-sites-publish-source-control.md) process
+- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure web app's [continuous deployment](../app-service-web/web-sites-publish-source-control.md) process
 - Easily upgrade your CDN-served NuGet packages, such as jQuery or Bootstrap versions 
 - Manage your Web application and your CDN-served content from the same Visual Studio interface
 
 For related tutorials, see:
-- [Use Azure CDN in Azure App Service](../cdn-websites-with-cdn.md)
+- [Use Azure CDN in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 
 Without integration with Azure App Service Web Apps or Azure Cloud Services, it is possible to use Azure CDN for your script bundles, with the following caveats:
@@ -272,7 +271,7 @@ Without integration with Azure App Service Web Apps or Azure Cloud Services, it 
 
 ## More Information ##
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
-- [Use Azure CDN in Azure App Service](../cdn-websites-with-cdn.md)
+- [Use Azure CDN in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 - [How to Map Content Delivery Network (CDN) Content to a Custom Domain](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Using CDN for Azure](cdn-how-to-use-cdn.md)

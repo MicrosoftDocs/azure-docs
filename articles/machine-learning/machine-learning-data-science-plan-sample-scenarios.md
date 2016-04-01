@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="02/08/2016"
 	ms.author="msolhab;bradsev" />
 
 
-# Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning
+# Scenarios for advanced analytics in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled with the Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
+This article outlines the variety of sample data sources and target scenarios that can be handled by the Cortana Analytics Process (CAP). It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
@@ -30,10 +30,8 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 >[AZURE.NOTE] **For all of the following scenarios, you need to:**
 
-*   [Create a storage account](storage-whatis-account.md)
-*   [Create an Azure ML workspace](machine-learning/machine-learning-create-workspace.md)
-
-
+*   [Create a storage account](../storage/storage-create-storage-account.md)
+*   [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in a local files
@@ -174,7 +172,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
     f.  If table joins are required, create indexes to expedite joins.
 
- > [AZURE.NOTE] For faster loading of large data sizes, it is recommended to create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] For faster loading of large data sizes, it is recommended to create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -218,7 +216,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 	f.  If table joins are required, create indexes to expedite joins.
 
-> [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -307,8 +305,8 @@ The following diagram summarizes the scenarios described above and the Advanced 
 For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see:
 
 
-* [Advanced Analytics Process and Technology in Action: using SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Advanced Analytics Process and Technology in action: using HDInsight Hadoop clusters](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png

@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/30/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
-#Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight 
+#Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight
 
 Hive and Pig are great for working with data in Azure HDInsight, but sometimes you need a more general-purpose language. Both Hive and Pig allow you to call external code through user-defined functions (UDFs) or streaming.
 
@@ -29,15 +30,15 @@ In this document, learn how to use C# with Hive and Pig.
 
 * Visual Studio with the following versions:
 
-	* Visual Studio 2012 Professional/Premium/Ultimate with <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
+	* Visual Studio 2012 Professional/Premium/Ultimate with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	* Visual Studio 2013 Community/Professional/Premium/Ultimate with <a href="https://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a>
+	* Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
 	* Visual Studio 2015 Preview
 
 * Hadoop on HDInsight cluster - see [Provision an HDInsight cluster](hdinsight-provision-clusters.md) for steps to create a cluster
 
-* Hadoop Tools for Visual Studio. See <a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">Get started using HDInsight Hadoop Tools for Visual Studio</a> for steps on installing and configuring the tools.
+* Hadoop Tools for Visual Studio. See [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) for steps on installing and configuring the tools.
 
 ##.NET on HDInsight
 
@@ -59,52 +60,52 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 2. Replace the contents of **Program.cs** with the following:
 
-		using System;
-		using System.Security.Cryptography;
-		using System.Text;
-		using System.Threading.Tasks;
+        using System;
+        using System.Security.Cryptography;
+        using System.Text;
+        using System.Threading.Tasks;
 
-		namespace HiveCSharp
-		{
-		    class Program
-		    {
-		        static void Main(string[] args)
-		        {
-		            string line;
-		            // Read stdin in a loop
-		            while ((line = Console.ReadLine()) != null)
-		            {
-		                // Parse the string, trimming line feeds
-		                // and splitting fields at tabs
-		                line = line.TrimEnd('\n');
-		                string[] field = line.Split('\t');
-		                string phoneLabel = field[1] + ' ' + field[2];
-		                // Emit new data to stdout, delimited by tabs
-		                Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
-		            }
-		        }
-		        /// <summary>
-		        /// Returns an MD5 hash for the given string
-		        /// </summary>
-		        /// <param name="input">string value</param>
-		        /// <returns>an MD5 hash</returns>
-		        static string GetMD5Hash(string input)
-		        {
-		            // Step 1, calculate MD5 hash from input
-		            MD5 md5 = System.Security.Cryptography.MD5.Create();
-		            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-		            byte[] hash = md5.ComputeHash(inputBytes);
+        namespace HiveCSharp
+        {
+            class Program
+            {
+                static void Main(string[] args)
+                {
+                    string line;
+                    // Read stdin in a loop
+                    while ((line = Console.ReadLine()) != null)
+                    {
+                        // Parse the string, trimming line feeds
+                        // and splitting fields at tabs
+                        line = line.TrimEnd('\n');
+                        string[] field = line.Split('\t');
+                        string phoneLabel = field[1] + ' ' + field[2];
+                        // Emit new data to stdout, delimited by tabs
+                        Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
+                    }
+                }
+                /// <summary>
+                /// Returns an MD5 hash for the given string
+                /// </summary>
+                /// <param name="input">string value</param>
+                /// <returns>an MD5 hash</returns>
+                static string GetMD5Hash(string input)
+                {
+                    // Step 1, calculate MD5 hash from input
+                    MD5 md5 = System.Security.Cryptography.MD5.Create();
+                    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                    byte[] hash = md5.ComputeHash(inputBytes);
 
-		            // Step 2, convert byte array to hex string
-		            StringBuilder sb = new StringBuilder();
-		            for (int i = 0; i < hash.Length; i++)
-		            {
-		                sb.Append(hash[i].ToString("x2"));
-		            }
-		            return sb.ToString();
-		        }
-		    }
-		}
+                    // Step 2, convert byte array to hex string
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < hash.Length; i++)
+                    {
+                        sb.Append(hash[i].ToString("x2"));
+                    }
+                    return sb.ToString();
+                }
+            }
+        }
 
 3. Build the project.
 
@@ -152,7 +153,7 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 6. Click **Refresh** to refresh the summary until **Job Status** changes to **Completed**. To view the job output, click **Job Output**.
 
-###Pig and C&#35;
+##Pig and C&#35;
 
 ###Create the C# project
 
@@ -193,7 +194,7 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 ###Upload the application
 
-1. Pig streaming expects the application to be local on the cluster file system. Enable Remote Desktop for the HDInsight cluster, and then connect to it by following the instructions at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
+1. Pig streaming expects the application to be local on the cluster file system. Enable Remote Desktop for the HDInsight cluster, and then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. Once connected, copy **PigUDF.exe** from the **bin/debug** directory for the PigUDF project on your local machine, and paste it to the **%PIG_HOME%** directory on the cluster.
 
@@ -239,4 +240,3 @@ For other ways to use Pig and Hive, and to learn about using MapReduce, see the 
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
- 

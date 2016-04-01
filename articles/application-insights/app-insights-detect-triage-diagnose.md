@@ -4,15 +4,15 @@
 	authors="alancameronwills"
 	services="application-insights"
     documentationCenter=""
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.topic="article" 
+	ms.date="11/06/2015"
 	ms.author="awills"/>
 
 # Detect, Triage and Diagnose with Application Insights
@@ -20,35 +20,39 @@
 *Application Insights is in preview.*
 
 
-After you've published your application, Application Insights helps you make sure it's running OK and performing well. If there's a problem, you want to know about it soon, and then you want to know what to do about it.
+Application Insights helps you find out how your app is performing and being used when it's live. And if there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
+
+Here's an account from a team that develops web applications:
 
 * *"A couple of days ago, we deployed a 'minor' hotfix. We didn't run a broad test pass, but unfortunately some unexpected change got merged into the payload, causing incompatibility between the front and back ends. Immediately, server exceptions surged, our alert fired, and we were made aware of the situation. A few clicks away on the Application Insights portal, we got enough information from exception callstacks to narrow down the problem. We rolled back immediately and limited the damage. Application Insights has made this part of the devops cycle very easy and actionable."*
 
-We can think of this part of the devops cycle as a pipeline:
-
-![Detect-Triage-Diagnose](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
-
-
-Once you've diagnosed the problem, you know where to focus your efforts - whether it's debugging your code, allocating more memory, or following up with a dependency. Finally, you can check that your fix has worked:
-
-
-
-![Repair-Validate](./media/app-insights-detect-triage-diagnose/02-pipe2.png)
-
-
-Let's see how Application Insights works at each stage of the pipeline.
-
-Application Insights works for devices apps and web applications. In this walkthrough, we'll focus on a web application. We'll follow the OBS team in Fabrikam Bank, who are responsible for the online banking system. They have added Application Insights to their web projects.  
-
+Let's see how a typical web development team uses Application Insights to monitor performance. We'll follow the team in Fabrikam Bank that develops the online banking system (OBS).
 
 ![Example bank web site](./media/app-insights-detect-triage-diagnose/03-bank.png)
+
+The team works on a cycle like this:
+
+![DevOps cycle](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
+
+Requirements feed into their development backlog (task list). They work in short sprints, which often deliver working software - usually in the form of improvements and extensions to the existing application. The live app is frequently updated with new features. While it's live, the team monitors it for performance and usage with the help of Application Insights. This analysis feeds back into their development backlog.
+
+The team uses Application Insights to monitor the live web application closely for:
+* Performance. They want to understand how response times vary with request count; how much CPU, network, disk, and other resources are being used; and where the bottlenecks are.
+* Failures. If there are exceptions or failed requests, or if a performance counter goes outside its comfortable range, the team needs to know rapidly so that they can take action.
+* Usage. Whenever a new feature is released, the team want to know to what extent it is used, and whether users have any difficulties with it.
+
+
+
+Let's focus on the feedback part of the cycle:
+
+![Detect-Triage-Diagnose](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 
 
 ## Detect poor availability
 
 
-Marcela Markova is a test specialist on the OBS team, and takes the lead on monitoring online performance. She sets up several [web tests][availability]:
+Marcela Markova is a senior developer on the OBS team, and takes the lead on monitoring online performance. She sets up several [web tests][availability]:
 
 * A single-URL test for the main landing page for the app, http://fabrikambank.com/onlinebanking/. She sets criteria of HTTP code 200 and text 'Welcome!'. If this test fails, there's something seriously wrong with the network or the servers, or maybe a deployment issue. (Or someone has changed the Welcome! message on the page without letting her know.)
 
@@ -59,7 +63,7 @@ Marcela Markova is a test specialist on the OBS team, and takes the lead on moni
 With these tests set up, Marcela is confident that the team will quickly know about any outage.  
 
 
-Failures show up as red dots on the web test overview chart:
+Failures show up as red dots on the web test chart:
 
 ![Display of web tests that have run over the preceding period](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
@@ -70,40 +74,62 @@ But more importantly, an alert about any failure will be emailed to the developm
 ## Monitor performance metrics
 
 
-On the same overview page as the availability chart, there's a chart that shows a variety of [key metrics][perf].
-
+On the overview page in Application Insights, there's a chart that shows a variety of [key metrics][perf].
 
 ![Various metrics](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-Client processing time is derived from telemetry sent directly from web pages. The others show metrics calculated in the web servers.  
+Browser page load time is derived from telemetry sent directly from web pages. Server response time, server request count and failed request count are all measured in the web server and sent to Application Insights from there.
+
+Marcela is slightly concerned with at the server response graph, which shows the average time between when the server receives an HTTP request from a user's browser, and when it returns the response. It isn't unusual to see a variation in this chart, as load on the system varies. But in this case, there seems to be a correlation between small rises in the count of requests, and big rises in the response time. That could indicate that the system is operating just at its limits. 
+
+She opens the Servers charts:
+
+![Various metrics](./media/app-insights-detect-triage-diagnose/06.png)
+
+There seems to be no sign of resource limitation there, so maybe the bumps in the server response charts are just a coincidence.
 
 
-The Failed Request count indicates cases where users have seen an error - typically following an exception thrown in the code. Maybe they see a message saying "Sorry we couldn't update your details right now" or, at absolute embarrassing worst, a stack dump on the user's screen, courtesy of the web server.
+## Alerts
 
+Nevertheless, she'd like to keep an eye on the response times. If they go too high, she wants to know about it immediately.
 
-Marcela likes to look at these charts from time to time. The constant background of failed requests is a bit depressing, but it relates to a bug that the team is investigating, so it should fall when the fix is released. But if there is a sudden peak in failed requests, or in some of the other metrics such as server response time, Marcela wants to know about it immediately. It might indicate an unforeseen problem caused by a code release, or a failure in a dependency such as a database, or maybe an ungraceful reaction to a high load of requests.
-
-#### Alerts
-
-So she sets two [alerts][metrics]: one for response times greater than a typical threshold, and another for a rate of failed requests greater than the current background.
-
-
-Together with the availability alert, these give her confidence that she'll know about it as soon as anything unusual happens.  
-
-
-It's also possible to set alerts on a wide variety of other metrics. For example, you can receive emails if the exception count becomes high, or the available memory goes low, or if there is a peak in client requests.
-
+So she sets an [alerts][metrics], for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
 
 
 ![Add alert blade](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
+Alerts can be set on a wide variety of other metrics. For example, you can receive emails if the exception count becomes high, or the available memory goes low, or if there is a peak in client requests.
 
+## Proactive diagnostic alerts
+
+Next day, an alert email does arrive from Application Insights. But when she opens it, she finds isn't the response time alert that she set. Instead, it tells her there's been a sudden rise in failed requests - that is, requests that have returned failure codes of 500 or more.
+
+Failed requests are where users have seen an error - typically following an exception thrown in the code. Maybe they see a message saying "Sorry we couldn't update your details right now" or, at absolute embarrassing worst, a stack dump on the user's screen, courtesy of the web server.
+
+This alert is a surprise, because the last time she looked at it, the failed request count was encouragingly low. A small number of failures is to be expected in a busy server. 
+
+It was also a bit of a surprise for her because she didn't have to configure this alert. In fact, Proactive Diagnostics comes automatically with Application Insights. It automatically adjusts to your app's usual failure pattern, and "gets used to" failures on a particular page, or under high load, or linked to other metrics. It raises the alarm only if there's a rise above what it comes to expect.
+
+![proactive diagnostics email](./media/app-insights-detect-triage-diagnose/21.png)
+
+This is a very useful email. It doesn't just raise an alarm; it does a lot of the triage and diagnostic work, too.
+
+It shows how many customers are affected, and which web pages or operations. Marcela can decide whether she needs to get the whole team working on this as a fire drill, or whether it can be ignored until next week.
+
+The email also shows that a particular exception occurred, and - even more interesting - that the failure is associated with failed calls to a particular database. This explains why the fault suddenly appeared even though Marcela's team has not deployed any updates recently. 
+
+She pings the leader of the database team. Yes, they released a hot fix in the past half hour; and Oops, maybe there might have been a minor schema change....
+
+So the problem is on the way to being fixed, even before investigating logs, and within 15 minutes of it arising. However, Marcela clicks on the link to open Application Insights. It opens straight onto a failed request, and she can see the 
+failed database call in the associated list of dependency calls. 
+
+![failed request](./media/app-insights-detect-triage-diagnose/23.png)
 
 
 ## Detecting exceptions
 
 
-Exceptions are reported to Application Insights by calling [TrackException()][api]:  
+With a little bit of setup, [exceptions](app-insights-asp-net-exceptions.md) are reported to Application Insights automatically. They can also be captured explicitly by inserting calls to [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) into the code:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -144,19 +170,20 @@ Exceptions and events show up in the [Diagnostic Search][diagnostic] blade. You 
 
 ![In Diagnostic Search, use filters to show particular types of data](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Monitoring good events
+## Monitoring user activity
+
+When response time is consistently good and there are few exceptions, the dev team can think about how to improve the users' experience, and how to encourage more users to achieve the desired goals.
 
 
-The Fabrikam dev team like to track nice things as well as nasty ones. Partly because it's nice to know how much niceness is occurring and where; and secondly because when nice things suddenly stop happening, that's nasty.
+For example, a typical user journey through the web site has a clear 'funnel': Many customers look at the rates of different types of loan; some of them fill in the quotation form; and of those who get a quotation, a few go ahead and take out the loan.
 
+![](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-For example, many user journeys have a clear 'funnel': A lot of customers look at the rates of different types of loan; some of them fill in the quotation form; and of those who get a quotation, some go ahead and take out the loan.  
+By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
 
+Whatever the reasons, the data helps the team work out what users are doing. More tracking calls can be inserted to work out more detail. TrackEvent() can be used to count any user actions, from the fine detail of individual button clicks to significant achievements such as paying off a loan.
 
-The development team inserts TrackMetric() calls at every stage in the funnel. In Metrics Explorer, Brian the business architect can compare the values of each metric, to estimate how well the system is selling loans.  
-
-
-Ursula the UX specialist also keeps an eye on the good metrics. If the chart shows a sudden drop at any stage in the funnel, it indicates there's some issue there. Maybe it's difficult to find the right button, or maybe the text isn't very encouraging. Or maybe there's a bug: users hit the button but nothing happens.
+The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
 
 
 ## Proactive monitoring  

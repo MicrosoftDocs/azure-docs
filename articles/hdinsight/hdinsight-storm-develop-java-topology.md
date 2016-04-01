@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="01/29/2016"
    ms.author="larryfr"/>
 
 #Develop Java-based topologies for a basic word-count application with Apache Storm and Maven on HDInsight
@@ -21,6 +22,8 @@
 Learn a basic process to create a Java-based topology for Apache Storm on HDInsight by using Maven. You will walk through the process of creating a basic word-count application using Maven and Java. Although instructions are provided for using Eclipse, you can also use the text editor of your choice.
 
 After completing the steps in this document, you will have a basic topology that you can deploy to Apache Storm on HDInsight.
+
+> [AZURE.NOTE]: A completed version of this topology is available at [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ##Prerequisites
 
@@ -30,7 +33,7 @@ After completing the steps in this document, you will have a basic topology that
 
 * A text editor such as Notepad, <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a>. Or you can use an integrated development environment (IDE) such as <a href="https://eclipse.org/" target="_blank">Eclipse</a> (version Luna or later).
 
-	> [AZURE.NOTE] Your editor or IDE may have specific functionality for working with Eclipse that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
+	> [AZURE.NOTE] Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
 
 ##Configure environment variables
 
@@ -465,4 +468,3 @@ You have learned how to create a Storm topology by using Java. Now learn how to:
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 You can find more example Storm topologies by visiting [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).
- 

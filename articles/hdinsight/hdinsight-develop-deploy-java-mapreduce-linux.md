@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Develop Java MapReduce programs for Hadoop | Microsoft Azure"
-	description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight."
+	pageTitle="Develop Java MapReduce programs for Linux-based HDInsight | Microsoft Azure"
+	description="Learn how to develop Java MapReduce programs and deploy them to Linux-based HDInsight."
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
 	authors="Blackmist"
-	documentationCenter=""/>
+	documentationCenter=""
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/26/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
-# Develop Java MapReduce programs for Hadoop in HDInsight
+# Develop Java MapReduce programs for Hadoop on HDInsight
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
 
-This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
+This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster. For information on using a Windows-based Hadoop on HDInsight cluster, see [Develop Java MapReduce programs for Hadoop on HDInsight (Windows)](hdinsight-develop-deploy-java-mapreduce.md)
 
 ##<a name="prerequisites"></a>Prerequisites
 
@@ -30,9 +31,9 @@ Before you begin this tutorial, you must have the following:
 
 - [Apache Maven](http://maven.apache.org/)
 
-- **An Azure subscription**: See [Get Azure free trial](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **An Azure subscription**
 
-- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli.md)
+- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli-install.md)
 
 ##Configure environment variables
 
@@ -87,7 +88,7 @@ The following environment variables may be set when you install Java and the JDK
 		  <scope>provided</scope>
 		</dependency>
 
-	This tells Maven that the project requires the libraries (listed within <artifactId\>) with a specific version (listed within <version\>). At compile time, this will be downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
+	This tells Maven that the project requires the libraries (listed within &lt;artifactId\>) with a specific version (listed within &lt;version\>). At compile time, this will be downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
 
 	The `<scope>provided</scope>` tells Maven that these dependencies should not be packaged with the application, as they will be provided by the HDInsight cluster at run-time.
 
@@ -247,13 +248,13 @@ This copies the files from the local system to the head node.
 
 2. From the SSH session, use the following command to run the MapReduce application:
 
-		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
+		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
 	This will use the WordCount MapReduce application to count the words in the davinci.txt file, and store the results to __wasb:///example/data/wordcountout__. Both the input file and output are stored to the default storage for the cluster.
 
 3. Once the job completes, use the following to view the results:
 
-		hadoop fs -cat wasb:///example/data/wordcountout/*
+		hdfs dfs -cat wasb:///example/data/wordcountout/*
 
 	You should receive a list of words and counts, with values similar to the following:
 
@@ -269,6 +270,8 @@ In this document, you have learned how to develop a Java MapReduce job. See the 
 - [Use Pig with HDInsight][hdinsight-use-pig]
 - [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
+For more information, see also the [Java Developer Center](https://azure.microsoft.com/develop/java/).
+
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -277,22 +280,11 @@ In this document, you have learned how to develop a Java MapReduce job. See the 
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
-
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
-
-
-[image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
-[image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png

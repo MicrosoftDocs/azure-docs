@@ -12,11 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/01/2015"
-   ms.author="jimpark"; "aashishr"/>
+   ms.date="02/09/2016"
+   ms.author="jimpark;"/>
 
 # Use Azure Backup to replace your tape infrastructure
 Azure Backup and System Center Data Protection Manager customers can:
+
 - Back up data in schedules which best suit their organization needs
 - Retain the backup data for longer periods
 - Make Azure a part of their long term retention needs (instead of tape).
@@ -56,6 +57,8 @@ The total number of “retention points” (points from which a customer can res
 - 1 point per year per 10 years = 10 recovery points
 
 The total number of recovery points is 56.
+
+> [AZURE.NOTE] Azure backup doesn't have a restriction on number of recovery points.
 
 ## Advanced configuration
 By clicking **Modify** in the above screen, customers have further flexibility in specifying retention schedules.

@@ -1,19 +1,4 @@
-<properties
-   pageTitle="Enter maintenance mode"
-   description="Explains how to put the StorSimple device into maintenance mode."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/21/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 12/01/15-->
 
 #### To enter Maintenance mode
 
@@ -25,6 +10,6 @@
 
      `Enter-HcsMaintenanceMode`
 
-4. You will see a warning message telling you that Maintenance mode will disrupt all I/O requests and sever the connection to the Management Portal, and you will be prompted for confirmation. Type **Y** to enter Maintenance mode.
+4. You will see a warning message telling you that Maintenance mode will disrupt all I/O requests and sever the connection to the Azure classic portal, and you will be prompted for confirmation. Type **Y** to enter Maintenance mode.
 
     Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in Maintenance mode.

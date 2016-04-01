@@ -1,28 +1,27 @@
-<properties 
-	pageTitle="Getting started with Azure Active Directory Premium" 
-	description="A topic that explains how to sign up for Azure Active Directory Premium edition." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Getting started with Azure Active Directory Premium"
+	description="A topic that explains how to sign up for Azure Active Directory Premium edition."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="stevenpo" 
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="01/26/2016"
+	ms.author="markvi"/>
 
 # Getting started with Azure Active Directory Premium
 
 Azure Active Directory comes in three editions: Free, Basic, and Premium. The Free edition is included with an Azure or Office 365 subscription. The Basic and Premium editions are available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) or the [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) program. Azure and Office 365 subscribers can also buy Active Directory Premium online. [Sign in here](https://portal.office.com/Commerce/Catalog.aspx) to buy it.
 
 > [AZURE.NOTE]
-Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Azure Active Directory Premium is also included in the **Enterprise Mobility Suite**. Enterprise Mobility Suite is a cost effective way for organizations to use Microsoft Intune, Azure Rights Management and the Active Directory Premium services together under one licensing plan. For more information, see the [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web site.
 
@@ -30,7 +29,7 @@ To start using Azure Active Directory Premium features today, follow the steps b
 
 ## Step 1: Sign up for Active Directory Premium
 
-To sign up, see the [Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) web site. 
+To sign up, see the [Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) web site.
 
 ## Step 2: Activate your license plan
 
@@ -98,7 +97,7 @@ Some license plans are subsets or supersets of other license plans. In most case
 
 ## License requirements
 
-When you assign a license to a user, you can specify a primary usage location in the properties of their account as shown below. If a usage location is not specified, the tenant’s location is automatically assigned to the user. 
+When you assign a license to a user, you can specify a primary usage location in the properties of their account as shown below. If a usage location is not specified, the tenant’s location is automatically assigned to the user.
 
 ![][12]
 
@@ -122,6 +121,3 @@ The availability of services and features for a Microsoft cloud service varies b
 [10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
-
-
- 

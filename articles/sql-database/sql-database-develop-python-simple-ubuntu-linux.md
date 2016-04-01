@@ -1,65 +1,53 @@
-<properties 
-	pageTitle="Connect to SQL Database by using Python with pymssql on Ubuntu" 
+<properties
+	pageTitle="Connect to SQL Database by using Python with pymssql on Ubuntu"
 	description="Presents a Python code sample you can use to connect to Azure SQL Database. The sample runs on an Ubuntu Linux client computer."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="meet-bhagdev" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="meet-bhagdev"
+	manager="jeffreyg"
 	editor="genemi"/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="05/19/2015" 
-	ms.author="mebha"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="03/14/2016"
+	ms.author="meetb"/>
 
 
 # Connect to SQL Database by using Python on Ubuntu Linux
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
 This topic presents a Python code sample that run on an Ubuntu Linux client computer, to connect to an Azure SQL Database database.
 
 
-## Requirements
+## Step 1: Configure Development Environment
+
+[Prerequisites for using the pymssql Python Driver for SQL Server](https://msdn.microsoft.com/library/mt694094.aspx#Ubuntu-Linux)
+
+## Step 2: Create a SQL database
+
+See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
+
+## Step 3: Get Connection Details
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
-
-
-### Install the required modules
-
-
-Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **FreeTDS** and **pymssql**. pymssql uses FreeTDS to connect to SQL Databases.
-
-	sudo apt-get --assume-yes update
-	sudo apt-get --assume-yes install freetds-dev freetds-bin
-	sudo apt-get --assume-yes install python-dev python-pip
-	sudo pip install pymssql
-
-
-### Create a database and retrieve your connection string
-
-
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database and get your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. 
-
-
-## Connect to your SQL Database
-
+## Step 4:  Connect
 
 The [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) function is used to connect to SQL Database.
 
 	import pymssql
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
-
-## Execute an SQL SELECT statement
+## Step 5: Execute a query
 
 The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set which can be iterated over with the use of [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -74,9 +62,9 @@ The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Curso
 	    row = cursor.fetchone()
 
 
-## Insert a row, pass parameters, and retrieve the generated primary key
+## Step 6:  Insert a row
 
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+In this example you will see how to execute an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://msdn.microsoft.com/library/ms179610.aspx) value.  
 
 
 	import pymssql
@@ -89,7 +77,7 @@ In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx)
 	    row = cursor.fetchone()
 
 
-## Transactions
+## Step 7:  Rollback a transaction
 
 
 This code example demonstrates the use of transactions in which you:
@@ -107,7 +95,8 @@ This code example demonstrates the use of transactions in which you:
 	cursor = conn.cursor()
 	cursor.execute("BEGIN TRANSACTION")
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
-	cnxn.rollback()
+	conn.rollback()
 
+## Next steps
 
- 
+For more information, see the [Python Developer Center](/develop/python/).

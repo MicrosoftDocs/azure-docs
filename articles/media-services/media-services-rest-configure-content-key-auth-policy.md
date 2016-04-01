@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure Content Key Authorization Policy using REST" 
-	description="Learn how to configure an authorization policy for a content key." 
+	pageTitle="Configure Content Key Authorization Policy using Media Services REST API" 
+	description="Learn how to configure an authorization policy for a content key using Media Services REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
-
 
 
 #Dynamic encryption: Configure Content Key Authorization Policy 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)] 
+ 
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series. 
-
-##Overivew
+##Overview
 
 Microsoft Azure Media Services enables you to deliver your content encrypted (dynamically) with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. Media Services also provides a service for delivering keys and PlayReady licenses to authorized clients. 
 
@@ -466,7 +464,18 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
         None = 0,
         PlayReadyLicense = 1,
         BaselineHttp = 2,
+        Widevine = 3
     }
+
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ##Next Steps

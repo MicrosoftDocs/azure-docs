@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Migrate an enterprise web app to Azure App Service" 
 	description="Shows how to use Web Apps Migration Assistant to quickly migrate existing IIS websites to Azure App Service Web Apps" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -9,19 +9,23 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Migrate an enterprise web app to Azure App Service
 
-You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). [Web Apps Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
+You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). 
 
->[AZURE.NOTE] Windows Server 2003 will reach end of support on July 14th 2015. If you are currently hosting your websites on an IIS server that is Windows Server 2003, Web Apps is a low-risk, low-cost, and low-friction way to keep your websites online, and Web Apps Migration Assistant can help automate the migration process for you. 
+>[AZURE.IMPORTANT] Windows Server 2003 reached end of support on July 14th 2015. If you are currently hosting your websites on an IIS server that is Windows Server 2003, Web Apps is a low-risk, low-cost, and low-friction way to keep your websites online, and Web Apps Migration Assistant can help automate the migration process for you. 
+
+[Web Apps Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Elements Verified During Compatibility Analysis ##
 The Migration Assistant creates a readiness report to identify any potential causes for concern or blocking issues which may prevent a successful migration from on-premises IIS to Azure App Service Web Apps. Some of the key items to be aware of are:
@@ -90,7 +94,7 @@ This section steps through an example to to migrate a few websites that use a SQ
  
 	![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
 
-12.	Click **Begin Migration** to start the migration.You will now be redirected to Azure to log into your account. It is important that you log in with an account that has an active Azure Subscription. If you do not have an Azure account then you can sign up for a free trial here. 
+12.	Click **Begin Migration** to start the migration.You will now be redirected to Azure to log into your account. It is important that you log in with an account that has an active Azure Subscription. If you do not have an Azure account then you can sign up for a free trial [here](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_). 
 
 13.	Select the tenant account, Azure subscription and region to use for your migrated Azure web apps and databases, and then click **Start Migration**. You can select the websites to migrate later.
 
@@ -119,7 +123,7 @@ This section steps through an example to to migrate a few websites that use a SQ
  
 20.	Click the links to the Azure web apps and verify that the migration has succeeded.
 
-21. You can now manage the migrated web apps in Azure App Service. To do this, log into the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
+21. You can now manage the migrated web apps in Azure App Service. To do this, log into the [Azure Portal](https://portal.azure.com).
 
 22. In the Azure Portal, open the Web Apps blade to see your migrated websites (shown as web apps), then click on any one of them to start managing the web app, such as configuring continuous publishing, creating backups, autoscaling, and monitoring usage or performance.
 
@@ -129,5 +133,4 @@ This section steps through an example to to migrate a few websites that use a SQ
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  

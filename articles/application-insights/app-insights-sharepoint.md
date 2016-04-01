@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 # Monitor a SharePoint site with Application Insights
@@ -26,7 +26,7 @@ Visual Studio Application Insights monitors the availability, performance and us
 ## Create an Application Insights resource
 
 
-In the [Azure portal](http://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
+In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
 
 ![Click Properties, select the key, and press ctrl+C](./media/app-insights-sharepoint/01-new.png)
 
@@ -73,26 +73,92 @@ Insert a web part and embed the code snippet in it.
 
 ## View data about your app
 
-Return to your application blade in the [Azure portal](http://portal.azure.com).
+Redeploy your app.
 
-The first events will appear in Diagnostic Search. 
+Return to your application blade in the [Azure portal](https://portal.azure.com).
+
+The first events will appear in Search. 
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Click Refresh after a few seconds if you're expecting more data.
 
-**Usage analytics** provides a quick snapshot of users, sessions and page views:
+From the overview blade, click **Usage analytics** to see to charts of users, sessions and page views:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Click through Page Views to see more details: 
+Click any chart to see more details - for example Page Views:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-Click through Users to see details about new users and their locations.
+Or Users:
 
 
 ![](./media/app-insights-sharepoint/08-users.png)
+
+
+## Capturing User Id
+
+
+The standard web page code snippet doesn't capture the user id from SharePoint, but you can do that with a small modification.
+
+
+1. Copy your app's instrumentation key from the Essentials drop-down in Application Insights. 
+
+
+    ![](./media/app-insights-sharepoint/02-props.png)
+
+2. Substitute the instrumentation key for 'XXXX' in the snippet below. 
+3. Embed the script in your SharePoint app instead of the snippet you get from the portal.
+
+
+
+```
+
+
+<SharePoint:ScriptLink ID="ScriptLink1" name="SP.js" runat="server" localizable="false" loadafterui="true" /> 
+<SharePoint:ScriptLink ID="ScriptLink2" name="SP.UserProfiles.js" runat="server" localizable="false" loadafterui="true" /> 
+  
+<script type="text/javascript"> 
+var personProperties; 
+  
+// Ensure that the SP.UserProfiles.js file is loaded before the custom code runs. 
+SP.SOD.executeOrDelayUntilScriptLoaded(getUserProperties, 'SP.UserProfiles.js'); 
+  
+function getUserProperties() { 
+    // Get the current client context and PeopleManager instance. 
+    var clientContext = new SP.ClientContext.get_current(); 
+    var peopleManager = new SP.UserProfiles.PeopleManager(clientContext); 
+     
+    // Get user properties for the target user. 
+    // To get the PersonProperties object for the current user, use the 
+    // getMyProperties method. 
+    
+    personProperties = peopleManager.getMyProperties(); 
+  
+    // Load the PersonProperties object and send the request. 
+    clientContext.load(personProperties); 
+    clientContext.executeQueryAsync(onRequestSuccess, onRequestFail); 
+} 
+     
+// This function runs if the executeQueryAsync call succeeds. 
+function onRequestSuccess() { 
+var appInsights=window.appInsights||function(config){
+function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
+    }({
+        instrumentationKey:"XXXX"
+    });
+    window.appInsights=appInsights;
+    appInsights.trackPageView(document.title,window.location.href, {User: personProperties.get_displayName()});
+} 
+  
+// This function runs if the executeQueryAsync call fails. 
+function onRequestFail(sender, args) { 
+} 
+</script> 
+
+
+```
 
 
 
@@ -100,7 +166,7 @@ Click through Users to see details about new users and their locations.
 
 * [Web tests](app-insights-monitor-web-app-availability.md) to monitor the availability of your site.
 
-* [Application Insights](app-insights-get-started.md) for other types of app.
+* [Application Insights](app-insights-overview.md) for other types of app.
 
 
 

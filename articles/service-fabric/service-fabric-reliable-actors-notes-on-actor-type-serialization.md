@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Notes on Actor type serialization"
-   description="basic requirements for defining serializable classes that can be used to define Azure Fabric Reliable Actor state and interfaces"
+   pageTitle="Reliable Actors notes on actor type serialization | Microsoft Azure"
+   description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actors states and interfaces"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,29 +13,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2015"
-   ms.author="claudioc"/>
+   ms.date="03/25/2015"
+   ms.author="vturecek"/>
+
+# Notes on Service Fabric Reliable Actors type serialization
 
 
-# Notes on Azure Service Fabric Actors type serialization
+The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's State Manager must be [Data Contract serializable](https://msdn.microsoft.com/library/ms731923.aspx).. This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
 
-There are few important aspects that needs to be kept in mind while defining the Actor's interface(s) and State: types need to be Data Contract serializable. More information about Data Contracts can be found on [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
+## Custom data types
 
-## Types used in Actor Interface(s)
-
-The arguments of all the methods and the result type of the task returned by each method defined in the [actor interface](service-fabric-reliable-actors-introduction.md#actors) need to be data contract serializable. This also applies to the arguments of methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void).
-For instance, if the `IVoiceMail` interface defines a method as:
+In this example, the following actor interface defines a method that returns a custom data type called `VoicemailBox`.
 
 ```csharp
+public interface IVoiceMailBoxActor : IActor
+{
+    Task<VoicemailBox> GetMailBoxAsync();
+}
+```
 
-Task<List<Voicemail>> GetMessagesAsync();
+The interface is impelemented by an actor, which uses the State Manager to store a `VoicemailBox` object:
+
+```csharp
+[StatePersistence(StatePersistence.Persisted)]
+public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
+{
+    public Task<VoicemailBox> GetMailboxAsync()
+    {
+        return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
+    }
+}
 
 ```
 
-`List<T>` is a standard .NET type that is already Data Contract serializable. The `Voicemail` type needs to be Data Contract serializable.
+In this example, the `VoicemailBox` object is serialized when:
+ - The object is transmitted between an actor instance and a caller.
+ - The object is saved in the State Manager where it is persisted to disk and replicated to other nodes.
+ 
+The Reliable Actor framework uses DataContract serialization. Therefore, the custom data objects and their members must be annotated with the **DataContract** and **DataMember** attributes, respectively
 
 ```csharp
-
 [DataContract]
 public class Voicemail
 {
@@ -48,25 +65,9 @@ public class Voicemail
     [DataMember]
     public DateTime ReceivedAt { get; set; }
 }
-
 ```
 
-## Actor State class
-
-The actor state needs to be data contract serializable. For instance if we have an Actor class definition that looks like:
-
 ```csharp
-
-public class VoiceMailActor : Actor<VoicemailBox>, IVoiceMail
-{
-...
-
-```
-
-The state class is going to be defined with the class and its members annotated with the DataContract and DataMember attributes respectively.
-
-```csharp
-
 [DataContract]
 public class VoicemailBox
 {
@@ -81,6 +82,12 @@ public class VoicemailBox
     [DataMember]
     public string Greeting { get; set; }
 }
-
 ```
- 
+
+## Next steps
+ - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+ - [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
+ - [Actor events](service-fabric-reliable-actors-events.md)
+ - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+ - [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
+ - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)

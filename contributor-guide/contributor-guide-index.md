@@ -27,6 +27,8 @@
 
 - [Retire or rename an article](./retire-or-rename-an-article.md)
 
+- [How to undo almost anything with Git (GitHub blog)](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
+
 
 ##Authoring articles: markdown
 

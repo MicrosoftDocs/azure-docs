@@ -13,36 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # How to analyze historical data about your application
-The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours. The information is displayed on different dashboards composed of line/bar/pie charts, grids, and maps. The data can also be downloaded as .csv files. Most of this same information is available in real time in the Monitor section of the UI, and it can also be accessed from the Analytics API. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring, such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 
-### See also
--  [Concepts - Glossary][Link 6], [Troubleshooting Guide - Analytics][Link 21]
+This article describes the **ANALYTICS** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+
+
+The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours. The information is displayed on different dashboards composed of line/bar/pie charts, grids, and maps. The data can also be downloaded as .csv files. Most of this same information is available in real time in the Monitor section of the UI, and it can also be accessed from the Analytics API. 
+
+>[AZURE.NOTE] Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
 
 ## Standard and Custom Analytics
-Azure Mobile Engagement provides a set of basic, standard analytic information about your applications that can be graphed as soon as you integrate your app with the SDK. Azure Mobile Engagement also provides the ability to gather additional custom analytics information that you want about your end-users' behavior. You can do this by creating a tag plan of custom "app info tags", created from “Settings” so that Azure Mobile Engagement can collect this additional data for you.
 
-### See also
--  [UI Documentation - Settings][Link 20]
- 
-## Analytics Header
-- Item Name: Labels the item being counted
-- Show Help: Displays contextual information about this section
-- Versions: Allows you to show different analytics information about each version of your application or to show information for all versions. (Note: Filtering your analytics data in the UI will show all examples of this type regardless of the version of your app. For example, "Crashes" filtered by name will show from version 1 and version 2 of your app.)
-- Time Period: Last 7 days, Last 30 days, All Time, Custom
-- Rate: Per hour, day, week, month
-- View: Line Chart, Grid, Send to Dashboard, Download CSV file
- 
-![Analytics1][10] 
+Azure Mobile Engagement provides a set of basic, standard analytic information about your applications that can be graphed as soon as you integrate your app with the SDK. Azure Mobile Engagement also provides the ability to gather additional custom analytics information that you want about your end-users' behavior. You can do this by creating a tag plan of custom "Tags (app info)", created from **Settings** so that Azure Mobile Engagement can collect this additional data for you.
 
+ 
+ 
 ## Analytics
 - Dashboard: Shows general information about your new and actives users and their trends.
 - Users: Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval. A user is considered as retained if he has performed at least one session during the last 7 days. Active Users are users that made at least one session during a given period. You can sort by, monthly, weekly, daily, or hourly time periods. All of the charts look similar but allow you to filter by different features, such as the version of your application, and then to sort by a period of time. The standard information gathered by integrating the SDK includes the following: Active users, new user, number of sessions, length of each session, technical information about the country, locals, location, language carrier, devices, firmware, network (WIFI), versions of the app and SDK, used by customers. This information can be viewed in real time from the monitor section. 
-- Tracking by source displays the number of new users who have downloaded the application as a result of a given promotion campaign. Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval.
-- Tracking by store displays the number of new users who have downloaded the application from a given store. Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval.
 
 > Note: The time period is based on the date from the users' device settings, so a user whose phone has the date incorrectly set could show up in the wrong time period.
 
@@ -77,6 +68,12 @@ The retention overview is broken down in the middle into several cards, each sho
 3.    This visual indicator gives the same information as above represented graphically. (The third of the circle is from the 33% number.) The color gives additional information: Green indicates this number is growing from the previous calculation. Yellow means stable, and red means decreasing.
 4.    This indicates the values used for the calculation.
 5.    This is a Sparkline of the history of the retention values. It allows you to see the values in the past to have a broad view of how it evolved.
+
+
+## See also
+
+- [Concepts][Link 6]
+- [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

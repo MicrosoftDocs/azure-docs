@@ -1,10 +1,10 @@
 <properties
-	pageTitle="What are the next steps I can take using Azure AD?"
-	description="Covers advanced tasks using Azure AD."
+	pageTitle="What are the next steps I can take using Azure Active Directory?"
+	description="Advanced tasks such as managing passwords, managing users, managing groups, and conditional access using Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # What are the next steps I can take using Azure AD?
 
 
-###Other articles on this topic
+### Other articles on this topic
 [What is Azure AD?](active-directory-whatis.md)<br>
 [How does it work?](active-directory-works.md)<br>
 [Get started](active-directory-get-started.md)<br>
@@ -43,4 +43,3 @@ Azure AD Device Registration provisions devices with an identity that is used to
 
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
- 

@@ -1,4 +1,4 @@
-# Azure Technical Documentation
+# Azure Technical Documentation Contributor Guide
 
 You've found the GitHub repository that houses the source for the technical documentation that is published to the Azure Documentation Center at [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation).
 
@@ -41,7 +41,7 @@ If you submit a pull request with new or significant changes to documentation an
 
 We need you to complete the online form before we can accept your pull request.
 
-Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla).
+Full details are available at [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla).
 
 ## Repository organization
 
@@ -49,7 +49,7 @@ The content in the azure-content repository follows the organization of document
 
 ### \articles
 
-The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. 
+The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension.
 
 Articles in the root directory are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
@@ -94,7 +94,7 @@ All the articles in this repository use GitHub flavored markdown.  Here's a list
 
 - [Printable markdown cheatsheet](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-If you are looking for a good markdown editor, try [Atom Editor](https://atom.io/).
+- For our list of markdown editors, see the [tools and setup topic](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
 ## Article metadata
 

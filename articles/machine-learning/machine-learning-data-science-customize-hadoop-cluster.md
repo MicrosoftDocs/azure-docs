@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Customize Hadoop clusters for Advanced Analytics Process and Technology | Microsoft Azure" 
+	pageTitle="Customize Hadoop clusters for the Cortana Analytics Process | Microsoft Azure" 
 	description="Popular Python modules made available in custom Azure HDInsight Hadoop clusters."
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -14,19 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
-# Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology
+# Customize Azure HDInsight Hadoop clusters for the Cortana Analytics Process 
 
-This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. This customization prepares the cluster for use with the Advanced Analytics Process and Technology (ADAPT) used in Azure Machine Learning. It also shows how to access the headnode to submit custom jobs to the cluster.
+## Introduction
+
+This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. This customization prepares the cluster for use with the Cortana Analytics Process. It also shows how to access the headnode to submit custom jobs to the cluster.
 
 This customization makes many popular Python modules that are included in Anaconda conveniently available for use in user defined functions (UDFs) that are designed to process Hive records in the cluster. For instructions on the procedures used in this scenario, see [Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process](machine-learning-data-science-hive-queries.md).
+
+The menu below links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 
 ## <a name="customize"></a>Customize Azure HDInsight Hadoop Cluster
 
-To create a customized HDInsight Hadoop cluster, users need to log on to [**Management Portal of Azure**](https://manage.windowsazure.com/), click **New** at the left bottom corner, and then select DATA SERVICES -> HDINSIGHT -> **CUSTOM CREATE** to bring up the **Cluster Details** window. 
+To create a customized HDInsight Hadoop cluster, users need to log on to [**Classic Portal of Azure**](https://manage.windowsazure.com/), click **New** at the left bottom corner, and then select DATA SERVICES -> HDINSIGHT -> **CUSTOM CREATE** to bring up the **Cluster Details** window. 
 
 ![Create workspace][1]
 
@@ -65,7 +70,7 @@ Finally, click on the check mark to start the creation of the customized HDInsig
 
 Users must enable remote access to the Hadoop cluster in Azure before they can access the head node of the Hadoop cluster through RDP. 
 
-1. Log in to the [**Management Portal of Azure**](https://manage.windowsazure.com/), select **HDInsight** on the left, select your Hadoop cluster from the list of clusters, click the **CONFIGURATION** tab, and then click the **ENABLE REMOTE** icon at the bottom of the page.
+1. Log in to the [**Classic Portal of Azure**](https://manage.windowsazure.com/), select **HDInsight** on the left, select your Hadoop cluster from the list of clusters, click the **CONFIGURATION** tab, and then click the **ENABLE REMOTE** icon at the bottom of the page.
 	
 	![Create workspace][7]
 
@@ -83,7 +88,7 @@ Users must enable remote access to the Hadoop cluster in Azure before they can a
 
 	 ![Create workspace][9]
 
-The next steps in the advanced analytics process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
+The next steps in the advanced analytics process are mapped in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
 See [Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process](machine-learning-data-science-process-hive-tables.md) for instructions on how to access the Python modules that are included in Anaconda from the head node of the cluster in user defined functions (UDFs) that are used to process Hive records stored in the cluster.
 

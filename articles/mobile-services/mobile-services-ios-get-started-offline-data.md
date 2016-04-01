@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Get Started with Offline Data Sync in Mobile Services (iOS) | Mobile Dev Center"
+	pageTitle="Get Started with Offline Data Sync in Mobile Services (iOS) | Microsoft Azure"
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh;donnam"/>
 
 # Get Started with Offline Data Sync in Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Enable offline sync for your iOS mobile app](../app-service-mobile/app-service-mobile-ios-get-started-offline-data.md).
 
 Offline sync allows you to view, add, or modify data in a mobile app even when there is no network connection. In this tutorial, you'll learn how your app can automatically store changes in a local offline database and sync those changes whenever it's back online.
 
@@ -30,7 +35,7 @@ Offline sync has several advantages:
 * Syncs data across multiple devices
 * Detects conflicts when same record is modified by two devices
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get [free mobile services that you can keep using even after your trial ends](http://azure.microsoft.com/pricing/details/mobile-services/). For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get [free mobile services that you can keep using even after your trial ends](https://azure.microsoft.com/pricing/details/mobile-services/). For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
 
 This tutorial is based on the [Mobile Services Quick Start tutorial], which you must complete first. Let's first review the code related to offline sync already in the Quick Start.
 
@@ -123,46 +128,47 @@ When using the Core Data offline store, you need to define particular tables and
 
     #### MS_TableOperations
 
-    | Attribute  |    Type     |
-    |----------- |   ------    |
-    | id         | Integer 64  |
-    | itemId     | String      |
-    | properties | Binary Data |
-    | table      | String      |
-    | tableKind  | Integer 16  |
+    | Attribute     |    Type     |
+    |-------------- |   ------    |
+    | id (required) | Integer 64  |
+    | itemId        | String      |
+    | properties    | Binary Data |
+    | table         | String      |
+    | tableKind     | Integer 16  |
 
     #### MS_TableOperationErrors
 
-    | Attribute   |    Type     |
-    |------------ | ----------  |
-    | id          | String      |
-    | operationId | Integer 64  |
-    | properties  | Binary Data |
-    | tableKind   | Integer 16  |
+    | Attribute     |    Type     |
+    |-------------- | ----------  |
+    | id (required) | String      |
+    | operationId   | Integer 64  |
+    | properties    | Binary Data |
+    | tableKind     | Integer 16  |
 
     #### MS_TableConfig
 
 
-    | Attribute  |    Type     |
-    |----------- | ----------  |
-    | id         | String      |
-    | key        | String      |
-    | keyType    | Integer 64  |
-    | table      | String      |
-    | value      | String      |
+    | Attribute     |    Type     |
+    |-------------- | ----------  |
+    | id (required) | String      |
+    | key           | String      |
+    | keyType       | Integer 64  |
+    | table         | String      |
+    | value         | String      |
 
     ### Data Table
 
     #### TodoItem
 
-    | Attribute    |  Type   |
-    |-----------   |  ------ |
-    | id           | String  |
-    | complete     | Boolean |
-    | text         | String  |
-    | ms_createdAt | Date    |
-    | ms_updatedAt | Date    |
-    | ms_version   | String  |
+    | Attribute     |  Type   | Note                                                   |
+    |-------------- |  ------ | -------------------------------------------------------|
+    | id (required) | String  | primary key in remote store (required)                 |
+    | complete      | Boolean | todo item field                                        |
+    | text          | String  | todo item field                                        |
+    | ms_createdAt  | Date    | (optional) maps to __createdAt system property         |
+    | ms_updatedAt  | Date    | (optional) maps to __updatedAt system property         |
+    | ms_version    | String  | (optional) used to detect conflicts, maps to __version |
+
 
 
 ## <a name="setup-sync"></a>Change Sync Behavior of App
@@ -191,13 +197,13 @@ In this section, you modify the app so that it does not sync on app start, or wh
 
 In this section, you will turn of Wi-Fi in the simulator to create an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile service.
 
-1. Turn off Wi-Fi in the iOS simulator. This simulates an offlien scenario.
+1. Turn off the internet connection on your Mac. Turning off WiFi in just iOS simulator may not have an effect, since the simulator may still use the host Mac's internet connection, so turn off internet for the computer itself. This simulates an offline scenario.
 
 2. Add some todo items or complete some items. Quit the simulator (or forcibly close the app) and restart. Verify that your changes have been persisted. Notice that the data items are still displayed because they are held in the local Core Data store.
 
 3. View the contents of the remote TodoItem table. Verify that the new items have _not_ been synced to the server.
 
-   - For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the `TodoItem` table.
+   - For the JavaScript backend, go to the [Azure classic portal](http://manage.windowsazure.com), and click the Data tab to view the contents of the `TodoItem` table.
    - For the .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
 
 4. Turn on Wi-Fi in the iOS simulator. Next, perform the refresh gesture by pulling down the list of items. You will see a progress spinner and the text "Syncing...".
@@ -262,7 +268,6 @@ To synchronize the local store with the server, you used `MSSyncTable.pullWithQu
 
 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]:  mobile-services-ios-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
