@@ -26,10 +26,6 @@
 This article shows you how to use the Azure PowerShell to capture an Azure virtual machine running Windows so you can use it to create other virtual machines. This image includes the OS disk and data disks attached to the virtual machine. It doesn't include the virtual network resources you'll need to create a Windows VM, so you'll need to set those up before you create another virtual machine that uses the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
 
 
-> [AZURE.WARNING] The virtual machine cannot be started after it has been generalized.
-
-The virtual machine stays at a stopped(deallocated) state and this process is irreverible. Beware of this fact, although it should not affect your projects, since you can create multiple copies of the original virtual machine.
- 
 
 ## Prerequisites
 
@@ -39,6 +35,8 @@ These steps assume that you've already created an Azure virtual machine in the R
 ## Prepare the VM for image capture
 
 This section shows you how to generalize your Windows virtual machine. This removes all your personal account information among other things. You will typically want to do this when you want to use this VM image to quickly deploy similar virtual machines.
+
+> [AZURE.WARNING] The virtual machine cannot be logged in via RDP after it has been generalized, since the process removes all user accounts. This is irreversible. To avoid this affecting your setup, we highly recommend to create a backup copy of your virtual machine before generalizing it. 
 
 1. Login to your Windows virtual machine. In the [Azure portal](https://portal.azure.com), navigate through **Browse** > **Virtual machines** > Your Windows virtual machine > **Connect**.
 
