@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="04/01/2016"
 	ms.author="gatneil"/>
 
-# Designing VM Scale Sets For Scale (PUBLIC PREVIEW)
+# Designing VM Scale Sets For Scale
 
 This topic will discuss design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, please refer to [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md).
 
@@ -38,9 +38,9 @@ If you turn off overprovisioning, you can get away with a larger ratio of VMs pe
 
 
 ## Limits (Platform vs. Custom)
-A scale set built on a platform image is limited to 100 VMs, and we recommend 5 storage accounts for this scale. However, a scale set built on a custom image (one built by you) must create all OS disk vhds within one storage account. Thus, the maximum number of VMs in a scale set built on custom image is 20/ Even if you turn off overprovisioning, we still recommend sticking to 20 VMs, and going above 40 is not recommended.
+A scale set built on a platform image is limited to 100 VMs, and we recommend 5 storage accounts for this scale. However, a scale set built on a custom image (one built by you) must create all OS disk vhds within one storage account. Thus, the maximum number of VMs in a scale set built on a custom image is 20. If you turn off overprovisioning, you can go up to 40.
 
 
 ## Large Scale
 
-A scale set is limited to 100 VMs for platform images, 20 for custom images. For more, you will need to deploy multiple scale sets. For an example of how to do this, please see this template: https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale.
+A scale set is limited to 100 VMs for platform images, 20 for custom images (40 without overprovisioning). For more, you will need to deploy multiple scale sets. For an example of how to do this, please see this template: https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale.
