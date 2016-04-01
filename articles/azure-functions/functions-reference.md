@@ -770,20 +770,38 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
     myOutputBlob = myInputBlob;
 }
 ```
+
 ### Azure Storage - tables input and output
 
 The *function.json* for storage tables provides several properties:
 
 * `name` - The name of the variable to use in code for the table binding.
 * `tableName`
-* `partitionKey` (optional)
-* `rowKey` (optional)
-* `take` - The maximum number of rows to read.
-* `filter` - Filter expression.
+* `partitionKey` and `rowKey` - Used together to read a single entity in a C# or Node function, or to write a single entity in a Node function.
+* `take` - The maximum number of rows to read for table input in a Node function.
+* `filter` - OData filter expression for table input in a Node function.
 
-The `take` and `filter` properties do not apply to C# since you can accomplish the same purpose by using the `IQueryable` object that is provided by the Functions runtime. The `partitionKey` property only applies to C# when you're binding to a single entity by providing both `partitionKey` and `rowKey`.
+These properties support the following scenarios:
 
-This example uses a queue trigger to read a single table row.
+* Read a single row in a C# or Node function.
+
+	Set `partitionKey` and `rowKey`. The `filter` and `take` properties have no effect in this scenario.
+
+* Read multiple rows in a C# function.
+
+	The Functions runtime provides an `IQueryable<T>` object bound to the table to do any filtering required. Type `T` must derive from `TableEntity` or implement `ITableEntity`. The `partitionKey`, `rowKey`, `filter`, and `take` properties have no effect in this scenario.
+
+* Read multiple rows in a Node function.
+
+	Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`.
+
+* Write one or more rows in a C# function.
+
+	The Functions runtime provides an `ICollector<T>` or `IAsyncCollector<T>` bound to the table, where `T` specifies the schema of the entities you want to add. Typically, type `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The `partitionKey`, `rowKey`, `filter`, and `take` properties have no effect in this scenario.
+
+#### Read a single table entity in C# or Node
+
+This *function.json* example uses a queue trigger to read a single table row, with a hard-coded partition key value and the row key provided in the queue message.
 
 ```json
 {
@@ -796,13 +814,11 @@ This example uses a queue trigger to read a single table row.
       "direction": "in"
     },
     {
-      "name": "personInTable",
+      "name": "personEntity",
       "type": "table",
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "take": 1,
-      "filter": "",
       "connection": "",
       "direction": "in"
     }
@@ -810,18 +826,13 @@ This example uses a queue trigger to read a single table row.
   "disabled": false
 }
 ```
-
-#### Reading a single table entity
-
-To read a single entity from a table in a C# function, the type that you use for the entity can derive from `TableEntity` or implement `ITableEntity`, but it doesn't have to. 
-
 The following C# code example works with the preceding *function.json* file to to read a single table entity. The queue message has the row key value and the table entity is read into a type that is defined in the *run.csx* file. The type includes `PartitionKey` and `RowKey` properties and does not derive from `TableEntity`. 
 
 ```csharp
-public static void Run(string myQueueItem, Person personInTable, TraceWriter log)
+public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
     log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
-    log.Verbose($"Name in Person entity: {personInTable.Name}");
+    log.Verbose($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -830,30 +841,36 @@ public class Person
     public string RowKey { get; set; }
     public string Name { get; set; }
 }
-``` 
+```
 
-#### Reading multiple table entities
+The following Node code example also works with the preceding *function.json* file to read a single table entity.
 
-To read multiple entities from a table in a C# function, use an `IQueryable<T>` parameter where type `T` derives from `TableEntity` or implements `ITableEntity`.
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+    context.log('Person entity name: ' + context.bindings.personEntity.Name);
+    context.done();
+};
+```
 
-The following *function.json* and C# code example reads all rows from a table. The C# code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`.
+#### Read multiple table entities in C# 
+
+The following *function.json* and C# code example reads entities for a partition key that is specified in the queue message.
 
 ```json
 {
   "bindings": [
     {
-      "schedule": "0 * * * * *",
-      "runOnStartup": true,
-      "name": "myTimer",
-      "type": "timerTrigger",
+      "queueName": "myqueue-items",
+      "connection": "",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
       "direction": "in"
     },
     {
       "name": "tableBinding",
       "type": "table",
-      "tableName": "Person2",
-      "partitionKey": "",
-      "connection": "",
+      "tableName": "Person",
       "direction": "in"
     }
   ],
@@ -861,14 +878,16 @@ The following *function.json* and C# code example reads all rows from a table. T
 }
 ```
 
+The C# code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`.
+
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 using Microsoft.WindowsAzure.Storage.Table;
 
-public static void Run(TimerInfo myTimer, IQueryable<Person> tableBinding, TraceWriter log)
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
 {
-    log.Verbose($"C# timer trigger function processed at {DateTime.Now}");
-    foreach (Person person in tableBinding.ToList())
+    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
         log.Verbose($"Name: {person.Name}");
     }
@@ -880,11 +899,9 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Creating multiple table entities
+#### Create table entities in C# 
 
-To add entities to a table in a C# function, use `ICollector<T>` or `IAsyncCollector<T>` where `T` specifies the schema of the entities you want to add. Typically, the type you use with *ICollector* derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to.
-
-The following *function.json* and *run.csx* examples show how to write multiple table entities.
+The following *function.json* and *run.csx* example shows how to write table entities in C#.
 
 ```json
 {
@@ -896,8 +913,6 @@ The following *function.json* and *run.csx* examples show how to write multiple 
     },
     {
       "tableName": "Person",
-      "partitionKey": "",
-      "rowKey": "",
       "connection": "",
       "name": "tableBinding",
       "type": "table",
@@ -933,6 +948,41 @@ public class Person
 
 ```
 
+#### Create a table entity in Node
+
+The following *function.json* and *run.csx* example shows how to write a table entity in Node.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "",
+      "name": "personEntity",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": true
+}
+```
+
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+    context.bindings.personEntity = {"Name": "Name" + myQueueItem }
+    context.done();
+};
+```
 
 ## Azure DocumentDB output binding
 
