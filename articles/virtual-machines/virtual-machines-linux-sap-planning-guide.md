@@ -346,8 +346,6 @@ The following additional guides are available for the topic of SAP deployments o
 * [SAP NetWeaver on Microsoft Azure Virtual Machine Services – Planning and Implementation Guide (this document)][planning-guide]
 * [SAP NetWeaver on Microsoft Azure Virtual Machine Services – Deployment Guide][deployment-guide]
 * [DBMS Deployment Guide for SAP on Microsoft Azure Virtual Machine Services][dbms-guide]
-* [SAP NetWeaver: Building a Microsoft Azure–based Disaster Recovery Solution][dr-guide]
-* [Clustering SAP ASCS/SCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-sios-guide]
 
 > [AZURE.IMPORTANT] Wherever possible a link to the referring SAP Installation Guide is used (Reference InstGuide-01, see <http://service.sap.com/instguides>). When it comes to the prerequisites and installation process, the SAP NetWeaver Installation Guides should always be read carefully, as this document only covers specific tasks for SAP NetWeaver systems installed in a Microsoft Azure Virtual Machine.
 

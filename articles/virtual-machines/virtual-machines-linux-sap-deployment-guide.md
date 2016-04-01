@@ -796,7 +796,7 @@ The output the script should deliver looks like:
 * To continue doing this, wait for 15-30 minutes until the Azure Diagnostics will have the relevant data collected.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI for Linux VMs
-Please follow the steps in [this article][deployment-guide-install-extension-cli] to install the Azure Enhanced Monitoring Extension for SAP on a Linux VM from a Linux laptop/desktop.
+Please follow the steps in [this article][install-extension-cli] to install the Azure Enhanced Monitoring Extension for SAP on a Linux VM from a Linux laptop/desktop.
 
  [comment]: <> (MSSedusch TODO check if link is still valid)
 
