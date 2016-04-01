@@ -123,5 +123,5 @@ Once this operation is completed successfully, you will not be able to view the 
 
 After you create your circuit, make sure that you do the following:
 
-- [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-portal-arm.md)
-- [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-portal-arm.md)
+- [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-arm.md)
+- [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
