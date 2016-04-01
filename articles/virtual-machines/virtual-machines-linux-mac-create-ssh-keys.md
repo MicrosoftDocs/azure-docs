@@ -86,7 +86,7 @@ chrisL@fedora$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
 
 `-C "username@fedoraVMAzure"` = a comment for the key to easy identify it. The comment is appended to the end of the public key file.  A commonly used comment is an email address but for this article we are going to enable using multiple SSH keys so a generic comment is suggested.
 
-#### walk through of `ssh-keygen`
+#### Walkthrough of `ssh-keygen`
 
 ```bash
 chrisL@fedora$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
