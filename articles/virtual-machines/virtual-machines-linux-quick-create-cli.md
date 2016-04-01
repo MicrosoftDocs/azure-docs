@@ -21,9 +21,8 @@
 
 ## Quick Command Summary
 
-There is only one command to issue:
-
 ```
+# One command to quick the VM after answering the prompts
 chrisL@fedora$ azure vm quick-create
 ```
 
@@ -49,7 +48,7 @@ Resource group name: exampleResourceGroup
 Virtual machine name: exampleVMname
 Location name: westus
 Operating system Type [Windows, Linux]: linux
-ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: canonical:ubuntuserver:14.04.2-LTS:latest
+ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: Canonical:UbuntuServer:14.04.4-LTS:latest
 User name: ops
 Password: *********
 Confirm password: *********
