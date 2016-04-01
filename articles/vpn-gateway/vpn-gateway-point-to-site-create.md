@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configure a Point-to-Site VPN connection to an Azure Virtual Network | Microsoft Azure"
+   pageTitle="Configure a Point-to-Site VPN connection to an Azure Virtual Network using the classic portal | Microsoft Azure"
    description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN connection. Instructions for VNets that were created using the Service Management (classic) deployment model."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -17,7 +17,7 @@
    ms.date="03/30/2016"
    ms.author="cherylmc"/>
 
-# Configure a Point-to-Site VPN connection to a VNet
+# Configure a Point-to-Site VPN connection to a VNet using the classic portal
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -27,7 +27,7 @@ A Point-to-Site configuration allows you to create a secure connection to your v
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address to work. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About cross-premises connections](vpn-gateway-cross-premises-options.md).).
 
-This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the **classic deployment model** (Service Management). 
+This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the **classic deployment model** (Service Management) and the classic portal. When we have steps for the Azure portal, we will link to that article from this page.
 
 **Deployment models and tools for Point-to-Site connections**
 
@@ -53,7 +53,7 @@ The configuration for a Point-to-Site connection is broken down into 3 sections.
 
 ### Part 1: Create a virtual network
 
-1. Log in to the **Azure classic portal** (Not the Azure Portal).
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com/). Note that these steps use the classic portal, not the Azure portal.
 
 2. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
