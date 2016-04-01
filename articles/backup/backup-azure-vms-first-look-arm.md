@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/30/2016"
+	ms.date="03/31/2016"
 	ms.author="markgal; jimpark"/>
 
 
@@ -176,17 +176,21 @@ To run **Back up Now**:
 
 A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
 
-![Backup policy](./media/backup-azure-vms-first-look-arm/backup-policy.png)
+![Backup policy](./media/backup-azure-vms-first-look-arm/backup-policy-daily-raw.png)
 
 To create a policy:
 
 1. For **Policy Name** give the Policy a name.
 
-2. For **Backup Frequency**, Daily is the default. Use the drop-down menu to choose whether data snapshots are taken Daily or Weekly.
+2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
 
-    ![Backup policy](./media/backup-azure-vms-first-look-arm/specify-daily-time.png)
+    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
 
-    Snapshots can be taken at Daily or Weekly intervals. If you choose a Daily interval, then use the highlighted control to select the time of the day for the snapshot. If you choose Weekly intervals, an additional control appears which you use to select the days of the week to take the snapshot.
+    ![Daily backup policy](./media/backup-azure-vms-first-look-arm/backup-policy-daily.png) <br/>
+
+    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
+
+    ![Weekly backup policy](./media/backup-azure-vms-first-look-arm/backup-policy-weekly.png)
 
 3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use.
 
@@ -194,7 +198,7 @@ To create a policy:
 
     In the corresponding controls, specify the interval(s) to use. Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
 
-4. After setting all options for the policy, click **OK**.
+4. After setting all options for the policy, at the bottom of the blade click **OK**.
 
     The new policy is set to be applied to the vault once the Recovery Services vault settings are completed. Return to step 6 of the section, [Select scenario set policy and define items to protect](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect)
 
