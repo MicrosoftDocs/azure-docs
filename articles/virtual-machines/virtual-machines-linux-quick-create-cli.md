@@ -31,9 +31,7 @@ chrisL@fedora$ azure vm quick-create
 ## Detailed Walk Through
 
 This article shows how to quickly create a new Linux VM using the `azure vm quick-create` command from [the Azure CLI](../xplat-cli-install.md).
-
-[AZURE.NOTE] This topic shows how to quickly create a Linux VM in a basic Azure environment for trial, testing, and other short-lived scenarios. You should create more secure Azure environments for your Linux VMs to use them for production or other longer-running scenarios.  
-
+ 
 Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group (we will create a RG below), and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
 
 ### Create the Linux VM
