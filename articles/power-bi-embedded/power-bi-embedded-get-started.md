@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get started with Microsoft Power BI Embedded preview"
+   pageTitle="Get started with Microsoft Power BI Embedded Preview"
    description=""
    services="power-bi-embedded"
    documentationCenter=""
