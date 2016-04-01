@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get started with Microsoft Power BI Embedded preview"
+   pageTitle="Get started with Microsoft Power BI Embedded Preview"
    description=""
    services="power-bi-embedded"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="03/29/2016"
    ms.author="derrickv"/>
 
-# Get started with Microsoft Power BI Embedded preview
+# Get started with Microsoft Power BI Embedded Preview
 
 **Microsoft Power BI Embedded** is an Azure service that enables application developers to add interactive Power BI reports into their own applications. **Power BI Embedded** works with existing applications without the need to redesign those applications or change the way their users log in.
 
