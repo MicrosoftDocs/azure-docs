@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure classic portal 
 
   ![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png)
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your HackerOne application using the following pattern: **“https://hackerone.com/companyname/authentication”**. When referencing a generic name that **companyname** needs to be replaced by an actual name.<br>
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your HackerOne application using the following pattern: **“https://hackerone.com/companyname/authentication”**. When referencing a generic name that **companyname** needs to be replaced by an actual name.
 
 	b. In the IDENTIFIER textbox, type the tenant URL. Please contact the HackerOne Support Team via support@hackerone.com to get your tenant URL.
 
