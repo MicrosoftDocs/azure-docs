@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="02/10/2016"
+   ms.date="04/04/2016"
    ms.author="v-livech"/>
 
 # Create a Linux VM from the ground up using the Azure CLI
