@@ -21,17 +21,7 @@
 
 To create a Linux VM you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`) and a JSON parsing tool, we are using [jq](https://stedolan.github.io/jq/) for this document.
 
-## Introduction
-
-This article builds a deployment that is similar to a cloud service deployment with one Linux VM inside a VNetwork Subnet. It walks through the entire basic deployment imperatively, command by command, until you have a working, secure Linux VM to which you can connect from anywhere on the internet.
-
-Along the way, you'll understand the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. Once you see how the system is built, you can rebuild the system much faster using more direct Azure CLI commands (see [this](virtual-machines-linux-quick-create-cli.md) for roughly the same deployment using the `azure vm quick-create` command), or you can move on to master how to design and automate entire network and application deployments and update them using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you see how the parts of your deployment fit together, creating templates to automate them becomes easier.
-
-Let's build a simple network with a VM useful to development and simple compute, and we'll explain it as we go. Then you'll be able to move on to more complex networks and deployments.
-
 ## Quick Commands
-
-_The naming in this Quick Commands section has several examples that you would want to replace with your own settings, edit as needed._
 
 ```bash
 # Create the Resource Group
@@ -102,6 +92,13 @@ azure vm show testrg testvm
 
 ```
 
+## Introduction
+
+This article builds a deployment that is similar to a cloud service deployment with one Linux VM inside a VNetwork Subnet. It walks through the entire basic deployment imperatively, command by command, until you have a working, secure Linux VM to which you can connect from anywhere on the internet.
+
+Along the way, you'll understand the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. Once you see how the system is built, you can rebuild the system much faster using more direct Azure CLI commands (see [this](virtual-machines-linux-quick-create-cli.md) for roughly the same deployment using the `azure vm quick-create` command), or you can move on to master how to design and automate entire network and application deployments and update them using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you see how the parts of your deployment fit together, creating templates to automate them becomes easier.
+
+Let's build a simple network with a VM useful to development and simple compute, and we'll explain it as we go. Then you'll be able to move on to more complex networks and deployments.
 
 ## Detailed Walkthrough
 
