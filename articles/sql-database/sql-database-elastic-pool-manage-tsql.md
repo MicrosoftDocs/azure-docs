@@ -1,7 +1,6 @@
 <properties 
     pageTitle="Create or move an Azure SQL database into an elastic pool using T-SQL | Microsoft Azure" 
     description="Use T-SQL to create an Azure SQL database in an elastic pool. Or use T-SQL to move the datbase in and out of pools." 
-	keywords="multiple databases,elastic, scale-out"    
 	services="sql-database" 
     documentationCenter="" 
     authors="sidneyh" 
@@ -14,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="03/31/2016"
+    ms.date="04/01/2016"
     ms.author="sidneyh"/>
 
 # Monitor and manage an elastic database pool with Transact-SQL  
