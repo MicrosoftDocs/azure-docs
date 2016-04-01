@@ -21,21 +21,12 @@
 
 To create a password secured SSH public and private key you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`) and cd into `~/.ssh/`.
 
-
-## Introduction
-
-Using SSH public and private keys is the most secure **and** easiest way to login into your Linux servers.  [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute forced far more easily. Your public key can be shared with anyone; your private key is possessed only by you (or your local security infrastructure).
-
-This article creates *ssh-rsa* format key files, as those are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
-
-> [AZURE.NOTE] If you are logging onto your VMs from a Windows computer, see [Use SSH keys on Windows](virtual-machines-linux-ssh-from-windows.md).
-
 ## Quick Command Listing
 
 In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
 ```bash
-[chrisL@fedora ~]$ ssh-keygen -t rsa -b 4096 -C "<your_user@yourdomain.com>"
+[chrisL@fedora ~]$ ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
 
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
 
@@ -65,6 +56,14 @@ Last login: Tue Dec 29 07:07:09 2015 from 66.215.21.201
 [chrisL@fedora ~]$
 
 ```
+
+## Introduction
+
+Using SSH public and private keys is the most secure **and** easiest way to login into your Linux servers.  [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute forced far more easily. Your public key can be shared with anyone; your private key is possessed only by you (or your local security infrastructure).
+
+This article creates *ssh-rsa* format key files, as those are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
+
+> [AZURE.NOTE] If you are logging onto your VMs from a Windows computer, see [Use SSH keys on Windows](virtual-machines-linux-ssh-from-windows.md).
 
 ## Create the SSH Keys
 
