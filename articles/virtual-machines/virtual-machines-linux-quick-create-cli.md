@@ -19,6 +19,8 @@
 
 # Quickly Create a Linux VM on Azure using the CLI
 
+To quick create a VM you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`).
+
 ## Quick Command Summary
 
 ```
