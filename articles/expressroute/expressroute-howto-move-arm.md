@@ -100,8 +100,8 @@ Run the following to get details of the ExpressRoute circuit.
 
 You must be able to see the service key listed. You can now manage links to the ExpressRoute circuit. The following articles will walk you through how to manage links to the ExpressRoute circuit
 
-- [Link your virtual network to your ExpressRoute circuit in Resource Manager environment](expressroute-howto-linkvnet-portal-arm.md)
-- [Link your virtual network to your ExpressRoute circuit in Classic environment](expressroute-howto-linkvnet-portal-classic.md)
+- [Link your virtual network to your ExpressRoute circuit in Resource Manager environment](expressroute-howto-linkvnet-arm.md)
+- [Link your virtual network to your ExpressRoute circuit in Classic environment](expressroute-howto-linkvnet-classic.md)
 
 
 ## Disabling the ExpressRoute circuit to be configured from both Classic and Resource Manager Environments
