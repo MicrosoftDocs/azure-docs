@@ -31,7 +31,7 @@ The article [Comparison of IoT Hub and Event Hubs][lnk-compare] describes the ke
 
 ![IoT Hub as cloud gateway][img-architecture]
 
-[AZURE.NOTE] For an in-depth discussion of IoT architecture see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
+> [AZURE.NOTE] For an in-depth discussion of IoT architecture see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
 
 ## IoT device-connectivity challenges
 
