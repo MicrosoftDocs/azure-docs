@@ -19,25 +19,7 @@
 
 # Create a Linux VM from the ground up using the Azure CLI
 
-To create a Linux VM you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`).
-
-## Goal
-
-- Deploy a Resource Group
-- Deploy a Storage Account
-- Deploy a Virtual Network & Subnet
-- Configure a Network Security Group and inbound rules
-- Assign a public IP to the NIC
-- Assign the NSG to the NIC
-- Deploy a Ubuntu 14.04 LTS VM
-
-## Prerequisites
-
-- Azure Account
-  - [Get a free trial.](https://azure.microsoft.com/pricing/free-trial/)
-  - [Azure Portal](https://portal.azure.com)
-- A JSON parsing tool: this example uses [jq](https://stedolan.github.io/jq/)
-
+To create a Linux VM you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`) and a JSON parsing tool, we are using [jq](https://stedolan.github.io/jq/) for this document.
 
 ## Introduction
 
