@@ -147,7 +147,7 @@ Once you have enabled your users, send an email telling them that they will need
 
 		You can visit http://aka.ms/mfasetup to create app passwords or change your MFA Setting.  Please bookmark this.
 
-		NOTE: Before entering an app password, you will need to clear the sign in information (delete sign in info), restart the application,   and sign in with the username and app password. Follow the steps documented : http://technet.microsoft.com/library/dn270518.aspx#apppassword.
+		NOTE: Before entering an app password, you will need to clear the sign-in information (delete sign-in info), restart the application, and sign in with the username and app password. Follow the steps documented: http://technet.microsoft.com/library/dn270518.aspx#apppassword.
 
 
 		Watch a video showing these steps at http://g.microsoftonline.com/1AX00en/175.
