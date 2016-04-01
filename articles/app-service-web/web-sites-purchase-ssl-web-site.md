@@ -68,11 +68,9 @@ In this Step, you will learn how to place an Order for an SSL Certificate of you
 6.	Select the **Certificate SKU** 
 
     Finally, select the certificate SKU that fits your need and click Create. Today, Azure App Service allows you to purchase two different SKUs
-     > [AZURE.NOTE]
            •	S1 – Standard Certificate with 1-year validity and auto renewal  
-           •	W1 – Wild card Certificate with 1-year validity and auto renewal  
-           
-         See **[Web Apps Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/)** for more information.
+           •	W1 – Wild card Certificate with 1-year validity and auto renewal      
+    See **[Web Apps Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/)** for more information.
 
 ![insert image of certificate SKU](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
 
@@ -138,7 +136,7 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
          
     * **Manual Verification**
     
-       > [AZURE.NOTE] This is the **least convenient option** and should ONLY be used if none of the above options are feasible.
+       This is the **least convenient option** and should ONLY be used if none of the above options are feasible.
               
         1. **HTML Web Page Verification**
         
@@ -188,11 +186,12 @@ In this Step, you will learn how to assign this newly purchased certificate to y
 
 
 If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
-1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Dashboard** page of your app, in the **quick glance** section. It will be listed as **Virtual IP Address:**
+
+* After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Dashboard** page of your app, in the **quick glance** section. It will be listed as **Virtual IP Address:**
     
     ![insert image of IP SSL](./media/app-service-web-purchase-ssl-web-site/IPSSL.jpg)
 
-    > [AZURE.NOTE] Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
+    Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
     
 2. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
 At this point, you should be able to visit your app using HTTPS:// instead of HTTP:// to verify that the certificate has been configured correctly.
