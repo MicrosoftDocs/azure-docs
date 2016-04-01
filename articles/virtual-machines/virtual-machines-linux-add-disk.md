@@ -20,15 +20,7 @@
 
 # Add a disk to a Linux VM
 
-This topic will add a persistent disk to a Linux based Azure Virtual machine using the Azure Command-line interface for Mac and Linux.  By attaching a persistent disk to your virtual Machine, you are able to preserve your data - should your VM be re-provisioned due to maintenance or resizing.
-
-## Prerequisites
-
-This topic assumes you already have a working Azure Subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)), [installed the Azure CLI](../xplat-cli-install.md) and have already [created a VM](virtual-machines-linux-quick-create-cli.md). You will need to know the resource group name, your VM name, and the region they are located in order to proceed.
-
-## Connect your Azure CLI terminal to your Azure subscription
-
-Before doing anything with Azure - you have to [log on to Azure with the Azure CLI](../xplat-cli-connect.md) and put the CLI in resource group mode by typing `azure config mode arm`.
+By attaching a persistent disk to your virtual Machine, you are able to preserve your data - should your VM be re-provisioned due to maintenance or resizing.  To add a disk you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`).
 
 ## Attach and mount a disk
 
