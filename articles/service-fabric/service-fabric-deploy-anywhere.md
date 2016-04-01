@@ -58,4 +58,5 @@ Running Service Fabric clusters on Azure provides advantages over the on premise
 
 ## Next steps
 Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+
 Create a cluster on VMs or computers running Linux: [Service Fabric on Linux](service-fabric-linux-overview.md)
