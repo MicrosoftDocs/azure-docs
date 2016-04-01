@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/1/2016"
+   ms.date="04/01/2016"
    ms.author="SilviaDoomra"/>
 
 # Convert existing databases to use elastic database tools
