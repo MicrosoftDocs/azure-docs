@@ -22,6 +22,14 @@
 
 By attaching a persistent disk to your virtual Machine, you are able to preserve your data - should your VM be re-provisioned due to maintenance or resizing.  To add a disk you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`).
 
+## Quick Commands
+
+```
+# In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
+
+rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
+```
+
 ## Attach and mount a disk
 
 Attaching a new disk is quick. Just type `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` to create and attach a new GB disk for your VM. It should look something like this:
