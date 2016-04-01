@@ -1002,10 +1002,11 @@ The output document:
 
 #### Azure DocumentDB code example setting file name
 
-If you want to set the name the document from the function, just set the `id` value.  For example, if JSON content for a user's name and address was being dropped into the queue similar to the following:
+If you want to set the name of the document in the function, just set the `id` value.  For example, if JSON content for an employee was being dropped into the queue similar to the following:
 
 	{
 	  "name" : "John Henry",
+      "employeeId" : "123456",
 	  "address" : "A town nearby"
 	}
 
@@ -1016,28 +1017,29 @@ You could use the following C# code in a queue trigger function:
 	using System;
 	using Newtonsoft.Json;
 	using Newtonsoft.Json.Linq;
-
-	public static void Run(string myQueueItem, out object UsersDocument, TraceWriter log)
+	
+	public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
 	{
 	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
 	    
-	    dynamic user = JObject.Parse(myQueueItem);
+	    dynamic employee = JObject.Parse(myQueueItem);
 	    
-	    UsersDocument = new {
-	        id = user.name,
-	        name = user.name,
-	        address = user.address
-	    };    
+	    employeeDocument = new {
+	        id = employee.name + "-" + employee.employeeId,
+	        name = employee.name,
+	        employeeId = employee.employeeId,
+	        address = employee.address
+	    };
 	}
 
 Example output:
 
 	{
-	  "id": "John Henry",
+	  "id": "John Henry-123456",
 	  "name": "John Henry",
+	  "employeeId": "123456",
 	  "address": "A town nearby"
 	}
-
 
 ## Azure Notification Hub output binding
 
