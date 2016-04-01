@@ -66,9 +66,9 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 
         # sudo update-grub
 
-6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 6 or 7:
+6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 7 or 8:
 
-	**Debian 6.x "Wheezy"**
+	**Debian 7.x "Wheezy"**
 
 		deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
 		deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
@@ -76,7 +76,7 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 		deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
 
-	**Debian 7.x "Jessie"**
+	**Debian 8.x "Jessie"**
 
 		deb http://debian-archive.trafficmanager.net/debian jessie-backports main
 		deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main

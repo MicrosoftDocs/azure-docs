@@ -3,7 +3,7 @@
    description="Suspend and restart SQL Data Warehouse using PowerShell cmdlets"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="03/31/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # Using PowerShell cmdlets and REST APIs with SQL Data Warehouse
 
 SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs.
 
-The commands defined for **Azure SQL Database** are also used for **SQL Data Warehouse**. For a current list, see [Azure SQL Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx). The cmdlets **Suspend-AzureRmSqlDatabase** and **Resume-AzureRmSqlDatabase** (below) are additions designed for SQL Data Warehouse.
+The commands defined for **Azure SQL Database** are also used for **SQL Data Warehouse**. For a current list, see [Azure SQL Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx). The cmdlets [Suspend-AzureRmSqlDatabase][] and [Resume-AzureRmSqlDatabase][] are additions designed for SQL Data Warehouse.
 
 Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL Data Warehouse** instances. For the current list, see [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx).
 
@@ -28,7 +28,7 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 
 1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on this installer, see [How to install and configure Azure PowerShell][].
 2. To run the module, at the start window type **Windows PowerShell**.
-3. Run this cmdlet to login to Azure Resource Manager.
+3. Run this Login-AzureRmAccount to login to Azure Resource Manager.
 
 ```PowerShell
 Login-AzureRmAccount
@@ -40,9 +40,21 @@ Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
 ```
 
+## List of PowerShell cmdlets
+
+The following PowerShell cmdlets are available to use with Azure SQL Data Warehouse:
+
+- [New-AzureRmSqlDatabase][]
+- [Get-AzureRmSqlDatabase][]
+- [Set-AzureRmSqlDatabase][]
+- [Remove-AzureRmSqlDatabase][]
+- [Suspend-AzureRmSqlDatabase][]
+- [Resume-AzureRmSqlDatabase][]
+- [Get-AzureRmSqlDatabaseRestorePoints][]
+
 ## Suspend-AzureRmSqlDatabase
 
-For the command reference, see [Suspend-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
+For the command reference, see [Suspend-AzureRmSqlDatabase][].
 
 ### Example 1: Pause a database by name on a server
 
@@ -54,7 +66,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "
 
 ### Example 2: Pause a database object
 
-This example retrieves a database named "Database02" from a server named "Server01" contained in a resource group named "ResourceGroup1." It pipes the retrieved object to **Suspend-AzureRmSqlDatabase**. As a result, the database is paused. The final command shows the results.
+This example retrieves a database named "Database02" from a server named "Server01" contained in a resource group named "ResourceGroup1." It pipes the retrieved object to [Suspend-AzureRmSqlDatabase][]. As a result, the database is paused. The final command shows the results.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -62,9 +74,9 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## Resume-AzureSqlDatabase
+## Resume-AzureRmSqlDatabase
 
-For the command reference, see [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
+For the command reference, see [Resume-AzureRmSqlDatabase][]
 
 ### Example 1: Resuming a database by name on a server
 
@@ -76,7 +88,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "S
 
 ### Example 2: Resuming a database object
 
-This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." The object is piped to **Resume-AzureRmSqlDatabase**.
+This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." The object is piped to [Resume-AzureRmSqlDatabase][].
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -105,7 +117,7 @@ $restorePoints
 
 ### Example 2: Resuming a database object
 
-This example retrieves a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1." The database object is piped to **Get-AzureRmSqlDatabase**, and the result is the database’s restore points. The final command prints the results.
+This example retrieves a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1." The database object is piped to [Get-AzureRmSqlDatabase][], and the result is the database’s restore points. The final command prints the results.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -127,9 +139,12 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
-
+[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
+[Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
+[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
+[Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
+[Suspend-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619337.aspx
+[Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
+[Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
 
 <!--Other Web references-->
-[gog]: http://google.com/
-[yah]: http://search.yahoo.com/
-[msn]: http://search.msn.com/
