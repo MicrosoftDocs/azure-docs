@@ -22,24 +22,26 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
-
-| | | | | | 
-|---|---|---|---|---|---
-|[ago](#ago)|[any](#any)|[argmax](#argmax)|[argmin](#argmin)|[Arithmetic ops](#arithmetic-operators)|[Array and object literals](#array-and-object-literals)
-|[arraylength](#arraylength)|[avg](#avg)|[bin](#bin)|[Boolean Literals](#boolean-literals)|[Boolean ops](#boolean-operators)|[buildschema](#buildschema)
-|[Casts](#casts)|[count](#count)|[count op](#count-operator)|[countof](#countof)|[Date and time expressions](#date-and-time-expressions)|[Date and time literals](#date-and-time-literals)
-|[dayofweek](#dayofweek)|[dcount](#dcount)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[extend op](#extend-operator)|[extract](#extract)|[extractjson](#extractjson)
-|[floor](#floor)|[getmonth](#getmonth)|[gettype](#gettype)|[getyear](#getyear)|[hash](#hash)|[iff](#iff)
-|[isempty](#isempty)|[isnotempty](#isnotempty)|[isnotnull](#isnotnull)|[isnull](#isnull)|[join op](#join-operator)|[JSON Path expressions](#json-path-expressions)
-|[let clause](#let-clause)|[limit op](#limit-operator)|[makelist](#makelist)|[makeset](#makeset)|[max](#max)|[min](#min)
-|[mvexpand op](#mvexpand-operator)|[notempty](#notempty)|[notnull](#notnull)|[now](#now)|[Numeric literals](#numeric-literals)|[Obfuscated String Literals](#obfuscated-string-literals)
-|[Operators and functions over dynamic types](#operators-and-functions-over-dynamic-types)|[parse op](#parse-operator)|[parsejson](#parsejson)|[percentile](#percentile)|[percentiles](#percentiles)|[project op](#project-operator)
-|[rand](#rand)|[range op](#range-operator)|[reduce op](#reduce-operator)|[render directive](#render-directive)|[replace](#replace)|[Scalar comparisons](#scalar-comparisons)
-|[sort op](#sort-operator)|[split](#split)|[sqrt](#sqrt)|[startofmonth](#startofmonth)|[startofyear](#startofyear)|[stdev](#stdev)
-|[strcat](#strcat)|[String comparisons](#string-comparisons)|[String Literals](#string-literals)|[strlen](#strlen)|[substring](#substring)|[sum](#sum)
-|[summarize op](#summarize-operator)|[take op](#take-operator)|[todatetime](#todatetime)|[todouble](#todouble)|[todynamic](#todynamic)|[toint](#toint)
-|[tolong](#tolong)|[tolower](#tolower)|[top op](#top-operator)|[totimespan](#totimespan)|[toupper](#toupper)|[treepath](#treepath)
-|[union op](#union-operator)|[variance](#variance)|[where op](#where-operator)
+| | | | | 
+|---|---|---|---|---
+|[ago](#ago)|[dayofweek](#dayofweek)|[let clause](#let-clause)|[range](#range)|[summarize op](#summarize-operator)
+|[any](#any)|[dcount](#dcount)|[limit op](#limit-operator)|[range op](#range-operator)|[take op](#take-operator)
+|[argmax](#argmax)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[reduce op](#reduce-operator)|[todatetime](#todatetime)
+|[argmin](#argmin)|[extend op](#extend-operator)|[makeset](#makeset)|[render directive](#render-directive)|[todouble](#todouble)
+|[Arithmetic ops](#arithmetic-operators)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
+|[Array and object literals](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[Scalar comparisons](#scalar-comparisons)|[toint](#toint)
+|[arraylength](#arraylength)|[floor](#floor)|[mvexpand op](#mvexpand-operator)|[sort op](#sort-operator)|[tolong](#tolong)
+|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[split](#split)|[tolower](#tolower)
+|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[top op](#top-operator)
+|[Boolean Literals](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
+|[Boolean ops](#boolean-operators)|[hash](#hash)|[Numeric literals](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
+|[buildschema](#buildschema)|[iff](#iff)|[Obfuscated String Literals](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
+|[Casts](#casts)|[isempty](#isempty)|[parse op](#parse-operator)|[strcat](#strcat)|[union op](#union-operator)
+|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[String comparisons](#string-comparisons)|[variance](#variance)
+|[count op](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[String Literals](#string-literals)|[where op](#where-operator)
+|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
+|[Date and time expressions](#date-and-time-expressions)|[join op](#join-operator)|[project op](#project-operator)|[substring](#substring)
+|[Date and time literals](#date-and-time-literals)|[JSON Path expressions](#json-path-expressions)|[rand](#rand)|[sum](#sum)
 
 
 
@@ -2006,7 +2008,7 @@ T
 ```
 
 
-### Operators and functions over dynamic types
+## Dynamic object functions
 
 |||
 |---|---|
@@ -2154,7 +2156,7 @@ T
 
 
 
-#### range
+### range
 
 The `range()` function (not to be confused with the `range` operator)
 generates a dynamic array holding a series of equally-spaced values.
