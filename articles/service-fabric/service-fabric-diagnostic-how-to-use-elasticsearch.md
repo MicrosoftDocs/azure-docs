@@ -165,7 +165,7 @@ To start using the Microsoft.Diagnostics.Tracing implementation of the EventSour
 
 1. Right-click on the service project and choose **Manage NuGet Packages**.
 
-2. Switch to the nuget.org package source (if it is not already selected) and search for "**icrosoft.Diagnostics.Tracing**.
+2. Switch to the nuget.org package source (if it is not already selected) and search for "**Microsoft.Diagnostics.Tracing**".
 
 3. Install the `Microsoft.Diagnostics.Tracing.EventSource` package (and its dependencies).
 
