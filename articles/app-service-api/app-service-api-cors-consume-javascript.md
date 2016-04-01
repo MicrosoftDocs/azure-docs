@@ -270,7 +270,10 @@ The following steps summarize the process for enabling Web API CORS support. For
 
 If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer lets you know that no installation is needed.
 
-If you continue getting CORS errors after you have set a URL on the CORS blade of the portal, make sure that you entered the protocol correctly (`http://` or `https://`).
+If you continue getting CORS errors after you set a URL on the CORS blade of the portal, double-check that the correct changes were made in the correct places. For example:
+
+* Make sure that you entered the protocol correctly (`https`, not `http`), and make sure that you're using `https` to run the front-end web app.
+* Make sure that you entered the CORS setting in the middle tier API app, not in the front-end web app.
 
 If you're configuring CORS in both application code and Azure App Service, note that the App Service CORS setting will override whatever you're doing in application code. 
 
