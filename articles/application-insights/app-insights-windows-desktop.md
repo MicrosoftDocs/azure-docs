@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="03/31/2016" 
 	ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps, services and worker roles
@@ -31,11 +31,11 @@ You can choose which standard data collectors you want to use (for example to mo
 ## <a name="add"></a> Create an Application Insights resource
 
 
-1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose Windows Store app. 
+1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose ASP.NET app. 
 
     ![Click New, Application Insights](./media/app-insights-windows-desktop/01-new.png)
 
-    (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
+    (You can choose a different application type if you want - it sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
 
 2.  Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created.
 
