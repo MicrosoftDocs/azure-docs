@@ -17,7 +17,7 @@
    ms.date="11/25/2015"
    ms.author="sedusch"/>
 
-# SAP NetWeaver on Linux virtual machines (VMs) – Planning and Implementation Guide
+# SAP NetWeaver on Azure virtual machines (VMs) – Planning and Implementation Guide
 
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
@@ -343,9 +343,9 @@ Some Microsoft documentation describes Cross-Premises scenarios a bit differentl
 ### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Resources
 The following additional guides are available for the topic of SAP deployments on Azure:
 
-* [SAP NetWeaver on Microsoft Azure Virtual Machine Services – Planning and Implementation Guide (this document)][planning-guide]
-* [SAP NetWeaver on Microsoft Azure Virtual Machine Services – Deployment Guide][deployment-guide]
-* [DBMS Deployment Guide for SAP on Microsoft Azure Virtual Machine Services][dbms-guide]
+* [SAP NetWeaver on Azure virtual machines (VMs) – Planning and Implementation Guide (this document)][planning-guide]
+* [SAP NetWeaver on Azure virtual machines (VMs) – Deployment Guide][deployment-guide]
+* [SAP NetWeaver on Azure virtual machines (VMs) – DBMS Deployment Guide][dbms-guide]
 
 > [AZURE.IMPORTANT] Wherever possible a link to the referring SAP Installation Guide is used (Reference InstGuide-01, see <http://service.sap.com/instguides>). When it comes to the prerequisites and installation process, the SAP NetWeaver Installation Guides should always be read carefully, as this document only covers specific tasks for SAP NetWeaver systems installed in a Microsoft Azure Virtual Machine.
 

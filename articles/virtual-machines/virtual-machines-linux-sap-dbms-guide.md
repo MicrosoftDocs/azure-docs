@@ -17,7 +17,7 @@
    ms.date="11/25/2015"
    ms.author="sedusch"/>
 
-# SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide
+# SAP NetWeaver on Azure virtual machines (VMs) – DBMS Deployment Guide
 
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
@@ -328,9 +328,9 @@ Some Microsoft documentation describes Cross-Premises scenarios a bit differentl
 ### Resources
 The following guides are available for the topic of SAP deployments on Azure:
 
-* [SAP NetWeaver on Azure Virtual Machines  – Planning and Implementation Guide][planning-guide]
-* [SAP NetWeaver on Azure Virtual Machines  – Deployment Guide][deployment-guide]
-* [SAP DBMS in Azure Deployment Guide (this document)][dbms-guide]
+* [SAP NetWeaver on Azure virtual machines (VMs) – Planning and Implementation Guide][planning-guide]
+* [SAP NetWeaver on Azure virtual machines (VMs) – Deployment Guide][deployment-guide]
+* [SAP NetWeaver on Azure virtual machines (VMs) – DBMS Deployment Guide (this document)][dbms-guide]
 
 The following SAP Notes are related to the topic of SAP on Azure:
 

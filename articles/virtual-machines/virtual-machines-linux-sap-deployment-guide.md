@@ -17,7 +17,7 @@
    ms.date="11/25/2015"
    ms.author="sedusch"/>
 
-# SAP NetWeaver on Linux virtual machines (VMs) – Deployment Guide
+# SAP NetWeaver on Azure virtual machines (VMs) – Deployment Guide
 
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
@@ -371,9 +371,9 @@ During the configuration work, the following resources are needed:
  
 The following guides cover the topic of SAP on Microsoft Azure as well:
 
-* [SAP NetWeaver on Azure Virtual Machines  – Planning and Implementation Guide][planning-guide]
-* [SAP NetWeaver on Azure Virtual Machines  – Deployment Guide (this document)][deployment-guide]
-* [SAP DBMS in Azure Deployment Guide][dbms-guide]
+* [SAP NetWeaver on Azure virtual machines (VMs) – Planning and Implementation Guide][planning-guide]
+* [SAP NetWeaver on Azure virtual machines (VMs) – Deployment Guide (this document)][deployment-guide]
+* [SAP NetWeaver on Azure virtual machines (VMs) – DBMS Deployment Guide][dbms-guide]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Deployment Scenarios of VMs for SAP on Microsoft Azure
 In this chapter, you learn the different ways of deployment and the single steps for each deployment type.
