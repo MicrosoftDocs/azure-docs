@@ -46,18 +46,18 @@ You can link up to 10 virtual network to an ExpressRoute circuit. All ExpressRou
 
 Ensure that your ExpressRoute circuit and Azure private peering are configured successfully. You can follow instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-portal-arm.md) and [configure routing](expressroute-howto-routing-portal-arm.md). Your ExpressRoute circuit should look like the image below.
 
-![](./media/expressroute-portal/expressroute-routing-private-3.png)
+![](./media/expressroute-howto-linkvnet-portal-arm/samesub3.png)
 
 >[AZURE.NOTE] BGP configuration information will not show up if your peerings were configured by the layer 3 provider. If your circuit is in provisioned state, you should be able to create connections.
 
 You can now start provisioning a connection to link your VNet gateway to your ExpressRoute circuit. THe image below shows you how to accomplish this.
 
-![](./media/expressroute-portal/expressroute-linkvnet-samesub-1.png)  
+![](./media/expressroute-howto-linkvnet-portal-arm/samesub1.png)  
 
 
 Once your connection has been successfully configured your connection object will show you information on the connection.
 
-![](./media/expressroute-portal/expressroute-linkvnet-samesub-2.png) 
+![](./media/expressroute-howto-linkvnet-portal-arm/samesub2.png)
 
 You can delete a connection by selecting the delete connection icon.
 
