@@ -174,15 +174,25 @@ To enable throttling:
 
     ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/add-exclusion.png)
 
-6. Select the items you want to exclude and then, click **OK**.
+6. Select the location and then, click **OK**.
 
-    ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/items-to-exclude.png)
+    ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/exclusion-location.png)
 
-7. Click **OK**.
+7. Add the file extension in the **File Type** field.
 
-    ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/excluded-folders.png)
+    ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/exclude-file-type.png)
 
-8. Continue through the Schedule Backup Wizard by clicking **Next** until the **Confirmation page**, then click **Finish**.
+    Adding an .mp3 extension
+
+    ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/exclude-mp3.png)
+
+    To add another extension, click **Add Exclusion** and enter another file type extension (adding a .jpeg extension).
+
+    ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/exclude-jpg.png)
+
+8. When you've added all the extensions, click **OK**.
+
+9. Continue through the Schedule Backup Wizard by clicking **Next** until the **Confirmation page**, then click **Finish**.
 
     ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
