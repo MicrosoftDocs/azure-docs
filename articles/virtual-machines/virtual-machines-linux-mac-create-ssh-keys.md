@@ -3,7 +3,7 @@
 	description="Generate and use SSH keys on Linux and Mac for the Resource Manager and classic deployment models on Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="vlivech"
+	authors="v-livech"
 	manager="timlt"
 	editor=""
 	tags="" />
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/13/2016"
-	ms.author="v-livech"/>
+	ms.date="04/04/2016"
+	ms.author="vlivech"/>
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
 
