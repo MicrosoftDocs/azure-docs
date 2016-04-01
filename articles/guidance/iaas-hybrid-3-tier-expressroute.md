@@ -112,7 +112,7 @@ The following high-level steps outline a process for implementing this architect
 
 	If your connectivity provider is a Telco, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
 
-	<a name="address-space></a>If your connectivity provider is an IXP, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expresroute-routing] for details. Use the following command to add a network peering for routing traffic:
+	If your connectivity provider is an IXP, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expresroute-routing] for details. Use the following command to add a network peering for routing traffic:
 
 	```
 	TBD  - CLI equivalent of New-AzureBGPPeering cmdlet
@@ -157,15 +157,15 @@ Note the following points:
 s
 ## Security recommendations
 
-- To maximize security, add firewalls or network security appliances between the on-premises network and the provider edge routers. This will help to restrict the inflow of unauthorized traffic from the VNet:
+> ExpressRoute operates in layer 3. Threats in the Application layer can be prevented by making use of a Network Security Appliance which restricts traffic to legitimate resources.
+
+- To maximize security, add network security appliances between the on-premises network and the provider edge routers. This will help to restrict the inflow of unauthorized traffic from the VNet:
 
 ![IaaS: hybrid-expressroute-firewalls](./media/arch-iaas-hybrid-expressroute-firewalls.png)
 
-- By default, Azure VMs expose endpoints used for providing login access for management purposes - RDP and Remote Powershell for Windows VMs, and SSH for Linux-based VMs. To maximize security, ensure that these endpoints are not publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform any necessary configuration or maintenance.
+- By default, Azure VMs expose endpoints used for providing login access for management purposes - RDP and Remote Powershell for Windows VMs, and SSH for Linux-based VMs. To maximize security, ensure that these endpoints are not publicly accessible making use of NSG's. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform any necessary configuration or maintenance.
 
 - If you must expose management endpoints for VMs to an external network, then use access control lists to restrict the visibility of these ports to a whitelist of IP addresses or networks.
-
-<!--manikrish: add note on issue reported about restricting access to microsoft services and o365 services only and not public sites hosted in azure -->
 
 ## Scalability recommendations
 
