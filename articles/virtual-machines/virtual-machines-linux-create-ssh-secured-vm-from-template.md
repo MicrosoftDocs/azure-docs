@@ -3,7 +3,7 @@
 	description="Create a Secure Linux VM on Azure using an Azure Resource Manager template."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="vlivech"
+	authors="v-livech"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager" />
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/08/2016"
+	ms.date="04/04/2016"
 	ms.author="vlivech"/>
 
 # Create a secured Linux VM using an Azure template
