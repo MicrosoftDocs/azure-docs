@@ -23,11 +23,11 @@ This topic provides general limitations and guidelines for Azure SQL Database. F
 
   - Windows Authentication is not supported. See [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md). However, Azure Active Directory Authentication is supported with certain limitations. See [Connect to SQL Database with Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
- - Microsoft Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later.
+  - Microsoft Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later.
 
- - Only TCP/IP connections are allowed.
+  - Only TCP/IP connections are allowed.
 
- - The SQL Server 2008 SQL Server browser is not supported because Microsoft Azure SQL Database does not have dynamic ports, only port 1433.
+  - The SQL Server 2008 SQL Server browser is not supported because Microsoft Azure SQL Database does not have dynamic ports, only port 1433.
 
 ## SQL Server Agent/Jobs
 
