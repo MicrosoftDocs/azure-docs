@@ -155,7 +155,7 @@ In your Box tenant, synchronized users are listed under **Managed Users** in the
 
 ##Assigning users and groups
 
-The **Users and Groups** tab allows you to specify which users and groups should be granted access to Box. Assignment of a user or group causes the following things to occur:
+The **Box > Users and Groups** tab in the Azure classic portal allows you to specify which users and groups should be granted access to Box. Assignment of a user or group causes the following things to occur:
 
 * Azure AD permits the assigned user (either by direct assignment or group membership) to authenticate to Box. If a user is not assigned, then Azure AD will not permit them to sign in to Box and will return an error on the Azure AD sign-in page.
 
