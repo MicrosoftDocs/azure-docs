@@ -19,7 +19,9 @@
 
 # Tutorial: Azure Active Directory integration with HackerOne
 
-In this tutorial, you integrate HackerOne with Azure Active Directory (Azure AD).<br>Integrating HackerOne with Azure AD provides you with the following benefits:
+In this tutorial, you integrate HackerOne with Azure Active Directory (Azure AD).
+
+Integrating HackerOne with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to HackerOne
 - You can enable your users to automatically get signed-on to HackerOne (Single Sign-On) with their Azure AD accounts
