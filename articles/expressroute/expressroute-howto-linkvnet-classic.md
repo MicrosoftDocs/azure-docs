@@ -4,7 +4,7 @@
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags 
@@ -13,15 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="03/31/2016"
    ms.author="cherylmc" />
 
 # Linking Virtual Network to ExpressRoute circuits
 
 > [AZURE.SELECTOR]
 - [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
-- [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)  
-- [Template - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
+- [PowerShell - Resource Manager](expressroute-howto-linkvnet-arm.md)
+- [Portal - Resource Manager](expressroute-howto-linkvnet-portal-arm.md)
+- [Template - Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
 This article gives you an overview of how to link virtual networks (VNets) to ExpressRoute circuits. Virtual networks can either be in the same subscription, or be part of another subscription. This article applies to VNets deployed using the Classic deployment model. If you want to link a virtual network that was deployed using the Azure Resource Manager deployment model, see [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
 
