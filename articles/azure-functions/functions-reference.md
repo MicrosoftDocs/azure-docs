@@ -944,7 +944,7 @@ The function.json file provides the following properties for use with DocumentDB
 - `type` : must be set to *"documentdb"*.
 - `databaseName` : The database containing the collection where the new document will be created.
 - `collectionName` : The collection where the new document will be created.
-- `createIfNotExists` : Boolean value to indicate whether the collection can be created if it does not exist.
+- `createIfNotExists` : Boolean value to indicate whether the collection will be created if it does not exist.
 - `connection` : This string must be an **Application Setting** set to the endpoint for your DocumentDB account. If you choose your account from the **Integrate** tab, a new App setting will be created for you with a name that takes the following form, `yourAccount_DOCUMENTDB`. This name must match the binding. If you need to manually create the App setting, the actual connection string must take the following form, `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
 - `direction` : must be set to *"out"*. 
  
