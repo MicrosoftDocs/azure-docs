@@ -785,11 +785,11 @@ These properties support the following scenarios:
 
 * Read a single row in a C# or Node function.
 
-	Set `partitionKey` and `rowKey`. The `filter` and `take` properties have no effect in this scenario.
+	Set `partitionKey` and `rowKey`. The `filter` and `take` properties are not used in this scenario.
 
 * Read multiple rows in a C# function.
 
-	The Functions runtime provides an `IQueryable<T>` object bound to the table to do any filtering required. Type `T` must derive from `TableEntity` or implement `ITableEntity`. The `partitionKey`, `rowKey`, `filter`, and `take` properties have no effect in this scenario.
+	The Functions runtime provides an `IQueryable<T>` object bound to the table. Type `T` must derive from `TableEntity` or implement `ITableEntity`. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario; you can use the `IQueryable` object to do any filtering required. 
 
 * Read multiple rows in a Node function.
 
@@ -797,7 +797,7 @@ These properties support the following scenarios:
 
 * Write one or more rows in a C# function.
 
-	The Functions runtime provides an `ICollector<T>` or `IAsyncCollector<T>` bound to the table, where `T` specifies the schema of the entities you want to add. Typically, type `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The `partitionKey`, `rowKey`, `filter`, and `take` properties have no effect in this scenario.
+	The Functions runtime provides an `ICollector<T>` or `IAsyncCollector<T>` bound to the table, where `T` specifies the schema of the entities you want to add. Typically, type `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.
 
 #### Read a single table entity in C# or Node
 
