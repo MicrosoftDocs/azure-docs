@@ -103,7 +103,7 @@ You can also use the Marathon API to scale out or scale in application deploymen
 
 Run the following command to scale out the application.
 
->[AZURE.NOTE] The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/v2/nginx.
+>[AZURE.NOTE] The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 
 ```json
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -160,7 +160,7 @@ You can also use the Marathon API to scale out or scale in application deploymen
 
 Run the following command to scale out the application.
 
-> [AZURE.NOTE] The URI will be http://loclahost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/v2/nginx.
+> [AZURE.NOTE] The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
