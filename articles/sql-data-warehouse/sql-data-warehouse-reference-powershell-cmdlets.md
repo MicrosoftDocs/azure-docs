@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Using PowerShell cmdlets and REST APIs with SQL Data Warehouse"
-   description="Suspend and restart SQL Data Warehouse using PowerShell cmdlets"
+   pageTitle="PowerShell cmdlets for Azure SQL Data Warehouse"
+   description="Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/01/2016"
+   ms.date="04/02/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse
