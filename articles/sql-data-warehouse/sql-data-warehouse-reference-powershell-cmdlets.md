@@ -94,9 +94,9 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ## Next steps
 For more reference information, see [SQL Data Warehouse reference overview][].
 For more PowerShell examples, see:
-- [Create a SQL Data Warehouse using PowerShell](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-provision-powershell.md)
-- [Restore from snapshot](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-backup-and-restore-from-snapshot.md)
-- [Geo-restore from snapshot](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md)
+- [Create a SQL Data Warehouse using PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+- [Restore from snapshot](sql-data-warehouse-backup-and-restore-from-snapshot.md)
+- [Geo-restore from snapshot](sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md)
 
 <!--Image references-->
 
@@ -106,7 +106,7 @@ For more PowerShell examples, see:
 
 <!--MSDN references-->
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
-[Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/en-us/library/mt693387.aspx
+[Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
 [Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
