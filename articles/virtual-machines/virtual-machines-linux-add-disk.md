@@ -20,7 +20,7 @@
 
 # Add a disk to a Linux VM
 
-By attaching a persistent disk to your virtual Machine, you are able to preserve your data - should your VM be re-provisioned due to maintenance or resizing.  To add a disk you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`).
+By attaching a persistent disk to your virtual Machine, you are able to preserve your data - should your VM be re-provisioned due to maintenance or resizing.  To add a disk you will need [the Azure CLI](../xplat-cli-install/) in resource manager mode (`azure config mode arm`).
 
 ## Quick Commands
 
