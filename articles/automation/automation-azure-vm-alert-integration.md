@@ -3,7 +3,7 @@
     description="This article describes the integration of Azure Virtual Machine alerts with Azure Automation runbooks."
     services="automation"
     documentationCenter=""
-    authors="csand-msft;magoedte"
+    authors="csand-msft"
     manager="stevenka"
     editor="tysonn" />    
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
     ms.date="03/31/2016"
-    ms.author="csand-msft;magoedte" />
+    ms.author="csand-msft" />
 
 # Remediate Azure VM Alerts with Automation Runbooks
 
