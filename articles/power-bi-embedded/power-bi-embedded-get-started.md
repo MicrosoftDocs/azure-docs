@@ -55,6 +55,7 @@ This **Creation Blade** contains the information you  need to call the APIs that
 
 The next section describes how **Access Keys** are used to generate **app tokens** which are used to authenticate your API requests..
 
+<a name="view-access-keys"/>
 ## View Power BI API Access Keys
 
 One of the most important pieces of information needed for calling the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [How does app token flow work](power-bi-embedded-get-started-sample.md#key-flow).
