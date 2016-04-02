@@ -19,7 +19,7 @@
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
 
-To create a password secured SSH public and private key you will need [the Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/) in resource manager mode (`azure config mode arm`).
+To create a password secured SSH public and private key you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
 ## Quick Command Listing
 
