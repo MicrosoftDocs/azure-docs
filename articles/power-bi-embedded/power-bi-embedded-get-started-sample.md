@@ -24,13 +24,13 @@
  -	[Power BI Embedded API reference](https://msdn.microsoft.com/library/mt711493.aspx)
  -	[Power BI Embedded .NET SDK (available via NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
-In this article, you are introduced to the Power BI Embedded get started sample. So, let’s get started configuring the sample app and running the sample app.
+In this article, you are introduced to the **Power BI Embedded** get started sample. Let’s get started configuring the sample app so that you can run the sample web app.
 
 > [AZURE.NOTE] Before you can configure and run the Power BI Embedded get started sample, you need to create at least one **Workspace Collection** in your Azure subscription. To learn how to create a **Workspace Collection** in the Azure Portal see [Getting Started with Power BI Embedded Preview](power-bi-embedded-get-started.md).
 
 ## Configure the sample app
 
-The following will walk you through setting up your Visual Studio development environment to access the Preview components needed for run the sample app.
+The following will walk you through setting up your Visual Studio development environment to access the Preview components needed to run the sample app.
 
 1. Download and unzip the [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) sample on GitHub.
 
@@ -52,9 +52,9 @@ The following will walk you through setting up your Visual Studio development en
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
-8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX files handy, you can download the [Analyzing Sales Data PBIX sample]  (http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix).
+8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Analyzing Sales Data PBIX sample]  (http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix).
 
-9. If prompted, select a friendly name for your **Dataset**.
+9. If prompted, enter a friendly name for your **Dataset**.
 
 You should see a response like:
 
@@ -65,7 +65,7 @@ Checking import state... Succeeded
 
 > [AZURE.NOTE] If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
 
-At this point, you have a Power BI PBIX report imported into your **Workspace**. The next section shows you how to run the Power BI Embedded get started sample web app.
+At this point, you have a Power BI PBIX report imported into your **Workspace**. The next section shows you how to run the **Power BI Embedded** get started sample web app. In the next section, you learn how to run the sample web app.
 
 ## Run the sample web app
 
@@ -74,7 +74,7 @@ The web app sample is a sample dashboard that renders reports imported into your
 Here's how to configure the web app sample.
 
 1. In the **PowerBI-embedded** Visual Studio solution, right click the **EmbedSample** web application, and choose **Set as StartUp project**.
-2. In **web.config** in the **EmbedSample** web application, edit the **appSettings**: **AccessKey**, **WorkspaceCollection** name, and **WorkspaceId**.
+2. In **web.config**, in the **EmbedSample** web application, edit the **appSettings**: **AccessKey**, **WorkspaceCollection** name, and **WorkspaceId**.
 
     ```
     <appSettings>
@@ -94,10 +94,10 @@ After you click a report, the **EmbedSample** web application should look someth
 
 ![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
 
-The next section explores the Power BI Embedded sample code.
+The next section explores the **Power BI Embedded** sample code.
 
 ## Explore the sample code
-The **Microsoft Power BI Embedded** Preview sample is an example dashboard web app that shows how to integrate **Power BI** reports. It uses a Model-View-Controller (MVC) design pattern to demonstrates best practices. This section will highlight parts of the sample code that you can explore within the web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
+The **Microsoft Power BI Embedded** Preview sample is an example dashboard web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
 
 The **Microsoft Power BI Embedded** Preview sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
@@ -128,7 +128,7 @@ The **View** manages the display of Power BI **Reports** and a Power BI **Report
 **Reports.cshtml**: Iterate over **Model.Reports** to create an **ActionLink**. The **ActionLink** is composed as follows:
 
 |Part|Description
-|-|-
+|---|---
 |Title| Name of the Report.
 |QueryString| A link to the Report ID.
 

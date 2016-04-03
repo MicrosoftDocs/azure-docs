@@ -58,7 +58,7 @@ The next section describes how **Access Keys** are used to generate **app tokens
 <a name="view-access-keys"/>
 ## View Power BI API Access Keys
 
-One of the most important pieces of information needed for calling the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [How does app token flow work](power-bi-embedded-get-started-sample.md#key-flow).
+One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [How does app token flow work](power-bi-embedded-get-started-sample.md#key-flow).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -70,7 +70,7 @@ Copy these keys and store them securely in your application. It is very importan
 
 While two keys are listed, only one key is needed at a time. The second key is provided so you can periodically regenerate keys without interrupting access to the service.
 
-Now that you have an instance of Power BI for your application, and **Access Keys**, you can import a report into your own app. Before you learn how to import a report, the next section describes creating a Power BI report.
+Now that you have an instance of Power BI for your application, and **Access Keys**, you can import a report into your own app. Before you learn how to import a report, the next section describes creating Power BI datasets and reports to embed into an app.
 
 ## Create Power BI datasets and reports to embed into an app
 
@@ -80,17 +80,15 @@ Now that you have created an instance of Power BI for your application, and have
 
 With **Power BI Desktop**, you connect to your data source by importing a copy of the data into **Power BI Desktop** or connecting directly to the data source using **DirectQuery**.
 
-> [AZURE.NOTE] At this stage of the Preview, imported datasets can be used with **Power BI Embedded** but cannot be refreshed. If you want to show the latest data from your data source, use **DirectQuery** with a data source that is accessible from the cloud.
-
 Here are the differences between using **Import** and **DirectQuery**.
 
 |Import | DirectQuery
-|-|-
+|---|---
 |Tables, columns, *and data* are imported or copied into **Power BI Desktop**. As you work with visualizations, **Power BI Desktop** queries a copy of the data. To see any changes that occurred to the underlying data, you must refresh, or import, a complete, current dataset again.|Only *tables and columns* are imported or copied into **Power BI Desktop**. As you work with visualizations, **Power BI Desktop** queries the underlying data source, which means you're always viewing current data.
 
 For more about connecting to a data source, see [Connect to a data source](power-bi-embedded-connect-datasource.md).
 
-After you save your work in **Power BI Desktop**, a PBIX file is created. This file contains both your dataset and report. You programmatically deploy the PBIX into your workspace using the [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx).
+After you save your work in **Power BI Desktop**, a PBIX file is created. This file contains your report. In addition, if you import data the PBIX contains the complete dataset, or if you use **DirectQuery**, the PBIX contains just a dataset schema. You programmatically deploy the PBIX into your workspace using the [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx).
 
 > [AZURE.NOTE] **Power BI Embedded** has additional APIs to change the server and database that your dataset is pointing to and set a service account credential that the dataset will use to connect to your database. See [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) and [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
 
