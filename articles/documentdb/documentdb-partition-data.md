@@ -37,14 +37,45 @@ How does this work? When you create a collection in DocumentDB, you'll notice th
 For example, consider an application that stores data about employees and their departments in DocumentDB. Let's choose `"department"` as the partition key property, in order to scale out data by department. Every document in DocumentDB must contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }`, and `{ "Department": "Sales", "id": "0001" }`. In other words, the compound property of (partition key, id) is the primary key for your collection.
 
 ### Partition Keys
-The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. Let's take a look at how the choice of partition key impacts the performance of your application.
+The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. The partition key is specified as a JSON path, e.g. `/department` represents the property department. 
+
+The following table shows examples of partition key definitions and the JSON values corresponding to each.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Partition Key Path</strong></p></td>
+            <td valign="top"><p><strong>Description</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>/department</p></td>
+            <td valign="top"><p>Corresponds to the JSON value of doc.department where doc is the document.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>/properties/name</p></td>
+            <td valign="top"><p>Corresponds to the JSON value of doc.properties.name where doc is the document (nested property).</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>/id</p></td>
+            <td valign="top"><p>Corresponds to the JSON value of doc.id (id and partition key are the same property).</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>/"department name"</p></td>
+            <td valign="top"><p>Corresponds to the JSON value of doc["department name"] where doc is the document.</p></td>
+        </tr>
+    </tbody>
+</table>
+
+> [AZURE.NOTE] The syntax for partition key path is similar to the path specification for indexing policy paths with the key difference that the path corresponds to the property instead of the value, i.e. there is no wild card at the end. For example, you would specify /department/? to index the values under department, but specify /department as the partition key definition. The partition key path is implicitly indexed and cannot be excluded from indexing using indexing policy overrides.
+
+Let's take a look at how the choice of partition key impacts the performance of your application.
 
 ### Partitioning and Provisioned Throughput
 DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **request units (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation. A read of a 1 kB document with Session consistency consumes 1 request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
 
 When DocumentDB stores documents, it distributes them evenly among partitions based on the partition key value. The throughput is also distributed evenly among the available partitions i.e. the throughput per partition = (total throughput per collection)/ (number of partitions). 
 
-> [AZURE.NOTE] In order to achieve the full throughput of the collection, you must choose a partition key that allows you to evenly distribute requests among a number of distinct partition key values.
+> [AZURE.TIP] In order to achieve the full throughput of the collection, you must choose a partition key that allows you to evenly distribute requests among a number of distinct partition key values.
 
 ## Single Partition and Partitioned Collections
 DocumentDB supports the creation of both single-partition and partitioned collections. 
@@ -128,6 +159,9 @@ For this sample, we picked `deviceId` since we know that (a) since there are a l
         myCollection,
         new RequestOptions { OfferThroughput = 20000 });
         
+
+> [AZURE.NOTE] In order to create partitioned collections, you must specify a throughput value of > 10,000 request units per second. Since throughput is in multiples of 100, this has to be 10,100 or higher.
+
 This method makes a REST API call to DocumentDB, and the service will provision a number of partitions based on the requested throughput. Now, let's insert data into DocumentDB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.
 
     public class DeviceReading
@@ -226,10 +260,18 @@ Here are a few examples for how to pick the partition key for your application:
 
 * If you’re implementing a user profile backend, then the user ID is a good choice for partition key.
 * If you’re storing IoT data e.g. device state, a device ID is a good choice for partition key.
-* If you’re using DocumentDB for logging time-series data, then the date part of the timestamp is a good choice for partition key.
+* If you’re using DocumentDB for logging time-series data, then the hostname or process ID is a good choice for partition key.
 * If you have a multi-tenant architecture, the tenant ID is a good choice for partition key.
 
 Note that in some use cases (like the IoT and user profiles described above), the partition key might be the same as your id (document key). In others like the time series data, you might have a partition key that’s different than the id.
+
+### Partitioning and logging/time-series data
+One of the most common use cases of DocumentDB is for logging and telemetry. It is important to pick a good partition key since you might need to read/write vast volumes of data. The choice will depend on your read and write rates and kinds of queries you expect to run. Here are some tips on how to choose a good partition key.
+
+- If your use case involves a small rate of writes acculumating over a long period of time, and need to query by ranges of timestamps and other filters, then using a rollup of the timestamp e.g. date as a partition key is a good approach. This allows you to query over all the data for a date from a single partition. 
+- If your workload is write heavy, which is generally more common, you should use a partition key that’s not based on timestamp so that DocumentDB can distribute writes evenly across a number of partitions. Here a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
+- A third approach is a hybrid one where you have multiple collections, one for each day/month and the partition key is a granular property like hostname. This has the benefit that you can set different performance levels based on the time window, e.g. the collection for the current month is provisioned with higher throughput since it serves reads and writes, whereas previous months with lower throughput since they only serve reads.
+
 
 ### Partitioning and multi-tenancy
 If you are implementing a multi-tenant application using DocumentDB, there are two major patterns for implementing tenancy with DocumentDB – one partition key per tenant, and one collection per tenant. Here are the pros and cons for each:
