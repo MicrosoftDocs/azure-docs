@@ -70,10 +70,11 @@ After the VM is provisioned, you can get the SSH endpoint by running the followi
 
 3. Use the following command to install Rails:
 
-		sudo gem install rails --no-rdoc --no-ri
+		sudo gem install rails --no-rdoc --no-ri -V
 
 	Use the --no-rdoc and --no-ri flags to skip installing the documentation, which is faster.
-
+	This command will likely take a longtime to execute, so adding the -V will display info about the install progress.
+	
 ## Create and run an app
 
 While still logged in via SSH, run the following commands:
