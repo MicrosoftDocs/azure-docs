@@ -33,7 +33,7 @@ You have to have the Azure SDK 2.7 or later installed in order to follow the ste
 2. In the dialog, find **Cloud**, and then select **Azure Resource Group**. Type a **Name** and then click **OK**.
     ![Add new project](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. You now need to select if you want a **Logic app** or **Logic app + API app**. Selecting **Logic app** requires you to point to existing APIs. If you select **Logic app + API app**, then you can also create a new, empty, API app at the same time.
+3. You now need to select if you want a **Logic app** or **Logic app and API app**. Selecting **Logic app** requires you to point to existing APIs. If you select **Logic app and API app**, then you can also create a new, empty, API app at the same time. In this document, I have selected Logic App.
     ![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
 4. Once you have selected your **Template**, hit **OK**.
@@ -43,7 +43,7 @@ Now your Logic app project is added to your solution. You should see the deploym
 
 ## Configuring your Logic app
 
-Once you have a project you can edit the definition of your Logic app inside Visual Studio. Click on the JSON file in the solution explorer. You see a placeholder definition that you can fill in with your application's logic.
+Once you have a project you can edit the definition of your Logic app inside Visual Studio. Click on the JSON file in the Solution Explorer. You see a placeholder definition that you can fill in with your application's logic.
 
 It's recommended to use **parameters** throughout your definition. This is useful if you want to deploy to both a development and production environment. In that case, you should put all environment-specific configuration in the `.param` file, and the parameters instead of the actual strings.
 
@@ -58,7 +58,7 @@ If you previously created a Logic app inside the Azure Portal and now want to ch
 
 Finally, after you have configured your app, you can deploy directly from Visual Studio in just a couple steps. 
 
-1. Right-click on the deployment in the Solution Explorer and go to **Deploy** > **New deployment...**
+1. Right-click on the deployment in the Solution Explorer and go to **Deploy** > **New Deployment...**
     ![New deployment](./media/app-service-logic-deploy-from-vs/newdeployment.png)
 
 2. You are prompted to sign in to your Azure subscription(s). 
@@ -71,6 +71,8 @@ Finally, after you have configured your app, you can deploy directly from Visual
 4. The status of the deployment appears in the **Output** window (you may need to choose **Azure Provisioning**. 
     ![Output](./media/app-service-logic-deploy-from-vs/output.png)
 
-In the future, you can revise your Logic app in source control and use Visual Studio to deploy new versions. Note that if you modify the definition in the Azure Portal directly, then the next time you deploy from Visual Studio those changes are overwritten.
+In the future, you can revise your Logic app in source control and use Visual Studio to deploy new versions. 
+
+> [AZURE.NOTE] If you modify the definition in the Azure Portal directly, then the next time you deploy from Visual Studio those changes will be overwritten.
 
 If you do not want to use Visual Studio, but still want to use tooling to deploy your Logic app from source control, you can use the [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) or [Powershell](../powershell-azure-resource-manager.md) directly to automate your deployments.  
