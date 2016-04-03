@@ -20,7 +20,7 @@
 
 Use an Azure Resource Manager template to create an empty logic app that can be used to define workflows. You can define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-For more details on the Logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/en-us/library/azure/mt643788.aspx). 
+For more details on the Logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/library/azure/mt643788.aspx). 
 
 For examples of the definition itself, see [Author Logic App definitions](app-service-logic-author-definitions.md). 
 
