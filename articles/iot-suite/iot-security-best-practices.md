@@ -5,16 +5,16 @@
  suite="iot-suite"
  documentationCenter=""
  authors="YuriDio"
- manager="swadhwa"
+ manager="timlt"
  editor=""/>
 
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="hero-article"
+ ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/31/2016"
+ ms.date="04/04/2016"
  ms.author="yurid"/>
 
 # IoT Security Best Practices

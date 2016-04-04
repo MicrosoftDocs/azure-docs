@@ -5,16 +5,16 @@
  suite="iot-suite"
  documentationCenter=""
  authors="YuriDio"
- manager="swadhwa"
+ manager="timlt"
  editor=""/>
 
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="hero-article"
+ ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/31/2016"
+ ms.date="04/04/2016"
  ms.author="yurid"/>
 
 # Securing your Internet of Things from the ground up
@@ -32,8 +32,6 @@ The Internet of Things (IoT) is the wave of the future, offering businesses imme
 Then, there’s the issue of privacy. Companies want transparency concerning data collection, as in what’s being collected and why, who can see it, who controls access, and so on. Finally, there are general safety issues of the equipment along with the people operating them, and issues of maintaining industry standards of compliance.
 
 Given the security, privacy, transparency, and compliance concerns, choosing the right IoT solution provider remains a challenge. Stitching together individual pieces of IoT software and services provided by a variety of vendors introduces gaps in security, privacy, transparency, and compliance which may be hard to detect, let alone fix. The choice of the right IoT software and service provider is based on finding providers which have extensive experience running services which span across verticals and geographies, but are also able to scale in a secure and transparent fashion. Similarly, it helps for the selected provider to have decades of experience with developing secure software running on billions of machines worldwide, and have the ability to appreciate the threat landscape posed by this new world of the Internet of Things.
-
-![IoT](media/securing-iot-ground-up/securing-iot-ground-up-fig1.png)
 
 ## Secure infrastructure from the ground up 
 
