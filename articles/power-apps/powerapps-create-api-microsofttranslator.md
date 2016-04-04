@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Create a new Microsoft Translator API in PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-microsofttranslator.md)
+- [Logic apps](../articles/connectors/connectors-create-api-microsofttranslator.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
 
 Add the Microsoft Translator API to your organization's (tenant) app service environment. 
@@ -79,7 +79,7 @@ A new Microsoft Translator app is created. You can use this app in your Microsof
 
 ## See the REST APIs
 
-[Microsoft Translator REST API](../connectors/create-api-microsofttranslator.md) reference.
+[Microsoft Translator REST API](../connectors/connectors-create-api-microsofttranslator.md) reference.
 
 ## Summary and next steps
 In this topic, you added the Microsoft Translator API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
