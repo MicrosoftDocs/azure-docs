@@ -83,7 +83,7 @@ This link relationship is established by assigning the value of the **user name*
 
 To configure and test Azure AD single sign-on with Heroku, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Creating an Heroku test user](#creating-an-heroku-test-user)** - to have a counterpart of Britta Simon in Heroku that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     c. On the **Single Sign On Page**, click **Upload Metadata**.
  
-    d. Upload the metadata file you have downloaded from the Azure classi portal.
+    d. Upload the metadata file you have downloaded from the Azure classic portal.
 
     e. When the setup is successful, administrators will see a confirmation dialog and the URL of the SSO Login for   end users is displayed.
 
@@ -201,7 +201,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 In this section, you create a user called Britta Simon in Heroku. Heroku supports just-in-time provisioning, which is enabled by default.
 
-There is no action item for you in this section. A new user is created when accessing Heroku if the user doesn't exist yet. After the account is provisioned the end-user will receive a verification email and will need to click the acknowledgement link.[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+There is no action item for you in this section. A new user is created when accessing Heroku if the user doesn't exist yet. After the account is provisioned the end-user receives a verification email and needs to click the acknowledgement link.
 
 > [AZURE.NOTE] If you need to create a user manually, you need to contact the Heroku support team.
 
