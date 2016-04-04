@@ -63,7 +63,7 @@ The following script action is used to install R on an HDInsight cluster.
     
 This section provides instructions about how to use the script when creating a new cluster using the Azure portal. 
 
-> [AZURE.NOTE] Azure PowerShell, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
 
