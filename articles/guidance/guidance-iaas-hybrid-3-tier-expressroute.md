@@ -89,8 +89,9 @@ The following high-level steps outline a process for implementing this architect
 - Arrange for the ExpressRoute circuit to be provisioned.
 
 	If your service provider is a Telco:
-<!--manikrish:verify if we still need to send the /29 subnet information, the product docs just mention that the service key needs to be shared. johns: This information was taken from Microsoft Azure ExpressRoute.PDF, top of page 29 -->
-
+<!--manikrish:verify if we still need to send the /29 subnet information, the product docs just mention that the service key needs to be shared-->
+<!--johns: This information was taken from Microsoft Azure ExpressRoute.PDF, top of page 29-->
+<!--anoakley:I'm not sure if we need to send the CIDR. But if we do, I think it needs to be /28, since they need more machines than for a VPN-->
 	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /29 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
 
 		> [AZURE.NOTE] The service provider may provide an online portal for you to supply this information.
@@ -111,7 +112,7 @@ The following high-level steps outline a process for implementing this architect
 	- Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you are implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [ExpressRoute routing requirements][expressroute-routing-requirements].
 
 	- Wait for the provider to provision the circuit.
-
+<!--anoakley:There are currently no CLI equivalent BGP peering commands, so we need to show PowerShell-->
 - Configure routing for the ExpressRoute circuit.
 
 	If your connectivity provider is a Telco, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
@@ -119,7 +120,8 @@ The following high-level steps outline a process for implementing this architect
 	<a name="address-space></a>If your connectivity provider is an IXP, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expresroute-routing] for details. Use the following command to add a network peering for routing traffic:
 
 	```
-	TBD  - CLI equivalent of New-AzureBGPPeering cmdlet
+	Set-AzureRmExpressRouteCircuitPeeringConfig
+    Set-AzureRmExpressRouteCircuit
 	```
 
 	Depending on your requirements, you may need to perform the following operations:
@@ -134,7 +136,7 @@ The following high-level steps outline a process for implementing this architect
 - [Link your private VNet(s) in the cloud to the ExpressRoute circuit][link-vnet-to-expressroute]. Use the following command:
 
 	```
-	TBD  - CLI equivalent of New-AzureDedicatedCircuitLink cmdlet
+	New-AzureRmVirtualNetworkGatewayConnection
 	```
 
 Note the following points:
@@ -198,10 +200,16 @@ Note the following points:
 
 	You can increase the bandwidth without loss of connectivity. Downgrading the bandwidth will result in disruption in connectivity. You have to delete the circuit and recreate it with the new configuration.
 
-- Start with the standard SKU of ExpressRoute, and upgrade to ExpressRoute Premium only when required. Switch the SKU by using the following command (the `<<sku>>` parameter can be `Standard` or `Premium`):
+<!--anoakley:This set of commands can be used to change the family from MeteredData to UnlimitedData and vice versa.  We need to figure out how to word this properly, as the end-user could change their sku family inadvertently.-->
+- Start with the standard SKU of ExpressRoute, and upgrade to ExpressRoute Premium only when required. Switch the SKU by using the following command (the `Sku.Tier` property can be `Standard` or `Premium`):
 
 	```
-	azure network express-route circuit set -e <<sku>> <<resource-group>> <<circuit-name>>
+	$ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+
+    $ckt.Sku.Tier = "Premium"
+    $ckt.Sku.Name = "Premium_MeteredData"
+
+    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 	```
 
 You can upgrade the SKU without disruption. While downgrade the SKU your bandwidth consumption has be within the default limit of the standard SKU.
@@ -277,7 +285,7 @@ TBD
 [azure-virtual-network]: https://azure.microsoft.com/documentation/articles/virtual-networks-overview/
 [expressroute-prereqs]: https://azure.microsoft.com/documentation/articles/expressroute-prerequisites/
 [create-expressroute-circuit]: https://azure.microsoft.com/documentation/articles/expressroute-howto-circuit-arm/
-[configure-expresroute-routing]: https://azure.microsoft.com/documentation/articles/expressroute-howto-routing-arm/
+[configure-expressroute-routing]: https://azure.microsoft.com/documentation/articles/expressroute-howto-routing-arm/
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute/v1_0/
 [datacenter-ip-ranges]: http://www.microsoft.com/download/details.aspx?id=41653
 [link-vnet-to-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/
