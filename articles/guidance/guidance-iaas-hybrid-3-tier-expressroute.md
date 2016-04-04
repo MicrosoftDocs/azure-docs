@@ -72,19 +72,20 @@ This following diagram highlights the important components in the architecture:
 >
 > - **Network Service Providers (Telco)**. These are OSI Layer 3 (*network layer*) providers that supply access to network switches that are configured by the provider to connect to Azure. These switches translate network addresses from your on-premises domain to the Microsoft domain, and route traffic between networks, often using Multiprotocol Label Switching (MPLS) or similar.
 >
-> To obtain a list of connectivity providers available at your location, use the following Azure CLI command:
+> To obtain a list of connectivity providers available at your location, use the following Azure PowerShell command:
 > ```
-> azure network express-route provider list
+> Get-AzureRmExpressRouteServiceProvider
 > ```
 > For more information, see [ExpressRoute: An overview][expressroute-overview].
 
-The following high-level steps outline a process for implementing this architecture. Detailed examples using the Azure CLI are described [later in this document](cli). Note that this process assumes that you have already created a VNet for hosting the cloud application, that you have created the on-premises network, and that your organization has met the [ExpressRoute prerequiste requirements][expressroute-prereqs] for connecting to the Azure. For more information about this process, see [ExpressRoute workflows for circuit provisioning and circuit states][ExpressRoute-provisioning]:
+The following high-level steps outline a process for implementing this architecture. Detailed examples using Azure PowerShell commands are described [later in this document](powershell). Note that this process assumes that you have already created a VNet for hosting the cloud application, that you have created the on-premises network, and that your organization has met the [ExpressRoute prerequiste requirements][expressroute-prereqs] for connecting to the Azure. For more information about this process, see [ExpressRoute workflows for circuit provisioning and circuit states][ExpressRoute-provisioning]:
 
 - [Create an ExpressRoute circuit][create-expressroute-circuit]. Use the following command:
 
-	```
-	azure network express-route circuit create -p <<service-provider-name>> -i <<peering-location>> <<resource-group>> <<circuit-name>> -l <<location>>
-	```
+    ```
+     New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> `
+        -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
+    ```
 
 - Arrange for the ExpressRoute circuit to be provisioned.
 
@@ -96,11 +97,11 @@ The following high-level steps outline a process for implementing this architect
 
 		> [AZURE.NOTE] The service provider may provide an online portal for you to supply this information.
 
-	- Wait for the provider to provision the circuit. The provider will split the /29 subnet space into multiple /30 subnets which will be used for routing. You can verify the provisioning state of a circuit by using the following CLI command:
+	- Wait for the provider to provision the circuit. The provider will split the /29 subnet space into multiple /30 subnets which will be used for routing. You can verify the provisioning state of a circuit by using the following PowerShell command:
 
-		```
-		azure network express-route circuit show <<resource-group>> <<circuit-name>>
-		```
+        ```
+        Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+        ```
 
 		The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
 
@@ -117,7 +118,8 @@ The following high-level steps outline a process for implementing this architect
 
 	If your connectivity provider is a Telco, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
 
-	<a name="address-space></a>If your connectivity provider is an IXP, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expresroute-routing] for details. Use the following command to add a network peering for routing traffic:
+	<a name="address-space"></a>If your connectivity provider is an IXP, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following command to add a network peering for routing traffic:
+<!--anoakley:Since this is so provider specific, should we just reference the above link and not include this code block? -->
 
 	```
 	Set-AzureRmExpressRouteCircuitPeeringConfig
@@ -142,7 +144,7 @@ The following high-level steps outline a process for implementing this architect
 Note the following points:
 
 - ExpressRoute uses the Border Gateway Protocol (BGP) for exchanging routing information between your network and Azure.
-
+<!--anoakley:Continent should be geopolitical region -->
 - You can connect multiple VNets located in different regions to the same ExpressRoute circuit as long as all VNets and the ExpressRoute circuit are located within the same continent.
 
 ## Availability
@@ -195,7 +197,11 @@ Note the following points:
 - To minimize charges, start with the smallest estimated bandwidth that you expect to require. Depending on availability, it may be possible to switch to a higher bandwidth offering from your supplier if necessary. You can change the bandwidth of an existing circuit by using the following command:
 
 	```
-	azure network express-route circuit set -b <<bandwidth-in-mbps>> <<resource-group>> <<circuit-name>>
+	$ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+
+    $ckt.ServiceProviderProperties.BandwidthInMbps = <<bandwidth-in-mbps>>
+
+    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 	```
 
 	You can increase the bandwidth without loss of connectivity. Downgrading the bandwidth will result in disruption in connectivity. You have to delete the circuit and recreate it with the new configuration.
@@ -242,28 +248,115 @@ You can upgrade the SKU without disruption. While downgrade the SKU your bandwid
 
 - TBD
 
-## <a name="cli"></a>Azure CLI commands
+## <a name="powershell"></a>Azure PowerShell commands
 
-The [Azure CLI][azure-cli] commands in this section show how to connect an on-premises network to an Azure VNet by using an Azure VPN Gateway. Requests are routed to VMs in the VNet through an internal load balancer. This script assumes that you have:
+The [Azure PowerShell][azure-powershell] commands in this section show how to connect an on-premises network to an Azure VNet by using an Azure VPN Gateway. Requests are routed to VMs in the VNet through an internal load balancer. This script assumes that you have:
 
 - [Created and prepared your on-premises network][create-on-prem-network] with an address space of 10.10.0.0/16.
 
 - Installed and configured an on-premises VPN device with a public IP address. This example uses a fictitious IP address of 40.50.60.70.
 
-- [Created an Azure VNet][create-azure-vnet] named `profx-vnet` with an address space of 10.20.0.0/16. This VNet holds subnets (called `profx-subnet1`, `profx-subnet2`, etc) holding the VMs running each tier of the cloud application and resources. The first tier of the cloud application (in `profx-subnet1`) is the web tier, and the VMs in this tier listen for requests on port 80 and port 443.
+- [Created an Azure VNet][create-azure-vnet] named `hybrid-er-vnet` with an address space of 10.20.0.0/16. This VNet holds subnets (called `GatewaySubnet`, `hybrid-er-internal-subnet`, etc).
 
-- Created an Azure resource group named `profx-prod-rg` which contains the VNet.
+- Created an Azure resource group named `hybrid-er-rg` which contains the VNet.
 
 ```
-azure config mode arm
+param(
+    [parameter(Mandatory=$true)]
+    [ValidateScript({
+        try {
+            [System.Guid]::Parse($_) | Out-Null
+            $true
+        }
+        catch {
+            $false
+        }
+    })]
+    [string]$SubscriptionId,
 
-azure login
+    [Parameter(Mandatory=$false)]
+    [string]$BaseName = "hybrid-er",
 
-azure account set <<account-id>>
-Example: azure account set ########-####-####-####-############
+    [Parameter(Mandatory=$false)]
+    [string]$Location = "Central US",
 
-...
-TBD
+    [Parameter(Mandatory=$false, ParameterSetName="CreateERCircuit")]
+    [ValidateSet("Premium", "Standard")]
+    [string]$ExpressRouteSkuTier = "Standard",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateERCircuit")]
+    [ValidateSet("MeteredData", "UnlimitedData")]
+    [string]$ExpressRouteSkuFamily = "MeteredData",
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
+    [string]$ExpressRouteServiceProviderName,
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
+    [string]$ExpressRoutePeeringLocation,
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
+    [string]$ExpressRouteBandwidth,
+    
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$VnetAddressPrefix = "10.20.0.0/16",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$GatewaySubnetAddressPrefix = "10.20.255.240/28",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$InternalSubnetAddressPrefix = "10.20.0.0/17",
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateVNet")]
+    [string]$LocalGatewayIpAddress,
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$LocalGatewayAddressPrefix = "10.10.0.0/16"
+)
+
+$resourceGroup = "$BaseName-rg"
+$vnetName = "$BaseName-vnet"
+$internalSubnetName = "$BaseName-internal-subnet"
+$localGatewayName = "$BaseName-lgw"
+$expressRouteCircuitName = "$BaseName-erc"
+$gatewayPublicIpAddressName = "$BaseName-pip"
+$vnetGatewayName = "$BaseName-vgw"
+$vpnConnectionName = "$BaseName-vpn"
+
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+switch($PSCmdlet.ParameterSetName) {
+    "CreateERCircuit" {
+        New-AzureRmResourceGroup -Name $resourceGroup -Location $Location
+        New-AzureRmExpressRouteCircuit -Name $expressRouteCircuitName `
+            -ResourceGroupName $resourceGroup -Location $Location -SkuTier $ExpressRouteSkuTier `
+            -SkuFamily $ExpressRouteSkuFamily -ServiceProviderName $ExpressRouteServiceProviderName `
+            -PeeringLocation $ExpressRoutePeeringLocation -BandwidthInMbps $ExpressRouteBandwidth
+    }
+    "CreateVNet" {
+        $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
+            -AddressPrefix $GatewaySubnetAddressPrefix
+        $internalSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $internalSubnetName `
+            -AddressPrefix $InternalSubnetAddressPrefix
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup `
+            -Location $Location -AddressPrefix $VnetAddressPrefix `
+            -Subnet $gatewaySubnetConfig, $internalSubnetConfig
+        $gatewayPublicIpAddress = New-AzureRmPublicIpAddress -Name $gatewayPublicIpAddressName -ResourceGroupName $resourceGroup `
+            -Location $Location -AllocationMethod Dynamic
+        # We will use the list accessor here, but if the order of the Subnet parameter in the New-AzureRmVirtualNetwork is changed,
+        # the index for the SubnetId parameter will change.
+        $gatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwIpConfig `
+            -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $gatewayPublicIpAddress.Id
+        $vnetGateway = New-AzureRmVirtualNetworkGateway -Name $vnetGatewayName `
+            -ResourceGroupName $resourceGroup -Location $Location -IpConfigurations $gatewayIpConfig `
+            -GatewayType ExpressRoute -VpnType RouteBased
+        $expressRouteCircuit = Get-AzureRmExpressRouteCircuit -Name $expressRouteCircuitName `
+            -ResourceGroupName $resourceGroup
+        $vpnConnection = New-AzureRmVirtualNetworkGatewayConnection -Name $vpnConnectionName `
+            -ResourceGroupName $resourceGroup -Location $Location -VirtualNetworkGateway1 $vnetGateway `
+            -PeerId $expressRouteCircuit.Id -ConnectionType ExpressRoute
+    }
+}
 
 ```
 
@@ -272,14 +365,12 @@ TBD
 - Read the [Microsoft Azure ExpressRoute guide][expressroute-doc]
 
 <!-- links -->
-
+<!--anoakley:We need to update the acom links to use the ../ syntax-->
 [implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
 [microsoft-provider-peers]: https://azure.microsoft.com/documentation/articles/expressroute-locations/
 [expressroute-technical-overview]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
 [circuits-and-routing-domains]: https://azure.microsoft.com/documentation/articles/expressroute-circuit-peerings/
 [resource-manager-overview]: ../resource-group-overview.md
-[arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
-[azure-cli]: ../virtual-machines/virtual-machines-command-line-tools.md
 [azure-portal]: ../azure-portal/resource-group-portal.md
 [azure-powershell]: ../powershell-azure-resource-manager.md
 [azure-virtual-network]: https://azure.microsoft.com/documentation/articles/virtual-networks-overview/
@@ -294,7 +385,7 @@ TBD
 [expressroute-routing-requirements]: https://azure.microsoft.com/en-gb/documentation/articles/expressroute-routing/
 [expressroute-locations]: https://azure.microsoft.com/en-us/documentation/articles/expressroute-locations/
 [create-on-prem-network]: https://technet.microsoft.com/en-us/library/dn786406.aspx
-[create-azure-vnet]: https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-classic-cli/
+[create-azure-vnet]: https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-vnet-arm-ps/
 [expressroute-doc]: https://go.microsoft.com/fwlink/p/?LinkId=615122
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [expressroute-limits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#networking-limits
