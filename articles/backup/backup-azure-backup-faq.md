@@ -1,12 +1,12 @@
 <properties
    pageTitle="Azure Backup FAQ | Microsoft Azure"
-   description="Answers to frequently asked questions about the backup agent, backup and retention, recovery, security and other common questions about the Azure Backup solution."
+   description="Answers to frequently asked questions about the backup service, backup agent, backup and retention, recovery, security and other common questions about backup and disaster recovery."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="backup solution; backup service"/>
+   keywords="backup and disaster recovery; backup service"/>
 
 <tags
    ms.service="backup"
@@ -68,7 +68,7 @@ A8. No.
 **Q9. How do I register my server to another datacenter?**<br/>
 A9. Backup data is sent to the datacenter of the Backup Service to which it is registered. The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new datacenter.
 
-**Q10. What happens if I rename a Windows server that is backing up data to Azure?**
+**Q10. What happens if I rename a Windows server that is backing up data to Azure?**<br/>
 A10. When you rename a server, all currently configured backups are stopped.
 You need to register the new name of the server with the Backup vault. When you create a new registration, the first backup operation is a full backup, and not an incremental backup. If you need to recover data that was previously backed up to the vault with the old server name, you can recover that data using the [**Another server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) option in the **Recover Data** wizard.
 
