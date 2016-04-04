@@ -363,23 +363,23 @@ If traffic is unable to traverse the VPN connection, check the following:
 - Verify that the `GatewaySubnet` subnet holding the Azure VPN Gateway is not associated with an NSG.
 
 	You can view the subnet details by using the following Azure CLI command:
+
     ```
     azure network vnet subnet show -g <<resource-group>> -e <<vnet-name>> -n GatewaySubnet
     ```
+
 	Ensure there is no data field named `Network Security Group id`. The following example shows the results for instance of the `GatewaySubnet` that has an assigned NSG (`VPN-Gateway-Group`). This can cause prevent the gateway from working correctly if there are any rules defined for this NSG:
 
-	```
-	C:\>azure network vnet subnet show -g profx-prod-rg -e profx-vnet -n GatewaySubnet
-	info:    Executing command network vnet subnet show
-	\+ Looking up virtual network "profx-vnet"
-	\+ Looking up the subnet "GatewaySubnet"
-	data:    Id                              : /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/virtualNetworks/profx-vnet/subnets/GatewaySubnet
-	data:    Name                            : GatewaySubnet
-	data:    Provisioning state              : Succeeded
-	data:    Address prefix                  : 10.20.3.0/28
-	data:    Network Security Group id       : /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/networkSecurityGroups/VPN-Gateway-Group
-	info:    network vnet subnet show command OK
-	```
+        C:\>azure network vnet subnet show -g profx-prod-rg -e profx-vnet -n GatewaySubnet
+        info:    Executing command network vnet subnet show
+        + Looking up virtual network "profx-vnet"
+        + Looking up the subnet "GatewaySubnet"
+        data:    Id                              : /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/virtualNetworks/profx-vnet/subnets/GatewaySubnet
+        data:    Name                            : GatewaySubnet
+        data:    Provisioning state              : Succeeded
+        data:    Address prefix                  : 10.20.3.0/28
+        data:    Network Security Group id       : /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/networkSecurityGroups/VPN-Gateway-Group
+        info:    network vnet subnet show command OK
 
 - Are the virtual machines in the Azure VNet configured to permit traffic coming in from outside the VNet? Check any NSG rules associated with subnets containing these virtual machines.
 
