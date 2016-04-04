@@ -70,7 +70,7 @@ In the request, include a JSON object that specifies the properties for the lock
 
     {
       "properties": {
-        "level": CanNotDelete,
+        "level": "CanNotDelete",
         "notes": "Optional text notes."
       }
     } 
