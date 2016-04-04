@@ -162,10 +162,11 @@ Update the local DNS
 Register the SQL RP Resource Provider
 -------------------------------------
 
-1.  Select the **Register-Microsoft.SQL-provider.ps1** tab and run the
-    script.\
-    **important:** When prompted for credentials, type \**exactly*\*
-    sqlRpUsername and sqlRpPassw0rd.\
+1.  Select the **Register-Microsoft.SQL-provider.ps1** tab and execute this script. When prompted for credentials, use the following (**important:** These are the literal values that need to be entered when prompted for credentials during this step):
+
++ - Username = **sqlRpUsername**
++ - Password = **sqlRpPassw0rd**
+
     **Do Not input:** The username password set you used at the creation
     of the VM.
 
