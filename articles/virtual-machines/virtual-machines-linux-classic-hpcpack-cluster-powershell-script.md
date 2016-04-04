@@ -31,7 +31,7 @@ services (IaaS). If you want to deploy an HPC Pack cluster in Azure for Windows 
 ### Example 1
 
 The following configuration file creates a new domain forest
-and Deployments an HPC Pack cluster which has 1 head node with local
+and deployments an HPC Pack cluster which has 1 head node with local
 databases and 20 Linux compute nodes. All the cloud services are created
 directly in the East Asia location. The Linux compute nodes are created
 in 4 cloud services and 4 storage accounts (i.e. _MyLnxCN-0001_ to
