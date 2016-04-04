@@ -69,7 +69,7 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 3.  Run the D:\\SQLRP\\Bootstrap.cmd file as an administrator (azurestack\\administrator). This opens the Bootstrap.ps1 file in PowerShell ISE.
 When the PowerShell ISE windows completes loading (see screenshot) run the bootstrap script by clicking the “play” button or pressing F5. Two major tabs will load, each containing all the scripts and files necessary to deploy your SQL Resource Provider.
 
-![](media/azure-stack-sql-rp-deploy-long/1strun.png) 
+![](media/1strun.png)
 
 1.  Select the **Prepare Prerequisites** tab**.**
 
@@ -164,17 +164,15 @@ Update the local DNS
 
 Register the SQL RP Resource Provider
 -------------------------------------
+1.  Select the **Register-Microsoft.SQL-provider.ps1** tab.
 
-1.  Select the **Register-Microsoft.SQL-provider.ps1** tab and run the
-    script.\
-    **important:** When prompted for credentials, type \**exactly*\*
-    sqlRpUsername and sqlRpPassw0rd.\
-    **Do Not input:** The username password set you used at the creation
-    of the VM.
+2.  Execute this script. When prompted for credentials, use the following (**important:** These are the literal values that need to be entered when prompted for credentials during this step):
+ - Username = **sqlRpUsername**
+ - Password = **sqlRpPassw0rd**
 
-2.  **Refresh the portal.**
+3.  **Refresh the portal.**
 
-3.  To see your resource provider in the portal:
+4.  To see your resource provider in the portal:
 
     a.  Browse &gt; Resource Groups &gt; select the resource group you
         used (default is SQLRP), and make sure that the essentials part
