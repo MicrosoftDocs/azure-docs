@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connect to SQL Database by using Ruby"
-	description="Give a Ruby code sample you can run to connect to Azure SQL Database."
+	pageTitle="Connect to SQL Database by using Python"
+	description="Presents a Python code sample you can use to connect to Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
 	authors="annemill"
@@ -10,23 +10,26 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="sql-database"
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
+	ms.devlang="python"
 	ms.topic="article"
 	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
-# Connect to SQL Database by using Ruby 
+# Connect to SQL Database by using Python
+
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
-This topic presents a Ruby code sample that you can use to connect to Azure SQL Database. 
+
+This topic presents a code sample written in Python. 
+
 
 ## Step 1: Configure Development Environment
 
-[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx)
+[Prerequisites for using the pymssql Python Driver for SQL Server](https://msdn.microsoft.com/library/mt694094.aspx)
 
 ## Step 2: Create a SQL database
 
@@ -38,4 +41,8 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 ## Step 4: Run sample code
 
-[Proof of Concept connecting to SQL using Ruby](http://msdnstage.redmond.corp.microsoft.com/library/mt715797.aspx)
+[Proof of Concept connecting to SQL using Python](http://msdnstage.redmond.corp.microsoft.com/library/mt715796.aspx)
+
+## Next steps
+
+For more information, see the [Python Developer Center](/develop/python/).
