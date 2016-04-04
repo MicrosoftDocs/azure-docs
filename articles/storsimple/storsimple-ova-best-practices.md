@@ -150,7 +150,7 @@ After you create StorSimple volumes on your iSCSI server, you will need to initi
 
 -   When formatting a StorSimple volume, use an allocation unit size of 64 KB (default is 4 KB). The 64 KB AUS is based on testing done in-house for common StorSimple workloads as well as other workloads.
 
--   Windows Server 2012 uses GUID Partition Table (GPT) disks by default. For more information on best practices and usage of these drives, go to [using GPT Drives](http://msdn.microsoft.com/en-us/windows/hardware/gg463524.aspx#EHD).
+-   Windows Server 2012 uses GUID Partition Table (GPT) disks by default. For more information on best practices and usage of these drives, go to [using GPT Drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD).
 
 -   When using the StorSimple Virtual Array configured as an iSCSI server, do not use spanned volumes or dynamic disks as these are not supported by StorSimple.
 
@@ -276,7 +276,7 @@ Group Policy is an infrastructure that allows you to implement specific configur
 
 Hence, we recommend that you:
 
--   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. Alternatively you can block inheritance if it is a part of a larger OU. This will ensure that the virtual array (child-node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/en-us/library/cc731076.aspx).
+-   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. Alternatively you can block inheritance if it is a part of a larger OU. This will ensure that the virtual array (child-node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
 
 -   Make sure that no group policy objects (GPO) are applied to your virtual array.
 
