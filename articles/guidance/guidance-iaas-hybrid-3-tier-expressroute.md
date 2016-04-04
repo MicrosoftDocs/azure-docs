@@ -66,7 +66,7 @@ This following diagram highlights the important components in the architecture:
 ## Implementing this architecture
 
 > [AZURE.NOTE] ExpressRoute connectivity providers fall into one of the following categories:
-<!--- manikrish: we need some guidance on when to use what, I removed the info on bandwidth differences since the cli command to list providers show similar bandwidth support for both these options-->
+<!--- manikrish: we need some guidance on when to use what, I removed the info on bandwidth differences since the cli command to list providers show similar bandwidth support for both these options. johns: there might not be a choice to make, depending on your location. You are restricted by who your local service providers are. You might only have access to an IXP or a Telco. -->
 
 > - **Exchange Providers (IXP)**. These are OSI Layer 2 (*data link layer*) providers that supply virtual cross-connections to Azure. An IXP provides controlled access to its network switches that act as simple bridges between your on-premises networks and Azure, giving a direct connection from LAN to LAN. The customer has to provide information to configure these bridges to route requests from one network to another.
 >
@@ -97,11 +97,12 @@ The following high-level steps outline a process for implementing this architect
 
 	- Wait for the provider to provision the circuit. The provider will split the /29 subnet space into multiple /30 subnets which will be used for routing. You can verify the provisioning state of a circuit by using the following CLI command:
 
-	```
-	azure network express-route circuit show <<resource-group>> <<circuit-name>>
-	```
+		```
+		azure network express-route circuit show <<resource-group>> <<circuit-name>>
+		```
 
-	The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
+		The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
+
 	If your service provider is an IXP:
 <!--manikrish:Verify if this is specific to IXP, product docs link below does no mention this. johns: This is taken from the Microsoft Azure ExpressRoute.PDF doc, page 12. -->
 
@@ -165,6 +166,8 @@ Note the following points:
 - To maximize security, add network security appliances between the on-premises network and the provider edge routers. This will help to restrict the inflow of unauthorized traffic from the VNet:
 
 ![IaaS: hybrid-expressroute-firewalls](./media/arch-iaas-hybrid-expressroute-firewalls.png)
+
+- For auditing or compliance purposes, it may be necessary to prohibit direct access from components running in the VNet to the Internet. In this situation, Internet traffic should be redirected back through a gateway or proxy running  on-premises where it can be audited. The gateway can be configured to block unauthorized traffic flowing out, and filter potentially malicious inbound traffic.
 
 - By default, Azure VMs expose endpoints used for providing login access for management purposes - RDP and Remote Powershell for Windows VMs, and SSH for Linux-based VMs. To maximize security, use NSGs to ensure that these endpoints are not publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform any necessary configuration or maintenance.
 
