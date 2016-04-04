@@ -1,6 +1,6 @@
 ﻿<properties
 	pageTitle="Reset the password or Remote Desktop on a Windows VM | Microsoft Azure"
-	description="Reset the administrator password or Remote Desktop services on a Windows VM created with the Azure Resource Manager deployment model."
+	description="Reset the administrator password or Remote Desktop services on a Windows VM created with the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -34,7 +34,7 @@ Depending on the deployment model of your virtual machine, you can use either th
 
 ### Azure portal
 
-For virtual machines created through the classic deployment model, you can use the [Azure portal](https://portal.azure.com) to reset the Remote Desktop service. Click: **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Reset Remote...**. The following page appears.
+For virtual machines created using the classic deployment model, you can use the [Azure portal](https://portal.azure.com) to reset the Remote Desktop service. Click: **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Reset Remote...**. The following page appears.
 
 
 ![Reset RDP configuration page](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
