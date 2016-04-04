@@ -92,8 +92,7 @@ to everyone, you can set the container to be public using the following
 code:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
- 	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 Anyone on the Internet can see blobs in a public container, but you can
 modify or delete them only if you have the appropriate access key.
