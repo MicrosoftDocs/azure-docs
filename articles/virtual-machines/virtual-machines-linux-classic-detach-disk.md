@@ -28,4 +28,4 @@
 
 [How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-classic-attach-disk.md)
 
-[Using the Azure CLI with the Service Management API](virtual-machines-command-line-tools.md)
+[Using the Azure CLI with the Service Management API](../virtual-machines-command-line-tools.md)
