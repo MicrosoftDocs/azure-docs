@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
-This topic presents a Node.js code sample that you can use to connect to Azure SQL Database. To manage the connection, the Tedious driver is used.
+This topic presents a Node.js code sample that you can use to connect to Azure SQL Database. 
 
 ## Step 1: Configure Development Environment
 
