@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure
