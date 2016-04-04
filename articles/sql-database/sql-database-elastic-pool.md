@@ -20,7 +20,7 @@
 
 # What is an Azure elastic database pool?
 
-A SaaS developer must create and manage tens, hundreds, or even thousands of SQL databases. An elastic database pool simplifies the creation, maintenance, and performance management across many databases. Add or subtract databases from the pool at will. See [Create a scalable elastic database pool for SQL databases in Azure portal](sql-database-elastic-pool-create-portal.md), or [using PowerShell](sql-database-elastic-pool-powershell.md), or [C#](sql-database-elastic-pool-csharp.md).
+A SaaS developer must create and manage tens, hundreds, or even thousands of SQL databases. An elastic database pool simplifies the creation, maintenance, and performance management across many databases. Add or subtract databases from the pool at will. See [Create a scalable elastic database pool for SQL databases in Azure portal](sql-database-elastic-pool-create-portal.md), or [using PowerShell](sql-database-elastic-pool-create-powershell.md), or [C#](sql-database-elastic-pool-csharp.md).
 
 For API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
 
