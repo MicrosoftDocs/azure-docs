@@ -318,7 +318,6 @@ If traffic is unable to traverse the VPN connection, check the following:
 
 	  Sent = 3, Received = 3, Lost = 0 (0% loss),
 	  Minimum = 3.44ms, Maximum = 4.81ms, Average = 4.01ms
-	Control-C
 	```
 
 	If the on-premises machine cannot communicate with the specified destination, you will see messages like this:
@@ -339,7 +338,6 @@ If traffic is unable to traverse the VPN connection, check the following:
 	Connecting to 10.20.1.6:80:
 	  Sent = 3, Received = 0, Lost = 3 (100% loss),
 	  Minimum = 0.00ms, Maximum = 0.00ms, Average = 0.00ms
-	Control-C
 	```
 
 - Does the on-premises firewall allow VPN traffic to pass through? Have the correct ports been opened?
@@ -370,11 +368,11 @@ If traffic is unable to traverse the VPN connection, check the following:
     ```
 	Ensure there is no data field named `Network Security Group id`. The following example shows the results for instance of the `GatewaySubnet` that has an assigned NSG (`VPN-Gateway-Group`). This can cause prevent the gateway from working correctly if there are any rules defined for this NSG:
 
-	```text
+	```
 	C:\>azure network vnet subnet show -g profx-prod-rg -e profx-vnet -n GatewaySubnet
 	info:    Executing command network vnet subnet show
-	+ Looking up virtual network "profx-vnet"
-	+ Looking up the subnet "GatewaySubnet"
+	\+ Looking up virtual network "profx-vnet"
+	\+ Looking up the subnet "GatewaySubnet"
 	data:    Id                              : /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/virtualNetworks/profx-vnet/subnets/GatewaySubnet
 	data:    Name                            : GatewaySubnet
 	data:    Provisioning state              : Succeeded
