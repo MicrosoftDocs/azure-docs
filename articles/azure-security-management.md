@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TerryLanfear"
    manager="StevenPo"
-   editor=""/>
+   editor="TomSh"/>
 
 <tags
    ms.service="azure-security"
@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="04/04/2016"
    ms.author="terrylan"/>
 
 # Security management in Azure
 
-Azure subscribers may manage their cloud environments from multiple devices, including management workstations, developer PCs and even privileged end-user devices that have task-specific permissions. In some cases, administrative functions are performed through web-based consoles such as the [Azure portal](https://azure.microsoft.com/en-us/features/azure-portal/). In other cases, there may be direct connections to Azure from on-premises systems over Virtual Private Networks (VPNs), Terminal Services, client application protocols, or (programmatically) the Azure Service Management API (SMAPI). Additionally, client endpoints can be either domain joined or isolated and unmanaged, such as tablets or smartphones.
+Azure subscribers may manage their cloud environments from multiple devices, including management workstations, developer PCs and even privileged end-user devices that have task-specific permissions. In some cases, administrative functions are performed through web-based consoles such as the [Azure portal](https://azure.microsoft.com/features/azure-portal/). In other cases, there may be direct connections to Azure from on-premises systems over Virtual Private Networks (VPNs), Terminal Services, client application protocols, or (programmatically) the Azure Service Management API (SMAPI). Additionally, client endpoints can be either domain joined or isolated and unmanaged, such as tablets or smartphones.
 
 Although these multiple access and management capabilities provide a rich set of options, this variability can add significant risk to a cloud deployment, making it difficult to manage, track, and audit administrative actions. This variability may also introduce security threats through unregulated access to client endpoints that are used for managing cloud services. Using general or personal workstations for developing and managing infrastructure opens unpredictable threat vectors such as web browsing (e.g. watering hole attacks) or email (e.g. social engineering and phishing).
 
@@ -58,7 +58,7 @@ Consolidating access resources and eliminating unmanaged endpoints also simplifi
 
 Azure provides security mechanisms to aid administrators who manage Azure cloud services and virtual machines. These mechanisms include:
 
-- Authentication and [role based access control](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/).
+- Authentication and [role based access control](role-based-access-control-configure.md).
 - Monitoring, logging, and auditing.
 - Certificates and encrypted communications.
 - A web management portal.
@@ -92,11 +92,11 @@ Azure cloud services configuration is performed through either the Azure portal 
 
 Virtual Machine–deployed applications provide their own client tools and interfaces as needed, such as the Microsoft Management Console (MMC), an enterprise management console (such as Microsoft System Center or Windows Intune), or another management application—Microsoft SQL Server Management Studio, for example. These tools typically reside in an enterprise environment or client network. They may depend on specific network protocols, such as Remote Desktop Protocol (RDP), that require direct, stateful connections. Some may have web-enabled interfaces that should not be openly published or accessible via the Internet.
 
-You can restrict access to infrastructure and platform services management in Azure by using [multi-factor authentication](http://azure.microsoft.com/services/multi-factor-authentication/), X.509 [management certificates](http://blogs.msdn.com/b/davidhardin/archive/2013/08/27/azure-management-certificate-public-key-private-key.aspx), and firewall rules. The Azure portal and SMAPI require Transport Layer Security (TLS). However, services and applications that you deploy into Azure require you to take protection measures that are appropriate based on your application. These mechanisms can frequently be enabled more easily through a standardized hardened workstation configuration.
+You can restrict access to infrastructure and platform services management in Azure by using [multi-factor authentication](multi-factor-authentication.md), X.509 [management certificates](http://blogs.msdn.com/b/davidhardin/archive/2013/08/27/azure-management-certificate-public-key-private-key.aspx), and firewall rules. The Azure portal and SMAPI require Transport Layer Security (TLS). However, services and applications that you deploy into Azure require you to take protection measures that are appropriate based on your application. These mechanisms can frequently be enabled more easily through a standardized hardened workstation configuration.
 
 ### Management gateway
 
-To centralize all administrative access and simplify monitoring and logging, you can deploy a dedicated [Remote Desktop Gateway (RD Gateway)](https://technet.microsoft.com/en-us/library/dd560672(v=ws.10).aspx) server in your on-premises network, connected to your Azure environment.
+To centralize all administrative access and simplify monitoring and logging, you can deploy a dedicated [Remote Desktop Gateway (RD Gateway)](https://technet.microsoft.com/library/dd560672(v=ws.10).aspx) server in your on-premises network, connected to your Azure environment.
 
 A Remote Desktop Gateway is a policy-based RDP proxy service that enforces security requirements. Implementing RD Gateway together with Windows Server Network Access Protection (NAP) helps ensure that only clients that meet specific security health criteria established by Active Directory Domain Services (AD DS) Group Policy objects (GPOs) can connect. In addition:
 
@@ -104,8 +104,8 @@ A Remote Desktop Gateway is a policy-based RDP proxy service that enforces secur
 - Join the RD Gateway to the same [management domain](http://technet.microsoft.com/library/bb727085.aspx) as the administrator workstations. This is necessary when you are using a site-to-site IPsec VPN or ExpressRoute within a domain that has a one-way trust to Azure AD, or if you are federating credentials between your on-premises AD DS instance and Azure AD.
 - Configure a [client connection authorization policy](http://technet.microsoft.com/library/cc753324.aspx) to let the RD Gateway verify that the client machine name is valid (domain joined) and allowed to access the Azure management portal.
 - Use IPsec for [Azure VPN](http://msdn.microsoft.com/library/azure/dn133795.aspx) to further protect management traffic from eavesdropping and token theft, or consider an isolated Internet link via [Azure ExpressRoute](http://msdn.microsoft.com/library/azure/dn606309.aspx).
-- Enable multi-factor authentication (via [Azure Multi-Factor Authentication](http://azure.microsoft.com/documentation/services/multi-factor-authentication/)) or smart-card authentication for administrators who log on through RD Gateway.
-- Configure source [IP address restrictions](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/) in Azure to minimize the number of permitted management endpoints.
+- Enable multi-factor authentication (via [Azure Multi-Factor Authentication](multi-factor-authentication.md)) or smart-card authentication for administrators who log on through RD Gateway.
+- Configure source [IP address restrictions](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](articles/virtual-networks-nsg.md) in Azure to minimize the number of permitted management endpoints.
 
 ## Security guidelines
 
@@ -115,11 +115,11 @@ In general, helping to secure administrator workstations for use with the cloud 
 
 You can use Azure logon restrictions to constrain source IP addresses for accessing administrative tools and audit access requests. To help Azure identify management clients (workstations and/or applications), you can configure both SMAPI (via customer-developed tools such as Windows PowerShell cmdlets) and the Azure management portal to require client-side management certificates to be installed, in addition to SSL certificates. We also recommend that administrator access require multi-factor authentication.
 
-Some applications or services that you deploy into Azure may have their own authentication mechanisms for both end-user and administrator access, whereas others take full advantage of Azure AD. Depending on whether you are federating credentials via Active Directory Federation Services (AD FS), using directory synchronization or maintaining user accounts solely in the cloud, using [Microsoft Identity Manager](https://www.microsoft.com/en-us/server-cloud/products/microsoft-identity-manager/) (part of Azure AD Premium) helps you manage identity lifecycles between the resources.
+Some applications or services that you deploy into Azure may have their own authentication mechanisms for both end-user and administrator access, whereas others take full advantage of Azure AD. Depending on whether you are federating credentials via Active Directory Federation Services (AD FS), using directory synchronization or maintaining user accounts solely in the cloud, using [Microsoft Identity Manager](https://www.microsoft.com/server-cloud/products/microsoft-identity-manager/) (part of Azure AD Premium) helps you manage identity lifecycles between the resources.
 
 ### Connectivity
 
-Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, [site-to-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN)(S2S) and [point-to-site VPN](https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-point-to-site-create/)(P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](https://technet.microsoft.com/en-us/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure management portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
+Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, [site-to-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN)(S2S) and [point-to-site VPN](vpn-gateway-point-to-site-create.md)(P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure management portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
 
 A stand-alone hardened workstation that does not connect to Azure through a RD Gateway should use the SSTP-based point-to-site VPN to create the initial connection to the Azure Virtual Network, and then establish RDP connection to individual virtual machines from with the VPN tunnel.
 
@@ -154,7 +154,7 @@ For IT environments that have no on-premises infrastructure (for example, no acc
 
 ### Stand-alone hardened workstation for management
 
-With a stand-alone hardened workstation, administrators have a PC or laptop that they use for administrative tasks and another, separate PC or laptop for non-administrative tasks. A workstation dedicated to managing your Azure services does not need other applications installed. Additionally, using workstations that support a [Trusted Platform Module](https://technet.microsoft.com/en-us/library/cc766159(v=ws.10)) (TPM) or similar hardware-level cryptography technology aids in device authentication and prevention of certain attacks. TPM can also support fullvolume protection of the system drive by using [BitLocker Drive Encryption](https://technet.microsoft.com/en-us/library/cc732774.aspx).
+With a stand-alone hardened workstation, administrators have a PC or laptop that they use for administrative tasks and another, separate PC or laptop for non-administrative tasks. A workstation dedicated to managing your Azure services does not need other applications installed. Additionally, using workstations that support a [Trusted Platform Module](https://technet.microsoft.com/library/cc766159(v=ws.10)) (TPM) or similar hardware-level cryptography technology aids in device authentication and prevention of certain attacks. TPM can also support fullvolume protection of the system drive by using [BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx).
 
 In the stand-alone hardened workstation scenario (shown below), the local instance of Windows Firewall (or a non-Microsoft client firewall) is configured to block inbound connections, such as RDP. The administrator can log on to the hardened workstation and start an RDP session that connects to Azure after establishing a VPN connect with an Azure Virtual Network, but cannot log on to a corporate PC and use RDP to connect to the hardened workstation itself.
 
@@ -172,13 +172,13 @@ The corporate PC virtual machine runs in a protected space and provides user app
 
 ### Windows To Go
 
-Another alternative to requiring a stand-alone hardened workstation is to use a [Windows To Go](https://technet.microsoft.com/en-us/library/hh831833.aspx) drive, a feature that supports a client-side USB-boot capability. Windows To Go enables users to boot a compatible PC to an isolated system image running from an encrypted USB flash drive. It provides additional controls for remote-administration endpoints because the image can be fully managed by a corporate IT group, with strict security policies, a minimal OS build, and TPM support.
+Another alternative to requiring a stand-alone hardened workstation is to use a [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx) drive, a feature that supports a client-side USB-boot capability. Windows To Go enables users to boot a compatible PC to an isolated system image running from an encrypted USB flash drive. It provides additional controls for remote-administration endpoints because the image can be fully managed by a corporate IT group, with strict security policies, a minimal OS build, and TPM support.
 
 In the figure below, the portable image is a domain-joined system that is preconfigured to connect only to Azure, requires multi-factor authentication, and blocks all non-management traffic. If a user boots the same PC to the standard corporate image and tries accessing RD Gateway for Azure management tools, the session will be blocked. Windows To Go becomes the root-level operating system, and no additional layers are required (host operating system, hypervisor, virtual machine) that may be more vulnerable to outside attacks.
 
 ![][4]
 
-It is important to note that USB flash drives are more easily lost than an average desktop PC. Use of BitLocker to encrypt the entire volume, together with a strong password, will make it less likely that an attacker can use the drive image for malicious purposes. Additionally, if the USB flash drive is lost, revoking and [issuing a new management certificate](https://technet.microsoft.com/en-us/library/hh831574.aspx) along with a quick password reset can reduce exposure. Administrative audit logs reside within Azure, not on the client, further reducing potential data loss.
+It is important to note that USB flash drives are more easily lost than an average desktop PC. Use of BitLocker to encrypt the entire volume, together with a strong password, will make it less likely that an attacker can use the drive image for malicious purposes. Additionally, if the USB flash drive is lost, revoking and [issuing a new management certificate](https://technet.microsoft.com/library/hh831574.aspx) along with a quick password reset can reduce exposure. Administrative audit logs reside within Azure, not on the client, further reducing potential data loss.
 
 ## Best practices
 
@@ -193,11 +193,11 @@ Don't assume that because a workstation has been locked down that other common s
 | Don't email credentials for administrator access or other secrets (e.g., SSL or management certificates) | Maintain confidentiality by delivering account names and passwords by voice (but not storing them in voice mail), perform a remote installation of client/server certificates (via an encrypted session), download from a protected network share, or distribute by hand via removable media. |
 | | Proactively manage your management certificate life cycles. |
 | Don't store account passwords unencrypted or un-hashed in application storage (such as in spreadsheets, SharePoint sites, or file shares). | Establish security management principles and system hardening policies, and apply them to your development environment. |
-| | Use [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/en-us/security/jj653751) certificate pinning rules to ensure proper access to Azure SSL/TLS sites. |
+| | Use [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) certificate pinning rules to ensure proper access to Azure SSL/TLS sites. |
 | Don't share accounts and passwords between administrators, or reuse passwords across multiple user accounts or services, particularly those for social media or other nonadministrative activities. | Create a dedicated Microsoft account to manage your Azure subscription—an account that is not used for personal email. |
 | Don't email configuration files. | Configuration files and profiles should be installed from a trusted source (for example, an encrypted USB flash drive), not from a mechanism that can be easily compromised, such as email. |
 | Don't use weak or simple logon passwords. | Enforce strong password policies, expiration cycles (changeon-first-use), console timeouts, and automatic account lockouts. Use a client password management system with multi-factor authentication for password vault access. |
-| Don't expose management ports to the Internet. | Lock down Azure ports and IP addresses to restrict management access. For more information, see the [Azure Network Security] (http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows Azure Network Security Whitepaper - FINAL.docx) white paper. |
+| Don't expose management ports to the Internet. | Lock down Azure ports and IP addresses to restrict management access. For more information, see the [Azure Network Security] (http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) white paper. |
 | | Use firewalls, VPNs, and NAP for all management connections. |
 
 ## Azure operations
@@ -212,14 +212,14 @@ In addition, dedicated jump-boxes on Microsoft’s network that require two-fact
 
 Minimizing the number of tasks that administrators can perform on a hardened workstation will help minimize the attack surface in your development and management environment. Use the following technologies to help protect your hardened workstation:
 
-- IE hardening. The Internet Explorer browser (or any web browser, for that matter) is a key entry point for malicious code due to its extensive interactions with external servers. Review your client policies and enforce running in protected mode, disabling add-ons, disabling file downloads, and using [Microsoft SmartScreen](https://technet.microsoft.com/en-us/library/jj618329.aspx) filtering. Ensure that security warnings are displayed. Take advantage of Internet zones and create a list of trusted sites for which you have configured reasonable hardening. Block all other sites and in-browser code, such as ActiveX and Java.
+- IE hardening. The Internet Explorer browser (or any web browser, for that matter) is a key entry point for malicious code due to its extensive interactions with external servers. Review your client policies and enforce running in protected mode, disabling add-ons, disabling file downloads, and using [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx) filtering. Ensure that security warnings are displayed. Take advantage of Internet zones and create a list of trusted sites for which you have configured reasonable hardening. Block all other sites and in-browser code, such as ActiveX and Java.
 - Standard user. Running as a standard user brings a number of benefits, the biggest of which is that stealing administrator credentials via malware becomes more difficult. In addition, a standard user account does not have elevated privileges on the root operating system, and many configuration options and APIs are locked out by default.
 - AppLocker. You can use [AppLocker](http://technet.microsoft.com/library/ee619725.aspx) to [restrict the programs and scripts](http://www.microsoft.com/download/details.aspx?id=40330) that users can run. You can run AppLocker in audit or enforcement mode. By default, AppLocker has an allow rule that enables users who have an admin token to run all code on the client. This rule exists to prevent administrators from locking themselves out, and it applies only to elevated tokens. See also Code Integrity as part of Windows Server [core security](http://technet.microsoft.com/library/dd348705.aspx).
 - Code signing. Code signing all tools and scripts used by administrators provides a manageable mechanism for deploying application lockdown policies. Hashes do not scale with rapid changes to the code, and file paths do not provide a high level of security. You should combine AppLocker rules with a PowerShell [execution policy](http://technet.microsoft.com/library/ee176961.aspx) that only allows specific signed code and scripts to be [executed](http://technet.microsoft.com/library/hh849812.aspx).
 - Group Policy. Create a global administrative policy that is applied to any domain workstation that is used for management (and block access from all others), as well as to user accounts authenticated on those workstations.
 - Security-enhanced provisioning. Safeguard your baseline hardened workstation image to help protect against tampering. Use security measures like encryption and isolation to store images, virtual machines, and scripts, and restrict access (perhaps use an auditable check-in/check-out process).
 - Patching. Maintain a consistent build (or have separate images for development, operations, and other administrative tasks), scan for changes and malware routinely, keep the build up to date, and only activate machines when they are needed.
-- Encryption. Make sure that management workstations have a TPM to more securely enable [Encrypting File System](https://technet.microsoft.com/en-us/library/cc700811.aspx) (EFS) and BitLocker. If you are using Windows To Go, use only encrypted USB keys together with BitLocker.
+- Encryption. Make sure that management workstations have a TPM to more securely enable [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) and BitLocker. If you are using Windows To Go, use only encrypted USB keys together with BitLocker.
 - Governance. Use AD DS GPOs to control all of the administrators’ Windows interfaces, such as file sharing. Include management workstations in auditing, monitoring, and logging processes. Track all administrator and developer access and usage.
 
 ## Summary
@@ -229,8 +229,8 @@ Using a hardened workstation configuration for administering your Azure cloud se
 ## Next steps
 The following resources are available to provide more general information about Azure and related Microsoft services, in addition to specific items referenced in this paper:
 
-- [Securing Privileged Access](https://technet.microsoft.com/en-us/library/mt631194.aspx) – get the technical details for designing and building a secure administrative workstation for Azure management
-- [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Security/AzureSecurity) - learn about Azure platform capabilities that protect the Azure fabric and the workloads that run on Azure
+- [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx) – get the technical details for designing and building a secure administrative workstation for Azure management
+- [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Security/AzureSecurity) - learn about Azure platform capabilities that protect the Azure fabric and the workloads that run on Azure
 - [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx) -- where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to [secure@microsoft.com](mailto:secure@microsoft.com)
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – keep up to date on the latest in Azure Security
 
