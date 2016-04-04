@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Expensify | Microsoft Azure"
+	pageTitle="Tutorial: Azure Active Directory integration with Heroku | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and Heroku."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
+	ms.date="04/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -106,7 +106,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Heroku application using the following pattern: **“https://sso.heroku.com/saml/\<CompanyCode\>/init”**. For now you can use any company code we will update this URL with the actual URL later.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Heroku application using the following pattern: **“https://sso.heroku.com/saml/\<company name\>/init”**. 
+
+    b. Click **Next**.
 
 
 4. On the **Configure single sign-on at Heroku** page, perform the following steps:
@@ -117,17 +119,25 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     b. Click **Next**.
 
 
-5. To enable SSO in Heroku please follow the below steps<br>
-   1. Log in to the Heroku account with Admin rights<br>
-   2. Click on the **Settings** Tab<br>
-   3. In the Single Sign On Page click on the **Upload Metadata** button<br>
-   4. Upload the metadata file which you have downloaded from Azure AD in the step 4<br>
-   5. When the setup is successful, administrators will see a confirmation dialog and the URL of the SSO Login for end users will be displayed.<br>
-   6. Now copy the SSO Login URL and go back to the Azure AD wizard and **update the Sign On URL box with this new URL as mentioned in step 3**.
+5. To enable SSO in Heroku please follow the below steps:
+ 
+    a. Log in to the Heroku account with Admin rights.
+
+    b. Click the **Settings** tab.
+
+    c. On the **Single Sign On Page**, click **Upload Metadata**.
+ 
+    d. Upload the metadata file you have downloaded from the Azure classi portal.
+
+    e. When the setup is successful, administrators will see a confirmation dialog and the URL of the SSO Login for   end users is displayed.
+
+    f. Copy your **Heroku Login URL**, and then, on the Azure AD classic portal, go back to the **Configure App Settings** page, and paste the value into the **Sign On URL** textbox.
   
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_51.png) <br><br>
+    <br>![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png) <br><br>
+
+    g. Click **Next**.
   
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. Select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
