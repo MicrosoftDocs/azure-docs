@@ -89,9 +89,7 @@ The following high-level steps outline a process for implementing this architect
 - Arrange for the ExpressRoute circuit to be provisioned.
 
 	If your service provider is a Telco:
-<!--manikrish:verify if we still need to send the /29 subnet information, the product docs just mention that the service key needs to be shared
-
-johns: This information was taken from Microsoft Azure ExpressRoute.PDF (http://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiz-fq-nPXLAhXI2hoKHUjSD_sQFggqMAA&url=http%3A%2F%2Fdownload.microsoft.com%2Fdownload%2F0%2FF%2FB%2F0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D%2FMicrosoft%2520Azure%2520ExpressRoute.pdf&usg=AFQjCNHGYx9O2ZWCL0o4AUAAHKf_NlOt9Q), top of page 29 -->
+<!--manikrish:verify if we still need to send the /29 subnet information, the product docs just mention that the service key needs to be shared. johns: This information was taken from Microsoft Azure ExpressRoute.PDF, top of page 29 -->
 
 	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /29 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
 
@@ -105,9 +103,7 @@ johns: This information was taken from Microsoft Azure ExpressRoute.PDF (http://
 
 	The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
 	If your service provider is an IXP:
-<!--manikrish:Verify if this is specific to IXP, product docs link below does no mention this
-
-johns: This is taken from the Microsoft Azure ExpressRoute.PDF doc, page 12. -->
+<!--manikrish:Verify if this is specific to IXP, product docs link below does no mention this. johns: This is taken from the Microsoft Azure ExpressRoute.PDF doc, page 12. -->
 
 	- Send the `ServiceKey` for the new circuit to the service provider.
 
