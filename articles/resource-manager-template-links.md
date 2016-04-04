@@ -71,7 +71,7 @@ To work with links through REST, see [Linked Resources](https://msdn.microsoft.c
 
 Use the following Azure PowerShell command to see all of the links in your subscription. You can provide other parameters to limit the results.
 
-    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -OutputObjectFormat New
+    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
 
 ## Examples
 

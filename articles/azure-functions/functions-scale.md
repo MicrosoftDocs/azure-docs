@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Functions developer reference | Microsoft Azure"
-   description="Understand how Azure Functions are develop and configured using triggers and bindings which use a domain specific language."
+   pageTitle="How to scale Azure Functions | Microsoft Azure"
+   description="Understand how Azure Functions scale to meet the needs of your event-driven workloads."
    services="functions"
    documentationCenter="na"
    authors="eduardolaureano"
