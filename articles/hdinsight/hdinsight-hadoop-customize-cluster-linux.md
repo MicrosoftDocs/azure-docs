@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="04/04/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -104,7 +104,7 @@ Name | Script
 
 ## Use a Script Action during cluster creation
 
-This section provides examples on the different ways you can use script actions when creating an HDInsight cluster- from the Azure Portal, using an ARM template, using PowerShell CMDlets, using the cross-platform Azure CLI, and using the .NET SDK.
+This section provides examples on the different ways you can use script actions when creating an HDInsight cluster- from the Azure Portal, using an ARM template, using PowerShell CMDlets, and using the .NET SDK.
 
 ### Use a Script Action during cluster creation from the Azure Portal
 
@@ -475,13 +475,35 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
 
 ### Apply a Script Action to a running cluster from the Azure CLI
 
-Use the following command to apply a script action to a running cluster:
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../xplat-cli-install.md).
 
-    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+1. Open a shell session, terminal, command-prompt or other command-line for your system and use the following command to switch to Azure Resource Manager mode.
 
-If you ommit parameters, you will be prompted for them. If the script accepts parameters, you can specify them using the `-p` parameter.
+        azure config mode arm
 
-Valid __nodetypes__ are __headnode__, __workernode__, and __zookeeper__. If the script should be applied to multiple node types, specify the types separated by a ';'. For example, `-n headnode;workernode`.
+2. Use the following to authenticate to your Azure subscription.
+
+        azure login
+
+3. Use the following command to apply a script action to a running cluster
+
+        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+
+    If you ommit parameters for this command, you will be prompted for them. If the script you specify with `-u` accepts parameters, you can specify them using the `-p` parameter.
+
+    Valid __nodetypes__ are __headnode__, __workernode__, and __zookeeper__. If the script should be applied to multiple node types, specify the types separated by a ';'. For example, `-n headnode;workernode`.
+
+    To persist the script, add the `----persistOnSuccess`. You can also persist the script at a later date by using `azure hdinsight script-action persisted set`.
+    
+    Once the job completes, you will receive output similar to the following.
+    
+        info:    Executing command hdinsight script-action create
+        + Executing Script Action on HDInsight cluster
+        data:    Operation Info
+        data:    ---------------
+        data:    Operation status:
+        data:    Operation ID:  b707b10e-e633-45c0-baa9-8aed3d348c13
+        info:    hdinsight script-action create command OK
 
 ### Apply a Script Action to a running cluster from the HDInsight .NET SDK
 
@@ -522,7 +544,7 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 | Set-AzureRmHDInsightPersistedScriptAction | Promotes an ad hoc script action to a persisted script action |
 | Remove-AzureRmHDInsightPersistedScriptAction | Demotes a persisted script action to an ad hoc action |
 
-> [AZURE.IMPORTANT] Using `Remove-AzureRmHDInsightPersistedScriptAction` does not undo the actions performed by a script, it only removes the persisted flag so that the script will not be ran against new worker nodes added to the cluster.
+> [AZURE.IMPORTANT] Using `Remove-AzureRmHDInsightPersistedScriptAction` does not undo the actions performed by a script, it only removes the persisted flag so that the script will not be ran on new worker nodes added to the cluster.
 
 The following example script demonstrates using the cmdlets to promote, then demote a script.
 
@@ -543,20 +565,17 @@ The following example script demonstrates using the cmdlets to promote, then dem
     Remove-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -Name "Install Giraph"
 
 ### Using the Azure CLI
+
 | Use the following... | To ... |
 | ----- | ----- |
-| `azure hdinsight script-action psersisted list <clustername>` | Retrieve information on persisted script actions |
-| `azure hdinsight script-action history list <clustername>` | Retrieve a history of script actions applied to the cluster, or details for a specific script |
+| `azure hdinsight script-action persisted list <clustername>` | Retrieve a list of persisted script actions |
+| `azure hdinsight script-action persisted show <clustername> <scriptname>` | Retrieve information on a specific persisted script action |
+| `azure hdinsight script-action history list <clustername>` | Retrieve a history of script actions applied to the cluster |
+| `azure hdinsight script-action history show <clustername> <scriptname>` | Retrive information on a specific script action |
 | `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` | Promotes an ad hoc script action to a persisted script action |
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` | Demotes a persisted script action to an ad hoc action |
 
-azure hdinsight script-action persisted list maxluk-hbase-tw-wasb -g maxluk -vv
-azure hdinsight script-action persisted show maxluk-hbase-tw-wasb testscript -g maxluk
-azure hdinsight script-action history list maxluk-hbase-tw-wasb -g maxluk
-azure hdinsight script-action history show maxluk-hbase-tw-wasb 65666460613160 -g maxluk -vv
-azure hdinsight script-action persisted delete maxluk-hbase-tw-wasb testscript1 -g maxluk
-azure hdinsight script-action persisted delete maxluk-hbase-tw-wasb testscript -g maxluk
-azure hdinsight script-action persisted set maxluk-hbase-tw-wasb 65666460613160 -g maxluk -vv
+> [AZURE.IMPORTANT] Using `azure hdinsight script-action persisted delete` does not undo the actions performed by a script, it only removes the persisted flag so that the script will not be ran on new worker nodes added to the cluster.
 
 ### Using the HDInsight .NET SDK
 
