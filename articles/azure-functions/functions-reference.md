@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="03/30/2016"
+	ms.date="04/01/2016"
 	ms.author="chrande"/>
 
 # Azure Functions developer reference
@@ -389,7 +389,7 @@ This is a table of all supported bindings.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
-### Timer trigger
+## Timer trigger binding
 
 The *function.json* file provides a schedule expression and a switch that indicates whether the function should be triggered immediately.
 
@@ -450,7 +450,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-### Azure Storage triggers and bindings
+## Azure Storage triggers and bindings
 
 For all Azure Storage triggers and bindings, the *function.json* file includes a `connection` property. For example:
 
@@ -770,20 +770,38 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
     myOutputBlob = myInputBlob;
 }
 ```
+
 ### Azure Storage - tables input and output
 
 The *function.json* for storage tables provides several properties:
 
 * `name` - The name of the variable to use in code for the table binding.
 * `tableName`
-* `partitionKey` (optional)
-* `rowKey` (optional)
-* `take` - The maximum number of rows to read.
-* `filter` - Filter expression.
+* `partitionKey` and `rowKey` - Used together to read a single entity in a C# or Node function, or to write a single entity in a Node function.
+* `take` - The maximum number of rows to read for table input in a Node function.
+* `filter` - OData filter expression for table input in a Node function.
 
-The `take` and `filter` properties do not apply to C# since you can accomplish the same purpose by using the `IQueryable` object that is provided by the Functions runtime. The `partitionKey` property only applies to C# when you're binding to a single entity by providing both `partitionKey` and `rowKey`.
+These properties support the following scenarios:
 
-This example uses a queue trigger to read a single table row.
+* Read a single row in a C# or Node function.
+
+	Set `partitionKey` and `rowKey`. The `filter` and `take` properties are not used in this scenario.
+
+* Read multiple rows in a C# function.
+
+	The Functions runtime provides an `IQueryable<T>` object bound to the table. Type `T` must derive from `TableEntity` or implement `ITableEntity`. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario; you can use the `IQueryable` object to do any filtering required. 
+
+* Read multiple rows in a Node function.
+
+	Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`.
+
+* Write one or more rows in a C# function.
+
+	The Functions runtime provides an `ICollector<T>` or `IAsyncCollector<T>` bound to the table, where `T` specifies the schema of the entities you want to add. Typically, type `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.
+
+#### Read a single table entity in C# or Node
+
+This *function.json* example uses a queue trigger to read a single table row, with a hard-coded partition key value and the row key provided in the queue message.
 
 ```json
 {
@@ -796,13 +814,11 @@ This example uses a queue trigger to read a single table row.
       "direction": "in"
     },
     {
-      "name": "personInTable",
+      "name": "personEntity",
       "type": "table",
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "take": 1,
-      "filter": "",
       "connection": "",
       "direction": "in"
     }
@@ -810,18 +826,13 @@ This example uses a queue trigger to read a single table row.
   "disabled": false
 }
 ```
-
-#### Reading a single table entity
-
-To read a single entity from a table in a C# function, the type that you use for the entity can derive from `TableEntity` or implement `ITableEntity`, but it doesn't have to. 
-
 The following C# code example works with the preceding *function.json* file to to read a single table entity. The queue message has the row key value and the table entity is read into a type that is defined in the *run.csx* file. The type includes `PartitionKey` and `RowKey` properties and does not derive from `TableEntity`. 
 
 ```csharp
-public static void Run(string myQueueItem, Person personInTable, TraceWriter log)
+public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
     log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
-    log.Verbose($"Name in Person entity: {personInTable.Name}");
+    log.Verbose($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -830,30 +841,36 @@ public class Person
     public string RowKey { get; set; }
     public string Name { get; set; }
 }
-``` 
+```
 
-#### Reading multiple table entities
+The following Node code example also works with the preceding *function.json* file to read a single table entity.
 
-To read multiple entities from a table in a C# function, use an `IQueryable<T>` parameter where type `T` derives from `TableEntity` or implements `ITableEntity`.
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+    context.log('Person entity name: ' + context.bindings.personEntity.Name);
+    context.done();
+};
+```
 
-The following *function.json* and C# code example reads all rows from a table. The C# code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`.
+#### Read multiple table entities in C# 
+
+The following *function.json* and C# code example reads entities for a partition key that is specified in the queue message.
 
 ```json
 {
   "bindings": [
     {
-      "schedule": "0 * * * * *",
-      "runOnStartup": true,
-      "name": "myTimer",
-      "type": "timerTrigger",
+      "queueName": "myqueue-items",
+      "connection": "",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
       "direction": "in"
     },
     {
       "name": "tableBinding",
       "type": "table",
-      "tableName": "Person2",
-      "partitionKey": "",
-      "connection": "",
+      "tableName": "Person",
       "direction": "in"
     }
   ],
@@ -861,14 +878,16 @@ The following *function.json* and C# code example reads all rows from a table. T
 }
 ```
 
+The C# code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`.
+
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 using Microsoft.WindowsAzure.Storage.Table;
 
-public static void Run(TimerInfo myTimer, IQueryable<Person> tableBinding, TraceWriter log)
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
 {
-    log.Verbose($"C# timer trigger function processed at {DateTime.Now}");
-    foreach (Person person in tableBinding.ToList())
+    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
         log.Verbose($"Name: {person.Name}");
     }
@@ -880,11 +899,9 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Creating multiple table entities
+#### Create table entities in C# 
 
-To add entities to a table in a C# function, use `ICollector<T>` or `IAsyncCollector<T>` where `T` specifies the schema of the entities you want to add. Typically, the type you use with *ICollector* derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to.
-
-The following *function.json* and *run.csx* examples show how to write multiple table entities.
+The following *function.json* and *run.csx* example shows how to write table entities in C#.
 
 ```json
 {
@@ -896,8 +913,6 @@ The following *function.json* and *run.csx* examples show how to write multiple 
     },
     {
       "tableName": "Person",
-      "partitionKey": "",
-      "rowKey": "",
       "connection": "",
       "name": "tableBinding",
       "type": "table",
@@ -933,16 +948,161 @@ public class Person
 
 ```
 
-### Azure Notification Hub output binding
+#### Create a table entity in Node
+
+The following *function.json* and *run.csx* example shows how to write a table entity in Node.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "",
+      "name": "personEntity",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": true
+}
+```
+
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+    context.bindings.personEntity = {"Name": "Name" + myQueueItem }
+    context.done();
+};
+```
+
+## Azure DocumentDB output binding
+
+Your functions can write JSON documents to an Azure DocumentDB database using the **Azure DocumentDB Document** output binding. For more information on Azure DocumentDB review the [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) and the [Getting Started tutorial](../documentdb/documentdb-get-started.md).
+
+The function.json file provides the following properties for use with DocumentDB output binding:
+
+- `name` : Variable name used in function code for the new document.
+- `type` : must be set to *"documentdb"*.
+- `databaseName` : The database containing the collection where the new document will be created.
+- `collectionName` : The collection where the new document will be created.
+- `createIfNotExists` : Boolean value to indicate whether the collection will be created if it does not exist.
+- `connection` : This string must be an **Application Setting** set to the endpoint for your DocumentDB account. If you choose your account from the **Integrate** tab, a new App setting will be created for you with a name that takes the following form, `yourAccount_DOCUMENTDB`. This name must match the binding. If you need to manually create the App setting, the actual connection string must take the following form, `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
+- `direction` : must be set to *"out"*. 
+ 
+Example function.json:
+
+	{
+	  "bindings": [
+	    {
+	      "name": "document",
+	      "type": "documentdb",
+	      "databaseName": "MyDatabase",
+	      "collectionName": "MyCollection",
+	      "createIfNotExists": false,
+	      "connection": "MyAccount_DOCUMENTDB",
+	      "direction": "out"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+
+#### Azure DocumentDB code example for a Node.js queue trigger
+
+	module.exports = function (context, input) {
+	   
+	    context.bindings.document = {
+	        text : "I'm running in a Node function! Data: '" + input + "'"
+	    }   
+	 
+	    context.done();
+	};
+
+The output document:
+
+	{
+	  "text": "I'm running in a Node function! Data: 'example queue data'",
+	  "id": "01a817fe-f582-4839-b30c-fb32574ff13f"
+	}
+ 
+
+#### Azure DocumentDB code example for a C# queue trigger
+
+
+	using System;
+
+	public static void Run(string myQueueItem, out object document, TraceWriter log)
+	{
+	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	   
+	    document = new {
+	        text = $"I'm running in a C# function! {myQueueItem}"
+	    };
+	}
+
+
+#### Azure DocumentDB code example setting file name
+
+If you want to set the name of the document in the function, just set the `id` value.  For example, if JSON content for an employee was being dropped into the queue similar to the following:
+
+	{
+	  "name" : "John Henry",
+      "employeeId" : "123456",
+	  "address" : "A town nearby"
+	}
+
+You could use the following C# code in a queue trigger function: 
+	
+	#r "Newtonsoft.Json"
+	
+	using System;
+	using Newtonsoft.Json;
+	using Newtonsoft.Json.Linq;
+	
+	public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+	{
+	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    
+	    dynamic employee = JObject.Parse(myQueueItem);
+	    
+	    employeeDocument = new {
+	        id = employee.name + "-" + employee.employeeId,
+	        name = employee.name,
+	        employeeId = employee.employeeId,
+	        address = employee.address
+	    };
+	}
+
+Example output:
+
+	{
+	  "id": "John Henry-123456",
+	  "name": "John Henry",
+	  "employeeId": "123456",
+	  "address": "A town nearby"
+	}
+
+## Azure Notification Hub output binding
 
 Your functions can send push notifications using a configured Azure Notification Hub with a very few lines of code. However, the notification hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register for notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) and click your target client platform at the top.
 
 The function.json file provides the following properties for use with a notification hub output binding:
 
-- **name** : Variable name used in function code for the notification hub message.
-- **hubName** : Name of the notification hub resource in the Azure portal.
-- **tagExpression** : Tag expressions allow you to specify that notifications be delivered to a set of devices who have registered to receive notifications that match the tag expression.  For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-routing-tag-expressions.md).
-- **connection** : This connection string must be an **Application Setting** connection string set to the *DefaultFullSharedAccessSignature* value for your notification hub. 
+- `name` : Variable name used in function code for the notification hub message.
+- `type` : must be set to *"notificationHub"*.
+- `tagExpression` : Tag expressions allow you to specify that notifications be delivered to a set of devices who have registered to receive notifications that match the tag expression.  For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-routing-tag-expressions.md).
+- `hubName` : Name of the notification hub resource in the Azure portal.
+- `connection` : This connection string must be an **Application Setting** connection string set to the *DefaultFullSharedAccessSignature* value for your notification hub.
+- `direction` : must be set to *"out"*. 
  
 Example function.json:
 
@@ -961,6 +1121,8 @@ Example function.json:
 	}
 
 
+
+
 #### Azure Notification Hub connection string setup
 
 To use a Notification hub output binding you must configure the connection string for the hub. You can do this on the *Integrate* tab by simply selecting your notification hub or creating a new one. 
@@ -975,7 +1137,7 @@ You can also manually add a connection string for an existing hub by adding a co
 4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
 
-#### Azure Notification Hub timer Node.js example 
+#### Azure Notification Hub code example for a Node.js timer trigger 
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `location` and `message`.
 
@@ -994,7 +1156,7 @@ This example sends a notification for a [template registration](../notification-
 	    context.done();
 	};
 
-#### Azure Notification Hub queue trigger C# example
+#### Azure Notification Hub code example for a C# queue trigger
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `message`.
 
@@ -1007,7 +1169,6 @@ This example sends a notification for a [template registration](../notification-
 	{
 	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
         notification = GetTemplateProperties(myQueueItem);
-		//Note: notification can also be a valid json string
 	}
 	 
 	private static IDictionary<string, string> GetTemplateProperties(string message)

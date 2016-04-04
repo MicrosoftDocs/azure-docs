@@ -28,4 +28,4 @@ Here are a couple of useful Stack Overflow links:
 ## See also
 
 - [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Get stated with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)
+- [Get started with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md)

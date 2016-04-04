@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="MyDriving Azure IoT Example - Quick Start | Microsoft Azure" 
 	description="Get started with an app that's a comprehensive demonstration of how to architect an IoT system with Microsoft Azure, including stream analytics, machine learning, event hubs." 
-	services="application-insights" 
+	services="" 
     documentationCenter=""
     suite="iot-suite"
 	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
+	ms.service="iot-suite" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
@@ -63,9 +63,9 @@ On your device:
     
 *Any issues launching on Windows 10 Phone?* Might be your phone is an update or two behind. Make sure you've got the latest updates, or install:
 
- - Microsoft.NET.Native.Framework.1.2.appx 
- - Microsoft.NET.Native.Runtime.1.1.appx 
- - Microsoft.VCLibs.ARM.14.00.appx 
+ - [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx) 
+ - [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx) 
+ - [Microsoft.VCLibs.ARM.14.00.appx](https://download.hockeyapp.net/packages/win10/Microsoft.VCLibs.ARM.14.00.appx) 
    
 
 ## iOS installation

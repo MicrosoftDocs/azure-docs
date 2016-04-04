@@ -81,7 +81,7 @@ This feature is supported only for newly created Azure Storage accounts using th
         
 -   To query the state of your registration to see if the subscription has been approved, you can use the Get-AzureRmProviderFeature PowerShell cmdlet.
 
-    `Get-AzureRmProviderFeature -FeatureName " EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
+    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
 
 When the registration status is returned as “Registered”, your subscription has been approved. Please also visit our Azure Storage Service Encryption Preview group on Yammer.
 
