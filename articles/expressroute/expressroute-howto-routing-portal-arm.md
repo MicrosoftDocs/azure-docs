@@ -47,17 +47,12 @@ You can configure one, two, or all three peerings (Azure private, Azure public a
 This section provides instructions on how to create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit. 
 
 ### To create Azure private peering
+ 1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further.
 
-**Step 1 Configure ExpressRoute circuit**
+	![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)
 
-Ensure that the circuit is fully provisioned by the connectivity provider before continuing further.
 
-![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)
-
-##  ##
-2. **Configure Azure private peering for the circuit.**
-
-	Make sure that you have the following items before you proceed with the next steps:
+2. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
 	- A /30 subnet for the primary link. This must not be part of any address space reserved for virtual networks.
 	- A /30 subnet for the secondary link. This must not be part of any address space reserved for virtual networks.
@@ -65,21 +60,21 @@ Ensure that the circuit is fully provisioned by the connectivity provider before
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
 	- MD5 hash if you choose to use one. **This is optional**.
 
-	You can select the peering you wish to configure as shown below. Select the Azure Private peering row to proceed further.
+3. You can select the peering you wish to configure as shown below. Select the Azure Private peering row to proceed further.
 	
 	![](./media/expressroute-howto-routing-portal-arm/rprivate1.png)
 	
 
-	The image below shows how you can configure private peering. 
+4. Configure private peering. The image below shows a configuration example.
 
 	![](./media/expressroute-howto-routing-portal-arm/rprivate2.png)
 	
-	Save the configuration once you have specified all parameters. Once the configuration is accepted successfully, you will see the following.
+5. Save the configuration once you have specified all parameters. Once the configuration is accepted successfully, you will see the following.
 
 	![](./media/expressroute-howto-routing-portal-arm/rprivate3.png)
 	
 
-### To Get Azure private peering details
+### To view Azure private peering details
 
 You can view the properties of Azure private peering by selecting the peering.
 
@@ -103,18 +98,14 @@ You can remove your peering configuration by selecting the delete icon as shown 
 ## Azure public peering
 This section provides instructions on how to create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit. 
 
-### To create Azure private peering
+### To create Azure public peering
 
-1. **Configure ExpressRoute circuit**
+1. Configure ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further.
 
-Ensure that the circuit is fully provisioned by the connectivity provider before continuing further.
-
-![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)
+	![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)
 
 
-2. **Configure Azure public peering for the circuit.**
-
-	Make sure that you have the following items before you proceed with the next steps:
+2. Configure Azure public peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
 	- A /30 subnet for the primary link. 
 	- A /30 subnet for the secondary link. 
@@ -123,21 +114,21 @@ Ensure that the circuit is fully provisioned by the connectivity provider before
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. 
 	- MD5 hash if you choose to use one. **This is optional**.
 
-	You can select the peering you wish to configure as shown below. Select the Azure public peering row to proceed further.
+3. You can select the peering you wish to configure as shown below. Select the Azure public peering row to proceed further.
 	
 	![](./media/expressroute-howto-routing-portal-arm/rpublic1.png)
 	
 
-	The image below shows how you can configure private peering. 
+4. Configure public peering. The image below shows a configuration example.
 
 	![](./media/expressroute-howto-routing-portal-arm/rpublic2.png)
 	
-	Save the configuration once you have specified all parameters. Once the configuration is accepted successfully, you will see the following.
+5. Save the configuration once you have specified all parameters. Once the configuration is accepted successfully, you will see the following.
 
 	![](./media/expressroute-howto-routing-portal-arm/rpublic3.png)
 	
 
-### To Get Azure public peering details
+### To view Azure public peering details
 
 You can view the properties of Azure public peering by selecting the peering.
 
@@ -159,20 +150,15 @@ You can remove your peering configuration by selecting the delete icon as shown 
 
 ## Microsoft peering
 
-This section provides instructions on how to create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit. 
+This section provides instructions on how to create, get, update, and delete the Microsoft peering configuration for an ExpressRoute circuit. 
 
 ### To create Microsoft peering
 
-1. **Configure ExpressRoute circuit**
+1. Configure ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further.
 
-Ensure that the circuit is fully provisioned by the connectivity provider before continuing further.
+	![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)
 
-![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)
-
-
-2. **Configure Microsoft peering for the circuit.**
-
-	Make sure that you have the following information before you proceed.
+2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you proceed.
 
 	- A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
 	- A /30 subnet for the secondary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
@@ -183,16 +169,16 @@ Ensure that the circuit is fully provisioned by the connectivity provider before
 	- **Routing Registry Name:** You can specify the RIR / IRR against which the AS number and prefixes are registered. **This is optional.**
 	- A MD5 hash, if you choose to use one. **This is optional.**
 	
-	You can select the peering you wish to configure as shown below. Select the Microsoft peering row to proceed further.
+3. You can select the peering you wish to configure as shown below. Select the Microsoft peering row to proceed further.
 	
 	![](./media/expressroute-howto-routing-portal-arm/rmicrosoft1.png)
 	
 
-	The image below shows how you can configure private peering. 
+4.  Configure Microsoft peering. The image below shows a configuration example.
 
 	![](./media/expressroute-howto-routing-portal-arm/rmicrosoft2.png)
 	
-	Save the configuration once you have specified all parameters. 
+5. Save the configuration once you have specified all parameters. 
 
 	If your circuit gets to a validation needed state (as shown below), you must open a support ticket to show proof of ownership of the prefixes to our support team.	
 	
@@ -202,26 +188,26 @@ Ensure that the circuit is fully provisioned by the connectivity provider before
 	
 	![](./media/expressroute-howto-routing-portal-arm/rmicrosoft6.png)
 
-	Once the configuration is accepted successfully, you will see the following.
+6. Once the configuration is accepted successfully, you will see the following.
 
 	![](./media/expressroute-howto-routing-portal-arm/rmicrosoft7.png)
 	
 
-### To Get Azure public peering details
+### To view Microsoft peering details
 
 You can view the properties of Azure public peering by selecting the peering.
 
 ![](./media/expressroute-howto-routing-portal-arm/rmicrosoft3.png)
 
 
-### To update Azure public peering configuration
+### To update Microsoft peering configuration
 
 You can select on the row for peering and modify the peering properties. 
 
 
 ![](./media/expressroute-howto-routing-portal-arm/rmicrosoft7.png)
 
-### To delete Azure public peering
+### To delete Microsoft peering
 
 You can remove your peering configuration by selecting the delete icon as shown below.
 
