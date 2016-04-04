@@ -207,6 +207,7 @@ If traffic is unable to traverse the VPN connection, check the following:
 	The `Message` property of each entry provides a description of the error. Some common examples are:
 
 	- Inability to connect, possibly due to an incorrect IP address specified for the Azure VPN Gateway in the RRAS VPN network interface configuration:
+
 	```
 	EventID            : 20111
 	MachineName        : on-prem-vm
@@ -236,7 +237,9 @@ If traffic is unable to traverse the VPN connection, check the following:
 	Site               :
 	Container          :
 	```
+
 	- The wrong shared key being specified in the RRAS VPN network interface configuration:
+
 	```
 	EventID            : 20111
 	MachineName        : on-prem-vm
@@ -367,7 +370,7 @@ If traffic is unable to traverse the VPN connection, check the following:
     ```
 	Ensure there is no data field named `Network Security Group id`. The following example shows the results for instance of the `GatewaySubnet` that has an assigned NSG (`VPN-Gateway-Group`). This can cause prevent the gateway from working correctly if there are any rules defined for this NSG:
 
-	```
+	```text
 	C:\>azure network vnet subnet show -g profx-prod-rg -e profx-vnet -n GatewaySubnet
 	info:    Executing command network vnet subnet show
 	+ Looking up virtual network "profx-vnet"
@@ -465,7 +468,7 @@ This script assumes that you have:
 
 - Installed and configured an on-premises VPN device with a public IP address. This example uses a fictitious IP address of 40.50.60.70.
 
-```
+```text
 @ECHO OFF
 SETLOCAL
 
@@ -494,7 +497,7 @@ SET ON_PREMISES_PUBLIC_IP=40.50.60.70
 SET GATEWAY_SUBNET_IP_RANGE=10.20.255.240/28
 :: This give the internal subnet an IP range of 10.20.0.1 - 10.20.127.254
 SET INTERNAL_SUBNET_IP_RANGE=10.20.0.0/17
-:: We'll put this at the end of the subnet
+:: We will put this at the end of the subnet
 SET INTERNAL_LOAD_BALANCER_FRONTEND_IP_ADDRESS=10.20.127.254
 
 :: Set up the names of things using recommended conventions
