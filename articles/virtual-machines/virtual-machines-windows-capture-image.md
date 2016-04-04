@@ -36,7 +36,7 @@ These steps assume that you've already created an Azure virtual machine in the R
 
 This section shows you how to generalize your Windows virtual machine. This removes all your personal account information among other things. You will typically want to do this when you want to use this VM image to quickly deploy similar virtual machines.
 
-> [AZURE.WARNING] The virtual machine cannot be logged in via RDP after it has been generalized, since the process removes all user accounts. This is irreversible. To avoid this affecting your setup, we highly recommend to create a backup copy of your virtual machine before generalizing it. 
+> [AZURE.WARNING] Please note that the virtual machine cannot be logged in via RDP once it is generalized, since the process removes all user accounts. This is an irreversible change. 
 
 1. Login to your Windows virtual machine. In the [Azure portal](https://portal.azure.com), navigate through **Browse** > **Virtual machines** > Your Windows virtual machine > **Connect**.
 
