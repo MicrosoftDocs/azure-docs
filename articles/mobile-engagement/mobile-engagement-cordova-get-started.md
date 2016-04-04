@@ -194,7 +194,7 @@ We will now create a simple Push Notification campaign that will send a push to 
 	
 	- Provide a **Name** for your campaign. 
 	- Select the **Delivery Type** as *System notification* *Simple*
-	- Select the Delivery time as *"Any Time"*
+	- Select the **Delivery time** as *"Any Time"*
 	- Provide a **Title** for your notification which will be the first line in the push.
 	- Provide a **Message** for your notification which will serve as the message body. 
 
@@ -203,7 +203,7 @@ We will now create a simple Push Notification campaign that will send a push to 
 4. Provide inputs to create your campaign **[iOS]**
 
 	- Provide a **Name** for your campaign. 
-	- Select the Delivery time as *"Out of app only"*
+	- Select the **Delivery time** as *"Out of app only"*
 	- Provide a **Title** for your notification which will be the first line in the push.
 	- Provide a **Message** for your notification which will serve as the message body. 
  
@@ -213,7 +213,7 @@ We will now create a simple Push Notification campaign that will send a push to 
 
 	![][8]
 
-6. [Optional] You can also provide an Action URL. Make sure that it uses a URL scheme provided while configuring the plugin's **AZME REDIRECT URL** variable e.g. *myapp://test*.  
+6. [Optional] You can also provide an Action URL. Make sure that it uses a URL scheme provided while configuring the plugin's **AZME\_REDIRECT\_URL** variable e.g. *myapp://test*.  
 
 7. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
 
