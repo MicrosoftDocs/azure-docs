@@ -3,7 +3,7 @@
     description="Software as a Service (SaaS) developers can easily create elastic, scalable databases in the cloud using these tools"
     services="sql-database"
     documentationCenter=""
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="ddove"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/24/2016"
+    ms.date="04/04/2016"
     ms.author="ddove;sidneyh"/>
 
 # Elastic Database features overview
@@ -108,3 +108,4 @@ What can we do better? Does this topic explain the feature clearly? Or are you p
 [2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]:./media/sql-database-elastic-scale-introduction/overview.png
 [4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
+
