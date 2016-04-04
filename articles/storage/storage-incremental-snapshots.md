@@ -17,7 +17,7 @@
 	ms.author="tamram;prkhad"/>
 
 
-# Backup Azure virtual machine disks with incremental snapshots
+# Back up Azure virtual machine disks with incremental snapshots
 
 ## Overview 
 
@@ -35,7 +35,7 @@ Snapshots can be copied to another storage account as a blob to keep backups of 
 
 >[AZURE.NOTE] If you copy the base blob to another destination, the snapshots of the blob are not copied along with it. Similarly, if you overwrite a base blob with a copy, snapshots associated with the base blob are not affected and stay intact under base blob name.
 
-### Backup disks using snapshots
+### Back up disks using snapshots
 
 As a backup strategy for your virtual machine disks, you can take periodic snapshots of the disk or page blob, and copy them to another storage account using tools like [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) operation or [AzCopy](storage-use-azcopy.md). You can copy a snapshot to a destination page blob with a different name. The resulting destination page blob is a writeable page blob and not a snapshot. Later in this article we will describe steps to take backups of virtual machine disks using snapshots.
 
@@ -105,7 +105,7 @@ The steps described below will take snapshots of *mypremiumdisk* and maintain th
 6.  Take a snapshot of the backup page blob *mybackupstdpageblob*, called *mybackupstdpageblob_ss2*. Delete the previous snapshot *mypremiumdisk_ss1* from premium storage account.
 7.  Repeat steps 4-6 every backup window. In this way, you can maintain backups of *mypremiumdisk* in a standard storage account.
 
-![Backup disk using incremental snapshots](./media/storage-incremental-snapshots/storage-incremental-snapshots-1.png)
+![Back up disk using incremental snapshots](./media/storage-incremental-snapshots/storage-incremental-snapshots-1.png)
 
 ## Steps to restore a disk from snapshots
 
