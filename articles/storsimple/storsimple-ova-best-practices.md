@@ -19,7 +19,7 @@
 
 ## Overview
 
-Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. The 1200 series virtual array is an efficient, cost-effective alternative to the 8000 series physical array. Unlike the 8000 series physical array that comes with an enterprise-grade custom hardware, the 1200 series virtual array can run on your existing hypervisor infrastructure. The 1200 series virtual array supports both the iSCSI and the SMB protocols, the 8000 series physical array is a block storage device. Both the solutions provide tiering to the cloud, cloud backup, fast restore, and disaster recovery features. The Virtual Array is particularly well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to
+Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. The 1200 series virtual array is an efficient, cost-effective alternative to the 8000 series physical array. Unlike the 8000 series physical array that comes with an enterprise-grade custom hardware, the 1200 series virtual array can run on your existing hypervisor infrastructure. The 1200 series virtual array supports both the iSCSI and the SMB protocols, whereas the 8000 series physical array is a block storage device. Both the solutions provide tiering to the cloud, cloud backups, fast restore, and disaster recovery features. The virtual array is particularly well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/server-cloud/products/storsimple/overview.aspx).
 
 This article covers the best practices implemented during the initial setup, deployment and management of the StorSimple Virtual Array. These best practices provide validated guidelines to ensure the most optimal setup and management of your virtual array. This article is targeted towards the IT administrators responsible for deploying and managing these virtual arrays in their datacenters.
 
@@ -154,7 +154,7 @@ After you create StorSimple volumes on your iSCSI server, you will need to initi
 
 -   When using the StorSimple Virtual Array configured as an iSCSI server, do not use spanned volumes or dynamic disks as these are not supported by StorSimple.
 
-### Share access
+#### Share access
 
 -   When creating a share, it is a recommended best practice that the share administrator be a user group instead of a single user.
 
