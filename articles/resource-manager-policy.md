@@ -85,7 +85,7 @@ event service log. For example, an administrator can create a policy which cause
         <condition> | <logical operator>
       },
       "then" : {
-        "effect" : "deny | audit"
+          "effect" : "deny | audit | append"
       }
     }
     
@@ -120,7 +120,7 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 | In						| "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey	 | "containsKey" : "&lt;keyName&gt;" |
 
-## Fields and Sources
+### Fields and Sources
 
 Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
 
@@ -130,36 +130,69 @@ Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **
 
 Sources: **action**. 
 
+### Property aliases 
 Property alias is a name that can be used in policy defniniton to access the resource type specific properties, such as settings, and skus. It works across all api versions that the property exists. Aliases can be retrieved using the REST API below ( Powershell support will be added in the future):
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
 The defintion of an alias looks like below. As you can see, a alias defines pathes in different api versions, even when there is a property name change. 
 
-    "aliases": [
-      {
-        "name": "Microsoft.Storage/storageAccounts/sku.name",
-        "paths": [
-          {
-            "path": "Properties.AccountType",
-            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
-          }
-        ]
-      }
-    ]
+	"aliases": [
+	    {
+	      "name": "Microsoft.Storage/storageAccounts/sku.name",
+	      "paths": [
+	        {
+	          "path": "properties.accountType",
+	          "apiVersions": [
+	            "2015-06-15",
+	            "2015-05-01-preview"
+	          ]
+	        },
+	        {
+	          "path": "sku.name",
+	          "apiVersions": [
+	            "2016-01-01"
+	          ]
+	        }
+	      ]
+	    }
+	]
 
 Currently, the supported aliases are:
 
 | Alias name | Description |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Supported resource types are: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines, Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
+| Microsoft.Compute/virtualMachines/image.publisher |  |
+| Microsoft.Compute/virtualMachines/image.offer  |  |
+| Microsoft.Compute/virtualMachines/image.sku  |  |
+| Microsoft.Compute/virtualMachines/image.version  |  |
 | Microsoft.Cache/Redis/enableNonSslPort |  |
 | Microsoft.Cache/Redis/shardCount |  |
 
 
 To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 
+
+## Effect
+Deny, Audit, Append are three types of effect Policy supports. 
+- Deny will generate an event in audit log and fail the request
+- Audit will generate an event in audit log and not fail the request
+- Append will add the defined set of fields to the request. 
+
+For "Append", details must be provided as below:
+
+    ....
+    "effect": "append",
+    "details": [
+      {
+        "field": "field name",
+        "value": "value of the field"
+      }
+    ]
+
+The value can be either simple string or a json format object. 
 
 
 ## Policy Definition Examples
@@ -183,6 +216,52 @@ The below policy denies all requests which don’t have a tag containing
         "effect" : "deny"
       }
     }
+
+The below policy will append costCenter tag with a predefined value if no tags are present. 
+
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": "{\"costCenter\":\"myDepartment\" }"
+	      }
+	    ]
+	  }
+	}
+	
+The below policy will append costCenter tag with a predefined value if other tags are present. 
+
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
+
 
 
 ### Geo Compliance: Ensure resource locations
