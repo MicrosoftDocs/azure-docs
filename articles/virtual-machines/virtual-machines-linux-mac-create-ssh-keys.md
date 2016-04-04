@@ -19,7 +19,7 @@
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
 
-To create a password secured SSH public and private key you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
+To create a password-secured SSH public and private key you need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
 ## Quick Command Listing
 
@@ -29,27 +29,21 @@ In the following command examples, replace the values between &lt; and &gt; with
 [chrisL@fedora ~]$ ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
 
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
-
 azure_fedora_id_rsa
 
 #Enter (twice) a [secure](https://www.xkcd.com/936/) password for the SSH key.
 
 #Enter passphrase for github_id_rsa:
-
 correct horse battery staple
 
 #Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
-
 [chrisL@fedora ~]$ eval "$(ssh-agent -s)"
-
 [chrisL@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
 
 #Copy the SSH public key to your Linux Server.
-
 [chrisL@fedora ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
 
 #Test the login using keys instead of a password.
-
 [chrisL@fedora ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
 
 Last login: Tue Dec 29 07:07:09 2015 from 66.215.21.201
@@ -59,9 +53,9 @@ Last login: Tue Dec 29 07:07:09 2015 from 66.215.21.201
 
 ## Introduction
 
-Using SSH public and private keys is the most secure **and** easiest way to login into your Linux servers.  [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute forced far more easily. Your public key can be shared with anyone; your private key is possessed only by you (or your local security infrastructure).
+Using SSH public and private keys is the most secure **and** easiest way to login into your Linux servers, but in addition [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) also provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.
 
-This article creates *ssh-rsa* format key files, as those are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
+This article creates *ssh-rsa* format key files, as those are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both classic and resource manager deployments.
 
 
 ## Create the SSH Keys
@@ -70,10 +64,10 @@ Azure requires at least 2048-bit, ssh-rsa format public and private keys. To cre
 
 ### Using `ssh-keygen`
 
-This command will create a SSH Keypair using 2048 bit RSA and it will be commented to easily identify it.
+This command creates a SSH Keypair using 2048 bit RSA and it will be commented to easily identify it.
 
 ```
-chrisL@fedora$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
+chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "username@fedoraVMAzure"
 ```
 
 ##### Command explained
@@ -89,7 +83,7 @@ chrisL@fedora$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
 #### Walkthrough of `ssh-keygen`
 
 ```bash
-chrisL@fedora$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
+chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "username@fedoraVMAzure"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/steve/.ssh/id_rsa): azure_fedora_id_rsa
 Enter passphrase (empty for no passphrase):
