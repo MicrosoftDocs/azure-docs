@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Price and performance considerations for Azure SQL Database elastic database pools"
+	pageTitle="When should a pool be used?"
 	description="An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic database pool for a group of databases."
 	services="sql-database"
 	documentationCenter=""
@@ -17,8 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Price and performance considerations for an elastic database pool
-
+# When should an elastic pool be used?
 Assess whether using an elastic database pool for a group of databases is cost efficient based on database usage patterns and pricing differences between an elastic database pool and single databases. Additional guidance is also provided to assist in determining the current pool size required for an existing set of SQL databases.  
 
 - For an overview of pools, see [SQL Database elastic database pools](sql-database-elastic-pool.md).

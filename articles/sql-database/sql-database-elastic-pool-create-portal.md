@@ -18,7 +18,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a scalable elastic database pool for SQL databases with the Azure portal
+# Create an elastic database pool with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
