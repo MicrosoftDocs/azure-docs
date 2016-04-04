@@ -58,7 +58,7 @@ If you created the virtual machine by using the portal, check whether `$vm.GetIn
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
-This command prevents an error when you're running the **Set-AzureVMExtension** command in the following sections. (The error message is: “Provision Guest Agent must be enabled on the VM object before setting IaaS VM Access Extension.”)
+This command prevents the following error when you're running the **Set-AzureVMExtension** command in the next steps: “Provision Guest Agent must be enabled on the VM object before setting IaaS VM Access Extension.”
 
 #### **Reset the local administrator account password**
 
@@ -88,7 +88,7 @@ b. `Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Serv
 This command sets the fDenyTSConnections registry value to 0, enabling Remote Desktop connections.
 
 
-## Windows VMs in Azure Resource Manager deployment model
+## Windows VMs in Resource Manager deployment model
 
 The Azure portal currently doesn't support resetting the remote access or login credentials for virtual machines created using Azure Resource Manager.
 
