@@ -100,7 +100,7 @@ You will perform the following steps in this tutorial:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Monitor pipelines](#monitor-pipelines). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
+6. [Monitor pipelines](#monitor-pipelines). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Portal.
 
 ## Upload sample data and scripts
 In this step, you upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that are invoked by the workflows. The scripts you execute also create an Azure SQL database called **MarketingCampaigns**, tables, user-defined types, and stored procedures. 
@@ -121,7 +121,7 @@ The tables, user-defined types and stored procedures are used when moving the Ma
 	
 	Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.
    
-2. Confirm that your local machine is allowed to access the Azure SQL Database. To enable access, use the [Azure Classic Portal](http://manage.windowsazure.com) or **sp_set_firewall_rule** on the master database to create a firewall rule for the IP address of your machine. It may take up to five minutes for this change to take effect. See [Setting firewall rules for Azure SQL][azure-sql-firewall].
+2. Confirm that your local machine is allowed to access the Azure SQL Database. To enable access, use the [Azure Portal](http://manage.windowsazure.com) or **sp_set_firewall_rule** on the master database to create a firewall rule for the IP address of your machine. It may take up to five minutes for this change to take effect. See [Setting firewall rules for Azure SQL][azure-sql-firewall].
 4. In Azure PowerShell, navigate to the location where you have extracted the samples (for example: **C:\ADFWalkthrough**)
 5. Run **uploadSampleDataAndScripts.ps1** 
 6. Once the script executes successfully, you will see the following:
@@ -193,7 +193,7 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
  
 ## Create linked services
 
-> [AZURE.NOTE] This article uses the Azure Classic Portal, specifically the Data Factory Editor, to create linked services, tables, and pipelines. See [Tutorial using Azure PowerShell][adftutorial-using-powershell] if you want to perform this tutorial using Azure PowerShell. 
+> [AZURE.NOTE] This article uses the Azure Portal, specifically the Data Factory Editor, to create linked services, tables, and pipelines. See [Tutorial using Azure PowerShell][adftutorial-using-powershell] if you want to perform this tutorial using Azure PowerShell. 
 
 In this step, you will create the following linked services:
 
