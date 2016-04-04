@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial: Create a pipeline with Copy Activity using Data Factory Editor" 
-	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Data Factory Editor in the Azure Classic Portal." 
+	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Data Factory Editor in the Azure Portal." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -310,9 +310,9 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
  
 
 ## Monitor pipeline
-In this step, you will use the Azure Classic Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about using cmdlets for monitoring, see [Monitor and Manage Data Factory using PowerShell Cmdlets][monitor-manage-using-powershell].
+In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about using cmdlets for monitoring, see [Monitor and Manage Data Factory using PowerShell Cmdlets][monitor-manage-using-powershell].
 
-1. Navigate to [Azure Classic Portal (Preview)][azure-portal] if you don't have it open. 
+1. Navigate to [Azure Portal (Preview)][azure-portal] if you don't have it open. 
 2. If the blade for **ADFTutorialDataFactory** is not open, open it by clicking **ADFTutorialDataFactory** on the **Startboard**. 
 3. You should see the count and names of tables and pipeline you created on this blade.
 
