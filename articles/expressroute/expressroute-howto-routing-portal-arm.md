@@ -211,7 +211,7 @@ Ensure that the circuit is fully provisioned by the connectivity provider before
 
 You can view the properties of Azure public peering by selecting the peering.
 
-![](./media/expressroute-portal/rmicrosoft3.png)
+![](./media/expressroute-howto-routing-portal-arm/rmicrosoft3.png)
 
 
 ### To update Azure public peering configuration
