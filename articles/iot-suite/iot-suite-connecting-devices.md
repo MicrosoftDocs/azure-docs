@@ -107,7 +107,7 @@ The IoT Hub client libraries use a model to specify the format of messages the d
 
 ## Add code to implement the behavior of the device
 
-You must now add code that implements the behavior defined in the model. You will add functions to execute when the device receives a command from the hub, and cod to send simulated telemetry to the hub.
+You must now add code that implements the behavior defined in the model. You will add functions to execute when the device receives a command from the hub, and code to send simulated telemetry to the hub.
 
 1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands defined in the model:
 
