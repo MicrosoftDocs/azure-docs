@@ -58,7 +58,7 @@ Consolidating access resources and eliminating unmanaged endpoints also simplifi
 
 Azure provides security mechanisms to aid administrators who manage Azure cloud services and virtual machines. These mechanisms include:
 
-- Authentication and [role based access control](role-based-access-control-configure.md).
+- Authentication and [role based access control](../active-directory/role-based-access-control-configure.md).
 - Monitoring, logging, and auditing.
 - Certificates and encrypted communications.
 - A web management portal.
@@ -92,7 +92,7 @@ Azure cloud services configuration is performed through either the Azure portal 
 
 Virtual Machine–deployed applications provide their own client tools and interfaces as needed, such as the Microsoft Management Console (MMC), an enterprise management console (such as Microsoft System Center or Windows Intune), or another management application—Microsoft SQL Server Management Studio, for example. These tools typically reside in an enterprise environment or client network. They may depend on specific network protocols, such as Remote Desktop Protocol (RDP), that require direct, stateful connections. Some may have web-enabled interfaces that should not be openly published or accessible via the Internet.
 
-You can restrict access to infrastructure and platform services management in Azure by using [multi-factor authentication](multi-factor-authentication.md), X.509 [management certificates](http://blogs.msdn.com/b/davidhardin/archive/2013/08/27/azure-management-certificate-public-key-private-key.aspx), and firewall rules. The Azure portal and SMAPI require Transport Layer Security (TLS). However, services and applications that you deploy into Azure require you to take protection measures that are appropriate based on your application. These mechanisms can frequently be enabled more easily through a standardized hardened workstation configuration.
+You can restrict access to infrastructure and platform services management in Azure by using [multi-factor authentication](../multi-factor-authentication/multi-factor-authentication.md), X.509 [management certificates](http://blogs.msdn.com/b/davidhardin/archive/2013/08/27/azure-management-certificate-public-key-private-key.aspx), and firewall rules. The Azure portal and SMAPI require Transport Layer Security (TLS). However, services and applications that you deploy into Azure require you to take protection measures that are appropriate based on your application. These mechanisms can frequently be enabled more easily through a standardized hardened workstation configuration.
 
 ### Management gateway
 
@@ -104,8 +104,8 @@ A Remote Desktop Gateway is a policy-based RDP proxy service that enforces secur
 - Join the RD Gateway to the same [management domain](http://technet.microsoft.com/library/bb727085.aspx) as the administrator workstations. This is necessary when you are using a site-to-site IPsec VPN or ExpressRoute within a domain that has a one-way trust to Azure AD, or if you are federating credentials between your on-premises AD DS instance and Azure AD.
 - Configure a [client connection authorization policy](http://technet.microsoft.com/library/cc753324.aspx) to let the RD Gateway verify that the client machine name is valid (domain joined) and allowed to access the Azure management portal.
 - Use IPsec for [Azure VPN](http://msdn.microsoft.com/library/azure/dn133795.aspx) to further protect management traffic from eavesdropping and token theft, or consider an isolated Internet link via [Azure ExpressRoute](http://msdn.microsoft.com/library/azure/dn606309.aspx).
-- Enable multi-factor authentication (via [Azure Multi-Factor Authentication](multi-factor-authentication.md)) or smart-card authentication for administrators who log on through RD Gateway.
-- Configure source [IP address restrictions](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](articles/virtual-networks-nsg.md) in Azure to minimize the number of permitted management endpoints.
+- Enable multi-factor authentication (via [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) or smart-card authentication for administrators who log on through RD Gateway.
+- Configure source [IP address restrictions](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](../virtual-networks/virtual-networks-nsg.md) in Azure to minimize the number of permitted management endpoints.
 
 ## Security guidelines
 
@@ -119,7 +119,7 @@ Some applications or services that you deploy into Azure may have their own auth
 
 ### Connectivity
 
-Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, [site-to-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN)(S2S) and [point-to-site VPN](vpn-gateway-point-to-site-create.md)(P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure management portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
+Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, [site-to-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN)(S2S) and [point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md)(P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure management portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
 
 A stand-alone hardened workstation that does not connect to Azure through a RD Gateway should use the SSTP-based point-to-site VPN to create the initial connection to the Azure Virtual Network, and then establish RDP connection to individual virtual machines from with the VPN tunnel.
 
