@@ -67,7 +67,7 @@ To create a contained database user in Azure SQL Database you must connect to th
 ## Azure AD features and limitations
 
 The following members of Azure Active Directory can be provisioned in Azure SQL Server:
-- Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
+- Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md).
 - Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 - Imported members from other Azure Active Directories who are native or federated domain members.
 - Active Directory groups created as security groups.
@@ -80,7 +80,8 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 - Only one Azure AD administrator (a user or group) can be configured for an Azure SQL Server at any time.
 - Only an Azure Active Directory administrator can initially connect to the Azure SQL Server using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure Active Directory database users.
 - We recommend setting the connection timeout to 30 seconds.
-- Azure Active Directory authentication is supported by SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015. (Azure Active Directory authentication only supports the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefor the newest versions of these tools and data-tier applications (DAC and .bacpac) can use Azure Active Directory authentication, but **sqlcmd.exe** and **bcp.exe** cannot connect because they use the ODBC provider. Other connectivity drivers are expected to be supported at some point in the future.
+- SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 support Azure Active Directory authentication. (Azure Active Directory authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefor the newest versions of these tools and data-tier applications (DAC and .bacpac) can use Azure Active Directory authentication, but **sqlcmd.exe** and **bcp.exe** cannot connect because they use the ODBC provider.
+- [Microsoft JDBC Driver 6.0 for SQL Server](https://blogs.technet.microsoft.com/dataplatforminsider/2016/04/04/preview-the-microsoft-jdbc-driver-6-0-for-sql-server/) supports Azure Active Directory authentication.
 - PolyBase cannot authenticate by using Azure Active Directory authentication.
 - Some tools like BI and Excel are not supported.
 - Two-factor authentication or other forms of interactive authentication are not supported.
@@ -95,7 +96,7 @@ Create an Azure Active directory and populate it with users and groups. This inc
 - Federate an on-premises Active Directory Domain Services with Azure Active Directory.
 - Using the **AD FS** tool, in the **Service**, **Endpoints** section, enable **WS-Trust 1.3** for the URL path **/adfs/services/trust/13/windowstransport**.
 
-For more information, see [Add your own domain name to Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+For more information, see [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2. Ensure your database is in Azure SQL Database V12
 
