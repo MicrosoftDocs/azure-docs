@@ -19,7 +19,7 @@
 
 # Build a web service front end for your application
 
->[AZURE.WARNING] Due to the changes being made in ASP.NET Core RC2, this article is temporarily incorrect as the referenced project template has been removed from the SDK. This article will be updated when ASP.NET Core RC2 is released. In the interim, you can use the stateless Web API template, which is described in [Get started: Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi).
+>[AZURE.WARNING] Due to the changes being made in ASP.NET Core RC2, this article is temporarily incorrect as the referenced project template has been removed from the SDK. This article will be updated when ASP.NET Core RC2 is released. In the interim, you can use the stateless Web API template, which is described in [Get started: Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md).
 
 By default, Azure Service Fabric services do not provide a public interface to the web. To expose your application's functionality to HTTP clients, you will need to create a web project to act as an entry point and then communicate from there to your individual services.
 
