@@ -565,7 +565,7 @@ Specifies recursive mode for copy operations. In recursive mode, AzCopy will cop
 
 ### /BlobType:"block" | "page" | "append"
 
-Specifies whether the destination blob is a block blob, a page blob or an append blob. This option is applicable only when uploading blob; otherwise, an error is generated. If the destination is a blob and this option is not specified, then by default AzCopy will create a block blob.
+Specifies whether the destination blob is a block blob, a page blob, or an append blob. This option is applicable only when you are uploading a blob. Otherwise, an error is generated. If the destination is a blob and this option is not specified, by default, AzCopy creates a block blob.
 
 **Applicable to:** Blobs
 
