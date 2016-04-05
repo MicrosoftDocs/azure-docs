@@ -41,27 +41,45 @@ Your virtual array is a virtual machine provisioned in a virtualized environment
 
 For a list of virtualized environments supported on your StorSimple virtual array, go to [software requirements](storsimple-ova-system-requirements.md#software-requirements).
 
-When provisioning your virtual machine in the hypervisor, we recommend that you follow these best practices:
+When provisioning your virtual machine in the hypervisor, we recommend that you follow the best practices as tabulated below:
 
--   Provision a **Generation 1** virtual machine when using VHD and a **Generation 2** virtual when using a VHDX in your Hyper-V environment.
 
--   Configure **static memory** for your virtual machine (minimum requirement is 8192 MB) so that this physical memory is available exclusively to it regardless of fluctuations in memory demands. No other virtual machine on your host can use this memory unless this virtual machine is turned off. Do not provision a virtual machine with the **dynamic memory** option.
+|                        | Hyper-V                                                                                                                                                     | VMware                                                                                                               |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| **Virtual machine type**   | Generation 1 virtual machine   when using VHD.                                                                                                              | Use virtual machine version 8 when using VMDK.                                                                       |
+|                        | Generation 2 virtual when using   a VHDX.                                                                                                                   |                                                                                                                      |
+|                        |                                                                                                                                                             |                                                                                                                      |
+| **Memory type**            | Configure as static memory.                                                                                                                                 |                                                                                                                      |
+|                        | Do not use the dynamic memory   option.                                                                                                                     |                                                                                                                      |
+|                        |                                                                                                                                                             |                                                                                                                      |
+| **Data disk type**         | Provision as dynamically   expanding.                                                                                                                       | Use the thin provision option.                                                                                       |
+|                        | Fixed size will take a long time.                                                                                                                           |                                                                                                                      |
+|                        | Do not use the  differencing option.                                                                                                                        |                                                                                                                      |
+|                        |                                                                                                                                                             |                                                                                                                      |
+| **Data disk modification** | Expansion or shrinking is not   allowed. Attempt to do so will result in the loss of all the local data on   device.                                        | Expansion or shrinking is not   allowed. Attempt to do so will result in the loss of all the local data on   device. |
+|                        |                                                                                                                                                             |                                                                                                                      |
+| **Monitoring**             | Configure monitoring to track   the disk usage of your virtual array data disk as well as the guest OS disk.                                                | Same as that of Hyper-V                                                                                              |
+|                        | Use a combination of System   Center Virtual Machine Manager (SCVMM) and System Center Operations Manager   (SCOM) to monitor your virtualization hosts .   | Same as that of Hyper-V                                                                                              |
+|                        |                                                                                                                                                             |                                                                                                                      |
+| **Alert notifications**       | Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                      | Same as that of Hyper-V                                                                                              |
 
--   Provision the data disk based on your anticipated storage needs accounting for some buffer. Once you have provisioned a data disk of a certain specified size in your hypervisor and created the corresponding StorSimple virtual device, you must not expand or shrink the data disk. Attempting to do so will result in a loss of all the data in the local tiers of the device.
 
--   When provisioning a data disk for your virtual machine, we recommend that you set the virtual hard disk type as **dynamically expanding** on Hyper-V. If you choose a **fixed** size disk on Hyper-V, as it is thickly provisioned, you may need to wait a long time. Do not use the **differencing** option.
-
--   If using VMware, use the **thin provision** option.
-
--   Configure monitoring in your hypervisor to track the usage of your virtual array data disk as well as that of your guest OS disk. A combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) will allow you to monitor your virtualization hosts for both Hyper-V and VMware.  
-
--   Preferably configure email alert notifications on your array to send alerts at certain usage levels.
 
 ### Sizing
 
 Total usable disk size = Total provisioned volume size + (Max (Provisioned volume size) for all the existing volumes) + some buffer
 
 Examples
+
+### Group policy
+
+Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory directory service containers: sites, domains, or organizational units (OUs). If your virtual array is domain-joined, then GPOs can be applied to it. These GPOs can adversely affect the operation of your StorSimple Virtual Array.
+
+Hence, we recommend that you:
+
+-   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. Alternatively you can block inheritance if it is a part of a larger OU. This will ensure that the virtual array (child-node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
+
+-   Make sure that no group policy objects (GPO) are applied to your virtual array.
 
 ### Networking
 
@@ -246,39 +264,6 @@ Keep the following best practices in mind when deactivating your virtual array:
 
 -   Delete a deactivated device if you are no longer using it else it will accrue charges.
 
-## Multiple arrays
-
-Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This will require one or more devices to be added in the on-premises data center. This can be done in the one of the following two ways:
-
--   split the current set of data.
-
--   deploy new workloads to the new appliance(s).
-
-Multiple virtual arrays when configured as a file server can be deployed under a DFS namespace. In this instance, DFS-R is not supported.
-
-## Miscellaneous
-
-### Byte range locking
-
-Applications can lock a specified range of bytes within the files. If byte range locking is enabled on the applications that are writing to your StorSimple, then tiering will not work on your virtual array. For the tiering to work, all areas of the files accessed should be unlocked. Byte range locking is not supported with tiered volumes on your virtual array.
-
-Recommended measures to alleviate this include:
-
--   Turn off byte range locking in your application logic.
-
--   Use locally pinned volumes (instead of tiered) for the data associated with this application. Locally pinned volumes do not tier into the cloud.
-
--   When using locally pinned volumes with byte range locking enabled, note that the volume can be online even before the restore is complete. In these instances, you must wait for the restore to be complete.
-
-### Group policy
-
-Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory directory service containers: sites, domains, or organizational units (OUs). If your virtual array is domain-joined, then GPOs can be applied to it. These GPOs can adversely affect the operation of your StorSimple Virtual Array.
-
-Hence, we recommend that you:
-
--   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. Alternatively you can block inheritance if it is a part of a larger OU. This will ensure that the virtual array (child-node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
-
--   Make sure that no group policy objects (GPO) are applied to your virtual array.
 
 ### Index search and virus scan applications
 
@@ -297,6 +282,29 @@ If using Windows indexing process, follow these guidelines:
 -   Do not use the Windows Indexer for tiered volumes as this will recall large amounts of data (TBs) from the cloud if the index needs to be rebuilt frequently. Rebuilding the index would retrieve all file types to index their content.
 
 -   Use the Windows indexing process for locally pinned volumes as this would only access data on the local tiers to build the index (the cloud data will not be accessed).
+
+### Byte range locking
+
+Applications can lock a specified range of bytes within the files. If byte range locking is enabled on the applications that are writing to your StorSimple, then tiering will not work on your virtual array. For the tiering to work, all areas of the files accessed should be unlocked. Byte range locking is not supported with tiered volumes on your virtual array.
+
+Recommended measures to alleviate this include:
+
+-   Turn off byte range locking in your application logic.
+
+-   Use locally pinned volumes (instead of tiered) for the data associated with this application. Locally pinned volumes do not tier into the cloud.
+
+-   When using locally pinned volumes with byte range locking enabled, note that the volume can be online even before the restore is complete. In these instances, you must wait for the restore to be complete.
+
+## Multiple arrays
+
+Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This will require one or more devices to be added in the on-premises data center. This can be done in the one of the following two ways:
+
+-   split the current set of data.
+
+-   deploy new workloads to the new appliance(s).
+
+Multiple virtual arrays when configured as a file server can be deployed under a DFS namespace. In this instance, DFS-R is not supported.
+
 
 ## See also
 
