@@ -78,6 +78,7 @@ This section provides instructions on how to create, get, update, and delete the
 4. Configure private peering. The image below shows a configuration example.
 
 	![](./media/expressroute-howto-routing-portal-arm/rprivate2.png)
+
 	
 5. Save the configuration once you have specified all parameters. Once the configuration is accepted successfully, you will see the following.
 
@@ -133,6 +134,7 @@ This section provides instructions on how to create, get, update, and delete the
 4. Configure public peering. The image below shows a configuration example.
 
 	![](./media/expressroute-howto-routing-portal-arm/rpublic2.png)
+
 	
 5. Save the configuration once you have specified all parameters. Once the configuration is accepted successfully, you will see the following.
 
@@ -169,6 +171,7 @@ This section provides instructions on how to create, get, update, and delete the
 
 	![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)
 
+
 2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you proceed.
 
 	- A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
@@ -188,6 +191,7 @@ This section provides instructions on how to create, get, update, and delete the
 4.  Configure Microsoft peering. The image below shows a configuration example.
 
 	![](./media/expressroute-howto-routing-portal-arm/rmicrosoft2.png)
+
 	
 5. Save the configuration once you have specified all parameters. 
 
@@ -195,9 +199,11 @@ This section provides instructions on how to create, get, update, and delete the
 	
 	![](./media/expressroute-howto-routing-portal-arm/rmicrosoft5.png)
 
+
 	You can open a support ticket directly from the portal as shown below 	
 	
 	![](./media/expressroute-howto-routing-portal-arm/rmicrosoft6.png)
+
 
 6. Once the configuration is accepted successfully, you will see the following.
 
@@ -217,6 +223,7 @@ You can select the row for peering and modify the peering properties.
 
 
 ![](./media/expressroute-howto-routing-portal-arm/rmicrosoft7.png)
+
 
 ### To delete Microsoft peering
 
