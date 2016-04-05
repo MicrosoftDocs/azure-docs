@@ -16,7 +16,7 @@
    ms.date="04/01/2016"
    ms.author="ganesr"/>
 
-# Moving ExpressRoute circuits from Classic to Resource Manager Environment
+# Moving ExpressRoute circuits from Classic (ASM) to Resource Manager (ARM) Environment
 
 ## Configuration prerequisites
 
@@ -26,7 +26,7 @@
 - If you wish to move an ExpressRoute circuit from classic to Resource Manager environment, you must have the circuit fully configured and operational in the classic environment.
 - Ensure that you have a Resource Group created in the Resource Manager environment. 
 
-## Moving the ExpressRoute circuit from Classic to Resource Manager environment
+## Moving the ExpressRoute circuit to ARM environment
 
 You must move an ExpressRoute circuit to the Resource environment for you to be able to use it across both the classic and Resource Manager environments. You can accomplish the task by running the following PowerShell commands.
 
@@ -77,7 +77,7 @@ You can accomplish this task by running the following snippet.
 >[AZURE.NOTE] Once the move is completed the new name listed in the above cmdlet will be used to address the resource going forward. The circuit will essentially be renamed.
 
 
-## Enabling an ExpressRoute circuit to be configured from both Classic and Resource Manager Environments
+## Enabling an ExpressRoute circuit for both environments
 
 You must move your ExpressRoute circuit to the Resource Manager environment before controlling access to environment.
 
@@ -104,7 +104,7 @@ You must be able to see the service key listed. You can now manage links to the 
 - [Link your virtual network to your ExpressRoute circuit in Classic environment](expressroute-howto-linkvnet-classic.md)
 
 
-## Disabling the ExpressRoute circuit to be configured from both Classic and Resource Manager Environments
+## Disabling the ExpressRoute circuit to ASM environment
 
 Run the following cmdlet to disable access to the classic environment
 
