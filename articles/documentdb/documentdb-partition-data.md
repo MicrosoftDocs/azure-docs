@@ -259,9 +259,9 @@ In the next section, we look at how you can move to partitioned collections from
 
 <a name="migrating-from-single-partition"></a>
 ### Migrating from single-partition to partitioned collections
-When an application using a single-partition collection needs higher throughput (>10,000 RU/s) or larger data storage (>10GB), you can use the [DocumentDB Migration Tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) to migrate the data from the single-partition collection to a partitioned collection. 
+When an application using a single-partition collection needs higher throughput (>10,000 RU/s) or larger data storage (>10GB), you can use the [DocumentDB Data Migration Tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) to migrate the data from the single-partition collection to a partitioned collection. 
 
-Additionally, because partition keys can be specified only during collection creation you must export and re-import your data using the [DocumentDB migration tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) in order to create a partitioned collection. 
+Additionally, because partition keys can be specified only during collection creation you must export and re-import your data using the [DocumentDB Data Migration Tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) in order to create a partitioned collection. 
 
 To migrate from a single-partition collection to a partitioned collection
 
