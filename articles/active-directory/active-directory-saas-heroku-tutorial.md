@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 5. To enable SSO in Heroku, perform the following steps:
  
-    a. Log in to the Heroku account with Admin rights.
+    a. Log in to the Heroku account as an administrator.
 
     b. Click the **Settings** tab.
 
