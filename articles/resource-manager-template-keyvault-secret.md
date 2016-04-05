@@ -42,11 +42,11 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Value |
 | ---- | ---- | 
-| type | Enum<br />Required<br />Permitted values: **secrets** (when deployed as a child resource of key vault) or **Microsoft.KeyVault/vaults/secrets** (when deployed as a top-level resource)<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />Permitted values: **2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />Permitted values: A name (when deployed as a child resource of a key vault), or a name in the format **{key-vault-name}/{secret-name}** (when deployed as a top-level resource to be added to an existing key vault.<br /><br />The name of the secret to create. |
-| properties | Object<br />Required<br />Permitted value: [properties object](#properties)<br /><br />An object that specifies the value of the secret to create. |
-| dependsOn | Array<br />Optional<br />Permitted value: A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
+| type | Enum<br />Required<br />**secrets** (when deployed as a child resource of key vault) or<br /> **Microsoft.KeyVault/vaults/secrets** (when deployed as a top-level resource)<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
+| name | String<br />Required<br />A single word when deployed as a child resource of a key vault, or in the format **{key-vault-name}/{secret-name}** when deployed as a top-level resource to be added to an existing key vault.<br /><br />The name of the secret to create. |
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the value of the secret to create. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
 
 <a id="properties" />
 ### properties object
