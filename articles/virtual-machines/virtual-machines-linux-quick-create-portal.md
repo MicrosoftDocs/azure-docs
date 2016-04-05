@@ -85,4 +85,4 @@ user@slackware$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.100.2
 
 ## Next Steps
 
-If you want, go ahead and [add a disk](../media/virtual-machines-linux-add-disk.md).
+If you want, go ahead and [add a disk](virtual-machines-linux-add-disk.md).
