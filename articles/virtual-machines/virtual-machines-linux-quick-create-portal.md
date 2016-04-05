@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Quick Create a Linux VM using the Azure Portal | Microsoft Azure"
-    description="Quick Create a Linux VM using the Azure Portal."
+    pageTitle="Create a Linux VM using the Azure Portal | Microsoft Azure"
+    description="Create a Linux VM using the Azure Portal."
     services="virtual-machines-linux"
     documentationCenter=""
     authors="vlivech"
@@ -21,77 +21,68 @@
 
 # Create a Linux VM using the Azure Portal
 
-In this article we are going to "Quick Create" a Linux VM using the [Azure Portal](https://portal.azure.com/).
+This article shows how to use the [Azure Portal](https://portal.azure.com/) to create a Linux VM right now without installing anything. The only requirements are [an Azure account](https://azure.microsoft.com/pricing/free-trial/) and [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md).
 
-Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/) and [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md).
 
-## Introduction
-
-One of the most basic and most common task with Azure is creating a VM.  This article will walk you through creating an Ubuntu VM using just the Azure Portal. We are following security best practices by using SSH keys to login.
-
-## Detailed Walk Through
-
-  1. Click New
+1. Signed into the Azure Portal with your Azure account identity, click **+ New** in the upper left corner:
 
     ![screen1](virtual-machines-linux-quick-create-portal/screen1.png)
 
-  2. Click Virtual Machines
+2. Click **Virtual Machines** in the **Marketplace** categories:
 
     ![screen2](virtual-machines-linux-quick-create-portal/screen2.png)
 
-  3. Click Ubuntu Server 14.04 LTS
+3. Click **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list, and you should see the following screen:
 
     ![screen3](virtual-machines-linux-quick-create-portal/screen3.png)
 
-  4. Verify the deployment model is `Resource Manager` and then click Create
+4. Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
 
-  5. Fill out:
-    - Name of the VM    
-    - Username for the Admin User
-    - Authentication Type set to `SSH public key`
-    - Copy and paste the Public Key from your `~/.ssh/` directory
-    - Resource Group Name or select an existing RG
+5. On the **Basics** page, enter:
+    - a name for the VM
+    - a username for the Admin User
+    - the Authentication Type set to **SSH public key**
+    - your SSH public Key as a string (by default, from your `~/.ssh/` directory)
+    - a resource group name (to create a new deployment group) or select an existing group
 
-  6. Click OK
+    and Click **OK** to continue and choose the VM size; it should look something like the following:
 
     ![screen4](virtual-machines-linux-quick-create-portal/screen4.png)
 
-  7. Choose the DS1 size which allows for a Premium SSD to install Ubuntu on
-
-  8. Click select
+7. Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
 
     ![screen5](virtual-machines-linux-quick-create-portal/screen5.png)
 
-  9. Leave the defaults for Storage and Network naming
-
-  10. Click OK
+9. In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.
 
     ![screen6](virtual-machines-linux-quick-create-portal/screen6.png)
 
-  11.  Verify the settings for the new Ubuntu VM
-
-  12. Click OK
+11. Confirm the settings for your new Ubuntu VM, and click **OK**.
 
     ![screen7](virtual-machines-linux-quick-create-portal/screen7.png)
 
-  13. Open the Portal Dashboard
+13. Open the Portal Dashboard
 
     ![screen8](virtual-machines-linux-quick-create-portal/screen8.png)
 
-  14. Add exampleVMname tiles to the Azure Dashboard
+14. Add exampleVMname tiles to the Azure Dashboard
 
     ![screen9](virtual-machines-linux-quick-create-portal/screen9.png)
 
-  15. Click the Network interfaces menu item to load the exampleVMname NIC
+15. Click the Network interfaces menu item to load the exampleVMname NIC
 
     ![screen10](virtual-machines-linux-quick-create-portal/screen10.png)
 
-  16. Open the IP addresses menu under the NIC settings
+16. Open the IP addresses menu under the NIC settings
 
     ![screen11](virtual-machines-linux-quick-create-portal/screen11.png)
 
-  17. SSH into the public IP using your SSH public key
+17. SSH into the public IP using your SSH public key
 
-    ```
-    user@slackware$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.100.2
-    ```
+```
+user@slackware$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.100.2
+```
+
+## Next Steps
+
+If you want, go ahead and [add a disk](virtual-machines-linux-add-disk.md).
