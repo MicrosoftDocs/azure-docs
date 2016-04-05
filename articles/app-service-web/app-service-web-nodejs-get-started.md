@@ -102,7 +102,7 @@ app name with the next command. Your web app's URL will be http://&lt;appname>.a
         git commit -m "<your commit message>"
         git push azure master
 
-    The Express generator already provides a .gitignore file, so your `git push` won't eat up bandwidth trying to upload 
+    The Express generator already provides a .gitignore file, so your `git push` won't consume bandwidth trying to upload 
     the node_modules/ directory.
 
 5. Finally, just launch your live Azure app in the browser:
@@ -135,7 +135,7 @@ root directory. You can use this file to customize iisnode.
 ## Use a Node.js framework
 
 If you use a popular Node.js framework, such as [Sails.js](http://sailsjs.org/) or [MEAN.js](http://meanjs.org/) to develop
-apps, you can deploy to App Service. Popular Node.js frameworks have their specific quirks, and their package dependencies
+apps, you can deploy those to App Service. Popular Node.js frameworks have their specific quirks, and their package dependencies
 keep getting updated. However, App Service makes the the stdout and stderr logs available to you, so you can know exactly 
 what's happening with your app and make changes accordingly. For more information, see 
 [Get stdout and stderr logs from iisnode](#iisnodelog).

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="04/04/2016" 
 	ms.author="cephalin"
 />
 	
@@ -99,13 +99,6 @@ Congratulations, you have deployed your app to Azure App Service.
 To see your app running live in Azure, run this command from any directory in your repository:
 
     azure site browse
-
-Or from anywhere else:
-
-    azure site browse <appname>
-    
-If you see the error message: `Site <app_name> does not exist or has no hostnames`, retry the command in a few seconds. Some apps, such as Java apps, take longer
-to wrap up deployment.
 
 ## Make updates to your app
 

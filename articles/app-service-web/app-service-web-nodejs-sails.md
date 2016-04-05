@@ -25,6 +25,7 @@ on how to configure your Node.js app to run in App Service.
 
 - Node.js. Installation binaries are [here](https://nodejs.org/).
 - Sails.js. Installation instructions are [here](http://sailsjs.org/get-started).
+- Working knowledge of Sails.js. This tutorial is not intended to help you with issues related to running Sail.js in general.
 - Git. Installation binaries are [here](http://www.git-scm.com/downloads).
 - Azure CLI. Installation instructions are [here](../xplat-cli-install.md).
 - A Microsoft Azure account. If you don't have an account, you can
@@ -46,8 +47,7 @@ First, quickly create a default Sails.js app by following these steps:
         cd <appname>
         sails lift
 
-    Make sure you can navigate to the default home page at http://localhost:1377. This tutorial is not intended to help you
-    with issues related to running Sail.js in general.
+    Make sure you can navigate to the default home page at http://localhost:1377.
 
 ## Step 2: Create the App Service app resource in Azure
 
@@ -76,7 +76,7 @@ app name with the next command. Your web app's URL will be http://&lt;appname>.a
 
 ## Step 3: Configure and deploy your Sails.js app
 
- Working with an Sails.js app in App Service consists of three main steps:
+ Working with a Sails.js app in App Service consists of three main steps:
 
  - Configure your app for it to run in App Service
  - Deploy it to App Service
@@ -84,7 +84,7 @@ app name with the next command. Your web app's URL will be http://&lt;appname>.a
 
 Follow these steps:
 
- 1. Open the new iisnode.yml file in your root directory and add the following two lines:
+1. Open the new iisnode.yml file in your root directory and add the following two lines:
 
         loggingEnabled: true
         logDirectory: iisnode
@@ -113,7 +113,7 @@ Follow these steps:
     ["ENOTSUP: operation not supported on socket" error](https://github.com/isaacs/node-glob/issues/205) because 
     it currently uses an outdated [glob](https://www.npmjs.com/package/glob) package (v3.1.21), which doesn't 
     support network drives. The next steps how you how to make Grunt use 
-    [glob v5.0.14 or higher](https://github.com/isaacs/node-glob/commit/bf3381e90e283624fbd652835e1aefa55d45e2c7).    
+    [glob v5.0.14 or higher](https://github.com/isaacs/node-glob/commit/bf3381e90e283624fbd652835e1aefa55d45e2c7).
 
 3. Since `npm install` has already run when your app was created, generate npm-shrinkwrap.json at the project root:
 
