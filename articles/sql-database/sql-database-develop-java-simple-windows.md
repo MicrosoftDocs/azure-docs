@@ -77,7 +77,7 @@ Use the connection class to connect to SQL Database.
 					e.printStackTrace();
 				}
 				finally {
-					//if (connection != null) try { connection.close(); } catch(Exception e) {}
+					if (connection != null) try { connection.close(); } catch(Exception e) {}
 				}
 			}
 		}
