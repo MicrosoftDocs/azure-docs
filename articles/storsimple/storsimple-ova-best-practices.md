@@ -23,7 +23,7 @@ Microsoft Azure StorSimple Virtual Array is an integrated storage solution that 
 
 This article covers the best practices implemented during the initial setup, deployment and management of the StorSimple Virtual Array. These best practices provide validated guidelines to ensure the most optimal setup and management of your virtual array. These best practices are classified as configurational and operational. The configurational best practices cover the guidelines that need to be followed during the initial setup and deployment whereas the operational relate to those followed during the day-to-day management or operation of the virtual array. This article is targeted towards the IT administrators responsible for deploying and managing these virtual arrays in their datacenters.
 
-We recommend a periodic review of the best practices to ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support) for assistance.
+We recommend a periodic review of the best practices to ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
 ## Configuration best practices
 
@@ -71,7 +71,7 @@ Hence, we recommend that you:
 
 ### Networking
 
-The network configuration for your virtual array is done through the local web UI. The [Network Settings](storsimple-ova-deploy3-fs-setup) page allows the user to configure the network interface IP address, subnet, and gateway. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
+The network configuration for your virtual array is done through the local web UI. The [Network Settings](storsimple-ova-deploy3-fs-setup.md) page allows the user to configure the network interface IP address, subnet, and gateway. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements.md) prior to deploying the virtual array.
 
 When deploying your virtual array, we recommend that you follow these best practices:
 
@@ -94,7 +94,7 @@ When deploying your virtual array, we recommend that you follow these best pract
 
 ### Storage accounts
 
-Your StorSimple Virtual Array can be associated with a single storage account at any point in time. This storage account could be an automatically generated storage account, an account in the same subscription as the service or an account that is outside of the service subscription. Additionally, there is a 500 TB limit for a storage account. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts).
+Your StorSimple Virtual Array can be associated with a single storage account at any point in time. This storage account could be an automatically generated storage account, an account in the same subscription as the service or an account that is outside of the service subscription. Additionally, there is a 500 TB limit for a storage account. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
 
 Use the following recommendations when creating storage accounts for your virtual array.
 
@@ -104,7 +104,7 @@ Use the following recommendations when creating storage accounts for your virtua
 
 -   While creating a storage account, be aware that you cannot move a storage account across different regions. Also you cannot move a service across subscriptions.
 
--   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](storage-redundancy).
+-   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](storage-redundancy.md).
 
 -   If possible, choose a storage account within the same subscription as the StorSimple Manager service for your virtual array. This has the benefit of simplifying and streamlining the workflow associated with the management of the storage account.
 
@@ -182,7 +182,7 @@ Use the following best practices when configuring ACRs for StorSimple volumes:
 
 Your StorSimple Virtual Array has data security and encryption features that ensure the confidentiality and integrity of your data. When using these features, it is recommended that you follow these best practices: 
 
--   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to being with. The key can be generated and kept safe using a key management system such as [Azure key vault](key-vault-whatis).
+-   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to being with. The key can be generated and kept safe using a key management system such as [Azure key vault](key-vault-whatis.md).
 
 -   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
 
@@ -197,7 +197,7 @@ The operational best practices are guidelines that need to be followed during th
 
 ### Backups
 
-The data on your virtual array is backed up to the cloud in two ways, a default automated daily backup of the entire device starting at 22:30 or via a manual on-demand backup. By default, the device automatically creates daily cloud snapshots of all the data residing on it. For more information, go to [back up your StorSimple Virtual Array](storsimple-ova-backup).
+The data on your virtual array is backed up to the cloud in two ways, a default automated daily backup of the entire device starting at 22:30 or via a manual on-demand backup. By default, the device automatically creates daily cloud snapshots of all the data residing on it. For more information, go to [back up your StorSimple Virtual Array](storsimple-ova-backup.md).
 
 The frequency, retention associated with the default backups cannot be changed but you can configure the time at which the daily backups are initiated every day. When configuring the start time for the automated backups, we recommend that:
 
@@ -207,7 +207,7 @@ The frequency, retention associated with the default backups cannot be changed b
 
 ### Restore
 
-You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (available only on a virtual array configured as a file server). Item-level recovery (ILR) allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to [restore from a backup](storsimple-ova-restore).
+You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (available only on a virtual array configured as a file server). Item-level recovery (ILR) allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to [restore from a backup](storsimple-ova-restore.md).
 
 When performing a restore, keep the following guidelines in mind:
 
@@ -223,7 +223,7 @@ When performing a restore, keep the following guidelines in mind:
 
 A device failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
 
-For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-ova-failover-dr).
+For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-ova-failover-dr.md).
 
 When performing a fail over for your virtual array, keep the following in mind:
 
@@ -243,7 +243,7 @@ When performing a fail over for your virtual array, keep the following in mind:
 
 ### Deactivate
 
-When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. For more information, go to [deactivate and delete your StorSimple Virtual Array](storsimple-deactivate-and-delete-device).
+When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. For more information, go to [deactivate and delete your StorSimple Virtual Array](storsimple-deactivate-and-delete-device.md).
 
 Keep the following best practices in mind when deactivating your virtual array:
 
