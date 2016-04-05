@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="04/05/2016"
    ms.author="terrylan"/>
 
 # Security management in Azure
@@ -84,7 +84,7 @@ On a hardened workstation, the administrator runs a standard user account (which
 - Execution restriction. Allow only a set of predefined executable files that are needed for management to run (referred to as “default-deny”). By default, users should be denied permission to run any program unless it is explicitly defined in the allow list.
 - Least privilege. Management workstation users should not have any administrative privileges on the local machine itself. This way, they cannot change the system configuration or the system files, either intentionally or unintentionally.
 
-You can enforce all of this by using Group Policy Objects (GPOs) in Active Directory Domain Services (AD DS) and applying them through your (local) management domain to all [management accounts](http://www.microsoft.com/download/details.aspx?id=25250).
+You can enforce all of this by using [Group Policy Objects](https://www.microsoft.com/download/details.aspx?id=2612) (GPOs) in Active Directory Domain Services (AD DS) and applying them through your (local) management domain to all management accounts.
 
 ### Managing services, applications, and data
 
@@ -92,11 +92,11 @@ Azure cloud services configuration is performed through either the Azure portal 
 
 Virtual Machine–deployed applications provide their own client tools and interfaces as needed, such as the Microsoft Management Console (MMC), an enterprise management console (such as Microsoft System Center or Windows Intune), or another management application—Microsoft SQL Server Management Studio, for example. These tools typically reside in an enterprise environment or client network. They may depend on specific network protocols, such as Remote Desktop Protocol (RDP), that require direct, stateful connections. Some may have web-enabled interfaces that should not be openly published or accessible via the Internet.
 
-You can restrict access to infrastructure and platform services management in Azure by using [multi-factor authentication](multi-factor-authentication/multi-factor-authentication.md), X.509 [management certificates](http://blogs.msdn.com/b/davidhardin/archive/2013/08/27/azure-management-certificate-public-key-private-key.aspx), and firewall rules. The Azure portal and SMAPI require Transport Layer Security (TLS). However, services and applications that you deploy into Azure require you to take protection measures that are appropriate based on your application. These mechanisms can frequently be enabled more easily through a standardized hardened workstation configuration.
+You can restrict access to infrastructure and platform services management in Azure by using [multi-factor authentication](multi-factor-authentication/multi-factor-authentication.md), [X.509 management certificates](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/), and firewall rules. The Azure portal and SMAPI require Transport Layer Security (TLS). However, services and applications that you deploy into Azure require you to take protection measures that are appropriate based on your application. These mechanisms can frequently be enabled more easily through a standardized hardened workstation configuration.
 
 ### Management gateway
 
-To centralize all administrative access and simplify monitoring and logging, you can deploy a dedicated [Remote Desktop Gateway (RD Gateway)](https://technet.microsoft.com/library/dd560672(v=ws.10).aspx) server in your on-premises network, connected to your Azure environment.
+To centralize all administrative access and simplify monitoring and logging, you can deploy a dedicated [Remote Desktop Gateway (RD Gateway)](https://technet.microsoft.com/library/dd560672) server in your on-premises network, connected to your Azure environment.
 
 A Remote Desktop Gateway is a policy-based RDP proxy service that enforces security requirements. Implementing RD Gateway together with Windows Server Network Access Protection (NAP) helps ensure that only clients that meet specific security health criteria established by Active Directory Domain Services (AD DS) Group Policy objects (GPOs) can connect. In addition:
 
@@ -115,7 +115,7 @@ In general, helping to secure administrator workstations for use with the cloud 
 
 You can use Azure logon restrictions to constrain source IP addresses for accessing administrative tools and audit access requests. To help Azure identify management clients (workstations and/or applications), you can configure both SMAPI (via customer-developed tools such as Windows PowerShell cmdlets) and the Azure management portal to require client-side management certificates to be installed, in addition to SSL certificates. We also recommend that administrator access require multi-factor authentication.
 
-Some applications or services that you deploy into Azure may have their own authentication mechanisms for both end-user and administrator access, whereas others take full advantage of Azure AD. Depending on whether you are federating credentials via Active Directory Federation Services (AD FS), using directory synchronization or maintaining user accounts solely in the cloud, using [Microsoft Identity Manager](https://www.microsoft.com/server-cloud/products/microsoft-identity-manager/) (part of Azure AD Premium) helps you manage identity lifecycles between the resources.
+Some applications or services that you deploy into Azure may have their own authentication mechanisms for both end-user and administrator access, whereas others take full advantage of Azure AD. Depending on whether you are federating credentials via Active Directory Federation Services (AD FS), using directory synchronization or maintaining user accounts solely in the cloud, using [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (part of Azure AD Premium) helps you manage identity lifecycles between the resources.
 
 ### Connectivity
 
@@ -150,11 +150,11 @@ It is important that the hardened workstation is the host and not the guest, wit
 
 You can further segregate administrative functions through dedicated system images for each hardened workstation that have only the tools and permissions needed for managing select Azure and cloud applications, with specific local AD DS GPOs for the necessary tasks.
 
-For IT environments that have no on-premises infrastructure (for example, no access to a local AD DS instance for GPOs because all servers are in the cloud), a service such as [Windows Intune](https://www.microsoft.com/server-cloud/products/microsoft-intune/) can simplify deploying and maintaining workstation configurations.
+For IT environments that have no on-premises infrastructure (for example, no access to a local AD DS instance for GPOs because all servers are in the cloud), a service such as [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) can simplify deploying and maintaining workstation configurations.
 
 ### Stand-alone hardened workstation for management
 
-With a stand-alone hardened workstation, administrators have a PC or laptop that they use for administrative tasks and another, separate PC or laptop for non-administrative tasks. A workstation dedicated to managing your Azure services does not need other applications installed. Additionally, using workstations that support a [Trusted Platform Module](https://technet.microsoft.com/library/cc766159(v=ws.10)) (TPM) or similar hardware-level cryptography technology aids in device authentication and prevention of certain attacks. TPM can also support fullvolume protection of the system drive by using [BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx).
+With a stand-alone hardened workstation, administrators have a PC or laptop that they use for administrative tasks and another, separate PC or laptop for non-administrative tasks. A workstation dedicated to managing your Azure services does not need other applications installed. Additionally, using workstations that support a [Trusted Platform Module](https://technet.microsoft.com/library/cc766159) (TPM) or similar hardware-level cryptography technology aids in device authentication and prevention of certain attacks. TPM can also support fullvolume protection of the system drive by using [BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx).
 
 In the stand-alone hardened workstation scenario (shown below), the local instance of Windows Firewall (or a non-Microsoft client firewall) is configured to block inbound connections, such as RDP. The administrator can log on to the hardened workstation and start an RDP session that connects to Azure after establishing a VPN connect with an Azure Virtual Network, but cannot log on to a corporate PC and use RDP to connect to the hardened workstation itself.
 
