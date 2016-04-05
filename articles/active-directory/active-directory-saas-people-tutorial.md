@@ -76,9 +76,6 @@ To configure the integration of People into Azure AD, you need to add People fro
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with People based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in People to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in People needs to be established.<br>
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in People.
-
 To configure and test Azure AD single sign-on with People, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
@@ -106,7 +103,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your People application using the following pattern: **“https://\<company name\>.peoplehruat.com/”**. 
 
-    b. If you don't know your tenant URL, contact the People support team via [customerservices@peoplehr.com](mailto:via customerservices@peoplehr.com) to get it.  
+    b. If you don't know your tenant URL, contact the People support team via [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) to get it.  
 
 	c. In the **Identifier** textbox, type the tenant URL. 
 
