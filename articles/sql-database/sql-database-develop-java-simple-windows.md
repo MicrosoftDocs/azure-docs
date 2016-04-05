@@ -51,7 +51,7 @@ Use the connection class to connect to SQL Database.
 	import java.sql.*;
 	import com.microsoft.sqlserver.jdbc.*;
 	
-		public class connectionOpen {
+		public class SQLDatabaseConnection {
 	
 			// Connect to your database.
 			// Replace server name, username, and password with your credentials
@@ -84,12 +84,13 @@ Use the connection class to connect to SQL Database.
 		}
 
 ## Step 5: Execute a query
+In this sample, connect to Azure SQL Database, execute a SELECT statement, and return selected rows. 
 
 	// Use the JDBC driver
 	import java.sql.*;
 	import com.microsoft.sqlserver.jdbc.*;
 	
-		public class connect2 {
+		public class SQLDatabaseConnection {
 	
 			// Connect to your database.
 			// Replace server name, username, and password with your credentials
@@ -145,7 +146,7 @@ In this example, execute an INSERT statement, pass parameters, and retrieve the 
 	import java.sql.*;
 	import com.microsoft.sqlserver.jdbc.*;
 	
-		public class Insert {
+		public class SQLDatabaseConnection {
 	
 			// Connect to your database.
 			// Replace server name, username, and password with your credentials
