@@ -1,6 +1,6 @@
 <properties
    pageTitle="Moving ExpressRoute circuits from Classic to Resource Manager | Microsoft Azure"
-   description="This page describes how to move a classiccircuit to the Resource Manager environment."
+   description="This page describes how to move a classiccircuit to the Resource Manager deployment model."
    documentationCenter="na"
    services="expressroute"
    authors="ganesr"
@@ -16,21 +16,21 @@
    ms.date="04/01/2016"
    ms.author="ganesr"/>
 
-# Moving ExpressRoute circuits from Classic (ASM) to Resource Manager (ARM) Environment
+# Moving ExpressRoute circuits from Classic to Resource Manager deployment model
 
 ## Configuration prerequisites
 
 - You will need the latest version of the Azure PowerShell modules, version 1.0 or later. 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
 -** Review information provided under [moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md) before proceeding further. Ensure that you have fully understood the limits and limitations of what's possible.**
-- If you wish to move an ExpressRoute circuit from classic to Resource Manager environment, you must have the circuit fully configured and operational in the classic environment.
-- Ensure that you have a Resource Group created in the Resource Manager environment. 
+- If you wish to move an ExpressRoute circuit from classic to Resource Manager deployment model, you must have the circuit fully configured and operational in the classic deployment model.
+- Ensure that you have a Resource Group created in the Resource Manager deployment model. 
 
-## Moving the ExpressRoute circuit to ARM environment
+## Moving the ExpressRoute circuit to Resource Manager deployment model
 
-You must move an ExpressRoute circuit to the Resource environment for you to be able to use it across both the classic and Resource Manager environments. You can accomplish the task by running the following PowerShell commands.
+You must move an ExpressRoute circuit to the Resource Manager deployment model for you to be able to use it across both the classic and Resource Manager deployment models. You can accomplish the task by running the following PowerShell commands.
 
-**Step 1. Gather Circuit details from the classic environment**
+**Step 1. Gather Circuit details from the classic deployment model**
 
 You must gather information on your ExpressRoute circuit first. 
 
@@ -49,13 +49,13 @@ Logon to the Azure Classic environment and gather the service key. You can use t
 	# Get the service keys of all your ExpressRoute circuits
 	Get-AzureDedicatedCircuit
 	    
-Copy over the **service key** of the circuit you wish to move over to the Resource Manager environment.
+Copy over the **service key** of the circuit you wish to move over to the Resource Manager deployment model.
 
 **Step 2. Log in to the Resource Manager environment and create a new Resource Group**
 
 You can create a new Resource Group using the following snippet. 
 
-	# Log in to your Azure RM environment
+	# Log in to your Azure Resource Manager deployment model
 	Login-AzureRmAccount
 	
 	# Select the appropriate Azure subscription
@@ -66,9 +66,9 @@ You can create a new Resource Group using the following snippet.
 
 You can also use an Existing Resouece Group if you already have one.
 
-**Step 3. Move the ExpressRoute circuit to Resource Manager environment**
+**Step 3. Move the ExpressRoute circuit to Resource Manager deployment model**
 
-You are now ready to move over your ExpressRoute circuit from classic to Resource Manager environment. Review information provided under [moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md) before proceeding further.
+You are now ready to move over your ExpressRoute circuit from classic to Resource Manager deployment model. Review information provided under [moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md) before proceeding further.
 
 You can accomplish this task by running the following snippet.
 
@@ -76,12 +76,11 @@ You can accomplish this task by running the following snippet.
 
 >[AZURE.NOTE] Once the move is completed the new name listed in the above cmdlet will be used to address the resource going forward. The circuit will essentially be renamed.
 
+## Enabling an ExpressRoute circuit for both deployment models
 
-## Enabling an ExpressRoute circuit for both environments
+You must move your ExpressRoute circuit to the Resource Manager deployment model before controlling access to deployment model.
 
-You must move your ExpressRoute circuit to the Resource Manager environment before controlling access to environment.
-
-Run the following cmdlet to enable access to both environments
+Run the following cmdlet to enable access to both deployment models
 
     # Get details of the ExpressRoute circuit
     $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
@@ -92,7 +91,7 @@ Run the following cmdlet to enable access to both environments
     # Update Circuit
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
     
-Once this operation is completed successfully, you will be able to view the circuit in the classic environment.
+Once this operation is completed successfully, you will be able to view the circuit in the classic deployment model.
 
 Run the following to get details of the ExpressRoute circuit.
 
@@ -100,13 +99,13 @@ Run the following to get details of the ExpressRoute circuit.
 
 You must be able to see the service key listed. You can now manage links to the ExpressRoute circuit. The following articles will walk you through how to manage links to the ExpressRoute circuit
 
-- [Link your virtual network to your ExpressRoute circuit in Resource Manager environment](expressroute-howto-linkvnet-arm.md)
-- [Link your virtual network to your ExpressRoute circuit in Classic environment](expressroute-howto-linkvnet-classic.md)
+- [Link your virtual network to your ExpressRoute circuit in Resource Manager deployment model](expressroute-howto-linkvnet-arm.md)
+- [Link your virtual network to your ExpressRoute circuit in Classic deployment model](expressroute-howto-linkvnet-classic.md)
 
 
-## Disabling the ExpressRoute circuit to ASM environment
+## Disabling the ExpressRoute circuit to Classic deployment model
 
-Run the following cmdlet to disable access to the classic environment
+Run the following cmdlet to disable access to the classic deployment model
 
     # Get details of the ExpressRoute circuit
     $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
@@ -117,7 +116,7 @@ Run the following cmdlet to disable access to the classic environment
     # Update Circuit
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
     
-Once this operation is completed successfully, you will not be able to view the circuit in the classic environment.
+Once this operation is completed successfully, you will not be able to view the circuit in the classic deployment model.
 
 ## Next steps
 
