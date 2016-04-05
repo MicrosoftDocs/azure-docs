@@ -96,7 +96,7 @@ You can restrict access to infrastructure and platform services management in Az
 
 ### Management gateway
 
-To centralize all administrative access and simplify monitoring and logging, you can deploy a dedicated [Remote Desktop Gateway (RD Gateway)](https://technet.microsoft.com/library/dd560672) server in your on-premises network, connected to your Azure environment.
+To centralize all administrative access and simplify monitoring and logging, you can deploy a dedicated [Remote Desktop Gateway](https://technet.microsoft.com/library/dd560672) (RD Gateway) server in your on-premises network, connected to your Azure environment.
 
 A Remote Desktop Gateway is a policy-based RDP proxy service that enforces security requirements. Implementing RD Gateway together with Windows Server Network Access Protection (NAP) helps ensure that only clients that meet specific security health criteria established by Active Directory Domain Services (AD DS) Group Policy objects (GPOs) can connect. In addition:
 
@@ -119,7 +119,7 @@ Some applications or services that you deploy into Azure may have their own auth
 
 ### Connectivity
 
-Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, [site-to-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN)(S2S) and [point-to-site VPN](vpn-gateway/vpn-gateway-point-to-site-create.md)(P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure management portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
+Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, [site-to-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) and [point-to-site VPN](vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure management portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
 
 A stand-alone hardened workstation that does not connect to Azure through a RD Gateway should use the SSTP-based point-to-site VPN to create the initial connection to the Azure Virtual Network, and then establish RDP connection to individual virtual machines from with the VPN tunnel.
 
