@@ -115,7 +115,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 	>[AZURE.NOTE] Note that SUSE Linux Enterprise 11 systems only support read-only access for ext4 file systems.  For these systems it is recommended to format the new file system as ext3 rather than ext4.
 
 
-9. Make a directory to mount the new file system. As an example, type the following command::
+9. Make a directory to mount the new file system. As an example, type the following command:
 
 		# sudo mkdir /datadrive
 

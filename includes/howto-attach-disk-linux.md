@@ -7,7 +7,7 @@ Attaching an empty disk is the simpler way to add a data disk, because Azure cre
 
 1.  Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 
-2.  Enter `azure vm disk attach-new` to create and attach a new disk as shown below. Replace _ubuntuVMasm_ with the name of your Linux Virtual Machine. Then specify the size of the disk in GG, which is 30GB in this example.
+2.  Enter `azure vm disk attach-new` to create and attach a new disk as shown below. Replace _ubuntuVMasm_ with the name of your Linux Virtual Machine. Then specify the size of the disk in GB, which is 30GB in this example.
 
         azure vm disk attach-new ubuntuVMasm 30
 
@@ -45,7 +45,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     	info:    vm disk list command OK
 
 3.  If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using
-    `azure vm disk create` or `azure vm disk upload`. An example of 'disk create' would be:
+    `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be:
 
         $azure vm disk create myTestVhd2 .\TempDisk\test.VHD -l "East US" -o Linux
 		info:    Executing command vm disk create
