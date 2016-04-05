@@ -41,18 +41,18 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Value |
 | ---- | ---- |
-| type | Enum<br />Required<br />Permitted value: **Microsoft.Storage/storageAccounts**<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />Permitted values: **2015-06-15** or **2015-05-01-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />Permitted value: Between 3 and 24 characters, only numbers and lower-case letters.<br /><br />The name of the storage account to create. The name must be unique across all of Azure. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention as shown in the example below. |
-| location | String<br />Required<br />Permitted values: A region that supports storage accounts. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).<br /><br />The region to host the storage account. |
-| properties | Object<br />Required<br />Permitted value: [properties object](#properties)<br /><br />An object that specifies the type of storage account to create. |
+| type | Enum<br />Required<br />**Microsoft.Storage/storageAccounts**<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2015-06-15** or **2015-05-01-preview**<br /><br />The API version to use for creating the resource. | 
+| name | String<br />Required<br />Between 3 and 24 characters, only numbers and lower-case letters.<br /><br />The name of the storage account to create. The name must be unique across all of Azure. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention as shown in the example below. |
+| location | String<br />Required<br />A region that supports storage accounts. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).<br /><br />The region to host the storage account. |
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the type of storage account to create. |
 
 <a id="properties" />
 ### properties object
 
 | Name | Value |
 | ---- | ---- | 
-| accountType | String<br />Required<br />Permitted values: **Standard_LRS**, **Standard_ZRS**, **Standard_GRS**, **Standard_RAGRS**, **Premium_LRS**<br /><br />The type of storage account. The permitted values correspond to Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant, and Premium Locally Redundant. For information about these account types, see [Azure Storage replication](./storage/storage-redundancy.md ). |
+| accountType | String<br />Required<br />**Standard_LRS**, **Standard_ZRS**, **Standard_GRS**, **Standard_RAGRS**, or **Premium_LRS**<br /><br />The type of storage account. The permitted values correspond to Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant, and Premium Locally Redundant. For information about these account types, see [Azure Storage replication](./storage/storage-redundancy.md ). |
 
 	
 ## Examples
