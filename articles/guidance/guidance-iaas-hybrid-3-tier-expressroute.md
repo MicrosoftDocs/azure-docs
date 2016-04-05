@@ -157,7 +157,7 @@ Note the following points:
 
 	The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a public peering and a private peering (each peering is designated a pair of /30 address spaces, as described in the [previous section](#address-space)).
 
-	![IaaS: hybrid-expressroute](./media/arch-iaas-hybrid-expressroute-redundant-routers.png)
+	![IaaS: hybrid-expressroute](./media/blueprints/arch-iaas-hybrid-expressroute-redundant-routers.png)
 
 - If you are using a Telco connectivity provider, verify that it provides redundant BGP sessions that handle availability for you.
 
@@ -282,7 +282,7 @@ If a previously functioning ExpressRoute circuit now fails to connect, in the ab
 - Get link authorization details:
 
 	```
-	Get-AzureDesicatedCircuitLinkAuthorization -ServiceKey <<service-key>>
+	Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey <<service-key>>
 	```
 
 - Retrieve routing information for the ExpressRoute circuit:
