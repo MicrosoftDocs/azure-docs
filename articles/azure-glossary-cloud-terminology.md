@@ -38,7 +38,8 @@ See also [How Azure subscriptions are associated with Azure Active Directory](./
 
 
 ### **availability set**  
-A collection of virtual machines that are managed together to provide application redundancy and reliability. The use of an [availability set](./virtual-machines/virtual-machines-manage-availability.md) ensures that during either a planned or unplanned maintenance event at least one virtual machine is available.
+A collection of virtual machines that are managed together to provide application redundancy and reliability. The use of an availability set ensures that during either a planned or unplanned maintenance event at least one virtual machine is available.  
+See also [Manage the availability of Windows virtual machines](./virtual-machines/virtual-machines-windows-manage-availability.md) or [Manage the availability of Linux virtual machines](./virtual-machines/virtual-machines-linux-manage-availability.md)
 
 
 
@@ -65,7 +66,7 @@ One of two [deployment models](resource-manager-deployment-model.md) used to dep
 
 ### **fault domain**  
 The collection of virtual machines in an availability set that can possibly fail at the same time. An example is a group of machines in a rack that share a common power source and network switch. In Azure, the virtual machines in an availability set are automatically separated across multiple fault domains.  
-See also [Manage the availability of Windows virtual machines](./virtual-machines/virtual-machines-manage-availability.md)  
+See also [Manage the availability of Windows virtual machines](./virtual-machines/virtual-machines-windows-manage-availability.md) or [Manage the availability of Linux virtual machines](./virtual-machines/virtual-machines-linux-manage-availability.md)  
 
 
 
@@ -83,8 +84,7 @@ See also [Active Geo-Replication for Azure SQL Database](./sql-database/sql-data
 
 ### **image**  
 A file that contains the operating system and application configuration that can be used to create any number of virtual machines. In Azure there are two types of images: VM image and OS image. A VM image includes an operating system and all disks attached to a virtual machine when the image is created. An OS image contains only a generalized operating system with no data disk configurations.  
-See also [About images for virtual machines](./virtual-machines/virtual-machines-images.md)
-
+See also [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md)
 
 
 ### **limits**  
@@ -171,7 +171,7 @@ See also [Using tags to organize your Azure resources](resource-group-using-tags
 
 ### **update domain**  
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  
-See also [Manage the availability of Windows virtual machines](./virtual-machines/virtual-machines-manage-availability.md)
+See also [Manage the availability of Windows virtual machines](./virtual-machines/virtual-machines-windows-manage-availability.md) or [Manage the availability of Linux virtual machines](./virtual-machines/virtual-machines-linux-manage-availability.md)  
 
 
 
@@ -183,7 +183,7 @@ See also [Virtual Machines documentation](https://azure.microsoft.com/documentat
 
 ### **virtual machine extension**  
 A resource that implements behaviors or features that either help other programs work or provide the ability for you to interact with a running computer. For example, you could use the VM Access extension to reset or modify remote access values on an Azure virtual machine.  
-See also [About virtual machine extensions and features](./virtual-machines/virtual-machines-extensions-features.md)
+See also [About virtual machine extensions and features (Windows)](./virtual-machines/virtual-machines-windows-extensions-features.md) or [About virtual machine extensions and features (Linux)](./virtual-machines/virtual-machines-linux-extensions-features.md)
 
 
 
