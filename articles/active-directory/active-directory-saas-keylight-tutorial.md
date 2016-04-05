@@ -78,9 +78,6 @@ To configure the integration of Keylight into Azure AD, you need to add Keylight
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Keylight based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Keylight is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Keylight needs to be established.<br>
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Keylight.
-
 To configure and test Azure AD single sign-on with Keylight, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
@@ -132,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    <br><br>![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_54.png) <br>
 
     a. Set **SAML authentication** to **Active**.
-       <br><br>![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_53.png) <br>
+
 
     b. In Azure AD classic portal, copy the **SAML SSO URL** value, and then paste it into the **Identity Provider Login URL** textbox.
 
