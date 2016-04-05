@@ -44,19 +44,19 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Value |
 | ---- | ---- |
-| type | Enum<br />Required<br />Permitted value: **{namespace}/{type}/providers/links**<br /><br />The resource type to create. The {namespace} and {type} values refer to the provider namespace and resource type of the source resource. |
-| apiVersion | Enum<br />Required<br />Permitted value: **2015-01-01**<br /><br />The API version to use for creating the resource. |  
-| name | String<br />Required<br />Permitted value: **{resouce}/Microsoft.Resources/{linkname}** - up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the name of source resource and a name for the link. |
-| dependsOn | Array<br />Optional<br />Permitted value: A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the resources you are linking are deployed in the same template, include those resource names in this element to ensure they are deployed first. | 
-| properties | Object<br />Required<br />Permitted value: [properties object](#properties)<br /><br />An object that identifies the resource to link to, and notes about the link. |  
+| type | Enum<br />Required<br />**{namespace}/{type}/providers/links**<br /><br />The resource type to create. The {namespace} and {type} values refer to the provider namespace and resource type of the source resource. |
+| apiVersion | Enum<br />Required<br />**2015-01-01**<br /><br />The API version to use for creating the resource. |  
+| name | String<br />Required<br />**{resouce}/Microsoft.Resources/{linkname}**<br /> up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the name of source resource and a name for the link. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the resources you are linking are deployed in the same template, include those resource names in this element to ensure they are deployed first. | 
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that identifies the resource to link to, and notes about the link. |  
 
 <a id="properties" />
 ### properties object
 
 | Name | Value |
 | ------- | ---- |
-| targetId | String<br />Required<br />Permitted value: **{resource id}**<br /><br />The identifier of the target resource to link to. |
-| notes | String<br />Optional<br />Permitted value: up to 512 characters<br /><br />Description of the lock. |
+| targetId | String<br />Required<br />**{resource id}**<br /><br />The identifier of the target resource to link to. |
+| notes | String<br />Optional<br />up to 512 characters<br /><br />Description of the lock. |
 
 
 ## How to use the link resource
