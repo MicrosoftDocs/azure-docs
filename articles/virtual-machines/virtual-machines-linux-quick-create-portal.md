@@ -26,15 +26,15 @@ This article shows how to use the [Azure Portal](https://portal.azure.com/) to c
 
 1. Signed into the Azure Portal with your Azure account identity, click **+ New** in the upper left corner:
 
-    ![screen1](virtual-machines-linux-quick-create-portal/screen1.png)
+    ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
 2. Click **Virtual Machines** in the **Marketplace** categories:
 
-    ![screen2](virtual-machines-linux-quick-create-portal/screen2.png)
+    ![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
 3. Click **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list, and you should see the following screen:
 
-    ![screen3](virtual-machines-linux-quick-create-portal/screen3.png)
+    ![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
 4. Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
 
@@ -47,35 +47,35 @@ This article shows how to use the [Azure Portal](https://portal.azure.com/) to c
 
     and Click **OK** to continue and choose the VM size; it should look something like the following:
 
-    ![screen4](virtual-machines-linux-quick-create-portal/screen4.png)
+    ![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
 7. Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
 
-    ![screen5](virtual-machines-linux-quick-create-portal/screen5.png)
+    ![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
 9. In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.
 
-    ![screen6](virtual-machines-linux-quick-create-portal/screen6.png)
+    ![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
 
 11. Confirm the settings for your new Ubuntu VM, and click **OK**.
 
-    ![screen7](virtual-machines-linux-quick-create-portal/screen7.png)
+    ![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
 
 13. Open the Portal Dashboard
 
-    ![screen8](virtual-machines-linux-quick-create-portal/screen8.png)
+    ![screen8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
 
 14. Add exampleVMname tiles to the Azure Dashboard
 
-    ![screen9](virtual-machines-linux-quick-create-portal/screen9.png)
+    ![screen9](../media/virtual-machines-linux-quick-create-portal/screen9.png)
 
 15. Click the Network interfaces menu item to load the exampleVMname NIC
 
-    ![screen10](virtual-machines-linux-quick-create-portal/screen10.png)
+    ![screen10](../media/virtual-machines-linux-quick-create-portal/screen10.png)
 
 16. Open the IP addresses menu under the NIC settings
 
-    ![screen11](virtual-machines-linux-quick-create-portal/screen11.png)
+    ![screen11](../media/virtual-machines-linux-quick-create-portal/screen11.png)
 
 17. SSH into the public IP using your SSH public key
 
@@ -85,4 +85,4 @@ user@slackware$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.100.2
 
 ## Next Steps
 
-If you want, go ahead and [add a disk](virtual-machines-linux-add-disk.md).
+If you want, go ahead and [add a disk](../media/virtual-machines-linux-add-disk.md).
