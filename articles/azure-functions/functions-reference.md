@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/01/2016"
+	ms.date="04/04/2016"
 	ms.author="chrande"/>
 
 # Azure Functions developer reference
@@ -103,7 +103,7 @@ When setting up a project for deploying functions to a function app in Azure App
 
 ### Parallel execution
 
-When multiple triggering events occur faster than a single function instance can process them, The Azure Functions runtime may call multiple instances of the function. If a function app is using the [Dynamic Hosting Plan](functions-scale.md#dynamic-service-plan), the concurrent execution limit is 4.
+When multiple triggering events occur faster than a function can process them, The Azure Functions runtime may invoke the function multiple times in parallel. If a function app is using the [Dynamic Service Plan](functions-scale.md#dynamic-service-plan), the maximum number of concurrent instances of the function app is 10, and each instance may invoke the function multiple times in parallel. The maximum number of concurrent function invocations in each function app instance varies based on the memory size of the function app.
 
 ### Azure Functions Pulse  
 
@@ -994,8 +994,8 @@ The function.json file provides the following properties for use with DocumentDB
 - `type` : must be set to *"documentdb"*.
 - `databaseName` : The database containing the collection where the new document will be created.
 - `collectionName` : The collection where the new document will be created.
-- `createIfNotExists` : Boolean value to indicate whether the collection will be created if it does not exist.
-- `connection` : This string must be an **Application Setting** set to the endpoint for your DocumentDB account. If you choose your account from the **Integrate** tab, a new App setting will be created for you with a name that takes the following form, `yourAccount_DOCUMENTDB`. This name must match the binding. If you need to manually create the App setting, the actual connection string must take the following form, `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
+- `createIfNotExists` : This is a boolean value to indicate whether the collection will be created if it does not exist. The default is *false*. The reason for this is new collections are created with reserved throughput, which has pricing implications. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+- `connection` : This string must be an **Application Setting** set to the endpoint for your DocumentDB account. If you choose your account from the **Integrate** tab, a new App setting will be created for you with a name that takes the following form, `yourAccount_DOCUMENTDB`. If you need to manually create the App setting, the actual connection string must take the following form, `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
 - `direction` : must be set to *"out"*. 
  
 Example function.json:
