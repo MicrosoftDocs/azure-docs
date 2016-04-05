@@ -73,8 +73,7 @@ Use the connection class to connect to SQL Database.
 					connection = DriverManager.getConnection(connectionString);
 	
 				}
-				catch (Exception e) 
-				{
+				catch (Exception e) {
 					e.printStackTrace();
 				}
 				finally {
@@ -124,10 +123,8 @@ In this sample, connect to Azure SQL Database, execute a SELECT statement, and r
 						System.out.println(resultSet.getString(2) + " "
 							+ resultSet.getString(3));
 					}
-	
 				}
-				catch (Exception e) 
-				{
+				catch (Exception e) {
 					e.printStackTrace();
 				}
 				finally {
@@ -185,7 +182,7 @@ In this example, execute an INSERT statement, pass parameters, and retrieve the 
 					// Print the ID of the inserted row.
 					while (resultSet.next()) {
 						System.out.println("Generated: " + resultSet.getString(1));
-						}
+					}
 				}
 				catch (Exception e) {
 					e.printStackTrace();
