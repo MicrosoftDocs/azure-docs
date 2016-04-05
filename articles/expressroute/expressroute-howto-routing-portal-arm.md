@@ -61,14 +61,6 @@ This section provides instructions on how to create, get, update, and delete the
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
 	- MD5 hash if you choose to use one. **This is optional**.
 
-2. Configure Azure public peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
-
-	- A /30 subnet for the primary link. 
-	- A /30 subnet for the secondary link. 
-	- All IP addresses used to setup this peering must be valid public IPv4 addresses.
-	- A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
-	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. 
-	- MD5 hash if you choose to use one. **This is optional**.
 
 3. You can select the peering you wish to configure as shown below. Select the Azure Private peering row.
 	
