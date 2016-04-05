@@ -44,19 +44,19 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Value |
 | ---- | ---- | 
-| type | Enum<br />Required<br />Permitted value: **{namespace}/{type}/providers/locks** (for resources) or **Microsoft.Authorization/locks** (for resource groups)<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />Permitted value: **2015-01-01**<br /><br />The API version to use for creating the resource. |  
-| name | String<br />Required<br />Permitted value: **{resouce}/Microsoft.Authorization/{lockname}** (for resources) or **{lockname}** (for resource groups) - up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the resource to lock and a name for the lock. |
-| dependsOn | Array<br />Optional<br />Permitted value: A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
-| properties | Object<br />Required<br /> [properties object](#properties)<br /><br />An object that identifies the type of lock, and notes about the lock. |  
+| type | Enum<br />Required<br />**{namespace}/{type}/providers/locks** (for resources) or<br />**Microsoft.Authorization/locks** (for resource groups)<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2015-01-01**<br /><br />The API version to use for creating the resource. |  
+| name | String<br />Required<br />**{resouce}/Microsoft.Authorization/{lockname}** (for resources) or<br />**{lockname}** (for resource groups)<br />up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the resource to lock and a name for the lock. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that identifies the type of lock, and notes about the lock. |  
 
 <a id="properties" />
 ### properties object
 
 | Name | Value |
 | ------- | ---- |
-| level   | Enum<br />Required<br />Permitted value: **CannotDelete**<br /><br />The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion. |
-| notes   | String<br />Optional<br />Permitted value: up to 512 characters<br /><br />Description of the lock. |
+| level   | Enum<br />Required<br />**CannotDelete**<br /><br />The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion. |
+| notes   | String<br />Optional<br />up to 512 characters<br /><br />Description of the lock. |
 
 
 ## How to use the lock resource
