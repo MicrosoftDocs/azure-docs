@@ -52,6 +52,7 @@ This section provides instructions on how to create, get, update, and delete the
 
 	![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)
 
+
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
 	- A /30 subnet for the primary link. This must not be part of any address space reserved for virtual networks.
