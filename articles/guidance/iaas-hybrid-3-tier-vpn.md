@@ -3,7 +3,7 @@
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using a VPN."
    services=""
    documentationCenter="na"
-   authors="atoakley,hanzzhang,JohnPWSharp,manikrish,RohitSharma-pnp"
+   authors="RohitSharma-pnp,atoakley,hanzzhang,JohnPWSharp,manikrish"
    manager=""
    editor=""
    tags=""/>
