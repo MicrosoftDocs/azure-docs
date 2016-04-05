@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="04/05/2016"
    ms.author="ganesr"/>
 
 # Create and modify routing for an ExpressRoute circuit using Azure Resource Manager and PowerShell
@@ -47,6 +47,7 @@ You can configure one, two, or all three peerings (Azure private, Azure public a
 This section provides instructions on how to create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit. 
 
 ### To create Azure private peering
+
  1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further.
 
 	![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)

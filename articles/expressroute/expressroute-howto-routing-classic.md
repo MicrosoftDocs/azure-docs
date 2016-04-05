@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="04/05/2016"
    ms.author="cherylmc"/>
 
 # Create and modify routing for an ExpressRoute circuit using PowerShell
@@ -95,7 +95,7 @@ This section provides instructions on how to create, get, update, and delete the
 
 	>[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN, not customer ASN.
 
-### To get Azure private peering details
+### To view Azure private peering details
 
 You can get configuration details using the following cmdlet
 
@@ -189,7 +189,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 	>[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN and not customer ASN.
 
-### To get Azure public peering details
+### To view Azure public peering details
 
 You can get configuration details using the following cmdlet
 
@@ -279,7 +279,7 @@ This section provides instructions on how to create, get, update and delete the 
 		New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 
-### To get Microsoft peering details
+### To view Microsoft peering details
 
 You can get configuration details using the following cmdlet.
 
