@@ -58,51 +58,51 @@ To create a key vault, add the following schema to the resources section of your
 
 The following tables describe the values you need to set in the schema.
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | **Microsoft.KeyVault/vaults** | The resource type to create. |
-| apiVersion | enum | Yes | **2015-06-01** <br /> **2014-12-19-preview** | The API version to use for creating the resource. | 
-| name | string | Yes |   | The name of the key vault to create. The name must be unique across all of Azure. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention as shown in the example below. |
-| location | string | Yes | To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).  | The region to host the key vault. |
-| properties | object | Yes | ([shown below](#properties)) | An object that specifies the type of key vault to create. |
-| resources | array | No | [Key vault secrets](resource-manager-template-keyvault-secret.md)  | Child resources for the key vault. |
+| Name | Value |
+| ---- | ---- | 
+| type | enum<br />required<br />permitted value: **Microsoft.KeyVault/vaults**<br /><br />The resource type to create. |
+| apiVersion | enum<br />required<br />permitted values: **2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
+| name | string<br />required<br /><br />The name of the key vault to create. The name must be unique across all of Azure. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention as shown in the example below. |
+| location | string<br />required<br /><br />The region to host the key vault. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions). |
+| properties | object<br />required<br />permitted value: [properties object](#properties)<br /><br />An object that specifies the type of key vault to create. |
+| resources | array<br />optional<br />permitted values: [Key vault secret resources](resource-manager-template-keyvault-secret.md)<br /><br />Child resources for the key vault. |
 
 <a id="properties" />
 ### properties object
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| enabledForDeployment | boolean | No | **true** or **false** | Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
-| enabledForTemplateDeployment | boolean | No | **true** or **false** | Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption | boolean | No | **true** or **false** | Specifies if the vault is enabled for volume encryption. |
-| tenantId | string | Yes | Globally-unique identifier | The tenant identifier for the subscription. You can retrieve it with the **Get-AzureRMSubscription** PowerShell cmdlet. |
-| accessPolicies | array | Yes | ([shown below](#accesspolicies)) | An array of up to 16 objects that specify the permissions for the user or service principal. |
-| sku | object | Yes | ([shown below](#sku)) | The SKU for the key vault. |
+| Name | Value |
+| ---- | ---- | 
+| enabledForDeployment | boolean<br />Optional<br />Permitted value: **true** or **false**<br /><br />Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
+| enabledForTemplateDeployment | boolean<br />Optional<br />Permitted value: **true** or **false**<br /><br />Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
+| enabledForVolumeEncryption | boolean<br />Optional<br />Permitted value:**true** or **false**<br /><br />Specifies if the vault is enabled for volume encryption. |
+| tenantId | string<br />Required<br />Permitted value: Globally-unique identifier<br /><br />The tenant identifier for the subscription. You can retrieve it with the **Get-AzureRMSubscription** PowerShell cmdlet. |
+| accessPolicies | array<br />Required<br />Permitted value: [accessPolicies object](#accesspolicies)<br /><br />An array of up to 16 objects that specify the permissions for the user or service principal. |
+| sku | object<br />Required<br />Permitted value: [sku object](#sku)<br /><br />The SKU for the key vault. |
 
 <a id="accesspolicies" />
 ### properties.accessPolicies object
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| tenantId | string | Yes | Globally-unique identifier | The tenant identifier of the Azure Active Directory tenant containing the **objectId** in this access policy |
-| objectId | string | Yes | Globally-unique identifier | The object identifier of the AAD user or service principal that will have access to the vault. You can retrieve the value from either the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. |
-| permissions | object | Yes | ([shown below](#permissions)) | The permissions granted on this vault to the Active Directory object. |
+| Name | Value |
+| ---- | ---- | 
+| tenantId | string<br />Required<br />Permitted value: Globally-unique identifier<br /><br />The tenant identifier of the Azure Active Directory tenant containing the **objectId** in this access policy |
+| objectId | string<br />Required<br />Permitted value: Globally-unique identifier<br /><br />The object identifier of the Azure Active Directory user or service principal that will have access to the vault. You can retrieve the value from either the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. |
+| permissions | object<br />Required<br />Permitted value: [permissions object](#permissions)<br /><br />The permissions granted on this vault to the Active Directory object. |
 
 <a id="permissions" />
 ### properties.accessPolicies.permissions object
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| keys | array | Yes | A comma-separated list of the following values:<br />**all**<br />**backup**<br />**create**<br />**decrypt**<br />**delete**<br />**encrypt**<br />**get**<br />**import**<br />**list**<br />**restore**<br />**sign**<br />**unwrapkey**<br/>**update**<br />**verify**<br />**wrapkey** | The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
-| secrets | array | Yes | A comma-separated list of the following values:<br />**all**<br />**delete**<br />**get**<br />**list**<br />**set** | The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
+| Name | Value |
+| ---- | ---- | 
+| keys | array<br />Required<br />Permitted values: **all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
+| secrets | array<br />Required<br />Permitted values:**all**, **delete**, **get**, **list**, **set**<br /><br />The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
 
 <a id="sku" />
 ### properties.sku object
 
 | Name | Value |
 | ---- | ---- | 
-| name | The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys.<br />Permitted values: **standard**, **premium** <br />enum <br />Required |
-| family | The sku family to use.<br />Permitted values: **A** <br />enum <br />Required |
+| name | enum<br />Required<br />Permitted values: **standard**, **premium** <br /><br />The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
+| family | enum<br />Required<br />Permitted value: **A** <br /><br />The sku family to use. |
  
 	
 ## Examples
