@@ -177,7 +177,7 @@ You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit an
 
 **VIM** and **Emacs** are text based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at: [ESS](http://ess.r-project.org/). 
 
-**Eclipse** is an open source, extensible IDE that supports multiple languages. The Java developers edition is the instance installed on the VM. There are plugins available for several popular languages which can be installed to extend the Eclipse environment. We also have a plugin installed in Eclipse called **Azure Toolkit for Eclipse** which allows you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment that supports languages like Java. There is also an **Azure SDK for Java** that allows access to different Azure services from within a Java environment. More information on Azure toolkit for Eclipse can be found at [Azure Toolkit for Eclipse](https://azure.microsoft.com/documentation/articles/azure-toolkit-for-eclipse/).
+**Eclipse** is an open source, extensible IDE that supports multiple languages. The Java developers edition is the instance installed on the VM. There are plugins available for several popular languages which can be installed to extend the Eclipse environment. We also have a plugin installed in Eclipse called **Azure Toolkit for Eclipse** which allows you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment that supports languages like Java. There is also an **Azure SDK for Java** that allows access to different Azure services from within a Java environment. More information on Azure toolkit for Eclipse can be found at [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse/).
 
 **LaTex** is installed through the texlive package along with an Emacs add-on package "[auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html)" which simplifies authoring your LaTex documents within Emacs.  
 
@@ -203,11 +203,11 @@ The ODBC driver package for Microsoft SQL Server also comes with two command lin
 
 **bcp** - The bcp utility bulk copies data between an instance of Microsoft SQL Server and a data file in a user-specified format. The bcp utility can be used to import large numbers of new rows into SQL Server tables or to export data out of tables into data files. To import data into a table, you must either use a format file created for that table or understand the structure of the table and the types of data that are valid for its columns. 
 
-More information can be found at [Connecting with bcp](https://msdn.microsoft.com/en-us/library/hh568446.aspx).
+More information can be found at [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
 **sqlcmd** - The sqlcmd utility lets you enter Transact-SQL statements, system procedures, and script files at the command prompt. This utility uses ODBC to execute Transact-SQL batches.
 
-More information can be found at [Connecting with sqlcmd](https://msdn.microsoft.com/en-us/library/hh568447.aspx)
+More information can be found at [Connecting with sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx)
 
 >[AZURE.NOTE] There are some differences in this utility between Linux and Windows platform. Please see the documentation page above for details. 
 
@@ -228,7 +228,7 @@ To access **Postgres**:
 ### Azure tools 
 The following Azure tools are installed on the VM:
 
-- **Azure Command Line Interface**: Azure Command Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools just type ***azure help***. For more information, please refer to the [Azure CLI documentation page](https://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/).
+- **Azure Command Line Interface**: Azure Command Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools just type ***azure help***. For more information, please refer to the [Azure CLI documentation page](../virtual-machines-command-line-tools/).
 - **Microsoft Azure Storage Explorer**: The Microsoft Azure Storage Explorer is a graphical tool used to browse through the objects that you have stored in your Azure Storage Account, and to upload/download data to and from Azure blobs. You can access the Storage Explorer from desktop shortcut icon. You can invoke it from a shell prompt by typing ***StorageExplorer***. You need to be logged in from an X2go client or have X11 forwarding setup. 
 - **Azure Libraries**: The following are the some of the libraries  that have been installed and so are available for you:
 
@@ -251,7 +251,7 @@ You can also build your models in R or Python on the VM and then deploy it in pr
 - The library in R is called ***AzureML***. 
 - In Python it is called ***azureml***. 
 
-For information on how to deploy models in R and Python into Azure ML please refer to the this [Build models using R or Python and Operationalize them using Azure Machine Learning](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-vm-do-ten-things/#3-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning) 
+For information on how to deploy models in R and Python into Azure ML please refer to the this [Build models using R or Python and Operationalize them using Azure Machine Learning](machine-learning-data-science-vm-do-ten-things/#3-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning) 
 >[AZURE.NOTE] These instructions were written for the Windows version of the Data Science VM, but the information provided there on deploying models to Azure ML is applicable to the Linux VM too.
 
 ### Machine Learning Tools
