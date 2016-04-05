@@ -22,7 +22,7 @@ Security is one of the most important aspects of communication. The Reliable Ser
 
 ## Help secure a service when you're using service remoting
 
-You can set up secure remoting for a service by using the following steps:
+You can set up more secure remoting for a service by using the following steps:
 
 1. Let's use an [example](service-fabric-reliable-services-communication-remoting.md) that talks about how to set up reliable service remoting. We start with an interface `IHelloWorldStateful` that defines the methods that will be available for a remote procedure call on your service. Your service will use a `FabricTransportServiceRemotingListener`, which is declared in the `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namespace. This is an `ICommunicationListener` implementation that provides remoting capabilities.
 
