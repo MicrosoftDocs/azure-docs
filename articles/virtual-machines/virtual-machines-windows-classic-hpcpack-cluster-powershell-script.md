@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="big-compute"
-   ms.date="01/08/2016"
+   ms.date="04/05/2016"
    ms.author="danlep"/>
 
 # Create a Windows high performance computing (HPC) cluster with the HPC Pack IaaS deployment script
