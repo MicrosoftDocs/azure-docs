@@ -52,7 +52,7 @@ Use “sa” for username and the password you used when deploying the resource 
 This should get your SQL Server Resource Provider up and running in
 about 45 minutes (depending on your hardware). If you wish to know more
 about each step, go to the [detailed SQL Server RP deployment
-instructions](#_Instructions_for_deploying)
+instructions](azure-stack-sql-rp-deploy-long.md)
 
 <span id="before-you-deploy" class="anchor"><span
 id="_Prerequisites_-_Before" class="anchor"><span
