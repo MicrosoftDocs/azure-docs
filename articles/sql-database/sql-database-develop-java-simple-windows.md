@@ -66,7 +66,6 @@ Use the connection class to connect to SQL Database.
 					+ "hostNameInCertificate=*.database.windows.net;"
 					+ "loginTimeout=30;";
 			
-	
 				// Declare the JDBC objects.
 				Connection connection = null;
 							
@@ -105,7 +104,6 @@ Use the connection class to connect to SQL Database.
 					+ "hostNameInCertificate=*.database.windows.net;"
 					+ "loginTimeout=30;";
 			
-	
 				// Declare the JDBC objects.
 				Connection connection = null;
 				Statement statement = null; 
@@ -162,7 +160,6 @@ In this example, execute an INSERT statement, pass parameters, and retrieve the 
 					+ "hostNameInCertificate=*.database.windows.net;"
 					+ "loginTimeout=30;";
 			
-	
 				// Declare the JDBC objects.
 				Connection connection = null;
 				Statement statement = null; 
