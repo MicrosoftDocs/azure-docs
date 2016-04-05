@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Key vault template schema
@@ -99,10 +99,10 @@ The following tables describe the values you need to set in the schema.
 <a id="sku" />
 ### properties.sku object
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| name | enum | Yes | **standard**<br />**premium** | The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
-| family | enum | Yes | **A** | The sku family to use. 
+| Name | Value |
+| ---- | ---- | 
+| name | Type: enum <br />Required: Yes <br />Permitted values: **standard**, **premium** <br /> Description: The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
+| family | Type: enum <br />Required: Yes <br />Permitted values: **A** <br />Description: The sku family to use. |
  
 	
 ## Examples
