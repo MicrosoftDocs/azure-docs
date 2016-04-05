@@ -17,6 +17,7 @@
 	ms.date="02/05/2016"
 	ms.author="dkshir"/>
 
+
 # Upload a Windows VM image to Azure for Azure Resource Manager deployments
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-createupload-vhd.md).
