@@ -12,7 +12,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="04/04/2016"
+   ms.date="04/06/2016"
    ms.author="magoedte"/>
 
 # Authenticate Runbooks with Amazon Web Services 
@@ -33,7 +33,7 @@ After you have created and copied your AWS security keys, you will need to creat
 
 ## Next Steps
 
-- [Automating deployment of a VM in Amazon Web Services](../automation/automation-scenario-aws-deployvm.md)
+- [Automating deployment of a VM in Amazon Web Services](../automation/automation-scenario-aws-deployment.md)
 
 
 
