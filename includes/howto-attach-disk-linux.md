@@ -1,11 +1,11 @@
 
-For more details about disks, see [About Disks and VHDs for Virtual Machines](virtual-machines-linux-about-disks-vhds.md).
+For more details about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## How to: Attach an empty disk
 Attaching an empty disk is the simpler way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.
 
-1.  Open Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
+1.  Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 
 2.  Enter `azure vm disk attach-new` to create and attach a new disk as shown below. Replace _ubuntuVMasm_ with the name of your Linux Virtual Machine. Then specify the size of the disk in GG, which is 30GB in this example.
 
@@ -30,7 +30,7 @@ Attaching an empty disk is the simpler way to add a data disk, because Azure cre
 
 Attaching an existing disk requires that you have a .vhd available in a storage account.
 
-1. 	Open Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
+1. 	Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 
 2.	Check if the VHD you want to attach is already uploaded to your Azure subscription:
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/04/16"
+   ms.date="04/04/2016"
    ms.author="iainfou;memccror"/>
 
 # How to tag a Windows virtual machine in Azure
