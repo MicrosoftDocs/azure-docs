@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with SECURE DELIVER | Microsoft Azure"
+	pageTitle="Tutorial: Azure Active Directory integration with Novatus | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and SECURE DELIVER."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="03/17/2016"
 	ms.author="jeedes"/>
 
 
