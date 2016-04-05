@@ -489,11 +489,11 @@ Before proceeding, make sure you have installed and configured the Azure CLI. Fo
 
         azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
 
-    If you ommit parameters for this command, you will be prompted for them. If the script you specify with `-u` accepts parameters, you can specify them using the `-p` parameter.
+    If you omit parameters for this command, you will be prompted for them. If the script you specify with `-u` accepts parameters, you can specify them using the `-p` parameter.
 
     Valid __nodetypes__ are __headnode__, __workernode__, and __zookeeper__. If the script should be applied to multiple node types, specify the types separated by a ';'. For example, `-n headnode;workernode`.
 
-    To persist the script, add the `----persistOnSuccess`. You can also persist the script at a later date by using `azure hdinsight script-action persisted set`.
+    To persist the script, add the `--persistOnSuccess`. You can also persist the script at a later date by using `azure hdinsight script-action persisted set`.
     
     Once the job completes, you will receive output similar to the following.
     
