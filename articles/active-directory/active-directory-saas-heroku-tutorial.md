@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with Heroku, you need the following items:
 
-- An Azure AD subscription
+- An Azure subscription
 - A Heroku single-sign on enabled subscription
 
 
@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 2. On the **How would you like users to sign on to Heroku** page, select **Azure AD Single Sign-On**, and then click **Next**.
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_03.png) <br>
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+3. On the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_04.png) <br>
 
 
