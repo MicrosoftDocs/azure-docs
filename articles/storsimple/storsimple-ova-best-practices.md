@@ -21,11 +21,13 @@
 
 Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. The 1200 series virtual array is an efficient, cost-effective alternative to the 8000 series physical array. Unlike the 8000 series physical array that comes with an enterprise-grade custom hardware, the 1200 series virtual array can run on your existing hypervisor infrastructure. The 1200 series virtual array supports both the iSCSI and the SMB protocols, whereas the 8000 series physical array is a block storage device. Both the solutions provide tiering to the cloud, cloud backups, fast restore, and disaster recovery features. The virtual array is particularly well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/server-cloud/products/storsimple/overview.aspx).
 
-This article covers the best practices implemented during the initial setup, deployment and management of the StorSimple Virtual Array. These best practices provide validated guidelines to ensure the most optimal setup and management of your virtual array. This article is targeted towards the IT administrators responsible for deploying and managing these virtual arrays in their datacenters.
+This article covers the best practices implemented during the initial setup, deployment and management of the StorSimple Virtual Array. These best practices provide validated guidelines to ensure the most optimal setup and management of your virtual array. These best practices are classified as configurational and operational. The configurational best practices cover the guidelines that need to be followed during the initial setup and deployment whereas the operational relate to those followed during the day-to-day management or operation of the virtual array. This article is targeted towards the IT administrators responsible for deploying and managing these virtual arrays in their datacenters.
 
 We recommend a periodic review of the best practices to ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support) for assistance.
 
 ## Configuration best practices
+
+The configurational best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These cover best practices pertaining to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
 
 ### Provisioning 
 
@@ -44,26 +46,12 @@ For a list of virtualized environments supported on your StorSimple virtual arra
 When provisioning your virtual machine in the hypervisor, we recommend that you follow the best practices as tabulated below:
 
 
-|                        | Hyper-V                                                                                                                                                     | VMware                                                                                                               |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **Virtual machine type**   | Generation 1 virtual machine   when using VHD.                                                                                                              | Use virtual machine version 8 when using VMDK.                                                                       |
-|                        | Generation 2 virtual when using   a VHDX.                                                                                                                   |                                                                                                                      |
-|                        |                                                                                                                                                             |                                                                                                                      |
-| **Memory type**            | Configure as static memory.                                                                                                                                 |                                                                                                                      |
-|                        | Do not use the dynamic memory   option.                                                                                                                     |                                                                                                                      |
-|                        |                                                                                                                                                             |                                                                                                                      |
-| **Data disk type**         | Provision as dynamically   expanding.                                                                                                                       | Use the thin provision option.                                                                                       |
-|                        | Fixed size will take a long time.                                                                                                                           |                                                                                                                      |
-|                        | Do not use the  differencing option.                                                                                                                        |                                                                                                                      |
-|                        |                                                                                                                                                             |                                                                                                                      |
-| **Data disk modification** | Expansion or shrinking is not   allowed. Attempt to do so will result in the loss of all the local data on   device.                                        | Expansion or shrinking is not   allowed. Attempt to do so will result in the loss of all the local data on   device. |
-|                        |                                                                                                                                                             |                                                                                                                      |
-| **Monitoring**             | Configure monitoring to track   the disk usage of your virtual array data disk as well as the guest OS disk.                                                | Same as that of Hyper-V                                                                                              |
-|                        | Use a combination of System   Center Virtual Machine Manager (SCVMM) and System Center Operations Manager   (SCOM) to monitor your virtualization hosts .   | Same as that of Hyper-V                                                                                              |
-|                        |                                                                                                                                                             |                                                                                                                      |
-| **Alert notifications**       | Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                      | Same as that of Hyper-V                                                                                              |
-
-
+|                        | Hyper-V                                                                                                                                        | VMware                                                                                                               |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| **Virtual machine type**   | Generation 1 virtual machine   when using VHD. <br></br> Generation 2 virtual machine when using   a VHDX.                                                                                                              | Use virtual machine version 8 when using VMDK.                                                                      |
+| **Memory type**            | Configure as static memory. <br></br> Do not use the dynamic memory option.            |                                                    |
+| **Data disk type**         | Provision as dynamically expanding.<br></br> Fixed size will take a long time. <br></br> Do not use the  differencing option.                                                                                                                   | Use the thin provision option.                                                                                      |
+| **Data disk modification** | Expansion or shrinking is not   allowed. Attempt to do so will result in the loss of all the local data on   device.                       | Expansion or shrinking is not allowed. Attempt to do so will result in the loss of all the local data on   device. |
 
 ### Sizing
 
@@ -168,8 +156,6 @@ After you create StorSimple volumes on your iSCSI server, you will need to initi
 
 -   When formatting a StorSimple volume, use an allocation unit size of 64 KB (default is 4 KB). The 64 KB AUS is based on testing done in-house for common StorSimple workloads as well as other workloads.
 
--   Windows Server 2012 uses GUID Partition Table (GPT) disks by default. For more information on best practices and usage of these drives, go to [using GPT Drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD).
-
 -   When using the StorSimple Virtual Array configured as an iSCSI server, do not use spanned volumes or dynamic disks as these are not supported by StorSimple.
 
 #### Share access
@@ -190,7 +176,7 @@ Use the following best practices when configuring ACRs for StorSimple volumes:
 
 -   When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, then a warning message will pop-up for you to review your configuration.
 
-## Data security and encryption
+### Data security and encryption
 
 -   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
 
@@ -205,6 +191,8 @@ Use the following best practices when configuring ACRs for StorSimple volumes:
 -   Service data encryption key
 
 ## Operational best practices
+
+The operational best practices are guidelines that need to be followed during the day-to-day management or operation of the virtual array. These will cover specific management tasks such as taking backups, restoring from a backup set, performing a failover, deactivating and deleting the array, monitoring system usage and health, and running virus scans on your virtual array.
 
 ### Backups
 
@@ -264,6 +252,11 @@ Keep the following best practices in mind when deactivating your virtual array:
 
 -   Delete a deactivated device if you are no longer using it else it will accrue charges.
 
+### Monitoring
+
+- Configure monitoring to track the disk usage of your virtual array data disk as well as the guest OS disk. You can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.   
+
+- Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                                                                                                                
 
 ### Index search and virus scan applications
 
