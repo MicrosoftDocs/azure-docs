@@ -24,9 +24,8 @@
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 [Portal - Resource Manager](expressroute-howto-routing-portal-arm.md)
 
-This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using the Azure management portal. 
+This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using the Azure management portal and the Resource Manager deployment model.
 
-If you want to create or modify routing for an ExpressRoute circuit using the **classic** deployment model, please see [Create and modify routing for an ExpressRoute circuit using the classic deployment model](expressroute-howto-routing-classic.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 

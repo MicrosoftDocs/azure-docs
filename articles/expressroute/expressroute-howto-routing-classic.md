@@ -23,9 +23,12 @@
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 [Portal - Resource Manager](expressroute-howto-routing-portal-arm.md)
 
-This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an  ExpressRoute circuit.
+This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
+
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Configuration prerequisites
 
