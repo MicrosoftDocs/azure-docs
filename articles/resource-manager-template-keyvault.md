@@ -101,8 +101,8 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Value |
 | ---- | ---- | 
-| name | Type: enum <br />Required: Yes <br />Permitted values: **standard**, **premium** <br /> Description: The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
-| family | Type: enum <br />Required: Yes <br />Permitted values: **A** <br />Description: The sku family to use. |
+| name | The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys.<br />Permitted values: **standard**, **premium** <br />enum <br />Required |
+| family | The sku family to use.<br />Permitted values: **A** <br />enum <br />Required |
  
 	
 ## Examples
@@ -237,7 +237,7 @@ The following example deploys a key vault and secret.
 
 The following quickstart template deploys a key vault.
 
-- [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
+- [Create Key Vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
 
 
 ## Next steps
