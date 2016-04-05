@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/04/2016"
+ ms.date="04/05/2016"
  ms.author="yurid"/>
 
 # Securing your Internet of Things from the ground up

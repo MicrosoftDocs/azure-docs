@@ -14,14 +14,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/04/2016"
+ ms.date="04/05/2016"
  ms.author="yurid"/>
 
-# IoT Security Best Practices
+# IoT security best practices
 
 Securing an IoT infrastructure requires a rigorous security-in-depth strategy. Starting from securing data in the cloud, to protecting data integrity while in transit over the public internet, and providing the ability to securely provision devices, each layer builds greater security assurance in the overall infrastructure. 
 
-## Securing an IoT Infrastructure
+## Securing an IoT infrastructure
  
 This security-in-depth strategy can be developed and executed with active participation of various players involved with the manufacturing, development, and deployment of Internet of Things (IoT) devices and infrastructure. Following is a high level description of these players.  
 
