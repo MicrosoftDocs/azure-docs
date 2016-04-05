@@ -32,7 +32,7 @@ If you want to create or modify routing for an ExpressRoute circuit using the **
 
 ## Configuration prerequisites
 
-- Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
+- Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, [routing requirements](expressroute-routing.md) page, and the [workflows](expressroute-workflows.md) page before you begin configuration.
 - You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
 
 These instructions only apply to circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
@@ -48,12 +48,12 @@ This section provides instructions on how to create, get, update, and delete the
 
 ### To create Azure private peering
 
- 1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further.
+1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further.
 
 	![](./media/expressroute-howto-routing-portal-arm/listprovisioned.png)
 
 
-2. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
+1. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
 	- A /30 subnet for the primary link. This must not be part of any address space reserved for virtual networks.
 	- A /30 subnet for the secondary link. This must not be part of any address space reserved for virtual networks.
