@@ -14,7 +14,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="03/22/2016"
+ ms.date="04/04/2016"
  ms.author="cynthn"/>
 
 # Sizes for Linux virtual machines in Azure
