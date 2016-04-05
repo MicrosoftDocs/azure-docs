@@ -112,7 +112,7 @@ Now that you have prepared the Azure Stack PoC with the necessary certificates a
 
 The full deployment may anytime between 25-55 minutes on some highly utilized Azure Stack POCs. The longest steps will be the Desired State Configuration (DSC) extension and the PowerShell execution which is the final step. Each taking 10-25 minutes.
 
-##Update the local DNS## 
+##Update the local DNS##
 
 - Select the **Register-Microsoft.SQL-fqdn.ps1** tab, and run the script.
 - When prompted for Azure Active Directory Tenant ID, input your Azure Active Directory tenant fully qualified domain name, e.g.        microsoftazurestack.onmicrosoft.com.
