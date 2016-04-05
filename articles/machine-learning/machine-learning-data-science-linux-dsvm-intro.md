@@ -59,7 +59,7 @@ Before you can create a Linux Data Science Virtual Machine, you must have the fo
 
 ## Create your Linux Data Science Virtual Machine
 
-Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:
+Here are the steps to create an instance of the Linux Data Science Virtual Machine:
 
 1.	Navigate to the virtual machine listing on the [Azure Portal](https://ms.portal.azure.com/#create/microsoft-ads.linuxdsvmlinuxdsvm).
 2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
@@ -97,7 +97,7 @@ The provisioning should take about 10-20 minutes. The status of the provisioning
 
 ## How to access the Linux Data Science Virtual Machine
 
-Once the VM is created you can login into it using SSH with the account credentials you created in the Basics section of step 3 for the text shell interface. On windows, you can download an SSH client tool like [Putty](www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client. 
+Once the VM is created you can login into it using SSH with the account credentials you created in the Basics section of step 3 for the text shell interface. On windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client. 
 
 >[AZURE.NOTE] The X2go client performed significantly better than X11 forwarding in testing. So we recommend using the X2Go client for graphical desktop interface. 
 
@@ -164,11 +164,11 @@ Python 3.5 is installed at */anaconda/envs/py35/bin*
 Now to invoke python interactive session just type ***python*** in the shell. If you are on a graphical interface or have X11 forwarding setup, you can type ***spyder*** command to launch the Python IDE. 
 
 ### Jupyter Notebook
-The Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. An Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via SSH or X2go client you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server (
+The Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. An Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via SSH or X2go client you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server.
 
 >[AZURE.NOTE] Continue if you get any certificate warnings. 
 
-You can access the Jupyter notebook server from any host. Just type in ***https://<VM DNS name or IP Address>:9999/***. We have packaged a few sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created earlier. You can create a new notebook by selecting "New" and then the language kernel. If you don't see the "New" button, click on the Jupyter icon on the top left to go to the home page of the notebook server. 
+You can access the Jupyter notebook server from any host. Just type in "https://\<VM DNS name or IP Address\>:9999/". We have packaged a few sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created earlier. You can create a new notebook by selecting "New" and then the language kernel. If you don't see the "New" button, click on the Jupyter icon on the top left to go to the home page of the notebook server. 
 
 
 ### IDEs and Editors 
@@ -179,7 +179,7 @@ You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit an
 
 **Eclipse** is an open source, extensible IDE that supports multiple languages. The Java developers edition is the instance installed on the VM. There are plugins available for several popular languages which can be installed to extend the Eclipse environment. We also have a plugin installed in Eclipse called **Azure Toolkit for Eclipse** which allows you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment that supports languages like Java. There is also an **Azure SDK for Java** that allows access to different Azure services from within a Java environment. More information on Azure toolkit for Eclipse can be found at [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse/).
 
-**LaTex** is installed through the texlive package along with an Emacs add-on package "[auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html)" which simplifies authoring your LaTex documents within Emacs.  
+**LaTex** is installed through the texlive package along with an Emacs add-on [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) package, which simplifies authoring your LaTex documents within Emacs.  
 
 ### Databases
 
@@ -251,7 +251,8 @@ You can also build your models in R or Python on the VM and then deploy it in pr
 - The library in R is called ***AzureML***. 
 - In Python it is called ***azureml***. 
 
-For information on how to deploy models in R and Python into Azure ML please refer to the this [Build models using R or Python and Operationalize them using Azure Machine Learning](machine-learning-data-science-vm-do-ten-things/#3-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning) 
+For information on how to deploy models in R and Python into Azure ML please refer to the this [Build models using R or Python and Operationalize them using Azure Machine Learning](machine-learning-data-science-vm-do-ten-things.md/#3-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning).
+ 
 >[AZURE.NOTE] These instructions were written for the Windows version of the Data Science VM, but the information provided there on deploying models to Azure ML is applicable to the Linux VM too.
 
 ### Machine Learning Tools
@@ -280,7 +281,7 @@ To run a basic sample do the following in shell:
 
 You will find the model output in *~/cntkdemo/Output/Models*
 
-More information on CNTK can be found on [github.com/Microsoft/CNTK](https://github.com/Microsoft/CNTK) and in the [wiki](https://github.com/Microsoft/CNTK/wiki).
+More information on CNTK can be found on [github.com/Microsoft/CNTK](https://github.com/Microsoft/CNTK) and in the [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
 
 
 #### Vowpal Wabbit(VW):
@@ -293,7 +294,7 @@ To run the tool on a very basic example do the following:
 	cd vwdemo
 	vw house_dataset
 
-There are other larger demos in that directory. More information on VW can be found at [github.com/JohnLangford/vowpal_wabbit](https://github.com/JohnLangford/vowpal_wabbit) and on the [wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
+There are other larger demos in that directory. More information on VW can be found at [github.com/JohnLangford/vowpal_wabbit](https://github.com/JohnLangford/vowpal_wabbit) and on the [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
 #### xgboost
 This is a library that is designed and optimized for boosted (tree) algorithms. The objective of this library is to push the the computation limits of machines to the extremes needed to provide large scale tree boosting that is scalable, portable and accurate.
