@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/04/2016"
+   ms.date="04/05/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array best practices
@@ -27,7 +27,7 @@ We recommend a periodic review of the best practices to ensure your device is st
 
 ## Configuration best practices
 
-The configurational best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These cover best practices pertaining to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
+The configuration best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These include best practices related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
 
 ### Provisioning 
 
@@ -84,7 +84,7 @@ When deploying your virtual array, we recommend that you follow these best pract
 
 -   Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices will result in loss of access to data in the cloud and thereby result in an unsupported configuration.
 
--   If you plan to deploy your device as an iSCSI server, we recommend that you disable the **Get IP address automatically** option and configure static IP addresses. A primary and secondary DNS server will automatically be configured if using the DHCP option. If configuring as an iSCSI server with static IP addresses, you will need to configure a primary and a secondary DNS server.
+-   If you plan to deploy your device as an iSCSI server, we recommend that you disable the **Get IP address automatically** option (DHCP) and configure static IP addresses. A primary and secondary DNS server will automatically be configured if using the DHCP option. If configuring the array as an iSCSI server with static IP addresses, you must configure a primary and a secondary DNS server.
 
 -   If defining multiple network interfaces on your virtual array, note that only the first network interface (by default, this is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those to different subnets.
 
@@ -160,9 +160,11 @@ After you create StorSimple volumes on your iSCSI server, you will need to initi
 
 #### Share access
 
--   When creating a share, it is a recommended best practice that the share administrator be a user group instead of a single user.
+When creating shares on your virtual array file server, follow these guidelines:
 
--   NTFS permissions on shares can be managed by editing the shares through Windows Explorer.
+-   When creating a share, assign a user group as a share administrator instead of a single user.
+
+-   You can manage the NTFS permissions after the share is created by editing the shares through Windows Explorer.
 
 #### Volume access
 
@@ -178,17 +180,16 @@ Use the following best practices when configuring ACRs for StorSimple volumes:
 
 ### Data security and encryption
 
--   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
-
--   We recommend that you also regenerate the keys for your storage accounts (by accessing the Azure Storage service) periodically to account for any changes to access based on the changed list of administrators.
-
--   Data on your StorSimple is compressed and deduplicated before it is sent to Azure. We recommend that you do not enable Windows Server deduplication on the data.
+Your StorSimple Virtual Array has data security and encryption features that ensure the confidentiality and integrity of your data. When using these features, it is recommended that you follow these best practices: 
 
 -   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to being with. The key can be generated and kept safe using a key management system such as [Azure key vault](key-vault-whatis).
 
--   Service registration key
+-   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
 
--   Service data encryption key
+-   Regenerate the keys for your storage accounts (by accessing the Azure Storage service) periodically to account for any changes to access based on the changed list of administrators.
+
+-   Data on your StorSimple is compressed and deduplicated before it is sent to Azure. We recommend that you do not enable Windows Server deduplication on the data.
+
 
 ## Operational best practices
 
@@ -206,7 +207,7 @@ The frequency, retention associated with the default backups cannot be changed b
 
 ### Restore
 
-You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (ILR) (available only on a virtual array configured as a file server). ILR allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to restore from a backup.
+You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (available only on a virtual array configured as a file server). Item-level recovery (ILR) allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to [restore from a backup](storsimple-ova-restore).
 
 When performing a restore, keep the following guidelines in mind:
 
@@ -232,7 +233,7 @@ When performing a fail over for your virtual array, keep the following in mind:
 
 -   Once the DR is successfully completed, the source device is automatically deleted. Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. We recommend that you delete this virtual machine from your host system to prevent any charges from accruing.
 
--   Do note that even if the failover is unsuccessful, *the data is always safe in the cloud*. Consider the following three scenarios in which the failover does not complete successfully:
+-   Do note that even if the failover is unsuccessful, **the data is always safe in the cloud**. Consider the following three scenarios in which the failover does not complete successfully:
 
     -   The failure occurred in the initial stages of the failover such as when the DR pre-checks are being performed. In this situation, your target device is still usable. You can retry the failover on the same target device.
 
@@ -240,7 +241,7 @@ When performing a fail over for your virtual array, keep the following in mind:
 
     -   The failover was complete following which the source device was deleted but the target device has issues and the user cannot access any data. The data is still safe in the cloud and can be easily retrieved by quickly creating another virtual array and then using it as target for the DR.
 
-### Deactivation
+### Deactivate
 
 When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. For more information, go to [deactivate and delete your StorSimple Virtual Array](storsimple-deactivate-and-delete-device).
 
@@ -253,6 +254,8 @@ Keep the following best practices in mind when deactivating your virtual array:
 -   Delete a deactivated device if you are no longer using it else it will accrue charges.
 
 ### Monitoring
+
+To ensure that your StorSimple Virtual Array is in a continuous healthy state, you need to monitor the array and ensure that you receive information from the system including alerts. To monitor the overall health of the virtual array, implement the following best practices:
 
 - Configure monitoring to track the disk usage of your virtual array data disk as well as the guest OS disk. You can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.   
 
@@ -301,6 +304,3 @@ Multiple virtual arrays when configured as a file server can be deployed under a
 
 ## See also
 
-<http://searchservervirtualization.techtarget.com/tip/Optimizing-virtual-hard-disk-performance-in-Hyper-V>
-
-<http://blogs.technet.com/b/matthewms/archive/2013/03/29/20-days-of-server-virtualization-keeping-an-eye-monitoring-your-hyper-v-servers-part-20-of-20ish.aspx>
