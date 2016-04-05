@@ -101,7 +101,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 3. On the **Configure App Settings** dialog page, perform the following steps and then click **Next**:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_04.png) <br>
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your People application using the following pattern: **“https://\<company name\>.peoplehruat.com/”**. 
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your People application using the following pattern: **“https://\<company name\>.peoplehr.com/”**. 
 
     b. If you don't know your tenant URL, contact the People support team via [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) to get it.  
 
