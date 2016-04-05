@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Novatus | Microsoft Azure"
+	pageTitle="Tutorial: Azure Active Directory integration with People | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and People."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="04/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -120,22 +120,25 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, You need sign in into the People tenant with admin user.<br>
+5. To get SSO configured for your application, you need to sign-on to your People tenant as an administrator.
 	
-	a. Go to **Settings tab** in the left side menu (at the end).<br><br>![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_001.png) <br>
+	a. In the menu on the left side, click **Settings**.
+    <br><br>![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_001.png) <br>
 
-	b. In the second level tab that appears go to **“Company”**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_002.png) <br>
+	b. Click **“Company”**.
+    <br>![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_002.png) <br>
 
-	c. In the content that appears on the right pane, scroll to the field **“Upload 'Single Sign On' SAML meta-data file”**. Click the **Browse** button and upload the federation meta-data xml file obtained after adding the application under Azure AD directory.<br><br>![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_003.png) <br>
+	c. On the **“Upload 'Single Sign On' SAML meta-data file”**, click **Browse** to upload the downloaded metadata file.
+    <br>![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_003.png) <br>
 
 
 
 
 6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
-<br><br>![Azure AD Single Sign-On][10]<br>
+    <br>![Azure AD Single Sign-On][10]<br><br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
-  <br><br>![Azure AD Single Sign-On][11]
+    <br>![Azure AD Single Sign-On][11]<br><br>
 
 
 
