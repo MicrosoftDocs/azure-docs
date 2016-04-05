@@ -71,7 +71,7 @@ Hence, we recommend that you:
 
 ### Networking
 
-The network configuration for your virtual array is done through the local web UI. The [Network Settings](storsimple-ova-deploy3-fs-setup.md) page allows the user to configure the network interface IP address, subnet, and gateway. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements.md) prior to deploying the virtual array.
+The network configuration for your virtual array is done through the local web UI. The [Network Settings](storsimple-ova-deploy3-fs-setup.md) page allows the user to configure the network interface IP address, subnet, and gateway. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
 
 When deploying your virtual array, we recommend that you follow these best practices:
 
