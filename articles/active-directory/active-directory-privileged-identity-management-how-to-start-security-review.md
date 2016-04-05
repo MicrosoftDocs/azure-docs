@@ -19,9 +19,9 @@
 # Azure AD Privileged Identity Management: How to start a security review
 
 ## Starting a security review
-Eventually, you will be able to perform security reviews in other places in the Azure portal.  This document covers the steps for starting a security review within the **Privileged Identity Management (PIM)** interface.
 
-Perhaps there are users that you don't recognize, or perhaps a user has changed jobs or projects and no longer requires privileged access in their new position.  In order to reduce the risk associated with these "stale" role assignments, you and others administrators can review the roles that users have been given by starting a security review.
+
+Perhaps there are users that you don't recognize, or perhaps a user has changed jobs or projects and no longer requires privileged access in their new position.  In order to reduce the risk associated with these "stale" role assignments, you and others administrators can review the roles that users have been given by starting a security review.  This document covers the steps for starting a security review within the **Privileged Identity Management (PIM)** interface.
 
 ## Paths to start a security review
 > [AZURE.NOTE] If you have not created a PIM dashboard in the Azure portal yet, see the steps in  [Getting Started with Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
@@ -57,6 +57,11 @@ When you click on the **Review** button, the **Start to review a role** and the 
 ### Review by Me
 
 If you selected the "Me" option as the reviewer, then proceed to the security review. For more information about completing the review see [Azure Privileged Identity Management: How To Perform a Security Review](active-directory-privileged-identity-management-how-to-perform-security-review.md)
+
+## Next steps
+
+You can track the progress as the reviewers complete their reviews in the Azure AD PIM dashboard, in the security reviews section. No access rights will be changed in the directory for users whose role has been denied, until [the review completes](active-directory-privileged-identity-management-how-to-complete-review.md).
+
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## PIM Table of Contents

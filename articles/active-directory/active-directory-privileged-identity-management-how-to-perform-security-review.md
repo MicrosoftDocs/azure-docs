@@ -1,6 +1,6 @@
 <properties
    pageTitle="How to perform a security review | Microsoft Azure"
-   description="Learn how to add roles to privileged identities with the Azure Privileged Identity Management extension."
+   description="Learn how to perform a review with the Azure Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -18,43 +18,34 @@
 
 # Azure AD Privileged Identity Management: How to perform a security review
 
+Azure Active Directory (AD) Privileged Identity Management simplifies how enterprises manage privileged identities and their access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.  
 
-It is very easy to review privileged access once a [security review has been started](active-directory-privileged-identity-management-how-to-start-security-review.md).
+If you have been assigned to an administrative role, you may be asked by your organization's security administrator to regularly review and confirm that you still need that role for your job.
 
-## For reviewers: Approving or denying access
+You may receive an email indicating that they should review their access.  The email will contain a link in to the Azure portal.
 
-### Me review
+It is very easy to review and update your privileged access once a [review has been started](active-directory-privileged-identity-management-how-to-start-security-review.md).
+
+## Adding the Privileged Identity Management extension
+
+You can use the Azure AD Privileged Identity Management extension in the [Azure portal](https://portal.azure.com/) to perform your review.  If you don't have the Azure AD Privileged Identity Management extension on your portal, follow these steps to get started.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/), if you haven't already.
+2. If your organization has more than one directory, click on your username in the upper right hand corner of the Azure portal, and select the directory where you will you be operating.
+3. Click the **New** icon in the left navigation.
+4. Select **Security + Identity** from the Create menu.
+5. Select **Azure AD Privileged Identity Management**.
+6. Leave **Pin to dashboard** checked and then click the **Create** button. The Privileged Identity Management extension will open.
+
+
+## Confirming to approve or denying access
+
 1. In the PIM main menu, click **Review administrative access**. A list of security reviews will appear.
-2. Select the **user(s)** in the list for which you want to change access. NOTE: Access will actually be changed.  This process is simply building a checklist for those who would change the access for the role.  Once at least one user has been selected the **Approve access** and **Deny access** buttons will be enabled.
-3. Click either  **Approve access** or **Deny access** for the users you have selected.  A notification will appear in the Azure portal main menu and the review list will disappear.  Close the **Review Azure AD roles** blade.
+2. Select the **user(s)** in the list for which you want to change access.
+3. Click either  **Approve access** or **Deny access** for the users you have selected.  A notification will appear in the Azure portal main menu and the selected names in review list will disappear (you can get them back by changing the filter option).  Close the **Review Azure AD roles** blade.
 
-### Self-review
-1. The user will receive an email indicating that they should review their access.  The email will contain a link for logging in to the Azure portal.
-2. Once there, the user can approve or deny their own access by clicking on the  **Approve access** or **Deny access** buttons.  Their name will disappear from the list.
+NOTE: Access will not be changed until [the review completes](active-directory-privileged-identity-management-how-to-complete-review.md).  This process is simply building a checklist for those who would change the access for the role.  Once at least one user has been selected, the **Approve access** and **Deny access** buttons will be enabled.
 
-## For review managers: Managing security reviews
-
-## Completing or stopping a review
-1. Go to the PIM dashboard.
-2. Click on the security review you want to complete in the **Security reviews** list. The security review's detail blade will appear.
-3. Click **Stop review** to complete or stop the review.  This will archive the review and the blade will disappear.
-
-## Exporting a review
-You can export a review for use with Excel or other programs that can use CSV files.
-
-1. Go to the PIM dashboard.
-2. Click on the **Security reviews** section of the dashboard.  The **Security reviews** blade will appear.
-3. Click on the security review that you want to export. The security review's detail blade will appear.
-4. Click the **Export** button. A CSV file will start downloading.
-
-## Deleting a review
-
-> [AZURE.WARNING] You will not get a warning before deletion occurs, so be sure that you *want* to actually delete that review.
-
-1. Go back to the PIM dashboard.
-2. Click on the **Security reviews** section of the dashboard.  The **Security reviews** blade will appear.
-3. Click on the security review that you want to delete. The security review's detail blade will appear.
-4. Click the **Delete** button.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
