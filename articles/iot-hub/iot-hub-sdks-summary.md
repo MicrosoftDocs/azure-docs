@@ -35,6 +35,7 @@ The following IoT device SDKs are available to download from GitHub:
 ### OS Platforms and hardware compatibility
 
 For more information about compatibility with specific hardware devices, see the following articles:
+
 - [OS Platforms and hardware compatibility with device SDKs][OS Platforms and hardware compatibility]
 - [Microsoft Azure Certified for IoT program][].
 
