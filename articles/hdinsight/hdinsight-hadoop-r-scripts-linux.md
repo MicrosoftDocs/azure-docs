@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="04/05/2016"
 	ms.author="larryfr"/>
 
 # Install and use R on HDInsight Hadoop clusters
 
 You can install R on any type of cluster in Hadoop on HDInsight by using **Script Action** cluster customization. This enables data scientists and analysts to use R to deploy the powerful MapReduce/YARN programming framework to process large amounts of data on Hadoop clusters that are deployed in HDInsight.
 
-> [AZURE.NOTE] The steps in this document require a Linux-based HDInsight cluster. For information on using R with a Windows-based cluster, see [Install and use R on HDinsight Hadoop clusters (Windows)](hdinsight-hadoop-r-scripts.md).
+The [premium tier](https://azure.microsoft.com/pricing/details/hdinsight/) offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. For more information, see [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md). 
+
 
 ## What is R?
 
