@@ -3,7 +3,7 @@
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using a VPN."
    services=""
    documentationCenter="na"
-   authors="JohnPWSharp"
+   authors="atoakley,hanzzhang,JohnPWSharp,manikrish,RohitSharma-pnp"
    manager=""
    editor=""
    tags=""/>
@@ -190,7 +190,7 @@ See [SLA for VPN Gateway][sla-for-vpn-gateway] for the details about the VPN Gat
 
 ## Troubleshooting
 
-> Visit the Routing and Remote Access Blog for general information on [troubleshooting common VPN-related errors][troubleshooting-vpn-errors].
+> [AZURE.NOTE] Visit the Routing and Remote Access Blog for general information on [troubleshooting common VPN-related errors][troubleshooting-vpn-errors].
 
 If traffic is unable to traverse the VPN connection, check the following:
 
@@ -583,7 +583,7 @@ CALL :CallCLI azure network lb probe create --protocol %INTERNAL_LOAD_BALANCER_P
   --interval %INTERNAL_LOAD_BALANCER_PROBE_INTERVAL% --count %INTERNAL_LOAD_BALANCER_PROBE_COUNT% ^
   --lb-name %INTERNAL_LOAD_BALANCER_NAME% --name %INTERNAL_LOAD_BALANCER_PROBE_NAME% %POSTFIX%
 
-:: This will show the shared key for the VPN connection.  We won't bother with the error checking.
+:: This will show the shared key for the VPN connection.  We do not need the error checking.
 CALL azure network vpn-connection shared-key show --name %VPN_CONNECTION_NAME% %POSTFIX%
 
 GOTO :eof
@@ -593,7 +593,7 @@ SETLOCAL
 CALL %*
 IF ERRORLEVEL 1 (
     CALL :ShowError "Error executing CLI Command: " %*
-    :: This executes in the CALLER'S context, so we can exit the whole script on an error
+    :: This command executes in the main script context so we can exit the whole script on an error
     (GOTO) 2>NULL & GOTO :eof
 )
 GOTO :eof
@@ -603,7 +603,7 @@ SETLOCAL EnableDelayedExpansion
 :: Print the message
 ECHO %~1
 SHIFT
-:: Get the first part of the azure CLI command so we don't have an extra space at the beginning
+:: Get the first part of the azure CLI command so we do not have an extra space at the beginning
 SET CLICommand=%~1
 SHIFT
 :: Loop through the rest of the parameters and recreate the CLI command
