@@ -672,4 +672,4 @@ GOTO :eof
 [creating-dns]: https://blogs.msdn.microsoft.com/mcsuksoldev/2014/03/04/creating-a-dns-server-in-azure-iaas/
 [configuring-dns]: ../virtual-network/virtual-networks-manage-dns-in-vnet.md
 [stormshield]: https://azure.microsoft.com/marketplace/partners/stormshield/stormshield-network-security-for-cloud/
-[vpn-appliance-ipsec]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md/#ipsec-parameters
+[vpn-appliance-ipsec]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec-parameters
