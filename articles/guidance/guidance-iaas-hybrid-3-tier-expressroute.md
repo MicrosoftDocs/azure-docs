@@ -208,7 +208,7 @@ Note the following points:
 
 	You can increase the bandwidth without loss of connectivity. Downgrading the bandwidth will result in disruption in connectivity. You have to delete the circuit and recreate it with the new configuration.
 
-- Start with the standard SKU of ExpressRoute, and upgrade to ExpressRoute Premium only when required. If necessary, you can also change the pricing plan (metered or unlimited). Switch the SKU and data plan by using the following commands (the `Sku.Tier` property can be `Standard` or `Premium`; the `Sku.Name` property can be `MeteredData` or `UnlimitedData`):
+- Start with the standard SKU of ExpressRoute, and upgrade to ExpressRoute Premium only when required. If necessary, you can also change the pricing plan (metered or unlimited). Switch the SKU and pricing plan by using the following commands (the `Sku.Tier` property can be `Standard` or `Premium`; the `Sku.Name` property can be `MeteredData` or `UnlimitedData`):
 
 	```
 	$ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
@@ -219,7 +219,7 @@ Note the following points:
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 	```
 
-	You can upgrade the SKU without disruption, but you cannot switch from the unlimited data plan to metered. When downgrading the SKU, your bandwidth consumption must remain within the default limit of the standard SKU.
+	You can upgrade the SKU without disruption, but you cannot switch from the unlimited pricing plan to metered. When downgrading the SKU, your bandwidth consumption must remain within the default limit of the standard SKU.
 
 - ExpressRoute circuits are designed to allow temporary network bursts up to two times the bandwidth limit that you procured for no additional cost. However, you should determine whether your connectivity provider supports this feature before depending on it.
 
@@ -247,7 +247,7 @@ Note the following points:
 
 ## Troubleshooting
 
-In many cases, if a previously functioning ExpressRoute circuit now fails to connect, in the absence of any configuration changes on-premises or within your private VNet, you may need to contact to connectivity provider and work with them to correct the issue. However, you can use the following Azure PowerShell commands to perform some limited checking and help ascertain where problems might lie:
+If a previously functioning ExpressRoute circuit now fails to connect, in the absence of any configuration changes on-premises or within your private VNet, you may need to contact the connectivity provider and work with them to correct the issue. You can use the following Azure PowerShell commands to perform some limited checking and help determine where problems might lie:
 
 - Verify that the circuit has been provisioned:
 
