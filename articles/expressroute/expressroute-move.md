@@ -42,7 +42,7 @@ You can enable ExpressRoute circuits created in the Resource Manager deployment 
 - An ExpressRoute circuit will always have access to the resource manager deployment model irrespective of whether it was created in the Resource Manager deployment model or in the classic deployment model. This means you can create connections to virtual networks created in the Resource Manager deployment model by following instructions on [how to link virtual networks](expressroute-howto-linkvnet-arm.md). 
 - Access to the classic deployment model is controlled by the "allowClassicOperations" parameter in the ExpressRoute circuit. 
 
->[AZURE.IMPORTANT] All quotas documented in the [service limits](../azure-subscription-service-limits.md )] page will apply. As an example, a standard circuit can have at most 10 VNet links / connections across both the classic and Resource Manager deployment models. 
+>[AZURE.IMPORTANT] All quotas documented in the [service limits](../azure-subscription-service-limits.md) page will apply. As an example, a standard circuit can have at most 10 VNet links / connections across both the classic and Resource Manager deployment models. 
 
 
 ### Controlling access to classic deployment model
