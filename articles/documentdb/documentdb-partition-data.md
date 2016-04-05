@@ -265,8 +265,8 @@ Additionally, because partition keys can be specified only during collection cre
 
 To migrate from a single-partition collection to a partitioned collection
 
-1. Export data from the single-partition collection to JSON. See [Export to JSON file](documentdb-import-data.md/#export-to-json-file) for additional details.
-2. Import the data into a partitioned collection created with a partition key definition and over 10,000 request units per second throughput, as shown in the example below. See [Import to DocumentDB](documentdb-import-data.md/#DocumentDBSeqTarget) for additional details.
+1. Export data from the single-partition collection to JSON. See [Export to JSON file](documentdb-import-data.md#export-to-json-file) for additional details.
+2. Import the data into a partitioned collection created with a partition key definition and over 10,000 request units per second throughput, as shown in the example below. See [Import to DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) for additional details.
 
 ![Migrating Data to a Partitioned collection in DocumentDB][3]  
 
