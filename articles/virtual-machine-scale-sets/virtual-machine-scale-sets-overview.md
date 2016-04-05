@@ -33,7 +33,7 @@ Take a look at these videos for more about VM scale sets:
 
 VM scale sets can be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-A set of example templates for VM scale sets can be found in the Azure Quickstart teamplates GitHub repository here:
+A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository here:
 
 [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) - look for templates with _vmss_ in the title.
 
