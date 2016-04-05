@@ -101,10 +101,8 @@ There is one **pipeline** in the sample in the **ADFJsons/Pipeline** folder. Thi
 
 As you can see, the MapReduce activity is configured to invoke **spark-adf-job-bin.jar** in the **libs** container in your Azure storage (specified in the StorageLinkedService.json). The source code for this program is in Spark-ADF/src/main/java/com/adf/spark folder and it calls spark-submit and run Spark jobs. 
 
-This MapReduce program (spark-adf-job-bin.jar) running on your HDInsight spark cluster invokes a spark program **sparkdemoapp_2.10-1.0.jar** and passes the arguments it receives via MapReduce activity (shown in the JSON above) to the Spark program. **sparkdemoapp_2.10-1.0.jar** copies data from one Azure blob container to another. You can replace this demo app jar with any other jar that contains any job that you are trying to run using Spark.
+This MapReduce program (spark-adf-job-bin.jar) running on your HDInsight spark cluster invokes a spark program **sparkdemoapp_2.10-1.0.jar** and passes the arguments it receives via MapReduce activity (shown in the JSON above) to the Spark program. **sparkdemoapp_2.10-1.0.jar** contains Scala source code that copies data from one Azure blob container to another. You can replace this demo app jar with any other jar that contains any job that you are trying to run using Spark.
 
 To summarize, the **MapReduce activity** invokes the MapReduce program **spark-adf-job-bin.jar** that invokes the Spark program **sparkdemoapp_2.10-1.0.jar**. To run your own spark program, replace sparkdemoapp_2.10-1.0.jar with your own.
 
 > [AZURE.NOTE] You have to use your own HDInsight Spark cluster with this approach to invoke Spark programs using the MapReduce activity. Using an on-demand HDInsight cluster is not supported.  
-
-
