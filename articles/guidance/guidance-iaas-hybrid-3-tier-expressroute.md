@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="05/04/2016"
    ms.author="roshar"/>
 
 # Azure Blueprints: Implementing a Hybrid Network Architecture with Azure ExpressRoute
@@ -66,7 +66,6 @@ This following diagram highlights the important components in the architecture:
 ## Implementing this architecture
 
 > [AZURE.NOTE] ExpressRoute connectivity providers fall into one of the following categories:
-<!--- manikrish: we need some guidance on when to use what, I removed the info on bandwidth differences since the cli command to list providers show similar bandwidth support for both these options. johns: there might not be a choice to make, depending on your location. You are restricted by who your local service providers are. You might only have access to an IXP or a Telco. -->
 
 > - **Exchange Providers (IXP)**. These are OSI Layer 2 (*data link layer*) providers that supply virtual cross-connections to Azure. An IXP provides controlled access to its network switches that act as simple bridges between your on-premises networks and Azure, giving a direct connection from LAN to LAN. The customer has to provide information to configure these bridges to route requests from one network to another.
 >
@@ -90,14 +89,12 @@ The following high-level steps outline a process for implementing this architect
 - Arrange for the ExpressRoute circuit to be provisioned.
 
 	If your service provider is a Telco:
-<!--manikrish:verify if we still need to send the /29 subnet information, the product docs just mention that the service key needs to be shared-->
-<!--johns: This information was taken from Microsoft Azure ExpressRoute.PDF, top of page 29-->
-<!--anoakley:I'm not sure if we need to send the CIDR. But if we do, I think it needs to be /28, since they need more machines than for a VPN-->
-	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /29 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
+
+	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /28 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
 
 		> [AZURE.NOTE] The service provider may provide an online portal for you to supply this information.
 
-	- Wait for the provider to provision the circuit. The provider will split the /29 subnet space into multiple /30 subnets which will be used for routing. You can verify the provisioning state of a circuit by using the following PowerShell command:
+	- Wait for the provider to provision the circuit. You can verify the provisioning state of a circuit by using the following PowerShell command:
 
         ```
         Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
@@ -106,25 +103,28 @@ The following high-level steps outline a process for implementing this architect
 		The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
 
 	If your service provider is an IXP:
-<!--manikrish:Verify if this is specific to IXP, product docs link below does no mention this. johns: This is taken from the Microsoft Azure ExpressRoute.PDF doc, page 12. -->
 
 	- Send the `ServiceKey` for the new circuit to the service provider.
 
 	- Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you are implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [ExpressRoute routing requirements][expressroute-routing-requirements].
 
 	- Wait for the provider to provision the circuit.
-<!--anoakley:There are currently no CLI equivalent BGP peering commands, so we need to show PowerShell-->
-- Configure routing for the ExpressRoute circuit.
+
+	- Configure routing for the ExpressRoute circuit.
 
 	If your connectivity provider is a Telco, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
 
-	<a name="address-space"></a>If your connectivity provider is an IXP, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following command to add a network peering for routing traffic:
-<!--anoakley:Since this is so provider specific, should we just reference the above link and not include this code block? -->
+	<a name="address-space"></a>If your connectivity provider is an IXP, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following PowerShell commands to add a network peering for routing traffic:
 
 	```
-	Set-AzureRmExpressRouteCircuitPeeringConfig
-    Set-AzureRmExpressRouteCircuit
+	Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
+
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
 	```
+
+	> [AZURE.NOTE]. The `PeeringType` parameter can be one of `AzurePublicPeering`, `MicrosoftPeering`, or `AzurePrivatePeering`.
+	> 
+	> For more information about primary and secondary peering addresses, see [Availability](#availability)
 
 	Depending on your requirements, you may need to perform the following operations:
 
@@ -135,19 +135,21 @@ The following high-level steps outline a process for implementing this architect
 	- Configure Microsoft peering for connecting between on-premises services and Office 365 services.
 
 
-- [Link your private VNet(s) in the cloud to the ExpressRoute circuit][link-vnet-to-expressroute]. Use the following command:
+- [Link your private VNet(s) in the cloud to the ExpressRoute circuit][link-vnet-to-expressroute]. Use the following PowerShell commands:
 
 	```
-	New-AzureRmVirtualNetworkGatewayConnection
+	$circuit = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+	$gw = Get-AzureRmVirtualNetworkGateway -Name <<gateway-name>> -ResourceGroupName <<resource-group>>
+	New-AzureRmVirtualNetworkGatewayConnection -Name <<connection-name>> -ResourceGroupName <<resource-group>> -Location <<location> -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 	```
 
 Note the following points:
 
 - ExpressRoute uses the Border Gateway Protocol (BGP) for exchanging routing information between your network and Azure.
-<!--anoakley:Continent should be geopolitical region -->
-- You can connect multiple VNets located in different regions to the same ExpressRoute circuit as long as all VNets and the ExpressRoute circuit are located within the same continent.
 
-## Availability
+- You can connect multiple VNets located in different regions to the same ExpressRoute circuit as long as all VNets and the ExpressRoute circuit are located within the same geopolitical region.
+
+## <a name="availability"></a>Availability
 
 > ExpressRoute does not support router redundancy protocols such as HSRP and VRRP to implement high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly-available connections to your network, Microsoft Azure provisions you with two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
 
@@ -194,7 +196,7 @@ Note the following points:
 > - An increase in the number of VNet links per circuit from 10 to a larger limit, depending on the bandwidth of the circuit.
 >
 
-- To minimize charges, start with the smallest estimated bandwidth that you expect to require. Depending on availability, it may be possible to switch to a higher bandwidth offering from your supplier if necessary. You can change the bandwidth of an existing circuit by using the following command:
+- To minimize financial costs, start with the smallest estimated bandwidth that you expect to require. Depending on availability, it may be possible to switch to a higher bandwidth offering from your supplier if necessary. You can change the bandwidth of an existing circuit by using the following command:
 
 	```
 	$ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
@@ -206,19 +208,18 @@ Note the following points:
 
 	You can increase the bandwidth without loss of connectivity. Downgrading the bandwidth will result in disruption in connectivity. You have to delete the circuit and recreate it with the new configuration.
 
-<!--anoakley:This set of commands can be used to change the family from MeteredData to UnlimitedData and vice versa.  We need to figure out how to word this properly, as the end-user could change their sku family inadvertently.-->
-- Start with the standard SKU of ExpressRoute, and upgrade to ExpressRoute Premium only when required. Switch the SKU by using the following command (the `Sku.Tier` property can be `Standard` or `Premium`):
+- Start with the standard SKU of ExpressRoute, and upgrade to ExpressRoute Premium only when required. If necessary, you can also change the pricing plan (metered or unlimited). Switch the SKU and data plan by using the following commands (the `Sku.Tier` property can be `Standard` or `Premium`; the `Sku.Name` property can be `MeteredData` or `UnlimitedData`):
 
 	```
 	$ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
 
     $ckt.Sku.Tier = "Premium"
-    $ckt.Sku.Name = "Premium_MeteredData"
+    $ckt.Sku.Name = "MeteredData"
 
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 	```
 
-You can upgrade the SKU without disruption. While downgrade the SKU your bandwidth consumption has be within the default limit of the standard SKU.
+	You can upgrade the SKU without disruption, but you cannot switch from the unlimited data plan to metered. When downgrading the SKU, your bandwidth consumption must remain within the default limit of the standard SKU.
 
 - ExpressRoute circuits are designed to allow temporary network bursts up to two times the bandwidth limit that you procured for no additional cost. However, you should determine whether your connectivity provider supports this feature before depending on it.
 
@@ -246,7 +247,49 @@ You can upgrade the SKU without disruption. While downgrade the SKU your bandwid
 
 ## Troubleshooting
 
-- TBD
+In many cases, if a previously functioning ExpressRoute circuit now fails to connect, in the absence of any configuration changes on-premises or within your private VNet, you may need to contact to connectivity provider and work with them to correct the issue. However, you can use the following Azure PowerShell commands to perform some limited checking and help ascertain where problems might lie:
+
+- Verify that the circuit has been provisioned:
+
+	```
+	Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+	```
+
+- Check the status of any private VNets to which you are attempting to connect through the ExpressRoute circuit:
+
+	```
+	Get-AzureVNetSite <<vnet-name>>
+	```
+
+- Examine the configuration of private VNets:
+
+	```
+	Get-AzureVNetConfig | fl
+	```
+
+- Verify the details for the ExpressRoute circuit:
+
+	```
+	Get-AzureDedicatedCircuit -ServiceKey <<service-key>>
+	```
+
+- Examine the link state between the ExpressRoute circuit and a VNet:
+
+	```
+	Get-AzureDedicatedCircuitLink -ServiceKey <<service-key>> -VNetName <<vnet-name>>
+	```
+
+- Get link authorization details:
+
+	```
+	Get-AzureDesicatedCircuitLinkAuthorization -ServiceKey <<service-key>>
+	```
+
+- Retrieve routing information for the ExpressRoute circuit:
+
+	```
+	Get-AzureBGPPeering -ServiceKey <<service-key>>
+	```
 
 ## <a name="powershell"></a>Azure PowerShell commands
 
