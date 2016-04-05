@@ -70,7 +70,7 @@ This section provides instructions on how to create, get, update, and delete the
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. 
 	- MD5 hash if you choose to use one. **This is optional**.
 
-3. You can select the peering you wish to configure as shown below. Select the Azure Private peering row to proceed further.
+3. You can select the peering you wish to configure as shown below. Select the Azure Private peering row.
 	
 	![](./media/expressroute-howto-routing-portal-arm/rprivate1.png)
 	
@@ -125,7 +125,7 @@ This section provides instructions on how to create, get, update, and delete the
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. 
 	- MD5 hash if you choose to use one. **This is optional**.
 
-3. You can select the peering you wish to configure as shown below. Select the Azure public peering row to proceed further.
+3. You can select the peering you wish to configure as shown below. Select the Azure public peering row.
 	
 	![](./media/expressroute-howto-routing-portal-arm/rpublic1.png)
 	
@@ -180,7 +180,7 @@ This section provides instructions on how to create, get, update, and delete the
 	- **Routing Registry Name:** You can specify the RIR / IRR against which the AS number and prefixes are registered. **This is optional.**
 	- An MD5 hash, if you choose to use one. **This is optional.**
 	
-3. You can select the peering you wish to configure as shown below. Select the Microsoft peering row to proceed further.
+3. You can select the peering you wish to configure as shown below. Select the Microsoft peering row.
 	
 	![](./media/expressroute-howto-routing-portal-arm/rmicrosoft1.png)
 	
