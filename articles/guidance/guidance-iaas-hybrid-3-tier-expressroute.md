@@ -47,7 +47,7 @@ This following diagram highlights the important components in the architecture:
 
 ![IaaS: hybrid-expressroute](./media/arch-iaas-hybrid-expressroute.png)
 
-- **Azure Virtual Networks** These are VNets in Azure. The diagram shows a single VNet, but there could be more than one, depending on the complexity of the cloud infrastructure and applications implemented by the organization. Each VNet can span multiple tiers, with multiple subnets connected through Azure load balancers. The VNets could reside in [multiple subscriptions][expressroute-multiplesubscriptions] in the same [geo-political region][expressroute-locations]. Connections are performed by using **private peering** utilizing addresses which are private to the VNet.
+- **Azure Virtual Networks** These are one more more VNets in Azure. Each VNet can span multiple tiers, with multiple subnets connected through Azure load balancers. The VNets could reside in [multiple subscriptions][expressroute-multiplesubscriptions] in the same [geo-political region][expressroute-locations]. Connections are performed by using **private peering** utilizing addresses which are private to the VNet.
 
 - **Azure public services.** These are Azure services that can be utilized within a hybrid application. These services are also available across the Internet, but accessing them via an ExpressRoute circuit provides low latency and more predictable performance since traffic does not go through the internet. Connections are performed by using **public peering**; traffic is routed to [IP address ranges published by Microsoft][datacenter-ip-ranges] and the ExpressRoute circuit performs a NAT translation of on-premises traffic to an endpoint in one of these ranges. Connections over a public peering can only be initiated from on-premises.
 
@@ -123,7 +123,7 @@ The following high-level steps outline a process for implementing this architect
 	```
 
 	> [AZURE.NOTE]. The `PeeringType` parameter can be one of `AzurePublicPeering`, `MicrosoftPeering`, or `AzurePrivatePeering`.
-	> 
+	>
 	> For more information about primary and secondary peering addresses, see [Availability](#availability)
 
 	Depending on your requirements, you may need to perform the following operations:
@@ -339,7 +339,7 @@ param(
 
     [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
     [string]$ExpressRouteBandwidth,
-    
+
     [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
     [string]$VnetAddressPrefix = "10.20.0.0/16",
 
