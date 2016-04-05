@@ -45,7 +45,7 @@ Typical use-cases for this architecture include:
 
 This following diagram highlights the important components in the architecture:
 
-![IaaS: hybrid-expressroute](./media/arch-iaas-hybrid-expressroute.png)
+![IaaS: hybrid-expressroute](./media/blueprints/arch-iaas-hybrid-expressroute.png)
 
 - **Azure Virtual Networks** These are one more more VNets in Azure. Each VNet can span multiple tiers, with multiple subnets connected through Azure load balancers. The VNets could reside in [multiple subscriptions][expressroute-multiplesubscriptions] in the same [geo-political region][expressroute-locations]. Connections are performed by using **private peering** utilizing addresses which are private to the VNet.
 
@@ -171,11 +171,11 @@ Note the following points:
 
 - To maximize security, add network security appliances between the on-premises network and the provider edge routers. This will help to restrict the inflow of unauthorized traffic from the VNet:
 
-	![IaaS: hybrid-expressroute-firewalls](./media/arch-iaas-hybrid-expressroute-firewalls.png)
+	![IaaS: hybrid-expressroute-firewalls](./media/blueprints/arch-iaas-hybrid-expressroute-firewalls.png)
 
 - For auditing or compliance purposes, it may be necessary to prohibit direct access from components running in the VNet to the Internet. In this situation, Internet traffic should be redirected back through a gateway or proxy running  on-premises where it can be audited. The gateway can be configured to block unauthorized traffic flowing out, and filter potentially malicious inbound traffic.
 
-	![IaaS: hybrid-expressroute-proxy](./media/arch-iaas-hybrid-expressroute-proxy.png)
+	![IaaS: hybrid-expressroute-proxy](./media/blueprints/arch-iaas-hybrid-expressroute-proxy.png)
 
 - By default, Azure VMs expose endpoints used for providing login access for management purposes - RDP and Remote Powershell for Windows VMs, and SSH for Linux-based VMs. To maximize security, use NSGs to ensure that these endpoints are not publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform any necessary configuration or maintenance.
 
@@ -237,7 +237,7 @@ Note the following points:
 
 	- Authorizations and updates
 
-	![IaaS: hybrid-expressroute-monitor](./media/arch-iaas-hybrid-expressroute-monitor.png)
+	![IaaS: hybrid-expressroute-monitor](./media/blueprints/arch-iaas-hybrid-expressroute-monitor.png)
 
 - Monitor BGP session status on Azure (also available through the Azure Management service). Specifically, track:
 
