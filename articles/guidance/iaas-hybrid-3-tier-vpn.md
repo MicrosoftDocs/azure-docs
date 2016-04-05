@@ -384,6 +384,7 @@ If traffic is unable to traverse the VPN connection, check the following:
 - Are the virtual machines in the Azure VNet configured to permit traffic coming in from outside the VNet? Check any NSG rules associated with subnets containing these virtual machines.
 
 	You can view all NSG rules by using the following Azure CLI command:
+
     ```
     azure network nsg show -g <<resource-group>> -n <<nsg-name>>
     ```
