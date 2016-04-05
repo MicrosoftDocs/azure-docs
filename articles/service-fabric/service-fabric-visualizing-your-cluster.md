@@ -64,6 +64,8 @@ For example, to delete an application instance, simply choose the application fr
 
 ![Deleting an application in Service Fabric Explorer][sfx-delete-application]
 
+>[AZURE.TIP] The same actions can be performed from the tree view by clicking on the ellipsis next to each element.
+
 The following table lists the actions available for each entity:
 
 | **Entity** | **Action** | **Description** |
