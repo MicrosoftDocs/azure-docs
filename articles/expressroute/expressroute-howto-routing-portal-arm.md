@@ -96,6 +96,7 @@ You can remove your peering configuration by selecting the delete icon as shown 
 
 
 ## Azure public peering
+
 This section provides instructions on how to create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit. 
 
 ### To create Azure public peering
