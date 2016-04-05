@@ -48,10 +48,10 @@ When provisioning your virtual machine in the hypervisor, we recommend that you 
 
 |                        | Hyper-V                                                                                                                                        | VMware                                                                                                               |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **Virtual machine type**   | Generation 1 virtual machine   when using VHD. <br></br> Generation 2 virtual machine when using   a VHDX.                                                                                                              | Use virtual machine version 8 when using VMDK.                                                                      |
+| **Virtual machine type**   | **Generation 1** virtual machine when using VHD. <br></br> **Generation 2** virtual machine when using a VHDX.                                                                                                              | Use virtual machine version 8 when using VMDK.                                                                      |
 | **Memory type**            | Configure as static memory. <br></br> Do not use the dynamic memory option.            |                                                    |
-| **Data disk type**         | Provision as dynamically expanding.<br></br> Fixed size will take a long time. <br></br> Do not use the  differencing option.                                                                                                                   | Use the thin provision option.                                                                                      |
-| **Data disk modification** | Expansion or shrinking is not   allowed. Attempt to do so will result in the loss of all the local data on   device.                       | Expansion or shrinking is not allowed. Attempt to do so will result in the loss of all the local data on   device. |
+| **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** will take a long time. <br></br> Do not use the  **differencing **option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
+| **Data disk modification** | Expansion or shrinking is not allowed. Attempt to do so will result in the loss of all the local data on   device.                       | Expansion or shrinking is not allowed. Attempt to do so will result in the loss of all the local data on device. |
 
 ### Sizing
 
@@ -67,7 +67,7 @@ Hence, we recommend that you:
 
 -   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. Alternatively you can block inheritance if it is a part of a larger OU. This will ensure that the virtual array (child-node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
 
--   Make sure that no group policy objects (GPO) are applied to your virtual array.
+-   Make sure that no group policy objects (GPOs) are applied to your virtual array.
 
 ### Networking
 
@@ -79,7 +79,7 @@ When deploying your virtual array, we recommend that you follow these best pract
 
     -   Be aware that the Internet need will very depending on your workload characteristics and rate of data churn.
 
-    -   As an example, over a period of 8 hours, a 5 Mbps bandwidth can accommodate a data churn of up to XX whereas with 20 Mbps bandwidth, you can have a YY data churn.
+    -   As an example, if your Recovery Time Objective (RTO) is 8 hours, a 5 Mbps bandwidth can accommodate a data churn of up to XX% whereas with a 20 Mbps bandwidth, you can have a YY% data churn. INCOMPLETE
 
 
 -   Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices will result in loss of access to data in the cloud and thereby result in an unsupported configuration.
@@ -94,7 +94,7 @@ When deploying your virtual array, we recommend that you follow these best pract
 
 ### Storage accounts
 
-Your StorSimple Virtual Array can be associated with a single storage account at any point in time. This storage account could be an automatically generated storage account, an account in the same subscription as the service or an account that is outside of the service subscription. Additionally, there is a 500 TB limit for a storage account.
+Your StorSimple Virtual Array can be associated with a single storage account at any point in time. This storage account could be an automatically generated storage account, an account in the same subscription as the service or an account that is outside of the service subscription. Additionally, there is a 500 TB limit for a storage account. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts).
 
 Use the following recommendations when creating storage accounts for your virtual array.
 
