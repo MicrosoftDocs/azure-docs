@@ -85,7 +85,7 @@ event service log. For example, an administrator can create a policy which cause
         <condition> | <logical operator>
       },
       "then" : {
-          "effect" : "deny | audit | append"
+          "effect" : "deny | audit"
       }
     }
     
@@ -175,24 +175,6 @@ Currently, the supported aliases are:
 
 To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 
 
-## Effect
-Deny, Audit, Append are three types of effect Policy supports. 
-- Deny will generate an event in audit log and fail the request
-- Audit will generate an event in audit log and not fail the request
-- Append will add the defined set of fields to the request. 
-
-For "Append", details must be provided as below:
-
-    ....
-    "effect": "append",
-    "details": [
-      {
-        "field": "field name",
-        "value": "value of the field"
-      }
-    ]
-
-The value can be either simple string or a json format object. 
 
 
 ## Policy Definition Examples
