@@ -20,7 +20,7 @@
 You can use the MapReduce Activity in a Data Factory pipeline to run Spark programs on your HDInsight Spark cluster. Please see [MapReduce Activity](data-factory-map-reduce.md) article for detailed information on using the activity before reading this article. 
 
 ## Spark sample on GitHub
-This section refers to files shipped with the [Spark - Data Factory sample on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark), which shows how to use MapReduce Activity to invoke a Spark program. 
+The [Spark - Data Factory sample on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) shows how to use MapReduce activity to invoke a Spark program. The spark program just copies data from one Azure Blob container to another. 
 
 ### Data Factory entities
 The **Spark-ADF/src/ADFJsons** folder contains files for Data Factory entities (linked services, datasets, pipeline).  
