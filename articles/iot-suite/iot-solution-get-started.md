@@ -60,6 +60,8 @@ On your device:
     -   Android: <http://rink.io/spMyDrivingAndroid>
 
     -   Windows 10 Phone: <http://rink.io/spMyDrivingUWP>
+
+        There are two items. Install the certificate in Trusted People. Then install the app.
     
 *Any issues launching on Windows 10 Phone?* Might be your phone is an update or two behind. Make sure you've got the latest updates, or install:
 
