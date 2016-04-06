@@ -1243,3 +1243,37 @@ This example sends a notification for a [template registration](../notification-
 		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
 		notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
 	}
+
+#### Azure Notification Hub queue trigger C# code example using Notification type
+
+This example shows how to use the `Notification` type that is defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). In order to use this type, and the library, you must upload a *project.json* file for your function app. The project.json file is a JSON text file which will look similar to the follow:
+
+	{
+	  "frameworks": {
+	    ".NETFramework,Version=v4.6": {
+	      "dependencies": {
+	        "Microsoft.Azure.NotificationHubs": "1.0.4"
+	      }
+	    }
+	  }
+	}
+
+For more information on uploading your project.json file, see [uploading a project.json file](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions).
+
+Example code:
+
+	using System;
+	using System.Threading.Tasks;
+	using Microsoft.Azure.NotificationHubs;
+	 
+	public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
+	{
+	   log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	   notification = GetTemplateNotification(myQueueItem);
+	}
+	private static TemplateNotification GetTemplateNotification(string message)
+	{
+	    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+	    templateProperties["message"] = message;
+	    return new TemplateNotification(templateProperties);
+	}
