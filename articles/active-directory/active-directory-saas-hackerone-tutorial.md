@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Novatus | Microsoft Azure"
+	pageTitle="Tutorial: Azure Active Directory integration with HackerOne | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and HackerOne."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with HackerOne, you need the following items:
 
-- An Azure AD subscription
+- An Azure subscription
 - A HackerOne single-sign on enabled subscription
 
 
@@ -93,6 +93,9 @@ To configure and test Azure AD single sign-on with HackerOne, you need to comple
 
 Next, you enable Azure AD single sign-on in the classic portal and to configure single sign-on in your HackerOne application.
 
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+
 **To configure Azure AD single sign-on with HackerOne, perform the following steps:**
 
 1. In the Azure classic portal, on the **HackerOne** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
@@ -105,11 +108,13 @@ Next, you enable Azure AD single sign-on in the classic portal and to configure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your HackerOne application using the following pattern: **“https://hackerone.com/companyname/authentication”**. When referencing a generic name that **companyname** needs to be replaced by an actual name.<br>
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your HackerOne application using the following pattern: **“https://hackerone.com/\<company name\>/authentication”**. 
 
-	b. In the IDENTIFIER textbox, type the tenant URL. Please contact the HackerOne Support Team via support@hackerone.com to get your tenant URL.
+    b. Contact the HackerOne support team via [support@hackerone.com](mailto:support@hackerone.com) to get your tenant URL if you don't know it.
 
-	c. Click **Next**
+	c. In the **Identifier** textbox, type the tenant URL. 
+
+	d. Click **Next**.
 
 
 4. On the **Configure single sign-on at HackerOne** page, perform the following steps and then click **Next**:
@@ -120,19 +125,35 @@ Next, you enable Azure AD single sign-on in the classic portal and to configure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, You need sign in into the HackerOne tenant with admin user.
+1. Sign-on to your HackerOne tenant as an administrator.
+
+1. In the menu on the top, click the **Settings**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+
+1. Navigate to "**Authentication**" and click "**Add SAML settings**".<br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+
+
+1. On the **SAML Settings** dialog, perform the following steps:
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br>
+
+    a. In the **Email Domain** textbox, type a registered domain.
+
+	b. On the Azure classic portal, copy the **Single Sign-On Service URL**, and then paste it into the Single Sign On URL textbox.
+
+    c. Create a **base-64 encoded** file from your downloaded certificate.  
+
+       >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 	
-	a. Go to dashborad and click the **Settings** which is on the Upper right corner of the page.<br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+    d. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate** textbox.
 
-	b. Then Navigate to "**Authentication**" and click the button "**Add SAML settings**".<br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+    e. Click the **Save**
 
-	c. Fill out the **SAML Settings** form.<br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br>
-		c1. Enter a registered domain in **Email Domain** textbox. To register the domain at HackerOne please contact support@hackerone.com.<br><br>
-		c2. Copy Single Sign-On Service URL from Azure AD to **Single Sign On URL** in HackerOne.<br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_006.png) <br>
-		c3. Convert the downloaded certificate to base64 file and open it in Notepad, copy and paste in the HackerOne **X509 Certificate** text box.<br>
 
-	d. Click the **Save** button.<br><br>
-	e. Click **Run test** button and make sure the test works. If it does, request review for your SAML settings to HackerOne support team via support@hackerone.com and then they will approve them.<br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+1. On the Authentication Settings dialog, perform the following steps:
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+
+    a. Click **Run test**.
+
+    b. If the value of the **Status** field equals **Last test status: created**, contact your HackerOne support team via [support@hackerone.com](mailto:support@hackerone.com) to request a review of your configuration.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
