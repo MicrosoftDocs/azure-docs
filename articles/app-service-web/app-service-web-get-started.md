@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="04/04/2016" 
 	ms.author="cephalin"
 />
 	
@@ -73,7 +73,7 @@ Let's deploy a web app to Azure App Service.
 
 4. Create the App Service app resource in Azure with a unique app name with the next command. Your web app's URL will be http://&lt;app_name>.azurewebsites.net.
 
-        azure site create --git <app_name> 
+        azure site create --git <app_name>
       
     >[AZURE.NOTE] If you've never set up deployment credentials for your Azure subscription, you'll be prompted to create them. These credentials, not your
     Azure account credentials, are used by App Service only for Git deployments and FTP logins. 
@@ -96,12 +96,9 @@ Congratulations, you have deployed your app to Azure App Service.
 
 ## See your app running live
 
-To see your app running live in Azure, run this command:
+To see your app running live in Azure, run this command from any directory in your repository:
 
-    azure site browse <app_name>
-
-If you see the error message: `Site <app_name> does not exist or has no hostnames`, retry the command in a few seconds. Some apps, such as Java apps, take longer
-to wrap up deployment.
+    azure site browse
 
 ## Make updates to your app
 

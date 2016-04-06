@@ -88,6 +88,10 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 9. Click **SAVE** to save the new or updated masking policy.
 
 
+## Set up dynamic data masking for your database using Transact-SQL statements
+
+See [Dynamic Data Masking](https://msdn.microsoft.com/library/mt130841.aspx).
+
 ## Set up dynamic data masking for your database using Powershell cmdlets
 
 See [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx).

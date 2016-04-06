@@ -26,19 +26,18 @@
 
 This topic presents a Java code sample that you can use to connect to Azure SQL Database. The Java sample relies on the Java Development Kit (JDK) version 1.8. The sample connects to an Azure SQL Database by using the JDBC driver.
 
+## Step 1:  Configure Development Environment
 
-## Prerequisites
-
-### Drivers and Libraries
+Install Drivers and Libraries:
 
 - [Microsoft JDBC Driver for SQL Server - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
 - Any operating system platform that runs [Java Development Kit 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-### A SQL database
+## Step 2: Create a SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a database.  
 
-### A SQL table
+## Step 3: Create a SQL table
 
 The Java code example in this topic assumes the following test table already exists in your Azure SQL Database database.
 
@@ -56,14 +55,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## Step 1: Get Connection String
+## Step 4: Get Connection String
 
 [AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
 > [AZURE.NOTE] If you are using the JTDS JDBC driver, then you will need to add "ssl=require" to the URL of the connection string and you need to set the following option for the JVM "-Djsse.enableCBCProtection=false". This JVM option disables a fix for a security vulnerability, so make sure you understand what risk is involved before setting this option.
 
 
-## Step 2:  Compile Java code sample
+## Step 5:  Compile Java code sample
 
 
 The section contains the bulk of the Java code sample. It has comments indicating where you would copy-and-paste the smaller Java segments that are presented in subsequent sections. The sample in this section could compile and run even without the copy-and-pastes near the comments, but it would only connect and then end. The comments you will find are the following:
@@ -136,7 +135,7 @@ Of course, to actually run the preceding Java code sample, you would have to put
 - your_password
 
 
-## Step 3: Insert rows
+## Step 6: Insert rows
 
 
 This Java segment issues a Transact-SQL INSERT statement to insert two rows into the Person table. The general sequence is as follows:
@@ -169,7 +168,7 @@ Copy-and-paste this short Java segment into the primary code sample where you se
 	}
 
 
-## Step 4: Commit a transaction
+## Step 7: Commit a transaction
 
 The following segment of Java code issues a Transact-SQL UPDATE statement to increase the `age` value for every row in the person table. The general sequence is as follows:
 
@@ -199,7 +198,7 @@ Copy-and-paste this short Java segment into the primary code sample where you se
 	connection.setAutoCommit(true);
 
 
-## Step 4: Execute a query
+## Step 8: Execute a query
 
 
 This Java segment executes a Transact-SQL SELECT statement to see all the updated rows from the Person table. The general sequence is as follows:

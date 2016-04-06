@@ -1,7 +1,4 @@
 
-This article shows you how to use Azure Resource Manager templates and the Azure CLI to do the following common tasks for deploying and managing Azure virtual machines. For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
-
-
 - [Quick-create a virtual machine in Azure](#quick-create-a-vm-in-azure)
 - [Deploy a virtual machine in Azure from a template](#deploy-a-vm-in-azure-from-a-template)
 - [Create a virtual machine from a custom image](#create-a-custom-vm-image)
@@ -16,7 +13,7 @@ This article shows you how to use Azure Resource Manager templates and the Azure
 
 ## Getting ready
 
-Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](xplat-cli-install.md).
+Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](../articles/xplat-cli-install.md).
 
 ### Update your Azure CLI version to 0.9.0 or later
 
@@ -214,7 +211,7 @@ Use the instructions in these sections to deploy a new Azure VM by using a templ
 
 ### Step 1: Examine the JSON file for the template parameters
 
-Here are the contents of the JSON file for the template. (The template is also located in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json).)
+Here are the contents of the JSON file for the template. (The template is also located in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).)
 
 Templates are flexible, so the designer may have chosen to give you lots of parameters or chosen to offer only a few by creating a template that is more fixed. In order to collect the information you need to pass the template as parameters, open the template file (this topic has a template inline, below) and examine the **parameters** values.
 
@@ -435,7 +432,7 @@ You will be prompted to supply the values of parameters in the "parameters" sect
 
 Here is an example:
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json myResourceGroup firstDeployment
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
     newStorageAccountName: storageaccount
@@ -477,7 +474,7 @@ You've seen the basic usage of templates above, so now we can use similar instru
 
 ### Step 1: Examine the JSON file for the template
 
-Here are the contents of the JSON file for the template that this section uses as an example.
+Here are the contents of the JSON file for the template that this section uses as an example. (The template is also located in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).)
 
 Again, you will need to find the values you want to enter for the parameters that do not have default values. When you run the `azure group deployment create` command, the Azure CLI will prompt you to enter those values.
 
@@ -1176,7 +1173,7 @@ You can discover very quickly what went wrong, fix, and retry. In the following 
 
 ## <a id="display-information-about-a-virtual-machine"></a>Task: Display information about a virtual machine
 
-You can see information about specific VMs in your resource group by using the `azure vm show <groupname> <vmname> command`. If you have more than one VM in your group, you might first need to list the VMs in a group by using `azure vm list <groupname>`.
+You can see information about specific VMs in your resource group by using the `azure vm show <groupname> <vmname>` command. If you have more than one VM in your group, you might first need to list the VMs in a group by using `azure vm list <groupname>`.
 
     azure vm list zoo
     info:    Executing command vm list
@@ -1271,7 +1268,7 @@ To attach an existing data disk, run this command:
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
 
-Then you'll need to mount the disk, as you normally would in Linux (or in Windows).
+Then you'll need to mount the disk, as you normally would in Linux.
 
 
 ## Next steps

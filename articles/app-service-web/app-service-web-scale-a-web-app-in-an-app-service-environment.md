@@ -13,29 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="04/04/2016" 
 	ms.author="ccompy"/>
 
 # Scaling apps in an App Service Environment #
 
-At a high level, App Service Environments are essentially personal deployments of the Azure App Service into your VNET and only manageable by your subscription. They offer new networking capabilities because they are in your VNET and can also be scaled beyond what is normally available in the Azure App Service environments.  If you need more information around what an App Service Environment(ASE) is then see [What is an App Service Environment][WhatisASE].  For details around creating an App Service Environment or creating a web app in an App Service Environment see [How to Create an App Service Environment][HowtoCreateASE] and [How to create a web app in an App Service Environment][CreateWebappinASE]
-
-As a quick reminder, when you normally change a scale attribute for a web, mobile or API app in the Azure App Service, you are changing that at an App Service Plan(ASP) level.  For details around scaling App Service Plans or just for details on App Service Plans outside of the App Service Environments see [Scale a web app in Azure App Service][ScaleWebapp] and [App Service Plans in depth overview][Appserviceplans].
-
-Scaling an app in an App Service Environment is very similar to scaling apps normally.  In the Azure App Service there are normally three things you can scale:
+In the Azure App Service there are normally three things you can scale:
 
 - pricing plan
-- worker size (for dedicated instances)
+- worker size 
 - number of instances.
 
-In an ASE there is no need to select or change the pricing plan.  In terms of capabilities it is already at a Premium pricing capability level.  In an App Service Environment there are also no shared workers.  They are all dedicated workers.  
+In an ASE there is no need to select or change the pricing plan.  In terms of capabilities it is already at a Premium pricing capability level.  
 
 With respect to worker sizes, the ASE admin can assign the size of the compute resource to be used for each worker pool.  That means you can have Worker Pool 1 with P4 compute resources and Worker Pool 2 with P1 compute resources, if desired.  They do not have to be in size order.  For details around the sizes and their pricing see the document here [Azure App Service Pricing][AppServicePricing].  This leaves the scaling options for web apps and App Service Plans in an App Service Environment to be:
 
 - worker pool selection
 - number of instances
 
-Changing either item is done through the appropriate UI shown for your ASE hosted App Service Plans.  You won't be able to scale up your ASP beyond the number of available compute resources in the worker pool that your ASP is in.  If you need more you need to get your ASE administrator to add more compute resources to the worker pool that you need them in.  For information around re-configuring your ASE read the information here: [How to Configure an App Service environment][HowtoConfigureASE].  You may also want to take advantage of the ASE autoscale features to add capacity based on schedule or metrics.  To get more details on configuring autoscale for the ASE environment itself see [How to configure autoscale for an App Service Environment][ASEAutoscale].
+Changing either item is done through the appropriate UI shown for your ASE hosted App Service Plans.  You can't scale up your ASP beyond the number of available compute resources in the worker pool that your ASP is in.  If you need compute resources in that worker pool you need to get your ASE administrator to add them.  For information around re-configuring your ASE read the information here: [How to Configure an App Service environment][HowtoConfigureASE].  You may also want to take advantage of the ASE autoscale features to add capacity based on schedule or metrics.  To get more details on configuring autoscale for the ASE environment itself see [How to configure autoscale for an App Service Environment][ASEAutoscale].
 
 ![][1]
 
