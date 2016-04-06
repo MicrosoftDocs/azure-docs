@@ -71,14 +71,14 @@ On the **Scale** page, you can manually increase or decrease the number of runni
 
 5. Each role in the cloud service has a slider for changing the number of instances to use.
 
-    ![Manually scale a cloud service role][manual_scale]
+![Manually scale a cloud service role][manual_scale]
 
     If you need more instances, you may need to change the [cloud service virtual machine size](cloud-services-sizes-specs.md).
 
 6. Click **Save**.  
 Role instances will be added or removed based on your selections.
 
->[AZURE.TIP] ![tip_icon]  
+>[AZURE.TIP] ![][tip_icon]  
 Whenever you see this icon move your mouse to it and you can get help about what a specific setting does.
 
 
@@ -100,9 +100,9 @@ This scales if the average percentage of CPU usage goes above or below specified
 
 5. Now you can configure a minimum and maximum range of roles instances, the target CPU usage (to trigger a scale up), and how many instances to scale up and down by.
 
-    ![Scale a cloud service role by cpu load][cpu_scale]
+![Scale a cloud service role by cpu load][cpu_scale]
 
->[AZURE.TIP] ![tip_icon]  
+>[AZURE.TIP] ![][tip_icon]  
 Whenever you see this icon move your mouse to it and you can get help about what a specific setting does.
 
 
@@ -123,9 +123,9 @@ This automatically scales if the number of messages in a queue goes above or bel
 
 4. Now you can configure a minimum and maximum range of roles instances, the queue and amount of queue messages to process for each instance, and how many instances to scale up and down by.
 
-    ![Scale a cloud service role by a message queue][queue_scale]
+![Scale a cloud service role by a message queue][queue_scale]
 
->[AZURE.TIP] ![tip_icon]  
+>[AZURE.TIP] ![][tip_icon]  
 Whenever you see this icon move your mouse to it and you can get help about what a specific setting does.
 
 
@@ -143,7 +143,7 @@ Often when you scale a role, it's beneficial to scale the database that the appl
 
     > [AZURE.NOTE] If you don't see a **linked resources** section, you probably do not have any linked resources.
 
-    ![][linked_resource]
+![][linked_resource]
 
 
 [manual_scale]: ./media/cloud-services-how-to-scale/manual-scale.png
