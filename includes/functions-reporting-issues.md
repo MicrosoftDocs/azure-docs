@@ -1,4 +1,4 @@
-Item | Description | Issue Link
+Item | Description | Link
 ---------|-------|-----------
 Runtime | Script Host | [File an Issue](https://github.com/Azure/azure-webjobs-sdk/issues)
 Extensions | Triggers & Bindings | [File an Issue](https://github.com/Azure/azure-webjobs-sdk-extensions/issues)
