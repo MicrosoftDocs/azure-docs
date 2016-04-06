@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="04/05/2016"
    ms.author="chackdan"/>
 
 # Create standalone Service Fabric clusters on Windows Server or Linux
@@ -21,10 +21,11 @@ Azure Service Fabric allows the creation of Service Fabric clusters on any VMs o
 
 **Note**: Creating a cluster on Azure should be done either via an Azure Resource Model template or the Azure portal. Read [Create a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) or [Create a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for more information.
 
-Service Fabric provides an install package for you to create these standalone Service Fabric clusters on premises. A key benefit of this is that there's no vendor lock-in when you build an application using Service Fabric, since you choose where those applications run. This also increases your ability to reach out to a broader customer base, because customers can have varying requirements for the environments where they want to run your applications. For example, customers in the healthcare and financial industries may have different needs than customers in the auto or travel industries.
+Service Fabric provides an install package for you to create these standalone Service Fabric clusters on premises. A key benefit of this is that there's no vendor lock-in when you build an application using Service Fabric, since you choose where those applications run. This also increases your ability to reach out to a broader customer base, because customers can have varying requirements for the environments where they want to run your applications. For example, customers in the healthcare and financial industries may have different needs than customers in the auto or travel industries. 
 
 ## Supported operating systems
 You will be able to create clusters on VMs or computers running these operating systems:
+
 * Windows Server 2012 R2
 * Windows Server 2016
 * Linux
