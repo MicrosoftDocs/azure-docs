@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with Keylight, you need the following items:
 
-- An Azure AD subscription
+- An Azure subscription
 - A Keylight single-sign on enabled subscription
 
 
@@ -158,7 +158,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     n. Click **Save**.
    
-   > [AZURE.NOTE] The best prctice recommendation is to use **NameIdentifier** as **SAML User Id**. <br>If you need to use attribute name, please provide the full attribute name.
+  
    
   
 6. In the Azure portal, select the single sign-on configuration confirmation, and then click **Next**.
