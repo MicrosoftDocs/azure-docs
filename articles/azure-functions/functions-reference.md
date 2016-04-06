@@ -103,7 +103,7 @@ When setting up a project for deploying functions to a function app in Azure App
 
 ### Parallel execution
 
-When multiple triggering events occur faster than a function can process them, The Azure Functions runtime may invoke the function multiple times in parallel. If a function app is using the [Dynamic Service Plan](functions-scale.md#dynamic-service-plan), the maximum number of concurrent instances of the function app is 10, and each instance may invoke the function multiple times in parallel. The maximum number of concurrent function invocations in each function app instance varies based on the memory size of the function app.
+When triggering events occur faster than a single-threaded function runtime can process them, the runtime may invoke the function multiple times in parallel.  If a function app is using the [Dynamic Service Plan](functions-scale.md#dynamic-service-plan), the function app could scale out automatically up to 10 concurrent instances.  Each instance of the function app, whether the app runs on the Dynamic Service Plan or a regular [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), might process concurrent function invocations in parallel using multiple threads.  The maximum number of concurrent function invocations in each function app instance varies based on the memory size of the function app.
 
 ### Azure Functions Pulse  
 
