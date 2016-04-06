@@ -18,7 +18,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a scalable elastic database pool for SQL databases with the Azure portal
+# Create an elastic database pool with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
@@ -90,5 +90,4 @@ The service evaluates resource needs and cost effectiveness of moving the single
 
 - [Manage a SQL Database elastic pool with the portal](sql-database-elastic-pool-manage-portal.md)
 - [Manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [Manage a SQL Database elastic pool with C#](sql-database-client-library.md)
-- [Elastic database reference](sql-database-elastic-pool-reference.md)
+- [Manage a SQL Database elastic pool with C#](sql-database-elastic-pool-manage-csharp.md)

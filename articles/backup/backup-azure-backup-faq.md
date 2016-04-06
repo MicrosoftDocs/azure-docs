@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/30/2016"
+	 ms.date="04/04/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup service- FAQ
@@ -136,8 +136,15 @@ A22. You can install the Azure Backup agent on the Guest Windows OS and back up 
 **Q23. What is the length of file path that can be specified as part of Azure Backup policy using Azure Backup agent?** <br/>
 A23. Azure Backup agent relies on NTFS. The [file path length specification is limited by the Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). If you have a file path greater than what is allowed by the Windows API, you can back up the parent folder, or the disk drive, of the desired files.  
 
-**Q24 What characters are allowed in file path of Azure Backup policy using Azure Backup agent?** <br/>
+**Q24. What characters are allowed in file path of Azure Backup policy using Azure Backup agent?** <br/>
 A24. Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) as part of file specification.  
+
+**Q25. Can I use Azure Backup Server to create a Bare Metal Recovery (BMR) backup for a physical server?** <br/>
+A25. Yes.
+
+**Q26. Can I configure the Backup service to send mail if a backup job fails?** <br/>
+A26. Yes, the Backup service has several event-based alerts that can be used with a PowerShell script. For a full description, see [Alert notifications](backup-azure-manage-vms.md#alert-notifications)
+
 
 
 ## Backup & Retention
@@ -197,6 +204,9 @@ A11. All the data that is backed up is compressed and encrypted before being tra
 
 **Q12. Is there a way to adjust the amount of bandwidth used by the Backup service?**<br/>
 A12. Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. Adjust the amount of bandwidth and the times when you use that bandwidth. See [Network Throttling](../backup-configure-vault.md#enable-network-throttling), for more information.
+
+**Q13. My internet bandwidth is limited for the amount of data I need to back up. Is there a way I can move data to a certain location with a large network pipe and push that data into Azure?** <br/>
+Q13. You can back up data into Azure via the standard online backup process, or you can use the Azure Import/Export service to transfer data to blob storage in Azure. There are no additional ways of getting backup date into Azure storage. For information on how to use the Azure Import/Export service with Azure Backup, please see the [Offline Backup workflow](backup-azure-backup-import-export) article.
 
 
 ## Recovery

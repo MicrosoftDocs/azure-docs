@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -74,6 +74,8 @@ To configure the integration of Heroku into Azure AD, you need to add Heroku fro
 ![Creating an Azure AD test user](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_01.png)<br>
 7. In the results pane, select **Heroku**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_02.png)<br>
+
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Heroku based on a test user called "Britta Simon".
