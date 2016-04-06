@@ -76,7 +76,7 @@ You will need to give your application permission to create resources in Azure f
             </dependency>
         </dependencies>
 
-4. Go to *File*, then *Settings*, then *Build, Execution, Deployment*. Select *Build Tools*, *Maven*, *Importing*. Then check *"Import Maven projects automatically"*.
+4. Go to **File**, then **Settings**, then **Build**, **Execution**, **Deployment**. Select **Build Tools**, **Maven**, **Importing**. Then check **Import Maven projects automatically**.
 
 5. Open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID**.
 

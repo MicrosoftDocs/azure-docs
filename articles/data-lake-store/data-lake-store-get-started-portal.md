@@ -126,5 +126,5 @@ To delete an Azure Data Lake Store account, from your Data Lake Store blade, cli
 ## Next steps
 
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

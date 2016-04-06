@@ -38,7 +38,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **An Azure Data Lake Store account**. See [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md) to create an account.
-- **A service principal with permissions to access the Data Lake Analytics account**. See [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
+- **A service principal with permissions to access the Data Lake Analytics account**. See [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
 ## Install the SDK
 
@@ -111,5 +111,5 @@ The following example creates a file in a Data Lake Store account and appends da
 ##See also 
 
 - [Azure SDK for Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Manage Azure Data Lake Analytics using Node.js](data-lake-analytics-use-nodejs.md)
+- [Manage Azure Data Lake Analytics using Node.js](../data-lake-analytics/data-lake-analytics-use-nodejs.md)
 
