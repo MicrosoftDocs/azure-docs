@@ -64,9 +64,7 @@ If you chose a .NET backend configuration above, you can optionally test the bac
 
 ## Download and run the Xamarin.iOS app
 
-1. On your Mac, open the [Azure portal] in a browser window.
-
-	>[AZURE.NOTE] It's easier to run your Xamarin.iOS app on a Mac. You can run the Xamarin.iOS app by using Visual Studio on your Windows-based computer if you want, but it's a bit more complicated because you have to connect to a networked Mac. If you're interested in doing that, see [Installing Xamarin.iOS on Windows].
+1. Open the [Azure portal] in a browser window.
 
 2. On the settings blade for your Mobile App, click **Get Started** > **Xamarin.iOS**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
 
@@ -111,10 +109,3 @@ If you chose a .NET backend configuration above, you can optionally test the bac
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/
-
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-[Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/

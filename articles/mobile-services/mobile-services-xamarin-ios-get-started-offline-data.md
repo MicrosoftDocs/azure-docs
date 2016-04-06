@@ -46,8 +46,8 @@ This tutorial walks you through these basic steps:
 
 This tutorial requires the following:
 
-* Visual Studio with Xamarin; see [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx). You can also use [Xamarin Studio] on OS X.
-* XCode 4.5 and iOS 6.0 (or later versions)
+* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx) for instructions. 
+* A Mac with Xcode v7.0 or later and Xamarin Studio Community installed. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) and [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 * Completion of the [Get started with Mobile Services] tutorial
 
 ## <a name="review-offline"></a>Review the Mobile Services sync code
@@ -181,7 +181,4 @@ In this section you will reconnect the app to the mobile service. This simulates
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Soft Delete]: mobile-services-using-soft-delete.md
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin extension]: http://xamarin.com/visual-studio
 [Azure classic portal]: https://manage.windowsazure.com

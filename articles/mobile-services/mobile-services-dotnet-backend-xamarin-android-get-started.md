@@ -47,7 +47,7 @@ Once you have created your mobile service, you can follow an easy quickstart in 
 
 In this section you will download a new Xamarin Android app and a service project for your mobile service.
 
-1. If you haven't already done so, install Visual Studio with Xamarin. Instructions can be found on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx). You can also use [Xamarin Studio] on a Mac OS X machine.
+1. If you haven't already done so, install Visual Studio with Xamarin. Instructions can be found on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx). You can also use Xamarin Studio on a Mac OS X machine, see [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx).  
 
 2. In the [classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
@@ -63,7 +63,7 @@ In this section you will download a new Xamarin Android app and a service projec
 
   	This downloads a solution containing projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
-6. Download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
+5. Download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
 
 ## Test the mobile service
 
@@ -135,8 +135,3 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [classic portal]: https://manage.windowsazure.com/
 [JavaScript backend version]: mobile-services-android-get-started.md
 [Troubleshoot a Mobile Services .NET backend]: mobile-services-dotnet-backend-how-to-troubleshoot.md
-
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409

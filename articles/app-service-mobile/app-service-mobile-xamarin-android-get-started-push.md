@@ -22,7 +22,7 @@
 
 ##Overview
 
-In this tutorial, you add push notifications to the [Xamarin.Android quickstart] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Create a Xamarin.Android app] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+In this tutorial, you add push notifications to the [Create a Xamarin.Android app] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Create a Xamarin.Android app] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Prerequisites
 
@@ -74,9 +74,13 @@ You can test the app by using a virtual device in the emulator. There are additi
 
 
 <!-- URLs. -->
+<<<<<<< HEAD
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
 [Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
 
+=======
+[Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md 
+[Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
+>>>>>>> Updating Xamarin references and install links
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
