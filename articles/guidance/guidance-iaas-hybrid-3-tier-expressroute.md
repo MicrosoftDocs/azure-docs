@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="06/04/2016"
    ms.author="roshar"/>
 
 # Azure Blueprints: Implementing a Hybrid Network Architecture with Azure ExpressRoute
@@ -63,7 +63,7 @@ The following diagram highlights the important components in this architecture:
 
 > [AZURE.NOTE] ExpressRoute connectivity providers fall into one of the following categories:
 
-> - **Exchange Providers (IXP).** These are OSI Layer 2 (*data link layer*) providers that supply virtual cross-connections to Azure. An IXP provides control access to its network switches that act as simple bridges between your on-premises networks and Azure, giving a direct connection from LAN to LAN. The customer has to provide information to configure these bridges to route requests from one network to another.
+> - **Exchange Providers (IXP).** These are OSI Layer 2 (*data link layer*) providers that supply virtual cross-connections to Azure. An IXP provides controlled access to its network switches that act as simple bridges between your on-premises networks and Azure, giving a direct connection from LAN to LAN. The customer has to provide information to configure these bridges to route requests from one network to another.
 >
 > - **Network Service Providers (Telco).** These are OSI Layer 3 (*network layer*) providers that supply access to network switches that are configured by the provider to connect to Azure. These switches translate network addresses from your on-premises domain to the Microsoft domain, and route traffic between networks, often using Multiprotocol Label Switching (MPLS) or similar.
 >
@@ -160,6 +160,8 @@ You can configure high availability for your Azure connection in different ways,
 
 - If you are using a Telco connectivity provider, verify that it provides redundant BGP sessions that handle availability for you.
 
+- A single virtual network can be connected to multiple ExpressRoute circuits and each  circuits can be supplied by different service providers. This strategy provides additional high-availability and disaster recovery capabilities.
+
 - Configure a Site-to-Site VPN as a failover path for ExpressRoute. This is only applicable to private peering. For Azure and Office 365 services, the Internet is the only failover path.
 
 - A single virtual network can be connected to multiple express route circuits and each of those circuits can be through different service providers. This can be used for high-availability. The throughput would be aggregated across providers.
@@ -184,9 +186,9 @@ You can configure security options for your Azure connection in different ways, 
 
 ## Scalability
 
-To provide scalability for your ExpressRoute connection, consider the following points.
+ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth the greater the cost. if your connectivity provider offers different bandwidths, you may be able to scale by selecting the most appropriate bandwidth for a given workload and time.
 
-- To minimize financial costs, start with the smallest estimated bandwidth that you expect to require. Depending on availability, it may be possible to switch to a higher bandwidth offering from your provider if necessary. You can change the bandwidth of an existing circuit by using the following command:
+- To minimize financial costs, start with the smallest estimated bandwidth that you expect to require. You can change the bandwidth of an existing circuit (if your connectivity provider supports this feature) by using the following command:
 
 	```
 	$ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
@@ -223,7 +225,9 @@ To provide scalability for your ExpressRoute connection, consider the following 
 	>
 	> - An increase in the number of VNet links per circuit from 10 to a larger limit, depending on the bandwidth of the circuit.
 
-- ExpressRoute circuits are designed to allow temporary network bursts up to two times the bandwidth limit that you procured for no additional cost. However, you should determine whether your connectivity provider supports this feature before depending on it.
+- ExpressRoute circuits are designed to allow temporary network bursts up to two times the bandwidth limit that you procured for no additional cost. This is achieved by using redundant links. However, not all connectivity providers support this feature; verify that your connectivity provider enables this feature before depending on it.
+
+- If you expect to exceed the bandwidth of the ExpressRoute circuit, remember that single virtual network can be connected to multiple circuits. Each circuit has its own costs and can be supplied by a different connectivity provider. Total throughput is aggregated across these circuits.
 
 ## Monitoring and manageability
 
