@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/06/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -106,11 +106,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Tangoe Command Premium Mobile application using the following pattern: **“https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=\<TenantIssuer\>&Target=\<TARGETPAGEURL\>”**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Tangoe Command Premium Mobile application using the following pattern: **“https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=\<tenant issuer\>&Target=\<target page URL\>”**.
 
-	b. In the Reply URL type the URL in the following pattern: **"https://sso.tangoe.com/sp/ACS.saml2"**
+	b. In the **Reply URL** textbox, type the URL in the following pattern: **"https://sso.tangoe.com/sp/ACS.saml2"**
 
-    > [AZURE.NOTE]  You can get the correct Sign On URL and Reply URL from the Tangoe Support team. If you are not sure about those URLs at this point then use the above given samples and update the URLs after Tangoe team complete the SSO configuration on their end.
+    > [AZURE.NOTE]  You can get the correct Sign On URL and Reply URL from the Tangoe support team. If you don't know the correct values for both URLs, use the values above as placeholders and update them when you got the correct values from the support team.
 
 
 4. On the **Configure single sign-on at Tangoe Command Premium Mobile** page, perform the following steps:
@@ -121,7 +121,15 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     b. Click **Next**.
 
 
-5.  To get SSO configured for your application, contact your Tangoe Customer support associate and email the attach downloaded metadata file. Also please do provide the Issuer URL, SAML SSO URL and Single Sign Out Service URL so that they can be configured for SSO integration.
+5.  To get SSO configured for your application, contact your Tangoe customer support associate and provide the following:
+
+
+    - The downloaded metadata file
+    - The **Issuer URL**
+    - The **SAML SSO URL**
+    - The **Single Sign-Out Service URL**
+
+
   
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
