@@ -60,12 +60,14 @@ The following is the scenario support matrix for this sign-on experience:
 
 
 | Client |Support  |Exceptions|
-| --------- | --------- |
+| --------- | --------- |--------- |
 | Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
 | Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
 | Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 |Modern Applications using ADAL such as Office 2016| Supported|None|
+
 For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+
 For more information about using Azure Active Directory with Password sync see [Azure AD Connect](active-directory-aadconnect.md).
 
 
