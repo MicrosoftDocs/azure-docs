@@ -33,8 +33,8 @@ The HDInsight .NET SDK provides .NET client libraries that makes it easier to wo
 
 To complete the steps in this article, you will need the following.
 
-* An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based)
-* Visual Studio 2012 or 2013 or 2015
+* An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based).
+* Visual Studio 2012 or 2013 or 2015.
 
 ## Find your subscription ID
 
@@ -52,7 +52,7 @@ Save the subscription ID, as it will be used later.
 
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
-The following sample using user interactive authentication. To use the non-interactive authentication, see [Create non-interactive authentication .NET HDInsight applciations](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+The following sample using user interactive authentication. To use the non-interactive authentication, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 
 1. Open Visual Studio 2012 or 2013

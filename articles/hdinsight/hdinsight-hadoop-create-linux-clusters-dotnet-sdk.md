@@ -32,7 +32,6 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
 - __Visual Studio 2013 or 2015__
 
 ## Create clusters

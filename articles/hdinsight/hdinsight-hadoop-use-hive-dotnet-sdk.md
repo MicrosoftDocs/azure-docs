@@ -19,6 +19,9 @@
 
 # Run Hive queries using HDInsight .NET SDK
 
+[AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
+
+
 Learn how to submit Hive queries using HDInsight .NET SDK.
 
 > [AZURE.NOTE] The steps in this article must be performed from a Windows client. For information on using a Linux, OS X, or Unix client to work with Hive, use the tab selector shown on the top of the article.
@@ -27,14 +30,14 @@ Learn how to submit Hive queries using HDInsight .NET SDK.
 
 Before you begin this article, you must have the following:
 
-- **An Azure HDInsight cluster**. For instructions, see [Get started with HDInsight][hdinsight-get-started] or [Create Hadoop clusters in HDInsight][hdinsight-provision].
+- **A Hadoop cluster in HDInsight**. See [Create cluster and SQL databvase](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 - **Visual Studio 2012/2013/2015**.
 
 ##Submit Hive queries using HDInsight .NET SDK
 
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
-The following sample using user interactive authentication. To use the non-interactive authentication, see [Create non-interactive authentication .NET HDInsight applciations](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+The following sample using user interactive authentication. To use the non-interactive authentication, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
 **To Submit jobs**
 
@@ -181,7 +184,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use Sqoop with HDInsight](hdinsight-use-sqoop-mac-linux.md)
-* [Create non-interactive authentication .NET HDInsight applciations](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+* [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
