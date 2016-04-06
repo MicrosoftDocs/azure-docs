@@ -111,5 +111,5 @@ The following example creates a file in a Data Lake Store account and appends da
 ##See also 
 
 - [Azure SDK for Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Manage Azure Data Lake Analytics using Node.js](../data-lake-analytics/data-lake-analytics-use-nodejs.md)
+- [Manage Azure Data Lake Analytics using Node.js](../data-lake-analytics/data-lake-analytics-manage-use-nodejs.md)
 
