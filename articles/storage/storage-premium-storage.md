@@ -373,8 +373,6 @@ This section shows how to create a Premium Storage account using the Azure Porta
 	>  
 	> Your storage account name must be unique within Azure. The Azure Portal will indicate if the storage account name you select is already in use.
 
-	See [Storage account endpoints](#storage-account-endpoints) below for details about how the storage account name will be used to address your objects in Azure Storage.
-
 4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
 
 5. Specify the performance tier for the storage account as **Premium**.
