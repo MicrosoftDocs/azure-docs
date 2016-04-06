@@ -79,7 +79,7 @@ When deploying your virtual array, we recommend that you follow these best pract
 
     -   Be aware that the Internet need will very depending on your workload characteristics and rate of data churn.
 
-    -   As an example, 8 hours, a 5 Mbps bandwidth can accommodate a data churn of up to 18 GB in 8 hours whereas with a 20 Mbps bandwidth, you can have a data churn of up to 72 GB. 
+    -   As an example, 8 hours, a 5 Mbps bandwidth can accommodate a data churn of up to 18 GB in 8 hours whereas with a 20 Mbps bandwidth, you can have a data churn of up to 72 GB in the same time. 
 
 
 -   Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices will result in loss of access to data in the cloud and thereby result in an unsupported configuration.
@@ -118,33 +118,27 @@ For your virtual array, you can provision a 50 GB to 2 TB locally pinned volume/
 
 -   The file sizes in the data relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in slow tier out. When working with large files, we recommend that the largest file is smaller than 3% of the share size.
 
--   Create the volume size as close to the anticipated usage as possible. This is true for both locally pinned and tiered volumes.
-
-    -   In a thinly provisioned tiered volume, while the space is consumed on an as-needed basis, the actual configured size of the volume does result in overhead with regards to the amount of time it takes to create or restore from a cloud snapshot. The amount of overhead is correlated to the volume size as the entire volume space needs to be scanned.
-
-    -   For a thickly provisioned locally pinned volume, the entire local space needs to be provisioned and sometimes this results in pushing the data in the existing tiered volumes to the cloud. Locally pinned volume creation can be a very time consuming process.
+-   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB in size. If tiered, the volumes/shres must be between 500 GB to 20 TB. 
+	-   There are no restrictions on the number of volumes and the size of volumes created as long as we are within the permissible limits in each case.
+	-   When creating shares, we recommend that the depth of directory (levels of folders) should not exceed 3. Also the number of files and folders should not exceed 6000. Beyond these numbers, you will see a degradation in the performance. 
 
 -   When creating a volume, factor in the expected data consumption as well as future growth. Note that while the volume cannot be expanded later, you can always restore to a larger volume.
 
--   For disaster recovery use cases, provision small x-y TB volumes to help meet expected RPO and RTOs.
-
 -   Once the volume has been created, you cannot shrink the size of the volume on StorSimple.
-
+   
 -   When writing to a tiered volume on StorSimple, note that when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO will be throttled. Continuing to write to this volume will slow down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you will see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data or restore the volume to a larger volume (volume expansion is currently not supported).
+
+-   For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs. 
 
 #### Volume/Share type
 
-StorSimple supports two volume types based on the usage: locally pinned and tiered. Locally pinned volumes are thickly provisioned whereas the tiered volumes are thinly provisioned. Be aware that creating local volumes affects the space required for tiered volumes. Also provisioning a locally pinned volume may take considerable time as it could potentially involve pushing existing data from tiered volumes into the cloud. Your device performance may be adversely impacted in that duration.
+StorSimple supports two volume types based on the usage: locally pinned and tiered. Locally pinned volumes are thickly provisioned whereas the tiered volumes are thinly provisioned. 
 
 We recommend that you implement the following best practices when configuring StorSimple:
 
+-   Identify the volume type based on the workloads that you intend to deploy before you create a volume. Once you create volume on your virtual array, you cannot change the volume type from locally pinned to tiered or vice-versa. As an example, create locally pinned volumes when deploying SQL workloads or workloads hosting virtual machines (VMs). Use tiered volumes for file share workloads.
+
 -   Select the correct volume usage type: locally pinned or tiered based on your workload. Use locally pinned volumes for workloads that require local guarantees of data (even during a cloud outage) and low cloud latencies.
-
--   Identify the volume type based on the workloads that you intend to deploy before you create a volume. Once you create volume on your virtual array, you cannot change the volume type from locally pinned to tiered or vice-versa. As an example, create locally pinned volumes when deploying SQL workloads or workloads hosting virtual machines (VMs). Use tiered volumes for file share workloads
-
--   As creating locally pinned volumes affects available space for tiered volumes, work with small local volumes.
-
--   Locally pinned volume creation can be slower if the existing volumes on the device have not been backed up. Prior to creating a locally pinned volume, take a cloud snapshot of your device data.
 
 -   Check the option for less frequently used archival data when dealing with large file sizes. A larger deduplication chunk size of 512 K is used when this option is enabled to expedite the data transfer to the cloud.
 
