@@ -362,5 +362,5 @@ This authentication method allows middle-tier services to connect to Azure SQL D
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
-[11]: ./media/sql-database-aad-authentication/11connect-to-server-int-auth.png
-[12]: ./media/sql-database-aad-authentication/12connect-to-server-pw-auth.png
+[11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
+[12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
