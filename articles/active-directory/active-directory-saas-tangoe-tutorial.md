@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	b. In the **Reply URL** textbox, type the URL in the following pattern: **"https://sso.tangoe.com/sp/ACS.saml2"**
 
-    > [AZURE.NOTE]  You can get the correct Sign On URL and Reply URL from the Tangoe support team. If you don't know the correct values for both URLs, use the values above as placeholders and update them when you got the correct values from the support team.
+    > [AZURE.NOTE]  If you don't know the correct values for the URLs, you can use the values above as placeholders and request the the correct values from your Tangoe customer support associate.
 
 
 4. On the **Configure single sign-on at Tangoe Command Premium Mobile** page, perform the following steps:
