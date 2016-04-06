@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Tutorial: Azure ActiveDirectory integration with SuccessFactors | Microsoft Azure"
+    pageTitle="Tutorial: Azure Active Directory integration with SuccessFactors | Microsoft Azure"
     description="Learn how to use SuccessFactors with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
