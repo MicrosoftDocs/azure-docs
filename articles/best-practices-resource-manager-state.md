@@ -23,7 +23,7 @@ This topic shows best practices for managing and sharing state within templates.
 This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 
-## Define configuration settings
+## Provide standard configuration settings
 
 Rather than offer a template that provides total flexibility and countless variations, a common pattern is to provide the ability to select known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition. In other cases, it may be workload specific configurations of a technology – such as map reduce or no sql.
 
@@ -167,7 +167,7 @@ for `variables('tshirtSize').vmSize` while the value for the disk size is retrie
       }
     }
 
-## Passing state to a template
+## Pass state to a template
 
 You share state into a template through parameters that you provide directly during deployment.
 
@@ -202,7 +202,7 @@ The **tshirtSize** parameter used in the previous section is defined as:
     }
 
 
-## Passing state to linked templates
+## Pass state to linked templates
 
 When connecting to linked templates, you will often use a mix of static and generated variables.
 
@@ -210,8 +210,8 @@ When connecting to linked templates, you will often use a mix of static and gene
 
 Static variables are often used to provide base values, such as URLs, that are used throughout a template.
 
-In the template excerpt below, **templateBaseUrl** specifies the root location for the template in GitHub. The next line builds a new variable **sharedTemplateUrl** that concatenates the base URL with the known name of the shared resources template. Below that, a complex object variable is used to store a t-shirt size, where the base URL is 
-concatenated to the known configuration template location and stored in the **vmTemplate** property.
+In the template excerpt below, `templateBaseUrl` specifies the root location for the template in GitHub. The next line builds a new variable `sharedTemplateUrl` that concatenates the base URL with the known name of the shared resources template. Below that, a complex object variable is used to store a t-shirt size, where the base URL is 
+concatenated to the known configuration template location and stored in the `vmTemplate` property.
 
 The benefit of this approach is that if the template location changes, you only need to change the static variable 
 in one place which passes it throughout the linked templates.
@@ -351,7 +351,7 @@ The variables section is where you’ll find the variables that define the speci
     },
 
 
-## Returning state from a template
+## Return state from a template
 
 Not only can you pass data into a template, you can also share data back to the calling template. In the **outputs** section of a linked template, you can provide key/value pairs that can be consumed 
 by the source template.
@@ -397,7 +397,7 @@ You can use the same pattern shown above for configuration settings to specify t
       }
     }
 
-You add variables for the different authentication types and to store which type is used for this deployment based on the value of the parameter.
+You add variables for the different authentication types, and a variable to store which type is used for this deployment based on the value of the parameter.
 
     "variables": {
       "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
