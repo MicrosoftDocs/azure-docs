@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"
+   ms.date="04/06/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array best practices
@@ -104,7 +104,7 @@ Use the following recommendations when creating storage accounts for your virtua
 
 -   While creating a storage account, be aware that you cannot move a storage account across different regions. Also you cannot move a service across subscriptions.
 
--   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](storage-redundancy.md).
+-   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](./storage/storage-redundancy.md).
 
 -   If possible, choose a storage account within the same subscription as the StorSimple Manager service for your virtual array. This has the benefit of simplifying and streamlining the workflow associated with the management of the storage account.
 
@@ -182,7 +182,7 @@ Use the following best practices when configuring ACRs for StorSimple volumes:
 
 Your StorSimple Virtual Array has data security and encryption features that ensure the confidentiality and integrity of your data. When using these features, it is recommended that you follow these best practices: 
 
--   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to being with. The key can be generated and kept safe using a key management system such as [Azure key vault](key-vault-whatis.md).
+-   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to being with. The key can be generated and kept safe using a key management system such as [Azure key vault](./key-vault/key-vault-whatis.md).
 
 -   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
 
