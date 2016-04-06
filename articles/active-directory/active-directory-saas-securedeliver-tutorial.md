@@ -83,6 +83,7 @@ To configure and test Azure AD single sign-on with SECURE DELIVER, you need to c
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a SECURE DELIVER test user](#creating-a-secure-deliver-test-user)** - to have a counterpart of Britta Simon in People that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -104,13 +105,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) <br>
 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SECURE DELIVER application using the following pattern: **“https://i-securedeliver.jp/sd/\<company name\>/jsf/login/sso”**. 
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your SECURE DELIVER application using the following pattern: **“https://i-securedeliver.jp/sd/company name/jsf/login/sso”**. When referencing a generic name that **companyname** needs to be replaced by an actual name.<br>
 
-    b. Contact your SECURE DELIVER support team via [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) to get your tenant URL if you don't know it.
+	b. In the IDENTIFIER textbox, type the tenant URL. Please contact the SECURE DELIVER Support Team via iw-sd-support@fujifilm.com to get your tenant URL.
 
-	c. In the **Identifier** textbox, type the tenant URL. 
-
-	d. Click **Next**.
+	c. Click **Next**
 
 
 4. On the **Configure single sign-on at SECURE DELIVER** page, perform the following steps and then click **Next**:
@@ -121,7 +120,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your SECURE DELIVER support team via [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) and provide them with the following:
+5. To get SSO configured for your application, contact your SECURE DELIVER support team via iw-sd-support@fujifilm.com and provide them with the following:<br>
 	
 	•  The downloaded certificate file
 
@@ -190,6 +189,14 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     a. Write down the value of the **New Password**.
 
     b. Click **Complete**.   
+
+
+
+### Creating a SECURE DELIVER test user
+
+The objective of this section is to create a user called Britta Simon in SECURE DELIVER. Please work with SECURE DELIVER support team to add the users in the SECURE DELIVER account.
+
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the SECURE DELIVER support team.
 
 
 ### Assigning the Azure AD test user
