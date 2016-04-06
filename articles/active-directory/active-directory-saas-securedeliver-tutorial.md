@@ -19,7 +19,7 @@
 
 # Tutorial: Azure Active Directory integration with SECURE DELIVER
 
-The objective of this tutorial is to show you how to integrate SECURE DELIVER with Azure Active Directory (Azure AD).<br>Integrating SECURE DELIVER with Azure AD provides you with the following benefits:
+The objective of this tutorial is to show you how to integrate SECURE DELIVER with Azure Active Directory (Azure AD).<br>  Integrating SECURE DELIVER with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to SECURE DELIVER
 - You can enable your users to automatically get signed-on to SECURE DELIVER (Single Sign-On) with their Azure AD accounts
@@ -31,7 +31,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with SECURE DELIVER, you need the following items:
 
-- An Azure AD subscription
+- An Azure subscription
 - A SECURE DELIVER single-sign on enabled subscription
 
 
