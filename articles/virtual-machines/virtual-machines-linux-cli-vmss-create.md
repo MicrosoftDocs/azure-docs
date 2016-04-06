@@ -1,6 +1,6 @@
 <properties
-	pageTitle="What Are VM Scale Sets? | Microsoft Azure"
-	description="Learn about VM Scale Sets."
+	pageTitle="What are VM scale sets? | Microsoft Azure"
+	description="Learn about VM scale sets."
 	keywords="linux virtual machine,virtual machine scale sets" 
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.date="03/24/2016"
 	ms.author="gatneil"/>
 
-# What Are Virtual Machine Scale Sets?
+# What are virtual machine scale sets?
 
 Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
 
@@ -34,11 +34,11 @@ Cons:
 
 1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
 
-## Quick-Create Using Azure CLI
+## Quick-create using Azure CLI
 
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
-## Next Steps
+## Next steps
 
 For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

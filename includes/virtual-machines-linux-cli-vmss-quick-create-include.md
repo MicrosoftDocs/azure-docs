@@ -1,7 +1,7 @@
 If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a scale set:
 
 ```bash
-# make sure we are in ARM mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set
@@ -15,7 +15,7 @@ azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0
 
 If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to ssh into our VMs:
+Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to connect via ssh to our VMs:
 
 ```bash
 # (if you decide to run this as a script, please invoke using bash)
@@ -50,8 +50,8 @@ line=$(azure network public-ip show -g negatvmssrg -n $pip_name | grep FQDN)
 split_line=( $line )
 FQDN=${split_line[3]}
 
-# now that we have the FQDN, we can ssh on port 50,000+i to ssh into VM i (where i is 0-indexed)
+# now that we have the FQDN, we can use ssh on port 50,000+i to connect to VM i (where i is 0-indexed)
 #
-# example to ssh into VM "0":
+# example to connct via ssh into VM "0":
 ssh -p 50000 negat@$FQDN
 ```
