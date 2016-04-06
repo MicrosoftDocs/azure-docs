@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="04/06/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Integrating Applications with Azure Active Directory
@@ -55,7 +55,7 @@ Once your application has been registered with Azure AD, it may need to be updat
 
 ### Overview of the Consent Framework
 
-Azure AD’s consent framework makes it easy to develop multi-tenant Web and Native client applications that need to access Web APIs secured by an Azure AD tenant, different from the one where the client application is registered. These Web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own Web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data. 
+Azure AD’s consent framework makes it easy to develop multi-tenant Web and Native client applications that need to access Web APIs secured by an Azure AD tenant, different from the one where the client application is registered. These Web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own Web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data.
 
 For example, if a Web client application needs to call an Office 365 Web API/resource application to read calendar information about the user, that user will be required to consent to the client application. After consent is given, the client application will be able to call the Office 365 Web API on behalf of the user, and use the calendar information as needed.
 
@@ -175,7 +175,7 @@ When adding an application to Azure AD, you may want your application to be acce
 
 It’s important to note the differences between a single tenant and multi-tenant application:  
 
-- A single tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory. 
+- A single tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory.
 - A multi-tenant application intended for use in many organizations. They are a software-as-a-service (SaaS) Web application typically written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them, supported via the Azure AD consent framework. Note that all Native client applications are multi-tenant by default as they are installed on the resource owner's device. See the Overview of the Consent Framework section above for more details on the consent framework.
 
 #### Enabling External Users to Grant Access
@@ -198,7 +198,7 @@ If you are writing an application that you want to make available to your custom
 
 Once you have made the change above, users and administrators in other organizations will be able to grant your application access to their directory and other data.
 
-### Triggering the Azure AD consent framework at runtime 
+### Triggering the Azure AD consent framework at runtime
 
 To use the consent framework, multi-tenant client applications must request authorization using OAuth 2.0. [Code samples](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) are available to show you how a Web application, Native application, or server/daemon application requests authorization codes and access tokens to call Web APIs.
 
@@ -218,7 +218,7 @@ Single Page Application’s (SPAs) are typically structured with a JavaScript-he
 1. Click on the **Manage manifest** button in the command bar, and select **Download manifest**.
 Open the JSON application manifest file and set the “oauth2AllowImplicitFlow” value to “true”. By default, it is “false”.
 
-       "oauth2AllowImplicitFlow": true,
+    `"oauth2AllowImplicitFlow": true,`
 
 1. Save the updated JSON file and upload it by clicking the **Manage manifest** button in the command bar, selecting **Upload manifest**, browsing to your updated manifest file and then selecting it. Once uploaded, your Web API is now configured to use OAuth 2.0 Implicit Grant to authenticate users.
 
