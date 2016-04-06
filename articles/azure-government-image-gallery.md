@@ -97,9 +97,9 @@ The below resources should provide more information on deploying from the image 
 
 - [Deploying a Linux Virtual Machine](./virtual-machines/virtual-machines-linux-create-cli-complete.md)
 
-- [Virtual Machine FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+- [Virtual Machine FAQ](./virtual-machines/virtual-machines-linux-classic-faq.md)
 
-- [Create and upload your own VHD](virtual-machines-create-upload-vhd-windows-server/)
+- [Create and upload your own VHD](./virtual-machines/virtual-machines-linux-about-disks-vhds.md/)
 
 - [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
