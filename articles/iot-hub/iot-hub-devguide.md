@@ -381,6 +381,7 @@ At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible
 
 > [AZURE.NOTE] Clearly during development, it is acceptable to poll more frequently than every 25 minutes.
 
+<a id="mqtt-support">
 #### Notes on MQTT support
 IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and specific behavior:
 
