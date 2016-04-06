@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with HackerOne, you need the following items:
 
-- An Azure AD subscription
+- An Azure subscription
 - A HackerOne single-sign on enabled subscription
 
 
