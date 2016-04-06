@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
+	ms.date="03/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with Tangoe Command Premium Mobile, you need the following items:
 
-- An Azure AD subscription
+- An Azure subscription
 - A Tangoe Command Premium Mobile single-sign on enabled subscription
 
 
@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	b. In the Reply URL type the URL in the following pattern: **"https://sso.tangoe.com/sp/ACS.saml2"**
 
-> [AZURE.NOTE]  You can get the correct Sign On URL and Reply URL from the Tangoe Support team. If you are not sure about those URLs at this point then use the above given samples and update the URLs after Tangoe team complete the SSO configuration on their end.
+    > [AZURE.NOTE]  You can get the correct Sign On URL and Reply URL from the Tangoe Support team. If you are not sure about those URLs at this point then use the above given samples and update the URLs after Tangoe team complete the SSO configuration on their end.
 
 
 4. On the **Configure single sign-on at Tangoe Command Premium Mobile** page, perform the following steps:
