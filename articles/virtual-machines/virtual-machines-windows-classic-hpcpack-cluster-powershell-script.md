@@ -276,7 +276,7 @@ will run on the head node after the head node is configured.
 </IaaSClusterConfig>
 ```
 
-## Known issues
+## Troubleshooting
 
 
 * **“VNet doesn’t exist” error** - If you run the HPC Pack IaaS deployment script to deploy multiple
