@@ -3,7 +3,7 @@
 	description="This topic uses resources created with the classic deployment model, and describes the SQL Server agent extension, which enables a VM running SQL Server on Azure to use automation features."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="jroth"
+	authors="rothja"
 	manager="jhubbard"
    editor=""    
    tags="azure-service-management"/>
