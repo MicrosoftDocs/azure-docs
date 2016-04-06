@@ -77,9 +77,9 @@ When deploying your virtual array, we recommend that you follow these best pract
 
 -   Ensure that the network in which the virtual array is deployed has the capacity to dedicate 5 Mbps bandwidth (or more) at all times. This bandwidth should not be shared with any other applications (allocation can be guaranteed through the application of QoS rules).
 
-    -   Be aware that the Internet need will very depending on your workload characteristics and rate of data churn.
+    -   Be aware that the Internet bandwidth need will vary depending on your workload characteristics and rate of data churn.
 
-    -   As an example, 8 hours, a 5 Mbps bandwidth can accommodate a data churn of up to 18 GB in 8 hours whereas with a 20 Mbps bandwidth, you can have a data churn of up to 72 GB in the same time. 
+    -   The data churn that can be handled is directly proportional to your Internet bandwidth. As an example, a 5 Mbps bandwidth can accommodate a data churn of around 18 GB in 8 hours whereas with a 20 Mbps bandwidth, you can have a data churn of up to 72 GB (4 times higher) in the same time. 
 
 
 -   Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices will result in loss of access to data in the cloud and thereby result in an unsupported configuration.
@@ -118,7 +118,7 @@ For your virtual array, you can provision a 50 GB to 2 TB locally pinned volume/
 
 -   The file sizes in the data relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in slow tier out. When working with large files, we recommend that the largest file is smaller than 3% of the share size.
 
--   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB in size. If tiered, the volumes/shres must be between 500 GB to 20 TB. 
+-   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB in size. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
 	-   There are no restrictions on the number of volumes and the size of volumes created as long as we are within the permissible limits in each case.
 	-   When creating shares, we recommend that the depth of directory (levels of folders) should not exceed 3. Also the number of files and folders should not exceed 6000. Beyond these numbers, you will see a degradation in the performance. 
 
@@ -136,9 +136,8 @@ StorSimple supports two volume types based on the usage: locally pinned and tier
 
 We recommend that you implement the following best practices when configuring StorSimple:
 
--   Identify the volume type based on the workloads that you intend to deploy before you create a volume. Once you create volume on your virtual array, you cannot change the volume type from locally pinned to tiered or vice-versa. As an example, create locally pinned volumes when deploying SQL workloads or workloads hosting virtual machines (VMs). Use tiered volumes for file share workloads.
+-   Identify the volume type based on the workloads that you intend to deploy before you create a volume. Use locally pinned volumes for workloads that require local guarantees of data (even during a cloud outage) and low cloud latencies. Once you create a volume on your virtual array, you cannot change the volume type from locally pinned to tiered or *vice-versa*. As an example, create locally pinned volumes when deploying SQL workloads or workloads hosting virtual machines (VMs); use tiered volumes for file share workloads.
 
--   Select the correct volume usage type: locally pinned or tiered based on your workload. Use locally pinned volumes for workloads that require local guarantees of data (even during a cloud outage) and low cloud latencies.
 
 -   Check the option for less frequently used archival data when dealing with large file sizes. A larger deduplication chunk size of 512 K is used when this option is enabled to expedite the data transfer to the cloud.
 
