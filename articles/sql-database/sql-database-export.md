@@ -29,7 +29,7 @@ When you need to create an archive of an Azure SQL database, you can export the 
 
 ***Considerations***
 
-- For an archive to be transactionally consistent, you must either ensure that no write activity is occurring during the export or export fronm a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL Database
+- For an archive to be transactionally consistent, you must either ensure that no write activity is occurring during the export or export from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL Database
 - The mazimum size of a BACPAC file archived to Azure blob storage is 200 GB. Use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility to archive a larger BACPAC file to local storage. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 - Archiving to Azure premium storage using a BACPAC file is not supported.
 - If the export operation goes over 20 hours it may be canceled. To increase performance during export, you can:
