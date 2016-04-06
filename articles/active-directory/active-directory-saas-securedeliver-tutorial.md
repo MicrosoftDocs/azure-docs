@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -105,11 +105,13 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your SECURE DELIVER application using the following pattern: **“https://i-securedeliver.jp/sd/company name/jsf/login/sso”**. When referencing a generic name that **companyname** needs to be replaced by an actual name.<br>
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SECURE DELIVER application using the following pattern: **“https://i-securedeliver.jp/sd/\<company name\>/jsf/login/sso”**.
 
-	b. In the IDENTIFIER textbox, type the tenant URL. Please contact the SECURE DELIVER Support Team via iw-sd-support@fujifilm.com to get your tenant URL.
+    b. Contact the SECURE DELIVER Support Team via [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) to get your tenant URL if you don't know the value.
 
-	c. Click **Next**
+	c. In the **Identifier** textbox, type the tenant URL. 
+
+	d. Click **Next**
 
 
 4. On the **Configure single sign-on at SECURE DELIVER** page, perform the following steps and then click **Next**:
@@ -120,7 +122,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your SECURE DELIVER support team via iw-sd-support@fujifilm.com and provide them with the following:<br>
+5. To get SSO configured for your application, contact your SECURE DELIVER support team via [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) and provide them with the following:<br>
 	
 	•  The downloaded certificate file
 
