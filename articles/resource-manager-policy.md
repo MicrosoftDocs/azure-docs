@@ -199,51 +199,6 @@ The below policy denies all requests which don’t have a tag containing
       }
     }
 
-The below policy will append costCenter tag with a predefined value if no tags are present. 
-
-	{
-	  "if": {
-	    "field": "tags",
-	    "exists": "false"
-	  },
-	  "then": {
-	    "effect": "append",
-	    "details": [
-	      {
-	        "field": "tags",
-	        "value": "{\"costCenter\":\"myDepartment\" }"
-	      }
-	    ]
-	  }
-	}
-	
-The below policy will append costCenter tag with a predefined value if other tags are present. 
-
-	{
-	  "if": {
-	    "allOf": [
-	      {
-	        "field": "tags",
-	        "exists": "true"
-	      },
-	      {
-	        "field": "tags.costCenter",
-	        "exists": "false"
-	      }
-	    ]
-	
-	  },
-	  "then": {
-	    "effect": "append",
-	    "details": [
-	      {
-	        "field": "tags.costCenter",
-	        "value": "myDepartment"
-	      }
-	    ]
-	  }
-	}
-
 
 
 ### Geo Compliance: Ensure resource locations
