@@ -1,5 +1,5 @@
 <properties
- pageTitle="IoT Security Best Practices"
+ pageTitle="IoT Security Best Practices | Microsoft Azure"
  description="Security best practices for securing your IoT infrastructure"
  services=""
  suite="iot-suite"
@@ -17,13 +17,13 @@
  ms.date="04/05/2016"
  ms.author="yurid"/>
 
-# IoT security best practices
+# Internet of Things (IoT) security best practices
 
 Securing an IoT infrastructure requires a rigorous security-in-depth strategy. Starting from securing data in the cloud, to protecting data integrity while in transit over the public internet, and providing the ability to securely provision devices, each layer builds greater security assurance in the overall infrastructure. 
 
 ## Securing an IoT infrastructure
  
-This security-in-depth strategy can be developed and executed with active participation of various players involved with the manufacturing, development, and deployment of Internet of Things (IoT) devices and infrastructure. Following is a high level description of these players.  
+This security-in-depth strategy can be developed and executed with active participation of various players involved with the manufacturing, development, and deployment of IoT devices and infrastructure. Following is a high level description of these players.  
 
 - **IoT hardware manufacturer/integrator**: typically these are the manufacturers of IoT hardware being deployed, hardware integrator assembling hardware from various manufacturers, or hardware supplier providing hardware for an IoT deployment manufactured or integrated by other suppliers.
 - **IoT solution developer**: the development of an IoT solution is typically done by a solution developer, which may part of an in-house team, or a System Integrator (SI) specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various off the shelf or open source components, or adopt pre-configured solutions with minor adaptation.

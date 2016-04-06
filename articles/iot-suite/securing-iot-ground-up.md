@@ -1,5 +1,5 @@
 <properties
- pageTitle="Securing your Internet of Things from the ground up"
+ pageTitle="Securing your Internet of Things from the ground up | Microsoft Azure"
  description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
  services=""
  suite="iot-suite"
