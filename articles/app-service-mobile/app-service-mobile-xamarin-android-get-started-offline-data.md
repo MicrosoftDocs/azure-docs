@@ -30,8 +30,6 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 
 ## Requirements
 
-* Visual Studio 2013
-* Visual Studio [Xamarin extension] **or** [Xamarin Studio]
 * Completion of the tutorial [Create a Xamarin Android app]. This tutorial uses the completed app covered in that tutorial.
 
 ## Review the client sync code
