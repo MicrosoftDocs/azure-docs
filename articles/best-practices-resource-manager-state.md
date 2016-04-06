@@ -367,11 +367,74 @@ The following example shows how to pass the private IP address generated in a li
 
 Within the main template, you can use that data with the following syntax:
 
-    "masterIpAddress": {
-        "value": "[reference('master-node').outputs.masterip.value]"
+    "[reference('master-node').outputs.masterip.value]"
+
+You can use this expression in either the outputs section or the resources section of the main template. You cannot use the expression in the variables section because it relies on the runtime state. To return this value from the main template, use:
+
+    "outputs": { 
+      "masterIpAddress": {
+        "value": "[reference('master-node').outputs.masterip.value]",
+        "type": "string"
+      }
+     
+For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](./resource-group-create-multiple/#creating-multiple-data-disks-for-a-virtual-machine).
+
+## Define authentication settings for virtual machine
+
+You can use the same pattern shown above for configuration settings to specify the authentication settings for a virtual machine. You create a parameter for passing in the type of authentication.
+
+    "parameters": {
+      "authenticationType": {
+        "allowedValues": [
+          "password",
+          "sshPublicKey"
+        ],
+        "defaultValue": "password",
+        "metadata": {
+          "description": "Authentication type"
+        },
+        "type": "string"
+      }
     }
 
+You add variables for the different authentication types and to store which type is used for this deployment based on the value of the parameter.
+
+    "variables": {
+      "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
+      "osProfilepassword": {
+        "adminPassword": "[parameters('adminPassword')]",
+        "adminUsername": "notused",
+        "computerName": "[parameters('vmName')]",
+        "customData": "[base64(variables('customData'))]"
+      },
+      "osProfilesshPublicKey": {
+        "adminUsername": "notused",
+        "computerName": "[parameters('vmName')]",
+        "customData": "[base64(variables('customData'))]",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": "true",
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "[parameters('sshPublicKey')]",
+                "path": "/home/notused/.ssh/authorized_keys"
+              }
+            ]
+          }
+        }
+      }
+    }
+
+When defining the virtual machine, you set the **osProfile** to the variable you created.
+
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      ...
+      "osProfile": "[variables('osProfile')]"
+    }
+
+
 ## Next steps
-- [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
-- [Azure Resource Manager Template Functions](resource-group-template-functions.md)
+- To learn about the sections of the template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+- To see the functions that are available within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
 
