@@ -346,6 +346,10 @@ param(
     [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
     [string]$ExpressRouteBandwidth,
 
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateVNet")]
+    [switch]$CreateVNet,
+    
     [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
     [string]$VnetAddressPrefix = "10.20.0.0/16",
 
@@ -353,11 +357,12 @@ param(
     [string]$GatewaySubnetAddressPrefix = "10.20.255.240/28",
 
     [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
-    [string]$InternalSubnetAddressPrefix = "10.20.0.0/16",
+    [string]$InternalSubnetAddressPrefix = "10.20.0.0/17"
 )
 
 $resourceGroup = "$BaseName-rg"
 $vnetName = "$BaseName-vnet"
+$internalSubnetName = "$BaseName-internal-subnet"
 $expressRouteCircuitName = "$BaseName-erc"
 $gatewayPublicIpAddressName = "$BaseName-pip"
 $vnetGatewayName = "$BaseName-vgw"
