@@ -145,7 +145,8 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 |**System integrator**|**Continent**|
 |---|---|
-|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europe|
+|**[Avanade Inc.](http://www.avanade.com/)**| Asia, Europe, US |
+|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Europe |
 |**[Nimbo](http://www.nimbo.com/)**|US||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
