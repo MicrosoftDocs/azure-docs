@@ -85,7 +85,7 @@ are created from an OpenLogic CentOS version 7.0 Linux image.
   </LinuxComputeNodes>
 </IaaSClusterConfig>
 ```
-## Known issues
+## Troubleshooting
 
 * **“VNet doesn’t exist” error** - If you run the HPC Pack IaaS deployment script to deploy multiple
 clusters in Azure concurrently under one subscription, one or more
