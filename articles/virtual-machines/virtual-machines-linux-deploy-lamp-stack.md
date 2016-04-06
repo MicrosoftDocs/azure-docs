@@ -54,7 +54,7 @@ Alternatively you can download Tasksel, a Debian/Ubuntu tool that installs multi
 
 After running the either of the above options you will be prompted to install these packages and a number of other dependencies. Press 'y' and then 'Enter' to continue, and follow any other prompts to set an administrative password for MySQL. This will install the minimum required PHP extensions needed to use PHP with MySQL. 
 
-![sqlpassword](../../media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword.png)
+![sqlpassword](../media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword.png)
 
 Run the following command to see other PHP extensions that are available as packages:
 
@@ -83,15 +83,15 @@ Restart Apache with this command so all new installs will take effect.
 
 Now you can check the PHP info page you just created in your browser by going to http://youruniqueDNS/info.php. You can find your unique DNS to your Linux VM from the Azure Portal. Below is an image of where it is located.
 
-![finddns](../../media/virtual-machines-linux-deploy-lamp-stack/finddnsibizaportal.png)
+![finddns](../media/virtual-machines-linux-deploy-lamp-stack/finddnsibizaportal.png)
 
 Once you have navigated to http://youruniqueDNS/info.php, it should look similar to this.
 
-![phpsuccess](../../media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png)
+![phpsuccess](../media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png)
 
 Apache listens to port 80 by default, as a result you may need to open an endpoint to access your Apache server remotely. You can check your Apache2 installation by viewing the Apache2 Ubuntu Default Page by going to you http://youruniqueDNS/. You should see something like this.
 
-![apachesuccess](../../media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png)
+![apachesuccess](../media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png)
 
 Congratulations, you have just setup a LAMP stack on your Azure VM!
 
