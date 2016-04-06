@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Partitioning and scaling in Azure DocumentDB | Microsoft Azure"      
 	description="Learn about how partitioning works in Azure DocumentDB, how to configure partitioning and partition keys, and how to pick the right partition key for your application."         
-	keywords="Scale data, partitioning, partition keys, partitioned collections, shard, sharding, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="arramac" 
 	manager="jhubbard" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2016" 
+	ms.date="04/05/2016" 
 	ms.author="arramac"/> 
 
 # Partitioning and scaling in Azure DocumentDB
@@ -36,7 +35,7 @@ How does this work? When you create a collection in DocumentDB, you'll notice th
 
 For example, consider an application that stores data about employees and their departments in DocumentDB. Let's choose `"department"` as the partition key property, in order to scale out data by department. Every document in DocumentDB must contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }`, and `{ "Department": "Sales", "id": "0001" }`. In other words, the compound property of (partition key, id) is the primary key for your collection.
 
-### Partition Keys
+### Partition keys
 The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. The partition key is specified as a JSON path, e.g. `/department` represents the property department. 
 
 The following table shows examples of partition key definitions and the JSON values corresponding to each.
@@ -70,8 +69,8 @@ The following table shows examples of partition key definitions and the JSON val
 
 Let's take a look at how the choice of partition key impacts the performance of your application.
 
-### Partitioning and Provisioned Throughput
-DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **request units (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation. A read of a 1 kB document with Session consistency consumes 1 request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
+### Partitioning and provisioned throughput
+DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **[request units](documentdb-request-units.md) (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation. A read of a 1 kB document with Session consistency consumes 1 request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
 
 When DocumentDB stores documents, it distributes them evenly among partitions based on the partition key value. The throughput is also distributed evenly among the available partitions i.e. the throughput per partition = (total throughput per collection)/ (number of partitions). 
 
@@ -87,7 +86,7 @@ DocumentDB supports the creation of both single-partition and partitioned collec
 
 For scenarios that do not need large volumes of storage or throughput, single partition collections are a good fit. Note that single-partition collections have the scalability and storage limits of a single partition, i.e. up to 10 GB of storage and up to 10,000 request units per second. 
 
-Partitioned collections can support very large amounts of storage and throughput. The default offers however are configured to store up to 250 GB of storage and scale up to 250,000 request units per second. If you need higher storage or throughput per collection, please contact [Azure Support](documentdb-increase-limits) to have these increased for your account.
+Partitioned collections can support very large amounts of storage and throughput. The default offers however are configured to store up to 250 GB of storage and scale up to 250,000 request units per second. If you need higher storage or throughput per collection, please contact [Azure Support](documentdb-increase-limits.md) to have these increased for your account.
 
 The following table lists differences in working with a single-partition and partitioned collections:
 
@@ -140,11 +139,11 @@ The following table lists differences in working with a single-partition and par
 
 Azure DocumentDB added support for automatic partitioning with [REST API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). In order to create partitioned collections, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python). 
 
-### Creating Partitioned Collections
+### Creating partitioned collections
 
 The following sample shows a .NET snippet to create a collection to store device telemetry data of 20,000 request units per second of throughput. The SDK sets the OfferThroughput value (which in turn sets the `x-ms-offer-throughput` request header in the REST API). Here we set the `/deviceId` as the partition key. The choice of partition key is saved along with the rest of the collection metadata like name and indexing policy.
 
-For this sample, we picked `deviceId` since we know that (a) since there are a large number of devices, writes can be distributed across partitions evenly and allowing us to scale the database to ingest massive volumes of data and (b) many of the requests like fetching the latest reading for a device are scoped to a single deviceId and can be retrieved from a single parttion.
+For this sample, we picked `deviceId` since we know that (a) since there are a large number of devices, writes can be distributed across partitions evenly and allowing us to scale the database to ingest massive volumes of data and (b) many of the requests like fetching the latest reading for a device are scoped to a single deviceId and can be retrieved from a single partition.
 
     DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
     await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -166,7 +165,7 @@ For this sample, we picked `deviceId` since we know that (a) since there are a l
 
 This method makes a REST API call to DocumentDB, and the service will provision a number of partitions based on the requested throughput. You can change the throughput of a collection as your performance needs evolve. See [Performance Levels](documentdb-performance-levels.md) for more details.
 
-### Reading and Writing Documents
+### Reading and writing documents
 
 Now, let's insert data into DocumentDB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.
 
@@ -230,7 +229,7 @@ Let's read the document by it's partition key and id, update it, and then as a f
 
 
 
-### Querying Partitioned collections
+### Querying partitioned collections
 
 When you query data in partitioned collections, DocumentDB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
 
@@ -247,7 +246,7 @@ The following query does not have a filter on the partition key (DeviceId) and i
         new FeedOptions { EnableCrossPartitionQuery = true })
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 
-### Executing Stored Procedures
+### Executing stored procedures
 
 You can also execute atomic transactions against documents with the same device ID, e.g. if you're maintaining aggregates or the latest state of a device in a single document. 
 
@@ -258,19 +257,24 @@ You can also execute atomic transactions against documents with the same device 
 
 In the next section, we look at how you can move to partitioned collections from single-partition collections.
 
+<a name="migrating-from-single-partition"></a>
 ### Migrating from single-partition to partitioned collections
-Partition keys can be specified only during collection creation. Therefore, in order to convert a single-partition collection to a partitioned collection that can support higher storage and throughput, you must export and re-import your data. This is possible using the [DocumentDB migration tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d).
+When an application using a single-partition collection needs higher throughput (>10,000 RU/s) or larger data storage (>10GB), you can use the [DocumentDB Data Migration Tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) to migrate the data from the single-partition collection to a partitioned collection. 
+
+Additionally, because partition keys can be specified only during collection creation you must export and re-import your data using the [DocumentDB Data Migration Tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) in order to create a partitioned collection. 
 
 To migrate from a single-partition collection to a partitioned collection
 
-1. Export data from the single-partition collection to JSON. See [Export to JSON file](documentdb-import-data.md/#export-to-json-file) for additional details.
-3. Import the data into a partitioned collection created with a partition key definition and over 10,000 request units per second throughput. See [Import to DocumentDB](documentdb-import-data.md/#DocumentDBSeqTarget) for additional details.
+1. Export data from the single-partition collection to JSON. See [Export to JSON file](documentdb-import-data.md#export-to-json-file) for additional details.
+2. Import the data into a partitioned collection created with a partition key definition and over 10,000 request units per second throughput, as shown in the example below. See [Import to DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) for additional details.
+
+![Migrating Data to a Partitioned collection in DocumentDB][3]  
 
 >[AZURE.TIP] For faster import times, consider increasing the Number of Parallel Requests to 100 or higher to take advantage of the higher throughput available for partitioned collections. 
 
 Now that we've completed the basics, let's look at a few important design considerations when working with partition keys in DocumentDB.
 
-## Designing for Partitioning
+## Designing for partitioning
 The choice of the partition key is an important decision that you’ll have to make at design time. This section describes some of the tradeoffs involved in selecting a partition key for your collection.
 
 ### Partition key as the transaction boundary
@@ -313,5 +317,6 @@ In this article, we've described how partitioning works in Azure DocumentDB, how
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
+[3]: ./media/documentdb-partition-data/documentdb-migration-partitioned-collection.png  
 
  
