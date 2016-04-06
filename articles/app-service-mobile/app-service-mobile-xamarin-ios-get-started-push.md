@@ -30,8 +30,6 @@ This tutorial is based on the [Xamarin.iOS quickstart](app-service-mobile-xamari
 
 * A physical iOS device. Push notifications are not supported by the iOS simulator.
 
-
-
 ##Register the app for push notifications on Apple's developer portal
 
 [AZURE.INCLUDE [Notification Hubs Xamarin Enable Apple Push Notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]

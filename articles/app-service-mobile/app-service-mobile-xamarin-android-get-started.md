@@ -83,5 +83,3 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 
 <!-- URLs. -->
 [Azure Portal]: https://azure.portal.com/
-
-

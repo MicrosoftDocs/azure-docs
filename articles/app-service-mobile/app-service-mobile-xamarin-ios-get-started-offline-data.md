@@ -157,7 +157,6 @@ In this section you will reconnect the app to the mobile backend, which simulate
 <!-- URLs. -->
 [Create a Xamarin iOS app]: app-service-mobile-xamarin-ios-get-started.md
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
