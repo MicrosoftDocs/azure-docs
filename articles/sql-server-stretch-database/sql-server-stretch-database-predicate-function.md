@@ -212,7 +212,7 @@ SET (
 
 When you want to update the sliding window, do the following things.
 
-1.  Create a new function that specifies the new sliding window. The following example selects dates earlier than January 2, 2106, instead of January 1, 2016.
+1.  Create a new function that specifies the new sliding window. The following example selects dates earlier than January 2, 2016, instead of January 1, 2016.
 
 2.  Replace the previous filter predicate with the new one by calling ALTER TABLE, as shown in the following example.
 

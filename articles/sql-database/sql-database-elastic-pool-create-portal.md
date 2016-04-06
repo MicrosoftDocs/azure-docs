@@ -90,5 +90,4 @@ The service evaluates resource needs and cost effectiveness of moving the single
 
 - [Manage a SQL Database elastic pool with the portal](sql-database-elastic-pool-manage-portal.md)
 - [Manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [Manage a SQL Database elastic pool with C#](sql-database-client-library.md)
-- [Elastic database reference](sql-database-elastic-pool-reference.md)
+- [Manage a SQL Database elastic pool with C#](sql-database-elastic-pool-manage-csharp.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="03/28/2016"
 	ms.author="gusapost"/>
 
 # Get started with Azure Queue storage using .NET
