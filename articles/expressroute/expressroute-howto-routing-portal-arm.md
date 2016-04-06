@@ -26,8 +26,9 @@
 
 This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using the Azure management portal and the Resource Manager deployment model.
 
+**About Azure deployment models**
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Configuration prerequisites
 
