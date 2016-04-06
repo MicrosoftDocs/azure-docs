@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/28/2016"
+	ms.date="04/06/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # What is Azure Backup?
