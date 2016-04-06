@@ -148,7 +148,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 2. **Create an ExpressRoute circuit**
 	
-	Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
+	Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure public peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
 
 3. **Check ExpressRoute circuit to ensure it is provisioned**
 
@@ -182,7 +182,7 @@ This section provides instructions on how to create, get, update and delete the 
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You must use a public AS number for this peering.
 	- An MD5 hash if you choose to use one. **This is optional**.
 	
-	You can run the following cmdlet to configure Azure private peering for your circuit
+	You can run the following cmdlet to configure Azure public peering for your circuit
 
 		New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
 
