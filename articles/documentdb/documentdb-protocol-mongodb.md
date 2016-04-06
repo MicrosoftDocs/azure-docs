@@ -36,7 +36,7 @@ To request access to the preview, perform the following steps.
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **NEW**, click **Data + Storage**, click **See all**, click **More**, and then click **DocumentDB - Protocol Support for MongoDB**.
 
-	![Screen shot of the Marketplace and Data + Storage blades, highlighting DocumentDB - Protocol Support for MongoDB, Mongo databsase](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
+	![Screen shot of the Marketplace and Data + Storage blades, highlighting DocumentDB - Protocol Support for MongoDB, Mongo database](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
 
 3. Alternatively, search the **Data + Storage** category for "DocumentDB protocol".
 
