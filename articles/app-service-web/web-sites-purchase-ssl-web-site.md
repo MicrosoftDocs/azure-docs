@@ -115,9 +115,10 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
            The verification method is ONLY available for Standard (Basic) certificate purchases. For Wild Card Certificates, please skip and move to option B, C or D below.
          
         2. Click on **“Verify”** button to complete this step.
+        
         3. Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
         
-            ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
+       ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
 
     * **Domain Verification** 
 
