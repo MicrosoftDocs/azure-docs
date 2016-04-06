@@ -1,6 +1,6 @@
 <properties
    pageTitle="Help secure communication for services in Service Fabric | Microsoft Azure"
-   description="Overview of how to help secure communication for reliable services that are running in a Service Fabric cluster."
+   description="Overview of how to help secure communication for reliable services that are running in an Azure Service Fabric cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="punewa"
@@ -18,13 +18,13 @@
 
 # Help secure communication for services in Azure Service Fabric
 
-Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use. This article will talk about how to improve security when you're using service remoting and the Windows Communication Foundation (WCF) communication stack.
+Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. This article will talk about how to improve security when you're using service remoting and the Windows Communication Foundation (WCF) communication stack.
 
 ## Help secure a service when you're using service remoting
 
 You can set up more secure remoting for a service by using the following steps:
 
-1. Let's use an [example](service-fabric-reliable-services-communication-remoting.md) that talks about how to set up reliable service remoting. We start with an interface `IHelloWorldStateful` that defines the methods that will be available for a remote procedure call on your service. Your service will use a `FabricTransportServiceRemotingListener`, which is declared in the `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namespace. This is an `ICommunicationListener` implementation that provides remoting capabilities.
+1. Let's use an [example](service-fabric-reliable-services-communication-remoting.md) that talks about how to set up reliable service remoting. We start with an interface, `IHelloWorldStateful`, that defines the methods that will be available for a remote procedure call on your service. Your service will use a `FabricTransportServiceRemotingListener`, which is declared in the `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namespace. This is an `ICommunicationListener` implementation that provides remoting capabilities.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -139,7 +139,7 @@ You can set up more secure remoting for a service by using the following steps:
          }
          ```
 
-3. When you call methods on a service that is more secure by using the remoting stack, instead of using the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class to create a service proxy, use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory` and pass in `FabricTransportSettings`, which contains the `SecurityCredentials`.
+3. When you call methods on a service that is more secure by using the remoting stack, don't use the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class to create a service proxy. Instead, use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`, and pass in `FabricTransportSettings`, which contains the `SecurityCredentials`.
 
     ```csharp
 
@@ -184,7 +184,7 @@ You can set up more secure remoting for a service by using the following steps:
 
     If the client is not running as part of a service, you can create a client_name.settings.xml file in the same location where the client_name.exe is. Then create a TransportSettings section in that file.
 
-    Similar to the service, if you add a `TransportSettings` section without any *prefix* in the client settings.xml/client_name.settings.xml, `FabricTransportSettings` will by default load all the settings from this section.
+    Similar to the service, if you add a `TransportSettings` section without any prefix in the client settings.xml/client_name.settings.xml, `FabricTransportSettings` will by default load all the settings from this section.
 
     In that case, the earlier code is even further simplified:  
 
@@ -199,7 +199,7 @@ You can set up more secure remoting for a service by using the following steps:
 
 ## Help secure a service when you're using a WCF-based communication stack
 
-We will be using an [example](service-fabric-reliable-services-communication-wcf.md) that explains how to set up a WCF-based communication stack for Reliable Services and extend it to make it more secure.
+We will be using an [example](service-fabric-reliable-services-communication-wcf.md) that explains how to set up a WCF-based communication stack for Reliable Services. The example will also show how to extend it to make it more secure.
 
 1. For the service, we need to create a `WcfCommunicationListener` that is more secure. To do this, we need to modify the `CreateServiceReplicaListeners` method.
 
