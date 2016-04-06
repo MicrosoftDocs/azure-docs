@@ -17,7 +17,12 @@
 	ms.author="spelluru"/>
 
 # Datasets in Azure Data Factory
-Datasets are named references/pointers to the data you want to use as an input or an output of an activity in a Data Factory pipeline. Datasets identify data structures within different data stores including tables, files, folders, and documents.
+Datasets are named references/pointers to the data you want to use as an input or an output of an activity in a Data Factory pipeline. Datasets identify data structures within different data stores including tables, files, folders, and documents. After you create datasets, you can use them with activities in the pipeline. For example, you can have a dataset as an input/output dataset of a Copy Activity/HDInsightHive Activity. Typical steps in creating an Azure data factory are: 
+
+1. Create a data factory
+2. Create linked services
+3. Create datasets
+4. Create a pipeline with activities that consume/produce datasets
 
 ## Overview
 **Linked services** in Data Factory defines the information needed for Data Factory to **connect** to external resources.  Linked services are used for two purposes in Data Factory:
@@ -166,6 +171,27 @@ For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 
 		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
+### offset/style Example
+
+If you need to run a pipeline on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the **offset** tag to set the date and time it should run. 
+
+	{
+	  "name": "MyDataset",
+	  "properties": {
+	    "type": "AzureSqlTable",
+	    "linkedServiceName": "AzureSqlLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "availability": {
+	      "frequency": "Month",
+	      "interval": 1,
+	      "offset": "3.08:10:00",
+	      "style": "StartOfInterval"
+	    }
+	  }
+	}
+
 
 ## <a name="Policy"></a>Dataset Policy
 
@@ -201,9 +227,11 @@ The **policy** section in dataset definition defines the criteria or the conditi
 		}
 	}
 
-### ExternalData policies
+### External datasets
 
-External datasets are ones that are not produced by a running pipeline in the data factory. If the dataset is marked as External, the ExternalData policy may be defined to influence the behavior of the dataset slice availability. 
+External datasets are the ones that are not produced by a running pipeline in the data factory. If the dataset is marked as **external**, the **ExternalData** policy may be defined to influence the behavior of the dataset slice availability. 
+
+Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This would generally apply to the input(s) of first activity in a pipeline unless activity or pipeline chaining is being leveraged. 
 
 | Name | Description | Required | Default Value  |
 | ---- | ----------- | -------- | -------------- |
@@ -212,23 +240,3 @@ External datasets are ones that are not produced by a running pipeline in the da
 | retryTimeout | The timeout for each retry attempt.<br/><br/>If this is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry will time out.<br/><br/>If all attempts for the validation times out, the slice will be marked as TimedOut. | No | 00:10:00 (10 minutes) |
 | maximumRetry | Number of times to check for the availability of the external data. The allowed maximum value is 10. | No | 3 | 
 
-#### More examples
-
-If you need to run a pipeline on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the **offset** tag to set the date and time it should run. 
-
-	{
-	  "name": "MyDataset",
-	  "properties": {
-	    "type": "AzureSqlTable",
-	    "linkedServiceName": "AzureSqlLinkedService",
-	    "typeProperties": {
-	      "tableName": "MyTable"
-	    },
-	    "availability": {
-	      "frequency": "Month",
-	      "interval": 1,
-	      "offset": "3.08:10:00",
-	      "style": "StartOfInterval"
-	    }
-	  }
-	}
