@@ -72,6 +72,19 @@ For more information about using Azure Active Directory with Password sync see [
 
 
 ## Optimal IDM Virtual Identity Server Federation Services 
+Optimal IDM Virtual Identity Server Federation Services can authenticate users that reside in customers’ on-premises Active Directories.
+
+The following is the scenario support matrix this single sign-on experience:
+
+
+| Client |Support  |Exceptions|
+| --------- | --------- |--------- |
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Windows integrated authentication|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client.](https://technet.microsoft.com/library/hh526961.aspx)|
+
+
+
 ## PingFederate 6.11 
 ## PingFederate 7.2 
 ## Centrify 
