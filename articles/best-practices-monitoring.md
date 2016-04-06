@@ -626,7 +626,7 @@ A good dashboard does not only display information, it also enables an analyst t
 ### Raising alerts
 Alerting is the process of analyzing the monitoring and instrumentation data and generating a notification if a significant event is detected.
 
-Alerting helps ensure that the system remains healthy, responsive, and secure. It's an important part of any system that makes performance, availability, and privacy guarantees to the users, and the data might need to be acted on immediately. An operator might need to be notified of the event that triggered the alert. Alerting can also be used to invoke system functions such as autoscaling.
+Alerting helps ensure that the system remains healthy, responsive, and secure. It's an important part of any system that makes performance, availability, and privacy guarantees to the users where the data might need to be acted on immediately. An operator might need to be notified of the event that triggered the alert. Alerting can also be used to invoke system functions such as autoscaling.
 
 Alerting usually depends on the following instrumentation data:
 
