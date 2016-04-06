@@ -251,7 +251,7 @@ You can also build your models in R or Python on the VM and then deploy it in pr
 - The library in R is called ***AzureML***. 
 - In Python it is called ***azureml***. 
 
-For information on how to deploy models in R and Python into Azure ML please refer to the [Build models using R or Python and Operationalize them using Azure Machine Learning](machine-learning-data-science-vm-do-ten-things.md#3.-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning).
+For information on how to deploy models in R and Python into Azure ML please refer to the [Build models using R or Python and Operationalize them using Azure Machine Learning](machine-learning-data-science-vm-do-ten-things.md/#3.-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning).
  
 >[AZURE.NOTE] These instructions were written for the Windows version of the Data Science VM, but the information provided there on deploying models to Azure ML is applicable to the Linux VM too.
 
