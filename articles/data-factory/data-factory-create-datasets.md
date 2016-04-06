@@ -24,6 +24,8 @@ Datasets are named references/pointers to the data you want to use as an input o
 3. Create datasets
 4. Create a pipeline with activities that consume/produce datasets
 
+> [AZURE.NOTE] For an overview of Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
+
 ## Overview
 **Linked services** in Data Factory defines the information needed for Data Factory to **connect** to external resources.  Linked services are used for two purposes in Data Factory:
 
@@ -33,7 +35,7 @@ Datasets are named references/pointers to the data you want to use as an input o
 A **data store linked service** defines the mechanism (address, protocol, authentication scheme, etc...) to access the data store and **dataset** represents the data within this data store to be used as input or output of an activity.  
 
 ## Syntax
-A dataset in Azure Data Factory is defined as follow: 
+A dataset in Azure Data Factory is defined as follows: 
 
 
 	{
