@@ -87,10 +87,10 @@ Open the **Microsoft Azure Backup agent** (you can find it by searching your mac
 
 From the **Actions** available at the right of the backup agent console you can perform the following management tasks:
 
-- Register Server -
-- Schedule Backup -
-- Back Up now -
-- Change Properties -
+- Register Server
+- Schedule Backup
+- Back Up now
+- Change Properties
 
 ![Microsoft Azure Backup agent console actions](./media/backup-azure-manage-windows-server/console-actions.png)
 
