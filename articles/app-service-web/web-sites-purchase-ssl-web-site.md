@@ -118,7 +118,7 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
         
         3. Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
         
-       ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
+        ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
 
     * **Domain Verification** 
 
