@@ -113,8 +113,8 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
            For example, in this case, **contosocertdemo.com** is a custom domain assigned to App Service App called **“ContosoCertDemo”** and hence that’s the only App Service App listed here. If there were multi-region deployment, then it would list them all across the regions.
         
            The verification method is ONLY available for Standard (Basic) certificate purchases. For Wild Card Certificates, please skip and move to option B, C or D below.
-        2. Click on **“Verify”** button to complete this step.
-        3. Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
+        * Click on **“Verify”** button to complete this step.
+        * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
         
         ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
 
