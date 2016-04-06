@@ -3,7 +3,7 @@
 	description="Learn how to install MongoDB on an Azure VM created with the classic deployment model running Windows Server."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>

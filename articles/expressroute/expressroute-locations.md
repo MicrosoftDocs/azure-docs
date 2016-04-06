@@ -145,10 +145,11 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 |**System integrator**|**Continent**|
 |---|---|
+|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europe|
 |**[Nimbo](http://www.nimbo.com/)**|US||
-|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|EMEA|
-|**[Project Leadership](http://www.projectleadership.net/azure)** | US |
+|**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
+|**[Project Leadership](http://www.projectleadership.net/azure)** | US |
 
 ## Next steps
 
