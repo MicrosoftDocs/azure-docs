@@ -59,7 +59,7 @@ Configure a back-end pool:
 
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Backend pools**. 
-3. In the **Probes** blade, click **Add**.
+3. In the **Backend address pools** blade, click **Add**.
 4. In the **Add backend pool** blade, type a **Name** for the backend pool, and then click **OK**.
 
 ### Step 2 
@@ -68,7 +68,7 @@ Configure a probe:
  
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Probes**. 
-3. In the **Backend address pools** blade, click **Add**.
+3. In the **Probes**  blade, click **Add**.
 4. In the **Add probe** blade, type a **Name** for the probe.
 5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
 6. Under **Port**, specify the port to use when accessing the probe.
