@@ -1187,3 +1187,7 @@ This example sends a notification for a [template registration](../notification-
 		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
 		notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
 	}
+
+## Reporting Issues
+
+[AZURE.INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
