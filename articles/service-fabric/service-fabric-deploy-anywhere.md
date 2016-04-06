@@ -25,6 +25,7 @@ Service Fabric provides an install package for you to create these standalone Se
 
 ## Supported operating systems
 You will be able to create clusters on VMs or computers running these operating systems:
+
 * Windows Server 2012 R2
 * Windows Server 2016
 * Linux

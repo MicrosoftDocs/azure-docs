@@ -67,13 +67,13 @@ Read the [Partition Service Fabric reliable services](service-fabric-concepts-pa
 ### System services
 There are system services that are created in every cluster that provide the platform capabilites of Service Fabric.
 
-**Naming Service**: Each Service Fabric cluster has a naming service which resolves service names to a location in the cluster and enables you to manage the service names and properties. This is just like an internet Domain Name Service (DNS) for the cluster. Using the naming service, clients can securely communicate with any node in the cluster to resolve a service name and its location (i.e. get hold of the actual machine IP address and port where is is currently running). Using a the communication client APIs, you can develop services and clients capable of resolving the current network location despite applications being moved within the cluster (due to failures or resource balancing) or te re-sizing of the cluster.
+**Naming Service**: Each Service Fabric cluster has a Naming service which resolves service names to a location in the cluster and enables you to manage the service names and properties. This is just like an internet Domain Name Service (DNS) for the cluster. Using the Naming service, clients can securely communicate with any node in the cluster to resolve a service name and its location (i.e. get hold of the actual machine IP address and port where it is currently running). Using the communication client APIs, you can develop services and clients capable of resolving the current network location despite applications being moved within the cluster for example due to failures, resource balancing or the re-sizing of the cluster.
 
 Read the [Communicate with services](service-fabric-connect-and-communicate-with-services.md) article for more information on using the client and serivce communication API that work in conjunction with the Naming service.
 
-**Image Store Service**: Each Service Fabric cluster has an image store service where deployed, versioned application packages are kept. You must copy the contents of an application package to the image store and then register the application type within that application package. After the application type has been provisioned, you can create named applications of it. You can unregister an application type from the image store only after all its named applications have been deleted. 
+**Image Store Service**: Each Service Fabric cluster has an Image store service where deployed, versioned application packages are kept. You must copy the contents of an application package to the image store service and then register the application type contained within that application package. Then, after the application type has been provisioned, you can create named applications of it. You can unregister an application type from the Image store service after all its named applications have been deleted. 
 
-Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the image store.
+Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image store service.
 
 ### Built-in programming models
 There are .NET Framework programming models available for you to build Service Fabric services:
