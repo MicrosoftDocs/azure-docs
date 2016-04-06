@@ -78,8 +78,7 @@ On the **Scale** page, you can manually increase or decrease the number of runni
 6. Click **Save**.  
 Role instances will be added or removed based on your selections.
 
->[AZURE.TIP] ![][tip_icon]  
-Whenever you see this icon move your mouse to it and you can get help about what a specific setting does.
+>[AZURE.TIP] ![][tip_icon] Whenever you see this icon move your mouse to it and you can get help about what a specific setting does.
 
 
 
