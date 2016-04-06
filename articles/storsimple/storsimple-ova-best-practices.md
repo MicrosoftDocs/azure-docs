@@ -50,7 +50,7 @@ When provisioning your virtual machine in the hypervisor, we recommend that you 
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | **Virtual machine type**   | **Generation 1** virtual machine when using VHD. <br></br> **Generation 2** virtual machine when using a VHDX.                                                                                                              | Use virtual machine version 8 when using VMDK.                                                                      |
 | **Memory type**            | Configure as static memory. <br></br> Do not use the dynamic memory option.            |                                                    |
-| **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** will take a long time. <br></br> Do not use the  **differencing **option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
+| **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** will take a long time. <br></br> Do not use the  **differencing** option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
 | **Data disk modification** | Expansion or shrinking is not allowed. Attempt to do so will result in the loss of all the local data on   device.                       | Expansion or shrinking is not allowed. Attempt to do so will result in the loss of all the local data on device. |
 
 ### Sizing
@@ -79,7 +79,7 @@ When deploying your virtual array, we recommend that you follow these best pract
 
     -   Be aware that the Internet need will very depending on your workload characteristics and rate of data churn.
 
-    -   As an example, if your Recovery Time Objective (RTO) is 8 hours, a 5 Mbps bandwidth can accommodate a data churn of up to XX% whereas with a 20 Mbps bandwidth, you can have a YY% data churn. INCOMPLETE
+    -   As an example, 8 hours, a 5 Mbps bandwidth can accommodate a data churn of up to 18 GB in 8 hours whereas with a 20 Mbps bandwidth, you can have a data churn of up to 72 GB. 
 
 
 -   Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices will result in loss of access to data in the cloud and thereby result in an unsupported configuration.
