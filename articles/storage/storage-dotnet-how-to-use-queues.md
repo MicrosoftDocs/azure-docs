@@ -52,8 +52,7 @@ Add the following `using` statements to the top of the `program.cs` file:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-	using Microsoft.WindowsAzure.Storage.Auth; // Namespace for authentication types
-    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Queue storage types
+    using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
@@ -61,14 +60,9 @@ Add the following `using` statements to the top of the `program.cs` file:
 
 The **CloudQueueClient** class enables you to retrieve queues stored in Queue storage. Add the following code to the **Main()** method:
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 Now you are ready to write code that reads data from and writes data to Queue storage.
-
 
 ## Create a queue
 

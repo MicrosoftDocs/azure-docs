@@ -62,10 +62,6 @@ Add the following `using` statements to the top of the `program.cs` file:
 
 The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Add the following code to the **Main()** method:
 
-	// Retrieve the storage account from the connection string.
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
