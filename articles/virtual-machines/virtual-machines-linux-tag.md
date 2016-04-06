@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="04/06/2016"
    ms.author="iainfour;memccror"/>
 
 # How to tag a Linux virtual machine in Azure
@@ -29,15 +29,15 @@ Tagging is also supported for resources that are already created through the Azu
 
 You can view all properties for a given Virtual Machine, including the tags, using this command:
 
-        azure vm show -g MyResourceGroup -n MyVM
+        azure vm show -g MyResourceGroup -n MyTestVM
 
 To add a new VM tag through the Azure CLI, you can use the `azure vm set` command along with the tag parameter **-t**:
 
-        azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
+        azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
 To remove all tags, you can use the **–T** parameter in the `azure vm set` command.
 
-        azure vm set – g MyResourceGroup –n MyVM -T
+        azure vm set – g MyResourceGroup –n MyTestVM -T
 
 
 Now that we have applied tags to our resources Azure CLI and the Portal, let’s take a look at the usage details to see the tags in the billing portal.
