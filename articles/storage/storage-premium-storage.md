@@ -39,7 +39,7 @@ To get started with Azure Premium Storage, visit [Get started for free](https://
 
 **Premium Page Blob**: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs). Currently, Premium Storage does not support Azure Block Blobs, Azure Append Blobs, Azure Files, Azure Tables, or Azure Queues.
 
-**Premium Storage account**: To start using Premium Storage, you must create a Premium Storage account. If you prefer to use the [Azure Portal](https://portal.azure.com), you can create a Premium Storage account by specifying the “Premium” performance tier and “Locally-redundant storage (LRS)” as the replication option. You can also create a Premium Storage account by specifying the type as “Premium_LRS” using: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later (Classic deployments); [Azure Storage Resource Provider REST API Reference](http://msdn.microsoft.com/library/azure/mt163683.aspx) (ARM deployments); and [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 or later. Learn about premium storage account limits, in the following section on  [Premium Storage Scalability and Performance Targets ](#premium-storage-scalability-and-performance-targets).
+**Premium Storage account**: To start using Premium Storage, you must create a Premium Storage account. If you prefer to use the [Azure Portal](https://portal.azure.com), you can create a Premium Storage account by specifying the “Premium” performance tier and “Locally-redundant storage (LRS)” as the replication option. You can also create a Premium Storage account by specifying the type as “Premium_LRS” using the [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later (Classic deployments); the [Azure Storage Resource Provider REST API Reference](http://msdn.microsoft.com/library/azure/mt163683.aspx) (ARM deployments); and the [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 or later. Learn about premium storage account limits in the following section on [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets).
 
 **Premium Locally Redundant Storage**: A Premium Storage account only supports Locally Redundant Storage (LRS) as the replication option and keeps three copies of the data within a single region. For considerations regarding geo replication when using Premium Storage, see the [Snapshots and Copy Blob](#snapshots-and-copy-blob) section in this article.
 
@@ -399,7 +399,7 @@ You must create a DS, DSv2 or GS series VM to be able to use Premium Storage. Fo
 2. In the VM **All Settings**, go to **Disks** and click on **Attach New**.
 3. Enter the name of your data disk and select the **Type** as **Premium**. Select the desired **Size** and **Host caching** setting.
 
-	![Premium Disk][Image2]
+	![Premium Disk][Image1]
 
 See more detailed steps in [How to attach a data disk in Azure Portal](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
 
@@ -547,5 +547,4 @@ For more information about Azure Premium Storage refer to the following articles
 - [Azure Premium Storage Generally Available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 - [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
-[Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
-[Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
+[Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
