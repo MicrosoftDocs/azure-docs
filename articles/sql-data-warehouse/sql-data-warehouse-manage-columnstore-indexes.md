@@ -18,10 +18,13 @@
 
 # Manage columnstore indexes in Azure SQL Data Warehouse
 
-This tutorial explains how to manage columnstore indexes to improve query performance. Queries on columnstore indexes run best when the index compresses rows together into "rowgroups" of one million rows (1,024,076 to be exact). This gives the best compression and the best query performance. Conditions can occur that cause the rowgroups to have significantly less than a million rows. When rowgroups are not densely populated with rows, you should consider making adjustments. 
+This tutorial explains how to manage columnstore indexes to improve query performance. 
+
+Queries on columnstore indexes run best when the index compresses rows together into "rowgroups" of one million rows (1,024,076 to be exact). This gives the best compression and the best query performance. Conditions can occur that cause the rowgroups to have significantly less than a million rows. When rowgroups are not densely populated with rows, you should consider making adjustments. 
 
 
 In this tutorial you will learn how to:
+
 - Use metadata to determine the average number of rows per rowgroup
 - Consider the root cause for sparsely populated rowgroups
 - Rebuild a columnstore index to re-compress all rows into new rowgroups 
