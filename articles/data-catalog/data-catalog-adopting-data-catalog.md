@@ -13,11 +13,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="04/06/2016"
    ms.author="derrickv"/>
 
 # Adopting Azure Data Catalog
-This article will help you get started adopting **Azure Data Catalog** in your organization. To successfully adopt **Azure Data C~~~~atalog**, you'll want to focus on three key items: define your vision, identify key business use cases within your organization, and choose a pilot project.
+This article will help you get started adopting **Azure Data Catalog** in your organization. To successfully adopt **Azure Data Catalog**, you'll want to focus on three key items: define your vision, identify key business use cases within your organization, and choose a pilot project.
 
 ## Introducing the Azure Data Catalog
 Within the world of work, people's expectations of how they should be able to find expert information about data assets have changed. Today, with the widespread workplace use of social media tools such as Yammer, people expect to be able to quickly get assistance and advice on a wide range of topics. **Azure Data Catalog** helps businesses and teams consolidate information about enterprise data assets in a central repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.

@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/04/2016"
+	ms.date="04/06/2016"
 	ms.author="chrande"/>
 
 # Azure Functions developer reference
@@ -103,7 +103,7 @@ When setting up a project for deploying functions to a function app in Azure App
 
 ### Parallel execution
 
-When multiple triggering events occur faster than a function can process them, The Azure Functions runtime may invoke the function multiple times in parallel. If a function app is using the [Dynamic Service Plan](functions-scale.md#dynamic-service-plan), the maximum number of concurrent instances of the function app is 10, and each instance may invoke the function multiple times in parallel. The maximum number of concurrent function invocations in each function app instance varies based on the memory size of the function app.
+When multiple triggering events occur faster than a single-threaded function runtime can process them, the runtime may invoke the function multiple times in parallel.  If a function app is using the [Dynamic Service Plan](functions-scale.md#dynamic-service-plan), the function app could scale out automatically up to 10 concurrent instances.  Each instance of the function app, whether the app runs on the Dynamic Service Plan or a regular [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), might process concurrent function invocations in parallel using multiple threads.  The maximum number of concurrent function invocations in each function app instance varies based on the memory size of the function app.
 
 ### Azure Functions Pulse  
 
@@ -984,7 +984,63 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Azure DocumentDB output binding
+## Azure DocumentDB bindings
+
+You can use Azure DocumentDB documents as input or output bindings.
+
+### Azure DocumentDB input bindings
+
+Input bindings can load a document from a DocumentDB collection and pass it directly to your binding. The document id can be determined based on the trigger that invoked the function. In a C# function, any changes made to the record will be automatically sent back to the collection when the function exits successfully.
+
+The function.json file provides the following properties for use with DocumentDB input binding:
+
+- `name` : Variable name used in function code for the document.
+- `type` : must be set to "documentdb".
+- `databaseName` : The database containing the document.
+- `collectionName` : The collection containing the document.
+- `id` : The Id of the document to retrieve. This property supports bindings similar to "{queueTrigger}", which will use the string value of the queue message as the document Id.
+- `connection` : This string must be an Application Setting set to the endpoint for your DocumentDB account. If you choose your account from the Integrate tab, a new App setting will be created for you with a name that takes the following form, yourAccount_DOCUMENTDB. If you need to manually create the App setting, the actual connection string must take the following form, AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
+- `direction  : must be set to *"in"*.
+
+Example function.json:
+ 
+	{
+	  "bindings": [
+	    {
+	      "name": "document",
+	      "type": "documentdb",
+	      "databaseName": "MyDatabase",
+	      "collectionName": "MyCollection",
+	      "id" : "{queueTrigger}",
+	      "connection": "MyAccount_DOCUMENTDB",     
+	      "direction": "in"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+#### Azure DocumentDB input code example for a C# queue trigger
+ 
+Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the 'document' parameter. If that document is not found, the 'document' parameter will be null. The document is then updated with the new text value when the function exits.
+ 
+	public static void Run(string myQueueItem, dynamic document)
+	{   
+	    document.text = "This has changed.";
+	}
+
+#### Azure DocumentDB input code example for a Node.js queue trigger
+ 
+Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the `documentIn` binding property. In Node.js functions, updated documents are not sent back to the collection. However, you can pass the input binding directly to a DocumentDB output binding named `documentOut` to support updates. This code example updates the text property of the input document and sets it as the output document.
+ 
+	module.exports = function (context, input) {   
+	    context.bindings.documentOut = context.bindings.documentIn;
+	    context.bindings.documentOut.text = "This was updated!";
+	    context.done();
+	};
+
+
+
+### Azure DocumentDB output bindings
 
 Your functions can write JSON documents to an Azure DocumentDB database using the **Azure DocumentDB Document** output binding. For more information on Azure DocumentDB review the [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) and the [Getting Started tutorial](../documentdb/documentdb-get-started.md).
 
@@ -1016,7 +1072,7 @@ Example function.json:
 	}
 
 
-#### Azure DocumentDB code example for a Node.js queue trigger
+#### Azure DocumentDB output code example for a Node.js queue trigger
 
 	module.exports = function (context, input) {
 	   
@@ -1035,7 +1091,7 @@ The output document:
 	}
  
 
-#### Azure DocumentDB code example for a C# queue trigger
+#### Azure DocumentDB output code example for a C# queue trigger
 
 
 	using System;
@@ -1050,7 +1106,7 @@ The output document:
 	}
 
 
-#### Azure DocumentDB code example setting file name
+#### Azure DocumentDB output code example setting file name
 
 If you want to set the name of the document in the function, just set the `id` value.  For example, if JSON content for an employee was being dropped into the queue similar to the following:
 
@@ -1090,6 +1146,119 @@ Example output:
 	  "employeeId": "123456",
 	  "address": "A town nearby"
 	}
+
+## Azure Mobile Apps easy tables bindings
+
+Azure App Service Mobile Apps lets you expose table endpoint data to mobile clients. This same tabular data can be used in both input and output bindings with Azure Functions. When you have a Node.js backend mobile app, you can work with this tabular data in the Azure portal using *easy tables*. Easy tables supports dynamic schema so that columns are added automatically to match the shape of the data being inserted, simplifying schema development. Dynamic schema is enabled by default and should be disabled in a production mobile app. For more information on easy tables in Mobile Apps, see [How to: Work with easy tables in the Azure portal](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing). Note that easy tables in the portal are not currently supported for .NET backend mobile apps. You can still use .NET backend mobile app table endpoints function bindings, however dynamic schema is not supported .NET backend mobile apps.
+
+###Azure Mobile Apps easy tables input binding
+Input bindings can load a record from a Mobile Apps table endpoint and pass it directly to your binding. The record ID is determined based on the trigger that invoked the function. In a C# function, any changes made to the record are automatically sent back to the table when the function exits successfully.
+
+The function.json file supports the following properties for use with Mobile Apps easy table input bindings:
+
+- `name` : Variable name used in function code for the new record.
+- `type` : Biding type must be set to *easyTable*.
+- `tableName` : The table where the new record will be created.
+- `id` : The ID of the record to retrieve. This property supports bindings similar to `{queueTrigger}`, which will use the string value of the queue message as the record Id.
+- `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
+- `connection` : String that is the application setting that specifies the URI of your mobile app.
+- `direction` : Binding direction, which must be set to *in*.
+
+Example function.json:
+
+	{
+	  "bindings": [
+	    {
+	      "name": "record",
+	      "type": "easyTable",
+	      "tableName": "MyTable",
+	      "id" : "{queueTrigger}",
+	      "connection": "My_MobileApp_Uri",
+	      "apiKey": "My_MobileApp_Key",
+	      "direction": "in"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+####Azure Mobile Apps easy tables code example for a C# queue trigger
+
+Based on the example function.json above, the input binding retrieves the record with the ID that matches the queue message string and passes it to the *record* parameter. When the record is not found, the parameter is null. The record is then updated with the new *Text* value when the function exits.
+
+
+	#r "Newtonsoft.Json"	
+	using Newtonsoft.Json.Linq;
+	
+	public static void Run(string myQueueItem, JObject record)
+	{
+	    if (record != null)
+	    {
+	        record["Text"] = "This has changed.";
+	    }    
+	}
+
+####Azure Mobile Apps easy tables code example for a Node.js queue trigger
+
+Based on the example function.json above, the input binding retrieves the record with the ID that matches the queue message string and passes it to the *record* parameter. In Node.js functions, updated records are not sent back to the table. This code example writes the retrieved record to the log.
+
+	module.exports = function (context, input) {    
+	    context.log(context.bindings.record);
+	    context.done();
+	};
+
+
+###Azure Mobile Apps easy tables output binding
+
+Your function can write a record to a Mobile Apps table endpoint using an easy table output binding. 
+
+The function.json file supports the following properties for use with Easy Table output binding:
+
+- `name` : Variable name used in function code for the new record.
+- `type` : Binding type that must be set to *easyTable*.
+- `tableName` : The table where the new record is created.
+- `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
+- `connection` : String that is the application setting that specifies the URI of your mobile app.
+- `direction` : Binding direction, which must be set to *out*.
+
+Example function.json:
+
+	{
+	  "bindings": [
+	    {
+	      "name": "record",
+	      "type": "easyTable",
+	      "tableName": "MyTable",
+	      "connection": "My_MobileApp_Uri",
+	      "apiKey": "My_MobileApp_Key",
+	      "direction": "out"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+####Azure Mobile Apps easy tables code example for a C# queue trigger
+
+This C# code example inserts a new record with a *Text* property into the table specified in the above binding.
+
+	public static void Run(string myQueueItem, out object record)
+	{
+	    record = new {
+	        Text = $"I'm running in a C# function! {myQueueItem}"
+	    };
+	}
+
+####Azure Mobile Easy Table code example for a Node.js queue trigger
+
+This Node.js code example inserts a new record with a *text* property into the table specified in the above binding.
+
+	module.exports = function (context, input) {
+	
+	    context.bindings.record = {
+	        text : "I'm running in a Node function! Data: '" + input + "'"
+	    }   
+	
+	    context.done();
+	};
 
 ## Azure Notification Hub output binding
 
@@ -1186,4 +1355,38 @@ This example sends a notification for a [template registration](../notification-
 	{
 		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
 		notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
+	}
+
+#### Azure Notification Hub queue trigger C# code example using Notification type
+
+This example shows how to use the `Notification` type that is defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). In order to use this type, and the library, you must upload a *project.json* file for your function app. The project.json file is a JSON text file which will look similar to the follow:
+
+	{
+	  "frameworks": {
+	    ".NETFramework,Version=v4.6": {
+	      "dependencies": {
+	        "Microsoft.Azure.NotificationHubs": "1.0.4"
+	      }
+	    }
+	  }
+	}
+
+For more information on uploading your project.json file, see [uploading a project.json file](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions).
+
+Example code:
+
+	using System;
+	using System.Threading.Tasks;
+	using Microsoft.Azure.NotificationHubs;
+	 
+	public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
+	{
+	   log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	   notification = GetTemplateNotification(myQueueItem);
+	}
+	private static TemplateNotification GetTemplateNotification(string message)
+	{
+	    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+	    templateProperties["message"] = message;
+	    return new TemplateNotification(templateProperties);
 	}
