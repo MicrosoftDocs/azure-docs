@@ -26,14 +26,18 @@ To understand why you should not store sensitive data, you need to understand ho
 Once the collection is provisioned and users start connecting to the VMs, user data is persistent and protected because it is saved on separate storage within a VHD that we call a [user profile disk (UPD)](remoteapp-upd.md), which is the user profile in c:\users\<userprofile>. When an application starts, the UPD is mounted and treated just like a local user profile by the operating system. Read more about how [Azure RemoteApp saves user data and settings](remoteapp-upd.md).
 
 Example data that should not reside in the image:
+
 - Shared data for users to access
 - SQL DB or QuickBooks DB
 - Any data in D:\
+
 Example data that can reside in the default profile to be copied into every users’ UPD:
+
 - Configuration files per user
 - Scripts that users would need preserved in their UPD
 
 Key points:
+
 - Never store sensitive data that can be lost on the image when creating a custom image.
 - Sensitive data should always reside on a separate file server, separate Azure VM, on the cloud, and always external to the VM instances hosting your applications within Azure RemoteApp. 
 - User data is saved and persists in the user profile disk (UPD)
