@@ -86,7 +86,7 @@ This section provides instructions on how to create, get, update, and delete the
 	- A /30 subnet for the secondary link. This must not be part of any address space reserved for virtual networks.
 	- A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
-	- MD5 hash if you choose to use one. **This is optional**.
+	- An MD5 hash if you choose to use one. **This is optional**.
 	
 	You can run the following cmdlet to configure Azure private peering for your circuit.
 
@@ -275,7 +275,7 @@ This section provides instructions on how to create, get, update and delete the 
 	- Advertised prefixes: You must provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. You can send a comma separated list if you plan to send a set of prefixes. These prefixes must be registered to you in an RIR / IRR.
 	- Customer ASN: If you are advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they are registered. **This is optional**.
 	- Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
-	- A MD5 hash, if you choose to use one. **This is optional.**
+	- An MD5 hash, if you choose to use one. **This is optional.**
 	
 	You can run the following cmdlet to configure Microsoft pering for your circuit
 
