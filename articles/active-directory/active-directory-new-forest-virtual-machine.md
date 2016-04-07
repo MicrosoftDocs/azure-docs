@@ -122,7 +122,7 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 -  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 -  [Configure a Site-to-Site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
--  [Install a Replica Active Directory Domain Controller in an Azure virtual network](../virtual-networks-install-replica-active-directory-domain-controller.md)
+-  [Install a Replica Active Directory Domain Controller in an Azure virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
