@@ -33,7 +33,10 @@ For common error codes, see [SQL error codes for SQL Database client application
 You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 
+## Latency of elastic pool operations
 
+- Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.
+- Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
 
 ## Create a new elastic database in a pool
 

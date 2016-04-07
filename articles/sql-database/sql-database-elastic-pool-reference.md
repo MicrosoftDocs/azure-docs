@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/24/2016"
+	ms.date="04/07/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -64,10 +64,6 @@ An elastic database pool is an Azure Resource Manager resource of type “Elasti
 | databaseDtuMin | Minimum number of eDTUs that a single database in the pool is guaranteed. The database eDTU min may be set to 0. The eDTU min applies to all databases in the pool. Note that the product of the number of databases in the pool and the database eDTU min cannot exceed the eDTUs of the pool itself. |
 | Dtu | Number of eDTUs shared by all databases in the pool. |
 | edition | Service tier of the pool.  Every database within the pool has this edition. |
-| elasticPoolId | GUID of the instance of the pool. |
-| elasticPoolName | Name of the pool.  The name is unique relative to its parent server. |
-| location | Data center location where the pool was created. |
-| state | State is “Disabled” if payment of the bill for subscription is delinquent, and “Ready” otherwise. |
 | storageMB | Storage limit in MB for the pool. The total of storage used by all databases in the pool cannot exceed this pool limit.  |
 
 

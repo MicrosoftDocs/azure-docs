@@ -35,7 +35,10 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
+## Latency of elastic pool operations
 
+- Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.
+- Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
 
 ## Update a pool
 
