@@ -41,7 +41,7 @@ Use this architecture when the process server is on Azure and you have either a 
 
 To see the complete list of ports and the failback architechture diagram refer to the image below
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/Failvoer-Failback.png)
+![](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
 
 Here’s how failback works:
 
