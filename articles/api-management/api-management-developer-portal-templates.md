@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to customize the Azure API Management developer portal using templates" 
+	pageTitle="How to customize the Azure API Management developer portal using templates | Microsoft Azure" 
 	description="Learn how to customize the Azure API Management developer portal using templates." 
 	services="api-management" 
 	documentationCenter="" 
