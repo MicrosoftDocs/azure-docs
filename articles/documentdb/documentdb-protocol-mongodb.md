@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB protocol support for MongoDB | Microsoft Azure" 
 	description="Learn about DocumentDB protocol support for MongoDB, now available for preview." 
-	keywords="mongodb protocol, mongodb"
+	keywords="mongodb protocol, mongodb, mongo database"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -36,11 +36,11 @@ To request access to the preview, perform the following steps.
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **NEW**, click **Data + Storage**, click **See all**, click **More**, and then click **DocumentDB - Protocol Support for MongoDB**.
 
-	![Screen shot of the Marketplace and Data + Storage blades, highlighting DocumentDB - Protocol Support for MongoDB](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
+	![Screen shot of the Marketplace and Data + Storage blades, highlighting DocumentDB - Protocol Support for MongoDB, Mongo database](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
 
 3. Alternatively, search the **Data + Storage** category for "DocumentDB protocol".
 
-	![Screen shot of the Marketplace and Data + Storage search blades, highlighting DocumentDB - Protocol Support for MongoDB](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
+	![Screen shot of the Marketplace and Data + Storage search blades, highlighting DocumentDB - Protocol Support for MongoDB, Mongo database](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
 
 4. Click **Create** to launch the preview signup process.
 
