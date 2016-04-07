@@ -148,7 +148,7 @@ For large databases, SharePoint server farms, and high-throughput applications
 
 You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
 
-Here is an example for setting the role size to be [Standard_D2](General purpose (D)) for a Web Role instance:
+Here is an example for setting the role size to be [Standard_D2](#general-purpose-d) for a Web Role instance:
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
