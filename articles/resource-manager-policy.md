@@ -165,10 +165,10 @@ Currently, the supported aliases are:
 | {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines, Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
-| Microsoft.Compute/virtualMachines/image.publisher |  |
-| Microsoft.Compute/virtualMachines/image.offer  |  |
-| Microsoft.Compute/virtualMachines/image.sku  |  |
-| Microsoft.Compute/virtualMachines/image.version  |  |
+| Microsoft.Compute/virtualMachines/imagePublisher |  |
+| Microsoft.Compute/virtualMachines/imageOffer  |  |
+| Microsoft.Compute/virtualMachines/imageSku  |  |
+| Microsoft.Compute/virtualMachines/imageVersion  |  |
 | Microsoft.Cache/Redis/enableNonSslPort |  |
 | Microsoft.Cache/Redis/shardCount |  |
 
