@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="01/13/2016"
+   ms.date="03/31/2016"
    ms.author="elizapo"/>
 
 # How to integrate OneDrive for Business and Azure RemoteApp
@@ -24,12 +24,12 @@ You can use OneDrive for Business as a file repository with Azure RemoteApp. One
 
 There are two versions of OneDrive: OneDrive and OneDrive for Business. Only OneDrive for Business is supported on Azure RemoteApp. The personal OneDrive does work but is not officially supported. Also, only the latest version of OneDrive for Business, aka the Next Gen Sync client, is supported on Azure RemoteApp (and RDSH/Citrix/Terminal servers).
 
->[AZURE.NOTE]  OneDrive (for consumers/personal edition) is not supported on Azure RemoteApp. Not all versions of OneDrive for Business are supported either as they haven’t been certified to work on Windows Server. Though both the new client (Next Gen Sync Client) and the older Groove versions might seem to work fine on Azure RemoteApp, as described in [https://support.microsoft.com/en-us/kb/2965687](https://support.microsoft.com/kb/2965687), the older sync engines will not have full functionality on Citrix / Terminal Servers (Windows Server). Use the new sync client on Azure RemoteApp (and other Windows Server deployments).
+>[AZURE.NOTE]  OneDrive (for consumers/personal edition) is not supported on Azure RemoteApp. Not all versions of OneDrive for Business are supported either as they haven’t been certified to work on Windows Server. Though both the new client (Next Gen Sync Client) and the older Groove versions might seem to work fine on Azure RemoteApp, as described in [https://support.microsoft.com/en-us/kb/2965687](https://support.microsoft.com/kb/2965687), the older sync engines will not have full functionality on Citrix / Terminal Servers (Windows Server).
 
 ## What are the different set up options for OneDrive for Business?
 
 - **Traditional setup of OneDrive for Business sync engine:** 
-OneDrive for Business sync client can be installed on a server SKU (Remote Desktop as well as RemoteApp session/Terminal Server session) and folders selected for sync on the RemoteApp session, just like you would on a Windows client SKU. The default location where OneDrive for Business syncs files is the same location where the user profile disk used to store user data and settings on Azure RemoteApp resides -  under C:\users\<username>. This disk will follow the user to any VM they log into and hence the ODB files will follow the user too. The OneDrive for Business app needs to be published by the admin for all users, and users need to launch it on every new session (or the launch can be automated with a login script) to make sure the sync engine is activated. OneDrive for Business will download the whole file on the VM where the session is running. When syncing a user’s content, it is a heavy workload to sync everything (CPU/data transferred/storage taken) that is simply not optimized for terminal machines that have a large number of users that sign in briefly to each machine. With the selective syncing, the workload would be reduced but the concern still remains.
+This option is not supported, at present, on Azure RemoteApp, RDSH, Citrix deployments.
 - **“Virtualize” the OneDrive for Business/redirect it from the local fat client into the session:**
 If you are syncing OneDrive to a folder on the client device, under a drive, you can choose to [redirect](remoteapp-redirection.md) that drive to Azure RemoteApp – that drive should be same across all your users’ clients and they should have OneDrive synced to a folder under that drive. If they access RemoteApp from any other client, these files could potentially not be available (workaround -  they can always access their files using the online version of OneDrive). 
 - **Present OneDrive for Business as a drive within the Azure RemoteApp environment without caching/syncing the files:**

@@ -3,7 +3,7 @@
 	description="This topic refers to resources created with the classic deployment model, and provides general guidance for securing SQL Server running in an Azure Virtual Machine."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="rothja"
 	manager="jhubbard"
    editor=""    
    tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="03/23/2016"
-	ms.author="carlrab" />
+	ms.author="jroth" />
 
 # Security Considerations for SQL Server in Azure Virtual Machines
 
@@ -50,7 +50,7 @@ Following is a list of security recommendations that should be considered when c
 
 - Enable an encrypted connection option for an instance of the SQL Server Database Engine in Azure Virtual Machines. Configure SQL server instance with a signed certificate. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192.aspx) and [Connection String Syntax](https://msdn.microsoft.com/library/ms254500.aspx).
 
-- If your virtual machines should be accessed only from a specific network, use Windows Firewall to restrict access to certain IP addresses or network subnets. 
+- If your virtual machines should be accessed only from a specific network, use Windows Firewall to restrict access to certain IP addresses or network subnets.
 
 ## Next Steps
 

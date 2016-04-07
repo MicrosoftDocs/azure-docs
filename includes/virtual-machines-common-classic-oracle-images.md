@@ -37,7 +37,7 @@ The following is a list of the available Oracle virtual machine images that run 
 
 
 ##Oracle Linux virtual machine images
-The following is a list of the available preconfigured Oracle virtual machine images that run on Oracle Linux on Azure. You are expected to bring your own license for these images, as Oracle license fees are not included in the usage of these preconfigured virtual machine images. You can also bring your own license to install and run Oracle software on custom virtual machines on Windows or Linux. Here are complete details on [Oracle licensing on Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). And here are details on creating virtual machines using [your own images](virtual-machines-windows-classic-createupload-vhd.md). To learn about this and other methods of migrating Oracle and other workloads to Azure, see [Different ways to create a Windows-based virtual machine](virtual-machines-windows-creation-choices.md).
+The following is a list of the available preconfigured Oracle virtual machine images that run on Oracle Linux on Azure. You are expected to bring your own license for these images, as Oracle license fees are not included in the usage of these preconfigured virtual machine images. You can also bring your own license to install and run Oracle software on custom virtual machines on Windows or Linux. Here are complete details on [Oracle licensing on Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). And here are details on creating virtual machines using [your own images](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md). To learn about this and other methods of migrating Oracle and other workloads to Azure, see [Different ways to create a Windows-based virtual machine](../articles/virtual-machines/virtual-machines-windows-creation-choices.md).
 
 - Oracle Database 12c Enterprise Edition on Oracle Linux
 - Oracle Database 12c Standard Edition on Oracle Linux
@@ -48,4 +48,4 @@ The following is a list of the available preconfigured Oracle virtual machine im
 ##Additional resources
 [New all-in-one Oracle images in the Azure Marketplace](https://msopentech.com/blog/2015/02/19/new-one-oracle-images-azure-marketplace/)
 
-[Oracle virtual machine images - miscellaneous considerations](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
+[Oracle virtual machine images - miscellaneous considerations](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)

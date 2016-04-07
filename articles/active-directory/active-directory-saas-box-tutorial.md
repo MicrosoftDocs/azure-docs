@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 
@@ -27,13 +27,13 @@ The scenario outlined in this tutorial assumes that you already have the followi
 -   A valid Azure subscription
 -   A test tenant in Box
   
-After completing this tutorial, the Azure AD users you have assigned to Box will be able to single sign into the application at your Box company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
+After completing this tutorial, the Azure AD users you have assigned to Box will be able to single sign into the application at your Box company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1.  Enabling the application integration for Box
 2.  Configuring single sign-on
-3.  Configuring user provisioning
+3.  Configuring user and group provisioning
 4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-box-tutorial/IC769537.png "Scenario")
@@ -117,11 +117,15 @@ The objective of this section is to outline how to enable provisioning of Active
 
 4. Click **Grant access to Box** to authorize this operation and to return to the Azure Management Portal. <br><br> ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769549.png "Enable automatic user provisioning")
 
-5. To finish the configuration, click the Complete button. <br><br> ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769551.png "Enable automatic user provisioning")
+
+5. On the **Provisioning Options** page, the **Object types to provision** checkboxes allow you to select whether or not group objects are provisioned to Box in addition to user objects.  See "Assigning users and groups section" below for more information.
+
+
+6. To finish the configuration, click the Complete button. <br><br> ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769551.png "Enable automatic user provisioning")
 
 
 
-##Assigning users
+##Assigning a test user
   
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
@@ -133,7 +137,6 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment. <br><br> ![Yes](./media/active-directory-saas-box-tutorial/IC767830.png "Yes")
   
-
 You should now wait for 10 minutes and verify that the account has been synchronized to Box.
 
 As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the Box application integration page on the Azure Management Portal.
@@ -150,7 +153,26 @@ In your Box tenant, synchronized users are listed under **Managed Users** in the
 <br><br> ![Integration status](./media/active-directory-saas-box-tutorial/IC769556.png "Integration status")
 
 
+##Assigning users and groups
+
+The **Box > Users and Groups** tab in the Azure classic portal allows you to specify which users and groups should be granted access to Box. Assignment of a user or group causes the following things to occur:
+
+* Azure AD permits the assigned user (either by direct assignment or group membership) to authenticate to Box. If a user is not assigned, then Azure AD will not permit them to sign in to Box and will return an error on the Azure AD sign-in page.
+
+* An app tile for Box is added to the user's [application launcher](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+
+* If automatic provisioning is enabled, then the assigned users and/or groups are added to the provisioning queue to be automatically provisioned.
+
+    * If only user objects were configured to be provisioned, then all directly-assigned users are placed in the provisioning queue, and all users that are members of any assigned groups will be placed in the provisioning queue. 
+    
+    * If group objects were configured to be provisioned, then all assigned group objects are provisioned to Box, as well as all users that are members of those groups. The group and user memberships are preserved upon being written to Box.
+    
+You can use the **Attributes > Single Sign-On** tab to configure which user attributes (or claims) are presented to Box during SAML-based authentication, and the **Attributes > Provisioning** tab to configure how user and group attributes flow from Azure AD to Box during provisioning operations. See the resources below for more information.
+
+
 ## Additional Resources
 
+* [Customizing claims issued in the SAML token](active-directory-saml-claims-customization.md)
+* [Provisioning: Customize Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="03/25/2016"
 	ms.author="szark"/>
 
 
@@ -44,7 +44,7 @@ Oracle Linux| 6.4+, 7.0+|In Kernel|Package: In repo under "WALinuxAgent"<p><p>So
 Red Hat Enterprise Linux |RHEL 6.7+, 7.1+|In Kernel|Package: In repo under "WALinuxAgent" <p><p>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
 SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ and  <p><p> SLES for SAP 11.3+ |In Kernel|Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "WALinuxAgent"<p><p>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 openSUSE |openSUSE 13.1+|In Kernel|Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "WALinuxAgent" <p><p>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-Ubuntu|Ubuntu 12.04, 14.04, 15.04 and 15.10|In Kernel|Package: In repo under "walinuxagent" <p><p>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
+Ubuntu|Ubuntu 12.04, 14.04, 15.10 and 16.04|In Kernel|Package: In repo under "walinuxagent" <p><p>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
 ## Partners
 
 ### OpenLogic

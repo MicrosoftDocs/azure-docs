@@ -215,7 +215,7 @@ Based on those requirements, you need a subscription for each business unit. Tha
 
 ![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
-You also need to specify the address space for each VNet. Since you need connectivity between the on-premises data centers and the Azure regions, the address space used for Azure VNets cannot clash with the on-premises, and the address space used by each VNet should not clash with other existing VNets. You could use the address spaces in the table below to satisfy these requirements.  
+You also need to specify the address space for each VNet. Since you need connectivity between the on-premises data centers and the Azure regions, the address space used for Azure VNets cannot clash with the on-premises network, and the address space used by each VNet should not clash with other existing VNets. You could use the address spaces in the table below to satisfy these requirements.  
 
 |**Subscription**|**VNet**|**Azure region**|**Address space**|
 |---|---|---|---|

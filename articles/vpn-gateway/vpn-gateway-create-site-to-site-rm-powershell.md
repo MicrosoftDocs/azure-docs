@@ -20,7 +20,8 @@
 # Create a virtual network with a Site-to-Site VPN connection using PowerShell and Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
+- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure Portal - Classic](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 This article will walk you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the **Azure Resource Manager** deployment model. Site-to-Site connections can be used for cross-premises and hybrid configurations. 
@@ -162,7 +163,7 @@ To find the public IP address of your virtual network gateway, use the following
 
 ## 8. Create the VPN connection
 
-Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration.
+Next, you'll create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Note that the `-ConnectionType` for Site-to-Site is **IPsec**. 
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg

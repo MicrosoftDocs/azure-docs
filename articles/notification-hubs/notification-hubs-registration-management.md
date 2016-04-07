@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Registration management
@@ -28,10 +28,10 @@ This topic explains how to register devices with notification hubs in order to r
 Device registration with a Notification Hub is accomplished using a **Registration** or **Installation**.
 
 #### Registrations
-A registration is a sub-entity of a notification hub, and associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, device token, or GCM registration id. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-routing-tag-expressions.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates.md).
+A registration associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, device token, or GCM registration id. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-routing-tag-expressions.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates.md).
 
 #### Installations
-An Installation is an enhanced registration that includes a bag of push related properties. However it is the latest and best approach to registering your devices. 
+An Installation is an enhanced registration that includes a bag of push related properties. It is the latest and best approach to registering your devices. However, it is not supported by client side .NET SDK ([Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) as of yet.  This means if you are registering from the client device itself, you would have to use the [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) approach to support installations. If you are using a backend service, you should be able to use [Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 The following are some key advantages to using installations:
 
@@ -39,9 +39,7 @@ The following are some key advantages to using installations:
 * The installation model makes it easy to do individual pushes - targeting specific device. A system tag **"$InstallationId:[installationId]"** is automatically added with each installation based registration. So you can call a send to this tag to target a specific device without having to do any additional coding.
 * Using installations also enables you to do partial registration updates. The partial update of an installation is requested with a PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). This is particularly useful when you want to update tags on the registration. You don't have to pull down the entire registration and then resend all the previous tags again.
 
-Installations are currently only supported by the [Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). See the [Installation Class](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation.aspx) for more information. To register from a client device using an installation ID without a backend, you would need to use [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) at this time.
-
-An installation can contain the the following properties. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) or [Installation Properties](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+An installation can contain the the following properties. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) or [Installation Properties](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) for the .
 
 	// Example installation format to show some supported properties
 	{

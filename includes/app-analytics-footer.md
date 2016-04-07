@@ -10,5 +10,7 @@
  - Used to compute statistics over groups of records
 - [Scalars](../articles/application-insights/app-analytics-scalars.md)
  - Numbers, strings, and other expressions used to form query parameters.
+- [Using](../articles/application-insights/app-analytics-using.md)
+ - Using Analytics.
 
 
