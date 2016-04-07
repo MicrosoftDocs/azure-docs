@@ -80,7 +80,7 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | Azure Backup (MARS) agent | Yes | No (Only Windows based agent) |
 | System Center Data Protection Manager | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible |
 | Azure Backup Server (MABS) | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible (Same as DPM) |
-| Azure IaaS VM Backup | In Public Preview | In Public Preview - V2 Linux VMs <br>(File system level consistency)<br><br>Yes for Linux VMs under Classic model |
+| Azure IaaS VM Backup | In Public Preview | In Public Preview - V2 Linux VMs <br>(File system level consistency)<br><br>Yes for Linux VMs in classic deployment model |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
