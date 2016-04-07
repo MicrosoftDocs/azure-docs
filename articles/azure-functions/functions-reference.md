@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/04/2016"
+	ms.date="04/06/2016"
 	ms.author="chrande"/>
 
 # Azure Functions developer reference
@@ -984,7 +984,63 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Azure DocumentDB output binding
+## Azure DocumentDB bindings
+
+You can use Azure DocumentDB documents as input or output bindings.
+
+### Azure DocumentDB input bindings
+
+Input bindings can load a document from a DocumentDB collection and pass it directly to your binding. The document id can be determined based on the trigger that invoked the function. In a C# function, any changes made to the record will be automatically sent back to the collection when the function exits successfully.
+
+The function.json file provides the following properties for use with DocumentDB input binding:
+
+- `name` : Variable name used in function code for the document.
+- `type` : must be set to "documentdb".
+- `databaseName` : The database containing the document.
+- `collectionName` : The collection containing the document.
+- `id` : The Id of the document to retrieve. This property supports bindings similar to "{queueTrigger}", which will use the string value of the queue message as the document Id.
+- `connection` : This string must be an Application Setting set to the endpoint for your DocumentDB account. If you choose your account from the Integrate tab, a new App setting will be created for you with a name that takes the following form, yourAccount_DOCUMENTDB. If you need to manually create the App setting, the actual connection string must take the following form, AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
+- `direction  : must be set to *"in"*.
+
+Example function.json:
+ 
+	{
+	  "bindings": [
+	    {
+	      "name": "document",
+	      "type": "documentdb",
+	      "databaseName": "MyDatabase",
+	      "collectionName": "MyCollection",
+	      "id" : "{queueTrigger}",
+	      "connection": "MyAccount_DOCUMENTDB",     
+	      "direction": "in"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+#### Azure DocumentDB input code example for a C# queue trigger
+ 
+Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the 'document' parameter. If that document is not found, the 'document' parameter will be null. The document is then updated with the new text value when the function exits.
+ 
+	public static void Run(string myQueueItem, dynamic document)
+	{   
+	    document.text = "This has changed.";
+	}
+
+#### Azure DocumentDB input code example for a Node.js queue trigger
+ 
+Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the `documentIn` binding property. In Node.js functions, updated documents are not sent back to the collection. However, you can pass the input binding directly to a DocumentDB output binding named `documentOut` to support updates. This code example updates the text property of the input document and sets it as the output document.
+ 
+	module.exports = function (context, input) {   
+	    context.bindings.documentOut = context.bindings.documentIn;
+	    context.bindings.documentOut.text = "This was updated!";
+	    context.done();
+	};
+
+
+
+### Azure DocumentDB output bindings
 
 Your functions can write JSON documents to an Azure DocumentDB database using the **Azure DocumentDB Document** output binding. For more information on Azure DocumentDB review the [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) and the [Getting Started tutorial](../documentdb/documentdb-get-started.md).
 
@@ -1016,7 +1072,7 @@ Example function.json:
 	}
 
 
-#### Azure DocumentDB code example for a Node.js queue trigger
+#### Azure DocumentDB output code example for a Node.js queue trigger
 
 	module.exports = function (context, input) {
 	   
@@ -1035,7 +1091,7 @@ The output document:
 	}
  
 
-#### Azure DocumentDB code example for a C# queue trigger
+#### Azure DocumentDB output code example for a C# queue trigger
 
 
 	using System;
@@ -1050,7 +1106,7 @@ The output document:
 	}
 
 
-#### Azure DocumentDB code example setting file name
+#### Azure DocumentDB output code example setting file name
 
 If you want to set the name of the document in the function, just set the `id` value.  For example, if JSON content for an employee was being dropped into the queue similar to the following:
 
@@ -1186,4 +1242,38 @@ This example sends a notification for a [template registration](../notification-
 	{
 		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
 		notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
+	}
+
+#### Azure Notification Hub queue trigger C# code example using Notification type
+
+This example shows how to use the `Notification` type that is defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). In order to use this type, and the library, you must upload a *project.json* file for your function app. The project.json file is a JSON text file which will look similar to the follow:
+
+	{
+	  "frameworks": {
+	    ".NETFramework,Version=v4.6": {
+	      "dependencies": {
+	        "Microsoft.Azure.NotificationHubs": "1.0.4"
+	      }
+	    }
+	  }
+	}
+
+For more information on uploading your project.json file, see [uploading a project.json file](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions).
+
+Example code:
+
+	using System;
+	using System.Threading.Tasks;
+	using Microsoft.Azure.NotificationHubs;
+	 
+	public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
+	{
+	   log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	   notification = GetTemplateNotification(myQueueItem);
+	}
+	private static TemplateNotification GetTemplateNotification(string message)
+	{
+	    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+	    templateProperties["message"] = message;
+	    return new TemplateNotification(templateProperties);
 	}
