@@ -50,7 +50,7 @@ You can use two approaches to authenticate using Azure Active Directory.
 
 * **Interactive**, where the application prompts the user to log in. For more information, see [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-* **Non-interactive**, where the application provides its own credentials. For more information, see [Service to service calls using credentials](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx).
+* **Non-interactive**, where the application provides its own credentials. For more information, see [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
 This article uses **non-interactive** approach. For this, you must issue a POST request like the one shown below. 
 
