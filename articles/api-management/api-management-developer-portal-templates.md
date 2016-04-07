@@ -49,7 +49,7 @@ Some templates, like the **User Profile** templates, customize different parts o
 
 The editor for each developer portal template has two sections displayed at the bottom of the page. The left-hand side displays the editing pane for the template, and the right-hand side displays the data model for the template. 
 
-The template editing pane contains the markup that controls the appearance and behavior of the corresponding page in the developer portal. The markup in the template uses the [DotLiquid](http://dotliquidmarkup.org/) syntax. One popular editor for DotLiquid is [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Any changes made to the template during editing are displayed in real-time in the browser, but are not visible to your customers until you [save](#to-save-a-template) and [publish](@to-publish-a-template) the template.
+The template editing pane contains the markup that controls the appearance and behavior of the corresponding page in the developer portal. The markup in the template uses the [DotLiquid](http://dotliquidmarkup.org/) syntax. One popular editor for DotLiquid is [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Any changes made to the template during editing are displayed in real-time in the browser, but are not visible to your customers until you [save](#to-save-a-template) and [publish](#to-publish-a-template) the template.
 
 ![Template markup][api-management-template]
 
@@ -93,7 +93,7 @@ In the previous example there are two products displayed in the developer portal
 		]
 	}
 
-The markup in the **Product list** template processes the data to provide the desired output by iterating through the collection of products to display information and a link to each individual product. Note `<search-control>` and `<page-control>` elements in the markup. These control the display of the searching and paging controls on the page. `ProductsStrings|PageTitleProducts` is a localized string reference that contains the `h2` header text for the page. For a list of string resources, page controls, and icons available for use in developer portal templates, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+The markup in the **Product list** template processes the data to provide the desired output by iterating through the collection of products to display information and a link to each individual product. Note the `<search-control>` and `<page-control>` elements in the markup. These control the display of the searching and paging controls on the page. `ProductsStrings|PageTitleProducts` is a localized string reference that contains the `h2` header text for the page. For a list of string resources, page controls, and icons available for use in developer portal templates, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
 	<search-control></search-control>
 	<div class="row">
