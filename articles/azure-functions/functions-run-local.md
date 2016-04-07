@@ -20,7 +20,7 @@
 
 ## Overview
 
-[Azure Functions](function-overview.md) are easy to code and test in the Azure portal, but sometimes it's useful to work with them locally before running in Azure. For example, some of the languages that Azure Functions supports are easier to write code for in Visual Studio because it provides [IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx). 
+[Azure Functions](functions-overview.md) are easy to code and test in the Azure portal, but sometimes it's useful to work with them locally before running in Azure. For example, some of the languages that Azure Functions supports are easier to write code for in Visual Studio because it provides [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx). 
 
 This article explains how to run functions locally by downloading the [WebJobs.Script](https://github.com/Azure/azure-webjobs-sdk-script/) project and running the Visual Studio solution it contains.
 
