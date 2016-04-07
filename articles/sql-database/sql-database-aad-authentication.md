@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/04/2016"
+   ms.date="04/06/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database By Using Azure Active Directory Authentication
@@ -252,6 +252,8 @@ To provision an Azure AD based contained database user (other than the server ad
 Use this method if you are logged into Windows using your Azure Active Directory credentials from a federated domain.
 
 1. Start Management Studio and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory Integrated Authentication**. No password is needed or can be entered because your existing credentials will be presented for the connection.
+	![Select AD Integrated Authentication][11]
+
 2. Click the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to.
 
 #### Connect using Active Directory password authentication
@@ -263,6 +265,8 @@ Use this method if you are logged into Windows using credentials from a domain t
 1. Start Management Studio and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory Password Authentication**.
 2. In the **User name** box, type your Azure Active Directory user name in the format **username@domain.com**. This must be an account from the Azure Active Directory or an account from a domain federate with the Azure Active Directory.
 3. In the **Password** box, type your user password for the Azure Active Directory account or federated domain account.
+	![Select AD Password Authentication][12]
+
 4. Click the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to.
 
 
@@ -330,6 +334,7 @@ For specific code examples related to Azure AD authentication see the [SQL Serve
 
 ### 7.3 Connecting with an Azure AD token
 This authentication method allows middle-tier services to connect to Azure SQL Database or Azure SQL Data Warehouse by obtaining a token from Azure Active Directory (AAD). It enables sophisticated scenarios including certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
+
 1. Register your application with Azure Active Directory and get the client id for your code. 
 2. Create a database user representing the application. (Completed earlier in step 6.)
 3. Create a certificate on the client computer that will run the application.
@@ -357,3 +362,5 @@ This authentication method allows middle-tier services to connect to Azure SQL D
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
+[11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
+[12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
