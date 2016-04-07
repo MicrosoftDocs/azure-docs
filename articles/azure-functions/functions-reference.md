@@ -115,6 +115,10 @@ Here is a table of all supported bindings.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
+## Reporting Issues
+
+[AZURE.INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)] 
+
 ## Next steps
 
 For more information, see the following resources:
