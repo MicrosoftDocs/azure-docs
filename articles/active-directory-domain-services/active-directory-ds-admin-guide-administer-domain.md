@@ -17,7 +17,7 @@
 	ms.author="maheshu"/>
 
 # Administer an Azure AD Domain Services managed domain
-This article shows you how to administer an Azure Active Directory Domain Services managed domain.
+This article shows you how to administer an Azure AD Domain Services managed domain.
 
 ## Administrative tasks you can perform on a managed domain
 To start with, let's take a look at administrative tasks that you can perform on a managed domain. Members of the 'AAD DC Administrators' group are granted privileges on the managed domain that enable them to perform tasks such as:

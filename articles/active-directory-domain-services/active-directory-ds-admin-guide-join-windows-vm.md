@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory Domain Services preview: Administration Guide | Microsoft Azure"
-	description="Join a Windows virtual machine to Azure Active Directory Domain Services"
+	description="Join a Windows virtual machine to Azure AD Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -16,7 +16,7 @@
 	ms.date="04/07/2016"
 	ms.author="maheshu"/>
 
-# Join a virtual machine running Windows Server to an AAD-DS managed domain using the Azure classic portal
+# Join a Windows Server virtual machine to a managed domain
 This article shows you how to join a virtual machine running Windows Server 2012 R2 to an Azure AD Domain Services managed domain, using the Azure classic portal.
 
 
