@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="04/07/2016"
 	ms.author="jgao"/>
 
-# Manage Hadoop clusters in HDInsight by using the Azure Portal
+#Manage Hadoop clusters in HDInsight by using the Azure Portal
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
@@ -50,7 +50,7 @@ Before you begin this article, you must have the following:
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported, 
-see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versioning.md). For the general cluster creation information, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). For the creation instructions using the Azure Portal, see [Create HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
+see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versioning.md). For the general cluster creation information, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). 
 
 ##List and show clusters
 
@@ -168,11 +168,11 @@ The impact of changing the number of data nodes for each type of cluster support
 
 	Here is an example how to use the CLI command to rebalance the Storm topology:
 
-		## Reconfigure the topology "mytopology" to use 5 worker processes,
-		## the spout "blue-spout" to use 3 executors, and
-		## the bolt "yellow-bolt" to use 10 executors
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
 
-		$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 
 **To scale clusters**
@@ -222,16 +222,15 @@ HDInsight clusters have the following HTTP web services (all of these services h
 
 By default, these services are granted for access. You can revoke/grant the access using [Azure CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) and [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
+##Find the subscription ID
 
+**To find your Azure subscription IDs**
 
+1. Sign in to the [Portal][azure-portal].
+2. Click **Browse All** from the left menu, and then click **Subscriptions**. Each subscription has a name and a ID.
 
+Each cluster is tied to an Azure subscription. The subscription ID is shown on the cluster **Essential** tile. See [List and show clusters](#list-and-show-clusters).
 
-
-##Find the default storage account
-
-Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster apears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](#list-and-show-clusters).
-
-	
 ##Find the resource group 
 
 In the ARM mode, each HDInsight cluster is created with an Azure resource group. The Azure resource group that a cluster belongs to appears in:
@@ -240,7 +239,12 @@ In the ARM mode, each HDInsight cluster is created with an Azure resource group.
 - Cluster **Essential** tile.  
 
 See [List and show clusters](#list-and-show-clusters).
-   
+
+
+##Find the default storage account
+
+Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster apears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](#list-and-show-clusters).
+
 
 ##Run Hive queries
 
@@ -257,14 +261,20 @@ You cannot run Hive job directly from the Azure portal, but you can use the Hive
 
 ##Monitor jobs
 
-To monitor jobs from the Portal, click **Job History** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
+See [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md#monitoring).
 
 ##Browse files
 
-To browse files stored in the default storage account and the linked storage accounts, click **File Browser** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
+Using the Azure portal, you can browse the content of the default container.
 
-You can also use the **Browse the file system** utility from the **Hadoop UI** in the HDInsight console.  See [Open HDInsight Query console](#open-hdinsight-query-console).
-
+1. Sign in to [https://portal.azure.com](https://portal.azure.com).
+2. Click **HDInsight Clusters** from the left menu to list the existing clusters.
+3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
+4. Click **Settings**.
+5. From **Settings** blade, click **Azure STorage Keys
+6. Click the default storage account name.
+7. Click the **Blobs** tile.
+8. Clich the default container name.
 
 
 ##Monitor cluster usage
@@ -273,60 +283,9 @@ The __Usage__ section of the HDInsight cluster blade dislays information about t
 
 > [AZURE.IMPORTANT] To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md)
 
+##Connect to a cluster
 
-##Open Hadoop UI
-
-To monitor the cluster, browse the file system, and check logs, click **Hadoop UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
-
-##Open Yarn UI
-
-To use Yarn user interface, click **Yarn UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
-
-##Connect to clusters using RDP
-
-The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through Remote Desktop. You can turn on Remote Desktop access when you create a cluster or after a cluster is created. For the instructions about enabling Remote Desktop at creation, see [Create HDInsight cluster](hdinsight-provision-clusters.md).
-
-**To enable Remote Desktop**
-
-1. Sign in to the [Portal][azure-portal].
-2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
-3. Click **Settings** from the top menu, and then click **Remote Desktop**.
-4. Enter **Expires On**, **Remote Desktop Username** and **Remote Desktop Password**, and then click **Enable**.
-
-	![hdinsight enable disable configure remote desktop](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.remote.desktop.png)
-
-	The default valus for Expires On is a week.
-> [AZURE.NOTE] You can also use the HDInsight .NET SDK to enable Remote Desktop on a cluster. Use the **EnableRdp** method on the HDInsight client object in the following manner: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Similarly, to disable Remote Desktop on the cluster, you can use **client.DisableRdp(clustername, location)**. For more information on these methods, see [HDInsight .NET SDK Reference](http://go.microsoft.com/fwlink/?LinkId=529017). This is applicable only for HDInsight clusters running on Windows.
-
-**To connect to a cluster by using RDP**
-
-1. Sign in to the [Portal][azure-portal].
-2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
-3. Click **Settings** from the top menu, and then click **Remote Desktop**.
-4. Click **Connect** and follow the instructions. If Connect is disable, you must enable it first. Make sure using the Remote Desktop user username and password.  You can't use the Cluster user credentials.
-
-
-##Open Hadoop command line
-
-To connect to the cluster by using Remote Desktop and use the Hadoop command line, you must first have enabled Remote Desktop access to the cluster as described in the previous section.
-
-**To open a Hadoop command line**
-
-1. Connect to the cluster using Remote Desktop.
-8. From the desktop, double-click **Hadoop Command Line**.
-
-	![HDI.HadoopCommandLine][image-hadoopcommandline]
-
-	For more information on Hadoop commands, see [Hadoop commands reference](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
-
-In the previous screenshot, the folder name has the Hadoop version number embedded. The version number can changed based on the version of the Hadoop components installed on the cluster. You can use Hadoop environment variables to refer to those folders. For example:
-
-	cd %hadoop_home%
-	cd %hive_home%
-	cd %hbase_home%
-	cd %pig_home%
-	cd %sqoop_home%
-	cd %hcatalog_home%
+See [Use Hive with Hadoop in HDInsight with SSH](hdinsight-hadoop-use-hive-ssh.md#ssh)
 	
 ##Next steps
 In this article, you have learned how to create an HDInsight cluster by using the Portal, and how to open the Hadoop command-line tool. To learn more, see the following articles:

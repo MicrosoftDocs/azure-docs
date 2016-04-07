@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="03/25/2016"
 	ms.author="sstein" />
 
 # Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query
@@ -42,9 +42,11 @@ When working with SQL Database, you should use the most recent version of SSMS. 
 
 	![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-connect-query-ssms/1-connect.png)
 
+5. If you haven't already established a connection to Azure, SSMS will ask you for your Azure login information.
+
 ### If the connection fails
 
-The most common reason for connection failures are mistakes in the server name (remember, *&lt;;servername>* is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. If you are connecting for the first time, or the connection fails because of a changed IP configuration, the [latest version of SSMS](https://msdn.microsoft.com/library/mt238290.aspx) asks you for your Azure login and then creates the firewall rule in Azure for you. If you're using an earlier version, the IP address is reported in an error message and you need to add this IP address to the server firewall rule in Azure. Make sure that the firewall settings of the server allow connections from your local computer's IP address and the IP address that the SSMS client uses. Sometimes they're different. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. If you are connecting for the first time, or the connection fails because of a changed IP configuration, the [latest version of SSMS](https://msdn.microsoft.com/library/mt238290.aspx) asks you for your Azure login and then creates the firewall rule in Azure for you. If you're using an earlier version, the IP address is reported in an error message and you need to add this IP address to the server firewall rule in Azure. Make sure that the firewall settings of the server allow connections from your local computer's IP address and the IP address that the SSMS client uses. Sometimes they're different. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ## Run sample queries
 

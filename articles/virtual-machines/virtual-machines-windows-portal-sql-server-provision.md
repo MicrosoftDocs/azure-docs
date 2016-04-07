@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Provision a SQL Server virtual machine in Azure Resource Manager (GUI) | Microsoft Azure"
+	pageTitle="Provision a SQL Server virtual machine in the Azure Portal | Microsoft Azure"
 	description="Create an SQL Server virtual machine in Azure Resource Manager mode. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -12,24 +12,19 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/22/2015"
+	ms.date="03/24/2016"
 	ms.author="mikeray" />
 
-# Provision a SQL Server virtual machine in Azure Resource Manager
+# Provision a SQL Server virtual machine in the Azure Portal
 
-> [AZURE.SELECTOR]
-- [Classic portal](virtual-machines-windows-classic-portal-sql.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-create.md)
-- [Azure Resource Manager portal](virtual-machines-windows-portal-sql-server-provision.md)
-
-<br/>
-
->[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+## Overview
 
 This end-to-end tutorial shows you how to provision an Azure virtual machine in the portal using Azure Resource Manager model and configure SQL Server from a template in the Azure gallery.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. You can select one of the VM images form the gallery, and with a few clicks provision the VM to your Azure environment.
 
@@ -192,10 +187,10 @@ The following table lists the parameters required to configure Azure Key Vault I
 
 |PARAMETER|DESCRIPTION|EXAMPLE|
 |----------|----------|-------|
-|**Key Vault URL** | The location of the key vault.|https://contosokeyvault.vault.azure.net/ |
-|**AKV Principal Name** |Azure Active Directory service principal name. This is also referred to as the Client ID.  |fde2b411-33d5-4e11-af04eb07b669ccf2|
-| **AKV Principal Secret**|AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**Credential name**|Choose a name to identify this credential.| mycred1|
+|**Key Vault URL** |The location of the key vault.|https://contosokeyvault.vault.azure.net/ |
+|**Principal name** |Azure Active Directory service principal name. This is also referred to as the Client ID.  |fde2b411-33d5-4e11-af04eb07b669ccf2|
+| **Principal secret**|Azure Active Directory service principal secret. This is also referred to as the Client Secret. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
+|**Credential name**|**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential.| mycred1|
 
 For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-classic-ps-sql-keyvault.md).
 

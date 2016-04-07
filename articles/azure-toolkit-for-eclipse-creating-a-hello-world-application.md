@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Creating a Hello World Application for Azure in Eclipse"
+    pageTitle="Create a Hello World Cloud Service for Azure in Eclipse"
     description="Learn how to create a simple Hello World application using the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/04/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
 
-# Creating a Hello World Application for Azure in Eclipse #
+# Create a Hello World Cloud Service for Azure in Eclipse #
 
 The following steps show you how to create and deploy a basic JSP application to Azure using the Azure Toolkit for Eclipse. A JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
 
