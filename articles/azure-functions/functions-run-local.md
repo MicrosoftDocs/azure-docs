@@ -30,7 +30,7 @@ The runtime for Azure Functions is an implementation of the WebJobs.Script open 
 
 ### An Azure account with a function app
 
-This article assumes that you have worked with [Azure Functions](function-overview.md) in the portal and are familiar with Azure Functions concepts such as [triggers, bindings, and JobHost](functions-reference).
+This article assumes that you have worked with [Azure Functions](functions-overview.md) in the portal and are familiar with Azure Functions concepts such as [triggers, bindings, and JobHost](functions-reference).
 
 When you run functions locally, you get some output in the console window, but you'll also want to use the dashboard that is hosted by a live function app to view function invocations and logs.
 
