@@ -13,15 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/06/2016"
+   ms.date="04/07/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Manage columnstore indexes in Azure SQL Data Warehouse
 
 This tutorial explains how to manage columnstore indexes to improve query performance. 
 
-Queries on columnstore indexes run best when the index compresses rows together into "rowgroups" of one million rows (1,024,076 to be exact). This gives the best compression and the best query performance. Conditions can occur that cause the rowgroups to have significantly less than a million rows. When rowgroups are not densely populated with rows, you should consider making adjustments. 
-
+Queries on columnstore indexes run best when the index compresses rows together into "rowgroups" of one million rows (1,048,576 to be exact). This gives the best compression and the best query performance. However, conditions can occur that cause the rowgroups to have significantly less than a million rows. When rowgroups are not densely populated with rows, you should consider making adjustments. 
 
 In this tutorial you will learn how to:
 
@@ -133,44 +132,45 @@ Once you have run the query you can begin to look at the data and analyze your r
 
 ## Step 4: Examine root cause
 
-Examining the root cause helps you to know if you can make table design, loading, or other process changes that will improve the row density in your rowgroups, and therefore improve compression and query performance. 
+Examining the root cause helps you to know if you can make table design, loading, or other process changes that will improve the row density in your rowgroups; thereby improving compression and query performance. 
 
-These factors can cause a columnstore index to have significantly less than 1,024,076 rows per each rowgroup. They can also cause rows to go to the delta rowgroup instead of a compressed rowgroup. 
+These factors can cause a columnstore index to have significantly less than 1,048,576 rows per each rowgroup. They can also cause rows to go to the delta rowgroup instead of a compressed rowgroup. 
 
 1. Heavy DML operations
-2. Lots of bulk loads in which the end of the load has less than 102,400 rows
+2. Small or trickle load operations
 3. Too many partitions
-
 
 ### Heavy DML operations** 
 
-Heavy DML operations that insert, update, and delete rows can cause rowgroups to waste physical storage space.  
+Heavy DML operations that update, and delete rows introduce inefficiency into the columnstore. This is especially true when the majority of the rows in a rowgroup are modified.
 
-- Deleting a row from a compressed rowgroup only logically marks the row as deleted. The row physically remains in the compressed rowgroup taking up space until you rebuild the index. 
-- Inserting a row with INSERT INTO adds the row to a rowstore table called a delta rowgroup. The inserted row is not compressed until the delta rowgroup becomes closed after reaching 1,048,576 rows, or until the columnstore index is rebuilt. For example, if your process inserts 500,000 rows with INSERT INTO, those rows get stored first in a delta rowgroup.
-- Updating a row is both an insert and a delete operation. 
+- Deleting a row from a compressed rowgroup only logically marks the row as deleted. The row remains in the compressed rowgroup until the partition or table is rebuilt.
+- Inserting a row adds the row to to an internal rowstore table called a delta rowgroup. The inserted row is not converted to columnstore until the delta rowgroup is full and is marked as closed. Rowgroups are closed once they reach the maximum capacity of 1,048,576 rows. 
+- Updating a row in columnstore format is processed as a logical delete and then an insert. The inserted row will be stored in the delta store.
 
-### Bulk loads with less than 102,400 rows.
+Batched update and insert operations that exceed the bulk threshold of 102,400 rows per partition aligned distribution will be written directly to the columnstore format. However, assuming an even distribution, you would need to be modifying more than 6.144 million rows in a single operation for this to occur. If the number of rows for a given partition aligned distribution is less than 102,400 then the rows will go to the delta store and will stay there until sufficient rows have been inserted or modified to close the rowgroup or the index has been rebuilt.
 
-When a bulk load has less than 102,400 rows, the rows go directly to a delta rowgroup. This also happens when the load is compressed into rowgroups of 1,024,076 rows and the end of the load has less than 102,400 rows. These end rows go directly to a delta rowgroup.
+### Small or Trickle load operations
+
+Small loads that flow into SQL Data Warehouse are also sometimes known as trickle loads. They typically represent a near constant stream of data being ingested by the system. However, as this stream is near continuous the volume of rows is not particularly large. More often than not the data is significantly under the threshold required for a direct load to columnstore format.
+
+In these situations it is often better to land the data first in Azure blob storage and let it accumulate prior to loading. This technique is often known as *micro-batching*.
 
 ### Too many partitions
 
-You might have too many partitions. In the MPP architecture one user-defined table is distributed and implemented as 60 tables. Therefore every columnstore index is implemented as 60 columnstore indexes and every partition is implemented as 60 partitions. This is a big difference from SMP SQL Server. 
+You might have too many partitions. In the massively parallel processing (MPP) architecture one user-defined table is distributed and implemented as 60 tables under the covers. Therefore every columnstore index is implemented as 60 columnstore indexes. Similarly, every partition is implemented across those 60 columnstore indexes. This is a **big difference** from SQL Server which has a symmetric multi-processing (SMP) architecture.  
 
-If you load 1,024,076 rows into one partition of a SMP SQL Server table, it would get compressed into the columnstore. If you load 1,024,076 rows into one partition of a columnstore index, approximately only 17,067 rows will go into each of the 60 partitions. When this happens all of your rows will be sitting in delta rowgroups.
+If you load 1,048,576 rows into one partition of a SMP SQL Server table, it will get compressed into the columnstore. However, if you load 1,048,576 rows into one partition of a SQL Data Warehouse table, only 17,467 rows will land in each of the 60 distributions (assuming even distribution of data). Since 17,467 is less than the threshold of 102,400 rows per distribution, SQL Data Warehouse will hold the data in deltastore rowgroups. Therefore, to load rows directly into compressed columnstore format, you need to load more than 6.1444 million rows (60 x 102,400) into a single partition of a SQL Data Warehouse table. 
 
+## Step 5: Allocate additional compute resources
 
-## Step 5: Allocate additional CPU resources
-
-Rebuilding indexes, especially on large tables, often needs additional CPU resources. SQL Data Warehouse has a workload management feature that can allocate more memory to a user. To understand how to reserve more memory for your index rebuilds, refer to the workload management section of the [concurrency][] article.
-
+Rebuilding indexes, especially on large tables, often needs additional resources. SQL Data Warehouse has a workload management feature that can allocate more memory to a user. To understand how to reserve more memory for your index rebuilds, refer to the workload management section of the [concurrency][] article.
 
 ## Step 6: Rebuild the index to improve average rows per rowgroup
 
 To merge existing compressed rowgroups and force delta rowgroups into the columnstore, you need to rebuild the index. Usually, there is too much data to rebuild the entire index, and so its best to rebuild one or more partitions. In SQL Data Warehouse, you can rebuild the index in one of these two ways:
 
-1. Use [ALTER INDEX][] to rebuild a partition
+1. Use [ALTER INDEX][] to rebuild a partition.
 2. Use [CTAS][] to re-create a partition into a new table, and then use partition switching to move the partition back to the original table.
 
 Which way is best? For large volumes of data, [CTAS][] is usually faster than [ALTER INDEX][]. For smaller volumes of data, [ALTER INDEX][] is easier to use.

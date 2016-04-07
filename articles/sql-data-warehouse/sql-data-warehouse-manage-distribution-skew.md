@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/07/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Manage data skew for distributed tables in Azure SQL Data Warehouse
@@ -38,7 +38,7 @@ AS
 WITH base
 AS
 (
-select 
+SELECT 
 	SUBSTRING(@@version,34,4)															AS  [build_number]
 ,	GETDATE()																			AS  [execution_time]
 ,	DB_NAME()																			AS  [database_name]
@@ -94,21 +94,21 @@ SELECT	[build_number]
 ,		[index_space_page_count]
 ,		[row_count]
 ,		([reserved_space_page_count] * 8.0)				AS [reserved_space_KB]
-,		([reserved_space_page_count] * 8.0)/1024		AS [reserved_space_MB]
-,		([reserved_space_page_count] * 8.0)/1048576		AS [reserved_space_GB]
-,		([reserved_space_page_count] * 8.0)/1073741824	AS [reserved_space_TB]
+,		([reserved_space_page_count] * 8.0)/1000		AS [reserved_space_MB]
+,		([reserved_space_page_count] * 8.0)/1000000		AS [reserved_space_GB]
+,		([reserved_space_page_count] * 8.0)/1000000000	AS [reserved_space_TB]
 ,		([unused_space_page_count]   * 8.0)				AS [unused_space_KB]
-,		([unused_space_page_count]   * 8.0)/1024		AS [unused_space_MB]
-,		([unused_space_page_count]   * 8.0)/1048576		AS [unused_space_GB]
-,		([unused_space_page_count]   * 8.0)/1073741824	AS [unused_space_TB]
+,		([unused_space_page_count]   * 8.0)/1000		AS [unused_space_MB]
+,		([unused_space_page_count]   * 8.0)/1000000		AS [unused_space_GB]
+,		([unused_space_page_count]   * 8.0)/1000000000	AS [unused_space_TB]
 ,		([data_space_page_count]     * 8.0)				AS [data_space_KB]
-,		([data_space_page_count]     * 8.0)/1024		AS [data_space_MB]
-,		([data_space_page_count]     * 8.0)/1048576		AS [data_space_GB]
-,		([data_space_page_count]     * 8.0)/1073741824	AS [data_space_TB]
+,		([data_space_page_count]     * 8.0)/1000		AS [data_space_MB]
+,		([data_space_page_count]     * 8.0)/1000000		AS [data_space_GB]
+,		([data_space_page_count]     * 8.0)/1000000000	AS [data_space_TB]
 ,		([index_space_page_count]	 * 8.0)				AS [index_space_KB]
-,		([index_space_page_count]	 * 8.0)/1024		AS [index_space_MB]
-,		([index_space_page_count]	 * 8.0)/1048576		AS [index_space_GB]
-,		([index_space_page_count]	 * 8.0)/1073741824	AS [index_space_TB]
+,		([index_space_page_count]	 * 8.0)/1000		AS [index_space_MB]
+,		([index_space_page_count]	 * 8.0)/1000000		AS [index_space_GB]
+,		([index_space_page_count]	 * 8.0)/1000000000	AS [index_space_TB]
 FROM	base
 )
 SELECT	* 
@@ -141,8 +141,6 @@ To decide if you should resolve data skew in a table, you should understand as m
 
 Distributing data is a matter of finding the right balance between minimizing data skew and minimizing data movement. These can be opposing goals, and sometimes you will want to keep data skew in order to reduce data movement. For example, when the distribution column is frequently the shared column in joins and aggregations, you will be minimizing data movement. The benefit of having the minimal data movement might outweigh the impact of having data skew. 
 
-
-
 ## Step 4: Resolve data skew
 
 Here are two possible ways to resolve data skew. Use one of these if you have decided that you should resolve the skew.
@@ -152,17 +150,60 @@ Here are two possible ways to resolve data skew. Use one of these if you have de
 The typical way to resolve data skew is to re-create the table with a different distribution column. For guidance on selecting a hash distribution column, see [Hash distribution][]. This example uses [CTAS][] to re-create a table with a different distribution column. 
 
 ```sql
+CREATE TABLE [dbo].[FactInternetSales_CustomerKey] 
+WITH (  CLUSTERED COLUMNSTORE INDEX
+     ,  DISTRIBUTION =  HASH([CustomerKey])
+     ,  PARTITION       ( [OrderDateKey] RANGE RIGHT FOR VALUES (   20000101, 20010101, 20020101, 20030101
+                                                                ,   20040101, 20050101, 20060101, 20070101
+                                                                ,   20080101, 20090101, 20100101, 20110101
+                                                                ,   20120101, 20130101, 20140101, 20150101
+                                                                ,   20160101, 20170101, 20180101, 20190101
+                                                                ,   20200101, 20210101, 20220101, 20230101
+                                                                ,   20240101, 20250101, 20260101, 20270101
+                                                                ,   20280101, 20290101
+                                                                )
+                        )
+    )
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+OPTION  (LABEL  = 'CTAS : FactInternetSales_CustomerKey')
+;
 
+--Rename the objects
+RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
+RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
 ### Method 2: Re-create the table using ROUND-ROBIN distribution
 
-This example re-creates the tably by using ROUND-ROBIN instead of HASH distribution. This change will produce even data distribution. However, it will usually increase data movement for queries. 
+This example re-creates the table by using ROUND-ROBIN instead of HASH distribution. This change will produce even data distribution. However, it will usually increase data movement for queries. 
 
 ```sql
+CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN] 
+WITH (  CLUSTERED COLUMNSTORE INDEX
+     ,  DISTRIBUTION =  ROUND_ROBIN
+     ,  PARTITION       ( [OrderDateKey] RANGE RIGHT FOR VALUES (   20000101, 20010101, 20020101, 20030101
+                                                                ,   20040101, 20050101, 20060101, 20070101
+                                                                ,   20080101, 20090101, 20100101, 20110101
+                                                                ,   20120101, 20130101, 20140101, 20150101
+                                                                ,   20160101, 20170101, 20180101, 20190101
+                                                                ,   20200101, 20210101, 20220101, 20230101
+                                                                ,   20240101, 20250101, 20260101, 20270101
+                                                                ,   20280101, 20290101
+                                                                )
+                        )
+    )
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+OPTION  (LABEL  = 'CTAS : FactInternetSales_ROUND_ROBIN')
+;
 
+--Rename the objects
+RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
+RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
-
 
 ## Next Steps
 For more details on table distribution refer to the following articles:
