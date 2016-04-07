@@ -187,6 +187,9 @@ After failback completes your data will be back on the on-premises site, but won
 1.	In the Site Recovery portal > **Machines** tab select the VMs that have failed back and click **Re-Protect**. 
 2.	After you verify that replication to Azure is working as expected, in Azure you can delete the Azure VMs (currently not running) that were failed back.
 
+Common issues
+1. If you perform Read-Only User vCenter discovery and protect virtual machines, it succeeds and failover works. At the time of Reprotect, it will fail since the datastores cannot be discovered. As a symptom you will not see the datastores listed while re-protecting. To resolve this, you can update the vCenter credential with appropriate account that has permissions and retry the job. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
+
 
 ## Failing back with ExpressRoute
 
