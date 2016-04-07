@@ -221,6 +221,20 @@ Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
+
+### Filter reports embedded in your application
+
+You can filter an embedded report using a URL syntax. To do this, you add a query string parameter to your iFrame src url with the filter specified. Here is the filter query syntax:
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
+$filter={tableName/fieldName} eq '{fieldValue}'
+```
+
+> [AZURE.NOTE] {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
+
+
 ## See also
 
 - [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
