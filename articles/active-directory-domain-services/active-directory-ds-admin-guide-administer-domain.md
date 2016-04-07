@@ -68,5 +68,26 @@ Perform the following steps in order to install the Active Directory Administrat
 	![Confirmation page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-confirmation.png)
 
 
-From the Start screen, click on **Administrative Tools**. You should see the AD administrative tools installed on the virtual machine.
+## Explore your Active Directory Domain Services managed domain
+Now that the AD Administrative Tools are installed on the domain joined virtual machine, we can use these tools to explore and administer the managed domain.
+
+1. From the Start screen, click on **Administrative Tools**. You should see the AD administrative tools installed on the virtual machine.
+
 	![Administrative Tools installed on server](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
+
+2. Click on **Active Directory Administrative Center**.
+
+	![Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/adac-overview.png)
+
+3. Click on the domain name in the left pane (eg. 'contoso100.com') to explore the domain. Notice two containers called 'AADDC Computers' and 'AADDC Users' respectively.
+
+    ![ADAC - view domain](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
+
+4. Click on the container called **AADDC Users** to see all users and groups belonging to the managed domain. You should see user accounts and groups from your Azure AD tenant show up in this container. Notice in this example, a user account for the user 'bob' and a group called 'AAD DC Administrators' are available in this container.
+
+    ![ADAC - domain users](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)
+
+
+5. Click on the container called **AADDC Computers** to see the computers joined to this managed domain. You should see an entry for the current virtual machine, which is joined to the domain. Computer accounts for all computers that are joined to the Azure AD Domain Services managed domain will appear in this 'AADDC Computers' container.
+
+    ![ADAC - domain joined computers](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)
