@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Custom Settings for App Service Environments" 
 	description="Custom configuration settings for App Service Environments" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
