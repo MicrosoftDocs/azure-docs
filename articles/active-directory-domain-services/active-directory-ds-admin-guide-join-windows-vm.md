@@ -57,6 +57,7 @@ Perform the following steps in order to create a Windows virtual machine joined 
 Now, we will connect to the newly created Windows Server virtual machine, in order to join it to the domain. We will use the local administrator credentials specified when creating the virtual machine, in order to connect to it.
 
 Perform the following steps in order to connect to the virtual machine.
+
 1. Navigate to **Virtual Machines** node in the classic portal. Select the virtual machine you just created and click **Connect** on the command bar at the bottom of the window.
 
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
@@ -87,9 +88,9 @@ Perform the following steps in order to join the Windows Server virtual machine 
 
 5. You will be prompted to enter your credentials in order to join the domain. Ensure that you **specify the credentials for a user belonging to the AAD DC Administrators** group. Only members of this group have privileges to join machines to the managed domain.
 
-You can specify credentials in either of the following ways:
-  - UPN format: This is the UPN suffix for the user account as configured in Azure AD. In this example, the UPN suffix of the user 'bob' is 'bob@domainservicespreview.onmicrosoft.com'.
-  - SAMAccountName format: You can specify the account name in the SAMAccountName format. In this example, the user 'bob' would need to enter 'CONTOSO100\bob'. Note that if multiple users have the same UPN prefix (eg. 'bob') in your Azure AD tenant, they will encounter issues logging in to the domain using the SAMAccountName format. In these cases, the UPN format can be used reliably to login to the domain.
+   You can specify credentials in either of the following ways:
+    - UPN format: This is the UPN suffix for the user account as configured in Azure AD. In this example, the UPN suffix of the user 'bob' is 'bob@domainservicespreview.onmicrosoft.com'.
+    - SAMAccountName format: You can specify the account name in the SAMAccountName format. In this example, the user 'bob' would need to enter 'CONTOSO100\bob'. Note that if multiple users have the same UPN prefix (eg. 'bob') in your Azure AD tenant, they will encounter issues logging in to the domain using the SAMAccountName format. In these cases, the UPN format can be used reliably to login to the domain.
 
     ![Specify credentials to join the domain](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
