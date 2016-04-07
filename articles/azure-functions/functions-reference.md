@@ -1151,6 +1151,11 @@ Example output:
 
 Azure App Service Mobile Apps lets you expose table endpoint data to mobile clients. This same tabular data can be used in both input and output bindings with Azure Functions. When you have a Node.js backend mobile app, you can work with this tabular data in the Azure portal using *easy tables*. Easy tables supports dynamic schema so that columns are added automatically to match the shape of the data being inserted, simplifying schema development. Dynamic schema is enabled by default and should be disabled in a production mobile app. For more information on easy tables in Mobile Apps, see [How to: Work with easy tables in the Azure portal](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing). Note that easy tables in the portal are not currently supported for .NET backend mobile apps. You can still use .NET backend mobile app table endpoints function bindings, however dynamic schema is not supported .NET backend mobile apps.
 
+###Use an API key to secure access to your Mobile Apps easy tables endpoints.
+Azure Functions currently cannot access endpoints secured by App Service authentication. This means that any Mobile Apps endpoints used in your functions with easy tables bindings must allow anonymous access, which is the default. Easy tables bindings let you specify an API key, which is a shared secret that can be used to prevent unwanted access from apps other than your functions. Mobile Apps does not have built-in support for API key authentication. However, you can implement an API key in your Node.js backend mobile app by following the examples in [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key).
+
+>[AZURE.IMPORTANT] This API key must not be distributed with your mobile app clients, it should only be distributed securely to service-side clients, like Azure Functions.
+
 ###Azure Mobile Apps easy tables input binding
 Input bindings can load a record from a Mobile Apps table endpoint and pass it directly to your binding. The record ID is determined based on the trigger that invoked the function. In a C# function, any changes made to the record are automatically sent back to the table when the function exits successfully.
 
