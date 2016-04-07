@@ -135,6 +135,6 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [twilio_php]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPCallForm.jpg
 [twilio_php_response]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPMakeCall.jpg
-[website-git]: ./web-sites/web-sites-php-mysql-deploy-use-git
-[website-ftp]: ./web-sites/web-sites-php-mysql-deploy-use-ftp
+[website-git]: ./web-sites/web-sites-php-mysql-deploy-use-git.md
+[website-ftp]: ./web-sites/web-sites-php-mysql-deploy-use-ftp.md
 [twilio_php_github]: https://github.com/twilio/twilio-php
