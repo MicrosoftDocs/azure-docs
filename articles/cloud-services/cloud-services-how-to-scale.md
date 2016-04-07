@@ -81,9 +81,7 @@ Role instances will be added or removed based on your selections.
 >[AZURE.TIP] ![][tip_icon] Whenever you see this icon move your mouse to it and you can get help about what a specific setting does.
 
 
-
-
-## Automatic scale - CPU
+## Automatic scale - CPUa
 
 This scales if the average percentage of CPU usage goes above or below specified thresholds; role instances are created or deleted.
 
