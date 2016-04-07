@@ -39,6 +39,10 @@ Use this architecture when the process server is on Azure and you have either a 
 
 ![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
+To see the complete list of ports and the failback architechture diagram refer to the image below
+
+![](./media/site-recovery-failback-azure-to-vmware-classic/Failvoer-Failback.png)
+
 Here’s how failback works:
 
 - After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
@@ -54,6 +58,9 @@ Here’s how failback works:
 If you failed over a VMware VM you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes will be failed back. Note that:
 
 - If you failed over physical servers then failback is always to a new VMware VM.
+	- Before failing back a Physical machine note that
+	- Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware
+	- Ensure that you discover atleast one Master Target sever along with the necessary ESX/ESXi hosts to which you need to failback.
 - If you fail back to the original VM the following is required:
 	- If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
 	- If the VM is on an ESX host but isn’t managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
