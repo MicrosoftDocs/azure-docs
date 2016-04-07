@@ -58,17 +58,17 @@ The following diagram illustrates the primary operations that are performed by t
 
 ![Batch example workflow][8]<br/>
 
-[**Step 1.**](#step-1:-create-storage-containers) Create **containers** in Azure Blob Storage.<br/>
-**Step 2.** Upload task application files and input files to containers.<br/>
-**Step 3.** Create a Batch **pool**.<br/>
+[**Step 1.**](#step-1-create-storage-containers) Create **containers** in Azure Blob Storage.<br/>
+[**Step 2.**](#step-2-upload-task-application-and-data-files) Upload task application files and input files to containers.<br/>
+[**Step 3.**](#step-3-create-batch-pool) Create a Batch **pool**.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** The pool **StartTask** downloads the task binary files (TaskApplication) to nodes as they join the pool.<br/>
-**Step 4.** Create a Batch **job**.<br/>
-**Step 5.** Add **tasks** to the job.<br/>
+[**Step 4.**](#step-4-create-batch-job) Create a Batch **job**.<br/>
+[**Step 5.**](#step-5-add-tasks-to-job) Add **tasks** to the job.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** The tasks are scheduled to execute on nodes.<br/>
 	&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage, then begins execution.<br/>
-**Step 6.** Monitor tasks.<br/>
+[**Step 6.**](#step-6-monitor-tasks) Monitor tasks.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks are completed, they upload their output data to Azure Storage.<br/>
-**Step 7.** Download task output from Storage.
+[**Step 7.**](#step-7-download-task-output) Download task output from Storage.
 
 As mentioned, not every Batch solution will perform these exact steps, and may include many more, but the *DotNetTutorial* sample application demonstrates common processes found in a Batch solution.
 
@@ -249,7 +249,7 @@ Shared access signatures are strings which--when included as part of a URL--prov
 
 > [AZURE.TIP] Check out the two-part series on shared access signatures, [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a shared access signature (SAS) with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
 
-## Step 3: Create a Batch pool
+## Step 3: Create Batch pool
 
 ![Create a Batch pool][3]
 <br/>
