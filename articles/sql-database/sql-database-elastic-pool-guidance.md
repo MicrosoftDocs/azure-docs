@@ -130,8 +130,8 @@ When using C# or Powershell to manage pools, these properties are the most commo
 
 | Property | Description |
 | :-- | :-- |
-| databaseDtuMax | Maximum number of eDTUs that a single database in the pool may use.  The database eDTU max is not a resource guarantee. The eDTU max applies to all databases in the pool. |
-| databaseDtuMin | Minimum number of eDTUs that a single database in the pool is guaranteed. The database eDTU min may be set to 0. The eDTU min applies to all databases in the pool. Note that the product of the number of databases in the pool and the database eDTU min cannot exceed the eDTUs of the pool itself. |
+| eDtu max | Maximum number of eDTUs that a single database in the pool may use. The database eDTU max is not a resource guarantee. The eDTU max applies to all databases in the pool. |
+| eDtu min | Minimum number of eDTUs that a single database in the pool is guaranteed. The database eDTU min may be set to 0. The eDTU min applies to all databases in the pool. Note that the product of the number of databases in the pool and the database eDTU min cannot exceed the eDTUs of the pool itself. |
 | Dtu | Number of eDTUs shared by all databases in the pool. |
 | edition | Service tier of the pool.  Every database within the pool has this edition. |
 | Storage limit | The total of storage used by all databases in the pool cannot exceed this limit. If this limit is exceeded, all databases become read-only. Measured in MB, this limit is linked to the eDTUs per pool (see the table below).|
