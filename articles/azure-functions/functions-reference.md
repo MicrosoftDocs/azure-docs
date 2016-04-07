@@ -1091,6 +1091,118 @@ Example output:
 	  "address": "A town nearby"
 	}
 
+## Azure Mobile Apps easy tables bindings
+
+Azure App Service Mobile Apps lets you expose table endpoint data to mobile clients. This same tabular data can be used in both input and output bindings with Azure Functions. When you have a Node.js backend mobile app, you can work with this tabular data in the Azure portal using *easy tables*. Easy tables supports dynamic schema so that columns are added automatically to match the shape of the data being inserted, simplifying schema development. Dynamic schema is enabled by default and should be disabled in a production mobile app. For more information on easy tables in Mobile Apps, see [How to: Work with easy tables in the Azure portal](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing). Note that easy tables in the portal are not currently supported for .NET backend mobile apps. You can still use .NET backend mobile app table endpoints function bindings, however dynamic schema is not supported .NET backend mobile apps.
+
+###Azure Mobile Apps easy tables input binding
+Input bindings can load a record from a Mobile Apps table endpoint and pass it directly to your binding. The record ID is determined based on the trigger that invoked the function. In a C# function, any changes made to the record are automatically sent back to the table when the function exits successfully.
+
+The function.json file supports the following properties for use with Mobile Apps easy table input bindings:
+
+- `name` : Variable name used in function code for the new record.
+- `type` : Biding type must be set to *easyTable*.
+- `tableName` : The table where the new record will be created.
+- `id` : The ID of the record to retrieve. This property supports bindings similar to "{queueTrigger}", which will use the string value of the queue message as the record Id.
+- `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
+- `connection` : String that is the application setting that specifies the URI of your mobile app.
+- `direction` : Binding direction, which must be set to *in*.
+
+Example function.json:
+	{
+	  "bindings": [
+	    {
+	      "name": "record",
+	      "type": "easyTable",
+	      "tableName": "MyTable",
+	      "id" : "{queueTrigger}",
+	      "connection": "My_MobileApp_Uri",
+	      "apiKey": "My_MobileApp_Key",
+	      "direction": "in"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+####Azure Mobile Apps easy tables code example for a C# queue trigger
+
+Based on the example function.json above, the input binding retrieves the record with the ID that matches the queue message string and passes it to the *record* parameter. When the record is not found, the parameter is null. The record is then updated with the new *Text* value when the function exits.
+
+
+	#r "Newtonsoft.Json"	
+	using Newtonsoft.Json.Linq;
+	
+	public static void Run(string myQueueItem, JObject record)
+	{
+	    if (record != null)
+	    {
+	        record["Text"] = "This has changed.";
+	    }    
+	}
+
+####Azure Mobile Apps easy tables code example for a Node.js queue trigger
+
+Based on the example function.json above, the input binding retrieves the record with the ID that matches the queue message string and passes it to the *record* parameter. In Node.js functions, updated records are not sent back to the table. This code example writes the retrieved record to the log.
+
+	module.exports = function (context, input) {    
+	    context.log(context.bindings.record);
+	    context.done();
+	};
+
+
+###Azure Mobile Apps easy tables output binding
+
+Your function can write a record to a Mobile Apps table endpoint using an easy table output binding. 
+
+The function.json file supports the following properties for use with Easy Table output binding:
+
+- `name` : Variable name used in function code for the new record.
+- `type` : Binding type that must be set to *easyTable*.
+- `tableName` : The table where the new record is created.
+- `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
+- `connection` : String that is the application setting that specifies the URI of your mobile app.
+- `direction` : Binding direction, which must be set to *out*.
+
+Example function.json:
+
+	{
+	  "bindings": [
+	    {
+	      "name": "record",
+	      "type": "easyTable",
+	      "tableName": "MyTable",
+	      "connection": "My_MobileApp_Uri",
+	      "apiKey": "My_MobileApp_Key",
+	      "direction": "out"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+####Azure Mobile Apps easy tables code example for a C# queue trigger
+
+This C# code example inserts a new record with a *Text* property into the table specified in the above binding.
+
+public static void Run(string myQueueItem, out object record)
+{
+    record = new {
+        Text = $"I'm running in a C# function! {myQueueItem}"
+    };
+}
+
+####Azure Mobile Easy Table code example for a Node.js queue trigger
+
+This Node.js code example inserts a new record with a *text* property into the table specified in the above binding.
+
+	module.exports = function (context, input) {
+	
+	    context.bindings.record = {
+	        text : "I'm running in a Node function! Data: '" + input + "'"
+	    }   
+	
+	    context.done();
+	};
+
 ## Azure Notification Hub output binding
 
 Your functions can send push notifications using a configured Azure Notification Hub with a very few lines of code. However, the notification hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register for notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) and click your target client platform at the top.
