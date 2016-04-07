@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="04/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -31,7 +31,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with People, you need the following items:
 
-- An Azure AD subscription
+- An Azure subscription
 - A People single-sign on enabled subscription
 
 
@@ -107,7 +107,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 	c. In the **Identifier** textbox, type the tenant URL. 
 
-	d . Click **Next**
+    d. In the **Reply URL** textbox, type the URL in the following pattern: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
+
+	e. Click **Next**
 
 
 4. On the **Configure single sign-on at People** page, perform the following steps and then click **Next**:
