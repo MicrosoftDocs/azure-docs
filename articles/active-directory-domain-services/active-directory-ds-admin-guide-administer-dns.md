@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory Domain Services preview: Administration Guide | Microsoft Azure"
-	description="Administer DNS on managed domainsusing Azure Active Directory Domain Services"
+	description="Administer DNS on managed domains using Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
