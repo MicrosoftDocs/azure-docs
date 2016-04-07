@@ -208,6 +208,9 @@ linkedServiceName | refers to the HDInsight linked service you had created earli
 	    }
 	}
 
+## Run Spark programs
+You can use MapReduce activity to run Spark programs on your HDInsight Spark cluster. See [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) for details.  
+
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
