@@ -25,7 +25,7 @@ Follow the instructions outlined in the [Create a virtual machine running Window
 
 Perform the following steps in order to create a Windows virtual machine joined to the virtual network in which you've enabled Azure AD Domain Services.
 
-1. In the classic portal, on the command bar at the bottom of the window, click **New**.
+1. In the Azure classic portal, on the command bar at the bottom of the window, click **New**.
 
 2. Under **Compute**, click **Virtual Machine**, then click **From Gallery**.
 
