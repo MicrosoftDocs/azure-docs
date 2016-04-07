@@ -392,7 +392,7 @@ The following example shows how to pass the private IP address generated in a li
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
             "type": "string"
          }
     }

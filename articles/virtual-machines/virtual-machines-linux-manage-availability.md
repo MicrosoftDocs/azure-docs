@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="04/01/2016"
+	ms.author="iainfou"/>
 
 # Manage the availability of Linux virtual machines
 

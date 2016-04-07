@@ -9,9 +9,9 @@ There are different options to distribute network traffic using Microsoft Azure.
 - 	Traffic Manager works at the DNS level.  It uses DNS responses to direct end-user traffic to globally-distributed endpoints.  Clients then connect to those endpoints directly.
 The following table summarizes the features offered by each service:
 
-|Azure Load Balancer |	Application Gateway | Traffic Manager |
-|---|---|---|
-|Technology| Network level (level 4) | Application level (level 7) |	DNS level |
+| Service | Azure Load Balancer | Application Gateway | Traffic Manager |
+|---|---|---|---|
+|Technology| Network level (level 4) | Application level (level 7) | DNS level |
 | Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP/S endpoint is required for endpoint monitoring) |
 | Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps and external endpoints |
 | Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |

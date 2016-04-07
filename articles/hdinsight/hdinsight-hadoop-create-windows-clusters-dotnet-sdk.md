@@ -145,10 +145,12 @@ The application requires an Azure resource group, and the default storage accoun
 ##Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
-* [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
-* [Azure HDInsight SDK documentation] [hdinsight-sdk-documentation] - Discover the HDInsight SDK
-
+- [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
+- [Run Hive jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+- [Run Pig jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+- [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+- [Run Oozie jobs in HDInsight](hdinsight-use-oozie.md)
+- [Azure HDInsight SDK documentation] [hdinsight-sdk-documentation] - Discover the HDInsight SDK
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com

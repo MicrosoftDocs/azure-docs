@@ -394,7 +394,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
 data up-to-date".
 
 	-   Schedule the refresh based on your needs. To find more information, see
-[Data refresh in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+[Data refresh in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
 ## **Cost Estimation Tools**
