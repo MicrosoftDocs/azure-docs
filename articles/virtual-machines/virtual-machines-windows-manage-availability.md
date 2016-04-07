@@ -17,7 +17,7 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-# Manage the availability of Windows virtual machines
+# Manage the availability of virtual machines
 
 Learn ways to set up and manage multiple virtual machines to ensure high availability for your Windows application in Azure. You can also [manage the availability of Linux virtual machines](virtual-machines-linux-manage-availability.md).
 
