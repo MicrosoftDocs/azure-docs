@@ -19,9 +19,9 @@
 # Create and modify routing for an ExpressRoute circuit using Azure Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-[Portal - Resource Manager](expressroute-howto-routing-portal-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
 
 This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. 
 
@@ -235,7 +235,7 @@ This section provides instructions on how to create, get, update and delete the 
 	- A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
 	- A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
 	- A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
-	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You must use a public AS number for this peering.
+	- AS number for peering. You can use both 2-byte and 4-byte AS numbers.
 	- An MD5 hash if you choose to use one. **This is optional**.
 	
 	You can run the following cmdlet to configure Azure public peering for your circuit
@@ -351,7 +351,7 @@ This section provides instructions on how to create, get, update and delete the 
 	- A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
 	- A /30 subnet for the secondary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
 	- A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
-	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You must use public AS numbers only. You must own the AS number.
+	- AS number for peering. You can use both 2-byte and 4-byte AS numbers.
 	- Advertised prefixes: You must provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. You can send a comma separated list if you plan to send a set of prefixes. These prefixes must be registered to you in an RIR / IRR.
 	- Customer ASN: If you are advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they are registered. **This is optional**.
 	- Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
