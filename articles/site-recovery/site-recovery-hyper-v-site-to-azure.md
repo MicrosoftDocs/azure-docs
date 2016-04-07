@@ -274,6 +274,8 @@ To fully test your replication and network deployment you'll need to set up the 
 
 Run the test failover as follows:
 
+>[AZURE.NOTE] To get the best performance when you do a failover to Azure, ensure that you have installed the Azure Agent in the protected machine. This helps in booting faster and also helps in diagnosis in case of issues. Linux agent can be found [here](https://github.com/Azure/WALinuxAgent) - and Windows agent can be found [here](http://go.microsoft.com/fwlink/?LinkID=394789)
+
 1. On the **Recovery Plans** tab, select the plan and click **Test Failover**.
 2. On the **Confirm Test Failover** page select **None** or a specific Azure network.  Note that if you select **None** the test failover will check that the virtual machine replicated correctly to Azure but doesn't check your replication network configuration.
 
