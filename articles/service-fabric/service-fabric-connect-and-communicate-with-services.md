@@ -93,10 +93,10 @@ The Reliable Services framework ships with several pre-built communication optio
 
 Learn more about the concepts and APIs available in the [Reliable Services communication model](service-fabric-reliable-services-communication.md), then get started quickly with [service remoting](service-fabric-reliable-services-communication-remoting.md) or go in-depth to learn how to write a communication listener using [Web API with OWIN self-host](service-fabric-reliable-services-communication-webapi.md).
 
-[1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.PNG
-[2]: ./media/service-fabric-connect-and-communicate-with-services/namingservice.PNG
-[3]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancertopology.PNG
-[4]: ./media/service-fabric-connect-and-communicate-with-services/nodeport.PNG
-[5]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerport.PNG
-[7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.PNG
-[8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.PNG
+[1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png
+[2]: ./media/service-fabric-connect-and-communicate-with-services/namingservice.png
+[3]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancertopology.png
+[4]: ./media/service-fabric-connect-and-communicate-with-services/nodeport.png
+[5]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerport.png
+[7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.png
+[8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
