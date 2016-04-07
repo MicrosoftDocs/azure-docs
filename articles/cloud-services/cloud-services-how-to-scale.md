@@ -71,17 +71,17 @@ On the **Scale** page, you can manually increase or decrease the number of runni
 
 5. Each role in the cloud service has a slider for changing the number of instances to use.
 
-![Manually scale a cloud service role][manual_scale]
+    ![Manually scale a cloud service role][manual_scale]
 
     If you need more instances, you may need to change the [cloud service virtual machine size](cloud-services-sizes-specs.md).
 
 6. Click **Save**.  
 Role instances will be added or removed based on your selections.
 
->[AZURE.TIP] ![][tip_icon] Whenever you see this icon move your mouse to it and you can get help about what a specific setting does.
+>[AZURE.TIP] Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
 
 
-## Automatic scale - CPUa
+## Automatic scale - CPU
 
 This scales if the average percentage of CPU usage goes above or below specified thresholds; role instances are created or deleted.
 
@@ -99,8 +99,7 @@ This scales if the average percentage of CPU usage goes above or below specified
 
 ![Scale a cloud service role by cpu load][cpu_scale]
 
->[AZURE.TIP] ![][tip_icon]  
-Whenever you see this icon move your mouse to it and you can get help about what a specific setting does.
+>[AZURE.TIP] Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
 
 
 
@@ -122,8 +121,7 @@ This automatically scales if the number of messages in a queue goes above or bel
 
 ![Scale a cloud service role by a message queue][queue_scale]
 
->[AZURE.TIP] ![][tip_icon]  
-Whenever you see this icon move your mouse to it and you can get help about what a specific setting does.
+>[AZURE.TIP] Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
 
 
 ## Scale linked resources
