@@ -85,7 +85,7 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 
 - [Enabling your directory for hybrid management with Azure AD Connect](active-directory-aadconnect.md)
 
-- [Additional security for an ever connected world](multi-factor-authentication.md)
+- [Additional security for an ever connected world](../multi-factor-authentication/multi-factor-authentication.md)
 
 - [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
 
