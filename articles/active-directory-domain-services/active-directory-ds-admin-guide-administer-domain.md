@@ -54,7 +54,7 @@ The first step is to set up a Windows Server virtual machine that is joined to t
 ## Install Active Directory administration tools on the virtual machine
 Perform the following steps in order to install the Active Directory Administration tools on the domain joined virtual machine. For more [details on installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), refer to TechNet.
 
-1. Navigate to **Virtual Machines** node in the classic portal. Select the virtual machine you just created and click **Connect** on the command bar at the bottom of the window.
+1. Navigate to **Virtual Machines** node in the Azure classic portal. Select the virtual machine you just created and click **Connect** on the command bar at the bottom of the window.
 
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
