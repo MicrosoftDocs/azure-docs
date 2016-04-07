@@ -91,7 +91,7 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 
 - [Getting started with Azure AD Reporting](active-directory-reporting-getting-started.md)
 
-- [Manage your passwords from anywhere](articles/active-directory-passwords.md)
+- [Manage your passwords from anywhere](active-directory-passwords.md)
 
 - [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
