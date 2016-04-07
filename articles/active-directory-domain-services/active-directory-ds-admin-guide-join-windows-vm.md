@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/07/2016"
 	ms.author="maheshu"/>
 
 # Join a virtual machine running Windows Server to an AAD-DS managed domain using the Azure classic portal
@@ -39,10 +39,10 @@ Perform the following steps in order to create a Windows virtual machine joined 
 
 5. The third screen lets you configure resources for networking, storage and availability. Ensure you select the virtual network in which you enabled Azure AD Domain Services from the **Region/Affinity Group/Virtual Network** dropdown. Specify a **Cloud Service DNS Name** as appropriate for the virtual machine.
 
-   > [AZURE.WARNING]
-   Ensure that you join the virtual machine to the same virtual network in which you had enabled Azure AD Domain Services. This will ensure that the virtual machine can 'see' the domain and perform tasks such as joining the domain. If you choose to create the virtual machine in a different virtual network, ensure that the virtual network is connected to the virtual network in which you have enabled Azure AD Domain Services.
-
     ![Select virtual network for virtual machine](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
+
+    > [AZURE.WARNING]
+    Ensure that you join the virtual machine to the same virtual network in which you had enabled Azure AD Domain Services. This will ensure that the virtual machine can 'see' the domain and perform tasks such as joining the domain. If you choose to create the virtual machine in a different virtual network, ensure that the virtual network is connected to the virtual network in which you have enabled Azure AD Domain Services.
 
 6. The fourth screen lets you install the VM Agent and configure some of the available extensions.
 
@@ -54,7 +54,7 @@ Perform the following steps in order to create a Windows virtual machine joined 
 
 
 ## Step 2: Connect to the Windows Server virtual machine using the local administrator account
-Now, we will connect to the newly created Windows Server virtual machine, in order to join it to the domain. We will use the local administrator credentials specified when creating the virtual machine, in order to connect to it.
+Now, we will connect to the newly created Windows Server virtual machine, in order to join it to the domain. Use the local administrator credentials you specified when creating the virtual machine, in order to connect to it.
 
 Perform the following steps in order to connect to the virtual machine.
 
@@ -88,15 +88,15 @@ Perform the following steps in order to join the Windows Server virtual machine 
 
 5. You will be prompted to enter your credentials in order to join the domain. Ensure that you **specify the credentials for a user belonging to the AAD DC Administrators** group. Only members of this group have privileges to join machines to the managed domain.
 
-   You can specify credentials in either of the following ways:
+    ![Specify credentials to join the domain](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
+
+6. You can specify credentials in either of the following ways:
 
     - UPN format: This is the UPN suffix for the user account as configured in Azure AD. In this example, the UPN suffix of the user 'bob' is 'bob@domainservicespreview.onmicrosoft.com'.
 
     - SAMAccountName format: You can specify the account name in the SAMAccountName format. In this example, the user 'bob' would need to enter 'CONTOSO100\bob'. Note that if multiple users have the same UPN prefix (eg. 'bob') in your Azure AD tenant, they will encounter issues logging in to the domain using the SAMAccountName format. In these cases, the UPN format can be used reliably to login to the domain.
 
-    ![Specify credentials to join the domain](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
-
-6. After domain join is successful, you will see the following message welcoming you to the domain. You will need to restart the virtual machine in order for the domain join operation to complete.
+7. After domain join is successful, you will see the following message welcoming you to the domain. You will need to restart the virtual machine in order for the domain join operation to complete.
 
     ![Welcome to the domain](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
