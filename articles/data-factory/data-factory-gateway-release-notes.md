@@ -35,8 +35,8 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 
 ## 1.10.5892.1
 
-•	Performance improvements
-•	Bug fixes
+- Performance improvements
+- Bug fixes
 
 ## 1.9.5865.2
 
