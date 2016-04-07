@@ -41,7 +41,7 @@ The following considerations might help you decide on a size:
 
 * The A8/A10 and A9/A11 virtual machine sizes have the same capacities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
 
-    >[AZURE.NOTE] If you're considering sizes A8 through A11, please read [this](..\virtual-machines\virtual-machines-a8-a9-a10-a11-specs.md) information.
+    >[AZURE.NOTE] If you're considering sizes A8 through A11, please read [this](..\virtual-machines\virtual-machines-common-a8-a9-a10-a11-specs.md) information.
 
 >[AZURE.NOTE] All machine sizes provide an **application disk** that stores all the files from your cloud service package; it is around 1.5 GB in size. 
 
