@@ -3,7 +3,7 @@
 	description="Presents a Node.js code sample you can use to connect to Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
-	authors="annemill"
+	authors="meet-bhagdev"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="04/07/2016"
 	ms.author="meetb"/>
 
 # Connect to SQL Database by using Node.js

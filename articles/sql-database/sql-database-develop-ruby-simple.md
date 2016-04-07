@@ -3,7 +3,7 @@
 	description="Give a Ruby code sample you can run to connect to Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
-	authors="annemill"
+	authors="ajlam"
 	manager="jhubbard"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/14/2016"
-	ms.author="meetb"/>
+	ms.date="04/07/2016"
+	ms.author="andrela"/>
 
 
 # Connect to SQL Database by using Ruby 
