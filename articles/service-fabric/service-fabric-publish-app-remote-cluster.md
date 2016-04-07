@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="12/06/2015"
+    ms.date="04/07/2016"
     ms.author="cawa" />
 
 # Publish an application to a remote cluster by using Visual Studio
