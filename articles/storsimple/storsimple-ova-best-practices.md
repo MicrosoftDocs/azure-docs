@@ -12,44 +12,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/06/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array best practices
 
 ## Overview
 
-Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. The 1200 series virtual array is an efficient, cost-effective alternative to the 8000 series physical array. Unlike the 8000 series physical array that comes with an enterprise-grade custom hardware, the 1200 series virtual array can run on your existing hypervisor infrastructure. The 1200 series virtual array supports both the iSCSI and the SMB protocols, whereas the 8000 series physical array is a block storage device. Both the solutions provide tiering to the cloud, cloud backups, fast restore, and disaster recovery features. The virtual array is particularly well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
+Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. StorSimple Virtual Array is an efficient, cost-effective alternative to the 8000 series physical array. The virtual array can run on your existing hypervisor infrastructure, supports both the iSCSI and the SMB protocols, and is particularly well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
-This article covers the best practices implemented during the initial setup, deployment and management of the StorSimple Virtual Array. These best practices provide validated guidelines to ensure the most optimal setup and management of your virtual array. These best practices are classified as configurational and operational. The configurational best practices cover the guidelines that need to be followed during the initial setup and deployment whereas the operational relate to those followed during the day-to-day management or operation of the virtual array. This article is targeted towards the IT administrators responsible for deploying and managing these virtual arrays in their datacenters.
+This article covers the best practices implemented during the initial setup, deployment and management of the StorSimple Virtual Array. These best practices provide validated guidelines to ensure the most optimal setup and management of your virtual array. This article is targeted towards the IT administrators responsible for deploying and managing the virtual arrays in their datacenters.
 
 We recommend a periodic review of the best practices to ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
-## Configuration best practices
+## Best practices for configuration 
 
-The configuration best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These include best practices related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
+These best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These include best practices related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
 
 ### Provisioning 
 
-Your virtual array is a virtual machine provisioned in a virtualized environment (Hyper-V or VMware) running on your server. When provisioning the virtual machine on your host system, ensure that your host is able to dedicate the following resources for your virtual device:
+StorSimple Virtual Array is a virtual machine (VM) provisioned on the hypervisor (Hyper-V or VMware) of your host server. When provisioning the virtual machine, ensure that your host is able to dedicate sufficient resources. For more information, go to [minimum resource requirements](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) to provision an array. 
 
--   A minimum of 4 cores.
-
--   At least 8 GB of RAM.
-
--   One network interface.
-
--   A 500 GB virtual disk for system data.
-
-For a list of virtualized environments supported on your StorSimple virtual array, go to [software requirements](storsimple-ova-system-requirements.md#software-requirements).
-
-When provisioning your virtual machine in the hypervisor, we recommend that you follow the best practices as tabulated below:
+Implement the following best practices when provisioning the virtual array:
 
 
 |                        | Hyper-V                                                                                                                                        | VMware                                                                                                               |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **Virtual machine type**   | **Generation 1** virtual machine when using VHD. <br></br> **Generation 2** virtual machine when using a VHDX.                                                                                                              | Use virtual machine version 8 when using VMDK.                                                                      |
-| **Memory type**            | Configure as static memory. <br></br> Do not use the dynamic memory option.            |                                                    |
+| **Virtual machine type**   | **Generation 1** VM when downloading a VHD version. <br></br> **Generation 2** VM when downloading a VHDX version.                                                                                                              | Use virtual machine version 8 when using VMDK.                                                                      |
+| **Memory type**            | Configure as **static memory**. <br></br> Do not use the **dynamic memory** option.            |                                                    |
 | **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** will take a long time. <br></br> Do not use the  **differencing** option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
 | **Data disk modification** | Expansion or shrinking is not allowed. Attempt to do so will result in the loss of all the local data on   device.                       | Expansion or shrinking is not allowed. Attempt to do so will result in the loss of all the local data on device. |
 
@@ -65,9 +55,9 @@ Group Policy is an infrastructure that allows you to implement specific configur
 
 Hence, we recommend that you:
 
--   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. Alternatively you can block inheritance if it is a part of a larger OU. This will ensure that the virtual array (child-node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
+-   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. 
 
--   Make sure that no group policy objects (GPOs) are applied to your virtual array.
+-   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child-node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
 
 ### Networking
 
@@ -75,38 +65,41 @@ The network configuration for your virtual array is done through the local web U
 
 When deploying your virtual array, we recommend that you follow these best practices:
 
--   Ensure that the network in which the virtual array is deployed has the capacity to dedicate 5 Mbps bandwidth (or more) at all times. This bandwidth should not be shared with any other applications (allocation can be guaranteed through the application of QoS rules).
+-   Ensure that the network in which the virtual array is deployed has the capacity to dedicate 5 Mbps Internet bandwidth (or more) at all times. 
 
-    -   Be aware that the Internet bandwidth need will vary depending on your workload characteristics and rate of data churn.
+    -   Internet bandwidth need will vary depending on your workload characteristics and rate of data change.
 
-    -   The data churn that can be handled is directly proportional to your Internet bandwidth. As an example, a 5 Mbps bandwidth can accommodate a data churn of around 18 GB in 8 hours whereas with a 20 Mbps bandwidth, you can have a data churn of up to 72 GB (4 times higher) in the same time. 
+    -   The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours whereas with 20 Mbps bandwidth, you can handle a data change of up to 72 GB (4 times higher) in the same time. 
 
+-   Ensure connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices may result in loss of access to data in the cloud and could result in an unsupported configuration.
 
--   Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices will result in loss of access to data in the cloud and thereby result in an unsupported configuration.
-
--   If you plan to deploy your device as an iSCSI server, we recommend that you disable the **Get IP address automatically** option (DHCP) and configure static IP addresses. A primary and secondary DNS server will automatically be configured if using the DHCP option. If configuring the array as an iSCSI server with static IP addresses, you must configure a primary and a secondary DNS server.
+-   If you plan to deploy your device as an iSCSI server: 
+	-   We recommend that you disable the **Get IP address automatically** option (DHCP). 
+	-   Configure static IP addresses. You must also configure a primary and a secondary DNS server.
 
 -   If defining multiple network interfaces on your virtual array, note that only the first network interface (by default, this is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those to different subnets.
 
--   Bandwidth throttling is not available in this release. If only the cloud bandwidth needs to be controlled, configure throttling on the router or the firewall. We prefer that you do not define throttling in your hypervisor as it will throttle all the protocols including iSCSI and SMB whereas in this instance only the Internet bandwidth needs to be throttled. If running Hyper-V, check if you are using the [bandwidth management feature for Hyper-V](http://www.techrepublic.com/blog/data-center/set-bandwidth-limits-for-hyper-v-vms-with-windows-server-2012/) on Windows Server 2012. If so, you will need to disable it.
+-   Bandwidth throttling is not available in this release. 
+	-   If only the cloud bandwidth needs to be controlled, configure throttling on the router or the firewall. 
+	-   We recommend that you do not define throttling in your hypervisor as it will throttle all the protocols including iSCSI and SMB whereas in this instance only the Internet bandwidth needs to be throttled. 
 
 -   Ensure that time synchronization for hypervisors is enabled. If using Hyper-V, select your virtual array in the Hyper-V Manager, go to **Settings &gt; Integration Services** and ensure that the **Time synchronization** is checked.
 
 ### Storage accounts
 
-Your StorSimple Virtual Array can be associated with a single storage account at any point in time. This storage account could be an automatically generated storage account, an account in the same subscription as the service or an account that is outside of the service subscription. Additionally, there is a 500 TB limit for a storage account. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
+StorSimple Virtual Array can be associated with a single storage account. This storage account could be an automatically generated storage account, an account in the same subscription as the service or a storage account related to another subscription. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
 
-Use the following recommendations when creating storage accounts for your virtual array.
+Use the following recommendations for storage accounts associated with your virtual array.
 
--   Factor in capacity planning when associating multiple virtual arrays with a single storage account. Given the maximum capacity of a virtual array is 64 TB and there is a 500 TB limit for a storage account, that would cap the number of full-sized virtual arrays (~7) that can be associated with that storage account.
+-   When linking multiple virtual arrays with a single storage account, factor in the maximum capacity of a virtual array and the maximum limit for a storage account. The maximum virtual array capacity is 64 TB and there is a 500 TB limit for a storage account. This limits the number of full-sized virtual arrays (~7) that can be associated with that storage account.
 
--   When creating a storage account, we recommend that you create it in the region closest to the remote office/branch office where your StorSimple Virtual Array is deployed to minimize latencies.
+-   When creating a storage account
+	-   We recommend that you create it in the region closest to the remote office/branch office where your StorSimple Virtual Array is deployed to minimize latencies.
 
--   While creating a storage account, be aware that you cannot move a storage account across different regions. Also you cannot move a service across subscriptions.
+	-   Bear in mind that you cannot move a storage account across different regions. Also you cannot move a service across subscriptions.
 
--   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](../storage/storage-redundancy.md).
+	-   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](../storage/storage-redundancy.md).
 
--   If possible, choose a storage account within the same subscription as the StorSimple Manager service for your virtual array. This has the benefit of simplifying and streamlining the workflow associated with the management of the storage account.
 
 ### Shares and volumes
 
@@ -175,7 +168,7 @@ Use the following best practices when configuring ACRs for StorSimple volumes:
 
 Your StorSimple Virtual Array has data security and encryption features that ensure the confidentiality and integrity of your data. When using these features, it is recommended that you follow these best practices: 
 
--   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to being with. The key can be generated and kept safe using a key management system such as [Azure key vault](../key-vault/key-vault-whatis.md).
+-   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to begin with. The key can be generated and kept safe using a key management system such as [Azure key vault](../key-vault/key-vault-whatis.md).
 
 -   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
 
@@ -192,7 +185,7 @@ The operational best practices are guidelines that need to be followed during th
 
 The data on your virtual array is backed up to the cloud in two ways, a default automated daily backup of the entire device starting at 22:30 or via a manual on-demand backup. By default, the device automatically creates daily cloud snapshots of all the data residing on it. For more information, go to [back up your StorSimple Virtual Array](storsimple-ova-backup.md).
 
-The frequency, retention associated with the default backups cannot be changed but you can configure the time at which the daily backups are initiated every day. When configuring the start time for the automated backups, we recommend that:
+The frequency and retention associated with the default backups cannot be changed but you can configure the time at which the daily backups are initiated every day. When configuring the start time for the automated backups, we recommend that:
 
 -   Schedule your backups for off-peak hours. Backup start time should not coincide with a lot of host IOPs.
 
@@ -216,21 +209,21 @@ When performing a restore, keep the following guidelines in mind:
 
 A device failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
 
-For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-ova-failover-dr.md).
+For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to an 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-ova-failover-dr.md).
 
 When performing a fail over for your virtual array, keep the following in mind:
 
--   For a planned failover, it is a recommended best practice to take all the volumes/shares offline prior to initiating the failover. Take the volumes/shares offline on the host first, follow the operating system specific instructions and then take the volumes/shares offline on your virtual device.
+-   For a planned failover, it is a recommended best practice to take all the volumes/shares offline prior to initiating the failover. Follow the operating system specific instructions to take the volumes/shares offline on the host first and then take those offline on your virtual device.
 
 -   For a file server DR, we recommend that you join the target device to the same domain as that of the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
 
 -   Once the DR is successfully completed, the source device is automatically deleted. Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. We recommend that you delete this virtual machine from your host system to prevent any charges from accruing.
 
--   Do note that even if the failover is unsuccessful, **the data is always safe in the cloud**. Consider the following three scenarios in which the failover does not complete successfully:
+-   Do note that even if the failover is unsuccessful, **the data is always safe in the cloud**. Consider the following three scenarios in which the failover did not complete successfully:
 
-    -   The failure occurred in the initial stages of the failover such as when the DR pre-checks are being performed. In this situation, your target device is still usable. You can retry the failover on the same target device.
+    -   A failure occurred in the initial stages of the failover such as when the DR pre-checks are being performed. In this situation, your target device is still usable. You can retry the failover on the same target device.
 
-    -   The failure occurred during the actual failover process. In this case, the target device is marked unusable. You will need to provision and configure another target virtual array and use that for failover.
+    -   A failure occurred during the actual failover process. In this case, the target device is marked unusable. You will need to provision and configure another target virtual array and use that for failover.
 
     -   The failover was complete following which the source device was deleted but the target device has issues and the user cannot access any data. The data is still safe in the cloud and can be easily retrieved by quickly creating another virtual array and then using it as target for the DR.
 
