@@ -28,7 +28,7 @@ This document will let you know what to expect when using some of the roles in t
 - Contributor  
 - Reader  
 
-Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we’ll spend some time. See the [Role-Based Access Control get-started article](../role-based-access-control-configure.md) for details on how to grant access.
+Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we’ll spend some time. See the [Role-Based Access Control get-started article](role-based-access-control-configure.md) for details on how to grant access.
 
 ## App Service workloads
 
