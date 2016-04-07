@@ -36,7 +36,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 - [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 - [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- An [Azure storage account](storage-create-storage-account.md#create-a-storage-account).
+- An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -53,14 +53,13 @@ Add the following `using` statements to the top of the `program.cs` file:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-    using Microsoft.WindowsAzure.Storage.Auth; // Namespace for authentication types
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Create the Blob service client
 
-The **CloudBlobClient** class enables you to retrieve objects that represent containers and blobs stored in Blob storage. Add the following code to the Main() method:
+The **CloudBlobClient** class enables you to retrieve containers and blobs stored in Blob storage. Add the following code to the **Main()** method:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -85,17 +84,12 @@ This example shows how to create a container if it does not already exist:
     // Create the container if it doesn't already exist.
     container.CreateIfNotExists();
 
-By default, the new container is private and you must specify your
-storage access key to download blobs from this
-container. If you want to make the files within the container available
-to everyone, you can set the container to be public using the following
-code:
+By default, the new container is private, meaning that you must specify your storage access key to download blobs from this container. If you want to make the files within the container available to everyone, you can set the container to be public using the following code:
 
     container.SetPermissions(
         new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
-Anyone on the Internet can see blobs in a public container, but you can
-modify or delete them only if you have the appropriate access key.
+Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate account access key or a shared access signature.
 
 ## Upload a blob into a container
 
