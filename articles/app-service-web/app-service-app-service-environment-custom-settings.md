@@ -69,7 +69,7 @@ TLS 1.0 can be disabled with the following *clusterSettings* entry:
 
 
 ## Getting started
-The Azure Quickstart ARM template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/en-us/documentation/templates/201-web-app-ase-create/)
+The Azure Quickstart ARM template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/)
 
 
 <!-- LINKS -->
