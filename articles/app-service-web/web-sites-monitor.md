@@ -201,7 +201,7 @@ You may also view a lie stream of log events by using the following command:
 
 This will display log information to the command prompt, PowerShell, bash or terminal session that the command is ran from.
 
-> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure CLI](../virtual-machines-command-line-tools.md) for installation and configuration information.
+> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure CLI](../virtual-machines/virtual-machines-command-line-tools.md) for installation and configuration information.
 
 ### Reading log files ###
 
@@ -283,7 +283,6 @@ For more on web app endpoint monitoring, see the following videos:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the Azure portal to the Azure preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169

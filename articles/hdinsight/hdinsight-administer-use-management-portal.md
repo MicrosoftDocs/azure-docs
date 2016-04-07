@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/18/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Portal
@@ -74,19 +74,8 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 ##List and show clusters
 
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
-2. Click **HDInsight Clusters** from the left menu:
-	
-	![Azure portal HDInsight cluster buttom](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
-		
-	If **HDInsight** doesn't appear in the left menu, click **Browse**: 
-
-	![Azure portal Browse cluster buttom](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
-
-	You shall see a list of clusters if there are any:
-	
-	![Azure portal cluster list](./media/hdinsight-administer-use-management-portal/hdinsight-list-clusters.png)
-
-3. Use **Filter items** and "Subscription" to narrow down the list.
+2. Click **HDInsight Clusters** from the left menu.
+3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
 4. Double-click a cluster from the list to show the details.
 
 	**Menu and essentials**:
@@ -96,15 +85,15 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 	- To customize the memu, right-click anywhere on the menu, and then click **Customize**.
 	- **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
 	- **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
-	- **Remote Desktop**: Connect to the cluster using RDP.
+    -**Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connectiotion.
 	- **Scale Cluster**: Allows you to change the number of workder nodes for this cluster.
 	- **Delete**: Deletes the cluster.
 	- **Quickstart (![cloud and thunderbolt icon = quickstart](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: Displays information that will help you get started using HDInsight.
 	- **Users (![users icon](./media/hdinsight-administer-use-portal-linux/users.png))**: Allows you to set permissions for _portal management_ of this cluster for other users on your Azure subscription.
 	
-		> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Azure preview portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
+		> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Azure portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
 	- **Tags (![tag icon](./media/hdinsight-administer-use-portal-linux/tags.png))**: Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
-	- **Documentation**: Links to documentation for Azure HDInsight.
+	- **Ambari Views**: Links to Ambari Web.
 	
 	> [AZURE.IMPORTANT] To manage the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
 

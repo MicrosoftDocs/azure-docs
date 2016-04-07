@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/25/2016"
 	ms.author="cephalin"/>
 
 # Azure App Service web app advanced config and extensions

@@ -95,7 +95,7 @@ In this section, you'll create a Node.js console app that reads device-to-cloud 
     var Promise = require('bluebird');
     ```
 
-5. Add the following variable declarations, replacing the placeholders with the values you noted previously. The value of the **{your event hub-compatible namespace}** placeholder comes from the **Event Hub-compatible endpoint** - it takes the form **xxxxnamespace.servicebus.windows.net**.
+5. Add the following variable declarations, replacing the placeholders with the values you noted previously. The value of the **{your event hub-compatible namespace}** placeholder comes from the **Event Hub-compatible endpoint** field in the portal - it takes the form **namespace.servicebus.windows.net** (without the *sb://* prefix).
 
     ```
     var protocol = 'amqps';
@@ -177,8 +177,8 @@ In this section, you'll create a Node.js console app that reads device-to-cloud 
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 

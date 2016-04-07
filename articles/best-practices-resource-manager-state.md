@@ -3,8 +3,8 @@
 	description="Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/26/2016"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Sharing state in Azure Resource Manager templates
 
@@ -392,7 +392,7 @@ The following example shows how to pass the private IP address generated in a li
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
             "type": "string"
          }
     }

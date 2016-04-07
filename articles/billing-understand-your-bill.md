@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/22/2016"
    ms.author="erihur"/>
 
 
@@ -252,6 +252,8 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 
 ## More Resources
 Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, under [Manage your services](https://msdn.microsoft.com/library/azure/dn578292.aspx) for some very helpful links:
+
+- [Azure Billing and Subscription FAQ ](billing-subscription-faq.md)
 
 - [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
 

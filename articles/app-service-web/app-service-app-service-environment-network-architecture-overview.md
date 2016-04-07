@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>	
 
 # Network Architecture Overview of App Service Environments
@@ -31,7 +31,7 @@ The diagram below shows an overview of the various inbound and outbound network 
 
 An App Service Environment can communicate with a variety of private customer endpoints.  For example, apps running in the App Service Environment can connect to database server(s) running on IaaS virtual machines in the same virtual network topology.
 
-[AZURE.IMPORTANT] Looking at the network diagram, the "Other Computer Resources" are deployed in a different Subnet from the App Service Environment. Deploying resources in the same Subnet with the ASE will block connectivity from ASE to those resources (except for specific intra-ASE routing). Deploy to a different Subnet instead (in the same VNET). The App Service Environment will then be able to connect. No additional configuration is necessary.
+>[AZURE.IMPORTANT] Looking at the network diagram, the "Other Compute Resources" are deployed in a different Subnet from the App Service Environment. Deploying resources in the same Subnet with the ASE will block connectivity from ASE to those resources (except for specific intra-ASE routing). Deploy to a different Subnet instead (in the same VNET). The App Service Environment will then be able to connect. No additional configuration is necessary.
 
 App Service Environments also communicate with Sql DB and Azure Storage resources necessary for managing and operating an App Service Environment.  Some of the Sql and Storage resources that an App Service Environment communicates with are located in the same region as the App Service Environment, while others are located in remote Azure regions.  As a result, outbound connectivity to the Internet is always required for an App Service Environment to function properly. 
 

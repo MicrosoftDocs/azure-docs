@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;mausher;barbkess;sonyama"/>
 
 # Use Azure Stream Analytics with SQL Data Warehouse
@@ -61,7 +61,7 @@ Enter the following values on the next page:
 - *Password*: Provide the password for the specified user account.
 - *Table*: Specify the name of the target table in the database.
 
-![][add-database] 
+![][add-database]
 
 ### Step 4
 
@@ -95,4 +95,3 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
-

@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="antonba" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="antonba"/>
 
 # How to delegate user registration and product subscription

@@ -4,12 +4,12 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="01/16/2016"

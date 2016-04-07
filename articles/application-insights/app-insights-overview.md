@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="What is Application Insights?" 
-	description="Track usage and performance of your live web or device application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
+	pageTitle="Analytics with Application Insights" 
+	description="Device and web app analytics. Track usage and performance of your live web application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/31/2016" 
 	ms.author="awills"/>
  
 # What is Application Insights?
@@ -119,7 +119,7 @@ For more details, choose your app type under Get Started in the navigation bar o
 * Bugs:
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions:
- * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 
 
 ## Videos

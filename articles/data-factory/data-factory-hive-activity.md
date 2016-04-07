@@ -61,7 +61,7 @@ inputs | Input(s) consumed by the Hive activity | No
 outputs | Output(s) produced by the Hive activity | Yes 
 linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes 
 script | Specify the Hive script inline | No
-script path | Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together | No 
+script path | Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. Note that the file name is case-sensitive. | No 
 defines | Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf'  | No
 
 ## Example

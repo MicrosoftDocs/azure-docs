@@ -3,7 +3,7 @@
     description="Tutorial that walks you through the creation, testing, and publishing of a simple PowerShell runbook."
     services="automation"
     documentationCenter=""
-    authors="SnehaGunda"
+    authors="mgoedtel"
     manager="stevenka"
     editor="tysonn"/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;sngun"/>
 
 # My first PowerShell runbook

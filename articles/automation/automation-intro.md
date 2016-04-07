@@ -3,7 +3,7 @@
 	description="Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating, using runbooks and Azure Automation DSC."
 	services="automation"
 	documentationCenter=""
-	authors="SnehaGunda"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren"/>
 
 # Azure Automation overview

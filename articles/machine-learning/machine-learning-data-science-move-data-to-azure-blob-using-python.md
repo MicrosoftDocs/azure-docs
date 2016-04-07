@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Python
@@ -51,7 +51,7 @@ This document assumes that you have an Azure subscription, a storage account and
 
 Add the following snippet near the top of any Python code in which you wish to programmatically access Azure Storage:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 The **BlobService** object lets you work with containers and blobs. The following code creates a BlobService object using the storage account name and account key. Replace account name and account key with your real account and key.
 	
@@ -70,7 +70,7 @@ The following sample code uploads a local file to a container:
 
 The following sample code uploads all the files (excluding directories) in a local directory to blob storage:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os import listdir
 	from os.path import isfile, join
 	
@@ -109,7 +109,7 @@ The following sample code downloads the contents of a blob in a container to a l
 
 The following sample code downloads all blobs from a container. It uses list\_blobs to get the list of available blobs in the container and downloads them to a local directory. 
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os.path import join
 	
 	# Set parameters here

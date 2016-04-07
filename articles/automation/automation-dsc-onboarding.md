@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="01/11/2016"
+   ms.date="03/15/2016"
    ms.author="coreyp"/>
 
 # Onboarding machines for management by Azure Automation DSC
@@ -103,7 +103,7 @@ To find the registration URL and key for the Automation account to onboard the m
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.13 `
+     -Version 2.15 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate

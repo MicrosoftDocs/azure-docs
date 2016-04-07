@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create a LAMP Stack with Azure | Microsoft Azure"
 	description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"

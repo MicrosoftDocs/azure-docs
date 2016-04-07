@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Use Active Directory for authentication in Azure App Service #

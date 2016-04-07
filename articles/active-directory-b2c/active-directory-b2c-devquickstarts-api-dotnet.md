@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 
@@ -116,9 +116,9 @@ When you have a client that calls the API on behalf of users, you can secure `Ta
 Begin by installing the OWIN OAuth authentication pipeline:
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
-PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
-PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TaskService
+PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TaskService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
 ### Enter your B2C details

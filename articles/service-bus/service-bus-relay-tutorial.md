@@ -477,7 +477,7 @@ The next step is to create a basic Service Bus client application and define the
 	using System.ServiceModel;
 	```
 
-1. Repeat the previous steps to add a reference to the Microsoft.ServiceBus.dll and [Microsoft.ServiceBus](https://msdn.microsoft.com/library/microsoft.servicebus.aspx) namespace to your project.
+1. Install the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. Add the service contract definition to the namespace, as shown in the following example. Note that this definition is identical to the definition used in the **Service** project. You should add this code at the top of the `Microsoft.ServiceBus.Samples` namespace.
 

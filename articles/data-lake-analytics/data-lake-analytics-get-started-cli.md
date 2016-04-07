@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="02/10/2016"
@@ -48,7 +48,7 @@ Before you begin this tutorial, you must have the following:
 - **Authentication**, using the following command:
 
 		azure login
-	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
+	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 - **Switch to the Azure Resource Manager mode**, using the following command:
 
 		azure config mode arm

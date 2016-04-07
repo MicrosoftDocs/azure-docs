@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -21,7 +21,7 @@
 
 1. [Download](http://www.aka.ms/azurestackmarketplaceitem) the Azure Gallery Packaging Tool and a Sample Gallery Package.
 
-2.  Open the Sample Gallery Package and rename the **SimpleVMTemplate** folder (use the same name as your Marketplace item). The folder contains:
+2.  Open the Sample Gallery Package and rename the **SimpleVMTemplate** folder (use the same name as your Marketplace item. For example, Contoso.TodoList). This folder contains:
 
 		/Contoso.TodoList/
 		/Contoso.TodoList/Manifest.json
@@ -59,6 +59,7 @@
 10. Open a command prompt and run the following command to package the folders into an .azpkg file:
 
     	AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+    Note: The full path to output package must exist. For example, if the output path is C:\MarketPlaceItem\yourpackage.azpkg, the folder C:\MarketPlaceItem must exist.
 
 ## Next steps
 

@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.topic="get-started-article"
+	ms.date="03/02/2016"
 	ms.author="erikje"/>
 
 # Subscribe to an offer
 
-Now that you've created an offer, test that your tenants can  create a subscription.
+Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can  create a subscription.
 
 1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [a tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) and click **Get a Subscription**.
 

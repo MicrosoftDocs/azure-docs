@@ -1,63 +1,48 @@
 <properties
-	pageTitle="Query an Azure Search index using Search Explorer in the Azure Portal | Microsoft Azure | Hosted cloud search service"
-	description="Search Explorer is a code-free approach for querying an Azure Search index in the Azure Portal."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""/>
+    pageTitle="Query your Azure Search Index using the Azure Portal | Microsoft Azure | Hosted cloud search service"
+    description="Issue a search query in the Azure Portal's Search Explorer."
+    services="search"
+    documentationCenter=""
+	authors="ashmaka"
+/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="01/23/2016"
-	ms.author="heidist"/>
-
-# Query an Azure Search index using Search Explorer in the Azure Portal
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="03/10/2016"
+    ms.author="ashmaka"
+/>
+# Query your Azure Search index using the Azure Portal
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
-- [Fiddler](search-fiddler.md)
+- [Portal](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-**Search Explorer** is a query tool built into the Azure Portal for code-free queries against an Azure Search index. It connects to any index in your service and provides a search box for entering search strings and expressions. Valid query syntax is generated based on the input you provide. Results are displayed in the portal page.
+This guide will show you how to query your Azure Search index in the Azure Portal.
 
-Search Explorer is ideal for learning query syntax, running the occasional ad hoc query, or refining a query expression before attempting to put it in code. To use it, you must already have an Azure Search service and an index. See [Create an Azure Search service in the portal](search-create-service-portal.md) and [Import data to Azure Search using the portal](search-import-data-portal.md) for help with these tasks.
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
-## Open Search Explorer
+## I. Go to your Azure Search blade
+1. Click on "All resources" in the menu on the left side of the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+2. Select your Azure Search service
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
+## II. Select the index you would like to search
+1. Select the index you would like to search from the "Indexes" tile.
 
-2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
-	- In the Jumpbar, click **Home**. The home page has tiles for every service in your subscription. Click the tile to open the service dashboard.
-	- In the Jumpbar, click **Browse All** > **Filter by** > **Search services** to find your Search service in the list.
+![](./media/search-explorer/pick-index.png)
 
-3. In the service dashboard, you will see a command bar at the top, including one for **Search Explorer**. 
+## III. Click on the "Search Explorer" tile
+![](./media/search-explorer/search-explorer-tile.png)
 
-  	![][1]
+## III. Start searching
+1. To search your Azure Search index, start typing into the "*Query string*" field and then press "**Search**".
+ * When using the Search Explorer, you can specify any of the [query parameters](https://msdn.microsoft.com/library/dn798927.aspx)
 
-4. Click **Search Explorer** to slide open the Search Explorer blade.
-5. Set the index and API version. Search Explorer automatically connects to the first index in your index list but you can click **Change Index** to switch to a different one. **Set API version** lets you specify the generally available or preview versions. Some query syntax is preview only.
-6. If you followed [Get started with Azure Search](search-get-started-portal.md) to create and populate an index based on United States Geological Survey (USGS) data for Rhode Island, you can use this search term to verify the same 3 results come back in Search Explorer: `roger williams +school -building`
+2. In the "*Results*" section, the query's results will be presented in the raw JSON that you would receiving in an HTTP Response Body when issuing search requests against the Azure Search REST API.
+3. The query string is automatically parsed into the proper request URL to submit a HTTP request against the Azure Search REST API
 
-Notice the query syntax that is generated automatically in response to the search term input.
-
-![][2]
-
-## Next steps
-
-More information about query syntax and examples can be found in [Search Documents](https://msdn.microsoft.com/library/azure/dn798927.aspx) on MSDN.
-
-Visit these links for additional no-code approaches to creating or managing a search service or index:
-
-- [Create an Azure Search service in the portal](search-create-service-portal.md)
-- [Import data to Azure Search using the portal](search-import-data-portal.md)
-- [Manage your Search service on Azure](search-manage.md)
-
-<!--Image References-->
-[1]: ./media/search-explorer/AzSearch-SearchExplorer-Btn.png
-[2]: ./media/search-explorer/AzSearch-SearchExplorer-Example.png
+![](./media/search-explorer/search-bar.png)

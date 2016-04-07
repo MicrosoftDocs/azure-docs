@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/16/2015"
+	ms.date="02/19/2016"
 	ms.author="v-darmi"/>
 
 # Custom caching in Azure API Management

@@ -17,6 +17,10 @@
 	ms.author="heidist"/>
 
 # Get started with Azure Search Management REST API
+> [AZURE.SELECTOR]
+- [Portal](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [REST API](search-get-started-management-api.md)
 
 The Azure Search REST management API is a programmatic alternative to performing administrative tasks in the portal. Service management operations include creating or deleting the service, scaling the service, and managing keys. This tutorial comes with a sample client application that demonstrates the service management API. It also includes configuration steps required to run the sample in your local development environment.
 
@@ -43,7 +47,7 @@ Before you can run the sample application, you must enable authentication so tha
 
 Azure Resource Manager requires Azure Active Directory service as its identity provider. 
 
-To obtain an access token that will allow requests to reach the resource manager, the client application includes a code segment that calls Active Directory. The code segment, plus the prerequisite steps to using the code segment, were borrowed from this article: [Authenticating Azure Resource Manager requests]().
+To obtain an access token that will allow requests to reach the resource manager, the client application includes a code segment that calls Active Directory. The code segment, plus the prerequisite steps to using the code segment, were borrowed from this article: [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 You can follow the instructions in the above link, or use the steps in this document if you prefer to go through the tutorial step by step.
 

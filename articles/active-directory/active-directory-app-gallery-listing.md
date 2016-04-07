@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/29/2015"
+   ms.date="02/19/2016"
    ms.author="mbaldwin"/>
 
 
@@ -33,7 +33,7 @@ To integrate your application with Azure AD, following the [developer instructio
 
 * Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
 
-* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/). 
+* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
 
 * Provide any further instructions required for the Azure AD team to test single sign-on with your application. 
 

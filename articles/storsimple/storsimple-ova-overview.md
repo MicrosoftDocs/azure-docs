@@ -3,8 +3,8 @@
    description="Describes the StorSimple Virtual Array, an integrated storage solution that manages storage tasks between an on-premises virtual device and Microsoft Azure cloud storage."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,20 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
-   ms.author="v-sharos" />
+   ms.date="03/01/2016"
+   ms.author="alkohli" />
 
-# Introduction to the StorSimple Virtual Array (preview)
+# Introduction to the StorSimple Virtual Array
 
 ## Overview
 
 Welcome to the Microsoft Azure StorSimple Virtual Array, an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. The Virtual Array (also known as the StorSimple on-premises virtual device) is an efficient, cost-effective, and easily manageable file server or iSCSI server solution that eliminates many of the issues and expenses associated with enterprise storage and data protection. The Virtual Array is particularly well-suited for remote office/branch office scenarios.
-
->[AZURE.IMPORTANT]
->
-> The StorSimple Virtual Array is in preview and is intended for evaluation and deployment planning purposes. Installing this preview in a production environment is not supported.
->
-> If you experience any issues with the StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
 
 This overview focuses on the Virtual Array. 
 

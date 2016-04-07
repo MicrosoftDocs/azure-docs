@@ -3,7 +3,7 @@
    description="Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Child runbooks in Azure Automation

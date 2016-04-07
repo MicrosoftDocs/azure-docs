@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Service Fabric testability scenarios: Service communication
 
 Microservices and service-oriented architectural styles surface naturally in Azure Service Fabric. In these types of distributed architectures, componentized microservice applications are typically composed of multiple services that need to talk to each other. In even the simplest cases, you generally have at least a stateless web service and a stateful data storage service that need to communicate.
 
-Service-to-service communication is a critical integration point of an application, because each service exposes a remote API to other services. Working with a set of API boundaries that invlve I/O generally requires some care, with a good amount of testing and validation.
+Service-to-service communication is a critical integration point of an application, because each service exposes a remote API to other services. Working with a set of API boundaries that involves I/O generally requires some care, with a good amount of testing and validation.
 
 There are numerous considerations to make when these service boundaries are wired together in a distributed system:
 
@@ -85,11 +85,11 @@ You can induce quorum loss by using the PowerShell **Invoke-ServiceFabricPartiti
 
 ```powershell
 
-PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode PartialQuorumLoss -QuorumLossDurationInSeconds 20
+PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode QuorumReplicas -QuorumLossDurationInSeconds 20
 
 ```
 
-In this example, we set `QuorumLossMode` to `PartialQuorumLoss` to indicate that we want to induce quorum loss without taking down all replicas. This way, read operations are still possible. To test a scenario where an entire partition is unavailable, you can set this switch to `FullQuorumLoss`.
+In this example, we set `QuorumLossMode` to `QuorumReplicas` to indicate that we want to induce quorum loss without taking down all replicas. This way, read operations are still possible. To test a scenario where an entire partition is unavailable, you can set this switch to `AllReplicas`.
 
 ## Next steps
 

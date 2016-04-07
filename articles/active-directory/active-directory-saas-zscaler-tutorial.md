@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Azure Active Directory integration with Zscaler | Microsoft Azure" 
     description="Learn how to use Zscaler with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="02/29/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with Zscaler
   
@@ -37,7 +37,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for Zscaler, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zscaler-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ As part of this procedure, you are required to upload a certificate to Zscaler.
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Zscaler** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure classic portal, on the **Zscaler** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Enable single sign-on](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Enable single sign-on")
 
@@ -112,9 +112,9 @@ As part of this procedure, you are required to upload a certificate to Zscaler.
 
     ![Upload certificate](./media/active-directory-saas-zscaler-tutorial/IC769489.png "Upload certificate")
 
-    1.  In the **URL of the SAML Portal to which users are sent for authentication** textbox, paste the value of the **Authentication request URL** field from the Azure portal.
+    1.  In the **URL of the SAML Portal to which users are sent for authentication** textbox, paste the value of the **Authentication request URL** field from the Azure classic portal.
     2.  In the **Attribute containing Login Name** textbox, type **NameID**.
-    3.  In the **Upload SSL Public Certificate** field, upload the certificate you have downloaded from the Azure portal.
+    3.  In the **Upload SSL Public Certificate** field, upload the certificate you have downloaded from the Azure classic portal.
     4.  Select **Enable SAML Auto-Provisioning**.
 
 10. On the **Configure User Authentication** dialog page, perform the following steps:
@@ -124,7 +124,7 @@ As part of this procedure, you are required to upload a certificate to Zscaler.
     1.  Click **Save**.
     2.  Click **Activate Now**.
 
-11. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-zscaler-tutorial/IC769491.png "Configure single sign-on")
 
@@ -192,7 +192,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to Zscaler, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **Zscaler** application integration page, click **Assign users**.
 

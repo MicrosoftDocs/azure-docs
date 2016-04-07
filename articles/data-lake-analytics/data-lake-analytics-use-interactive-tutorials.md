@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="02/11/2016"

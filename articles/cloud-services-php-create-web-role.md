@@ -3,9 +3,9 @@
 	description="A guide to creating PHP web and worker roles in an Azure cloud service, and configuring the PHP runtime."
 	services=""
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #How to create PHP web and worker roles
 

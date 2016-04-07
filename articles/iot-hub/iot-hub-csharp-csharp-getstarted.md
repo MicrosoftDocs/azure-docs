@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure IoT Hub for C# | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure IoT Hub with C#."
+	pageTitle="Azure IoT Hub for C# getting started | Microsoft Azure"
+	description="Azure IoT Hub with C# getting started tutorial. Use Azure IoT Hub and C# with the Microsoft Azure IoT SDKs to implement an internet of things solution."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/14/2015"
+     ms.date="03/22/2016"
      ms.author="dobett"/>
 
 # Get started with Azure IoT Hub for .NET
@@ -22,7 +22,7 @@
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and a solution back end. One of the biggest challenges IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of internet of things (IoT) devices and a solution back end. One of the biggest challenges IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
 
 - Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
 - Enables secure communications using per-device security credentials and access control.

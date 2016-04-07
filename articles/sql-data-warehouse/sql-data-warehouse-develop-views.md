@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
- 
+
 # Views in SQL Data Warehouse
 
 Views are particularly useful in SQL Data Warehouse. They can be used in a number of different ways to improve the quality of your solution.
@@ -24,16 +24,16 @@ Views are particularly useful in SQL Data Warehouse. They can be used in a numbe
 This article highlights a few examples of how to enrich your solution by implementing with views. There are some limitations that also need to be considered.
 
 ## Architectural abstraction
-A very common application pattern is to re-create tables using CREATE TABLE AS SELECT (CTAS) followed by an object renaming pattern whilst loading data. 
+A very common application pattern is to re-create tables using CREATE TABLE AS SELECT (CTAS) followed by an object renaming pattern whilst loading data.
 
-The example below adds new date records to a date dimension. Note how a new object, DimDate_New, is first created and then renamed to replace the original version of the object. 
+The example below adds new date records to a date dimension. Note how a new object, DimDate_New, is first created and then renamed to replace the original version of the object.
 
-```
+```sql
 CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
 )
-AS 
+AS
 SELECT *
 FROM   dbo.DimDate  AS prod
 UNION ALL
@@ -52,7 +52,7 @@ However, this can result in table objects appearing and disappearing from a user
 Views are a smart way to enforce performance optimized joins between tables. For example the view can incorporate a redundant distribution key as part of the joining criteria to minimize data movement.  Another reason might be to force a specific query or joining hint. This guarantees that the join is always performed in an optimal fashion and is not dependent on the user remembering to construct the join correctly.
 
 ## Limitations
-Views in SQL Data Warehouse are metadata only. 
+Views in SQL Data Warehouse are metadata only.
 
 Consequently the following options aren't available:
 - 	There is no schema binding option
@@ -73,5 +73,3 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-

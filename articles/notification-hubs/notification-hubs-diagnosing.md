@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="02/29/2016" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs - Diagnosis guidelines

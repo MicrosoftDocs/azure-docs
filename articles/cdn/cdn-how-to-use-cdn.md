@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="03/18/2016"
 	ms.author="casoper"/>
 
 
 # Using CDN for Azure
 
-The Azure Content Delivery Network (CDN) is the fundamental building block to scale any HTTP application in Azure. It offers Azure customers a global solution by caching and delivering content close to end users. As a result, instead of hitting origin every single time, user requests get intelligently routed to the best performed CDN edge POP. This significantly increases the performance and user experience. For a current list of
+The Azure Content Delivery Network (CDN) is the fundamental building block to scale any HTTP/HTTPS application in Azure. It offers Azure customers a global solution by caching and delivering content close to end users. As a result, instead of hitting the origin every single time, user requests are intelligently routed to the CDN edge node (POP, or Point of Presence) that provides them with the best response times. This significantly increases the performance and user experience. For a current list of
 CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
 
 The benefits of using CDN to cache Azure data include:

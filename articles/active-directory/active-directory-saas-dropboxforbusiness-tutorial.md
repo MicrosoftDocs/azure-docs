@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="02/29/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with Dropbox for Business
@@ -108,18 +108,18 @@ As part of this procedure, you are required to upload a base-64 encoded certific
      5.2. In the Azure portal, on the **Configure single sign-on at Dropbox for Business** dialog page, copy the **Sign-in page URL** value, and then paste it into the **Sign in URL** textbox.
 
 
-     5.3. Create a **Base-64 encoded** file from your downloaded certificate. > [AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+     5.3. Create a **Base-64 encoded** file from your downloaded certificate. 
+
+	> [AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
 
-     5.4. Click **Choose certificate**, and then browse to your **base-64 encoded certificate file**.
+     5.4. Click **"Choose certificate"** button, and then browse to your **base-64 encoded certificate file**.
 
 
-     5.5. Click **Save changes** to complete the configuration on your DropBox for Business tenant.
+     5.5. Click **"Save changes"** button to complete the configuration on your DropBox for Business tenant.
 
 
 6. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog. <br><br>  ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Configure single sign-on")
-
-
 
 
 

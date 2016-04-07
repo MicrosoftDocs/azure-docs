@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -34,7 +34,7 @@ In order to complete this tutorial, you will need the following:
 
 + Microsoft Visual Studio Express for Windows
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
++ An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ## Create an Event Hub
 
@@ -62,7 +62,7 @@ In order to complete this tutorial, you will need the following:
 
 7. On the same page, take note of the generated keys for **SendRule**.
 
-	![][6b]
+	![][7]
 
 8. Click the **Dashboard** tab at the top of the page, and then click **Connection Information**. Take note of the two connection strings.
 
@@ -79,7 +79,7 @@ Your Event Hub is now created, and you have the connection strings you need to s
 
 Now you are ready to run the applications.
 
-1.	Run the **Receiver** project from Visual Studio, then wait for it to start the receivers for all the partitions.
+1.	Run the **Receiver** project from Visual Studio, then wait for it to start the receivers for all partitions.
 
 	![][21]
 
@@ -104,7 +104,7 @@ For more information, see the [Java Developer Center](/develop/java/).
 [4]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub4.png
 [5]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub5.png
 [6]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub6.png
-[6b]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub6b.png
+[7]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub6b.png
 
 
 [21]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs1.png

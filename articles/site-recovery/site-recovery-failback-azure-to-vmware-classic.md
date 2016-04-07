@@ -31,7 +31,13 @@ This articles describes how to fail back Azure virtual machines from Azure to th
 
 This diagram shows the failback architecture for this scenario.
 
+Use this architecture when the process server is on-premises and you are using an ExpressRoute.
+
 ![](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+
+Use this architecture when the process server is on Azure and you have either a VPN or an ExpressRoute connection.
+
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Here’s how failback works:
 

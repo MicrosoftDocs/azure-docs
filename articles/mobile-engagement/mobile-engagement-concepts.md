@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="02/26/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement concepts

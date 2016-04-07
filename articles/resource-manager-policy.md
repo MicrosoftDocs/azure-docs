@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -88,7 +88,12 @@ event service log. For example, an administrator can create a policy which cause
         "effect" : "deny | audit"
       }
     }
+    
+## Policy Evaluation
 
+Policy will be evaluated when resource creation or template deployment happens using HTTP PUT. In case of template deployment, policy will be evaluated during the creation of each resource in the template. 
+
+Note: Resource types which do not support tags, kind, location are not evaluated by Policy, such as Microsoft.Resources/deployments. The support will be added at a future time. To avoid backward compatability issues, it is best practice to explicitly specify type when authoring policies. For example, a tag policy without specifying types will be applied for all types, so template deployment may fail if there is a nested resource that don't support tag when the resource type is added to evaluation at a future time. 
 
 ## Logical Operators
 
@@ -143,16 +148,15 @@ The defintion of an alias looks like below. As you can see, a alias defines path
       }
     ]
 
-currently, supported aliases are 
+Currently, the supported aliases are:
 
-| Alias name             | Description                                     | 
-| :------------- | :------------- |
-| {resourceType}/sku.name   | Supported resource types are: Microsoft.Storage/storageAccounts, Microsoft.Scheduler/jobcollections, Microsoft.DocumentDB/databaseAccounts, Microsoft.Cache/Redis， Microsoft.CDN/profiles  |
-| {resourceType}/sku.family | Supported resource types are Microsoft.Cache/Redis|
-| {resource'Type}/sku.capacity | Supported resource types are Microsoft.Cache/Redis|
-| Microsoft.Cache/Redis/enableNonSslPort||
-|Microsoft.Cache/Redis/shardCount||
-
+| Alias name | Description |
+| ---------- | ----------- |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort |  |
+| Microsoft.Cache/Redis/shardCount |  |
 
 
 To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 
@@ -209,19 +213,19 @@ will be denied.
         "not" : {
           "anyOf" : [
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Resources/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Compute/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Storage/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Network/*"
             }
           ]
@@ -240,14 +244,14 @@ The below example shows the use of property alias to restrict SKUs. In the examp
       "if": {
         "allOf": [
           {
-            "source": "action",
-            "like": "Microsoft.Storage/storageAccounts/*"
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "not": {
               "allof": [
                 {
-                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "field": "Microsoft.Storage/storageAccounts/sku.name",
                   "in": ["Standard_LRS", "Standard_GRS"]
                 }
               ]
@@ -341,8 +345,6 @@ With a request body similar to the following:
           }
         }
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-      "type":"Microsoft.Authorization/policyDefinitions",
       "name":"testdefinition"
     }
 
@@ -393,8 +395,6 @@ With a request body similar to the following:
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
-      "type":"Microsoft.Authorization/policyAssignments",
       "name":"VMPolicyAssignment"
     }
 

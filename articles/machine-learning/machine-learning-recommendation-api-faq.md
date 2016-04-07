@@ -3,7 +3,7 @@
 	description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/01/2016" 
 	ms.author="luisca"/> 
 
 #Setting up and using Machine Learning Recommendations API FAQ
@@ -85,7 +85,7 @@ To cancel your subscription, use the following steps. If your current subscripti
 
 **Note** No refund is given if you cancel before the end of a billing period or for unused transactions in a billing period.
 
-* Nevigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
+* Navigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
 * Sign in to the Marketplace if you aren't already Signed in.
 * Click **Cancel** to the right of the dataset name and status. You can use this subscription until the end of the current billing period or your transaction limit is reached (whichever occurs first).
 

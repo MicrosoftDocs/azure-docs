@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/25/2016" 
 	ms.author="glenga"/>
 
 # Register your app to use Microsoft account for authentication
@@ -48,12 +48,16 @@ Windows Store apps must first be registered with the Windows Dev Center. By regi
 6. Back in the Windows Dev Center page for your new app, click **Services** > **Push notifications**.
 
 7. In the **Push notifications** page, click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Services**.
+ 
+	This displays the Microsoft account app settings page for your app. 
 
-This displays the Microsoft account page for your app. Next, you will get the authentication credentials that Azure needs to use Microsoft authentication with your app.
+8. Make a note of the **Package SID** value. You can save this SID in the Azure portal to both enable single sign-on and push notifications for your Windows app.
+
+Next, you will configure Microsoft account authentication for your Windows app, starting with step 4 in the next section.
 
 ## Configure your Microsoft account registration and connect to Mobile Services
 
-The first step in this section applies only to Windows Phone 8, Windows Phone 8.1 Silverlight, and non-Windows Store apps. For these apps, you can also ignore the Package security identifier (SID), which is only available for Windows Store apps.
+If you have already registered your Windows app in the previous section, you can skip to step 2. 
 
 1. For a non-Windows Store app, navigate to the [My Applications](http://go.microsoft.com/fwlink/p/?LinkId=262039) page in the Microsoft account Developer Center, log on with your Microsoft account (if required), click **Create application**, type an **Application name**, then click **I accept**.
 

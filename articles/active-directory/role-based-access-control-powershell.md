@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Managing Role-Based Access Control with Windows PowerShell"
+	pageTitle="Role-Based Access Control guide for PowerShell"
 	description="Managing role-based access control with Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Managing Role-Based Access Control with Windows PowerShell #
+# Role-Based Access Control guide for PowerShell
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [Azure CLI](role-based-access-control-xplat-cli.md)
 
-Role-Based access control (RBAC) in the Azure Portal and Azure Resource Management API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+
+Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Management API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 In this tutorial, you'll learn how to use Windows PowerShell to manage RBAC. It walks you through the process of creating and checking role assignments.
 
@@ -34,7 +35,9 @@ Before you can use Windows PowerShell to manage RBAC, you must have the followin
 
 - Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../install-configure-powershell.md).
+- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+
+>[AZURE.IMPORTANT] Before you can use the cmdlets in this article, you need to [install the Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -48,7 +51,7 @@ For example, to get help for the `Add-AzureAccount` cmdlet, type:
 
 Please also read the following tutorials to get familiar with setting up and using Azure Resource Manager in Windows PowerShell:
 
-- [How to install and configure Azure PowerShell](../install-configure-powershell.md)
+- [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 - [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md)
 
 
@@ -57,8 +60,6 @@ Please also read the following tutorials to get familiar with setting up and usi
 Since RBAC only works with Azure Resource Manager, the first thing to do is to switch to Azure Resource Manager mode:
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
-
-For more information, please refer to [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 To connect to your Azure subscriptions, type:
 
@@ -72,8 +73,6 @@ If you have multiple subscriptions and want to switch to another one, use the fo
     PS C:\> Get-AzureSubscription
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
-
-For more information, please refer to [How to install and configure Azure PowerShell](../install-configure-powershell.md).
 
 ## Check existing role assignments
 
@@ -93,7 +92,7 @@ You can also check existing role assignments for a particular role definition, a
 This will return all the role assignments for a particular user in your AD tenant, who has a role assignment of "Owner" for resource group "group1". The role assignment can come from two places:
 
 1. A role assignment of "Owner" to the user for the resource group.
-2. A role assignment of "Owner" to the user for the parent of the resource group (the subscription in this case) because if you have any permission at a parent level, you'll have the same permissions to all its children.
+2. A role assignment of "Owner" to the user for the parent of the resource group (the subscription in this case). If you assign any permission at a parent level, all the children will have the same permissions.
 
 All the parameters of this cmdlet are optional. You can combine them to check role assignments with different filters.
 
@@ -101,34 +100,36 @@ All the parameters of this cmdlet are optional. You can combine them to check ro
 
 To create a role assignment, you need to think about:
 
-Who you want to assign the role to: you can use the following Azure active directory cmdlets to see what users, groups and service principals you have in your AD tenant.  
+- Who you want to assign the role to: you can use the following Azure active directory cmdlets to see what users, groups and service principals you have in your AD tenant.  
 
+	```
     PS C:\> Get-AzureADUser
 	PS C:\> Get-AzureADGroup
 	PS C:\> Get-AzureADGroupMember
 	PS C:\> Get-AzureADServicePrincipal
+	```
 
-What role you want to assign: you can use the following cmdlet to see the supported role definitions.
+- What role you want to assign: you can use the following cmdlet to see the supported role definitions.
 
-    PS C:\> Get-AzureRoleDefinition
+    `PS C:\> Get-AzureRoleDefinition`
 
-What scope you want to assign: you have three levels for scopes
-  - The current subscription
-  - A resource group, to get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
-  - A resource, to get a list of resources, type `PS C:\> Get-AzureResource`
+- What scope you want to assign: you have three levels for scopes
+	- The current subscription
+	- A resource group. To get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
+	- A resource. To get a list of resources, type `PS C:\> Get-AzureResource`
 
 Then use `New-AzureRoleAssignment` to create a role assignment. For example:
 
-	#This will create a role assignment at the current subscription level for a user as a reader.
+	#Create a role assignment at the current subscription level for a user as a reader.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-	#This will create a role assignment at a resource group level.
+	#Create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-	#This will create a role assignment for a group at a resource group level.
+	#Create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-	#This will create a role assignment at a resource level.
+	#Create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
@@ -148,11 +149,11 @@ Then when you try to run other cmdlets like `New-AzureResourceGroup` you will ge
 
 To learn more about managing role-based access control with Windows PowerShell, and related topics:
 
-- [Role based access control in Azure](../role-based-access-control-configure.md)
+- [Role based access control in Azure](role-based-access-control-configure.md)
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
-- [Using Resource groups to manage your Azure resources](../azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
+- [Using the Azure Portal to manage your Azure resources](../azure-portal/resource-group-portal.md): Learn about Azure Resource Manager.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
-- [Configure role based access control using Azure CLI](role-based-access-control-xplat-cli-install.md)
+- [Configure role based access control using Azure CLI](role-based-access-control-xplat-cli.md)
 - [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)

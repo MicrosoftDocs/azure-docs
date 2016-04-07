@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="02/26/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Scheduler
@@ -49,6 +49,8 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 - **IsStagingModeEnabled**. Shows if [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) is enabled.
 
 You can modify all these settings with `Set-ADSyncScheduler`. The parameter IsStagingModeEnabled can only be set by the installation wizard.
+
+The scheduler configuration is stored in Azure AD. If you have a staging server, any change on the primary server will also effect the staging server (with the exception of IsStagingModeEnabled).
 
 ## Start the scheduler
 The scheduler will by default run every 30 minutes. In some cases you might want to run a sync cycle in between the scheduled cycles or you need to run a different type.

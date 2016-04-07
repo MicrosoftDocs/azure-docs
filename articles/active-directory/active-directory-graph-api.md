@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="mbaldwin" />
 
 # Azure Active Directory Graph API
@@ -49,6 +49,13 @@ The Graph API provides the following features:
 - **Differential Query**: If you want to check for changes in a directory between two time periods without having to make frequent queries to the Graph API, you can make a differential query request. This type of request will return only the changes made between the previous differential query request and the current request. For more information, see [Azure AD Graph API Differential Query](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
 
 - **Directory Extensions**: If you are developing an application that needs to read or write unique properties for directory objects, you can register and use extension values by using the Graph API. For example, if your application requires a Skype ID property for each user, you can register the new property in the directory and it will be available on every user object. For more information, see [Azure AD Graph API Directory Schema Extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+
+- **Secured by permission scopes**: AAD Graph API exposes permission scopes that enable secure/consented access to AAD data, and support a variety of client app types, including:
+ - those with a user interface which are given delegated access to data via authorization from the signed-in user (delegated)
+  - those that use application-define role-based access control such as service/daemon clients (app roles)
+
+    Both delegated and app role permission scopes represent a privilege exposed by the Graph API and can be requested by client applications through application registration permissions [features in the Azure classic portal](https://manage.windowsazure.com). Clients can verify the permission scopes granted to them by inspecting the scope (“scp”) claim received in the access token for delegated permissions and the roles (“roles”) claim for app role permissions. Learn more about [Azure AD Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
+
 
 ## Scenarios
 

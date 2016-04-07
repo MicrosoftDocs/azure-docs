@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Service Bus authentication and authorization

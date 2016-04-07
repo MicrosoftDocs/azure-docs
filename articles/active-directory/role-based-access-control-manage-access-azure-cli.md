@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Manage Role-Based Access Control with the Azure Command Line Interface
@@ -24,6 +24,9 @@
 - [REST API](role-based-access-control-manage-access-rest.md)
 
 ## List Role-Based Access Control (RBAC) roles
+
+>[AZURE.IMPORTANT] Before you can use the cmdlets in this article, you need to [install the Azure CLI](../xplat-cli-install.md).
+
 ###	List all available roles
 To list all available roles use:
 

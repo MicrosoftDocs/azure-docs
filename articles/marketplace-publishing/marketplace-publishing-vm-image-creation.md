@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="03/07/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide to create a virtual machine image for the Azure Marketplace
@@ -76,7 +76,7 @@ The agent configuration file is placed at /etc/waagent.conf.
 ### 2.3 Verify that required libraries are included
 In addition to the Azure Linux Agent, the following libraries should also be included:
 
-1. The [Linux Integration Services][link-intsvc] 3.0 or higher must be enabled in your kernel. See [Linux kernel requirements](../virtual-machines/virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements).
+1. The [Linux Integration Services][link-intsvc] 3.0 or higher must be enabled in your kernel. See [Linux kernel requirements](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements).
 2. [Kernel patch](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) for Azure I/O stability (likely not needed for any recent kernel, but it should be verified)
 3. [Python][link-python] 2.6 or above
 4. Python pyasn1 package, if not already installed
@@ -100,7 +100,7 @@ The following are networking requirements for an Azure-compatible Linux VM image
 
 - In many cases, it is best to disable NetworkManager.  One exception is with systems based on CentOS 7.x (and derivatives), which should keep NetworkManager enabled.
 - Networking configuration should be controllable via the **ifup** and **ifdown** scripts. The Linux Agent may use these commands to restart networking during provisioning.
-- There should be no custom network configuration. The Resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see the [Azure Linux Agent user guide](../virtual-machines/virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command.
+- There should be no custom network configuration. The Resolv.conf file should be deleted as a final step. This is typically done as part of deprovisioning (see the [Azure Linux Agent user guide](./virtual-machines-linux-agent-user-guide/)). You can also perform this step manually with the following command.
 
         rm /etc/resolv.conf
 
@@ -250,9 +250,9 @@ All images in the Azure Marketplace must be reusable in a generic fashion. In ot
 - For Windows, the image should be "sysprepped," and no configurations should be done that do not support the **sysprep** command.
 - You can run the following command from the directory %windir%\System32\Sysprep.
 
-        sysprep.exe /generalize /oobe /sshutdown
+        sysprep.exe /generalize /oobe /shutdown
 
-  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/).
+  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](./virtual-machines-create-upload-vhd-windows-server/).
 
 ## 4. Deploy a VM from your VHDs
 After you have uploaded your VHDs (the generalized operating system VHD and zero or more data disk VHDs) to an Azure storage account, you can register them as a user VM image. Then you can test that image. Note that because your operating system VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
@@ -585,10 +585,7 @@ After you have created your offer and SKU, you should enter the image details as
 4. Fill out the properties under the **SKUs** section.
 5. Under **Operating system family**, click the operating system type associated with the operating system VHD.
 6. In the **Operating system** box, describe the operating system. Consider a format such as operating system family, type, version, and updates. An example is "Windows Server Datacenter 2014 R2."
-7. Select up to six recommended recommended virtual machine sizes. These are recommendations that get displayed to the customer in the Pricing tier blade in the Azure portal when they decide to purchase and deploy your image.
-
-  > [AZURE.NOTE] These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.
-
+7. Select up to six recommended virtual machine sizes. These are recommendations that get displayed to the customer in the Pricing tier blade in the Azure Portal when they decide to purchase and deploy your image. **These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.**
 8. Enter the version. The version field encapsulates a semantic version to identify the product and its updates:
   -	Versions should be of the form X.Y.Z, where X, Y, and Z are integers.
   -	Images in different SKUs can have different major and minor versions.
@@ -597,7 +594,7 @@ After you have created your offer and SKU, you should enter the image details as
 10. If there are data disks associated with this SKU, select the logical unit number (LUN) to which you would like this data disk to be mounted upon deployment.
 11. In the **LUN X VHD URL** box, enter the shared access signature URI created for the first data VHD.
 
-    ![drawing][img-pubportal-vm-skus-2]
+    ![drawing](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## Next step
 After you are done with the SKU details, you can move forward to the [Azure Marketplace marketing content guide][link-pushstaging]. In that step of the publishing process, you provide the marketing content, pricing, and other information necessary prior to **Step 3: Testing your VM offer in staging**, where you test various use-case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
@@ -632,9 +629,9 @@ After you are done with the SKU details, you can move forward to the [Azure Mark
 
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]:http://storageexplorer.com/
-[link-azure-2]:../storage/storage-dotnet-shared-access-signature-part-2/
-[link-azure-1]:../storage/storage-dotnet-shared-access-signature-part-1/
+[link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
+[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
@@ -650,9 +647,9 @@ After you are done with the SKU details, you can move forward to the [Azure Mark
 [link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]:../virtual-machines/virtual-machines-linux-create-upload-vhd/
+[link-azure-vm-1]:./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
-[link-azure-vm-2]:../virtual-machines/virtual-machines-linux-agent-user-guide/
+[link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/
 [link-openssl]:https://www.openssl.org/
 [link-intsvc]:http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]:https://www.python.org/

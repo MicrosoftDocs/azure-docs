@@ -3,7 +3,7 @@
    description="Describes the StorSimple Manager service Jobs page and how to use it to track recent and current jobs for the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor=""/>
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/22/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array (preview)
+# Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array
 
 ## Overview
 
