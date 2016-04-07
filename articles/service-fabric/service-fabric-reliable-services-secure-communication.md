@@ -22,9 +22,9 @@ Security is one of the most important aspects of communication. The Reliable Ser
 
 ## Help secure a service when you're using service remoting
 
-You can set up more secure remoting for a service by using the following steps:
+We'll be using an existing [example](service-fabric-reliable-services-communication-remoting.md) that explains how to set up remoting for reliable services. To help secure a service when you're using service remoting, follow these steps.
 
-1. Let's use an [example](service-fabric-reliable-services-communication-remoting.md) that talks about how to set up reliable service remoting. We start with an interface, `IHelloWorldStateful`, that defines the methods that will be available for a remote procedure call on your service. Your service will use a `FabricTransportServiceRemotingListener`, which is declared in the `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namespace. This is an `ICommunicationListener` implementation that provides remoting capabilities.
+1. Create an interface, `IHelloWorldStateful`, that defines the methods that will be available for a remote procedure call on your service. Your service will use a `FabricTransportServiceRemotingListener`, which is declared in the `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namespace. This is an `ICommunicationListener` implementation that provides remoting capabilities.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -50,14 +50,14 @@ You can set up more secure remoting for a service by using the following steps:
 
 2. Add listener settings and security credentials.
 
-    You need to install the certificate that you want to use to help secure your service communication on all the nodes in the cluster. There are two ways you can provide listener settings and security credentials.
+    Make sure that the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. There are two ways that you can provide listener settings and security credentials.
 
     1. Provide them directly in the service code:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            FabricTransportListenerSettings listnerSettings = new FabricTransportListenerSettings
+            FabricTransportListenerSettings listenerSettings = new FabricTransportListenerSettings
             {
                 MaxMessageSize = 10000000,
                 SecurityCredentials = GetSecurityCredentials()
@@ -65,7 +65,7 @@ You can set up more secure remoting for a service by using the following steps:
             return new[]
             {
                 new ServiceReplicaListener(
-                    (context) => new FabricTransportServiceRemotingListener(context,this,listnerSettings))
+                    (context) => new FabricTransportServiceRemotingListener(context,this,listenerSettings))
             };
         }
 
@@ -84,7 +84,7 @@ You can set up more secure remoting for a service by using the following steps:
             return x509Credentials;
         }
         ```
-    2. Provide them by using a [config package](service-fabric-application-model.md).
+    2. Provide them by using a [config package](service-fabric-application-model.md):
 
         Add a `TransportSettings` section in the settings.xml.
 
@@ -139,7 +139,7 @@ You can set up more secure remoting for a service by using the following steps:
          }
          ```
 
-3. When you call methods on a service that is more secure by using the remoting stack, don't use the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class to create a service proxy. Instead, use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`, and pass in `FabricTransportSettings`, which contains the `SecurityCredentials`.
+3. When you call methods on a secured service by using the remoting stack, instead of using the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class to create a service proxy, use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`, and pass in `FabricTransportSettings`, which contains the `SecurityCredentials`.
 
     ```csharp
 
@@ -168,7 +168,7 @@ You can set up more secure remoting for a service by using the following steps:
 
     ```
 
-    If the client code is running as part of a service, you can load the `FabricTransportSettings` from the settings.xml. Create a TransportSettings section similar to the service code, as shown above. Make the following changes to the client code:
+    If the client code is running as part of a service, you can load the `FabricTransportSettings` from the settings.xml. Create a TransportSettings section similar to the service code, as shown earlier. Make the following changes to the client code:
 
     ```csharp
 
@@ -199,9 +199,9 @@ You can set up more secure remoting for a service by using the following steps:
 
 ## Help secure a service when you're using a WCF-based communication stack
 
-We will be using an [example](service-fabric-reliable-services-communication-wcf.md) that explains how to set up a WCF-based communication stack for Reliable Services. The example will also show how to extend it to make it more secure.
+We'll be using an existing [example](service-fabric-reliable-services-communication-wcf.md) that explains how to set up a WCF-based communication stack for reliable services. To help secure a service when you're using a WCF-based communication stack, follow these steps:
 
-1. For the service, we need to create a `WcfCommunicationListener` that is more secure. To do this, we need to modify the `CreateServiceReplicaListeners` method.
+1. For the service, you need to help secure the  `WcfCommunicationListener` that you create. To do this, you need to modify the `CreateServiceReplicaListeners` method.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -215,7 +215,7 @@ We will be using an [example](service-fabric-reliable-services-communication-wcf
 
     private WcfCommunicationListener<ICalculator> CreateWcfCommunicationListener(StatefulServiceContext context)
     {
-       var wcfCommunicationListner = new WcfCommunicationListener<ICalculator>(
+       var wcfCommunicationListener = new WcfCommunicationListener<ICalculator>(
             serviceContext:context,
             wcfServiceObject:this,
             // For this example we will be using NetTcpBinding
@@ -223,12 +223,12 @@ We will be using an [example](service-fabric-reliable-services-communication-wcf
             endpointResourceName:"WcfServiceEndpoint");
 
         // Add certificate details in the servicehost credentials.
-        wcfCommunicationListner.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
+        wcfCommunicationListener.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
             StoreLocation.LocalMachine,
             StoreName.My,
             X509FindType.FindByThumbprint,
             "9DC906B169DC4FAFFD1697AC781E806790749D2F");
-        return wcfCommunicationListner;
+        return wcfCommunicationListener;
     }
 
     private static NetTcpBinding GetNetTcpBinding()
@@ -239,7 +239,7 @@ We will be using an [example](service-fabric-reliable-services-communication-wcf
     }
     ```
 
-2. In the client, the `WcfCommunicationClient` class that we created in the previous [example](service-fabric-reliable-services-communication-wcf.md) remains unchanged. But we need to override the `CreateClientAsync` method of `WcfCommunicationClientFactory`:
+2. In the client, the `WcfCommunicationClient` class that we created in the previous [example](service-fabric-reliable-services-communication-wcf.md) remains unchanged. But you need to override the `CreateClientAsync` method of `WcfCommunicationClientFactory`:
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
