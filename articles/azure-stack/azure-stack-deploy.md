@@ -28,7 +28,7 @@ These requirements apply to the Azure Stack POC only and might change for future
 |---|---|---|
 | Disk drives: Operating System | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
 | Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). | 4 disks. Each disk provides a minimum of 250 GB of capacity. |
-| Compute: CPU | Dual-Socket: 12 Physical Cores  | Dual-Socket: 16 Physical Cores |
+| Compute: CPU | Dual-Socket: 12 Physical Cores (total)  | Dual-Socket: 16 Physical Cores (total) |
 | Compute: Memory | 96 GB RAM  | 128 GB RAM |
 | Compute: BIOS | Hyper-V Enabled (with SLAT support)  | Hyper-V Enabled (with SLAT support) |
 | Network: NIC | Windows Server 2012 R2 Certification required for NIC; no specialized features required | Windows Server 2012 R2 Certification required for NIC; no specialized features required |
@@ -101,6 +101,8 @@ One available port on a switch for the POC machine.  
 The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. For example:
 
 	DeployAzureStack.ps1 –Verbose –PublicVLan 305
+
+Specifying this parameter will set the VLAN ID for the host and NATVM only.
 
 ### Subnet
 
