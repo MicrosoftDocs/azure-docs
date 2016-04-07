@@ -65,7 +65,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 	
 	- **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
 	- **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
-    - **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connectiotion.
+    - **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
 	- **Scale Cluster**: Allows you to change the number of workder nodes for this cluster.
 	- **Delete**: Deletes the cluster.
 	- **Quickstart (![cloud and thunderbolt icon = quickstart](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: Displays information that will help you get started using HDInsight.
@@ -89,7 +89,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
     - **Quick Start**:  Displays information that will help you get started using HDInsight.
 	- **Cluster Login**: Change the cluster HTTP user name and password.
 	- **Scale Cluster**: Increase and decrease the number of cluster worker nodes.
-    - **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connectiotion.
+    - **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
     - **HDInsight Partner**: Add/remove the current HDInsight Partner.
 	- **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process.
     - **Script Actions**: Run Bash scripts on the cluster.
@@ -103,7 +103,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 
 6. Click **Properties**:
 
-	The properties lists the following:
+	The properties are:
 	
 	- **Hostname**: Cluster name.
 	- **Cluster URL**.
@@ -121,7 +121,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 
 ##Delete clusters
 
-Delete a cluster will not delete the default storange account or any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. It is recommended to use a new default Blob container when you re-create the cluster.
+Delete a cluster will not delete the default storage account or any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. It is recommended to use a new default Blob container when you re-create the cluster.
 
 1. Sign in to the [Portal][azure-portal].
 2. Click **Browse All** from the left menu, click **HDInsight Clusters**, click your cluster name.
@@ -204,7 +204,7 @@ An HDInsight cluster can have two user accounts. The HDInsight cluster user acco
 
 **To change the HDInsight cluster user password**
 
-1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The defaut username is **admin**. The URL is **https://<HDInsight Cluster Name>azurehdinsight.net**.
+1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://<HDInsight Cluster Name>azurehdinsight.net**.
 2. Click **Admin** from the top menu, and then click "Manage Ambari". 
 3. From the left menu, click **Users**.
 4. Click **Admin**.
@@ -243,7 +243,7 @@ See [List and show clusters](#list-and-show-clusters).
 
 ##Find the default storage account
 
-Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster apears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](#list-and-show-clusters).
+Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster appears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](#list-and-show-clusters).
 
 
 ##Run Hive queries
@@ -271,15 +271,15 @@ Using the Azure portal, you can browse the content of the default container.
 2. Click **HDInsight Clusters** from the left menu to list the existing clusters.
 3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
 4. Click **Settings**.
-5. From **Settings** blade, click **Azure STorage Keys
+5. From **Settings** blade, click **Azure Storage Keys**.
 6. Click the default storage account name.
 7. Click the **Blobs** tile.
-8. Clich the default container name.
+8. Click the default container name.
 
 
 ##Monitor cluster usage
 
-The __Usage__ section of the HDInsight cluster blade dislays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster. See [List and show clusters](#list-and-show-clusters).
+The __Usage__ section of the HDInsight cluster blade displays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster. See [List and show clusters](#list-and-show-clusters).
 
 > [AZURE.IMPORTANT] To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md)
 
