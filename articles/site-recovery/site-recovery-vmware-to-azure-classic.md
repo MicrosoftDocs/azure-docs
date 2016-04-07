@@ -661,10 +661,6 @@ Run a test failover to simulate your failover and recovery processes in an isola
 6. Click **The test failover is complete** to automatically clean up the test environment. After this is done the test failover will show a **Complete** status. Any elements or VMs created automatically during the test failover are deleted. Note that if a test failover continues longer than two weeks it’s completed by force.
 
 
-### Notes on failover
-
-When you run a failover, 
-
 
 ### Run an unplanned failover
 
