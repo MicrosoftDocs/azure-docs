@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Manage data skew for hash distributed tables in Azure SQL Data Warehouse  | Microsoft Azure"
+   pageTitle="Manage data skew for distributed tables in Azure SQL Data Warehouse  | Microsoft Azure"
    description="Find and fix data skew when rows are unevenly distributed across all the distributions of a hash distributed table in Azure SQL Data Warehouse." 
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Manage data skew for hash distributed tables in Azure SQL Data Warehouse
+# Manage data skew for distributed tables in Azure SQL Data Warehouse
 This tutorial identifies data skew in your hash distributed tables, and gives suggestions for fixing the problem. 
 
 When table data is distributed using the hash distribution method there is a chance that some distributions will be skewed to have disproportionately more data than others. Excessive data skew can impact query performance because the final result of a distributed query will not be ready until the longest-running distribution finishes.  Depending on the degree of the data skew you might need to address it. 
@@ -25,10 +25,10 @@ In this tutorial you will:
 
 - Use metadata to determine which tables have data skew
 - Learn tips for knowing when to resolve data skew
-- Re-create the table with a different distribution column
+- Re-create the table to resolve data skew
 
 
-## Step 1: Find tables that have data skew
+## Step 1: Create a view that finds data skew
 
 Create this view to identify which tables have data skew.
 
