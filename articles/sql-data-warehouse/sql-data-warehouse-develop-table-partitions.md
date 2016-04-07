@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table partitions in SQL Data Warehouse
@@ -38,7 +38,7 @@ Normally table partitions are useful in two primary ways:
 When creating clustered column-store indexes in SQL DW, a DBA needs to consider an additional factor: number of row.   CCI tables can achieve a high degree of compression and helps SQL DW accelerate query performance.  Due to how compression works internally in SQL DW, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL DW spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 100,000 rows per distribution & partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 6 million rows per month, or 216 million rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then the DBA should consider creating the table with fewer partitions in order to make the number of rows per distribution larger.  
 
 
-To size your current database at the partition level use a query like the one below:
+To size your current SQL Server database at the partition level use a query like the one below:
 
 ```sql
 SELECT      s.[name]                        AS      [schema_name]
@@ -54,7 +54,7 @@ SELECT      s.[name]                        AS      [schema_name]
 FROM        sys.schemas s
 JOIN        sys.tables t                    ON      t.[schema_id]         = s.[schema_id]
 JOIN        sys.partitions p                ON      p.[object_id]         = t.[object_id]
-JOIN        sys.allocation_units a          ON      a.[container_id]        = p.[partition_id]
+JOIN        sys.allocation_units a          ON      a.[container_id]      = p.[partition_id]
 JOIN        sys.indexes i                   ON      i.[object_id]         = p.[object_id]
                                             AND     i.[index_id]          = p.[index_id]
 JOIN        sys.data_spaces ds              ON      ds.[data_space_id]    = i.[data_space_id]

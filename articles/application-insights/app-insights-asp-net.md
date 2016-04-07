@@ -70,7 +70,7 @@ The command did these steps (which you could instead [do manually](app-insights-
 
 If you don't sign in to Azure initially, the SDK will be installed without connecting it to a resource. You'll be able to see and search the Application Insights telemetry in Visual Studio search window while you're debugging. You can complete the other steps later. 
 
-## <a name="run"></a> Run your project
+## <a name="run"></a> Debug your project
 
 Run your application with F5 and try it out: open different pages to generate some telemetry.
 
@@ -81,6 +81,16 @@ In Visual Studio, you'll see a count of the events that have been logged.
 Click this button to open diagnostic search. 
 
 
+
+## Debugging telemetry
+
+### Diagnostics hub
+
+The Diagnostics Hub (in Visual Studio 2015 or later) shows the Application Insights server telemetry as it's generated. This works even if you opted only to install the SDK, without connecting it to a resource in the Azure portal.
+
+![Open the Diagnostic Tools window and inspect the Application Insights events.](./media/app-insights-asp-net/31.png)
+
+
 ### Diagnostic search
 
 The Search window shows events that have been logged. (If you signed in to Azure when you set up Application Insights, you'll be able to search the same events in the portal.)
@@ -89,8 +99,12 @@ The Search window shows events that have been logged. (If you signed in to Azure
 
 The free text search works on any fields in the events. For example, search for part of the URL of a page; or the value of a property such as client city; or specific words in a trace log.
 
+You can also open the Related Items tab to help diagnose failed requests or exceptions.
 
-[Learn more about search](app-insights-diagnostic-search.md)
+
+![](./media/app-insights-asp-net/41.png)
+
+
 
 ### Exceptions
 
@@ -100,7 +114,28 @@ Click an exception to get a stack trace. If the code of the app is open in Visua
 
 
 
-## <a name="monitor"></a> Open Application Insights
+
+### Local monitoring
+
+
+
+(From Visual Studio 2015 Update 2) If you haven't configured the SDK to send telemetry to the Application Insights portal (so that there is no instrumentation key in ApplicationInsights.config) then the diagnostics window will display telemetry from your latest debugging session. 
+
+This is desirable if you have already published a previous version of your app. You don't want the telemetry from your debugging sessions to be mixed up with the telemetry on the Application Insights portal from the published app.
+
+It's also useful if you have some [custom telemetry](app-insights-api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
+
+
+* *At first, I fully configured Application Insights to send telemetry to the portal. But now I'd like to see the telemetry only in Visual Studio.*
+
+ * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
+ * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
+
+
+
+## <a name="monitor"></a> View telemetry in the Application Insights portal
+
+The Application Insights portal is where you'll see telemetry once your application is published, and while you're debugging you'll want to verify that it sends telemetry correctly.
 
 Open your Application Insights resource in the [Azure portal][portal].
 
@@ -152,21 +187,6 @@ See [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data.md#NuG
 
 > [AZURE.NOTE] If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
 > [Learn about sampling](app-insights-sampling.md).
-
-
-## Debugging telemetry
-
-### Diagnostics hub
-
-The Diagnostics Hub (in Visual Studio 2015 or later) shows the Application Insights server telemetry as it's generated. This works even if you opted only to install the SDK, without connecting it to a resource in the Azure portal.
-
-![Open the Diagnostic Tools window and inspect the Application Insights events.](./media/app-insights-asp-net/31.png)
-
-This is particularly useful if you have some [custom telemetry](app-insights-api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
-
-* *At first, I fully configured Application Insights to send telemetry to the portal. But now I'd like to see the telemetry only in Visual Studio.*
-
-    Comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
 
 
 
