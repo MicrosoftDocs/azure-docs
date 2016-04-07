@@ -36,6 +36,10 @@ Video: "Getting Started with Xamarin and Azure Mobile Services" with Craig Dunn,
 A screenshot from the completed app is below:
 
 ![][0]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 Completing this tutorial requires XCode and Xamarin Studio for OS X or Visual Studio on Windows with a networked Mac. Complete installation instructions are on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
 
 The downloaded quickstart project contains the Azure Mobile services component for Xamarin.Android. While this project targets Android 4.2 or a later version, the Mobile Services SDK requires only Android 2.2 or a later version.

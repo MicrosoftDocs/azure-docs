@@ -45,10 +45,17 @@ This tutorial walks you through these basic steps:
 3. [Update the app to reconnect your mobile service]
 
 This tutorial requires the following:
+<<<<<<< HEAD
 
 * Visual Studio with Xamarin on Windows or Xamarin Studio on Mac OS X. Complete installation instructions are on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 * Completion of the [Get started with Mobile Services] tutorial
 
+=======
+
+* Visual Studio with Xamarin on Windows or Xamarin Studio on Mac OS X. Complete installation instructions are on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
+* Completion of the [Get started with Mobile Services] tutorial.
+ 
+>>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 ## <a name="review-offline"></a>Review the Mobile Services sync code
 
 Azure Mobile Services offline sync allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface.
@@ -172,4 +179,8 @@ In this section you will reconnect the app to the mobile service. This simulates
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
+<<<<<<< HEAD
+=======
+
+>>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 [Azure classic portal]: https://manage.windowsazure.com

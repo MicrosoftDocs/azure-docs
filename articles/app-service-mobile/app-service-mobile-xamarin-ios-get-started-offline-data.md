@@ -27,6 +27,13 @@ This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamar
 In this tutorial, you will update the Xamarin.iOS app project from [Create a Xamarin iOS app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
+<<<<<<< HEAD
+=======
+
+## Requirements
+
+* Complete [Create a Xamarin iOS app]. This tutorial uses the completed app covered in that tutorial.
+>>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 
 ## Review the client sync code
 
@@ -154,11 +161,14 @@ In this section you will reconnect the app to the mobile backend, which simulate
 [Create a Xamarin iOS app]: app-service-mobile-xamarin-ios-get-started.md
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 =======
 >>>>>>> Updating Xamarin references and install links
 
+=======
+>>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri

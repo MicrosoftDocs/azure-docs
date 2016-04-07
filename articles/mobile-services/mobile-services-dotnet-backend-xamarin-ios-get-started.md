@@ -58,8 +58,13 @@ In this section you will download a new Xamarin iOS app and a service project fo
    	This displays the three easy steps to create a Xamarin iOS app connected to your mobile service.
 
   	![][7]
+<<<<<<< HEAD
 
 4. Under **Download and publish your service to the cloud**, select **iOS** and click **Download**.
+=======
+
+4. Under **Download and publish your service to the cloud**, select **iOS** and click **Download**.
+>>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 
   	This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 

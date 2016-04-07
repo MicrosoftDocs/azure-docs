@@ -48,7 +48,11 @@ This tutorial requires the following:
 
 * Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions. 
 * A Mac with Xcode v7.0 or later and Xamarin Studio Community installed. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) and [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+<<<<<<< HEAD
 * Completion of the [Get started with Mobile Services] tutorial
+=======
+* Completion of the [Get started with Mobile Services] tutorial.
+>>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 
 ## <a name="review-offline"></a>Review the Mobile Services sync code
 
