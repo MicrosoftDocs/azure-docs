@@ -103,7 +103,6 @@ The next step is to deploy your application to Azure Websites. The following art
 
 * [Create a PHP-MySQL Azure Web Site and deploy using Git][website-git]
 * [Create a PHP-MySQL Azure Web Site and Deploy Using FTP][website-ftp]
-* [Create and deploy a PHP-MySQL Azure Web Site using WebMatrix][website-webmatrix]
 
 ## Next steps
 This code was provided to show you basic functionality using Twilio in PHP on Azure. Before deploying to Azure in production, you may want to add more error handling or other features. For example:
@@ -136,7 +135,6 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [twilio_php]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPCallForm.jpg
 [twilio_php_response]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPMakeCall.jpg
-[website-git]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/
-[website-ftp]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-ftp/
-[website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
+[website-git]: ./web-sites/web-sites-php-mysql-deploy-use-git.md
+[website-ftp]: ./web-sites/web-sites-php-mysql-deploy-use-ftp.md
 [twilio_php_github]: https://github.com/twilio/twilio-php
