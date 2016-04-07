@@ -21,7 +21,7 @@ This article shows you how to join a virtual machine running Windows Server 2012
 
 
 ## Step 1: Create the Windows Server virtual machine
-Follow the instructions outlined in the [Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-classic-tutorial.md) tutorial. It is very important to ensure that this newly created virtual machine is joined to the same virtual network in which you enabled Azure AD Domain Services. Note that the 'Quick Create' option does not enable you to join the virtual machine to a virtual network. Therefore, you will need to use the 'From Gallery' option to create the virtual machine.
+Follow the instructions outlined in the [Create a virtual machine running Windows in the Azure classic portal](../virtual-machines/virtual-machines-windows-classic-tutorial.md) tutorial. It is very important to ensure that this newly created virtual machine is joined to the same virtual network in which you enabled Azure AD Domain Services. Note that the 'Quick Create' option does not enable you to join the virtual machine to a virtual network. Therefore, you will need to use the 'From Gallery' option to create the virtual machine.
 
 Perform the following steps in order to create a Windows virtual machine joined to the virtual network in which you've enabled Azure AD Domain Services.
 
