@@ -97,7 +97,7 @@ You can also use the Azure Security Center dashboard to access Power BI reports.
 
 8.You will be redirected to an authentication page where you should type the credentials that you are using to connect to Azure Security Center. After the authentication process is done, Power BI will start importing data to build your reports.
 
-> [AZURE.NOTE] A refresh of the report is scheduled to take place on a daily basis, if you experience a failure on this refresh, read [Azure Security Center Power BI Daily Refresh Report Fails](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/), for more information on how to troubleshoot.
+> [AZURE.NOTE] A refresh of the report is scheduled to take place on a daily basis, if you experience a failure on this refresh, read [Potential Refresh Issues with the Azure Security Center Power BI](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/), for more information on how to troubleshoot.
 
 ## Next steps
 In this document, you learned how to use Power BI in Azure Security Center. To learn more about Azure Security Center, see the following:
