@@ -89,7 +89,9 @@ Perform the following steps in order to join the Windows Server virtual machine 
 5. You will be prompted to enter your credentials in order to join the domain. Ensure that you **specify the credentials for a user belonging to the AAD DC Administrators** group. Only members of this group have privileges to join machines to the managed domain.
 
    You can specify credentials in either of the following ways:
+
     - UPN format: This is the UPN suffix for the user account as configured in Azure AD. In this example, the UPN suffix of the user 'bob' is 'bob@domainservicespreview.onmicrosoft.com'.
+
     - SAMAccountName format: You can specify the account name in the SAMAccountName format. In this example, the user 'bob' would need to enter 'CONTOSO100\bob'. Note that if multiple users have the same UPN prefix (eg. 'bob') in your Azure AD tenant, they will encounter issues logging in to the domain using the SAMAccountName format. In these cases, the UPN format can be used reliably to login to the domain.
 
     ![Specify credentials to join the domain](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
@@ -102,9 +104,13 @@ Perform the following steps in order to join the Windows Server virtual machine 
 ## Troubleshooting domain join
 ### Connectivity issues
 If the virtual machine is unable to find the domain, refer to the following troubleshooting steps:
+
 - Ensure that the virtual machine is connected to the same virtual network as that you've enabled Domain Services in. If this is not the case, the virtual machine will be unable to connect to the domain and therefore will be unable to join the domain.
+
 - If the virtual machine is connected to another virtual network, ensure that this virtual network is connected to the virtual network in which you've enabled Domain Services.
+
 - Try to ping the domain using the domain name of the managed domain (eg. 'ping contoso100.com'). If you're unable to do so, try to ping the IP addresses for the domain displayed on the page where you enabled Azure AD Domain Services (eg. 'ping 10.0.0.4'). If you're able to ping the IP address but not the domain, DNS may be incorrectly configured. You may not have configured the IP addresses of the domain as DNS servers for the virtual network.
+
 - Try flushing the DNS resolver cache on the virtual machine ('ipconfig /flushdns').
 
 If you get to the dialog box that asks for credentials to join the domain, you do not have connectivity issues.
@@ -112,7 +118,11 @@ If you get to the dialog box that asks for credentials to join the domain, you d
 
 ### Credentials related issues
 Refer to the following steps if you're having trouble with credentials and are unable to join the domain.
+
 - Ensure that you are using credentials of a user account that belongs to the 'AAD DC Administrators' group. Users who do not belong to this group cannot join machines to the managed domain.
+
 - Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the Getting Started guide.
+
 - Ensure that you use the UPN of the user as configured in Azure AD (eg. 'bob@domainservicespreview.onmicrosoft.com') in order to sign in.
+
 - Ensure that you have waited long enough for password synchronization to complete as specified in the Getting Started guide.
