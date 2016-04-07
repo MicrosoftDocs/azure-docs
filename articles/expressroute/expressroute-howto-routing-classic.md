@@ -179,7 +179,7 @@ This section provides instructions on how to create, get, update and delete the 
 	- A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
 	- A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
 	- A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
-	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You must use a public AS number for this peering.
+	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You must use public AS numbers only. You must own the AS number.
 	- An MD5 hash if you choose to use one. **This is optional**.
 	
 	You can run the following cmdlet to configure Azure public peering for your circuit
