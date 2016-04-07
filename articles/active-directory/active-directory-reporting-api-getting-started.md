@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Getting started with the Azure AD Reporting API"
+   pageTitle="Getting started with the Azure AD Reporting API | Microsoft Azure"
    description="How to get started with the Azure Active Directory Reporting API"
    services="active-directory"
    documentationCenter=""
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="04/07/2016"
    ms.author="dhanyahk"/>
 
 
-# Getting started with the Azure AD Reporting API
+# Getting started with the Azure Active Directory Reporting API
 
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-Azure Active Directory provides a variety of activity, security and audit reports. This data can be consumed through the Azure portal, but can also be very useful in a many other applications, such as SIEM systems, audit, and business intelligence tools.
+Azure Active Directory (AD) provides a variety of activity, security and audit reports. This data can be consumed through the Azure classic portal, but can also be very useful in a many other applications, such as SIEM systems, audit, and business intelligence tools.
 
 The Azure AD Reporting APIs provide programmatic access to these data through a set of REST-based APIs that can be called from a variety programming languages and tools.
 
 This article will walk you through the process of calling the Azure AD Reporting APIs using PowerShell. You can modify the sample PowerShell script to access data from any of the available reports in JSON, XML or text format, as your scenario requires.
 
-To use this sample, you will need an [Azure Active Directory](active-directory-whatis.md)
+To use this sample, you will need an [Azure Active Directory](active-directory-whatis.md) tenant.
 
 ## Creating an Azure AD application to access the API
 
@@ -182,7 +182,7 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
 ## Execute the script
 Once you finish editing the script, run it and verify that the expected data from the AuditEvents report is returned.
 
-The script returns lists all the available reports, and returns output from the AccountProvisioningEvents report in the PowerShell window in JSON format. It also creates files with the same output in JSON, text and XML. You can comment experiment with modifying the script to return data from other reports, and comment out the output formats that you do not need.
+The script list all the available reports, and returns output from the AccountProvisioningEvents report in the PowerShell window in JSON format. It also creates files with the same output in JSON, text and XML. You can comment experiment with modifying the script to return data from other reports, and comment out the output formats that you do not need.
 
 ## Notes
 
@@ -193,4 +193,4 @@ The script returns lists all the available reports, and returns output from the 
 ## Next Steps
 - Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
 - See [Azure AD Audit Report Events](active-directory-reporting-audit-events.md) for more details on the Audit Report
-- See [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/mt126081.aspx) for more details on the Graph API REST service
+- See [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) for more details on the Graph API REST service
