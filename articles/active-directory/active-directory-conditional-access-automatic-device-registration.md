@@ -83,7 +83,7 @@ For example, if you use two UPN suffixes at your organization named @contoso.com
 
 Configure Automatic Device Registration for your Windows 7 and Windows 8.1 domain joined devices using the links below. Be sure that you have completed the prerequisites above before you continue.
 
-* [Configure Automatic Device Registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+* [Configure Automatic Device Registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 
 * [Configure Automatic Device Registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
