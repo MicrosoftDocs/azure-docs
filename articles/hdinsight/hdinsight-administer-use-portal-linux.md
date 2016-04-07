@@ -285,7 +285,7 @@ The __Usage__ section of the HDInsight cluster blade displays information about 
 
 ##Connect to a cluster
 
-See [Use Hive with Hadoop in HDInsight with SSH](hdinsight-hadoop-use-hive-ssh.md#ssh)
+See [Use Hive with Hadoop in HDInsight with SSH](hdinsight-hadoop-use-hive-ssh.md#ssh).
 	
 ##Next steps
 In this article, you have learned how to create an HDInsight cluster by using the Portal, and how to open the Hadoop command-line tool. To learn more, see the following articles:
@@ -293,7 +293,9 @@ In this article, you have learned how to create an HDInsight cluster by using th
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
 * [Create HDInsight clusters](hdinsight-provision-clusters.md)
-* [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [Use Hive in HDInsight](hdinsight-use-hive.md)
+* [Use Pig in HDInsight](hdinsight-use-pig.md)
+* [Use Sqoop in HDInsight](hdinsight-use-sqoop.md)
 * [Get Started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
