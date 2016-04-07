@@ -41,7 +41,7 @@ To build the complete working application, you’ll need to:
 To get started, [download a skeleton project](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Each is a Visual Studio 2013 solution. You'll also need an Azure AD tenant in which you can create users and register an application. If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 ## *0. Set up your Xamarin Development Environment*
-Because this tutorial includes projects for iOS, Android, and Windows, you’ll need Visual Studio and Xamarin together. To create the necessary environment, follow the complete instructions on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx) on MSDN. Those instructions include material you can review to learn more about Xamarin while you're waiting for the installers to complete. 
+Because this tutorial includes projects for iOS, Android, and Windows, you’ll need Visual Studio and Xamarin together. To create the necessary environment, follow the complete instructions on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) on MSDN. Those instructions include material you can review to learn more about Xamarin while you're waiting for the installers to complete. 
 
 Once you've completed the necessary setup, open the solution in Visual Studio to get started. You will find six projects: five platform-specific projects and one portable class library that will be shared across all platforms, `DirectorySearcher.cs`
 
