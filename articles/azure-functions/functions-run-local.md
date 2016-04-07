@@ -20,11 +20,11 @@
 
 ## Overview
 
-[Azure Functions](functions-overview.md) are easy to code and test in the Azure portal, but sometimes it's useful to work with them locally before running in Azure. For example, some of the languages that Azure Functions supports are easier to write code for in Visual Studio because it provides [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx). 
+This article explains how to run [Azure Functions](functions-overview.md) locally by downloading the [WebJobs.Script](https://github.com/Azure/azure-webjobs-sdk-script/) GitHub repository and running the Visual Studio solution that it contains.
 
-This article explains how to run functions locally by downloading the [WebJobs.Script](https://github.com/Azure/azure-webjobs-sdk-script/) project and running the Visual Studio solution it contains.
+The runtime for Azure Functions is an implementation of the WebJobs.Script open source project. This project is in turn built on the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md), and both frameworks can run locally. You do need to connect to an Azure storage account, however, because the WebJobs SDK uses storage account features that the storage emulator doesn't support.
 
-The runtime for Azure Functions is an implementation of the WebJobs.Script open source project. WebJobs.Script is in turn built on the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md). Both frameworks can run locally, except you do need to connect to an Azure storage account. The WebJobs SDK uses storage account features that the storage emulator doesn't support.
+Functions are easy to code and test in the Azure portal, but sometimes it's useful to work with them locally before running in Azure. For example, some of the languages that Azure Functions supports are easier to write code for in Visual Studio because it provides [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx). 
 
 ## Prerequisites
 
@@ -36,9 +36,9 @@ When you run functions locally, you get some output in the console window, but y
 
 ### Visual Studio 2015 with the latest Azure SDK for .NET
 
-If you have an earlier version of the SDK, or if you don't have Visual Studio 2015, [download the latest Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio 2015 is automatically installed with the SDK if you don't already have it.
+If you don't have Visual Studio 2015, or you don't have the current Azure SDK, [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio 2015 is automatically installed with the SDK if you don't already have it.
 
-## Conditional prerequisites
+### Conditional prerequisites
 
 Some Azure resources and software installations are required only if you plan to run functions that use them, for example:  
 
