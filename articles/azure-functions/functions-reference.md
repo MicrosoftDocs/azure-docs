@@ -1103,12 +1103,13 @@ The function.json file supports the following properties for use with Mobile App
 - `name` : Variable name used in function code for the new record.
 - `type` : Biding type must be set to *easyTable*.
 - `tableName` : The table where the new record will be created.
-- `id` : The ID of the record to retrieve. This property supports bindings similar to "{queueTrigger}", which will use the string value of the queue message as the record Id.
+- `id` : The ID of the record to retrieve. This property supports bindings similar to `{queueTrigger}`, which will use the string value of the queue message as the record Id.
 - `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
 - `connection` : String that is the application setting that specifies the URI of your mobile app.
 - `direction` : Binding direction, which must be set to *in*.
 
 Example function.json:
+
 	{
 	  "bindings": [
 	    {
