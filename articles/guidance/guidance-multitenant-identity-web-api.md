@@ -253,14 +253,12 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+## Next steps
 
-## Additional resources
-
-- [Authentication Scenarios for Azure AD][auth-scenarios]
+- Read the next article in this series: [Caching access tokens in a multitenant application][token cache]
 
 <!-- links -->
 [ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
-[auth-scenarios]: ../active-directory/active-directory-authentication-scenarios.md/#web-application-to-web-api
 [JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer
 [part of a series]: guidance-multitenant-identity.md
 [Tailspin Surveys]: guidance-multitenant-identity-tailspin.md
@@ -276,3 +274,4 @@ public void ConfigureServices(IServiceCollection services)
 [claims transformation]: guidance-multitenant-identity-claims.md#claims-transformations
 [Authorization]: guidance-multitenant-identity-authorize.md
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[token cache]: guidance-multitenant-identity-token-cache.md

@@ -14,11 +14,74 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="03/29/2016"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 03/29/2016 release of HDInsight
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight	(Windows)	 	2.1.10.875.2159884 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight	(Windows)	 	3.0.6.875.2159884 (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight	(Windows)	 	3.1.4.875.2159884  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight	(Windows)		3.2.7.875.2159884  (HDP 2.2.9.1-7 - unchanged)
+* HDInsight (Windows)		3.3.0.875.2159884  (HDP 2.3.3.1-16)
+* HDInsight	(Linux)			3.2.1000.0.7193255   (HDP	2.2.9.1-8 - unchanged)
+* HDInsight (Linux)			3.3.1000.0.7193255   (HDP 2.3.3.1-7 - unchanged)
+* HDInsight (Linux)			3.4.1000.0.7195842   (HDP 2.4.1.0-327)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Added HDInsight 3.4 version and updated HDP versions for all HDInsight clusters | With this release, we have added HDInsight v3.4 (based on HDP 2.4) and have also updated other HDP versions. HDP 2.4 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md).| Service    | All Linux clusters| N/A
+| HDInsight Premium | HDInsight is now available in two categories - Standard and Premium. HDInsight Premium is currently in Preview and available only for Hadoop and Spark clusters on Linux. For more information see [here](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Service    | Hadoop and Spark on Linux| N/A
+| Microsoft R Server | HDInsight Premium provides Microsoft R Server that can be included with Hadoop and Spark clusters on Linux. For more information see [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md).| Service    | Hadoop and Spark on Linux| N/A
+| Spark 1.6.0 | HDInsight 3.4 clusters now include Spark 1.6.0| Service    | Spark clusters on Linux| N/A
+| Jupyter notebook enhancements | Jupyter notebooks available with Spark clusters now provide additional Spark kernels. They also include enhancements like use of %%magic, auto-visualization, and integration with Python visualization libraries (such as matplotlib). For more information, see [Kernels available for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-kernels.md). | Service | Spark clusters on Linux | N/A
+
+## Notes for 03/22/2016 release of HDInsight
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight	(Windows)	 	2.1.10.875.2159884 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight	(Windows)	 	3.0.6.875.2159884 (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight	(Windows)	 	3.1.4.875.2159884  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight	(Windows)		3.2.7.875.2159884  (HDP 2.2.9.1-7 - unchanged)
+* HDInsight (Windows)		3.3.0.875.2159884  (HDP 2.3.3.1-16)
+* HDInsight	(Linux)			3.2.1000.0.7193255   (HDP	2.2.9.1-8 - unchanged)
+* HDInsight (Linux)			3.3.1000.0.7193255   (HDP 2.3.3.1-7 - unchanged)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDInsight versions for all HDInsight clusters | With this release, we have updated HDInsight versions for all HDInsight clusters| Service    | All| N/A
+
+
+## Notes for 03/10/2016 release of HDInsight
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight	(Windows)	 	2.1.10.859.2123216 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight	(Windows)	 	3.0.6.859.2123216 (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight	(Windows)	 	3.1.4.859.2123216  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight	(Windows)		3.2.7.859.2123216  (HDP 2.2.9.1-7)
+* HDInsight (Windows)		3.3.0.859.2123216  (HDP 2.3.3.1-5 - unchanged)
+* HDInsight	(Linux)			3.2.1000.7076817   (HDP	2.2.9.1-8)
+* HDInsight (Linux)			3.3.1000.7076817   (HDP 2.3.3.1-7)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDInsight versions for all HDInsight clusters | With this release, we have updated HDInsight versions for all HDInsight clusters| Service    | All| N/A
 
 ## Notes for 01/27/2016 release of HDInsight
 
@@ -56,7 +119,7 @@ This release contains the following updates.
 
 | Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Added HDInsight 3.3 version and updated HDInsight versions for all HDInsight clusters | With this release, we have added HDInsight v3.3 (based on HDP 2.3) and have also updated other HDP versions. HDP 2.3 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) and more information on HDInsight versions can be found [here](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).| Service    | All| N/A
+| Added HDInsight 3.3 version and updated HDP versions for all HDInsight clusters | With this release, we have added HDInsight v3.3 (based on HDP 2.3) and have also updated other HDP versions. HDP 2.3 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md).| Service    | All| N/A
 
 ## Notes for 11/30/2015 release of HDInsight
 
@@ -1462,7 +1525,7 @@ The following version changes were made between HDInsight 2.x (HDP1.x) and HDIns
 
 
 ### Drivers
-The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](../hdinsight-connect-excel-hive-odbc-driver.md).
+The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Bug fixes

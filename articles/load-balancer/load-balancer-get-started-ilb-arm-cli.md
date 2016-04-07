@@ -45,7 +45,9 @@ You can get more information about load balancer components with Azure resource 
 
 ## Setup CLI to use Resource Manager
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+
+1. If you have never used Azure CLI, see [Install the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+
 
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 

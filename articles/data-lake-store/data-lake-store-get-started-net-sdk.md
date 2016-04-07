@@ -13,17 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/29/2016"
+   ms.date="04/06/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using .NET SDK
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [Portal](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [Azure CLI](data-lake-store-get-started-cli.md)
+- [Node.js](data-lake-store-manage-use-nodejs.md)
 
 Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake, see [Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -67,7 +68,7 @@ Even though the code snippet below provides methods for both the approaches, thi
 5. Add the Nuget packages to your project.
 
 	1. Right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
-	2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include Prerelease** check box is selected.
+	2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
 	3. Search for and install the following Data Lake Store packages:
 
 		* `Microsoft.Azure.Management.DataLake.Store`
@@ -75,7 +76,7 @@ Even though the code snippet below provides methods for both the approaches, thi
 
 		![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
 
-	4. Also install the `Microsoft.IdentityModel.Clients.ActiveDirectory` package for Azure Active Directory authentication.
+	4. Also install the `Microsoft.IdentityModel.Clients.ActiveDirectory` package for Azure Active Directory authentication. Make sure you *clear* the **Include prerelease** check box so that you install a stable version of this package.
 
 		![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Create a new Azure Data Lake account")
 
@@ -306,12 +307,6 @@ Even though the code snippet below provides methods for both the approaches, thi
 
 
 8. Build and run the application. Follow the prompts to run and complete the application.
-
-## Other ways of creating a Data Lake Store account
-
-- [Get Started with Data Lake Store using Portal](data-lake-store-get-started-portal.md)
-- [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)
-- [Get Started with Data Lake Store using Azure CLI](data-lake-store-get-started-cli.md)
 
 
 ## Next steps

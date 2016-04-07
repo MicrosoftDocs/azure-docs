@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Service-side authorization of users in Mobile Services
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-service-side-authorization.md)
+- [Javascript backend](mobile-services-javascript-backend-service-side-authorization.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [How to: Restrict data access for authorized users](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#authorize) in the topic Work with the .NET backend server SDK for Azure Mobile Apps.
 
 This topic shows you how to use server-side logic to authorize users.  In this tutorial, you modify table controllers, filter queries based on user IDs, and give users access to only their own data. Filtering a user's query results by the user ID is the most basic form of authorization. Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access.
 

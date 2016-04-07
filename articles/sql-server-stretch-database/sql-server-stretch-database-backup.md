@@ -17,7 +17,7 @@
 	ms.author="douglasl"/>
 
 
-# Backup and restore Stretch-enabled databases 
+# Backup and restore Stretch-enabled databases
 
 To back up and restore Stretch\-enabled databases, you can continue to use  the methods that you currently use. For more info about SQL Server backup and restore, see [Back Up and Restore of SQL Server Databases](https://msdn.microsoft.com/library/ms187048.aspx).
 
@@ -59,8 +59,11 @@ After you re\-establish the connection, Stretch Database attempts to reconcile e
 ![Stretch Database after backup][StretchBackupImage4]
 
 ## See also
+
 [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
+
 [sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+
 [Back Up and Restore of SQL Server Databases](https://msdn.microsoft.com/library/ms187048.aspx)
 
 <!--Image references-->

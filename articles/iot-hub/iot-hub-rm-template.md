@@ -81,7 +81,7 @@ Use a JSON template and parameter file to create a new IoT hub in your resource 
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": {
@@ -119,7 +119,7 @@ Use a JSON template and parameter file to create a new IoT hub in your resource 
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": { "value": "mynewiothub" }

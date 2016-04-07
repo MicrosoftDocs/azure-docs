@@ -58,10 +58,9 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 * [Serialize data in Hadoop with the Microsoft Avro Library](hdinsight-dotnet-avro-serialization.md)
 * [Process and analyze JSON documents using Hive](hdinsight-using-json-in-hive.md)
 * [Use Python with Hive and Pig](hdinsight-python.md)
-* [Optimize Hive queries for Hadoop](hdinsight-hadoop-optimize-hive-query–v1.md)
+* [Optimize Hive queries for Hadoop](hdinsight-hadoop-optimize-hive-query.md)
 * [Run Pig jobs using the .NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md )
 * [Use C# user-defined functions with Hive and Pig streaming](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Develop C# Hadoop streaming programs](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 ## HBase: NoSQL database
 
@@ -71,7 +70,7 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 
 ## Apache Storm: Stream query
 
-* [Get started with the Storm Starter samples](hdinsight-apache-storm-tutorial-get-started-v1.md)
+* [Get started with the Storm Starter samples](hdinsight-apache-storm-tutorial-get-started.md)
 * [Deploy and manage Apache Storm topologies](hdinsight-storm-deploy-monitor-topology.md)
 * [Develop C# topologies for Apache Storm using Hadoop tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Develop Java-based topologies for a basic word-count application with Apache Storm and Maven](hdinsight-storm-develop-java-topology.md)
@@ -100,9 +99,8 @@ For articles about using native Apache Spark clusters in the Azure Portal, go to
 ## Machine learning in HDInsight
 
 * [Generate movie recommendations by using Apache Mahout with Hadoop](hdinsight-mahout.md)
-* [Learning path: Build advanced analytics solutions](machine-learning-data-science-how-to-create-machine-learning-service.md)
-* [Learning path: Advanced data processing](machine-learning-data-science-advanced-data-processing.md)
-* [Predict taxi tips with HDInsight and Machine Learning](machine-learning-data-science-process-hive-walkthrough.md)
+* [Learning path: Build advanced analytics solutions](../machine-learning/machine-learning-walkthrough-develop-predictive-solution.md)
+* [Predict taxi tips with HDInsight and Machine Learning](../machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Extensibility
 

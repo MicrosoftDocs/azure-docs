@@ -9,7 +9,7 @@
 * [Deploy WordPress backed by MySQL replication cluster with master-slave configuration](/documentation/templates/mysql-replication/)
 * [Deploy a WordPress app backed by SQL Azure DB managed by ProjectNami](/marketplace/partners/projectnami/projectnami/)
   
-## Chapter 2 : Troubleshooting WordPress Application
+## Troubleshooting WordPress Application
 
 * [How to troubleshoot your WordPress app](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Gather usage  telemetry using Azure Application Insights  service](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
@@ -18,7 +18,7 @@
 * [Use various auto-heal rules to automate resolving real time incidents](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [How to backup your web app](../articles/app-service-web/web-sites-backup.md) and [How to restore your web app](../articles/app-service-web/web-sites-restore.md)
 
-## Chapter 3: Performance
+## Performance
 
 * [How to speed up WordPress web app](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
 * [How to enabled redis cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) using [redis cache plugin](https://wordpress.org/plugins/wp-redis/)

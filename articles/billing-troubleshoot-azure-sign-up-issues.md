@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="jiangchen79"
-	manager="mbaldwin"
+	manager="felixwu"
 	editor=""
 	tags="top-support-issue"/>
 

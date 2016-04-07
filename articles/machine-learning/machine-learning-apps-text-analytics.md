@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/08/2016"
 	ms.author="onewth"/>
 
 
@@ -58,7 +58,7 @@ Ensure that you include the correct headers in your request, which should be as 
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-You can find your account key from your account in the [Azure Data Market](https://datamarket.azure.com/account/keys). 
+You can find your account key from your account in the [Azure Data Market](https://datamarket.azure.com/account/keys). Note that currently only JSON is accepted for input and output formats. XML is not supported.
 
 ---
 

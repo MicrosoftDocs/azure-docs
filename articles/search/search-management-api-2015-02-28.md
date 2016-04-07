@@ -494,6 +494,8 @@ Alternatively, you can use PUT.
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28
 
+> [AZURE.NOTE] If you use a PUT to update the service, you must use the same request body used in  a [Create Service](#CreateService) request.
+
 ###Request URI Parameters###
 
 `subscriptionId`: Required. The `subscriptionID` for the Azure user. You can obtain this value from the Azure Resource Manager API or the portal.

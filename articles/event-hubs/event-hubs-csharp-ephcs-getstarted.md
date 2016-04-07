@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -38,27 +38,27 @@ In order to complete this tutorial you'll need the following:
 
 2. Click **App Services**, then **Service Bus**, then **Event Hub**, then **Quick Create**.
 
-   	![][1]
+	![][1]
 
 3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
 
-   	![][2]
+	![][2]
 
 4. Click the namespace you just created (usually ***event hub name*-ns**).
 
-   	![][3]
+	![][3]
 
 5. Click the **Event Hubs** tab at the top of the page, and then click the Event Hub you just created.
 
-   	![][4]
+	![][4]
 
 6. Click the **Configure** tab at the top, add a rule named **SendRule** with *Send* rights, add another rule called **ReceiveRule** with *Manage, Send, Listen* rights, and then click **Save**.
 
-   	![][5]
+	![][5]
 
 7. Click the **Dashboard** tab at the top of the page, and then click **Connection Information**. Take note of the two connection strings, or copy them somewhere to use later in this tutorial.
 
-   	![][6]
+	![][6]
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
@@ -73,11 +73,11 @@ Now you are ready to run the applications.
 
 1.	From within Visual Studio, run the **Receiver** project, then wait for it to start the receivers for all the partitions.
 
-   	![][21]
+	![][21]
 
 2.	Run the **Sender** project, press **Enter** in the console windows, and see the events appear in the receiver window.
 
-   	![][22]
+	![][22]
 
 ## Next steps
 
@@ -105,5 +105,5 @@ Now that you've built a working application that creates an Event Hub and sends 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  

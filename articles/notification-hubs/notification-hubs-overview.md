@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 

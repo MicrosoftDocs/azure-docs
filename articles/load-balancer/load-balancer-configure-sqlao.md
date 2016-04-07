@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/21/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Configure load balancer for SQL always on
@@ -38,15 +38,15 @@ Internal Load balancer can only be configured through PowerShell.
 
 ## Add Internal Load Balancer to the service 
 
-### Step 1.
+### Step 1
 
 In the following example, we will configure a Virtual network that contains a subnet  called ‘Subnet-1’:
 
 	Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
 
-Step 2.
+### Step 2
 
-## Add load balanced endpoints for ILB on each VM
+Add load balanced endpoints for ILB on each VM
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
 	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
@@ -55,14 +55,15 @@ Step 2.
 
 In the example above, you have 2 VM's called "sqlsvc1" and "sqlsvc2" running in the cloud service "Sqlsvc". After creating the ILB with "DirectServerReturn" switch, you will add load balanced endpoints to the ILB to allow SQL to configure the listeners for the availability groups.
 
-You can find more details creating a SQL AlwaysOn [in deploying SQL AlwaysOn using Azure Resource Manager template](virtual-machines-workload-template-sql-alwayson.md) or [Using the Portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+You can find more details creating a SQL AlwaysOn [Using the Portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+
 
 
 ## See Also
 
-[Get started configuring an Internet facing load balancer](load-balancer-internet-getstarted.md)
+[Get started configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
-[Get started configuring an Internal load balancer](load-balancer-internal-getstarted.md)
+[Get started configuring an Internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 

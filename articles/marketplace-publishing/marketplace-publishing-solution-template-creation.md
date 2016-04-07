@@ -37,8 +37,8 @@ A solution template is a "parent" to all of its topologies. You can define multi
   Azure Marketplace:
 http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Azure preview portal:
-https://ms.portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
+  Azure Portal:
+https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 
 - Add a new version.
 
@@ -48,16 +48,6 @@ Upload a zip file that contains all required files to provision that particular 
 - Any linked templates and all required scripts.
 
 After uploading the zip file, click **Request Certification**. The Microsoft certification team will review the files and certify the topology.
-
-You can also validate the create experience without the actual deployment for the customer by using the following steps:
-
-1. Save the *createUiDefinition.json* and generate the absolute URL. The URL must be publicly accessible.
-2. Encode the URL by using the tool at [http://www.url-encode-decode.com/](http://www.url-encode-decode.com/).
-3. Replace the bold text with the location (encoded URL) of the *createUiDefinition.json* that needs validation.
-
-  > https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-
-4. Copy and paste the URL in any browser and view the customer experience of your createUiDefinition.json file.
 
   > [AZURE.TIP] While your developers work on creating the solution template topologies and getting them certified, the business, marketing, and/or legal departments of your company can work on the marketing and legal content.
 

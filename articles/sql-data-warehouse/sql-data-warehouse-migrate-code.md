@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrate your SQL code to SQL Data Warehouse
@@ -93,7 +93,7 @@ Again many of these issues can be worked around.
 
 For example the code below is an alternative solution for retrieving @@ROWCOUNT information:
 
-```
+```sql
 SELECT  SUM(row_count) AS row_count
 FROM    sys.dm_pdw_sql_requests
 WHERE   row_count <> -1

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/14/2016"
 	ms.author="billmath"/>
 
 
@@ -45,6 +45,10 @@ If you are using AD FS 2.0 or later, Office 365 and Azure AD will automatically 
 (note that if you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first)
 else.
 
+In the resulting output, check for the following setting:
+	
+	AutoCertificateRollover :True
+
 Check that your federation metadata is publicly accessible by navigating to the following URL from a computer on the public internet (off of the corporate network):
 
 
@@ -52,7 +56,10 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 where `(your_FS_name) `is replaced with the federation service host name your organization uses, such as fs.contoso.com.  If you are able to verify both of these settings successfully, you do not have to do anything else.  
 
-Example: https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml
+Example: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+
+## If you decide to update your certificate manually
+Any time you manually update your AD FS certificates, you must update your Office 365 domain using the PowerShell command Update-MsolFederatedDomain as shown in the steps under Manually update Office 365 federation trust properties in the section [here](#if-your-metadata-is-not-publicly-accessible)
 
 ## If your AutoCertificateRollover property is set to False
 
@@ -78,9 +85,11 @@ If your AutocertificateRollover setting is True but your federation metadata is 
 - To generate a new certificate, execute the following command at a PowerShell command prompt: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
 
 - Verify the update by running the following command again: PS C:\>Get-ADFSCertificate –CertificateType token-signing
+	- Two certificates should be listed now, one of which has a NotAfter date of approximately one year in the future and for which the IsPrimary value is False.
+
 - Next, to manually update Office 365 federation trust properties, follow these steps.
 
-Two certificates should be listed now, one of which has a NotAfter date of approximately one year in the future and for which the IsPrimary value is False.
+
 
 
 ### Manually update Office 365 federation trust properties, follow these steps.

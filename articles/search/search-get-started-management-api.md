@@ -47,7 +47,7 @@ Before you can run the sample application, you must enable authentication so tha
 
 Azure Resource Manager requires Azure Active Directory service as its identity provider. 
 
-To obtain an access token that will allow requests to reach the resource manager, the client application includes a code segment that calls Active Directory. The code segment, plus the prerequisite steps to using the code segment, were borrowed from this article: [Authenticating Azure Resource Manager requests]().
+To obtain an access token that will allow requests to reach the resource manager, the client application includes a code segment that calls Active Directory. The code segment, plus the prerequisite steps to using the code segment, were borrowed from this article: [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 You can follow the instructions in the above link, or use the steps in this document if you prefer to go through the tutorial step by step.
 
