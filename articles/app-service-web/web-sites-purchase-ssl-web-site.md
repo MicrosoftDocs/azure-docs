@@ -109,30 +109,30 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
 
     * **App Service Verification** 
     
-        1. This is the most convenient process if you already have **your custom domain assigned to the App Service Apps.** This method will list out all the App Service Apps that meet this criteria. 
-        For example, in this case, **contosocertdemo.com** is a custom domain assigned to App Service App called **“ContosoCertDemo”** and hence that’s the only App Service App listed here. If there were multi-region deployment, then it would list them all across the regions.
-            > [AZURE.NOTE]
-            > The verification method is ONLY available for Standard (Basic) certificate purchases. For Wild Card Certificates, please skip and move to option B, C or D below. 
-        2. Click on **“Verify”** button to complete this step.
-        3. Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
+        * This is the most convenient process if you already have **your custom domain assigned to the App Service Apps.** This method will list out all the App Service Apps that meet this criteria. 
+           For example, in this case, **contosocertdemo.com** is a custom domain assigned to App Service App called **“ContosoCertDemo”** and hence that’s the only App Service App listed here. If there were multi-region deployment, then it would list them all across the regions.
         
-            ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
+           The verification method is ONLY available for Standard (Basic) certificate purchases. For Wild Card Certificates, please skip and move to option B, C or D below.
+        * Click on **“Verify”** button to complete this step.
+        * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
+        
+        ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
 
     * **Domain Verification** 
 
-        1. This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+        * This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
         
-        2. Click on **“Verify”** button to complete this step.
+        * Click on **“Verify”** button to complete this step.
         
-        3. Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
+        * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
 
     * **Mail Verification**
         
-        1. Verification email has already been sent to the Email Address(es) associated with this custom domain.
+        * Verification email has already been sent to the Email Address(es) associated with this custom domain.
          
-        2. Open the email and Click on the verification link to complete the Email Verification step. 
+        * Open the email and Click on the verification link to complete the Email Verification step. 
         
-        3. If you need to resend the verification email, Click on the **"Resend Email"** button.
+        * If you need to resend the verification email, Click on the **"Resend Email"** button.
          
     * **Manual Verification**    
                  
