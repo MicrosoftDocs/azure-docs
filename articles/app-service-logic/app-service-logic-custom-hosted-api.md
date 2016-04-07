@@ -111,7 +111,8 @@ Once you have the client ID and tenant ID, include the following as a sub resour
 ```
 
 To run a deployment automatically that deploys a blank Web app and Logic app together that use AAD, click the following button:
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json) 
+
+[![Deploy to Azure](./media/app-service-logic-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 For the complete template, see [Logic App calls into a Custom API hosted on App Service and protected by AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
