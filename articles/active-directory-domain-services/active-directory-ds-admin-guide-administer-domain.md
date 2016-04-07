@@ -19,18 +19,39 @@
 # Administer an Azure AD Domain Services managed domain
 This article shows you how to administer an Azure Active Directory Domain Services managed domain.
 
-In a managed domain, tenant administrators are not granted Domain Administrator or Enterprise Administrator privileges. The domain itself is managed by Microsoft, including activities such as patching, monitoring, performing backups etc. Members of the 'AAD DC Administrators' group are granted privileges on the managed domain that enable them to perform tasks such as:
+## Administrative tasks you can perform on a managed domain
+To start with, let's take a look at administrative tasks that you can perform on a managed domain. Members of the 'AAD DC Administrators' group are granted privileges on the managed domain that enable them to perform tasks such as:
+
 - Join machines to the domain.
+
 - Configure the built-in GPO for the Computers and Users containers in the domain.
+
 - Administer DNS on the domain.
+
 - Create custom OUs on the domain.
 
+- Gain administrative access to computers joined to the managed domain.
+
+
+## Administrative privileges you do not have on a managed domain
+The domain is managed by Microsoft, including activities such as patching, monitoring, performing backups etc. Therefore, the domain is locked down and you do not have privileges to perform certain administrative tasks on the domain. Some examples of tasks you cannot perform are below.
+
+- You do not wield Domain Administrator or Enterprise Administrator privileges for the managed domain.
+
+- You cannot extend the schema of the managed domain.
+
+- You cannot connect to domain controllers via Remote Desktop.
+
+- You cannot add domain controllers to the domain.
+
+
+## Provision a domain-joined virtual machine to remotely administer the managed domain
 Azure AD Domain Services managed domains can be managed using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Tenant administrators do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. Therefore, members of the 'AAD DC Administrators' group can administer managed domains remotely using AD administrative tools from a Windows Server/client computer that is joined to the managed domain. AD administrative tools can be installed as part of the Remote Server Administration Tools (RSAT) optional feature on Windows Server and client machines joined to the managed domain.
 
 The first step is to set up a Windows Server virtual machine that is joined to the managed domain. For instructions to do this, refer to the article titled [join a virtual machine running Windows Server to an AAD-DS managed domain using the Azure classic portal](active-directory-ds-admin-guide-join-windows-vm.md). Note that these instructions use a Windows Server virtual machine in order to administer the AAD-DS managed domain. You can also chose to use a Windows client (eg. Windows 10) virtual machine to do so. In this case, you can install the Remote Server Administration Tools optional feature on the virtual machine.
 
 
-## Install Active Directory administration tools
+## Install Active Directory administration tools on the virtual machine
 Perform the following steps in order to install the Active Directory Administration tools on the domain joined virtual machine. For more [details on installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), refer to TechNet.
 
 1. Navigate to **Virtual Machines** node in the classic portal. Select the virtual machine you just created and click **Connect** on the command bar at the bottom of the window.
@@ -68,7 +89,7 @@ Perform the following steps in order to install the Active Directory Administrat
 	![Confirmation page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-confirmation.png)
 
 
-## Explore your Active Directory Domain Services managed domain
+## Explore the managed domain
 Now that the AD Administrative Tools are installed on the domain joined virtual machine, we can use these tools to explore and administer the managed domain.
 
 1. From the Start screen, click on **Administrative Tools**. You should see the AD administrative tools installed on the virtual machine.
