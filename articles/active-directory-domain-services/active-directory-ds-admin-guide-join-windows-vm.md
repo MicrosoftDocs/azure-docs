@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory Domain Services preview: Administration Guide | Microsoft Azure"
-	description="Join a Windows virtual machine to Azure AD Domain Services"
+	description="Join a Windows Server virtual machine to Azure AD Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
