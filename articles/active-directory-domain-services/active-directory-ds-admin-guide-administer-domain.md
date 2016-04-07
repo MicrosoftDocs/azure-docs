@@ -27,7 +27,7 @@ In a managed domain, tenant administrators are not granted Domain Administrator 
 
 Azure AD Domain Services managed domains can be managed using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Tenant administrators do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. Therefore, members of the 'AAD DC Administrators' group can administer managed domains remotely using AD administrative tools from a Windows Server/client computer that is joined to the managed domain. AD administrative tools can be installed as part of the Remote Server Administration Tools (RSAT) optional feature on Windows Server and client machines joined to the managed domain.
 
-The first step is to set up a Windows Server virtual machine that is joined to the managed domain. For instructions to do this, refer to the article titled [join a virtual machine running Windows Server to an AAD-DS managed domain using the Azure classic portal](active-directory-domain-services-admin-guide-join-windows-vm.md). Note that these instructions use a Windows Server virtual machine in order to administer the AAD-DS managed domain. You can also chose to use a Windows client (eg. Windows 10) virtual machine to do so. In this case, you can install the Remote Server Administration Tools optional feature on the virtual machine.
+The first step is to set up a Windows Server virtual machine that is joined to the managed domain. For instructions to do this, refer to the article titled [join a virtual machine running Windows Server to an AAD-DS managed domain using the Azure classic portal](active-directory-ds-admin-guide-join-windows-vm.md). Note that these instructions use a Windows Server virtual machine in order to administer the AAD-DS managed domain. You can also chose to use a Windows client (eg. Windows 10) virtual machine to do so. In this case, you can install the Remote Server Administration Tools optional feature on the virtual machine.
 
 
 ## Install Active Directory administration tools
@@ -86,7 +86,6 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
 4. Click on the container called **AADDC Users** to see all users and groups belonging to the managed domain. You should see user accounts and groups from your Azure AD tenant show up in this container. Notice in this example, a user account for the user 'bob' and a group called 'AAD DC Administrators' are available in this container.
 
     ![ADAC - domain users](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)
-
 
 5. Click on the container called **AADDC Computers** to see the computers joined to this managed domain. You should see an entry for the current virtual machine, which is joined to the domain. Computer accounts for all computers that are joined to the Azure AD Domain Services managed domain will appear in this 'AADDC Computers' container.
 
