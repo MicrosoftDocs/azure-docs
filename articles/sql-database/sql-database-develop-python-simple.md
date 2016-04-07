@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
-This topic presents a code sample written in Python. 
+This topic shows how to connect and query a Azure SQL Database using Python. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
 
 
 ## Step 1: Configure Development Environment
@@ -41,7 +41,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 ## Step 4: Run sample code
 
-[Proof of Concept connecting to SQL using Python](http://msdnstage.redmond.corp.microsoft.com/library/mt715796.aspx)
+[Proof of Concept connecting to SQL using Python](http://msdn.microsoft.com/library/mt715796.aspx)
 
 ## Next steps
 
