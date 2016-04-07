@@ -1184,12 +1184,12 @@ Example function.json:
 
 This C# code example inserts a new record with a *Text* property into the table specified in the above binding.
 
-public static void Run(string myQueueItem, out object record)
-{
-    record = new {
-        Text = $"I'm running in a C# function! {myQueueItem}"
-    };
-}
+	public static void Run(string myQueueItem, out object record)
+	{
+	    record = new {
+	        Text = $"I'm running in a C# function! {myQueueItem}"
+	    };
+	}
 
 ####Azure Mobile Easy Table code example for a Node.js queue trigger
 
