@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="04/07/2016" 
 	ms.author="markusvi"/>
 
 # Cloud App Discovery Registry Settings for Proxy Services
