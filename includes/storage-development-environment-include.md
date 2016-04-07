@@ -8,7 +8,9 @@ In Visual Studio, create a new Windows console application, as shown:
 
 ![Create Windows console application](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-You can use the Azure Storage Client Library from any type of .NET application, including an Azure cloud service, an Azure web app, a desktop application, or a mobile application. In this guide, we'll use a console application for simplicity.
+All of the code examples in this tutorial can be added to the **Main()** method in `program.cs` in your console application.
+
+Note that you can use the Azure Storage Client Library from any type of .NET application, including an Azure cloud service, an Azure web app, a desktop application, or a mobile application. In this guide, we use a console application for simplicity.
 
 ### Use NuGet to install the required packages
 
