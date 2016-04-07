@@ -221,7 +221,7 @@ You can select the row for peering and modify the peering properties.
 
 You can remove your peering configuration by selecting the delete icon as shown below.
 
-![](./media/eexpressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
+![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
 
 
 
