@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Managing table distribution skew | Microsoft Azure"
-   description="Guidance to help users identify distribution skew in their distributed tables"
+   pageTitle="Manage data skew for hash distributed tables in Azure SQL Data Warehouse  | Microsoft Azure"
+   description="Find and fix data skew when rows are unevenly distributed across all the distributions of a hash distributed table in Azure SQL Data Warehouse." 
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,16 +16,21 @@
    ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Managing table distribution skew
-When table data is distributed using the hash distribution method there is a chance that the distribution of the data will be "skewed".
+# Manage data skew for hash distributed tables in Azure SQL Data Warehouse
+This tutorial identifies data skew in your hash distributed tables, and gives suggestions for fixing the problem. 
 
-If you identify that some distributions have disproportionately more data than others then the table is said to be skewed. Depending on the degree of the skew you may want to address it. Excessive data skew will have an impact on query performance as the distributed compute resources will not be consumed evenly.
+When table data is distributed using the hash distribution method there is a chance that some distributions will be skewed to have disproportionately more data than others. Excessive data skew can impact query performance because the final result of a distributed query will not be ready until the longest-running distribution finishes.  Depending on the degree of the data skew you might need to address it. 
 
-This article is designed to help you identify data skew in your hash distributed tables.
+In this tutorial you will:
 
-## Finding distribution skew
+- Use metadata to determine which tables have data skew
+- Learn tips for knowing when to resolve data skew
+- Re-create the table with a different distribution column
 
-A query like the view below can help you identify skewed tables.
+
+## Step 1: Find tables that have data skew
+
+Create this view to identify which tables have data skew.
 
 ```sql
 CREATE VIEW dbo.vDistributionSkew
@@ -111,7 +116,9 @@ FROM	size
 ;
 ```
 
-Once the view has been created we can simply query it to validate the skew in our tables using a query like the one below.
+## Step 2: Query the view
+
+Now that you have created the view, run this example query to identify which tables have data skew.
 
 ```sql
 SELECT	[two_part_name]
@@ -128,15 +135,37 @@ ORDER BY [row_count] DESC
 
 >[AZURE.NOTE] ROUND_ROBIN distributed tables should not be skewed. Data is distributed evenly across the nodes by design.
 
-## Resolving data skew
-There are times when the skew is worth retaining. Typically this is when the table is being joined on a shared distribution key.
+## Step 3: Decide if you should resolve data skew
 
-However, to resolve data skew a different column would typically be chosen. Using ROUND_ROBIN instead of HASH is also an option.
+To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload. 
 
-Refer to the recommendations section in the [Hash distribution][] article for further guidance on selecting a different column.
+Distributing data is a matter of finding the right balance between minimizing data skew and minimizing data movement. These can be opposing goals, and sometimes you will want to keep data skew in order to reduce data movement. For example, when the distribution column is frequently the shared column in joins and aggregations, you will be minimizing data movement. The benefit of having the minimal data movement might outweigh the impact of having data skew. 
+
+
+
+## Step 4: Resolve data skew
+
+Here are two possible ways to resolve data skew. Use one of these if you have decided that you should resolve the skew.
+
+### Method 1: Re-create the table with a different distribution column
+
+The typical way to resolve data skew is to re-create the table with a different distribution column. For guidance on selecting a hash distribution column, see [Hash distribution][]. This example uses [CTAS][] to re-create a table with a different distribution column. 
+
+```sql
+
+```
+
+### Method 2: Re-create the table using ROUND-ROBIN distribution
+
+This example re-creates the tably by using ROUND-ROBIN instead of HASH distribution. This change will produce even data distribution. However, it will usually increase data movement for queries. 
+
+```sql
+
+```
+
 
 ## Next Steps
-For more details on table distribution please refer to the following articles:
+For more details on table distribution refer to the following articles:
 
 * [Table design][]
 * [Hash distribution][]
