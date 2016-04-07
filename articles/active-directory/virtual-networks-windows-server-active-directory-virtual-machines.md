@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/07/2016" 
 	ms.author="markusvi"/>
 
 
@@ -33,8 +33,8 @@ This navigation topic contains links to other topics about how to deploy Windows
 ## How to articles
 
 - [Install a new Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
-- [Install a Replica Active Directory Domain Controller in Azure Virtual Networks](../virtual-networks-install-replica-active-directory-domain-controller.md) 
-- [Set up a hybrid cloud environment for testing](../virtual-networks-setup-hybrid-cloud-environment-testing.md)
+- [Install a Replica Active Directory Domain Controller in Azure Virtual Networks](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) 
+- [Set up a hybrid cloud environment for testing](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 
 ## Additional Resources
