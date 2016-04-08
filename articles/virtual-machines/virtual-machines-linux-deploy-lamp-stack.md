@@ -150,15 +150,15 @@ Restart Apache with this command so all new installs will take effect.
 
 Now you can check the PHP info page you just created in your browser by going to http://youruniqueDNS/info.php. You can find your unique DNS to your Linux VM from the Azure Portal. Below is an image of where it is located.
 
-![][/../media/virtual-machines-linux-deploy-lamp-stack/finddnsibizaportal.png]
+![][../media/virtual-machines-linux-deploy-lamp-stack/finddnsibizaportal.png]
 
 Once you have navigated to http://youruniqueDNS/info.php, it should look similar to this.
 
-![][/../media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png]
+![][../media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png]
 
 Apache listens to port 80 by default, as a result you may need to open an endpoint to access your Apache server remotely. You can check your Apache2 installation by viewing the Apache2 Ubuntu Default Page by going to you http://youruniqueDNS/. You should see something like this.
 
-![][/../media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png]
+![][../media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png]
 
 Congratulations, you have just setup a LAMP stack on your Azure VM!
 
