@@ -20,7 +20,7 @@
 # Connecting to Media Services Account using Media Services SDK for .NET
 
 > [AZURE.SELECTOR]
-- [REST](media-services-rest-connect_programmatically.md)
+- [REST](media-services-rest-connect-programmatically.md)
 - [.NET](media-services-dotnet-connect_programmatically.md)
 
 
