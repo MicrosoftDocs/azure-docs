@@ -3,9 +3,9 @@
 	description="Compares tools and options for managing Azure SQL Database"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/04/2016"
-	ms.author="jeffreyg"/>
+	ms.author="sstein"/>
 
 # Overview: management tools for SQL Database
 
