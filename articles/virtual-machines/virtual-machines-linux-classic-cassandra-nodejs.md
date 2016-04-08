@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 # Running Cassandra with Linux on Azure and Accessing it from Node.js 
