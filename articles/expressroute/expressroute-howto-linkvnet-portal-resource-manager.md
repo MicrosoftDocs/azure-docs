@@ -34,10 +34,10 @@ This article gives you an overview of how to link virtual networks (VNets) to Ex
 
 ## Configuration prerequisites
 
-- Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
+- Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the [routing requirements](expressroute-routing.md) page, and the [workflows](expressroute-workflows.md) page before you begin configuration.
 - You must have an active ExpressRoute circuit. 
-	- Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-arm.md) and have the circuit enabled by your connectivity provider. 
-	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-portal-arm.md) article for routing instructions. 
+	- Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
+	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
 	- Azure private peering must be configured and the BGP peering between your network and Microsoft must be up for you to enable end-to-end connectivity.
 	- You must have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [vpn gateway](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (follow only steps 1 - 5).
 
@@ -45,7 +45,7 @@ You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRo
 
 ## Connecting a VNet in the same Azure subscription to an ExpressRoute circuit
 
-Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. You can follow instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-portal-arm.md) and [configure routing](expressroute-howto-routing-portal-arm.md). Your ExpressRoute circuit should look like the image below.
+Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. You can follow instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the image below.
 
 ![](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
 
