@@ -108,6 +108,7 @@ Now, provision the domain-joined Windows VM.
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
+<br>
 
 ## Script to provision a Windows VM and automatically join it to an AAD Domain Services managed domain
 This PowerShell command set creates a virtual machine for a line of business server that:
