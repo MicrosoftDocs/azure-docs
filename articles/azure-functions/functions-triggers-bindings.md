@@ -85,7 +85,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-## <a id="storage"></a> Azure Storage (queues, blobs, tables) triggers and bindings
+## Azure Storage (queues, blobs, tables) triggers and bindings
 
 This section contains the following subsections:
 
@@ -802,9 +802,9 @@ Azure App Service Mobile Apps lets you expose table endpoint data to mobile clie
 
 This section contains the following subsections:
 
-* [Azure Mobile Apps easy tables API key](easytablesapikey)
-* [Azure Mobile Apps easy tables input binding](easytablesinput)
-* [Azure Mobile Apps easy tables output binding](easytablesoutput)
+* [Azure Mobile Apps easy tables API key](#easytablesapikey)
+* [Azure Mobile Apps easy tables input binding](#easytablesinput)
+* [Azure Mobile Apps easy tables output binding](#easytablesoutput)
 
 ### <a id="easytablesapikey"></a> Use an API key to secure access to your Mobile Apps easy tables endpoints.
 
