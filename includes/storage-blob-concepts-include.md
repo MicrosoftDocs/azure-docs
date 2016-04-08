@@ -25,7 +25,7 @@ The Blob service contains the following components:
 -   **Container:** A container provides a grouping of a set of blobs.
     All blobs must be in a container. An account can contain an
     unlimited number of containers. A container can store an unlimited
-    number of blobs.
+    number of blobs. Note that the container name must be lowercase.
 
 -   **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.
     
@@ -33,7 +33,7 @@ The Blob service contains the following components:
     
 	*Page blobs* can be up to 1 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines use page blobs as OS and data disks.
 
-	For more information about blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+	For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
