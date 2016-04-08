@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Cache ASP.NET Session State Provider"
    description="Learn how to store ASP.NET Session State using Azure Redis Cache"
    services="redis-cache"
@@ -6,7 +6,7 @@
    authors="steved0x"
    manager="erikre"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="cache"
    ms.devlang="na"
    ms.topic="article"
@@ -72,18 +72,18 @@ Configure the attributes with the values from your cache blade in the Microsoft 
 -	**applicationName** – Keys are stored in redis as `{<Application Name>_<Session ID>}_Data`. This enables multiple applications to share the same key. This parameter is optional and if you do not provide it a default value is used.
 -	**connectionTimeoutInMilliseconds** – This setting allows you to override the connectTimeout setting in the StackExchange.Redis client. If not specified, the default connectTimeout setting of 5000 is used. For more information, see [StackExchange.Redis configuration model](http://go.microsoft.com/fwlink/?LinkId=398705).
 -	**operationTimeoutInMilliseconds** – This setting allows you to override the syncTimeout setting in the StackExchange.Redis client. If not specified, the default syncTimeout setting of 1000 is used. For more information, see [StackExchange.Redis configuration model](http://go.microsoft.com/fwlink/?LinkId=398705).
-							
+
 For more information about these properties, see the original blog post announcement at [Announcing ASP.NET Session State Provider for Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 
 Don’t forget to comment out the standard InProc session state provider section in your web.config.
 
-    <!-- <sessionState mode="InProc" 
+    <!-- <sessionState mode="InProc"
          customProvider="DefaultSessionProvider">
          <providers>
-            <add name="DefaultSessionProvider" 
-                  type="System.Web.Providers.DefaultSessionStateProvider, 
-                        System.Web.Providers, Version=1.0.0.0, Culture=neutral, 
-                        PublicKeyToken=31bf3856ad364e35" 
+            <add name="DefaultSessionProvider"
+                  type="System.Web.Providers.DefaultSessionStateProvider,
+                        System.Web.Providers, Version=1.0.0.0, Culture=neutral,
+                        PublicKeyToken=31bf3856ad364e35"
                   connectionStringName="DefaultConnection" />
           </providers>
     </sessionState> -->
@@ -104,5 +104,4 @@ For more information about session state and other best practices, see [Web Deve
 
 ## Next steps
 
-Check out the [ASP.NET Output Cache Provider for Azure Redis Cache](cache-asp.net-output-cache-provider.md).
-
+Check out the [ASP.NET Output Cache Provider for Azure Redis Cache](cache-aspnet-output-cache-provider.md).
