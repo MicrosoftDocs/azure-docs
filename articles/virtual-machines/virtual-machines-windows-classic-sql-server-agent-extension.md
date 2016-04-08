@@ -64,8 +64,6 @@ You can also use the **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet.
 
 Get-AzureVMSqlServerExtension [[-VM] [IPersistentVM]] [-Profile [AzureProfile]] [CommonParameters]
 
-> [AZURE.NOTE] You can omit the –Version parameter. Without it, the default is the latest version of the extension.
-
 ### Example
 	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
