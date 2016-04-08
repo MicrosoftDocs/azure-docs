@@ -21,7 +21,7 @@ Log Analytics collects data from the Connected Sources in your OMS workspace and
 
 ![Log Analytics data collection](./media/log-analytics-data-sources/overview.png)
 
-Data Sources are different than OMS Solutions which also collect data from Connected Sources and create records in the OMS repository.  Solutions can be added to your workspace from the Solutions Gallery and will typically provide additional analysis tools in the OMS portal.  Each solution is documented separately at [OMS Solutions](log-analytics-solutions.md).
+Data Sources are different than OMS Solutions which also collect data from Connected Sources and create records in the OMS repository.  Solutions can be added to your workspace from the Solutions Gallery and will typically provide additional analysis tools in the OMS portal.  
 
 ## Summary of data sources
 
@@ -63,3 +63,6 @@ All data collected by Log Analytics is stored in the OMS repository as records. 
 | TimeGenerated | Date and time that the record was collected by Log Analytics. |
 | SourceSystem  | Type of agent the record was collected from. <br> OpsManager – Windows agent, either direct connect or SCOM <br> Linux – All Linux agents <br> AzureStorage – Azure Diagnostics. |
 
+## Next Steps
+
+- Create a log query to retrieve and analyze records collected by the data sources. 
