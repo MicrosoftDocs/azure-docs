@@ -67,9 +67,9 @@ Once the AWS PowerShell Module has been deployed, we can now author a runbook to
 6. When the Edit PowerShell Runbook blade appears, copy and paste the PowerShell script into the runbook authoring canvas.<br> ![Runbook PowerShell Script](./media/automation-aws-deployment/runbook-powershell-script.png)
 
    >[AZURE.NOTE] Please note the following when working with the example PowerShell script:
-   >-  The runbook contains a number of default parameter values as mentioned in the \#ToDo section. Please evaluate all default values and update where necessary.
-   >-  If you have stored your AWS credentials as a credential asset named differently than **AWScred**, you will need to update the script on line 57 to match accordingly.  
-   >-  When working with the AWS CLI commands in PowerShell, especially with this example runbook, you must specify the AWS region. Otherwise, the cmdlets will fail.  View AWS topic [Specify AWS Region](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) in the AWS Tools for PowerShell document for further details.  
+   > -  The runbook contains a number of default parameter values. Please evaluate all default values and update where necessary.
+   > -  If you have stored your AWS credentials as a credential asset named differently than **AWScred**, you will need to update the script on line 57 to match accordingly.  
+   > -  When working with the AWS CLI commands in PowerShell, especially with this example runbook, you must specify the AWS region. Otherwise, the cmdlets will fail.  View AWS topic [Specify AWS Region](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) in the AWS Tools for PowerShell document for further details.  
 
 7. To retrieve a list of image names from your AWS subscription, launch PowerShell ISE and import the AWS PowerShell Module.  Authenticate against AWS by replacing **Get-AutomationPSCredential** in your ISE environment with **AWScred = Get-Credential**.  This will prompt you for your credentials and you can provide your **Access Key ID** for the username and **Secret Access Key** for the password.  See the example below:
 
@@ -93,12 +93,12 @@ Once the AWS PowerShell Module has been deployed, we can now author a runbook to
 
 
 ### Testing the AWS VM runbook
-Before we proceed with testing the runbook, we need to verify a few things.  Specifically:
+Before we proceed with testing the runbook, we need to verify a few things. Specifically:
 
--  Assets for authenticating against AWS have been created and has been named **AWScred** or the script has been updated to reference the name of your credential asset.  
--  The AWS PowerShell module has been imported in Azure Automation
--  A new runbook has been created and parameter values have been verified and updated where necessary
--   **Log verbose records** and optionally **Log progress records** under the runbook setting **Logging and tracing** have been set to **On**.<br> ![Runbook Logging and Tracing](./media/automation-aws-deployment/runbook-settings-logging-and-tracing.png)  
+   -  Assets for authenticating against AWS have been created and has been named **AWScred** or the script has been updated to reference the name of your credential asset.  
+   -  The AWS PowerShell module has been imported in Azure Automation
+   -  A new runbook has been created and parameter values have been verified and updated where necessary
+   -  **Log verbose records** and optionally **Log progress records** under the runbook setting **Logging and tracing** have been set to **On**.<br> ![Runbook Logging and Tracing](./media/automation-aws-deployment/runbook-settings-logging-and-tracing.png)  
 
 
 1. We want to start the runbook, so click **Start** and then click **Ok** when the Start Runbook blade opens.

@@ -17,7 +17,7 @@
 
 # Authenticate Runbooks with Azure Service Management and Resource Manager
 
-This article describes the steps you must perform to configure an Azure AD User account for Azure Automation runbooks running against Azure Service Management (ASM) or Azure Resource Manager (ARM) resources.  While this continues to be a supported authentication identity for your ARM based runbooks, the recommended approach is using the Run As account.       
+This article describes the steps you must perform to configure an Azure AD User account for Azure Automation runbooks running against Azure Service Management (ASM) or Azure Resource Manager (ARM) resources.  While this continues to be a supported authentication identity for your ARM based runbooks, the recommended approach is using the new Azure Run As account.       
 
 ## Create a new Azure Active Directory user
 
