@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="04/08/2016"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight
@@ -62,7 +62,7 @@ The following is an extremely simple example that uses movies:
 
 ###Understanding the data
 
-Conveniently, [GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/HdiSamples/MahoutMovieData`.
+Conveniently, [GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/MahoutMovieData`.
 
 There are two files, `moviedb.txt` (information about the movies,) and `user-ratings.txt`. The user-ratings.txt file is used during analysis, while moviedb.txt is used to provide user-friendly text infromation when displaying the results of the analysis.
 
