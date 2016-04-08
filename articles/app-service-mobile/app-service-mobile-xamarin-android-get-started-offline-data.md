@@ -27,13 +27,6 @@ This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamar
 In this tutorial, you will update the client project from the tutorial [Create a Xamarin Android app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
-<<<<<<< HEAD
-=======
-
-## Requirements
-
-* Completion of the tutorial [Create a Xamarin Android app]. This tutorial uses the completed app covered in that tutorial.
->>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 
 ## Review the client sync code
 

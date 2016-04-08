@@ -22,19 +22,11 @@
 
 ##Overview
 
-<<<<<<< HEAD
-This tutorial is based on the [Create a Xamarin iOS app](app-service-mobile-xamarin-ios-get-started.md) tutorial, which you must complete first. You will add push notifications to the Xamarin.iOS quick start project so that every time a record is inserted, a push notification is sent. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
-
-##Prerequisites
-
-* Complete the [Create a Xamarin iOS app](app-service-mobile-xamarin-ios-get-started.md) tutorial.
-=======
 This tutorial is based on the [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) tutorial, which you must complete first. You will add push notifications to the Xamarin.iOS quick start project so that every time a record is inserted, a push notification is sent. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Prerequisites
 
 * Complete the [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) tutorial.
->>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 
 * A physical iOS device. Push notifications are not supported by the iOS simulator.
 

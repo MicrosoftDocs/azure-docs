@@ -30,13 +30,9 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 
 ##Prerequisites
 
-<<<<<<< HEAD
 * Complete the [Create a Xamarin.Forms app](app-service-mobile-xamarin-forms-get-started.md) tutorial, which lists other prerequisites. This article uses the completed app from that tutorial.
 
 * A physical iOS device. Push notifications are not supported by the iOS simulator.
-=======
-* Complete the [Create a Xamarin.Forms app](app-service-mobile-xamarin-forms-get-started.md) tutorial, which lists other prerequisites. This article uses the completed app from that tutorial. 
->>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 
 ##Create a Notification Hub for your Mobile App
 
@@ -527,9 +523,7 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Xamarin Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 

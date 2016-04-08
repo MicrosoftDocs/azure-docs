@@ -74,18 +74,7 @@ You can test the app by using a virtual device in the emulator. There are additi
 
 
 <!-- URLs. -->
-<<<<<<< HEAD
-<<<<<<< HEAD
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
 [Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
-
-=======
-[Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md 
-[Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
->>>>>>> Updating Xamarin references and install links
-=======
-[Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md 
-[Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
->>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/

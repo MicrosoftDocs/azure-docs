@@ -63,28 +63,9 @@ If you chose a .NET backend configuration above, you can optionally test the bac
 
 ##Download and run the Xamarin.Forms solution
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Here you have a couple of choices. You can download the solution to a Mac and open it in Xamarin Studio, or you can download the solution to a Windows computer and open it in Visual Studio using a networked Mac for building the iOS app. Again, see [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx) for instructions.
-
-<<<<<<< HEAD
-* It's easier to run the iOS project of your solution on a Mac. You can use Visual Studio on your Windows computer if you want, but it's a bit more complicated because you have to connect to a networked Mac. If you're interested in doing that, see [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/en-US/library/mt613162.aspx).
-* You can run the Android project on either your Mac or your Windows computer.
-* You can run the Windows project(s) only by using Visual Studio on a Windows computer.
-
-With all of this in mind, let's proceed.
-=======
-=======
-Here you have a couple of choices. You can download the solution to a Mac and open it in Xamarin Studio, or you can download the solution to a Windows computer and open it in Visual Studio using a networked Mac for building the iOS app. Again, see [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
-
->>>>>>> fixing en-US in MSDN links
-Let's proceed:
->>>>>>> Updating Xamarin references and install links
-=======
 Here you have a couple of choices. You can download the solution to a Mac and open it in Xamarin Studio, or you can download the solution to a Windows computer and open it in Visual Studio using a networked Mac for building the iOS app. Again, see [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
 
 Let's proceed:
->>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 
  1. On your Mac or on your Windows computer, open the [Azure Portal] in a browser window.
  2. On the settings blade for your Mobile App, click **Get Started** (under Mobile) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.

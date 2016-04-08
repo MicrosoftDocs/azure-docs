@@ -49,15 +49,8 @@ In this section you will download a new Xamarin Android app and a service projec
 
 1. If you haven't already done so, install Visual Studio with Xamarin. Instructions can be found on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). You can also use Xamarin Studio on a Mac OS X machine, see [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx).  
 
-<<<<<<< HEAD
-1. If you haven't already done so, install Visual Studio with Xamarin. Instructions can be found on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). You can also use Xamarin Studio on a Mac OS X machine, see [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx).  
-
 2. In the [classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
-=======
-2. In the [classic portal], click **Mobile Services**, and then click the mobile service that you just created.
-
->>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 3. In the quickstart tab, click **Xamarin** under **Choose platform** and expand **Create a new Xamarin app**.
 
    	![][6]

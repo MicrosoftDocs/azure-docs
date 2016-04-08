@@ -40,11 +40,7 @@ The completed code for this tutorial can be found on GitHub [here](https://githu
 
 This tutorial requires the following:
 
-<<<<<<< HEAD
 + Visual Studio with Xamarin on Windows or Xamarin Studio on Mac OS X. Complete installation instructions are on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
-=======
-+ Visual Studio with Xamarin on Windows or Xamarin Studio on Mac OS X. Complete installation instructions are on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
->>>>>>> 592dcb4719b8b32b83bb14a41d25c25ec18546a0
 + Active Google account
 + [Azure Messaging Component]
 + [Google Cloud Messaging Client Component]
