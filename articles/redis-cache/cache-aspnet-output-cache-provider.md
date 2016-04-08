@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Cache ASP.NET Output Cache Provider"
    description="Learn how to cache ASP.NET Page Output using Azure Redis Cache"
    services="redis-cache"
@@ -6,7 +6,7 @@
    authors="steved0x"
    manager="erikre"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="cache"
    ms.devlang="na"
    ms.topic="article"
@@ -39,7 +39,7 @@ The NuGet package downloads and adds the required assembly references and adds t
       <outputCachedefaultProvider="MyRedisOutputCache">
         <providers>
           <!--
-          <add name="MyRedisOutputCache" 
+          <add name="MyRedisOutputCache"
             host = "127.0.0.1" [String]
             port = "" [number]
             accessKey = "" [String]
@@ -79,5 +79,4 @@ Once these steps are performed, your application is configured to use the Redis 
 
 ## Next steps
 
-Check out the [ASP.NET Session State Provider for Azure Redis Cache](cache-asp.net-session-state-provider.md).
-
+Check out the [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md).
