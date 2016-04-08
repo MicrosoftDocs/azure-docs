@@ -20,9 +20,147 @@
 
 # Azure Functions triggers and bindings developer reference
 
-This article explains how to configure and code specific triggers and bindings in Azure Functions. Most of these bindings are easily managed via the Azure portal's **Integrate** UI, but the portal doesn't explain all of the functionality and options for each binding.
+This article explains how to configure and code triggers and bindings in Azure Functions. Most of these bindings are easily managed via the Azure portal's **Integrate** UI, but the portal doesn't explain all of the functionality and options for each binding.
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md) and the [C#](functions-reference-csharp.md) or [Node](functions-reference-node.md) developer reference articles.
+
+### HTTP and WebHook triggers and bindings
+
+For an HTTP or WebHook trigger, the *function.json* file provides properties that pertain to the HTTP request and response.
+
+Properties for the HTTP request:
+
+- `name` : Variable name used in function code for the request object (or the request body in the case of Node.js functions).
+- `type` : Must be set to *httpTrigger*.
+- `direction` : Must be set to *in*. 
+- `webHookType` : For WebHook triggers, valid values are *github*, *slack*, and *genericJson*. For an HTTP trigger that isn't a WebHook, set this property to an empty string. For more information on WebHooks, see the following [WebHook triggers](#webhook-triggers) section.
+
+Properties for the HTTP response:
+
+- `name` : Variable name used in function code for the response object.
+- `type` : Must be set to *http*.
+- `direction` : Must be set to *out*. 
+ 
+Example *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "webHookType": "",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+### Webhook triggers
+
+A WebHook trigger is an HTTP trigger that has the following features designed for WebHooks:
+
+* For specific WebHook providers (currently GitHub and Slack are supported), the Functions runtime validates the provider's signature.
+* For Node.js functions, the Functions runtime provides the request body instead of the request object. There is no special handling for C# functions, because you control what is provided by specifying the parameter type. If you specify `HttpRequestMessage` you get the request object. If you specify a POCO type, the Functions runtime tries to parse a JSON object in the body of the request to populate the object properties.
+* To trigger a WebHook function the HTTP request must include an API key. Currently an API key is also required for non-WebHook HTTP triggers, but this requirement might be optional in the future.
+
+For information about how to set up a GitHub WebHook, see `[GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409)`.
+
+### Example C# code for an HTTP trigger function 
+
+The example code looks for a `name` parameter either in the query string or the body of the HTTP request.
+
+```csharp
+using System.Net;
+using System.Threading.Tasks;
+
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+{
+    log.Verbose($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+
+    // parse query parameter
+    string name = req.GetQueryNameValuePairs()
+        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+        .Value;
+
+    // Get request body
+    dynamic data = await req.Content.ReadAsAsync<object>();
+
+    // Set name to query string or body data
+    name = name ?? data?.name;
+
+    return name == null
+        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
+        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+}
+```
+
+### Example Node.js code for an HTTP trigger function 
+
+This example code looks for a `name` parameter either in the query string or the body of the HTTP request.
+
+```javascript
+module.exports = function(context, req) {
+    context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
+
+    if (req.query.name || (req.body && req.body.name)) {
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+    context.done();
+};
+```
+
+### Example C# code for a GitHub WebHook function 
+
+This example code logs GitHub issue comments.
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System;
+using System.Net;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
+{
+    string jsonContent = await req.Content.ReadAsStringAsync();
+    dynamic data = JsonConvert.DeserializeObject(jsonContent);
+
+    log.Verbose($"Webhook was triggered! Comment: {data.comment.body}");
+
+    return req.CreateResponse(HttpStatusCode.OK, new {
+        body = $"New GitHub comment: {data.comment.body}"
+    });
+}
+```
+
+### Example Node.js code for a GitHub WebHook function 
+
+This example code logs GitHub issue comments.
+
+```javascript
+module.exports = function (context, data) {
+    context.log('GitHub WebHook triggered!', data.comment.body);
+    context.res = { body: 'New GitHub comment: ' + data.comment.body };
+    context.done();
+};
+```
 
 ## Timer trigger
 
