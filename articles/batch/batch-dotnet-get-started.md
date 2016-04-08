@@ -111,13 +111,13 @@ Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's 
 ![Create containers in Azure Storage][1]
 <br/>
 
-Batch includes built-in support for interacting with Azure Storage. Containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute. The containers also provide a place to store the output data that the tasks produce. The first thing the *DotNetTutorial* client application does is to create three containers in [Azure Blob Storage](../storage/storage-introduction.md):
+Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *DotNetTutorial* client application does is create three containers in [Azure Blob Storage](../storage/storage-introduction.md):
 
-- **application**: This container will house the application that will be run by the tasks, as well as any of its dependencies, such as DLLs.
-- **input**: Tasks will download the data files that they are to process from the *input* container.
-- **output**: When tasks complete processing the input files, they will upload their results to the *output* container.
+- **application**: This container will store the application run by the tasks, as well as any of its dependencies, such as DLLs.
+- **input**: Tasks will download the data files to process from the *input* container.
+- **output**: When tasks complete input file processing, they will upload the results to the *output* container.
 
-In order to interact with a Storage account and create containers, the [Azure Storage Client Library for .NET][net_api_storage] is used to create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount]--and from that, a blob client ([CloudBlobClient][net_cloudblobclient]) is created:
+In order to interact with a Storage account and create containers, we use the [Azure Storage Client Library for .NET][net_api_storage]. We create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that create a [CloudBlobClient][net_cloudblobclient]:
 
 ```
 // Construct the Storage account connection string
@@ -133,7 +133,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-We use the `blobClient` reference throughout the application and pass it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above block, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
+We use the `blobClient` reference throughout the application and pass it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
 
 ```
 // Use the blob client to create the containers in Azure Storage if they don't
@@ -329,7 +329,7 @@ private static async Task CreatePoolAsync(
 }
 ```
 
-When you create a pool with [CreatePool][net_pool_create], you will specify a number of parameters, such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' [operating system](../cloud-services/cloud-services-guestos-update-matrix.md).
+When you create a pool with [CreatePool][net_pool_create], you specify a number of parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images--see [Introducing Linux support on Azure Batch][blog_linux] for more information.
 
 > [AZURE.IMPORTANT] You are charged for compute resources in Batch. To minimize costs, you can lower `targetDedicated` to 1 before you run the sample.
 
@@ -337,7 +337,7 @@ Along with these physical node properties, you may also specify a [StartTask][ne
 
 In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] property) from the StartTask working directory to the shared directory that *all* tasks running on the node can access. Essentially, this copies `TaskApplication.exe` and its dependencies to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
-> [AZURE.TIP] An alternative to using a StartTask and its ResourceFiles to get your application onto the compute nodes in a pool, you can instead use the **application packages** feature of Azure Batch. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for details.
+> [AZURE.TIP] The **application packages** feature of Azure Batch provides another way to get your application onto the compute nodes in a pool. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for details.
 
 Also notable in the code snippet above is the use of two environment variables in the *CommandLine* property of the StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` and `%AZ_BATCH_NODE_SHARED_DIR%`. Each compute node within a Batch pool is automatically configured with a number of environment variables that are specific to Batch. Any process that is executed by a task has access to these environment variables.
 
@@ -713,6 +713,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
+[blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -722,6 +723,11 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [net_api]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
+[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
+[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
+[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
+[net_cloudserviceconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudserviceconfiguration.aspx
+[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
 [net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_poolinfo]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
 [net_joboperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.joboperations
@@ -745,10 +751,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
 [net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
 [net_thread_sleep]: https://msdn.microsoft.com/library/274eh01d(v=vs.110).aspx
-[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
-[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
-[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
-[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
+[net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
 [nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
