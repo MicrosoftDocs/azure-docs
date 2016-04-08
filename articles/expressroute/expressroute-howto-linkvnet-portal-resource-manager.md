@@ -19,9 +19,10 @@
 # Linking Virtual Networks to ExpressRoute circuits
 
 > [AZURE.SELECTOR]
-- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
+- [Azure Portal - Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
 - [PowerShell - Resource Manager](expressroute-howto-linkvnet-arm.md)
-- [Portal - Resource Manager](expressroute-howto-linkvnet-portal-arm.md)
+- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
+
 
 
 This article gives you an overview of how to link virtual networks (VNets) to ExpressRoute circuits. Virtual networks can either be in the same subscription, or be part of another subscription. This article applies to VNets deployed using the Resource Manager deployment model. If you want to link a virtual network that was deployed using the classic deployment model, see [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md).
@@ -46,18 +47,18 @@ You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRo
 
 Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. You can follow instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-portal-arm.md) and [configure routing](expressroute-howto-routing-portal-arm.md). Your ExpressRoute circuit should look like the image below.
 
-![](./media/expressroute-howto-linkvnet-portal-arm/samesub3.png)
+![](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
 
 >[AZURE.NOTE] BGP configuration information will not show up if your peerings were configured by the layer 3 provider. If your circuit is in provisioned state, you should be able to create connections.
 
 You can now start provisioning a connection to link your VNet gateway to your ExpressRoute circuit. The image below shows you how to accomplish this.
 
-![](./media/expressroute-howto-linkvnet-portal-arm/samesub1.png)  
+![](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
 
 
 Once your connection has been successfully configured your connection object will show you information on the connection.
 
-![](./media/expressroute-howto-linkvnet-portal-arm/samesub2.png)
+![](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
 You can delete a connection by selecting the delete connection icon.
 

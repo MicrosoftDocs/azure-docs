@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Linking virtual networks to ExpressRoute circuits | Microsoft Azure"
-   description="This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits."
+   pageTitle="Link a virtual network to an ExpressRoute circuit | Microsoft Azure"
+   description="This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits using the classic deployment model and PowerShell."
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,20 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="04/08/2016"
    ms.author="cherylmc" />
 
-# Linking Virtual Network to ExpressRoute circuits
+# Link a virtual network to an ExpressRoute circuit using the classic deployment model and PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
+- [Azure Portal - Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
 - [PowerShell - Resource Manager](expressroute-howto-linkvnet-arm.md)
-- [Portal - Resource Manager](expressroute-howto-linkvnet-portal-arm.md)
+- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
 
 
-This article gives you an overview of how to link virtual networks (VNets) to ExpressRoute circuits. Virtual networks can either be in the same subscription, or be part of another subscription. This article applies to VNets deployed using the Classic deployment model. If you want to link a virtual network that was deployed using the Azure Resource Manager deployment model, see [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
+This article gives you an overview of how to link virtual networks (VNets) to ExpressRoute circuits. Virtual networks can either be in the same subscription, or be part of another subscription. This article applies to VNets deployed using the classic deployment model.
+
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Configuration prerequisites
 
@@ -43,7 +46,7 @@ You can link up to 10 VNets to an ExpressRoute circuit. All ExpressRoute circuit
 
 Yon can link a virtual network to an ExpressRoute circuit using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
 
-	C:\> New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+	New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 	Provisioned
 
 ## Linking a VNet in a different Azure subscription to an ExpressRoute circuit
@@ -66,7 +69,7 @@ The circuit owner has the power to modify and revoke authorizations at any time.
 	
 The circuit owner authorizes the administrators of other subscriptions to use the specified circuit. In the example below, the administrator of the circuit (Contoso IT) enables the administrator of another subscription (Dev-Test), by specifying their Microsoft ID, to link up to 2 VNETs to the circuit. The cmdlet doesn't send email to the specified Microsoft ID. The circuit owner need to explicitly notify the other subscription owner that the authorization is complete.
 
-		PS C:\> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
+		New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 		
 		Description         : Dev-Test Links 
 		Limit               : 2 
@@ -78,7 +81,7 @@ The circuit owner authorizes the administrators of other subscriptions to use th
 
 The circuit owner can review all authorizations issued on a particular circuit by running the following cmdlet.
 
-	PS C:\> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
+	Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
 	
 	Description         : EngineeringTeam 
 	Limit               : 3 
@@ -103,7 +106,7 @@ The circuit owner can review all authorizations issued on a particular circuit b
 
 The circuit owner can modify authorizations using the following cmdlet.
 
-	PS C:\> set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
+	Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 		
 	Description         : Dev-Test Links 
 	Limit               : 5 
@@ -116,7 +119,7 @@ The circuit owner can modify authorizations using the following cmdlet.
 
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet.
 
-	PS C:\> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
+	Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
 
 ### Circuit user operations
@@ -125,7 +128,7 @@ The circuit owner can revoke/delete authorizations to the user by running the fo
 
 The circuit user can review authorizations using the following cmdlet.
 
-	PS C:\> Get-AzureAuthorizedDedicatedCircuit
+	Get-AzureAuthorizedDedicatedCircuit
 		
 	Bandwidth                        : 200
 	CircuitName                      : ContosoIT
@@ -141,7 +144,7 @@ The circuit user can review authorizations using the following cmdlet.
 
 The circuit user can run the following cmdlet to redeem a link authorization.
 
-	PS C:\> New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1' 
+	New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1' 
 		
 	State VnetName 
 	----- -------- 
