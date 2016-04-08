@@ -20,6 +20,8 @@
 
 Learn the answers to common questions, patterns and best practices for Azure API Management.
 
+## Frequently asked questions
+
 -	[How can I ask a question to the API Management team?](#how-can-i-ask-a-question-to-the-api-management-team)
 -	[What does it mean if a feature is in Preview?](#what-does-it-mean-if-a-feature-is-in-preview)
 -	[What are the supported options to secure the connection between the API Management gateway and my backend services?](#what-are-the-supported-options-to-secure-the-connection-between-the-api-management-gateway-and-my-backend-services)
