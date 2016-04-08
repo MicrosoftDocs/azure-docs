@@ -24,7 +24,7 @@ The level of service your App Service plan has is based on the [*Pricing tier* f
 
 In addition to scaling up the pricing tier, you can increase the number of instances that your service has. This is referred to as *Scaling out* or *Scaling in*. See the article on [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md) to learn more about *Scale out* and *Scale in*.
 
-For information about App Service plans, see [What is an App Service Plan?](../articles/app-service/web-sites-web-hosting-plan-overview.md) and [Azure App Service Plans In-Depth Overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/app-service/).
+For information about App Service plans, see [Azure App Service Plans In-Depth Overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/app-service/).
 
 Finally, scaling works differently if you want to use a dedicated [App Service Environment](app-service-app-service-environments-readme.md). See [Scaling web apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md) for more details.
 
