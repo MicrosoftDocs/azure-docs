@@ -37,14 +37,10 @@ Our VM provisioning runbook will leverage the AWS PowerShell module to do its wo
    * In the **Automation Account Name (string)** box, type in the exact name of the Automation account that includes the credentials for your AWS subscription.  For example, if you created a dedicated account named **AWSAutomation**, then that is what you type in the box.
    * Select the appropriate region from the **Automation Account Location** drop-down list.
 
-4. When you have completed entering the required information, click **Create**.<br>
-   >[AZURE.NOTE]Importing a PowerShell module into Azure Automation consists of two steps:
-   >
-   > 1. Importing the module
-   > 2. Extracting the cmdlets
-   >
-   >The activities will not show up until the module has completely finished importing and extracting the cmdlets, which can take a few minutes.
-<br>
+4. When you have completed entering the required information, click **Create**.
+
+   >[AZURE.NOTE] While importing a PowerShell module into Azure Automation, it is also extracting the cmdlets and these activities will not appear until the module has completely finished importing and extracting the cmdlets.  This process can take a few minutes.   
+
 5. In the Azure Portal, open your Automation account referenced in step 3.
 6. Click on the **Assets** tile and on the **Assets** blade, select the **Modules** tile.
 7. On the **Modules** blade you will see the **AWSPowerShell** module in the list.
