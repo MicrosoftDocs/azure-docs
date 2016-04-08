@@ -37,9 +37,8 @@ Our VM provisioning runbook will leverage the AWS PowerShell module to do its wo
    * In the **Automation Account Name (string)** box, type in the exact name of the Automation account that includes the credentials for your AWS subscription.  For example, if you created a dedicated account named **AWSAutomation**, then that is what you type in the box.
    * Select the appropriate region from the **Automation Account Location** drop-down list.
 
-4. When you have completed entering the required information, click **Create**.
-
- >[AZURE.NOTE] While importing a PowerShell module into Azure Automation, it is also extracting the cmdlets and these activities will not appear until the module has completely finished importing and extracting the cmdlets. This  process can take a few minutes.  
+4. When you have completed entering the required information, click **Create**.<br>
+>[AZURE.NOTE] While importing a PowerShell module into Azure Automation, it is also extracting the cmdlets and these activities will not appear until the module has completely finished importing and extracting the cmdlets. This  process can take a few minutes.  
 <br>
 5. In the Azure Portal, open your Automation account referenced in step 3.
 6. Click on the **Assets** tile and on the **Assets** blade, select the **Modules** tile.
@@ -53,8 +52,9 @@ Once the AWS PowerShell Module has been deployed, we can now author a runbook to
 
 
 1. Download the PowerShell script New-AwsVM from the PowerShell Gallery by opening a PowerShell session and typing the following:<br>
-
-       Save-Script -Name New-AwsVM -Path \<path\>
+   ```
+   Save-Script -Name New-AwsVM -Path \<path\>
+   ```
 <br>
 2. From the Azure Portal, open your Automation account and click the  **Runbooks** tile.  
 3. From the **Runbooks** blade, select **Add a runbook**.
