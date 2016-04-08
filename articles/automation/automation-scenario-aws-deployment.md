@@ -51,15 +51,16 @@ Our VM provisioning runbook will leverage the AWS PowerShell module to do its wo
 
 ## Create AWS deploy VM runbook
 
-Once the AWS PowerShell Module has been deployed, we can now author a runbook to automate provisioning a virtual machine in AWS using a PowerShell script. The steps below will also demonstrate how to leverage native PowerShell Script in Azure Automation.  
+Once the AWS PowerShell Module has been deployed, we can now author a runbook to automate provisioning a virtual machine in AWS using a PowerShell script. The steps below will demonstrate how to leverage native PowerShell script in Azure Automation.  
+
+>[AZURE.NOTE] For further options and information regarding this script, please visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+
 
 1. Download the PowerShell script New-AwsVM from the PowerShell Gallery by opening a PowerShell session and typing the following:
 
-       Save-Script -Name New-AwsVM -Path \<path\>
-
-  >[AZURE.NOTE] For further options and information regarding this script, please visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+       ```Save-Script -Name New-AwsVM -Path \<path\>```
 2. From the Azure Portal, open your Automation account and click the  **Runbooks** tile.  
-3. From the **Runbooks** blade, select **Add a runbook**.
+3. From the **Runbooks** blade, select **Add a runbook**. 
 4. On the **Add a runbook** blade, select **Quick Create** (Create a new runbook).
 5. On the **Runbook** properties blade, type a name in the Name box for your runbook and from the **Runbook type** drop-down list select **PowerShell**, and then click **Create**.<br> ![Import Module Blade](./media/automation-aws-deployment/runbook-quickcreate-properties.png)
 
