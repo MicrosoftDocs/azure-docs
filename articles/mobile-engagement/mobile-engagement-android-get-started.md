@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Android apps."
 	services="mobile-engagement"
 	documentationCenter="android"
-	authors="piyushjo, ricksal"
+	authors="piyushjo"
 	manager="erikre"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="hero-article"
 	ms.date="04/08/2016"
-	ms.author="piyushjo" />
+	ms.author="piyushjo, ricksal" />
 
 # Get started with Azure Mobile Engagement for Android apps
 
