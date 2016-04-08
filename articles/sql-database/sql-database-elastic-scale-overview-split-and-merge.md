@@ -229,7 +229,7 @@ In addition, a uniqueness property with the sharding key as the leading column w
 -    The sharding key should be the leading column in your primary key or unique index definition. That ensures the best performance for the split or merge validation queries, and for the actual data movement and deletion operations which always operate on sharding key ranges.
 -    Collocate your split-merge service in the region and data center where your databases reside. 
 
-[AZURE.INCLUDE [elastic-scale-include](./includes/elastic-scale-include.md)]
+[AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 ## References 
 
