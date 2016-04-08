@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="04/08/2016"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -54,10 +54,7 @@ On the **Sample Images** tab on the left menu, upload a new image by clicking **
 ### Legal
 On the **Legal** tab, provide a link to your policies/terms of use. Enter or paste the terms in the large **Terms of Use** box.
 
-> [AZURE.NOTE] For virtual machines, you cannot change the following once a SKU is staged or live.
-- Offer identifier
-- Publisher identifier
-- SKU identifier
+> [AZURE.NOTE] For virtual machines, you cannot change the following once a SKU is staged or live: **Offer identifier**, **Publisher identifier**, and **SKU identifier**.
 
 ## Step 2: Set your prices
 ### Pricing models
@@ -92,10 +89,7 @@ On the **Legal** tab, provide a link to your policies/terms of use. Enter or pas
 5.	A pricing wizard will open. Proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
 6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and you should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See the section “Sell-to countries of the offer” in the introduction of this document for more information on sell-to countries.
 
-  > [AZURE.NOTE] For Virtual Machines, you cannot change the following once a SKU goes live as this impacts the billing of existing customers.
-  - Pricing change
-  - Billing model change
-  - Removal of billing regions
+  > [AZURE.NOTE] For Virtual Machines, you cannot change the following once a SKU goes live as this impacts the billing of existing customers: **Pricing change**, **Billing model change**, and **Removal of billing regions**.
 
 ### 2.2. Set your Developer service prices
 Plans can be any combination of base + consumption, where base is the monthly price and overage is the pay-per-use price. (See below for more details.)
