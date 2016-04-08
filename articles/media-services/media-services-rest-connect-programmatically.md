@@ -20,8 +20,8 @@
 # Connecting to Media Services Account using Media Services REST API
 
 > [AZURE.SELECTOR]
-- [.NET](media-services-dotnet-connect_programmatically.md)
-- [REST](media-services-rest-connect_programmatically.md)
+- [.NET](media-services-dotnet-connect-programmatically.md)
+- [REST](media-services-rest-connect-programmatically.md)
 
 This topic describes how to obtain a programmatic connection to Microsoft Azure Media Services when you are programming with the Media Services REST API.
 
