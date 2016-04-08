@@ -75,7 +75,7 @@ A key advantage to grouping a set of entities in a table into a single partition
 
 On the other hand, entities that are in the same table but have different partition keys can be load balanced across different servers, making it possible to have greater scalability.
 
-Detailed recommendations for designing partitioning strategy for tables can be found [here](https://msdn.microsoft.com/en-us/library/azure/hh508997.aspx).
+Detailed recommendations for designing partitioning strategy for tables can be found [here](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
 ## See Also
 
