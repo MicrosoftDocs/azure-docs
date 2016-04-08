@@ -27,7 +27,7 @@ There are two ways to connect to your subscription from the Azure CLI:
 
 * **Download and use a publish settings file** - This installs a certificate on your local computer that allows you to perform management tasks for as long as the subscription and the certificate are valid. This method only allows you to use Azure Service Management (asm) mode commands.
 
->[AZURE.NOTE] If you are using a version of the Azure CLI that is prior to version 0.9.10, you can use the `azure login` command only with a work or school account (also called an *organizational account*); Microsoft account identities do not work. However, if you want, you can [create a work or school ID from your Microsoft account ID](virtual-machines/virtual-machines-windows-create-aad-work-id.md). 
+>[AZURE.NOTE] If you are using a version of the Azure CLI that is prior to version 0.9.10, you can use the `azure login` command only with a work or school account; Microsoft account identities do not work. However, if you want, you can [create a work or school ID from your Microsoft account ID](virtual-machines/virtual-machines-windows-create-aad-work-id.md). 
 
 For background about different account identities and Azure subscriptions, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
@@ -80,7 +80,7 @@ If you've created a service principal for an Active Directory application, and t
 
 If you only need to use the classic (Service Management) CLI commands, you can connect using a publish settings file.
 
-* **To download the publish settings file** for your account, use the following command:
+* **To download the publish settings file** for your account, use the following command (available only in asm mode):
 
 		azure account download
 
