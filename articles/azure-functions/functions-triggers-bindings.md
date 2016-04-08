@@ -98,9 +98,6 @@ This section contains the following subsections:
 
 ### <a id="storageconnection"></a> Azure Storage connection property in function.json
 
-For Azure storage this section contains 
-This section contains the  
-
 For all Azure Storage triggers and bindings, the *function.json* file includes a `connection` property. For example:
 
 ```json
