@@ -128,7 +128,7 @@ This section shows how to connect to SQL Database instance using different
 .NET Framework data providers. For central recommendations about connecting to an SQL Database server and database, see:
 
 
-- [Connections to SQL Database: Central recommendations](../sql-database-connect-central-recommendations.md).
+- [Connections to SQL Database: Central recommendations](sql-database-connect-central-recommendations.md).
 
 
 If you choose to use Visual Studio and your configuration doesn't
