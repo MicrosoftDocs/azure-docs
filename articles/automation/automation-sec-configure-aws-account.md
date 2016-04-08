@@ -33,4 +33,4 @@ After you have created and copied your AWS security keys, you will need to creat
 
 ## Next Steps
 
-- [Automating deployment of a VM in Amazon Web Services](../automation/automation-scenario-aws-deployment.md)
+- Reivew the solution article [Automating deployment of a VM in Amazon Web Services](../automation/automation-scenario-aws-deployment.md) to learn how to create runbooks to automate tasks in AWS.
