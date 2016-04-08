@@ -3,7 +3,7 @@
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using a VPN."
    services=""
    documentationCenter="na"
-   authors="RohitSharma-pnp,atoakley,hanzzhang,JohnPWSharp,manikrish"
+   authors="RohitSharma-pnp"
    manager=""
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/18/2016"
+   ms.date="04/08/2016"
    ms.author="roshar"/>
 
 # Implementing a Hybrid Network Architecture with Azure and On-premises VPN
@@ -39,7 +39,7 @@ Examples of scenarios that fit this profile include:
 
 The following diagram highlights the components in this architecture:
 
-![IaaS: multi-tier](./media/arch-iaas-hybrid-3-tier-vpn.png)
+![IaaS: multi-tier](./media/guidance-hybrid-network-vpn/arch-diagram.png)
 
 - **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
@@ -171,7 +171,7 @@ See [SLA for VPN Gateway][sla-for-vpn-gateway] for the details about the VPN Gat
 
     The following diagram shows horizontal partitioning:
 
-    ![IaaS: partitioned-vnet](./media/arch-iaas-hybrid-3-tier-partitioned-vpn.png)
+    ![IaaS: partitioned-vnet](./media/guidance-hybrid-network-vpn/partitioned-vpn.png)
 
 - Replicating an on-premises Active Directory domain controller in the VNet, and implementing DNS in the VNet, can help to reduce some of the security-related and administrative traffic flowing from on-premises to the cloud. For more information, see [Next Steps](#next-steps).
 
@@ -183,7 +183,7 @@ See [SLA for VPN Gateway][sla-for-vpn-gateway] for the details about the VPN Gat
 
 - Monitor the operational logs of the Azure VPN Gateway by using the audit logs available in the Azure portal. Separate logs are available for the local network gateway, the Azure network gateway, and the connection. This information can be used to track any changes made to the gateway, and can be useful if a previously functioning gateway stops working for some reason.
 
-	![IaaS: audit-logs](./media/arch-iaas-hybrid-3-tier-audit-logs.png)
+	![IaaS: audit-logs](./media/guidance-hybrid-network-vpn/audit-logs.png)
 
 - Monitor connectivity, and track connectivity failure events. You can use a monitoring package such as [Nagios][nagios] to capture and report this information.
 
@@ -443,11 +443,11 @@ If traffic is unable to traverse the VPN connection, check the following:
 
 	Tooling depends on the facilities available to your VPN appliance running on-premises. For example, if you are using RRAS on Windows Server 2012, you can use Performance Monitor to track the volume of data being received and transmitted over the VPN connection; using the `RAS Total` object, select the `Bytes Received/Sec` and `Bytes Transmitted/Sec` counters:
 
-	![IaaS: rras-counters](./media/arch-iaas-hybrid-3-tier-RRAS-perf-counters.png)
+	![IaaS: rras-counters](./media/guidance-hybrid-network-vpn/RRAS-perf-counters.png)
 
 	You should compare the results with the bandwidth available to the VPN gateway (100 Mbps for the Basic and Standard SKUs, and 200 Mbps for the High Performance SKU):
 
-	![IaaS: rras-graph](./media/arch-iaas-hybrid-3-tier-RRAS-perf-graph.png)
+	![IaaS: rras-graph](./media/guidance-hybrid-network-vpn/RRAS-perf-graph.png)
 
 - Are any of the virtual machines in the Azure VNet running slowly? Are they overloaded, are there enough of them to handle the load, are all load-balancers configured correctly?
 
