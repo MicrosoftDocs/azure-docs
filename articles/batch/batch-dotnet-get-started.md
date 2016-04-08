@@ -212,8 +212,8 @@ List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
 
 There are two methods in `Program.cs` that are involved in the upload process:
 
-- `UploadFilesToContainerAsync`--This method returns a collection of [ResourceFile][net_resourcefile] objects (discussed below) and internally calls `UploadFileToContainerAsync` to upload each file that is passed in the *filePaths* parameter.
-- `UploadFileToContainerAsync`--This is the method that actually performs the file upload and creates the [ResourceFile][net_resourcefile] objects. After uploading the file, it obtains a shared access signature (SAS) for the file and returns a ResourceFile object that represents it. Shared access signatures are also discussed below.
+- `UploadFilesToContainerAsync`: This method returns a collection of [ResourceFile][net_resourcefile] objects (discussed below) and internally calls `UploadFileToContainerAsync` to upload each file that is passed in the *filePaths* parameter.
+- `UploadFileToContainerAsync`: This is the method that actually performs the file upload and creates the [ResourceFile][net_resourcefile] objects. After uploading the file, it obtains a shared access signature (SAS) for the file and returns a ResourceFile object that represents it. Shared access signatures are also discussed below.
 
 ```
 private static async Task<ResourceFile> UploadFileToContainerAsync(
@@ -262,9 +262,9 @@ The DotNetTutorial sample application does not use the JobPreparationTask or Job
 
 Shared access signatures are strings which--when included as part of a URL--provide secure access to containers and blobs in Azure Storage. The DotNetTutorial application uses both blob and container shared access signature URLs, and demonstrates how to obtain these shared access signature strings from the Storage service.
 
-- **Blob shared access signatures**--The pool's StartTask in DotNetTutorial uses blob shared access signatures when it downloads the application binaries and input data files from Storage (see Step #3 below). The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's shared access signature. It does so by calling [CloudBlob.GetSharedAccessSignature][net_sas_blob].
+- **Blob shared access signatures**: The pool's StartTask in DotNetTutorial uses blob shared access signatures when it downloads the application binaries and input data files from Storage (see Step #3 below). The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's shared access signature. It does so by calling [CloudBlob.GetSharedAccessSignature][net_sas_blob].
 
-- **Container shared access signatures**--As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, TaskApplication uses a container shared access signature that provides write access to the container as part of the path when it uploads the file. Obtaining the container shared access signature is done in a similar fashion as when obtaining the blob shared access signature. In DotNetTutorial, you will find that the `GetContainerSasUrl` helper method calls [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] to do so. You'll read more about how TaskApplication uses the container shared access signature in "Step 6: Monitor Tasks."
+- **Container shared access signatures**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, TaskApplication uses a container shared access signature that provides write access to the container as part of the path when it uploads the file. Obtaining the container shared access signature is done in a similar fashion as when obtaining the blob shared access signature. In DotNetTutorial, you will find that the `GetContainerSasUrl` helper method calls [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] to do so. You'll read more about how TaskApplication uses the container shared access signature in "Step 6: Monitor Tasks."
 
 > [AZURE.TIP] Check out the two-part series on shared access signatures, [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a shared access signature (SAS) with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
 
@@ -300,11 +300,11 @@ private static async Task CreatePoolAsync(
     // no pool is actually created in the Batch service. This CloudPool instance is
     // therefore considered "unbound," and we can modify its properties.
     CloudPool pool = batchClient.PoolOperations.CreatePool(
-				poolId: poolId,
-				targetDedicated: 3,           // 3 compute nodes
-				virtualMachineSize: "small",  // single-core, 1.75 GB memory, 224 GB disk
-				cloudServiceConfiguration:
-				    new CloudServiceConfiguration(osFamily: "4")); // Windows Server 2012 R2
+			poolId: poolId,
+			targetDedicated: 3,           // 3 compute nodes
+			virtualMachineSize: "small",  // single-core, 1.75 GB memory, 224 GB disk
+			cloudServiceConfiguration:
+			    new CloudServiceConfiguration(osFamily: "4")); // Win Server 2012 R2
 
     // Create and assign the StartTask that will be executed when compute nodes join
     // the pool. In this case, we copy the StartTask's resource files (that will be
@@ -394,14 +394,17 @@ private static async Task<List<CloudTask>> AddTasksAsync(
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"", inputFile.FilePath, outputContainerSasUrl);
+        string taskCommandLine = String.Format(
+            "cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"",
+            inputFile.FilePath,
+            outputContainerSasUrl);
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };
         tasks.Add(task);
     }
 
-    // Add the tasks as a collection, as opposed to adding a separate AddTask call
+    // Add the tasks as a collection, as opposed to issuing a separate AddTask call
     // for each. Bulk task submission helps to ensure efficient underlying API calls
     // to the Batch service.
     await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
@@ -464,11 +467,11 @@ When tasks are added to a job, they are automatically queued and scheduled for e
 
 Within the `MonitorTasks` method in DotNetTutorial's `Program.cs`, there are three Batch .NET concepts that warrant discussion. They are listed below in their order of appearance:
 
-1. **ODATADetailLevel**--Specifying [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of a job's tasks) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of status monitoring within your Batch applications.
+1. **ODATADetailLevel**: Specifying [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of a job's tasks) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of status monitoring within your Batch applications.
 
-2. **TaskStateMonitor**--[TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, *DotNetTutorial* waits for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit. Then it terminates the job.
+2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, *DotNetTutorial* waits for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit. Then it terminates the job.
 
-3. **TerminateJobAsync**--Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](batch-job-prep-release.md).
+3. **TerminateJobAsync**: Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](batch-job-prep-release.md).
 
 The `MonitorTasks` method from *DotNetTutorial*'s `Program.cs` appears below:
 
@@ -487,14 +490,18 @@ private static async Task<bool> MonitorTasks(
     // populated. Using a detail level for all list operations helps to lower
     // response time from the Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
-    List<CloudTask> tasks = await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
+    List<CloudTask> tasks =
+        await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
 
     Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
 
     // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
     // will wait for all tasks to reach the Completed state.
     TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-    bool timedOut = await taskStateMonitor.WaitAllAsync(tasks, TaskState.Completed, timeout);
+    bool timedOut = await taskStateMonitor.WaitAllAsync(
+        tasks,
+        TaskState.Completed,
+        timeout);
 
     if (timedOut)
     {
@@ -525,8 +532,10 @@ private static async Task<bool> MonitorTasks(
 
             if (task.ExecutionInformation.SchedulingError != null)
             {
-                // A scheduling error indicates a problem starting the task on the node. It is important to note that
-                // the task's state can be "Completed," yet the task still might have encountered a scheduling error.
+                // A scheduling error indicates a problem starting the task on the
+                // node. It is important to note that the task's state can be
+                // "Completed," yet the task still might have encountered a
+                // scheduling error.
 
                 allTasksSuccessful = false;
 
@@ -620,7 +629,8 @@ private static async Task DeleteContainerAsync(
     }
     else
     {
-        Console.WriteLine("Container [{0}] does not exist, skipping deletion.", containerName);
+        Console.WriteLine("Container [{0}] does not exist, skipping deletion.",
+            containerName);
     }
 }
 ```
