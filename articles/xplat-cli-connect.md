@@ -132,7 +132,7 @@ When first installed, the CLI is in asm mode.
 
 ## Storage of CLI settings
 
-Whether you log in with he `azure login` command or import publish settings, your CLI profile and logs are stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
+Whether you log in with the `azure login` command or import publish settings, your CLI profile and logs are stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
 
 * On Windows, modify the directory properties or use BitLocker.
 * On Mac, turn on FileVault for the directory.
