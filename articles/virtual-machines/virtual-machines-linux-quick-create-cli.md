@@ -40,40 +40,41 @@ In the following command walk through, please replace the prompts with values fr
 # Create the Linux VM using prompts
 username@macbook$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 info:    Executing command vm quick-create
-Resource group name: exampleResourceGroup
+Resource group name: exampleRGname
 Virtual machine name: exampleVMname
 Location name: westus
-Operating system Type [Windows, Linux]: linux
+Operating system Type [Windows, Linux]: Linux
 ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: Canonical:UbuntuServer:14.04.4-LTS:latest
-User name: ops
-Password: *********
-Confirm password: *********
+User name: chrisl
+Password: ************************************************
+Confirm password: ************************************************
 + Looking up the VM "exampleVMname"
+info:    Verifying the public key SSH file: /Users/spudbud/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
 info:    The [OS, Data] Disk or image configuration requires storage account
-+ Looking up the storage account cli133501687
-info:    Could not find the storage account "cli1301687", trying to create new one
-+ Creating storage account "cli133501687" in "westus"
-+ Looking up the storage account cli133501687
-+ Looking up the NIC "quick-westu-1363648838-nic"
-info:    An nic with given name "quick-westu-1363648838-nic" not found, creating a new one
-+ Looking up the virtual network "quick-westu-1363648838-vnet"
++ Looking up the storage account cli38948918364134011018
+info:    Could not find the storage account "cli38948918364134011018", trying to create new one
++ Creating storage account "cli38948918364134011018" in "westus"
++ Looking up the storage account cli38948918364134011018
++ Looking up the NIC "examp-westu-3894891836-nic"
+info:    An nic with given name "examp-westu-3894891836-nic" not found, creating a new one
++ Looking up the virtual network "examp-westu-3894891836-vnet"
 info:    Preparing to create new virtual network and subnet
-\ Creating a new virtual network "quick-westu-1363648838-vnet" [address prefix: "10.0.0.0/16"] with subnet "quick-westu-13636488+8-snet" [address prefix: "10.0.1.0/24"]
-+ Looking up the virtual network "quick-westu-1363648838-vnet"
-+ Looking up the subnet "quick-westu-1363648838-snet" under the virtual network "quick-westu-1363648838-vnet"
+| Creating a new virtual network "examp-westu-3894891836-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-westu-3894891836-snet" [address prefix: "10.+.1.0/24"]
++ Looking up the virtual network "examp-westu-3894891836-vnet"
++ Looking up the subnet "examp-westu-3894891836-snet" under the virtual network "examp-westu-3894891836-vnet"
 info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "quick-westu-1363648838-pip"
-info:    PublicIP with given name "quick-westu-1363648838-pip" not found, creating a new one
-+ Creating public ip "quick-westu-1363648838-pip"
-+ Looking up the public ip "quick-westu-1363648838-pip"
-+ Creating NIC "quick-westu-1363648838-nic"
-+ Looking up the NIC "quick-westu-1363648838-nic"
-+ Creating VM "quickcreate"
++ Looking up the public ip "examp-westu-3894891836-pip"
+info:    PublicIP with given name "examp-westu-3894891836-pip" not found, creating a new one
++ Creating public ip "examp-westu-3894891836-pip"
++ Looking up the public ip "examp-westu-3894891836-pip"
++ Creating NIC "examp-westu-3894891836-nic"
++ Looking up the NIC "examp-westu-3894891836-nic"
++ Creating VM "exampleVMname"
 + Looking up the VM "exampleVMname"
-+ Looking up the NIC "quick-westu-1363648838-nic"
-+ Looking up the public ip "quick-westu-1363648838-pip"
-data:    Id                              :/subscriptions/<guid>/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMname
++ Looking up the NIC "examp-westu-3894891836-nic"
++ Looking up the public ip "examp-westu-3894891836-pip"
+data:    Id                              :/subscriptions/<**subscriptionsID**>/resourceGroups/exampleRGname/providers/Microsoft.Compute/virtualMachines/exampleVMname
 data:    ProvisioningState               :Succeeded
 data:    Name                            :exampleVMname
 data:    Location                        :westus
@@ -84,22 +85,22 @@ data:      Size                          :Standard_D1
 data:
 data:    Storage Profile:
 data:      Image reference:
-data:        Publisher                   :canonical
-data:        Offer                       :ubuntuserver
-data:        Sku                         :14.04.2-LTS
+data:        Publisher                   :Canonical
+data:        Offer                       :UbuntuServer
+data:        Sku                         :14.04.4-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
 data:        OSType                      :Linux
-data:        Name                        :cli350d386daac1f01c-os-1457063387485
+data:        Name                        :clife36db80ae0539d2-os-1460152163612
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://cli1361687.blob.core.windows.net/vhds/cli350d386daac1f01c-os-1457063387485.vhd
+data:          Uri                       :https://<**subID**>.blob.core.windows.net/vhds/clife36db80ae0539d2-os-1460152163612.vhd
 data:
 data:    OS Profile:
 data:      Computer Name                 :exampleVMname
-data:      User Name                     :ops
+data:      User Name                     :chrisl
 data:      Linux Configuration:
 data:        Disable Password Auth       :false
 data:
@@ -107,16 +108,16 @@ data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
 data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-32-E9-66
+data:          MAC Address               :00-0D-3A-33-4C-B2
 data:          Provisioning State        :Succeeded
-data:          Name                      :quick-westu-1363648838-nic
+data:          Name                      :examp-westu-3894891836-nic
 data:          Location                  :westus
-data:            Public IP address       :137.135.33.58
-data:            FQDN                    :quick-westu-1363648838-pip.westus.cloudapp.azure.com
+data:            Public IP address       :13.88.22.244
+data:            FQDN                    :examp-westu-3894891836-pip.westus.cloudapp.azure.com
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
-data:      BootDiagnostics StorageUri    :https://cli13601687.blob.core.windows.net/
+data:      BootDiagnostics StorageUri    :https://<**subID**>.blob.core.windows.net/
 data:
 data:      Diagnostics Instance View:
 info:    vm quick-create command OK
