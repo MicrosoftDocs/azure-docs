@@ -25,7 +25,7 @@
 
 
 
-This article gives you an overview of how to link virtual networks (VNets) to ExpressRoute circuits using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription, or part of another subscription. This article applies to VNets deployed using the Resource Manager deployment model.
+This article gives you an overview of how to link virtual networks (VNets) to ExpressRoute circuits using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription, or part of another subscription.
 
 
 **About Azure deployment models**
@@ -39,7 +39,7 @@ This article gives you an overview of how to link virtual networks (VNets) to Ex
 	- Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
 	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
 	- Azure private peering must be configured and the BGP peering between your network and Microsoft must be up for you to enable end-to-end connectivity.
-	- You must have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [vpn gateway](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (follow only steps 1 - 5).
+	- You must have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [VPN gateway](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (follow only steps 1 - 5).
 
 You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRoute circuits must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check out the [FAQ](expressroute-faqs.md) for more details on the premium add-on. 
 
