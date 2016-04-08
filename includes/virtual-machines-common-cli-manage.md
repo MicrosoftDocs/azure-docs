@@ -41,4 +41,4 @@ Get all available VM sizes | Not available | `azure vm sizes [options]`
 ## Next steps
 
 * For additional examples of the CLI commands, see [Azure CLI commands in Azure Service Management (arm) mode](../articles/virtual-machines-command-line-tools.md) and
-[Azure CLI commands in Azure Resource Manager (arm) mode](../articles/azure-cli-arm-commands.md).
+[Azure CLI commands in Azure Resource Manager (arm) mode](../articles/virtual-machines/azure-cli-arm-commands.md).
