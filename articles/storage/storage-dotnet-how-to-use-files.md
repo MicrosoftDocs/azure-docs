@@ -267,7 +267,7 @@ To work with File storage programmatically, you can use the storage client libra
 
 ### Add namespace declarations
 
-Open the program.cs file from Solution Explorer, and add the following namespace declarations to the top of the file.
+Open the `program.cs` file from Solution Explorer, and add the following namespace declarations to the top of the file.
 
 	using Microsoft.Azure; // Namespace for Azure Configuration Manager
 	using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
