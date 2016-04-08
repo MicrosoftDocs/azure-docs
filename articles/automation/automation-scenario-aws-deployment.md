@@ -37,8 +37,9 @@ Our VM provisioning runbook will leverage the AWS PowerShell module to do its wo
    * In the **Automation Account Name (string)** box, type in the exact name of the Automation account that includes the credentials for your AWS subscription.  For example, if you created a dedicated account named **AWSAutomation**, then that is what you type in the box.
    * Select the appropriate region from the **Automation Account Location** drop-down list.
 
-4. When you have completed entering the required information, click **Create**.<br>
->[AZURE.NOTE] While importing a PowerShell module into Azure Automation, it is also extracting the cmdlets and these activities will not appear until the module has completely finished importing and extracting the cmdlets. This  process can take a few minutes.  
+4. When you have completed entering the required information, click **Create**.
+
+    >[AZURE.NOTE] While importing a PowerShell module into Azure Automation, it is also extracting the cmdlets and these activities will not appear until the module has completely finished importing and extracting the cmdlets. This  process can take a few minutes.  
 <br>
 5. In the Azure Portal, open your Automation account referenced in step 3.
 6. Click on the **Assets** tile and on the **Assets** blade, select the **Modules** tile.
@@ -62,12 +63,12 @@ Once the AWS PowerShell Module has been deployed, we can now author a runbook to
 5. On the **Runbook** properties blade, type a name in the Name box for your runbook and from the **Runbook type** drop-down list select **PowerShell**, and then click **Create**.<br> ![Import Module Blade](./media/automation-aws-deployment/runbook-quickcreate-properties.png)
 6. When the Edit PowerShell Runbook blade appears, copy and paste the PowerShell script into the runbook authoring canvas.<br> ![Runbook PowerShell Script](./media/automation-aws-deployment/runbook-powershell-script.png)<br>
 
-   >[AZURE.NOTE] Please note the following when working with the example PowerShell script:
-   >
-   > - The runbook contains a number of default parameter values. Please evaluate all default values and update where necessary.
-   > - If you have stored your AWS credentials as a credential asset named differently than **AWScred**, you will need to update the script on line 57 to match accordingly.  
-   > - When working with the AWS CLI commands in PowerShell, especially with this example runbook, you must specify the AWS region. Otherwise, the cmdlets will fail.  View AWS topic [Specify AWS Region](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) in the AWS Tools for PowerShell document for further details.  
-
+    >[AZURE.NOTE] Please note the following when working with the example PowerShell script:
+    >
+    > - The runbook contains a number of default parameter values. Please evaluate all default values and update where necessary.
+    > - If you have stored your AWS credentials as a credential asset named differently than **AWScred**, you will need to update the script on line 57 to match accordingly.  
+    > - When working with the AWS CLI commands in PowerShell, especially with this example runbook, you must specify the AWS region. Otherwise, the cmdlets will fail.  View AWS topic [Specify AWS Region](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) in the AWS Tools for PowerShell document for further details.  
+<br>
 7. To retrieve a list of image names from your AWS subscription, launch PowerShell ISE and import the AWS PowerShell Module.  Authenticate against AWS by replacing **Get-AutomationPSCredential** in your ISE environment with **AWScred = Get-Credential**.  This will prompt you for your credentials and you can provide your **Access Key ID** for the username and **Secret Access Key** for the password.  See the example below:
 
 		#Sample to get the AWS VM available images
