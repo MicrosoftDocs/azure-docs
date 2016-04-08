@@ -19,8 +19,6 @@
 
 # Implementing a Hybrid Network Architecture with Azure and On-premises VPN
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
-
 This article outlines a set of practices for extending an on-premises network onto Azure using a site-to-site virtual private network (VPN). The traffic flows between the on-premises network and an Azure Virtual Network (VNet) through an IPSec VPN tunnel. This architecture is suitable for hybrid applications with the following characteristics:
 
 - Parts of the application run on-premises while others run in Azure.
@@ -36,6 +34,8 @@ Examples of scenarios that fit this profile include:
 - Line-of-business applications used within an organization, where part of the functionality has been migrated to the cloud.
 
 - Development/test/lab workloads.
+
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
 The following diagram highlights the components in this architecture:
 
