@@ -481,7 +481,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     }
 
 ## Use PolyBase to load data into Azure SQL Data Warehouse
-**PolyBase** is an efficient way of loading large amount of data from Azure Blob Storage to Azure SQL Data Warehouse with high throughput. See [Performance Reference](data-factory-copy-activity-performance.md#performance-reference) for the throughput you can gain through PolyBase.   
+**PolyBase** is an efficient way of loading large amount of data from Azure Blob Storage to Azure SQL Data Warehouse with high throughput.  You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism.   
 
 If your source data store is not Azure Blob Storage, then you could consider copying the data from the source data store to Azure Blob Storage first as staging and then use PolyBase to load the data into Azure SQL Data Warehouse from the staging store. In this scenario, you will use two copy activities with first copy activity configured to copy data from source data store to Azure Blob Storage and the second copy activity to copy data from Azure Blob Storage to Azure SQL Data Warehouse using PolyBase. 
 
