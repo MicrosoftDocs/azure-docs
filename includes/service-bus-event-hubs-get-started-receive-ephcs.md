@@ -22,9 +22,7 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 
 5. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages**.
 
-	The **Manage NuGet Packages** dialog box appears.
-
-6. Search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, click **Install**, and accept the terms of use.
+6. Click the **Browse** tab, then search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Ensure that the project name (**Receiver**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use..
 
     ![][13]
 
@@ -37,7 +35,6 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 	```
 	using Microsoft.ServiceBus.Messaging;
 	using System.Diagnostics;
-	using System.Threading.Tasks;
 	```
 
 	Then, substitute the following code for the body of the class:
@@ -82,7 +79,7 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
             }
 	    }
 	}
-    ````
+    ```
 
 	This class will be called by the **EventProcessorHost** to process events received from the Event Hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
 
@@ -91,7 +88,6 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 	```
 	using Microsoft.ServiceBus.Messaging;
 	using Microsoft.Threading;
-	using System.Threading.Tasks;
 	```
 
 	Then, modify the `Main` method in the `Program` class as follows, substituting the Event Hub name and connection string, and the storage account and key that you copied in the previous sections:
@@ -116,7 +112,7 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
       Console.ReadLine();
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
-	````
+	```
 
 > [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost][]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost][], as shown in the [Scaled out event processing][] sample. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost][] instances based on the machines (or roles) in which they are deployed. For more information about these topics, see the [Event Hubs Overview][] and [Event Hubs Programming Guide][] topics.
 
