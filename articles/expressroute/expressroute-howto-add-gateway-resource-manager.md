@@ -17,7 +17,7 @@
    ms.date="04/06/2016"
    ms.author="charwen"/>
 
-# Configure a VNet Gateway for ExpressRoute using Resource Manager and PowerShell
+# Configure a virtual network gateway for ExpressRoute using Resource Manager and PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -25,7 +25,7 @@
 - [PowerShell - Classic](expressroute-howto-add-gateway-classic.md)
 
 
-This article will walk you through the steps to add, resize, and remove a VNet gateway for an already existing VNet. The steps for this configuration are specifically for VNets that were created using the **Resource Manager deployment model** and that will be be used in an ExpressRoute configuration. 
+This article will walk you through the steps to add, resize, and remove a virtual network (VNet) gateway for a pre-existing VNet. The steps for this configuration are specifically for VNets that were created using the **Resource Manager deployment model** and that will be be used in an ExpressRoute configuration. 
 
 **About Azure deployment models**
 
