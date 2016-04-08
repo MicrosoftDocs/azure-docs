@@ -73,7 +73,7 @@ The sample application we'll be exploring creates a new index named "hotels", po
         // service name is myservice.
         string searchServiceName = "myservice";
 
-        string apiKey = "Put your API admin key here."
+        string apiKey = "Put your API admin key here.";
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
@@ -105,7 +105,7 @@ We'll walk through this step by step. First we need to create a new `SearchServi
         // service name is myservice.
         string searchServiceName = "myservice";
 
-        string apiKey = "Put your API admin key here."
+        string apiKey = "Put your API admin key here.";
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
