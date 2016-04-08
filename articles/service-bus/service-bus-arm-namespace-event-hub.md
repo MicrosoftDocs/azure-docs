@@ -39,7 +39,7 @@ With this template, you will deploy a Service Bus namespace with an Event Hub an
 
 Event Hubs is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability.
 
-Learn more about [Azure Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-what-is-event-hubs/).
+Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 To run the deployment automatically, click the following button
 
