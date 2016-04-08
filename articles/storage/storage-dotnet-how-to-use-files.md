@@ -172,10 +172,12 @@ Now upload a local file to the directory. The following example uploads a file f
 
 ### List the files in the directory
 
-To see the file in the directory, you can list the directory's files. This command will also list subdirectories, but in this example, there is no subdirectory, so only the file will be listed.
+To see the file in the directory, you can list the directory's files. This command returns the files and subdirectories (if there are any) in the CustomLogs directory.
 
 	# list files in the new directory
-	Get-AzureStorageFile -Share $s -Path CustomLogs
+	Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+
+The first part of the command up to the pipe returns a directory instance of the subdirectory CustomLogs. This is then piped into Get-AzureStorageFile, which shows the files and subdirectories in that directory instance. 
 
 ### Copy files
 
