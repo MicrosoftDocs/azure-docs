@@ -78,7 +78,7 @@ If you've created a service principal for an Active Directory application, and t
 
 ## Use the publish settings file method
 
-If you only need to use the classic (Service Management) CLI commands, you can connect using a publish settings file.
+If you only need to use the Azure Service Management (asm mode) CLI commands, you can connect using a publish settings file.
 
 * **To download the publish settings file** for your account, use the following command (available only in asm mode):
 
@@ -94,7 +94,7 @@ This opens your default browser and prompts you to sign in to the [Azure classic
 
 		azure account import <path to your .publishsettings file>
 
-	>[AZURE.SECURITY]After importing your publish settings, you should delete the `.publishsettings` file. It is no longer required by the Azure CLI and presents a security risk as it could be used to gain access to your subscription.
+	>[AZURE.IMPORTANT]After importing your publish settings, you should delete the `.publishsettings` file. It is no longer required by the Azure CLI and presents a security risk as it could be used to gain access to your subscription.
 
 ## Multiple subscriptions
 
