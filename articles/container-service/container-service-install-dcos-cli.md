@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Install the DC/OS CLI on an Azure Container Service Cluster | Microsoft Azure"
-   description="Install the DC/OS CLI on an Azure Container Service Cluster."
+   pageTitle="Install the DC/OS CLI | Microsoft Azure"
+   description="Install the DC/OS CLI."
    services="container-service"
    documentationCenter=""
    authors="gatneil"
@@ -15,17 +15,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
-   ms.author="rogardle"/>
+   ms.date="04/08/2016"
+   ms.author="negat"/>
 
 
 
-# Install the DC/OS CLI on the DC/OS Preview version of ACS
+# Install the DC/OS CLI
 
-When you create your DC/OS Preview version of ACS with dnsNamePrefix DNS_NAME_PREFIX and location LOCATION, you get the following FQDN for the load balancer for your masters: DNS_NAME_PREFIXmgmt.LOCATION.westus.cloudapp.azure.com. For example, when I create with dnsNamePrefix "negatacs" and location "wetsus" (or "West US"), the FQDN is: negatacsmgmt.westus.cloudapp.azure.com. This load balancer has NAT rules that map port 2200+i to port 22 on master number 'i'. As an example, I can ssh into the 0th master in my cluster with the following command (assuming my username is 'negat'):
+>[AZURE.NOTE] This is for working with DC/OS-based ACS. There is no need to do this for Swarm-based ACS.
+
+First, [connect to your DC/OS-based ACS cluster](./container-service-connect). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
 
 ```bash
-ssh -p 2200 negat@negatacsmgmt.westus.cloudapp.azure.com
+# (*** TODO ***)
 ```
-
-
