@@ -23,7 +23,8 @@
 
 This article describes how to monitor, manage and debug your pipelines using the **Monitoring and Management App**. It also provides information on how to create alerts and get notified on failures using the application.
 
-You can also watch the following video for a demonstration of using the Monitoring and Management App.   
+Watch the following video for a demonstration of using the Monitoring and Management App.
+   
 > [AZURE.VIDEO how-to-monitor--manage-big-data-pipelines-with-azure-data-factory]
       
 ## Launching the Monitoring and Management App a
