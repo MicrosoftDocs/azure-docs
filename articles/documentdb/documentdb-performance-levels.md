@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2016" 
+	ms.date="04/08/2016" 
 	ms.author="johnmac"/>
 
 # Performance levels in DocumentDB
@@ -97,7 +97,7 @@ It is recommended that your application makes use of a small number of collectio
 
 ## Changing performance levels using the Azure Portal
 
-The Azure Portal is one option available to you when managing your collections' performance levels. Follow these steps to change a collection's performance level in the Azure portal, or watch the 75 second [Channel 9 video](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance).
+The Azure Portal is one option available to you when managing your collections' performance levels. Follow these steps to change from using pre-defined performance levels to user-defined performance levels in the Azure portal, or watch the 75 second [Channel 9 video](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance). For more information about the change to the pricing options, see  the blog post [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
 
 1. Navigate over to the [**Azure portal**](https://portal.azure.com) from your browser.
 2. Click **Browse** from the jump bar on the left side.

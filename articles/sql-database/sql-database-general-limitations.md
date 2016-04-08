@@ -3,8 +3,8 @@
    description="This page describes some general limitations for Azure SQL Database as well as areas of interoperability and support."
    services="sql-database"
    documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor="monicar" />
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="01/15/2016"
-   ms.author="jroth" />
+   ms.author="carlrab" />
 
 # Azure SQL Database General Limitations and Guidelines
 
