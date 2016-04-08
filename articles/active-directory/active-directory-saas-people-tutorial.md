@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate People with Azure
 
 - You can control in Azure AD who has access to People
 - You can enable your users to automatically get signed-on to People (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,20 +57,24 @@ To configure the integration of People into Azure AD, you need to add People fro
 
 **To add People from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
-![Active Directory][1]<br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+![Active Directory][1]
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.<br><br>
-![Applications][2]<br>
-4. Click **Add** at the bottom of the page.<br><br>
-![Applications][3]<br>
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
-![Applications][4]<br>
-6. In the search box, type **People**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/tutorial_people_01.png)<br>
-7. In the results pane, select **People**, and then click **Complete** to add the application.<br><br>
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+![Applications][4]
+
+6. In the search box, type **People**.
+![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/tutorial_people_01.png)
+
+7. In the results pane, select **People**, and then click **Complete** to add the application.
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -86,13 +90,13 @@ To configure and test Azure AD single sign-on with People, you need to complete 
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your People application.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your People application.
 
 
 
 **To configure Azure AD single sign-on with People, perform the following steps:**
 
-1. In the Azure AD portal, on the **People** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure classic portal, on the **People** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to People** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -134,7 +138,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 
-6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     <br>![Azure AD Single Sign-On][10]<br><br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
@@ -149,7 +153,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 **To create a People test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_09.png) <br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
