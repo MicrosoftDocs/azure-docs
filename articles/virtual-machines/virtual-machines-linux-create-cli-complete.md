@@ -96,7 +96,7 @@ chrisL@fedora$ azure vm show testrg testvm
 
 ### Introduction
 
-This article builds a deployment that is similar to a cloud service deployment with one Linux VM inside a VNetwork Subnet. It walks through the entire basic deployment imperatively, command by command, until you have a working, secure Linux VM to which you can connect from anywhere on the internet.
+This article builds a deployment with one Linux VM inside a VNetwork Subnet. It walks through the entire basic deployment imperatively, command by command, until you have a working, secure Linux VM to which you can connect from anywhere on the internet.
 
 Along the way, you'll understand the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. Once you see how the system is built, you can rebuild the system much faster using more direct Azure CLI commands (see [this](virtual-machines-linux-quick-create-cli.md) for roughly the same deployment using the `azure vm quick-create` command), or you can move on to master how to design and automate entire network and application deployments and update them using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you see how the parts of your deployment fit together, creating templates to automate them becomes easier.
 
@@ -123,7 +123,7 @@ info:    group create command OK
 
 ### Create a storage account
 
-You're going to need storage accounts for your VM disks and for any addition data disks you want to add, among other scenarios. In short, you're always going to create storage accounts almost immediately after you create resource groups.
+You're going to need storage accounts for your VM disks and for any additional data disks you want to add, among other scenarios. In short, you're always going to create storage accounts almost immediately after you create resource groups.
 
 Here we use the `azure storage account create` command, passing the location of the account, the resource group that will control it, and the type of storage support you would like.
 
@@ -270,7 +270,7 @@ chrisL@fedora$ azure group show testrg --json | jq '.'
 }
 ```
 
-Now let's create a subnet in the `TestVnet` virtual network into which the VM will be deployed. We use the `azure network vnet subnet create` command, along wth the resources we've already created: the `TestRG` resource group, the `TestVNet` virtual network, and we'll add the subnet name `FrontEnd` and the subnet address prefix `192.168.1.0/24`, as follows.
+Now let's create a subnet in the `TestVnet` virtual network into which the VM will be deployed. We use the `azure network vnet subnet create` command, along with the resources we've already created: the `TestRG` resource group, the `TestVNet` virtual network, and we'll add the subnet name `FrontEnd` and the subnet address prefix `192.168.1.0/24`, as follows.
 
 ```
 chrisL@fedora$ azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
@@ -429,7 +429,7 @@ chrisL@fedora$ azure network nic show testrg testnic --json | jq '.'
 
 ### Create your Network Security Group and rules
 
-Now we create your newtork security group (NSG) and the inbound rules that govern access to the NIC.
+Now we create your network security group (NSG) and the inbound rules that govern access to the NIC.
 
 ```
 chrisL@fedora$ azure network nsg create testrg testnsg westeurope
@@ -445,7 +445,7 @@ chrisL@fedora$ azure network nsg rule create --protocol tcp --direction inbound 
 
 ### Create your Public IP address (PIP)
 
-Now let's create your public IP address (PIP) that will enable you to connect to your VM from the internet using the `azure network public-ip create` command. Because the  default is a dynamic address, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `-d testsubdomain` option.
+Now let's create your public IP address (PIP) that will enable you to connect to your VM from the internet using the `azure network public-ip create` command. Because the default is a dynamic address, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `-d testsubdomain` option.
 
 ```
 chrisL@fedora$ azure network public-ip create -d testsubdomain testrg testpip westeurope
@@ -591,7 +591,7 @@ info:    This NIC IP configuration has a public ip already configured "/subscrip
 info:    vm create command OK
 ```
 
-Immediately, you can connect to your vm using your default ssh keys.
+Immediately, you can connect to your VM using your default ssh keys.
 
 ```
 chrisL@fedora$ ssh ops@testsubdomain.westeurope.cloudapp.azure.com           
