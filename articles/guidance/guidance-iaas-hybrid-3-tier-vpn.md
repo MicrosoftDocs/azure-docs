@@ -17,7 +17,7 @@
    ms.date="03/18/2016"
    ms.author="roshar"/>
 
-# Azure Blueprints: Implementing a Hybrid Network Architecture with Azure and On-premises VPN
+# Implementing a Hybrid Network Architecture with Azure and On-premises VPN
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
