@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/31/2016" 
+	ms.date="04/06/2016" 
 	ms.author="billmath"/>
 
 # Getting started with Azure Multi-Factor Authentication in the cloud
@@ -92,8 +92,8 @@ User accounts in Azure Multi-Factor Authentication have the following three dist
 State | Description |Non-browser apps affected| Notes 
 :-------------: | :-------------: |:-------------: |:-------------: |
 Disabled | The default state for a new user not enrolled in multi-factor authentication.|No|The user is not using multi-factor authentication.
-Enabled |The user has been enrolled in multi-factor authentication.|No.  They continue to work until the registration process is completed.|The user is enabled but has not completed the registration process. They will be prompted to complete the process at next sign in.
-Enforced|The user has been enrolled and has completed the registration process for using multi-factor authentication.|Yes.  The apps will not work until app passwords are created and used. | The user may or may not have completed registration. If they have completed the registration process, then they are using multi-factor authentication. Otherwise, the user will be prompted to complete the process at next sign in.
+Enabled |The user has been enrolled in multi-factor authentication.|No.  They continue to work until the registration process is completed.|The user is enabled but has not completed the registration process. They will be prompted to complete the process at next sign-in.
+Enforced|The user has been enrolled and has completed the registration process for using multi-factor authentication.|Yes.  Apps require app passwords. | The user may or may not have completed registration. If they have completed the registration process, then they are using multi-factor authentication. Otherwise, the user will be prompted to complete the process at next sign-in.
 
 Use the following procedure to enable MFA for your users.
 
@@ -106,7 +106,7 @@ Use the following procedure to enable MFA for your users.
 5.  At the bottom of the page, click Manage Multi-Factor Auth.
 6.  Find the user that you wish to enable for multi-factor authentication. You may need to change the view at the top. Ensure that the status is disabled and place a check in the box next to their name.
 7.  On the right, click Enable. Click enable multi-factor auth.
-8.  After you have enabled your users, it is recommended that you notify them.  You can do this with an email.  It should also inform them how they can use their non-browser apps to avoid being locked out.
+8.  After you have enabled your users, it is recommended that you notify them via email.  It should also inform them how they can use their non-browser apps to avoid being locked out.
 
 <center>![Enable Users](./media/multi-factor-authentication-get-started-cloud/user.png)</center>
 
@@ -121,7 +121,7 @@ To change the state using Windows PowerShell, you can use the following.  You ca
 
 ## Send email to end users
 
-Once you have enabled your users, send an email telling them that they will need to provide their contact information. The following is an email template that can be used. It includes a link to a video that the users can watch.
+Once you have enabled your users, send an email telling them that they need to provide their contact information. The following is an email template that can be used. It includes a link to a video that the users can watch.
 
 		Subject: ACTION REQUIRED: Your password for Outlook and other apps needs updated
 
