@@ -30,7 +30,7 @@ Functions are easy to code and test in the Azure portal, but sometimes it's usef
 
 ### An Azure account with a function app
 
-This article assumes that you have worked with [Azure Functions](functions-overview.md) in the portal and are familiar with Azure Functions concepts such as [triggers, bindings, and JobHost](functions-reference).
+This article assumes that you have worked with [Azure Functions](functions-overview.md) in the portal and are familiar with Azure Functions concepts such as [triggers, bindings, and JobHost](functions-reference.md).
 
 When you run functions locally, you get some output in the console window, but you'll also want to use the dashboard that is hosted by a live function app to view function invocations and logs.
 
@@ -55,13 +55,13 @@ Some Azure resources and software installations are required only if you plan to
 	* Python
 	* PHP
 
-For details about these requirements, including environment variables that you have to set for them, see the [wiki pages for the azure-webjobs-sdk-script repository](https://github.com/Azure/azure-webjobs-sdk-script/wiki/home)
+For details about these requirements, including environment variables that you have to set for them, see the [wiki pages for the WebJobs.Script repository](https://github.com/Azure/azure-webjobs-sdk-script/wiki/home)
 
 If your purpose is to contribute to the WebJobs.SDK project, you need all of the conditional prerequisites to run complete tests.
 
 ## To run locally
 
-1. Clone or download the [azure-webjobs-sdk-script](https://github.com/Azure/azure-webjobs-sdk-script/) repository.
+1. [Clone](https://github.com/Azure/azure-webjobs-sdk-script/) or [download](https://github.com/Azure/azure-webjobs-sdk-script/archive/master.zip) the Webjobs.Script repository.
 
 2. Set environment variables for storage connection strings.
 
