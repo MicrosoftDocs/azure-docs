@@ -4,8 +4,8 @@
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
-   manager="jeffreyg"
-   editor="jeffreyg"/>
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
