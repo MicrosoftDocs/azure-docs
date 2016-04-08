@@ -85,7 +85,21 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-## <a id="storage"></a> Azure Storage triggers and bindings
+## <a id="storage"></a> Azure Storage (queues, blobs, tables) triggers and bindings
+
+This section contains the following subsections:
+
+* [Azure Storage connection property in function.json](#storageconnection)
+* [Azure Storage queue trigger](#storagequeuetrigger)
+* [Azure Storage queue output binding](#storagequeueoutput)
+* [Azure Storage blob trigger](#storageblobtrigger)
+* [Azure Storage blob input and output bindings](#storageblobbindings)
+* [Azure Storage tables input and output bindings](#storagetablesbindings)
+
+### <a id="storageconnection"></a> Azure Storage connection property in function.json
+
+For Azure storage this section contains 
+This section contains the  
 
 For all Azure Storage triggers and bindings, the *function.json* file includes a `connection` property. For example:
 
@@ -112,7 +126,7 @@ If you leave `connection` empty, the trigger or binding will work with the defau
 
 3. Scroll down to the **App settings** section, and add an entry with **Key** = *{some unique value of your choice}* and **Value** = the connection string for the storage account.
 
-## <a id="queuetrigger"></a> Azure Storage queue trigger
+### <a id="storagequeuetrigger"></a> Azure Storage queue trigger
 
 The *function.json* file provides the name of the queue to poll and the variable name for the queue message. For example:
 
@@ -131,7 +145,7 @@ The *function.json* file provides the name of the queue to poll and the variable
 }
 ```
 
-### Queue trigger supported types
+#### Queue trigger supported types
 
 The queue message can be deserialized to any of these types:
 
@@ -140,7 +154,7 @@ The queue message can be deserialized to any of these types:
 * JSON object   
 * `CloudQueueMessage`
 
-### Queue trigger metadata
+#### Queue trigger metadata
 
 You can get queue metadata in your function by using these variable names:
 
@@ -176,7 +190,7 @@ public static void Run(string myQueueItem,
 }
 ```
 
-### Handling poison queue messages
+#### Handling poison queue messages
 
 Messages whose content causes a function to fail are called *poison messages*. When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated. The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.
 
@@ -186,7 +200,7 @@ The poison queue is named *{originalqueuename}*-poison. You can write a function
 
 If you want to handle poison messages manually, you can get the number of times a message has been picked up for processing by checking `dequeueCount`.
 
-## Azure Storage queue output binding
+### <a id="storagequeueoutput"></a> Azure Storage queue output binding
 
 The *function.json* file provides the name of the output queue and a variable name for the content of the message. This example uses a queue trigger and writes a queue message.
 
@@ -212,7 +226,7 @@ The *function.json* file provides the name of the output queue and a variable na
 }
 ``` 
 
-### Queue output binding supported types
+#### Queue output binding supported types
 
 The `queue` binding can serialize the following types to a queue message:
 
@@ -221,7 +235,7 @@ The `queue` binding can serialize the following types to a queue message:
 * `CloudQueueMessage` (works like string) 
 * JSON object (creates a message with a null object if the parameter is null when the function ends)
 
-### Queue output binding code example
+#### Queue output binding code example
 
 This C# code example writes a single output queue message for each input queue message.
 
@@ -242,7 +256,7 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-## Azure Storage blob trigger
+### <a id="storageblobtrigger"></a> Azure Storage blob trigger
 
 The *function.json* provides a path that specifies the container to monitor, and optionally a blob name pattern. This example triggers on any blobs that are added to the samples-workitems container.
 
@@ -263,7 +277,7 @@ The *function.json* provides a path that specifies the container to monitor, and
 
 > [AZURE.NOTE] If the blob container that the trigger is monitoring contains more than 10,000 blobs, the Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers for large containers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
 
-### Blob trigger supported types
+#### Blob trigger supported types
 
 Blobs can be deserialized to these types:
 
@@ -279,7 +293,7 @@ Blobs can be deserialized to these types:
 * `IEnumerable<CloudPageBlob>`
 * Other types deserialized by [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
 
-### Blob trigger C# code example
+#### Blob trigger C# code example
 
 This C# code example logs the contents of each blob that is added to the container.
 
@@ -290,7 +304,7 @@ public static void Run(string myBlob, TraceWriter log)
 }
 ```
 
-### Blob trigger name patterns
+#### Blob trigger name patterns
 
 You can specify a blob name pattern in the `path`. For example:
 
@@ -320,7 +334,7 @@ use this for the `path` property:
 
 In the example, the `name` variable value would be *soundfile.mp3*. 
 
-### Blob receipts
+#### Blob receipts
 
 The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
 
@@ -334,7 +348,7 @@ Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure
 
 If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the *azure-webjobs-hosts* container.
 
-### Handling poison blobs
+#### Handling poison blobs
 
 When a blob trigger function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
 
@@ -346,7 +360,7 @@ The queue message for poison blobs is a JSON object that contains the following 
 * BlobName
 * ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
-## Azure Storage blob input and output bindings
+### <a id="storageblobbindings"></a> Azure Storage blob input and output bindings
 
 The *function.json* provides the name of the container and variable names for blob name and content. This example uses a queue trigger to copy a blob:
 
@@ -379,7 +393,7 @@ The *function.json* provides the name of the container and variable names for bl
 }
 ``` 
 
-### Blob input and output supported types
+#### Blob input and output supported types
 
 The `blob` binding can serialize or deserialize the following types:
 
@@ -393,7 +407,7 @@ The `blob` binding can serialize or deserialize the following types:
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
 
-### Blob output C# code example
+#### Blob output C# code example
 
 This C# code example copies a blob whose name is received in a queue message.
 
@@ -405,7 +419,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-## Azure Storage tables input and output bindings
+### <a id="storagetablesbindings"></a> Azure Storage tables input and output bindings
 
 The *function.json* for storage tables provides several properties:
 
@@ -433,7 +447,7 @@ These properties support the following scenarios:
 
 	The Functions runtime provides an `ICollector<T>` or `IAsyncCollector<T>` bound to the table, where `T` specifies the schema of the entities you want to add. Typically, type `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.
 
-### Read a single table entity in C# or Node
+#### Read a single table entity in C# or Node
 
 This *function.json* example uses a queue trigger to read a single table row, with a hard-coded partition key value and the row key provided in the queue message.
 
@@ -487,7 +501,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-### Read multiple table entities in C# 
+#### Read multiple table entities in C# 
 
 The following *function.json* and C# code example reads entities for a partition key that is specified in the queue message.
 
@@ -533,7 +547,7 @@ public class Person : TableEntity
 }
 ``` 
 
-### Create table entities in C# 
+#### Create table entities in C# 
 
 The following *function.json* and *run.csx* example shows how to write table entities in C#.
 
@@ -582,7 +596,7 @@ public class Person
 
 ```
 
-### Create a table entity in Node
+#### Create a table entity in Node
 
 The following *function.json* and *run.csx* example shows how to write a table entity in Node.
 
@@ -620,9 +634,12 @@ module.exports = function (context, myQueueItem) {
 
 ## Azure DocumentDB bindings
 
-You can use Azure DocumentDB documents as input or output bindings.
+This section contains the following subsections:
 
-### Azure DocumentDB input bindings
+* [Azure DocumentDB input binding](#docdbinput)
+* [Azure DocumentDB output binding](#docdboutput)
+
+### <a id="docdbinput"></a> Azure DocumentDB input binding
 
 Input bindings can load a document from a DocumentDB collection and pass it directly to your binding. The document id can be determined based on the trigger that invoked the function. In a C# function, any changes made to the record will be automatically sent back to the collection when the function exits successfully.
 
@@ -672,7 +689,7 @@ Using the example function.json above, the DocumentDB input binding will retriev
 	    context.done();
 	};
 
-### Azure DocumentDB output bindings
+### <a id="docdboutput"></a> Azure DocumentDB output bindings
 
 Your functions can write JSON documents to an Azure DocumentDB database using the **Azure DocumentDB Document** output binding. For more information on Azure DocumentDB review the [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) and the [Getting Started tutorial](../documentdb/documentdb-get-started.md).
 
@@ -783,13 +800,19 @@ Example output:
 
 Azure App Service Mobile Apps lets you expose table endpoint data to mobile clients. This same tabular data can be used in both input and output bindings with Azure Functions. When you have a Node.js backend mobile app, you can work with this tabular data in the Azure portal using *easy tables*. Easy tables supports dynamic schema so that columns are added automatically to match the shape of the data being inserted, simplifying schema development. Dynamic schema is enabled by default and should be disabled in a production mobile app. For more information on easy tables in Mobile Apps, see [How to: Work with easy tables in the Azure portal](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing). Note that easy tables in the portal are not currently supported for .NET backend mobile apps. You can still use .NET backend mobile app table endpoints function bindings, however dynamic schema is not supported .NET backend mobile apps.
 
-### Use an API key to secure access to your Mobile Apps easy tables endpoints.
+This section contains the following subsections:
+
+* [Azure Mobile Apps easy tables API key](easytablesapikey)
+* [Azure Mobile Apps easy tables input binding](easytablesinput)
+* [Azure Mobile Apps easy tables output binding](easytablesoutput)
+
+### <a id="easytablesapikey"></a> Use an API key to secure access to your Mobile Apps easy tables endpoints.
 
 Azure Functions currently cannot access endpoints secured by App Service authentication. This means that any Mobile Apps endpoints used in your functions with easy tables bindings must allow anonymous access, which is the default. Easy tables bindings let you specify an API key, which is a shared secret that can be used to prevent unwanted access from apps other than your functions. Mobile Apps does not have built-in support for API key authentication. However, you can implement an API key in your Node.js backend mobile app by following the examples in [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key).
 
 >[AZURE.IMPORTANT] This API key must not be distributed with your mobile app clients, it should only be distributed securely to service-side clients, like Azure Functions.
 
-### Azure Mobile Apps easy tables input binding
+### <a id="easytablesinput"></a> Azure Mobile Apps easy tables input binding
 
 Input bindings can load a record from a Mobile Apps table endpoint and pass it directly to your binding. The record ID is determined based on the trigger that invoked the function. In a C# function, any changes made to the record are automatically sent back to the table when the function exits successfully.
 
@@ -845,7 +868,7 @@ Based on the example function.json above, the input binding retrieves the record
 	};
 
 
-### Azure Mobile Apps easy tables output binding
+### <a id="easytablesoutput"></a> Azure Mobile Apps easy tables output binding
 
 Your function can write a record to a Mobile Apps table endpoint using an easy table output binding. 
 
@@ -885,7 +908,7 @@ This C# code example inserts a new record with a *Text* property into the table 
 	    };
 	}
 
-####Azure Mobile Apps easy tables code example for a Node.js queue trigger
+#### Azure Mobile Apps easy tables code example for a Node.js queue trigger
 
 This Node.js code example inserts a new record with a *text* property into the table specified in the above binding.
 
@@ -939,7 +962,6 @@ You can also manually add a connection string for an existing hub by adding a co
 
 3. Scroll down to the **Connection strings** section, and add an named entry for *DefaultFullSharedAccessSignature* value for you notification hub. Change the type to **Custom**.
 4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
-
 
 ### Azure Notification Hub code example for a Node.js timer trigger 
 
