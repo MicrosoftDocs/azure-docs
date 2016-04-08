@@ -13,37 +13,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="04/06/2016"
    ms.author="seanmck"/>
 
 # Service Fabric programming model overview
 
-Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take advantage of Service Fabric features and application frameworks, or services can simply be any compiled executable program - called a "guest executable" - written in any language and simply hosted on the Service Fabric platform.
+Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take full advantage of Service Fabric features and application frameworks, or services can simply be any compiled executable program written in any language and simply hosted on the Service Fabric platform.
 
-## Comparing guest executables with the Service Fabric API
+## Guest Executable
 
-The following table illustrates the differences between a guest executable and a service using the Service Fabric API.
+A guest executable is an arbitrary executable, written in any language, so you can take your existing applications and host them on Service Fabric. A guest executable can be packaged in a Service Fabric application and hosted on Service Fabric alongside other services. Service Fabric handles orchestration and simple execution management of the executable, ensuring it stays up and running according to the service description. However, because guest executables do not integrate directly with Service Fabric APIs, they do not benefit from the full set of Service Fabric features, such as custom health and load reporting, service endpoint registration, and stateful compute. 
 
-Service Fabric feature | Guest EXE | Service Fabric API
----|---|---
-Supported language and runtimes|Any|C#/.NET
-Supports stateless or stateful|Stateless only|Both stateless and stateful
-State high availability|N/A - stateless only|Yes
-Service high availability|Yes|Yes
-Service version management|Yes|Yes
-Rolling upgrades|Yes|Yes
-Health monitoring|Limited to EXE exit code|Yes
-Health reporting|No|Yes
-Service endpoint discovery|No|Yes
+Get started with guest executables by deploying your first [guest executable application](service-fabric-deploy-existing-app.md).
 
-## When to use guest executables or the Service Fabric API
+## Reliable Services
 
- - **Guest executable**: when you have an existing program that you want to host on Service Fabric or you want to use a language or runtime currently not supported by the Service Fabric API.
+Reliable Services is a light-weight framework for writing services that integrate with the Service Fabric platform and benefit from the full set of features offered by Service Fabric. Reliable Services provide a minimal set of APIs that allow the Service Fabric runtime to manage the lifecycle of your services and that allow your services to interact with the Service Fabric runtime. The application framework is minimal, giving you full control over design and implementation choices, and can be used to host any other application framework, such as ASP.NET MVC or Web API.
 
- - **Service Fabric API**: when you want to take advantage of the full set of Service Fabric features, have tighter integration with Service Fabric's application lifecycle management and health monitoring, and achieve higher application density.
+Reliable Services can be stateless, similar to most service platforms, such as web servers or Worker Roles in Azure Cloud Services, in which each instance of the service is created equal and state is persisted in an external solution, such as Azure DB or Azure Table Storage. 
 
-## Next steps
+Reliable Services can also be stateful, exclusive to Service Fabric, where state is persisted directly in the service itself using Reliable Collections. State is made highly-available through replication and distributed through partitioning, all managed automatically by Service Fabric.
 
-- [Learn more about guest executables](service-fabric-deploy-existing-app.md)
-- [Learn more about the Reliable Services APIs](../Service-Fabric/service-fabric-reliable-services-introduction.md)
-- [Learn more about the Reliable Actors APIs](service-fabric-reliable-actors-introduction.md)
+[Learn more about Reliable Services](service-fabric-reliable-services-introduction) or get started by [writing your first Reliable Service](service-fabric-reliable-services-quick-start.md).
+
+## Reliable Actors
+
+Built on top of Reliable Services, the Reliable Actor framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built-in communication for actors and pre-set state persistence and scale-out configurations. 
+
+As Reliable Actors itself is an application framework built on Reliable Services, it is fully integrated with the Service Fabric platform and benefits from the full set of features offered by Service Fabric.
+
+[Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md) or get started by [writing your first Reliable Actor service](service-fabric-reliable-actors-get-started.md)
