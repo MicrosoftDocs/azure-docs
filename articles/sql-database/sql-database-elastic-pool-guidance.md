@@ -125,22 +125,6 @@ In cases where you can't use tooling, the following step-by-step can help you es
 4.	See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
 5.	Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
 
-## Elastic database pool properties
-When using C# or Powershell to manage pools, these properties are the most commonly used.
-
-| Property | Description |
-| :-- | :-- |
-| eDtu max | Maximum number of eDTUs that a single database in the pool may use. The database eDTU max is not a resource guarantee. The eDTU max applies to all databases in the pool. |
-| eDtu min | Minimum number of eDTUs that a single database in the pool is guaranteed. The database eDTU min may be set to 0. The eDTU min applies to all databases in the pool. Note that the product of the number of databases in the pool and the database eDTU min cannot exceed the eDTUs of the pool itself. |
-| Dtu | Number of eDTUs shared by all databases in the pool. |
-| edition | Service tier of the pool.  Every database within the pool has this edition. |
-| Storage limit | The total of storage used by all databases in the pool cannot exceed this limit. If this limit is exceeded, all databases become read-only. Measured in MB, this limit is linked to the eDTUs per pool (see the table below).|
-
-## eDTU and storage limits for elastic pools and elastic databases
-
-
-[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
-
 
 ## Summary
 
