@@ -59,6 +59,6 @@ These links will be useful for exploring the platform in depth:
 
 <!-- TODO: These articles
 - [ADAL Library Reference]()
-- [v2 Endpoint FAQs](active-directory-v2-faq.md)
+- [v2 Endpoint FAQs]()
 - Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 -->
