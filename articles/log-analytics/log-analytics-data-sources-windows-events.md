@@ -19,13 +19,13 @@
 
 Windows Event logs are one of the most common data sources used for Windows agents since this is the method used by many applications to log information and errors.  You can collect events from standard logs such as System and Application in addition to specifying any custom logs created by applications you need to monitor.
 
-![Windows Events](media/log-analytics-data-sources-windows-events/overview.png)     
+![Windows Events](./media/log-analytics-data-sources-windows-events/overview.png)     
 
 # Configuring Windows Event logs
 
 Events will only be collected from the Windows event logs that are specified.  You can add a new log by typing in the name of the log and clicking **+**.  For each log, only events with the selected severities will be collected.  Check the severities for the particular log that you want to collect.
 
-![Configure Windows events](media/log-analytics-data-sources-windows-events/configure.png)
+![Configure Windows events](./media/log-analytics-data-sources-windows-events/configure.png)
 
 
 # Data collection

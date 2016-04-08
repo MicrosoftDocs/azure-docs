@@ -19,7 +19,7 @@
 
 Log Analytics collects data from the Connected Sources in your OMS workspace and stores it in OMS repository.  The data that is collected from each is defined by the Data Sources that you configure.  Data in the OMS repository is stored as a set of records.  Each data source creates records of a particular type with each type having its own set of properties.
 
-![Log Analytics data collection](media/log-analytics-data-sources/overview.png)
+![Log Analytics data collection](./media/log-analytics-data-sources/overview.png)
 
 Data Sources are different than OMS Solutions which also collect data from Connected Sources and create records in the OMS repository.  Solutions can be added to your workspace from the Solutions Gallery and will typically provide additional analysis tools in the OMS portal.  Each solution is documented separately at [OMS Solutions](log-analytics-solutions.md).
 
@@ -40,7 +40,7 @@ The data sources that are currently available in Log Analytics are listed in the
 
 You configure data sources from the **Data** menu in Log Analytics **Settings**.  Any configuration is delivered to all connected sources in your OMS workspace.  You cannot currently exclude any agents from this configuration.
 
-![Configure Windows events](media/log-analytics-data-sources/configure-events.png)
+![Configure Windows events](./media/log-analytics-data-sources/configure-events.png)
 
 2. In the OMS console select the **Settings** tile.
 3. Select **Data**.
