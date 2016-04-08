@@ -752,7 +752,7 @@ Restart the agent after you have changed its configuration with
 sudo service waagent restart
 ```
 
-The proxy settings in /etc/waagent.conf do also apply for the required VM extensions. If you want to use the Azure repositories, make sure that the traffic to these repositories is not going through the on-premises intranet. If you created User Defined Routes to enable Forced Tunneling, make sure to add a route that routes traffic to 104.45.17.148 directly to the Internet and not through your site-to-site connection. An example is shown in the screenshot below. For more details about User Defined Routes, see [this article][virtual-networks-udr-overview].
+The proxy settings in /etc/waagent.conf do also apply for the required VM extensions. If you want to use the Azure repositories, make sure that the traffic to these repositories is not going through the on-premises intranet. If you created User Defined Routes to enable Forced Tunneling, make sure to add a route that routes traffic to 104.45.17.148 directly to the Internet and not through your site-to-site connection. You also need to add routes for the IP addresses listed in /etc/regionserverclnt.cfg. An example is shown in the screenshot below. For more details about User Defined Routes, see [this article][virtual-networks-udr-overview].
 
 ![Forced Tunneling][deployment-guide-figure-50]
 
