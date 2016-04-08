@@ -19,10 +19,13 @@
 # Create and modify routing for an ExpressRoute circuit using Azure Resource Manager and the Azure portal
 
 
+
 > [AZURE.SELECTOR]
-[Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
+[Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
+
+
 
 This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using the Azure management portal and the Resource Manager deployment model.
 
