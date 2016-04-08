@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="04/08/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide to create a virtual machine image for the Azure Marketplace
@@ -45,7 +45,7 @@ After you have added an offer, you need to define and identify your SKUs. You ca
 
 1. **Add a SKU.** The SKU requires an identifier, which is used in the URL. The identifier must be unique within your publishing profile, but there is no risk of identifier collision with other publishers.
 
-> [AZURE.NOTE] The offer and SKU identifiers are displayed in the offer URL in the Marketplace.
+    > [AZURE.NOTE] The offer and SKU identifiers are displayed in the offer URL in the Marketplace.
 
 2. **Add a summary description for your SKU.** Summary descriptions are visible to customers, so you should make them easily readable. This information does not need to be locked until the "Push to Staging" phase. Until then, you are free to edit it.
 3. If you are using Windows-based SKUs, follow the suggested links to acquire the approved versions of Windows Server.
