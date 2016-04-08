@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Protect ARM VMs in Azure with Azure Backup | Microsoft Azure"
-	description="Protect ARM VMs with Azure Backup service. Back up IaaS v.2 VMs to Recovery Services vault. Create and register a Recovery Services vault. Register VMs, create policy, and protect VMs in Azure."
+	pageTitle="Protect ARM VMs with Azure Backup | Microsoft Azure"
+	description="Protect ARM VMs with Azure Backup service. Use backups of ARM VMs to protect your data. Create and register a Recovery Services vault. Register VMs, create policy, and protect VMs in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keyword="backups; vm backup"/>
 
 <tags
 	ms.service="backup"

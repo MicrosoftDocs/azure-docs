@@ -23,6 +23,8 @@ Application Insights is an extensible analytics service that monitors your live 
 
 It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud. 
 
+[Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
+
 Application Insights is aimed at the development team. With it, you can:
 
 * [Analyze usage patterns][knowUsers] to understand your users better and continuously improve your app. 
@@ -130,6 +132,8 @@ For more details, choose your app type under Get Started in the navigation bar o
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
 > [AZURE.VIDEO performance-monitoring-application-insights]
+
+> [Introductory animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 
 <!--Link references-->
