@@ -46,7 +46,7 @@ If you provision your SQL Server VM using the [Azure portal](virtual-machines-wi
 
 ### Syntax
 
-Set-AzureVMSqlServerExtension [[-ReferenceName] [<String>]] [-VM] <IPersistentVM> [[-Version] [<String>]] [[-AutoPatchingSettings] [<AutoPatchingSettings>]] [-AutoBackupSettings[<AutoBackupSettings>]] [-Profile [<AzureProfile>]] [<CommonParameters>]
+Set-AzureVMSqlServerExtension [[-ReferenceName] [String]] [-VM] IPersistentVM [[-Version] [String]] [[-AutoPatchingSettings] [AutoPatchingSettings]] [-AutoBackupSettings[AutoBackupSettings]] [-Profile [AzureProfile]] [CommonParameters]
 
 > [AZURE.NOTE] Omitting the –Version parameter is recommended. Without it, the default is the latest version of the extension.
 
@@ -62,7 +62,7 @@ You can also use the **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet.
 
 ### Syntax
 
-Get-AzureVMSqlServerExtension [[-VM] [<IPersistentVM>]] [-Profile [<AzureProfile>]] [<CommonParameters>]
+Get-AzureVMSqlServerExtension [[-VM] [IPersistentVM]] [-Profile [AzureProfile]] [CommonParameters]
 
 > [AZURE.NOTE] You can omit the –Version parameter. Without it, the default is the latest version of the extension.
 
@@ -74,4 +74,4 @@ If you want to remove this extension from your VM, you can use the **Remove-Azur
 
 ### Syntax
 
-Remove-AzureVMSqlServerExtension [-Profile [<AzureProfile>]] -VM <IPersistentVM> [<CommonParameters>]
+Remove-AzureVMSqlServerExtension [-Profile [AzureProfile]] -VM IPersistentVM [CommonParameters]
