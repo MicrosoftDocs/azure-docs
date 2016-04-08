@@ -46,7 +46,7 @@ You must designate at least one on-premise computer to run hybrid runbook jobs. 
 - Windows Server 2012 or later
 - Windows PowerShell 4.0 or later
 
-Consider the following recommendations for hybrid workers: 
+Consider the following recommendations for hybrid workers:
 
 - Designate multiple hybrid workers in each group for high availability.  
 - Hybrid workers can coexist with Service Management Automation or System Center Orchestrator runbook servers.
@@ -72,7 +72,7 @@ The Microsoft Management Agent connects computers to Operations Management Suite
 
 Follow the instructions at [Connect computers directly to Operational Insights](../operational-insights/operational-insights-direct-agent.md) to install the agent on the on-premises machine.  You can repeat this process for multiple computers to add multiple workers to your environment.
 
-When the agent has successfully connected to Operations Management Suite, it will be listed on the **Connected Sources** tab of the Operations Management Suite **Settings** pane.  You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. 
+When the agent has successfully connected to Operations Management Suite, it will be listed on the **Connected Sources** tab of the Operations Management Suite **Settings** pane.  You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent.
 
 ### 4. Install the runbook environment and connect to Azure Automation
 When you add an agent to Operations Management Suite, the Automation solution pushes down the **HybridRegistration** PowerShell module which contains the **Add-HybridRunbookWorker** cmdlet.  You use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.
@@ -141,7 +141,7 @@ Instead of having runbooks provide their own authentication to local resources, 
 
 The user name for the credential must be in one of the following formats:
 
-- domain\username 
+- domain\username
 - username@domain
 - username (for accounts local to the on-premise machine)
 
@@ -158,7 +158,7 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 
 ## Creating runbooks for Hybrid Runbook Worker
 
-There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud. 
+There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud.
 
 You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
 
@@ -188,4 +188,3 @@ You can use the following criteria to determine whether Azure Automation with Hy
 
 - [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)
 - [Editing a Runbook in Azure Automation](https://msdn.microsoft.com/library/dn879137.aspx)
- 

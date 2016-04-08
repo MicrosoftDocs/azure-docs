@@ -11,7 +11,7 @@
 
 <tags
 	ms.service="functions"
-	ms.devlang="multiple"
+	ms.devlang="nodejs"
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
