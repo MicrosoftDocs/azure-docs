@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a custom Windows virtual machine | Microsoft Azure"
-	description="Learn how to create a custom Windows virtual machine from the Azure classic portal using the classic deployment model."
+	pageTitle="Create a custom Linux virtual machine | Microsoft Azure"
+	description="Learn how to create a custom Linux virtual machine from the Azure classic portal using the classic deployment model."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="03/15/2016"
 	ms.author="cynthn"/>
 
-# Create a custom virtual machine running Windows
+# Create a custom virtual machine running Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 

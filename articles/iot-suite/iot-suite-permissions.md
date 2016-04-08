@@ -66,27 +66,27 @@ There are two defined and one implicit role defined in the application that is c
 
 -   **IMPLICIT READ ONLY:** This is the same as Read Only, but is granted to all users of your AAD tenant. This was done for convenience during development. You can remove this role by modifying the [RolePermissions.cs][lnk-resource-cs] source file.
 
-### Changing Application Roles
+### Changing application roles for a user
+
+You can use the following procedure to make a user in your Active Directory an administrator of your preconfigured solution.
 
 You must be an AAD global administrator to change roles for a user:
 
-1. Go to the [Azure classic portal][lnk-classic-portal]
+1. Go to the [Azure classic portal][lnk-classic-portal].
 
-2. Select **Active Directory**
+2. Select **Active Directory**.
 
-3. Click the name of your AAD tenant
+3. Click the name of your AAD tenant (this is the directory you chose on azureiotsuite.com when you provisioned your solution).
 
 4. Click **Applications**.
 
-5. If you don't see your application in the list, switch the **Show** drop down to **Applications my company owns** and click the check mark.
-
-6. Click the name of the application that matches your preconfigured solution name.
+5. Click the name of the application that matches your preconfigured solution name. If you don't see your application in the list, switch the **Show** drop down to **Applications my company owns** and click the check mark.
 
 7. Click **Users**.
 
 8. Select the user you want to switch roles.
 
-9. Click the assign button and role you'd like to assign, click the check mark.
+9. Click **Assign** and select the role (such as **Admin**) you'd like to assign to the user, click the check mark.
 
 ## FAQ
 

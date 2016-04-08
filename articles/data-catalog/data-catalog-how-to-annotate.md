@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -35,7 +35,7 @@ Everyone has an opinion. And this is a good thing.
 Each of these perspectives is valuable, and **Azure Data Catalog** uses a crowdsourcing approach to metadata that allows each one to be captured and used to provide a complete picture of registered data sources. Using the **Azure Data Catalog** portal, each user can add and edit his own annotations, while being able to view annotations provided by other users.
 
 ## Different types of annotations
-During the **Azure Data Catalog** preview, the following types of annotations are supported:
+**Azure Data Catalog** supports the following types of annotations:
 
 | Annotation     | Notes                                                                                                                                                                                                                                                                                                                                                           |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

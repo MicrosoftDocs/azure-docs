@@ -3,7 +3,7 @@
    description="This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
+   authors="ganesr"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -13,14 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
-   ms.author="cherylmc"/>
+   ms.date="04/01/2016"
+   ms.author="ganesr"/>
 
 # Create and modify an ExpressRoute circuit by using Resource Manager and PowerShell
 
-   > [AZURE.SELECTOR]
-   [PowerShell - Classic](expressroute-howto-circuit-classic.md)
-   [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
+> [AZURE.SELECTOR]
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
+
 
 This article describes how to create an Azure ExpressRoute circuit by using Windows PowerShell cmdlets and the Azure Resource Manager deployment model. The following steps also show you how to check the status of the circuit, update it, or delete and deprovision it.
 
@@ -79,6 +80,9 @@ Make sure that you specify the correct SKU tier and SKU family:
 
 - SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify "Standard" to get the standard SKU or "Premium" for the premium add-on.
 - SKU family determines the billing type. You can specify "Metereddata" for a metered data plan and "Unlimiteddata" for an unlimited data plan. **Note:** You can change the billing type from "Metereddata" to "Unlimiteddata", but you can't change the type from "Unlimiteddata" to "Metereddata".
+
+
+>[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Please ensure that you perform this operation once the connectivity provider is ready to provision the circuit. 
 
 The response contains the service key. You can get detailed descriptions of all parameters by running the following:
 
@@ -214,6 +218,8 @@ The response will look similar to the following example:
 
 For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-arm.md) to create and modify circuit peerings.
 
+>[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
+
 ### Step 8.  Link a virtual network to an ExpressRoute circuit.
 
 Next, link a virtual network to your ExpressRoute circuit. You can use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment mode.
@@ -295,7 +301,9 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following with no downtime:
 
 - Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-- Increase the bandwidth of your ExpressRoute circuit.
+- Increase the bandwidth of your ExpressRoute circuit. **Note** Downgrading the bandwidth of a circuit is upt supported. 
+- Change the metering plan from Metered Data to Unlimited Data. **Note** Changing metering plan from Unlimited Data to Metered Data is not supported. 
+-  You can enable and disable "Allow Classic Operations" 
 
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md) page.
 
@@ -349,6 +357,21 @@ For supported bandwidth options for your provider, check the [ExpressRoute FAQ](
 Your circuit will be sized up on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, Microsoft will begin billing you for the updated bandwidth option.
 
 **Important**: You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+
+### Move SKU from metered to unlimited
+
+You can change the SKU of an ExpressRoute circuit by using the following PowerShell snippet:
+
+	$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+	
+	$ckt.Sku.Family = "UnlimitedData"
+	$ckt.sku.Name = "Premium_UnlimitedData"
+	
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+
+### Controlling Access to Classic and Resource Manager environments
+
+Review instructions to [Moving ExpressRoute circuits from Classic to Resource Manager Environment](expressroute-howto-move-arm.md) 
 
 ## Deleting and deprovisioning an ExpressRoute circuit
 
