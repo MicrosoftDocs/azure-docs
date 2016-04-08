@@ -42,14 +42,14 @@ This article gives you an overview of how to link virtual networks (VNets) to Ex
 
 You can link up to 10 VNets to an ExpressRoute circuit. All ExpressRoute circuits must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check out the [FAQ](expressroute-faqs.md) for more details on the premium add-on. 
 
-## Link a VNet in the same subscription to a circuit
+## Connect a VNet in the same subscription to a circuit
 
 Yon can link a virtual network to an ExpressRoute circuit using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
 
 	New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 	Provisioned
 
-## Link a VNet in a different subscription to circuit
+## Connect a VNet in a different subscription to circuit
 
 An ExpressRoute circuit can be shared across multiple subscriptions. The figure below shows a simple schematic of how sharing ExpressRoute circuits across multiple subscriptions works. Each of the smaller clouds within the large cloud is used to represent subscriptions belonging to different departments within an organization. Each of the departments within the organization can use their own subscription for deploying their services but can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization can use the ExpressRoute circuit.
 

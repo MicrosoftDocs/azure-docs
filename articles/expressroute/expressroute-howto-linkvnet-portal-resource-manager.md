@@ -43,28 +43,34 @@ This article gives you an overview of how to link virtual networks (VNets) to Ex
 
 You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRoute circuits must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check out the [FAQ](expressroute-faqs.md) for more details on the premium add-on. 
 
-## Link a VNet in the same subscription to a circuit
+## Connect a VNet in the same subscription to a circuit
 
-Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. You can follow instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the image below.
+### To create a connection
 
-![](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
+1. Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. Follow the instructions in the articles to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [Configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the image below.
 
->[AZURE.NOTE] BGP configuration information will not show up if your peerings were configured by the layer 3 provider. If your circuit is in provisioned state, you should be able to create connections.
+	![](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
 
-You can now start provisioning a connection to link your VNet gateway to your ExpressRoute circuit. The image below shows you how to accomplish this.
+	>[AZURE.NOTE] BGP configuration information will not show up if your peerings were configured by the layer 3 provider. If your circuit is in provisioned state, you should be able to create connections.
 
-![](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
+2. You can now start provisioning a connection to link your VNet gateway to your ExpressRoute circuit. Click **Connection** **>** **Add** to open the **Add connection** blade, and then configure the values. See the reference example below.
+	
+
+	![](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
+ 
+	
+3. Once your connection has been successfully configured, your connection object will show the information for the connection.
+
+	![](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
 
-Once your connection has been successfully configured your connection object will show you information on the connection.
-
-![](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+### To delete a connection
 
 You can delete a connection by selecting the delete connection icon.
 
-## Link a VNet in a different subscription to a circuit
+## Connect a VNet in a different subscription to circuit
 
-Ability to connect virtual networks across subscriptions is not supported through the portal today. Please follow instructions to accomplish this using [PowerShell](expressroute-howto-linkvnet-arm.md)
+Connecting virtual networks across subscriptions is not supported through the Azure portal today. However, you can use PowerShell. Please see the [PowerShell](expressroute-howto-linkvnet-arm.md) article for more information.
 
 ## Next steps
 
