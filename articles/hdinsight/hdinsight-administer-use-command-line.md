@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="04/05/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using the Azure CLI
@@ -47,7 +47,7 @@ To get help, use the **-h** switch.  For example:
 	
 ##Create clusters
 
-See [Create Windows-based Hadoop clusters in HDInsight using Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md).
+See [Create Linux-based clusters in HDInsight using the Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ##List and show cluster details
 Use the following commands to list and show cluster details:

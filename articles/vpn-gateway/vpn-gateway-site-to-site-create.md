@@ -20,8 +20,10 @@
 # Create a virtual network with a site-to-site VPN connection using the Azure classic portal
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
+- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure Portal - Classic](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+
 
 This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network. Site-to-site connections can be used for cross-premises and hybrid configurations. This article applies to the classic deployment model and uses the Azure classic portal.
 
