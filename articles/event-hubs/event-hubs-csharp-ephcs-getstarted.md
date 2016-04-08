@@ -52,6 +52,16 @@ In order to complete this tutorial you'll need the following:
 
 	![][4]
 
+OR
+
+6. Click the **Configure** tab at the top, add a rule named **SendRule** with Send rights, add another rule called **ReceiveRule** with *Manage*, *Send*, *Listen* rights, and then click **Save**.
+
+	![][5]
+
+7. Click the **Dashboard** tab at the top of the page, and then click **Connection Information**. Take note of the two connection strings, or copy them somewhere to use later in this tutorial.
+
+	![][6]
+
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
@@ -64,9 +74,13 @@ Your Event Hub is now created, and you have the connection strings you need to s
 Now you are ready to run the applications.
 
 1. From within Visual Studio, open the **Receiver** project you created earlier.
-2. Right-click the **Receiver** solution, then click **Add**, then click **Existing Project**. 
-3. Locate the existing Sender.csproj file, then double-click it to add it to the solution. 
+
+2. Right-click the **Receiver** solution, then click **Add**, then click **Existing Project**.
+ 
+3. Locate the existing Sender.csproj file, then double-click it to add it to the solution.
+ 
 4. Again, right-click the **Receiver** solution and then click **Properties**. The **Receiver** property page is displayed.
+
 5. Click **Startup Project**, then click the **Multiple startup projects** button. Set the **Action** box for both the **Receiver** and **Sender** projects to **Start**.
 
 	![][19]
@@ -99,6 +113,8 @@ Now that you've built a working application that creates an Event Hub and sends 
 [2]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub2.png
 [3]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub3.png
 [4]: ./media/event-hubs-csharp-ephcs-getstarted/create-conn-str1.png
+[5]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub5.png
+[6]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub6.png
 
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
