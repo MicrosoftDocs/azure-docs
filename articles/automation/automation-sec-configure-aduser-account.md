@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure Azure AD User Account"
-   description="Tutorial that walks you through the creation of an Azure AD User account for Azure Automation."
+   pageTitle="Configure Azure AD User Account | Microsoft Azure"
+   description="This article describes how to configure Azure AD User account credential for runbooks in Azure Automation to authenticate against ARM and ASM."
    services="automation"
    documentationCenter=""
    authors="MGoedtel"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="04/08/2016"
    ms.author="magoedte" />
 
 # Authenticate Runbooks with Azure Service Management and Resource Manager
@@ -24,9 +24,9 @@ This article describes the steps you must perform to configure an Azure AD User 
 1. Log in to the Azure Classic Portal as a service administrator for the Azure subscription you want to manage.
 2. Select **Active Directory**, and then select the name of your organization directory.
 3. Select the **Users** tab, and then, in the command area, select **Add User**.
-4. On the **Tell us about this user** page, under **Type of user**, select **New user in your organization**. 
+4. On the **Tell us about this user** page, under **Type of user**, select **New user in your organization**.
 5. Enter a user name.  
-6. Select the directory name that is associated with your Azure subscription on the Active Directory page. 
+6. Select the directory name that is associated with your Azure subscription on the Active Directory page.
 7. On the **user profile** page, provide a first and last name, a user-friendly name, and User from the **Roles** list.  Do not **Enable Multi-Factor Authentication**.
 8. Note the user’s full name and temporary password.
 9. Select **Settings > Administrators > Add**.
@@ -38,7 +38,8 @@ This article describes the steps you must perform to configure an Azure AD User 
 ## Create an Automation account in Azure Classic Portal
 In this section, you will perform the following steps to create a new Azure Automation account in the Azure Portal that will be used with your runbooks managing resources in ASM and ARM mode.  
 
->[AZURE.NOTE] Creating an Automation account in the Azure Classic Portal 
+>[AZURE.NOTE] Automation accounts created with the Azure Classic Portal can be managed by both the Azure Classic and Azure Portal and either set of cmdlets. Once the account is created, it makes no difference how you create and manage resources within the account. If you are planning to continue to use the Azure Classic Portal, then you should use it instead of the Azure Portal to create any Automation accounts.
+
 
 1. Log in to the Azure Classic Portal as a service administrator for the Azure subscription you want to manage.
 2. Select **Automation**.
@@ -64,7 +65,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 5. If you have more than one subscription, specify the one for the new account, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 3. Select the value **No** for the **Create Azure Run As account** option, and click the **Create** button.  
 
-    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against ARM resources. 
+    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against ARM resources.
 
     ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
@@ -82,6 +83,5 @@ You can retrieve the credential in a runbook using the [Get-AutomationPSCredenti
 
 You should repeat these lines after any [checkpoints](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
 
-## Next Steps 
-* Review the different runbook types and steps for creating your own runbooks from the following article [Azure Automation runbook types](../automation/automation-runbook-types.md) 
- 
+## Next Steps
+* Review the different runbook types and steps for creating your own runbooks from the following article [Azure Automation runbook types](../automation/automation-runbook-types.md)
