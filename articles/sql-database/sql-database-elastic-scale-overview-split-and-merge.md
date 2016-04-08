@@ -3,7 +3,7 @@
     description="Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs." 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove"/>
 
 <tags 
