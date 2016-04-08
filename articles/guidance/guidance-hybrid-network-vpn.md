@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="RohitSharma-pnp"
-   manager=""
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -55,7 +55,7 @@ The following diagram highlights the components in this architecture:
 
 - **[Azure VPN Gateway][azure-vpn-gateway].** The VPN gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
-- **Gateway subnet.** The Azure VPN Gateway is held in its own subnet, which is subject to various requirements (see [Implementing this architecture](#implementing), below).
+- **Gateway subnet.** The Azure VPN Gateway is held in its own subnet, which is subject to various requirements.
 
 - **Internal load balancer.** Network traffic from the VPN Gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
 
@@ -67,7 +67,6 @@ The following diagram highlights the components in this architecture:
 
 ## Implementing this architecture
 
-
 > [AZURE.NOTE] The process outlined below assumes that you already have the on-premises network, and that you have installed a VPN appliance on-premises.
 
 The following high-level steps outline a process for implementing this architecture:
@@ -76,7 +75,8 @@ The following high-level steps outline a process for implementing this architect
 
 - Create an Azure VNet. The address space of the VNet must not overlap with the on-premises network. For example, the diagram above uses the address space 10.20.0.0/16 for the VNet.
 
-- Create a separate subnet named `GatewaySubnet`, with an address range of /28. Avoid placing this subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.240/28.  A quick formula to calculate the CIDR is as follows:
+- Create a separate subnet named _GatewaySubnet_, with an address range of /28. Avoid placing this subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.240/28.  A quick formula to calculate the CIDR is as follows:
+
     1. Decide on the size of gateway subnet (/29 is the minimum, but choose /28 if ExpressRoute may be used down the road).
     2. Set the variable bits in the address space of the VNet to 1, up to the bits being used by the gateway subnet, then set the remaining bits to 0.
     3. Convert the resulting bits to decimal and express it as an address space with the prefix length set to the size of the gateway subnet.
@@ -87,7 +87,7 @@ The following high-level steps outline a process for implementing this architect
 
 - Create the virtual network gateway for the VNet and assign it the newly allocated public IP address.
 
-	> [AZURE.NOTE] If the on-premises network is using RRAS, set the `VPN type` of the virtual network gateway to `Route-based`.
+	> [AZURE.NOTE] If the on-premises network is using RRAS, set the _VPN type_ of the virtual network gateway to _Route-based_.
 
 - Create a local network gateway. Specify the public IP address of the on-premises VPN appliance, and the address space of the on-premises network.
 
@@ -111,7 +111,7 @@ Note the following points:
 
 - The address space of the Azure VNet must be large enough to accommodate the addresses used by the VMs and subnets in the VNet. Ensure that the VNet address space has sufficient room for growth if additional VMs are likely to be needed in the future.
 
-- The subnet used by the Azure VPN Gateway must be called `GatewaySubnet`.
+- The subnet used by the Azure VPN Gateway must be called _GatewaySubnet_.
 
     > [AZURE.WARNING] Do not deploy other virtual machines or role instances to this subnet. Also, do not assign an NSG to this subnet, as it will cause the gateway to stop functioning.
 
@@ -173,7 +173,7 @@ See [SLA for VPN Gateway][sla-for-vpn-gateway] for the details about the VPN Gat
 
     ![IaaS: partitioned-vnet](./media/guidance-hybrid-network-vpn/partitioned-vpn.png)
 
-- Replicating an on-premises Active Directory domain controller in the VNet, and implementing DNS in the VNet, can help to reduce some of the security-related and administrative traffic flowing from on-premises to the cloud. For more information, see [Next Steps](#next-steps).
+- Replicating an on-premises Active Directory domain controller in the VNet, and implementing DNS in the VNet, can help to reduce some of the security-related and administrative traffic flowing from on-premises to the cloud.
 
 ## Monitoring and manageability
 
@@ -186,7 +186,6 @@ See [SLA for VPN Gateway][sla-for-vpn-gateway] for the details about the VPN Gat
 	![IaaS: audit-logs](./media/guidance-hybrid-network-vpn/audit-logs.png)
 
 - Monitor connectivity, and track connectivity failure events. You can use a monitoring package such as [Nagios][nagios] to capture and report this information.
-
 
 ## Troubleshooting
 
@@ -204,7 +203,7 @@ If traffic is unable to traverse the VPN connection, check the following:
 	Get-EventLog -LogName System -EntryType Error -Source RemoteAccess | Format-List -Property *
 	```
 
-	The `Message` property of each entry provides a description of the error. Some common examples are:
+	The _Message_ property of each entry provides a description of the error. Some common examples are:
 
 	- Inability to connect, possibly due to an incorrect IP address specified for the Azure VPN Gateway in the RRAS VPN network interface configuration:
 
@@ -360,7 +359,7 @@ If traffic is unable to traverse the VPN connection, check the following:
 
 	Use the command appropriate for your on-premises VPN appliance to show the shared key configured for that appliance.
 
-- Verify that the `GatewaySubnet` subnet holding the Azure VPN Gateway is not associated with an NSG.
+- Verify that the _GatewaySubnet_ subnet holding the Azure VPN Gateway is not associated with an NSG.
 
 	You can view the subnet details by using the following Azure CLI command:
 
@@ -368,7 +367,7 @@ If traffic is unable to traverse the VPN connection, check the following:
     azure network vnet subnet show -g <<resource-group>> -e <<vnet-name>> -n GatewaySubnet
     ```
 
-	Ensure there is no data field named `Network Security Group id`. The following example shows the results for instance of the `GatewaySubnet` that has an assigned NSG (`VPN-Gateway-Group`). This can cause prevent the gateway from working correctly if there are any rules defined for this NSG:
+	Ensure there is no data field named _Network Security Group id_. The following example shows the results for instance of the _GatewaySubnet_ that has an assigned NSG (_VPN-Gateway-Group_). This can cause prevent the gateway from working correctly if there are any rules defined for this NSG:
 
         C:\>azure network vnet subnet show -g profx-prod-rg -e profx-vnet -n GatewaySubnet
         info:    Executing command network vnet subnet show
@@ -441,7 +440,7 @@ If traffic is unable to traverse the VPN connection, check the following:
 
 - Is the volume of traffic close to the limit of the bandwidth available to the Azure VPN Gateway?
 
-	Tooling depends on the facilities available to your VPN appliance running on-premises. For example, if you are using RRAS on Windows Server 2012, you can use Performance Monitor to track the volume of data being received and transmitted over the VPN connection; using the `RAS Total` object, select the `Bytes Received/Sec` and `Bytes Transmitted/Sec` counters:
+	Tooling depends on the facilities available to your VPN appliance running on-premises. For example, if you are using RRAS on Windows Server 2012, you can use Performance Monitor to track the volume of data being received and transmitted over the VPN connection; using the _RAS Total_ object, select the _Bytes Received/Sec_ and _Bytes Transmitted/Sec_ counters:
 
 	![IaaS: rras-counters](./media/guidance-hybrid-network-vpn/RRAS-perf-counters.png)
 
