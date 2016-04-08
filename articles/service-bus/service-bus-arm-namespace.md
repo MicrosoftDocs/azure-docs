@@ -18,7 +18,7 @@
 
 # Create a Service Bus namespace using a template
 
-This article shows how to use an Azure Resource Manager (ARM) template that creates a Service Bus "Messaging" namespace with a standard/basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can customize this template to meet your requirements.
+This article shows how to use an Azure Resource Manager (ARM) template that creates a Service Bus "Messaging" namespace with a standard/basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager Templates][].
 
@@ -29,14 +29,13 @@ For the complete template, see the [Service Bus namespace template][] on GitHub.
 >-    [Create a Service Bus namespace with an Event Hub and consumer group](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumerGroup/azuredeploy.json)
 >-    [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json)
 >-    [Create a Service Bus namespace with topic and subscription](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/azuredeploy.json)
->-    [Create a Service Bus namespace with queue and authorization rule](https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json)>
+>-    [Create a Service Bus namespace with queue and authorization rule](https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json)
 >
 >To check for the latest templates, see the [Azure Quickstart Templates][] and search for Service Bus.
 
+## What will you deploy?
 
-## What will you deploy
-
-With this template, you will deploy a Service Bus Namespace with a Basic or Standard SKU.
+With this template, you will deploy a Service Bus Namespace with a [Basic or Standard](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 To run the deployment automatically, click the following button:
 
@@ -60,7 +59,7 @@ The name of the Service Bus namespace to create.
 
 ### serviceBusSKU
 
-The name of the Service Bus SKU to create.
+The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) to create.
 
 ```
 "serviceBusSKU": {
@@ -78,10 +77,10 @@ For more information about Service Bus pricing, please see [Service Bus pricing 
 
 ### serviceBusApiVersion
 
-The Service Bus API Version of the template.
+The Service Bus API version of the template.
 
 ```
-" serviceBusApiVersion": {
+"serviceBusApiVersion": {
 
 "type": "string"
 
@@ -90,7 +89,7 @@ The Service Bus API Version of the template.
 
 ## Resources to deploy
 
-### Service Bus Namespace
+### Service Bus namespace
 
 ```
 "resources": [
@@ -105,7 +104,6 @@ The Service Bus API Version of the template.
             "tier": "Standard"
         },
         "properties": {
-        "createACSNamespace": false
         }
     }
 ]
@@ -117,10 +115,8 @@ The Service Bus API Version of the template.
 
 ### PowerShell
 
-Switch-AzureMode AzureResourceManager
-
 ```
-New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json>
+New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### Azure CLI
@@ -128,7 +124,7 @@ New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<
 ```
 azure config mode arm
 
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json>
+azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
