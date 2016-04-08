@@ -31,7 +31,7 @@ Azure Traffic Manager uses three different load balancing methods. These are des
 
 * **Round Robin**: If you have web app clones in different regions, you can use this method to distribute traffic equally across the web apps in different regions.
 
-* **Performance**: The Performance method distributes traffic based on the shortest round trip time to clients. The Performance method can be used for web apps within the same region or in different regions. 
+* **Performance**: The Performance method distributes traffic based on the shortest round trip time to clients. The Performance method can be used for web apps within the same region or in different regions.
 
 ##Web Apps and Traffic Manager Profiles
 To configure the control of web app traffic, you create a profile in Azure Traffic Manager that uses one of the three load balancing methods described previously, and then add the endpoints (in this case, web apps) for which you want to control traffic to the profile. Your web app status (running, stopped or deleted) is regularly communicated to the profile so that Azure Traffic Manager can direct traffic accordingly.
@@ -55,8 +55,6 @@ When using Azure Traffic Manager with Azure, keep in mind the following points:
 ## Next Steps
 
 For a conceptual and technical overview of Azure Traffic Manager, see [Traffic Manager Overview](../traffic-manager/traffic-manager-overview.md).
-
-For detailed information about load balancing in Azure Traffic Manager, see [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 For more information about using Traffic Manager with Web Apps, see the blog posts
 [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
