@@ -42,7 +42,7 @@ Requirements to use the extension on your VM:
 - **Azure Key Vault Integration**: This service allows you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
 ## Add the extension with Powershell
-If you provision your SQL Server VM using the [Azure portal](virtual-machines-sql-server-provision-resource-manager.md), the extension will be automatically installed. For SQL Server VMs provisioned with the Azure classic portal, or for VMs to which you bring your own SQL license, you can add this extension using the **Set-AzureVMSqlServerExtension** Azure PowerShell cmdlet.
+If you provision your SQL Server VM using the [Azure portal](virtual-machines-windows-portal-sql-server-provision.md), the extension will be automatically installed. For SQL Server VMs provisioned with the Azure classic portal, or for VMs to which you bring your own SQL license, you can add this extension using the **Set-AzureVMSqlServerExtension** Azure PowerShell cmdlet.
 
 ### Syntax
 
