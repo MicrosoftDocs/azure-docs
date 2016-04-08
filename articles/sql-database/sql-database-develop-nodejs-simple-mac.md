@@ -20,7 +20,6 @@
 
 # Connect to SQL Database by using Node.js with Tedious on Mac OS X
 
-
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 

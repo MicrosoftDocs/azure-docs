@@ -24,7 +24,6 @@
 
 This topic presents a Ruby code sample that runs on a Windows computer running Windows 8.1 to connect to an Azure SQL Database.
 
-
 ## Step 1: Configure Development Environment
 
 [Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx#Windows)
