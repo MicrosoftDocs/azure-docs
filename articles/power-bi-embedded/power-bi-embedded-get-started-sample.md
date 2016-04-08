@@ -52,7 +52,7 @@ The following will walk you through setting up your Visual Studio development en
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
-8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Analyzing Sales Data PBIX sample]  (http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix).
+8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX]  (http://go.microsoft.com/fwlink/?LinkID=780547).
 
 9. If prompted, enter a friendly name for your **Dataset**.
 
@@ -86,7 +86,7 @@ Here's how to configure the web app sample.
     ```
 3. Run the **EmbedSample** web application.
 
-Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Analyzing Sales Data PBIX sample](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like this:
+Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), the sample web app would look like this:
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
