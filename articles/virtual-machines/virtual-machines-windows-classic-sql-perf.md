@@ -36,8 +36,8 @@ The following is a quick check list for optimal performance of SQL Server on Azu
 |Area|Optimizations|
 |---|---|
 |**VM size**|[DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) or higher for SQL Enterprise edition.<br/><br/>[DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) or higher for SQL Standard and Web editions.|
-|**Storage**|Use [Premium Storage](../storage/storage-premium-storage-preview-portal.md).<br/><br/>Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../storage/storage-redundancy.md) (geo-replication) on the storage account.|
-|**Disks**|Use a minimum of 2 [P30 disks](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes.|
+|**Storage**|Use [Premium Storage](../storage/storage-premium-storage.md).<br/><br/>Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../storage/storage-redundancy.md) (geo-replication) on the storage account.|
+|**Disks**|Use a minimum of 2 [P30 disks](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes.|
 |**I/O**|Enable database page compression.<br/><br/>Enable instant file initialization for data files.<br/><br/>Limit or disable autogrow on the database.<br/><br/>Disable autoshrink on the database.<br/><br/>Move all databases to data disks, including system databases.<br/><br/>Move SQL Server error log and trace file directories to data disks.<br/><br/>Setup default backup and database file locations.<br/><br/>Enable locked pages.<br/><br/>Apply SQL Server performance fixes.|
 |**Feature-specific**|Back up directly to blob storage.|
 
@@ -51,7 +51,7 @@ For performance sensitive applications, it’s recommended that you use the foll
 
 - **SQL Server Standard and Web Editions**: DS2 or higher
 
-DS-series (along with DSv2-series and GS-series) VMs support [Premium Storage](../storage/storage-premium-storage-preview-portal.md). Premium Storage is recommended for all production workloads.
+DS-series (along with DSv2-series and GS-series) VMs support [Premium Storage](../storage/storage-premium-storage.md). Premium Storage is recommended for all production workloads.
 
 > [AZURE.WARNING] Standard Storage has varying latencies and bandwidth and is only recommended for dev/test workloads. Production workloads should use Premium Storage.
 
