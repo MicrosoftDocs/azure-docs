@@ -40,6 +40,8 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 
 4. In the export wizard, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. The exported BACPAC always includes the complete database schema and, by default, data from all the tables. Use the Advanced tab if you want to exclude data from some or all of the tables. You might, for example, choose to export only the data for reference tables rather than from all tables.
 
+***Important*** When exporting a BACPAC to Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
+
 	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
 
 ## Next Step: Import to SQL Database from a BACPAC file
