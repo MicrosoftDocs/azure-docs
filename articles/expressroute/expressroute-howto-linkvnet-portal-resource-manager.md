@@ -70,7 +70,7 @@ You can delete a connection by selecting the delete connection icon.
 
 ## Connect a VNet in a different subscription to circuit
 
-Connecting virtual networks across subscriptions is not supported through the Azure portal today. However, you can use PowerShell. Please see the [PowerShell](expressroute-howto-linkvnet-arm.md) article for more information.
+Connecting virtual networks across subscriptions is not supported through the Azure portal at this time. However, you can use PowerShell. Please see the [PowerShell](expressroute-howto-linkvnet-arm.md) article for more information.
 
 ## Next steps
 
