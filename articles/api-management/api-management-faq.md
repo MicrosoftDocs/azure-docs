@@ -53,7 +53,7 @@ There are several different options you can use to copy an API Management servic
 
 -	Use the backup and restore capability of API Management. For more information, see [How to implement disaster recovery using service backup and restore in Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
 -	Create your own backup and restore feature using the [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx) to save and restore the desired entities from your service instance.
--	Download the service configuration using Git and upload it back up to a new instance. For more information, see [How to save and configure your API Management service configuration using Git](api-management-configuration-repository-git).
+-	Download the service configuration using Git and upload it back up to a new instance. For more information, see [How to save and configure your API Management service configuration using Git](api-management-configuration-repository-git.md).
 
 ### Can I manage my API Management instance programmatically?
 
