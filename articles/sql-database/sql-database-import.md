@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -42,7 +42,10 @@ To import a SQL database from a .bacpac you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL Database V12 server. If you do not have a V12 server, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- A .bacpac file of the database you want to import in an [Azure Storage account (classic)](storage-create-storage-account.md) blob container.
+- A .bacpac file of the database you want to import in an [Azure Storage account (standard)](../storage/storage-create-storage-account.md) blob container.
+
+***Important*** When importing a BACPAC from Azure blob storage, use standard storage. Importing a BACPAC from 
+premium storage is not supported.
 
 
 ## Select the server that will contain the database
