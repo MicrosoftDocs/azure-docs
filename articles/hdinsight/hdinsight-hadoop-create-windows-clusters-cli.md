@@ -87,7 +87,7 @@ You must have a Azure Resource Management (ARM), and a Azure Blob storage accoun
 		-- Lists the keys for a Storage account
 		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
 
-	For details on getting the information by using the Azure Portal, see the "Manage your storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account/#manage-your-storage-account).
+	For details on getting the information by using the Azure Portal, see the "Manage your storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account#manage-your-storage-account).
 
 - **(Optional) Default Blob container**: The **azure hdinsight cluster create** command creates the container if it doesn't exist. If you choose to create the container beforehand, you can use the following command:
 
