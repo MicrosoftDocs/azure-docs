@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/04/2016"
+   ms.date="04/08/2016"
    ms.author="v-livech"/>
 
 
