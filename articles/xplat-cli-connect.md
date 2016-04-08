@@ -74,7 +74,7 @@ If this is your first time logging in with these credentials, you are asked to v
 
 ## Use azure login with a service principal
 
-If you've created a service principal for an Active Directory application, and the service principal has permissions on your subscription, you can use the `azure login` command to authenticate the service principal. Depending on your scenario, you could provide the credentials of the service principal as explicit parameters of the `azure login` command, or through a CLI script or application code. You can also use a certificate to authenticate the service principal non-interactively for automation scenarios. For details and examples, see [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
+If you've created a service principal for an Active Directory application, and the service principal has permissions on your subscription, you can use the `azure login` command to authenticate the service principal. Depending on your scenario, you could provide the credentials of the service principal as explicit parameters of the `azure login` command, or through a CLI script or application code. You can also use a certificate to authenticate the service principal non-interactively for automation scenarios. For details and examples, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Use the publish settings file method
 
