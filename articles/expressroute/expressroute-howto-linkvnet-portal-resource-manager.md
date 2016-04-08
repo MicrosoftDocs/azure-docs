@@ -43,7 +43,7 @@ This article gives you an overview of how to link virtual networks (VNets) to Ex
 
 You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRoute circuits must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check out the [FAQ](expressroute-faqs.md) for more details on the premium add-on. 
 
-## Connecting a VNet in the same Azure subscription to an ExpressRoute circuit
+## Link a VNet in the same subscription to a circuit
 
 Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. You can follow instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the image below.
 
@@ -62,7 +62,7 @@ Once your connection has been successfully configured your connection object wil
 
 You can delete a connection by selecting the delete connection icon.
 
-## Connect a virtual network in a different Azure subscription to an ExpressRoute circuit
+## Link a VNet in a different subscription to a circuit
 
 Ability to connect virtual networks across subscriptions is not supported through the portal today. Please follow instructions to accomplish this using [PowerShell](expressroute-howto-linkvnet-arm.md)
 
