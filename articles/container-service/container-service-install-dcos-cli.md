@@ -22,10 +22,40 @@
 
 # Install the DC/OS CLI
 
->[AZURE.NOTE] This is for working with DC/OS-based ACS. There is no need to do this for Swarm-based ACS.
+>[AZURE.NOTE] This is for working with DC/OS-based ACS clusters. There is no need to do this for Swarm-based ACS clusters.
 
 First, [connect to your DC/OS-based ACS cluster](./container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
 
 ```bash
-# (*** TODO ***)
+sudo pip install -y virtualenv
+mkdir dcos && cd dcos
+wget https://raw.githubusercontent.com/mesosphere/dcos-cli/master/bin/install/install-optout-dcos-cli.sh
+chmod +x install-optout-dcos-cli.sh
+install-optout-dcos-cli.sh . http://localhost --add-path yes
+```
+
+If you are using an old version of Python, you may notice some "InsecurePlatformWarnings". You can safely ignore these.
+
+In order to get started without restarting your shell, run:
+
+```bash
+source ~/.bashrc
+```
+
+This step will not be necessary when you start new shells.
+
+Now you can confirm that the CLI is installed:
+
+```bash
+dcos --help
+```
+
+## Configure the package repository
+
+Once you have installed the DC/OS CLI, you can configure the DC/OS CLI package repository as below:
+
+```bash
+dcos config prepend package.sources https://github.com/mesosphere/multiverse/archive/version-1.x.zip
+dcos config set package.cache ~/.dcos/cache
+dcos pacakge update
 ```
