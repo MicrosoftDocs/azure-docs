@@ -26,7 +26,15 @@ This article assumes that you've already read the [Azure Functions developer ref
 
 ### HTTP and WebHook triggers and bindings
 
-For an HTTP or WebHook trigger, the *function.json* file provides properties that pertain to the HTTP request and response.
+You can use an HTTP or WebHook trigger to call a function in response to an HTTP request. The request must include an API key, which is currently only available in the Azure portal UI. 
+
+The function URL is a combination of the function app URL and the function name:
+
+```
+ https://{function app name}.azurewebsites.net/api/{function name} 
+```
+
+The *function.json* file provides properties that pertain to the HTTP request and response.
 
 Properties for the HTTP request:
 
