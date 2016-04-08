@@ -273,7 +273,7 @@ There is no action item for you in this section. A new user is created when acce
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Keylight.
 
-	![Assign User][200] 
+![Assign User][200] 
 
 **To assign Britta Simon to Keylight, perform the following steps:**
 
