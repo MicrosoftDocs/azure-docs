@@ -37,24 +37,24 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
     ```
 
-  You can find your **TenantId** by looking at the URL for the tenant in the Azure classic portal. The GUID embedded in that URL is the TenantId. For example:
+    You can find your **TenantId** by looking at the URL for the tenant in the Azure classic portal. The GUID embedded in that URL is the TenantId. For example:
 
-  https://<i></i>manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/**690ec069-8200-4068-9d01-5aaf188e557a**/users
+    https://<i></i>manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/**690ec069-8200-4068-9d01-5aaf188e557a**/users
 
-  The **ClusterName** will be used to prefix the AAD applications created by the script. It does not need to match the actual cluster name exactly as it is only intended to make it easier for you to map AAD artifacts to the Service Fabric cluster that they're being used with.
+    The **ClusterName** will be used to prefix the AAD applications created by the script. It does not need to match the actual cluster name exactly as it is only intended to make it easier for you to map AAD artifacts to the Service Fabric cluster that they're being used with.
 
-  The **WebApplicationReplyUrl** is the default endpoint that AAD will return your users to after completing the sign-in process. You should set this to the Service Fabric Explorer endpoint for your cluster, which by default is:
+    The **WebApplicationReplyUrl** is the default endpoint that AAD will return your users to after completing the sign-in process. You should set this to the Service Fabric Explorer endpoint for your cluster, which by default is:
 
-  https://&lt;cluster_domain&gt;:19080/Explorer
+    https://&lt;cluster_domain&gt;:19080/Explorer
 
-  You will be prompted to sign into an account which has administrative privileges for the AAD tenant. Once you do, the script will proceed to create the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the Azure classic portal, you should see two new entries:
+    You will be prompted to sign into an account which has administrative privileges for the AAD tenant. Once you do, the script will proceed to create the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the Azure classic portal, you should see two new entries:
 
-  - *ClusterName*_Cluster
-  - *ClusterName*_Client
+    - *ClusterName*_Cluster
+    - *ClusterName*_Client
 
-  The script will print the Json required by the Azure Resource Manager (ARM) template when you create the cluster in the next section so keep the PowerShell window open.
+    The script will print the Json required by the Azure Resource Manager (ARM) template when you create the cluster in the next section so keep the PowerShell window open.
 
-  ![The output of the SetupApplication script includes the Json required by the ARM template][setupapp-script-output]
+    ![The output of the SetupApplication script includes the Json required by the ARM template][setupapp-script-output]
 
 ## Create the cluster
 
