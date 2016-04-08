@@ -25,7 +25,7 @@ This article shows how to quickly create a Linux Virtual Machine on Azure using 
 
 ```
 # One command to quickly the VM that prompts for arguments
-chrisL@fedora$ azure vm quick-create
+chrisL@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
 ## Detailed Walk Through
