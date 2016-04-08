@@ -3,18 +3,18 @@
    description="This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits."
    services="expressroute"
    documentationCenter="na"
-   authors="ganesr"
+   authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
-   ms.author="ganesr" />
+   ms.date="04/08/2016"
+   ms.author="cherylmc" />
 
 # Linking Virtual Networks to ExpressRoute circuits
 
