@@ -3,7 +3,7 @@
    description="This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit."
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
+   authors="cherylmc"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -14,9 +14,9 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/08/2016"
-   ms.author="ganesr"/>
+   ms.author="cherylmc"/>
 
-# Create and modify routing for an ExpressRoute circuit using Azure Resource Manager and the Azure portal
+# Create and modify routing for an ExpressRoute circuit
 
 
 
@@ -27,7 +27,7 @@
 
 
 
-This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using the Azure management portal and the Resource Manager deployment model.
+This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using the Azure portal and the Resource Manager deployment model.
 
 **About Azure deployment models**
 
@@ -51,12 +51,12 @@ This section provides instructions on how to create, get, update, and delete the
 
 ### To create Azure private peering
 
-1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further. 
+1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing.
 
 	![](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 
 
-1. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
+2. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
 	- A /30 subnet for the primary link. This must not be part of any address space reserved for virtual networks.
 	- A /30 subnet for the secondary link. This must not be part of any address space reserved for virtual networks.
@@ -65,7 +65,7 @@ This section provides instructions on how to create, get, update, and delete the
 	- An MD5 hash if you choose to use one. **This is optional**.
 
 
-3. You can select the peering you wish to configure as shown below. Select the Azure Private peering row.
+3. Select the Azure Private peering row, as shown below.
 	
 	![](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
 	
@@ -75,7 +75,7 @@ This section provides instructions on how to create, get, update, and delete the
 	![](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 
 	
-5. Save the configuration once you have specified all parameters. Once the configuration is accepted successfully, you will see the following.
+5. Save the configuration once you have specified all parameters. Once the configuration has been accepted successfully, you will see something similar to the example below.
 
 	![](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 	
@@ -90,7 +90,6 @@ You can view the properties of Azure private peering by selecting the peering.
 ### To update Azure private peering configuration
 
 You can select the row for peering and modify the peering properties. 
-
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 
@@ -121,7 +120,7 @@ This section provides instructions on how to create, get, update, and delete the
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers.
 	- An MD5 hash if you choose to use one. **This is optional**.
 
-3. You can select the peering you wish to configure as shown below. Select the Azure public peering row.
+3. Select the Azure public peering row, as shown below.
 	
 	![](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
 	
@@ -131,7 +130,7 @@ This section provides instructions on how to create, get, update, and delete the
 	![](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 
 	
-5. Save the configuration once you have specified all parameters. Once the configuration is accepted successfully, you will see the following.
+5. Save the configuration once you have specified all parameters. Once the configuration has been accepted successfully, you will see something similar to the example below.
 
 	![](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 	
@@ -200,7 +199,7 @@ This section provides instructions on how to create, get, update, and delete the
 	![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
 
-6. Once the configuration is accepted successfully, you will see the following.
+6. Once the configuration has been accepted successfully, you will see something similar to the example below.
 
 	![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 	
