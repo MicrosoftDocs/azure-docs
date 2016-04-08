@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure IoT Hub overview | Microsoft Azure"
- description="Overview of Azure IoT Hub service, including internet of things architecture, device connectivity, communication patterns, and service-assisted communication pattern"
+ description="Overview of Azure IoT Hub service: what is iot hub, device connectivity, internet of things communication patterns, and service-assisted communication pattern"
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
