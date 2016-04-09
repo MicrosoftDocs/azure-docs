@@ -86,7 +86,7 @@ You can compile the sample with the following steps:
 5. Click the menu Build > Build Solution.
 
 
-#### B.1.1 C# source code to paste
+#### C# source code to paste
 
 
 Paste this code into your **Program.cs** file.
@@ -138,8 +138,7 @@ namespace RetryAdo2
                if (TransientErrorNumbers.Contains
                   (sqlExc.Number) == true)
                {
-                  Console.WriteLine("{0}: transient occurred.",
-                     sqlExc.Number);
+                  Console.WriteLine("{0}: transient occurred.", sqlExc.Number);
                   continue;
                }
                else
@@ -155,8 +154,7 @@ namespace RetryAdo2
                if (TransientErrorNumbers.Contains
                   (sqlExc.Number) == true)
                {
-                  Console.WriteLine("{0}: transient occurred. (TESTING.)",
-                     sqlExc.Number);
+                  Console.WriteLine("{0}: transient occurred. (TESTING.)", sqlExc.Number);
                   continue;
                }
                else
@@ -233,9 +231,9 @@ SELECT TOP 3
          sqlConnectionSB.DataSource = "tcp:myazuresqldbserver.database.windows.net,1433"; //["Server"]
          sqlConnectionSB.InitialCatalog = "MyDatabase"; //["Database"]
    
-         sqlConnectionSB.IntegratedSecurity = false;
          sqlConnectionSB.UserID = "MyLogin";  // "@yourservername"  as suffix sometimes.
          sqlConnectionSB.Password = "MyPassword";
+         sqlConnectionSB.IntegratedSecurity = false;
    
          // Adjust these values if you like. (ADO.NET 4.5.1 or later.)
          sqlConnectionSB.ConnectRetryCount = 3;
@@ -297,14 +295,14 @@ filetable_updates_2105058535    2105058535
 There are a variety of ways you can simulate a transient error to test your retry logic.
 
 
-### D.1 Add a - throw new TestSqlException
+### D.1 Throw a test exception
 
 The code sample includes:
 
-- A second class named **TestSqlException**, which a property named **Number**.
+- A small second class named **TestSqlException**, which a property named **Number**.
 - `//throw new TestSqlException(4060);` , which you can uncomment.
 
-If you uncomment the throw and recompile, the next run of **RetryAdo2.exe** outputs something similar to the following.
+If you uncomment the throw, and recompile, the next run of **RetryAdo2.exe** outputs something similar to the following.
 
 
 
@@ -326,7 +324,7 @@ ERROR: Unable to access the database!
 
 
 
-#### D.1.1 Retest with a persistent error
+#### Retest with a persistent error
 
 
 To prove the code handles persistent errors correctly, rerun the preceding test except do not use the number of a real transient error like 4060. Instead use the nonsense number 7654321. The program should treat this as a persistent error, and should bypass any retry.
@@ -336,8 +334,8 @@ To prove the code handles persistent errors correctly, rerun the preceding test 
 ### D.2 Disconnect from the network
 
 1. Disconnect your client computer from the network.
-  a. For a desktop, unplug the network cable.
-  b. For a laptop, press the function combination of keys to turn off the network adapter.
+  - For a desktop, unplug the network cable.
+  - For a laptop, press the function combination of keys to turn off the network adapter.
 2. Start RetryAdo2.exe, and wait for the console to display the first transient error, probably 11001.
 3. Reconnect to the network, while RetryAdo2.exe continues to run.
 4. Watch the console report success on a subsequent retry.
@@ -348,8 +346,8 @@ To prove the code handles persistent errors correctly, rerun the preceding test 
 1. Temporarily add 40615 as another error number to **TransientErrorNumbers**, and recompile.
 2. Set a breakpoint on the line: `new S.SqlConnectionStringBuilder()`.
 3. Use the *Edit and Continue* feature to purposely misspell the server name, a couple lines below.
-  a. Let the program run and come back to your breakpoint.
-  b. The error 40615 occurs.
+  - Let the program run and come back to your breakpoint.
+  - The error 40615 occurs.
 4. Fix the misspelling.
 5. Let the program run and finish successfully.
 6. Remove 40615, and recompile.
