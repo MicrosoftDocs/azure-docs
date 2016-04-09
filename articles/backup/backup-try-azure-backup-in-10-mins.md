@@ -64,8 +64,6 @@ To back up your files and folders, you need to create a backup vault in the regi
 After creating the vault, you select how your storage is replicated.
 
 >[AZURE.NOTE] You must choose how storage is replicated right after creating a vault and before any machines are registered to it. Once an item has been registered to the vault, storage replication is locked and can't be modified.
-- If you're using Azure as your primary backup, choose the (default) [Geo-Redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option.
-- If you're using Azure as a tertiary backup, choose [Locally Redundant Storage](../storage/storage-redundancy.md#locally-redundant-storage).
 
 ### To select how storage is replicated
 
@@ -76,11 +74,13 @@ After creating the vault, you select how your storage is replicated.
 
 3. Choose the appropriate storage option.
 
+    If you're using Azure as your primary backup, choose the (default) [Geo-Redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option. If you're using Azure as a tertiary backup, choose [Locally Redundant Storage](../storage/storage-redundancy.md#locally-redundant-storage).
+
     ![Choose storage replication option](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
 4. If you selected **Locally Redundant**, click **Save** since **Geo Redundant** is the default.
 
-You need to authenticate your machine with the backup vault you created, using vault credentials. Here's how you download those credentials.
+You need to authenticate your machine with the backup vault you created using vault credentials. Here's how you download those credentials.
 
 ### To download vault credentials
 The vault credentials file is used only during the registration process and expires after 48 hours.
@@ -88,7 +88,7 @@ The vault credentials file is used only during the registration process and expi
 1. To return to the **Quick Start** page for your vault, click
     ![Select your new vault](./media/backup-try-azure-backup-in-10-mins/quick-start-icon.png)
 
-2. Click **Download vault credentials > Save** to download the vault credentials to the local **Downloads** folder.
+2. Click **Download vault credentials > Save**.
 
 Next, you download the backup agent.
 
@@ -114,8 +114,7 @@ Now that your vault is created and you've downloaded everything, you install and
 The agent is now installed and your machine is registered successfully to the vault. You're ready to configure and schedule your backup.
 
 ## Step 4: Back up your files and folders
-
-The backup agent opens automatically if you left the **Launch Microsoft Azure Recovery Services Agent** checkbox checked in the previous step. Otherwise, you can find it by searching your machine for Microsoft Azure Backup.
+If the backup agent isn't already open, you can find it by searching your machine for Microsoft Azure Backup.
 
 1. In the **Backup agent** click **Schedule Backup**.
 
