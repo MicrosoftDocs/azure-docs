@@ -128,7 +128,7 @@ If the backup agent isn't already open, you can find it by searching your machin
     - Choose how you want to complete the initial backup (over the network, or offline).
 <br><br>
 
-3. In the **Backup agent**, click **Back Up Now** to complete the initial backup over the network.
+3. When the wizard is complete return to the **Backup agent** and click **Back Up Now** to complete the initial backup over the network.
 
     ![Windows Server backup now](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
@@ -142,5 +142,5 @@ Congratulations, you've successfully backed up your files and folders to Azure B
 
 ## Next steps
 - Get more details about [backing up Windows machines](backup-configure-vault.md).
-- Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md)
-- If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md)
+- Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
+- If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
