@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="04/08/2016"
+   ms.date="04/09/2016"
    ms.author="jimpark;"/>
 
 # First look: back up files and folders from Windows Server or client to Azure
@@ -28,7 +28,7 @@ Backing up files and folders to Azure requires these steps:
 ![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Get an Azure subscription (if don't already have one).<br>
 ![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Create a backup vault and download the necessary items.<br>
 ![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Prepare your Windows Server or client by installing and registering those items.<br>
-![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Back up your data.
+![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Back up your files and folders.
 
 
 ![How to back up your Windows machine with Azure Backup](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
@@ -67,20 +67,20 @@ After creating the vault, you select how your storage is replicated.
 
 ### To select how storage is replicated
 
-1. Click the vault you just created.
+1. Click the vault you created.
 2. On the Quick Start page, select **Configure**.
 
     ![Configure vault](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
 
 3. Choose the appropriate storage option.
 
-    If you're using Azure as your primary backup, choose the (default) [Geo-Redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option. If you're using Azure as a tertiary backup, choose [Locally Redundant Storage](../storage/storage-redundancy.md#locally-redundant-storage).
+    If you're using Azure as your primary backup, choose [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage). If you're using Azure as a tertiary backup, choose [locally redundant storage](../storage/storage-redundancy.md#locally-redundant-storage).
 
     ![Choose storage replication option](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
 4. If you selected **Locally Redundant**, click **Save** since **Geo Redundant** is the default.
 
-You need to authenticate your machine with the backup vault you created using vault credentials. Here's how you download those credentials.
+You use vault credentials to authenticate your machine with the backup vault. Here's how you download those credentials.
 
 ### To download vault credentials
 The vault credentials file is used only during the registration process and expires after 48 hours.
@@ -111,7 +111,7 @@ Now that your vault is created and you've downloaded everything, you install and
 
     >[AZURE.NOTE] If you lose or forget the passphrase, Microsoft cannot help recover the backup data. Please save the file in a secure location. It is required to restore a backup.
 
-The agent is now installed and your machine is registered successfully to the vault. You're ready to configure and schedule your backup.
+The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
 ## Step 4: Back up your files and folders
 If the backup agent isn't already open, you can find it by searching your machine for Microsoft Azure Backup.
@@ -134,7 +134,7 @@ If the backup agent isn't already open, you can find it by searching your machin
 
 4. On the **Confirmation** screen, click **Back Up**. If you close the wizard before the backup process completes it continues to run in the background.
 
-    When the initial backup is done, the **Jobs** view in the console indicates that the job is completed.
+    When the initial backup is done, the **Jobs** view in the console shows that the job is completed.
 
     ![Initial backup complete](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
@@ -142,5 +142,5 @@ Congratulations, you've successfully backed up your files and folders to Azure B
 
 ## Next steps
 - Get more details about [backing up Windows machines](backup-configure-vault.md).
-- Now that you've backed up your files and folders, you can [manage vaults and servers](backup-azure-manage-windows-server.md)
+- Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md)
 - If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md)
