@@ -3,8 +3,8 @@
 	description="This topic explains Active Geo-Replication for SQL Database and its uses."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="stevestein"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="03/07/2016"
-	ms.author="jroth" />
+	ms.author="sstein" />
 
 # Active Geo-Replication for Azure SQL Database
 
