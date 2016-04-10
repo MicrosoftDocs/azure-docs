@@ -23,7 +23,7 @@
 
 - You need the latest version of the Azure PowerShell modules, (at least version 1.0).
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
-- ** Before preceding further**, review information that is provided under [Moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md). **Ensure that you have fully understood the limits and limitations of what's possible.**
+- ** Before preceding further**, review information that is provided under [Moving ExpressRoute circuits from the classic to Resource Manager deployment model](expressroute-move.md). **Ensure that you have fully understood the limits and limitations of what's possible.**
 - If you want to move an Azure ExpressRoute circuit from the classic deployment model to the Azure Resource Manager deployment model, you must have the circuit fully configured and operational in the classic deployment model.
 - Ensure that you have a resource group that was created in the Resource Manager deployment model.
 
@@ -69,7 +69,7 @@ You can also use an existing resource group if you already have one.
 
 **Step 3. Move the ExpressRoute circuit to the Resource Manager deployment model**
 
-You are now ready to move over your ExpressRoute circuit from the classic to Resource Manager deployment model. Review the information provided under [Moving an ExpressRoute circuit from the classic to Resource Manager deployment model](expressroute-move.md) before proceeding further.
+You are now ready to move over your ExpressRoute circuit from the classic to Resource Manager deployment model. Review the information provided under [Moving ExpressRoute circuits from the classic to Resource Manager deployment model](expressroute-move.md) before proceeding further.
 
 You can do this by running the following snippet:
 
