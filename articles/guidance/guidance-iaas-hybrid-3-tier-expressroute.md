@@ -85,7 +85,7 @@ The following high-level steps outline a process for implementing this architect
 
 	If your service provider is a Telco:
 
-	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /28 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
+	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /27 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
 
 		> [AZURE.NOTE] The service provider may provide an online portal for you to supply this information.
 
@@ -354,7 +354,7 @@ param(
     [string]$VnetAddressPrefix = "10.20.0.0/16",
 
     [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
-    [string]$GatewaySubnetAddressPrefix = "10.20.255.240/28",
+    [string]$GatewaySubnetAddressPrefix = "10.20.255.224/27",
 
     [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
     [string]$InternalSubnetAddressPrefix = "10.20.0.0/17"
