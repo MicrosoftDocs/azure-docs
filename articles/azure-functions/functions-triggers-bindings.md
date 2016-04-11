@@ -24,7 +24,7 @@ This article explains how to configure and code triggers and bindings in Azure F
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md) and the [C#](functions-reference-csharp.md) or [Node](functions-reference-node.md) developer reference articles.
 
-### HTTP and WebHook triggers and bindings
+## HTTP and WebHook triggers and bindings
 
 You can use an HTTP or WebHook trigger to call a function in response to an HTTP request. The request must include an API key, which is currently only available in the Azure portal UI. 
 
