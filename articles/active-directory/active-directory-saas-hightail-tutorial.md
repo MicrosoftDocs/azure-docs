@@ -155,7 +155,7 @@ Click on the **add user attribute** button and add the following attributes for 
 
     b. Click **Next**.
 
-> [AZURE.NOTE] Before configuring the Single Sign On at Hightail app, please white list your email domain with Hightail team so that all the users who are using this domain can leverage Single Sign On functionality.
+	> [AZURE.NOTE] Before configuring the Single Sign On at Hightail app, please white list your email domain with Hightail team so that all the users who are using this domain can leverage Single Sign On functionality.
 
 6. To get SSO configured for your application, you need to sign-on to your Hightail tenant as an administrator.
 
@@ -226,11 +226,11 @@ In the Users list, select **Britta Simon**.
 
 5. On the **Tell us about this user** dialog page, perform the following steps:
 
-![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/create_aaduser_05.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/create_aaduser_05.png) 
 
-    a. As Type Of User, select New user in your organization.
+    a. As **Type Of User**, select **New user in your organization**.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. In the **User Name** textbox, type **BrittaSimon**.
 
     c. Click **Next**.
 
