@@ -32,6 +32,6 @@ Using your [existing subscription]( https://account.windowsazure.com/Home/Index)
    ![login][1]
 
 <!-- Image references. -->
-[1]: ./media/sql-database-include-getting-started-portal-login/login.png
+[1]: ./media/azure-include-getting-started-portal-login/login.png
 <!--
 -->
