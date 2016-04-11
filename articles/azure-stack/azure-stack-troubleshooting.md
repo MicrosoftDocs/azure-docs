@@ -24,9 +24,9 @@ If you experience issues while deploying or using Microsoft Azure Stack, refer t
 
 Installing on a new fresh installation of Windows Server 2016 Technical Preview 4 (TP4) is also recommended instead of using an existing server where other tests may already have been made.
 
-If you do install from a bare metal server without using the provided Virtual Hard Disk (VHD), make sure you only install the prerequisite hotfix (KB3124262), as having additional updates has been found to generate deployment issues in some situations.
+If you install from a bare metal server without using the provided Virtual Hard Disk (VHD), make sure that you only install the prerequisite hotfix (KB3124262), as having additional updates has been found to generate deployment issues in some situations.
 
-The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft azure Stack, and it is subject to frequent edits and updates.
+The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates.
 
 ## Azure Active Directory
 
