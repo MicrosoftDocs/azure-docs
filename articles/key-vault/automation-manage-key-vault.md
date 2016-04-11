@@ -42,5 +42,5 @@ With the Azure Key Vault cmdlets you can perform these tasks among others: creat
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Key Vault, follow these links to learn more about Azure Automation.
 
-* See the Azure Automation [Getting Started Tutorial](../automation-create-runbook-from-samples.md).
+* See the Azure Automation [Getting Started Tutorial](../automation/automation-first-runbook-graphical.md).
 * See the [Azure Key Vault PowerShell scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
