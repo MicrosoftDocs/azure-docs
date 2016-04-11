@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016" 
+	ms.date="02/08/2016"
 	ms.author="mohabib;fashah;bradsev"/>
 
 
@@ -74,7 +74,7 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 
 To set up your Azure Data Science environment:
 
-1. [Create a storage account](../storage-create-storage-account.md)
+1. [Create a storage account](../storage/storage-create-storage-account.md)
 
 2. [Create an Azure ML workspace](machine-learning-create-workspace.md)
 

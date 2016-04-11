@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Configure AlwaysOn availability groups Azure Resource Manager | Microsoft Azure"
 	description="Create an AlwaysOn availability group with Azure virtual machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to automatically create the entire solution."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
@@ -20,8 +20,8 @@
 
 > [AZURE.SELECTOR]
 - [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Classic](virtual-machines-windows-classic-portal-sql-availability.md)
+- [PowerShell - Classic](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
 
@@ -54,7 +54,7 @@ This tutorial assumes the following:
 
 - You already have an Azure account. If you don't have one, [sign up for a trial account](http://azure.microsoft.com/pricing/free-trial/).
 
-- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server virtual machine on Azure](virtual-machines-provision-sql-server.md)
+- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
 - You already have a solid understanding of AlwaysOn availability groups. For more information, see [AlwaysOn availability groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -116,7 +116,7 @@ On **Domain and network settings** blade review the preset values for the domain
 
 - **SQL Server subnet name** is the name of a portion of the virtual network that hosts the SQL Servers and the file share witness. For this tutorial use **subnet-2**. This subnet will use address prefix **10.0.1.0/26**. 
 
-To learn more about virtual networks in [Azure see Virtual Network Overview](virtual-networks-overview.md).  
+To learn more about virtual networks in [Azure see Virtual Network Overview](../virtual-network/virtual-networks-overview.md).  
 
 The **Domain and network settings** should look like this:
 
@@ -146,7 +146,7 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 On **VM size, storage settings** choose a SQL Server virtual machine size and review the other settings. 
 
-- **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see [Sizes for virtual machines](virtual-machines-size-specs.md).
+- **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
 >[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
@@ -193,7 +193,7 @@ For additional information about storage space and storage pools see:
 - [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
 
 For more information about SQL Server configuration best practices, see
-[Performance best practices for SQL Server in Azure virtual machines](virtual-machines-sql-server-performance-best-practices.md)
+[Performance best practices for SQL Server in Azure virtual machines](virtual-machines-windows-classic-sql-perf.md)
 
 
 ###SQL Server settings

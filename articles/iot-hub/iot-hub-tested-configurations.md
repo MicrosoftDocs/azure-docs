@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/28/2016"
+     ms.date="03/29/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -186,3 +186,4 @@ Learn more about developing solutions using [Certified for IoT devices](http://a
 
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+

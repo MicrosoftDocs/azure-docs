@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="03/10/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"
 />
 
@@ -27,7 +27,7 @@ Stream Analytics jobs support several output methods, one being an [Azure Data L
 
 ## Authorize a Data Lake Store account
 
-1.  When Data Lake Store is selected as an output in the Azure Management portal, you will be prompted to authorize the usage of your existing Data Lake Store or to request access to the Data Lake Store Preview via the Azure Preview Portal.
+1.  When Data Lake Store is selected as an output in the Azure Management portal, you will be prompted to authorize the usage of your existing Data Lake Store or to request access to the Data Lake Store Preview via the Azure Classic Portal.
 
     ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)  
 

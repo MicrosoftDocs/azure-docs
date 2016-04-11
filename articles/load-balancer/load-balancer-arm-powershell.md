@@ -242,7 +242,7 @@ PS C:\> $backendnic1
 
 Use the command Add-AzureVMNetworkInterface to assign the NIC to a virtual Machine.
 
-You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) option 4 or 5.
+You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example) option 4 or 5.
 
 ## Update an existing load balancer
 

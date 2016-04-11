@@ -77,7 +77,7 @@ Before you provision the virtual device, you need to make the following preparat
 
 >[AZURE.IMPORTANT] **Make sure that the virtual network is in the same region as the cloud storage accounts that you are going to be using with the virtual device.**
 
-- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:
+- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:
 	- Be Windows or Linux VMs with iSCSI Initiator software installed.
 	- Be running in the same virtual network as the virtual device.
 	- Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.

@@ -44,7 +44,7 @@ Article links from a subdirectory to an article in the root directory:
 
 Article in the root directory links to an article in a service subdirectory: 
 
-    [link text](service-directory/article-name.md)
+    [link text](./service-directory/article-name.md)
 
 Article in a service subdirectory links to an article that is in another service subdirectory:
 
@@ -109,6 +109,8 @@ Link references at the end of the article:
     [1]: http://google.com/
     [2]: http://search.yahoo.com/  
     [3]: http://search.msn.com/
+
+Make sure you include the space after the colon, before the link. When you link to other technical articles, if you forget to include the space, the link will be broken in the published article. 
 
 ## Remember the Azure library chrome!
 If you want to link to an Azure library topic that lives under [this node](https://msdn.microsoft.com/library/azure), remember to specify the Azure chrome in the link (/azure/). The Azure chrome shares the ACOM navigation options and displays only the Azure content of the MSDN library. A properly scoped link looks like this:

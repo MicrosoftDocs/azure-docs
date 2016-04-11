@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/08/2016"
+	ms.date="03/15/2016"
 	ms.author="heidist"/>
 
 #Azure Search: code samples, demos, videos and tutorials
@@ -79,14 +79,12 @@ Link|Released|Details
 Walkthrough|Description
 -----------|-----------
 [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)|Configure and run a sample Visual Studio web application that integrates with Azure Search.
-[How to search StackExchange data using Azure Search](search-howto-stackexchange-data.md)|Full-text search over StackExchange data in an application integrated with Azure Search.
 [How to use Azure Search with D3.js to Build Interactive Data Visualizations](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Blog post and sample code that demonstrates how to add visual search capabilities to your custom app.
 [Get started with Azure Search in NodeJS](search-get-started-nodejs.md)|Learn how to work with Azure Search in NodeJS.
 [Get started with Azure Search in Java](search-get-started-java.md)|Tutorial for Java programmers using Eclipse and Apache Tomcat server to build and run a sample application that uses Azure Search.
 [Azure Search scenarios and capabilities](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|Blog post covering the primary scenarios enabled by the current functionality.
 [How to Add Suggestions to your Search Applications](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|Learn how to implement suggestions, commonly called auto complete. This demo walks through a number of topics including creating an MVC4 applications that leverages Azure Search suggestions, use of the Twitter typeahead.js library to build out an effective autosuggest component in JavaScript, and using fuzzy suggestions to allow you to bring back suggestions even if the user misspells the word.
 [TechNet Virtual Lab: Building a Microsoft Azure Search Application](http://go.microsoft.com/?linkid=9874663)|Virtual lab that provides a development environment, tools, documentation, and data. You will need an Azure account, either a trial subscription or your personal Azure subscription, to complete the lab.
-[Geospatial search app development using Azure Search](search-create-geospatial.md)|Use Bing maps and coordinates to support geospatial searches.
 [Synchronize SQL Server Data with Azure Search](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|Blog post that explains how to load data from SQL Server relational databases to an Azure Search index.
 [Scoring profiles tutorial](search-get-started-scoring-profiles.md)|Test-drive scoring profiles using a console app.
 [Azure Search Management REST API tutorial](search-get-started-management-api.md)|How to use the Management REST API to provision the service and manage admin or query api-keys.

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Get started with the SMTP Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [SMTP API](../connectors/create-api-smtp.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [SMTP API](../connectors/connectors-create-api-smtp.md).
 
 Connect to a SMTP server and send email, including emails with attachments. SMTP connector "Send Email" action lets you send email to the specified email address(es).
 

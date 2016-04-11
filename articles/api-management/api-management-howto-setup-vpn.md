@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="03/14/2016"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
@@ -52,15 +52,15 @@ After your API Management service is connected to the VPN, accessing web service
 
 When an API Management service instance is hosted in a VNET, the ports in the following table are used. If these ports are blocked, the service may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using API Management with a VNET.
 
-| Port(s)                      | Direction        | Transport Protocol | Purpose                                      | Remote IP        |
-|------------------------------|------------------|--------------------|----------------------------------------------|------------------|
-| 80, 443                      | Inbound          | HTTP, HTTPS        | Client communication to API Management       | *                |
-| 1433                         | Outbound         | TCP                | API Management dependencies on SQL           | AZURE_SQL        |
-| 443                          | Outbound         | HTTPS              | API Management dependencies on Azure Storage | AZURE_STORAGE    |
-| 9350, 9351, 9352, 9353, 9354 | Outbound         | TCP                | API Management dependencies on Service Bus   | AZURE_SERVICEBUS |
-| 5671                         | Outbound         | AMQP               | API Management log to eventHub policy        | AZURE_EVENTHUB   |
-| 6381, 6382, 6383             | N/A              | N/A                | API Management internal cache replication    | N/A              |
-| 445                          | Outbound         | TCP                | Git access to SMB File share                 | AZURE_FILESHARE  |
+| Port(s)                      | Direction        | Transport Protocol | Purpose                                                          | Source / Destination              |
+|------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
+| 80, 443                      | Inbound          | TCP                | Client communication to API Management                           | INTERNET / VIRTUAL_NETWORK        |
+| 80,443                       | Outbound         | TCP                | API Management Dependency on Azure Storage and Azure Service Bus | VIRTUAL_NETWORK / INTERNET        |
+| 1433                         | Outbound         | TCP                | API Management dependencies on SQL                               | VIRTUAL_NETWORK / INTERNET        |
+| 9350, 9351, 9352, 9353, 9354 | Outbound         | TCP                | API Management dependencies on Service Bus                       | VIRTUAL_NETWORK / INTERNET        |
+| 5671                         | Outbound         | AMQP               | API Management dependency for Log to event Hub policy            | VIRTUAL_NETWORK / INTERNET        |
+| 6381, 6382, 6383             | Inbound/Outbound | UDP                | API Management dependencies on Redis Cache                       | VIRTUAL_NETWORK / VIRTUAL_NETWORK |
+| 445                          | Outbound         | TCP                | API Management Dependency on Azure File Share for GIT            | VIRTUAL_NETWORK / INTERNET        |
 
 
 ## <a name="related-content"> </a>Related content

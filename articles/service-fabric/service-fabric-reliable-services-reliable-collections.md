@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mcoskun"
    manager="timlt"
-   editor="masnider,jessebenson"/>
+   editor="masnider,vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/11/2015"
+   ms.date="03/25/2016"
    ms.author="mcoskun"/>
 
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
@@ -43,7 +43,7 @@ The Reliable Collections APIs are an evolution of concurrent collections APIs
 (found in the **System.Collections.Concurrent** namespace):
 
 - Asynchronous: Returns a task since, unlike concurrent collections, the operations are replicated and persisted.
-- No out parameters: Uses **ConditionalResult<T>** to return a bool and a value instead of out parameters. **ConditionalResult<T>** is like **Nullable<T>** but does not require T to be a struct.
+- No out parameters: Uses `ConditionalValue<T>` to return a bool and a value instead of out parameters. `ConditionalValue<T>` is like `Nullable<T>` but does not require T to be a struct.
 - Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
 
 Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
@@ -128,16 +128,16 @@ Note that the above deadlock scenario is a great example of how an Update lock c
 
 ## Recommendations
 
-- Do not modify an object of custom type returned by read operations (e.g., **TryPeekAsync** or **TryGetAsync**). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
+- Do not modify an object of custom type returned by read operations (e.g., `TryPeekAsync` or `TryGetAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
 - Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
-- Do not use **TimeSpan.MaxValue** for time-outs. Time-outs should be used to detect deadlocks.
+- Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
 - Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
 
 Here are some things to keep in mind:
 
 - The default time-out is 4 seconds for all the Reliable Collection APIs. Most users should not override this.
-- The default cancellation token is **CancellationToken.None** in all Reliable Collections APIs.
-- The key type parameter (*TKey*) for a Reliable Dictionary must correctly implement **GetHashCode()** and **Equals()**. Keys must be immutable.
+- The default cancellation token is `CancellationToken.None` in all Reliable Collections APIs.
+- The key type parameter (*TKey*) for a Reliable Dictionary must correctly implement `GetHashCode()` and `Equals()`. Keys must be immutable.
 - Enumerations are snapshot consistent within a collection. However, enumerations of multiple collections are not consistent across collections.
 - To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.
 
