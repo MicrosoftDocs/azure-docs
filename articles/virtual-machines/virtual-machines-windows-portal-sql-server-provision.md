@@ -162,7 +162,7 @@ The following image shows the Storage configuration blade.
 <br/>![SQL ARM Patching](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 <br/>
 
-For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-patch.md).
+For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md).
 
 ### Backups
 Enable automatic database backups for all databases under **SQL automated backup**.
