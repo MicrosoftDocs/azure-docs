@@ -122,7 +122,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
 - Setup default backup and database file locations. Use the recommendations in this topic, and make the changes in the Server properties window. For instructions, see [View or Change the Default Locations for Data and Log Files (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). The following screenshot demonstrates where to make these changes.
 
-	![SQL Data Log and Backup files](./media/virtual-machines-windows-classic-sql-perf/sql_server_default_data_log_backup_locations.png)
+	![SQL Data Log and Backup files](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 
 - Enable locked pages to reduce IO and any paging activities. For more information, see [Enable the Lock Pages in Memory Option (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 
