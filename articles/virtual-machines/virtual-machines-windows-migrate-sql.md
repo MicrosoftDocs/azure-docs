@@ -84,7 +84,7 @@ If you are migrating to an existing Azure VM, the following configuration steps 
 1. Open Microsoft SQL Server Management Studio for Microsoft SQL Server 2016 and connect to the SQL Server instance containing the user database that you will be migrating to an Azure VM.
 2. Right-click the database that you are migrating, point to Tasks and then click Deploy to a Microsoft Azure VM.
 
-	![Start Wizard](./media/virtual-machines-windows-classic-migrate-sql/start-wizard.png)
+	![Start Wizard](./media/virtual-machines-windows-migrate-sql/start-wizard.png)
 
 3. On the Introduction page, click Next.
 4. On the Source Settings page, connect to the SQL Server instance containing the database that you are going to migrate to an Azure VM.
