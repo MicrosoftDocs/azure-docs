@@ -76,7 +76,7 @@ A WebHook trigger is an HTTP trigger that has the following features designed fo
 
 * For specific WebHook providers (currently GitHub and Slack are supported), the Functions runtime validates the provider's signature.
 * For Node.js functions, the Functions runtime provides the request body instead of the request object. There is no special handling for C# functions, because you control what is provided by specifying the parameter type. If you specify `HttpRequestMessage` you get the request object. If you specify a POCO type, the Functions runtime tries to parse a JSON object in the body of the request to populate the object properties.
-* To trigger a WebHook function the HTTP request must include an API key. Currently an API key is also required for non-WebHook HTTP triggers, but this requirement might be optional in the future.
+* To trigger a WebHook function the HTTP request must include an API key. Currently an API key is required for all HTTP triggers, but this requirement might be optional for non-WebHook HTTP triggers in the future.
 
 For information about how to set up a GitHub WebHook, see [GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409).
 
