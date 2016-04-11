@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Step 2: Create a backup vault and download the necessary items
 
-To back up your files and folders, you need to create a backup vault in the region where you want to store the data.
+To back up your files and folders, you need to create a backup vault in the region where you want to store the data. You also determine how storage is replicated and download credentials and the backup agent. 
 
 ### To create a backup vault
 
