@@ -36,9 +36,9 @@ Based on the VM size you choose, you can attach up to 16 additional disks on an 
 
 In order to achieve the highest IOps on Premium Storage disks where their cache settings have been set to either "ReadOnly" or "None", you must disable "barriers" while mounting the file system in Linux. You do not need barriers because the writes to Premium Storage backed disks are durable for these cache settings.
 
-* If you use **reiserFS**, disable barriers using the mount option “barrier=none” (For enabling barriers, use “barrier=flush”)
-* If you use **ext3/ext4**, disable barriers using the mount option “barrier=0” (For enabling barriers, use “barrier=1”)
-* If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
+- If you use **reiserFS**, disable barriers using the mount option “barrier=none” (For enabling barriers, use “barrier=flush”)
+- If you use **ext3/ext4**, disable barriers using the mount option “barrier=0” (For enabling barriers, use “barrier=1”)
+- If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
 
 ## Storage Account Considerations
 
@@ -57,6 +57,7 @@ VM images deployed from the Azure Marketplace have a VM Linux Agent integrated w
 Locate and modify two entries in the **/etc/waagent.conf** file. They control the existence of a dedicated swap file and size of the swap file. The parameters you are looking to modify are `ResourceDisk.EnableSwap=N` and `ResourceDisk.SwapSizeMB=0` 
 
 You will need to change them to the following:
+
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={size in MB to meet your needs} 
 
@@ -119,7 +120,8 @@ If your workloads require more IOps than a single disk can provide, you will nee
 Remember, as with all optimization discussions, you will need to perform tests before and after each change to measure the impact the change will have.  Optimization is a step by step process that will have different results across different machines in your environment.  What works for one configuration may not work for others.
 
 Some useful links to additional resources: 
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
-* [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
-* [Optimizing MySQL Performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md)
-* [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)
+
+- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
+- [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
+- [Optimizing MySQL Performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md)
+- [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)
