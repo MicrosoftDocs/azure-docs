@@ -27,7 +27,7 @@ This topic shows you how to use Azure Mobile Services to send push notifications
 
 This tutorial is based on the TodoList sample app. Before you start this tutorial, you must first complete the topic [Add Mobile Services to an existing app] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard can create this connection for you.
 
->[AZURE.NOTE]To send push notifications to a Windows Phone 8.1 Store app, follow the [Windows Store app](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) version of this tutorial.
+>[AZURE.NOTE] To send push notifications to a Windows Phone 8.1 Store app, follow the [Windows Store app](mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md) version of this tutorial.
 
 ##<a id="update-app"></a> Update the app to register for notifications
 

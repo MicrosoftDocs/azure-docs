@@ -24,7 +24,7 @@ This tutorial shows you how to use SQL Server Management Studio (SSMS) in Azure 
 
 ## SSMS in Azure RemoteApp
 
-Azure RemoteApp is an RDS service in Azure that delivers applications. You can learn more about it here: [What is RemoteApp?](../remote-app/remoteapp-whatis.md)
+Azure RemoteApp is an RDS service in Azure that delivers applications. You can learn more about it here: [What is RemoteApp?](../remoteapp/remoteapp-whatis.md)
 
 SSMS running in Azure RemoteApp gives you the same experience as running SSMS locally.
 
