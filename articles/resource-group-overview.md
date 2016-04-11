@@ -85,7 +85,7 @@ Finally, the template becomes part of the source code for your app. You can chec
 
 For more information about defining the template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
 
-For a step-by-step instructions on creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
+For step-by-step instructions on creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
 
 For guidance about how to structure your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md).
 
