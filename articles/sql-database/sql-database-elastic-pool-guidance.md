@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/04/2016"
+	ms.date="04/07/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -124,6 +124,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
 3.	Take the larger of the eDTU estimates from Step 1 and Step 2.
 4.	See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
 5.	Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
+
 
 ## Summary
 
