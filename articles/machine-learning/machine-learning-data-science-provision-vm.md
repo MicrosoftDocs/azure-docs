@@ -91,7 +91,7 @@ Once the VM is created you can login to it using remote desktop with the Admin a
 
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are start menu tiles and desktop icons for many of the tools. 
 
-## How to create a strong password on the Jupyter notebook server 
+##How to create a strong password on the Jupyter notebook server 
 
 Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the Jupyter notebook server installed on the machine.
 
@@ -145,6 +145,7 @@ Here are some next steps to continue your learning and exploration.
 
 * Explore the various data science tools on the data science VM by clicking on the start menu and checking out the tools listed on the menu
 * Navigate to **C:\Program Files\Microsoft\MRO-for-RRE\8.0\R-3.2.2\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
+* Read the article: [Ten things you can do on the Data science Virtual Machine](http://aka.ms/dsvmtenthings)
 * Learn how to build end to end analytical solutions systematically using the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples using the Cortana Analytics Suite. We have also provided an icon on the Start menu and desktop on the virtual machine for easy access 
+* Visit the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) for machine learning and data analytics samples using the Cortana Intelligence Suite. We have also provided an icon on the Start menu and desktop on the virtual machine for easy access 
 

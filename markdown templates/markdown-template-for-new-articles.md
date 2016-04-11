@@ -43,7 +43,7 @@ I get 10 times more traffic from [Google] [gog] than from [Yahoo] [yah] or [MSN]
   	![Alt text; do not leave blank][6]
 
 
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic](virtual-machines-windows-tutorial.md)
+Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic](virtual-machines-windows-hero-tutorial.md)
 
 ## Heading (H2)
 

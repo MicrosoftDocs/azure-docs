@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute circuits and routing domains
@@ -73,8 +73,8 @@ The table below compares the three routing domains.
 |---|---|---|---|
 |**Max. # prefixes supported per peering**|4000 by default, 10,000 with ExpressRoute Premium|200|200|
 |**IP address ranges supported**|Any valid IPv4 address within your WAN.|Public IPv4 addresses owned by you or your connectivity provider.|Public IPv4 addresses owned by you or your connectivity provider.|
-|**AS Number requirements**|Private and public AS numbers. Customer must own public AS number. | Private and public AS numbers. Customer must own public AS number.| Public AS numbers only. AS number must be validated against routing registries to validate ownership.|
-|**Routing Interface IP addresses**|RFC1918 and public IP addresses|Public IP addresses registered to customers in routing registries.| Public IP addresses registered to customers in routing registries.|
+|**AS Number requirements**|Private and public AS numbers. You must own public AS number. | Private and public AS numbers. However, you must provide public AS number to validate ownership of public IP addresses.| Private and public AS numbers. However, you must provide public AS number to validate ownership of public IP addresses.|
+|**Routing Interface IP addresses**|RFC1918 and public IP addresses|Public IP addresses registered to you in routing registries.| Public IP addresses registered to you in routing registries.|
 |**MD5 Hash support**| Yes|Yes|Yes|
 
 You can choose to enable one or more of the routing domains as part of their ExpressRoute circuit. You can choose to have all the routing domains put on the same VPN if you want to combine them into a single routing domain. You can also put them on different routing domains, similar to the diagram. The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links are connected to your DMZ.

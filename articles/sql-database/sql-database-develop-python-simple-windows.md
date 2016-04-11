@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="meet-bhagdev"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -27,39 +27,20 @@
 This topic presents a code sample written in Python. The sample runs on a Windows computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
 
 
-## Prerequisites
+## Step 1: Configure Development Environment
 
+[Prerequisites for using the pymssql Python Driver for SQL Server](https://msdn.microsoft.com/library/mt694094.aspx#Windows)
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/)
-
-
-### Install the required modules
-
-
-Install [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
-
-Make sure you choose the correct whl file.
-
-For example : If you are using Python 2.7 on a 64 bit machine choose : pymssql‑2.1.1‑cp27‑none‑win_amd64.whl.
-Once you download the .whl file place it in the the C:/Python27 folder.
-
-Now install the pymssql driver using pip from command line. cd into C:/Python27 and run the following
-
-	pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
-
-Instructions to enable the use pip can be found [here](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
-
-
-### A SQL database
+## Step 2: Create a SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 
-## Step 1: Get Connection Details
+## Step 3: Get Connection Details
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Step 2:  Connect
+## Step 4:  Connect
 
 
 The [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) function is used to connect to SQL Database.
@@ -68,7 +49,7 @@ The [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) function is
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-## Step 3:  Execute query
+## Step 5:  Execute query
 
 The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set which can be iterated over with the use of [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -83,7 +64,7 @@ The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Curso
 	    row = cursor.fetchone()
 
 
-## Step 4:  Insert a row
+## Step 6:  Insert a row
 
 In this example you will see how to execute an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://msdn.microsoft.com/library/ms179610.aspx) value.  
 
@@ -98,7 +79,7 @@ In this example you will see how to execute an [INSERT](https://msdn.microsoft.c
 	    row = cursor.fetchone()
 
 
-## Step 5:  Rollback a transaction
+## Step 7:  Rollback a transaction
 
 
 This code example demonstrates the use of transactions in which you:

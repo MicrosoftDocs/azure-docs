@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: How To Activate a Role"
+   pageTitle="How To activate or deactivate a role | Microsoft Azure"
    description="Learn how to activate roles for privileged identities with the Azure Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/11/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: How to activate or deactivate a role
+# Azure AD Privileged Identity Management: How to activate or deactivate a role
 
 ## Activating or deactivating a role
 

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/17/2016"   
-	ms.author="juliako;adsolank;johndeu"/>
+	ms.date="03/18/2016"   
+	ms.author="adsolank;juliako;johndeu"/>
 
 
 # Indexing Media Files with Azure Media Indexer
@@ -69,7 +69,7 @@ Note that if no configuration file is specified, the media file will be indexed 
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 
 	    // Get a reference to the Azure Media Indexer.
-	    string MediaProcessorName = "Azure Media Indexer",
+	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
 	    // Read configuration from file if specified.

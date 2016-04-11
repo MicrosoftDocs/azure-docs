@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
 #Release notes
+
+##4.2.0 (03/11/2016)
+
+- The SDK is now licensed under MIT.
+- Allow specifying a custom device identifier at SDK initialization time.
 
 ##4.1.5 (02/01/2016)
 

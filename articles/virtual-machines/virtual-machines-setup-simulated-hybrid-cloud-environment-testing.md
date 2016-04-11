@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Simulated hybrid cloud test environment | Microsoft Azure" 
 	description="Create a simulated hybrid cloud environment for IT pro or development testing, using two Azure virtual networks and a VNet-to-VNet connection." 
-	services="virtual-network" 
+	services="virtual-machines-windows" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
@@ -51,7 +51,7 @@ If you don't already have an Azure subscription, you can sign up for a free tria
 
 ## Phase 1: Configure the TestLab virtual network
 
-Use the instructions in the [Base Configuration Test Environment](virtual-machines-base-configuration-test-environment-resource-manager.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
+Use the instructions in the [Base Configuration Test Environment](virtual-machines-windows-test-config-env.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
 
 Next, start an Azure PowerShell prompt.
 
@@ -214,4 +214,4 @@ Your simulated hybrid cloud environment is now ready for testing.
 
 ## Next Steps
 
-- [Add a new virtual machine](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) to the TestVNET subnet, such as one running Microsoft SQL Server.
+- [Add a new virtual machine](virtual-machines-windows-create-powershell.md) to the TestVNET subnet, such as one running Microsoft SQL Server.

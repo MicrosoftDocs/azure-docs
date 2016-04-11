@@ -52,21 +52,21 @@ Enter a DNS hostname. It will have the form `<name>.redis.cache.windows.net`. Cl
 
   ![][4]
 
-## Add something to the cache and retrieve it
+  ## Add something to the cache and retrieve it
 
 ```js
-var redis = require("redis");
+  var redis = require("redis");
 
-// Add your cache name and access key.
+  // Add your cache name and access key.
 var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
 client.set("key1", "value", function(err, reply) {
-  console.log(reply);
-});
+	    console.log(reply);
+	});
 
 client.get("key1",  function(err, reply) {
-  console.log(reply);
-});
+	    console.log(reply);
+	});
 ```
 
 Output:

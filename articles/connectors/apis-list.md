@@ -13,19 +13,19 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.topic="get-started-article"
+	ms.date="03/28/2016"
 	ms.author="deonhe"/>
 
 # List of Managed APIs
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Connectors List](../app-service-logic/app-service-logic-connectors-list.md). 
 
-Select an icon to learn how to quickly leverage these APIs to build  apps that call these services. These APIs can be used to build logic apps and or PowerApps or both.
-
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 > [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
+Select an icon to learn how to quickly leverage these APIs to build  apps that call these services. These APIs can be used to build logic apps and or PowerApps or both.
 
 |APIs||||
 |-----------|-----------|-----------|-----------|
@@ -35,6 +35,8 @@ For pricing information and a list of what is included with each Service Tier, s
 |[![API Icon][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API Icon][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![API Icon][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![API Icon][sftpicon]<br/>**SFTP**][sftpdoc]|
 |[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|
 |[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
+
+> [AZURE.NOTE] If you've been creating Logic apps using the 2014-12-01-preview schema, you'll notice that the enterprise integration APIs such as those for BizTalk aren't listed above. We know these are important and we are working hard to get them to you soon. While we don't have an exact availability date to share, be aware that getting these to you is one of our top priorities. In the meantime, you can access your [v1 APIs and BizTalk APIs from Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Thanks for your understanding. Stay tuned.
 
 
 ### APIs can be triggers
@@ -53,33 +55,34 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [What's new](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
 [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 [Get started with PowerApps now](../power-apps/powerapps-get-started-azure-portal.md)  
+[Migrate existing Logic apps to the latest schema version](connectors-schema-migration.md) 
 
 <!--API Documentation-->
-[azureblobdoc]: ./create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
-[bingsearchDoc]: ./create-api-bingsearch.md "Search Bing for web, images, news and video."
-[boxDoc]: ./create-api-box.md "Connects to Box and can upload, get, delete, list, and more file tasks."
-[crmonlinedoc]: ./create-api-crmonline.md "Connect to Dynamics CRM Online and do more with your CRM Online data."
-[dropboxdoc]: ./create-api-dropbox.md "Connect to Dropbox and can get, delete, list, and more file tasks."
-[exceldoc]: ./create-api-excel.md "Connect to Excel."
-[facebookdoc]: ./create-api-facebook.md "Connect to Facebook to post to a timeline, get a page feed, and more."
-[ftpdoc]: ./create-api-ftp.md "Connects to an FTP / FTPS server and do different FTP tasks, including uploading, getting, deleting files, and more."
-[googledrivedoc]: ./create-api-googledrive.md "Connect to GoogleDrive and interact with your data."
-[microsofttranslatordoc]: ./create-api-microsofttranslator.md
-[office365outlookdoc]: ./create-api-office365-outlook.md "The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account."
-[officeunifieddoc]: ./create-api-bingsearch.md
-[office365usersdoc]: ./create-api-office365-users.md
-[office365videodoc]: ./create-api-office365-video.md
-[onedrivedoc]: ./create-api-onedrive.md "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
-[salesforcedoc]: ./create-api-salesforce.md "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
-[servicebusdoc]: ./create-api-servicebus.md "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
-[sharepointdoc]: ./create-api-sharepointonline.md "Connects to SharePoint Online to manage documents and list items."
-[slackdoc]: ./create-api-slack.md "Connect to Slack and post messages to Slack channels."
-[sftpdoc]: ./create-api-sftp.md "Connects to SFTP and can upload, get, delete files, and more."
-[smtpdoc]: ./create-api-smtp.md "Connects to a SMTP server and can send email with attachments."
-[sqldoc]: ./create-api-sqlazure.md "Connects to SQL Azure Database. You can create, update, get, and delete entries on a SQL database table."
-[twiliodoc]: ./create-api-twilio.md "Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more."
-[twitterdoc]: ./create-api-twitter.md "Connects to Twitter and get timelines, post tweets, and more."
-[yammerdoc]: ./create-api-yammer.md "Connects to Yammer to post messages and get new messages."
+[azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
+[bingsearchDoc]: ./connectors-create-api-bingsearch.md "Search Bing for web, images, news and video."
+[boxDoc]: ./connectors-create-api-box.md "Connects to Box and can upload, get, delete, list, and more file tasks."
+[crmonlinedoc]: ./connectors-create-api-crmonline.md "Connect to Dynamics CRM Online and do more with your CRM Online data."
+[dropboxdoc]: ./connectors-create-api-dropbox.md "Connect to Dropbox and can get, delete, list, and more file tasks."
+[exceldoc]: ./connectors-create-api-excel.md "Connect to Excel."
+[facebookdoc]: ./connectors-create-api-facebook.md "Connect to Facebook to post to a timeline, get a page feed, and more."
+[ftpdoc]: ./connectors-create-api-ftp.md "Connects to an FTP / FTPS server and do different FTP tasks, including uploading, getting, deleting files, and more."
+[googledrivedoc]: ./connectors-create-api-googledrive.md "Connect to GoogleDrive and interact with your data."
+[microsofttranslatordoc]: ./connectors-create-api-microsofttranslator.md
+[office365outlookdoc]: ./connectors-create-api-office365-outlook.md "The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account."
+[officeunifieddoc]: ./connectors-create-api-bingsearch.md
+[office365usersdoc]: ./connectors-create-api-office365-users.md
+[office365videodoc]: ./connectors-create-api-office365-video.md
+[onedrivedoc]: ./connectors-create-api-onedrive.md "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
+[salesforcedoc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
+[servicebusdoc]: ./connectors-create-api-servicebus.md "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
+[sharepointdoc]: ./connectors-create-api-sharepointonline.md "Connects to SharePoint Online to manage documents and list items."
+[slackdoc]: ./connectors-create-api-slack.md "Connect to Slack and post messages to Slack channels."
+[sftpdoc]: ./connectors-create-api-sftp.md "Connects to SFTP and can upload, get, delete files, and more."
+[smtpdoc]: ./connectors-create-api-smtp.md "Connects to a SMTP server and can send email with attachments."
+[sqldoc]: ./connectors-create-api-sqlazure.md "Connects to SQL Azure Database. You can create, update, get, and delete entries on a SQL database table."
+[twiliodoc]: ./connectors-create-api-twilio.md "Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more."
+[twitterdoc]: ./connectors-create-api-twitter.md "Connects to Twitter and get timelines, post tweets, and more."
+[yammerdoc]: ./connectors-create-api-yammer.md "Connects to Yammer to post messages and get new messages."
 
 <!--Icon references-->
 [blobicon]: ./media/apis-list/blobicon.png

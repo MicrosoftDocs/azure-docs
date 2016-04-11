@@ -365,7 +365,7 @@ Make the following changes to the TodoListDataAPI project.
 
 	c. Find the objectid for the service principal of the TodoListAPI application, and save it in a location you can copy from later.
 
-7. In the Azure portal, navigate to the web app blade for the web app that you deployed the ToDoListAngular project to.
+7. In the Azure portal, navigate to the API app blade for the API app that you deployed the ToDoListDataAPI project to.
 
 9. Click **Settings > Application settings**.
 

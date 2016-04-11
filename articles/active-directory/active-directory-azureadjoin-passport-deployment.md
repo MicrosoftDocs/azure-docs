@@ -3,6 +3,7 @@
 	description="Deployment instructions to enable Microsoft Passport in your organization."
 	services="active-directory"
 	documentationCenter=""
+	keywords="configure Microsoft Passport, Microsoft Passport for Work deployment"
 	authors="femila"
 	manager="stevenpo"
 	editor=""
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -54,7 +55,7 @@ Run the following PowerShell command:
 To use the Passport for Work certificate-based sign-in/Microsoft Hello, configure the certificate profile (**Assets & Compliance** > **Compliance Settings** > **Company Resource Access** > **Certificate Profiles**). Select a template that has Smart Card sign-in extended key usage (EKU).
 
 ## Set up a scheduled task to request certificate evaluation
-This scheduled task is a short-term fix. Admins need to create a scheduled task that listens for the creation of a Passport for Work container, and then requests certificate evaluation. The scheduled task is triggered when the Passport for Work container is enabled. The task reduces the delay in setting up the container and PIN, and their availability for use on the next sign-in.
+This scheduled task is a short-term fix. Admins need to create a scheduled task that listens for the creation of a Passport for Work container and then requests certificate evaluation. The scheduled task is triggered when the Passport for Work container is enabled. The task reduces the delay in setting up the container and PIN, and their availability for use on the next sign-in.
 
 **To create the scheduled task, you can use the UI, or use the following command:**
 

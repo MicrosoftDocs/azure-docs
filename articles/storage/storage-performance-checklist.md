@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016" 
+	ms.date="03/18/2016"
 	ms.author="robinsh"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
@@ -48,6 +48,7 @@ This article organizes the proven practices into the following groups. Proven pr
 ||All Services|	Tools|	[Are you using the latest version of Microsoft provided client libraries and tools?](#subheading13)
 ||All Services|	Retries|	[Are you using an exponential backoff retry policy for throttling errors and timeouts?](#subheading14)
 ||All Services|	Retries|	[Is your application avoiding retries for non-retryable errors?](#subheading15)
+||Blobs|	Scalability Targets|	[Do you have a large number of clients accessing a single object concurrently?](#subheading46)
 ||Blobs|	Scalability Targets|	[Is your application staying within the bandwidth or operations scalability target for a single blob?](#subheading16)
 ||Blobs|	Copying Blobs|	[Are you copying blobs in an efficient manner?](#subheading17)
 ||Blobs|	Copying Blobs|	[Are you using AzCopy for bulk copies of blobs?](#subheading18)
@@ -74,10 +75,10 @@ This article organizes the proven practices into the following groups. Proven pr
 ||Queues|	Scalability Targets|	[Are you approaching the scalability targets for messages per second?](#subheading39)
 ||Queues|	Configuration|	[Have you turned Nagle off to improve the performance of small requests?](#subheading40)
 ||Queues|	Message Size|	[Are your messages compact to improve the performance of the queue?](#subheading41)
-||Queues|	Bulk Retrieve|	[Are you retrieving multiple messages in a single "Get" operation?](#subheading41)
-||Queues|	Polling Frequency|	[Are you polling frequently enough to reduce the perceived latency of your application?](#subheading42)
-||Queues|	Update Message|	[Are you using UpdateMessage to store progress in processing messages, avoiding having to reprocess the entire message if an error occurs?](#subheading43)
-||Queues|	Architecture|	[Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#subheading44)
+||Queues|	Bulk Retrieve|	[Are you retrieving multiple messages in a single "Get" operation?](#subheading42)
+||Queues|	Polling Frequency|	[Are you polling frequently enough to reduce the perceived latency of your application?](#subheading43)
+||Queues|	Update Message|	[Are you using UpdateMessage to store progress in processing messages, avoiding having to reprocess the entire message if an error occurs?](#subheading44)
+||Queues|	Architecture|	[Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#subheading45)
 
 
 ##<a name="allservices"></a>All Services
@@ -118,7 +119,7 @@ For bandwidth, the problem is often the capabilities of the client. For example,
 As with any network usage, be aware that network conditions resulting in errors and packet loss will slow effective throughput.  Using WireShark or NetMon may help in diagnosing this issue.  
 
 #####Useful Resources
-For more information about virtual machine sizes and allocated bandwidth, see [Sizes for virtual machines](../virtual-machines/virtual-machines-size-specs.md).  
+For more information about virtual machine sizes and allocated bandwidth, see [Sizes for virtual machines](../virtual-machines/virtual-machines-linux-sizes.md).  
 
 ####<a name="subheading4"></a>Location
 In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure Web Site that uses Azure Storage, you should locate them both within a single region (for example, US West or Asia Southeast). This reduces the latency and the cost — at the time of writing, bandwidth usage within a single region is free.  
@@ -203,6 +204,15 @@ For more information about storage error codes, see [Status and Error Codes](htt
 In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the blob service.  
 
 ###Blob-Specific Scalability Targets
+
+####<a name="subheading46"></a>Multiple clients accessing a single object concurrently
+If you have a large number of clients accessing a single object concurrently you will need to consider per object and storage account scalability targets. The exact number of clients that can access a single object will vary depending on factors such as the number of clients requesting the object simultaneously, the size of the object, network conditions etc.
+
+If the object can be distributed through a CDN such as images or videos served from a website then you should use a CDN. See [here](#subheading5).
+
+In other scenarios such as scientific simulations where the data is confidential you have two options. The first is to stagger your workload’s access such that the object is accessed over a period of time vs being accessed simultaneously. Alternatively, you can temporarily copy the object to multiple storage accounts thus increasing the total IOPS per object and across storage accounts. In limited testing we found that around 25 VMs could simultaneously download a 100GB blob in parallel (each VM was parallelizing the download using 32 threads). If you had 100 clients needing to access the object, first copy it to a second storage account and then have the first 50 VMs access the first blob and the second 50 VMs access the second blob. Results will vary depending on your applications behavior so you should test this during design. 
+
+
 ####<a name="subheading16"></a>Bandwidth and operations per Blob
 You can read or write to a single blob at up to a maximum of 60 MB/second (this is approximately 480 Mbps which exceeds the capabilities of many client side networks (including the physical NIC on the client device). In addition, a single blob supports up to 500 requests per second. If you have multiple clients that need to read the same blob and you might exceed these limits, you should consider using a CDN for distributing the blob.  
 
@@ -383,4 +393,3 @@ You should use queues to make your application architecture scalable. The follow
 
 ##Conclusion
 This article discussed some of the most common, proven practices for optimizing performance when using Azure Storage. We encourage every application developer to assess their application against each of the above practices and consider acting on the recommendations to get great performance for their applications that use Azure Storage.
- 

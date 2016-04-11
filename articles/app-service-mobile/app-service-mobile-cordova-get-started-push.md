@@ -86,9 +86,9 @@ You must make sure that your Apache Cordova app project is ready to handle push 
 ### Install the Apache Cordova Push Plugin
 
 Apache Cordova applications do not natively handle device or network capabilities.  These capabilities are provided
-by plugins that are published either on [npm](https://www.npmjs.com/) or on GitHub.  The `phonegap-plugin-push` plugin is used to handle network push notifications. 
+by plugins that are published either on [npm](https://www.npmjs.com/) or on GitHub.  The `phonegap-plugin-push` plugin is used to handle network push notifications.
 
-You can install the push plugin in one of these ways:  
+You can install the push plugin in one of these ways:
 
 **From the command-prompt:**
 
@@ -98,9 +98,9 @@ You can install the push plugin in one of these ways:
 
 1.  Open the `config.xml` file from Solution Explorer.
 2.  Click on **Plugins** > **Custom**, select **Git** as the installation source, then enter `https://github.com/phonegap/phonegap-plugin-push` as the source.
-	
+
 	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
-	
+
 4.  Click on the arrow next to the installation source, then click on **Add**
 
 The push plugin is now installed.
@@ -125,26 +125,26 @@ The current required libraries are listed in the [phonegap-plugin-push installat
 
 1. Add a call to **registerForPushNotifications** during the callback for the login process, or at the bottom of the **onDeviceReady** method:
 
- 
+
 		// Login to the service.
 		client.login('google')
 		    .then(function () {
 		        // Create a table reference
 		        todoItemTable = client.getTable('todoitem');
-		
+
 		        // Refresh the todoItems
 		        refreshDisplay();
-		
+
 		        // Wire up the UI Event Handler for the Add Item
 		        $('#add-item').submit(addItemHandler);
 		        $('#refresh').on('click', refreshDisplay);
-		
+
 				// Added to register for push notifications.
 		        registerForPushNotifications();
-		
+
 		    }, handleError);
 
-	In this example shows calling **registerForPushNotifications** after authentication succeeds, which is recommended when using both push notifications and authentication in your app. 
+	In this example shows calling **registerForPushNotifications** after authentication succeeds, which is recommended when using both push notifications and authentication in your app.
 
 2. Add the new `registerForPushNotifications()` method as follows:
 
@@ -162,18 +162,18 @@ The current required libraries are listed in the [phonegap-plugin-push installat
 	                sound: 'true'
 	            },
 	            wns: {
-	
+
 	            }
 	        });
-	
+
 	        pushRegistration.on('registration', function (data) {
 	            client.push.register('gcm', data.registrationId);
 	        });
-	
+
 	        pushRegistration.on('notification', function (data, d2) {
 	            alert('Push Received: ' + data.message);
 	        });
-	
+
 	        pushRegistration.on('error', handleError);
 	    }
 
@@ -192,6 +192,12 @@ You can also test the Android app on the Android emulator. Remember to first add
 * Read about [Notification Hubs] to learn about push notifications.
 * If you have not already done so, continue the tutorial by [Adding Authentication] to your Apache Cordova app.
 
+Learn how to use the SDKs.
+
+* [Apache Cordova SDK]
+* [ASP.NET Server SDK]
+* [Node.js Server SDK]
+
 <!-- URLs -->
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [Apache Cordova quick start]: app-service-mobile-cordova-get-started.md
@@ -204,3 +210,6 @@ You can also test the Android app on the Android emulator. Remember to first add
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md

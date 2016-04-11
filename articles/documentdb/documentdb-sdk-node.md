@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/08/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -36,6 +36,10 @@
 </table></br>
 
 ##Release notes
+
+###<a name="1.6.0"/>1.6.0</a>
+- Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
+
 ###<a name="1.5.6"/>1.5.6</a>
 
 - Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results
@@ -124,6 +128,7 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.6.0](#1.6.0) | March 29, 2016 |---
 | [1.5.6](#1.5.6) | March 08, 2016 |---
 | [1.5.5](#1.5.5) | February 02, 2016 |---
 | [1.5.4](#1.5.4) | February 01, 2016 |---
