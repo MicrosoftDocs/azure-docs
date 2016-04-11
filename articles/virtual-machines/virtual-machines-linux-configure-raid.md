@@ -67,7 +67,6 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 		Command action
 			e   extended
 			p   primary partition (1-4)
-		p
 
 - Press '1' to select partition number 1:
 
@@ -97,13 +96,10 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 
 ## Create the RAID array
 
-1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1):
+1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1).  After running this command a new RAID device called **/dev/md127** will be created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command:
 
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
-
-In this example, after running this command a new RAID device called **/dev/md127** will be created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command.
-
 
 2. Create the file system on the new RAID device
 
@@ -174,5 +170,3 @@ In this example, after running this command a new RAID device called **/dev/md12
 	In addition to the above parameters, the kernel parameter "`bootdegraded=true`" can allow the system to boot even if the RAID is perceived as damaged or degraded, for example if a data drive is inadvertently removed from the virtual machine. By default this could also result in a non-bootable system.
 
 	Please refer to your distribution's documentation on how to properly edit kernel parameters. For example, in many distributions (CentOS, Oracle Linux, SLES 11) these parameters may be added manually to the "`/boot/grub/menu.lst`" file.  On Ubuntu this parameter can be added to the `GRUB_CMDLINE_LINUX_DEFAULT` variable on "/etc/default/grub".
-
- 
