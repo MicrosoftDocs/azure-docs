@@ -20,7 +20,7 @@
 # Integrating your on-premises identities with Azure Active Directory
 Azure AD Connect is the tool to integrate your on-premises identity system such as Windows Server Active Directory with Azure Active Directory and connect your users to Office 365, Azure and 1000’s of SaaS applications. This topic provides a comprehensive guide to prepare and deploy the necessary components for your end users to access cloud services with the same identity that they use today to access existing company apps.
 
-> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.](active-directory-aadconnect-dirsync-deprecated.md?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.](active-directory-aadconnect-dirsync-deprecated.md/?WT.mc_id=DirSyncDepACOM)
 
 ![What is Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
