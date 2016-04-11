@@ -23,11 +23,11 @@ This article explains how to back up your Windows Server (or Windows client) fil
 
 If you want to know more about Azure Backup, read this [overview](backup-introduction-to-azure-backup.md).
 
-Backing up files and folders to Azure requires these steps:
+Backing up files and folders to Azure requires these activities:
 
 ![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Get an Azure subscription (if you don't already have one).<br>
 ![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Create a backup vault and download the necessary items.<br>
-![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Prepare your Windows Server or client by installing and registering those items.<br>
+![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Install and register the backup agent.<br>
 ![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Back up your files and folders.
 
 
