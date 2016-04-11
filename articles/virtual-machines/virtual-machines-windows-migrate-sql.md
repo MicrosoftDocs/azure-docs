@@ -114,7 +114,7 @@ If you are migrating to an existing Azure VM, the following configuration steps 
 10. Click Settings
   - If you specified an existing Cloud Service name and Virtual Machine name, you will be prompted to provide the user name and password.
 
-		![Azure machine settings](./media/virtual-machines-windows-classic-migrate-sql/azure-machine-settings.png)
+		![Azure machine settings](./media/virtual-machines-windows-migrate-sql/azure-machine-settings.png)
 
 	- If you specified a new Virtual Machine name, you will be prompted to select an image from the list of Gallery images and provide the following information:
 	  - Image – select only SQL Server 2014 or SQL Server 2016
