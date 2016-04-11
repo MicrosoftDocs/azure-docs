@@ -269,12 +269,21 @@ Example flow:
 - Day 3 : Delete storage account (directly or via resource group) – which should be allowed since there is no VM still “attached” to the disks in the storage account
 - Day 3 + 2 (maximum, depending on last garbage collector run) : VHDs should be deleted
 
-Note that having this garbage collector enables a scenario where Storage service administrator can "undelete" a storage account and get all the data back (see the Azure Consistent Storage/Storage Resource Provider document)
+Note that having this garbage collector enables a scenario where Storage service administrator can "undelete" a storage account and get all the data back (see the Azure Consistent Storage/Storage Resource Provider document).
 
+### Virtual machine doesn't have internet connectivity
 
+If you create a virtual machine from the default gallery, the virtual machine won’t have internet connectivity.
+ 
+To get around this issue, try either of these options:
 
-
-
+- Option 1: Deploy a [virtual machine template](https://github.com/Azure/AzureStack-QuickStart-Templates) with the correct DNS settings (192.168.0.2).
+- Option 2: Deploy the virtual machine from the default gallery and then follow these steps:
+    1. Update the DNS for Vnet and set the DNS to Custom DNS, with Primary DNS server 192.168.100.2 (ignore the **Invalid argument** error for secondary DNS server).
+    ![Set Custom DNS](media/azure-stack-troubleshooting/customdns.png) 
+    2. From the portal, **Stop** the virtual machine and then **Start** it.
+    ![Stop and restart the virtual machine](media/azure-stack-troubleshooting/vmstopstart.png) 
+    
 
 ## Next steps
 

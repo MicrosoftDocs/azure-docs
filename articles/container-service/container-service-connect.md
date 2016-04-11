@@ -109,6 +109,35 @@ When you have configured the tunnel for Mesos, you can access the related endpoi
 
 When you have configured the tunnel for Docker Swarm, you can access the Swarm cluster through the Docker CLI. You will first need to configure a Windows environment variable named `DOCKER_HOST` with a value of ` :2375`.
 
+## Troubleshooting
+
+### After creating the tunnel and browsing to the mesos or marathon url I get 502 Bad gateway..
+The easiest way to resolve it is simply to delete your cluster and re-deploy it. Alternatively you can do the following to force Zookeeper to repair itself:
+
+Login to each master and do the following:
+
+```
+sudo service nginx stop
+sudo service marathon stop
+sudo service chronos stop
+sudo service mesos-dns stop
+sudo service mesos-master stop 
+sudo service zookeeper stop
+```
+
+Then once all services stopped on all masters:
+```
+sudo mkdir /var/lib/zookeeperbackup
+sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
+sudo service zookeeper start
+sudo service mesos-master start
+sudo service mesos-dns start
+sudo service chronos start
+sudo service marathon start
+sudo service nginx start
+```
+Shortly after all services have restarted you should be able to work with your cluster as described in the documentation.
+
 ## Next steps
 
 Deploy and manage containers with Mesos or Swarm.
