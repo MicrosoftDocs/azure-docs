@@ -62,6 +62,11 @@ Before proceeding, please verify the following:
 
 1. You have downloaded and installed the [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297)
 2. You have created an automation account.  This account will be referenced as the value for parameters –AutomationAccountName and -ApplicationDisplayName in the script below.
+3. You have installed the [Azure Automation Authoring Toolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2)
+
+```
+Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
+```
 
 The PowerShell script will configure the following:
 
