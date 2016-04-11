@@ -45,6 +45,8 @@ This article answers some of the most common questions about Azure Billing and S
 
 **Subscriptions**
 
+- [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
+
 - [How do I purchase Azure Support?](#how-do-i-purchase-azure-support)
 
 - [Does the monthly rate cover a single Azure plan or the entire account?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
