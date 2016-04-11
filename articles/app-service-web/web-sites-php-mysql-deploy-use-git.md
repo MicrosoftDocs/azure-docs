@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 #Create a PHP-MySQL web app in Azure App Service and deploy using Git
