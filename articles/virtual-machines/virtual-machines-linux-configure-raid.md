@@ -111,7 +111,7 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES 11 & openSUSE** - enable boot.md and create mdadm.conf
+	**SLES 11 & openSUSE** - enable boot.md and create mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
