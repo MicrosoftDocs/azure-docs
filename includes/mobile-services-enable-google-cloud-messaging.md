@@ -7,7 +7,7 @@
 
 	 Type in your new **Project name** and click **Create project**.
 
-3. Click the **Utilities and More** button and then click **Project Information**. Make a note of the **Project Number**. You will need to set this value as the *PROJECT_ID* variable in the client app.
+3. Click the **Utilities and More** button and then click **Project Information**. Make a note of the **Project Number**. You will need to set this value as the *SenderId* variable in the client app.
 
    	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
