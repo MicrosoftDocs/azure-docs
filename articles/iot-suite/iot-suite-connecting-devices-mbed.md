@@ -153,6 +153,7 @@ In the main section of the **remote_monitoring_run** function, the program perfo
 - Starts a **while** loop that sends temperature, external temperature, and humidity values to IoT Hub every second.
 
 For reference, here is a sample **DeviceInfo** message sent to IoT Hub at start up:
+
 ```
 {
   "ObjectType":"DeviceInfo",
@@ -171,11 +172,13 @@ For reference, here is a sample **DeviceInfo** message sent to IoT Hub at start 
 ```
 
 For reference, here is a sample **Telemetry** message sent to IoT Hub:
+
 ```
 {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
 ```
 
 For reference, here is a sample **Command** received from IoT Hub:
+
 ```
 {
   "Name":"SetHumidity",
