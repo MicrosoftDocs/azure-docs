@@ -119,7 +119,7 @@ Alternatively you can download Tasksel, a Debian/Ubuntu tool that installs multi
 
 After running the either of the above options you will be prompted to install these packages and a number of other dependencies. Press 'y' and then 'Enter' to continue, and follow any other prompts to set an administrative password for MySQL. This will install the minimum required PHP extensions needed to use PHP with MySQL. 
 
-![][./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword.png]
+![][1]
 
 Run the following command to see other PHP extensions that are available as packages:
 
@@ -150,15 +150,15 @@ Restart Apache with this command so all new installs will take effect.
 
 Now you can check the PHP info page you just created in your browser by going to http://youruniqueDNS/info.php. You can find your unique DNS to your Linux VM from the Azure Portal. Below is an image of where it is located.
 
-![][./media/virtual-machines-linux-deploy-lamp-stack/finddnsibizaportal.png]
+![][2]
 
 Once you have navigated to http://youruniqueDNS/info.php, it should look similar to this.
 
-![][./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png]
+![][3]
 
 Apache listens to port 80 by default, as a result you may need to open an endpoint to access your Apache server remotely. You can check your Apache2 installation by viewing the Apache2 Ubuntu Default Page by going to you http://youruniqueDNS/. You should see something like this.
 
-![][./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png]
+![][4]
 
 Congratulations, you have just setup a LAMP stack on your Azure VM!
 
@@ -167,3 +167,8 @@ Congratulations, you have just setup a LAMP stack on your Azure VM!
 There are many other resources for setting up a LAMP stack on Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+
+[1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
+[2]: ./media/virtual-machines-linux-deploy-lamp-stack/finddnsibizaportal.png
+[3]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
+[4]: ./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
