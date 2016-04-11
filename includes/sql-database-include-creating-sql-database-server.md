@@ -41,7 +41,7 @@ After connecting to the Microsoft Aure portal, use the following steps to create
 6. Wait for deployment to finish before continuing to the next step.
 
    ![new logical database][6]
-
+ 
 <!-- Image references. -->
 [1]: ./media/sql-database-include-creating-sql-database-server/sql-database-logical-server-1.png
 [2]: ./media/sql-database-include-creating-sql-database-server/sql-database-logical-server-2.png

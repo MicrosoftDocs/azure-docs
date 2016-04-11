@@ -22,5 +22,5 @@ description="Learn how to set up a SQL Database logical server, server firewall 
 
 [AZURE.INCLUDE [Login](../../includes/azure-include-getting-started-portal-login.md)]
 
-
+[AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-include-creating-sql-database-server.md)]
 

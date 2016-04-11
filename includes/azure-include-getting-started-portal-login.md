@@ -30,6 +30,7 @@ Using your [existing subscription]( https://account.windowsazure.com/Home/Index)
 2. When the sign in page appear, provide the credentials for your subscription
 
    ![login][1]
+   
 
 <!-- Image references. -->
 [1]: ./media/azure-include-getting-started-portal-login/login.png
