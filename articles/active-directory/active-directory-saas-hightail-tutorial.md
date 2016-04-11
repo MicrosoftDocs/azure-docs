@@ -117,7 +117,7 @@ Hightail application expects the SAML assertions in a specific format. Please co
 	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_81.png) 
 
 
-1. On the SAML token attributes dialog, for each row shown in the table below, perform the following steps:
+1. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
