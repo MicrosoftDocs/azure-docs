@@ -20,7 +20,7 @@ description="Learn how to set up a SQL Database logical server, server firewall 
 
 # Getting started with SQL Database using the Microsoft Azure portal
 
-[AZURE.INCLUDE [Login](../../includes/sql-database-include-getting-started-portal-login.md)]
+[AZURE.INCLUDE [Login](../../includes/azure-include-getting-started-portal-login.md)]
 
 
 
