@@ -90,7 +90,7 @@ If you are migrating to an existing Azure VM, the following configuration steps 
 4. On the Source Settings page, connect to the SQL Server instance containing the database that you are going to migrate to an Azure VM.
 5. Specify a temporary location for the backup files. If connecting to a remote server, you must specify a network drive.
 
-	![Source Settings](./media/virtual-machines-windows-classic-migrate-sql/source-settings.png)
+	![Source Settings](./media/virtual-machines-windows-migrate-sql/source-settings.png)
 
 6. Click Next.
 7. On the Microsoft Azure Sign-In page, click Sign In and sign-in to your Azure account.
