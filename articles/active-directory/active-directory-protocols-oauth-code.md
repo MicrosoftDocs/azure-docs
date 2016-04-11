@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Azure AD .NET Protocol Overview | Microsoft Azure"
+	description="How to use HTTP messages to authorize access to web applications and web APIs in yoru tenant using Azure AD."
+	services="active-directory"
+	documentationCenter=".net"
+	authors="priyamo"
+	manager="mbaldwin"
+	editor=""/>
+
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/21/2016"
+	ms.author="priyamo"/>
+
 Azure AD uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749). It is used to perform authentication and authorization in the majority of app types, including web apps and natively installed apps.
@@ -24,7 +42,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 ```
 
-For detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 [AZURE.TIP] If the user is part of an organization, an administrator of the organization can consent or decline on the user's behalf, or permit the user to consent. The user is given the option to consent only when the administrator permits it.
 
@@ -40,7 +58,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3Umph
 &session_state=733ad279-b681-49c3-9215-951abf94d2c5
 ```
 
-For detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 If a state parameter was included in the request, the same value appears in the response. It's good practice for the application to verify that the state values in the request and response are identical.  
 ## Error response
@@ -52,7 +70,7 @@ GET http://localhost:12345/?
 error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
-For detailed description of the errors, please see the [reference](active-directory-protocol-reference.md).
+For detailed description of the errors, please see the [reference](active-directory-protocols-reference.md).
 
 # Use the Authorization Code to Request an Access Token
 
@@ -72,7 +90,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=authorization_code
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: client_secret only required for web apps
 ```
-For a detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 # Successful Response
 
@@ -92,7 +110,7 @@ A successful response could look like this:
 
 ```
 
-For a detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 # Error Response
 
@@ -112,7 +130,7 @@ A sample error response could look like this:
 }
 ```
 
-For a detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 # Use the Access Token to Access the Resource
 
@@ -148,7 +166,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-For detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 ## Successful Response
 

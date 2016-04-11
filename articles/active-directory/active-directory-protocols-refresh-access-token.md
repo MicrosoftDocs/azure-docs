@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Azure AD .NET Protocol Overview | Microsoft Azure"
+	description="How to use HTTP messages to authorize access to web applications and web APIs in yoru tenant using Azure AD."
+	services="active-directory"
+	documentationCenter=".net"
+	authors="priyamo"
+	manager="mbaldwin"
+	editor=""/>
+
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/21/2016"
+	ms.author="priyamo"/>
+
 # Refreshing the access tokens
 
 Access Tokens are short-lived and must be refreshed after they expire to continue accessing resources. You can refresh the `access_token` by submitting another `POST` request to the `/token` endpoint, but this time providing the `refresh_token` instead of the `code`.
@@ -20,7 +38,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-For detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 ## Successful Response
 

@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Azure AD .NET Protocol Overview | Microsoft Azure"
+	description="How to use HTTP messages to authorize access to web applications and web APIs in yoru tenant using Azure AD."
+	services="active-directory"
+	documentationCenter=".net"
+	authors="priyamo"
+	manager="mbaldwin"
+	editor=""/>
+
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/21/2016"
+	ms.author="priyamo"/>
+
 <!--TODO: Introduction -->
 
 # Getting Started

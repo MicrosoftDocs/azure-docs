@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Azure AD .NET Protocol Overview | Microsoft Azure"
+	description="How to use HTTP messages to authorize access to web applications and web APIs in yoru tenant using Azure AD."
+	services="active-directory"
+	documentationCenter=".net"
+	authors="priyamo"
+	manager="mbaldwin"
+	editor=""/>
+
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/21/2016"
+	ms.author="priyamo"/>
+
 # Use the Authorization Code to Request an Access Token
 
 Now that you've acquired an authorization code and have been granted permission by the user, you can redeem the code for an access token to the desired resource, by sending a POST request to the `/token` endpoint:
@@ -16,7 +34,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=authorization_code
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: client_secret only required for web apps
 ```
-For a detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 # Successful Response
 
@@ -36,7 +54,7 @@ A successful response could look like this:
 
 ```
 
-For a detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 # Error Response
 
@@ -56,4 +74,4 @@ A sample error response could look like this:
 }
 ```
 
-For a detailed description of the parameters, please see the [reference](active-directory-protocol-reference.md).
+For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
