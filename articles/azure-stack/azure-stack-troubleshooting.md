@@ -18,7 +18,7 @@
 
 # Microsoft Azure Stack troubleshooting
 
-If you experience issues while deploying or using Microsoft Azure Stack, refer to the guidance below. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure you comply with the storage configuraiton requirements and this note:
+If you experience issues while deploying or using Microsoft Azure Stack, refer to the guidance below. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure you comply with the storage configuration requirements and this note:
 
 >[AZURE.IMPORTANT] Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
 
@@ -41,7 +41,7 @@ Two options are possible to work around this:
   - https://*.microsoftonline-p.com 
   - https://login.live.com
 
-Also, depending on your current actions, please ensure you are running PowerShell as the regular AzureStack user (default user when leveraging the ClientVM) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
+Also, depending on your current actions, please ensure you are running PowerShell as the regular Azure Stack user (default user when leveraging the ClientVM) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
 
 ### Cookies error when attempting to connect via AAD and AzureRM PowerShell
 
@@ -152,7 +152,7 @@ This is mentioned in the documentation but can be easily missed:
 
 To fix this, click Settings in the portal. Then, click Discard modifications under Portal customization.
 
-## Powershell
+## PowerShell
 
 ### I can’t find the AzureRM.AzureStackStorage PowerShell module
 
@@ -248,10 +248,10 @@ Please note this would not happen in a multi system deployment because you would
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this expected?
 
-Yes, this is expected. It was desigend this way because:
+Yes, this is expected. It was designed this way because:
 
 - When you delete a VM, VHDs are not deleted. Disks are separate resources in the resource group.
-- When a storage account gets deleted, the deletion is visible immediately through Azure Resource Manager (portal, PS,...) but the disks it may contain are still kept in storage until garbage collection runs. Garbage collection runs every 2 days in this TP1 release.
+- When a storage account gets deleted, the deletion is visible immediately through Azure Resource Manager (portal, PowerShell) but the disks it may contain are still kept in storage until garbage collection runs. Garbage collection runs every 2 days in the TP1 release.
 
 So:
 
