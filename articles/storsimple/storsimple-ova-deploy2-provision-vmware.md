@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/08/2016"
+   ms.date="04/11/2016"
    ms.author="alkohli"/>
 
 
@@ -133,13 +133,14 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image12m.png)
 
-1.  Click **Open**. This will now start the upload of the VMDK file to the specified datastore.
+1.  Click **Open**. This will now start the upload of the VMDK file to the specified datastore. It may take several minutes for the file to upload.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image13.png)
 
-1.  It may take several minutes for the file to upload. Once the upload is complete, you will see the file in the datastore in the folder you created. You will now need to upload the second VMDK file to the same datastore.
+1.  After the upload is complete, you will see the file in the datastore in the folder you created. 
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image14.png)
+
+	You will now need to upload the second VMDK file to the same datastore.
 
 1.  Return to the vSphere client window. With ESXi server selected, right-click and select **New Virtual Machine**.
 
