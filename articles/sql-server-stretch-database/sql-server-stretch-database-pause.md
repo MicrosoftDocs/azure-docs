@@ -56,4 +56,5 @@ ALTER TABLE <table name>
 ```
 
 ## See also
+
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)

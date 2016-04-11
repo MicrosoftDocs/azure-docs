@@ -517,7 +517,7 @@ Use the following Windows PowerShell script to check the Hive job output. You wi
 	Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
 	
 	Write-Host "Create a context object ... " -ForegroundColor Green
-	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
+	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey  
 	#endregion
 	
 	#region - Download blob and display blob

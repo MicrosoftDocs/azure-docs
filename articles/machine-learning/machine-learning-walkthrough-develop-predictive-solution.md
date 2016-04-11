@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -40,4 +40,4 @@ To create a credit risk assessment solution, we'll follow these steps:
 6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 This walkthrough is based on a simplified version of the
-[Binary Classfication: Credit risk prediction](../machine-learning-sample-credit-risk-prediction.md) sample experiment in the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com/).
+[Binary Classfication: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) sample experiment in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).

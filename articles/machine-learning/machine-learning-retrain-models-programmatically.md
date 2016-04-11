@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Retrain Machine Learning models programmatically | Microsoft Azure"
 	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning."
 	services="machine-learning"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="03/17/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -152,6 +152,8 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 	```
 
 	The “apiKey” and the “endpointUrl” for this call are visible on the endpoint dashboard. The "Name" parameter in Resources should match the name of the Saved Trained Model in the Predictive Experiment.
+	
+	Note that the SAS token expires after 1 hour (55 minutes). You would need to do a GET with the Job Id to get a fresh token.
 
 	With the success of this call, the new endpoint will start using a retrained model approximately within 15 seconds.  
 

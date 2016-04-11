@@ -18,12 +18,12 @@
 
 # Using offline data sync in Mobile Services
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Enable offline sync for your Xamarin.iOS mobile app](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data.md).
 
 This topic walks through the offline sync capabilities of Azure Mobile Services in the todo list quickstart app. Offline sync allows you to easily create apps that are usable even when the end user has no network access.
 
@@ -46,9 +46,10 @@ This tutorial walks you through these basic steps:
 
 This tutorial requires the following:
 
-* Visual Studio with the [Xamarin extension] **or** [Xamarin Studio] on OS X
-* XCode 4.5 and iOS 6.0 (or later versions)
-* Completion of the [Get started with Mobile Services] tutorial
+* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions. 
+* A Mac with Xcode v7.0 or later and Xamarin Studio Community installed. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) and [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+* Completion of the [Get started with Mobile Services] tutorial.
+
 
 ## <a name="review-offline"></a>Review the Mobile Services sync code
 
@@ -181,7 +182,4 @@ In this section you will reconnect the app to the mobile service. This simulates
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Soft Delete]: mobile-services-using-soft-delete.md
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin extension]: http://xamarin.com/visual-studio
 [Azure classic portal]: https://manage.windowsazure.com

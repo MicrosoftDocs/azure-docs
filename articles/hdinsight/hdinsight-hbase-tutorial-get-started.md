@@ -293,7 +293,9 @@ To open the Web UI, you must RDP into the cluster, and then click the HMaster In
 
 In a high availability cluster, you'll find a link to the current active HBase master node that is hosting the Web UI.
 
+##Delete the cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## What's next?

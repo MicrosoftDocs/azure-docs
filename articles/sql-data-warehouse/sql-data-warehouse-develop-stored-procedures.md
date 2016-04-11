@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Stored procedures in SQL Data Warehouse
@@ -38,11 +38,11 @@ SQL Data Warehouse support a maximum of 8 nesting levels. This is slightly diffe
 
 The top level stored procedure call equates to nest level 1
 
-```
+```sql
 EXEC prc_nesting
 ```
 If the stored procedure also makes another EXEC call then this will increase the nest level to 2
-```
+```sql
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
@@ -50,7 +50,7 @@ GO
 EXEC prc_nesting
 ```
 If the second procedure then executes some dynamic sql then this will increase the nest level to 3
-```
+```sql
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2

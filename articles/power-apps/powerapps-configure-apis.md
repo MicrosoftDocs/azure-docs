@@ -75,7 +75,7 @@ Authenticate with backend service | After registering your backend service in th
 
 This policy is the same policy supported by [Azure API Management](https://azure.microsoft.com/services/api-management/). The current policy is in the embedded XML editor. You can either edit inline or upload a new XML file. After you **Save** your changes, any errors are shown in this blade, including any issues with the API policy.
 
-[Policies in Azure API Management](../api-management-howto-policies.md) is a good resource to learn more about configuring and understanding policies.
+[Policies in Azure API Management](../api-management/api-management-howto-policies.md) is a good resource to learn more about configuring and understanding policies.
 
 
 ## Summary and next steps

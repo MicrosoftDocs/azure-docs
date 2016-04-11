@@ -256,7 +256,9 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 
 In a high availability cluster, you will find a link to the current active HBase master node that is hosting the Web UI.
 
+##Delete the cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next steps?
 In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.

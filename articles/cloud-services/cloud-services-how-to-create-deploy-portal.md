@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to create and deploy a cloud service | Microsoft Azure"
-	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure. These examples use the Azure portal."
+	description="Learn how to create and deploy a cloud service using the Azure portal."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -67,9 +67,9 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 - If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure classic portal, on the **Affinity Groups** page.
 
 
-## Step 3: Create a cloud service and upload the deployment package
+## Create and deploy
 
-1. Log in to the [Azure portal][].
+1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **New > Compute**, and then scroll down to and click **Cloud Service**.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)

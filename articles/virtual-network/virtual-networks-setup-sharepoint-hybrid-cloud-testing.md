@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+	ms.date="03/28/2016" 
 	ms.author="josephd"/>
 
 # Set up a SharePoint intranet farm in a hybrid cloud for testing
@@ -197,6 +197,6 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 
 ## Next steps
 
-- Set up the [production workload](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md).
+- Set up the [production workload](../virtual-machines/virtual-machines-windows-sp-intranet-overview.md).
 
 

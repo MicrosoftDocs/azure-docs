@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/06/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Service Bus architecture

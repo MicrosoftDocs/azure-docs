@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/06/2015"
+   ms.date="03/27/2016"
    ms.author="seanmck"/>
 
 # Your Service Fabric application and next steps
@@ -31,31 +31,25 @@ The application project consists of:
 
 - Two application parameter files (Local and Cloud) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service.
 
-- A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration pipeline.
+- A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline.
 
-- The application manifest, which describes the application.
+- The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder.
 
-### Reliable services
-When you add a new reliable service, Visual Studio adds a service project to your solution. The service project contains a class that extends from either `StatelessService` or `StatefulService`, depending on the type you chose.
+### Stateless service
+When you add a new stateless service, Visual Studio adds a service project to your solution that includes a type descended from `StatelessService`. The service increments a local variable in a counter.
 
-### Reliable actors
+### Stateful service
+When you add a new stateful service, Visual Studio adds a service project to your solution that includes a type descended from `StatefulService`. The service increments a counter in its `RunAsync` method and stores the result in a `ReliableDictionary`.
+
+### Actor service
 When you add a new reliable actor, Visual Studio adds two projects to your solution: an actor project and an interface project.
 
-The actor project defines the actor type and (for stateful actors) its state. The interface project provides an interface that other services can use to invoke the actor.
+The actor project provides methods for setting and getting the value of a counter that is reliably persisted within the actor's state. The interface project provides an interface that other services can use to invoke the actor.
 
-Note that actor projects do not contain any default startup behavior, as actors must be activated by other services. Consider adding a reliable service or an ASP.NET project to create and interact with your actors.
-
-### ASP.NET 5
-The ASP.NET 5 templates that are provided for use in Service Fabric applications are almost identical to those available for ASP.NET 5 projects that are created independently. The only differences are:
-
-- The project contains a **PackageRoot** folder for storing the ServiceManifest file along with data and config packages.
-
-- The project references an additional NuGet package (Microsoft.ServiceFabric.AspNet.Hosting), which acts as a bridge between the .NET Execution Environment (DNX) and Service Fabric.
+### Stateless Web API
+The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi).
 
 ## Next steps
-### Add a web front end to your application
-Service Fabric provides integration with ASP.NET 5 for building web-based entry points to your application. See [Adding a web front end to your application][add-web-frontend] to learn how to create a REST interface based on the ASP.NET Web API.
-
 ### Create an Azure cluster
 The Service Fabric SDK provides a local cluster for development and testing. To create a cluster in Azure, see [Setting up a Service Fabric cluster from the Azure portal][create-cluster-in-portal].
 

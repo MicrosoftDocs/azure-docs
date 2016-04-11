@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -23,9 +23,13 @@ This topic lists the attributes that are synchronized by Azure AD Connect sync.
 The attributes are grouped by the related Azure AD app.
 
 ## Attributes to synchronize
-A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud. In some cases there are some attributes which your organization do not want synchronized to the cloud. In this case, start with the list of attributes below and identify those which would contain PII (Personally identifiable information) and cannot be synchronized. Then deselect those during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud and to get all features in Office 365 workloads. In some cases there are some attributes which your organization do not want synchronized to the cloud since they contain sensitive or PII (Personally identifiable information) data, like in the example below.
 
-When deselecting attributes, you should be cautious and only deselect those absolutely not possible to synchronize.
+![bad attributes](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
+
+In this case, start with the list of attributes below and identify those which would contain sensitive or PII data and cannot be synchronized. Then deselect those during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+
+>[AZURE.WARNING] When deselecting attributes, you should be cautious and only deselect those absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
 
 ## Office 365 ProPlus
 
@@ -375,6 +379,11 @@ When deselecting attributes, you should be cautious and only deselect those abso
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
 
 ## 3rd party applications
+This is a set of attributes used as the minimal attributes needed for a generic workload or application. It can be used for workload not listed above or for a non-Microsoft app. It is explicitly used for the following:
+
+- Yammer (only User is actually consumed)
+- [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
+
 This is a set of attributes which can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
 
 | Attribute Name| User| Contact| Group| Comment |
@@ -452,9 +461,9 @@ Device objects are created in Active Directory. These can be devices joined to A
 | msDS-RegisteredOwner | X| |
 
 
-## Notes about attributes
+## Notes
 - When using an Alternate ID, the on-premises attribute userPrincipalName will be synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, e.g. mail, will be synchronized with the Azure AD attribute userPrincipalName.
-
+- In the lists above, the object type **User** also applies to the object type **iNetOrgPerson**.
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Get started with Transparent Data Encryption (TDE)
@@ -32,7 +32,7 @@ To enable TDE for a SQL Data Warehouse, follow the steps below:
 1. Connect to the *master* database on the server hosting the database using a login that is an administrator or a member of the **dbmanager** role in the master database
 2. Execute the following statement to encrypt the database.
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -43,7 +43,7 @@ To disable TDE for a SQL Data Warehouse, follow the steps below:
 1. Connect to the *master* database using a login that is an administrator or a member of the **dbmanager** role in the master database
 2. Execute the following statement to encrypt the database.
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
@@ -54,7 +54,7 @@ To verify encryption status for a SQL Data Warehouse, follow the steps below:
 1. Connect to the *master* or instance database using a login that is an administrator or a member of the **dbmanager** role in the master database
 2. Execute the following statement to encrypt the database.
 
-```
+```sql
 SELECT
 	[name],
 	[is_encrypted]

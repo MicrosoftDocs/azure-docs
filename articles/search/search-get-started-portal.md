@@ -20,7 +20,7 @@
 # Get started with Azure Search in the portal
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 This code-free introduction gets you started with Microsoft Azure Search using capabilities built right into the portal. 
 

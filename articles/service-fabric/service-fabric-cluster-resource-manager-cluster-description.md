@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Balancer cluster description | Microsoft Azure"
-   description="Describing a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities to Resource Balancer."
+   description="Describing a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities to the Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,22 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Describing a Service Fabric cluster
-
-The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During run time, the Resource Manager this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
+# Describing a service fabric cluster
+The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During run time, the Resource Manager uses this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
 
 ## Key concepts
 The Cluster Resource Manager features that describe a cluster are:
+
 - Fault Domains
 - Upgrade Domains
 - Node Properties
 - Node Capacities
 
-### Fault domains
-
+## Fault domains
 A fault domain is any area of coordinated failure. A single machine is a fault domain (since it alone can die for a lot of different reasons, from power supply failures to drive failures to bad NIC firmware). A bunch of machines connected to the same Ethernet switch are in the same fault domain, as would be those connected to a single source of power.
 
 If you were setting up your own cluster you’d need to think about all of these different areas of failure and make sure that your fault domains were set up correctly so that Service Fabric would know where it was safe to place services. By “safe” we really mean smart – we don’t want to place services such that a loss of a fault domain causes the service to go down.  In the Azure environment we leverage the fault domain information provided by the Azure Fabric Controller/Resource Manager in order to correctly configure the nodes in the cluster on your behalf.
@@ -38,7 +37,7 @@ In the graphic below (Fig. 7) we color all of the entities that reasonably resul
 
  During run time, the Service Fabric Cluster Resource Manager considers the fault domains in the cluster and attempts to spread out the replicas for a given service so that they are all in separate fault domains. This process helps ensure that in case of failure of any one fault domain, that the availability of that service is not compromised.
 
- Service Fabric’s Cuter Resource Manager doesn’t really care about how many layers there are in the hierarchy, however since it does try to ensure that the loss of any one portion of the hierarchy doesn’t impact the cluster or the services running on top of it, it is generally best if at each level of depth in the fault domain there are the same number of machines. This prevents one portion of the hierarchy from having to contain more services at the end of the day than others.
+ Service Fabric’s Cluster Resource Manager doesn’t really care about how many layers there are in the hierarchy, however since it does try to ensure that the loss of any one portion of the hierarchy doesn’t impact the cluster or the services running on top of it, it is generally best if at each level of depth in the fault domain there are the same number of machines. This prevents one portion of the hierarchy from having to contain more services at the end of the day than others.
 
  Configuring your cluster in such a way that the “tree” of fault domains is unbalanced makes it rather hard for the Resource Manager to figure out what the best allocation of replicas is, particularly since it means that the loss of a particular domain can overly impact the availability of the cluster – the Resource Manager is torn between using the machines in that “heavy” domain efficiently and placing services so that the loss of the domain doesn’t cause problems.
 
@@ -46,8 +45,7 @@ In the graphic below (Fig. 7) we color all of the entities that reasonably resul
 
  ![Two different cluster layouts][Image2]
 
-### Upgrade domains
-
+## Upgrade domains
 Upgrade Domains are another feature that helps the Service Fabric Resource Manager to understand the layout of the cluster so that it can plan ahead for failures. Upgrade Domains define areas (sets of nodes, really) that will go down at the same time during an upgrade.
 
 Upgrade Domains are a lot like Fault Domains, but with a couple key differences. First, Upgrade Domains are usually defined by policy; whereas Fault Domains are rigorously defined by the areas of coordinated failures (and hence usually the hardware layout of the environment). In the case of Upgrade Domains however you get to decide how many you want. Another difference is that (today at least) Upgrade Domains are not hierarchical – they are more like a simple tag than a hierarchy.
@@ -68,7 +66,7 @@ There’s no best answer which layout to choose, each has some pros and cons. Fo
 
 The most common model (and the one that we use for the hosted Azure Service Fabric clusters) is the FD/UD matrix, where the FDs and UDs form a table and nodes are placed starting along the diagonal. Whether this ends up sparse or packed depends on the total number of nodes compared to the number of FDs and UDs (put differently, for sufficiently large clusters, almost everything ends up looking like the dense matrix pattern, shown in the bottom right option of Figure 10).
 
-## Configuring Fault and Upgrade Domains
+## Configuring fault and upgrade domains
 Defining Fault Domains and Upgrade Domains is done automatically in Azure hosted Service Fabric deployments; Service Fabric just picks up the environment information from Azure. In turn you the User can pick the number of domains you want. In Azure both the fault and upgrade domain information looks “single level” but it really is encapsulating information from lower layers of the Azure stack and just presenting the logical fault and upgrade domains from the user’s perspective.
 
 If you’re standing up your own cluster (or just want to try running a particular topology on your development machine) you’ll need to provide the fault domain and upgrade domain information yourself. In this example we define a 9 node cluster that spans three “datacenters” (each with three racks), and three upgrade domains striped across those three datacenters. In your cluster manifest, it looks something like this:
@@ -95,7 +93,7 @@ ClusterManifest.xml
 ```
 > [AZURE.NOTE] In Azure deployments, fault domains and upgrade domains are assigned by Azure. Therefore, the definition of your nodes and roles within the infrastructure option for Azure does not include fault domain or upgrade domain information.
 
-## Placement Constraints and Node Properties
+## Placement constraints and node properties
 Sometimes (in fact, most of the time) you’re going to want to ensure that certain workloads run only on certain nodes or certain sets of nodes. For example, some workload may require GPUs or SSDs while others may not. A great example of this is pretty much every n-tier architecture out there, where certain machines serve as the front end/interface serving side of the application while a different set (often with different hardware resources) handle the work of the compute or storage layers. Service Fabric expects that even in a microservices world there are cases where particular workloads will need to run on particular hardware configurations, for example:
 
 - an existing n-tier application has been “lifted and shifted” into a Service Fabric environment
@@ -162,7 +160,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 Placement constraints (along with many other properties that we’re going to talk about) are specified for every different service instance. Updates always take the place (overwrite) what was previously specified.
 
-### Capacity
+## Capacity
 One of the most important jobs of any orchestrator is to help manage resource consumption in the cluster. The last thing you want if you’re trying to run services efficiently is a bunch of nodes which are hot (leading to resource contention and poor performance) while others are cold (wasted resources). But let’s think even more basic than balancing (which we’ll get to in a minute) – what about just ensuring that nodes don’t run out of resources in the first place?
 
 It turns out that Service Fabric represents resources as things called “Metrics”. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like “WorkQueueDepth” or “MemoryInMb”. Metrics are different from constraints and node properties in that node properties are generally static descriptors of the nodes themselves, whereas metrics are about physical resources that services consume when they are running on a node. So a property would be something like HasSSD and could be set to true or false, but the amount of space available on that SSD (and consumed by services) would be a metric like “DriveSpaceInMb”. Capacity on the node would set the “DriveSpaceInMb” to the amount of total non-reserved space on the drive, and services would report how much of the metric they used during runtime.
@@ -207,8 +205,7 @@ ClusterManifest.xml
 
 It is also possible that a service’s load changes dynamically. In this case it’s possible that where a replica or instance is currently placed becomes invalid since the combined usage of all of the replicas and instances on that node exceeds that node’s capacity. We’ll talk more about this scenario where load can change dynamically later, but as far as capacity goes it is handled the same way – Service Fabric resource management automatically kicks in and gets the node back below capacity by moving one or more of the replicas or instances on that node to different nodes. When doing this the Resource Manager tries to minimize the cost of all of the movements (we’ll come back to the notion of Cost later).
 
-###Cluster Capacity
-
+##Cluster capacity
 So how do we keep the overall cluster from being too full? Well, with dynamic load there’s actually not a lot we can do (since services can have their load spike independent of actions taken by the Resource Manager – your cluster with a lot of headroom today may be rather underpowered when you become famous tomorrow), but there are some controls that are baked in to prevent basic errors. The first thing we can do is prevent the creation of new workloads that would cause the cluster to become full.
 
 Say that you go to create a simple stateless service and it has some load associated with it (more on default and dynamic load reporting later). For this service, let’s say that it cares about some resource (let’s say DiskSpace) and that by default it is going to consume 5 units of DiskSpace for every instance of the service. You want to create 3 instances of the service. Great! So that means that we need 15 units of DiskSpace to be present in the cluster in order for us to even be able to create these service instances. Service Fabric is continually calculating the overall capacity and consumption of each metric, so we can easily make the determination and reject the create service call if there’s insufficient space.
@@ -254,11 +251,11 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-- [Learn about the Cluster Resource Manager Architecture](service-fabric-cluster-resource-manager-architecture.md)
-- [Learn about Defragmentation Metrics](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [Get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- For information on the architecture and information flow within the Cluster Resource manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
+- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png

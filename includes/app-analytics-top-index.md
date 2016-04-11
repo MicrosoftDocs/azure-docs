@@ -4,4 +4,5 @@
 - [Queries](../articles/application-insights/app-analytics-queries.md)
 - [Aggregation](../articles/application-insights/app-analytics-aggregations.md)
 - [Scalars](../articles/application-insights/app-analytics-scalars.md)
-- [Samples](../articles/application-insights/app-analytics-samples.md)
+- [Using](../articles/application-insights/app-analytics-using.md)
+

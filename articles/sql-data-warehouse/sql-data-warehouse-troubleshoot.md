@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Troubleshooting
@@ -38,7 +38,7 @@ See our [Connect](sql-data-warehouse-get-started-connect.md) pages to learn more
 ## Query Performance
 SQL Data Warehouse uses common SQL Server constructs for executing queries including statistics. [Statistics](sql-data-warehouse-develop-statistics.md) are objects that contain information about the range and frequency of values in a database column. The query engine uses these statistics to optimize query execution and improve query performance. You can use the following query determine the last time your statistics where updated.  
 
-```
+```sql
 SELECT
 	sm.[name]								    AS [schema_name],
 	tb.[name]								    AS [table_name],

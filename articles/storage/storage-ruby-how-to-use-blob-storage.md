@@ -3,9 +3,9 @@
 	description="Learn how to use Blob storage to upload, download, list, and delete blob content. Samples written in Ruby."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.date="04/08/2016"
+	ms.author="robmcm"/>
 
 
 # How to use Blob storage from Ruby
@@ -32,7 +32,7 @@ This guide will show you how to perform common scenarios using Blob storage. The
 ## Create a Ruby application
 
 Create a Ruby application. For instructions, 
-see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md)
+see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)
 
 ## Configure your application to access Storage
 
