@@ -96,7 +96,7 @@ If you are migrating to an existing Azure VM, the following configuration steps 
 7. On the Microsoft Azure Sign-In page, click Sign In and sign-in to your Azure account.
 8. Select the subscription that you wish to use and click Next.
 
-	![Azure Sign-In](./media/virtual-machines-windows-classic-migrate-sql/azure-signin.png)
+	![Azure Sign-In](./media/virtual-machines-windows-migrate-sql/azure-signin.png)
 
 9. On the Deployment Settings page, you can specify a new or an existing Cloud Service name and Virtual Machine name:
 
