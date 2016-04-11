@@ -3,7 +3,7 @@
 	description="How to use HTTP messages to authorize access to web applications and web APIs in yoru tenant using Azure AD."
 	services="active-directory"
 	documentationCenter=".net"
-	authors="priyamo"
+	authors="priyamohanram"
 	manager="mbaldwin"
 	editor=""/>
 

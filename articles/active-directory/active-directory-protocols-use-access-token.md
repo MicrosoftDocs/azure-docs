@@ -3,7 +3,7 @@
 	description="How to use HTTP messages to authorize access to web applications and web APIs in yoru tenant using Azure AD."
 	services="active-directory"
 	documentationCenter=".net"
-	authors="priyamo"
+	authors="priyamohanram"
 	manager="mbaldwin"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
-  
+
 # Use the Access Token to Access the Resource
 
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs, by including it in the `Authorization` header. The [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specification explains how to use bearer tokens in HTTP requests to access protected resources.
