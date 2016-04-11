@@ -36,17 +36,18 @@ Now open a shell and run the following command where:
 **PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For Mesos, use port 80.   
 **USERNAME** is the user name that was provided when you deployed the cluster.  
 **DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
-**REGION** is the region in which your resource group is located.  
+**REGION** is the region in which your resource group is located.
+**PATH_TO_PRIVATE_KEY** is the path to the private key corresponding to the public key you provided when creating the container service cluster.
 
 ```
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
+ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200 -i PATH_TO_PRIVATE_KEY
 ```
 ### Mesos tunnel
 
 To open a tunnel to the Mesos-related endpoints, execute a command that is similar to the following:
 
 ```
-ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200 -i ~/.ssh/id_rsa
 ```
 
 You can now access the Mesos-related endpoints at:
@@ -64,7 +65,7 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 To open a tunnel to the Swarm endpoint, execute a command that looks similar to the following:
 
 ```
-ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200 -i ~/.ssh/id_rsa
 ```
 
 Now you can set your DOCKER_HOST environment variable as follows and continue to use your Docker command-line interface (CLI) as normal.
