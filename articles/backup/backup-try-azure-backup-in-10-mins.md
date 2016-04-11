@@ -126,6 +126,8 @@ If the backup agent isn't already open, you can find it by searching your machin
     - Specify your backup schedule (daily or weekly).
     - Determine your retention policy.
     - Choose how you want to complete the initial backup (over the network, or offline).
+
+    Learn more about [completing the initial backup offline](backup-azure-backup-import-export.md).
 <br><br>
 
 3. When the wizard is complete return to the **Backup agent** and click **Back Up Now** to complete the initial backup over the network.
