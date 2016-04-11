@@ -20,7 +20,7 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 
     ![][14]
 
-5. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages**.
+5. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**.
 
 6. Click the **Browse** tab, then search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Ensure that the project name (**Receiver**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use..
 
@@ -83,11 +83,10 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 
 	This class will be called by the **EventProcessorHost** to process events received from the Event Hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
 
-9. In the **Program** class, add the following `using` statements at the top of the file:
+9. In the **Program** class, add the following `using` statement at the top of the file:
 
 	```
 	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.Threading;
 	```
 
 	Then, modify the `Main` method in the `Program` class as follows, substituting the Event Hub name and the **ReceiveRule** connection string, and the storage account and key that you copied in the previous sections. Be sure to remove the `EntityPath` suffix from the connection string:

@@ -22,13 +22,13 @@
 
 ## Introduction
 
-Event Hubs is a service that processes large amounts of event data from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
+Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
 
 This tutorial shows how to use the Azure classic portal to create an Event Hub. It also shows you how to collect messages into an Event Hub using a console application written in C#, and how to retrieve them in parallel using the C# [Event Processor Host] library.
 
 In order to complete this tutorial you'll need the following:
 
-+ Microsoft Visual Studio 2013, or Microsoft Visual Studio Express 2013 for Windows.
++ Microsoft Visual Studio 2013 or later, or Microsoft Visual Studio Express for Windows. The examples in this article use Visual Studio 2015.
 
 + An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="_blank").
 
@@ -47,6 +47,10 @@ In order to complete this tutorial you'll need the following:
 4. If you didn't explicitly select an existing namespace in a given region, the portal creates a namespace for you (usually ***event hub name*-ns**). Click that namespace (in this example, **eventhub-ns**).
 
 	![][3]
+
+5. Click the **Event Hubs** tab at the top of the page, and then click the Event Hub you just created.
+
+	![][4]
 
 6. Click the **Configure** tab at the top, add a rule named **SendRule** with Send rights, add another rule called **ReceiveRule** with *Manage*, *Send*, *Listen* rights, and then click **Save**.
 
@@ -93,6 +97,8 @@ Now you are ready to run the applications.
 
 	![][22]
 
+Press **Ctrl+C** in the **Sender** window to end the Sender application, then press **Enter** in the Receiver window to shut down that application.
+
 ## Next steps
 
 Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
@@ -106,7 +112,7 @@ Now that you've built a working application that creates an Event Hub and sends 
 [1]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub1.png
 [2]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub2.png
 [3]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub3.png
-[4]: ./media/event-hubs-csharp-ephcs-getstarted/create-conn-str1.png
+[4]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub4.png
 [5]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub5.png
 [6]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub6.png
 

@@ -6,7 +6,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
 
    ![][7]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**. 
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**. 
 
 3. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Ensure that the project name (**Sender**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use. 
 
