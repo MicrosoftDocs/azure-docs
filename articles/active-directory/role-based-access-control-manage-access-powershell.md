@@ -26,7 +26,7 @@
 
 Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Management API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
-Before you can use Windows PowerShell to manage RBAC, you must have the following:
+Before you can use PowerShell to manage RBAC, you must have the following:
 
 - Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
@@ -152,5 +152,5 @@ In the following example, the *Virtual Machine Operator* custom role isn’t ava
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## See also
-- [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md)
+- [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
