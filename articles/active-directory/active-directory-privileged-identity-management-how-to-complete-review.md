@@ -23,6 +23,10 @@ It is very easy for administrators to review privileged access once a [security 
 
 ## Managing security reviews
 
+1. Go to the PIM dashboard, activating the security administrator role if necessary.
+2. Click on the security review in the **Security reviews** list. The security review's detail blade will appear.  
+3. If users have their access denied, you can complete the review which will apply the results and remove those users role assignments in the directory. If you wish to apply the results yourself manually, you can export the results.  If you are not interested in the review any further, delete it.
+
 ## Completing or stopping a review
 1. Go to the PIM dashboard.
 2. Click on the security review you want to complete in the **Security reviews** list. The security review's detail blade will appear.
