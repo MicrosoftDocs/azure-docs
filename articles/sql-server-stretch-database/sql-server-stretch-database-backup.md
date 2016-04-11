@@ -29,11 +29,7 @@ Stretch Database provides full support for point in time restore. After you rest
 
 1.  Restore the database from a backup.
 
-2.  Create a database master key for the Stretch\-enabled database. For more info, see [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx)
-
-3.  Create a database scoped credential for the Stretch\-enabled database. For more info, see [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
-
-4.  Run the stored procedure [sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) to reconnect the local Stretch\-enabled database to Azure. Provide the database scoped credential created in a previous step as a sysname or a varchar(128) value. (Don't use varchar(max).)
+2.  Run the stored procedure [sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) to reconnect the local Stretch\-enabled database to Azure. Provide the database scoped credential created in a previous step as a sysname or a varchar(128) value. (Don't use varchar(max).)
 
     ```tsql
     Declare @credentialName nvarchar(128);
