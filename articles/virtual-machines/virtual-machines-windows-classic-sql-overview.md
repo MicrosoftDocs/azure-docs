@@ -59,7 +59,7 @@ In addition to reviewing performance best practices, other initial tasks include
 
 ### Migrate your data
 
-After your SQL Server virtual machine is up and running, you might want to migrate existing databases to the machine. There are several techniques, but the deployment wizard in SQL Server Management Studio works well for most scenarios. For a discussion of the scenarios and a tutorial of the wizard, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md).
+After your SQL Server virtual machine is up and running, you might want to migrate existing databases to the machine. There are several techniques, but the deployment wizard in SQL Server Management Studio works well for most scenarios. For a discussion of the scenarios and a tutorial of the wizard, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
 
 ## High availability
 
@@ -144,7 +144,7 @@ If you create a virtual machine by using a platform-provided SQL Server image, y
 ## Resources
 
 - [Provisioning a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-portal-sql-server-provision.md)
-- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md)
+- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
 - [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-dr.md)
 - [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 - [Azure Virtual Machines](virtual-machines-linux-about.md)
