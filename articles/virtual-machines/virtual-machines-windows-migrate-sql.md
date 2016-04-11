@@ -109,7 +109,7 @@ If you are migrating to an existing Azure VM, the following configuration steps 
  - Specify an existing Cloud Service name and new Virtual Machine name to create a new Azure virtual machine in an existing Cloud Service. Only specify a SQL Server 2014 or SQL Server 2016 gallery image.
  - Specify an existing Cloud Service name and Virtual Machine name to use an existing Azure virtual machine. This must an image built using a SQL Server 2014 or SQL Server 2016 gallery image.
 
-		![Deploymnent Settings](./media/virtual-machines-windows-classic-migrate-sql/deployment-settings.png)
+		![Deploymnent Settings](./media/virtual-machines-windows-migrate-sql/deployment-settings.png)
 
 10. Click Settings
   - If you specified an existing Cloud Service name and Virtual Machine name, you will be prompted to provide the user name and password.
