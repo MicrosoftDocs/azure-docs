@@ -1,6 +1,6 @@
 <properties
    pageTitle="Data Catalog developer samples | Microsoft Azure"
-   description="Get started developing catalog apps using the Data Catalog REST API."
+   description="This article provides an overview of the available developer samples for the Data Catalog REST API."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/03/2016"
+   ms.date="03/30/2016"
    ms.author="derrickv"/>
 
 
@@ -32,4 +32,4 @@ Here are the samples we have on GitHub:
 
 - [Import/Export tool](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
 
-  A sample that shows how to use the Data Catalog REST API to fetch assets from the Azure Data Catalog and serialize them into a file. It also demonstrates how to take a set of assets serialized as json and push them into the catalog. It supports exporting a subset of the catalog using a search query.
+  A sample that shows how to use the Data Catalog REST API to fetch assets from the Azure Data Catalog and serialize them into a file. It also demonstrates how to take a set of assets serialized as JSON and push them into the catalog. It supports exporting a subset of the catalog using a search query.

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Scale instance count manually or automatically" 
-	description="Learn how to scale your services Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Scale instance count manually or automatically"
+	description="Learn how to scale your services Azure."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Scale instance count manually or automatically
@@ -33,11 +33,11 @@ You can scale in the portal, and you can also use the [REST API](https://msdn.mi
 
 3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.  
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-    
+
 >[AZURE.NOTE] Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
 
 4. You can manually adjust the number **Instances** with slider.
-5. Click the **Save** command and you'll be scaled to that number of instances almost immediately. 
+5. Click the **Save** command and you'll be scaled to that number of instances almost immediately.
 
 ## Scaling based on a pre-set metric
 
@@ -45,8 +45,8 @@ If you want the number of instances to automatically adjust based on a metric, s
 
 1. When you select a metric you'll get a slider, and/or, text boxes to enter the number of instances you want to scale between:
 
-    ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png) 
-    
+    ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png)
+
     Autoscale will never take your service below or above the boundaries that you set, no matter your load.
 
 2. Second, you choose the target range for the metric. For example, if you chose **CPU percentage**, you can set a target for the average CPU across all of the instances in your service. A scale out will happen when the average CPU exceeds the maximum you define, likewise, a scale in will happen whenever the average CPU drops below the minimum.
@@ -69,10 +69,10 @@ You can scale based on metrics other than the presets that appear in the **Scale
 
 4. Now you need to select which metric you want to scale by. When choosing a metric there are a couple things to consider:
     * The *resource* the metric comes from. Typically, this will be the same as the resource you are scaling. However, if you want to scale by the depth of a Storage queue, the resource is the queue that you want to scale by.
-    * The *metric name* itself. 
+    * The *metric name* itself.
     * The *time aggregation* of the metric. This is how the data is combine over the *duration*.
-    
-5. After choosing your metric you choose the threshold for the metric, and the operator. For example, you could say **Greater than** **80%**. 
+
+5. After choosing your metric you choose the threshold for the metric, and the operator. For example, you could say **Greater than** **80%**.
 
 6. Then choose the action that you want to take. There are a couple different type of actions:
     * Increase or decrease by - this will add or remove the **Value** number of instances you define
@@ -80,8 +80,8 @@ You can scale based on metrics other than the presets that appear in the **Scale
     * Increase or decrease to - this will set the instance count to the **Value** you define.
 
 7. Finally, you can choose cool down - how long this rule should wait after the previous scale action to scale again.
-    
-8. After configuring your rule hit **OK**. 
+
+8. After configuring your rule hit **OK**.
 
 9. Once you have configured all of the rules you want, be sure to hit the **Save** command.
 
@@ -94,7 +94,7 @@ The examples above are pretty basic. However, if you want to be more agressive a
 
 ![Multiple scale rules](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
 
-With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one. 
+With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one.
 
 ## Scale based on a schedule
 
@@ -114,23 +114,23 @@ However, you may want to have more agressive scaling during the day, or the week
 
 4. Click **OK**.
 
-5. Next, you will need to add the profile that you want to apply at other times. Click the **Add Profile** row. 
+5. Next, you will need to add the profile that you want to apply at other times. Click the **Add Profile** row.
     ![Off Work](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 
-6. Name your new, second, profile, for example you could call it **Off work**. 
+6. Name your new, second, profile, for example you could call it **Off work**.
 
 7. Then select **recurrence** again, and choose the instance count range you want during this time.
 
 8. As with the Default profile, choose the **Days** you want this profile to apply to, and the **Start time** during the day.
 
->[AZURE.NOTE] Autoscale will use the Daylight savings rules for whichever **Time zone** you select. However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset. 
+>[AZURE.NOTE] Autoscale will use the Daylight savings rules for whichever **Time zone** you select. However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset.
 
 9. Click **OK**.
 
 10. Now, you will need to add whatever rules you want to apply during your second profile. Click **Add Rule**, and then you could construct the same rule you have during the Default profile.
     ![Add rule to off work](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 
-11. Be sure to create both a rule for scale out and scale in, or else during the profile the instance count will only grow (or decrease). 
+11. Be sure to create both a rule for scale out and scale in, or else during the profile the instance count will only grow (or decrease).
 
 12. Finally, click **Save**.
 
@@ -141,5 +141,4 @@ However, you may want to have more agressive scaling during the day, or the week
 * [Receive alert notifications](insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
 * [Monitor application performance](insights-perf-analytics.md) if you want to understand exactly how your code is performing in the cloud.
 * [View events and audit logs](insights-debugging-with-events.md) to learn everything that has happened in your service.
-* [Monitor availability and responsiveness of any web page](../app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
- 
+* [Monitor availability and responsiveness of any web page](../application-insights/app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.

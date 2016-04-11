@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="04/08/2016"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -25,6 +25,8 @@ In this step of the publishing process, you will need to provide certain marketi
   1. Go to the publishing portal, [https://publish.windowsazure.com](https://publish.windowsazure.com).
   2. On the left menu, click the **Marketing** tab.
   3. In the main panel, click the **English (US)** button.
+
+  > [AZURE.IMPORTANT] All fields must have entries, including the images, for you to be able to push to staging.
 
 ### Details
 1. Enter the offer summary, long summary, and description for your offer.
@@ -52,8 +54,7 @@ On the **Sample Images** tab on the left menu, upload a new image by clicking **
 ### Legal
 On the **Legal** tab, provide a link to your policies/terms of use. Enter or paste the terms in the large **Terms of Use** box.
 
-> [AZURE.IMPORTANT] All fields must have entries, including the images, for you to be able to push to staging.
-
+> [AZURE.NOTE] For virtual machines, you cannot change the following once a SKU is staged or live: **Offer identifier**, **Publisher identifier**, and **SKU identifier**.
 
 ## Step 2: Set your prices
 ### Pricing models
@@ -87,6 +88,8 @@ On the **Legal** tab, provide a link to your policies/terms of use. Enter or pas
 
 5.	A pricing wizard will open. Proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
 6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and you should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See the section “Sell-to countries of the offer” in the introduction of this document for more information on sell-to countries.
+
+  > [AZURE.NOTE] For Virtual Machines, you cannot change the following once a SKU goes live as this impacts the billing of existing customers: **Pricing change**, **Billing model change**, and **Removal of billing regions**.
 
 ### 2.2. Set your Developer service prices
 Plans can be any combination of base + consumption, where base is the monthly price and overage is the pay-per-use price. (See below for more details.)
@@ -146,7 +149,7 @@ Now that your Marketplace content is loaded, let's move forward with testing you
 
 ||Virtual machine image |Developer service | Data service | Solution template |
 |----|----|----|----|----|
-| **Step 3. Push your offer to staging** | [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your developer service offer in staging | [Test your data service offer in staging](marketplace-publishing-data-service-test-in-staging.md) | [Test your solution template in staging](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Step 3. Push your offer to staging** | [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md) | Private Preview | [Test your data service offer in staging](marketplace-publishing-data-service-test-in-staging.md) | [Test your solution template in staging](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

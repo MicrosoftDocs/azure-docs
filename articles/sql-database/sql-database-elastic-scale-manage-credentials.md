@@ -3,7 +3,7 @@
 	description="How to set the right level of credentials, admin to read-only, for elastic database apps" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor=""/>
 

@@ -23,7 +23,7 @@
 - [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [System Center DPM](backup-azure-dpm-introduction.md)
 
-This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it you’ll understand:
+This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it, you’ll understand:
 
 - How Azure DPM server backup works
 - The prerequisites to achieve a smooth backup experience

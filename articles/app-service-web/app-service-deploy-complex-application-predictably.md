@@ -299,7 +299,7 @@ Find out how to [apply agile methodologies and continuously publish your microse
 -	[Azure Resource Manager Template Functions](../resource-group-template-functions.md)
 -	[Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md)
 -	[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
--	[Troubleshooting Resource Group Deployments in Azure](../virtual-machines/resource-group-deploy-debug.md)
+-	[Troubleshooting Resource Group Deployments in Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 
 

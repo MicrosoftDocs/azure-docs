@@ -66,7 +66,7 @@ Mobile app as a second factor|* | * | *
 Phone call as a second factor|* | * | *
 SMS as a second factor|* | * | *
 App passwords for clients that don't support MFA|* | * | *
-Admin control over authentication methods| | | *
+Admin control over authentication methods| *| *| *
 PIN mode| | | *
 Fraud alert| | | *
 MFA Reports| | | *

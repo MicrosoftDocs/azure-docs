@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="04/06/2016" 
 	ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps, services and worker roles
@@ -31,15 +31,15 @@ You can choose which standard data collectors you want to use (for example to mo
 ## <a name="add"></a> Create an Application Insights resource
 
 
-1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose Windows Store app. 
+1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose ASP.NET app. 
 
     ![Click New, Application Insights](./media/app-insights-windows-desktop/01-new.png)
 
-    (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
+    (You can choose a different application type if you want - it sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
 
-2.  Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created.
+2.  Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created. Close the Application Map or scroll left to the overview blade for the resource.
 
-    ![Click Essentials, select the key, and press ctrl+C](./media/app-insights-windows-desktop/02-props.png)
+    ![Click Essentials, select the key, and press ctrl+C](./media/app-insights-windows-desktop/10.png)
 
 ## <a name="sdk"></a>Install the SDK in your application
 
@@ -89,7 +89,7 @@ For example, in a Windows Forms application, you could write:
             tc.InstrumentationKey = "key copied from portal";
 
             // Set session data:
-            tc.Context.User.Id = Environment.GetUserName();
+            tc.Context.User.Id = Environment.UserName;
             tc.Context.Session.Id = Guid.NewGuid().ToString();
             tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
 
@@ -123,19 +123,20 @@ Use any of the [Application Insights API][api] to send telemetry. If you're usin
 * `Flush()` to make sure all telemetry is sent before closing the app. Use this only if you are just using the core API (Microsoft.ApplicationInsights). The web SDKs implement this behavior automatically. (If your app runs in contexts where the internet is not always available, see also [Persistence Channel](#persistence-channel).)
 
 
-#### Context initializers
+#### Telemetry initializers
 
-To see counts of users and sessions you can set the values on each `TelemetryClient` instance. Alternatively, you can use a context initializer to perform this addition for all clients:
+To see counts of users and sessions you can set the values on each `TelemetryClient` instance. Alternatively, you can use a telemetry initializer to perform this addition for all clients:
 
 ```C#
 
-    class UserSessionInitializer: IContextInitializer
+    class UserSessionInitializer : ITelemetryInitializer
     {
-        public void Initialize(TelemetryContext context)
+        public void Initialize(ITelemetry telemetry)
         {
-            context.User.Id = Environment.UserName;
-            context.Session.Id = Guid.NewGuid().ToString();
+            telemetry.Context.User.Id = Environment.UserName;
+            telemetry.Context.Session.Id = Guid.NewGuid().ToString();
         }
+        
     }
 
     static class Program
@@ -143,7 +144,7 @@ To see counts of users and sessions you can set the values on each `TelemetryCli
         ...
         static void Main()
         {
-            TelemetryConfiguration.Active.ContextInitializers.Add(
+            TelemetryConfiguration.Active.TelemetryInitializers.Add(
                 new UserSessionInitializer());
             ...
 
@@ -159,15 +160,13 @@ In Visual Studio, you'll see a count of the events that have been sent.
 
 ![](./media/app-insights-windows-desktop/appinsights-09eventcount.png)
 
-
+Events also appear in the diagnostics and output windows.
 
 ## <a name="monitor"></a>See monitor data
 
 Return to your application blade in the Azure portal.
 
 The first events will appear in [Diagnostic Search](app-insights-diagnostic-search.md). 
-
-Click Refresh after a few seconds if you're expecting more data.
 
 If you used TrackMetric or the measurements parameter of TrackEvent, open [Metric Explorer][metrics] and open the Filters blade. You should see your metrics there, but they can sometimes take a while to get through the pipeline, so you might have to close the Filters blade, wait a while and then refresh.
 
