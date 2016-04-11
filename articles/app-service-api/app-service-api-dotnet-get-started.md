@@ -25,10 +25,10 @@
 This is the first in a series of tutorials that show how to use features of Azure App Service that are helpful for developing and hosting RESTful APIs:
 
 * Integrated support for API metadata
-* CORS support
+* [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) support
 * Authentication and authorization support
 
-You'll deploy a sample application to two [API apps](app-service-api-apps-why-best-platform.md) and a web app in Azure App Service. The sample application is a to-do list that has an AngularJS single-page application (SPA) front end, an ASP.NET Web API middle tier, and an ASP.NET Web API data tier. 
+You'll deploy a sample application to two [API apps](app-service-api-apps-why-best-platform.md) and a web app in Azure App Service. The sample application is a to-do list that has a single-page application (SPA) front end, an ASP.NET Web API middle tier, and an ASP.NET Web API data tier. The SPA front-end is based on the [AngularJS](https://angularjs.org/) framework.
 
 ![API Apps sample application diagram](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
 
@@ -59,16 +59,7 @@ In this tutorial, you'll learn:
 
 2. Open the ToDoList solution in Visual Studio 2015 or 2013.
 
-	The Visual Studio solution is a sample application that works with simple to-do items that consist of a description and an owner.
-
-		public class ToDoItem 
-		{ 
-		    public int ID { get; set; } 
-		    public string Description { get; set; } 
-		    public string Owner { get; set; } 
-		} 
- 
-	The solution includes three projects:
+	The Visual Studio solution is a sample application that works with simple to-do items that consist of a description and an owner. The solution includes three projects:
 
 	![](./media/app-service-api-dotnet-get-started/projectsinse.png)
 
@@ -76,23 +67,31 @@ In this tutorial, you'll learn:
 
 	* **ToDoListAPI** - The middle tier: an ASP.NET Web API project that calls the data tier to perform CRUD operations on to-do items.
 
-	* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. To-do items are stored in memory, which means that whenever the application is restarted all changes are lost.
+	* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. 
 
-	The middle tier provides the user ID in the `Owner` field when it calls the data tier. In the code that you download, the user ID is always "*". When you add authentication in later tutorials, the middle tier will provide the actual user ID to the data tier.
+	The three-tier architecture is typical of many applications but is not appropriate for every scenario. Here it is used mainly to facilitate a demonstration of API Apps features, and the code in each tier is simplified with that purpose in mind. Unlike a real application, the middle tier has no significant business logic. And the data tier uses server memory rather than a database as its persistence mechanism, which means that whenever the application is restarted all changes are lost.
 
 2. Build the solution to restore the NuGet packages.
 
-### Optional: run the application locally
+## Optional: run the application locally
 
 In this section, you verify that you can run the client locally and can call the API while it too is running locally.
 
 **Note:** These instructions work for Internet Explorer and Edge browsers because these browsers allow cross-origin JavaScript calls from and to `http://localhost` URLs. If you're using Chrome, start the browser with the `--disable-web-security` switch. If you're using Firefox, skip this section.
 
-1. Set all three projects as startup projects, with ToDoListDataAPI starting first, then ToDoListAPI, and then ToDoListAngular. (In **Solution Explorer**, right-click the solution, click **Properties**, select **Multiple startup projects**, put the projects in the correct order, and set **Action** to **Start** for each one.)  
+1. Set all three projects as startup projects, with ToDoListDataAPI starting first, then ToDoListAPI, and then ToDoListAngular.
+
+	a. In **Solution Explorer**, right-click the solution, and then click **Properties**.
+
+	b. Select **Multiple startup projects**, and then put the projects in the correct order.
+
+	c. Set **Action** to **Start** for each project.  
 
 2. Press F5 to start the projects.
 
 	Three browser windows open. Two browser windows show HTTP 403 error pages (directory browsing not allowed), which is normal for Web API projects.  The third browser window shows the AngularJS UI. 
+
+	In some browsers you'll see dialog boxes indicating that the project is configured to use SSL. If you want to 
 
 3. In the browser window that shows the AngularJS UI, click the **To Do List** tab.
 
@@ -104,7 +103,7 @@ In this section, you verify that you can run the client locally and can call the
 
 	Any changes you make are stored in memory and are lost when you restart the application.
 
-3. Close the browser windows.
+3. Close the browser windows and stop Visual Studio debugging.
 
 ## Use Swagger metadata and UI
 
@@ -169,7 +168,7 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 		        "deprecated": false
 		      },
 
-1. Close the browser.
+1. Close the browser and stop Visual Studio debugging.
 
 3. In the ToDoListDataAPI project in **Solution Explorer**, open the *App_Start\SwaggerConfig.cs* file, then scroll down to the following code and uncomment it.
 
@@ -195,6 +194,8 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 
 6. Enter an asterisk as the value of the `owner` parameter, and then click **Try it out**.
 
+	When you add authentication in later tutorials, the middle tier will provide the actual user ID to the data tier. For now, all tasks will have asterisk as their owner ID while the application runs without authentication enabled. 
+
 	![Swagger UI try it out](./media/app-service-api-dotnet-get-started/gettryitout1.png)
 
 	The Swagger UI calls the ToDoList Get method and displays the response code and JSON results.
@@ -207,7 +208,7 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 
 	![Swagger UI try it out Post](./media/app-service-api-dotnet-get-started/post.png)
 
-7. Change the JSON in the `contact` parameter input box so that it looks like the following example, or substitute your own description text:
+7. Change the JSON in the `todo` parameter input box so that it looks like the following example, or substitute your own description text:
 
 		{
 		  "ID": 2,
@@ -225,7 +226,7 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 
 12. Try also the Put, Delete, and Get by ID methods.
 
-14. Close the browser.
+14. Close the browser and stop Visual Studio debugging.
 
 Swashbuckle works with any ASP.NET Web API project. If you want to add Swagger metadata generation to an existing project, just install the Swashbuckle package. 
 
@@ -300,19 +301,19 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	![Click Create in Create App Service dialog](./media/app-service-api-dotnet-get-started/clickcreate.png)
 
-	Visual Studio creates the API app.
+	Visual Studio creates the API app and a publish profile that has all of the required settings for the API app. Then it opens the **Publish Web** wizard, which you'll use to deploy the project.
 
 	**Note:** There are other ways to create API apps in Azure App Service. For example, in Visual Studio when you create a new project, you can create Azure resources for it the same way you just saw for an existing project. You can also create API apps by using the [Azure portal](https://portal.azure.com/), [Azure cmdlets for Windows PowerShell](../powershell-install-configure.md), or the [cross-platform command-line interface](../xplat-cli.md).
 
-	When Visual Studio finishes creating the API app, it creates a publish profile that has all of the required settings for the new API app. In the following steps, you use the new publish profile to deploy the project.  
+	The **Publish Web** wizard opens on the **Connection** tab (shown below). 
 
-8. In the **Connection** tab of the **Publish Web** wizard, click **Next**. 
+	On the **Connection** tab, the **Server** and **Site name** settings point to your API app. The **User name** and **Password** are deployment credentials that Azure creates for you. After deployment, Visual Studio opens a browser to the **Destination URL** (that's the only purpose for **Destination URL**).  
 
-	You could instead go ahead and click **Publish** now to immediately deploy the project to the new API app, but for the tutorial you'll go through the other tabs of this dialog to see what you can do in them.
+8. Click **Next**. 
 
 	![Click Next in Connection tab of Publish Web](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	The next tab is the **Settings** tab. Here you can change the build configuration tab to deploy a debug build for [remote debugging](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). The tab also offers several **File Publish Options**:
+	The next tab is the **Settings** tab (shown below). Here you can change the build configuration tab to deploy a debug build for [remote debugging](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). The tab also offers several **File Publish Options**:
 
 	* Remove additional files at destination
 	* Precompile during publishing
@@ -324,7 +325,7 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	![Click Next in Settings tab of Publish Web](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
-	The **Preview** tab gives you an opportunity to see what files are going to be copied from your project to the API app. When you're deploying a project to an API app that you already deployed to earlier, only changed files are copied. If you want to see a list of what will be copied, you can click the **Start Preview** button.
+	Next is the **Preview** tab (shown below), which gives you an opportunity to see what files are going to be copied from your project to the API app. When you're deploying a project to an API app that you already deployed to earlier, only changed files are copied. If you want to see a list of what will be copied, you can click the **Start Preview** button.
 
 15. Click **Publish**.
 
@@ -352,7 +353,7 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	![App Services blade](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
-	Two blades open, one with an overview of the API app, and one with a long list of settings that you can view and change.
+	Two blades open. One blade has an overview of the API app, and one has a long list of settings that you can view and change.
 
 16. In the **Settings** blade, find the **API** section and click **API Definition**. 
 
