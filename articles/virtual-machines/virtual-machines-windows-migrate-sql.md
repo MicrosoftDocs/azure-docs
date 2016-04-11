@@ -130,7 +130,7 @@ If you are migrating to an existing Azure VM, the following configuration steps 
 11. Specify the target database name if different from the source database name. If the target database already exists, the system will automatically increment the database name rather than overwrite the existing database.
 12. Click Next and then click Finish.
 
-	![Results](./media/virtual-machines-windows-classic-migrate-sql/results.png)
+	![Results](./media/virtual-machines-windows-migrate-sql/results.png)
 
 13. When the wizard completes, connect to your virtual machine and verify that your database has been migrated.
 14. If you created a new virtual machine, configure the Azure virtual machine and the SQL Server instance by following the steps in Connect to the SQL Server virtual machine instance from SSMS on another computer section in [Provisioning a SQL Server Virtual Machine on Azure](../virtual-machines-provision-sql-server/#SSMS).
