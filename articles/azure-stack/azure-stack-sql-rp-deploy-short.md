@@ -11,7 +11,7 @@ Server Resource Provider on your Azure Stack proof of concept (PoC).
 
 To deploy a SQL Server resource provider, you will:
 
-1.  Make sure you comply with all the [prerequisites](./Azure-Stack/azure-stack-sql-rp-long.md#_Prerequisites_) for RP deployment:
+1.  Make sure you comply with all the [prerequisites](/azure-stack-sql-rp-long.md#Prerequisites) for RP deployment:
 
     - [.Net3.5](#_Create_an_image) pre-setup in base image
     - [Azure-Stack-Compatible](#_Install_the_latest) PowerShell release
