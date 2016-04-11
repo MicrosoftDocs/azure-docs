@@ -53,7 +53,7 @@ The template editing pane contains the markup that controls the appearance and b
 
 ![Template markup][api-management-template]
 
-The **Template data** pane provides a guide to the data model for the entities that are available for use in a particular template. It provides this guide by displaying the live data that are currently displayed in the developer portal. 
+The **Template data** pane provides a guide to the data model for the entities that are available for use in a particular template. It provides this guide by displaying the live data that are currently displayed in the developer portal. You can expand the template panes by clicking the rectangle in the upper-right corner of the **Template data** pane.
 
 ![Template data model][api-management-template-data]
 
