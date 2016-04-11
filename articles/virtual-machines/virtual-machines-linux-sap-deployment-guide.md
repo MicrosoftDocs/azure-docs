@@ -57,6 +57,7 @@
 [2134316]:https://service.sap.com/sap/support/notes/2134316
 [2178632]:https://service.sap.com/sap/support/notes/2178632
 [2191498]:https://service.sap.com/sap/support/notes/2191498
+[2243692]:https://service.sap.com/sap/support/notes/2243692
 [2233094]:https://service.sap.com/sap/support/notes/2233094
 
 [azure-portal]:https://portal.azure.com
@@ -359,6 +360,7 @@ During the configuration work, the following resources are needed:
 * SAP Note [2178632] containing detail information on all available monitoring metrics for SAP on Microsoft Azure. 
 * SAP Note [1409604] containing the required SAP Host Agent version for Windows on Microsoft Azure when deploying on the new Azure Resource Manager.
 * SAP Note [2191498] containing the required SAP Host Agent version for Linux on Microsoft Azure when deploying on the new Azure Resource Manager.
+* SAP Note [2243692] containing information about licensing for SAP on Linux on Azure
 * [SCN](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all required SAP Notes for Linux
 * [SAP specific PowerShell cmdlets][azure-script-ps]
 * [SAP specific Azure CLI](https://github.com/Azure/azure-linux-extensions/tree/master/AzureEnhancedMonitor)

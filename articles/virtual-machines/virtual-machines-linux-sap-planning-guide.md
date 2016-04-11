@@ -57,6 +57,7 @@
 [2134316]:https://service.sap.com/sap/support/notes/2134316
 [2178632]:https://service.sap.com/sap/support/notes/2178632
 [2191498]:https://service.sap.com/sap/support/notes/2191498
+[2243692]:https://service.sap.com/sap/support/notes/2243692
 [2233094]:https://service.sap.com/sap/support/notes/2233094
 
 [azure-portal]:https://portal.azure.com
@@ -357,6 +358,8 @@ The following SAP Notes are related to the topic of SAP on Azure:
 | [1999351] | Troubleshooting Enhanced Azure Monitoring for SAP |
 | [2178632] | Key Monitoring Metrics for SAP on Microsoft Azure |
 | [1409604] | Virtualization on Windows: Enhanced Monitoring |
+| [2191498] | SAP on Linux with Azure: Enhanced Monitoring
+| [2243692] | Linux on Microsoft Azure (IaaS) VM: SAP license issues
 
 Please also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
