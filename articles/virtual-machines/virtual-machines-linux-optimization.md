@@ -119,7 +119,7 @@ If your workloads require more IOps than a single disk can provide, you will nee
 Remember, as with all optimization discussions, you will need to perform tests before and after each change to measure the impact the change will have.  Optimization is a step by step process that will have different results across different machines in your environment.  What works for one configuration may not work for others.
 
 Some useful links to additional resources: 
-- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
-- [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
-- [Optimizing MySQL Performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md)
-- [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)
+* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
+* [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
+* [Optimizing MySQL Performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md)
+* [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)
