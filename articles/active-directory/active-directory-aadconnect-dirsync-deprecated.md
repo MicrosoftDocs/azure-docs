@@ -48,7 +48,7 @@ If you use Azure AD Sync an in-place upgrade is recommended. If you want to, it 
 
 If you want to see how to do an in-place upgrade from DirSync to Azure AD Connect, then please see this Channel 9 video:
 
-> [AZURE.VIDEO Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools]
+> [AZURE.VIDEO azure-active-directory-connect-in-place-upgrade-from-legacy-tools]
 
 ## FAQ
 **Q: Will DirSync/Azure AD Sync stop working on April 13, 2017?**  
