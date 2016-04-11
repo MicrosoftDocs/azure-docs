@@ -953,22 +953,20 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 __Powershell__
 
 * Login to your subscription with _Login-AzureRmAccount_
-* Set the subscription of your context with _Set-AzureRmContext_ and parameter Subscription - see <https://msdn.microsoft.com/library/mt619263.aspx>
+* Set the subscription of your context with _Set-AzureRmContext_ and parameter SubscriptionId or SubscriptionName - see <https://msdn.microsoft.com/library/mt619263.aspx>
 * Upload the VHD with _Add-AzureRmVhd_ to an Azure Storage Account - see <https://msdn.microsoft.com/library/mt603554.aspx>
 * Set the OS disk of a new VM config to the VHD with _Set-AzureRmVMOSDisk_ - see <https://msdn.microsoft.com/library/mt603746.aspx>
 * Create a new VM from the VM config with _New-AzureRmVM_ - see <https://msdn.microsoft.com/library/mt603754.aspx>
+* Add a data disk to a new VM with _Add-AzureRmVMDataDisk_ - see <https://msdn.microsoft.com/library/mt603673.aspx>
 
 __Azure CLI__
 
 * Switch to Azure Resource Manager mode with _azure config mode arm_
 * Login to your subscription with _azure login_
-* Select your subscription with _azure account set_
+* Select your subscription with _azure account set `<subscription name or id`>_
 * Upload the VHD with _azure storage blob upload_ - see [Using the Azure CLI with Azure Storage][storage-azure-cli]
-* Create a new VM specifying the uploaded VHD as OS disk with 
-
-```
-azure vm create -g <resourcegroup name`> -n <vm name> -D <nic id> -l <location> -y <os type> -z <vm size> -d <path to uploaded vhd>
-```
+* Create a new VM specifying the uploaded VHD as OS disk with _azure vm create_ and parameter -d
+* Add a data disk to a new VM with _vm disk attach-new_
 
 __Template__
 
@@ -976,11 +974,11 @@ __Template__
 * Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json).
 
 #### Deployment of a VM Image
-To upload an existing VM or VHD from the on-premises network in order to use it as an Azure VM image such a VM or VHD need to meet the requirements listed in chapter 5.2.2 of this document.
+To upload an existing VM or VHD from the on-premises network in order to use it as an Azure VM image such a VM or VHD need to meet the requirements listed in chapter [Preparation for deploying a VM with a customer specific image for SAP][planning-guide-5.2.2] of this document.
 
 * Use _sysprep_ on Windows or _waagent -deprovision_ on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][virtual-machines-linux-capture-image-resource-manager-capture] for Linux
 * Login to your subscription with _Login-AzureRmAccount_
-* Set the subscription of your context with _Set-AzureRmContext_ and parameter Subscription - see <https://msdn.microsoft.com/library/mt619263.aspx>
+* Set the subscription of your context with _Set-AzureRmContext_ and parameter SubscriptionId or SubscriptionName - see <https://msdn.microsoft.com/library/mt619263.aspx>
 * Upload the VHD with _Add-AzureRmVhd_ to an Azure Storage Account - see <https://msdn.microsoft.com/library/mt603554.aspx>
 * Set the OS disk of a new VM config to the VHD with _Set-AzureRmVMOSDisk -SourceImageUri -CreateOption fromImage_ - see <https://msdn.microsoft.com/library/mt603746.aspx>
 * Create a new VM from the VM config with _New-AzureRmVM_ - see <https://msdn.microsoft.com/library/mt603754.aspx>
@@ -990,13 +988,9 @@ __Azure CLI__
 * Use _sysprep_ on Windows or _waagent -deprovision_ on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][virtual-machines-linux-capture-image-resource-manager-capture] for Linux
 * Switch to Azure Resource Manager mode with _azure config mode arm_
 * Login to your subscription with _azure login_
-* Select your subscription with _azure account set_
+* Select your subscription with _azure account set `<subscription name or id`>_
 * Upload the VHD with _azure storage blob upload_ - see [Using the Azure CLI with Azure Storage][storage-azure-cli]
-* Create a new VM specifying the uploaded VHD as OS disk with
-
-```
-azure vm create -g <resourcegroup name> -n <vm name> -D <nic id> -l <location> -y <os type> -z <vm size> -d <path of new os disk> -Q <path to uploaded image vhd>
-```
+* Create a new VM specifying the uploaded VHD as OS disk with _azure vm create_ and parameter -Q
 
 __Template__
 
@@ -1095,8 +1089,8 @@ Copying VHDs between subscriptions is also possible. An example of a script doin
 
 The basic flow of the PS cmdlet logic looks like this:
 
-* Create a storage account context for the source storage account with New-AzureStorageContext
-* Create a storage account context for the target storage account with New-AzureStorageContext
+* Create a storage account context for the source storage account with _New-AzureStorageContext_ - see <https://msdn.microsoft.com/library/dn806380.aspx>
+* Create a storage account context for the target storage account with _New-AzureStorageContext_ - see <https://msdn.microsoft.com/library/dn806380.aspx>
 * Start the copy with
 
 ```powershell
@@ -1408,7 +1402,7 @@ $vmconfig = New-AzureRmVMConfig -VMName SAPERPDemo -VMSize Standard_D11
 
 $vmconfig = Add-AzureRmVMNetworkInterface -VM $vmconfig -Id $nic.Id
 
-$diskName="os"
+$diskName="osfromimage"
 $osDiskUri=$account.PrimaryEndpoints.Blob.ToString() + "vhds/" + $diskName  + ".vhd"
 
 $vmconfig = Set-AzureRmVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Windows
@@ -1430,63 +1424,65 @@ Add-AzureRmVMDataDisk -VM $vm -Name datadisk -VhdUri $dataDiskUri -DiskSizeInGB 
 
 ##### CLI
 
+The following example code can be used on Linux. For Windows, please either use PowerShell as described above or adapt the example to use %rgName% instead of $rgName and set the environment variable using the Windows command _set_.
+
 * Create a new resoure group for every training/demo landscape
 
 ```
-set rgName=SAPERPDemo1
-set rgNameLower=saperpdemo1
-azure group create %rgName% "North Europe"
+rgName=SAPERPDemo1
+rgNameLower=saperpdemo1
+azure group create $rgName "North Europe"
 ```
 
 * Create a new storage account
 
 ```
-azure storage account create --resource-group %rgName% --location "North Europe" --type LRS %rgNameLower%
+azure storage account create --resource-group $rgName --location "North Europe" --type LRS $rgNameLower
 ```
 
 * Create a new virtual network for every training/demo landscape to enable the usage of the same hostname and IP addresses. The virtual network is protected by a Network Security Group that only allows traffic to port 3389 to enable Remote Desktop access and port 22 for SSH. 
 
 ```
-azure network nsg create --resource-group %rgName% --location "North Europe" --name SAPERPDemoNSG
-azure network nsg rule create --resource-group %rgName% --nsg-name SAPERPDemoNSG --name SAPERPDemoNSGRDP --protocol * --source-address-prefix * --source-port-range * --destination-address-prefix * --destination-port-range 3389 --access Allow --priority 100 --direction Inbound
-azure network nsg rule create --resource-group %rgName% --nsg-name SAPERPDemoNSG --name SAPERPDemoNSGSSH --protocol * --source-address-prefix * --source-port-range * --destination-address-prefix * --destination-port-range 22 --access Allow --priority 101 --direction Inbound
+azure network nsg create --resource-group $rgName --location "North Europe" --name SAPERPDemoNSG
+azure network nsg rule create --resource-group $rgName --nsg-name SAPERPDemoNSG --name SAPERPDemoNSGRDP --protocol \* --source-address-prefix \* --source-port-range \* --destination-address-prefix \* --destination-port-range 3389 --access Allow --priority 100 --direction Inbound
+azure network nsg rule create --resource-group $rgName --nsg-name SAPERPDemoNSG --name SAPERPDemoNSGSSH --protocol \* --source-address-prefix \* --source-port-range \* --destination-address-prefix \* --destination-port-range 22 --access Allow --priority 101 --direction Inbound
 
-azure network vnet create --resource-group %rgName% --name SAPERPDemoVNet --location "North Europe" --address-prefixes 10.0.1.0/24
-azure network vnet subnet create --resource-group %rgName% --vnet-name SAPERPDemoVNet --name Subnet1 --address-prefix 10.0.1.0/24 --network-security-group-name SAPERPDemoNSG
+azure network vnet create --resource-group $rgName --name SAPERPDemoVNet --location "North Europe" --address-prefixes 10.0.1.0/24
+azure network vnet subnet create --resource-group $rgName --vnet-name SAPERPDemoVNet --name Subnet1 --address-prefix 10.0.1.0/24 --network-security-group-name SAPERPDemoNSG
 ```
 
 * Create a new public IP address that can be used to access the virtual machine from the internet
 
 ```
-azure network public-ip create --resource-group %rgName% --name SAPERPDemoPIP --location "North Europe" --domain-name-label %rgNameLower% --allocation-method Dynamic
+azure network public-ip create --resource-group $rgName --name SAPERPDemoPIP --location "North Europe" --domain-name-label $rgNameLower --allocation-method Dynamic
 ```
 
 * Create a new network interface for the virtual machine
 
 ```
-azure network nic create --resource-group %rgName% --location "North Europe" --name SAPERPDemoNIC --public-ip-name SAPERPDemoPIP --subnet-name Subnet1 --subnet-vnet-name SAPERPDemoVNet 
+azure network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-name SAPERPDemoPIP --subnet-name Subnet1 --subnet-vnet-name SAPERPDemoVNet 
 ```
 
 * Create a virtual machine. For the Cloud-Only scenario every VM will have the same name. The SAP SID of the SAP NetWeaver instances in those VMs will be the same as well. Within the Azure Resource Group, the name of the VM needs to be unique, but in different Azure Resource Groups you can run VMs with the same name. The default 'Administrator' account of Windows or 'root' for Linux are not valid. Therefore, a new administrator user name needs to be defined together with a password. The size of the VM also needs to be defined.
 
 ```
-azure vm create --resource-group %rgName% --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest --os-type Windows --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://%rgNameLower%.blob.core.windows.net/vhds/os.vhd
-# azure vm create --resource-group %rgName% --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --image-urn SUSE:SLES:12:latest --os-type Linux --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://%rgNameLower%.blob.core.windows.net/vhds/os.vhd
+azure vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest --os-type Windows --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://$rgNameLower.blob.core.windows.net/vhds/os.vhd --disable-boot-diagnostics
+# azure vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --image-urn SUSE:SLES:12:latest --os-type Linux --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://$rgNameLower.blob.core.windows.net/vhds/os.vhd --disable-boot-diagnostics
 ```
 
 ```
 #####
 # Create a new virtual machine with a VHD that contains the private image that you want to use
 #####
-azure vm create --resource-group %rgName% --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --os-type Windows --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://%rgNameLower%.blob.core.windows.net/vhds/os.vhd -Q <path to image vhd>
-#azure vm create --resource-group %rgName% --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --os-type Linux --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://%rgNameLower%.blob.core.windows.net/vhds/os.vhd -Q <path to image vhd>
+azure vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --os-type Windows --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://$rgNameLower.blob.core.windows.net/vhds/os.vhd -Q <path to image vhd> --disable-boot-diagnostics
+#azure vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --os-type Linux --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://$rgNameLower.blob.core.windows.net/vhds/os.vhd -Q <path to image vhd> --disable-boot-diagnostics
 ```
 
 * Optionally add additional disks and restore necessary content. Be aware that all blob names (URLs to the blobs) must be unique within Azure.
 
 ```
 # Optional: Attach additional data disks
-azure vm disk attach-new --resource-group %rgName% --vm-name SAPERPDemo --size-in-gb 1023 --vhd-name datadisk
+azure vm disk attach-new --resource-group $rgName --vm-name SAPERPDemo --size-in-gb 1023 --vhd-name datadisk
 ```
 
 ##### Template
