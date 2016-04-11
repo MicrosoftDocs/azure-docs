@@ -92,9 +92,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 ### Updating the AndroidManifest.xml.
 
 
-1. To support GCM, will must implement a Instance ID listener service in our code which is used to [obtain registration tokens](https://developers.google.com/cloud-messaging/android/client#sample-register) using [Google's Instance ID API](https://developers.google.com/instance-id/). In this tutorial we will name the class `MyInstanceIDService`.Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag. 
-
-	Replace the `<your package>` placeholder with the your actual package name.
+1. To support GCM, we must implement a Instance ID listener service in our code which is used to [obtain registration tokens](https://developers.google.com/cloud-messaging/android/client#sample-register) using [Google's Instance ID API](https://developers.google.com/instance-id/). In this tutorial we will name the class `MyInstanceIDService`. 
+ 
+	Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag. Replace the `<your package>` placeholder with the your actual package name.
 
 		<service android:name="<your package>.MyInstanceIDService" android:exported="false">
 		    <intent-filter>
@@ -144,12 +144,14 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 1. In the Project View, expand **app** > **src** > **main** > **java**. Right-click your package folder under **java**, click **New**, and then click **Java Class**. Add a new class named `NotificationSettings`. 
 
-	Make sure to update the three placeholders:
+	![Android Studio - new Java class][6]
+
+	Make sure to update the these three placeholders in the following code for the `NotificationSettings` class:
 	* **SenderId**: The project number you obtained earlier in the [Google Cloud Console](http://cloud.google.com/console).
 	* **HubListenConnectionString**: The **DefaultListenAccessSignature** connection string for your hub. You can copy that connection string by clicking **Access Policies** on the **Settings** blade of your hub on the [Azure Portal].
 	* **HubName**: Use the name of your notification hub that appears in the hub blade in the [Azure Portal].
 
-	Add the following code for the class for your notification settings:
+	`NotificationSettings` code:
 
 		public class NotificationSettings {
 		    public static String SenderId = "<Your SenderId>";
@@ -157,10 +159,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		    public static String HubListenConnectionString = "<Your default listen connection string>";
 		}
 
+2. Using the steps above, add another new class named `MyInstanceIDService`. This will be our Instance ID listener service implementation.
 
-2. Using the steps above, add another new class named `MyInstanceIDService`. This will be our Instance ID listener service implementation. Add the following code for the class.
-
-	This code will call our `IntentService` to [refresh the GCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) in the background.
+	The code for this class will call our `IntentService` to [refresh the GCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) in the background.
 
 		import android.content.Intent;
 		import android.util.Log;
@@ -221,15 +222,13 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		            // Storing the registration id that indicates whether the generated token has been
 		            // sent to your server. If it is not stored, send the token to your server,
 		            // otherwise your server should have already received the token.
-		            if ((regID=sharedPreferences.getString("registrationID", null)) == null) {
-		
+		            if ((regID=sharedPreferences.getString("registrationID", null)) == null) {		
 		                NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
 		                        NotificationSettings.HubListenConnectionString, this);
 		                Log.i(TAG, "Attempting to register with NH using token : " + token);
 		                regID = hub.register(token).getRegistrationId();
 		                resultString = "Registered Successfully - RegId : " + regID;
-		                Log.i(TAG, resultString);
-		
+		                Log.i(TAG, resultString);		
 		                sharedPreferences.edit().putString("registrationID", regID ).apply();
 		            } else {
 		                resultString = "Previously Registered Successfully - RegId : " + regID;
@@ -257,7 +256,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		import android.widget.TextView;
 		import android.widget.Toast;
 
-5. Add the following private members at the top of the class. We will use these check the availability of Google Play Services as recommended by Google.
+5. Add the following private members at the top of the class. We will use these [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
 
 	    public static MainActivity mainActivity;
 		private GoogleCloudMessaging gcm;
@@ -361,9 +360,6 @@ Your notification hub is now configured to work with GCM, and you have the conne
         android:id="@+id/text_hello"
 
 11. Next we will add a subclass for our receiver we defined in the AndroidManifest.xml. Add another new class to your project named `MyHandler`.
-
-	![Android Studio - new Java class][6]
-
 
 12. Add the following import statements at the top of `MyHandler.java`:
 
