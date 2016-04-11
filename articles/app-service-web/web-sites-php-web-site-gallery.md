@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="02/08/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 # Create a WordPress web app in Azure App Service
