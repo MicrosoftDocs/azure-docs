@@ -3,7 +3,7 @@
     description="how to set up elastic queries over hotizontal partitions"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags

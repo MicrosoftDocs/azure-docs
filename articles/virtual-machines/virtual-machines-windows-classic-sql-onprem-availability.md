@@ -3,9 +3,9 @@
 	description="This tutorial uses resources created with the classic deployment model, and describes how to use the Add Replica wizard in SQL Server Management Studio (SSMS) to add an AlwaysOn Availability Group replica in Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="jroth" />
+	ms.date="04/05/2016"
+	ms.author="mikeray" />
 
 # Extend on-premises AlwaysOn Availability Groups to Azure
 

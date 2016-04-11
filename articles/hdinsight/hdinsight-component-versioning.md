@@ -54,21 +54,21 @@ For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component versions associated with HDInsight cluster versions are itemized in the following table. Note that the default cluster version used by Azure HDInsight is currently 3.2, and, as of 12/03/2015, based on HDP 2.2.
 
 
-Component|HDInsight Version 3.3 | HDInsight Version 3.2 (Default)|HDInsight Version 3.1 |HDInsight Version 3.0|
----|---|---|---|---
-Hortonworks Data Platform|2.3|2.2|2.1.7|2.0|
-Apache Hadoop & YARN|2.7.1|2.6.0|2.4.0|2.2.0|
-Apache Tez|0.7.0 | 0.5.2|0.4.0||
-Apache Pig|0.15.0|0.14.0|0.12.1|0.12.0|
-Apache Hive & HCatalog|1.2.1|0.14.0|0.13.1|0.12.0|
-Apache HBase |1.1.1|0.98.4|0.98.0||
-Apache Sqoop|1.4.6|1.4.5|1.4.4|1.4.4|1.4.3
-Apache Oozie|4.2.0|4.1.0|4.0.0|4.0.0|
-Apache Zookeeper|3.4.6|3.4.6|3.4.5|3.4.5|
-Apache Storm|0.10.0|0.9.3|0.9.1||
-Apache Mahout|0.9.0+|0.9.0|0.9.0||
-Apache Phoenix|4.4.0|4.2.0|4.0.0.2.1.7.0-2162||
-Apache Spark|1.5.2 (Linux only/Experimental build)|1.3.1 (Windows-only)|||
+Component|HDInsight version 3.4 | HDInsight Version 3.3 | HDInsight Version 3.2 (Default)|HDInsight Version 3.1 |HDInsight Version 3.0|
+---|---|---|---|---|---
+Hortonworks Data Platform|2.4|2.3|2.2|2.1.7|2.0|
+Apache Hadoop & YARN|2.7.1|2.7.1|2.6.0|2.4.0|2.2.0|
+Apache Tez|0.7.0|0.7.0 | 0.5.2|0.4.0||
+Apache Pig|0.15.0|0.15.0|0.14.0|0.12.1|0.12.0|
+Apache Hive & HCatalog|1.2.1|1.2.1|0.14.0|0.13.1|0.12.0|
+Apache HBase |1.1.2|1.1.1|0.98.4|0.98.0||
+Apache Sqoop|1.4.6|1.4.6|1.4.5|1.4.4|1.4.4|1.4.3
+Apache Oozie|4.2.0|4.2.0|4.1.0|4.0.0|4.0.0|
+Apache Zookeeper|3.4.6|3.4.6|3.4.6|3.4.5|3.4.5|
+Apache Storm|0.10.0|0.10.0|0.9.3|0.9.1||
+Apache Mahout|0.9.0+|0.9.0+|0.9.0|0.9.0||
+Apache Phoenix|4.4.0|4.4.0|4.2.0|4.0.0.2.1.7.0-2162||
+Apache Spark|1.6.0 (Linux only)|1.5.2 (Linux only/Experimental build)|1.3.1 (Windows-only)|||
 
 
 **Get current component version information**
@@ -89,6 +89,7 @@ The following table lists the versions of HDInsight currently available, the cor
 
 HDInsight Version|HDP Version|High Availability|Release Date|Available on Azure Portal|Support Expiration Date|Deprecation Date
 ---|---|---|---|---|---|---
+HDI 3.4|HDP 2.4|Yes|03/29/2016|Yes||
 HDI 3.3|HDP 2.3|Yes|12/02/2015|Yes||
 HDI 3.2|HDP 2.2|Yes|2/18/2015|Yes||
 HDI 3.1|HDP 2.1|Yes|6/24/2014|Yes||
@@ -110,6 +111,8 @@ The **Deprecation Date** is the date after which the cluster version cannot be c
 > [AZURE.NOTE] Both HDInsight 2.1 and 3.0 clusters run on Azure Guest OS [Family 4](../cloud-services/cloud-services-guestos-update-matrix.md), which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1.
 
 ## Hortonworks release notes associated with HDInsight versions##
+
+* HDInsight cluster version 3.4 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
 
 * HDInsight cluster version 3.3 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
 	* Apache Storm release notes is available [here](https://storm.apache.org/2015/11/05/storm0100-released.html).

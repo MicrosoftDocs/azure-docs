@@ -3,8 +3,8 @@
    description="Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud." 
    services="sql-database" 
    documentationCenter="" 
-   authors="jeffgoll" 
-   manager="jeffreyg" 
+   authors="carlrabeler" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="02/25/2016"
-   ms.author="sashan"/>
+   ms.author="sashan;carlrab"/>
 
 # SQL Database FAQ
 

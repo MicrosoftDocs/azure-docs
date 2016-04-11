@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="04/06/2016" 
 	ms.author="stefsch"/>	
 
 # Network Configuration Details for App Service Environments with ExpressRoute 
@@ -21,7 +21,7 @@
 ## Overview ##
 Customers can connect an [Azure ExpressRoute][ExpressRoute] circuit to their virtual network infrastructure, thus extending their on-premises network to Azure.  An App Service Environment can  be created in a subnet of this [virtual network][virtualnetwork] infrastructure.  Apps running on the App Service Environment can then establish secure connections to back-end resources accessible only over the ExpressRoute connection.  
 
-**Note:**  An App Service Environment cannot be created in a "v2" virtual network.  App Service Environments are currently only supported in classic "v1" virtual networks.
+**Note:**  An App Service Environment cannot be created in a "v2" virtual network.  App Service Environments are currently only supported in classic "v1" virtual networks using an RFC1918 address space (i.e. private addresses).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 

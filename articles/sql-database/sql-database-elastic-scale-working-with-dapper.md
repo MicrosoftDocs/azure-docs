@@ -3,7 +3,7 @@
 	description="Using elastic database client library with Dapper." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng"/>
 
 <tags 

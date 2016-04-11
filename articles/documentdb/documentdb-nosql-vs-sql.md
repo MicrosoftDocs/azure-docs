@@ -1,5 +1,5 @@
 <properties
-	pageTitle="When to use NoSQL vs SQL | Microsoft Azure"when to use NoSQL
+	pageTitle="When to use NoSQL vs SQL | Microsoft Azure"
 	description="Compare the benefits of using non-relational NoSQL solutions versus SQL solutions. Learn whether one of the Microsoft Azure NoSQL services or SQL Server solutions best fits your scenario."
 	keywords="nosql vs sql, when to use NoSQL, sql vs nosql"
 	services="documentdb"

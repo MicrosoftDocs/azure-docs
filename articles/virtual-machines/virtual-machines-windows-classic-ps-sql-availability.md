@@ -3,9 +3,9 @@
 	description="This tutorial uses resources created with  the classic deployment model, and uses PowerShell to create an AlwaysOn Availability Group in Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/04/2015"
-	ms.author="jroth" />
+	ms.author="mikeray" />
 
 # Configure AlwaysOn Availability Groups in Azure VM (PowerShell)
 

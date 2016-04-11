@@ -21,7 +21,7 @@
 
 # Tutorial: Perform sentiment analysis using Stream Analytics and Machine Learning #
 
-This tutorial is designed to help you quickly setup a simple Stream Analytics job with Machine Learning integration. We will leverage a Sentiment Analytics Machine Learning Model from Cortana Analytics Gallery to analyze streaming text data and get determine the sentiment score in real time. This is a good tutorial to understand scenarios such as real time sentiment analytics on streaming twitter data, customer chat record analysis with support staff, comments on forums/blogs/videos and many other real-time predictive scoring scenarios.
+This tutorial is designed to help you quickly setup a simple Stream Analytics job with Machine Learning integration. We will leverage a Sentiment Analytics Machine Learning Model from Cortana Intelligence Gallery to analyze streaming text data and get determine the sentiment score in real time. This is a good tutorial to understand scenarios such as real time sentiment analytics on streaming twitter data, customer chat record analysis with support staff, comments on forums/blogs/videos and many other real-time predictive scoring scenarios.
   
 In this tutorial a sample CSV file with text (as shown in figure 1 below) is provided as input in the Azure Blob Store. The job will apply the Sentiment Analytics model as a user-defined function (UDF) on the sample text data from the blob store. The end result will place placed within the same Azure Blob Store in another CSV file. A diagram of this configuration is provided in figure 2 below). For a more realistic scenario this blob store input may be replaced with streaming twitter data from an Azure Event Hub input. Additionally a [Power BI](https://powerbi.microsoft.com/) real-time visualization of the aggregate sentiment could be built. Future iterations of this article will include such extensions.
 
@@ -43,7 +43,7 @@ The prerequisites for this article are as follows:
 At a high level, the following steps will be performed:
 
 1.	Upload the CSV input file into Blob Storage
-2.	Add a Sentiment Analytics model from Cortana Analytics Gallery to your Machine Learning workspace
+2.	Add a Sentiment Analytics model from Cortana Intelligence Gallery to your Machine Learning workspace
 3.	Deploy this model as a web service within the Azure Machine Learning workspace
 4.	Create a Stream Analytics job which calls this web service as a function to determine sentiment for the text input
 5.	Start the Stream Analytics job and observe the output 
@@ -63,9 +63,9 @@ For this step you can use any CSV file including the one specified in the introd
 
 3.	Upload the CSV file by clicking the **Upload Blob** icon and then choose **file from the local disk**.  
 
-## Add the Sentiment Analytics Model from Cortana Analytics Gallery
+## Add the Sentiment Analytics Model from Cortana Intelligence Gallery
 
-1.	Download the [predictive sentiment analytics model](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) in Cortana Analytics Gallery.  
+1.	Download the [predictive sentiment analytics model](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) in Cortana Intelligence Gallery.  
 2.	Click **Open** in the Studio:  
 
     ![stream analytics machine learning tutorial open machine learning studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
@@ -140,7 +140,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 
 ## Conclusion
 
-In this tutorial, a Stream Analytics job was created that reads streaming text data and applying sentiment analytics on it in real time. You were able to do all this without having to worry about intricacies of building a Sentiment Analytics model. This is one of the advantages of the Cortana Analytics suite.
+In this tutorial, a Stream Analytics job was created that reads streaming text data and applying sentiment analytics on it in real time. You were able to do all this without having to worry about intricacies of building a Sentiment Analytics model. This is one of the advantages of the Cortana Intelligence suite.
 
 The Azure Machine Learning function related metrics are also able to be observed.  Click on the **MONITOR** tab. Three function related metrics are present.  
   
