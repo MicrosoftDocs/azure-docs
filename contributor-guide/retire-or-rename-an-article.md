@@ -52,7 +52,9 @@ You'll have to work with the person who maintains and updates the documentation 
 
 ## Step 6: Retire the article
 
-After you've completed the prior steps and those changes are live, you can delete the article from the repository.
+After you've completed the prior steps and those changes are live, you can delete the article from the repository. 
+
+**Important:** When you delete files, you must use the `git add --all` command.
 
 ## Step 7: Remove links from MSDN
 
