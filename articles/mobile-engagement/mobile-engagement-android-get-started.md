@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="hero-article"
 	ms.date="04/08/2016"
-	ms.author="piyushjo, ricksal" />
+	ms.author="piyushjo,ricksal" />
 
 # Get started with Azure Mobile Engagement for Android apps
 
