@@ -149,7 +149,7 @@ Azure Service Level Agreements are independent of our on-premises Microsoft lice
 
 The following article will help you troubleshoot some common causes of login issues:
 
-https://azure.microsoft.com/documentation/articles/billing-cannot-login-subscription/
+[I am unable to log in to manage my Azure subscription](billing-cannot-login-subscription.md)
 
 **Note** Make sure you are logging in as the right administrator: An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/).
 
