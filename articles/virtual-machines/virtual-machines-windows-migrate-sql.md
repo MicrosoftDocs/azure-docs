@@ -125,7 +125,7 @@ If you are migrating to an existing Azure VM, the following configuration steps 
 		- Size.
  	- In addition, click to accept the self-generated certificate for this new Microsoft Azure Virtual Machine and then click OK.
 
-	![Azure new machine settings](./media/virtual-machines-windows-classic-migrate-sql/azure-new-machine-settings.png)
+	![Azure new machine settings](./media/virtual-machines-windows-migrate-sql/azure-new-machine-settings.png)
 
 11. Specify the target database name if different from the source database name. If the target database already exists, the system will automatically increment the database name rather than overwrite the existing database.
 12. Click Next and then click Finish.
