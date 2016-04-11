@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sstein"/>
 
 # Manage and size an elastic database pool with C&#x23;
