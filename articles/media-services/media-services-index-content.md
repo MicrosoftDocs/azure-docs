@@ -69,7 +69,7 @@ Note that if no configuration file is specified, the media file will be indexed 
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 
 	    // Get a reference to the Azure Media Indexer.
-	    string MediaProcessorName = "Azure Media Indexer",
+	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
 	    // Read configuration from file if specified.

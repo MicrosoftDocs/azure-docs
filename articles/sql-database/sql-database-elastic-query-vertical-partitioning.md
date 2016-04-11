@@ -3,7 +3,7 @@
     description="how to set up cross-database queries over vertical partitions"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags
