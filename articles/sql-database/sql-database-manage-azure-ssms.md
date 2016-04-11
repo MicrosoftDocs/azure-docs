@@ -3,8 +3,8 @@
 	description="Learn how to use SQL Server Management Studio to manage SQL Database servers and databases." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+	authors="stevestein" 
+	manager="jhubbard" 
 	editor="tysonn"/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/07/2016" 
-	ms.author="jeffreyg"/>
+	ms.author="sstein"/>
 
 
 # Managing Azure SQL Database using SQL Server Management Studio 

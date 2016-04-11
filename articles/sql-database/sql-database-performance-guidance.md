@@ -3,8 +3,8 @@
 	description="This topic provides guidance to help you determine which service tier is right for your application and provides recommendations for tuning your application to get the most out of your Azure SQL Database."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="11/03/2015"
-	ms.author="jroth" />
+	ms.author="carlrab" />
 
 # Azure SQL Database performance guidance for single databases
 
@@ -23,7 +23,7 @@
 
 Microsoft Azure SQL Database has three [service tiers](sql-database-service-tiers.md), Basic, Standard, and Premium. All strictly isolate the resource provided to your Azure SQL Database and guarantee predictable performance. The throughput guaranteed for your database rises from Basic through Standard and then to Premium.
 
->[AZURE.NOTE] Business and Web service tiers will be retired September 2015. For more information, see [Web and Business Edition Sunset FAQ](https://msdn.microsoft.com/library/azure/dn741330.aspx). For detailed information on upgrading existing Web and Business databases to the new service tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md).
+>[AZURE.NOTE] Business and Web service tiers will be retired September 2015. For more information, see [Web and Business Edition Sunset FAQ](https://msdn.microsoft.com/library/azure/dn741330.aspx). For detailed information on upgrading existing Web and Business databases to the new service tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-server-portal.md).
 
 This paper provides guidance to help you determine which service tier is right for your application and provides recommendations for tuning your application to get the most out of your Azure SQL Database.
 
@@ -324,7 +324,7 @@ The following example creates a case where the selected query plan contains a sc
 
 Azure SQL Database contains functionality to help hint database administrators on how to find and fix common missing index conditions. Dynamic management views (DMVs) built into Azure SQL Database look at query compilation where an index would significantly reduce the estimated cost to run a query. During query execution, it tracks how often each query plan is executed as well as the estimated gap between the executing query plan and the imagined one where that index existed. This allows a database administrator to quickly guess which physical database design changes might improve the overall workload cost for a given database and its real workload.
 
->[AZURE.NOTE] Before using the DMVs to find missing indexes, first review the section on [Query Performance Insight and Index Advisor](query-performance-insight-and-index-advisor.md).
+>[AZURE.NOTE] Before using the DMVs to find missing indexes, first review the section on [Query Performance Insight and Index Advisor](#query-performance-insight-and-index-advisor).
 
 The following query can be used to evaluate potential missing indexes.
 
