@@ -27,9 +27,9 @@ Add an account to the directory of your tenant for every user who accesses a Mic
 3. Select the **Users** tab, and then, in the command area, select **Add User**.
 4. On the **Tell us about this user** page, under **Type of user**, select either:
 
-	- **New user in your organization** – to add a new user account in your directory.
-	- **User with an existing Microsoft account** – to add an existing Microsoft consumer account to your directory (for example, an Outlook account)
-	- **User in another Azure AD directory** – to add a user account to your directory that is sourced from another Azure AD directory. You need to be a member of the other directory to select a user in it.
+	- **New user in your organization** – adds a new user account in your directory.
+	- **User with an existing Microsoft account** – adds an existing Microsoft consumer account to your directory (for example, an Outlook account)
+	- **User in another Azure AD directory** – adds a user account to your directory that is sourced from another Azure AD directory. You can select a user in other directory only if you're also a member of that directory.
 	- **Users in partner companies** - to invite and authorize partner company users to your directory (See [Azure Active Directory B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md))
 
 
