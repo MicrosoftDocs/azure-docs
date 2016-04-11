@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/01/2015"
+   ms.date="04/11/2016"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 # Get started with SQL Database Dynamic Data Masking (Azure Classic Portal)
