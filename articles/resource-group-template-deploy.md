@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/21/2016"
+   ms.date="04/11/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Azure Resource Manager templates
@@ -42,7 +42,7 @@ You specify the type of deployment through the **Mode** property, as shown in th
 
 1. Login to your Azure account. After providing your credentials, the command returns information about your account.
 
-        Login-AzureRmAccount
+        Add-AzureRmAccount
 
      A summary of your account is returned.
 
@@ -51,9 +51,9 @@ You specify the type of deployment through the **Mode** property, as shown in th
         ...
 
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment with the **Select-AzureRmSubscription** command. 
+2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment with the **Set-AzureRmContext** command. 
 
-        Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
+        Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 3. If you do not have an existing resource group, create a new resource group with the **New-AzureRmResourceGroup** command. Provide the name of the resource group and location that you need for your solution. 
 
