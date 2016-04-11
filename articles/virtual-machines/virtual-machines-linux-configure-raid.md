@@ -46,7 +46,7 @@ Two or more empty data disks will typically be needed to configure a RAID device
 ## Create the disk partitions
 In this example we will create a single disk partition on /dev/sdc. The new disk partition will then be called /dev/sdc1.
 
-- Start fdisk to begin creating partitions
+1. Start fdisk to begin creating partitions
 
 		# sudo fdisk /dev/sdc
 		Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -58,37 +58,37 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
-- Press 'n' at the prompt to create a **n**ew partition:
+2. Press 'n' at the prompt to create a **n**ew partition:
 
 		Command (m for help): n
 
-- Next, press 'p' to create a **p**rimary partition:
+3. Next, press 'p' to create a **p**rimary partition:
 
 		Command action
 			e   extended
 			p   primary partition (1-4)
 
-- Press '1' to select partition number 1:
+4. Press '1' to select partition number 1:
 
 		Partition number (1-4): 1
 
-- Select the starting point of the new partition, or just press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
+5. Select the starting point of the new partition, or just press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, just press `<enter>` create a single partition that spans the entire drive:
+6. Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, just press `<enter>` create a single partition that spans the entire drive:
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- Next, change the ID and **t**ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):
+7. Next, change the ID and **t**ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):
 
 		Command (m for help): t
 		Selected partition 1
 		Hex code (type L to list codes): fd
 
-- Finally, write the partition table to the drive and exit fdisk:
+8. Finally, write the partition table to the drive and exit fdisk:
 
 		Command (m for help): w
 		The partition table has been altered!
