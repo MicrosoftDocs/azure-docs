@@ -3,15 +3,15 @@
 	description="An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides a Powershell script to help assess the suitability of using an elastic database pool for a group of databases."
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="stevestein"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="03/16/2016"
-	ms.author="jeffreyg"
+	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
