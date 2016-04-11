@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="04/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -83,6 +83,7 @@ To configure the integration of People into Azure AD, you need to add People fro
 
 7. In the results pane, select **People**, and then click **Complete** to add the application.
 
+	![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/tutorial_people_02.png)
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with People based on a test user called "Britta Simon".
