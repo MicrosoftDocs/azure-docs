@@ -25,70 +25,118 @@ To create a Linux VM you will need [the Azure CLI](../xplat-cli-install.md) in r
 
 ```bash
 # Create the Resource Group
-chrisL@fedora$ azure group create TestRG westeurope
-
-# Create the Storage Account
-chrisL@fedora$ azure storage account create \  
---location westeurope \
---resource-group TestRG \
---type GRS \
-computeteststore
+chrisL@fedora$ azure group create TestRG -l westeurope
 
 # Verify the RG using the JSON parser
-chrisL@fedora$ azure group show testrg --json | jq '.'
+chrisL@fedora$ azure group show TestRG --json | jq '.'
+
+# Create the Storage Account
+chrisL@fedora$ azure storage account create -g TestRG -l westeurope --type GRS computeteststore
+
+# Verify the storage using the JSON parser
+chrisL@fedora$ azure storage account show -g TestRG computeteststore --json | jq '.'
 
 # Create the Virtual Network
 chrisL@fedora$ azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
 
-# Verify the RG
-chrisL@fedora$ azure group show testrg --json | jq '.'
-
 # Create the Subnet
 chrisL@fedora$ azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
-# Verify the VNet and Subnet
-chrisL@fedora$ azure network vnet show testrg testvnet --json | jq '.'
+# Verify the VNet and Subnet using the JSON parser
+chrisL@fedora$ azure network vnet show TestRG TestVNet --json | jq '.'
 
-# Create the NIC
-chrisL@fedora$ azure network nic create -g TestRG -n TestNIC -l westeurope -a 192.168.1.101 -m TestVNet -k FrontEnd
+# Create a public IP
+azure network public-ip create -g TestRG -n TestLBPIP -l westeurope -d testlb -a static -i 4
 
-# Verify the NIC
-chrisL@fedora$ azure network nic show testrg testnic --json | jq '.'
+# Create the load balancer
+azure network lb create -g TestRG -n TestLB -l westeurope
+
+# Create a front-end IP pool for the load balancer, and associate our public IP
+azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
+
+# Create our back-end IP pool for the load balancer
+azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
+
+# Create SSH inbound NAT rules for the load balancer
+azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
+azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
+
+# Create our web inbound NAT rules for the load balancer
+azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
+     -t TestFrontEndPool -o TestBackEndPool
+
+# Create our load balancer health probe
+azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+
+# Verify the load balancer, IP pools, and NAT rules using the JSON parser
+azure network lb show -g TestRG -n TestLB --json | jq '.'
+
+# Create the first NIC
+azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+    -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
+    
+# Create the second NIC
+azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+    -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
+
+# Verify the NICs using the JSON parser
+chrisL@fedora$ azure network nic show TestRG LB-NIC1 --json | jq '.'
+chrisL@fedora$ azure network nic show TestRG LB-NIC2 --json | jq '.'
 
 # Create the NSG
-chrisL@fedora$ azure network nsg create testrg testnsg westeurope
+chrisL@fedora$ azure network nsg create -g TestRG -n TestNSG -l westeurope
 
-# Add an inbound rule for the NSG
-chrisL@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1000  --destination-port-range 22 --access allow testrg testnsg testnsgrule
+# Add the inbound rules for the NSG
+chrisL@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
+    --destination-port-range 22 --access allow -g TestRG -a TestNSG -n SSHRule
+azure network nsg rule create --protocol tcp --direction inbound --priority 1001 \
+    --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 
-# Creat the Public facing NIC
-chrisL@fedora$ azure network public-ip create -d testsubdomain testrg testpip westeurope
+# Verify the NSG and inbound rules using the JSON parser
+azure network nsg show -g TestRG -n TestNSG --json | jq '.'
 
-# Verify the NIC
-chrisL@fedora$ azure network public-ip show testrg testpip --json | jq '.'
+# Bind the NSG to the NICs
+chrisL@fedora$ azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
+azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
 
-# Associate the Public IP to the NIC
-chrisL@fedora$ azure network nic set --public-ip-name testpip testrg testnic
+# Create the availability set
+azure availset create -g TestRG -n TestAvailSet -l westeurope
 
-# Bind the NSG to the NIC
-chrisL@fedora$ azure network nic set --network-security-group-name testnsg testrg testnic
-
-# Create the Linux VM
+# Create the first Linux VM
 chrisL@fedora$ azure vm create \            
-    --resource-group testrg \
-    --name testvm \
+    --resource-group TestRG \
+    --name TestVM1 \
     --location westeurope \
     --os-type linux \
-    --nic-name testnic \
-    --vnet-name testvnet \
+    --availset-name TestAvailSet \
+    --nic-name LB-NIC1 \
+    --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
+    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --ssh-publickey-file ~/.ssh/id_rsa.pub \
+    --admin-username ops
+    
+# Create the second Linux VM
+azure vm create \            
+    --resource-group TestRG \
+    --name TestVM2 \
+    --location westeurope \
+    --os-type linux \
+    --availset-name TestAvailSet \
+    --nic-name LB-NIC2 \
+    --vnet-name TestVnet \
+    --vnet-subnet-name FrontEnd \
+    --storage-account-name computeteststore \
+    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 
-# Verify everything built
-chrisL@fedora$ azure vm show testrg testvm
+# Verify everything built using the JSON parser
+chrisL@fedora$ azure vm show -g TestRG -n TestVM1 --jsson | jq '.'
+azure vm show -g TestRG -n TestVM2 --jsson | jq '.'
 
 ```
 
