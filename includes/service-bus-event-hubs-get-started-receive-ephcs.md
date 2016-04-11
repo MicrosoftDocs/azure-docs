@@ -14,7 +14,7 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 
     ![][12]
 
-    Copy the access key to use later in this tutorial.
+    Copy the primary access key to use later in this tutorial.
 
 4. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Receiver**.
 
