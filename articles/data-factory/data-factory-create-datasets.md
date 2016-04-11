@@ -13,28 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="04/08/2016" 
 	ms.author="spelluru"/>
 
 # Datasets in Azure Data Factory
-Datasets are named references/pointers to the data you want to use as an input or an output of an activity in a Data Factory pipeline. Datasets identify data structures within different data stores including tables, files, folders, and documents. After you create datasets, you can use them with activities in the pipeline. For example, you can have a dataset as an input/output dataset of a Copy Activity/HDInsightHive Activity. Typical steps in creating an Azure data factory are: 
+Datasets in Azure Data Factory are named references/pointers to the data that you want to use as an input or an output of an activity in a pipeline. Datasets identify data within different data stores including tables, files, folders, and documents. 
 
-1. Create a data factory
-2. Create linked services
-3. Create datasets
-4. Create a pipeline with activities that consume/produce datasets
+When creating a data factory, you create linked services that link data stores to the data factory. A **linked service** defines the information needed for Azure Data Factory to **connect** to a data store, for example, Azure Storage Account and Azure SQL Database. The linked service defines the mechanism (address, protocol, authentication scheme, etc...) to access the data store. 
 
-> [AZURE.NOTE] For an overview of Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
+A **dataset** in Data Factory represents data structures (for example: blob container, SQL table) within this data store that can be used as input or output of an activity in a pipeline. After you create datasets, you can use them with activities in the pipeline. For example, you can have a dataset as an input/output dataset of a Copy Activity/HDInsightHive Activity. 
 
-## Overview
-**Linked services** in Data Factory defines the information needed for Data Factory to **connect** to external resources.  Linked services are used for two purposes in Data Factory:
+> [AZURE.NOTE] If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service and [Build your first data factory](data-factory-build-your-first-pipeline.md) for a tutorial to create your first data factory. These two articles provide you background information you need to understand this article better. 
 
-- To represent a **data store** including, but not limited to, an on-premises SQL Server database, Oracle database, file share or an Azure Blob Storage account. 
-- To represent a **compute resource** that can host execution of an activity.  For example, the **HDInsightHive Activity** runs on an HDInsight Hadoop cluster.
-
-A **data store linked service** defines the mechanism (address, protocol, authentication scheme, etc...) to access the data store and **dataset** represents the data within this data store to be used as input or output of an activity.  
-
-## Syntax
+## Define datasets
 A dataset in Azure Data Factory is defined as follows: 
 
 
@@ -68,8 +59,8 @@ The following table describes properties in the above JSON:
 
 | Property | Description | Required | Default |
 | -------- | ----------- | -------- | ------- |
-| name | Name of the dataset | Yes | NA |
-| type | Type of the dataset | Yes | NA |
+| name | Name of the dataset. See [Azure Data Factory - Naming rules](data-factory-naming-rules.md) for naming rules. | Yes | NA |
+| type | Type of the dataset. Specify one of the types supported by Azure Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>See [Dataset Type](#Type) for details. | Yes | NA |
 | structure | Schema of the dataset<br/><br/>See [Dataset Structure](#Structure) section for more details | No. | NA |
 | typeProperties | Properties corresponding to the selected type. See [Dataset Type](#Type) section for details on the supported types and their properties. | Yes | NA |
 | external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not.  | No | false | 
@@ -78,7 +69,7 @@ The following table describes properties in the above JSON:
 
 ### Example
 
-Below is an example of a dataset representing a table named **MyTable** in an **Azure SQL database**. The Azure SQL database connection strings are defined in the **AzureSqlLinkedService** referenced in this dataset. This dataset is sliced daily.  
+Below is an example of a dataset representing a table named **MyTable** in an **Azure SQL database**. 
 
 	{
 	    "name": "DatasetSample",
@@ -97,6 +88,13 @@ Below is an example of a dataset representing a table named **MyTable** in an **
 	    }
 	}
 
+Note the following: 
+
+- type is set to AzureSqlTable.
+- tableName type property (specific to AzureSqlTable type) is set to MyTable.
+- linkedServiceName refers to an linked service of type AzureSqlDatabase. See the definition of linked service below. 
+- availability frequency is set to Day and interval is set to 1, which means that the slice is produced daily.  
+
 AzureSqlLinkedService is defined as follows:
 
 	{
@@ -110,7 +108,16 @@ AzureSqlLinkedService is defined as follows:
 	    }
 	}
 
-As you can see, the linked service defines how to connect to an Azure SQL database and the dataset defines what table is used as an input/output in your data factory. The activity section in your pipeline JSON specifies whether the dataset is used as an input or output dataset. For an input dataset, you should set "external" property to "true" unless the dataset is produced by Data Factory.  
+In the above JSON: 
+
+- type is set to AzureSqlDatabase
+- connectionString type property specifies information to connect to an Azure SQL database.  
+
+
+As you can see, the linked service defines how to connect to an Azure SQL database and the dataset defines what table is used as an input/output in your data factory. The activity section in your [pipeline](data-factory-create-pipelines.md) JSON specifies whether the dataset is used as an input or output dataset.
+
+
+> [AZURE.IMPORTANT] Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This would generally apply to input(s) of first activity in a pipeline.   
 
 ## <a name="Type"></a> Dataset Type
 The supported data sources and dataset types are aligned. See topics referenced in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article for information on types and configuration of datasets. For example, if you are using data from an Azure SQL database, click Azure SQL Database in the list of  supported data stores to see detailed information on how to use Azure SQL Database as a source or sink data store.  

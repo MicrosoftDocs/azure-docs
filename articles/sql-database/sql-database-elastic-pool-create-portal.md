@@ -4,15 +4,15 @@
 	keywords="scalable database,database configuration"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="03/24/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>

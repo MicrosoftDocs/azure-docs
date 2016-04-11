@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic Deployment)"
-	description="Learn how to automate the configuration of SQL Server encryption for use with Azure Key Vault. This topic explains how to use Azure Key Vault Integration with SQL Server virtual machines create in the classic deployment model." 
-	services="virtual-machines-windows" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg"
+<properties
+	pageTitle="Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)"
+	description="Learn how to automate the configuration of SQL Server encryption for use with Azure Key Vault. This topic explains how to use Azure Key Vault Integration with SQL Server virtual machines create in the classic deployment model."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="rothja"
+	manager="jhubbard"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -13,11 +13,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="12/17/2015"
+	ms.workload="infrastructure-services"
+	ms.date="04/08/2016"
 	ms.author="jroth"/>
 
-# Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic Deployment)
+# Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)
 
 > [AZURE.SELECTOR]
 - [Resource Manager](virtual-machines-windows-ps-sql-keyvault.md)
@@ -35,7 +35,7 @@ When this feature is enabled, it automatically installs the SQL Server Connector
 [AZURE.INCLUDE [AKV Integration Prepare](../../includes/virtual-machines-sql-server-akv-prepare.md)]
 
 ## Configure AKV Integration
-Use PowerShell to configure Azure Key Vault Integration. The following sections provide an overview of the required parameters and then a sample PowerShell script. 
+Use PowerShell to configure Azure Key Vault Integration. The following sections provide an overview of the required parameters and then a sample PowerShell script.
 
 ### Input parameters
 The following table lists the parameters required to run the PowerShell script in the next section.
@@ -53,7 +53,7 @@ The following table lists the parameters required to run the PowerShell script i
 The **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet creates a configuration object for the Azure Key Vault Integration feature. The **Set-AzureVMSqlServerExtension** configures this integration with the **KeyVaultCredentialSettings** parameter. The following steps show how to use these commands.
 
 1. In Azure PowerShell, first configure the input parameters with your specific values as described in the previous sections of this topic. The following script is an example.
-	
+
 		$akvURL = "https://contosokeyvault.vault.azure.net/"
 		$spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
 		$spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
@@ -61,7 +61,7 @@ The **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet creates a configurat
 		$vmName = "myvmname"
 		$serviceName = "mycloudservicename"
 2.	Then use the following script to configure and enable AKV Integration.
-	
+
 		$secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
 		$akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
 		Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
