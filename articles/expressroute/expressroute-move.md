@@ -27,33 +27,33 @@ You can use a single ExpressRoute circuit to connect to virtual networks that ar
 
 ## ExpressRoute circuits that are created in the classic deployment model
 
-ExpressRoute circuits that are created in the classic deployment model will have to be moved to the Resource Manager deployment model first to enable connectivity to both the classic and Resource Manager deployment models. There won't be connectivity loss or disruption when a connection is being moved. All circuit-virtual network links in the classic deployment model (within the same subscription and cross-subscription) will be preserved.
+ExpressRoute circuits that are created in the classic deployment model need to be moved to the Resource Manager deployment model first to enable connectivity to both the classic and Resource Manager deployment models. There isn't connectivity loss or disruption when a connection is being moved. All circuit-to-virtual network links in the classic deployment model (within the same subscription and cross-subscription) are preserved.
 
-After the move is completed successfully, the ExpressRoute circuit will look, perform, and feel exactly like an ExpressRoute circuit that was created in the Resource Manager deployment model. You will now be able to create connections to virtual networks in the Resource Manager deployment model.
+After the move is completed successfully, the ExpressRoute circuit looks, performs, and feels exactly like an ExpressRoute circuit that was created in the Resource Manager deployment model. You can now create connections to virtual networks in the Resource Manager deployment model.
 
-After an ExpressRoute circuit has been moved to the Resource Manager deployment model, you will be able to manage the life cycle of the ExpressRoute circuit only by using the Resource Manager deployment model. This means that you can only perform operations like adding/updating/deleting peerings, updating circuit properties (such as bandwidth, SKU and billing type), and deleting circuits in the Resource Manager deployment model. Refer to the section below on circuits that are created in the Resource Manager deployment model for further details on how you can manage access to both deployment models.
+After an ExpressRoute circuit has been moved to the Resource Manager deployment model, you can manage the life cycle of the ExpressRoute circuit only by using the Resource Manager deployment model. This means that you can only perform operations like adding/updating/deleting peerings, updating circuit properties (such as bandwidth, SKU, and billing type), and deleting circuits in the Resource Manager deployment model. Refer to the section below on circuits that are created in the Resource Manager deployment model for further details on how you can manage access to both deployment models.
 
-You will not have to involve your connectivity provider to perform the move.
+You do not have to involve your connectivity provider to perform the move.
 
 ## ExpressRoute circuits that are created in the Resource Manager deployment model
 
 You can enable ExpressRoute circuits that are created in the Resource Manager deployment model to be accessible from both deployment models. Any ExpressRoute circuit in your subscription can be enabled to be accessed from both deployment models.
 
-- ExpressRoute circuits that were created in the Resource Manager deployment model will not have access to the classic deployment model by default.
-- ExpressRoute circuits that have been moved from the classic deployment model to the Resource manager deployment model will be accessible from both deployment models by default.
-- An ExpressRoute circuit will always have access to the Resource Manager deployment model, regardless of whether it was created in the Resource Manager deployment model or in the classic deployment model. This means that you can create connections to virtual networks created in the Resource Manager deployment model by following instructions on [how to link virtual networks](expressroute-howto-linkvnet-arm.md).
+- ExpressRoute circuits that were created in the Resource Manager deployment model do not have access to the classic deployment model by default.
+- ExpressRoute circuits that have been moved from the classic deployment model to the Resource manager deployment model are accessible from both deployment models by default.
+- An ExpressRoute circuit always has access to the Resource Manager deployment model, regardless of whether it was created in the Resource Manager or classic deployment model. This means that you can create connections to virtual networks created in the Resource Manager deployment model by following instructions on [how to link virtual networks](expressroute-howto-linkvnet-arm.md).
 - Access to the classic deployment model is controlled by the "allowClassicOperations" parameter in the ExpressRoute circuit.
 
->[AZURE.IMPORTANT] All quotas that are documented in the [service limits](../azure-subscription-service-limits.md) page will apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and Resource Manager deployment models.
+>[AZURE.IMPORTANT] All quotas that are documented on the [service limits](../azure-subscription-service-limits.md) page apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and Resource Manager deployment models.
 
 
 ### Controlling access to the classic deployment model
 
 You can enable a single ExpressRoute circuit to link to virtual networks in both deployment models by setting the "allowClassicOperations" parameter of the ExpressRoute circuit.
 
-Setting "allowClassicOperations" to TRUE will enable you to link virtual networks from both deployment models to the ExpressRoute circuit. You can link to virtual networks in the classic deployment model by following guidance on [how to link virtual networks in the classic deployment model](expressroute-howto-linkvnet-classic.md). You can link to virtual networks in the Resource Manager deployment model mode by following guidance on [how to link virtual networks in the Resource Manager deployment model](expressroute-howto-linkvnet-arm.md).
+Setting "allowClassicOperations" to TRUE enables you to link virtual networks from both deployment models to the ExpressRoute circuit. You can link to virtual networks in the classic deployment model by following guidance on [how to link virtual networks in the classic deployment model](expressroute-howto-linkvnet-classic.md). You can link to virtual networks in the Resource Manager deployment model by following guidance on [how to link virtual networks in the Resource Manager deployment model](expressroute-howto-linkvnet-arm.md).
 
-Setting "allowClassicOperations" to FALSE will block access to the circuit from the classic deployment model. However, all virtual network links in the classic deployment model will be preserved. In this case, the ExpressRoute circuit will not be visible in the classic deployment model.
+Setting "allowClassicOperations" to FALSE blocks access to the circuit from the classic deployment model. However, all virtual network links in the classic deployment model are preserved. In this case, the ExpressRoute circuit is not visible in the classic deployment model.
 
 ### Supported operations in the classic deployment model
 
@@ -63,14 +63,14 @@ The following classic operations are supported on an ExpressRoute circuit when "
  - Create/update/get/delete virtual network links to classic virtual networks
  - Create/update/get/delete virtual network link authorizations for cross-subscription connectivity
 
-You will not be able to perform the following classic operations when "allowClassicOperations" is set to TRUE:
+You cannot perform the following classic operations when "allowClassicOperations" is set to TRUE:
 
  - Create/update/get/delete Border Gateway Protocol (BGP) peerings for Azure private, Azure public, and Microsoft peerings
  - Delete ExpressRoute circuits
 
 ## Classic to Resource Manager communication
 
-The ExpressRoute circuit acts like a bridge between the classic and Resource Manager deployment models. Traffic between virtual machines deployed in virtual networks in the classic deployment model and those deployed in virtual networks in the Resource Manager deployment model flow through the ExpressRoute if both virtual networks are linked to the same ExpressRoute circuit.
+The ExpressRoute circuit acts like a bridge between the classic and Resource Manager deployment models. Traffic between virtual machines in virtual networks in the classic deployment model and those in virtual networks in the Resource Manager deployment model flows through the ExpressRoute if both virtual networks are linked to the same ExpressRoute circuit.
 
 Aggregate throughput is limited by the throughput capacity of the virtual network gateway. Traffic does not enter the connectivity provider's networks or your networks in such cases. Traffic flow between the virtual networks is fully contained within the Microsoft network.
 
@@ -83,10 +83,10 @@ You can continue to access resources that are typically accessible through Azure
 This section describes what's supported through this capability:
 
  - You can use a single ExpressRoute circuit to access virtual networks that are deployed in the classic and Resource Manager deployment models.
- - You can move an ExpressRoute circuit from the classic to Resource Manager deployment model. After it is moved, the ExpressRoute circuit will look, feel, and perform like any other ExpressRoute circuit that is created in the Resource Manager deployment model.
- - Only the ExpressRoute circuit can be moved. Circuit links, virtual networks, and VPN gateways will not be moved through this operation.
- - After an ExpressRoute circuit has been moved to the Resource Manager deployment model, you will be able to manage the life cycle of the ExpressRoute circuit only by using the Resource Manager deployment model. This means that you can only perform operations like adding/updating/deleting peerings, updating circuit properties (such as bandwidth, SKU and billing type) and deleting circuits in the Resource Manager deployment model.
- - The ExpressRoute circuit acts like a bridge between the classic and Resource Manager deployment models. Traffic between virtual machines that are deployed in virtual networks in the classic deployment model and those deployed in virtual networks in the Resource Manager deployment model flow through ExpressRoute if both virtual networks are linked to the same ExpressRoute circuit.
+ - You can move an ExpressRoute circuit from the classic to Resource Manager deployment model. After it is moved, the ExpressRoute circuit looks, feels, and performs like any other ExpressRoute circuit that is created in the Resource Manager deployment model.
+ - You can only move the ExpressRoute circuit. Circuit links, virtual networks, and VPN gateways cannot be moved through this operation.
+ - After an ExpressRoute circuit has been moved to the Resource Manager deployment model, you can manage the life cycle of the ExpressRoute circuit only by using the Resource Manager deployment model. This means that you can only perform operations like adding/updating/deleting peerings, updating circuit properties (such as bandwidth, SKU, and billing type), and deleting circuits in the Resource Manager deployment model.
+ - The ExpressRoute circuit acts like a bridge between the classic and Resource Manager deployment models. Traffic between virtual machines in virtual networks in the classic deployment model and those in virtual networks in the Resource Manager deployment model flows through ExpressRoute if both virtual networks are linked to the same ExpressRoute circuit.
  - Cross-subscription connectivity is supported in both the classic and Resource Manager deployment models.
 
 ## What's not supported
@@ -94,8 +94,8 @@ This section describes what's supported through this capability:
 This section describes what's not supported through this capability:
 
  - Moving circuit links, gateways, and virtual networks from the classic to Resource Manager deployment model.
- - Managing the lifecycle of the ExpressRoute circuit from the classic deployment model.
- - Role-Based Access Control (RBAC) support for the classic deployment model. You will not be able to perform RBAC controls to the circuit in the classic deployment model. Any admin/coadmin of the subscription will be able to link/unlink virtual networks to the circuit.
+ - Managing the life cycle of an ExpressRoute circuit from the classic deployment model.
+ - Role-Based Access Control (RBAC) support for the classic deployment model. You cannot perform RBAC controls to a circuit in the classic deployment model. Any admin/coadmin of the subscription can link or unlink virtual networks to the circuit.
 
 ## Configuration
 
@@ -104,7 +104,7 @@ Follow the instructions that are described in [Move an ExpressRoute circuit from
 ## Next steps
 
 - For workflow information, see [ExpressRoute circuit provisioning workflows and circuit states](expressroute-workflows.md).
-- Configure your ExpressRoute connection.
+- Configure your ExpressRoute connection:
 
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md)
 	- [Configure routing](expressroute-howto-routing-arm.md)
