@@ -107,19 +107,42 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 Hightail application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
 
-Click on the **add user attribute** button and add the following attributes for this application.
-1. Add Attribute with Name **FirstName** select the value from dropdown as **user.givenname**
-2. Add Attribute with Name **LastName** select the value from dropdown as **user.surname**
-3. Add Attribute with Name **Email** select the value from dropdown as **user.mail**
-4. Add Attribute with Name **UserIdentity** select the appropriate unique user identifier like email address as shown in the screenshot below.
-
 ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_51.png) 
 
 **To configure Azure AD single sign-on with Hightail, perform the following steps:**
 
-1. In the Azure classic portal, on the **Hightail** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
-	![Configure Single Sign-On][6] 
+1. In the Azure classic portal, on the **Hightail** application integration page, in the menu on the top, click **Attributes**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_81.png) 
+
+
+1. On the SAML token attributes dialog, for each row shown in the table below, perform the following steps:
+
+	| Attribute Name | Attribute Value |
+	| --- | --- |    
+	| FirstName	| user.givenname |
+    | LastName  | user.surname |
+	| Email | user.mail |
+	| UserIdentity | user.mail |
+
+	a. Click **add user attribute** to open the **Add User Attribure** dialog.
+
+	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_82.png) 
+
+
+	b. In the **Attrubute Name** textbox, type the attribute name shown for that row.
+
+    c. From the **Attribute Value** list, selsect the attribute value shown for that row.
+
+    d. Click **Complete**.	
+	
+
+
+
+1. In the menu on the top, click **Quick Start**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_83.png)  
 
 
 
