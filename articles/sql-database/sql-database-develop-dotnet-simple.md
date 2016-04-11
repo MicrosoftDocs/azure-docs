@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="tobbox"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
