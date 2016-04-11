@@ -1,15 +1,15 @@
 * If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../articles/xplat-cli-install.md) and [Connect to an Azure subscription from the Azure CLI](../articles/xplat-cli-connect.md). When you want to use the Resource Manager mode commands, be sure to connect with the `azure login` command.
 
-* To get started with the Resource Manager mode in the Azure CLI, you might need to switch command modes. By default the CLI starts in asm mode. To change to arm mode, run `azure config mode arm`. To go back to asm mode, run `azure config mode asm`.
+* To get started with the Resource Manager mode in the Azure CLI, you might need to switch command modes. By default the CLI starts in Service Management mode. To change to Resource Manager mode, run `azure config mode arm`. To go back to Service Management mode, run `azure config mode asm`.
 
 * For online command help and options, type `azure <command> <subcommand> --help` or `azure help <command> <subcommand>`.
 
 ## VM tasks
-The next table compares common VM tasks you can perform with Azure CLI commands in asm mode and arm mode. With many Resource Manager commands you need to pass the name of an existing resource group.
+The next table compares common VM tasks you can perform with Azure CLI commands in Service Management mode and Resource Manager mode. With many Resource Manager commands you need to pass the name of an existing resource group.
 
 > [AZURE.NOTE] These examples don't include template-based operations which are generally recommended for VM deployments in Resource Manager. For information, see [Use the Azure CLI with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) and [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
-Task | asm mode | arm mode
+Task | Service Management mode | Resource Manager mode
 -------------- | ----------- | -------------------------
 Create the most basic VM | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtain the `image-urn` from the `azure vm image list` command. See [this article](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) for examples.)
 Create a Linux VM | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
@@ -40,5 +40,5 @@ Get all available VM sizes | Not available | `azure vm sizes [options]`
 
 ## Next steps
 
-* For additional examples of the CLI commands, see [Azure CLI commands in Azure Service Management (arm) mode](../articles/virtual-machines-command-line-tools.md) and
-[Azure CLI commands in Azure Resource Manager (arm) mode](../articles/virtual-machines/azure-cli-arm-commands.md).
+* For additional examples of the CLI commands, see [Azure CLI commands in Azure Service Management mode](../articles/virtual-machines-command-line-tools.md) and
+[Azure CLI commands in Azure Resource Manager mode](../articles/virtual-machines/azure-cli-arm-commands.md).
