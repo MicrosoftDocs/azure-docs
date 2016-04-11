@@ -51,10 +51,10 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 
     https://&lt;cluster_domain&gt;:19080/Explorer
 
-    You will be prompted to sign into an account which has administrative privileges for the AAD tenant. Once you do, the script will proceed to create the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the Azure classic portal, you should see two new entries:
+    You will be prompted to sign into an account which has administrative privileges for the AAD tenant. Once you do, the script will proceed to create the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure classic portal][azure-classic-portal], you should see two new entries:
 
-    - *ClusterName*_Cluster
-    - *ClusterName*_Client
+    - *ClusterName*\_Cluster
+    - *ClusterName*\_Client
 
     The script will print the Json required by the Azure Resource Manager (ARM) template when you create the cluster in the next section so keep the PowerShell window open.
 
@@ -81,9 +81,20 @@ The clusterApplication refers to the web application created in the previous sec
 
 ## Assign users to roles
 
-Once you have created the applications to represent your cluster, you will need to assign your users to the roles supported by Service Fabric: read-only and admin. You can do this using the Azure classic portal or the [AAD Graph API][aad-graph-api-docs].
+Once you have created the applications to represent your cluster, you will need to assign your users to the roles supported by Service Fabric: read-only and admin. You can do this using the [Azure classic portal][azure-classic-portal].
 
-![Assign users to roles][assign-users-to-roles]
+1. Navigate to your tenant and choose Applications.
+2. Choose the web application, which will have a name like `myTestCluster_Cluster`.
+3. Click the Users tab.
+4. Choose a user to assign and click the **Assign** button at the bottom of the screen.
+
+  ![Assign users to roles button][assign-users-to-roles-button]
+
+5. Select the role to assign to the user.
+
+  ![Assign users to roles][assign-users-to-roles-dialog]
+
+>[AZURE.NOTE] For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
 ## Connecting to the cluster
 
@@ -119,6 +130,16 @@ As in Visual Studio, PowerShell will present a secure login window for authentic
 
 >[AZURE.NOTE] By default, the Service Fabric TCP gateway used by PowerShell and Visual Studio listens on port 19000. If you have configured a different port, you should use that instead when specifying the connection endpoint.
 
+## Known issues
+
+### Native client authentication error due to mismatched reply address
+
+When authenticating from a native client, such as Visual Studio or PowerShell, you may see an error message like this:
+
+*Reply address http://localhost/ does not match reply address configured for application &lt;cluster client application GUID&gt;*
+
+To work around this, add **http://<i></i>localhost** as a redirect URI to the cluster client application definition in AAD, in addition to the address 'urn:ietf:wg:oauth:2.0:oob' that is already there.
+
 ## Next steps
 
 - Read more about [Service Fabric cluster security](service-fabric-cluster-security.md)
@@ -129,8 +150,10 @@ As in Visual Studio, PowerShell will present a secure login window for authentic
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [secure-cluster-arm-template]:https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad
 [aad-graph-api-docs]:https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog
+[azure-classic-portal]: https://manage.windowsazure.com
 
 <!-- Images -->
-[assign-users-to-roles]: ./media/service-fabric-cluster-security-client-auth-with-aad/assign-users-to-roles.png
+[assign-users-to-roles-button]: ./media/service-fabric-cluster-security-client-auth-with-aad/assign-users-to-roles-button.png
+[assign-users-to-roles-dialog]: ./media/service-fabric-cluster-security-client-auth-with-aad/assign-users-to-roles.png
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
