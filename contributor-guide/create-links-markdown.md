@@ -4,29 +4,6 @@
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="02/03/2015" ms.author="tysonn" />
 
 # Linking guidance for Azure technical content
-## Guidelines for technical articles on azure.microsoft.com
-
-| Link scenario | Guidance for the target link  |
-|---------------|-----------|
-|Linking from an ACOM technical article to another ACOM technical article|Use relative links.|
-|Linking to an ACOM page outside the documentation directory, to an MSDN library topic, a TechNet library topic, or to a KB article|​Use the actual link to the article or topic. Remove the en-us language locale from the link.|
-|Linking from an ACOM article to any other web page|Use the direct link|
-
-### Use friendly link text
-
-The words you include in a link should be friendly - in other words, they should be normal English words or the title of the page you are linking to. Do not use "click here". It's bad for SEO and doesn't adequately describe the target.
-
-**Correct:**
-
-- `For more information, see the [contributor guide index](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).`
-
-- `For more details, see the [SET TRANSACTION ISOLATION LEVEL](https://msdn.microsoft.com/library/ms173763.aspx) reference.`
-
-**Incorrect:**
-
-- `For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).`
-
-- `For more information, click [here](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).`
 
 ### Markdown syntax for ACOM relative links
 
@@ -118,6 +95,31 @@ If you want to link to an Azure library topic that lives under [this node](https
     http://msdn.microsoft.com/library/azure/dd163896.aspx
 
 Otherwise, the page will be rendered in the standard MSDN view, with the entire MSDN tree displayed.
+
+## Linking to ACOM pages that are not part of the technical documentation set
+
+When you need to link to an ACOM page outside the documentation directory, use the actual link to the page, and remove the en-us language locale from the link. Relative linking doesn't work in this case for both ACOM and the GitHub HTML.
+
+## Linking to MSDN or TechNet
+
+When you need to link to MSDN or TechNet, use the full link to the topic, and remove the en-us language locale from the link. 
+
+### Use friendly link text for all links
+
+The words you include in a link should be friendly - in other words, they should be normal English words or the title of the page you are linking to. Do not use "click here". It's bad for SEO and doesn't adequately describe the target.
+
+**Correct:**
+
+- `For more information, see the [contributor guide index](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).`
+
+- `For more details, see the [SET TRANSACTION ISOLATION LEVEL](https://msdn.microsoft.com/library/ms173763.aspx) reference.`
+
+**Incorrect:**
+
+- `For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).`
+
+- `For more information, click [here](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).`
+
 
 ## FWLinks
 
