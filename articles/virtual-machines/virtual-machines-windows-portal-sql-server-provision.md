@@ -221,4 +221,4 @@ The following steps are not required if you only need to access your Virtual Mac
 > [AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ##<a id="Next"> Next Steps
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

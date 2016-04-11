@@ -163,7 +163,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-windows-lob.md)
 
@@ -353,7 +353,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Oracle](virtual-machines-windows-classic-oracle.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [SharePoint](virtual-machines-windows-sharepoint-farm.md)
 

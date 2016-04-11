@@ -170,4 +170,4 @@ In many cases, the next step is to migrate your databases to this new SQL Server
 
 If you're also interested in using the Azure portal to create SQL Virtual Machines, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md). Note that the tutorial that walks you through the portal creates VMs using the recommended Resource Manager model, rather than the classic model used in this PowerShell topic.
 
-In addition to these resources, we recommend that you review [other topics related to running SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
+In addition to these resources, we recommend that you review [other topics related to running SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
