@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"
+   ms.date="04/11/2016"
    ms.author="seanmck"/>
 
 # Create a Service Fabric cluster using Azure Active Directory for client authentication
@@ -23,7 +23,9 @@ You can secure access to the management endpoints of a Service Fabric cluster us
 
 ## Model a Service Fabric cluster in AAD
 
-AAD enables organizations (known as tenants) to manage user access to applications, which are divided into applications with a web-based login UI and applications with a native client experience. Service Fabric clusters offer a variety of entry points to their management functionality, including the web-based [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) and the [Visual Studio native client](service-fabric-manage-application-in-visual-studio.md). As a result, you will represent every Service Fabric cluster as a set of two applications in AAD, one web application and one native application.
+AAD enables organizations (known as tenants) to manage user access to applications, which are divided into applications with a web-based login UI and applications with a native client experience. In this document, we will assume that you have already created a tenant. If not, start by reading [How to get an Azure Active Directory tenant][aad-tenant-getting-started].
+
+Service Fabric clusters offer a variety of entry points to their management functionality, including the web-based [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) and [Visual Studio](service-fabric-manage-application-in-visual-studio.md). As a result, you will create two AAD applications to control access to the cluster, one web application and one native application.
 
 To simplify some of the steps involved in configuring AAD with a Service Fabric cluster, we have created a set of Windows PowerShell scripts.
 
@@ -105,7 +107,7 @@ When you publish to the cluster, Visual Studio will pop a login window where you
 
 ### Connecting from Windows PowerShell
 
-In PowerShell, you can provide the necessary parameters to the Connect-ServiceFabricCluster cmdlet as shown below:  
+In PowerShell, you can provide the necessary parameters to the Connect-ServiceFabricCluster cmdlet as shown below:
 
 ```PowerShell
 Connect-ServiceFabricCluster -AzureActiveDirectory -ConnectionEndpoint <cluster_endpoint>:19000 -ServerCertThumbprint <server_cert_thumbprint>
@@ -113,12 +115,15 @@ Connect-ServiceFabricCluster -AzureActiveDirectory -ConnectionEndpoint <cluster_
 
 As in Visual Studio, PowerShell will present a secure login window for authentication.
 
+>[AZURE.NOTE] By default, the Service Fabric TCP gateway used by PowerShell and Visual Studio listens on port 19000. If you have configured a different port, you should use that instead when specifying the connection endpoint.
+
 ## Next steps
 
 - Read more about [Service Fabric cluster security](service-fabric-cluster-security.md)
 - Learn how to [publish to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
 <!-- Links -->
+[aad-tenant-getting-started]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [secure-cluster-arm-template]:https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad
 [aad-graph-api-docs]:https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog
