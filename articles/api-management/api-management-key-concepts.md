@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -12,15 +12,17 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.topic="hero-article" 
+	ms.date="03/23/2016" 
 	ms.author="sdanie"/>
 
 #What is API Management?
 
 API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
 
-> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+Watch the following video for an overview of Azure API Management and learn how to use API Management to add many features to your API, including access control, rate limiting, monitoring, event logging, and response caching, with minimal work on your part.
+
+> [AZURE.VIDEO azure-api-management-overview]
 
 To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect.
 
@@ -91,6 +93,12 @@ For a complete list of API Management policies, see [Policy reference][]. For mo
 The developer portal is where developers can learn about your APIs, view and call operations, and subscribe to products. Prospective customers can visit the developer portal, view APIs and operations, and sign up. The URL for your developer portal is located on the dashboard in the Azure Classic Portal for your API Management service instance.
 
 You can customize the look and feel of your developer portal by adding custom content, customizing styles, and adding your branding.
+
+## API Management and the API economy
+
+To learn more about API Management, watch the following presentation from the Microsoft Ignite 2015 conference.
+
+> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
 
 [APIs and operations]: #apis
 [Products]: #products

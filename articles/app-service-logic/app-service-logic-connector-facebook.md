@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Get started with the Facebook Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Facebook API](../connectors/create-api-facebook.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [Facebook API](../connectors/connectors-create-api-facebook.md).
 
 Connect to Facebook account to post a message or publish a photo. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. 
 

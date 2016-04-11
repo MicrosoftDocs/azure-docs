@@ -3,7 +3,7 @@
 	description="Azure ML Recommendation Sample Application" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/02/2016" 
 	ms.author="luisca"/> 
 
 
-# Common operations in the Machine Learning Recommendations API
+# Recommendations API Sample Application Walkthrough
 
 ##Purpose
 
-This document shows the usage of the Azure Machine Learning Recommendations API via a [sample application](http://1drv.ms/1xeO2F3).
+This document shows the usage of the Azure Machine Learning Recommendations API via a [sample application](https://code.msdn.microsoft.com/Recommendations-144df403).
 
 This application is not intended to include full functionality, nor does it use all the APIs. It demonstrates some common operations to perform when you first want to play with the Machine Learning recommendation service. 
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: How To Perform a Security Review"
+   pageTitle="How to perform a security review | Microsoft Azure"
    description="Learn how to add roles to privileged identities with the Azure Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: How to perform a security review
+# Azure AD Privileged Identity Management: How to perform a security review
 
 
 It is very easy to review privileged access once a [security review has been started](active-directory-privileged-identity-management-how-to-start-security-review.md).

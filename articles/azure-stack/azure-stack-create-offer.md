@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -12,15 +12,15 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.topic="get-started-article"
+	ms.date="03/02/2016"
 	ms.author="erikje"/>
 
 # Create an offer in Azure Stack
 
-Now that you [have a plan](azure-stack-create-plan.md), you can include it in an offer.
+[Offers](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groups of one or more plans that providers present to tenants to buy (subscribe to). In this example, you will create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This will give subscribers to the offer the ability to provision virtual machines.
 
-1.  Log in to the portal as a service administrator.
+1.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the portal as a service administrator.
 	![](media/azure-stack-create-offer/image1.png)
 
 2.  Click **New**.

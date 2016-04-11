@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrate your SQL code to SQL Data Warehouse
@@ -89,22 +89,22 @@ There are also some system functions that are not supported. Some of the main on
 - ROWCOUNT_BIG
 - ERROR_LINE()
 
-Again many of these issues can be worked around. 
+Again many of these issues can be worked around.
 
 For example the code below is an alternative solution for retrieving @@ROWCOUNT information:
 
-```
-SELECT  SUM(row_count) AS row_count 
-FROM    sys.dm_pdw_sql_requests 
-WHERE   row_count <> -1 
-AND     request_id IN 
-                    (   SELECT TOP 1    request_id 
-                        FROM            sys.dm_pdw_exec_requests 
-                        WHERE           session_id = SESSION_ID() 
+```sql
+SELECT  SUM(row_count) AS row_count
+FROM    sys.dm_pdw_sql_requests
+WHERE   row_count <> -1
+AND     request_id IN
+                    (   SELECT TOP 1    request_id
+                        FROM            sys.dm_pdw_exec_requests
+                        WHERE           session_id = SESSION_ID()
                         ORDER BY end_time DESC
                     )
 ;
-``` 
+```
 
 ## Next steps
 For advice on developing your code please refer to the [development overview][].

@@ -456,7 +456,7 @@ You can move existing resources to a new resource group. For examples, see [Move
 
 - To delete a resource from the resource group, use the **Remove-AzureRmResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
 
-	This command removes the TestSite website from the TestRG resource group.
+	This command removes the TestSite website from the TestRG1 resource group.
 
 		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
@@ -475,5 +475,5 @@ You can move existing resources to a new resource group. For examples, see [Move
 - To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
 - To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md).
 - For a detailed example of deploying a project, see [Deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- To learn about troubleshooting a deployment that failed, see [Troubleshooting resource group deployments in Azure](./virtual-machines/resource-group-deploy-debug.md).
+- To learn about troubleshooting a deployment that failed, see [Troubleshooting resource group deployments in Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 

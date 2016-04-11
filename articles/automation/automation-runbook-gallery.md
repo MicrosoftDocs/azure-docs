@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/24/2016"
+	ms.date="03/02/2016"
 	ms.author="magoedte;bwren" />
 
 
@@ -89,7 +89,7 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
  - VM Lifecycle Management
 
 
-- Automation updates the Gallery once an hour, so you won’t see your contributions immediately.  If you don’t see your runbook in the gallery after an hour, check the requirements in the [Adding a Runbook to the Runbook Gallery](#AddRunbook) section.
+- Automation updates the Gallery once an hour, so you won’t see your contributions immediately.
 
 ## Modules in PowerShell Gallery
 
@@ -102,7 +102,7 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 3. Click on the **Modules** tile to open the list of modules.
 4. Click on the **Browse gallery** button and the Browse gallery blade is launched.
 
-    ![Module gallery](media/automation-runbook-gallery/modules-blade-buttons.png) <br>
+    ![Module gallery](media/automation-runbook-gallery/modules-blade.png) <br>
 5. After you have launched the Browse gallery blade, you can search by the following fields:
 
    - Module Name
@@ -113,16 +113,16 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 6. Locate a module that you're interested in and select it to view its details.  
 When you drill into a specific module, you can view more information about the module, including a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets and/or DSC resources that the module contains.
 
-    ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details.png) <br>
+    ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 
 7. To install the module directly into Azure Automation, click the **Import** button.
 
-    ![Import module button](media/automation-runbook-gallery/module-import-button-a.png)
+    ![Import module button](media/automation-runbook-gallery/module-import-button.png)
 
 8. When you click the Import button, you will see the module name that you are about to import. If all the dependencies are installed, the **OK** button will be active. If you are missing dependencies, you need to import those before you can import this module.
 9. Click **OK** to import the module, and the module blade will launch. When Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets.
 
-    ![Import module blade](media/automation-runbook-gallery/module-import-blade-a.png)
+    ![Import module blade](media/automation-runbook-gallery/module-import-blade.png)
 
     This may take a couple of minutes since each activity needs to be extracted.
 10. You will receive a notification that the module is being deployed and a notification when it has completed.

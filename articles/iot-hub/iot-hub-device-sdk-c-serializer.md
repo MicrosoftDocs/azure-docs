@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK for C – more about serializer
@@ -528,17 +528,26 @@ This section described everything you need to know when sending events and recei
 
 ## Macro configuration
 
-If you’re using the **Serializer** library an important part of the SDK to be aware of is found here:
+If you’re using the **Serializer** library an important part of the SDK to be aware of is found in the azure-c-shared-utility library.
+If you have cloned the Azure-iot-sdks repository from GitHub using the --recursive option, then you will find this shared utility library here:
 
 ```
-.\\c\\common\\tools\\macro\_utils\_h\_generator.
+.\\c\\azure-c-shared-utility
+```
+
+If you have not cloned the library, you can find it [here](https://github.com/Azure/azure-c-shared-utility).
+
+Within the shared utility library, you will find the following folder:
+
+```
+azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
 This folder contains a Visual Studio solution called **macro\_utils\_h\_generator.sln**:
 
   ![](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.PNG)
 
-The program in this solution generates the **macro\_utils.h** file found in the .\\c\\common\\inc directory. There’s a default macro\_utils.h file included with the SDK. This solution allows you to modify some parameters and then recreate the header file based on these parameters.
+The program in this solution generates the **macro\_utils.h** file. There’s a default macro\_utils.h file included with the SDK. This solution allows you to modify some parameters and then recreate the header file based on these parameters.
 
 The two key parameters to be concerned with are **nArithmetic** and **nMacroParameters** which are defined in these two lines found in macro\_utils.tt:
 

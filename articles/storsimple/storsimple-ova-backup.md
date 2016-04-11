@@ -12,21 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# Back up your StorSimple Virtual Array (preview)
+# Back up your StorSimple Virtual Array
 
 ## Overview 
 
-This tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only.
+This tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release.
 
 The StorSimple Virtual Array is a hybrid cloud storage on-premises virtual device that can be configured as a file server or an iSCSI server. It can create backups, restore from backups, and perform device failover if disaster recovery is needed. When configured as a file server, it also allows item-level recovery. This tutorial describes how to use the Azure classic portal or the StorSimple web UI to create scheduled and manual backups of your StorSimple Virtual Array.
 
->[AZURE.IMPORTANT] 
->
->- The StorSimple Virtual Array is in preview and is intended for evaluation and deployment planning purposes. Installing this preview in a production environment is not supported. 
->- If you experience any issues with the StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
 
 ## Back up shares and volumes
 

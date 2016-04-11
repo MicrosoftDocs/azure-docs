@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/21/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: FAQs
@@ -46,6 +46,7 @@ No, but this feature is on our roadmap. The default scopes used for our supporte
 
 - Facebook: email
 - Google+: email
+- Microsoft account: openid email profile
 - Amazon: profile
 - LinkedIn: r_emailaddress, r_basicprofile
 

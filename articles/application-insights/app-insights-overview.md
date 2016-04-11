@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="What is Application Insights?" 
-	description="Track usage and performance of your live web or device application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
+	pageTitle="Analytics with Application Insights" 
+	description="Device and web app analytics. Track usage and performance of your live web application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/31/2016" 
 	ms.author="awills"/>
  
 # What is Application Insights?
@@ -22,6 +22,8 @@ Application Insights is an extensible analytics service that monitors your live 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
 It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud. 
+
+[Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 Application Insights is aimed at the development team. With it, you can:
 
@@ -119,7 +121,7 @@ For more details, choose your app type under Get Started in the navigation bar o
 * Bugs:
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions:
- * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 
 
 ## Videos
@@ -130,6 +132,8 @@ For more details, choose your app type under Get Started in the navigation bar o
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
 > [AZURE.VIDEO performance-monitoring-application-insights]
+
+> [Introductory animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 
 <!--Link references-->

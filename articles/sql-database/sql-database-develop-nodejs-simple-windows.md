@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="meet-bhagdev"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -26,38 +26,20 @@
 
 This topic presents a Node.js code sample that you can use to connect to Azure SQL Database. The Node.js program runs on a Windows client computer. To manage the connection, the msnodesql driver is used.
 
+## Step 1: Configure Development Environment
 
-## Prerequisites
+[Prerequisites for using the tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Windows)
 
-
-The following software items must exist on your client development computer.
-
-
--  [Node.js] (https://nodejs.org/en/download/) - Click on the windows installer and download the appropriate msi installer. Once downloaded run the msi to install Node.js
-
-
-### Install the required modules
-
-After your machine is configured with **node**, open cmd.exe and navigate to a directory where you plan to create your Node.js project, and enter the following commands.
-
-
-	npm init
-	npm install tedious
-
-
-**npm init** creates a node project. To retain the defaults during your project creation, press enter until the project is created. Now you see a **package.json** file in your project directory.
-
-
-### A SQL database
+## Step 2: Create a SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 
 
-## Step 1: Get Connection Details
+## Step 3: Get Connection Details
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Step 2: Connect
+## Step 4: Connect
 
 The [new Connection](http://pekim.github.io/tedious/api-connection.html) function is used to connect to SQL Database.
 
@@ -76,7 +58,7 @@ The [new Connection](http://pekim.github.io/tedious/api-connection.html) functio
 	});
 
 
-## Step 3:  Execute a query
+## Step 5:  Execute a query
 
 
 All SQL statements are executed using the [new Request()](http://pekim.github.io/tedious/api-request.html) function. If the statement returns rows, such as a select statement, you can retreive them using the [request.on()](http://pekim.github.io/tedious/api-request.html) function. If there are no rows, [request.on()](http://pekim.github.io/tedious/api-request.html) function returns empty lists.
@@ -125,7 +107,7 @@ All SQL statements are executed using the [new Request()](http://pekim.github.io
 	}
 
 
-## Step 4: Insert a row
+## Step 6: Insert a row
 
 In this example you will see how to execute an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://msdn.microsoft.com/library/ms179610.aspx) value.  
 

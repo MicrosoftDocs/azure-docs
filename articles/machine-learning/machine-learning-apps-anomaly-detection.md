@@ -3,7 +3,7 @@
 	description="Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="LuisCabrer" 
+	authors="pingf" 
 	manager="paulettm"
 	editor="cgronlun" /> 
 
@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="12/08/2015" 
+	ms.date="03/07/2016" 
 	ms.author="pingf"/>
 
 

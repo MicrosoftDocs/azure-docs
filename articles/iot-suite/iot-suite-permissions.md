@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="03/02/2016"
   ms.author="araguila"/>
   
 # Permissions on the azureiotsuite.com site
@@ -66,27 +66,27 @@ There are two defined and one implicit role defined in the application that is c
 
 -   **IMPLICIT READ ONLY:** This is the same as Read Only, but is granted to all users of your AAD tenant. This was done for convenience during development. You can remove this role by modifying the [RolePermissions.cs][lnk-resource-cs] source file.
 
-### Changing Application Roles
+### Changing application roles for a user
+
+You can use the following procedure to make a user in your Active Directory an administrator of your preconfigured solution.
 
 You must be an AAD global administrator to change roles for a user:
 
-1. Go to the [Azure classic portal][lnk-classic-portal]
+1. Go to the [Azure classic portal][lnk-classic-portal].
 
-2. Select **Active Directory**
+2. Select **Active Directory**.
 
-3. Click the name of your AAD tenant
+3. Click the name of your AAD tenant (this is the directory you chose on azureiotsuite.com when you provisioned your solution).
 
 4. Click **Applications**.
 
-5. If you don't see your application in the list, switch the **Show** drop down to **Applications my company owns** and click the check mark.
-
-6. Click the name of the application that matches your preconfigured solution name.
+5. Click the name of the application that matches your preconfigured solution name. If you don't see your application in the list, switch the **Show** drop down to **Applications my company owns** and click the check mark.
 
 7. Click **Users**.
 
 8. Select the user you want to switch roles.
 
-9. Click the assign button and role you'd like to assign, click the check mark.
+9. Click **Assign** and select the role (such as **Admin**) you'd like to assign to the user, click the check mark.
 
 ## FAQ
 
@@ -112,7 +112,7 @@ You can run a cloud deployment from <https://github.com/Azure/azure-iot-remote-
 
 1. Create a new AAD directory in the [Azure Management portal][lnk-classic-portal].
 
-2. Go to <https://github.com/Azure/azure-iot-remote-monitoring>. For more information on Cloud deployments, see [Cloud deployment][lnk-wiki-clouddeployment].
+2. Go to <https://github.com/Azure/azure-iot-remote-monitoring>.
 
 3. Run `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (For example, `build.cmd cloud debug myRMSolution`)
 
@@ -140,8 +140,8 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
-[lnk-assign-app-roles]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Manually-setting-up-roles-and-assigning-permissions-in-Azure-Active-Directory-(AAD)#assigning-users-to-the-roles
+[lnk-assign-app-roles]: https://azure.microsoft.com/documentation/articles/active-directory-application-manifest/
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
+

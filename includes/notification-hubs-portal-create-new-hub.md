@@ -1,6 +1,6 @@
 
 
-1. Log on to the [Azure Portal](https://portal.windowsazure.com/), and then click **+NEW** at the bottom of the screen.
+1. Log on to the [Azure Portal](https://portal.azure.com), and then click **+NEW** at the bottom of the screen.
 
 2. Click on **New**, then **Web + Mobile**, then **Notification Hub**, then **Quick Create**.
 

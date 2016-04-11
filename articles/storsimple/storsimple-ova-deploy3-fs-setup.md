@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array - Set up as file server (Preview)
+# Deploy StorSimple Virtual Array - Set up as file server
 
 ![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
 ## Introduction 
 
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 
 The setup and configuration process can take around 10 minutes to complete.
 
-> [AZURE.IMPORTANT]
-> 
-> This public preview is intended for evaluation only. Installing this preview in a production environment is not supported.
 
 ## Setup prerequisites
 
@@ -69,7 +66,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
-	If you added more than one network interface during the provisioning of the device, you can configure them here. Note you can 		configure your network interface as IPv4 only or as both IPv4 and IPv6. IPv6 only configurations are not supported.
+	If you added more than one network interface during the provisioning of the device, you can configure them here. Note you can configure your network interface as IPv4 only or as both IPv4 and IPv6. IPv6 only configurations are not supported.
 
 1.  DNS servers are required because they are used when your device attempts to communicate with your cloud storage service providers or to resolve your device by name when configured as a file server. In the **Network settings** page under the **DNS servers**:
 
@@ -132,7 +129,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     1.  Enter the **Service registration key** that you got in [Step 2: Get the service registration key](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
 
-    2.  If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Manager service. For more information, refer to get the [service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
+    2.  Skip this step if this is your first device registering with this service and go to the next step. If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Manager service. For more information, refer to get the [service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
 
     3.  Click **Register**. This will restart the device. You may need to wait for 2-3 minutes before the device is successfully registered. After the device has restarted, you will be taken to the sign in page.
 

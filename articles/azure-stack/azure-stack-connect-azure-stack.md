@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.topic="get-started-article"
+	ms.date="03/02/2016"
 	ms.author="erikje"/>
 
 # Log in to Azure Stack POC
 
-There are two ways to log in to the Azure Stack POC.
+You can log in to the Azure Stack POC as a [service administrator](#log-in-as-a-service-administrator) or as a [tenant](#log-in-as-a-tenant).
 
 ## Log in as a service administrator
 

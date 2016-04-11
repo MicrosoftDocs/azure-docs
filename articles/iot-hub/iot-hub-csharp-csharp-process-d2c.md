@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/05/2016"
+     ms.date="02/03/2016"
      ms.author="dobett"/>
 
 # Tutorial: How to process IoT Hub device-to-cloud messages
@@ -24,14 +24,14 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bi-dir
 
 This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial and shows two scalable patterns you can use to process device-to-cloud messages:
 
-- The reliable storage of device-to-cloud messages in [Azure Blob storage]. This is very common scenario when you implement *cold path* analytics, where you store data in blobs to use as input into analytics processes driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
+- The reliable storage of device-to-cloud messages in [Azure Blob storage]. A very common scenario is when you implement *cold path* analytics, where you store data in blobs to use as input into analytics processes driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
 
 - The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the application back end, as compared to *data point* messages that feed into an analytics engine. For instance, an alarm coming from a device that must trigger inserting a ticket into a CRM system is an interactive device-to-cloud message, as compared to telemetry such as temperature samples which is a data point device-to-cloud message.
 
 Because IoT Hub exposes an Event Hubs-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance, which:
 
 * Reliably stores *data point* messages in Azure Blobs.
-* Forwards *interactive* device-to-cloud messages to a [Service Bus Queue] for immediate processing.
+* Forwards *interactive* device-to-cloud messages to a [Service Bus queue] for immediate processing.
 
 Service Bus is a great way to ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based deduplication.
 
@@ -49,7 +49,7 @@ In order to complete this tutorial you'll need the following:
 
 + Microsoft Visual Studio 2015.
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="_blank").
++ An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="_blank").
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
@@ -91,18 +91,18 @@ Additional information on IoT Hub:
 
 <!-- Links -->
 
-[Azure Blob storage]: https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-[Azure Data Factory]: https://azure.microsoft.com/en-us/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/en-us/documentation/services/hdinsight/
-[Service Bus Queue]: https://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
+[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
+[Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
 
-[Azure IoT Hub developer guide - Device to cloud]: https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/#d2c
+[Azure IoT Hub developer guide - Device to cloud]: iot-hub-devguide.md#d2c
 
-[Azure Storage]: https://azure.microsoft.com/en-us/documentation/services/storage/
-[Azure Service Bus]: https://azure.microsoft.com/en-us/documentation/services/service-bus/
+[Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
+[Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
 
 

@@ -21,7 +21,7 @@
 
 This article is [part of a series](guidance-elasticsearch.md).
 
-[Resilience and Recovery Testing] describes
+[Resilience and Recovery] describes
 a series of tests that were performed against a sample Elasticsearch cluster to determine how well the
 system responded to some common forms of failure and how well it recovered. Four scenarios were tested:
 
@@ -180,10 +180,10 @@ You can use Excel to analyze and graph this data.
 
 [Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
 [Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
-[Performance testing guidance]: guidance-elasticsearch-performance-testing-environment.md
+[Performance testing guidance]: guidance-elasticsearch-creating-performance-testing-environment.md
 [JMeter guidance]: guidance-elasticsearch-implementing-jmeter.md
-[Considerations for JMeter]: guidance-elasticsearch-deploy-jmeter-junit-sampler.md
+[Considerations for JMeter]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Query aggregation and performance]: guidance-elasticsearch-query-aggregation-performance.md
-[Resilience and Recovery]: guidance-elasticsearch-resilience-recovery.md
-[Resilience and Recovery Testing]: guidance-elasticsearch-resilience-testing.md
+[Resilience and Recovery]: guidance-elasticsearch-configuring-resilience-and-recovery.md
+[Resilience and Recovery Testing]: guidance-elasticsearch-running-automated-resilience-tests.md
 [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md

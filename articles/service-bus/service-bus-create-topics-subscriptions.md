@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Create applications that use Service Bus topics and subscriptions | Microsoft Azure"
-   description="Introduction to the publish-subscribe capabilities offered by Service Bus topics and subscriptions."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Create applications that use Service Bus topics and subscriptions | Microsoft Azure"
+    description="Introduction to the publish-subscribe capabilities offered by Service Bus topics and subscriptions."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Create applications that use Service Bus topics and subscriptions
 
@@ -33,7 +33,7 @@ In any situation such as this, in which you require each message to be consumed 
 
 Messages are sent to a topic in the same way as they are sent to a queue. However, messages are not received from the topic directly; they are received from subscriptions. You can think of a subscription to a topic as a virtual queue that receives copies of the messages that are sent to that topic. Messages are received from a subscription the same way as they are received from a queue.
 
-Going back to the retail scenario, the queue is replaced by a topic, and a subscription is added that will be used by the inventory management system component. The system now appears as follows:
+Going back to the retail scenario, the queue is replaced by a topic, and a subscription is added, which the inventory management system component can use. The system now appears as follows:
 
 ![Service-Bus2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
 
@@ -119,7 +119,7 @@ catch (Exception e)
 
 ## Subscription filters
 
-So far, in this article all messages sent to the topic are made available to all registered subscriptions. The key phrase here is "made available." While Service Bus subscriptions see all messages sent to the topic, you can copy only a subset of those messages to the virtual subscription queue. This is performed using subscription *filters*. When you create a subscription, you can supply a filter expression in the form of a SQL92 style predicate that operates over the properties of the message, both the system properties (for example, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) and the application properties, such as **StoreName** in the previous example.
+So far, in this scenario all messages sent to the topic are made available to all registered subscriptions. The key phrase here is "made available." While Service Bus subscriptions see all messages sent to the topic, you can copy only a subset of those messages to the virtual subscription queue. This is performed using subscription *filters*. When you create a subscription, you can supply a filter expression in the form of a SQL92 style predicate that operates over the properties of the message, both the system properties (for example, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) and the application properties, such as **StoreName** in the previous example.
 
 Evolving the scenario to illustrate this, a second store is to be added to our retail scenario. Sales data from all of the POS terminals from both stores still have to be routed to the centralized inventory management system, but a store manager using the dashboard tool is only interested in the performance of that store. You can use subscription filtering to achieve this. Note that when the POS terminals publish messages, they set the **StoreName** application property on the message. Given two stores, for example **Redmond** and **Seattle**, the POS terminals in the Redmond store stamp their sales data messages with a **StoreName** equal to **Redmond**, whereas the Seattle store POS terminals use a **StoreName** equal to **Seattle**. The store manager of the Redmond store only wants to see data from its POS terminals. The system appears as follows:
 

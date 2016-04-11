@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="04/08/2016"
     ms.author="robmcm"/>
 
 # How to use the Azure slave plug-in with Jenkins Continuous Integration
@@ -41,7 +41,7 @@ A subscription profile, also referred to as publish settings, is an XML file tha
 * your subscription id
 * a management certificate for your subscription
 
-These can be found in your subscription profile. If you don't have a copy of your subscription profile, you can download it from [the subscription site](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Below is an example of a subscription profile.
+These can be found in your [subscription profile](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Below is an example of a subscription profile.
 
 	<?xml version="1.0" encoding="utf-8"?>
 

@@ -12,24 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/18/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
 
-# Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server (preview)
+# Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server
 
 ![iscsi setup process flow](./media/storsimple-ova-deploy3-iscsi-setup/iscsi4.png)
 
 ## Overview
 
-This deployment tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device) running the v 1.1.1.0 Public Preview release. This tutorial describes how to perform initial setup, register your StorSimple iSCSI server, complete the device setup, and then create, mount, initialize, and format volumes on your StorSimple virtual device iSCSI server. The StorSimple setup information in this article applies to StorSimple Virtual Arrays only. 
+This deployment tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device) running March 2016 general availability (GA) release. This tutorial describes how to perform initial setup, register your StorSimple iSCSI server, complete the device setup, and then create, mount, initialize, and format volumes on your StorSimple virtual device iSCSI server. The StorSimple setup information in this article applies to StorSimple Virtual Arrays only. 
 
 The procedures described here take approximately 30 minutes to 1 hour to complete. The information published in this article applies to StorSimple Virtual Arrays only.
-
->[AZURE.IMPORTANT] 
->
->- The StorSimple Virtual Array is in preview and is intended for evaluation and deployment planning purposes. Installing this preview in a production environment is not supported. 
->- If you experience any issues with the StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
 
 ## Setup prerequisites
 
@@ -100,10 +95,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
         
-           > [AZURE.NOTE]
-	   > 
-	   > If joining your iSCSI server to a domain, ensure that your virtual array is in its own organizational unit (OU) for 
-	   > Microsoft Azure Active Directory and no group policy objects (GPO) are applied to it.
+	   	> [AZURE.NOTE] If joining your iSCSI server to a domain, ensure that your virtual  array is in its own organizational unit (OU) for Microsoft Azure Active Directory and no group policy objects (GPO) are applied to it.
 	   
 
     6. Click **Apply**. This will apply and validate the device settings.
