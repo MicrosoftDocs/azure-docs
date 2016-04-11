@@ -3,7 +3,7 @@
     description="Overview of the elastic query feature"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="sidneyh"/>
 
 <tags

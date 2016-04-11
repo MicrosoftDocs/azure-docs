@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="shontnew"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
