@@ -88,11 +88,11 @@ Once you have created the applications to represent your cluster, you will need 
 3. Click the Users tab.
 4. Choose a user to assign and click the **Assign** button at the bottom of the screen.
 
-  ![Assign users to roles button][assign-users-to-roles-button]
+    ![Assign users to roles button][assign-users-to-roles-button]
 
 5. Select the role to assign to the user.
 
-  ![Assign users to roles][assign-users-to-roles-dialog]
+    ![Assign users to roles][assign-users-to-roles-dialog]
 
 >[AZURE.NOTE] For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
