@@ -90,7 +90,7 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 	using Microsoft.Threading;
 	```
 
-	Then, modify the `Main` method in the `Program` class as follows, substituting the Event Hub name and connection string, and the storage account and key that you copied in the previous sections:
+	Then, modify the `Main` method in the `Program` class as follows, substituting the Event Hub name and the **ReceiveRule** connection string, and the storage account and key that you copied in the previous sections. Be sure to remove the `EntityPath` suffix from the connection string:
 
     ```
 	static void Main(string[] args)

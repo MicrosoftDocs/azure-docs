@@ -48,12 +48,6 @@ In order to complete this tutorial you'll need the following:
 
 	![][3]
 
-5. At the bottom of the page, click **Connection Information**. Click the copy button (shown in the following figure) to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
-
-	![][4]
-
-OR
-
 6. Click the **Configure** tab at the top, add a rule named **SendRule** with Send rights, add another rule called **ReceiveRule** with *Manage*, *Send*, *Listen* rights, and then click **Save**.
 
 	![][5]
