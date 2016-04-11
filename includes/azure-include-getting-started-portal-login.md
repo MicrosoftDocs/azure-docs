@@ -1,13 +1,11 @@
 
 <!--
-includes/sql-database-include-getting-started-v12portal-gettings-an-account.md
+includes/azure-include-getting-started-v12portal-gettings-an-account.md
 
 Latest Freshness check:  2016-04-11 , carlrab.
 
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
-
-## Connecting to the Azure Portal with a subscription
 
 -->
 ## Connecting to the Microsoft Azure portal with a subscription
