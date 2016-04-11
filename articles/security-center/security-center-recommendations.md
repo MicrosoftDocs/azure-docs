@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/11/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -38,7 +38,7 @@ In [Setting security policies in Azure Security Center](security-center-policies
 - Turn on data collection.
 - Choose which recommendations to see as part of your security policy.
 
-Current policy recommendations center around system updates, baseline rules, antimalware programs, [ACLs for endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), [network security groups](../virtual-network/virtual-networks-nsg.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
+Current policy recommendations center around system updates, baseline rules, antimalware programs, [ACLs for endpoints](../virtual-machines/virtual-machines-set-up-endpoints.md), [network security groups](../virtual-network/virtual-networks-nsg.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
 
 ### Monitor recommendations
 After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile on the **Security Center** blade lets you know the total number of recommendations identified by Security Center.
