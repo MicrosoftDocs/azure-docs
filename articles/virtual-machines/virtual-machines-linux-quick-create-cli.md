@@ -38,7 +38,7 @@ In the following command walk through, please replace the prompts with values fr
 
 ```bash
 # Create the Linux VM using prompts
-username@macbook$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+chrisl@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
 Virtual machine name: exampleVMname
@@ -124,6 +124,10 @@ info:    vm quick-create command OK
 ```
 
 You can now SSH into your VM on the default SSH port 22.
+
+```
+chrisl@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
+```
 
 The `azure vm quick-create` quickly creates a VM so you can log in and get working. It does not have a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](virtual-machines-linux-cli-deploy-templates.md), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
 
