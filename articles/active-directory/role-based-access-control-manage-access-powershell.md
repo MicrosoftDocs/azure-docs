@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/29/2016"
+	ms.date="04/11/2016"
 	ms.author="kgremban"/>
 
 # Manage Role-Based Access Control with Azure PowerShell
@@ -24,13 +24,15 @@
 - [REST API](role-based-access-control-manage-access-rest.md)
 
 
-You can use Azure Resource Manager to configure RBAC in Azure PowerShell. This article covers the most common tasks, and defines the cmdlets you'll use to accomplish them.
+Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Management API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
-Before you begin, make sure you have [Azure PowerShell](../powershell-install-configure.md) version 0.8.8 or later associated with your Azure subscription.
+Before you can use Windows PowerShell to manage RBAC, you must have the following:
 
-The cmdlets in this article are [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) that need to be installed in PowerShell.
+- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-## Learn about roles
+- Azure Resource Manager cmdlets. Install the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
+
+## List roles
 
 ### List all available roles
 To list RBAC roles available for assignment and to inspect the operations to which they grant access use:
@@ -150,4 +152,5 @@ In the following example, the *Virtual Machine Operator* custom role isn’t ava
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## See also
+- [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md)
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
