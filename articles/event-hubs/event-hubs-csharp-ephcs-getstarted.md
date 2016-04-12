@@ -73,7 +73,7 @@ Now you are ready to run the applications.
 
 1. From within Visual Studio, open the **Receiver** project you created earlier.
 
-2. Right-click the **Receiver** solution, then click **Add**, then click **Existing Project**.
+2. Right-click the **Receiver** solution, then click **Add**, and then click **Existing Project**.
  
 3. Locate the existing Sender.csproj file, then double-click it to add it to the solution.
  
