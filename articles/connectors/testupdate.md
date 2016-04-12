@@ -20,7 +20,7 @@
 
 ### This connector is now only supported on the new [Logic Apps schema version 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md) and later. 
 
-### [Learn more about the this new connector](./connectors-create-azureblobstorage.md).
+### [Learn more about the this new connector](./connectors-create-api-azureblobstorage.md).
 
 ## Next steps    
 
