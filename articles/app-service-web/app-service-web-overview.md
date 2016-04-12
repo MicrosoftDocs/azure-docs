@@ -25,6 +25,8 @@ Leverage the power of [App Service Web Apps](http://go.microsoft.com/fwlink/?Lin
 
 ![Web Marketplace](./media/app-service-web-overview/marketplace.png)
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 ## More than just websites##
 
 Modern enterprises interact with their customers in ever more sophisticated ways. Companies of all types regard their corporate Web presence as a critical part of their business, a major component in their business plan. To accommodate this importance, enterprises are looking for a platform that will provide them with the agility, security and scalability. Furthermore, they require the capability to link to their existing business system, be able to quickly deploy new code and spin up instances across the globe. With Azure App Service and Web Apps, organizations can delight their customers quickly and cost-effectively.
