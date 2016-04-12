@@ -18,10 +18,10 @@
    
 # We've improved the Azure Storage Blob connector 
 
-### This connector is now only supported on the new [Logic Apps schema version 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) and later. 
+This connector is now only supported on the new [Logic Apps schema version 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) and later. 
 
-### [Learn more about the new Yammer connector](../connectors/connectors-create-api-yammer.md).
+### Next steps
 
-## Mirgrate to the new schema
-
-### [You can migrate your older connectors]() to the new [Logic Apps schema version 2015-08-01-preview]()
+- [Learn more about the this new connector](../connectors/connectors-create-api-azureblobstorage.md)
+- [Migrate your older connectors](../connectors/connectors-schema-migration.md) to the new Logic Apps schema version 2015-08-01-preview
+- See [the full list](../connectors/apis-list.md) of all connectors that run on the new Logic Apps schema version 2015-08-01-preview  

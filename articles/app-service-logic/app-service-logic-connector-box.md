@@ -23,6 +23,6 @@ This connector is now only supported on the new [Logic Apps schema version 2015-
 
 ## Next steps    
 
-- [Learn more about the this new connector](./connectors-create-api-box.md)
+- [Learn more about the this new connector](../connectors/connectors-create-api-box.md)
 - [Migrate your older connectors](../connectors/connectors-schema-migration.md) to the new Logic Apps schema version 2015-08-01-preview
 - See [the full list](../connectors/apis-list.md) of all connectors that run on the new Logic Apps schema version 2015-08-01-preview  
