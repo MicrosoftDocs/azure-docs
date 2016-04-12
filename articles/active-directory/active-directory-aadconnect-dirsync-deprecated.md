@@ -50,6 +50,8 @@ If you want to see how to do an in-place upgrade from DirSync to Azure AD Connec
 
 > [AZURE.VIDEO azure-active-directory-connect-in-place-upgrade-from-legacy-tools]
 
+<iframe src="https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
 ## FAQ
 **Q: Will DirSync/Azure AD Sync stop working on April 13, 2017?**  
 No. The date for when these will no longer be able to communicate with Azure AD will be announced at a later date. You will be able to find that information in this topic when available.
