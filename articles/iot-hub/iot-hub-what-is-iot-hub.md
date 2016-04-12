@@ -1,6 +1,6 @@
 <properties
- pageTitle="Overview of Azure IoT Hub | Microsoft Azure"
- description="An overview of the Azure IoT Hub service, including device connectivity, communication patterns, and the service-assisted communication pattern"
+ pageTitle="Azure IoT Hub overview | Microsoft Azure"
+ description="Overview of Azure IoT Hub service: what is iot hub, device connectivity, internet of things communication patterns, and service-assisted communication pattern"
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -29,7 +29,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 
 The article [Comparison of IoT Hub and Event Hubs][lnk-compare] describes the key differences between these two services and highlights the advantages of using IoT Hub in your IoT solutions.
 
-![IoT Hub as cloud gateway][img-architecture]
+![Azure IoT Hub as cloud gateway in internet of things solution][img-architecture]
 
 > [AZURE.NOTE] For an in-depth discussion of IoT architecture see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/08/2016" 
 	ms.author="johnmac"/>
 
 # Performance levels in DocumentDB
@@ -97,20 +97,33 @@ It is recommended that your application makes use of a small number of collectio
 
 ## Changing performance levels using the Azure Portal
 
-The Azure Portal is one option available to you when managing your collections' performance levels. Follow these steps to change a collection's performance level from the Azure Classic Portal.
+The Azure Portal is one option available to you when managing your collections' performance levels. Follow these steps to change from using pre-defined performance levels to user-defined performance levels in the Azure portal, or watch the 75 second [Channel 9 video](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance). For more information about the change to the pricing options, see  the blog post [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
 
-1. Navigate over to the [**Microsoft Azure portal**](https://portal.azure.com) from your browser.
+1. Navigate over to the [**Azure portal**](https://portal.azure.com) from your browser.
 2. Click **Browse** from the jump bar on the left side.
 3. In the **Browse** hub, click **DocumentDB Accounts** under the **Filter by** label.
 4. In the **DocumentDB Accounts** blade, click the DocumentDB account that contains the desired collection.
 5. In the **DocumentDB Account** blade, scroll down to the **Databases** lens and click the database that contains the desired collection. 
 6. In the newly opened **Database** blade, scroll down to the **Collections** lens and select your desired collection.
-7. Finally, within your **Collection** blade, find and click the **Pricing tier** tile in the **Usage** lens.
-8. In the **Choose your pricing tier** blade, click the desired performance level and then click **Select** at the bottom of the blade. 
+7. In the **Manage Collection** blade, click **Pricing tier**.
+
+    ![Screen shot of the Manage Collection and Choose your pricing tier blades for Azure DocumentDB showing where to change the pricing tier for the collection][1]
+
+8. In the **Choose your pricing tier** blade, click **Standard**.
+
+9. In the **Choose your pricing tier** blade, click **Select**.
+
+10. Back in the **Manage Collection** blade, the **Pricing Tier** was changed to **Standard** and the **Throughput (RU/s)** box is displayed. 
+
+    Change the value in the **Throughput** box to a value between 400 and 10,000 [Request units](documentdb-request-units.md)/second (RU/s). The **Pricing Summary** on the bottom of the page updates automatically to provide an estimate of the monthly cost.
+
+    ![Screen shot of the Manage Collection blade showing where to change the throughput value for the collection][2]
+
+9. On the **Manage Collection** blade, click **OK** to update your collection to the user-defined performance.
+
+If you determine that you need more throughput (greater than 10,000 RU/s) or more storage (greater than 10GB) you can create a partitioned collection. To create a partitioned collection, see [Create a collection](documentdb-create-collection.md).
 
 >[AZURE.NOTE] Changing performance levels of a collection may take up to 2 minutes.
-
-![Changing pricing tier][1]
 
 ## Changing performance levels using the .NET SDK
 
@@ -160,4 +173,5 @@ To learn more about pricing and managing data with Azure DocumentDB, explore the
 
 To learn more about DocumentDB, see the Azure DocumentDB [documentation](https://azure.microsoft.com/documentation/services/documentdb/). 
 
-[1]: ./media/documentdb-performance-levels/img1.png 
+[1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png 
+[2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png 
