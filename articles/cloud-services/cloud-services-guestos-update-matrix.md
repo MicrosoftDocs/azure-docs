@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/11/2016"
+   ms.date="04/11/2016"
    ms.author="yuemlu"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
@@ -52,9 +52,9 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
 
 | Configuration String           | Release date    | Disable date  | Expired date |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.30_201603-01     | *April 8 2016   | Post 4.32     | TBD |
-| WA-GUEST-OS-4.29_201602-01     | March 12 2016   | Post 4.31     | TBD |
-| WA-GUEST-OS-4.28_201601-01     | Feb 12 2016     | Post 4.30     | TBD | 
+| WA-GUEST-OS-4.30_201603-01     | April 7 2016    | Post 4.32     | TBD |
+| WA-GUEST-OS-4.29_201602-02     | March 12 2016   | Post 4.31     | TBD |
+| WA-GUEST-OS-4.28_201601-01     | Feb 12 2016     | May 7 2016     | TBD | 
 | WA-GUEST-OS-4.27_201512-01     | Jan 12 2016     | April 12 2016 | TBD |
 | ~~WA-GUEST-OS-4.26_201511-02~~ | Jan 4 2016      | March 12 2016 | TBD |
 | ~~WA-GUEST-OS-4.26_201511-01~~ | Dec 10 2015     | March 12 2016 | TBD |
@@ -76,9 +76,9 @@ Supports .NET 4.0, 4.5
 
 | Configuration String           | Release date   | Disable date  | Expired date |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.37_201603-01     | *April 8 2016  | Post 3.39     | TBD |
-| WA-GUEST-OS-3.36_201602-01     | March 12 2016  | Post 3.38     | TBD |
-| WA-GUEST-OS-3.35_201601-01     | Feb 12 2016    | Post 3.37     | TBD |
+| WA-GUEST-OS-3.37_201603-01     | April 7 2016   | Post 3.39     | TBD |
+| WA-GUEST-OS-3.36_201602-02     | March 12 2016  | Post 3.38     | TBD |
+| WA-GUEST-OS-3.35_201601-01     | Feb 12 2016    | May 7 2016     | TBD |
 | WA-GUEST-OS-3.34_201512-01     | Jan 12 2016    | April 12 2016 | TBD |
 | ~~WA-GUEST-OS-3.33_201511-02~~ | Jan 4 2016     | March 12 2016 | TBD |
 | ~~WA-GUEST-OS-3.33_201511-01~~ | Dec 10 2015    | March 12 2016 | TBD |
@@ -101,9 +101,9 @@ Supports .NET 3.5, 4.0
 
 | Configuration String           | Release date  | Disable date  | Expired date |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.49_201603-01     | *April 8 2016 | Post 2.51     | TBD |
-| WA-GUEST-OS-2.48_201602-01     | March 12 2016 | Post 2.50     | TBD |
-| WA-GUEST-OS-2.47_201601-01     | Feb 12 2016   | Post 2.49     | TBD |
+| WA-GUEST-OS-2.49_201603-01     | April 7 2016  | Post 2.51     | TBD |
+| WA-GUEST-OS-2.48_201602-02     | March 12 2016 | Post 2.50     | TBD |
+| WA-GUEST-OS-2.47_201601-01     | Feb 12 2016   | May 7 2016  | TBD |
 | WA-GUEST-OS-2.46_201512-01     | Jan 12 2016   | April 12 2016 | TBD |
 | ~~WA-GUEST-OS-2.45_201511-02~~ | Jan 4 2016    | March 12 2016 | TBD |
 | ~~WA-GUEST-OS-2.45_201511-01~~ | Dec 10 2015   | March 12 2016 | TBD |
