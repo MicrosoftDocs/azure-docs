@@ -28,7 +28,7 @@ Role-Based Access Control (RBAC) in Azure Portal and Azure Resource Manager API 
 Before you can use the Azure CLI to manage RBAC, you must have the following:
 
 - Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../xplat-cli-install.md).
-- Azure Resource Manager in Azure CLI. This tutorial helps you start [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md)
+- Azure Resource Manager in Azure CLI. Go to [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md) for more details.
 
 ## List roles
 
