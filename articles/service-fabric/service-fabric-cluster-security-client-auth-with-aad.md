@@ -25,7 +25,7 @@ You can secure access to the management endpoints of a Service Fabric cluster us
 
 ## Model a Service Fabric cluster in AAD
 
-AAD enables organizations (known as tenants) to manage user access to applications, which are divided into applications with a web-based login UI and applications with a native client experience. In this document, we will assume that you have already created a tenant. If not, start by reading [How to get an Azure Active Directory tenant][aad-tenant-getting-started].
+AAD enables organizations (known as tenants) to manage user access to applications, which are divided into applications with a web-based login UI and applications with a native client experience. In this document, we will assume that you have already created a tenant. If not, start by reading [How to get an Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md).
 
 Service Fabric clusters offer a variety of entry points to their management functionality, including the web-based [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) and [Visual Studio](service-fabric-manage-application-in-visual-studio.md). As a result, you will create two AAD applications to control access to the cluster, one web application and one native application.
 
@@ -146,7 +146,6 @@ To work around this, add **http://<i></i>localhost** as a redirect URI to the cl
 - Learn how to [publish to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
 <!-- Links -->
-[aad-tenant-getting-started]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [secure-cluster-arm-template]:https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad
 [aad-graph-api-docs]:https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog
