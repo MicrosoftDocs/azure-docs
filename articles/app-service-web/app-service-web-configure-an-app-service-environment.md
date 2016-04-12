@@ -38,26 +38,25 @@ Only one scale operation can be in progress at a time.
 
 - An ASE starts with (2) P2s which is sufficient for dev/test workloads, and low-level production workloads. P3s are strongly recommended for moderate to heavy production workloads.
 - For moderate to heavy production workloads, it is recommended to have at least 4 x P3s to ensure there are sufficient front-ends running when scheduled maintenance occurs.  Scheduled maintenance activities will bring down (1) front-end at a time, thus reducing overall available front-end capacity during maintenance activities.
-- You cannot instantly add a new Front End instance.  They can between 2-3 hours to provision.
+- You cannot instantly add a new Front End instance.  They can take between 2-3 hours to provision.
 - For further scaling fine-tuning, customers should monitor the CPU percentage, Memory percentage and Active Requests metrics for the front-end pool.  If CPU or Memory percentage are above 70% when running P3s, add more front-ends.  If Active Requests averages out to 15K-to-20K requests per front-end, you should also add more front-ends.  The overall goal is to keep CPU and Memory percentages below 70%, and Active Requests averaging out to below 15K requests per front-end when running P3s.  
 
 **Workers** The Workers are where your apps actually run.  When you scale up your App Service Plans, that uses up workers in the associated worker pool.
 
 - You cannot instantly add workers.  They can take from 2 to 3 hours to provision regardless of how many are being added.
-- Scaling the size of a compute resource for any pool will take 2-3 hours per update domain.  There are 20 update domains so for instance counts less than 20, there is update domain per worker.  If you were to change the compute resource size of a 10 instance worker pool, then that could take between 20 to 30 hours to complete.  
-- if you change the size of the compute resources used in a worker pool you will cause restarts of the apps running in that worker pool
+- Scaling the size of a compute resource for any pool will take 2-3 hours per update domain.  There are 20 update domains in an ASE.  If you scaled the compute size of a worker pool with 10 instances it could take between 20 to 30 hours to complete. 
+- if you change the size of the compute resources used in a worker pool you will cause cold starts of the apps running in that worker pool
 
-When changing the size of a worker pool without running apps:
+The fastest way to change the compute resource size of a worker pool that is not running any apps is to:
 
-- scale down the instance count to 2
-- change the compute size to the desired setting
-- scale the resource pool back up as appropriate.  
+- scale down the instance count to 0.  It will take about 30 minutes to deallocate your instances
+- select the new compute size and number of instances.  From here it will take between 2 to 3 hours to complete.
 
-If your apps require a larger compute resource size then rather than change the size of the worker pool which will take a long time and can cause application restarts you can:
+If your apps require a larger compute resource size you cannot take advantage of the previous guidance.  Instead of changing the size of the worker pool hosting those apps you can populate another worker pool with workers of the desired size and move your apps over to that pool.
 
-- create the needed instances of the needed compute size in another worker pool
-- reassign your ASPs hosting the apps that need a larger size to the other worker pool
-- eliminate the instances from the first worker pool
+- create the additional instances of the needed compute size in another worker pool.  This will take from 2 to 3 hours to complete.
+- reassign your App Service Plans hosting the apps that need a larger size to the newly configured worker pool.  This is a fast operation that should take less than a minute to complete.  
+- scale down the first worker pool if you do not need those unused instances anymore.  This operation takes about 30 minutes to complete.
 
 **Autoscaling** One of the tools that can help manage your compute resource consumption is autoscaling which you can do for Front End or Worker pools.  You can do things such as increase your instances of any pool type in the morning and reduce it in the evening or perhaps add instances when the number of workers available in a worker pool drops below a certain threshhold.  If you wish to set autoscale rules around compute resource pool metrics then keep in mind the time that provisioning requires.  For more details on autoscaling of App Service Environments go here [How to configure autoscale in an App Service Environment][ASEAutoscale]
 
@@ -71,7 +70,7 @@ The database holds the information that defines the environment as well as detai
 
 ### Network
 
-The virtual network that is used with your ASE can be one that you made when creating the ASE or one that you had ahead of time.  If you want your VNET to be in a resource group that is separate from the one used for your ASE then you need to make your VNET separately from the ASE creation flow.  It is a good idea to create the subnet you want to use at the same time as creating the subnet during ASE creation will force the ASE to be in the same resource group as the VNET.  
+The virtual network that is used with your ASE can be one that you made when creating the ASE or one that you made ahead of time.  If you want your VNET to be in a resource group that is separate from the one used for your ASE then you need to make your VNET separately from the ASE creation flow.  If you create the subnet during ASE creation it will force the ASE to be in the same resource group as the VNET.  
 
 There are some restrictions on the VNET used for an ASE:
 
@@ -116,11 +115,11 @@ To see details on your ASP simply bring up your ASP from any of the lists in the
 
 Within the ASE blade there is a Settings section that contains several important capabilities
 
-**Settings > Properties** The Settings blade will automatically open up when you bring up your ASE blade.  At the top is Properties.  There are a number of items in here that are redundant to what you see in Essentials but what is very useful is the VIP Address as well as the Outbound IP Address.  For now they are the one and the same but at some point in the future it is likely to become possible to have a separate outbound IP address from the VIP address which is why they are both noted here. So if you don't count setting up SSL and adding an IP address just for a single app in your ASE, the IP that will be set in DNS for the apps made in your ASE will be the VIP address that you see here in Properties.
+**Settings > Properties** The Settings blade will automatically open up when you bring up your ASE blade.  At the top is Properties.  There are a number of items in here that are redundant to what you see in Essentials but what is very useful is the VIP Address as well as the Outbound IP Address. 
 
 ![][4]
 
-**Settings > IP Addresses** When you create an app in your ASE with IP SSL you need an IP address that is reserved just for that app.  In order to do that your ASE needs to have some IP addresses that it owns which can be allocated.  When an ASE is created it has 1 address for this purpose but you can add more.  There is a charge for additional IP addresses as shown here [App Service Pricing][AppServicePricing] in the section on SSL connections.  The additional price is the IP SSL price.
+**Settings > IP Addresses** When you create an IP SSL app in your ASE you need an IP SSL address.  In order to do that your ASE needs IP SSL addresses that it owns which can be allocated.  When an ASE is created it has 1 IP SSL address for this purpose but you can add more.  There is a charge for additional IP SSL addresses as shown here [App Service Pricing][AppServicePricing] in the section on SSL connections.  The additional price is the IP SSL price.
 
 **Settings > Front End Pool / Worker Pools** Each of these resource pool blades offers the ability to see information only on that resource pool in addition to providing controls to fully scale that resource pool.  
 
@@ -138,7 +137,7 @@ There are three scale operations:
 
 There are three ways in the portal to control how many servers you have in your resource pools
 
-- Scale operation from the main ASE blade at the top
+- Scale operation from the main ASE blade at the top.  You can make multiple scale configuration changes to the Front End and Worker Pools and they are all applied as a single operation.
 - Manual scale operation from the individual resource pool Scale blade, which is under Settings
 - Autoscale which you set up from the individual resource pool Scale blade
 
