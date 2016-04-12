@@ -21,7 +21,6 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
-
 This article shows you how to create and upload a virtual hard disk (VHD) so you can use it as your own image to create virtual machines in Azure. You'll learn how to prepare the operating system so you can use it to create multiple virtual machines based on that image.
 
 **Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). All Linux distributions in the Azure image gallery are endorsed distributions with the required configuration.
@@ -58,45 +57,12 @@ After following the steps in the guides above you should have a VHD file that is
 <a id="connect"> </a>
 ## Step 2: Prepare the connection to Azure
 
-Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure.
+Make sure you are using the Azure CLI in the classic deployment model (`azure config mode asm`), then log in to your account:
 
-The latest Azure CLI defaults into Resource Manager deployment model, so make sure you are in the classic deployment model by using this command:
+```
+azure login
+```
 
-		azure config mode asm  
-
-Next, use one of the following login methods to connect to your Azure subscription.
-
-Use Azure AD method to login:
-
-1. Open an Azure CLI window
-
-2. Type:
-
-	`azure login`
-
-	When prompted, type your username and password.
-
-**OR**, use a PublishSettings file instead:
-
-1. Open an Azure CLI window
-
-2. Type:
-
-	`azure account download`
-
-	This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Azure subscription.
-
-3. Save the .publishsettings file
-
-4. Type:
-
-	`azure account import <PathToFile>`
-
-	Where `<PathToFile>` is the full path to the .publishsettings file.
-
-	For more information, read [Connect to Azure from Azure CLI](../xplat-cli-connect.md).
-
-> [AZURE.NOTE] We recommend you use the newer Azure Active Directory method to login to your Azure subscription.
 
 <a id="upload"> </a>
 ## Step 3: Upload the image to Azure
