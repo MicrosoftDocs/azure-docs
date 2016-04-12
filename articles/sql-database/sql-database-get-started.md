@@ -1,7 +1,7 @@
 <properties
 	pageTitle="SQL Database tutorial: Create a SQL database | Microsoft Azure"
-	description="SLearn how to set up a SQL Database logical server, server firewall rule, SQL database, sample data, connect with client tools, configure users, and database firewall rule."
-	keywords="sql database tutorial,create a sql database, create a sql database server, create a sql database firewall"
+	description="Learn how to set up a SQL Database logical server, server firewall rule, SQL database, sample data, connect with client tools, configure users, and database firewall rule."
+	keywords="sql database tutorial,create a sql database"
 	services="sql-database"
 	documentationCenter=""
 	authors="carlrabeler"
