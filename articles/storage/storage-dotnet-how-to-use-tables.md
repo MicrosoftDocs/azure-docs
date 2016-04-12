@@ -62,7 +62,7 @@ Add the following `using` statements to the top of the `program.cs` file:
 
 ### Create the Table service client
 
-The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Add the following code to the **Main()** method:
+The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Here's one way to create the service client:
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();

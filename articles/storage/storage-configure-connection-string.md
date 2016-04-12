@@ -80,26 +80,26 @@ Using HTTPS with a SAS is recommended as a best practice. For more information a
 
 Here's an example of a connection string that includes a service SAS for Blob storage:
 
-	BlobEndpointSetting=https://storagesample.blob.core.windows.net;
+	BlobEndpoint=https://storagesample.blob.core.windows.net;
 	SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
 And here's an example of the same connection string with URL encoding:
 
-	BlobEndpointSetting=https://storagesample.blob.core.windows.net;
+	BlobEndpoint=https://storagesample.blob.core.windows.net;
 	SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
 ### Account SAS example
 
 Here's an example of a connection string that includes an account SAS for Blob and File storage. Note that endpoints for both services are specified:
 
-	BlobEndpointSetting=https://storagesample.blob.core.windows.net;
-	FileEndpointSetting=https://storagesample.file.core.windows.net;
+	BlobEndpoint=https://storagesample.blob.core.windows.net;
+	FileEndpoint=https://storagesample.file.core.windows.net;
 	SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
 
 And here's an example of the same connection string with URL encoding:
 
-	BlobEndpointSetting=https://storagesample.blob.core.windows.net;
-	FileEndpointSetting=https://storagesample.file.core.windows.net;
+	BlobEndpoint=https://storagesample.blob.core.windows.net;
+	FileEndpoint=https://storagesample.file.core.windows.net;
 	SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
 
 ## Creating a connection string to an explicit storage endpoint
@@ -120,16 +120,16 @@ Here are examples of valid connection strings that specify an explicit endpoint 
 
 	# Blob endpoint only
 	DefaultEndpointsProtocol=https;
-	BlobEndpointSetting=www.mydomain.com;
+	BlobEndpoint=www.mydomain.com;
 	AccountName=storagesample;
 	AccountKey=account-key
 
 	# All service endpoints
 	DefaultEndpointsProtocol=https;
-	BlobEndpointSetting=www.mydomain.com;
-	FileEndpointSetting=myaccount.file.core.windows.net;
-	QueueEndpointSetting=myaccount.queue.core.windows.net;
-	TableEndpointSetting=myaccount;
+	BlobEndpoint=www.mydomain.com;
+	FileEndpoint=myaccount.file.core.windows.net;
+	QueueEndpoint=myaccount.queue.core.windows.net;
+	TableEndpoint=myaccount;
 	AccountName=storagesample;
 	AccountKey=account-key
 

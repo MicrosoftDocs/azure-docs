@@ -61,7 +61,7 @@ Add the following `using` statements to the top of the `program.cs` file:
 
 ### Create the Blob service client
 
-The **CloudBlobClient** class enables you to retrieve containers and blobs stored in Blob storage. Add the following code to the **Main()** method:
+The **CloudBlobClient** class enables you to retrieve containers and blobs stored in Blob storage. Here's one way to create the service client:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 

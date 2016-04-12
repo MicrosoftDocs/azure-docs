@@ -60,7 +60,7 @@ Add the following `using` statements to the top of the `program.cs` file:
 
 ### Create the Queue service client
 
-The **CloudQueueClient** class enables you to retrieve queues stored in Queue storage. Add the following code to the **Main()** method:
+The **CloudQueueClient** class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
 
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
