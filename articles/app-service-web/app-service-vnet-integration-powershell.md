@@ -22,7 +22,7 @@
 
 In the Azure App Service, you can connect your app (web, mobile or API) to an Azure virtual network (VNET) in your subscription. This feature is called VNET Integration. The VNET Integration feature should not be confused with the App Service Environment feature which allows you to run an instance of the Azure App Service in your VNET.
 
-The VNET Integration feature has a user interface (UI) in the new portal that you can use to integrate with VNETs that are deployed with either the classic or Resource Manager deployment models. If you want to learn more about the feature, see [Integrate your app with an Azure virtual network][web-sites-integrate-with-vnet] .
+The VNET Integration feature has a user interface (UI) in the new portal that you can use to integrate with VNETs that are deployed with either the classic or Resource Manager deployment models. If you want to learn more about the feature, see [Integrate your app with an Azure virtual network](web-sites-integrate-with-vnet).
 
 This article is not about how to use the UI but rather about how to enable integration by using PowerShell. Because the commands for each deployment model are different, this article has a section for each deployment model.  
 
