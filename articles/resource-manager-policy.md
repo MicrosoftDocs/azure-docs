@@ -85,7 +85,7 @@ event service log. For example, an administrator can create a policy which cause
         <condition> | <logical operator>
       },
       "then" : {
-          "effect" : "deny | audit"
+          "effect" : "deny | audit | append"
       }
     }
     
@@ -175,7 +175,24 @@ Currently, the supported aliases are:
 
 To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 
 
+## Effect
+Deny, Audit, Append are three types of effect Policy supports. 
+- Deny will generate an event in audit log and fail the request
+- Audit will generate an event in audit log and not fail the request
+- Append will add the defined set of fields to the request. 
 
+For "Append", details must be provided as below:
+
+    ....
+    "effect": "append",
+    "details": [
+      {
+        "field": "field name",
+        "value": "value of the field"
+      }
+    ]
+
+The value can be either simple string or a json format object. 
 
 ## Policy Definition Examples
 
@@ -199,6 +216,50 @@ The below policy denies all requests which don’t have a tag containing
       }
     }
 
+The below policy will append costCenter tag with a predefined value if no tags are present. 
+
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": "{\"costCenter\":\"myDepartment\" }"
+	      }
+	    ]
+	  }
+	}
+	
+The below policy will append costCenter tag with a predefined value if other tags are present. 
+
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
 
 
 ### Geo Compliance: Ensure resource locations
@@ -438,7 +499,7 @@ After you have applied your policy, you will begin to see policy-related events.
 
 To view all events that related to deny effect, you can use the following command. 
 
-    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 To view all events related to audit effect, you can use the following command. 
 
