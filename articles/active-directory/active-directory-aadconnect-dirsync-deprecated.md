@@ -1,6 +1,6 @@
 <properties
-	pageTitle="DirSync and Azure AD Sync are now deprecated | Microsoft Azure"
-	description="Announces the deprecation of DirSync and Azure AD Sync. Also describes how to upgrade from these to Azure AD Connect."
+	pageTitle="Upgrade from DirSync and Azure AD Sync | Microsoft Azure"
+	description="Describes how to upgrade from DirSync and Azure AD Sync to Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="04/12/2016"
 	ms.author="andkjell"/>
 
 
-# Windows Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“AAD Sync”) deprecation
+# Upgrade Windows Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“Azure AD Sync”)
 
 Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.
 
