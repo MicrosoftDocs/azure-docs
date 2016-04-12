@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="04/12/2016"
 	ms.author="tamram"/>
 
 # Configure Azure Storage Connection Strings
@@ -22,9 +22,9 @@
 
 A connection string includes the authentication information needed to access data in an Azure storage account from your application at runtime. You can configure a connection string to:
 
-- Connect to the Azure storage emulator while you are testing your service or application in the local development environment.
-- Connect to a storage account in Azure by using either the default endpoints for the storage services, or explicit endpoints that you have defined.
-- Access resources in a storage account via a shared access signature (SAS).
+- Connect to the Azure storage emulator.
+- Access a storage account in Azure.
+- Access specified resources in Azure via a shared access signature (SAS).
 
 [AZURE.INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
@@ -80,27 +80,33 @@ Using HTTPS with a SAS is recommended as a best practice. For more information a
 
 Here's an example of a connection string that includes a service SAS for Blob storage:
 
-	BlobEndpointSetting=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpointSetting=https://storagesample.blob.core.windows.net;
+	SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
 And here's an example of the same connection string with URL encoding:
 
-	BlobEndpointSetting=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpointSetting=https://storagesample.blob.core.windows.net;
+	SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
 ### Account SAS example
 
 Here's an example of a connection string that includes an account SAS for Blob and File storage. Note that endpoints for both services are specified:
 
-	BlobEndpointSetting=https://storagesample.blob.core.windows.net;FileEndpointSetting=https://storagesample.file.core.windows.net;SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
+	BlobEndpointSetting=https://storagesample.blob.core.windows.net;
+	FileEndpointSetting=https://storagesample.file.core.windows.net;
+	SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
 
 And here's an example of the same connection string with URL encoding:
 
-	BlobEndpointSetting=https://storagesample.blob.core.windows.net;FileEndpointSetting=https://storagesample.file.core.windows.net;SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
+	BlobEndpointSetting=https://storagesample.blob.core.windows.net;
+	FileEndpointSetting=https://storagesample.file.core.windows.net;
+	SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
 
 ## Creating a connection string to an explicit storage endpoint
 
 You can explicitly specify the service endpoints in your connection string instead of using the default endpoints. To create a connection string that specifies an explicit endpoint, specify the complete service endpoint for each service, including the protocol specification (HTTPS (recommended) or HTTP), in the following format:
 
-	DefaultEndpointsProtocol=https|http;
+	DefaultEndpointsProtocol=[http|https];
 	BlobEndpoint=myBlobEndpoint;
 	QueueEndpoint=myQueueEndpoint;
 	TableEndpoint=myTableEndpoint;
@@ -113,10 +119,19 @@ One scenario where you may wish to do specify an explicit endpoint is if you hav
 Here are examples of valid connection strings that specify an explicit endpoint for the Blob service:
 
 	# Blob endpoint only
-	DefaultEndpointsProtocol=https;BlobEndpointSetting=www.mydomain.com;AccountName=storagesample;AccountKey=account-key
+	DefaultEndpointsProtocol=https;
+	BlobEndpointSetting=www.mydomain.com;
+	AccountName=storagesample;
+	AccountKey=account-key
 
 	# All service endpoints
-	DefaultEndpointsProtocol=https;BlobEndpointSetting=www.mydomain.com;FileEndpointSetting=myaccount.file.core.windows.net;QueueEndpointSetting=myaccount.queue.core.windows.net;TableEndpointSetting=myaccount;AccountName=storagesample;AccountKey=account-key
+	DefaultEndpointsProtocol=https;
+	BlobEndpointSetting=www.mydomain.com;
+	FileEndpointSetting=myaccount.file.core.windows.net;
+	QueueEndpointSetting=myaccount.queue.core.windows.net;
+	TableEndpointSetting=myaccount;
+	AccountName=storagesample;
+	AccountKey=account-key
 
 The endpoint value that is listed in the connection string is used to construct the request URIs to the Blob service, and it dictates the form of any URIs that are returned to your code.
 
@@ -127,10 +142,13 @@ Note that if you choose to omit a service endpoint from the connection string, t
 To create a connection string for storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Governance, use the following connection string format. Indicate whether you want to connect to the storage account through HTTP or HTTPS, replace `myAccountName` with the name of your storage account, replace `myAccountKey` with your account access key, and replace `mySuffix` with the URI suffix:
 
 
-	DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=mySuffix;
+	DefaultEndpointsProtocol=[http|https];
+	AccountName=myAccountName;
+	AccountKey=myAccountKey;
+	EndpointSuffix=mySuffix;
 
 
-For example, your connection string should look similar to the following sample connection string:
+For example, your connection string should look similar to the following connection string:
 
 	DefaultEndpointsProtocol=https;
 	AccountName=storagesample;
