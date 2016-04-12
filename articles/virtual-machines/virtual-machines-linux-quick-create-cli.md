@@ -137,9 +137,11 @@ The example above creates:
 - an Azure Storage account to hold the .vhd file that is the VM image
 - an Azure Virtual Network and subnet to provide connectivity to the VM
 - a virtual Network Interface Card (NIC) to associate the VM with the network
-- a public IP address and subdomain prefix to provide an internet address for external use and then creates the Linux VM inside that environment.
+- an Azure Network Security Group to apply network traffic filters to the NIC
+- a public IP address and subdomain prefix to provide an internet address for external use
+- Deploys an Ubuntu VM into the Azure resources listed above
 
-This VM is exposed directly to the Internet, and is only secured by a username and password.
+The VM is secured by using SSH keys for the login although password logins are still enabled.  By default Azure VMs created with `azure vm quick-create` are protected by a NSG which filters out all network traffic with the sole exception of the inbound SSH traffic on port 22.  All outbound traffic is enabled by default in the NSG.  
 
 ## Next Steps
 
