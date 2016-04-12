@@ -46,7 +46,7 @@ You do not have to create anchors - they are automatically generated at publishi
   `[Configure your profile](../service-directory/media-services-create-account.md#configure-your-profile)`
 
 
-## Links from from includes
+## Links from includes
 
 Since include files are located in another directory, you will need to use longer relative paths as shown below. To link to an article from an include file, use this format:
 
