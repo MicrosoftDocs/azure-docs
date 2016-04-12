@@ -68,7 +68,7 @@ First, you create the TestLab virtual network that will host the Corpnet subnet 
 7.	In the **CIDR (Address Count)** column for the Corpnet subnet, click **/24 (256)**.
 8.	Click the Complete icon. Wait until the virtual network is created before continuing.
 
-Next, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell.md) to install Azure PowerShell on your local computer. Open an Azure PowerShell command prompt.
+Next, use the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install Azure PowerShell on your local computer. Open an Azure PowerShell command prompt.
 
 First, select the correct Azure subscription with these commands. Replace everything within the quotes, including the < and > characters, with the correct name.
 

@@ -16,6 +16,8 @@ Determine if there are any non-Microsoft inbound links to your content. Frequent
 
 ## Step 3: Remove all crosslinks to the article from the technical content repository
 
+Do not rely on redirects to take care of crosslinks from other articles. Update or remove the cross references to the article you are deleting or renaming, including in articles owned by other people.
+
 1. Ensure you are working in an up-to-date local branch – run `git pull upstream master` (or the appropriate variation on this command.
 
 2.	Scan the azure-content-pr/articles folder and the azure-content-pr/includes folder for any articles and includes that link to the article you want to retire, and either remove the crosslinks or replace them with an appropriate new crosslinks. You can use a search and replace utility to find the crosslinks if you have one installed. If you don't, you can use Windows PowerShell for free! Here's how to use PowerShell to find the crosslinks:
