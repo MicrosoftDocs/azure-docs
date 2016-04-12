@@ -27,20 +27,22 @@ To create an inline link from an ACOM technical article to another ACOM technica
 
 ## Links to anchors
 
-You do not have to create anchors - they are automatically generated at publishing time for all H2 headings. The only thing you have to do is create links to the H2 sections:
+You do not have to create anchors - they are automatically generated at publishing time for all H2 headings. The only thing you have to do is create links to the H2 sections.
 
-    [link](#the-text-of-the-H2-section-separated-by-hyphens)
-    [Create cache](#create-cache)
+- To link to a heading within the same article:
 
-To link to an anchor in another article in the same subdirectory:
+  `[link](#the-text-of-the-H2-section-separated-by-hyphens)`  
+  `[Create cache](#create-cache)`
 
-    [link text](article-name.md#anchor-name)
-    [Configure your profile](media-services-create-account.md#configure-your-profile)
+- To link to an anchor in another article in the same subdirectory:
 
-To link to an anchor in another service subdirectory:
+  `[link text](article-name.md#anchor-name)`
+  `[Configure your profile](media-services-create-account.md#configure-your-profile)`
 
-    [link text](service-directory/article-name.md#anchor-name)
-    [Configure your profile](service-directory/media-services-create-account.md#configure-your-profile)
+- To link to an anchor in another service subdirectory:
+
+  `[link text](../service-directory/article-name.md#anchor-name)`
+  `[Configure your profile](../service-directory/media-services-create-account.md#configure-your-profile)`
 
 
 ## Links from from includes
