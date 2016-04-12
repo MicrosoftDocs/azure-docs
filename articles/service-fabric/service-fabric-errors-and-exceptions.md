@@ -1,6 +1,6 @@
 <properties
-   pageTitle="FabricClient common errors and exceptions | Microsoft Azure"
-   description=""
+   pageTitle="Common FabricClient exceptions thrown | Microsoft Azure"
+   description="Describes the common exceptions and errors which can be thrown by the FabricClient APIs while performing application and cluster management operations."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -17,9 +17,9 @@
    ms.author="ryanwi"/>
 
 # Common exceptions when working with the FabricClient APIs
-The [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) APIs enable cluster and application administrators to perform administrative tasks on a Service Fabric application, service, or cluster. For example, application deployment, upgrade, and removal, checking the health a cluster, or testing a service. Application developers and cluster administrators can use the [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) APIs to develop tools for managing the Service Fabric cluster and applications.
+The [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) APIs enable cluster and application administrators to perform administrative tasks on a Service Fabric application, service, or cluster. For example, application deployment, upgrade, and removal, checking the health a cluster, or testing a service. Application developers and cluster administrators can use the FabricClient APIs to develop tools for managing the Service Fabric cluster and applications.
 
-The following table lists exceptions that could be thrown by many of the methods in the [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) APIs.
+There are many different types of operations which can be performed using FabricClient.  Each method can throw exceptions for errors due to incorrect input, runtime errors, or transient infrastructure issues.  See the API reference documentation to find which exceptions are thrown by a specific method. There are some exceptions, however, which can be thrown by many different [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) APIs. The following table lists the exceptions which are common across the FabricClient APIs.
 
 |Exception| Thrown when|
 |---------|:-----------|
@@ -27,6 +27,3 @@ The following table lists exceptions that could be thrown by many of the methods
 |[System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)|The operation timed out. [OperationTimedOut](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) is returned when the operation takes more than MaxOperationTimeout to complete.|
 |[System.Fabric.FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx)|A runtime error occurred while performing the operation. Any of the FabricClient methods can potentially throw [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx), the  [ErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricexception.errorcode.aspx) property indicates the exact cause of the exception. Error codes are defined in the [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) enumeration.|
 |[System.Fabric.FabricTransientException](https://msdn.microsoft.com/library/system.fabric.fabrictransientexception.aspx)|The operation failed due to a transient error condition of some kind. For example, an operation may fail because a quorum of replicas is temporarily not reachable. Transient exceptions correspond to failed operations that can be retried.|
-
-
-## Next steps
