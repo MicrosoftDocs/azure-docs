@@ -1,0 +1,115 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "ARM",
+    "description": "Access Azure Resources using this API", 
+    "contact": {
+    "name": "Sunay Vaishnav",
+    "email": "sunayv@microsoft.com"
+    }
+  },
+  "host": "management.azure.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "AAD": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+      "scopes": []
+    }
+  },
+  "paths": {
+    "/subscriptions": {
+      "get": {
+        "description": "Get a list of subscriptions",
+        "summary": "Get a list of subscriptions",
+        "operationId": "GetSubscription",
+        "x-ms-visibility": "important",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [{
+          "name": "api-version",
+          "x-ms-summary": "API version",
+          "in": "query",
+          "description": "API version",
+          "required": true,
+          "type": "string",
+          "default": "2015-01-01"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "id": "/",
+              "type": "object",
+              "properties": {
+                "value": {
+                  "id": "subscriptions",
+                  "type": "array",
+                  "items": {
+                    "id": "subscription",
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "id": "id",
+                        "type": "string"
+                      },
+                      "subscriptionId": {
+                        "id": "subscriptionId",
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "id": "displayName",
+                        "type": "string"
+                      },
+                      "state": {
+                        "id": "state",
+                        "type": "string"
+                      },
+                      "subscriptionPolicies": {
+                        "id": "subscriptionPolicies",
+                        "type": "object",
+                        "properties": {
+                          "locationPlacementId": {
+                            "id": "locationPlacementId",
+                            "type": "string"
+                          },
+                          "quotaId": {
+                            "id": "quotaId",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "default": {
+            "description": "Operation Failed."
+          }
+        }
+      }
+    }
+  }
+}

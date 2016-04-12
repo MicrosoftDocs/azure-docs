@@ -1,0 +1,191 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Sample",
+    "description":"Sample swagger for a C# webapi template",
+    "contact": {
+    "name": "Sunay Vaishnav",
+    "email": "sunayv@microsoft.com"
+    }
+  },
+  "host": "",             //Enter your Website url here. Don't provide schemes. eg: mywebapi.mywebsite.com
+  "schemes": [
+    "https"                      
+  ],
+  "securityDefinitions": {
+    "AAD": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+      "scopes": []
+    }
+  },
+  "paths": {
+    "\/api\/Values": {
+      "get": {
+        "tags": [
+          "Values"
+        ],
+        "operationId": "Values_Get",
+        "consumes": [
+          
+        ],
+        "produces": [
+          "application\/json",
+          "text\/json",
+          "application\/xml",
+          "text\/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Values"
+        ],
+        "operationId": "Values_Post",
+        "consumes": [
+          "application\/json",
+          "text\/json",
+          "application\/xml",
+          "text\/xml",
+          "application\/x-www-form-urlencoded"
+        ],
+        "produces": [
+          
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "\/api\/Values\/{id}": {
+      "get": {
+        "tags": [
+          "Values"
+        ],
+        "operationId": "Value_Get",
+        "consumes": [
+          
+        ],
+        "produces": [
+          "application\/json",
+          "text\/json",
+          "application\/xml",
+          "text\/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "Values"
+        ],
+        "operationId": "Values_Put",
+        "consumes": [
+          "application\/json",
+          "text\/json",
+          "application\/xml",
+          "text\/xml",
+          "application\/x-www-form-urlencoded"
+        ],
+        "produces": [
+          
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Values"
+        ],
+        "operationId": "Values_Delete",
+        "consumes": [
+          
+        ],
+        "produces": [
+          
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    
+  }
+}
