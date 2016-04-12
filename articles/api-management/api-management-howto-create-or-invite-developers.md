@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How manage user accounts in Azure API Management" 
+	pageTitle="How manage user accounts in Azure API Management | Microsoft Azure" 
 	description="Learn how to create or invite users in Azure API Management" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 # How to manage user accounts in Azure API Management
@@ -63,6 +63,8 @@ Once the invitation is accepted, the account becomes active.
 By default, newly created or invited developer accounts are **Active**. To deactivate a developer account, click **Block**. To reactivate a blocked developer account, click **Activate**. A blocked developer account can not access the developer portal or call any APIs.
 
 ![Block developer][api-management-new-developer]
+
+## Reset a developer's password
 
 ## <a name="next-steps"> </a>Next steps
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Policies in Azure API Management" 
+	pageTitle="Policies in Azure API Management | Microsoft Azure" 
 	description="Learn how to create, edit, and configure policies in API Management." 
 	services="api-management" 
 	documentationCenter="" 
