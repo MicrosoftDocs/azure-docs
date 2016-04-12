@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create and manage Windows VMs in Visual Studio | Microsoft Azure"
-   description="Create and manage Azure VMs running Windows in Visual Studio"
+   description="Learn to use Visual Studio to create and manage Azure VMs running Windows"
    services="visual-studio-online,virtual-machines-windows"
    documentationCenter="na"
    authors="TomArcher"
