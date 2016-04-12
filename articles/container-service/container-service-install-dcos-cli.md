@@ -27,11 +27,11 @@
 First, [connect to your DC/OS-based ACS cluster](./container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
 
 ```bash
-sudo pip install -y virtualenv
+sudo pip install virtualenv
 mkdir dcos && cd dcos
 wget https://raw.githubusercontent.com/mesosphere/dcos-cli/master/bin/install/install-optout-dcos-cli.sh
 chmod +x install-optout-dcos-cli.sh
-install-optout-dcos-cli.sh . http://localhost --add-path yes
+./install-optout-dcos-cli.sh . http://localhost --add-path yes
 ```
 
 If you are using an old version of Python, you may notice some "InsecurePlatformWarnings". You can safely ignore these.
@@ -48,14 +48,4 @@ Now you can confirm that the CLI is installed:
 
 ```bash
 dcos --help
-```
-
-## Configure the package repository
-
-Once you have installed the DC/OS CLI, you can configure the DC/OS CLI package repository as below:
-
-```bash
-dcos config prepend package.sources https://github.com/mesosphere/multiverse/archive/version-1.x.zip
-dcos config set package.cache ~/.dcos/cache
-dcos pacakge update
 ```
