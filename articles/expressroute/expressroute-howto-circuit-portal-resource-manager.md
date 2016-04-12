@@ -68,7 +68,7 @@ You can view all circuits you created by selecting "All Resources" on the left s
 
 You can view the properties of the circuit you are interested in by selecting it. 
 
-![](./media/expressroute-howto-circuit-portal-resourcemanager/listproperties1.png)
+![](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 Note down the service key for the circuit. You must copy this over and pass it down to the service provider to complete the provisioning process.
 
