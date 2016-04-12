@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Managing Role-Based Access Control with the REST API
