@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Compute Hosting Options Provided by Azure" 
-	description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others." 
-	headerExpose="" 
-	footerExpose="" 
+<properties
+	pageTitle="Compute Hosting Options Provided by Azure"
+	description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others."
+	headerExpose=""
+	footerExpose=""
 	services="cloud-services"
-	authors="Thraka" 
+	authors="Thraka"
 	documentationCenter=""
 	manager="timlt"/>
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="04/11/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
@@ -22,7 +22,7 @@
 When selecting a virtual network to use with Azure AD Domain Services, keep the following guidelines in mind:
 
 - Ensure you select a virtual network in a region that is supported by Azure AD Domain Services. See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services are available.
-- If you plan to use an existing virtual network, ensure that it is a regional virtual network. Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services. You will need to [migrate legacy virtual networks to regional virtual networks](../virtual-networks-migrate-to-regional-vnet.md).
+- If you plan to use an existing virtual network, ensure that it is a regional virtual network. Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services. You will need to [migrate legacy virtual networks to regional virtual networks](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 - If you plan to use an existing virtual network, ensure that there are no custom DNS servers configured for the virtual network. Azure AD Domain Services does not support custom/bring-your-own DNS servers.
 - If you plan to use an existing virtual network, ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Subsequently, you try to enable an Azure AD Domain Services managed domain with the same domain name (i.e. 'contoso.com') on that virtual network. You will encounter a failure when trying to enable Azure AD Domain Services. This is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
 - Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services. You will not be able to move Domain Services to a different virtual network after you have enabled the service.

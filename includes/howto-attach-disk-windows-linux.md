@@ -1,5 +1,5 @@
 
-For more details about disks, see [About Disks and VHDs for Virtual Machines](virtual-machines-linux-about-disks-vhds.md).
+For more details about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 ##<a id="attachempty"></a>How to: Attach an empty disk
 

@@ -91,7 +91,8 @@ When you create a storage account, you select the primary region for the account
 | Australia Southeast | Australia East      |
 | India South         | India Central       |
 | India Central       | India South         |
-
+| US Gov Iowa         | US Gov Virginia     |
+| US Gov Virginia     | US Gov Iowa         |
 
 ## Read-access geo-redundant storage
 

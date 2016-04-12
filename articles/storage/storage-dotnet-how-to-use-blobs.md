@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/25/2016"
+	ms.date="04/07/2016"
 	ms.author="tamram"/>
 
 
@@ -36,7 +36,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 - [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 - [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- An [Azure storage account](storage-create-storage-account.md#create-a-storage-account).
+- An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -45,32 +45,25 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## Programmatically access Blob storage
+### Add namespace declarations
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+Add the following `using` statements to the top of the `program.cs` file:
 
-### Namespace declarations
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
-Add the following namespace declarations to the top of any C\# file
-in which you wish to programmatically access Azure Storage:
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-    using Microsoft.WindowsAzure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+### Create the Blob service client
 
-Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
-
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
-
-A **CloudBlobClient** type allows you to retrieve objects that represent
-containers and blobs stored within the Blob Storage Service. The
-following code creates a **CloudBlobClient** object using the storage
-account object we retrieved above:
+The **CloudBlobClient** class enables you to retrieve containers and blobs stored in Blob storage. Add the following code to the **Main()** method:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+Now you are ready to write code that reads data from and writes data to Blob storage.
 
 ## Create a container
 
@@ -91,18 +84,12 @@ This example shows how to create a container if it does not already exist:
     // Create the container if it doesn't already exist.
     container.CreateIfNotExists();
 
-By default, the new container is private and you must specify your
-storage access key to download blobs from this
-container. If you want to make the files within the container available
-to everyone, you can set the container to be public using the following
-code:
+By default, the new container is private, meaning that you must specify your storage access key to download blobs from this container. If you want to make the files within the container available to everyone, you can set the container to be public using the following code:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
- 	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
-Anyone on the Internet can see blobs in a public container, but you can
-modify or delete them only if you have the appropriate access key.
+Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate account access key or a shared access signature.
 
 ## Upload a blob into a container
 
