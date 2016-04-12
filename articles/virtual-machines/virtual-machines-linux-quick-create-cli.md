@@ -151,12 +151,22 @@ To help you decide when you should use `vm quick-create` and when you should mov
 |:-----------------|:------------:|:--------------:|
 | test SSH         | use Q-C      | -              |
 | get a BASH shell | use Q-C      | -              |
-| run a container  | -            | use A-T        |
+| run a container  | use Q-C      | -              |
 | deploy Jenkins   | -            | user A-T       |
 | dev cloud        | use Q-C      | -              |
 | test cloud       | -            | use Q-C        |
 | production cloud | -            | use Q-C        |
 | CI/CD VM         | -            | use Q-C        |
+
+* Test SSH - you need a quick way to test your new SSH config on your laptop you could use `azure vm quick-create` to build the VM as the cli does not use SSH.
+
+* Bash shell - you need to reference a command in your automation and cannot remember how to use it, `azure vm quick-create` is the fastest way to a Bash shell on Azure.
+
+* Containers - you have a container you need to launch to test or verify.  You can use `quick-create` to launch a [CoreOS VM](https://azure.microsoft.com/en-us/marketplace/partners/bitnami/jenkins/) to quickly get a Docker host up and running to launch your container on.
+
+* Jenkins - you are doing a Proof of Concept project for your team to showcase Continuous Integration and Deployment.  Launching a preconfigured [Jenkins VM from Bitnami](https://azure.microsoft.com/en-us/marketplace/partners/bitnami/jenkins/) gets you up and running so you can start building that CiCd POC.
+
+* Dev Team Cloud - you need to manage your dev teams Azure environment in a repeatable and consistent deployment method. Using DevOps best practices and treating all infrastructure as code you need to store that infrastructure code as code in Git.
 
 
 ## Next Steps
