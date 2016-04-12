@@ -491,9 +491,9 @@ SET VPN_GATEWAY_TYPE=RouteBased
 SET VNET_IP_RANGE=10.20.0.0/16
 SET ON_PREMISES_ADDRESS_SPACE=10.10.0.0/16
 SET ON_PREMISES_PUBLIC_IP=40.50.60.70
-REM This gives the gateway an IP range 10.20.255.240 - 10.20.255.254
+REM This gives the gateway an IP range 10.20.255.224 - 10.20.255.254
 SET GATEWAY_SUBNET_IP_RANGE=10.20.255.224/27
-REM This give the internal subnet an IP range of 10.20.0.1 - 10.20.127.254
+REM This give the internal subnet an IP range of 10.20.1.1 - 10.20.1.254
 SET INTERNAL_SUBNET_IP_RANGE=10.20.1.0/24
 REM We will put this at the end of the subnet
 SET INTERNAL_LOAD_BALANCER_FRONTEND_IP_ADDRESS=10.20.1.254
