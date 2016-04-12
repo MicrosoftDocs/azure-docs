@@ -147,7 +147,7 @@ To log out, use the following command:
 If the subscriptions associated with the account were only authenticated with Active Directory, logging out deletes the subscription information from the local profile. However, if a publish settings file had also been imported for the subscriptions, logging out only deletes Active Directory related information from the local profile.
 ## Next steps
 
-* To use Azure CLI commands, see [Azure CLI commands in Azure Resource Manager mode](virtual-machines/azure-cli-arm-commands.md) and [Azure CLI commands in Azure Service Management mode](virtual-machines-command-line-tools.md).
+* To use Azure CLI commands, see [Azure CLI commands in Azure Resource Manager mode](./virtual-machines/azure-cli-arm-commands.md) and [Azure CLI commands in Azure Service Management mode](virtual-machines-command-line-tools.md).
 
 * To learn more about the Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
