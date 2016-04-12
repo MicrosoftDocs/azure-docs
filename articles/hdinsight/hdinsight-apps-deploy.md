@@ -197,7 +197,7 @@ See [Install custom HDInsight applications](hdinsight-apps-install-custom-applic
         ]
     }
     
-#Appendix B - Script action sample
+##Appendix B - Script action sample
 
     #! /bin/bash
     CORESITEPATH=/etc/hadoop/conf/core-site.xml
