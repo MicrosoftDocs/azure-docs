@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="04/12/2016"
-   ms.author="barbkess;jrj;sonyama"/>
+   ms.author="sonyama;barbkess;jrj"/>
 
 # SQL Data Warehouse capacity limits
 
