@@ -180,7 +180,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
    For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)
 
-   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](../install-configure-powershell.md).
+   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](../powershell-install-configure.md).
 
 ## Step 4: Upload the .vhd file ##
 
