@@ -16,7 +16,6 @@
    ms.date="04/01/2016"
    ms.author="ganesr"/>
 
-
 # Move ExpressRoute circuits from the classic to Resource Manager deployment model
 
 ## Configuration prerequisites
