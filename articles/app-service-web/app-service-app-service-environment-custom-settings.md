@@ -21,9 +21,9 @@
 ## Overview ##
 Because App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
 
-You can store App Service Environment customizations by using an array in the new "clusterSettings" attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
+You can store App Service Environment customizations by using an array in the new **clusterSettings** attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
 
-The following abbreviated Resource Manager template snippet shows the "clusterSettings" attribute:
+The following abbreviated Resource Manager template snippet shows the **clusterSettings** attribute:
 
 
     "resources": [
@@ -44,21 +44,30 @@ The following abbreviated Resource Manager template snippet shows the "clusterSe
        }
     }
 
-The "clusterSettings" attribute can be included in a Resource Manager template to update the App Service Environment.
+The **clusterSettings** attribute can be included in a Resource Manager template to update the App Service Environment.
 
-Alternatively, the attribute value can be updated by using [Azure Resource Explorer](https://resources.azure.com).  In Resource Explorer, go to the node for the App Service Environment (**subscriptions** --> **resourceGroups** --> **providers** --> **Micrososft.Web** --> **hostingEnvironments**), and then click the specific App Service Environment that you want to update.
+## Use Azure Resource Explorer to update an App Service Environment
+Alternatively, the App Service Environment can be updated by using [Azure Resource Explorer](https://resources.azure.com).  
 
-In the right pane, click **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  Then click the blue **Edit** button to make the Resource Manager template editable. Scroll to the bottom of the right pane. The "clusterSettings" attribute is at the very bottom where you can enter or update its value.
+1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** --> **resourceGroups** --> **providers** --> **Micrososft.Web** --> **hostingEnvironments**). Then click the specific App Service Environment that you want to update.
 
-Type in (or copy and paste) the array of configuration value(s) you want in the "clusterSettings" attribute.  Then click the green **PUT** button that's located at the top of the right pane to commit the change to the App Service Environment.
+2. In the right pane, click **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  
+
+3. Click the blue **Edit** button to make the Resource Manager template editable.
+
+4. Scroll to the bottom of the right pane. The **clusterSettings** attribute is at the very bottom where you can enter or update its value.
+
+5. Type (or copy and paste) the array of configuration value(s) you want in the **clusterSettings** attribute.  
+
+6. Click the green **PUT** button that's located at the top of the right pane to commit the change to the App Service Environment.
 
 However you submit the change, it takes roughly 30 minutes multiplied by the number of front ends in the App Service Environment for the change to take effect.
-For example, if an App Service Environment has four front ends, it will take roughly two hours for the configuration update to finish. While the configuration change is being rolled out, no other scaling operations or configuration change operations are possible in the App Service Environment.
+For example, if an App Service Environment has four front ends, it will take roughly two hours for the configuration update to finish. While the configuration change is being rolled out, no other scaling operations or configuration change operations can take place in the App Service Environment.
 
 ## Disable TLS 1.0 ##
-A recurring request from customers, especially those dealing with PCI compliance audits, is the ability to explicitly disable TLS 1.0 for their apps.
+A recurring question from customers, especially customers who are dealing with PCI compliance audits, is how to explicitly disable TLS 1.0 for their apps.
 
-TLS 1.0 can be disabled with the following *clusterSettings* entry:
+TLS 1.0 can be disabled with the following **clusterSettings** entry:
 
         "clusterSettings": [
             {
