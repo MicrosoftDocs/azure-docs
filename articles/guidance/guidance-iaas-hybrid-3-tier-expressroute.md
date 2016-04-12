@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/04/2016"
+   ms.date="04/12/2016"
    ms.author="roshar"/>
 
 # Azure Blueprints: Implementing a Hybrid Network Architecture with Azure ExpressRoute
@@ -73,7 +73,7 @@ The following diagram highlights the important components in this architecture:
 
 The following high-level steps outline a process for implementing this architecture. Detailed examples using Azure PowerShell commands are described [later in this document](powershell). Note that this process assumes that you have already created a VNet for hosting the cloud application, that you have created the on-premises network, and that your organization has met the [ExpressRoute prerequiste requirements][expressroute-prereqs] for connecting to the Azure. 
 
-- [Create an ExpressRoute circuit][create-expressroute-circuit]. Use the following command:
+- Create an ExpressRoute circuit by using the following command:
 
     ```
      New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> `
@@ -99,7 +99,7 @@ The following high-level steps outline a process for implementing this architect
 
 	- Send the `ServiceKey` for the new circuit to the service provider.
 
-	- Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you are implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [ExpressRoute routing requirements][expressroute-routing-requirements].
+	- Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you are implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [Create an ExpressRoute circuit][create-expressroute-circuit].
 
 	- Wait for the provider to provision the circuit.
 
@@ -225,7 +225,7 @@ ExpressRoute circuits provide a high bandwidth path between networks. Generally,
 
 ## Monitoring and manageability
 
-At this time, your monitoring options are based on the tools available through your connection provider.
+At this time, your monitoring options are based on the tools available through your connection provider and on-premises network.
 
 ## Troubleshooting
 
@@ -359,12 +359,11 @@ You can use the PowerShell script below to deploy the sample solution, as detail
 	        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup `
 	            -Location $Location -AddressPrefix $VnetAddressPrefix `
 	            -Subnet $gatewaySubnetConfig, $internalSubnetConfig
+			$gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name GatewaySubnet
 	        $gatewayPublicIpAddress = New-AzureRmPublicIpAddress -Name $gatewayPublicIpAddressName -ResourceGroupName $resourceGroup `
 	            -Location $Location -AllocationMethod Dynamic
-	        # We will use the list accessor here, but if the order of the Subnet parameter in the New-AzureRmVirtualNetwork is changed,
-	        # the index for the SubnetId parameter will change.
 	        $gatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwIpConfig `
-	            -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $gatewayPublicIpAddress.Id
+	            -SubnetId $gwsubnet.Id -PublicIpAddressId $gatewayPublicIpAddress.Id
 	        $vnetGateway = New-AzureRmVirtualNetworkGateway -Name $vnetGatewayName `
 	            -ResourceGroupName $resourceGroup -Location $Location -IpConfigurations $gatewayIpConfig `
 	            -GatewayType ExpressRoute -VpnType RouteBased
