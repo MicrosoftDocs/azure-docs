@@ -15,7 +15,7 @@
 	ms.date="09/01/2015" 
 	ms.author="adegeo"/>
 
-# Should I Choose Cloud Services or Something Else?
+# Should I choose cloud services or something else?
 
 Is Azure Cloud Services the choice for you? Azure provides different hosting models for running applications. Each one provides a different set of services, so which one you choose depends on exactly what you're trying to do.
 
