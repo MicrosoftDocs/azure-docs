@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -53,7 +53,7 @@ Click **Save** to save the changes.
 
 ## Next steps
 
-A server firewall rule affects all SQL Databases on the Azure SQL Server. To configure a database level firewall rule that will affect only a single database instead, see [sp_set_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270017.aspx").
+A server firewall rule affects all SQL Databases on the Azure SQL Server. To configure a database level firewall rule that will affect only a single database instead, see [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx").
 
 For a tutorial on creating a database, see [Create your first Azure SQL Database](sql-database-get-started.md).
 For help in connecting to an Azure SQL database from open source or third-party applications, see [Guidelines for Connecting to Azure SQL Database Programmatically](https://msdn.microsoft.com/library/azure/ee336282.aspx).

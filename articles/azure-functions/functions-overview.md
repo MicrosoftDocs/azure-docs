@@ -23,7 +23,7 @@
 
 ## A faster way to functions
 
-Write any function under a minute - either when you need a simple job to cleanse a database or to build functionality that processes millions of messages from connected devices. Use your development language of choice (C#, Node.JS, Python and more). Pay only for the time your code runs and trust Azure to scale as needed.
+Write any function under a minute - either when you need a simple job to clean a database or to build functionality that processes millions of messages from connected devices. Use your development language of choice (C#, Node.JS, Python and more). Pay only for the time your code runs and trust Azure to scale as needed.
 
 Azure functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can [get started with your first function](functions-create-first-azure-function.md) in just minutes.
 
@@ -67,3 +67,7 @@ There are two ways to run Azure Functions: using a Dynamic App Service Plan and 
 In a **Dynamic App Service Plan**, you don't have to worry about resource management. Whenever your function is run, Azure will provide all of the necessary computational resources. You only pay for the time that your code spends running. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions).
 
 A **Classic App Service Plan** allows you to run functions just like your web, mobile, and API apps. Thiss is a great solution if you are already using App Service for other applications - your functions can run on the same plan for no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
+
+## Reporting Issues
+
+[AZURE.INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

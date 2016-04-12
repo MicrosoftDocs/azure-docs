@@ -3,7 +3,7 @@
    description="Learn how to create a Fully Qualified Domain Name or FQDN for a Resource Manager based virtual machine in the Azure portal."
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="dsk-2015"
+   authors="iainfoulds"
    manager="timlt"
    editor="tysonn"
    tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="dkshir"/>
+   ms.date="04/04/2016"
+   ms.author="iainfou"/>
 
 # Create a Fully Qualified Domain Name in the Azure portal
 

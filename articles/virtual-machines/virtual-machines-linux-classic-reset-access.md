@@ -313,6 +313,6 @@ To repair disks with fsck utility, run these commands.
 
 <!--Link references-->
 [Azure Linux Agent User Guide]: virtual-machines-linux-agent-user-guide.md
-[How to install and configure Azure PowerShell]: ../install-configure-powershell.md
+[How to install and configure Azure PowerShell]: ../powershell-install-configure.md
 [Azure VM Extensions and Features]: virtual-machines-windows-extensions-features.md
 [Connect to an Azure virtual machine with RDP or SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
