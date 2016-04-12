@@ -102,8 +102,8 @@ Name|SAS portion|Description
 ---|---|---
 Blob URI|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |The address of the blob. Note that using HTTPS is highly recommended.
 Storage services version|sv=2015-04-05|For storage services version 2012-02-12 and later, this parameter indicates the version to use.
-Start time|st=2015-04-29T22%3A18%3A26Z|Specified in an ISO 8601 format. If you want the SAS to be valid immediately, omit the start time.
-Expiry time|se=2015-04-30T02%3A23%3A26Z|Specified in an ISO 8601 format.
+Start time|st=2015-04-29T22%3A18%3A26Z|Specified in UTC time. If you want the SAS to be valid immediately, omit the start time.
+Expiry time|se=2015-04-30T02%3A23%3A26Z|Specified in UTC time.
 Resource|sr=b|The resource is a blob.
 Permissions|sp=rw|The permissions granted by the SAS include Read (r) and Write (w).
 IP range|sip=168.1.5.60-168.1.5.70|The range of IP addresses from which a request will be accepted.

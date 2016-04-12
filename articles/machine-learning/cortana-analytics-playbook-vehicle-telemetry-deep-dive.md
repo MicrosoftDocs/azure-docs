@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Vehicle telemetry analytics solution playbook: deep dive into the solution | Microsoft Azure" 
-	description="Use the capabilities of Cortana Analytics to gain real-time and predictive insights on vehicle health and driving habits." 
+	description="Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -155,10 +155,10 @@ Once the pipeline executes successfully and ‘RawCarEventsTable’ dataset is m
 
 ### References
 
-[Azure Event Hub SDK for stream ingestion](event-hubs-csharp-ephcs-getstarted.md)
+[Azure Event Hub SDK for stream ingestion](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Azure Data Factory data movement capabilities](data-factory-data-movement-activities.md)
-[Azure Data Factory DotNet Activity](data-factory-use-custom-activities.md)
+[Azure Data Factory data movement capabilities](../data-factory/data-factory-data-movement-activities.md)
+[Azure Data Factory DotNet Activity](../data-factory/data-factory-use-custom-activities.md)
 
 [Azure Data Factory DotNet activity visual studio solution for preparing sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 
 
