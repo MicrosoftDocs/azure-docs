@@ -60,7 +60,9 @@ Before creating an ExpressRoute circuit, you need the list of connectivity provi
 Check to see if your connectivity provider is listed there. Make a note of the following because you will need them later when you create a circuit:
 
 - Name
+
 - PeeringLocations
+
 - BandwidthsOffered
 
 You are now ready to create an ExpressRoute circuit.   
@@ -80,6 +82,7 @@ The following example shows how to create a 200-Mbps ExpressRoute circuit throug
 Make sure that you specify the correct SKU tier and SKU family:
 
 - SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify "Standard" to get the standard SKU or "Premium" for the premium add-on.
+ 
 - SKU family determines the billing type. You can specify "Metereddata" for a metered data plan and "Unlimiteddata" for an unlimited data plan. **Note:** You can change the billing type from "Metereddata" to "Unlimiteddata", but you can't change the type from "Unlimiteddata" to "Metereddata".
 
 
