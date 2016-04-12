@@ -1,7 +1,6 @@
 <properties 
    pageTitle="Basic Azure CLI Commands in Azure Resource Manager mode | Microsoft Azure"
    description="Basic Azure CLI commands to get you started managing your VMs in Azure Resource Manager mode"
-   keywords="linux virtual machines, Azure Resource Manager, Azure CLI"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="RicksterCDN" 
