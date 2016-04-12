@@ -13,34 +13,84 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/07/2016"
+ ms.date="04/12/2016"
  ms.author="danlep"/>
 
-# Automatically grow and shrink Azure compute nodes in an HPC Pack cluster according to the cluster workload
+# Automatically grow and shrink Azure compute resources in an HPC Pack cluster according to the cluster workload
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
 If you deploy Azure “burst” nodes in your HPC Pack cluster, or you
 create an HPC Pack cluster in Azure VMs, you may want a way to
-automatically grow or shrink the Azure computing resources according to
+automatically grow or shrink the number of Azure compute resources such as cores according to
 the current workload of jobs and tasks on the cluster. This allows you
 to use your Azure resources more efficiently and control their costs.
 To do this, set up the HPC Pack cluster property **AutoGrowShrink**. Alternatively, run the
 **AzureAutoGrowShrink.ps1** HPC PowerShell script that is installed with
 HPC Pack.
 
+>[AZURE.NOTE] Currently you can only grow and shrink HPC Pack compute nodes that are running a Windows Server operating system.
 
 ## Set the AutoGrowShrink cluster property
 
->[AZURE.NOTE] The AutoGrowShrink cluster property is available in HPC Pack 2012 R2 Update 2 and later versions.
+### Prerequisites
 
-### Enable cluster AutoGrowShrink
+* **HPC Pack 2012 R2 cluster Update 2 or later** - The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to quickly deploy a HPC Pack cluster in Azure VMs.
 
-For an on-premises HPC Pack cluster
 
-### Autogrowshrink settings
+* **For a cluster with a head node in Azure** - If you use the HPC Pack IaaS deployment script to create the cluster, enable the **AutoGrowShrink** cluster property by setting the AutoGrowShrink option in the cluster configuration file. For details, see the documentation accompanying the [script download](https://www.microsoft.com/download/details.aspx?id=44949). 
 
+    Alternatively, set the **AutoGrowShrink** cluster property by using HPC PowerShell commands described in the following section. To use HPC PowerShell to do this, first complete the following steps:
+    1. Configure an Azure management certificate on the head node and in the Azure subscription. For a test deployment you can use the Default Microsoft HPC Azure self-signed certificate that HPC Pack installs on the head node, and simply upload that certificate to your Azure subscription. For options and steps, see the [TechNet Library guidance](https://technet.microsoft.com/library/gg481759.aspx).
+    2. Run **regedit** on the head node, go to HKLM\SOFTWARE\Micorsoft\HPC\IaasInfo, and add a new string value. Set the Value name to “ThumbPrint”, and Value data to the thumbprint of the certificate in Step 1.
+
+
+### HPC PowerShell commands to set the AutoGrowShrink property
+
+Following are sample HPC PowerShell commands to set **AutoGrowShrink** and to tune its behavior with additional parameters. See [AutoGrowShrink parameters](#AutoGrowShrink-parameters) later in this article for the complete list of settings. To run these commands, start HPC PowerShell on the cluster head node as an administrator.
+
+**To enable the AutoGrowShrink property**
+
+    Set-HpcClusterProperty –EnableGrowShrink 1
+
+**To disable the AutoGrowShrink property**
+
+    Set-HpcClusterProperty –EnableGrowShrink 0
+
+**To change the grow interval in minutes**
+
+    Set-HpcClusterProperty –GrowInterval <interval>
+
+**To change the shrink interval in minutes**
+
+    Set-HpcClusterProperty –ShrinkInterval <interval>
+
+**To view the current configuration of AutoGrowShrink**
+
+    Get-HpcClusterProperty –AutoGrowShrink
+
+### AutoGrowShrink parameters
+
+The following table lists the **AutoGrowShrink** settings that you can modify by passing parameters to **Set-HpcClusterProperty**.
+
+|Setting|Description|
+| ---------- | ------------ |
+|**EnableGrowShrink**| Switch to enable or disable the **AutoGrowShrink** property.|
+|**ParamSweepTasksPerCore**| Number of parametric sweep tasks to grow 1 core. The default is to grow 1 core per task. <br/>>[AZURE.NOTE] HPC Pack QFE KB3134307 changes **ParamSweepTasksPerCore** to **TasksPerResourceUnit**. It is based on the job resource type and can be node, socket, or core.|
+|**GrowThreshold**|Threshold of queued tasks to trigger autogrow. The default is 1, which means that if there are 1 or more tasks in the Queued state, we will auto grow nodes.|
+|**GrowInterval**|Interval in minutes to trigger autogrow. The default interval is 5 minutes.
+|**ShrinkInterval**|Interval in minutes to trigger autoshrink. The default interval is 5 minutes.|
+|ShrinkIdleTimes: the number of continuous shrink checks to indicate the nodes are idle, default is 3 times. For example, if ShrinkInterval is 5 minutes, we will check whether the node is idle every 5 minutes, if the nodes is in idle state in 3 times of continuous checks (15 minutes), then we will shrink that node.
+ExtraNodesGrowRatio: Specifies additional nodes to grow for MPI jobs, default value is 1, it means we will grow 1% nodes for MPI jobs. The reason to grow extra nodes is that MPI may require more than 1 node, only when all nodes are ready, the job can be running. But during start these Azure nodes, occasionally, maybe 1 node need more time to start than others, then other nodes will be idle to wait that node get ready. To grow extra nodes, we can reduce this resource waiting time, and may save the cost.
+GrowByMin:  indicate whether the ‘auto grow’ policy is based the minimum resources required of the job, default is false, it means we grow nodes for jobs based on the jobs maximum resources required.
+	SoaJobGrowThreshold: The threshold incoming SOA requests to trigger auto grow
+SoaRequestsPerCore: the number of incoming requests to grow one core
+||
+|||
+|||
+|||
+|||
 
 ## Run the AzureAutoGrowShrink.ps1 script
 
