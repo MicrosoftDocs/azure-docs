@@ -256,7 +256,6 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	![App type in App Service dialog](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	<a id="apptype"></a> 
 	The app type doesn't determine the features that are available to the new API app, web app, or mobile app. All of the API app features shown in these tutorials are available to all three types. The only difference is in the icon and text that the Azure portal displays to identify the app type, and the order in which features are listed on some pages in the portal. You'll see the Azure portal later in the tutorial; it's a web interface for managing Azure resources. 
 
 	For these tutorials the SPA front end is running in a web app, and each Web API back end is running in an API app, but everything would work the same if all three were web apps or all three were API apps. Also, a single API app or web app could host both the SPA front end and the middle tier back end.
@@ -413,23 +412,33 @@ The ToDoListAPI project already has the generated client code, but you'll delete
 
 	The following snippet shows how the code instantiates the client object and calls the Get method.
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-		
-		public ActionResult Index()
+		private static ToDoListDataAPI NewDataAPIClient()
 		{
-		    return View(db.Contacts.Get());
+		    var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+		    return client;
+		}
+		
+		public async Task<IEnumerable<ToDoItem>> Get()
+		{
+		    using (var client = NewDataAPIClient())
+		    {
+		        var results = await client.ToDoList.GetByOwnerAsync(owner);
+		        return results.Select(m => new ToDoItem
+		        {
+		            Description = m.Description,
+		            ID = (int)m.ID,
+		            Owner = m.Owner
+		        });
+		    }
 		}
 
 	The constructor parameter gets the endpoint URL from  the `toDoListDataAPIURL` app setting. In the Web.config file, that value is set to the local IIS Express URL of the API project so that you can run the application locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from.
 
 6. Your client class will be generated with a different name based on your API app name; change the code in *Controllers\ToDoListController.cs* so that the type name matches what was generated in your project. For example, if you named your API App ToDoListDataAPI0121, the code would look like the following example:
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-		
-		public ActionResult Index()
+		private static ToDoListDataAPI0121 NewDataAPIClient()
 		{
-		    return View(db.Contacts.Get());
-		}
+		    var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 ### Create an API app to host the middle tier
 
@@ -498,30 +507,6 @@ In this tutorial you download ASP.NET Web API projects for deployment to App Ser
 
 The **Azure API App** project template is equivalent to choosing the **Empty** ASP.NET 4.5.2 template, clicking the check box to add Web API support, and installing the Swashbuckle package. In addition, the template adds some Swashbuckle configuration code designed to prevent the creation of duplicate Swagger operation IDs.
 
-## Optional: Changing an app type
-
-As explained [earlier](#apptype), the only difference between API apps, web apps, and mobile apps is the way they are represented in the portal. Because they all have the same features, it is never necessary to change an app type.
-
-However, if you want to change the portal representation, it's easy to do. For example, you could change one of the API apps you just created to a web app by performing the following steps.
-
-1. Open [Resource Explorer](https://resources.azure.com/).
-
-2. In the left navigation pane, expand **subscriptions**, and then expand the subscription you've been working with.
-
-4. Expand **resourceGroups**, and then expand the resource group you've been working with.
-
-5. Expand **Microsoft.Web**, expand **sites**, and then select the API app that you want to change.
-
-6. Click **Edit**.
-
-8. Find the `kind` property, and change it from "api" to "WebApp".
-
-	![kind property for App Service instance](./media/app-service-api-dotnet-get-started/resexp.png)
-
-9. Click **Put**.
-
-10. Go to the Azure portal, and you see that the icon has changed to reflect the new app type.
-
 ## Optional: API definition URL in Azure Resource Manager templates
 
 In this tutorial, you've seen the API definition URL in Visual Studio and in the Azure portal. You can also configure the API definition URL for an API app by using [Azure Resource Manager templates](../resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](../powershell-install-configure.md) and the [Azure CLI](../xplat-cli-install.md). 
@@ -537,6 +522,8 @@ For an example of an Azure Resource Manager template that sets the API definitio
 If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer lets you know that no installation is needed.
 
 If you're on a corporate network and are trying to deploy to Azure App Service through a firewall, make sure that ports 443 and 8172 are open for Web Deploy. If you can't open those ports, see the following Next steps section for other deployment options.
+
+If you accidentally deploy the wrong project to an API app and then later deploy the correct one to it, you might see "Route names must be unique" errors.  To correct this, redeploy the project to the API app, and on the **Settings** tab of the **Publish Web** wizard select **Remove additional files at destination**.
 
 After you have your ASP.NET API app running in Azure App Service, you may want to learn more about Visual Studio features that simplify troubleshooting. For information about logging, remote debugging, and more, see  [Troubleshooting Azure App Service apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
