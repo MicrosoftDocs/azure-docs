@@ -74,7 +74,7 @@ error=access_denied
 ```
 For detailed description of the errors, please see the [reference](active-directory-protocols-reference.md).
 
-# Use the Authorization Code to Request an Access Token
+## Use the Authorization Code to Request an Access Token
 
 Now that you've acquired an authorization code and have been granted permission by the user, you can redeem the code for an access token to the desired resource, by sending a POST request to the `/token` endpoint:
 
