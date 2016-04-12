@@ -84,7 +84,7 @@ In this tutorial, we will use an existing sample application (called WordCount) 
 
     ![Deploy an application to the local cluster][deploy-app-to-local-cluster]
 
-7. To see the application in action, launch the browser and navigate to http://localhost:8081/wordcount/index.html. You should see something like this:
+7. To see the application in action, launch the browser and navigate to [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). You should see something like this:
 
     ![Deployed application UI][deployed-app-ui]
 
