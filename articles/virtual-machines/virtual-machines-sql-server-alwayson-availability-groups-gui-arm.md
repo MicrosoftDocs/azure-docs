@@ -193,7 +193,7 @@ For additional information about storage space and storage pools see:
 - [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
 
 For more information about SQL Server configuration best practices, see
-[Performance best practices for SQL Server in Azure virtual machines](virtual-machines-windows-classic-sql-perf.md)
+[Performance best practices for SQL Server in Azure virtual machines](virtual-machines-windows-sql-performance.md)
 
 
 ###SQL Server settings
