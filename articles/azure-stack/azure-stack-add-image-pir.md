@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -65,4 +65,4 @@ Before a virtual machine can be added to the Marketplace, its image must be adde
 
 ## Next steps
 
-[Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)
+[Frequently asked questions for Azure Stack](azure-stack-faq.md)

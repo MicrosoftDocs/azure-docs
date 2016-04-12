@@ -3,9 +3,9 @@
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="storage" 
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/23/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # How to use Queue storage from Ruby

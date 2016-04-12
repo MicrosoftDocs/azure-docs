@@ -448,9 +448,9 @@ installing and configuring Elasticsearch on each one can be a time consuming and
 you are considering running Elasticsearch on Azure VMs, you have two options that can help to reduce the
 chances of errors.
 
-- Using the [Azure Resource Manager (ARM) template](http://azure.microsoft.com/documentation/templates/elasticsearch/) to build the cluster. This template is fully parameterized to enable you to specify the size and performance tier for the VMs that implement the nodes, the number of disks to use, and other common factors. The template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4.
+- Using Azure quickstart [template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. It allows you to use experimental features such as Azure File Storage. This template is used for the research and testing tasks in this document.
 
-- Using scripts which can be automated or run unattended. Scripts that can create and deploy an Elasticsearch cluster are available on the [Azure Quickstart Templates][] site.
+- Using scripts which can be automated or run unattended. Scripts that can create and deploy an Elasticsearch cluster are available on the [GitHub repository](https://github.com/mspnp/azure-guidance/tree/master/scripts/ps)
 
 ## Cluster and Node Sizing and Scalability 
 

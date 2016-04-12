@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Provision a SQL Server virtual machine in Azure Resource Manager (GUI) | Microsoft Azure"
+	pageTitle="Provision a SQL Server virtual machine in the Azure Portal | Microsoft Azure"
 	description="Create an SQL Server virtual machine in Azure Resource Manager mode. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -12,24 +12,19 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/22/2015"
+	ms.date="03/24/2016"
 	ms.author="mikeray" />
 
-# Provision a SQL Server virtual machine in Azure Resource Manager
+# Provision a SQL Server virtual machine in the Azure Portal
 
-> [AZURE.SELECTOR]
-- [Classic portal](virtual-machines-windows-classic-portal-sql.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-create.md)
-- [Azure Resource Manager portal](virtual-machines-windows-portal-sql-server-provision.md)
-
-<br/>
-
->[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+## Overview
 
 This end-to-end tutorial shows you how to provision an Azure virtual machine in the portal using Azure Resource Manager model and configure SQL Server from a template in the Azure gallery.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. You can select one of the VM images form the gallery, and with a few clicks provision the VM to your Azure environment.
 
@@ -89,7 +84,7 @@ Verify that the **Location** is correct for your requirements.
 <br/>
 
 ## 2. Choose virtual machine size
-On the **Create Virtual Machine** blade under **Size** choose a virtual machine size. The Azure portal will display recommended sizes. Find more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-linux-sizes.md). The sizes are based on the template you selected. The size estimates the monthly cost to run the VM.  Select a VM size for your server. For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md).
+On the **Create Virtual Machine** blade under **Size** choose a virtual machine size. The Azure portal will display recommended sizes. Find more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-linux-sizes.md). The sizes are based on the template you selected. The size estimates the monthly cost to run the VM.  Select a VM size for your server. For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 ## 3. Configure virtual machine settings
 On the **Create Virtual Machine** blade under **Settings**, configure Azure storage, networking and monitoring for the virtual machine.
@@ -167,7 +162,7 @@ The following image shows the Storage configuration blade.
 <br/>![SQL ARM Patching](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 <br/>
 
-For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-patch.md).
+For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md).
 
 ### Backups
 Enable automatic database backups for all databases under **SQL automated backup**.
@@ -180,7 +175,7 @@ When you enable SQL automated backup you can configure the following:
 <br/>![SQL ARM Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 <br/>
 
- For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-backup.md).
+ For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ### Key Vault Integration
 To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
@@ -192,10 +187,10 @@ The following table lists the parameters required to configure Azure Key Vault I
 
 |PARAMETER|DESCRIPTION|EXAMPLE|
 |----------|----------|-------|
-|**Key Vault URL** | The location of the key vault.|https://contosokeyvault.vault.azure.net/ |
-|**AKV Principal Name** |Azure Active Directory service principal name. This is also referred to as the Client ID.  |fde2b411-33d5-4e11-af04eb07b669ccf2|
-| **AKV Principal Secret**|AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**Credential name**|Choose a name to identify this credential.| mycred1|
+|**Key Vault URL** |The location of the key vault.|https://contosokeyvault.vault.azure.net/ |
+|**Principal name** |Azure Active Directory service principal name. This is also referred to as the Client ID.  |fde2b411-33d5-4e11-af04eb07b669ccf2|
+| **Principal secret**|Azure Active Directory service principal secret. This is also referred to as the Client Secret. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
+|**Credential name**|**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential.| mycred1|
 
 For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
@@ -226,4 +221,4 @@ The following steps are not required if you only need to access your Virtual Mac
 > [AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ##<a id="Next"> Next Steps
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

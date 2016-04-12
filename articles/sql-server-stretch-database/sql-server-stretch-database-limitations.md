@@ -65,6 +65,8 @@ In the current preview release of SQL Server 2016, the following items make a ta
 
 -   Foreign key constraints that reference the table
 
+    The table on which you can't enable Stretch Database is the table referenced by a foreign key constraint. In a parent-child relationship (for example, Orders and Order Details), this is the parent table (Orders).
+
 **Indexes**
 -   Full text indexes
 

@@ -20,7 +20,7 @@
 
 ## Introduction
 
-[Role-Based Access Control](../role-based-access-control-configure.md) is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to use exactly what they need, and no more. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
+[Role-Based Access Control](role-based-access-control-configure.md) is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to use exactly what they need, and no more. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
 
 This document will let you know what to expect when using some of the roles in the Azure portal. There are three common roles that are included that cover all resource types:
 
@@ -28,7 +28,7 @@ This document will let you know what to expect when using some of the roles in t
 - Contributor  
 - Reader  
 
-Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we’ll spend some time. See the [Role-Based Access Control get-started article](../role-based-access-control-configure.md) for details on how to grant access.
+Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we’ll spend some time. See the [Role-Based Access Control get-started article](role-based-access-control-configure.md) for details on how to grant access.
 
 ## App Service workloads
 

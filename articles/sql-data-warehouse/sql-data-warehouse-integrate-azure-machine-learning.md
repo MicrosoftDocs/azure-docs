@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Use Azure Machine Learning with SQL Data Warehouse
@@ -55,7 +55,7 @@ Select the Reader module and fill out the properties pane.
 7. Database query: Enter a SQL statement that describes the data you want to read. In this case, we will read data from Product table using the following query.
 
 
-```
+```SQL
 SELECT ProductKey, EnglishProductName, StandardCost,
         ListPrice, Size, Weight, DaysToManufacture,
         Class, Style, Color

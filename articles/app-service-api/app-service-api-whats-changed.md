@@ -111,6 +111,10 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 3. Build your own discovery API app and have other API apps register with the discovery app on startup.
 4. At deployment time, populate the app settings of all the API apps (and clients) with the endpoints of the other API apps. This is viable in template deployments and since API Apps now give you control of the url.
 
+## Using API Apps with Logic Apps
+
+The new API apps model works well with [Logic Apps schema version 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+
 ## Next Steps
 
 To learn more, read the articles in the [API Apps Documentation section](https://azure.microsoft.com/documentation/services/app-service/api/). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # About Traffic Manager Monitoring
@@ -85,7 +85,9 @@ An example timeline illustrating the monitoring process with a single cloud serv
 7. **Traffic to cloud service decreases** – Traffic may continue to flow to the unavailable cloud service. Clients will experience failures because the service is unavailable. Clients and secondary DNS servers have cached the DNS record for the IP address of the unavailable cloud service. They continue to resolve the DNS name of the company domain to the IP address of the service. In addition, secondary DNS servers may still hand out the DNS information of the unavailable service. As clients and secondary DNS servers are updated, traffic to the IP address of the unavailable service will slow. The monitoring system continues to perform checks at 30 second intervals. In this example, the service does not respond and remains unavailable.
 8. **Traffic to cloud service stops** – By this time, most DNS servers and clients should be updated and traffic to the unavailable service stops. The maximum amount time before traffic completely stops is dependent on the TTL time. The default DNS TTL is 300 seconds (5 minutes). Using this value, clients stop using the service after 5 minutes. The monitoring system continues to perform checks at 30 second intervals and the cloud service does not respond.
 9. **Cloud service comes back online and receives traffic** – The service becomes available, but Traffic Manager does not know until the monitoring system performs a check.
-10. **Traffic to service resumes** - Traffic Manager sends a GET and receives a 200 OK in under 10 seconds. It then begins to hand out the cloud service’s DNS name to DNS servers as they request updates. As a result, traffic starts to flow to the service once again.
+10. **Traffic to service resumes** - Traffic Manager sends a GET and receives a 200 OK in under 10 seconds. It then begins to hand out the cloud service’s DNS name to DNS servers as they request updates. Traffic will return to the endpoint once again as cached DNS responses returning other endpoints expire, and as existing connections to other endpoints are terminated.
+
+>[AZURE.NOTE] Since Traffic Manager works at the DNS level, it is unable to influence existing connections to any endpoint.  During failback, whilst Traffic Manager may be directing new connections to the primary endpoint, secondary endpoints will continue to receive traffic via existing connections until those sessions are terminated.  If fast failback is required, applications should limit the session duration on secondary endpoints.
 
 ## Child and parent endpoint status for nested profiles
 

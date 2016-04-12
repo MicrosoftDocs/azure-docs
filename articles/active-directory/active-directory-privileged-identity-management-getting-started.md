@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management How To Table of Contents"
+   pageTitle="Getting started with Azure AD Privileged Identity Management"
    description="Learn how to manage privileged identities with the Azure Active Directory Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/09/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Getting started with Azure AD Privileged Identity Management

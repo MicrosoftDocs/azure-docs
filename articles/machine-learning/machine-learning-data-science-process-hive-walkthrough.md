@@ -80,7 +80,7 @@ Here are three examples of prediction problems that we address in this walkthrou
 
 You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
-1. [Create a storage account](../storage-whatis-account.md): This storage account is used for storing data in Azure Blob Storage. The data used in HDInsight clusters also resides here.
+1. [Create a storage account](../storage/storage-create-storage-account.md): This storage account is used for storing data in Azure Blob Storage. The data used in HDInsight clusters also resides here.
 
 2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](machine-learning-data-science-customize-hadoop-cluster.md). This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
 
@@ -96,7 +96,7 @@ You can set up an Azure environment for advanced analytics that employs an HDIns
 
 To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](machine-learning-data-science-move-azure-blob.md) to copy the data to your machine.
 
-Here we describe how use AzCopy to transfer the files containing data. To download and install AzCopy follow the instructions at [Getting Started with the AzCopy Command-Line Utility](../storage-use-azcopy.md).
+Here we describe how use AzCopy to transfer the files containing data. To download and install AzCopy follow the instructions at [Getting Started with the AzCopy Command-Line Utility](../storage/storage-use-azcopy.md).
 
 1. From a Command Prompt window, issue the following AzCopy commands, replacing *<path_to_data_folder>* with the desired destination:
 
@@ -788,7 +788,7 @@ b. For regression problems, we measure the accuracies of our prediction by looki
 
 We see that about the coefficient of determination is 0.709, implying about 71% of the variance is explained by our model coefficients.
 
-**Important note:** To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning?](machine-learning-what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Analytics Gallery](https://gallery.azureml.net/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
+**Important note:** To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning?](machine-learning-what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
 
 ## License Information
 

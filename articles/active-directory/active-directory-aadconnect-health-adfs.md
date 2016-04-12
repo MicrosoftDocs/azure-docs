@@ -4,9 +4,9 @@
 	description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="karavar"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 # Using Azure AD Connect Health with AD FS
 The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health.
@@ -32,7 +32,7 @@ By selecting an alert you will be provided with additional information as well a
 ## Usage Analytics for AD FS
 Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. Selecting the usage analytics box will open the usage analytics blade, which will show you the metrics and groupings.
 
->[AZURE.NOTE] In order to use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs).
+>[AZURE.NOTE] In order to use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/report1.png)
 
@@ -64,7 +64,7 @@ Azure AD Connect Health Performance Monitoring provides monitoring information o
 By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metrics, simply right-click on the monitoring chart under the monitoring blade and select Edit Chart. Then, from the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
 
 ## Reports for AD FS
-Azure AD Connect Health provides reports about activity and performance of AD FS. These reports help administrators gain insight into activities on their AD FS servers. 
+Azure AD Connect Health provides reports about activity and performance of AD FS. These reports help administrators gain insight into activities on their AD FS servers.
 
 ### Top 50 Users with failed Username/Password logins
 
@@ -79,13 +79,13 @@ Azure AD Connect Health for ADFS provides a report about top 50 Users with faile
 Within this report you have easy access to the following pieces of information:
 
 - Total # of failed requests with wrong username/password in the last 30 days
-- Average # of users that failed with a bad username/password login on a daily basis. 
- 
-Clicking on this part takes you to the main report blade that provides additional details. This includes a graph that provides you trending information to establish a baseline about requests with wrong username or password and the list of top 50 users with the number of failed attempts.
- 
-The graph provides the following information: 
+- Average # of users that failed with a bad username/password login on a daily basis.
 
-- The total # of failed logins due to a bad username/password on a per-day basis. 
+Clicking on this part takes you to the main report blade that provides additional details. This includes a graph that provides you trending information to establish a baseline about requests with wrong username or password and the list of top 50 users with the number of failed attempts.
+
+The graph provides the following information:
+
+- The total # of failed logins due to a bad username/password on a per-day basis.
 - The total # of unique users that failed logins on a per-day basis.
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report2a.png)
@@ -93,10 +93,10 @@ The graph provides the following information:
 The report provides the following:
 
 | Report Item | Description
-| ------ | -------- | 
+| ------ | -------- |
 |User ID| Shows the user ID that was used. Note that the value is what the user typed in and in some cases, you will also see the wrong user ID being used.|
 |Failed Attempts|Shows the total # of failed attempts for that specific user ID. The table is sorted with the most number of failed attempts in descending order.|
-|Last Failure|This shows the time stamp when the last failure occurred. 
+|Last Failure|This shows the time stamp when the last failure occurred.
 
 
 
@@ -112,4 +112,3 @@ The report provides the following:
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
-

@@ -14,19 +14,17 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="03/11/2016"
 	ms.author="cynthn"/>
 
 
 # Log on to a Windows virtual machine using the Azure classic portal
 
-
-
 In the Azure classic portal, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
 
 Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-classic-log-on.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-log-on.md).
 
 
 ## Video walkthrough
@@ -52,9 +50,7 @@ Here's a video walkthrough of the steps in this tutorial. It also covers endpoin
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## Troubleshooting tips
-
-Here are a few things to try:
+## Next steps
 
 -	If the **Connect** button is inactive or you are having other problems with the Remote Desktop connection, try resetting the configuration. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
 -	For problems with your password, try resetting it. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.

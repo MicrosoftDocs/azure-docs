@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -30,6 +30,7 @@ ARM templates deploy and provision all of the resources for your application in 
 
     - Replace *DIRECTORY_TENANT_NAME* with the fully qualified name of your directory tenant. Typically a directory tenant name will look like mydirectorytenant.onmicrosoft.com.
 	- Replace *SUBSCRIPTION_NAME* with the default provider subscription name.
+	- If you're using China Azure AD, please use "chinacloudapi.cn" to replace "windows.net" in the following cmdlets. You also also need to add "https://*.microsoftonline.cn" and "https://*.microsoftonline-p.cn" to your trusted website list.
 
 ```PowerShell
 

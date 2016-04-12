@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Add a disk to Linux VM | Microsoft Azure"
-	description="Learn to add a persistant disk to your Linux VM"
-	keywords="linux virtual machine,add resource disk" 
+	description="Learn to add a persistent disk to your Linux VM"
+	keywords="linux virtual machine,add resource disk"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="rickstercdn"
@@ -20,16 +20,17 @@
 
 # Add a disk to a Linux VM
 
-This topic will add a persistent disk to a Linux based Azure Virtual machine using the Azure Command-line interface for Mac and Linux.  By attaching a persistent disk to your virtual Machine, you are able to preserve your data - should your VM be re-provisioned due to maintenance or resizing.
+This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is re-provisioned due to maintenance or resizing. To add a disk you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
-## Prerequisites
+## Quick Commands
 
-This topic assumes you already have a working Azure Subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)), [installed the Azure CLI](../xplat-cli-install.md) and have already provisioned a VM into your Azure Subscription. You will need to know the Resource Group name, your VM name and the Region they are located in order to proceed. 
+```
+# In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
-## Connect your AzureCLI terminal to your Azure subscription
-Before doing anything with Azure - you have to authenticate to your subscription. To do this with AzureCLI, simply type `azure login` to start the interactive process. This will connect your session to your Azure subscription and keep it active for up to 30 minutes. 
+rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
+```
 
-## Attach and mount a disk
+## Attach a disk
 
 Attaching a new disk is quick. Just type `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` to create and attach a new GB disk for your VM. It should look something like this:
 
@@ -41,12 +42,11 @@ Attaching a new disk is quick. Just type `azure vm disk attach-new <myuniquegrou
 	info:    vm disk attach-new command OK
 
 
-## Connect to the Linux virtual machine to mount the new disk
+## Connect to the Linux VM to mount the new disk
 
+> [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. 
 
-> [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. This article uses username and password with **SSH** for brevity.
-
-You will need to SSH into your Azure VM in order to partition, format and mount your new disk so your Linux VM can use it. If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`. 
+You will need to SSH into your Azure VM in order to partition, format, and mount your new disk so your Linux VM can use it. If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`, and looks like the following:
 
 	ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
 	The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
@@ -71,8 +71,6 @@ You will need to SSH into your Azure VM in order to partition, format and mount 
 
 	0 packages can be updated.
 	0 updates are security updates.
-
-
 
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
@@ -152,7 +150,6 @@ And write a file system to the partition by using the **mkfs** command, specifyi
 	8192 inodes per group
 	Superblock backups stored on blocks:
 		32768, 98304, 163840, 229376, 294912, 819200, 884736
-
 	Allocating group tables: done
 	Writing inode tables: done
 	Creating journal (32768 blocks): done
@@ -176,6 +173,6 @@ The data disk is now ready to use as `/datadrive`.
 
 ## Next Steps
 
-- Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file. 
+- Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
 - Review the [Optimize your Linux machine performance](virtual-machines-linux-optimization.md) recomendations to ensure your Linux VM is configured correctly.
-- Expand your storage capacity by adding additional disks and [configure RAID](virtual-machines-linux-configure-raid.md) for additional performance. 
+- Expand your storage capacity by adding additional disks and [configure RAID](virtual-machines-linux-configure-raid.md) for additional performance.

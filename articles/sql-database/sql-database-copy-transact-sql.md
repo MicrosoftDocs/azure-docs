@@ -1,30 +1,30 @@
 <properties 
-    pageTitle="Create a copy of an Azure SQL database using Transact-SQL" 
+    pageTitle="Copy an Azure SQL database using Transact-SQL | Microsoft Azure" 
     description="Create copy of an Azure SQL database using Transact-SQL" 
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a copy of an Azure SQL database using Transact-SQL
+# Copy an Azure SQL database using Transact-SQL
 
 **Single database**
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 
 

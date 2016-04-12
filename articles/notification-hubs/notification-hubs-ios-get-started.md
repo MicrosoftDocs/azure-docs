@@ -39,7 +39,7 @@ The completed code for this tutorial can be found [on GitHub](https://github.com
 
 This tutorial requires the following:
 
-+ [Mobile Services iOS SDK version 2.x]
++ [Mobile Services iOS SDK version 1.2.4]
 + Latest version of [Xcode]
 + An iOS 8 (or later version)-capable device
 + [Apple Developer Program](https://developer.apple.com/programs/) membership.
@@ -86,7 +86,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
    	![Xcode - provisioning profile][9]
 
-4. Download the [Mobile Services iOS SDK version 2.x] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Copy items if needed**, and then click **Add**.
+4. Download the [Mobile Services iOS SDK version 1.2.4] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Copy items if needed**, and then click **Add**.
 
 	>[AZURE.NOTE] The notification hubs SDK does not currently support bitcode on Xcode 7.  You must set **Enable Bitcode** to **No** in the **Build Options** for your project.
 
@@ -487,7 +487,6 @@ For general information about Notification Hubs, see [Notification Hubs Guidance
 
 <!-- URLs. -->
 [Mobile Services iOS SDK version 1.2.4]: http://aka.ms/kymw2g
-[Mobile Services iOS SDK version 2.x]: https://github.com/Azure/azure-mobile-services/blob/master/CHANGELOG.ios.md#sdk-downloads
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039

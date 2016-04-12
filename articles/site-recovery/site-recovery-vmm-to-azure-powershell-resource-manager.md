@@ -20,7 +20,9 @@
 
 > [AZURE.SELECTOR]
 - [Azure Classic Portal](site-recovery-vmm-to-azure.md)
-- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 ## Overview
 
@@ -40,6 +42,7 @@ The article includes prerequisites for the scenario, and shows you
 
 If you run into problems setting up this scenario, post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
+> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. 
 
 ## Before you start
 

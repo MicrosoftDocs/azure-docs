@@ -174,7 +174,7 @@ The customer must do the following:
 7.	Click **Finish**.
 8.	Click **Add Rule** again.
 9.	Select "Send Claims Using a Custom Rule" and click **Next**.
-10.	Enter a name for the rule, such as "Anchor Claim".
+10.	Enter a name for the rule, such as "Anchor Claim Type".
 11.	Under **Custom rule**, enter the following:
 
 	```
@@ -183,7 +183,7 @@ The customer must do the following:
              Value = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn");
 	```
 
-    This rule maps the UPN claim to the Anchor claim.
+    This rule issues a claim of type `anchorclaimtype`. The claim tells the relying party to use UPN as the user's immutable ID.
 
 12.	Click **Finish**.
 13.	Click **OK** to complete the wizard.

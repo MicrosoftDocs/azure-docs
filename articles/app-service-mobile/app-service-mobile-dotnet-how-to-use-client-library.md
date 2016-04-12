@@ -539,7 +539,7 @@ authentication token after successful sign-on with the identity provider. The [L
 of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more
 information, see [Caching the authentication token](#caching).
 
-###Client flow
+###<a name="client-flow"></a>Client flow
 
 Your app can also independently contact the identity provider and then provide the returned token to App Service for authentication. This client flow enables you
 to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
