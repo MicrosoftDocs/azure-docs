@@ -107,8 +107,6 @@ When multiple triggering events occur faster than a single-threaded function run
 
 Pulse is a live event stream which shows how often your function runs, as well as successes and failures. You can also monitor your average execution time. We’ll be adding more features and customization to it over time. You can access the **Pulse** page from the **Monitoring** tab.
 
->[AZURE.NOTE] Pulse doesn’t yet work for non-dynamic Function Apps, but it will shortly!
-
 ## Bindings
 
 Here is a table of all supported bindings.
