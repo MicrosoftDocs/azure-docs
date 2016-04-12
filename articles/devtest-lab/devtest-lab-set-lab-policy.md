@@ -115,7 +115,7 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 
 1. Tap **Save**.
 
-1. Open the VM blade for any VMs to which you wish to apply this policy, and select the Auto Shutdown option.  
+1. By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's blade and change its **Auto Shutdown** setting 
 
 ## Set auto start
 
@@ -131,7 +131,7 @@ The auto-start policy allows you to specify when the VMs in the current lab shou
 
 1. Tap **Save**.
 
-1. Open the VM blade for any VMs to which you wish to apply this policy, and select the Auto Start option.  
+1. Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's blade and change its **Auto Start** setting 
 
 ## Next steps
 
