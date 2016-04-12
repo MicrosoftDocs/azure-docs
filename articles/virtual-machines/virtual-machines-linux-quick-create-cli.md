@@ -148,7 +148,7 @@ The VM is secured by using SSH keys for the login although password logins are s
 To help you decide when you should use `vm quick-create` and when you should move to an Azure template here is a chart that lists a few common scenarios.
 
 | Task             | Quick-Create | Azure Template |
-|------------------|--------------|----------------|
+|:-----------------|:------------:|:--------------:|
 | test SSH         | use Q-C      | -              |
 | get a BASH shell | use Q-C      | -              |
 | run a container  | -            | use A-T        |
@@ -157,6 +157,7 @@ To help you decide when you should use `vm quick-create` and when you should mov
 | test cloud       | -            | use Q-C        |
 | production cloud | -            | use Q-C        |
 | CI/CD VM         | -            | use Q-C        |
+
 
 ## Next Steps
 
