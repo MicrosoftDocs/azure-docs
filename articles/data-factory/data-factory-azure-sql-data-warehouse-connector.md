@@ -477,7 +477,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     "sink": {
         "type": "SqlDWSink",
         "writeBatchSize": 1000000,
-        "writeBatchTimeout": "00:05:00",
+        "writeBatchTimeout": "00:05:00"
     }
 
 ## Use PolyBase to load data into Azure SQL Data Warehouse
