@@ -29,8 +29,8 @@ Other HDInsight application related articles:
 
 ## Prerequisites
 
-- HDInsight cluster: HDInsight applicaions can only be installed on existing HDInsight clusters.  To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-- Knoweldge of ARM template: See [Azure Resource Manager overview](../resource-group-overview.md), [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+- HDInsight cluster: HDInsight applications can only be installed on existing HDInsight clusters.  To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+- Knowledge of ARM template: See [Azure Resource Manager overview](../resource-group-overview.md), [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
 ## The architecture
 

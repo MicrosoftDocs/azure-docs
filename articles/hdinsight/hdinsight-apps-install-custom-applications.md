@@ -56,7 +56,7 @@ The files needed for deploying this application can be found in a public Azure b
     - **ClusterName**: Enter the name of the cluster where you want to install the application. This cluster must be an existing cluster.
     
 3. Click **OK** to save the parameters.
-4. From the **Custom deployment** blade, enter **Resource group**.  The resource group is a container that groups the cluster, the dependent storage account and other resources. It is recommeded to use the same resource group as the cluster.
+4. From the **Custom deployment** blade, enter **Resource group**.  The resource group is a container that groups the cluster, the dependent storage account and other resources. It is recommended to use the same resource group as the cluster.
 5. Click **Legal terms**, and then click **Create**.
 6. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**. You can see the installation status from the tile pinned to the portal dashboard and the portal notification (click the bell icon on the top of the portal).  It takes about 10 minutes to install the application.
 
@@ -67,7 +67,7 @@ The files needed for deploying this application can be found in a public Azure b
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
 3. Click the cluster where you installed the application.
-4. From the **Settings** blade, click **Apps** under the **General** catagory. You shall see **hue** listed in the **Installed** Apps blade.
+4. From the **Settings** blade, click **Apps** under the **General** category. You shall see **hue** listed in the **Installed** Apps blade.
 5. Click **hue** from the list to list the properties.  
 6. Click the Webpage link. 
 7. Use the HDInsight cluster HTTP user credentials to login.
