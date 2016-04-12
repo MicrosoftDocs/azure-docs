@@ -147,26 +147,26 @@ The command runs and returns messages as the resources are created. Ultimately, 
     Timestamp         : 4/11/2016 7:26:11 PM
     Mode              : Incremental
     TemplateLink      :
-                        Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
-                        ContentVersion : 1.0.0.0
+                Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
+                ContentVersion : 1.0.0.0
     Parameters        :
-                    Name             Type                       Value
-                    ===============  =========================  ==========
-                    skuName          String                     F1
-                    skuCapacity      Int                        1
-                    administratorLogin  String                  exampleadmin
-                    administratorLoginPassword  SecureString
-                    databaseName     String                     sampledb
-                    collation        String                     SQL_Latin1_General_CP1_CI_AS
-                    edition          String                     Basic
-                    maxSizeBytes     String                     1073741824
-                    requestedServiceObjectiveName  String                     Basic
+                Name             Type                       Value
+                ===============  =========================  ==========
+                skuName          String                     F1
+                skuCapacity      Int                        1
+                administratorLogin  String                  exampleadmin
+                administratorLoginPassword  SecureString
+                databaseName     String                     sampledb
+                collation        String                     SQL_Latin1_General_CP1_CI_AS
+                edition          String                     Basic
+                maxSizeBytes     String                     1073741824
+                requestedServiceObjectiveName  String       Basic
 
     Outputs           :
-                    Name             Type                       Value
-                    ===============  =========================  ==========
-                    siteUri          String                     websites5wdai7p2k2g4.azurewebsites.net
-                    sqlSvrFqdn       String                     sqlservers5wdai7p2k2g4.database.windows.net
+                Name             Type                       Value
+                ===============  =========================  ==========
+                siteUri          String                     websites5wdai7p2k2g4.azurewebsites.net
+                sqlSvrFqdn       String                     sqlservers5wdai7p2k2g4.database.windows.net
                     
     DeploymentDebugLogLevel :
 
@@ -288,7 +288,7 @@ To download the template used for a particular deployment, run the **Save-AzureR
 
 ## Deployment script
 
-The earlier deployment examples in this topic showed only the individual cmdlets needed to deploy resources to Azure. The following example shows a deployment script that registers resource providers if needed, creates the resource group, and deploys the resources.
+The earlier deployment examples in this topic showed only the individual cmdlets needed to deploy resources to Azure. The following example shows a deployment script that creates the resource group, and deploys the resources.
 
     <#
       .SYNOPSIS
@@ -339,19 +339,6 @@ The earlier deployment examples in this topic showed only the individual cmdlets
       $parametersFilePath = "parameters.json"
     )
 
-    <#
-      .SYNOPSIS
-        Registers RPs
-    #>
-    Function RegisterRP {
-      Param(
-          [string]$ResourceProviderNamespace
-      )
-
-      Write-Host "Registering resource provider '$ResourceProviderNamespace'";
-      Register-AzureRmResourceProvider -ProviderNamespace $ResourceProviderNamespace -Force;
-    }
-
     #******************************************************************************
     # Script body
     # Execution begins here 
@@ -360,20 +347,11 @@ The earlier deployment examples in this topic showed only the individual cmdlets
 
     # sign in
     Write-Host "Logging in...";
-    Login-AzureRmAccount;
+    Add-AzureRmAccount;
 
     # select subscription
     Write-Host "Selecting subscription '$subscriptionId'";
-    Select-AzureRmSubscription -SubscriptionID $subscriptionId;
-
-    # Register RPs
-    $resourceProviders = @("microsoft.compute","microsoft.network","microsoft.storage");
-    if($resourceProviders.length) {
-      Write-Host "Registering resource providers"
-      foreach($resourceProvider in $resourceProviders) {
-        RegisterRP($resourceProvider);
-      }
-    }
+    Set-AzureRmContext -SubscriptionID $subscriptionId;
 
     #Create or check for existing resource group
     $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
