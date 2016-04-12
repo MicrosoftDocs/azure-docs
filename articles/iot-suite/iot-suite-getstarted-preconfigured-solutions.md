@@ -33,7 +33,7 @@ In order to complete this tutorial, you’ll need an active Azure subscription.
 
 1.  Log on to [azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** to create a new solution.
 
-    > [AZURE.NOTE] If you're having trouble with the permissions required to provision a solution, take a look at [Permissions on the azureiotsuite.com site](iot-suite-permissions.md) for guidance.
+    > [AZURE.NOTE] If you're having trouble with the permissions required to provision a solution, take a look at [Permissions on the azureiotsuite.com site][lnk-permissions] for guidance.
 
 2.  Click **Select** on the **Remote monitoring** tile.
 
@@ -159,37 +159,59 @@ The solution tracks the status of each command it sends. Initially the result is
 
     ![][img-editdevice3]
 
-## View and edit solution rules
+## Add a rule for the new device
 
-The preconfigured solution provisions two rules for SampleDevice001. The rules notify you on the **Alarm History** tile in the dashboard when the temperature or humidity values exceed a threshold.
+There are no rules for the new device you just added. In this section you'll add a rule that triggers an alarm when the temperature reported by the new device exceeds 47 degrees. Before you start, notice that the telemetry history for the new device on the dashboard shows the device temperature never exceeds 45 degrees.
 
-1.  Return to the solution dashboard and view the **Alarm History** tile.
+1.  Navigate back to the device list.
 
-    ![][img-alarmhistory]
+2.  Select your new device in the **Devices List**, and then click **Add rule** to add a new rule for the device.
 
-2.  The rule **AlarmTemp** triggers these alarms.
+3. Create a rule that uses **Temperature** as the data field and uses **AlarmTemp** as the output when the temperature exceeds 47 degrees:
 
-3.  Click **Rules** in the left-hand menu to view the rules for this solution.
+    ![][img-adddevicerule]
+
+4. Click **Save and View Rules** to save your changes.
+
+5.  Click **Commands** in the device details pane for the new device.
+
+    ![][img-adddevicerule2]
+
+6.  Select **ChangeSetPointTemp** from the command list and set **SetPointTemp** to 45. Then click **Send Command**:
+
+    ![][img-adddevicerule3]
+
+7.  Navigate back to the solution dashboard. After a short time, you will see a new entry in the **Alarm History** pane when the temperature reported by your new device exceeds the 47 degree threshold:
+
+    ![][img-adddevicerule4]
+
+8. You can review and edit all your rules on the **Rules** page of the dashboard:
 
     ![][img-rules]
 
-5.  Click the **Temperature** rule in the rules list to view the rule properties.
+9. You can review and edit all the actions that can be taken in response to a rule on the **Actions** page of the dashboard:
 
-6.  To modify a rule, click **Edit** in the rule properties pane.
+    ![][img-actions]
 
-    ![][img-displayrule]
+> [AZURE.NOTE] It is possible to define actions that can send an email message or SMS in response to a rule or integrate with a line-of-business system through a [Logic App][lnk-logic-apps].
 
-7.  Change the **Threshold** to 30 and keep all other properties the same.
+## Behind the scenes
 
-8.  Click **Save and View Rules**.
+When you deploy a preconfigured solution, the deployment process creates multiple resources in the Azure subscription you selected. You can view these resources in the Azure [portal][lnk-portal]. The deployment process creates a **resource group** with a name based on the name you chose for your preconfigured solution:
 
-    ![][img-editrule]
+![][img-portal]
 
-9.  Return to the **Alarm History** table in the **Solution Dashboard** and observe the change in behavior that results from the updated rule.
+You can view the settings of each resource by selecting it in the list of resources in the resource group. The screenshot above shows the settings for the IoT hub used in the preconfigured solution.
 
-    ![][img-newhistory]
-    
+You can also view the source code for the preconfigured solution. The remote monitoring preconfigured solution source code is in the [azure-iot-remote-monitoring][lnk-rmgithub]:
+
+- The **DeviceAdministration** folder contains the source code for the dashboard.
+- The **Simulator** folder contains the source code for the simulated device.
+- The **EventProcessor** folder contains the source code for the back-end process that handles the incoming telemetry.
+
 When you are done, you can delete the preconfigured solution from your Azure subscription on the [azureiotsuite.com][lnk-azureiotsuite] site - this enables you to easily delete all the resources that were provisioned when you created the preconfigured solution.
+
+> [AZURE.NOTE] To ensure that you delete everything related to the preconfigured solution, delete it from m [azureiotsuite.com][lnk-azureiotsuite] and do not simply delete the resource group in the portal.
 
 ## Next Steps
 
@@ -209,14 +231,16 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 [img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
 [img-runningnew]: media/iot-suite-getstarted-preconfigured-solutions/runningnew.png
 [img-runningnew-2]: media/iot-suite-getstarted-preconfigured-solutions/runningnew2.png
-[img-alarmhistory]: media/iot-suite-getstarted-preconfigured-solutions/alarmhistory.png
 [img-rules]: media/iot-suite-getstarted-preconfigured-solutions/rules.png
-[img-displayrule]: media/iot-suite-getstarted-preconfigured-solutions/displayrule.png
-[img-editrule]: media/iot-suite-getstarted-preconfigured-solutions/editrule.png
-[img-newhistory]: media/iot-suite-getstarted-preconfigured-solutions/newhistory.png
 [img-editdevice]: media/iot-suite-getstarted-preconfigured-solutions/editdevice.png
 [img-editdevice2]: media/iot-suite-getstarted-preconfigured-solutions/editdevice2.png
 [img-editdevice3]: media/iot-suite-getstarted-preconfigured-solutions/editdevice3.png
+[img-adddevicerule]: media/iot-suite-getstarted-preconfigured-solutions/addrule.png
+[img-adddevicerule2]: media/iot-suite-getstarted-preconfigured-solutions/addrule2.png
+[img-adddevicerule3]: media/iot-suite-getstarted-preconfigured-solutions/addrule3.png
+[img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
+[img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
+[img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -225,3 +249,6 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 [lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-connecting-devices]: iot-suite-connecting-devices.md
 [lnk-permissions]: https://azure.microsoft.com/documentation/articles/iot-suite-permissions/
+[lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
+[lnk-portal]: http://portal.azure.com/
+[lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
