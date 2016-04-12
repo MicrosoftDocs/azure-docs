@@ -18,7 +18,7 @@
 
 # How to manage user accounts in Azure API Management
 
-In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance.
+In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentation in the [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) reference.
 
 ## <a name="create-developer"> </a>Create a new developer
 
@@ -60,13 +60,21 @@ Once the invitation is accepted, the account becomes active.
 
 ## <a name="block-developer"> </a> Deactivate or reactivate a developer account
 
-By default, newly created or invited developer accounts are **Active**. To deactivate a developer account, click **Block**. To reactivate a blocked developer account, click **Activate**. A blocked developer account can not access the developer portal or call any APIs.
+By default, newly created or invited developer accounts are **Active**. To deactivate a developer account, click **Block**. To reactivate a blocked developer account, click **Activate**. A blocked developer account can not access the developer portal or call any APIs. To delete a user account, click **Delete**.
 
 ![Block developer][api-management-new-developer]
 
-## Reset a developer's 1 2  password
+## Reset a user password
+
+To reset the password for a user account, click the name of the account.
 
 ![Reset password][api-management-view-developer]
+
+Click **Reset password** to send a link to the user to reset their password.
+
+![Reset password][api-management-reset-password]
+
+To programmatically work with user accounts, see the [User entity](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentation in the [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) reference. To reset a user account password to a specific value, you can use the [Update a user](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) operation and specify the desired password.
 
 ## Pending verification
 
@@ -86,7 +94,7 @@ Once a developer account is created, you can associate it with roles and subscri
 [api-management-invite-developer-confirmation]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-confirmation.png
 [api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
-[]: ./media/api-management-howto-create-or-invite-developers/.png
+[api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
 []: ./media/api-management-howto-create-or-invite-developers/.png
 
 
