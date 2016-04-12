@@ -35,9 +35,9 @@ To create an ExpressRoute circuit, you need to:
 - Obtain the latest version of the Azure PowerShell modules, version 1.0 or later. For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page.
 - Review the [Prerequisites](expressroute-prerequisites.md) page and the [Workflows](expressroute-workflows.md) page before you begin configuration.
 
-## Creating and provisioning an ExpressRoute circuit
+## Create and provision an ExpressRoute circuit
 
-### Step 1. Sign in to your Azure account and select your subscription
+### Step 1. Sign in to your Azure account and select your subscription.
 
 To begin your configuration, sign in to your Azure account. For more information about PowerShell, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md). Use the following examples to help you connect:
 
@@ -340,7 +340,9 @@ The premium add-on is now disabled for the circuit.
 Note that this operation can fail if you are using resources greater than what is permitted for the standard circuit.
 
 - Before you downgrade from premium to standard, you must ensure that the number of virtual networks linked to the circuit is less than 10. If you don't do so, your update request fails and Microsoft will bill you at premium rates.
+
 - You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail, and Microsoft will bill you at premium rates.
+
 - Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops and won't be reenabled until the number of advertised prefixes goes below 4,000.
 
 ### To update the ExpressRoute circuit bandwidth
@@ -377,12 +379,13 @@ You can delete your ExpressRoute circuit by running the following command:
 
 	Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 
+Note the following: 
 
-Note that for this operation to succeed, you must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
+- You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
 
-If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to "disabling" from an enabled state. You must work with your service provider to deprovision the circuit on their side. Microsoft will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+- If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to "disabling" from an enabled state. You must work with your service provider to deprovision the circuit on their side. Microsoft will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-If the service provider has deprovisioned the circuit (the service provider provisioning state is set to "not provisioned") before you run the above cmdlet, Microsoft will deprovision the circuit and stop billing you.
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to "not provisioned") before you run the above cmdlet, Microsoft will deprovision the circuit and stop billing you.
 
 ## Next steps
 
