@@ -19,7 +19,7 @@
 # Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
 This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 virtual machine to an Azure AD Domain Services managed domain.
 
-## Provision a Red Hat Enterprise Linux virtual machines
+## Provision a Red Hat Enterprise Linux virtual machine
 Perform the following steps in order to provision a RHEL 7 virtual machine using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
