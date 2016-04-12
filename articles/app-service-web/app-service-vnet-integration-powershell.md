@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Connect your app to your VNET with PowerShell"
-	description="Instructions about how to connect to and work with virtual networks using PowerShell"
+	description="Instructions about how to connect to and work with VNETs using PowerShell"
 	services="app-service"
 	documentationCenter=""
 	authors="ccompy"
@@ -20,44 +20,44 @@
 
 ## Overview ##
 
-In the Azure App Service you can connect your app (web, mobile or API) to a VNET in your subscription. This feature is called VNET Integration. The VNET Integration feature should not be confused with the App Service Environment feature which allows you to run an instance of the Azure App Service in your VNET.
+In the Azure App Service, you can connect your app (web, mobile or API) to an Azure virtual network (VNET) in your subscription. This feature is called VNET Integration. The VNET Integration feature should not be confused with the App Service Environment feature which allows you to run an instance of the Azure App Service in your VNET.
 
-The VNET Integration has UI in the new portal and lets you integrate with V1 or V2 VNETs. If you want to learn more about the feature then go here: Integrate your app with an Azure Virtual Network.
+The VNET Integration feature has a user interface (UI) in the new portal that you can use to integrate with VNETs that are deployed with either the classic or Resource Manager deployment models. If you want to learn more about the feature, see [Integrate your app with an Azure virtual network][web-sites-integrate-with-vnet] .
 
-This write up is not about using the UI but rather on how to enable integration using PowerShell. The commands for V1 VNETs are different than for V2 VNETs so there are two sections.  
+This article is not about how to use the UI but rather about how to enable integration by using PowerShell. Because the commands for each deployment model are different, this article has a section for each deployment model.  
 
-Before going through this document, ensure that you have:
+Before you continue with this article, ensure that you have:
 
 - The latest Azure PowerShell SDK installed. You can install this with the Web Platform Installer.
-- An App in the Azure App Service running in a Standard or Premium SKU.
+- An app in the Azure App Service running in a Standard or Premium SKU.
 
-## V1(Classic) VNETS ##
+## Azure virtual networks (classic deployment model) ##
 
-This document covers three items for V1 VNETs:
+This section explains three tasks for VNETs that use the classic deployment model:
 
-- connecting your app to a pre-existing V1 VNET that has a gateway and is configured for point-to-site.
-- updating your VNET integration information for your app.
-- disconnecting your app from your V1 VNET.
+1. Connect your app to a preexisting VNET that has a gateway and is configured for point-to-site connectivity.
+1. Update your VNET integration information for your app.
+1. Disconnect your app from your VNET.
 
-### Connecting an app to a V1(Classic) VNET ###
+### Connect an app to a VNET (classic deployment model) ###
 
-Connecting an app to a Virtual Network (VNET) is a three step process:
+To connect an app to a VNET, follow these three steps:
 
-1. Declare to the web app that it will be joining a particular VNET. The app will generate a certificate that will be given to the VNET for Point-to-Site connectivity.
+1. Declare to the web app that it will be joining a particular VNET. The app will generate a certificate that will be given to the VNET for point-to-site connectivity.
 1. Upload the web app certificate to the VNET, and then retrieve the point-to-site VPN package URI.
-1. Update the web apps VNET connection with the point-to-site package URI.
+1. Update the web app's VNET connection with the point-to-site package URI.
 
-Steps 1) and 3) above are fully scriptable but step 2) requires a one-time manual action through the portal, or access to perform PUT or PATCH actions on the virtual network ARM endpoint (contact Azure Support to have this enabled). Before you start make sure you have a classic virtual network with Point-to-Site already enabled, with a Gateway created/deployed. To create the gateway and enable point-to-site you need to use the portal as described here  [Creating a VPN Gateway][createvpngateway].
+The first and third steps are fully scriptable, but the second step requires a one-time, manual action through the portal, or access to perform **PUT** or **PATCH** actions on the virtual network Azure Resource Manager endpoint. Contact Azure Support to have this enabled. Before you start, make sure that you have a classic virtual network with point-to-site connectivity already enabled and a deployed gateway. To create the gateway and enable point-to-site connectivity, you need to use the portal as described at [Creating a VPN Gateway][createvpngateway].
 
-The V1 VNET needs to be in the same subscription as your App Service Plan that holds the app you are integrating with.
+The classic VNET needs to be in the same subscription as your App Service Plan that holds the app that you are integrating with.
 
-##### Setting up Azure PowerShell SDK #####
+##### Set up Azure PowerShell SDK #####
 
-Open up a PowerShell window and set up your Azure account and subscription by using:
+Open a PowerShell window and set up your Azure account and subscription by using:
 
 	Login-AzureRmAccount
 
-That command will open a prompt to get your Azure credentials. After signing in then use either
+That command will open a prompt to get your Azure credentials. After you sign in, use either of the following commands to select the subscription that you want to use. Make sure that you are using the subscription that your VNET and App Service Plan are in.
 
 	Select-AzureRmSubscription –SubscriptionName [WebAppSubscriptionName]
 
@@ -65,11 +65,9 @@ or
 
 	Select-AzureRmSubscription –SubscriptionId [WebAppSubscriptionId]
 
-to select the subscription that you want to use. Make sure that you are using the subscription that your VNET and App Service Plan are in.
+##### Variables used in this article #####
 
-##### Variables used in this document #####
-
-To simplify below commands, we will set a $Configuration PowerShell variable with the specific configuration.
+To simplify commands, we will set a **$Configuration** PowerShell variable with the specific configuration.
 
 Set a variable as follows in PowerShell with the following parameters:
 
@@ -80,15 +78,15 @@ Set a variable as follows in PowerShell with the following parameters:
 	$Configuration.VnetResourceGroup = "[Your vnet resource group]"
 	$Configuration.VnetName = "[Your vnet name]"
 
-The app location should be the location without any spaces, e.g. West US is westus.
+The app location should be the location without any spaces, for example, West US is westus.
 
 	$Configuration.WebAppLocation = "[Your web app Location]"
 
-The next item is where the certificate should be written. It should be a writable path on your local system. Make sure to include .cer at the end.
+The next item is where the certificate should be written. It should be a writable path on your local computer. Make sure to include .cer at the end.
 
 	$Configuration.GeneratedCertificatePath = "[C:\Path\To\Certificate.cer]"
 
-To see what you set, enter **$Configuration**.
+To see what you set, type **$Configuration**.
 
 	> $Configuration
 
@@ -102,34 +100,34 @@ To see what you set, enter **$Configuration**.
 	WebAppName                     vnetintdemoapp
 	WebAppLocation                 centralus
 
-The rest of the document assumes that you have a variable created as just described.
+The rest of this section assumes that you have a variable created as just described.
 
-##### Declare the virtual network to the app #####
+##### Declare the VNET to the app #####
 
 Use the following command to tell the app that it will be using this particular VNET. This will cause the app to generate necessary certificates:
 
 	$vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -PropertyObject @{"VnetResourceId" = "/subscriptions/$($Configuration.VnetSubscriptionId)/resourceGroups/$($Configuration.VnetResourceGroup)/providers/Microsoft.ClassicNetwork/virtualNetworks/$($Configuration.VnetName)"} -Location $Configuration.WebAppLocation -ApiVersion 2015-07-01
 
-If this command succeeds, $vnet should have a variable Properties in it. The Properties variable should contain both a certificate thumbprint as well as the certificate data.
+If this command succeeds, **$vnet** should have a **Properties** variable in it. The **Properties** variable should contain both a certificate thumbprint and the certificate data.
 
-##### Upload web app certificate to virtual network #####
+##### Upload the web app certificate to the virtual network #####
 
-There is a manual one-time step required for each subscription and VNET combination. That is, if you are connecting apps in Subscription A to VNET A, you will need to only do this step once regardless of how many apps you configure. If you are adding a new app to another VNET, this will need to be done again. The reason for this is that a set of certificates is generated at a subscription level in Azure App Service, and is generated once for each VNET that the apps will connect to.
+A manual, one-time step is required for each subscription and VNET combination. That is, if you are connecting apps in Subscription A to VNET A, you will need to only do this step once regardless of how many apps you configure. If you are adding a new app to another VNET, you'll need to do this again. The reason for this is that a set of certificates is generated at a subscription level in Azure App Service, and the set is generated once for each VNET that the apps will connect to.
 
-The certificates will have already been set if you followed these steps or if you integrated with the same VNET using the portal.
+The certificates will have already been set if you followed these steps or if you integrated with the same VNET by using the portal.
 
 The first step is to generate the .cer file. The second step is to upload the .cer file to your VNET. To generate the .cer file from the API call in the earlier step, run the following commands.
 
 	$certBytes = [System.Convert]::FromBase64String($vnet.Properties.certBlob)
 	[System.IO.File]::WriteAllBytes("$($Configuration.GeneratedCertificatePath)", $certBytes)
 
-The certificate will be found in the location that  **$Configuration.GeneratedCertificatePath** specifies.
+The certificate will be found in the location that **$Configuration.GeneratedCertificatePath** specifies.
 
-To upload the certificate manually use the new portal at the [Azure Portal][azureportal] and **Browse Virtual Network (classic)** > **VPN connections** > **Point-to-site** > **Manage certificates**.  From here, upload your certificate.
+To upload the certificate manually, use the new portal at the [Azure Portal][azureportal] and **Browse Virtual Network (classic)** > **VPN connections** > **Point-to-site** > **Manage certificates**. From here, upload your certificate.
 
-##### Get the Point-To-Site Package #####
+##### Get the point-to-site package #####
 
-The next step in setting up a VNET connection on a Web App is to get the Point-To-Site package and provide it to your Web App.
+The next step in setting up a VNET connection on a web app is to get the point-to-site package and provide it to your web app.
 
 Save the following template to a file called GetNetworkPackageUri.json somewhere on your computer, for example, C:\Azure\Templates\GetNetworkPackageUri.json.
 
@@ -172,7 +170,7 @@ Call the script:
 	$output = New-AzureRmResourceGroupDeployment -Name unused -ResourceGroupName $Configuration.VnetResourceGroup -TemplateParameterObject $parameters -TemplateFile C:\PATH\TO\GetNetworkPackageUri.json
 
 
-The variable $output.Outputs.packageUri will now contain the package URI to be given to your Web App.
+The variable, **$output.Outputs.packageUri**, will now contain the package URI to be given to your web app.
 
 ##### Upload the point-to-site package to your app #####
 
@@ -180,41 +178,43 @@ The final step is to provide the app with this package. Simply execute the next 
 
 	$vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)/primary" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-07-01 -PropertyObject @{"VnetName" = $Configuration.VnetName ; "VpnPackageUri" = $($output.Outputs.packageUri).Value } -Location $Configuration.WebAppLocation
 
-You may get a message asking you to confirm that you are overwriting an existing resource, make sure to allow it.
+If a message asks you to confirm that you are overwriting an existing resource, make sure to allow it.
 
-With this command succeeding, your app should now be connected to the VNET. You can ensure this by going onto your app console, and type the following:
+After this command succeeds, your app should now be connected to the VNET. To confirm success, go to your app console, and type the following:
 
 	SET WEBSITE_
 
-If there is an Environment Variable called WEBSITE_VNETNAME with a value matching the name of the target VNET, all configurations have succeeded.
+If there is an Environment Variable called WEBSITE_VNETNAME that has a value that matches the name of the target virtual network, all configurations have succeeded.
 
-### Updating V1(classic) VNET integration information ###
+### Update classic VNET integration information ###
 
-Updating or re-syncing your information requires you to simply repeat the steps followed when creating the integration in the first place. Those steps are:
+To update or resync your information, simply repeat the steps that you followed when you created the integration in the first place. Those steps are:
 
 1. Define your configuration information.
-1. Declare the virtual network to the app.
+1. Declare the VNET to the app.
 1. Get the point-to-site package.
 1. Upload the point-to-site package to your app.
 
-### Disconnect your app from a V1(classic) VNET ###
+### Disconnect your app from a classic VNET ###
 
-To disconnect you need the Configuration information that was set during VNET integration. Using that information there is then one command needed to disconnect your app from your VNET.
+To disconnect the app, you need the Configuration information that was set during VNET integration. Using that information. there is then one command to disconnect your app from your VNET.
 
 	$vnet = Remove-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-07-01
 
-## V2(Resource Manager) VNETS ##
+## Azure virtual networks (Resource Manager deployment model) ##
 
-The V2 or Resource Manager VNETs have ARM APIs and there are a few things that we can do that make it easier than for V1 VNETs. We have a script provided that will let you:
+This section explains four tasks for VNETs that use the Resource Manager deployment model.
 
-1. Create a V2 VNET and integrate your app with it.
-1. Create a gateway, and configure point-to-site in a pre-existing V2 VNET and then integrate your app with it.
-1. Integrate your app with a pre-existing V2 VNET that has a gateway and point-to-site enabled .
-1. Disconnect your app from your V2 VNET.
+Virtual networks that use the Resource Manager deployment model have Azure Resource Manager APIs, which simplify some processes when compared with classic VNETs. We have a script provided that will help you complete the following tasks:
 
-### V2 VNET App Service integration script ###
+1. Create a Resource Manager VNET and integrate your app with it.
+1. Create a gateway, configure point-to-site connectivity in a preexisting Resource Manager VNET, and then integrate your app with it.
+1. Integrate your app with a preexisting Resource Manager VNET that has a gateway and point-to-site connectivity enabled.
+1. Disconnect your app from your VNET.
 
-Copy the script below and save it off to a file. If you don’t want to use the script as is you can feel free to learn from it to see how to set things up with a V2 VNET.
+### Resource Manager VNET App Service integration script ###
+
+Copy the following script and save it to a file. If you don’t want to use the script, feel free to learn from it to see how to set things up with a Resource Manager VNET.
 
 
     function ReadHostWithDefault($message, $default)
@@ -500,7 +500,7 @@ Copy the script below and save it off to a file. If you don’t want to use the 
 			    Set-AzureRmVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $gateway.Name -VpnClientAddressPool $pointToSiteAddress
 		    }
 
-		    Write-Host "Creating App assocation to VNET"
+		    Write-Host "Creating App association to VNET"
 		    $propertiesObject = @{
 		     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
 		    }
@@ -611,7 +611,7 @@ Copy the script below and save it off to a file. If you don’t want to use the 
 	    RemoveVnet $subscriptionId $resourceGroup $appName
     }
 
-Save a copy of the script. In this document it was called V2VnetAllinOne.ps1 but you can call it whatever you like. There are no arguments for this script. You simply run it. The first thing the script will do is prompt you to sign in. After you sign in the script gets details about your account and returns a list of subscriptions to choose. Not counting the pop up that asks for your credentials, the initial script execution looks like this:
+Save a copy of the script. In this article, it is called V2VnetAllinOne.ps1, but you can use another name. There are no arguments for this script. You simply run it. The first thing the script will do is prompt you to sign in. After you sign in, the script gets details about your account and returns a list of subscriptions. Not counting the request for your credentials, the initial script execution looks like this:
 
 	PS C:\Users\ccompy\Documents\VNET> .\V2VnetAllInOne.ps1
 	Please Login
@@ -644,13 +644,13 @@ Save a copy of the script. In this document it was called V2VnetAllinOne.ps1 but
 	2) Add an EXISTING Virtual Network to an App
 	3) Remove a Virtual Network from an App
 
-The rest of this document goes into each of those 3 options.
+The rest of this section explains each of those three options.
 
-### Create a V2(Resource Manager) VNET and integrate with it ###
+### Create a Resource Manager VNET and integrate with it ###
 
-To create a new V2 VNET and integrate it with your app, select 1) Add a NEW Virtual Network to an App. This will prompt you for the name of the VNET. In my case below I gave the name v2pshell.
+To create a new VNET that uses the Resource Manager deployment model and integrate it with your app, select **1) Add a NEW Virtual Network to an App**. This will prompt you for the name of the virtual network. In my case, as you can see in the following settings, I used the name, v2pshell.
 
-The script gives the details about the VNET being created. If I want, I can change any of the values. In this example execution I created a VNET with the following settings:
+The script gives the details about the VNET that's being created. If I want, I can change any of the values. In this example execution, I created a VNET that has the following settings:
 
 	Virtual Network Name:         v2pshell
 	Resource Group Name:          hcdemo-rg
@@ -664,15 +664,15 @@ The script gives the details about the VNET being created. If I want, I can chan
 	Do you wish to change these settings?
 	[Y] Yes  [N] No  [?] Help (default is "N"):
 
-If you want to change any of the values type Y and make the desired changes. When you are happy with the VNET settings then type N or simply hit return when prompted on changing the settings. From there on until completion the script will tell you some of what it is doing up until it goes to create the VNET Gateway. That step can take up to an hour. There is no progress indicator while it is in this phase but it will let you know when the gateway has been created.
+If you want to change any of the values, type **Y** and make the changes. When you are happy with the VNET settings, type **N** or simply press Enter when prompted about changing the settings. From there on until completion, the script will tell you some of what it is doing up until it starts to create the VNET gateway. That step can take up to an hour. There is no progress indicator during this phase, but the script will let you know when the gateway has been created.
 
-When the script completes it will say Finished. At this point you will have a V2 VNET that is created with the name and settings that you selected and this new VNET will also be integrated with your app.
+When the script finishes, it will say **Finished**. At this point, you will have a Resource Manager VNET that has the name and settings that you selected. This new VNET will also be integrated with your app.
 
-### Integrate your app with a pre-existing V2 VNET ###
+### Integrate your app with a preexisting Resource Manager VNET ###
 
-When integrating with a pre-existing VNET, if you provide a V2 VNET that doesn’t have a gateway or point-to-site then the script will set that up. If the VNET already has those things set up then it goes straight into the app integration. To start this process simply select option 2) Add an EXISTING Virtual Network to an App.
+When integrating with a preexisting VNET, if you provide a Resource Manager VNET that doesn’t have a gateway or point-to-site connectivity, the script will set that up. If the VNET already has those things set up, the script goes straight to the app integration. To start this process, simply select **2) Add an EXISTING Virtual Network to an App**.
 
-This option only works if you have a pre-existing V2 VNET that is in the same subscription as your app. After selection option 2 you will be presented with a list of your V2 VNETs.   
+This option only works if you have a preexisting Resource Manager VNET that is in the same subscription as your app. After you select the option, you will be presented with a list of your Resource Manager VNETs.   
 
 	Select a VNET to integrate with
 
@@ -685,14 +685,14 @@ This option only works if you have a pre-existing V2 VNET that is in the same su
 	Choose an option:
 	5
 
-Simply select the VNET you want to integrate with. If you already have a gateway with point-to-site enabled then the script will simply integrate your app with your VNET. If you do not have a gateway then you will need to specify the gateway subnet. Your gateway subnet must be in your VNET address space and it cannot be in any other subnet. So if you have a VNET without a gateway and run this step, things look like this:
+Simply select the VNET that you want to integrate with. If you already have a gateway with point-to-site connectivity enabled, the script will simply integrate your app with your VNET. If you do not have a gateway, you will need to specify the gateway subnet. Your gateway subnet must be in your VNET address space, and it cannot be in any other subnet. If you have a VNET without a gateway and run this step, things look like this:
 
 	This Virtual Network has no gateway. I will need to create one.
 	Your VNET is in the address space 172.16.0.0/16, with the following Subnets:
 	default: 172.16.0.0/24
 	Please choose a GatewaySubnet address space: 172.16.1.0/26
 
-In this example I created a VNET gateway with the following settings:
+In this example I created a VNET gateway that has the following settings:
 
 	Virtual Network Name:         v2pshell2
 	Resource Group Name:          vnetdemo-rg
@@ -705,13 +705,13 @@ In this example I created a VNET gateway with the following settings:
 
 	Do you wish to change these settings?
 	[Y] Yes  [N] No  [?] Help (default is "N"):
-	Creating App assocation to VNET
+	Creating App association to VNET
 
-If you want to change any of those settings you can do so otherwise hit return and it will go ahead and create your gateway and attach your app to your VNET. The gateway creation time is still an hour though make sure you keep that in mind. When everything is completed the script will say Finished.
+If you want to change any of those settings, you can do so. Otherwise, press Enter and it will create your gateway and attach your app to your VNET. The gateway creation time is still an hour, though, so make sure you keep that in mind. When everything is finished, the script will say **Finished**.
 
-### Disconnect your app from a V2 VNET ###
+### Disconnect your app from a Resource Manager VNET ###
 
-Disconnecting your app from your V2 VNET does not take down the gateway or disable point-to-site. You could after all be using it for something else. It also does not disconnect it from any other apps other than the one you provide. To perform this action select 3) Remove a Virtual Network from an App. When you do so you will see something like this:
+Disconnecting your app from your VNET does not take down the gateway or disable point-to-site connectivity. You could, after all, be using it for something else. It also does not disconnect it from any other apps other than the one you provided. To perform this action, select **3) Remove a Virtual Network from an App**. When you do so, you will see something like this:
 
 	Currently connected to VNET v2pshell
 
@@ -721,7 +721,7 @@ Disconnecting your app from your V2 VNET does not take down the gateway or disab
 	hell/virtualNetworkConnections/v2pshell
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-The script says delete but it is not deleting the VNET. It’s just removing the integration. After you confirm that this is what you want to do, the command is processed quite quickly and tells you True when it is done.
+Although the script says delete, it does not delete the VNET. It’s just removing the integration. After you confirm that this is what you want to do, the command is processed quite quickly and tells you **True** when it is done.
 
 <!--Links-->
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
