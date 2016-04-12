@@ -50,16 +50,16 @@ The following table provides a matrix of available SQL Server images in the virt
 
 In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-hero-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](https://azure.microsoft.com/pricing/details/virtual-machines/) associated with the virtual machine.
 
-In order to determine the best virtual machine configuration settings for your SQL Server image, review the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md). For production workloads, **DS3** is the minimum recommended virtual machine size for SQL Server Enterprise edition, and **DS2** is the minimum recommended virtual machine size for Standard edition.
+In order to determine the best virtual machine configuration settings for your SQL Server image, review the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md). For production workloads, **DS3** is the minimum recommended virtual machine size for SQL Server Enterprise edition, and **DS2** is the minimum recommended virtual machine size for Standard edition.
 
 In addition to reviewing performance best practices, other initial tasks include the following:
 
-- [Review security best practices for SQL Server in Azure VMs](virtual-machines-windows-classic-sql-security.md)
+- [Review security best practices for SQL Server in Azure VMs](virtual-machines-windows-sql-security.md)
 - [Set up connectivity](virtual-machines-windows-sql-connect.md)
 
 ### Migrate your data
 
-After your SQL Server virtual machine is up and running, you might want to migrate existing databases to the machine. There are several techniques, but the deployment wizard in SQL Server Management Studio works well for most scenarios. For a discussion of the scenarios and a tutorial of the wizard, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md).
+After your SQL Server virtual machine is up and running, you might want to migrate existing databases to the machine. There are several techniques, but the deployment wizard in SQL Server Management Studio works well for most scenarios. For a discussion of the scenarios and a tutorial of the wizard, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
 
 ## High availability
 
@@ -71,12 +71,12 @@ If you want to manually configure your Availability Group and associated listene
 - [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [Extend on-premises AlwaysOn Availability Groups to Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
 
-For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-dr.md).
+For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
 ## Backup and restore
-For on-premises databases, Azure can act as a secondary data center to store SQL Server backup files. For an overview of backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-br.md).
+For on-premises databases, Azure can act as a secondary data center to store SQL Server backup files. For an overview of backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
-[SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) stores Azure backup files in Azure blob storage. [SQL Server Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) allows you to schedule backup and retention in Azure. These services can be used with either on-premises SQL Server instances or SQL Server running on Azure VMs. Azure VMs can also take advantage of [Automated Backup](virtual-machines-windows-classic-ps-sql-backup.md) and [Automated Patching](virtual-machines-windows-classic-ps-sql-patch.md) for SQL Server.
+[SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) stores Azure backup files in Azure blob storage. [SQL Server Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) allows you to schedule backup and retention in Azure. These services can be used with either on-premises SQL Server instances or SQL Server running on Azure VMs. Azure VMs can also take advantage of [Automated Backup](virtual-machines-windows-classic-sql-automated-backup.md) and [Automated Patching](virtual-machines-windows-classic-sql-automated-patching.md) for SQL Server.
 
 ## SQL Server VM image configuration details
 
@@ -107,7 +107,7 @@ The SQL Server installation in the platform image contains the following configu
 |Analysis Services|Installed|
 |Integration Services|Installed|
 |Reporting Services|Configured in Native mode|
-|AlwaysOn Availability Groups|Available in SQL Server 2012 or later. Requires [additional configuration](virtual-machines-windows-classic-sql-dr.md)
+|AlwaysOn Availability Groups|Available in SQL Server 2012 or later. Requires [additional configuration](virtual-machines-windows-sql-high-availability-dr.md)
 |Replication|Installed|
 |Full-Text and Semantic Extractions for Search|Installed (Semantic Extractions in SQL Server 2012 or later only)|
 |Data Quality Services|Installed (SQL Server 2012 or later only)|
@@ -124,7 +124,7 @@ The following database engine settings are configured. For more settings, examin
 |Feature|Configuration|
 |---|---|
 |Instance|Contains a default (unnamed) instance of the SQL Server Database Engine, listening only on the shared memory protocol|
-|Authentication|By default, Azure selects Windows Authentication during SQL Server virtual machine setup. If you want to use the sa login or create a new SQL Server account, you need to change the authentication mode. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-security.md).|
+|Authentication|By default, Azure selects Windows Authentication during SQL Server virtual machine setup. If you want to use the sa login or create a new SQL Server account, you need to change the authentication mode. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).|
 |sysadmin|The Azure user who installed the virtual machine is initially the only member of the SQL Server sysadmin fixed server role|
 |Memory|The Database Engine memory is set to dynamic memory configuration|
 |Contained database authentication|Off|
@@ -144,7 +144,7 @@ If you create a virtual machine by using a platform-provided SQL Server image, y
 ## Resources
 
 - [Provisioning a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-portal-sql-server-provision.md)
-- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md)
-- [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-dr.md)
+- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
+- [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
 - [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 - [Azure Virtual Machines](virtual-machines-linux-about.md)
