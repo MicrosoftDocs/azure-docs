@@ -39,7 +39,7 @@ Use these links to perform these same tasks using either [C#](sql-database-get-s
 
 [AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-create-new-server-portal.md)]
 
-[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-server-portal.md)]
+[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-database-portal.md)]
 
 [AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
