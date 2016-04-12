@@ -31,7 +31,7 @@ Devices can communicate with IoT Hub in Azure using a variety of protocols. Typi
 | AMQP over WebSockets | 443    |
 | MQTT | 8883 |
 
-Once you have created an IoT hub in an Azure region, the hub will keep the same IP address for the lifetime of that hub. However, in a disaster recovery scenario, if Microsoft moves the IoT hub to a different scale unit then it will be assigned a new IP address.
+Once you have created an IoT hub in an Azure region, the hub will keep the same IP address for the lifetime of that hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it will be assigned a new IP address.
 
 ## IoT Hub and security
 
