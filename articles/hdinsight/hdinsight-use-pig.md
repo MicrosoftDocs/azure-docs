@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="04/07/2016"
    ms.author="larryfr"/>
 
 # Use Pig with Hadoop on HDInsight
@@ -139,7 +139,7 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: ../powershell-install-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 

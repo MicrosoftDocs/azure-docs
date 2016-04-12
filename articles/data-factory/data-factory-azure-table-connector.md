@@ -402,7 +402,7 @@ Property | Description | Allowed values | Required
 azureTableDefaultPartitionKeyValue | Default partition key value that can be used by the sink. | A string value. | No 
 azureTablePartitionKeyName | User specified column name, whose column values are used as partition key. If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key. | A column name. | No |
 azureTableRowKeyName | User specified column name, whose column values are used as row key. If not specified, use a GUID for each row. | A column name. | No  
-azureTableInsertType | The mode to insert data into Azure table. | merge<br/>replace | No 
+azureTableInsertType | The mode to insert data into Azure table (see below). | merge<br/>replace | No 
 writeBatchSize | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. | Integer from 1 to 100 (unit = Row Count) | No (Default = 100) 
 writeBatchTimeout | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit | (Unit = timespan)Sample: “00:20:00” (20 minutes) | No (Default to storage client default timeout value 90 sec)
 
@@ -425,6 +425,8 @@ The EmpID is specifies as the partition key.
 		"writeBatchTimeout": "01:00:00"
 	}
 
+### azureTableInsertType
+This property controls whether existing rows in the output with matching partition and row keys will have their values overwritten or merged. Please note that this setting applies at the row level, not the table level, and neither option will delete rows in the output table that do not exist in the input.
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

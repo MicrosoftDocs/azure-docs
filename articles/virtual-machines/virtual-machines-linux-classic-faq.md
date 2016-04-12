@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Frequently asked questions for VMs | Microsoft Azure"
-	description="Provides answers to some of the common questions about Azure virtual machines created with the classic deployment model."
+	description="Answers to some of the common questions about Azure virtual machines created with the classic deployment model."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"

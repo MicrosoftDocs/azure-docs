@@ -25,6 +25,8 @@ Configuration is very easy, and you'll see results within minutes.
 
 We currently support iOS, Android, and Windows apps, J2EE and ASP.NET web applications, and WCF services. Web apps can run on Azure or your own on-premises servers. Our JavaScript SDK runs on any web page.
 
+[Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
+
 ## Get started
 
 Start with any combination, in any order, of the entry points that appear in the following diagram. Follow the path that works for you.

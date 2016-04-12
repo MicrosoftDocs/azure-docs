@@ -3,8 +3,8 @@
    description="Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud." 
    services="sql-database" 
    documentationCenter="" 
-   authors="jeffgoll" 
-   manager="jeffreyg" 
+   authors="carlrabeler" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="02/25/2016"
-   ms.author="sashan"/>
+   ms.author="sashan;carlrab"/>
 
 # SQL Database FAQ
 
@@ -61,9 +61,9 @@ With V12 databases you can change the service tier (between Basic, Standard, and
 As often as you want.
 
 ## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic database pool? 
-Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. This can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases see [Change the service tier of a database](sql-database-scale-up.md). For elastic databases, see [Elastic pool reference](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations) 
+Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. This can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases see [Change the service tier of a database](sql-database-scale-up.md). 
 
-##When should I use a single database vs. elastic databases? 
+## When should I use a single database vs. elastic databases? 
 In general, elastic database pools are designed for a typical software-as-a-service (SaaS) application pattern, where there is one database per customer or tenant. Purchasing individual databases and overprovisioning to meet the variable and peak demand for each database is often not cost efficient. With pools, you manage the collective performance of the pool, and the databases scale up and down automatically. 
 
 Azure's intelligent engine will recommend a pool for databases if it sees a usage pattern that warrants it. For details, see [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md). For detailed guidance about choosing between single and elastic databases, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md).
