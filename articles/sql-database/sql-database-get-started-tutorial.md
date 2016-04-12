@@ -6,7 +6,7 @@ description="Learn how to set up a SQL Database logical server, server firewall 
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor=""/>
 
 
 <tags
@@ -20,10 +20,10 @@ description="Learn how to set up a SQL Database logical server, server firewall 
 
 # Getting started with SQL Database using the Microsoft Azure portal
 
-[AZURE.INCLUDE [Login](../../includes/azure-include-getting-started-portal-login.md)]
+[AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
-[AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-include-creating-sql-database-server.md)]
+[AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-create-new-server.md)]
 
-[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-include-creating-sql-database-server.md)]
+[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-server.md)]
 
 

@@ -33,6 +33,6 @@ Using your [existing subscription]( https://account.windowsazure.com/Home/Index)
    
 
 <!-- Image references. -->
-[1]: ./media/azure-include-getting-started-portal-login/login.png
+[1]: ./media/azure-getting-started-portal-login/login.png
 <!--
 -->
