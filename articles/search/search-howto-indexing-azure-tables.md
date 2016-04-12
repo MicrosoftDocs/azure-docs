@@ -23,11 +23,11 @@ This article shows how to use Azure Search to index data stored in Azure Table S
 
 ## Setting up table indexing
 
-To set up and configure an Azure table indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). In the future, support for table indexing will be added to the Azure Search .NET SDK and the Azure Portal.
+To set up and configure an Azure table indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [Indexer operations](https://msdn.microsoft.com/library/azure/dn946891.aspx). In the future, support for table indexing will be added to the Azure Search .NET SDK and the Azure Portal.
 
 A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows).
 
-An indexer is a resource that connects data sources with target search indexes.
+An indexer reads data from a data source and loads it into a target search index.
 
 To set up a table indexer:
 
@@ -63,19 +63,19 @@ Next, create an indexer that references the data source and a target index. For 
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
-That's it there is to it - happy indexing!
+That's all there is to it - happy indexing!
 
 ## Handling document keys
 
 In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type `Edm.String`. The key field is required for each document that is being added to the index (in fact, it is the only required field).
 
-Since table rows have a compound key, Azure Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PK is `PK1` and RK is `RK1`, then `Key` field’s value will be `PK1RK1`. 
+Since table rows have a compound key, Azure Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then `Key` field's value will be `PK1RK1`. 
 
-> AZURE.NOTE that the `Key` value may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by enabling the `base64EncodeKeys` option in the indexer properties - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
+> AZURE.NOTE The `Key` value may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by enabling the `base64EncodeKeys` option in the indexer properties - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
 
 ## Dealing with different field names
 
-Often, the field names in your existing index will be different from the property names in your table. You can use **field mappings** to map the property names provided by Azure Search to the field names in your search index. To learn more about field mappings, see [this article](https://azure.microsoft.com/documentation/articles/search-indexers-customization/).
+Often, the field names in your existing index will be different from the property names in your table. You can use **field mappings** to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search Indexer Customization](https://azure.microsoft.com/documentation/articles/search-indexers-customization/).
 
 ## Incremental indexing and deletion detection
  
