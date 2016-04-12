@@ -228,7 +228,7 @@ The below policy will append costCenter tag with a predefined value if no tags a
 	    "details": [
 	      {
 	        "field": "tags",
-	        "value": "{\"costCenter\":\"myDepartment\" }"
+	        "value": {"costCenter":"myDepartment" }
 	      }
 	    ]
 	  }
