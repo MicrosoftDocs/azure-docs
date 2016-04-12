@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Add a SQL Server resource provider to Azure Stack"
+	description="Add a SQL Server resource provider to Azure Stack"
+	services="azure-stack"
+	documentationCenter=""
+	authors="Dumagar"
+	manager="bradleyb"
+	editor=""/>
+
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/31/2016"
+	ms.author="dumagar"/>
+	
 #Using SQL Databases on Azure Stack
 
 
