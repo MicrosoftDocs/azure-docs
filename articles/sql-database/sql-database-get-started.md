@@ -57,4 +57,4 @@ Now that you've completed this SQL Database tutorial and created a database with
 
 ## Additional resources
 
-- [All topics for Azure SQL Database service](sql-database-index-all-articles.md), an index
+
