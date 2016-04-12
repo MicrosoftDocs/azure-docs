@@ -1,6 +1,6 @@
 <properties
  pageTitle="Autoscale compute resources in HPC cluster | Microsoft Azure"
- description="Learn about ways to automatically grow and shrink compute resources in an HPC Pack cluster in Azure"
+ description="Automatically grow and shrink the number of compute nodes in an HPC Pack cluster in Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,7 +16,7 @@ ms.service="virtual-machines-windows"
  ms.date="01/07/2016"
  ms.author="danlep"/>
 
-# Automatically scale Azure compute resources up and down in an HPC Pack cluster according to the cluster workload
+# Automatically grow and shrink Azure compute nodes in an HPC Pack cluster according to the cluster workload
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
@@ -26,18 +26,25 @@ create an HPC Pack cluster in Azure VMs, you may want a way to
 automatically grow or shrink the Azure computing resources according to
 the current workload of jobs and tasks on the cluster. This allows you
 to use your Azure resources more efficiently and control their costs.
-To do this, use the
+To do this, set up the HPC Pack cluster property **AutoGrowShrink**. Alternatively, run the
 **AzureAutoGrowShrink.ps1** HPC PowerShell script that is installed with
 HPC Pack.
 
->[AZURE.TIP] Starting in HPC Pack 2012 R2 Update 2, HPC Pack includes a built-in
-service to automatically grow and shrink Azure burst nodes or
-Azure VM compute nodes. Configure the service with a setting in the [HPC
-Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) or manually set the **AutoGrowShrink** cluster
-property. See [What’s New in Microsoft HPC Pack 2012 R2 Update
-2](https://technet.microsoft.com/library/mt269417.aspx).
 
-## Prerequisites
+## Set the AutoGrowShrink cluster property
+
+>[AZURE.NOTE] The AutoGrowShrink cluster property is available in HPC Pack 2012 R2 Update 2 and later versions.
+
+### Enable cluster AutoGrowShrink
+
+For an on-premises HPC Pack cluster
+
+### Autogrowshrink settings
+
+
+## Run the AzureAutoGrowShrink.ps1 script
+
+### Prerequisites
 
 * **HPC Pack 2012 R2 Update 1 or later cluster** - The **AzureAutoGrowShrink.ps1** script is installed in the %CCP_HOME%bin folder. The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to quickly deploy a HPC Pack cluster in Azure VMs, or use an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 
@@ -48,7 +55,7 @@ property. See [What’s New in Microsoft HPC Pack 2012 R2 Update
 
 * **For a cluster deployed in Azure VMs** - Run the script on the head node VM, because it depends on the **Start-HpcIaaSNode.ps1** and **Stop-HpcIaaSNode.ps1** scripts that are installed there. Those scripts additionally require an Azure management certificate or publish settings file (see [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)). Make sure all the compute node VMs you need are already added to the cluster. They may be in the Stopped state.
 
-## Syntax
+### Syntax
 
 ```
 AzureAutoGrowShrink.ps1
@@ -63,7 +70,7 @@ AzureAutoGrowShrink.ps1
 [<CommonParameters>]
 
 ```
-## Parameters
+### Parameters
 
  * **NodeTemplates** - Names of the node templates to define the scope for the nodes to grow and shrink. If not specified (the default value is @()), all nodes in the **AzureNodes** node group are in scope when **NodeType** has a value of AzureNodes, and all nodes in the **ComputeNodes** node group are in scope when **NodeType** has a value of ComputeNodes.
 
