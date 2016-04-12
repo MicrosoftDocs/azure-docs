@@ -88,36 +88,36 @@ Next, make sure to configure the Azure CLI tools to use Azure Resource Manager.
 ```bash
 azure config mode arm
 ```
- 
-If you want to create your cluster in a new Resource Group, you must first create the Resource Group. Use this command, where `GROUP_NAME` is the name of the resource group you want to create, and `REGION` is the region where you want to create the Resource Group.
- 
-```bash
-azure group create GROUP_NAME REGION
-```
- 
-Once you have a Resource Group you can create your cluster with this command, where:
+
+Create an Azure Resource Group and Container Service cluster with the following command, where:
 
 - **RESOURCE_GROUP** is the name of the Resource Group you want to use for this service.
-- **DEPLOYMENT_NAME** is the name of this deployment.
+- **LOCATION** is the Azure region where the Resource Group and Azure Container Service deployment will be created.
 - **TEMPLATE_URI** is the location of the deployment file. **Note** - this must be the RAW file, not a pointer to the GitHub UI. To find this URL select the azuredeploy.json file in GitHub and click the RAW button:
 
 > Note - when running this command, the shell will prompt you for deployment parameter values.
  
 ```bash
-azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI
+# sample deployment
+
+azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
- 
+  
 ### Provide template parameters
  
 This version of the command requires the user to define parameters interactively. If you want to provide parameters as a json formatted string you can do so with the `-p` switch. For example:
  
  ```bash
+ # sample deployment
+
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
  ```
 
 Alternatively you can provide a json formatted parameters file using the `-e` switch:
 
  ```bash
+ # sample deployment
+
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON'
  ```
  
@@ -147,12 +147,16 @@ Login-AzureRmAccount
 If deploying to a new Resource Group, you must first create the Resource Group. To create a new Resource Group, use the `New-AzureRmResourceGroup` command, specifying a resource group name and destination region.
 
 ```powershell
+# sample deployment
+
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 ```
 
 Once you have a Resource Group, you can create your cluster with the following command. The URI of the desired template will be specified for the `-TemplateUri` parameter. When running this command, PowerShell will prompt you for deployment parameter values.
 
 ```powershell
+# sample deployment
+
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
  
@@ -162,7 +166,9 @@ If you are familiar with PowerShell, you know that you can cycle through the ava
  
 Below is the full command with parameters included. You can provide your own values for the names of the resources.
 
-```
+```powershell
+# sample deployment
+
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
  
@@ -172,5 +178,6 @@ Now that you have a functioning cluster, visit these documents for connection an
  
 - [Connect with the ACS cluster](./container-service-connect.md)
 - [Working with ACS and Mesos](./container-service-mesos-marathon-rest.md)
+- [Working with Azure Container Service and Docker Swarm](./container-service-docker-swarm.md)
 
  
