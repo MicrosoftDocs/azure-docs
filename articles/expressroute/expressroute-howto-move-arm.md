@@ -52,7 +52,7 @@ Sign in to the Azure classic environment, and gather the service key. You can us
 
 Copy the **service key** of the circuit that you want to move over to the Resource Manager deployment model.
 
-### Step 2. Sign in to the Resource Manager environment, and create a new resource group
+### Step 2: Sign in to the Resource Manager environment, and create a new resource group
 
 You can create a new resource group by using the following snippet:
 
@@ -67,7 +67,7 @@ You can create a new resource group by using the following snippet:
 
 You can also use an existing resource group if you already have one.
 
-### Step 3. Move the ExpressRoute circuit to the Resource Manager deployment model
+### Step 3: Move the ExpressRoute circuit to the Resource Manager deployment model
 
 You are now ready to move over your ExpressRoute circuit from the classic to Resource Manager deployment model. Review the information provided under [Moving an ExpressRoute circuit from the classic to Resource Manager deployment model](expressroute-move.md) before proceeding further.
 
