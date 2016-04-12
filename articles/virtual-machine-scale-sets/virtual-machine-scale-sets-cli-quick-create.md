@@ -18,7 +18,7 @@
 	ms.date="03/31/2016"
 	ms.author="gatneil"/>
 
-# Quick-create a scale set using the Azure CLI
+# Quickly create a scale set using the Azure CLI
 
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
