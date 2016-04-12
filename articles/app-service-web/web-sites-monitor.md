@@ -286,4 +286,3 @@ For more on web app endpoint monitoring, see the following videos:
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
- 

@@ -2,7 +2,7 @@
 	pageTitle="Create and manage Elastic Database jobs using PowerShell" 
 	description="PowerShell used to manage Azure SQL Database pools" 
 	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 

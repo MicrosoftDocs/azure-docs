@@ -14,12 +14,12 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="03/22/2016"
+ ms.date="04/04/2016"
  ms.author="cynthn"/>
 
-# Sizes for Windows virtual machines in Azure
+# Sizes for virtual machines in Azure
 
-This article describes the available sizes and options for the Windows virtual machines you can use to run your apps and workloads.  It also provides deployment considerations to be aware of when you're planning to use these resources. For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/). If you want information about Linux VMs, see [Sizes for Linux virtual machines in Azure](virtual-machines-linux-sizes.md)
+This article describes the available sizes and options for the Azure virtual machines you can use to run your Windows apps and workloads. It also provides deployment considerations to be aware of when you're planning to use these resources. For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). This article is also available for [Linux virtual machines](virtual-machines-linux-sizes.md).
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 

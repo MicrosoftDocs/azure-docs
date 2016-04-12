@@ -4,8 +4,8 @@
 	keywords="sql database tutorial,create a sql database"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 
@@ -15,8 +15,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/27/2015"
-	ms.author="jeffreyg"/>
+	ms.date="03/27/2016"
+	ms.author="carlrab"/>
 
 # SQL Database tutorial: Create a SQL database in minutes using the Azure portal
 
