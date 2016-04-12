@@ -143,6 +143,10 @@ The example above creates:
 
 The VM is secured by using SSH keys for the login although password logins are still enabled.  By default Azure VMs created with `azure vm quick-create` are protected by a NSG which filters out all network traffic with the sole exception of the inbound SSH traffic on port 22.  All outbound traffic is enabled by default in the NSG.  
 
+## Quick-Create vs Azure Templates
+
+
+
 ## Next Steps
 
 Now you've created a Linux VM quickly to use for testing or demonstration purposes. You can create a more secure execution environment with a Linux VM in Azure by:
