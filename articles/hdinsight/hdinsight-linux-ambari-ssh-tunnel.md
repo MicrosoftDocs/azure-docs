@@ -161,11 +161,9 @@ After following these steps, only requests for URLs that contain the string __in
 
 Once the cluster has been established, use the following steps to verify that you can access service web UIs from the Ambari Web:
 
-1. In your browser, go to http://HEADNODENAME:8080, where __HEADNODENAME__ is `hn0-` and then the first 6 characters of the name of your HDInsight cluster. For example, if your cluster name is `myhdinsightcluster`, then the address would be http://hn0-myhdin:8080.
-
-	When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, re-enter the information.
+1. In your browser, go to http://headnodehost:8080. The `headnodehost` address will be sent over the tunnel to the cluster and resolve to the headnode that Ambari is running on. When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, re-enter the information.
     
-    > [AZURE.NOTE] When using the http://HEADNODENAME:8080 address to connect to the cluster, you are connecting directly over the tunnel to the head node using HTTP, and communication is secured using the SSH tunnel. when connecting over the internet without the use of a tunnel, communication is secured using HTTPS. To connect over the internet using HTTPS, use https://CLUSTERNAME.azurehdinsight.net, where __CLUSTERNAME__ is the name of the cluster.
+    > [AZURE.NOTE] When using the http://headnodehost:8080 address to connect to the cluster, you are connecting directly over the tunnel to the head node that Ambari is running on using HTTP and communication is secured using the SSH tunnel. when connecting over the internet without the use of a tunnel, communication is secured using HTTPS. To connect over the internet using HTTPS, use https://CLUSTERNAME.azurehdinsight.net, where __CLUSTERNAME__ is the name of the cluster.
 
 2. From the Ambari Web UI, select YARN from the list on the left of the page.
 
