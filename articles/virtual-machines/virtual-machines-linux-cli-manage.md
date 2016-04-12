@@ -8,7 +8,7 @@
    manager="timlt" 
    editor="tysonn" 
    tags="azure-resource-manager"/>
-
+   
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="na"

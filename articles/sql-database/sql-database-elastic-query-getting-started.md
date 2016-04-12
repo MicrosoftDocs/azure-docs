@@ -3,7 +3,7 @@
 	description="how to use cross database database queries"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags

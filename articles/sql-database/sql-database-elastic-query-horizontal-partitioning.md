@@ -3,7 +3,7 @@
     description="how to set up elastic queries over hotizontal partitions"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags
@@ -192,31 +192,20 @@ Once you have defined your external data source and your external tables, you ca
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2.2 Stored procedure SP_ EXECUTE_FANOUT 
+### 2.2 Stored procedure for remote T-SQL execution
 
-Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called sp_execute_fanout and takes the following parameters:   
+Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called sp_execute_remote and can be used to execute remote stored procedures or T-SQL code on the remote databases. It takes the following parameters: 
+* Data source name (nvarchar): The name of the external data source of type RDBMS. 
+* Query (nvarchar): The T-SQL query to be executed on each shard. 
+* Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
+* Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql).
 
-* Server name (nvarchar): Fully qualified name of the logical server hosting the shard map. 
-* Shard map database name (nvarchar): The name of the shard map database. 
-* User name (nvarchar): The user name to log into the shard map database. 
-* Password (nvarchar): Password for the user. 
-* Shard map name (nvarchar): The name of the shard map to be used for the query. The name is found in the _ShardManagement.ShardMapsGlobal table, which is the default name used when creating databases with the sample app found in [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md). The default name found in the app is "CustomerIDShardMap." 
-*  Query: The T-SQL query to be executed on each shard. 
-*  Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
-*  Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql)  
-
-sp\_execute\_fanout uses the shard map information provided in the invocation parameters to execute the given T-SQL statement on all shards registered with the shard map. Any results are merged using UNION ALL semantics. The result also includes the additional ‘virtual’ column with the shard name. 
-
-Note that the same credentials are used to connect to the shard map database and to the shards. 
+sp_execute_remote uses the external data source provided in the invocation parameters to execute the given T-SQL statement on the remote databases. It uses the credential of the external data source to connect to the shardmap manager database and the remote databases.  
 
 Example: 
 
-	sp_execute_fanout 
-		N'myserver.database.windows.net', 
-		N'ShardMapDb', 
-		N'myuser', 
-		N'MyPwd', 
-		N'ShardMap', 
+	EXEC sp_execute_remote
+		N'MyExtSrc',
 		N'select count(w_id) as foo from warehouse' 
 
 ## Connectivity for tools  
