@@ -3,7 +3,7 @@
 	description="Overview of Azure Event Hubs"
 	services="event-hubs"
 	documentationCenter=".net"
-	authors="nberdy"
+	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="01/26/2016"
-	ms.author="sethm"/>
+	ms.author="sethm;nberdy"/>
 
 # What is Azure Event Hubs?
 
