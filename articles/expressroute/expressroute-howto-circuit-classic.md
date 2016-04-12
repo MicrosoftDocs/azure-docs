@@ -3,7 +3,7 @@
    description="This article walks you through the steps for creating and provisioning an ExpressRoute circuit. This article also shows you how to check the status, update, or delete and deprovision your circuit."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
+   authors="ganesr"
    manager="carmonm"
    editor=""
    tags="azure-service-management"/>
@@ -13,14 +13,15 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
-   ms.author="cherylmc"/>
+   ms.date="04/12/2016"
+   ms.author="ganesr"/>
 
 # Create and modify an ExpressRoute circuit using PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
 
 This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the **classic** deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. If you want to create and modify an ExpressRoute circuit using the **Resource Manager** deployment model, see [Create and modify an ExpressRoute circuit using the Resource Manager deployment model](expressroute-howto-circuit-arm.md).
 
@@ -119,6 +120,8 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 		get-help new-azurededicatedcircuit -detailed 
 
+>[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Please ensure that you perform this operation once the connectivity provider is ready to provision the circuit. 
+
 4. **List all ExpressRoute circuits.**
 
 	You can run the *Get-AzureDedicatedCircuit* command to get a list of all ExpressRoute circuits you created.
@@ -165,13 +168,11 @@ This article walks you through the steps to create an ExpressRoute circuit using
 	The *ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side and the Status provides the state on the Microsoft side. An ExpressRoute circuit must be in the following state for you to be able to use it.
 
 		ServiceProviderProvisioningState : Provisioned
-		
 		Status                           : Enabled
 
 	The circuit will go to the following state when the connectivity provider is in the process of enabling it for you. 
 
 		ServiceProviderProvisioningState : Provisioned
-		
 		Status                           : Enabled
 
 
@@ -195,9 +196,13 @@ This article walks you through the steps to create an ExpressRoute circuit using
 	
 	Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
 
+>[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
+
 7. **Link a VNet to an ExpressRoute circuit.** 
 
 	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-classic.md) for step by step instructions. If you need to create a virtual network using the classic deployment model for ExpressRoute, see [Create a VNet for ExpressRoute](expressroute-howto-vnet-portal-classic.md) for instructions. 
+
+
 
 ##  To get the status of an ExpressRoute circuit
 
@@ -245,10 +250,12 @@ You can get detailed descriptions of all the parameters by running the following
 
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity. 
 
-You can do the following: 
+You can do the following with no downtime:
 
-- Enable / disable ExpressRoute premium add-on for your ExpressRoute circuit without any downtime.
-- Increase the bandwidth of your ExpressRoute circuit without any downtime.
+- Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
+- Increase the bandwidth of your ExpressRoute circuit. **Note** Downgrading the bandwidth of a circuit is upt supported. 
+- Change the metering plan from Metered Data to Unlimited Data. **Note** Changing metering plan from Unlimited Data to Metered Data is not supported. 
+-  You can enable and disable "Allow Classic Operations" 
 
 Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on limits and limitations. 
 

@@ -13,14 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="04/12/2016"
    ms.author="ganesr"/>
 
 # Create and modify an ExpressRoute circuit by using Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
 
 
 This article describes how to create an Azure ExpressRoute circuit by using Windows PowerShell cmdlets and the Azure Resource Manager deployment model. The following steps also show you how to check the status of the circuit, update it, or delete and deprovision it.
@@ -369,9 +370,6 @@ You can change the SKU of an ExpressRoute circuit by using the following PowerSh
 	
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-### Controlling Access to Classic and Resource Manager environments
-
-Review instructions to [Moving ExpressRoute circuits from Classic to Resource Manager Environment](expressroute-howto-move-arm.md) 
 
 ## Deleting and deprovisioning an ExpressRoute circuit
 
