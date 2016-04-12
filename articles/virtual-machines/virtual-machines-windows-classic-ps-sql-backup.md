@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Automated Backup for SQL Server Virtual Machines | Microsoft Azure"
-	description="Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines using the Resource Manager deployment model."
+	pageTitle="Automated Backup for SQL Server Virtual Machines (Classic) | Microsoft Azure"
+	description="Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines using the classic deployment mode. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
-	tags="azure-resource-manager" />
+	manager="jhubbard"
+	editor=""
+	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
+	ms.date="04/08/2016"
 	ms.author="jroth" />
 
-# Automated Backup for SQL Server in Azure Virtual Machines
+# Automated Backup for SQL Server in Azure Virtual Machines (Classic)
 
 Automated Backup automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure blob storage.
 

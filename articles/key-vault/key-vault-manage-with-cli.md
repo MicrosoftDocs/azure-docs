@@ -79,7 +79,7 @@ If you do not currently have an organizational account, and are using a Microsof
 4.	From the portal, select Settings and then select Administrators. Select Add, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
 5.	Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
 
-For more information about using an organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
+For more information about using an organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization](../active-directory/sign-up-organization.md).
 
 If you have multiple subscriptions and want to specify a specific one to use for Azure Key Vault, type the following to see the subscriptions for your account:
 
