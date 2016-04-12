@@ -9,21 +9,22 @@
 
 To create an inline link from an ACOM technical article to another ACOM technical article, use the following link syntax:  
 
-- Article links from a subdirectory to an article in the root directory:
+- An article in a service directory links to another article in the same service directory:
+
+  `[link text](article-name.md)`
+
+- An article links from a service subdirectory to an article in the root directory:
 
   `[link text](../article-name.md)`
 
-- Article in the root directory links to an article in a service subdirectory: 
+- An article in the root directory links to an article in a service subdirectory: 
 
   `[link text](./service-directory/article-name.md)`
 
-- Article in a service subdirectory links to an article that is in another service subdirectory:
+- An article in a service subdirectory links to an article in another service subdirectory:
 
   `[link text](../service-directory/article-name.md)`
  
-- Article in a directory links to another article in the same directory:
-
-  `[link text](article-name.md)`
 
 ## Links to anchors
 
