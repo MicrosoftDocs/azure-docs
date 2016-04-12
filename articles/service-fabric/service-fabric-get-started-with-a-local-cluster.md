@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/04/2016"
+   ms.date="04/12/2016"
    ms.author="seanmck"/>
 
 # Get started with deploying and upgrading applications on your local cluster
