@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="01/22/2016"
-   ms.author="rickbyh"/>
+   ms.author="carlrab"/>
 
 # Monitoring Azure SQL Database using dynamic management views
 

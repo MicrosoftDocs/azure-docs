@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Data Catalog get started with data catalog"
-   description="End-to-end tutorial of the scenarios and capabilities of Azure Data Catalog."
+   pageTitle="Azure Data Catalog get started with data catalog | Microsoft Azure"
+   description="End-to-end tutorial presenting the scenarios and capabilities of Azure Data Catalog."
    documentationCenter=""
    services="data-catalog"
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="04/07/2016"
    ms.author="derrickv"/>
 
 # Get started with Azure Data Catalog

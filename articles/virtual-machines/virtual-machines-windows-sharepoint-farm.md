@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Create SharePoint server farms
@@ -36,7 +36,7 @@ To create the basic (three-server) SharePoint farm:
 1. Click [here](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/).
 2. Click **Deploy**.
 3. On the **SharePoint 2013 non-HA Farm** pane, click **Create**.
-4. Specify settings on the 7 steps of the **Create SharePoint 2013 non-HA Farm** pane, and then click **Create**.
+4. Specify settings on the seven steps of the **Create SharePoint 2013 non-HA Farm** pane, and then click **Create**.
 
 The high-availability SharePoint farm consists of nine virtual machines in this configuration.
 
@@ -49,7 +49,9 @@ To create the high-availability (nine-server) SharePoint farm:
 1. Click [here](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/).
 2. Click **Deploy**.
 3. On the **SharePoint 2013 HA Farm** pane, click **Create**.
-4. Specify settings on the 7 steps of the **Create SharePoint 2013 HA Farm** pane, and then click **Create**.
+4. Specify settings on the seven steps of the **Create SharePoint 2013 HA Farm** pane, and then click **Create**.
+
+> [AZURE.NOTE] You cannot create the **SharePoint 2013 non-HA Farm** or **SharePoint 2013 HA Farm** with an Azure Free Trial.
 
 ## Managing the SharePoint farms
 
@@ -59,6 +61,7 @@ From the Central Administration SharePoint site, you can configure My sites, Sha
 
 > [AZURE.NOTE] The Azure portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
 
-## Next Step
+## Next steps
 
+- Deploy a [SharePoint 2013 intranet farm](virtual-machines-windows-sp-intranet-overview.md) as a production workload in Azure infrastructure services.
 - Discover additional [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) configurations in Azure infrastructure services.

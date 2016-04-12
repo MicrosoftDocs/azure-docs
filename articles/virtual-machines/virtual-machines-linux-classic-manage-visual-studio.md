@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create and manage Linux VMs in Visual Studio | Microsoft Azure"
-   description="Create and manage Azure VMs running Linux in Visual Studio"
+   description="Learn how to use Visual Studio to create and manage Azure VMs running Linux"
    services="visual-studio-online,virtual-machines-linux"
    documentationCenter="na"
    authors="TomArcher"

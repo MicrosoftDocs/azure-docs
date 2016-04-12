@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="04/08/2016" 
 	ms.author="nitinme"/>
 
 
@@ -58,7 +58,7 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 
 	![Provide a name for the notebook](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark, SQL, and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
+4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
 		from pyspark.sql import *
 		
@@ -84,27 +84,27 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. Verify that the table was successfully created. You can use the `%%hive` magic to run Hive queries directly. For more information about the `%%hive` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
-		%%hive
+		%%sql
 		SHOW TABLES
 
 	You will see an output like the following:
 
-		+---------------+-----------+
-		|      tableName|isTemporary|
-		+---------------+-----------+
-		|  hvactemptable|       true|
-		|hivesampletable|      false|
-		|           hvac|      false|
-		+---------------+-----------+
+		+-----------+---------------+
+		|isTemporary|tableName		| 
+		+-----------+---------------+
+		|       true|hvactemptable  |
+		|      false|hivesampletable|
+		|      false|hvac			|
+		+-----------+---------------+
 
 
 	Only the tables that have false under the **isTemporary** column are hive tables that will be stored in the metastore and can be accessed from the BI tools. In this tutorial, we will connect to the **hvac** table we just created.
 
 6. Verify that the table contains the intended data. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
 
-		%%hive
+		%%sql
 		SELECT * FROM hvac LIMIT 10
 	
 7. You can now shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.

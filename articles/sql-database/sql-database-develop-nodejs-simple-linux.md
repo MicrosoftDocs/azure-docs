@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="meet-bhagdev"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/30/2016"
 	ms.author="meetb"/>
 
 
