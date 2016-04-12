@@ -19,14 +19,15 @@
 Azure AD uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749). It is used to perform authentication and authorization in the majority of app types, including web apps and natively installed apps.
+# Authorize access to web applications using OAuth 2.0 and Azure AD
 
-# Protocol Diagram
+## Protocol Diagram
 
 At a high level, the entire authentication flow for an application looks a bit like this:
 
 <!-- TODO: Insert protocol diagram -->
 
-# Request an authorization code
+## Request an authorization code
 
 The authorization code flow begins with the client directing the user to the `authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user. You can get the OAuth 2.0 token endpoint from your application's page in Azure Management Portal, in the **View Endpoints** button in the bottom drawer.
 
@@ -48,7 +49,7 @@ For detailed description of the parameters, please see the [reference](active-di
 
 At this point, the user will be asked to enter their credentials and consent to the permissions indicated in the `scope` query parameter. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request.
 
-## Successful response
+### Successful response
 
 A successful response could look like this:
 ```
@@ -61,7 +62,8 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3Umph
 For detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
 If a state parameter was included in the request, the same value appears in the response. It's good practice for the application to verify that the state values in the request and response are identical.  
-## Error response
+
+### Error response
 
 Error responses may also be sent to the `redirect_uri` so that the application can handle them appropriately.
 
@@ -92,7 +94,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
-# Successful Response
+### Successful Response
 
 A successful response could look like this:
 
@@ -112,7 +114,7 @@ A successful response could look like this:
 
 For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
-# Error Response
+### Error Response
 
 A sample error response could look like this:
 
@@ -132,11 +134,11 @@ A sample error response could look like this:
 
 For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
-# Use the Access Token to Access the Resource
+## Use the Access Token to Access the Resource
 
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs, by including it in the `Authorization` header. The [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specification explains how to use bearer tokens in HTTP requests to access protected resources.
 
-## Sample request
+### Sample request
 
 ```
 GET /data HTTP/1.1
@@ -144,7 +146,7 @@ Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
-# Refreshing the access tokens
+## Refreshing the access tokens
 
 Access Tokens are short-lived and must be refreshed after they expire to continue accessing resources. You can refresh the `access_token` by submitting another `POST` request to the `/token` endpoint, but this time providing the `refresh_token` instead of the `code`.
 
@@ -168,7 +170,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 For detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
-## Successful Response
+### Successful Response
 
 A successful token response will look like:
 
@@ -183,7 +185,7 @@ A successful token response will look like:
 }
 ```
 
-## Error Response
+### Error Response
 
 A sample error response could look like this:
 

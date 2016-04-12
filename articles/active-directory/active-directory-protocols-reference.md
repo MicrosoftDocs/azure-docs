@@ -16,7 +16,8 @@
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
 
-# AAD Protocol Reference
+# Azure AD Protocols Reference
+
 ## Request to Authorize Endpoint
 
 ```
@@ -61,8 +62,9 @@ http://localhost:12345/?code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYB
 | state | If a state parameter is included in the request, the same value should appear in the response. The application should verify that the state values in the request and response are identical. |
 
 
-# Using the Authorization Code to Request an Access Token
-## Access Token Request
+## Using the Authorization Code to Request an Access Token
+
+### Sample Request
 
 ```
 //This uses the code from the previous section to request a token
@@ -89,7 +91,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri | required | The same redirect_uri value that was used to acquire the authorization_code. |
 | client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
 
-# Successful Response
+### Sample Response
 
 A sample response to a token request could look like this:
 ```
@@ -157,7 +159,7 @@ The `id_token` parameter includes the following claim types. For more informatio
 | upn | User principal name of the user. |
 | ver | Version. The version of the JWT token, typically 1.0. |
 
-## Error Response
+### Error Response
 
 A sample error response could look like this:
 
@@ -184,9 +186,9 @@ A sample error response could look like this:
 | trace_id | A unique identifier for the request that can help in diagnostics.  |
 | correlation_id | A unique identifier for the request that can help in diagnostics across components.|
 
-# Use the Access Token to Access the Resource
+## Use the Access Token to Access the Resource
 
-## Sample Request
+### Sample Request
 
 ```
 // Line breaks for legibility only

@@ -36,7 +36,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
-# Successful Response
+## Successful Response
 
 A successful response could look like this:
 
@@ -56,7 +56,7 @@ A successful response could look like this:
 
 For a detailed description of the parameters, please see the [reference](active-directory-protocols-reference.md).
 
-# Error Response
+## Error Response
 
 A sample error response could look like this:
 
