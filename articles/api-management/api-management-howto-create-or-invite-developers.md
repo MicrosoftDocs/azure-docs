@@ -64,7 +64,13 @@ By default, newly created or invited developer accounts are **Active**. To deact
 
 ![Block developer][api-management-new-developer]
 
-## Reset a developer's password
+## Reset a developer's 1 2  password
+
+![Reset password][api-management-view-developer]
+
+## Pending verification
+
+![Pending verification][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -78,7 +84,10 @@ Once a developer account is created, you can associate it with roles and subscri
 [api-management-new-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-new-developer.png
 [api-management-invite-developer-window]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-window.png
 [api-management-invite-developer-confirmation]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-confirmation.png
-[api-management-]: ./media/api-management-howto-create-or-invite-developers/api-management-.png
+[api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
+[api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
+[]: ./media/api-management-howto-create-or-invite-developers/.png
+[]: ./media/api-management-howto-create-or-invite-developers/.png
 
 
 
