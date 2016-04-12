@@ -37,8 +37,8 @@ Requirements to use the extension on your VM:
 
 ## Services available with the extension
 
-- **SQL Automated Backup**: This service automates the scheduling of backups for all databases for the default instance of SQL Server in the VM. For more information, see [Automated backup for SQL Server in Azure Virtual Machines (Classic)](virtual-machines-windows-classic-ps-sql-backup.md).
-- **SQL Automated Patching**: This service lets you configure a maintenance window during which updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure Virtual Machines (Classic)](virtual-machines-windows-classic-ps-sql-patch.md).
+- **SQL Automated Backup**: This service automates the scheduling of backups for all databases for the default instance of SQL Server in the VM. For more information, see [Automated backup for SQL Server in Azure Virtual Machines (Classic)](virtual-machines-windows-classic-sql-automated-backup.md).
+- **SQL Automated Patching**: This service lets you configure a maintenance window during which updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure Virtual Machines (Classic)](virtual-machines-windows-classic-sql-automated-patching.md).
 - **Azure Key Vault Integration**: This service allows you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
 ## Add the extension with Powershell
@@ -51,7 +51,7 @@ Set-AzureVMSqlServerExtension [[-ReferenceName] [String]] [-VM] IPersistentVM [[
 > [AZURE.NOTE] Omitting the –Version parameter is recommended. Without it, the default is the latest version of the extension.
 
 ### Example
-The following example configures automatic backup settings using a configuration defined in $abs (not shown here). The serviceName is the cloud service name that hosts the virtual machine. For a full example, see [Automated backup for SQL Server in Azure Virtual Machines (Classic)](virtual-machines-windows-classic-ps-sql-backup.md).
+The following example configures automatic backup settings using a configuration defined in $abs (not shown here). The serviceName is the cloud service name that hosts the virtual machine. For a full example, see [Automated backup for SQL Server in Azure Virtual Machines (Classic)](virtual-machines-windows-classic-sql-automated-backup.md).
 
 	Get-AzureVM –ServiceName "serviceName" –Name "vmName" | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
 
