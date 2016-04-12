@@ -1,7 +1,7 @@
 
 
 
-## Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager
+## Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager deployment model
 
 The Azure Resource Manager deployment model offers the ability to easily leverage pre-built application templates or construct an application template to deploy and manage compute, network, and storage resources on Azure. In this section, we’ll walk through the advantages of deploying resources through the Azure Resource Manager deployment model.
 
