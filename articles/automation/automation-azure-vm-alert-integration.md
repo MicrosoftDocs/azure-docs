@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="03/31/2016"
-    ms.author="csand-msft" />
+    ms.date="04/11/2016"
+    ms.author="csand-msft;magoedte" />
 
 # Azure Automation solutions - remediate Azure VM alerts
 
@@ -27,7 +27,7 @@ In this article, we will show you how easy it is to set up an Azure VM alert and
 
 Perform the following steps to configure an alert to launch a runbook when its threshold has been met.
 
-[AZURE.NOTE] With this release, we only support V2 virtual machines and support for classic VMs will be added soon.  
+>[AZURE.NOTE] With this release, we only support V2 virtual machines and support for classic VMs will be added soon.  
 
 1. Log in to the Azure portal and click **Virtual Machines**.  
 2. Select one of your virtual machines.  The virtual machine dashboard blade will appear and the **Settings** blade to its right.  
@@ -36,21 +36,21 @@ Perform the following steps to configure an alert to launch a runbook when its t
 
 This opens up the **Add an alert rule** blade, where you can configure the conditions for the alert and choose among one or all of these options: send email to someone, use a webhook to forward the alert to another system, and/or run an Automation runbook in response attempt to remediate the issue.
 
-##Configure a runbook
+## Configure a runbook
 
 To configure a runbook to run when the VM alert threshold is met, select **Automation Runbook**. In the **Configure runbook** blade, you can select the runbook to run and the Automation account to run the runbook in.
 
 ![Configure an Automation runbook and create a new Automation Account](media/automation-azure-vm-alert-integration/ConfigureRunbookNewAccount.png)
 
-[AZURE.NOTE] For this release you can choose from three runbooks that the service provides – Restart VM, Stop VM, or Remove VM (delete it).  The ability to select other runbooks or one of your own runbooks will be available in a future release.
+>[AZURE.NOTE] For this release you can choose from three runbooks that the service provides – Restart VM, Stop VM, or Remove VM (delete it).  The ability to select other runbooks or one of your own runbooks will be available in a future release.
 
 ![Runbooks to choose from](media/automation-azure-vm-alert-integration/RunbooksToChoose.png)
 
-After you select one of the three available runbooks, the **Automation account** drop-down list appears and you can select an automation account the runbook will run as. Runbooks need to run in the context of an [Automation account](https://azure.microsoft.com/documentation/services/automation/) that is in your Azure subscription. You can select an Automation account that you already created, or you can have a new Automation account created for you.
+After you select one of the three available runbooks, the **Automation account** drop-down list appears and you can select an automation account the runbook will run as. Runbooks need to run in the context of an [Automation account](automation-security-overview.md) that is in your Azure subscription. You can select an Automation account that you already created, or you can have a new Automation account created for you.
 
 The runbooks that are provided authenticate to Azure using a service principal. If you choose to run the runbook in one of your existing Automation accounts, we will automatically create the service principal for you. If you choose to create a new Automation account, then we will automatically create the account and the service principal. In both cases, two assets will also be created in the Automation account – a certificate asset named **AzureRunAsCertificate** and a connection asset named **AzureRunAsConnection**. The runbooks will use **AzureRunAsConnection** to authenticate with Azure in order to perform the management action against the VM.
 
-[AZURE.NOTE] The service principal is created in the subscription scope and is assigned the Contributor role. This role is required in order for the account to have permission to run Automation runbooks to manage Azure VMs.  The creation of an Automaton account and/or service principal is a one-time event. Once they are created, you can use that account to run runbooks for other Azure VM alerts.
+>[AZURE.NOTE] The service principal is created in the subscription scope and is assigned the Contributor role. This role is required in order for the account to have permission to run Automation runbooks to manage Azure VMs.  The creation of an Automaton account and/or service principal is a one-time event. Once they are created, you can use that account to run runbooks for other Azure VM alerts.
 
 When you click **OK** the alert is configured and if you selected the option to create a new Automation account, it is created along with the service principal.  This can take a few seconds to complete.  
 
@@ -62,15 +62,15 @@ After the configuration is completed you will see the name of the runbook appear
 
 Click **OK** in the **Add an alert rule** blade and the alert rule will be created and activate if the virtual machine is in a running state.
 
-###Enable or disable a runbook
+### Enable or disable a runbook
 
 If you have a runbook configured for an alert, you can disable it without removing the runbook configuration. This allows you to keep the alert running and perhaps test some of the alert rules and then later re-enable the runbook.
 
-##Summary
+## Summary
 
 When you configure an alert on an Azure VM, you now have the ability to easily configure an Automation runbook to automatically perform remediation action when the alert triggers. For this release, you can choose from runbooks to restart, stop, or delete a VM depending on your alert scenario. This is just the beginning of enabling scenarios where you control the actions (notification, troubleshooting, remediation) that will be taken automatically when an alert triggers.
 
-##Next Steps
+## Next Steps
 
 - To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 - To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
