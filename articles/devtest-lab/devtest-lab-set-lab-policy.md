@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="04/13/2016"
 	ms.author="tarcher"/>
 
 # Define lab policies
@@ -22,8 +22,8 @@
 
 ## Overview
 
-DevTest Lab allows you to specify key policies that govern how your lab and its VMs are used. These policies include allowed VM sizes, maximum number of VMs per user, total VMs allowed
-in the lab, and auto-shutdown rules for the VMs in your lab.
+DevTest Lab allows you to specify key policies that govern how your lab and its VMs are used. 
+For example, you can set the rules on the VM sizes allowed to create VMs, the threshold on the number of VMs that can be created, or schedule jobs to automatically start/stop the lab VMs. 
 
 ## Accessing a lab's policies
 
