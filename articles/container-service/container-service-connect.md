@@ -41,7 +41,7 @@ Now open a shell and run the following command where:
 
 > The SSH connection port is 2200 and not the standard 22.
 
-```
+```bash
 # ssh sample
 
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
@@ -51,7 +51,7 @@ ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.
 
 To open a tunnel to the Mesos-related endpoints, execute a command that is similar to the following:
 
-```
+```bash
 # ssh sample
 
 ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
@@ -71,7 +71,7 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 To open a tunnel to the Swarm endpoint, execute a command that looks similar to the following:
 
-```
+```bash
 # ssh sample
 
 ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
@@ -79,7 +79,7 @@ ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.
 
 Now you can set your DOCKER_HOST environment variable as follows and continue to use your Docker command-line interface (CLI) as normal.
 
-```
+```bash
 export DOCKER_HOST=:2375
 ```
 

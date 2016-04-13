@@ -149,8 +149,6 @@ Login-AzureRmAccount
 If you are deploying to a new resource group, you must first create the resource group. To create a new resource group, use the `New-AzureRmResourceGroup` command, specifying a resource group name and destination region:
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 ```
 
@@ -178,6 +176,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
  
 Now that you have a functioning cluster, visit these documents for connection and management details.
  
-- [Connect with the ACS cluster](./container-service-connect.md)
-- [Working with ACS and Mesos](./container-service-mesos-marathon-rest.md)
+- [Connect with an Azure Container Service cluster](./container-service-connect.md)
+- [Working with Azure Container Service and Mesos](./container-service-mesos-marathon-rest.md)
 - [Working with Azure Container Service and Docker Swarm](./container-service-docker-swarm.md)
