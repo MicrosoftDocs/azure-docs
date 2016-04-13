@@ -368,13 +368,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		import android.support.v4.app.NotificationCompat;
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
-
-13. Update the class declaration as follows to make `MyHandler` a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler` as shown below.
-
-		public class MyHandler extends NotificationsHandler {
-
-
-14. Add the following code for the `MyHandler` class.
+13. Add the following code for the `MyHandler` class making it a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler`.
 
 	This code overrides the `OnReceive` method, so the handler will report notifications that are received. The handler also sends the push notification to the Android notification manager by using the `sendNotification()` method. The `sendNotification()` method should be executed when the app is not running and a notification is received.
 
@@ -422,7 +416,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		}
 
 
-15. In Android Studio on the menu bar, click **Build** > **Rebuild Project** to make sure that no errors are present in your code.
+14. In Android Studio on the menu bar, click **Build** > **Rebuild Project** to make sure that no errors are present in your code.
 
 ##Sending push notifications
 
