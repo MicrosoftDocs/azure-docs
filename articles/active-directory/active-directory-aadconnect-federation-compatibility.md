@@ -19,9 +19,9 @@
 # Azure AD federation compatibility list
 Azure Active Directory provides single-sign on and enhanced application access security for Office 365 and other Microsoft Online services for hybrid and cloud-only implementations without requiring any non-Microsoft solution. Office 365, like most of Microsoft’s Online services, is integrated with Azure Active Directory for directory services, authentication and authorization. Azure Active Directory also provides single sign-on to thousands of SaaS applications and on-premises web applications. Please see the Azure Active Directory application gallery for supported SaaS applications.
 
-For organizations that have invested in third-party federation solutions, this topic contains guidance for configuring single sign-on for their Windows Server Active Directory users with Microsoft Online services by using third-party identity providers that are included in the “Azure Active Directory federation compatibility list” below. 
+For organizations that have invested in non-Microsoft federation solutions, this topic contains guidance for configuring single sign-on for their Windows Server Active Directory users with Microsoft Online services by using non-Microsoft identity providers from the “Azure Active Directory federation compatibility list” below. 
 
-Microsoft tested these single sign-on experiences using third-party identity providers against a set of use cases common with Azure Active Directory.
+Microsoft tested these single sign-on experiences using non-Microsoft identity providers against a set of use cases common with Azure Active Directory.
 
 >[AZURE.IMPORTANT] Microsoft tested only the federation functionality of these single sign-on scenarios. Microsoft did not perform any testing of the synchronization, two-factor authentication, etc. components of these single sign-on scenarios.
 
