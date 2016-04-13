@@ -34,7 +34,7 @@ To get started, click **Manage** in the Azure Classic for your API Management se
 
 ![Publisher portal][api-management-management-console]
 
->If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+>If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API in Azure API Management][] tutorial.
 
 Click **Products** in the **API Management** menu on the left to display the **Products** page.
 
@@ -71,7 +71,7 @@ Select the **Developers** check box, and then click **Save**.
 
 In this step of the tutorial, we will add the Echo API to the new Free Trial product.
 
->Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
+>Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Manage your first API in Azure API Management][].
 
 Click **Products** from the **API Management** menu on the left, and then click **Free Trial** to configure the product.
 
