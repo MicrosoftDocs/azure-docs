@@ -20,7 +20,7 @@ Use the following steps to connect to Azure SQL Database with SSMS using a serve
  
       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-2.png)
  
-1. If you are an Azure subscription administrator and need to sign in, when the sign in page appear, provide the credentials for your subscription and sign in.
+1. If you are an Azure subscription administrator and need to sign in, when the sign in page appears, provide the credentials for your subscription and sign in.
 
       ![sign in](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
  
@@ -31,7 +31,9 @@ Use the following steps to connect to Azure SQL Database with SSMS using a serve
 5. If your credentials grant you access, Object Explorer opens and you can now perform administrative tasks or query data. 
  
      ![new server-level firewall](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
+ 
      
  ## Troubleshoot connection failures
 
 The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+
