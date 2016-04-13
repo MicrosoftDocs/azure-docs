@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD federation compatibility list"
-	description="This page has 3rd party identity providers that can be used to implement single sign-on."
+	description="This page has non-Microsoft identity providers that can be used to implement single sign-on."
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/13/2016"
 	ms.author="billmath"/>
 
-# Azure AD Federation Compatibility List
-Azure Active Directory provides single-sign on and enhanced application access security for Office 365 and other Microsoft Online services for hybrid and cloud-only implementations without requiring any 3rd party solution. Office 365, like most of Microsoft’s Online services, is integrated with Azure Active Directory for directory services, authentication and authorization. Azure Active Directory also provides single sign-on to thousands of SaaS applications and on-premises web applications. Please see the Azure Active Directory application gallery for supported SaaS applications.
+# Azure AD federation compatibility list
+Azure Active Directory provides single-sign on and enhanced application access security for Office 365 and other Microsoft Online services for hybrid and cloud-only implementations without requiring any non-Microsoft solution. Office 365, like most of Microsoft’s Online services, is integrated with Azure Active Directory for directory services, authentication and authorization. Azure Active Directory also provides single sign-on to thousands of SaaS applications and on-premises web applications. Please see the Azure Active Directory application gallery for supported SaaS applications.
 
 For organizations that have invested in third-party federation solutions, this topic contains guidance for configuring single sign-on for their Windows Server Active Directory users with Microsoft Online services by using third-party identity providers that are included in the “Azure Active Directory federation compatibility list” below. 
 
