@@ -454,7 +454,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. Add **CORP\SQLSvc1** and give it the **Read/Write** permission, then add **CORP\SQLSvc2** and give it the **Read** permission, as shown below, and then click **Share**. Once the file sharing process is complete, click **Done**.
 
-	![Grant Permissions For Backup Folder](./media/virtual-machines-windows-classic-portal-sql-availability/IC665522.gif)
+	![Grant Permissions For Backup Folder](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665522.gif)
 
 1. Next, you create the database. From the **Start** menu, launch **SQL Server Management Studio**, then click **Connect** to connect to the default SQL Server instance.
 
