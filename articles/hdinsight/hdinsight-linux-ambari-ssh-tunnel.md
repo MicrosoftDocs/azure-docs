@@ -174,15 +174,14 @@ Once the cluster has been established, use the following steps to verify that yo
 	![Image with the QuickLinks menu expanded](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
 
 	> [AZURE.NOTE] If you have a slow internet connection, or the head node is very busy, you may get a wait indicator instead of a menu when you select __Quick Links__. If so, wait a minute or two for the data to be received from the server, then try the list again.
-
-
-	> [AZURE.TIP] If you have a lower resolution monitor, or your browser window is not maximized, some entries in the __Quick Links__ menu may be cut off by the right side of the screen. If so, expand the menu using your mouse, then use the right arrow key to scroll the screen to the right to see the rest of the menu.
+    >
+	> If you have a lower resolution monitor, or your browser window is not maximized, some entries in the __Quick Links__ menu may be cut off by the right side of the screen. If so, expand the menu using your mouse, then use the right arrow key to scroll the screen to the right to see the rest of the menu.
 
 4. A page similar to the following should appear:
 
 	![Image of the YARN ResourceManager UI](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP] Notice the URL for this page; it should be similar to __http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. This is using the internal fully qualified domain name (FQDN) of the node, and is not accessible without using an SSH tunnel.
+	> [AZURE.NOTE] Notice the URL for this page; it should be similar to __http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. This is using the internal fully qualified domain name (FQDN) of the node, and is not accessible without using an SSH tunnel.
 
 ##Next steps
 
