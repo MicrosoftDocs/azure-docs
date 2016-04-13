@@ -27,30 +27,22 @@
 
 This tutorial shows you how easy it is to create a Windows virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
-<br>
-
-## Video walkthrough
-
-Here's a walkthrough of this tutorial.
-
->[AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
-
-<br>
+If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
 >[AZURE.TIP] When using the portal, if you want your VM to be part of an availability set, you need to create the availability set before or during the creation of the first VM in the set. For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
 
 
+## Video walkthrough
+
+Here's a [video walkthrough](https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Create-A-Virtual-Machine-Running-Windows-In-The-Azure-Preview-Portal) of this tutorial.
 
 ## Select the Windows virtual machine image
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. On the Hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
 
 	![Screenshot that shows the Azure VM images available in the preview portal](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
-
-	>[AZURE.TIP] To find additional images, click **Marketplace** and then search or filter for available items.
 
 3. On the **Windows Server 2012 R2 Datacenter** page, under **Select a deployment model**, select **Resource Manager**. Click **Create**.
 
@@ -75,7 +67,6 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE] Premium storage is available for DS-series virtual machines in certain regions. Premium storage is the best storage option for data intensive workloads such as a database. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
 
 3. Click **Settings** to see storage and networking settings for the new virtual machine. For a first virtual machine you can generally accept the default settings. If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting **Premium (SSD)** under **Disk type**.
 
@@ -91,28 +82,25 @@ After you select the image, you can use Azure's default settings for most of the
 
 After you create the virtual machine, you'll want to log on to it so you can manage its settings and the applications that you'll run on it.
 
->[AZURE.NOTE] For requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. If you haven't already done so, sign in to the Azure portal.
+1. Click on your virtual machine on the dashboard or click on **Virtual Machines** in the hub menu and select it from the list.
 
-2. Click your virtual machine on the dashboard or click on Virtual Machines and select it from the list.
-
-3. On the virtual machine blade, click **Connect**.
+2. On the virtual machine blade, click **Connect**.
 
 	![Screenshot that shows where you find the Connect button on the Azure VM blade](./media/virtual-machines-windows-hero-tutorial/connect_vm_portal.png)
 
-4. Click **Open** to use the Remote Desktop Protocol file that's automatically created for the Windows Server virtual machine.
+3. Click **Open** to use the Remote Desktop Protocol file that's automatically created for the Windows Server virtual machine.
 
-5. Click **Connect**.
+4. Click **Connect**.
 
-6. Type the user name and password you set when you created the virtual machine, and then click **OK**.
+5. Type the user name and password you set when you created the virtual machine, and then click **OK**.
 
-7. Click **Yes** to verify the identity of the virtual machine.
+6. Click **Yes** to verify the identity of the virtual machine.
+
+>[AZURE.NOTE] For requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 You can now work with the virtual machine just as you would with any other server.
 
 ## Next steps
 
-* Use Azure PowerShell and the Azure CLI to [find and select virtual machine images](virtual-machines-linux-cli-ps-findimage.md).
-* Automate virtual machine and workload deployment and management using [Azure Resource Manager templates](https://azure.microsoft.com/documentation/templates/).
-* You can also quickly [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) using the Azure CLI.
+* You can also quickly create a [Windows VM using Azure Powershell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) using the Azure CLI.
