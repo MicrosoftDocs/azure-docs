@@ -180,7 +180,7 @@ The SQL Server service requires a port that clients use to access the database s
 
 For each of the SQL Server virtual machines, sign out as the local administrator. 
 
-For information about optimizing SQL Server performance in Azure, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md). You can also disable Geo Redundant Storage (GRS) for the line of business application storage account and use storage spaces to optimize IOPs.
+For information about optimizing SQL Server performance in Azure, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md). You can also disable Geo Redundant Storage (GRS) for the line of business application storage account and use storage spaces to optimize IOPs.
 
 ## Configure the cluster majority node server
 

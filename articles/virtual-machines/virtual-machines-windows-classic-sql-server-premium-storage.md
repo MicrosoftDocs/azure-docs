@@ -37,7 +37,7 @@ It is important to understand the end-to-end process of utilizing Azure Premium 
 - Possible migration approaches.
 - Full end-to-end example showing Azure, Windows, and SQL Server steps for  the migration of an existing AlwaysOn implementation.
 
-For more background information on SQL Server in Azure Virtual Machines, see [SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
+For more background information on SQL Server in Azure Virtual Machines, see [SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
 **Author:** Daniel Sol
 **Technical Reviewers:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
@@ -1131,7 +1131,7 @@ To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayso
 ## Additional resources
 - [Azure Premium Storage](../storage/storage-premium-storage.md)
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
-- [SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md)
+- [SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png
