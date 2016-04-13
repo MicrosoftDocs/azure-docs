@@ -17,9 +17,9 @@
    ms.date="04/12/2016"
    ms.author="mandia"/>
 
-# Create a AAD protected WebAPI using Azure Webapps and register it for PowerApps
+# Tutorial: Create a custom AAD protected web API for PowerApps and Logic Flows
 
-This tutorial aims to teach you how to create a WebAPI and host it on Azure Webapps, enable AAD authentication (via easy auth) on it and then register the WebAPI in PowerApps and Logic flows. 
+This tutorial shows you how to create a ASP.Net web API, host it on Azure Webapps, enable AAD authentication (via easy auth), and then register the web API in PowerApps and Logic flows. 
 
 ## What you need to get started
 
@@ -44,12 +44,13 @@ This tutorial aims to teach you how to create a WebAPI and host it on Azure Weba
 5. Once installed and enabled, browse the following Swagger docs and UI endpoints respectively:  
  **\<your-root-url\>/swagger/docs/v1**  
 
- **\<your-root-url\>/swagger**  
+ 	**\<your-root-url\>/swagger**  
 
 6. Once you are comfortable with your web API, publish it to Azure. To publish in Visual Studio, go to **BUILD**, and select **PUBLISH** .
 
 7. Extract the swagger json by navigating to ***https://\<azure-webapp-url\>/swagger/docs/v1***.  
-	>[AZURE.IMPORTANT] A swagger document with duplicate operationid(s) is invalid. If you are using the sample C# template, the operation-id "Values_Get" is repeated twice. Change one instance to "Value_Get".
+
+	> [AZURE.IMPORTANT] A swagger document with duplicate operationid(s) is invalid. If you are using the sample C# template, the operation-id "Values_Get" is repeated twice. Change one instance to "Value_Get".
 
 
 You can download the swagger used in this tutorial [here][6]. Be sure to replace/remove the comments before using it. Comments start with `//`.
@@ -81,7 +82,7 @@ This tutorial assumes you know how to create an AAD application in Azure. To lea
 
 ## Step 3: Set up easy auth on your web app
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and go to your web app that you deployed as part of the [Step 1](*step-1:-create-a-webapi-and-deploy-it-on-azure).
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your web app that you deployed in **Step 1** (in this topic).
 2. In **Settings**, select **"Authentication / Authorization"**.
 3. Turn on **App Service Authentication**, and select **Azure Active Directory**.  On the next blade, select **Express**.  
 4. Click on the **Select Existing AD App**, and select the first AAD application you created as part of Step two. In this case, select **webAPI**.
@@ -113,10 +114,10 @@ This should setup AAD authentication for you web app.
 
 4. Configure the AAD authentication for your custom API:  
 
-  1. Client ID: ***Client ID of webAPI-CustomAPI*** from 4.5 in [Step 2](#step-2:-set-up-aad-authentication)
-  2. Secret: ***Key from webPI-CustomAPI*** from 4.6 in [Step 2](#step-2:-set-up-aad-authentication)
+  1. Client ID: ***Client ID of webAPI-CustomAPI*** from 4.5 in **Step 2** (in this topic)
+  2. Secret: ***Key from webPI-CustomAPI*** from 4.6 in **Step 2** (in this topic)
   3. Login url: ***https://login.windows.net***
-  4. ResourceUri: ***Client ID of webAPI*** from 3.4 in [Step 2](#step-2:-set-up-aad-authentication)
+  4. ResourceUri: ***Client ID of webAPI*** from 3.4 in **Step 2** (in this topic)
 
 5. Select **Create**, and try creating a connection on the Custom API. If everything is setup correctly, you should be able to sign-in successfully. 
 
