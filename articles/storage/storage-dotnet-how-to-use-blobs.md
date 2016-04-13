@@ -55,11 +55,13 @@ Add the following `using` statements to the top of the `program.cs` file:
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
+### Parse the connection string
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Create the Blob service client
 
-The **CloudBlobClient** class enables you to retrieve containers and blobs stored in Blob storage. Add the following code to the **Main()** method:
+The **CloudBlobClient** class enables you to retrieve containers and blobs stored in Blob storage. Here's one way to create the service client:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
