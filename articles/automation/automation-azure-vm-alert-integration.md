@@ -1,6 +1,6 @@
 <properties
     pageTitle=" Remediate Azure VM Alerts with Automation Runbooks | Microsoft Azure"
-    description="This article describes the integration of Azure Virtual Machine alerts with Azure Automation runbooks."
+    description="This article demonstrates how to integrate Azure Virtual Machine alerts with Azure Automation runbooks and auto-remediate issues"
     services="automation"
     documentationCenter=""
     authors="csand-msft"``
@@ -13,9 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
     ms.date="04/11/2016"
-    ms.author="csand-msft;magoedte" />
+    ms.author="csand;magoedte" />
 
-# Azure Automation solutions - remediate Azure VM alerts
+# Azure Automation solution - remediate Azure VM alerts
 
 Azure Automation and Azure Virtual Machines have released a new feature allowing you to configure Virtual Machine (VM) alerts to run Automation runbooks. This new capability allows you to automatically perform standard remediation in response to VM alerts, like restarting or stopping the VM.
 
