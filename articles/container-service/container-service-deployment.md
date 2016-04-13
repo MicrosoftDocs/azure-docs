@@ -37,8 +37,8 @@ Select ‘Azure Container Service’ and click ‘Create’.
 Enter the following information:
 
 - User Name – This is the user name that will be used for an account on each of the virtual machines and virtual machine scale sets in the Azure Container Service cluster.
-- SSH public key – Add the public key that will be used for authentication against Azure Container Service Virtual Machines. It is very important that you're careful when you paste your key value into this box. Some editors will insert line breaks into the content, and this will break the key. Verify that your key has no line breaks, and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should look something like 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'.
-- Subscription – select an Azure subscription. For guidance on creating SSH keys, see the [Linux]( https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-linux/) and [Windows]( https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/) articles.
+- SSH public key – Add the public key that will be used for authentication against Azure Container Service Virtual Machines. It is very important that you're careful when you paste your key value into this box. Some editors will insert line breaks into the content, and this will break the key. Verify that your key has no line breaks, and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should look something like 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. For guidance on creating SSH keys, see the [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) and [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) articles.
+- Subscription – select an Azure subscription.
 - Resource Group – select an existing Resource Group, or create a new one.
 - Location – select an Azure region for the Azure Container Service deployment.
 
