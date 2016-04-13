@@ -24,7 +24,7 @@ This article explains how to run [Azure Functions](functions-overview.md) locall
 
 The runtime for Azure Functions is an implementation of the WebJobs.Script open source project. This project is in turn built on the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md), and both frameworks can run locally. You do need to connect to an Azure storage account, however, because the WebJobs SDK uses storage account features that the storage emulator doesn't support.
 
-Functions are easy to code and test in the Azure portal, but sometimes it's useful to work with them locally before running in Azure. For example, some of the languages that Azure Functions supports are easier to write code for in Visual Studio because it provides [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx). 
+Functions are easy to code and test in the Azure portal, but sometimes it's useful to work with them locally before running in Azure. For example, some of the languages that Azure Functions supports are easier to write code for in Visual Studio because it provides [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx). And while you can debug a function remotely, it may be quicker and easier to debug locally. When you run locally, you can debug and set breakpoints in function code as well as in the WebJobs Script host code.  
 
 ## Prerequisites
 
@@ -90,6 +90,10 @@ If your purpose is to contribute to the WebJobs.SDK project, you need all of the
 
 	f. Do the same for the `AzureWebJobsDashboard` app setting.
 
+2. Create an environment variable named AzureWebJobsServiceBus, and set it to your Service Bus connection string.
+
+	This environment variable is required for Service Bus bindings, and we recommend that you set it even if you don't use Service Bus bindings. In some scenarios, you might see exceptions if the Service Bus connection string is not set, regardless of the bindings in use.
+
 3. Make sure any other environment variables that you need are set. (See preceding [Conditional prerequisites](#conditional-prerequisites) section).
 
 4. Start Visual Studio, and then open the WebJobs.Script solution.
@@ -154,21 +158,48 @@ Click an invocation to see the **Invocation Details** page, which indicates when
 
 ## <a id="apikeys"></a> API Keys for HTTP triggers
 
-To run HTTP or WebHook functions, you'll need API keys. These are stored in `.json` files in the [App_Data/secrets](https://github.com/Azure/azure-webjobs-sdk-script/tree/master/src/WebJobs.Script.WebHost/App_Data/secrets) folder in the WebJobs.Script.WebHost project. 
+To run an HTTP or WebHook function, you'll need an API key unless you include `"authLevel": "anonymous"` in the *function.json* file.
 
-The file that contains a function's API key is named *{function name}.json*. For example, if *App_Data/secrets/HttpTrigger.json* has the following content:
+For example, if the API key is `apikey`, you can trigger the *HttpTrigger* function with the following URL when the WebJobs.Script.WebHost project is running.
+
+	http://localhost:28549/api/httptrigger?code=apikey
+
+(As an alternative, you can put the API key in the `x-functions-key` HTTP header.)
+
+API keys are stored in `.json` files in the [App_Data/secrets](https://github.com/Azure/azure-webjobs-sdk-script/tree/master/src/WebJobs.Script.WebHost/App_Data/secrets) folder in the WebJobs.Script.WebHost project.
+
+### API keys that apply to all HTTP and WebHook functions
+
+The *host.json* file in the *App_Data/secrets* folder has two keys:
+
+{
+  "masterKey": "t8laajal0a1ajkgzoqlfv5gxr4ebhqozebw4qzdy",
+  "functionKey": "zlnu496ve212kk1p84ncrtdvmtpembduqp25ajjc"
+}
+  
+The `functionKey` property stores a key that can be used for any HTTP or WebHook function if no override for that particular function is defined. This feature eliminates the need to always define new API keys for every function you create.
+
+The `masterKey` property stores a key that is useful in some testing scenarios:
+
+* If you call a WebHook function with a master key, the WebJobs SDK bypasses the validation of the WebHook provider's signature.
+
+* If you call an HTTP or WebHook function with a master key, the function is triggered even if it's disabled in the *function.json* file. This is used in the Azure portal to make the **Run** button work even for disabled functions.
+ 
+### API keys that apply to individual functions
+
+Files that are named *{function name}.json* contain the API key for a particular function. For example, the following example JSON content in *App_Data/secrets/HttpTrigger.json* sets the API key for the `HttpTrigger` function.
 
 	{
 	  "key": "hyexydhln844f2mb7hgsup2yf8dowlb0885mbiq1"
 	}
 
-You can trigger the *HttpTrigger* function with the following URL when the WebJobs.Script.WebHost project is running.
-
-	http://localhost:28549/api/httptrigger?code=hyexydhln844f2mb7hgsup2yf8dowlb0885mbiq1
-
 ## Troubleshooting
 
 Environment variable changes done while Visual Studio is running aren't picked up automatically. If you added or changed an environment variable after starting Visual Studio, shut down Visual Studio and restart it to make sure it is picking up the current values.
+
+When you're debugging, you might get more information about exceptions by selecting **Common Language Runtime Exceptions** in the **Exception Settings** window (CTRL-ALT-E to open the window).
+
+Another way you might get more exception information while debugging is to set a breakpoint in the `catch` block of the main loop for the script host. You'll find this in the WebJobs.Script project, in *Host/ScriptHostManager.cs*, in the `RunAndBlock` method.
 
 ## Next steps
 
