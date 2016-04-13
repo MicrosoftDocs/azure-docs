@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/12/2016"
+ ms.date="04/13/2016"
  ms.author="danlep"/>
 
 # Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload
