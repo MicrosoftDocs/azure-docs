@@ -69,7 +69,7 @@ You can also refer to individual array elements by using a zero-based index. For
 
 	{ "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
-> [AZURE.NOTE] If a source field name path refers to a non-existing property, this property is skipped without error. This is is done so we can support documents with a different schema (which is a common use case). This does mean, however, that you need to take care to avoid typos in your field mapping specification. 
+> [AZURE.NOTE] If a source field name path refers to a non-existing property, this property is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). This does mean, however, that you need to take care to avoid typos in your field mapping specification. 
 
 Putting this all together, here's a complete indexer payload for our example: 
 
