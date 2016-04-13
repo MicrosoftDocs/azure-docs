@@ -20,7 +20,7 @@
  
    a. If you are an Azure subscription administrator and need to sign in, when the sign in page appear, provide the credentials for your subscription and sign in.
 
-     ![sign in](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
+   ![sign in](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
  
    b. After your sign in to Azure is successful, review the proposed server-level firewall rule (you can modify it to allow a range of IP addresses) and then click **OK** to create the firewall rule and complete the connection to SQL Database.
  
@@ -34,4 +34,4 @@
 
 The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
 
-For information about firewall rules, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+For information about firewall rules, see [How to: Configure Firewall Settings (Azure SQL Database)](../../sql-database/sql-database-configure-firewall-settings.md).
