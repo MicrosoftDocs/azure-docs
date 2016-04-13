@@ -202,7 +202,7 @@ ExpressRoute circuits provide a high bandwidth path between networks. Generally,
 	$ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
 
     $ckt.Sku.Tier = "Premium"
-    $ckt.Sku.Name = "MeteredData"
+    $ckt.Sku.Family = "MeteredData"
 
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 	```
@@ -223,7 +223,7 @@ ExpressRoute circuits provide a high bandwidth path between networks. Generally,
 
 - ExpressRoute circuits are designed to allow temporary network bursts up to two times the bandwidth limit that you procured for no additional cost. This is achieved by using redundant links. However, not all connectivity providers support this feature; verify that your connectivity provider enables this feature before depending on it.
 
-## Monitoring and manageability
+## Monitoring
 
 At this time, your monitoring options are based on the tools available through your connection provider and on-premises network.
 
@@ -233,7 +233,7 @@ If a previously functioning ExpressRoute circuit now fails to connect, in the ab
 
 - Verify that the circuit has been provisioned:
 
-	```
+	```powershell
 	Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
 	```
 
@@ -250,7 +250,7 @@ If a previously functioning ExpressRoute circuit now fails to connect, in the ab
 
 - If the `ProvisioningState` is not set to `Suceeded` after you tried to create a new circuit, remove the circuit by using the command below and try to create it again.
 
-	```
+	```powershell
 	Remove-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
 	```
 - If your provider had already provisioned the circuit, and the `ProvisioningState` is set to `Failed`, or the `CircuitProvisioningState` is not `Enabled`, contact your provider for further assistance.
@@ -266,14 +266,14 @@ To use the script below, execute the following steps:
 3. Open a PowerShell command shell.
 4. Run the script with the necessary parameters to create an ExpressRoute circuit, as shown below.
 
-	```
+	```powershell
 	.\<<scriptfilename>>.ps1 -SubscriptionId <<subscription-id>> -BaseName <<prefix-for-resources>> -Location <<azure-location>> -ExpressRouteSkuTier <<sku>> -ExpressRouteSkuFamily <<family>> -ExpressRouteServiceProviderName <<your-provider>> -ExpressRoutePeeringLocation <<provider-location>> -ExpressRouteBandwidth <<bandwidth-in-mbps>>
 	```
 
 5. Contact your provider with your circuit `ServiceKey` and wait for the circuit to be provisioned.
 6. Run the script with the necessary parameters to create a VNet and connect it to the ExpressRoute circuit, as shown below.
 
-	```
+	```powershell
 	.\<<scriptfilename>>.ps1 -CreateVNet $true -VnetAddressPrefix <<azure-vnet-prefix>> -InternalSubnetAddressPrefix <<azure-subnet-prefix>> -GatewaySubnetAddressPrefix <<gateway-subnet-prefix>> -SubscriptionId <<subscription-id>> -BaseName <<prefix-for-resources>> -Location <<azure-location>> -ExpressRouteSkuTier <<sku>> -ExpressRouteSkuFamily <<family>> -ExpressRouteServiceProviderName <<your-provider>> -ExpressRoutePeeringLocation <<provider-location>> -ExpressRouteBandwidth <<bandwidth-in-mbps>>
 	```
 
@@ -281,101 +281,101 @@ To use the script below, execute the following steps:
 
 You can use the PowerShell script below to deploy the sample solution, as detailed above.
 
-	```
-	param(
-	    [parameter(Mandatory=$true)]
-	    [ValidateScript({
-	        try {
-	            [System.Guid]::Parse($_) | Out-Null
-	            $true
-	        }
-	        catch {
-	            $false
-	        }
-	    })]
-	    [string]$SubscriptionId,
-	
-	    [Parameter(Mandatory=$false)]
-	    [string]$BaseName = "hybrid-er",
-	
-	    [Parameter(Mandatory=$false)]
-	    [string]$Location = "Central US",
-	
-	    [Parameter(Mandatory=$false, ParameterSetName="CreateERCircuit")]
-	    [ValidateSet("Premium", "Standard")]
-	    [string]$ExpressRouteSkuTier = "Standard",
-	
-	    [Parameter(Mandatory=$false, ParameterSetName="CreateERCircuit")]
-	    [ValidateSet("MeteredData", "UnlimitedData")]
-	    [string]$ExpressRouteSkuFamily = "MeteredData",
-	
-	    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
-	    [string]$ExpressRouteServiceProviderName,
-	
-	    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
-	    [string]$ExpressRoutePeeringLocation,
-	
-	    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
-	    [string]$ExpressRouteBandwidth,
-	
-	
-	    [Parameter(Mandatory=$true, ParameterSetName="CreateVNet")]
-	    [switch]$CreateVNet,
-	    
-	    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
-	    [string]$VnetAddressPrefix = "10.20.0.0/16",
-	
-	    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
-	    [string]$GatewaySubnetAddressPrefix = "10.20.255.224/27",
-	
-	    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
-	    [string]$InternalSubnetAddressPrefix = "10.20.0.0/24"
-	)
-	
-	$resourceGroup = "$BaseName-rg"
-	$vnetName = "$BaseName-vnet"
-	$internalSubnetName = "$BaseName-internal-subnet"
-	$expressRouteCircuitName = "$BaseName-erc"
-	$gatewayPublicIpAddressName = "$BaseName-pip"
-	$vnetGatewayName = "$BaseName-vgw"
-	$vpnConnectionName = "$BaseName-vpn"
-	
-	Login-AzureRmAccount
-	Select-AzureRmSubscription -SubscriptionId $SubscriptionId
-	
-	switch($PSCmdlet.ParameterSetName) {
-	    "CreateERCircuit" {
-	        New-AzureRmResourceGroup -Name $resourceGroup -Location $Location
-	        New-AzureRmExpressRouteCircuit -Name $expressRouteCircuitName `
-	            -ResourceGroupName $resourceGroup -Location $Location -SkuTier $ExpressRouteSkuTier `
-	            -SkuFamily $ExpressRouteSkuFamily -ServiceProviderName $ExpressRouteServiceProviderName `
-	            -PeeringLocation $ExpressRoutePeeringLocation -BandwidthInMbps $ExpressRouteBandwidth
-	    }
-	    "CreateVNet" {
-	        $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
-	            -AddressPrefix $GatewaySubnetAddressPrefix
-	        $internalSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $internalSubnetName `
-	            -AddressPrefix $InternalSubnetAddressPrefix
-	        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup `
-	            -Location $Location -AddressPrefix $VnetAddressPrefix `
-	            -Subnet $gatewaySubnetConfig, $internalSubnetConfig
-			$gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name GatewaySubnet
-	        $gatewayPublicIpAddress = New-AzureRmPublicIpAddress -Name $gatewayPublicIpAddressName -ResourceGroupName $resourceGroup `
-	            -Location $Location -AllocationMethod Dynamic
-	        $gatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwIpConfig `
-	            -SubnetId $gwsubnet.Id -PublicIpAddressId $gatewayPublicIpAddress.Id
-	        $vnetGateway = New-AzureRmVirtualNetworkGateway -Name $vnetGatewayName `
-	            -ResourceGroupName $resourceGroup -Location $Location -IpConfigurations $gatewayIpConfig `
-	            -GatewayType ExpressRoute -VpnType RouteBased
-	        $expressRouteCircuit = Get-AzureRmExpressRouteCircuit -Name $expressRouteCircuitName `
-	            -ResourceGroupName $resourceGroup
-	        $vpnConnection = New-AzureRmVirtualNetworkGatewayConnection -Name $vpnConnectionName `
-	            -ResourceGroupName $resourceGroup -Location $Location -VirtualNetworkGateway1 $vnetGateway `
-	            -PeerId $expressRouteCircuit.Id -ConnectionType ExpressRoute
-	    }
-	}
-	
-	```
+```powershell
+param(
+    [parameter(Mandatory=$true)]
+    [ValidateScript({
+        try {
+            [System.Guid]::Parse($_) | Out-Null
+            $true
+        }
+        catch {
+            $false
+        }
+    })]
+    [string]$SubscriptionId,
+
+    [Parameter(Mandatory=$false)]
+    [string]$BaseName = "hybrid-er",
+
+    [Parameter(Mandatory=$false)]
+    [string]$Location = "Central US",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateERCircuit")]
+    [ValidateSet("Premium", "Standard")]
+    [string]$ExpressRouteSkuTier = "Standard",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateERCircuit")]
+    [ValidateSet("MeteredData", "UnlimitedData")]
+    [string]$ExpressRouteSkuFamily = "MeteredData",
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
+    [string]$ExpressRouteServiceProviderName,
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
+    [string]$ExpressRoutePeeringLocation,
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
+    [string]$ExpressRouteBandwidth,
+
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateVNet")]
+    [switch]$CreateVNet,
+    
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$VnetAddressPrefix = "10.20.0.0/16",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$GatewaySubnetAddressPrefix = "10.20.255.224/27",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$InternalSubnetAddressPrefix = "10.20.0.0/24"
+)
+
+$resourceGroup = "$BaseName-rg"
+$vnetName = "$BaseName-vnet"
+$internalSubnetName = "$BaseName-internal-subnet"
+$expressRouteCircuitName = "$BaseName-erc"
+$gatewayPublicIpAddressName = "$BaseName-pip"
+$vnetGatewayName = "$BaseName-vgw"
+$vpnConnectionName = "$BaseName-vpn"
+
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+switch($PSCmdlet.ParameterSetName) {
+    "CreateERCircuit" {
+        New-AzureRmResourceGroup -Name $resourceGroup -Location $Location
+        New-AzureRmExpressRouteCircuit -Name $expressRouteCircuitName `
+            -ResourceGroupName $resourceGroup -Location $Location -SkuTier $ExpressRouteSkuTier `
+            -SkuFamily $ExpressRouteSkuFamily -ServiceProviderName $ExpressRouteServiceProviderName `
+            -PeeringLocation $ExpressRoutePeeringLocation -BandwidthInMbps $ExpressRouteBandwidth
+    }
+    "CreateVNet" {
+        $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
+            -AddressPrefix $GatewaySubnetAddressPrefix
+        $internalSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $internalSubnetName `
+            -AddressPrefix $InternalSubnetAddressPrefix
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup `
+            -Location $Location -AddressPrefix $VnetAddressPrefix `
+            -Subnet $gatewaySubnetConfig, $internalSubnetConfig
+		$gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name GatewaySubnet
+        $gatewayPublicIpAddress = New-AzureRmPublicIpAddress -Name $gatewayPublicIpAddressName -ResourceGroupName $resourceGroup `
+            -Location $Location -AllocationMethod Dynamic
+        $gatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwIpConfig `
+            -SubnetId $gwsubnet.Id -PublicIpAddressId $gatewayPublicIpAddress.Id
+        $vnetGateway = New-AzureRmVirtualNetworkGateway -Name $vnetGatewayName `
+            -ResourceGroupName $resourceGroup -Location $Location -IpConfigurations $gatewayIpConfig `
+            -GatewayType ExpressRoute -VpnType RouteBased
+        $expressRouteCircuit = Get-AzureRmExpressRouteCircuit -Name $expressRouteCircuitName `
+            -ResourceGroupName $resourceGroup
+        $vpnConnection = New-AzureRmVirtualNetworkGatewayConnection -Name $vpnConnectionName `
+            -ResourceGroupName $resourceGroup -Location $Location -VirtualNetworkGateway1 $vnetGateway `
+            -PeerId $expressRouteCircuit.Id -ConnectionType ExpressRoute
+    }
+}
+
+```
 
 <!-- links -->
 [expressroute-technical-overview]: ../expressroute/expressroute-introduction.md
