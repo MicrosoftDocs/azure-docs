@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/26/2016"
+	ms.date="04/13/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -82,7 +82,7 @@ event service log. For example, an administrator can create a policy which cause
 
     {
       "if" : {
-        <condition> | <logical operator>
+          <condition> | <logical operator>
       },
       "then" : {
           "effect" : "deny | audit | append"
@@ -162,7 +162,7 @@ Currently, the supported aliases are:
 
 | Alias name | Description |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines, Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher |  |
@@ -176,12 +176,13 @@ Currently, the supported aliases are:
 To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 
 
 ## Effect
-Deny, Audit, Append are three types of effect Policy supports. 
-- Deny will generate an event in audit log and fail the request
-- Audit will generate an event in audit log and not fail the request
-- Append will add the defined set of fields to the request. 
+Policy supports three types of effect - **deny**, **audit**, and **append**. 
 
-For "Append", details must be provided as below:
+- Deny generates an event in the audit log and fails the request
+- Audit generates an event in audit log but does not fail the request
+- Append adds the defined set of fields to the request 
+
+For **append**, you must provide the details as shown below:
 
     ....
     "effect": "append",
@@ -192,7 +193,7 @@ For "Append", details must be provided as below:
       }
     ]
 
-The value can be either simple string or a json format object. 
+The value can be either a string or a json format object. 
 
 ## Policy Definition Examples
 
@@ -216,7 +217,7 @@ The below policy denies all requests which don’t have a tag containing
       }
     }
 
-The below policy will append costCenter tag with a predefined value if no tags are present. 
+The below policy appends costCenter tag with a predefined value if no tags are present. 
 
 	{
 	  "if": {
@@ -234,7 +235,7 @@ The below policy will append costCenter tag with a predefined value if no tags a
 	  }
 	}
 	
-The below policy will append costCenter tag with a predefined value if other tags are present. 
+The below policy appends costCenter tag with a predefined value if other tags are present. 
 
 	{
 	  "if": {
@@ -434,16 +435,17 @@ see [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/m
 
 You can create a new policy definition using the New-AzureRmPolicyDefinition cmdlet as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
-    	    			    "not" : {
-    	      			    	"field" : "location",
-    	      			    		"in" : ["northeurope" , "westeurope"]
-    	    			    	}
-    	    		          },
-    	      		    		"then" : {
-    	    			    		"effect" : "deny"
-    	      			    		}
-    	    		    	}'    		
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    		
 
 The output of execution is stored in $policy object as it can used later during policy assignment. For the policy parameter, the path to a .json file containing the policy can also be provided instead of specifying the policy inline as shown below.
 
