@@ -16,7 +16,7 @@
 	ms.date="04/15/2016"
 	ms.author="marsma" />
 
-# Use Linux compute nodes in Azure Batch pools
+# Provision Linux compute nodes in Azure Batch pools
 
 Azure Batch enables you to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service using using both the [Batch Python SDK][py_batch_package] and [Batch .NET][api_net] client library.
 
@@ -24,9 +24,9 @@ Azure Batch enables you to run parallel compute workloads on both Linux and Wind
 
 ## Cloud Services vs. Virtual Machine Configuration
 
-When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: **Cloud Services** and **Virtual Machine Configuration**. When you select either type, you must specify both the operating system and the size of the nodes.
+When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: **Cloud Services** and **Virtual Machine Configuration**.
 
-**Cloud Services** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you specify a pool containing Cloud Services nodes, you need specify only the node size and its "OS Family" found in these articles.
+**Cloud Services** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you specify a pool containing Cloud Services nodes, you need to specify only the node size and its "OS Family" which are found in these articles.
 
 **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). When you specify a pool containing Virtual Machine Configuration nodes, you must specify the node size as well as several properties of the operating system:
 
@@ -35,11 +35,11 @@ When you create a pool of compute nodes in Batch, you have two options from whic
  * SKU
  * Version
 
-This is because the Batch service uses [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) under the hood to provide Linux compute nodes, and the operating system images for these virtual machines are provided by the Azure Marketplace. Because list of available images (SKUs) changes periodically, there is no definitive list detailing the available images. However, the Batch SDKs provide the ability to list the available SKUs, which we discuss below.
+These additional properties are required because the Batch service uses [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) under the hood to provide Linux compute nodes, and the operating system images for these virtual machines are provided by the Azure Marketplace. Because the list of available images (SKUs) changes periodically, there is no definitive list of the available images. However, the Batch SDKs provide the ability to list the available SKUs, which we discuss below in [List the available images (SKUs)](#list-the-available-images-skus).
 
 ## Create a Linux pool: Batch Python
 
-Content here.
+The following code snippet shows the creation of a pool of Ubuntu Server compute nodes using the [Microsoft Azure Batch Client Library for Python][py_batch_package]. Reference documentation for the Batch Python module can be found at [azure.batch package ][py_batch_docs] on Read the Docs.
 
 ```python
 # Import the required modules from the
@@ -95,7 +95,7 @@ client.pool.add(new_pool)
 
 ## Create a Linux pool: Batch .NET
 
-Content here.
+The following code snippet shows the creation of a pool of Ubuntu Server compute nodes using the [Batch .NET][nuget_batch_net] client library. You can find the [Batch .NET reference][api_net] documentation on MSDN.
 
 ```csharp
 // Obtain a collection of all available node agent SKUs
@@ -108,33 +108,39 @@ Func<ImageReference, bool> ubuntuImageScanner = imageRef =>
     imageRef.Offer == "UbuntuServer" &&
     imageRef.SkuId.Contains("14.04");
 
+// Obtain the latest available SKU for Ubuntu Server 14.04
 NodeAgentSku ubuntuSku = nodeAgentSkus.First(sku =>
     sku.VerifiedImageReferences.FirstOrDefault(ubuntuImageScanner) != null);
 
+// Create an ImageReference which require by the
+// VirtualMachineConfiguration
 ImageReference imageReference =
     ubuntuSku.VerifiedImageReferences.First(ubuntuImageScanner);
 
+// Create the VirtualMachineConfiguration for use
+// when actually creating the pool
 VirtualMachineConfiguration virtualMachineConfiguration =
     new VirtualMachineConfiguration(
         imageReference: imageReference,
         nodeAgentSkuId: ubuntuSku.Id);
 
+// Create the unbound pool object using the
+// VirtualMachineConfiguration created above
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     virtualMachineSize: "STANDARD_A1",
     virtualMachineConfiguration: virtualMachineConfiguration,
     targetDedicated: 1);
 
+// Commit the pool to the Batch service
 pool.Commit();
 ```
 
 ## List the available images (SKUs)
 
-Description of why you'd want to do this here.
+Because the list of available images in the Azure Marketplace changes periodically, there is no definitive list of the available images. To discover which images are available
 
 ### Batch .NET
-
-Description here.
 
 ```csharp
 // Obtain a collection of all available node agent SKUs
@@ -183,6 +189,7 @@ Content here.
 [portal]: https://portal.azure.com
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
+[nuget_batch_net]: https://www.nuget.org/packages/Azure.Batch/
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
 [py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.html
