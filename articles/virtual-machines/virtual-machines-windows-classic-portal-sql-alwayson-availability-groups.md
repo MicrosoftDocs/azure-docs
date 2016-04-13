@@ -175,7 +175,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 1. In the **Active Directory Administrative Center**, select **corp (local)** in the left pane. Then in the right-hand **Tasks** pane, click **Properties**.
 
-	![CORP User Properties](./media/virtual-machines-windows-classic-portal-sql-availability/IC784627.png)
+	![CORP User Properties](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784627.png)
 
 1. Select **Extensions**, and then click the **Advanced** button on the **Security** tab.
 
