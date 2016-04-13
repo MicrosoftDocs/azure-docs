@@ -138,7 +138,7 @@ On **availability group settings** review the preset values for teh availability
 
 If necessary, you may change these values. For this tutorial use the preset values.  
 
-![availability group settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/3-availabilitygroup.png)
+![availability group settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
 - Click **OK**.
 
