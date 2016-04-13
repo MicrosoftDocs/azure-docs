@@ -280,7 +280,7 @@ To use the script below, execute the following steps:
 
 ## Sample solution script
 
-You can use the PowerShell script below to deploy the sample solution, as detailed above.
+The deployment steps above use the following sample script.
 
 ```powershell
 param(
