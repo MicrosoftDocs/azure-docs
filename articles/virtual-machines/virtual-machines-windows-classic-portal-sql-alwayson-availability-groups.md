@@ -534,7 +534,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. Your **AlwaysOn Dashboard** should look similar to the one shown below. You can see the replicas, the failover mode of each replica and the synchronization state.
 
-	![AG Dashboard](./media/virtual-machines-windows-classic-portal-sql-availability/IC665533.gif)
+	![AG Dashboard](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665533.gif)
 
 1. Return to **Server Manager**, select **Tools**, and then launch **Failover Cluster Manager**.
 
