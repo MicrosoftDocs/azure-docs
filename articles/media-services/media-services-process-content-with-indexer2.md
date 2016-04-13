@@ -30,7 +30,7 @@ This topic shows how to create indexing jobs with **Azure Media Indexer 2 Previe
 
 >[AZURE.NOTE]The following considerations apply:
 >
->Indexer is not supported in Azure China and Azure Government.
+>Indexer 2 is not supported in Azure China and Azure Government.
 >
 >The preview is limited to ~10 minutes of processing, but is free to all customers.
 >
