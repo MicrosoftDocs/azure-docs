@@ -20,7 +20,7 @@
  
    a. If you are an Azure subscription administrator and need to sign in, when the sign in page appear, provide the credentials for your subscription and sign in.
 
-   ![sign in](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
+     ![sign in](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
  
    b. After your sign in to Azure is successful, review the proposed server-level firewall rule (you can modify it to allow a range of IP addresses) and then click **OK** to create the firewall rule and complete the connection to SQL Database.
  
