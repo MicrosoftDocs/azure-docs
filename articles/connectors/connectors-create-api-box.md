@@ -22,7 +22,7 @@ Connect to Box and create files, delete files, and more. The Box API can be used
 
 - Logic apps 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Box connector](../app-service-logic/app-service-logic-connector-box.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With Box, you can:
 
