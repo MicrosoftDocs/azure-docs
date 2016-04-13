@@ -22,7 +22,7 @@
 
 ## Author Swagger 2.0 API definition for your API
 
-To learn how to add Swagger to your WebAPI, see [Swashbuckle](1).
+To learn how to add Swagger to your WebAPI, see [Swashbuckle][1].
 
 ## Schema extensions
 In addition to the standard Swagger specifications, there are some additional swagger extensions available when creating a custom API for PowerApps and Logic Flows. This sections lists and describes these extensions. 
