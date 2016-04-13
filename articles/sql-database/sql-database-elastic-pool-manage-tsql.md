@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sidneyh"/>
 
 # Monitor and manage an elastic database pool with Transact-SQL  
@@ -80,6 +80,11 @@ Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/l
 
 ## Monitor resource usage of a database in an elastic pool
 Use the [sys.dm \_resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) or [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx) to examine the resource usage statistics of a database in an elastic pool. This process is similar to querying resource usage for any single database.
+
+## Latency of elastic pool operations
+
+- Changing the guaranteed eDTUs per database or maximum eDTUs per database typically completes in 5 minutes or less.
+- Changing the pool storage limit of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
 
 ## Next steps
 

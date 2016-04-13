@@ -30,7 +30,7 @@ Connect to OneDrive to manage your files, including upload, get, delete files, a
 
 &nbsp; 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With OneDrive, you can: 
 

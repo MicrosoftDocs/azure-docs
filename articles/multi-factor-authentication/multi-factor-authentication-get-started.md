@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/03/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 #Choose the multi-factor security solution for you
@@ -65,7 +65,7 @@ One-way SMS as second factor | ● | ●
 Two-way SMS as second factor |  | ● 
 Hardware Tokens as second factor |  | ● 
 App passwords for clients that don’t support MFA | ● |  
-Admin control over authentication methods | (Public Preview) | ● 
+Admin control over authentication methods | ● | ● 
 PIN mode |  | ●
 Fraud alert | ● | ●
 MFA Reports | ● | ● 
