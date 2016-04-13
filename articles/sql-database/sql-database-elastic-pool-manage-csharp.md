@@ -36,31 +36,29 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
 
-## Update a pool
+## Create a new database in an elastic pool
 
 
-    // Retrieve existing pool properties
-    var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
+    // Create a new database in the pool
 
-    // Configure create or update parameters with existing property values, override those to be changed.
-    ElasticPoolCreateOrUpdateParameters updatePoolParameters = new ElasticPoolCreateOrUpdateParameters()
+    // Create a database: configure create or update parameters and properties explicitly
+    DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
     {
-        Location = currentPool.Location,
-        Properties = new ElasticPoolCreateOrUpdateProperties()
+        Location = currentServer.Location,
+        Properties = new DatabaseCreateOrUpdateProperties()
         {
-            Edition = currentPool.Properties.Edition,
-            DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
-            DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
-            Dtu = (int)currentPool.Properties.Dtu,
-            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per eDTU. */
+            Edition = "Standard",
+            RequestedServiceObjectiveName = "ElasticPool",
+            ElasticPoolName = "ElasticPool1",
+            MaxSizeBytes = 268435456000, // 250 GB,
+            Collation = "SQL_Latin1_General_CP1_CI_AS"
         }
     };
 
-    newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
+    var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
 
-
-## Move an existing database into a pool
+## Move a database into an elastic pool
 
 
     // Update database service objective to add the database to a pool
@@ -85,33 +83,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
     // Update the database
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
-
-
-
-## Create a new database in a pool
-
-
-    // Create a new database in the pool
-
-    // Create a database: configure create or update parameters and properties explicitly
-    DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentServer.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = 268435456000, // 250 GB,
-            Collation = "SQL_Latin1_General_CP1_CI_AS"
-        }
-    };
-
-    var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
-
-
-
-## List all databases in a pool
+## List databases in an elastic pool
 
 The following example lists all databases in a pool:
 
@@ -122,6 +94,28 @@ The following example lists all databases in a pool:
     {
         Console.WriteLine("  Database {0}", db.Name);
     }
+
+## Update a pool
+
+    // Retrieve existing pool properties
+    var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
+
+    // Configure create or update parameters with existing property values, override those to be changed.
+    ElasticPoolCreateOrUpdateParameters updatePoolParameters = new ElasticPoolCreateOrUpdateParameters()
+    {
+        Location = currentPool.Location,
+        Properties = new ElasticPoolCreateOrUpdateProperties()
+        {
+            Edition = currentPool.Properties.Edition,
+            DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
+            DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
+            Dtu = (int)currentPool.Properties.Dtu,
+            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per eDTU. */
+        }
+    };
+
+    newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
+
 
 ## Latency of elastic pool operations
 

@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/01/2016"
+    ms.date="04/13/2016"
     ms.author="sstein"/>
 
-# Monitor, manage, and size an elastic database pool with PowerShell 
+# Manage an elastic database pool with PowerShell 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
@@ -32,7 +32,7 @@ For common error codes, see [SQL error codes for SQL Database client application
 
 You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-## Create a new elastic database in a pool
+## Create a new database in an elastic pool
 
 To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter.
 
@@ -40,7 +40,7 @@ To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Move a stand-alone database into a pool
+## Move a database into an elastic pool
 
 To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet and set the **ElasticPoolName** parameter. 
 

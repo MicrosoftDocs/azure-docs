@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/24/2016"
+    ms.date="04/13/2016"
     ms.author="sstein"/>
 
-# Create an elastic database pool with C&#x23;
+# Create a new pool with C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
@@ -34,11 +34,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
-
-
-
-## Create a pool
-
+## Create a new pool
 
     // Create elastic pool: configure create or update parameters and properties explicitly
     ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
@@ -79,9 +75,6 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
     // Update the database
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
-
-
-
 ## Create a new database in a pool
 
 
@@ -100,9 +93,6 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
     };
 
     var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
-
-
-
 
 
 ## Create a pool C&#x23; example
@@ -274,7 +264,6 @@ Create a console app and replace the contents of Program.cs with the following. 
 
 
 ## Additional Resources
-
 
 - [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)

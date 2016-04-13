@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/24/2016"
+	ms.date="04/13/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -31,7 +31,7 @@ You can add multiple pools to a server, but you can't add databases from differe
 
 > [AZURE.NOTE] Pools are only available with SQL Database V12 servers. If you have databases on a V11 server, you can [use a PowerShell script to identify them as candidates for a pool](sql-database-elastic-pool-database-assessment-powershell.md) on a V12 server, and then [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
 
-##Create a new pool
+## Create a new pool
 1. In the [Azure portal](http://portal.azure.com/) click **SQL servers**, and then click the server that contains the databases you want to add to a pool.
 2. Click **New pool**.
 

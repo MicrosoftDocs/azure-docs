@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="03/27/2016"
+    ms.date="04/13/2016"
     ms.author="sstein"/>
 
 # Create an elastic database pool with PowerShell
@@ -33,7 +33,7 @@ For common error codes, see [SQL error codes for SQL Database client application
 
 You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-## Create a  pool
+## Create a  new pool
 
 The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet creates a pool.
 

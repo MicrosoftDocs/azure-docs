@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/01/2016"
+	ms.date="04/13/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -35,7 +35,43 @@ To work through the steps in this article, you'll need databases and a pool. See
 
 - In the [Azure portal](https://portal.azure.com) click **Browse**, click **SQL elastic pools**, and then click the pool you want to work with from the list.
 
-##Monitor resource utilization of a pool
+## Create a new database in an elastic pool
+
+In the blade for the database, click **Create database**. The SQL database is already configured for the correct server and pool so click through to select other settings, and then click **OK** to create a new database in the pool.
+
+   ![create elastic database](./media/sql-database-elastic-pool-portal/create-database.png)
+
+## Move a database between elastic pools
+
+After you create a pool, you can add databases to the pool or remove them. You can only add databases on the same SQL server.
+
+**To add databases:**
+
+1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
+
+    ![databases listing](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
+
+2. In the **Elastic databases** blade, click **Add database**, click the databases that you want to add, and then click the **Select** button.
+
+    The **Elastic databases** blade now lists the database you just added, with **AVG DTU** and storage utilization as **SIZE(GB)**, along with a **Pending** status. The pool utilization values now show you what the **New** values will be if you save your changes.
+
+    ![recommended pool](./media/sql-database-elastic-pool-manage-portal/add-remove-databases.png)
+
+3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
+
+**To remove databases:**
+
+1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
+
+    ![databases listing](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
+
+2. In the **Elastic databases** blade, from the list of databases in the pool, click the databases you want to remove, and then click **Remove databases**.
+
+    The pool utilization values now show you what the **New** values will be if you save your changes.
+
+3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
+
+## Monitor resource utilization of a pool
 After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool.
 
 ![Monitor elastic pool](./media/sql-database-elastic-pool-manage-portal/monitor-elastic-pool.png)
@@ -83,41 +119,7 @@ When you see the resource utilization of a pool, you may discover that the pool 
 
     ![Updating elastic database min and max eDTU](./media/sql-database-elastic-pool-manage-portal/change-db-edtuminmax.png)
 
-##Add and remove databases
 
-After you create a pool, you can add databases to the pool or remove them. You can only add databases on the same SQL server.
-
-**To add databases:**
-
-1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
-
-    ![databases listing](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
-
-2. In the **Elastic databases** blade, click **Add database**, click the databases that you want to add, and then click the **Select** button.
-
-    The **Elastic databases** blade now lists the database you just added, with **AVG DTU** and storage utilization as **SIZE(GB)**, along with a **Pending** status. The pool utilization values now show you what the **New** values will be if you save your changes.
-
-    ![recommended pool](./media/sql-database-elastic-pool-manage-portal/add-remove-databases.png)
-
-3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
-
-**To remove databases:**
-
-1. In the blade for the pool, under **Elastic databases** click the link that shows the number of databases in the pool.
-
-    ![databases listing](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
-
-2. In the **Elastic databases** blade, from the list of databases in the pool, click the databases you want to remove, and then click **Remove databases**.
-
-    The pool utilization values now show you what the **New** values will be if you save your changes.
-
-3. Click **Save** and then click **OK** when the portal tells you the request has been submitted. The number of databases in the pool shows up on the blade for the pool when the operation is done.
-
-## Create a new database in a pool
-
-In the blade for the database, just click **Create database**. The SQL database is already configured for the correct server and pool so click through to select other settings, and then click **OK** to create a new database in the pool.
-
-   ![create elastic database](./media/sql-database-elastic-pool-portal/create-database.png)
 
 ##Create and manage elastic jobs
 
