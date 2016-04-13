@@ -272,7 +272,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. Select **Failover Clustering**. When prompted, add any other dependent features.
 
-	![Add Failover Clustering Feature to VM](./media/virtual-machines-windows-classic-portal-sql-availability/IC784631.png)
+	![Add Failover Clustering Feature to VM](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784631.png)
 
 1. Click **Next**, and then click **Install** on the **Confirmation** page.
 
