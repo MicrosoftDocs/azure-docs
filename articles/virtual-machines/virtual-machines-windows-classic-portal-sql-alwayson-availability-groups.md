@@ -111,7 +111,7 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 
 1. Click the **Add roles and features** link on the dashboard.
 
-	![Server Explorer Add Roles](./media/virtual-machines-windows-classic-portal-sql-availability/IC784623.png)
+	![Server Explorer Add Roles](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784623.png)
 
 1. Select **Next** until you get to the **Server Roles** section.
 
