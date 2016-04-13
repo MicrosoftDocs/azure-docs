@@ -27,9 +27,7 @@ Pre-requisites to the exercises in this document:
 - [Create a Swarm Cluster on the Azure Container Service](./container-service-deployment.md)
 - [Connect with the Swarm Cluster on the Azure Container Service](./container-service-connect.md)
 
-## Deploy new container
-
-### Single container
+## Deploy a new container
 
 To create a new container in the Docker Swarm, use the `docker run` command. This example creates a container from the `yeasy/simple-web` image.
 
@@ -55,7 +53,7 @@ The application running in this container can now be accessed through the public
 
 ![](media/real-visit.jpg)  
 
-### Multiple containers
+## Deploy multiple containers
 
 As multiple containers are started on the Docker Swarm cluster, the `docker ps` command can be used to see what host the containers are running on. In this example thee containers a spread evenly across the three Swarm agents.  
 
@@ -69,7 +67,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   2 minutes ago       Up 2 minutes        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-### Deploy containers with Docker Compose
+## Deploy containers using Docker Compose
 
 Docker compose can be used to automation the deployment and configuration of multiple containers. To so, ensure that an SSH tunnel has been created, and that the DOCKER_HOST variable has been set. 
 
