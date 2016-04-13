@@ -514,7 +514,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. Back in the **Specify Replicas** page, you should now see **ContosoSQL2** listed in **Available Replicas**. Configure the replicas as shown below. When you are finished, click **Next**.
 
-	![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-classic-portal-sql-availability/IC665528.gif)
+	![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665528.gif)
 
 1. In the **Select Initial Data Synchronization** page, select **Join only** and click **Next**. You have already performed data synchronization manually when you took the full and transaction backups on **ContosoSQL1** and restored them on **ContosoSQL2**. You can instead choose not to perform the backup and restore operations on your database and select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, this is not recommended for very large databases that are found in some enterprises.
 
