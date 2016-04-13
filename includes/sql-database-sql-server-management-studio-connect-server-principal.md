@@ -1,14 +1,16 @@
 ## Connect to Azure SQL Database using a server-level principal login
 
+Use the following steps to connect to Azure SQL Database with SSMS using a server-level principal login.
+
 1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
 
 2. In the Connect to Server window, enter the following information:
 
- - **Server type**: default is database engine - do not change
- - **Server name**: etner the name of the server that hosts your SQL database in the format *&lt;servername>*.**database.windows.net**
+ - **Server type**: The default is database engine; do not change this value.
+ - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
  - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user 
+ - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
+ - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
    
        ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-1.png)
 

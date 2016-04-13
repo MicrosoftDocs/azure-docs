@@ -39,7 +39,7 @@ For information about firewall rules, see [How to: Configure Firewall Settings (
 
 After you connect to your logical server, you can connect to a database and run a sample query. 
 
-1. In **Object Explorer**, navigate to a databbase on the server to which you have permission, such as the **AdventureWorks** database.
+1. In **Object Explorer**, navigate to a databbase on the server to which you have permission, such as the **AdventureWorks** sample database.
 2. Right-click the database and then select **New Query**.
 
 	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
@@ -63,3 +63,5 @@ After you connect to your logical server, you can connect to a database and run 
 You can use T-SQL statements to create and manage databases in Azure in much the same way you can with SQL Server. If you're familiar with using T-SQL with SQL Server, see [Azure SQL Database Transact-SQL information)](sql-database-transact-sql-information.md) for a summary of differences.
 
 If you're new to T-SQL, see [Tutorial: Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx) and the [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx).
+
+To get started with creating database users and database user administrators, see [Get Started with Azure SQL Database security](sql-database-get-started-security.md)

@@ -12,6 +12,6 @@ The steps below assume that you are using SSMS and connected to SQL Database in 
 
 3. In the query window, edit and use the following Transact-SQL statement to create a contained user in your user database. 
 
- ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
 
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
