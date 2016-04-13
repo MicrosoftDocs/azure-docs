@@ -510,7 +510,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. The **Connect to Server** dialog pops up. Type **ContosoSQL2** in **Server name**, then click **Connect**.
 
-	![New AG Wizard, Connect to Server](./media/virtual-machines-windows-classic-portal-sql-availability/IC665527.gif)
+	![New AG Wizard, Connect to Server](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665527.gif)
 
 1. Back in the **Specify Replicas** page, you should now see **ContosoSQL2** listed in **Available Replicas**. Configure the replicas as shown below. When you are finished, click **Next**.
 
