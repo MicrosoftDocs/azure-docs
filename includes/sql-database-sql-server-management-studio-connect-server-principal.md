@@ -1,4 +1,4 @@
-## Connect to Azure SQL Database as a server-level principal
+## Connect to Azure SQL Database using a server-level principal login
 
 1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
 
