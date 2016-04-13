@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="04/13/2016" 
 	ms.author="spelluru"/>
 
 # Move data From ODBC data stores using Azure Data Factory
@@ -328,6 +328,29 @@ When moving data from ODBC data stores, ODBC data types are mapped to .NET types
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
+## GE Historian store
+You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure Data factory as shown in the following example: 
+
+	{
+	    "name": "HistorianLinkedService",
+	    "properties":
+	    {
+	        "type": "OnPremisesOdbc",
+	        "typeProperties":
+	        {
+			    "connectionString": "DSN=<name of the GE Historian store>",
+			    "gatewayName": "ProficyGatewayTest",
+			    "authenticationType": "Basic",
+			    "userName": "ODBC1",
+			    "password": "PwdGoesHere"
+	        }
+	    }
+	}
+
+Read the article from the beginning for a detailed overview of using ODBC data stores as source data stores in a copy operation.  
+
+[AZURE.INCLUDE [data-factory-troubleshoot-connectivity](../../includes/data-factory-troubleshoot-connectivity.md)]
 
 ## Performance and Tuning  
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
+
