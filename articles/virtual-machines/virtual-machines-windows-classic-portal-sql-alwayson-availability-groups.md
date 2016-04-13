@@ -526,7 +526,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. In the **Summary** page, click **Finish**, then wait while the wizard configures the new availability group. In the **Progress** page, you can click **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created, as shown below, then click **Close** to exit the wizard.
 
-	![New AG Wizard, Results](./media/virtual-machines-windows-classic-portal-sql-availability/IC665531.gif)
+	![New AG Wizard, Results](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665531.gif)
 
 1. In the **Object Explorer**, expand **AlwaysOn High Availability**, then expand **Availability Groups**. You should now see the new availability group in this container. Right-click **AG1 (Primary)** and click **Show Dashboard**.
 
