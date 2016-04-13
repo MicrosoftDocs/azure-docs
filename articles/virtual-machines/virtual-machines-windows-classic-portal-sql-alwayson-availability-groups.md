@@ -185,7 +185,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 1. Select the **Read all properties** and **Create Computer objects** permissions.
 
-	![Corp User Permissions](./media/virtual-machines-windows-classic-portal-sql-availability/IC784628.png)
+	![Corp User Permissions](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784628.png)
 
 1. Click **OK**, and then click **OK** again. Close the corp properties window.
 
