@@ -24,6 +24,8 @@ The **Azure Media Motion Detector** media processor (MP) enables you to efficien
 
 Targeted towards security video feeds, this technology is able to categorize motion into relevant events and false positives such as shadows and lighting changes. This allows you to generate security alerts from camera feeds without being spammed with endless irrelevant events, while being able to extract moments of interest from extremely long surveillance videos.
 
+The **Azure Media Motion Detector** MP is currently in Preview.
+
 This topic gives details about  **Azure Media Motion Detector** and shows how to use it with Media Services SDK for .NET
 
 ##Motion Detector input files

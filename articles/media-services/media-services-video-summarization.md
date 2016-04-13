@@ -21,6 +21,8 @@
 
 The **Azure Media Video Thumbnails** media processor (MP) enables you to create a summary of a video that is useful to customers who just want to preview a summary of a long video. For example, customers might want to see a short "summary video" when they hover over a thumbnail. By tweaking the parameters of **Azure Media Video Thumbnails** through a configuration preset, you can use the MP's powerful shot detection and concatenation technology to algorithmically generate a descriptive subclip.  
 
+The **Azure Media Video Thumbnail** MP is currently in Preview.
+
 This topic gives details about  **Azure Media Video Thumbnail** and shows how to use it with Media Services SDK for .NET
 
 ##Video summary example 
