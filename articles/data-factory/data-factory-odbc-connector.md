@@ -329,7 +329,7 @@ When moving data from ODBC data stores, ODBC data types are mapped to .NET types
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
 ## GE Historian store
-You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure Data factory as shown in the following example: 
+You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure data factory as shown in the following example: 
 
 	{
 	    "name": "HistorianLinkedService",
