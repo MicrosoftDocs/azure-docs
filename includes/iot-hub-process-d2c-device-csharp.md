@@ -37,7 +37,7 @@ In this section, you'll modify the simulated device application you created in t
 
 <!-- Links -->
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
 
 

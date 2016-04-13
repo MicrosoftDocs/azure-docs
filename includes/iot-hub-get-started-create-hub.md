@@ -38,7 +38,7 @@ You need to create an IoT Hub for you simulated device to connect to. The follow
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 
 <!-- Links -->
-[lnk-resource-groups]: resource-group-portal.md
+[lnk-resource-groups]: ../articles/azure-portal/resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-access-control]: iot-hub-devguide.md#accesscontrol
+[lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
