@@ -3,7 +3,7 @@
    description="Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="rortloff"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 

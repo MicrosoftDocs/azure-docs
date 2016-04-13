@@ -3,7 +3,7 @@
    description="Learn about SQL Data Warehouse downlevel clients support for data auditing"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="rortloff"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
