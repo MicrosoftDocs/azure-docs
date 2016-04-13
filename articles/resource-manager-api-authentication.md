@@ -41,18 +41,24 @@ Here's the end-to-end flow of the web application that you will write.
 
 All of the code for this topic is running as a web app that you can try at [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense). 
 
-As a user, you will log in:
+As a user, you select the type of account to use for logging in:
 
 ![select sign-in](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-1.png)
+
+Provide your credentials.
+
 ![provide credentials](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-2.png)
 
- Grant the app access to your Azure subscriptions:
+Grant the app access to your Azure subscriptions:
  
  ![Grant access](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-3.png)
  
- Connect or disconnect your subscriptions to the app for monitoring:
+Connect your subscriptions to the app for monitoring:
 
 ![Connect subscription](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-4.png)
+
+Disconnect or repair the connection to the app:
+
 ![Disconnect subscription](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-5.png)
 
 ## Register your application with Azure Active Directory
@@ -64,7 +70,7 @@ that your applications needs when accessing Microsoft APIs on behalf of the user
 
 The topic 
 [Create Active Directory application and service principal using portal](resource-group-create-service-principal-portal.md) shows 
-all of the steps necessary to set up your application. Refer to that topic as you create an application wit the following properties:
+all of the steps necessary to set up your application. Refer to that topic as you create an application with the following properties:
 
 - Web application named **CloudSense**
 - Sign-in URL and App ID URI in the format **http://{domain_name_of_your_directory}/{name_of_the_app}**.
@@ -94,7 +100,7 @@ You must ask the user two things:
 
 1. **Directory Domain Name**: the domain name of the Azure Active Directory associated with the user's Azure subscription. The OAuth 2.0 Authorization request must be sent to this Azure AD. The user can find out the domain name of their Azure AD by navigating to the Azure Management Portal and selecting the Settings node. You may choose to provide visual instructions to the user like: 
 
-   ![](./media/resource-manager-api-authentication/directory.png)
+     ![](./media/resource-manager-api-authentication/directory.png)
    
 1. Microsoft Account vs. Work Account: determine whether the user manages his or her Azure subscription with a Microsoft Account (aka Live Id) or a Work Account (aka Organizational Account). If Microsoft Account, your application will redirect the user to the Azure Active Directory login page with a query string parameter (&domain_hint=live.com) that will instruct Azure AD to take the user directly to the Microsoft Account sign-in page. The authorization code and tokens that you receive for either type of account will be processed in the same way.
 
@@ -307,7 +313,7 @@ An example response to list directories:
 
 ## Connect subscription to application
 
-You now have a list Azure subscriptions that the user can connect to your application. The next step is to give the user a command to create the connection. When the user selects **connect**, 
+You now have a list of Azure subscriptions that the user can connect to your application. The next step is to give the user a command to create the connection. When the user selects **connect**, 
 your app:
 
 1. Assigns the appropriate RBAC role to your application's identity on the subscription.
@@ -393,7 +399,7 @@ find the desired role definition by name.
 
 The [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L354) method of the ASP.net MVC sample app implements this call.
 
-The following request example shows how to to get Azure RBAC role identifier. 09cbd307-aa71-4aca-b346-5f253e6e3ebb is the id of the subscription.
+The following request example shows how to get Azure RBAC role identifier. 09cbd307-aa71-4aca-b346-5f253e6e3ebb is the id of the subscription.
 
     GET https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions?api-version=2014-07-01-preview HTTP/1.1
 
@@ -435,7 +441,7 @@ An example request to assign RBAC role to application:
     PUT https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/microsoft.authorization/roleassignments/4f87261d-2816-465d-8311-70a27558df4c?api-version=2014-10-01-preview HTTP/1.1
 
     Authorization: Bearer eyJ0eXAiOiJKV1QiL*****FlwO1mM7Cw6JWtfY2lGc5
-    Content-Type: application/jso
+    Content-Type: application/json
     Content-Length: 230
 
     {"properties": {"roleDefinitionId":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7","principalId":"c3097b31-7309-4c59-b4e3-770f8406bad2"}}
