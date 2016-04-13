@@ -93,7 +93,7 @@ event service log. For example, an administrator can create a policy which cause
 
 Policy will be evaluated when resource creation or template deployment happens using HTTP PUT. In case of template deployment, policy will be evaluated during the creation of each resource in the template. 
 
-Note: Resource types which do not support tags, kind, location are not evaluated by Policy, such as Microsoft.Resources/deployments. The support will be added at a future time. To avoid backward compatability issues, it is best practice to explicitly specify type when authoring policies. For example, a tag policy without specifying types will be applied for all types, so template deployment may fail if there is a nested resource that don't support tag when the resource type is added to evaluation at a future time. 
+Note: Resource types that do not support tags, kind, and location are not evaluated by Policy, such as Microsoft.Resources/deployments. The support will be added at a future time. To avoid backward compatibility issues, it is best practice to explicitly specify type when authoring policies. For example, a tag policy without specifying types will be applied for all types, so template deployment may fail if there is a nested resource that don't support tag when the resource type is added to evaluation at a future time. 
 
 ## Logical Operators
 
@@ -131,11 +131,11 @@ Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **
 Sources: **action**. 
 
 ### Property aliases 
-Property alias is a name that can be used in policy defniniton to access the resource type specific properties, such as settings, and skus. It works across all api versions that the property exists. Aliases can be retrieved using the REST API below ( Powershell support will be added in the future):
+Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and skus. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
-The defintion of an alias looks like below. As you can see, a alias defines pathes in different api versions, even when there is a property name change. 
+The definition of an alias is shown below. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
 
 	"aliases": [
 	    {
@@ -193,7 +193,7 @@ For **append**, you must provide the details as shown below:
       }
     ]
 
-The value can be either a string or a json format object. 
+The value can be either a string or a JSON format object. 
 
 ## Policy Definition Examples
 
@@ -435,7 +435,7 @@ see [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/m
 
 You can create a new policy definition using the New-AzureRmPolicyDefinition cmdlet as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
       "if" : {
         "not" : {
           "field" : "location",
@@ -447,7 +447,7 @@ You can create a new policy definition using the New-AzureRmPolicyDefinition cmd
       }
     }'    		
 
-The output of execution is stored in $policy object as it can used later during policy assignment. For the policy parameter, the path to a .json file containing the policy can also be provided instead of specifying the policy inline as shown below.
+The output of execution is stored in $policy object, and can used later during policy assignment. For the policy parameter, the path to a .json file containing the policy can also be provided instead of specifying the policy inline as shown below.
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
