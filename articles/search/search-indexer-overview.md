@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Indexers in Azure Search | Microsoft Azure | Hosted cloud search service"
-	description="Crawl a database to extract searchable data and populate an Azure Search index."
+	description="Crawl Azure SQL database, DocumentDB, or Azure storage to extract searchable data and populate an Azure Search index."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
