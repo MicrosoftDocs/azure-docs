@@ -1,6 +1,6 @@
 <properties
     pageTitle="Create a Service Bus namespace with queue | Microsoft Azure"
-    description="Create a Service Bus namespace and a queue using an ARM template"
+    description="Create a Service Bus namespace and a queue using ARM template"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/08/2016"
+    ms.date="04/15/2016"
     ms.author="sethm;shvija"/>
 
 # Create a Service Bus namespace and a queue using an ARM template
@@ -24,12 +24,12 @@ For more information about creating templates, please see [Authoring Azure Resou
 
 For the complete template, see the [Service Bus namespace and queue template][] on GitHub.
 
->[AZURE.NOTE] ARM templates for other Service Bus messaging entities are available.
+>[AZURE.NOTE] The following ARM templates are available for download and deployment.
 >
->-    [Create a Service Bus namespace with queue and authorization rule](https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json)
->-    [Create a Service Bus namespace with an Event Hub and consumer group](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumerGroup/azuredeploy.json)
->-    [Create a Service Bus namespace with topic and subscription](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/azuredeploy.json)
->-    [Create a Service Bus namespace](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json)
+>-    [Create a Service Bus namespace with queue and authorization rule](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-auth-rule/)
+>-    [Create a Service Bus namespace with an Event Hub and consumer group](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-event-hub/)
+>-    [Create a Service Bus namespace with topic and subscription](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-topic/)
+>-    [Create a Service Bus namespace](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace/)
 >
 >To check for the latest templates, see the [Azure Quickstart Templates][] and search for Service Bus.
 
@@ -41,9 +41,9 @@ Queues offer First In, First Out (FIFO) message delivery to one or more competin
 
 [Learn more about Service Bus queues](service-bus-queues-topics-subscriptions.md).
 
-To run the deployment automatically, click the following button
+To run the deployment automatically, click the following button:
 
-[![Deploy to Azure](./media/service-bus-arm-namespace-queue/deploybutton.png)](TBD)
+[![Deploy to Azure](./media/service-bus-arm-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
 ## Parameters
 
@@ -101,12 +101,13 @@ Creates a standard Service Bus namespace with a queue.
             "name": "[parameters('serviceBusQueueName')]",
             "type": "Queues",
             "dependsOn": [
-                "[concat('Microsoft.ServiceBus/namespaces/', parameters('namespaceName'))]"
+                "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
             ],
             "properties": {
-                "path": "[parameters('serviceBus/QueueName')]",
+                "path": "[parameters('serviceBusQueueName')]",
             }
         }]
+    }]
 ```
 
 ## Commands to run deployment
@@ -128,7 +129,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
-  [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json
+  [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
   [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md

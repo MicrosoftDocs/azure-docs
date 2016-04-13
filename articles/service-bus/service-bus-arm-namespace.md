@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/08/2016"
+    ms.date="04/15/2016"
     ms.author="sethm;shvija"/>
 
 # Create a Service Bus namespace using a template
@@ -24,18 +24,18 @@ For more information about creating templates, please see [Authoring Azure Resou
 
 For the complete template, see the [Service Bus namespace template][] on GitHub.
 
->[AZURE.NOTE] ARM templates for other Service Bus messaging entities are available.
+>[AZURE.NOTE] The following ARM templates are available for download and deployment. 
 >
->-    [Create a Service Bus namespace with an Event Hub and consumer group](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumerGroup/azuredeploy.json)
->-    [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json)
->-    [Create a Service Bus namespace with topic and subscription](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/azuredeploy.json)
->-    [Create a Service Bus namespace with queue and authorization rule](https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json)
+>-    [Create a Service Bus namespace with an Event Hub and consumer group](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-event-hub/)
+>-    [Create a Service Bus namespace with queue](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-queue/)
+>-    [Create a Service Bus namespace with topic and subscription](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-topic/)
+>-    [Create a Service Bus namespace with queue and authorization rule](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-auth-rule/)
 >
 >To check for the latest templates, see the [Azure Quickstart Templates][] and search for Service Bus.
 
 ## What will you deploy?
 
-With this template, you will deploy a Service Bus Namespace with a [Basic or Standard](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
+With this template, you will deploy a Service Bus namespace with a [Basic or Standard](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 To run the deployment automatically, click the following button:
 
@@ -128,7 +128,7 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ```
 
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
-  [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json
+  [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
   [Service Bus pricing and billing]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md

@@ -1,6 +1,6 @@
 <properties
     pageTitle="Create a Service Bus namespace with topic and subscription | Microsoft Azure"
-    description="Create a Service Bus namespace with topic and subscription using an ARM template"
+    description="Create a Service Bus namespace with topic and subscription using ARM template"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -13,23 +13,23 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/08/2016"
+    ms.date="04/15/2016"
     ms.author="sethm;shvija"/>
 
 # Create a Service Bus namespace with topic and subscription using an ARM template
 
-This article shows how to use an Azure Resource Manager (ARM) template that creates a Service Bus namespace with topic and subscription. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager (ARM) template that creates a Service Bus namespace with a topic and subscription. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, please see [Authoring Azure Resource Manager Templates][].
 
 For the complete template, see the [Service Bus namespace with topic and subscription][] template.
 
->[AZURE.NOTE] ARM templates for other Service Bus messaging entities are available.
+>[AZURE.NOTE] The following ARM templates are available for download and deployment.
 >
->-    [Create a Service Bus namespace with queue and authorization rule](https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json)
->-    [Create a Service Bus namespace with an Event Hub and consumer group](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumerGroup/azuredeploy.json)
->-    [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json)
->-    [Create a Service Bus namespace](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json)
+>-    [Create a Service Bus namespace with queue and authorization rule](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-auth-rule/)
+>-    [Create a Service Bus namespace with an Event Hub and consumer group](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-event-hub/)
+>-    [Create a Service Bus namespace with queue](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-queue/)
+>-    [Create a Service Bus namespace](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace/)
 >
 >To check for the latest templates, see the [Azure Quickstart Templates][] and search for Service Bus.
 
@@ -107,10 +107,10 @@ Creates a standard Service Bus namespace with topic and subscription.
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
-            "name": "[parameters('topicName')]",
+            "name": "[parameters('serviceBusTopicName')]",
             "type": "Topics",
             "dependsOn": [
-                "[concat('Microsoft.ServiceBus/namespaces/', parameters(' serviceBusNamespaceName''))]"
+                "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
             ],
             "properties": {
                 "path": "[parameters('serviceBusTopicName')]",
@@ -125,8 +125,7 @@ Creates a standard Service Bus namespace with topic and subscription.
                 "properties": {}
             }]
         }]
-    }]
-```
+    }]```
 
 ## Commands to run deployment
 
@@ -151,4 +150,4 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
   [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-  [Service Bus namespace with topic and subscription]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/azuredeploy.json
+  [Service Bus namespace with topic and subscription]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/

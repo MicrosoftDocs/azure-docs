@@ -1,6 +1,6 @@
 <properties
     pageTitle="Create a Service Bus namespace with Event Hub and consumer group | Microsoft Azure"
-    description="Create a Service Bus namespace with Event Hub and consumer group using an ARM template"
+    description="Create a Service Bus namespace with Event Hub and consumer group using ARM template"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/08/2016"
+    ms.date="04/15/2016"
     ms.author="sethm;shvija"/>
 
 # Create a Service Bus namespace with Event Hub and consumer group using an ARM template
@@ -24,12 +24,12 @@ For more information about creating templates, please see [Authoring Azure Resou
 
 For the complete template, see the [Service Bus Event Hub and consumer group template][] on GitHub.
 
->[AZURE.NOTE] ARM templates for other Service Bus messaging entities are available.
+>[AZURE.NOTE] The following ARM templates are available for download and deployment.
 >
->-    [Create a Service Bus namespace with queue and authorization rule](https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json)
->-    [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json)
->-    [Create a Service Bus namespace with topic and subscription](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/azuredeploy.json)
->-    [Create a Service Bus namespace](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json)
+>-    [Create a Service Bus namespace with queue and authorization rule](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-auth-rule/)
+>-    [Create a Service Bus namespace with queue](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-queue/)
+>-    [Create a Service Bus namespace with topic and subscription](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-topic/)
+>-    [Create a Service Bus namespace](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace/)
 >
 >To check for the latest templates, see the [Azure Quickstart Templates][] and search for Service Bus.
 
@@ -41,7 +41,7 @@ Event Hubs is an event processing service used to provide event and telemetry in
 
 Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
-To run the deployment automatically, click the following button
+To run the deployment automatically, click the following button:
 
 [![Deploy to Azure](./media/service-bus-arm-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-eventhub-and-consumergroup%2Fazuredeploy.json)
 
@@ -61,22 +61,22 @@ The name of the Service Bus namespace to create.
 }
 ```
 
-### eventHubName
+### serviceBusEventHubName
 
 The name of the Event Hub created in the Service Bus namespace.
 
 ```
-"eventHubName": {
+" serviceBusEventHubName": {
 "type": "string"
 }
 ```
 
-### consumerGroupName
+### serviceBusConsumerGroupName
 
 The name of the consumer group created for the Event Hub in the Service Bus namespace.
 
 ```
-"consumerGroupName": {
+" serviceBusConsumerGroupName": {
 "type": "string"
 }
 ```
@@ -93,38 +93,27 @@ The Service Bus API version of the template.
 
 ## Resources to deploy
 
-Creates a standard Service Bus namespace with topic and subscription.
+Creates a standard Service Bus namespace with an Event Hub and a consumer group.
 
 ```
 "resources ": [
-        {
-            "apiVersion": "[variables('ehVersion')]",
-            "name": "[parameters('serviceBusNamespaceName')]",
-            "type": "Microsoft.ServiceBus/Namespaces",
-            "location": "[variables('location')]",
-            "kind": "Messaging",
-            "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
-            },
-            "resources": [
                 {
                     "apiVersion": "[variables('ehVersion')]",
-                    "name": "[parameters('eventHubName')]",
+                    "name": "[parameters('serviceBusEventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
-                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('namespaceName'))]"
+                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
                     ],
                     "properties": {
-                        "path": "[parameters('eventHubName')]"
+                        "path": "[parameters('serviceBusEventHubName')]"
                     },
                     "resources": [
                         {
                             "apiVersion": "[variables('ehVersion')]",
-                            "name": "[parameters('consumerGroupName')]",
+                            "name": "[parameters('serviceBusConsumerGroupName')]",
                             "type": "ConsumerGroups",
                             "dependsOn": [
-                                "[parameters('eventHubName')]"
+                                "[parameters('serviceBusEventHubName')]"
                             ],
                             "properties": {
                             }
@@ -158,4 +147,4 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-  [Service Bus Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumerGroup/azuredeploy.json
+  [Service Bus Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumerGroup/
