@@ -46,7 +46,7 @@ At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will cons
 
 The figure below is a graphical representation of the solution.
 
-![Test Lab Architecture for AG in Azure](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/0-EndstateSample.png)
+![Test Lab Architecture for AG in Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/0-EndstateSample.png)
 
 All of the resources in this solution belong to a single resource group.
 
