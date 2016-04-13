@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -196,7 +196,29 @@ If you have several tabs within different HTML pages, you can specify the URL to
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
+#### Timing page views
 
+By default, the times reported as "Page view load time" are measured from when the browser sends the request, until the browser's page load event is called.
+
+Instead, you can either:
+
+* Set an explicit duration in the [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) call.
+ * `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`
+* Use the page view timing calls `startTrackPage` and `stopTrackPage`.
+
+*JavaScript*
+
+    // To start timing a page:
+    appInsights.startTrackPage("Page1");
+
+... 
+
+    // To stop timing and log the page:
+    appInsights.stopTrackPage("Page1", url, properties, measurements);
+
+The name you use as the first parameter associates the start and stop calls. It defaults to the current page name. 
+
+The resulting page load durations displayed in Metric Explorer are derived from the interval between the start and stop calls. It's up to you what interval you actually time.
 
 ## Track Request
 

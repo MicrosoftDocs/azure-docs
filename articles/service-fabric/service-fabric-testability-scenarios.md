@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="anmolah"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/03/2016"
+   ms.date="03/25/2016"
    ms.author="anmola"/>
 
 # Testability scenarios
 Large distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric gives developers the ability to write services to run on top of unreliable infrastructures. In order to write high-quality services, developers need to be able to induce such unreliable infrastructure to test the stability of their services.
 
-Service Fabric gives developers the ability to induce fault actions to test services in the presence of failures. However, targeted simulated faults will get you only so far. To take the testing further, you can use the test scenarios in Service Fabric: a chaos test and a failover test. These scenarios simulate continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once a test is configured with the rate and kind of faults, it runs as a client-side tool, through either C# APIs or PowerShell, to generate faults in the cluster and your service.
+The Fault Analysis Service gives developers the ability to induce fault actions to test services in the presence of failures. However, targeted simulated faults will get you only so far. To take the testing further, you can use the test scenarios in Service Fabric: a chaos test and a failover test. These scenarios simulate continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once a test is configured with the rate and kind of faults, it can be started through either C# APIs or PowerShell, to generate faults in the cluster and your service.
 
 ## Chaos test
 The chaos scenario generates faults across the entire Service Fabric cluster. The scenario compresses faults generally seen in months or years to a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. This leads to a significant improvement in the code quality of the service.
@@ -49,11 +49,8 @@ In its current form, the fault generation engine in the chaos test induces only 
 C# sample
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
-
 using System;
 using System.Fabric;
-using System.Fabric.Testability;
 using System.Fabric.Testability.Scenario;
 using System.Threading;
 using System.Threading.Tasks;
@@ -160,14 +157,12 @@ The failover test induces a chosen fault and then runs validation on the service
  - **WaitTimeBetweenFaults**: Amount of time to wait between every fault and validation cycle.
 
 ### How to run the failover test
-C# sample
+
+**C#**
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
-
 using System;
 using System.Fabric;
-using System.Fabric.Testability;
 using System.Fabric.Testability.Scenario;
 using System.Threading;
 using System.Threading.Tasks;
@@ -223,11 +218,11 @@ class Test
         // scenarioParameters.WaitTimeBetweenFaults = TimeSpan.FromSeconds(10);
 
         // Create the scenario class and execute it asynchronously.
-        FailoverTestScenario chaosScenario = new FailoverTestScenario(fabricClient, scenarioParameters);
+        FailoverTestScenario failoverScenario = new FailoverTestScenario(fabricClient, scenarioParameters);
 
         try
         {
-            await chaosScenario.ExecuteAsync(CancellationToken.None);
+            await failoverScenario.ExecuteAsync(CancellationToken.None);
         }
         catch (AggregateException ae)
         {
@@ -238,7 +233,7 @@ class Test
 ```
 
 
-PowerShell
+**PowerShell**
 
 ```powershell
 $connection = "localhost:19000"

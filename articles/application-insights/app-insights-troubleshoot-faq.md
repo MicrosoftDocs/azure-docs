@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/26/2016" 
 	ms.author="awills"/>
  
 # Questions - Application Insights for ASP.NET
 
-## Troubleshooting
+## Configuration problems
 
 *I'm having trouble setting up my:*
 

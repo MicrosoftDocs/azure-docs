@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Identity Protection Glossary | Microsoft Azure"
-	description="Identity Protection Glossary."
+	pageTitle="Azure Active Directory Identity Protection Glossary | Microsoft Azure"
+	description="Azure Active Directory Identity Protection Glossary"
 	services="active-directory"
-	keywords="azure active directory identity protection, cloud app discovery, managing applications"
+	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy, glossary"
 	documentationCenter=""
 	authors="markusvi"
 	manager="stevenpo"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/04/2016"
 	ms.author="markvi"/>
 
-# Identity Protection Glossary 
+# Azure Active Directory Identity Protection Glossary 
 
 
 ### At risk (User)	

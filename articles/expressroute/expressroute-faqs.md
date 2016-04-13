@@ -122,7 +122,7 @@ For more details, see [Sharing an ExpressRoute circuit across multiple subscript
 No. All virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other from a routing perspective. If you need route isolation, you’ll need to create a separate ExpressRoute circuit.
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
-Yes. You can link a single virtual network with up to 4 ExpressRoute circuits. They must be ordered through 4 different locations.
+Yes. You can link a single virtual network with up to 4 ExpressRoute circuits. They must be ordered through 4 different [ExpressRoute locations](expressroute-locations.md).
 
 ### Can I access the internet from my virtual networks connected to ExpressRoute circuits?
 Yes. If you have not advertised default routes (0.0.0.0/0) or internet route prefixes through the BGP session, you will be able to connect to the internet from a virtual network linked to an ExpressRoute circuit.
@@ -224,6 +224,9 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 4. Follow the steps listed in the workflows below to setup connectivity [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
 
 >[AZURE.IMPORTANT] Ensure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and CRM Online.
+
+### Do I need to enable Azure Public Peering to connect to Office 365 services and CRM Online?
+No, you only need to enable Microsoft Peering. Authentication traffic to Azure AD will be sent through Microsoft Peering. 
 
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services and CRM Online?
 Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services and make sure that you have enabled premium add-on. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).

@@ -39,7 +39,7 @@ The device data that a given IoT solution stores depends on the specific require
 *Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a new device ID and keys to the
 [IoT Hub identity registry][lnk-devguide-identityregistry]. As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
 
-The article [IoT Hub device management guidance][lnk-device-management] describes some common strategies for device provisioning. The [IoT Hub identity registry APIs][lnk-devguide-identityregistry] enable you to integrate IoT Hub into your provisioning process.
+The [IoT Hub identity registry APIs][lnk-devguide-identityregistry] enable you to integrate IoT Hub into your provisioning process.
 
 ## Field gateways
 
@@ -105,6 +105,8 @@ In the heartbeat pattern, the device sends device-to-cloud messages at least onc
 
 A more complex implementation could include the information from [operations monitoring][lnk-devguide-opmon] to identify devices that are trying to connect or communicate but failing. When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles][].
 
+> [AZURE.NOTE] If an IoT solution needs the device connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, a much simpler pattern to consider is to use a short Expiry time. This achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed. Refer to the [IoT Hub Developer Guide][lnk-devguide-messaging] for more information on C2D messages.
+
 ## Next steps
 
 Follow these links to learn more about Azure IoT Hub:
@@ -115,7 +117,6 @@ Follow these links to learn more about Azure IoT Hub:
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-device-management]: iot-hub-device-management.md
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
@@ -129,6 +130,7 @@ Follow these links to learn more about Azure IoT Hub:
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
+[lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [IoT Hub Quotas and Throttles]: iot-hub-devguide.md#throttling

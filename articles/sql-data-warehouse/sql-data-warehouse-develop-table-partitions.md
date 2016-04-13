@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table partitions in SQL Data Warehouse
@@ -23,21 +23,24 @@ To migrate SQL Server partition definitions to SQL Data Warehouse:
 - Remove SQL Server partition functions and schemes since this is managed for you when you create the table.
 - Define the partitions when you create the table. Simply specify partition boundary points and whether you want the boundary point to be effective `RANGE RIGHT` or `RANGE LEFT`.
 
-### Partition sizing
-SQL DW offers a DBA several choices for table types: heap, clustered index (CI), and clustered column-store index (CCI).   For each of these table types, the DBA can also partition the table, which means dividing it into multiple sections to improve performance.  However, creating a table with too many partitions can actually cause performance degradations or query failures under some circumstances.  These concerns are especially true for CCI tables.  For partitioning to be helpful, it is important for a DBA to understand when to use partitioning and the number of partitions to create.  These guidelines are intended to help DBAs make the best choices for their scenarios. 
+NOTE: To learn more about partitions in SQL Server, see [Partitioned Tables and Indexes](https://msdn.microsoft.com/library/ms190787.aspx).
 
-Normally table partitions are useful in two primary ways: 
+
+### Partition sizing
+SQL DW offers a DBA several choices for table types: heap, clustered index (CI), and clustered column-store index (CCI).   For each of these table types, the DBA can also partition the table, which means dividing it into multiple sections to improve performance.  However, creating a table with too many partitions can actually cause performance degradations or query failures under some circumstances.  These concerns are especially true for CCI tables.  For partitioning to be helpful, it is important for a DBA to understand when to use partitioning and the number of partitions to create.  These guidelines are intended to help DBAs make the best choices for their scenarios.
+
+Normally table partitions are useful in two primary ways:
 
 1. Using partition switching to quickly truncate a section of a table.  A commonly used design is for a fact table to contain rows only for some predetermined finite period.  For example, a sales fact table might contain data only for the past 36 months.  At the end of every month, the oldest month of sales data is deleted from the table.  This could be accomplished by simply deleting all of the rows for the oldest month, but deleting a large amount of data row-by-row can take a very long time.  To optimize for this scenario, SQL DW supports partition swapping, which enables the entire set of rows in a partition to be dropped in a single fast operation.   
 
-2. Partitioning enables queries to easily exclude processing a large set of rows (i.e. a partition) if queries place a predicate on the partitioning column.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip processing partitions that don’t match the filter.   In effect, partitioning used in this way is a coarse grained index. 
+2. Partitioning enables queries to easily exclude processing a large set of rows (i.e. a partition) if queries place a predicate on the partitioning column.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip processing partitions that don’t match the filter.   In effect, partitioning used in this way is a coarse grained index.
 
 When creating clustered column-store indexes in SQL DW, a DBA needs to consider an additional factor: number of row.   CCI tables can achieve a high degree of compression and helps SQL DW accelerate query performance.  Due to how compression works internally in SQL DW, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL DW spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 100,000 rows per distribution & partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 6 million rows per month, or 216 million rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then the DBA should consider creating the table with fewer partitions in order to make the number of rows per distribution larger.  
 
 
-To size your current database at the partition level use a query like the one below:
+To size your current SQL Server database at the partition level use a query like the one below:
 
-```
+```sql
 SELECT      s.[name]                        AS      [schema_name]
 ,           t.[name]                        AS      [table_name]
 ,           i.[name]                        AS      [index_name]
@@ -51,7 +54,7 @@ SELECT      s.[name]                        AS      [schema_name]
 FROM        sys.schemas s
 JOIN        sys.tables t                    ON      t.[schema_id]         = s.[schema_id]
 JOIN        sys.partitions p                ON      p.[object_id]         = t.[object_id]
-JOIN        sys.allocation_units a          ON      a.[container_id]        = p.[partition_id]
+JOIN        sys.allocation_units a          ON      a.[container_id]      = p.[partition_id]
 JOIN        sys.indexes i                   ON      i.[object_id]         = p.[object_id]
                                             AND     i.[index_id]          = p.[index_id]
 JOIN        sys.data_spaces ds              ON      ds.[data_space_id]    = i.[data_space_id]
@@ -80,7 +83,7 @@ MPP Partition Size = SMP Partition Size / Number of Distributions
 
 You can find out how many distributions your SQL Data Warehouse database has using the following query:
 
-```
+```sql
 SELECT  COUNT(*)
 FROM    sys.pdw_distributions
 ;
@@ -93,7 +96,7 @@ One final piece of information you need to factor in to the table partition deci
 
 Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views. In reality your memory grant will be less than the figures below. However, this provides a level of guidance that you can use when sizing your partitions for data management operations.
 
-```
+```sql
 SELECT  rp.[name]								AS [pool_name]
 ,       rp.[max_memory_kb]						AS [max_memory_kb]
 ,       rp.[max_memory_kb]/1024					AS [max_memory_mb]
@@ -119,7 +122,7 @@ The most efficient method to split a partition that already contains data is to 
 
 Below is a sample partitioned columnstore table containing one row in each partition:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
         [ProductKey]            int          NOT NULL
@@ -154,7 +157,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 We can then query for the row count leveraging the `sys.partitions` catalog view:
 
-```
+```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
 ,       i.[name] as Index_name
 ,       p.partition_number as Partition_nmbr
@@ -171,7 +174,7 @@ WHERE t.[name] = 'FactInternetSales'
 
 If we try to split this table we will get an error:
 
-```
+```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
@@ -180,7 +183,7 @@ SPLIT clause of ALTER PARTITION statement failed because the partition is not em
 
 However we can use `CTAS` to create a new table to hold our data.
 
-```
+```sql
 CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -198,7 +201,7 @@ WHERE   1=2
 
 As the partition boundaries are aligned a switch is permitted. This will leave the source table with an empty partition that we can subsequently split.
 
-```
+```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -206,7 +209,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 All that is left to do is to align our data to the new partition boundaries using `CTAS` and switch our data back in to the main table
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -227,7 +230,7 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 
 Once you have completed the movement of the data it is a good idea to refresh the statistics on the target table to ensure they accurately reflect the new distribution of the data in their respective partitions:
 
-```
+```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
@@ -236,7 +239,7 @@ To avoid your table definition from **rusting** in your source control system yo
 
 1. Create the table as a partitioned table but with no partition values
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -260,7 +263,7 @@ WITH
 
 2. `SPLIT` the table as part of the deployment process:
 
-```
+```sql
 -- Create a table containing the partition boundaries
 
 CREATE TABLE #partitions
@@ -333,4 +336,3 @@ Once you have successfully migrated your database schema to SQL Data Warehouse y
 <!-- MSDN Articles -->
 
 <!-- Other web references -->
-

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="About secure cross-premises connectivity for virtual networks | Microsoft Azure"
-   description="Learn about the types of secure cross-premises connections for virtual networks, including site-to-site, point-to-site, and ExpressRoute connections."
+   description="Learn about the types of secure cross-premises connections for virtual networks, including Site-to-Site, Point-to-Site, and ExpressRoute connections."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="03/08/2016"
    ms.author="cherylmc" />
 
 # About secure cross-premises connectivity for virtual networks
 
-If you want to connect your on-premises sites securely to a virtual network, there are three options available: Site-to-Site, Point-to-Site, and ExpressRoute. 
+This article discusses the different ways you can connect your on-premises site to an Azure virtual network.  This article applies to both the Resource Manager and classic deployment models. 
 
-The option you choose can depend on a variety of considerations, such as:
+There are three connection options available: Site-to-Site, Point-to-Site, and ExpressRoute. The option you choose can depend on a variety of considerations, such as:
 
 
 - What kind of throughput does your solution require?
@@ -43,14 +43,14 @@ The table below can help you decide the best connectivity option for your soluti
 | **SLA**                      | [SLA](https://azure.microsoft.com/support/legal/sla/)                                        | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                   | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                                                |
 | **Pricing**                  | [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/)                           | [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/)                                      | [Pricing](https://azure.microsoft.com/pricing/details/expressroute/)                                                                   |
 | **Technical Documentation**  | [VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/)            | [ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/)                                        |
-| **FAQ **                     | [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)                                                    | [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)                                                               | [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)                                                                             |
+| **FAQ**                     | [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)                                                    | [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)                                                               | [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)                                                                             |
 
 
 ## Site-to-Site connections
 
-A site-to-site VPN allows you to create a secure connection between your on-premises site and your virtual network. To create a site-to-site connection, a VPN device that is located on your on-premises network is configured to create a secure connection with the Azure VPN Gateway. Once the connection is created, resources on your local network and resources located in your virtual network can communicate directly and securely. Site-to-site connections do not require you to establish a separate connection for each client computer on your local network to access resources in the virtual network.
+A Site-to-Site VPN allows you to create a secure connection between your on-premises site and your virtual network. To create a Site-to-Site connection, a VPN device that is located on your on-premises network is configured to create a secure connection with the Azure VPN Gateway. Once the connection is created, resources on your local network and resources located in your virtual network can communicate directly and securely. Site-to-Site connections do not require you to establish a separate connection for each client computer on your local network to access resources in the virtual network.
 
-**Use a site-to-site connection when:**
+**Use a Site-to-Site connection when:**
 
 - You want to create a hybrid solution.
 - You want a connection between your on-premises location and your virtual network without requiring client-side configurations.
@@ -59,32 +59,32 @@ A site-to-site VPN allows you to create a secure connection between your on-prem
 **Requirements**
 
 - The on-premises VPN device must have an Internet-facing IPv4 IP address. This cannot be behind a NAT.
-- You must have VPN device that is compatible. See [About VPN Devices](http://go.microsoft.com/fwlink/p/?LinkID=615099). 
+- You must have VPN device that is compatible. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). 
 - The VPN device you use must be compatible with the gateway type that is required for your solution. See [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 - The Gateway SKU will also impact aggregate throughput. See [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus) for more information. 
 
-For information about configuring a site-to-site VPN gateway connection using the Azure Classic Portal and the classic deployment model, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md). For information about configuring a site-to-site VPN using the Resource Manager deployment model, see [Create a virtual network with a site-to-site VPN connection](vpn-gateway-create-site-to-site-rm-powershell.md).
+For information about configuring a Site-to-Site VPN gateway connection using the Azure Classic Portal and the classic deployment model, see [Configure a virtual network with a Site-to-Site VPN connection for the classic deployment model](vpn-gateway-site-to-site-create.md). For information about configuring a Site-to-Site VPN using the Resource Manager deployment model, see [Create a virtual network with a Site-to-Site VPN connection for the Resource Manager deployment model](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Point-to-Site connections
 
-A point-to-site VPN also allows you to create a secure connection to your virtual network. In a point-to-site configuration, the connection is configured individually on each client computer that you want to connect to the virtual network. Point-to-site connections do not require a VPN device. This type of connection uses a VPN client that you install on each client computer. The VPN is established by manually starting the connection from the on-premises client computer.
+A Point-to-Site VPN also allows you to create a secure connection to your virtual network. In a Point-to-Site configuration, the connection is configured individually on each client computer that you want to connect to the virtual network. Point-to-Site connections do not require a VPN device. This type of connection uses a VPN client that you install on each client computer. The VPN is established by manually starting the connection from the on-premises client computer.
 
-Point-to-site and site-to-site configurations can exist concurrently, but unlike site-to-site connections, point-to-site connections cannot be configured concurrently with an ExpressRoute connection to the same virtual network.
+Point-to-Site and Site-to-Site configurations can exist concurrently, but unlike Site-to-Site connections, Point-to-Site connections cannot be configured concurrently with an ExpressRoute connection to the same virtual network.
 
-**Use a point-to-site connection when:**
+**Use a Point-to-Site connection when:**
 
 - You only want to configure a few clients to connect to a virtual network.
 
 - You want to connect to your virtual network from a remote location. For example, connecting from a coffee shop or a conference venue.
 
-- You have a site-to-site connection, but have some clients that need to connect from a remote location.
+- You have a Site-to-Site connection, but have some clients that need to connect from a remote location.
 
-- You do not have access to a VPN device that meets the minimum requirements for a site-to-site connection.
+- You do not have access to a VPN device that meets the minimum requirements for a Site-to-Site connection.
 
 - You do not have an Internet facing IPv4 IP address for your VPN device.
 
-For more information about configuring a point-to-site connection, see [Configure a point-to-site VPN connection to a virtual network](vpn-gateway-point-to-site-create.md).
+For more information about configuring a Point-to-Site connection for the classic deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the classic deployment model](vpn-gateway-point-to-site-create.md). For more information about configuring a Point-to-Site connection for the Resource Manager deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the Resource Manager deployment model](vpn-gateway-howto-point-to-site-rm-ps.md). 
 
 ## ExpressRoute connections
 
@@ -97,7 +97,7 @@ For more information about ExpressRoute, see the [ExpressRoute technical overvie
 
 ## Next Steps
 
-See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) and the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for more information.
+See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
 
 
 

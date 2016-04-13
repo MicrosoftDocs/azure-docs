@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # How to Use iOS Client Library for Azure Mobile Apps
@@ -383,6 +383,48 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 ```
 
 At minimum, the `id` attribute must be set when making deletes.
+
+##<a name="customapi"></a>How to: Call Custom API
+
+With a custom API, you can expose any backend functionality. It doesn't have to map to a table operation. Not only do you gain more control over messaging, you can even read/set headers and change the response body format. To learn how to create a custom API on the backend, read [Custom APIs](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+
+To call a custom API, call `MSClient.invokeAPI` as shown below. The request and response content are treated as JSON. To use other media types, [use the other overload of `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)
+
+To make a `GET` request instead of a `POST` request, set parameter `HTTPMethod` to `"GET"` and parameter `body` to `nil` (since GET requests do not have message bodies.) If your custom API supports other HTTP verbs, change `HTTPMethod` appropriately.
+
+**Objective-C**:
+```
+    [self.client invokeAPI:@"sendEmail"
+                      body:@{ @"contents": @"Hello world!" }
+                HTTPMethod:@"POST"
+                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                   headers:nil
+                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                    if(error) {
+                        NSLog(@"ERROR %@", error);
+                    } else {
+                        // Do something with result
+                    }
+                }];
+```
+
+**Swift**:
+
+```
+client.invokeAPI("sendEmail",
+            body: [ "contents": "Hello World" ],
+            HTTPMethod: "POST",
+            parameters: [ "to": "bill@contoso.com", "subject" : "Hi!" ],
+            headers: nil)
+            {
+                (result, response, error) -> Void in
+                if let err = error {
+                    print("ERROR ", err)
+                } else if let res = result {
+                          // Do something with result
+                }
+        }
+```
 
 ##<a name="templates"></a>How to: Register push templates to send cross-platform notifications
 

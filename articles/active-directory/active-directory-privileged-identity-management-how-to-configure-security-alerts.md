@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: How To Configure Security Alerts"
+   pageTitle="How to configure security alerts | Microsoft Azure"
    description="Learn how to configure security alerts for Azure Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: How to configure security alerts
+# Azure AD Privileged Identity Management: How to configure security alerts
 
 ## Security alerts overview
 Azure Privileged Identity Management (PIM) offers the following alerts which can be configured. Security alerts can be viewed in the Alerts section of the PIM dashboard.

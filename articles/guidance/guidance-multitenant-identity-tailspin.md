@@ -29,15 +29,21 @@ Tailspin is a fictitious company that is developing a SaaS application named Sur
 
 > [AZURE.NOTE] To get started with the application, see [Running the Surveys application].
 
+## Users can create, edit, and view surveys
+
+An authenticated user can view all the surveys that he or she has created or has contributor rights to, and create new surveys. Notice that the user is signed in with his organizational identity, `bob@contoso.com`.
+
+![Surveys app](media/guidance-multitenant-identity/surveys-screenshot.png)
+
 This screenshot shows the Edit Survey page:
 
 ![Edit survey](media/guidance-multitenant-identity/edit-survey.png)
 
-Notice that the user is signed in with his organizational identity, `bob@contoso.com`.
-
-Users can view surveys created by other users within the same tenant.
+Users can also view any surveys created by other users within the same tenant.
 
 ![Tenant surveys](media/guidance-multitenant-identity/tenant-surveys.png)
+
+## Survey owners can invite contributors
 
 When a user creates a survey, he or she can invite other people to be contributors on the survey. Contributors can edit the survey, but cannot delete or publish it.  
 
@@ -59,7 +65,13 @@ The web application uses Azure Active Directory (Azure AD) to authenticate users
 
 ![Architecture](media/guidance-multitenant-identity/architecture.png)
 
+## Next steps
+
+- Read the next article in this series: [Authentication in multitenant apps, using Azure Active Directory and OpenID Connect][authentication]
+
 <!-- Links -->
+
+[authentication]: guidance-multitenant-identity-authenticate.md
 [part of a series]: guidance-multitenant-identity.md
 [Running the Surveys application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
 [ASP.NET Core 1.0]: https://docs.asp.net/en/latest/

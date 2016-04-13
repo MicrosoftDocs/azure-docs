@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/16/2015"
+   ms.date="03/08/2016"
    ms.author="spyros;sethm" />
 
 # Notify users of data received from sensors or other systems
@@ -25,7 +25,7 @@ In another scenario, imagine that you run a pet boarding facility, and you must 
 
 ![][2]
 
-The problem is how to get critical information when certain conditions are met, not when you get around to checking out a static report. If you are using an [Azure Event Hub][] or [IoT Hub][] to receive data from devices or enterprise applications such as [Dynamics AX][], you have several options for how to process them. You can view them on a website, you can analyze them, you can store them, and you can use them to trigger commands to do something. To do this, you can use powerful tools such as [Azure Websites][], [SQL Azure][], [HDInsight][], [Cortana Analytics Suite][], [IoT Suite][], [Logic Apps][], or [Azure Notification Hubs][]. But sometimes all you want to do is to send that data to someone with a minimum of overhead. To show you how to do that with just a little bit of code, we’ve provided a new sample, [AppToNotifyUsers][]. Options included are email (SMTP), SMS, and phone.
+The problem is how to get critical information when certain conditions are met, not when you get around to checking out a static report. If you are using an [Azure Event Hub][] or [Azure IoT Hub][] to receive data from devices or enterprise applications such as [Dynamics AX][], you have several options for how to process them. You can view them on a website, you can analyze them, you can store them, and you can use them to trigger commands to do something. To do this, you can use powerful tools such as [Azure Websites][], [SQL Azure][], [HDInsight][], [Cortana Intelligence Suite][], [IoT Suite][], [Logic Apps][], or [Azure Notification Hubs][]. But sometimes all you want to do is to send that data to someone with a minimum of overhead. To show you how to do that with just a little bit of code, we’ve provided a new sample, [AppToNotifyUsers][]. Options included are email (SMTP), SMS, and phone.
 
 ## Application structure
 
@@ -64,17 +64,16 @@ To deploy the solution to notify users based on data received by these hubs, vis
 
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub/
-[IoT Hub]: https://azure.microsoft.com/services/iot-hub/
 [Azure Event Hubs]: https://azure.microsoft.com/services/event-hubs/
 [Azure Event Hub]: https://azure.microsoft.com/services/event-hubs/
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [AppToNotifyUsers]: https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications
-[Dynamics AX]: http://www.microsoft.com/en-us/dynamics/erp-ax-overview.aspx
+[Dynamics AX]: http://www.microsoft.com/dynamics/erp-ax-overview.aspx
 [Azure Websites]: https://azure.microsoft.com/services/app-service/web/
 [SQL Azure]: https://azure.microsoft.com/services/sql-database/
 [HDInsight]: https://azure.microsoft.com/services/hdinsight/
-[Cortana Analytics Suite]: http://www.microsoft.com/server-cloud/cortana-analytics-suite/Overview.aspx?WT.srch=1&WT.mc_ID=SEM_lLFwOJm3&bknode=BlueKai
+[Cortana Intelligence Suite]: http://www.microsoft.com/server-cloud/cortana-analytics-suite/Overview.aspx?WT.srch=1&WT.mc_ID=SEM_lLFwOJm3&bknode=BlueKai
 [IoT Suite]: https://azure.microsoft.com/solutions/iot-suite/
 [Logic Apps]: https://azure.microsoft.com/services/app-service/logic/
 [Azure Notification Hubs]: https://azure.microsoft.com/services/notification-hubs/

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Add a web application firewall in Azure Security Center  | Microsoft Azure"
+   pageTitle="Add a web application firewall in Azure Security Center | Microsoft Azure"
    description="This document shows you how to implement the Azure Security Center recommendation **Add a web application firewall**."
    services="security-center"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Add a web application firewall in Azure Security Center
@@ -48,7 +48,7 @@ Azure Security Center may recommend that you add a web application firewall (WAF
 11. Select the web application. A blade opens that gives you steps for finalizing the web application firewall setup. Complete the steps, and then select **Restrict traffic**. Security Center will then do the wiring-up for you.
 ![][6]
 
-> [AZURE.NOTE] The automatic provisioning process is based on WAF packages (created using the Resource Manager deployment model) that are deployed to a separate VNet. Access to the protected web applications on VMs (classic) is restricted to the WAF appliances only using NSG. This support will be extended to a fully customized deployment of WAF packages (classic) in the future. Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
+> [AZURE.NOTE] You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future. Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
 
 The logs from that WAF are now fully integrated. Security Center can start automatically gathering and analyzing the logs so that it can surface important security alerts to you.
 
@@ -60,7 +60,7 @@ This document showed you how to implement the Security Center recommendation "Ad
 
 To learn more about Security Center, see the following:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 - [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.

@@ -3,9 +3,9 @@
 	description="Learn how to pause or resume data migration to Azure."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -56,4 +56,5 @@ ALTER TABLE <table name>
 ```
 
 ## See also
+
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)

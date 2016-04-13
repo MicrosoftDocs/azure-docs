@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="03/08/2016"
    ms.author="piyushjo"/>
 
 
 # How to reach out to the users of your application with push notifications
 
-This article describes the **REACH** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+This article describes the **REACH** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create.md).
 
 The Reach section of the UI is the Push campaign management tool where you can create/edit/activate/finish/monitor and get statistics on Push notification campaigns and features that can also be accessed via the Reach API (and some elements of the low level Push API). Remember that whether you are using the APIs or the UI, you will need to integrate both Azure Mobile Engagement and Reach into your application for each platform with the SDK before you can use Reach campaigns.
 
@@ -53,7 +53,13 @@ Here is how you should interpret these details:
 	4. On iOS devices, messages sometimes do not get delivered if either the device is on low battery or if the app is consuming significant amount of power when processing remote notifications. This is a limitation of the iOS devices.   
 
 3.	**Displayed** - This specifies the number of messages which are successfully shown to the app user on the device in the form of a system push/out-of-app notification in the notification center or an in-app notification within the mobile app.  The **Advanced** tab will tell you how many were system notifications and how many were in-app notifications. 
-
+	
+	*Reasons for Displayed count being less than Delivered count (waiting to be displayed)*
+	
+	1. If the notification campaign had an end date on it then it is possible that the notification was delivered but when the time came to open and display it to the app user, it was already expired so it was never displayed.   
+	2. If the notification is an in-app notification then the notification is only displayed when the app user opens the app. In cases where the app user hasn't opened the app, the SDK will report that the notification was delivered but not yet displayed until the app is opened. 
+	2. If the notification is an in-app notification and configured to be shown on a specific activity/screen then also the notification will be reported as delivered but not yet delivered until the user opens the app on a specific screen. 
+	
 4.	**User Interactions** - This specifies the number of messages which the app user has interacted with and will include the messages which are either actioned or exited. 
 
 	- *The app user can action a notification in either of the following ways:*

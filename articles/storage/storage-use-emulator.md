@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/21/2016" 
+	ms.date="03/28/2016" 
 	ms.author="tamram"/>
 
 # Use the Azure Storage Emulator for Development and Testing
@@ -21,7 +21,7 @@
 
 The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.
 
-> [AZURE.NOTE] The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator as a standalone package. To configure the storage emulator, you must have administrative privileges on the computer.
+> [AZURE.NOTE] The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). To configure the storage emulator, you must have administrative privileges on the computer.
 >  
 > Note that data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it's recommended that you store that data in an Azure storage account, rather than in the storage emulator.
 
@@ -47,7 +47,7 @@ For more details on connection strings, see [Configure Azure Storage Connection 
 
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You will need to create this SAS token using a tool or application that supports Shared Key authentication. An easy way to generate the SAS token is via Azure PowerShell:
 
-1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md#Install) for installation instructions.
+1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](../powershell-install-configure.md#Install) for installation instructions.
 
 2. Open Azure PowerShell and run the following commands. Remember to replace *ACCOUNT_NAME* and *ACCOUNT_KEY==* with your own credentials. Replace *CONTAINER_NAME* with a name of your choosing.
 
@@ -202,6 +202,10 @@ The following differences apply to Table storage in the emulator:
 There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
+
+### Version 4.3
+
+- The storage emulator now supports version 2015-07-08 of the storage services on Blob, Queue, and Table service endpoints.
 
 ### Version 4.2
 

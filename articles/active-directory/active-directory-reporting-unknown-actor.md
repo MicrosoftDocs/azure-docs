@@ -3,7 +3,7 @@
    description="Description of the 'Unknown Actor' event in Azure Active Directory Reports"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="SSalahAhmed"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/04/2016"
+   ms.author="saah"/>
 
 # Azure Active Directory Reporting 'Unknown Actor' event
 
@@ -28,14 +28,14 @@ In this case, a Service Principal (Application) is performing directory updates 
 
 ![](./media/active-directory-reporting-unknown-actor/spd-actor.png)
 
-This is a known bug, and we are working diligently to resolve it.
+This is a known bug, and we are working to resolve it.
 
 ## A user was deleted from the directory before the event was processed
 
-In this case, a user was deleted from the directory before we processed the event and associated a username with it. Here's an example:
+In this case, a user was deleted from the directory before we processed the event and associated a user name with it. Here's an example:
 
 ![](./media/active-directory-reporting-unknown-actor/unknown-actor.png)
 
-This is a known bug, and we are working diligently to resolve it.
+This is a known bug, and we are working to resolve it.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->

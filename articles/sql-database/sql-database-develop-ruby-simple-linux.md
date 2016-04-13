@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="ajlam"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,59 +14,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/16/2016"
 	ms.author="andrela"/>
 
 
 # Connect to SQL Database by using Ruby on Ubuntu Linux
 
-
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
+This topic presents a Ruby code sample that runs on an Ubuntu Linux client computer to connect to an Azure SQL Database.
 
-This topic presents a Ruby code sample that runs on an Ubuntu Linux client computer to connect to an Azure SQL Database database.
+## Step 1: Configure Development Environment
 
-## Prerequisites
+[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx#Ubuntu-Linux)
 
-### Install the required modules
-
-Open your terminal and install FreeTDS if you do not have it on your machine.
-
-    sudo apt-get --assume-yes update
-    sudo apt-get --assume-yes install freetds-dev freetds-bin
-
-After your machine is configured with FreeTDS, install Ruby if you do not already have it on your machine.
-
-    sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
-    curl -L https://get.rvm.io | bash -s stable
-
-If you have any issues with signatures, run the following command.
-
-    command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-
-If there are no issues with signatures, run the following commands.  
-
-    source ~/.rvm/scripts/rvm
-    rvm install 2.1.2
-    rvm use 2.1.2 --default
-    ruby -v
-
-Ensure that you are running version 2.1.2 or the Ruby VM.
-
-Next, install TinyTDS.
-
-    gem install tiny_tds
-
-### A SQL database
+## Step 2: Create a SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 
-
-## Step 1: Get Connection Details
+## Step 3: Get Connection Details
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Step 2: Connect
+## Step 4: Connect
 
 The [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function is used to connect to SQL Database.
 
@@ -75,7 +45,7 @@ The [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function is u
     host: 'yourserver.database.windows.net', port: 1433,
     database: 'AdventureWorks', azure:true
 
-## Step 3:  Execute a query
+## Step 5:  Execute a query
 
 The [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) function is used to retrieve a result set from a query against SQL Database. This function accepts a query and returns a result set. The results set is iterated over by using [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
@@ -89,7 +59,7 @@ The [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) function is u
     puts row
     end
 
-## Step 4:  Insert a row
+## Step 6:  Insert a row
 
 In this example you will see how to execute an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://msdn.microsoft.com/library/ms179610.aspx) value.  
 

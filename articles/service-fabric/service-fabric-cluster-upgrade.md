@@ -102,11 +102,11 @@ To open a new port on all VMs in a node type, do the following:
 
 For each of the node types, you can add custom placement properties that you want to use in your applications. NodeType is a default property that you can use without adding it explicitly.
 
->[AZURE.NOTE] For details on the use of placement properties, refer to [Overview of placement constraints](service-fabric-placement-constraint.md).
+>[AZURE.NOTE] For details on the use of placement constraints, node properties, and how to define them, refer to the section "Placement Constraints and Node Properties" in the Service Fabric Cluster Resource Manager Document on [Describing Your Cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
 ### Capacity metrics
 
-For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to [Overview of dynamic load reporting](service-fabric-resource-balancer-dynamic-load-reporting.md).
+For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to the  Service Fabric Cluster Resource Manager Documents on [Describing Your Cluster](service-fabric-cluster-resource-manager-cluster-description.md) and [Metrics and Load](service-fabric-cluster-resource-manager-metrics.md).
 
 ### OS patches on the VMs that make up the cluster
 

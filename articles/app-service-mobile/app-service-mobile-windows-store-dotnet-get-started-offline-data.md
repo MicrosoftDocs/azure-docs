@@ -80,7 +80,7 @@ Azure Mobile App offline features allow you to interact with a local database wh
 
 7. In MainPage.cs, in the region marked `Offline sync`, uncomment the methods `InitLocalStoreAsync` and `SyncAsync`. The method `InitLocalStoreAsync` initializes the client sync context with a SQLite store. In Visual Studio, you can select all commented lines and use the **Ctrl**+**K**+**U** keyboard shortcut to uncomment.
 
-	Notice in `SyncAsync` a push operation is executed off the `MobileServiceClient.SyncContext` instead of the `IMobileServicesSyncTable`. This is because the context tracks changes made by the client for all tables. This is to cover scenarios where there are relationships between tables. For more information on this behavior, see [Offline Data Sync in Azure Mobile Apps].
+	Notice in `SyncAsync` a push operation is executed off the `MobileServiceClient.SyncContext` instead of the `IMobileServicesSyncTable`. This is because the context tracks changes made by the client for all tables.  For more information on this behavior, see [Offline Data Sync in Azure Mobile Apps].
 
         private async Task InitLocalStoreAsync()
         {

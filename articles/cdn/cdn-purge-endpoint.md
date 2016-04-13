@@ -44,16 +44,17 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
 
 	> [AZURE.NOTE] You can also get to the Purge blade by clicking the **Purge** button on the CDN endpoint blade.  In that case, the **URL** field will be pre-populated with the service address of that specific endpoint.
 
-4. Select what assets you wish to purge from the edge nodes.  If you wish to clear all assets, click the **Purge all** checkbox.  Otherwise, type the full path of each asset you wish to purge (e.g., */pictures/kitten.png*) in the **Path** textbox.
+4. Select what assets you wish to purge from the edge nodes.  If you wish to clear all assets, click the **Purge all** checkbox.  Otherwise, type the full path of each asset you wish to purge (e.g., `/pictures/kitten.png`) in the **Path** textbox.
 
 	> [AZURE.TIP] More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
 	>
-	> Paths must be a relative URL.  Asterisk (*) may be used as a wildcard.  
+	> Paths must be a relative URL that fit the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  `^\/(?:[a-zA-Z0-9-_.\u0020]+\/)*\*$";`.  Asterisk (\*) may be used as a wildcard (e.g., `/music/*`).
 
 5. Click the **Purge** button.
 
 	![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
+> [AZURE.NOTE] Purge requests take approximately 2-3 minutes to process. There is a limitation of 10 purge requests per minute per CDN profile.
 
 ## See also
 - [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)

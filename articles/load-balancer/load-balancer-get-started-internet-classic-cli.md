@@ -32,7 +32,7 @@
 
 This guide shows how to create an Internet load balancer based on the scenario above.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
@@ -139,7 +139,7 @@ You have to delete the endpoint associated to the load balancer set from the vir
 
 ## Next steps
 
-[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 

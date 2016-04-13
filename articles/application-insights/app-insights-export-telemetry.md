@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/10/2016" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -21,14 +21,17 @@ Want to do some customised analysis on your telemetry? Or maybe you'd like an em
 
 Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](https://azure.microsoft.com/pricing/details/application-insights/).
 
-(If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade. And if you'd like to see data in Power BI, use [the adapter](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) - which *doesn't* use Continuous Export.)
+>[AZURE.NOTE] If you're looking to [explore your data in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), you can do that without using Continuous Export.
+>
+>And if you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade. 
+
 
 ## Create a storage account
 
 If you don't already have a "classic" storage account, create one now.
 
 
-1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
+1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-telemetry/030.png)
 
@@ -88,6 +91,17 @@ When you open your blob store, you'll see a container with a set of blob files. 
 ![Inspect the blob store with a suitable tool](./media/app-insights-export-telemetry/04-data.png)
 
 The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated. So if you write code to download the data, it can move linearly through the data.
+
+Here's the form of the path:
+
+
+    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+  
+Where 
+
+-	`blobCreationTimeUtc` is time when blob was created in the internal staging storage
+-	`blobDeliveryTimeUtc` is the time when blob is copied to the export destination storage
+
 
 
 ## <a name="format"></a> Data format

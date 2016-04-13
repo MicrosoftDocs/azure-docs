@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 # Analyze Twitter data using Hive in HDInsight
@@ -116,7 +116,7 @@ In this tutorial, you will use Windows PowerShell to make the web service call. 
 
 		#region - Connect to Azure subscription
 		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-		Add-AzureAccount
+		Login-AzureRmAccount
 		#endregion
 
 		#region - Create a block blob object for writing tweets into Blob storage
@@ -492,7 +492,7 @@ Use the following Windows PowerShell script to run the Hive script. You will nee
 	
 	Write-Host "Display the standard error log ... " -ForegroundColor Green
 	$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace ‘\s*$’ -replace ‘.*\s’
-	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -StandardError
+	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -DefaultContainer $defaultBlobContainerName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -HttpCredential $httpCredential
 	#endregion
 
 ### Check the results
@@ -517,7 +517,7 @@ Use the following Windows PowerShell script to check the Hive job output. You wi
 	Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
 	
 	Write-Host "Create a context object ... " -ForegroundColor Green
-	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
+	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey  
 	#endregion
 	
 	#region - Download blob and display blob
