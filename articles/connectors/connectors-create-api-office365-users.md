@@ -30,7 +30,7 @@ Connect to Office 365 Users to get profiles, search users, and more. The Office 
 
 &nbsp; 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md).   
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 
 With Office 365 Users, you can:

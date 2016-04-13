@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sstein"/>
 
 # Manage and size an elastic database pool with C&#x23;
@@ -34,7 +34,6 @@ For common error codes, see [SQL error codes for SQL Database client application
 The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) so you need to install the library. You can install by running the following command in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
-
 
 
 ## Update a pool
@@ -124,7 +123,10 @@ The following example lists all databases in a pool:
         Console.WriteLine("  Database {0}", db.Name);
     }
 
+## Latency of elastic pool operations
 
+- Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.
+- Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
 
 
 ## Manage a pool C&#x23; example
