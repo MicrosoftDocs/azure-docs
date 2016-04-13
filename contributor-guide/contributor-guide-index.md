@@ -31,6 +31,8 @@
 
 - [How to undo almost anything with Git (GitHub blog)](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
 
+- [Pull request etiquette and best practices for Microsoft contributors](contributor-guide-pull-request-etiquette.md)
+
 
 ##Authoring articles: markdown
 
