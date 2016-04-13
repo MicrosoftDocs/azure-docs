@@ -420,7 +420,7 @@ These actions can be performed in any order. Nevertheless, the steps below will 
 
 1. Click the **AlwaysOn High Availability** tab, then select **Enable AlwaysOn Availability Groups**, as shown below, and then click **Apply**. Click **OK** in the pop-up dialog, and do not close the properties window yet. You will restart the SQL Server service after you change the service account.
 
-	![Enable AlwaysOn Availability Groups](./media/virtual-machines-windows-classic-portal-sql-availability/IC665520.gif)
+	![Enable AlwaysOn Availability Groups](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
 
 1. Next, you change the SQL Server service account. Click the **Log On** tab, then type **CORP\SQLSvc1** (for **ContosoSQL1**) or **CORP\SQLSvc2** (for **ContosoSQL2**) in **Account Name**, then fill in and confirm the password, and then click **OK**.
 
