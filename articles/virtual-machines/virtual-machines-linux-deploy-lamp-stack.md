@@ -24,17 +24,17 @@ There are two methods for installing LAMP covered in this article:
 
 ## Quick Command Summary
 
-1. Deploy LAMP on new VM
-    ```
-    # One command to quick-create a VM with LAMP pre-installed: the two required args are a Resource Group name and a VM name
-    $ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
-    ```  
-2. Deploy LAMP on existing VM
-    ```
-    # Two commands: one updates packages, the other installs Apache, MySQL, and PHP
-    user@ubuntu$ sudo apt-get update
-    user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
-    ```
+1) Deploy LAMP on new VM
+```
+# One command to quick-create a VM with LAMP pre-installed: the two required args are a Resource Group name and a VM name
+$ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
+```  
+2) Deploy LAMP on existing VM
+```
+# Two commands: one updates packages, the other installs Apache, MySQL, and PHP
+user@ubuntu$ sudo apt-get update
+user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+```
 
 ## Deploy LAMP on new VM Walkthrough
 
