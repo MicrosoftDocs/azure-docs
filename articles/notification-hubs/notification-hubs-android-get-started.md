@@ -154,7 +154,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 	`NotificationSettings` code:
 
 		public class NotificationSettings {
-		    public static String SenderId = "<Your SenderId>";
+		    public static String SenderId = "<Your project number>";
 		    public static String HubName = "<Your HubName>";
 		    public static String HubListenConnectionString = "<Your default listen connection string>";
 		}
