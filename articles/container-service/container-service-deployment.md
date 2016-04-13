@@ -57,7 +57,7 @@ Click ‘OK’ when ready to proceed.
 
 Enter the following information:
 
-- Agent count – For Docker Swarm this will be the initial number of agents in the agent scale set. For Mesos, this will be the 
+- Agent count – For Docker Swarm this will be the initial number of agents in the agent scale set. For Mesos, this will be the initial number of agents in the private scale set. Additionally, a public scale set is created containing a pre-determined number of agents. The number of agents in this public scale set will be 1, if you have configured 1 master, and 2, if you have configured either 3 or 5 masters.
 - Agent virtual machine size – the size of the agent virtual machines.
 - Master count – the number of masters in the cluster.
 - DNS prefix – A world unique name that will be used to prefix key parts of the fully qualified domain names for the service. 
