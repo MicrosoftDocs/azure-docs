@@ -149,14 +149,14 @@ To help you decide when you should use `vm quick-create` and when you should mov
 
 | Task             | Quick-Create | Azure Template |
 |:-----------------|:------------:|:--------------:|
-| test SSH         | use Q-C      | -              |
-| get a BASH shell | use Q-C      | -              |
-| run a container  | use Q-C      | -              |
-| deploy Jenkins   | -            | user A-T       |
-| dev cloud        | use Q-C      | -              |
-| test cloud       | -            | use Q-C        |
-| production cloud | -            | use Q-C        |
-| CI/CD VM         | -            | use Q-C        |
+| test SSH         | quick-create | -              |
+| get a BASH shell | quick-create | -              |
+| run a container  | quick-create | -              |
+| deploy Jenkins   | -            | template       |
+| dev cloud        | quick-create | -              |
+| test cloud       | -            | template       |
+| production cloud | -            | template       |
+| CI/CD VM         | -            | template       |
 
 * Test SSH - you need a quick way to test your new SSH config on your laptop you could use `azure vm quick-create` to build the VM as the cli does not use SSH.
 
@@ -166,7 +166,7 @@ To help you decide when you should use `vm quick-create` and when you should mov
 
 * Jenkins - you are doing a Proof of Concept project for your team to showcase Continuous Integration and Deployment.  Launching a preconfigured [Jenkins VM from Bitnami](https://azure.microsoft.com/en-us/marketplace/partners/bitnami/jenkins/) gets you up and running so you can start building that CiCd POC.
 
-* Dev Team Cloud - you need to manage your dev teams Azure environment in a repeatable and consistent deployment method. Using DevOps best practices and treating all infrastructure as code you need to store that infrastructure code as code in Git.
+* Dev, Test and Production - you need to manage your dev teams Azure environment in a repeatable and consistent deployment method. Using DevOps best practices and treating all infrastructure as code you need to store that infrastructure code as code in Git.
 
 
 ## Next Steps
