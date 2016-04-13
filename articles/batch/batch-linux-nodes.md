@@ -73,7 +73,8 @@ start_task.run_elevated = True
 start_task.command_line = "printenv AZ_BATCH_NODE_STARTUP_DIR"
 new_pool.start_task = start_task
 
-# First create an ImageReference
+# Create an ImageReference which is used
+# in creating the VirtualMachineConfiguration
 ir = batchmodels.ImageReference(
     publisher = "Canonical",
     offer = "UbuntuServer",
@@ -95,7 +96,7 @@ client.pool.add(new_pool)
 
 ## Create a Linux pool: Batch .NET
 
-The following code snippet shows the creation of a pool of Ubuntu Server compute nodes using the [Batch .NET][nuget_batch_net] client library. You can find the [Batch .NET reference][api_net] documentation on MSDN.
+The following code snippet shows the creation of a pool of Ubuntu Server compute nodes using the [Batch .NET][nuget_batch_net] client library. You can find the [Batch .NET reference documentation][api_net] on MSDN.
 
 ```csharp
 // Obtain a collection of all available node agent SKUs
@@ -138,9 +139,19 @@ pool.Commit();
 
 ## List the available images (SKUs)
 
-Because the list of available images in the Azure Marketplace changes periodically, there is no definitive list of the available images. To discover which images are available
+Because the list of available images in the Azure Marketplace changes periodically, there is no definitive list of the available images. It may therefore be necessary to obtain a list of the available images to provide image selection capability in your Batch solution.
+
+### Batch Python
+
+Use the [list_node_agent_skus][py_list_skus] method of the [azure.batch.operations.AccountOperations][py_account_ops] class to list the available Marketplace images using the Batch Python client library.
+
+```python
+#python code snippet here
+```
 
 ### Batch .NET
+
+Use the [ListNodeAgentSkus][net_list_skus] method of the [PoolOperations][net_pool_ops] class to list the available Marketplace images using the Batch .NET client library.
 
 ```csharp
 // Obtain a collection of all available node agent SKUs
@@ -158,14 +169,6 @@ foreach (NodeAgentSku sku in nodeAgentSkus)
             imgSku.Offer, imgSku.Publisher, imgSku.SkuId, imgSku.Version);
     }
 }
-```
-
-### Batch Python
-
-Description here.
-
-```
-python code snippet here
 ```
 
 ## Pricing
@@ -189,11 +192,15 @@ Content here.
 [portal]: https://portal.azure.com
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
+[net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
+[net_pool_ops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.aspx
 [nuget_batch_net]: https://www.nuget.org/packages/Azure.Batch/
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
+[py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
 [py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
+[py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Application packages high-level diagram"
