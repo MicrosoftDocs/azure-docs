@@ -123,4 +123,6 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
-For more information in Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
+## Next steps:
+
+- [Read more about Docker Swarm.](https://docs.docker.com/swarm/).
