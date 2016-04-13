@@ -18,7 +18,7 @@
 	ms.date="03/25/2016"
 	ms.author="sstein" />
 
-# Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query
+# Connect to SQL Database with SQL Server Management Studio using a server-level principal login and execute a sample T-SQL query
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
@@ -31,7 +31,7 @@ This article shows you how to connect to an Azure SQL database using the most re
 
 [AZURE.INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
 
-[AZURE.INCLUDE [SSMS Connect](../../includes/sql-database-sql-server-management-studio-connect.md)]
+[AZURE.INCLUDE [SSMS Connect](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
 
 
