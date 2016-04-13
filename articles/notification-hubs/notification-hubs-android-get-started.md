@@ -240,7 +240,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		        }
 		
 		        // Notify UI that registration has completed.
-		        MainActivity.mainActivity.ToastNotify(resultString);
+		        if (MainActivity.isVisible) {
+		            MainActivity.mainActivity.ToastNotify(resultString);
+		        }
 		    }
 		}
 
@@ -259,6 +261,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 5. Add the following private members at the top of the class. We will use these [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
 
 	    public static MainActivity mainActivity;
+    	public static Boolean isVisible = false;	
 		private GoogleCloudMessaging gcm;
 	    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
@@ -319,29 +322,28 @@ Your notification hub is now configured to work with GCM, and you have the conne
 	    @Override
 	    protected void onStart() {
 	        super.onStart();
-	        MyHandler.isVisible = true;
+	        isVisible = true;
 	    }
 	
 	    @Override
 	    protected void onPause() {
 	        super.onPause();
-	        MyHandler.isVisible = false;
+	        isVisible = false;
 	    }
 	
 	    @Override
 	    protected void onResume() {
 	        super.onResume();
-	        MyHandler.isVisible = true;
+	        isVisible = true;
 	    }
 	
 	    @Override
 	    protected void onStop() {
 	        super.onStop();
-	        MyHandler.isVisible = false;
+	        isVisible = false;
 	    }
 	
-	    public void ToastNotify(final String notificationMessage)
-	    {
+	    public void ToastNotify(final String notificationMessage) {
 	        runOnUiThread(new Runnable() {
 	            @Override
 	            public void run() {
@@ -351,6 +353,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 	            }
 	        });
 	    }
+
 
 10. The `ToastNotify` method uses the *"Hello World"* `TextView` control to report status and notifications persistently in the app. In your activity_main.xml layout, add the following id for that control.
 
@@ -376,7 +379,6 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		    public static final int NOTIFICATION_ID = 1;
 		    private NotificationManager mNotificationManager;
 		    NotificationCompat.Builder builder;
-		    public static Boolean isVisible = false;
 		    Context ctx;
 		
 		    @Override
@@ -384,7 +386,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		        ctx = context;
 		        String nhMessage = bundle.getString("message");
 		        sendNotification(nhMessage);
-		        if (isVisible) {
+		        if (MainActivity.isVisible) {
 		            MainActivity.mainActivity.ToastNotify(nhMessage);
 		        }
 		    }
