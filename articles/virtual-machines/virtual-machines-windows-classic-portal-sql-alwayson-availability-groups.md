@@ -78,7 +78,7 @@ You begin with a new Azure trial account. Once you have finished your account se
 |---|---|
 |Virtual Network Details|**NAME = ContosoNET**<br/>**REGION = West US**|
 |DNS Servers and VPN Connectivity|None|
-|Virtual Network Address Spaces|Settings are shown in the screenshot below: ![Create Virtual Network](./media/virtual-machines-windows-classic-portal-sql-availability/IC784620.png)|
+|Virtual Network Address Spaces|Settings are shown in the screenshot below: ![Create Virtual Network](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
 
 1. Next, you create the VM you will use as the domain controller (DC). Click **New** again, then **Compute**, then **Virtual Machine**, and then **From Gallery**, as shown below.
 
