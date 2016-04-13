@@ -33,7 +33,7 @@ This article shows you how to connect to an Azure SQL database using the most re
 
 [AZURE.INCLUDE [SSMS Connect](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-For information about firewall rules, see [How to: Configure Firewall Settings (Azure SQL Database)](../../sql-database/sql-database-configure-firewall-settings.md).
+For information about firewall rules, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database/sql-database-configure-firewall-settings.md).
 
 ## Run sample queries
 
