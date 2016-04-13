@@ -341,8 +341,8 @@ You create an ODBC linked service to link a [GE Proficy Historian (now GE Histor
 			    "connectionString": "DSN=<name of the GE Historian store>",
 			    "gatewayName": "ProficyGatewayTest",
 			    "authenticationType": "Basic",
-			    "userName": "ODBC1",
-			    "password": "PwdGoesHere"
+			    "userName": "<user name>",
+			    "password": "<password>"
 	        }
 	    }
 	}
