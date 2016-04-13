@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/13/2016" 
+	ms.date="04/15/2016" 
 	ms.author="casoper"/>
 
 # Overview of the Azure Content Delivery Network (CDN)
