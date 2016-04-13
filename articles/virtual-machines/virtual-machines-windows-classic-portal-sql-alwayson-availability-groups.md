@@ -220,7 +220,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. In the **Network Connections** window, select the network icon.
 
-	![Change the VM Preferred DNS Server](./media/virtual-machines-windows-classic-portal-sql-availability/IC784629.png)
+	![Change the VM Preferred DNS Server](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784629.png)
 
 1. On the command bar, click **Change the settings of this connection** (depending on the size of your window, you might have to click the double right arrow to see this command).
 
