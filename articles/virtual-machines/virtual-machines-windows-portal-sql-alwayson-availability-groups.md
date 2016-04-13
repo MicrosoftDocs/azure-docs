@@ -120,7 +120,7 @@ To learn more about virtual networks in [Azure see Virtual Network Overview](../
 
 The **Domain and network settings** should look like this:
 
-![Domain and network settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/2-domain.png)
+![Domain and network settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
 
 If necessary, you may change these values. For this tutorial we use the preset values.
 
