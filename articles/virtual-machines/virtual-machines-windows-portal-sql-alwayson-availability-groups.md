@@ -170,7 +170,7 @@ On **VM size, storage settings** choose a SQL Server virtual machine size and re
 
 For this tutorial use **General workload**.
 
-![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
+![VM size storage settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/4-vm.png)
 
 - Review the settings and click **OK**.
 
