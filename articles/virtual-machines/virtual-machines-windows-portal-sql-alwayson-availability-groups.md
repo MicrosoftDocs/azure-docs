@@ -79,7 +79,7 @@ Azure provides a gallery image for the entire solution. In order to locate the t
 1.	On the New blade search for **AlwaysOn**.
 ![Find AlwaysOn Template](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 1.	In the search results locate **SQL Server AlwaysOn Cluster**.
-![AlwaysOn Template](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/17-alwaysontemplate.png)
+![AlwaysOn Template](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	On **Select a deployment model** choose **Resource Manager**.
 
 ### Basics
