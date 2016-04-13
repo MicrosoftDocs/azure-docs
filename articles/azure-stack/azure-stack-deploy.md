@@ -27,7 +27,7 @@ These requirements apply to the Azure Stack POC only and might change for future
 | Component | Minimum  | Recommended |
 |---|---|---|
 | Disk drives: Operating System | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). | 4 disks. Each disk provides a minimum of 250 GB of capacity. |
+| Disk drives: General Azure Stack POC Data | 4+ disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. | 4+ disks. Each disk provides a minimum of 250 GB of capacity. All available disks will be used.|
 | Compute: CPU | Dual-Socket: 12 Physical Cores (total)  | Dual-Socket: 16 Physical Cores (total) |
 | Compute: Memory | 96 GB RAM  | 128 GB RAM |
 | Compute: BIOS | Hyper-V Enabled (with SLAT support)  | Hyper-V Enabled (with SLAT support) |

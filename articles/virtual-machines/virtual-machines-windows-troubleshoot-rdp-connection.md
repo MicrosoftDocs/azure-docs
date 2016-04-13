@@ -4,7 +4,7 @@
 	keywords="Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,9 +14,9 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/25/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
 
@@ -53,7 +53,7 @@ These steps may resolve most Remote Desktop connection failures in Azure virtual
 - Check VM's Resource Health for any platform issues.<br>
 	Click **Browse** > **Virtual machines (classic)** > your Windows virtual machine > **Settings** > **Check Health**.
 
-## Virtual machines created using Resource Manager deployment model
+### Virtual machines created using Resource Manager deployment model
 
 These steps may resolve most Remote Desktop connection failures in Azure virtual machines created using the Resource Manager deployment model. After each step, try reconnecting to the VM.
 

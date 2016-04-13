@@ -4,7 +4,7 @@ This guidance is for SMEs who are listed as the author of an article that needs 
 
 If you're a member of our Azure community and you think an article should be retired for any reason, please leave a comment in the Disqus comment stream for the article to let the author know something is wrong with the article.
 
-SME authors need to follow several steps to gracefully retire content so users of the website don't have a bad experience when we retire content from the site. Deleting the article or changing it’s name should be the last thing that happens!
+SME authors need to follow several steps to gracefully retire content so users of the website don't have a bad experience when we retire content from the site. Deleting the article or changing its name should be the last thing that happens!
 
 ## Step 1: Set the article to no-index/no-follow and republish it
 
