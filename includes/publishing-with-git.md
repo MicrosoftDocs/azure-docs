@@ -272,7 +272,7 @@ The following are errors or problems commonly encountered when using Git to publ
 [Azure Portal]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[How to use PowerShell for Azure]: ../articles/install-configure-powershell.md
+[How to use PowerShell for Azure]: ../articles/powershell-install-configure.md
 [How to use the Azure Command-Line Tools for Mac and Linux]: ../articles/xplat-cli-install.md
 [Git Documentation]: http://git-scm.com/documentation
 

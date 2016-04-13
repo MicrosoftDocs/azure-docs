@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="04/11/2016"
    ms.author="yurid"/>
 
 # Get insights from Azure Security Center data with Power BI
@@ -77,7 +77,7 @@ You can also use the Azure Security Center dashboard to access Power BI reports.
 
 1.In the **Azure Security Center** dashboard click **Explore in Power BI** button.
 
-![Connect to Azure Security Center using Power BI](./media/security-center-powerbi/security-center-powerbi-fig9.png) 
+![Connect to Azure Security Center using Power BI](./media/security-center-powerbi/security-center-powerbi-fig9-new.png) 
 
 2.The **Explore in Power BI** blade opens on the right side as shown below:
 

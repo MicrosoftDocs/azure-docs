@@ -3,7 +3,7 @@
 	description="Run queries across shards using the elastic database client library." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng" 
 	editor=""/>
 
