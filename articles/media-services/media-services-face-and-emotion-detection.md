@@ -30,7 +30,7 @@ The **Azure Media Face Detector** media processor (MP) enables you to count, tra
 
 - **Emotion detection**
 	
-	Emotion Detection is an optional component of the Face Detection Media Processor that returns analysis on multiple emotional attributes from the faces detected, including happiness, sadness, fear, anger, and more. This data can be returned on a per face basis or as a group value, and can be aggregated on a customizable window and interval.
+	Emotion Detection is an optional component of the Face Detection Media Processor that returns analysis on multiple emotional attributes from the faces detected, including happiness, sadness, fear, anger, and more. 
 
 The **Azure Media Face Detector** MP is currently in Preview.
 
