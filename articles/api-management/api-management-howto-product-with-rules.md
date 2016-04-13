@@ -277,7 +277,7 @@ When the rate limit policy of 10 calls per minute is in effect, subsequent calls
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Manage your first API in Azure API Management]: api-management-get-started.md
 [How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
 [View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
 [Get started with Azure API Management]: api-management-get-started.md
