@@ -210,7 +210,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. First, change the preferred DNS server address. Start by downloading each VM's remote desktop (RDP) file to your local directory by selecting the VM in the list and clicking the **Connect** button. To select a VM, click anywhere but the first cell in the row, as shown below.
 
-	![Download the RDP File](./media/virtual-machines-windows-classic-portal-sql-availability/IC664953.jpg)
+	![Download the RDP File](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC664953.jpg)
 
 1. Launch the RDP file you downloaded and log into the VM using your configured administrator account (**BUILTIN\AzureAdmin**) and password (**Contoso!000**).
 
