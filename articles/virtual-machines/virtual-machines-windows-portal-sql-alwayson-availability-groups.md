@@ -214,7 +214,7 @@ On **SQL Server settings** review and modify the SQL Server VM name prefix, SQL 
 
 >[AZURE.NOTE]The patching window for each VM is staggered by one hour. Only one virtual machine is patched at a time in order to prevent disruption of services.
 
-![SQL Server settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/5-sql.png)
+![SQL Server settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/5-sql.png)
 
 Review the settings and click **OK**.
 
