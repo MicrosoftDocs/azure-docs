@@ -3,7 +3,7 @@
 	description="Frequently Asked Questions about Azure SQL Database Elastic Scale." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="sidneyh" 
 	editor=""/>
 

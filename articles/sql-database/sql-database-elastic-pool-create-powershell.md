@@ -86,7 +86,3 @@ This script creates a new server so when it prompts you for a username and passw
 - [Manage your pool](sql-database-elastic-pool-manage-powershell.md)
 - [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
 
-
-## Elastic database reference
-
-For more information about elastic databases and elastic database pools, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).

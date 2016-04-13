@@ -49,14 +49,8 @@ There are two main options for installing Azure PowerShell.
 		Install-Module AzureRM
 		Install-AzureRM
 		
-		# Install the Azure Service Management module from PowerShell Gallery
-		Install-Module Azure
-		
 		# Import AzureRM modules for the given version manifest in the AzureRM module
 		Import-AzureRM
-		
-		# Import Azure Service Management module
-		Import-Module Azure
 
 	For more information, see [PowerShell Gallery](https://www.powershellgallery.com/).
 
