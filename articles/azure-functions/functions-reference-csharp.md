@@ -190,7 +190,7 @@ Function apps are built on App Service, so all of the [deployment options availa
 
 #### To upload project.json by using FTP
 
-1. Follow the instructions [here](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/#ftp) to get FTP configured.
+1. Follow the instructions [here](../app-service-web/web-sites-deploy.md#ftp) to get FTP configured.
 
 2. When you're connected to the function app site, copy your *project.json* file to */site/wwwroot/<function_name>*.
 
