@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="04/13/2016"
 	ms.author="andkjell"/>
 
 
 # Upgrade Windows Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“Azure AD Sync”)
-
 Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.
 
 The two identity synchronization tools that are deprecated were offered for single forest customers (DirSync) and for multi-forest and other advanced customers (Azure AD Sync). These older tools have been replaced with a single solution that is available for all scenarios: Azure AD Connect. It offers new functionality, feature enhancements, and support for new scenarios. To be able to continue to synchronize your on-premises identity data to Azure AD and Office 365, we strongly recommend that you upgrade to Azure AD Connect.
@@ -36,7 +35,6 @@ Azure AD Connect is the successor to DirSync and Azure AD Sync. It combines all 
 | April 13, 2017 | Support ends. Customers will no longer be able to open a support case without upgrading to Azure AD Connect first. |
 
 ## How to transition to Azure AD Connect
-
 If you are running DirSync there are two ways you can upgrade: In-place upgrade and parallel deployment. An in-place upgrade is recommended for most customers and if you have a recent operating system and less than 50,000 objects. In other cases it is recommended to do a parallel deployment where your DirSync configuration is moved to a new server running Azure AD Connect.
 
 If you use Azure AD Sync an in-place upgrade is recommended. If you want to, it is possible to install a new Azure AD Connect server in parallel and do a swing migration from your Azure AD Sync server to Azure AD Connect.
@@ -48,7 +46,9 @@ If you use Azure AD Sync an in-place upgrade is recommended. If you want to, it 
 
 If you want to see how to do an in-place upgrade from DirSync to Azure AD Connect, then please see this Channel 9 video:
 
+<!-- The next section is actually supposed to look like this, but video ids are not working at present.
 > [AZURE.VIDEO azure-active-directory-connect-in-place-upgrade-from-legacy-tools]
+-->
 
 [Azure Active Directory Connect: in-place upgrade from legacy tools](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools)  
 ![in-place upgrade](./media/active-directory-aadconnect-dirsync-deprecated/inplaceupgrade.png)
