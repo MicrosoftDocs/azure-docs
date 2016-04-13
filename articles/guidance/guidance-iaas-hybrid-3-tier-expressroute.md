@@ -71,7 +71,7 @@ The following diagram highlights the important components in this architecture:
 
 ## Implementing this architecture
 
-The following high-level steps outline a process for implementing this architecture. Detailed examples using Azure PowerShell commands are described [later in this document](powershell). Note that this process assumes that you have already created a VNet for hosting the cloud application, that you have created the on-premises network, and that your organization has met the [ExpressRoute prerequiste requirements][expressroute-prereqs] for connecting to the Azure. 
+The following high-level steps outline a process for implementing this architecture. Detailed examples using Azure PowerShell commands are described [later in this document][sample-script]. Note that this process assumes that you have already created a VNet for hosting the cloud application, that you have created the on-premises network, and that your organization has met the [ExpressRoute prerequiste requirements][expressroute-prereqs] for connecting to the Azure. 
 
 - Create an ExpressRoute circuit by using the following command:
 
@@ -152,7 +152,7 @@ You can configure high availability for your Azure connection in different ways,
 
 - If you are using an IXP connectivity provider, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router, and the secondary circuit to the other. This will give you a highly available connection at both ends of the connection. This is necessary if you require the ExpressRoute SLA. See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
 
-	The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a public peering and a private peering (each peering is designated a pair of /30 address spaces, as described in the [previous section](#address-space)).
+	The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a public peering and a private peering (each peering is designated a pair of /30 address spaces, as described in the previous section).
 
 	![IaaS: hybrid-expressroute](./media/blueprints/arch-iaas-hybrid-expressroute-redundant-routers.png)
 
@@ -393,5 +393,5 @@ switch($PSCmdlet.ParameterSetName) {
 [expressroute-routing-requirements]: ../expressroute/expressroute-routing.md
 [expressroute-locations]: ../expressroute/expressroute-locations.md
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[expressroute-limits]: ../azure-subscription-service-limits.md/#networking-limits
+[expressroute-limits]: ../azure-subscription-service-limits/#networking-limits
 [sample-script]: #sample-solution-script
