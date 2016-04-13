@@ -232,7 +232,7 @@ The Azure portal will create the resource group and all of the resources.
 
 Monitor the deployment progress from the Azure portal. An icon representing the deployment is automatically pinned to the Azure portal dashboard.
 
-![Azure Dashboard](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/11-deploydashboard.png)
+![Azure Dashboard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
 ##Connect to SQL Server
 
