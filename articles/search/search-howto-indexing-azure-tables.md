@@ -75,7 +75,7 @@ Since table rows have a compound key, Azure Search generates a synthetic field c
 
 ## Dealing with different field names
 
-Often, the field names in your existing index will be different from the property names in your table. You can use **field mappings** to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search Indexer Customization](https://azure.microsoft.com/documentation/articles/search-indexers-customization/).
+Often, the field names in your existing index will be different from the property names in your table. You can use **field mappings** to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search Indexer Customization](search-indexers-customization.md).
 
 ## Incremental indexing and deletion detection
  
