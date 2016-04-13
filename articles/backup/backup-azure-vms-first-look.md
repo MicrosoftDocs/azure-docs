@@ -24,6 +24,7 @@
 - [Back up Classic mode VMs](backup-azure-vms-first-look.md)
 
 This tutorial takes you through the steps for backing up an Azure virtual machine (VM). To successfully complete this tutorial, these prerequisites must exist:
+
 - You have created a VM in your Azure subscription.
 - The Backup service can access your VM.
 
@@ -51,19 +52,27 @@ To create a backup vault:
 
 1. Sign in to the [Azure portal](http://manage.windowsazure.com/).
 
-2. In the Azure portal, click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create**.
+2. In the lower left corner of the Azure portal, click **New**
 
-    ![Create backup vault](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
+    ![Click New menu](./media/backup-azure-vms-first-look/new-button.png)
 
-3. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+3. In the Quick Create wizard, click **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create**.
 
-4. In **Region**, select the geographic region for the vault. The vault **must** be in the same region as the virtual machines to protect.
+    ![Create backup vault](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
-    If you are unsure of the region in which your VM exists, close this wizard and click Virtual Machines in the list of Azure services. The Location column provides the region. If you have virtual machines in multiple regions, you need to create a backup vault in each region. There is no need to specify storage accounts. The backup vault and the Backup service automatically store the backup data.
+    The wizard prompts you for the **Name** and **Region**. If you administer more than one subscription, a dialog for choosing the subscription appears.
 
-5. If you do not have multiple subscriptions, there is no **Subscription** dialog. If you do not see a **Subscription** dialog, skip to the next step. If you see the **Subscription** dialog, select the subscription you want to associate with the backup vault.
+4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
 
-6. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
+5. In **Region**, select the geographic region for the vault. The vault **must** be in the same region as the virtual machines to protect.
+
+    If you are unsure of the region in which your VM exists, close this wizard and click Virtual Machines in the list of Azure services. The Location column provides the name of the region. If you have virtual machines in multiple regions, create a backup vault in each region.
+
+6. If there is no **Subscription** dialog in the wizard, skip to the next step. If you work with multiple subscriptions, select a Subscription to associate with the new backup vault. .
+
+    ![Create vault toast notification](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
+
+7. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
 
     ![Create vault toast notification](./media/backup-azure-vms-first-look/create-vault-demo.png)
 
