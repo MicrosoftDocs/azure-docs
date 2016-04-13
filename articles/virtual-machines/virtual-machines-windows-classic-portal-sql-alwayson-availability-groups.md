@@ -502,7 +502,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. In the **Select Databases** page, select **MyDB1** and click **Next**. The database meets the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
 
-	![New AG Wizard, Select Databases](./media/virtual-machines-windows-classic-portal-sql-availability/IC665525.gif)
+	![New AG Wizard, Select Databases](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665525.gif)
 
 1. In the **Specify Replicas** page, click **Add Replica**.
 
