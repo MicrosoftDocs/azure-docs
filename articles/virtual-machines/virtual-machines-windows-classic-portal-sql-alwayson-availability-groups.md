@@ -494,7 +494,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. Go back to the remote desktop session for **ContosoSQL1**. In the **Object Explorer** in SSMS, right-click **AlwaysOn High Availability** and click **New Availability Group Wizard**, as shown below.
 
-	![Launch New Availability Group Wizard](./media/virtual-machines-windows-classic-portal-sql-availability/IC665523.gif)
+	![Launch New Availability Group Wizard](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665523.gif)
 
 1. In the **Introduction** page, click **Next**. In the **Specify Availability Group Name** page, type **AG1** in **Availability group name**, then click **Next** again.
 
