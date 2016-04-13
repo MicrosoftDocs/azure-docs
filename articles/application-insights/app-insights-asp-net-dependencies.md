@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,7 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 ### If your app runs on your IIS server
 
-If your web app runs on .NET 4.6 or later, you'll get dependency tracking automatically if you [install the Application Insights SDK](app-insights-asp-net.md) in your app. You don't need anything else.
+If your web app runs on .NET 4.6 or later, you can either [install the Application Insights SDK](app-insights-asp-net.md) in your app, or install Application Insights Status Monitor. You don't need both.
 
 Otherwise, install Application Insights Status Monitor on the server:
 
