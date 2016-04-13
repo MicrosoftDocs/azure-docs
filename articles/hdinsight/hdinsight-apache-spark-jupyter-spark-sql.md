@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="04/08/2016"
 	ms.author="nitinme"/>
 
 
@@ -86,9 +86,9 @@ In this section, you use Jupyter notebook to run Spark SQL queries against the S
 
 In this article, you will use the PySpark kernel. In the article [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) you can read in detail about the benefits of using the PySpark kernel. However, couple of key benefits of using the PySpark kernel are:
 
-* You do not need to set the contexts for Spark, SQL, and Hive. These are automatically set for you.
-* You can use different cell magics (such as %%sql or %%hive) to directly run your SQL or Hive queries, without any preceding code snippets.
-* The output for SQL or Hive queries is automatically visualized.
+* You do not need to set the contexts for Spark and Hive. These are automatically set for you.
+* You can use cell magics, such as `%%sql`, to directly run your SQL or Hive queries, without any preceding code snippets.
+* The output for the SQL or Hive queries is automatically visualized.
 
 ### Create Jupyter notebook with PySpark kernel 
 
@@ -108,7 +108,7 @@ In this article, you will use the PySpark kernel. In the article [Kernels availa
 
 	![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark, SQL, and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
+4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
 
 		from pyspark.sql.types import *
 		

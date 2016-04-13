@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/07/2016"
+   ms.date="04/08/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using REST APIs
@@ -68,9 +68,9 @@ The output of this request will include an authorization token (denoted by `acce
 
 This operation is based on the REST API call defined [here](https://msdn.microsoft.com/library/mt694078.aspx).
 
-Use the following cURL command:
+Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/nitinadlstore?api-version=2015-10-01-preview -d@C:\temp\input.json
+	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@C:\temp\input.json
 
 In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. The request payload for this command is contained in the **input.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
 
@@ -86,9 +86,9 @@ In the above command, replace \<`REDACTED`\> with the authorization token you re
 
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
-Use the following cURL command:
+Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
+	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
 
 In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. This command creates a directory called **mytempdir** under the root folder of your Data Lake Store account.
 
@@ -100,9 +100,9 @@ You should see a response like this if the operation completes successfully:
 
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
-Use the following cURL command:
+Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS
+	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS
 
 In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier.
 
@@ -131,9 +131,9 @@ This operation is based on the WebHDFS REST API call defined [here](http://hadoo
 
 Uploading data using the WebHDFS REST API is a two-step process, as explained below.
 
-1. Submit a HTTP PUT request without sending the file data to be uploaded.
+1. Submit a HTTP PUT request without sending the file data to be uploaded. In the following command, replace **\<yourstorename>** with your Data Lake Store name.
 
-		curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=CREATE
+		curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=CREATE
 
 	The output for this command will be contain a temporary redirect URL, like the one shown below.
 
@@ -142,13 +142,13 @@ Uploading data using the WebHDFS REST API is a two-step process, as explained be
 		HTTP/1.1 307 Temporary Redirect
 		...
 		...
-		Location: https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=CREATE&write=true
+		Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=CREATE&write=true
 		...
 		...
 
-2. You must now submit another HTTP PUT request against the URL listed for the **Location** property in the response.
+2. You must now submit another HTTP PUT request against the URL listed for the **Location** property in the response. Replace **\<yourstorename>** with your Data Lake Store name.
 
-		curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
+		curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
 
 	The output will be similar to the following:
 
@@ -164,18 +164,18 @@ This operation is based on the WebHDFS REST API call defined [here](http://hadoo
 
 Reading data from a Data Lake Store account is a two-step process.
 
-* You first submit a GET request against the endpoint `https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. This will return a location to submit the next GET request to.
-* You then submit the GET request against the endpoint `https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. This will display the contents of the file.
+* You first submit a GET request against the endpoint `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. This will return a location to submit the next GET request to.
+* You then submit the GET request against the endpoint `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. This will display the contents of the file.
 
-However, because there is no difference in the input parameters between the first and the second step, you can use the `-L` parameter to submit the first request. `-L` option essentially combines two requests into one and will make cURL redo the request on the new location. Finally, the output from all the request calls is displayed, like shown below.
+However, because there is no difference in the input parameters between the first and the second step, you can use the `-L` parameter to submit the first request. `-L` option essentially combines two requests into one and will make cURL redo the request on the new location. Finally, the output from all the request calls is displayed, like shown below. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -L GET -H "Authorization: Bearer <REDACTED>" https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN
+	curl -i -L GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN
 
 You should see an output similar to the following:
 
 	HTTP/1.1 307 Temporary Redirect
 	...
-	Location: https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=OPEN&read=true
+	Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=OPEN&read=true
 	...
 	
 	HTTP/1.1 200 OK
@@ -187,9 +187,9 @@ You should see an output similar to the following:
 
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
-Use the following cURL command to rename a file.
+Use the following cURL command to rename a file. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt
+	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt
 
 You should see an output similar to the following:
 
@@ -202,9 +202,9 @@ You should see an output similar to the following:
 
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
-Use the following cURL command to delete a file.
+Use the following cURL command to delete a file. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://nitinadlstore.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE
+	curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE
 
 You should see an output like the following:
 
@@ -217,9 +217,9 @@ You should see an output like the following:
 
 This operation is based on the REST API call defined [here](https://msdn.microsoft.com/library/mt694075.aspx).
 
-Use the following cURL command to delete a Data Lake Store account.
+Use the following cURL command to delete a Data Lake Store account. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/nitinadlstore?api-version=2015-10-01-preview
+	curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
 
 You should see an output like the following:
 
