@@ -103,7 +103,7 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 
 1. In the portal, select the **ContosoDC** machine. On the **Dashboard** tab, click **Connect** to open an RDP file for remote desktop access.
 
-	![Connect to Vritual Machine](./media/virtual-machines-windows-classic-portal-sql-availability/IC784622.png)
+	![Connect to Vritual Machine](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784622.png)
 
 1. Log in with your configured administrator account (**\AzureAdmin**) and password (**Contoso!000**).
 
