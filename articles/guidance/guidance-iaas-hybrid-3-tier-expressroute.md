@@ -3,7 +3,7 @@
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using Azure ExpressRoute."
    services=""
    documentationCenter="na"
-   authors="JohnPWSharp"
+   authors="telmosampaio"
    manager=""
    editor=""
    tags=""/>
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
-   ms.author="roshar"/>
+   ms.date="04/13/2016"
+   ms.author="telmos"/>
 
 # Azure Blueprints: Implementing a Hybrid Network Architecture with Azure ExpressRoute
 
@@ -203,6 +203,7 @@ ExpressRoute circuits provide a high bandwidth path between networks. Generally,
 
     $ckt.Sku.Tier = "Premium"
     $ckt.Sku.Family = "MeteredData"
+	$ckt.Sku.Name = "Premium_MeteredData"
 
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 	```
