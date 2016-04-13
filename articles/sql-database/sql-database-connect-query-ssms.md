@@ -16,9 +16,9 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="03/25/2016"
-	ms.author="sstein" />
+	ms.author="sstein;carlrab" />
 
-# Connect to SQL Database with SQL Server Management Studio using a server-level principal login and execute a sample T-SQL query
+# Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
