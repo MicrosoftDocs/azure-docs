@@ -19,7 +19,7 @@
 
 # Create a Linux VM on Azure using the CLI
 
-This article shows how to quickly create a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM within a basic infrastructure that you can use to prototype or test a concept very rapidly. Think of it as the quickest way to a Linux bash shell.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
+This article shows how to quickly create a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM within a basic infrastructure that you can use to prototype or test a concept very rapidly. Think of it as the quickest way to a Linux bash shell on Azure.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
 ## Quick Command Summary
 
@@ -124,7 +124,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-You can now SSH into your newly deployed Ubuntu VM using the Public IP address listed in the output above and on the default SSH port 22.
+You can now SSH into your newly deployed Ubuntu VM using the Public IP address listed in the output above and on the default SSH port 22 using your SSH public key.
 
 ```
 chrisl@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
@@ -142,7 +142,7 @@ The example above creates:
 - a public IP address and subdomain prefix to provide an internet address for external use
 - an Ubuntu VM that is deployed into the Azure resources listed above
 
-The VM is secured by using SSH keys for the login although password logins are still enabled.  By default Azure VMs created with `azure vm quick-create` are protected by a NSG which filters out all network traffic with the sole exception of the inbound SSH traffic on port 22.  All outbound traffic is enabled by default in the NSG. These are the default NSG settings when using `quick-create` to give a secured environment for your VM. 
+The VM is secured by using SSH keys for the login.  Password logins are still enabled and should be disabled in the SSHD config.  By default Azure VMs created with `azure vm quick-create` are protected by a NSG which filters out all network traffic with the sole exception of the inbound SSH traffic on port 22.  All outbound traffic is enabled by default in the NSG. These are the default NSG settings when using `quick-create` to give a secured environment for your VM. 
 
 ## Quick-Create vs Azure Templates
 
@@ -154,20 +154,20 @@ To help you decide when you should use `vm quick-create` and when you should mov
 | get a BASH shell | quick-create | -              |
 | run a container  | quick-create | -              |
 | deploy Jenkins   | -            | template       |
-| dev cloud        | quick-create | -              |
+| dev cloud        | -            | template       |
 | test cloud       | -            | template       |
 | production cloud | -            | template       |
 | CI/CD VM         | -            | template       |
 
-* Test SSH - you need a quick way to test your new SSH config on your laptop you could use `azure vm quick-create` to build the VM as the cli does not use SSH.
+* Test SSH - you need a quick way to test your new SSH config on your laptop.  Using the Azure CLI you can create and manage the VM without using SSH.  
 
-* Bash shell - you need to reference a command in your automation and cannot remember how to use it, `azure vm quick-create` is the fastest way to a Bash shell on Azure.
+* Bash shell - you need to reference a command in your automation and cannot remember how to use it, `azure vm quick-create` is the fastest way to a Bash shell on Azure to then test out that commands functionality.
 
-* Containers - you have a container you need to launch to test or verify.  You can use `quick-create` to launch a [CoreOS VM](https://azure.microsoft.com/en-us/marketplace/partners/bitnami/jenkins/) to quickly get a Docker host up and running to launch your container on.
+* Containers - you have a container you need to launch to test or verify.  You can use `quick-create` to launch a [CoreOS VM](https://azure.microsoft.com/en-us/marketplace/partners/coreos/coreosstable/) to quickly get a Docker host up and running to launch your container onto.
 
 * Jenkins - you are doing a Proof of Concept project for your team to showcase Continuous Integration and Deployment.  Launching a preconfigured [Jenkins VM from Bitnami](https://azure.microsoft.com/en-us/marketplace/partners/bitnami/jenkins/) gets you up and running so you can start building that CiCd POC.
 
-* Dev, Test and Production - you need to manage your dev teams Azure environment in a repeatable and consistent deployment method. Using DevOps best practices and treating all infrastructure as code you need to store that infrastructure code as code in Git.
+* Dev, Test and Production - you need to manage your teams Azure environments in a repeatable and consistent deployment method. Using DevOps best practices and treating all infrastructure as code you need to store that infrastructure as code in Git.  Azure templates are code and easily utiliized by all the Configuration Management tools like Ansible, Chef, Puppet and Salt.
 
 
 ## Next Steps
