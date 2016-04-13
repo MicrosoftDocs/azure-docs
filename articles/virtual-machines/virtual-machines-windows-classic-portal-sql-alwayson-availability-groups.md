@@ -230,7 +230,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. The address **10.10.2.4** is the address assigned to a VM in the 10.10.2.0/24 subnet in an Azure virtual network, and that VM is **ContosoDC**. To verify **ContosoDC**'s IP address, use the **nslookup contosodc** in the command prompt, as shown below.
 
-	![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-classic-portal-sql-availability/IC664954.jpg)
+	![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC664954.jpg)
 
 1. Click O**K** and then **Close** to commit the changes. You are now able to join the VM to **corp.contoso.com**.
 
