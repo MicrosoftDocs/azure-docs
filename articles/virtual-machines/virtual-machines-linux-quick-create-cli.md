@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/08/2016"
+   ms.date="04/12/2016"
    ms.author="v-livech"/>
 
 
@@ -33,7 +33,7 @@ chrisL@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 
 ## Create the Linux VM
 
-In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to deploy an Ubuntu 14.04 VM.  To locate an image in the marketplace, [search for an image here](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md). 
+In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to deploy an Ubuntu 14.04 VM.  To locate an image in the marketplace, [search for an image here](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).
 
 In the following command walk through, please replace the prompts with values from your own environment.  We are using "example" values for this article.
 
@@ -142,7 +142,7 @@ The example above creates:
 - a public IP address and subdomain prefix to provide an internet address for external use
 - an Ubuntu VM that is deployed into the Azure resources listed above
 
-The VM is secured by using SSH keys for the login.  Password logins are still enabled and should be disabled in the SSHD config.  By default Azure VMs created with `azure vm quick-create` are protected by a NSG which filters out all network traffic with the sole exception of the inbound SSH traffic on port 22.  All outbound traffic is enabled by default in the NSG. These are the default NSG settings when using `quick-create` to give a secured environment for your VM. 
+The VM is secured by using SSH keys for the login.  Password logins are still enabled and should be disabled in the SSHD config.  By default Azure VMs created with `azure vm quick-create` are protected by a NSG which filters out all network traffic with the sole exception of the inbound SSH traffic on port 22.  All outbound traffic is enabled by default in the NSG. These are the default NSG settings when using `quick-create` to give a secured environment for your VM.
 
 ## Quick-Create vs Azure Templates
 
