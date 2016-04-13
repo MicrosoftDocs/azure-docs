@@ -73,13 +73,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 Docker compose can be used to automation the deployment and configuration of multiple containers. To so, ensure that an SSH tunnel has been created, and that the DOCKER_HOST variable has been set. 
 
-```bash
-# set Docker host variable 
-
-export DOCKER_HOST=:2375 
-```
-
-Create a docker-compose.yaml file on your local system. A sample can be found [here](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+Create a docker-compose.yml file on your local system. A sample can be found [here](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
 
 ```bash
