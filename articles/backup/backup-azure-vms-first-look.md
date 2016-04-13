@@ -76,18 +76,18 @@ To create a backup vault:
 
     ![Create vault toast notification](./media/backup-azure-vms-first-look/create-vault-demo.png)
 
-    A message confirms the vault has been successfully created. It is listed on the **recovery services** page as **Active**.
+    A message confirms the vault has been successfully created. It is listed on the **Recovery services** page as **Active**.
 
     ![Create vault toast notification](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
 
-7. In the list of vaults on **Recovery Services** page, click the vault you created to launch the **Quick Start** page.
+8. In the list of vaults on **Recovery Services** page, select the vault you created to launch the **Quick Start** page.
 
     ![List of backup vaults](./media/backup-azure-vms-first-look/active-vault-demo.png)
 
-8. On the **Quick Start** page, click **Configure** to open the storage replication option.
+9. On the **Quick Start** page, click **Configure** to open the storage replication option.
     ![List of backup vaults](./media/backup-azure-vms-first-look/configure-storage.png)
 
-9. On the **storage replication** option, choose the replication option for your vault.
+10. On the **storage replication** option, choose the replication option for your vault.
 
     ![List of backup vaults](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
 
@@ -149,19 +149,9 @@ Before registering the VM with a vault, run the discovery process to identify an
 
 ## Step 3 - Install the VM Agent on the virtual machine
 
-The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, the VM Agent is already present on the VM; you can skip to [protecting your VMs](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
+The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, the VM Agent is already present on the VM! You can skip to [protecting your VMs](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
 
-VMs migrated from on-premises datacenters do not have the VM Agent installed. In such a case, the VM Agent must be installed on the VM. Before you attempt to back up the Azure VM, check that the VM Agent is correctly installed on the virtual machine (see the following table). If you're creating a custom VM, [ensure that the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) before the virtual machine is provisioned.
-
-Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
-
-The following table provides additional information about the VM Agent for Windows and Linux VMs.
-
-| **Operation** | **Windows** | **Linux** |
-| --- | --- | --- |
-| Installing the VM Agent | <li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. | <li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
-| Updating the VM Agent | Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. | Follow the instructions on [updating the Linux VM Agent](../virtual-machines-linux-update-agent.md). <br>Ensure that no backup operation is running while the VM Agent is being updated. |
-| Validating the VM Agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. | N/A |
+If your VM migrated from an on-premises datacenter, the VM probably does not have the VM Agent installed. You must install the VM Agent on the virtual machine before proceeding to protect the VM. For detailed steps on installing the VM Agent, see the [VM Agent section of the Backup VMs article](backup-azure-vms-prepare.md#vm-agent).
 
 
 ## Step 4 - Protect Azure virtual machines
