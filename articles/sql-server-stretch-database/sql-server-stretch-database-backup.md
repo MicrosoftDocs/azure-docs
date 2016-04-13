@@ -33,7 +33,7 @@ Stretch Database provides full support for point in time restore. After you rest
 
     -   Provide the existing database scoped credential as a sysname or a varchar(128) value. (Don't use varchar(max).) You can look up the credential name in the view **sys.database_scoped_credentials**.
 
-	-   Specify whether to connect to the existing remote data (@with_copy = 0), or to make a copy of the remote data and connect to the copy (@with_copy = 1).
+	-   Specify whether to make a copy of the remote data and connect to the copy.
 
     ```tsql
     Declare @credentialName nvarchar(128);
