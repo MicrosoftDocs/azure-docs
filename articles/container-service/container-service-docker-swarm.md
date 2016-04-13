@@ -20,7 +20,7 @@
 
 # Container management with Docker Swarm
 
-Docker Swarm provides an environment for deploying containerized workload across a pooled set of container hosts. Docker Swarm uses that native Docker API and tooling, and the workflow for managing containers on a Docker Swarm, is almost identical to what it would be on a single container host. This document will detail deploying container workload on a Docker Swarm cluster, hosted on the Azure Container Service. 
+Docker Swarm provides an environment for deploying containerized workload, across a pooled set of Docker hosts. Docker Swarm uses the native Docker API, and the workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document will provide simple examples of deploying containerized workload, in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
 
 Pre-requisites to the exercises in this document:
 
@@ -40,7 +40,7 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 4298d397b9ab6f37e2d1978ef3c8c1537c938e98a8bf096ff00def2eab04bf72
 ```
 
-Once the container has been created, use `docker ps` to return information about the container. Notice here that the Swarm agent hosting the container is listed. 
+Once the container has been created, use `docker ps` to return information about the container. Notice here that the Swarm agent, hosting the container, is listed. 
  
 
 ```bash
@@ -57,7 +57,7 @@ The application running in this container can now be accessed through the public
 
 ### Multiple containers
 
-As multiple containers are started in the Docker Swarm, the `docker ps` command can be used to see what host the containers are running on. In this example thee containers a spread evenly across the three Swarm agents.  
+As multiple containers are started on the Docker Swarm cluster, the `docker ps` command can be used to see what host the containers are running on. In this example thee containers a spread evenly across the three Swarm agents.  
 
 
 ```bash
@@ -100,7 +100,7 @@ Run `docker-compose up -d` to start the container deployments.
 
 
 ```bash
-azureuser@ubuntu:~/compose$ docker-compose up -d
+user@ubuntu:~/compose$ docker-compose up -d
 Pulling rest (adtd/rest:0.1)...
 swarm-agent-3B7093B8-0: Pulling adtd/rest:0.1... : downloaded
 swarm-agent-3B7093B8-2: Pulling adtd/rest:0.1... : downloaded
@@ -113,11 +113,11 @@ swarm-agent-3B7093B8-2: Pulling adtd/web:0.1... : downloaded
 Creating compose_web_1
 ```
 
-Finally, the list of running containers can be returned, which will reflect those deployed with swarm.
+Finally, the list of running containers can be returned, which will reflect those deployed with Docker Compose.
 
 
 ```bash
-azureuser@ubuntu:~/compose$ docker ps
+user@ubuntu:~/compose$ docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                     NAMES
 caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago       Up About a minute   10.0.0.4:80->80/tcp       swarm-agent-3B7093B8-0/compose_web_1
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
@@ -125,4 +125,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 ## Next steps:
 
-- [Read more about Docker Swarm.](https://docs.docker.com/swarm/).
+- [Read more about Docker Swarm](https://docs.docker.com/swarm/).
