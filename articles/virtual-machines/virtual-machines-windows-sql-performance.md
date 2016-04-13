@@ -58,7 +58,7 @@ DS-series (along with DSv2-series and GS-series) VMs support [Premium Storage](.
 
 > [AZURE.WARNING] Standard Storage has varying latencies and bandwidth and is only recommended for dev/test workloads. Production workloads should use Premium Storage.
 
-In addition, we recommend that you create your Azure storage account in the same data center as your SQL Server virtual machines to reduce transfer delays. When creating a storage account, disable geo-replication as consistent write order across multiple disks is not guaranteed. Instead, consider configuring a SQL Server disaster recovery technology between two Azure data centers. For more information, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-dr.md).
+In addition, we recommend that you create your Azure storage account in the same data center as your SQL Server virtual machines to reduce transfer delays. When creating a storage account, disable geo-replication as consistent write order across multiple disks is not guaranteed. Instead, consider configuring a SQL Server disaster recovery technology between two Azure data centers. For more information, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
 ## Disks guidance
 
@@ -118,11 +118,11 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
 - Move SQL Server error log and trace file directories to data disks. This can be done in SQL Server Configuration Manager by right-clicking your SQL Server instance and selecting properties. The error log and trace file settings can be changed in the **Startup Parameters** tab. The Dump Directory is specified in the **Advanced** tab. The following screenshot shows where to look for the error log startup parameter.
 
-	![SQL ErrorLog Screenshot](./media/virtual-machines-windows-classic-sql-perf/sql_server_error_log_location.png)
+	![SQL ErrorLog Screenshot](./media/virtual-machines-windows-sql-performance/sql_server_error_log_location.png)
 
 - Setup default backup and database file locations. Use the recommendations in this topic, and make the changes in the Server properties window. For instructions, see [View or Change the Default Locations for Data and Log Files (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). The following screenshot demonstrates where to make these changes.
 
-	![SQL Data Log and Backup files](./media/virtual-machines-windows-classic-sql-perf/sql_server_default_data_log_backup_locations.png)
+	![SQL Data Log and Backup files](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 
 - Enable locked pages to reduce IO and any paging activities. For more information, see [Enable the Lock Pages in Memory Option (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 
@@ -134,7 +134,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
 Some deployments may achieve additional performance benefits using more advanced configuration techniques. The following list highlights some SQL Server features that can help you to achieve better performance:
 
-- **Backup to Azure storage**: When performing backups for SQL Server running in Azure virtual machines, you can use [SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx). This feature is available starting with SQL Server 2012 SP1 CU2 and recommended for backing up to the attached data disks. When you backup/restore to/from Azure storage, follow the recommendations provided at [SQL Server Backup to URL Best Practices and Troubleshooting and Restoring from Backups Stored in Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). You can also automate these backups using [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-backup.md).
+- **Backup to Azure storage**: When performing backups for SQL Server running in Azure virtual machines, you can use [SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx). This feature is available starting with SQL Server 2012 SP1 CU2 and recommended for backing up to the attached data disks. When you backup/restore to/from Azure storage, follow the recommendations provided at [SQL Server Backup to URL Best Practices and Troubleshooting and Restoring from Backups Stored in Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). You can also automate these backups using [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md).
 
 	Prior to SQL Server 2012, you can use [SQL Server Backup to Azure Tool](https://www.microsoft.com/download/details.aspx?id=40740). This tool can help to increase backup throughput using multiple backup stripe targets.
 
@@ -144,6 +144,6 @@ Some deployments may achieve additional performance benefits using more advanced
 
 If you are interested in exploring SQL Server and Premium Storage in more depth, see the article [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-windows-classic-sql-server-premium-storage.md).
 
-For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-security.md).
+For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-Review other SQL Server Virtual Machine topics at [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-classic-sql-overview.md).
+Review other SQL Server Virtual Machine topics at [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md).
