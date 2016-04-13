@@ -89,7 +89,7 @@ The following is the scenario support matrix this single sign-on experience:
 
 PingFederate 6.11 implements the widely used WS Federation identity standard to provide a single sign-on and attribute exchange framework.
 
-The following is the scenario support matrix this single sign-on experience:
+The following is the scenario support matrix for this single sign-on experience:
 
 
 | Client |Support  |Exceptions|
@@ -117,7 +117,7 @@ For the PingFederate instructions on how to configure this STS to provide the si
 ## Centrify 
 Centrify helps provide a federated single sign-on experience for Office 365 without the requirement of hosting an on-premises Federation server.
 
-The following is the scenario support matrix this single sign-on experience:
+The following is the scenario support matrix for this single sign-on experience:
 
 
 | Client |Support  |Exceptions|
