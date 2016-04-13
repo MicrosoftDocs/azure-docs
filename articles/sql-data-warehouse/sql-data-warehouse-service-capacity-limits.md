@@ -3,7 +3,7 @@
    description="Maximum values for connections, queries, Transact-SQL DDL and DML, and system views for SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/05/2016"
-   ms.author="barbkess;jrj;sonyama"/>
+   ms.date="4/12/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # SQL Data Warehouse capacity limits
 
