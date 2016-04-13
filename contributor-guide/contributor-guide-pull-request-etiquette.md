@@ -1,4 +1,4 @@
-# Pull request etiquette and best practices
+# Pull request etiquette and best practices for Microsoft contributors to Azure documentation
 
 To publish changes to documentation, you submit pull requests from your fork. Every pull request has to be reviewed prior to being merged. Read this article to understand how you should work with pull request reviewers and how you can create pull requests that are easier and faster to review so the pull request queue works better for everyone.
 
