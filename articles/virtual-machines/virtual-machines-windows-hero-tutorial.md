@@ -42,7 +42,7 @@ Here's a [video walkthrough](https://channel9.msdn.com/Blogs/Azure-Documentation
 
 2. On the Hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
 
-	![Screenshot that shows the Azure VM images available in the preview portal](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
+	![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
 
 3. On the **Windows Server 2012 R2 Datacenter** page, under **Select a deployment model**, select **Resource Manager**. Click **Create**.
 

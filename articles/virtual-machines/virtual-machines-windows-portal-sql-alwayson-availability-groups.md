@@ -19,9 +19,9 @@
 # Configure an AlwaysOn availability group in Azure Resource Manager virtual machines (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Classic](virtual-machines-windows-classic-portal-sql-availability.md)
-- [PowerShell - Classic](virtual-machines-windows-classic-ps-sql-availability.md)
+- [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Portal - Classic](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [PowerShell - Classic](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
@@ -46,7 +46,7 @@ At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will cons
 
 The figure below is a graphical representation of the solution.
 
-![Test Lab Architecture for AG in Azure](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/0-EndstateSample.png)
+![Test Lab Architecture for AG in Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/0-EndstateSample.png)
 
 All of the resources in this solution belong to a single resource group.
 
@@ -77,9 +77,9 @@ Azure provides a gallery image for the entire solution. In order to locate the t
 1. 	Log in to the Azure portal using your account.
 1.	On the Azure portal click **+New.** The portal will open the New blade.
 1.	On the New blade search for **AlwaysOn**.
-![Find AlwaysOn Template](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/16-findalwayson.png)
+![Find AlwaysOn Template](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 1.	In the search results locate **SQL Server AlwaysOn Cluster**.
-![AlwaysOn Template](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/17-alwaysontemplate.png)
+![AlwaysOn Template](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	On **Select a deployment model** choose **Resource Manager**.
 
 ### Basics
@@ -98,7 +98,7 @@ Click on **Basics** and configure the following:
 
 Below is what the **Basics** blade will look like:
 
-![Basics](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/1-basics.png)
+![Basics](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 - Click **OK**.
 
@@ -120,7 +120,7 @@ To learn more about virtual networks in [Azure see Virtual Network Overview](../
 
 The **Domain and network settings** should look like this:
 
-![Domain and network settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/2-domain.png)
+![Domain and network settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
 
 If necessary, you may change these values. For this tutorial we use the preset values.
 
@@ -138,7 +138,7 @@ On **availability group settings** review the preset values for teh availability
 
 If necessary, you may change these values. For this tutorial use the preset values.  
 
-![availability group settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/3-availabilitygroup.png)
+![availability group settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
 - Click **OK**.
 
@@ -170,7 +170,7 @@ On **VM size, storage settings** choose a SQL Server virtual machine size and re
 
 For this tutorial use **General workload**.
 
-![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
+![VM size storage settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/4-vm.png)
 
 - Review the settings and click **OK**.
 
@@ -214,7 +214,7 @@ On **SQL Server settings** review and modify the SQL Server VM name prefix, SQL 
 
 >[AZURE.NOTE]The patching window for each VM is staggered by one hour. Only one virtual machine is patched at a time in order to prevent disruption of services.
 
-![SQL Server settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/5-sql.png)
+![SQL Server settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/5-sql.png)
 
 Review the settings and click **OK**.
 
@@ -232,7 +232,7 @@ The Azure portal will create the resource group and all of the resources.
 
 Monitor the deployment progress from the Azure portal. An icon representing the deployment is automatically pinned to the Azure portal dashboard.
 
-![Azure Dashboard](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/11-deploydashboard.png)
+![Azure Dashboard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
 ##Connect to SQL Server
 
@@ -247,7 +247,7 @@ To RDP to the primary domain controller, follow these steps:
 1.	In the **Resources** blade, click **ad-primary-dc** which is the computer name of the virtual machine for the primary domain controller.
 
 1.	On the blade for **ad-primary-dc** click **Connect**. Your browser will ask if you want to open or save the remote connection object. Click **Open**.
-![Connect to DC](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/13-ad-primary-dc-connect.png)
+![Connect to DC](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
 1.	**Remote desktop connection** may warn you that the publisher of this remote connection can’t be identified. Click **Connect**.
 
 1.	Windows security prompts you to enter your credentials to connect to the IP address of the primary domain controller. Click **Use another account**. For **User name** type **contoso\DomainAdmin**. This is the account you chose for administrator user name. Use the complex password that you chose when you configured the template.
