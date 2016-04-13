@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="meet-bhagdev"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -26,20 +26,21 @@
 
 This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.
 
+## Step 1:  Configure Development Environment
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### A SQL database
+## Step 2: Create a SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 
 
-## Step 1: Get Connection Details
+## Step 3: Get Connection Details
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Step 2:  Connect
+## Step 4:  Connect
 
 
 This **OpenConnection** function is called near the top in all of the functions that follow.
@@ -63,7 +64,7 @@ This **OpenConnection** function is called near the top in all of the functions 
 	}
 
 
-## Step 3:  Execute query
+## Step 5:  Execute query
 
 The [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and the connection object and returns a result set which can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -93,7 +94,7 @@ The [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) functio
 	}
 
 
-## Step 4:  Insert a row
+## Step 6:  Insert a row
 
 In this example you will see how to execute an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://msdn.microsoft.com/library/ms179610.aspx) value.  
 
@@ -123,7 +124,7 @@ In this example you will see how to execute an [INSERT](https://msdn.microsoft.c
 		}
 	}
 
-## Step 5:  Rollback a transaction
+## Step 7:  Rollback a transaction
 
 
 This code example demonstrates the use of transactions in which you:

@@ -54,7 +54,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 
 ### Get started
-[Learning path for Windows VMs](https://azure.microsoft.com/en-us/documentation/learning-paths/virtual-machines/)
+[Learning path for Windows VMs](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Create a Windows virtual machine in the Azure portal](virtual-machines-windows-classic-tutorial.md)
 
@@ -114,9 +114,9 @@ Find all the documentation you need to create and manage Windows-based virtual m
 	
 [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-windows-cli-deploy-templates.md)
 		
-[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-backup.md)
+[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-patch.md)
+[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md)
 
 [Automatically scale machines in a Virtual Machine Scale Set](virtual-machines-windows-ps-vmss-create.md)
 
@@ -163,7 +163,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-windows-lob.md)
 
@@ -197,7 +197,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Troubleshooting Azure VM Extension failures](virtual-machines-windows-extensions-troubleshoot.md)
 
-[Troubleshoot resource group deployments](resource-group-deploy-debug.md)
+[Troubleshoot resource group deployments](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Troubleshoot Access to an Application Running on an Azure Virtual Machine](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -230,7 +230,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 
 ### Get started
-[Learning path for Windows VMs](https://azure.microsoft.com/en-us/documentation/learning-paths/virtual-machines/)
+[Learning path for Windows VMs](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Create a Windows virtual machine in the Azure classic portal](virtual-machines-windows-classic-tutorial.md)
 
@@ -283,9 +283,9 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Custom Script extension for classic Windows virtual machines](virtual-machines-windows-classic-extensions-customscript.md)
 
-[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-backup.md)
+[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-patch.md)
+[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md)
 
 
 
@@ -353,7 +353,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Oracle](virtual-machines-windows-classic-oracle.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [SharePoint](virtual-machines-windows-sharepoint-farm.md)
 

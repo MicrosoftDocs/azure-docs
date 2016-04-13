@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Create a new Office 365 Outlook API in PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-office365-outlook.md)
+- [Logic apps](../articles/connectors/connectors-create-api-office365-outlook.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
 
 Add the Office 365 Outlook API to your organization's (tenant) app service environment. 
@@ -119,7 +119,7 @@ Some good info on AAD applications at [How and why applications are added to Azu
 
 ## See the REST APIs
 
-[Office 365 Outlook REST API](../connectors/create-api-office365-outlook.md) reference.
+[Office 365 Outlook REST API](../connectors/connectors-create-api-office365-outlook.md) reference.
 
 
 ## Summary and next steps

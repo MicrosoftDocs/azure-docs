@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/23/2016"
+     ms.date="03/29/2016"
      ms.author="obloch"/>
 
 # Introducing the Azure IoT device SDK for C
@@ -157,6 +157,8 @@ You can find the implementation for the sample application in the **iothub\_clie
 We'll use this sample application to walk you through what’s required to use the **IoTHubClient** library.
 
 ### Initializing the library
+
+> [AZURE.NOTE] Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQPS on Linux you must initialize the OpenSSL library. The samples in the [GitHub repository](https://github.com/Azure/azure-iot-sdks) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdks) to determine whether you need to include any platform initialization code in your client.
 
 To start working with the libraries you must first allocate an IoT Hub client handle:
 

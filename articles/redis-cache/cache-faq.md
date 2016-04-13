@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -265,25 +265,7 @@ Because each client is different, there is not one centralized class reference o
 
 ## Which Azure Cache offering is right for me?
 
->[AZURE.IMPORTANT] Microsoft recommends all new developments use Azure Redis Cache.
-
-Azure Cache currently has three offerings:
-
--	Azure Redis Cache
--	Azure Managed Cache service
--	Azure In-Role Cache
-
->[AZURE.IMPORTANT]We’re announcing the November 30, 2016, retirement for Azure Managed Cache Service and Azure In-Role Cache. We recommend that you migrate to Azure Redis Cache in preparation for this retirement. 
->
->Azure Redis Cache has been the recommended caching solution in Azure since the service became generally available, and it’s is now available in all Azure regions, including China and US Government. Because of this availability, we’re announcing the upcoming retirement for Managed Cache Service and In-Role Cache service. 
->
->Managed Cache Service and In-Role Cache service will remain available for existing customers for a maximum of 12 months from the date of this announcement on November 30, 2015—the end of service date for both will end on November 30, 2016. After this date, Managed Cache Service will be shut down, and In-Role Cache service will no longer be supported. 
->
->We’ll remove support for creating new in-role caches in the first Azure SDK release that happens after February 1, 2016. Customers will be able to open existing projects that have in-role caches. 
->
->During this period, we encourage all existing Managed Cache Service and In-Role Cache service customers to migrate to Azure Redis Cache. Azure Redis Cache provides more features and a better value overall. For more information on migrating, please visit the [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md) documentation webpage. 
->
->If you have any questions, please [contact us](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933). 
+>[AZURE.IMPORTANT]As per last year's [announcement](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), Azure Managed Cache Service and Azure In-Role Cache service will be retired on November 30, 2016. Our recommendation is to use [Azure Redis Cache](https://azure.microsoft.com/services/cache/). For information on migrating, please see [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md).
 
 ### Azure Redis Cache
 Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
@@ -297,9 +279,9 @@ Another key aspect to Redis success is the healthy, vibrant open source ecosyste
 For more information about getting started with Azure Redis Cache, see [How to Use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 ### Managed Cache service
-Managed Cache service is set to be retired November 30, 2016.
+[Managed Cache service is set to be retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ### In-Role Cache
-In-Role Cache is set to be retired November 30, 2016.
+[In-Role Cache is set to be retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
