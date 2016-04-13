@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to deploy an ASP.NET Web API 2 application to an [API app in Azure App Service](app-service-web-overview.md) by using Visual Studio 2015. The tutorial assumes that you are an ASP.NET developer who has no prior experience with using Azure. On completing the tutorial, you'll have a simple Web API up and running in the cloud.
+This tutorial shows how to deploy an ASP.NET Web API 2 application to an [API app in Azure App Service](app-service-api-apps-why-best-platform.md) by using Visual Studio 2015. The tutorial assumes that you are an ASP.NET developer who has no prior experience with using Azure. On completing the tutorial, you'll have a simple Web API up and running in the cloud.
 
 You'll learn:
 
@@ -43,7 +43,7 @@ If you want to get started with Azure App Service before you sign up for an Azur
 
 ### <a name="setupdevenv"></a>Visual Studio 2015 with the Azure SDK for .NET
 
-The tutorial is written for Visual Studio 2015 with the [Azure SDK for .NET](../articles/dotnet-sdk.md) 2.8.2 or later. [Download the latest Azure SDK for Visual Studio 2015 here](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio is automatically installed with the SDK if you don't already have it.
+The tutorial is written for Visual Studio 2015 with the [Azure SDK for .NET](../dotnet-sdk.md) 2.8.2 or later. [Download the latest Azure SDK for Visual Studio 2015 here](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio is automatically installed with the SDK if you don't already have it.
 
 If you have Visual Studio 2013, you can [download the latest Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Some screens may look different from the illustrations.
 
@@ -254,7 +254,7 @@ If you run into a problem as you go through this tutorial, make sure that you're
 
 If you're on a corporate network and are trying to deploy to Azure App Service through a firewall, make sure that ports 443 and 8172 are open for Web Deploy. If you can't open those ports, see the following Next steps section for other deployment options.
 
-After you have your ASP.NET API app running in Azure App Service, you may want to learn more about Visual Studio features that simplify troubleshooting. For information about logging, remote debugging, and more, see  [Troubleshooting Azure API apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+After you have your ASP.NET API app running in Azure App Service, you may want to learn more about Visual Studio features that simplify troubleshooting. For information about logging, remote debugging, and more, see  [Troubleshooting Azure API apps in Visual Studio](../app-service-api/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Next steps
 
