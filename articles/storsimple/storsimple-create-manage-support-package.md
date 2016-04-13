@@ -12,30 +12,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
-   ms.author="alkohli" />
+   ms.date="13/04/2015"
+   ms.author="anbacker" />
 
 
 # Create and manage a StorSimple support package
 
 ## Overview
 
-This tutorial describes the various tasks associated with creating and managing a support package. A support package includes all the relevant logs in an encrypted, compressed format and is used to assist the Microsoft Support team with troubleshooting any StorSimple device issues.
+StorSimple support package is an easy to use mechanism which collects all relevant logs to assist Microsoft Support team with troubleshooting any StorSimple device issues. The collected logs are encrypted & compressed. 
 
-This tutorial includes step-by-step instructions to create and manage the support package by using the:
+This tutorial includes step-by-step instructions to create and manage the support package.
 
-- **Support package** section of the **Maintenance** page in the StorSimple Manager service
-- Windows PowerShell for StorSimple
+## Create and upload support package in the Azure classic portal
 
-After reading this tutorial, you will be able to:
+You can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in  the Azure classic portal. This package can then be retrieved by the Support Engineer from the Support site when the engineer supplies the pass key.
 
-- Create a support package
-- Decrypt and edit a support package
-
-
-## Create a support package in the Azure classic portal
-
-To troubleshoot any issues that you may be experiencing with StorSimple Manager service, you can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in  the Azure classic portal. You will need to provide a support passkey to allow the upload. The support pass key should be provided to you by your Support Engineer in an email. An unencrypted, compressed support package is created (.cab file). This package can then be retrieved by the Support Engineer from the Support site when the engineer supplies the pass key.
+> [AZURE.NOTE] You will need to provide a support passkey to allow the upload. The support pass key should be provided to you by your Support Engineer in an email. An unencrypted, compressed support package is created (.cab file). 
 
 Perform the following steps in the classic portal to create a support package:
 
@@ -56,9 +49,9 @@ Perform the following steps in the classic portal to create a support package:
 	- Click the check icon ![Check icon](./media/storsimple-create-manage-support-package/IC740895.png).
 
 
-## Create a support package in Windows PowerShell for StorSimple
+## Manually create a support package using Windows PowerShell for StorSimple
 
-If you need to edit your log files prior to creating a package, you will need to create your package through the Windows PowerShell for StorSimple. 
+If you need to edit your log files prior to creating a package or if device is facing intenet connectivity issues, you will need to create your package through the Windows PowerShell for StorSimple. Generated support package can then be shared with Microsoft Support over email. 
 
 Perform the following steps to create a support package in Windows PowerShell for StorSimple:
 
@@ -99,7 +92,7 @@ Perform the following steps to create a support package in Windows PowerShell fo
 		You will be prompted for a password, a path to the network shared folder, and an encryption passphrase (because the support package is encrypted). When these are provided, a support package will be created in the specified folder.
 											
 
-	- For open network shared folders (those that are not password protected), you do not need the `-Credential` parameter. Type the following: 
+	- For shares that are not password protected, you do not need the `-Credential` parameter. Type the following: 
 
 		`Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
 
@@ -109,19 +102,19 @@ Perform the following steps to create a support package in Windows PowerShell fo
 ### More information about the Export-HcsSupportPackage cmdlet
 The different parameters that can be used with the Export-HcsSupportPackage cmdlet are tabulated below.
 
-| S. No. | Parameter            | Required/Optional | Description                                                                                                                                                             |
-|--------|----------------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1      | Path                 | Required          | Use to provide the location of the network shared folder in which the support package will be placed.                                                                 |
-| 2      | EncryptionPassphrase | Required          | Use to provide a passphrase to help encrypt the support package.                                                                                                        |
-| 3      | Credential           | Optional          | Use this parameter to supply access credentials for the network shared folder.                                                                                        |
-| 4      | Force                | Optional          | Use to skip the encryption passphrase confirmation step.                                                                                                                |
-| 5      | PackageTag           | Optional          | Use to specify a directory under Path in which the support package will be placed. The default is [device name]-[ current date and time:yyyy-MM-dd-HH-mm-ss].       |
-| 6      | Scope                | Optional          | Specify as **Cluster** (default) to create a support package for both controllers. If you want to create a package only for the current controller, specify **Controller**. |
+| Parameter            | Required/Optional | Description                                                                                                                                                             |
+|----------------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-Path`                 | Required          | Use to provide the location of the network shared folder in which the support package will be placed.                                                                 |
+| `-EncryptionPassphrase` | Required          | Use to provide a passphrase to help encrypt the support package.                                                                                                        |
+| `-Credential`           | Optional          | Use this parameter to supply access credentials for the network shared folder.                                                                                        |
+| `-Force`                | Optional          | Use to skip the encryption passphrase confirmation step.                                                                                                                |
+| `-PackageTag`           | Optional          | Use to specify a directory under Path in which the support package will be placed. The default is [device name]-[ current date and time:yyyy-MM-dd-HH-mm-ss].       |
+| `-Scope`                | Optional          | Specify as **Cluster** (default) to create a support package for both controllers. If you want to create a package only for the current controller, specify **Controller**. |
 
 
 ## Edit a support package
 
-After you have generated a support package, you may need to edit the package to remove customer-specific information such as volume names, device IP addresses, and backup names from the log files. 
+After you have generated a support package, you may need to edit the package to remove sensitive information such as volume names, device IP addresses, and backup names from the log files. 
 
 > [AZURE.IMPORTANT] You can only edit a support package that was generated through Windows PowerShell for StorSimple. You cannot edit a package created in the Azure classic portal with StorSimple Manager service. 
 
@@ -137,7 +130,7 @@ To edit a support package before uploading it on the Microsoft Support site, you
  
 	`Import-module <Path to the folder that contains the Windows PowerShell script>`
 
-4. Open the support package folder. Note that all the files are *.aes* files that are compressed and encrypted. Open the files. To open files, type:
+4. Decompress and decrypt: Note that all the files are *.aes* files that are compressed and encrypted. To decompress and decrypt files, type:
 
 	`Open-HcsSupportPackage <Path to the folder that contains support package files>`
 
@@ -154,7 +147,7 @@ To edit a support package before uploading it on the Microsoft Support site, you
 	
 6. Navigate to the folder that contains the log files. As the log files are now decompressed and decrypted, these will have original file extensions. Modify these files to remove any customer-specific information such as volume names and device IP addresses and save the files.
 
-7. Close the files. Closing the files will compress them with Gzip and then encrypt them with AES-256. This is for security and speed when transferring the support package over a network. To close files, type:
+7. Compress and encrypt: Closing the files will compress them with Gzip and then encrypt them with AES-256. This is for security and speed when transferring the support package over a network. To close files, type:
 
 	`Close-HcsSupportPackage <Path to the folder that contains support package files>`
 
