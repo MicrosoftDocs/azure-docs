@@ -131,7 +131,7 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 
 1. Click the **More** link on the yellow warning bar.
 
-	![AD DS dialog on DNS Server VM](./media/virtual-machines-windows-classic-portal-sql-availability/IC784625.png)
+	![AD DS dialog on DNS Server VM](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784625.png)
 
 1. In the **Action** column of the **All Server Task Details** dialog, click **Promote this server to a domain controller**.
 
