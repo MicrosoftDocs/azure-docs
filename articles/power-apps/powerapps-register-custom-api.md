@@ -95,6 +95,7 @@ When you create the Swagger file, a .json file is created. Keep this .json file 
 Now that the Swagger file (.json file) is generated for the custom API, add the connection to PowerApps. You'll also need the icon for your custom API. 
 
 1. Go to the PowerApps [web portal][9], and sign in with your work account.  
+
 	> [AZURE.NOTE] Currently, custom APIs can only be used in the PowerApps web portal. They cannot be used in the PowerApps client.  
 
 2. Select **Connections**, and then select **Add a connection**:  
@@ -139,6 +140,7 @@ In this step, we create a very simple logic flow that shows you how to add your 
 1. In the PowerApps [web portal][9], select the **Home** tab.
 2. Under **Make a logic flow**, select **Get started**. 
 3. In this window, there are several logic flow templates already created that use some common scenarios. You can use any of these, and add your custom API to it. Or, you can choose **Create from blank** to create a logic flow from scratch.  
+
 	The quickest way to add your custom API is to select **Create from blank**. This opens the following logic flow:  
 	![](./media/powerapps-register-custom-api/createfromblank.png "Start of Logic Flow")   
 
