@@ -52,11 +52,11 @@ This tutorial aims to teach you how to create a WebAPI and host it on Azure Weba
 	>[AZURE.IMPORTANT] A swagger document with duplicate operationid(s) is invalid. If you are using the sample C# template, the operation-id "Values_Get" is repeated twice. Change one instance to "Value_Get".
 
 
-You can download the swagger used in this tutorial [here](webAPI.json). Be sure to replace/remove the comments before using it. Comments start with `//`.
+You can download the swagger used in this tutorial [here][6]. Be sure to replace/remove the comments before using it. Comments start with `//`.
 
 ## Step 2: Set up AAD authentication
 
-This tutorial assumes you know how to create an AAD application in Azure. To learn more about how to create an AAD application, read [this](powerapps-azure-resource-manager-tutorial.md). We need two AAD applications for this tutorial. 
+This tutorial assumes you know how to create an AAD application in Azure. To learn more about how to create an AAD application, read the [Azure resource manager tutorial](powerapps-azure-resource-manager-tutorial.md). We need two AAD applications for this tutorial. 
 
 1. The first AAD application is used to secure the web API. Name it **webAPI**.
 2. The second AAD application is used to secure the custom API registration and acquire delegated access to the web API protected by the first app. Name this one **webAPI-customAPI** .
@@ -107,7 +107,7 @@ This should setup AAD authentication for you web app.
   },
 	```
 
-2. Go to the PowerApps [web portal](1), and add a custom API.  [Use Custom APIs in Logic Flows and PowerApps](powerapps-register-custom-api.md) lists the steps.
+2. Go to the PowerApps [web portal][1], and add a custom API.  [Use Custom APIs in Logic Flows and PowerApps](powerapps-register-custom-api.md) lists the steps.
 
 3. Once you have uploaded your Swagger, the wizard auto-detects that you are using AAD authentication for your webAPI.
 
@@ -122,10 +122,10 @@ This should setup AAD authentication for you web app.
 
 For a more detailed experience on creating PowerApps and Logic Flows, see the following: 
 
-- [Connect to Office 365, Twitter, and Microsoft Translator](5)
-- [Show data from Office 365](4)
-- [Create an app from data](3)
-- [Get started with logic flows](2)
+- [Connect to Office 365, Twitter, and Microsoft Translator][5]
+- [Show data from Office 365][4]
+- [Create an app from data][3]
+- [Get started with logic flows][2]
 
 For questions or comments, email [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
@@ -135,3 +135,4 @@ For questions or comments, email [customapishelp@microsoft.com](mailto:customapi
 [3]: https://powerapps.microsoft.com/tutorials/get-started-create-from-data/
 [4]: https://powerapps.microsoft.com/tutorials/show-office-data/
 [5]: https://powerapps.microsoft.com/tutorials/powerapps-api-functions/
+[6]: http://pwrappssamples.blob.core.windows.net/samples/webAPI.json
