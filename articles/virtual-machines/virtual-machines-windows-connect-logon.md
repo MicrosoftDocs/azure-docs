@@ -20,7 +20,7 @@
 # How to connect and log on to an Azure virtual machine running Windows Server 
 
 
-You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session. First you'll connect to the virtual machine, then you'll log on.
+You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session. First you connect to the virtual machine, then you log on.
 
 ## Connect to the virtual machine
 
