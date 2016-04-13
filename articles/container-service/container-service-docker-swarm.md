@@ -33,13 +33,15 @@ Pre-requisites to the exercises in this document:
 
 To create a new container in the Docker Swarm, use the `docker run` command. This example creates a container from the `yeasy/simple-web` image.
 
+
 ```none
 user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 
 4298d397b9ab6f37e2d1978ef3c8c1537c938e98a8bf096ff00def2eab04bf72
 ```
 
-Once the container has been created, use `docker ps` to return information about the container. Notice here that the Swarm agent hosting the container is listed.  
+Once the container has been created, use `docker ps` to return information about the container. Notice here that the Swarm agent hosting the container is listed. 
+ 
 
 ```
 user@ubuntu:~$ docker ps
@@ -50,11 +52,13 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 The application running in this container can now be accessed through the public DNS name of the Swarm agent load balancer. This information can be found in the Azure Portal.  
 
+
 ![](media/real-visit.jpg)  
 
 ### Multiple containers
 
 As multiple containers are started in the Docker Swarm, the `docker ps` command can be used to see what host the containers are running on. In this example thee containers a spread evenly across the three Swarm agents.  
+
 
 ```
 user@ubuntu:~$ docker ps
@@ -68,12 +72,15 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ### Deploy containers with Docker Compose
 
 Docker compose can be used with an Azure Container Service hosted Docker Swarm. To so, ensure that an SSH tunnel has been created, and complete the following steps.
-Set the DOCKER_HOST variable to ‘:2375’.
+
+Set the DOCKER_HOST variable to ':2375'.
+
 ```
 export DOCKER_HOST=:2375 
 ```
 
 Create a docker-compose.yaml file on your local system. A sample can be found [here](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+
 
 ```
 web:
@@ -91,6 +98,7 @@ rest:
 
 Run `docker-compose up -d` to start the container deployments.
 
+
 ```
 azureuser@ubuntu:~/compose$ docker-compose up -d
 Pulling rest (adtd/rest:0.1)...
@@ -106,6 +114,7 @@ Creating compose_web_1
 ```
 
 Finally, the list of running containers can be returned, which will reflect those deployed with swarm.
+
 
 ```
 azureuser@ubuntu:~/compose$ docker ps

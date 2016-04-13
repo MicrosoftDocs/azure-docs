@@ -100,6 +100,7 @@ Create an Azure Resource Group and Container Service cluster with the following 
 > Note - when running this command, the shell will prompt you for deployment parameter values.
  
 ```bash
+# sample deployment
 
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
@@ -109,6 +110,7 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 This version of the command requires you to define parameters interactively. If you want to provide parameters, such as a JSON-formatted string, you can do so by using the `-p` switch. For example:
 
  ```bash
+ # sample deployment
 
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
  ```
@@ -116,6 +118,7 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 Alternatively, you can provide a JSON-formatted parameters file by using the `-e` switch:
 
  ```bash
+ # sample deployment
 
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
  ```
