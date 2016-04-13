@@ -83,7 +83,7 @@ This link relationship is established by assigning the value of the **user name*
 
 To configure and test Azure AD single sign-on with IBM Kenexa Survey Enterprise, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Creating an IBM Kenexa Survey Enterprise test user](#creating-an-kenexasurvey-test-user)** - to have a counterpart of Britta Simon in IBM Kenexa Survey Enterprise that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
@@ -106,7 +106,12 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your IBM Kenexa Survey Enterprise application using the following pattern: **“https://surveys.kenexa.com/\<CompanyCode\>”**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your IBM Kenexa Survey Enterprise application using the following pattern: **“https://surveys.kenexa.com/\<company code\>”**.
+
+    b. In the **Identifier** textbox, type 
+  
+
+    c. Click **Next**.
 
 
 4. On the **Configure single sign-on at IBM Kenexa Survey Enterprise** page, perform the following steps:
@@ -117,9 +122,14 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact IBM Kenexa support team and email the attach downloaded certificate file. Also please do provide the Issuer URL, SAML SSO URL and Single Sign Out Service URL so that they can be configured for SSO integration.
+5. To get SSO configured for your application, contact IBM Kenexa support team and provide them with the following:
 
-> [AZURE.NOTE] Please note that NameID claim value in the Response has to match with SSO ID configured in Kenexa system. So please work with Kenexa support team to map the appropriate user identifier in your organization as SSO ID. By default Azure AD will set the NameIdentifier as UPN value. You can change this from Attribute tab. The integration will only work after completing the correct mapping. 
+ - The downloaded certificate file
+ - The **Issuer URL**
+ - The **SAML SSO URL** 
+ - The **Single Sign Out Service URL**
+
+	> [AZURE.NOTE] Please note that NameID claim value in the Response has to match with SSO ID configured in Kenexa system. So please work with Kenexa support team to map the appropriate user identifier in your organization as SSO ID. By default Azure AD will set the NameIdentifier as UPN value. You can change this from Attribute tab. The integration will only work after completing the correct mapping. 
  
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
