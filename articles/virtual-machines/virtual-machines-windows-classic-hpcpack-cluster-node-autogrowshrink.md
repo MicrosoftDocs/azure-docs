@@ -1,6 +1,6 @@
 <properties
  pageTitle="Autoscale compute resources in HPC cluster | Microsoft Azure"
- description="Automatically grow and shrink the number of compute nodes in an HPC Pack cluster in Azure"
+ description="Automatically grow and shrink the number of HPC Pack cluster compute nodes in Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,21 +16,21 @@ ms.service="virtual-machines-windows"
  ms.date="04/12/2016"
  ms.author="danlep"/>
 
-# Automatically grow and shrink Azure compute resources in an HPC Pack cluster according to the cluster workload
+# Automatically grow and shrink AHPzure compute resources in an HPC Pack cluster according to the cluster workload
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 
 If you deploy Azure “burst” nodes in your HPC Pack cluster, or you
 create an HPC Pack cluster in Azure VMs, you may want a way to
 automatically grow or shrink the number of Azure compute resources such as cores according to
-the current workload of jobs and tasks on the cluster. This allows you
+the current workload on the cluster. This allows you
 to use your Azure resources more efficiently and control their costs.
 To do this, set up the HPC Pack cluster property **AutoGrowShrink**. Alternatively, run the
 **AzureAutoGrowShrink.ps1** HPC PowerShell script that is installed with
 HPC Pack.
 
->[AZURE.NOTE] Currently you can only grow and shrink HPC Pack compute nodes that are running a Windows Server operating system.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. Also, currently you can only automatically grow and shrink HPC Pack compute nodes that are running a Windows Server operating system.
 
 ## Set the AutoGrowShrink cluster property
 
@@ -41,14 +41,16 @@ HPC Pack.
 
 * **For a cluster with a head node in Azure** - If you use the HPC Pack IaaS deployment script to create the cluster, enable the **AutoGrowShrink** cluster property by setting the AutoGrowShrink option in the cluster configuration file. For details, see the documentation accompanying the [script download](https://www.microsoft.com/download/details.aspx?id=44949). 
 
-    Alternatively, set the **AutoGrowShrink** cluster property by using HPC PowerShell commands described in the following section. To use HPC PowerShell to do this, first complete the following steps:
+    Alternatively, set the **AutoGrowShrink** cluster property after you deploy the cluster by using HPC PowerShell commands described in the following section. To use HPC PowerShell to do this, first complete the following steps:
     1. Configure an Azure management certificate on the head node and in the Azure subscription. For a test deployment you can use the Default Microsoft HPC Azure self-signed certificate that HPC Pack installs on the head node, and simply upload that certificate to your Azure subscription. For options and steps, see the [TechNet Library guidance](https://technet.microsoft.com/library/gg481759.aspx).
     2. Run **regedit** on the head node, go to HKLM\SOFTWARE\Micorsoft\HPC\IaasInfo, and add a new string value. Set the Value name to “ThumbPrint”, and Value data to the thumbprint of the certificate in Step 1.
 
 
 ### HPC PowerShell commands to set the AutoGrowShrink property
 
-Following are sample HPC PowerShell commands to set **AutoGrowShrink** and to tune its behavior with additional parameters. See [AutoGrowShrink parameters](#AutoGrowShrink-parameters) later in this article for the complete list of settings. To run these commands, start HPC PowerShell on the cluster head node as an administrator.
+Following are sample HPC PowerShell commands to set **AutoGrowShrink** and to tune its behavior with additional parameters. See [AutoGrowShrink parameters](#AutoGrowShrink-parameters) later in this article for the complete list of settings. 
+
+To run these commands, start HPC PowerShell on the cluster head node as an administrator.
 
 **To enable the AutoGrowShrink property**
 
@@ -72,25 +74,31 @@ Following are sample HPC PowerShell commands to set **AutoGrowShrink** and to tu
 
 ### AutoGrowShrink parameters
 
-The following table lists the **AutoGrowShrink** settings that you can modify by passing parameters to **Set-HpcClusterProperty**.
+The following are AutoGrowShrink parameters that you can modify by using the **Set-HpcClusterProperty** command.
 
-|Setting|Description|
-| ---------- | ------------ |
-|**EnableGrowShrink**| Switch to enable or disable the **AutoGrowShrink** property.|
-|**ParamSweepTasksPerCore**| Number of parametric sweep tasks to grow 1 core. The default is to grow 1 core per task. <br/>>[AZURE.NOTE] HPC Pack QFE KB3134307 changes **ParamSweepTasksPerCore** to **TasksPerResourceUnit**. It is based on the job resource type and can be node, socket, or core.|
-|**GrowThreshold**|Threshold of queued tasks to trigger autogrow. The default is 1, which means that if there are 1 or more tasks in the Queued state, we will auto grow nodes.|
-|**GrowInterval**|Interval in minutes to trigger autogrow. The default interval is 5 minutes.
-|**ShrinkInterval**|Interval in minutes to trigger autoshrink. The default interval is 5 minutes.|
-|ShrinkIdleTimes: the number of continuous shrink checks to indicate the nodes are idle, default is 3 times. For example, if ShrinkInterval is 5 minutes, we will check whether the node is idle every 5 minutes, if the nodes is in idle state in 3 times of continuous checks (15 minutes), then we will shrink that node.
-ExtraNodesGrowRatio: Specifies additional nodes to grow for MPI jobs, default value is 1, it means we will grow 1% nodes for MPI jobs. The reason to grow extra nodes is that MPI may require more than 1 node, only when all nodes are ready, the job can be running. But during start these Azure nodes, occasionally, maybe 1 node need more time to start than others, then other nodes will be idle to wait that node get ready. To grow extra nodes, we can reduce this resource waiting time, and may save the cost.
-GrowByMin:  indicate whether the ‘auto grow’ policy is based the minimum resources required of the job, default is false, it means we grow nodes for jobs based on the jobs maximum resources required.
-	SoaJobGrowThreshold: The threshold incoming SOA requests to trigger auto grow
-SoaRequestsPerCore: the number of incoming requests to grow one core
-||
-|||
-|||
-|||
-|||
+* **EnableGrowShrink** - Switch to enable or disable the **AutoGrowShrink** property.
+* **ParamSweepTasksPerCore** - Number of parametric sweep tasks to grow one core. The default is to grow one core per task. 
+    >[AZURE.NOTE] HPC Pack QFE KB3134307 changes **ParamSweepTasksPerCore** to **TasksPerResourceUnit**. It is based on the job resource type and can be node, socket, or core.
+* **GrowThreshold** - Threshold of queued tasks to trigger automatic growth. The default is 1, which means that if there are 1 or more tasks in the queued state, automatically grow nodes.
+* **GrowInterval** - Interval in minutes to trigger automatic growth. The default interval is 5 minutes.
+* **ShrinkInterval** - Interval in minutes to trigger automatic shrinking. The default interval is 5 minutes.|
+* **ShrinkIdleTimes** - Number of continuous checks to shrink to indicate the nodes are idle. The default is 3 times. For example, if the **ShrinkInterval** is 5 minutes, HPC Pack checks whether the node is idle every 5 minutes. If the nodes are in the idle state after 3 continuous checks (15 minutes), then HPC Pack shrinks that node.
+* **ExtraNodesGrowRatio** - Additional percentage of nodes to grow for Message Passing Interface (MPI) jobs. The default value is 1, which means that HPC Pack grows nodes 1% for MPI jobs. 
+* **GrowByMin** - Switch to indicate whether the autogrow policy is based on the minimum resources required for the job. The default is false, which means that HPC Pack grows nodes for jobs based on the maximum resources required for the jobs.
+* **SoaJobGrowThreshold** - Threshold of incoming SOA requests to trigger the automatic grow process. The default value is 50000.
+    >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
+* **SoaRequestsPerCore** -Number of incoming SOA requests to grow one core. The default value is 20000.
+    >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
+
+### MPI example
+
+By default HPC Pack grows 1% extra nodes for MPI jobs (**ExtraNodesGrowRatio** is set to 1). The reason is that MPI may require multiple nodes, and the job can only run when all nodes are ready. When Azure starts nodes, occasionally one node might need more time to start than others, causing other nodes to be idle whie waiting for that node get ready. By growing extra nodes, HPC Pack reduces this resource waiting time, and potentially saves costs. To increase the percentage of extra nodes for MPI jobs (for example, to 10%), run a command simiar to
+
+    Set-HpcClusterProperty -ExtraNodesGrowRatio 10
+
+### SOA example
+
+By default, **SoaJobGrowThreshold** is set to 50000 and **SoaRequestsPerCore** is set to 200000. If you submit one SOA job with 70000 requests, there will be one queued task and incoming requests are 70000. In this case HPC Pack grows 1 core for the queued task, and for incoming requests, will grow (70000 - 50000)/20000 = 1 core, so in total will grow 2 cores for this SOA job.
 
 ## Run the AzureAutoGrowShrink.ps1 script
 
@@ -146,9 +154,9 @@ AzureAutoGrowShrink.ps1
 
 * **ShrinkCheckIntervalMins** - The interval in minutes between checks to shrink.
 
-* **ShrinkCheckIdleTimes**- The number of continuous shrink checks (separated by **ShrinkCheckIntervalMins**) to indicate the nodes are idle.
+* **ShrinkCheckIdleTimes** - The number of continuous shrink checks (separated by **ShrinkCheckIntervalMins**) to indicate the nodes are idle.
 
-* **UseLastConfigurations*** The previous configurations saved in the argument file.
+* **UseLastConfigurations** - The previous configurations saved in the argument file.
 
 * **ArgFile**- The name of the argument file used to save and update the configurations to run the script.
 
