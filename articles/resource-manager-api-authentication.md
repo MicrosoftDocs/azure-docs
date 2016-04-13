@@ -235,7 +235,7 @@ The next step of the experience is to allow the user to connect his or her Azure
 even when the user isn't present (long-term offline access). 
 Show the user the list of Azure subscriptions on which the user can manage access, and allow the user to assign an RBAC role directly to your application's identity.
 
-![ARM Auth - Sample App Ux 4](./media/resource-manager-authentication/ARM-Auth-Sample-App-Ux-4-full.png)
+![ARM Auth - Sample App Ux 4](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-4-full.png)
 
 ### List subscriptions in which the user has any access
 
