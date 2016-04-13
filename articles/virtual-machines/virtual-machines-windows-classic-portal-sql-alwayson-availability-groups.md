@@ -450,7 +450,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. Right-click the new directory, point to **Share with**, and then click **Specific people**, as shown below.
 
-	![Create a Backup Folder](./media/virtual-machines-windows-classic-portal-sql-availability/IC665521.gif)
+	![Create a Backup Folder](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665521.gif)
 
 1. Add **CORP\SQLSvc1** and give it the **Read/Write** permission, then add **CORP\SQLSvc2** and give it the **Read** permission, as shown below, and then click **Share**. Once the file sharing process is complete, click **Done**.
 
