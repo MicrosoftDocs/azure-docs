@@ -70,33 +70,51 @@ If your purpose is to contribute to the WebJobs.SDK project, you need all of the
 
 	You can get these values from the App Service **Application Settings** portal blade for a function app.
 
-	a. On the **Function app** blade, click **Function app settings**. 
+	a. On the **Function app** blade, click **Function app settings**.
 
+	![Click Function App Settings](./media/functions-run-local/clickfuncappsettings.png)
+ 
 	b. On the **Function App Settings** blade, click **Go to App Service Settings**.
 
+	![Click App Service Settings](./media/functions-run-local/clickappsvcsettings.png)
+ 
 	c. On the **Settings** blade, click **Application settings**.
 
-	d. On the **Application settings** blade, scroll down to the **App settings** section.
+	![Click Application Settings](./media/functions-run-local/clickappsettings.png)
+ 
+	d. On the **Application settings** blade, scroll down to the **App settings** section and find the WebJobs SDK settings.
+
+	![WebJobs settings](./media/functions-run-local/wjsettings.png)
 
 	e. Set an environment variable with the same name and value as the `AzureWebJobsStorage` app setting.
 
 	f. Do the same for the `AzureWebJobsDashboard` app setting.
 
-3. Make sure any other environment variables that you need are set. (See preceding **Conditional prerequisites** section).
+3. Make sure any other environment variables that you need are set. (See preceding [Conditional prerequisites](#conditional-prerequisites) section).
 
 4. Start Visual Studio, and then open the WebJobs.Script solution.
 
 6. Set the startup project. If you want to run functions that use HTTP or WebHook triggers, choose **WebJobs.Script.WebHost**; otherwise, choose **WebJobs.Script.Host**.
 
-	To run HTTP or WebHook functions, you'll need to get or set API keys. For an example of how to do that, see the [App_Data/secrets](https://github.com/Azure/azure-webjobs-sdk-script/tree/master/src/WebJobs.Script.WebHost/App_Data/secrets) folder in the WebJobs.Script.WebHost project.   
+4. If your startup project is WebJobs.Script.Host:
 
-4. In the **Debug** tab of the **Project Properties** window for the WebJobs.Script.Host project, set **Command line arguments** to `..\..\..\..\sample`. 
+	a. In **Solution Explorer**, right-click the WebJobs.Script.Host project, and then click **Properties**. 
+
+	b. In the **Debug** tab of the **Project Properties** window, set **Command line arguments** to `..\..\..\..\sample`. 
+
+	![Command line arguments](./media/functions-run-local/cmdlineargs.png)
 
 	This is a relative path to the *sample* folder in the repository.	The *sample* folder contains a *host.json* file that contains global settings, and a folder for each sample function. 
 
 	To get started it's easiest to use the *sample* folder that's provided. Later you can add your own functions to the *sample* folder or use any folder that contains a *host.json* and function folders.
 
-5. If your startup project is WebJobs.Script.WebHost, set an AzureWebJobsScriptRoot environment variable to the full path to the `sample` folder.
+5. If your startup project is WebJobs.Script.WebHost:
+
+	a. Set an AzureWebJobsScriptRoot environment variable to the full path to the `sample` folder.
+
+	b. Restart Visual Studio to pick up the new environment variable value.
+
+	See the [API keys](#api-keys) section for additional information about how to run HTTP trigger functions.
 
 5. Open the *sample\host.json* file, and add a `functions` property to specify which functions you want to run.
 
@@ -118,13 +136,35 @@ If your purpose is to contribute to the WebJobs.SDK project, you need all of the
 		Host.Functions.TimerTrigger-CSharp
 		Job host started
 
-7. Go to the dashboard for your function app to see function invocations.
+## Viewing function output
 
-	The dashboard is at the following URL:
+Go to the dashboard for your function app to see function invocations and log output for them.
 
-		https://{function app name}.scm.azurewebsites.net/azurejobs/#/functions
+The dashboard is at the following URL:
 
-	Note that it might take several minutes for function invocations to appear on the dashboard.
+	https://{function app name}.scm.azurewebsites.net/azurejobs/#/functions
+
+The **Functions** page displays a list of functions that have been executed, and a list of function invocations.
+
+![Invocation Detail](./media/functions-run-local/invocationdetail.png)
+
+Click an invocation to see the **Invocation Details** page, which indicates when the function was triggered, the approximate run time, and successful completion. Click the **Toggle Output** button to see logs written by the function code.
+
+![Invocation Detail](./media/functions-run-local/invocationdetail.png)
+
+## <a id="apikeys"></a> API Keys for HTTP triggers
+
+To run HTTP or WebHook functions, you'll need API keys. These are stored in `.json` files in the [App_Data/secrets](https://github.com/Azure/azure-webjobs-sdk-script/tree/master/src/WebJobs.Script.WebHost/App_Data/secrets) folder in the WebJobs.Script.WebHost project. 
+
+The file that contains a function's API key is named *{function name}.json*. For example, if *App_Data/secrets/HttpTrigger.json* has the following content:
+
+	{
+	  "key": "hyexydhln844f2mb7hgsup2yf8dowlb0885mbiq1"
+	}
+
+You can trigger the *HttpTrigger* function with the following URL when the WebJobs.Script.WebHost project is running.
+
+	http://localhost:28549/api/httptrigger?code=hyexydhln844f2mb7hgsup2yf8dowlb0885mbiq1
 
 ## Troubleshooting
 
@@ -132,4 +172,9 @@ Environment variable changes done while Visual Studio is running aren't picked u
 
 ## Next steps
 
-For more information about how to write code for Azure Functions, see [Azure Functions Developer Reference](functions-reference.md).
+For more information, see the following resources:
+
+* [Azure Functions developer reference](functions-reference.md)
+* [Azure Functions C# developer reference](functions-reference-csharp.md)
+* [Azure Functions NodeJS developer reference](functions-reference-node.md)
+* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
