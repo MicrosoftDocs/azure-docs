@@ -26,10 +26,10 @@ For the complete template, see the [Service Bus namespace with topic and subscri
 
 >[AZURE.NOTE] The following ARM templates are available for download and deployment.
 >
->-    [Create a Service Bus namespace with queue and authorization rule](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-auth-rule/)
->-    [Create a Service Bus namespace with an Event Hub and consumer group](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-event-hub/)
->-    [Create a Service Bus namespace with queue](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace-queue/)
->-    [Create a Service Bus namespace](http://azure.microsoft.com/documentation/articles/service-bus-arm-namespace/)
+>-    [Create a Service Bus namespace with queue and authorization rule](service-bus-arm-namespace-auth-rule.md)
+>-    [Create a Service Bus namespace with an Event Hub and consumer group](service-bus-arm-namespace-event-hub.md)
+>-    [Create a Service Bus namespace with queue](service-bus-arm-namespace-queue.md)
+>-    [Create a Service Bus namespace](service-bus-arm-namespace.md)
 >
 >To check for the latest templates, see the [Azure Quickstart Templates][] and search for Service Bus.
 
