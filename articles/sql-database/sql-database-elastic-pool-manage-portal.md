@@ -18,7 +18,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Monitor, manage, and size an elastic database pool with the Azure portal
+# Monitor and manage an elastic database pool with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)

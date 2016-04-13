@@ -16,7 +16,7 @@
     ms.date="04/13/2016"
     ms.author="sstein"/>
 
-# Create a new pool with C&#x23;
+# Create a new elastic pool with C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)

@@ -16,7 +16,7 @@
     ms.date="04/13/2016"
     ms.author="sstein"/>
 
-# Manage an elastic database pool with PowerShell 
+# Monitor and manage an elastic database pool with PowerShell 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)

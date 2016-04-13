@@ -16,7 +16,7 @@
     ms.date="04/11/2016"
     ms.author="sstein"/>
 
-# Manage and size an elastic database pool with C&#x23;
+# Monitor and manage an elastic database pool with C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
