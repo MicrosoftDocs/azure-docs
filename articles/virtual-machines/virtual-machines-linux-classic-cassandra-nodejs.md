@@ -3,7 +3,7 @@
 	description="How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app" 
 	services="virtual-machines-linux" 
 	documentationCenter="nodejs" 
-	authors="rmcmurray" 
+	authors="hanuk" 
 	manager="wpickett" 
 	editor=""
 	azure-service-management"/>
