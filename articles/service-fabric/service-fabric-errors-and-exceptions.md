@@ -30,7 +30,8 @@ There are many different types of operations which can be performed using Fabric
 |[System.Fabric.FabricTransientException](https://msdn.microsoft.com/library/system.fabric.fabrictransientexception.aspx)|The operation failed due to a transient error condition of some kind. For example, an operation may fail because a quorum of replicas is temporarily not reachable. Transient exceptions correspond to failed operations that can be retried.|
 
 Some common [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) errors that can be returned in a [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx):
-|Error| Thrown when|
+
+|Error| Condition|
 |---------|:-----------|
 |InvalidCredentialType|The credential type is invalid.|
 |InvalidX509FindType|The X509FindType is invalid.|
