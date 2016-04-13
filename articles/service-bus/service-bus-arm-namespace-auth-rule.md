@@ -37,7 +37,7 @@ For the complete template, see the [Service Bus auth rule template][] on GitHub.
 
 With this template, you will deploy a Service Bus authorization rule for a namespace and messaging entity (a queue, in this case).
 
-Shared Access Signature authentication enables applications to authenticate to Service Bus using an access key configured on the namespace. SAS authentication uses authorization rule which is a 256-bit primary cryptographic key in Base64 representation, an optional secondary key, and a key name and associated rights (a collection of *Listen*, *Send*, or *Manage* rights).
+This template uses Shared Access Signature (SAS) for authentication. SAS enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
 
 To run the deployment automatically, click the following button:
 
