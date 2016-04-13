@@ -14,27 +14,29 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/13/2016"
 	ms.author="jluk"/>
 
 # Deploy LAMP Stack on Azure
 This article will walk you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You will need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md).
 
 There are two methods for installing LAMP covered in this article:
-1. Create a new Linux VM with LAMP pre-installed
+
 ## Quick Command Summary
+
+1. Deploy LAMP on new VM Walkthrough
 ```
-# One command to quick-create a VM with LAMP pre-installed: two parameters are a Resource Group name and a VM name
+# One command to quick-create a VM with LAMP pre-installed: the two required args are a Resource Group name and a VM name
 $ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
 ```  
-2. Manually Install LAMP on Existing Linux VM
+2. Deploy LAMP on existing VM Walkthrough
 ```
 # Two commands: one updates packages, the other installs Apache, MySQL, and PHP
 user@ubuntu$ sudo apt-get update
 user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
-## Create a new Linux VM with LAMP pre-installed
+## Deploy LAMP on new VM Walkthrough
 
 You can start by creating a new [resource group](../resource-group-overview.md) that will contain the VM:
 
@@ -91,16 +93,11 @@ You should see a response prompting some more inputs:
 
 You have now created a Linux VM with LAMP already installed on it. If you wish, you can verify the install by jumping down to [Verify LAMP Successfully Installed].
 
-## Manually Install LAMP on Existing Linux VM
+## Deploy LAMP on existing VM Walkthrough
 
-### Prerequisites
-
-You will need an Azure account with an existing Linux VM running on Azure Compute. If you need help creating a Linux VM you can head [here to learn how to create a Linux VM] (./virtual-machines-linux-quick-create-cli.md). 
+If you need help creating a Linux VM you can head [here to learn how to create a Linux VM] (./virtual-machines-linux-quick-create-cli.md). 
 Next, you will need to SSH into the Linux VM. If you need help with creating an SSH key you can head [here to learn how to create an SSH key on Linux/Mac] (./virtual-machines-linux-mac-create-ssh-keys.md).
 If you have an SSH key already, go ahead and SSH into your Linux VM with `ssh username@uniqueDNS`.
-
-
-### Install LAMP on existing Linux VM
 
 Now that you are working within your Linux VM, we will walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.
 
