@@ -82,7 +82,7 @@ You begin with a new Azure trial account. Once you have finished your account se
 
 1. Next, you create the VM you will use as the domain controller (DC). Click **New** again, then **Compute**, then **Virtual Machine**, and then **From Gallery**, as shown below.
 
-	![Create a VM](./media/virtual-machines-windows-classic-portal-sql-availability/IC784621.png)
+	![Create a VM](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784621.png)
 
 1. In the **CREATE A VIRTUAL MACHINE** dialog, configure a new VM by stepping through the pages with the settings below. 
 
