@@ -98,7 +98,7 @@ Click on **Basics** and configure the following:
 
 Below is what the **Basics** blade will look like:
 
-![Basics](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/1-basics.png)
+![Basics](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 - Click **OK**.
 
