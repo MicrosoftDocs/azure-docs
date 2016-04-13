@@ -71,7 +71,7 @@ As a first step, please setup the data management gateway as per the instruction
 
 **SQL Server input dataset**
 
-The sample assumes you have created a table “MyTable” in SQL Server and it contains a column called “timestampcolumn” for time series data. 
+The sample assumes you have created a table “MyTable” in SQL Server and it contains a column called “timestampcolumn” for time series data. Note that you can query over multiple tables within the same database using a single dataset, but a single table must be used for the dataset's tableName typeProperty. 
 
 Setting “external”: ”true” and specifying externalData policy information the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
@@ -206,7 +206,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-In the above example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the SQL Server Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
+In the above example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the SQL Server Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). Note that your sqlReaderQuery can reference multiple tables within the database referenced by the input dataset; you are not limited to using only the dataset's tableName table.
  
 If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the SQL Server Database. If the dataset definition does not have the structure, all columns are selected from the table.
 
