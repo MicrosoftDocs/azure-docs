@@ -252,7 +252,7 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 1. In **Server Manager** select **Tools**, and then click **Computer Management**.
 
-	![Computer Management](./media/virtual-machines-windows-classic-portal-sql-availability/IC784630.png)
+	![Computer Management](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784630.png)
 
 1. In the **Computer Management** window, expand **Local Users and Groups**, and then select **Groups**.
 
