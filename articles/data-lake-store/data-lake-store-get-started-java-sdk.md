@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/06/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Java
@@ -23,6 +23,7 @@
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [REST API](data-lake-store-get-started-rest-api.md)
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
@@ -48,33 +49,44 @@ You will need to give your application permission to create resources in Azure f
 
 2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and click **OK**.
 
-3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **</version>** tag and the **</project>** tag:
+3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
 
     NOTE: This step is temporary until the Azure Data Lake Store SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
 
         <repositories>
-            <repository>
-                <id>adx-snapshots</id>
-                <name>Azure ADX Snapshots</name>
-                <url>http://adxsnapshots.azurewebsites.net/</url>
-                <layout>default</layout>
-                <snapshots>
-                    <enabled>true</enabled>
-                </snapshots>
-            </repository>
-        </repositories>
-        <dependencies>
-            <dependency>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-client-authentication</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-mgmt-datalake-store</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-        </dependencies>
+        	<repository>
+	            <id>adx-snapshots</id>
+	            <name>Azure ADX Snapshots</name>
+	            <url>http://adxsnapshots.azurewebsites.net/</url>
+	            <layout>default</layout>
+	            <snapshots>
+                	<enabled>true</enabled>
+            	</snapshots>
+        	</repository>
+        	<repository>
+	            <id>oss-snapshots</id>
+	            <name>Open Source Snapshots</name>
+	            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+	            <layout>default</layout>
+	            <snapshots>
+	                <enabled>true</enabled>
+	                <updatePolicy>always</updatePolicy>
+	            </snapshots>
+        	</repository>
+    	</repositories>
+    	<dependencies>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-client-authentication</artifactId>
+	            <version>1.0.0-SNAPSHOT</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-mgmt-datalake-store</artifactId>
+	            <version>1.0.0-SNAPSHOT</version>
+	        </dependency>
+    	</dependencies>
+
 
 4. Go to **File**, then **Settings**, then **Build**, **Execution**, **Deployment**. Select **Build Tools**, **Maven**, **Importing**. Then check **Import Maven projects automatically**.
 

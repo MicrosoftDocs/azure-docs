@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/08/2016" 
 	ms.author="spelluru"/>
 
 # Release notes for Data Management Gateway
@@ -44,7 +44,8 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 - New tray icon with gateway status indicators
 - Ability to “Update now” from the client
 - Ability to set update schedule time
-- PowerShell script for toggling auto-update on/off 
+- PowerShell script for toggling auto-update on/off
+- Support for JSON format  
 - Performance improvements
 - Bug fixes
 

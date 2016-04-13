@@ -21,7 +21,7 @@
 **Microsoft Power BI Embedded Preview** enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users. The following resources can help you get started integrating Power BI reports into your app.
 
  -	[Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Power BI Embedded API reference](https://msdn.microsoft.com/library/mt711493.aspx)
+ -	[Power BI Embedded API reference](https://msdn.microsoft.com/library/mt712303.aspx)
  -	[Power BI Embedded .NET SDK (available via NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 In this article, you are introduced to the **Power BI Embedded** get started sample. Let’s get started configuring the sample app so that you can run the sample web app.
@@ -52,7 +52,7 @@ The following will walk you through setting up your Visual Studio development en
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
-8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Analyzing Sales Data PBIX sample]  (http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix).
+8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX]  (http://go.microsoft.com/fwlink/?LinkID=780547).
 
 9. If prompted, enter a friendly name for your **Dataset**.
 
@@ -86,7 +86,7 @@ Here's how to configure the web app sample.
     ```
 3. Run the **EmbedSample** web application.
 
-Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Analyzing Sales Data PBIX sample](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like this:
+Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), the sample web app would look like this:
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
@@ -220,6 +220,20 @@ Task<ActionResult> Report(string reportId)
 Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report**. Here is a code snippet from  powerbi.js in the **Microsoft Power BI Embedded** preview sample.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
+
+
+### Filter reports embedded in your application
+
+You can filter an embedded report using a URL syntax. To do this, you add a query string parameter to your iFrame src url with the filter specified. Here is the filter query syntax:
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
+$filter={tableName/fieldName} eq '{fieldValue}'
+```
+
+> [AZURE.NOTE] {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
+
 
 ## See also
 
