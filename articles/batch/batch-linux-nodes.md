@@ -18,11 +18,11 @@
 
 # Provision Linux compute nodes in Azure Batch pools
 
-Azure Batch enables you to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service using using both the [Batch Python SDK][py_batch_package] and [Batch .NET][api_net] client library.
+Azure Batch enables you to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service using both the [Batch Python][py_batch_package] and [Batch .NET][api_net] client libraries.
 
 > [AZURE.NOTE] Linux support in Batch is currently in preview. Some aspects of the feature discussed here may change prior to general availability.
 
-## Cloud Services vs. Virtual Machine Configuration
+## Virtual Machine Configuration
 
 When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: **Cloud Services** and **Virtual Machine Configuration**.
 
