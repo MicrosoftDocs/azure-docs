@@ -33,6 +33,7 @@ Some common [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.f
 
 |Error| Condition|
 |---------|:-----------|
+|CommunicationError|A communication error caused the operation to fail, retry the operation.|
 |InvalidCredentialType|The credential type is invalid.|
 |InvalidX509FindType|The X509FindType is invalid.|
 |InvalidX509StoreLocation|The X509 store location is invalid.|
