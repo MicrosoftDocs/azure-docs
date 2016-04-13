@@ -66,7 +66,7 @@ You begin with a new Azure trial account. Once you have finished your account se
 
 1. Click the **New** button at the lower-left corner of the page, as shown below.
 
-	![Click New in the portal](./media/virtual-machines-windows-classic-portal-sql-availability/IC665511.gif)
+	![Click New in the portal](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665511.gif)
 
 1. Click **Network Services**, then click **Virtual Network,** and then click **Custom Create**, as shown below.
 
