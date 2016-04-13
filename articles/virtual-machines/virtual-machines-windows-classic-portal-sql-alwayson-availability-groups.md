@@ -530,7 +530,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. In the **Object Explorer**, expand **AlwaysOn High Availability**, then expand **Availability Groups**. You should now see the new availability group in this container. Right-click **AG1 (Primary)** and click **Show Dashboard**.
 
-	![Show AG Dashboard](./media/virtual-machines-windows-classic-portal-sql-availability/IC665532.gif)
+	![Show AG Dashboard](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665532.gif)
 
 1. Your **AlwaysOn Dashboard** should look similar to the one shown below. You can see the replicas, the failover mode of each replica and the synchronization state.
 
