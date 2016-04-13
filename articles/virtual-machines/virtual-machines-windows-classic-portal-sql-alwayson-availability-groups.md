@@ -119,7 +119,7 @@ In the following steps, you configure the ContosoDC machine as a domain controll
 
 	>[AZURE.NOTE] You will get a validation warning that there is no static IP address. If you are testing the configuration, click continue. For production scenarios [use PowerShell to set the static IP address of the domain controller machine](./virtual-network/virtual-networks-reserved-private-ip.md).
 
-	![Add Roles Dialog](./media/virtual-machines-windows-classic-portal-sql-availability/IC784624.png)
+	![Add Roles Dialog](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784624.png)
 
 1. Click **Next** until you reach the **Confirmation** section. Select the **Restart the destination server automatically if required** checkbox.
 
