@@ -158,7 +158,7 @@ ImageReference imageReference = new ImageReference(
     version: "latest");
 ```
 
-## Connecting to Linux nodes
+## Connect to Linux nodes
 
 During development or while troubleshooting, you may find it necessary to log in to the nodes in your pool. Unlike Windows compute nodes, you cannot use Remote Desktop Protocol (RDP) to connect to Linux nodes. Instead, the Batch service enables SSH access on each node for remote connection.
 
