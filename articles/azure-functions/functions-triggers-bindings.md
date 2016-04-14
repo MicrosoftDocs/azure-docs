@@ -42,7 +42,7 @@ Properties for the HTTP request:
 - `type` : Must be set to *httpTrigger*.
 - `direction` : Must be set to *in*. 
 - `webHookType` : For WebHook triggers, valid values are *github*, *slack*, and *genericJson*. For an HTTP trigger that isn't a WebHook, set this property to an empty string. For more information on WebHooks, see the following [WebHook triggers](#webhook-triggers) section.
-- `authLevel` : Set to "function" to require the API key, or "anonymous" to enable HTTP requests without the API key to trigger the function.
+- `authLevel` : Set to "function" to require the API key, "anonymous" to drop the API key requirement, or "admin" to require the master API key. See [API keys](#apikeys) below for more information.
 
 Properties for the HTTP response:
 
@@ -60,6 +60,7 @@ Example *function.json*:
       "name": "req",
       "type": "httpTrigger",
       "direction": "in"
+      "authLevel": "function"
     },
     {
       "name": "res",
@@ -83,7 +84,26 @@ For information about how to set up a GitHub WebHook, see [GitHub Developer - Cr
 
 ### API keys
 
-The Azure portal displays the API key that must be included with an HTTP request to trigger an HTTP or WebHook function. The key can be included in a query string variable named `code`, or it can be included in an `x-functions-key` HTTP header. For non-WebHook functions, you can indicate that an API key is not required by setting the `authLevel` property to "anonymous" in the *function.json* file, as shown in the following example.
+By default, an API key must be included with an HTTP request to trigger an HTTP or WebHook function. The key can be included in a query string variable named `code`, or it can be included in an `x-functions-key` HTTP header. For non-WebHook functions, you can indicate that an API key is not required by setting the `authLevel` property to "anonymous" in the *function.json* file.
+
+To require the master API key, set the `authLevel` property to "admin". Even if you don't specify "admin", you can use the master key to trigger a function even when the *function.json* sets it to `disabled` status. 
+
+You can find the API key values in the *D:\home\data\Functions\secrets* folder in the file system of the function app. The master key and default function key are set in the *host.json* file, as shown in this example.
+
+```json
+{
+  "masterKey": "K6P2VxK6P2VxK6P2VxmuefWzd4ljqeOOZWpgDdHW269P2hb7OSJbDg==",
+  "functionKey": "OBmXvc2K6P2VxK6P2VxK6P2VxVvCdB89gChyHbzwTS/YYGWWndAbmA=="
+}
+```
+
+If this folder contains a JSON file with the same name as a function, the `key` property in that file overrides the default function key. For example, the API key for a function named `HttpTrigger` is specified in *HttpTrigger.json* in the *secrets* folder. Here is an example:
+
+```json
+{
+  "key":"0t04nmo37hmoir2rwk16skyb9xsug32pdo75oce9r4kg9zfrn93wn4cx0sxo4af0kdcz69a4i"
+}
+```
 
 ### Example C# code for an HTTP trigger function 
 
