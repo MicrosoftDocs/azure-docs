@@ -24,7 +24,7 @@ The Cost Management feature of DevTest Labs helps you track and control the cost
 This article illustrates how to use the **Monthly Estimated Cost Trend** chart  
 to view the current month's estimated cost-to-date as well as the projected end-of-month cost.
 
-## Monthly Estimated Cost Trend
+## Enabling the Monthly Estimated Cost Trend chart
 
 In order to view (and change) the policies for a lab, follow these steps:
 
@@ -46,18 +46,18 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 1. Tap **Save**.
 
-Once you enable this policy, it can take up to 24 hours before the graph will display your estimated and projected costs.
+Once you enable this policy, it can take up to 24 hours before the chart will display your estimated and projected costs.
 Currently, data is refreshed every 24 hours with 90–95% of the cost reported. 
 In cases of live site issues - such as outages - it can take more than 24 hours to report the cost.
  
-The following screen shot shows an example of a cost graph. 
+The following screen shot shows an example of a cost chart. 
 
-	![Graph](./media/devtest-lab-configure-cost-management/graph.png)
+![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
 
 The **Estimated Cost** value is the current month's estimated cost-to-date while the **Projected Cost** is the estimated
 cost for the entire month. 
 
-As the it states above the graph, the costs you see in the graph are *estimated* costs using Pay-As-You-Go offer rates.
+As the it states above the chart, the costs you see in the chart are *estimated* costs using Pay-As-You-Go offer rates.
 Additionally, the following are *not* included in the cost calculation:
 
 - Your offer rates. Currently, we are not able to use your offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. We are using Pay-As-You-Go rates.
