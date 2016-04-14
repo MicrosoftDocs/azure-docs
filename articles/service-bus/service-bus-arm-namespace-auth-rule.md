@@ -1,6 +1,6 @@
 <properties
     pageTitle="Create a Service Bus authorization rule using an ARM template | Microsoft Azure"
-    description="Create a Service Bus authorization rule for namespace and entity using ARM template"
+    description="Create a Service Bus authorization rule for namespace and queue using ARM template"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -16,7 +16,7 @@
     ms.date="04/15/2016"
     ms.author="sethm;shvija"/>
 
-# Create a Service Bus authorization rule for namespace and entity using an ARM template
+# Create a Service Bus authorization rule for namespace and queue using an ARM template
 
 This article shows how to use an Azure Resource Manager (ARM) template that creates an authorization rule for a Service Bus namespace and queue. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 

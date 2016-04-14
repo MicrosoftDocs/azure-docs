@@ -18,7 +18,7 @@
 
 # Create a Service Bus namespace using an ARM template
 
-This article shows how to use an Azure Resource Manager (ARM) template that creates a Service Bus "Messaging" namespace with a standard/basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
+This article shows how to use an Azure Resource Manager (ARM) template that creates a Service Bus "Messaging" namespace with a Standard/Basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager Templates][].
 
