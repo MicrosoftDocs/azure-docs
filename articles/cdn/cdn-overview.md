@@ -33,11 +33,17 @@ The benefits of using the CDN to cache Azure data include:
 ![CDN Overview](./media/cdn-overview/cdn-overview.png)
 
 1. A user (Alice) requests a file (also called an asset) using a URL with a special domain name, such as `<endpointname>.azureedge.net`.  DNS routes the request to the best performing Point-of-Presence (POP) location.  Usually this is the POP that is geographically closest to the user.
-2. If the edge servers in the POP do not have the file cached locally, the edge server requests the file from the origin.  The origin can be an Azure Web App, Azure Cloud Service, Azure Storage account, or any publicly accessible web server.
+
+2. If the edge servers in the POP do not have the file in their cache, the edge server requests the file from the origin.  The origin can be an Azure Web App, Azure Cloud Service, Azure Storage account, or any publicly accessible web server.
+
 3. The origin returns the file to the edge server, including optional HTTP headers describing the file's Time-to-Live (TTL).
-4. The edge server caches the file locally and returns the file to the original requestor (Alice).  The file will remain cached on the edge server until the TTL expires.
-5. Additional users (Bob) may then request the same file using that same URL, and may also be directed to that same POP.
-6. If the TTL for the file has not expired, the edge server returns the file from the cache. 
+
+4. The edge server caches the file and returns the file to the original requestor (Alice).  The file will remain cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is 7 days.
+
+5. Additional users (like Bob) may then request the same file using that same URL, and may also be directed to that same POP.
+
+6. If the TTL for the file has not expired, the edge server returns the file from the cache.
+
 
 ## Standard features
 
