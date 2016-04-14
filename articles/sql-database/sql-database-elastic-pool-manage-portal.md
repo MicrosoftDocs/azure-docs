@@ -56,11 +56,13 @@ After you create a pool, you can add databases to the pool or remove them. You c
 
 	![Select databases to add](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
-    The **Configure pool** blade now lists the database you just added, with various propertiesand a **Pending** status.
+    The **Configure pool** blade now lists the database you just added, with its status set to **Pending**.
 
     ![Pending pool additions](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
-3. Click **Save**.
+3. In the "Configure pool blade", click **Save**.
+
+    ![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
 ## Move a database out of an elastic pool
 
@@ -79,19 +81,25 @@ After you select a pool to work with, under **Elastic Pool Monitoring**, a chart
 
 ![Monitor elastic pool](./media/sql-database-elastic-pool-manage-portal/monitor-elastic-pool.png)
 
-**To change the chart type (bar or line), resources shown, or time range:**
+**To change the chart and display:**
 
 - Click **Edit**.
 
 	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-resource-utlization.png)
 
-- In the **Edit Chart** blade, select the chart type (bar or line), resources, and time range. Click **custom** to set a different time range. Then click **OK**.
+- In the **Edit Chart** blade, select a new time range (past hour, today, or past week), or click **custom** to set a different time span. Select the chart type (bar or line), then select the resources to monitor. 
 
 	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
-**To change the live tiles:**
+- Then click **OK**.
 
-- Click **Add tiles** and then select the tiles you want from the tile gallery that appears on the left.
+**To add a tile:**
+
+1. In the area you want to customize, click **Add tiles**.
+
+	![Click edit](./media/sql-database-elastic-pool-manage-portal/add-tiles.png)
+2. Select a tile to add. 
+3. To finish, click **Done customizing**.
 
 ##Add an alert to a pool resource
 You can add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up.
