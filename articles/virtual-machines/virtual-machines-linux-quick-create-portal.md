@@ -28,13 +28,11 @@ This article shows how to use the [Azure Portal](https://portal.azure.com/) to c
 
     ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
-2. Click **Virtual Machines** in the **Marketplace** then **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list, and you should see the following screen:
+2. Click **Virtual Machines** in the **Marketplace** then **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list.  Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
 
     ![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
-3. Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
-
-4. On the **Basics** page, enter:
+3. On the **Basics** page, enter:
     - a name for the VM
     - a username for the Admin User
     - the Authentication Type set to **SSH public key**
@@ -45,27 +43,27 @@ This article shows how to use the [Azure Portal](https://portal.azure.com/) to c
 
     ![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
-5. Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
+4. Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
 
     ![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
-6. In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.
+5. In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.
 
     ![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
-7. Confirm the settings for your new Ubuntu VM, and click **OK**.
+6. Confirm the settings for your new Ubuntu VM, and click **OK**.
 
     ![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
 
-8. Open the Portal Dashboard and in **Network interfaces** choose your NIC
+7. Open the Portal Dashboard and in **Network interfaces** choose your NIC
 
     ![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
 
-9. Open the Public IP addresses menu under the NIC settings
+8. Open the Public IP addresses menu under the NIC settings
 
     ![screen8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
 
-10. SSH into the public IP using your SSH public key
+9. SSH into the public IP using your SSH public key
 
 ```
 chrisL@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
