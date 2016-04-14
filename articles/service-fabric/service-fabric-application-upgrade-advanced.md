@@ -18,7 +18,7 @@
 
 # Service Fabric application upgrade: advanced topics
 
-## Adding or Removing Services during an Application Upgrade
+## Adding or removing services during an application upgrade
 
 If a new service is added to an application that is already deployed, and published as an upgrade, the new service will be added to the deployed application (without the upgrade affecting any of the services that were already part of the application). However, an instance of the service that was added will have to be started for the new service to be active (using the `New-ServiceFabricService` cmdlet).
 
