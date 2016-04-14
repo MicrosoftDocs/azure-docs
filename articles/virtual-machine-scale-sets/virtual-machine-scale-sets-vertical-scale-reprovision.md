@@ -3,7 +3,7 @@
 	description="How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation"
 	services="virtual-machine-scale-sets"
 	documentationCenter=""
-	authors="guybo"
+	authors="gbowerman"
 	manager="madhana"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/14/2016"
-	ms.author="gbowerman"/>
+	ms.author="guybo"/>
 
 # Vertical autoscale with Virtual Machine Scale sets
 
