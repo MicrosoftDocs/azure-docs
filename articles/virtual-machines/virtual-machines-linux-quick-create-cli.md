@@ -13,44 +13,43 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/12/2016"
+   ms.date="04/08/2016"
    ms.author="v-livech"/>
 
 
 # Create a Linux VM on Azure using the CLI
 
-This article shows how to quickly create a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM within a basic infrastructure that you can use to prototype or test a concept very rapidly. Think of it as the quickest way to a Linux bash shell on Azure.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
+This article shows how to quickly create a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command creates a VM with a basic infrastructure that you can use to prototype or test a concept very rapidly. Think of it as the quickest way to a Linux bash shell.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)] and [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
 ## Quick Command Summary
 
-There is only one command to deploy a Linux VM using `quick-create`.  Once the command is run a series of prompts will be presented for naming of the various Azure resources the VM will be deployed into.
-
 ```
-chrisL@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+# One command to quickly the VM that prompts for arguments
+ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
 ## Detailed Walk Through
 
 ## Create the Linux VM
 
-In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to deploy an Ubuntu 14.04 VM.  To locate an image in the marketplace, [search for an image here](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).
+In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to create a VM quickly. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).) It will look something like the following.
 
-In the following command walk through, please replace the prompts with values from your own environment.  We are using "example" values for this article.
+In the following command walk through, please replace the prompts with values from your own environment.  We are using "example" values for this article
 
 ```bash
 # Create the Linux VM using prompts
-chrisl@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
 Virtual machine name: exampleVMname
 Location name: westus
 Operating system Type [Windows, Linux]: Linux
 ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: Canonical:UbuntuServer:14.04.4-LTS:latest
-User name: chrisl
+User name: ahmet
 Password: ************************************************
 Confirm password: ************************************************
 + Looking up the VM "exampleVMname"
-info:    Verifying the public key SSH file: /Users/spudbud/.ssh/azure_id_rsa.pub
+info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
 info:    The [OS, Data] Disk or image configuration requires storage account
 + Looking up the storage account cli38948918364134011018
@@ -101,7 +100,7 @@ data:          Uri                       :https://<**subID**>.blob.core.windows.
 data:
 data:    OS Profile:
 data:      Computer Name                 :exampleVMname
-data:      User Name                     :chrisl
+data:      User Name                     :ahmet
 data:      Linux Configuration:
 data:        Disable Password Auth       :false
 data:
@@ -124,13 +123,13 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-You can now SSH into your newly deployed Ubuntu VM using the Public IP address listed in the output above and on the default SSH port 22 using your SSH public key.
+You can now SSH into your VM on the default SSH port 22 and the Public IP address listed in the output above.
 
 ```
-chrisl@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
+ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 ```
 
-The `azure vm quick-create` is the fastest way to deploy a Linux VM on Azure so you can log in to a bash shell and get working. Using `vm quick-create` does not give you the additional benefits of a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](virtual-machines-linux-cli-deploy-templates.md), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
+The `azure vm quick-create` is the way to quickly create a VM so you can log in  to a bash shell and get working. Using `vm quick-create` does not give you the additional benefits of a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](virtual-machines-linux-cli-deploy-templates.md), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
 
 The example above creates:
 
@@ -138,36 +137,8 @@ The example above creates:
 - an Azure Storage account to hold the .vhd file that is the VM image
 - an Azure Virtual Network and subnet to provide connectivity to the VM
 - a virtual Network Interface Card (NIC) to associate the VM with the network
-- an Azure Network Security Group to apply network traffic filters to the NIC
-- a public IP address and subdomain prefix to provide an internet address for external use
-- an Ubuntu VM that is deployed into the Azure resources listed above
+- a public IP address and subdomain prefix to provide an internet address for external use and then creates the Linux VM inside that environment.
 
-The VM is secured by using SSH keys for the login.  Password logins are still enabled and should be disabled in the SSHD config.  By default Azure VMs created with `azure vm quick-create` are protected by a NSG which filters out all network traffic with the sole exception of the inbound SSH traffic on port 22.  All outbound traffic is enabled by default in the NSG. These are the default NSG settings when using `quick-create` to give a secured environment for your VM.
-
-## Quick-Create vs Azure Templates
-
-To help you decide when you should use `vm quick-create` and when you should move to an Azure template here is a chart that lists a few common scenarios.
-
-| Task             | Quick-Create | Azure Template |
-|:-----------------|:------------:|:--------------:|
-| test SSH         | quick-create | -              |
-| get a BASH shell | quick-create | -              |
-| run a container  | quick-create | -              |
-| deploy Jenkins   | -            | template       |
-| dev cloud        | -            | template       |
-| test cloud       | -            | template       |
-| production cloud | -            | template       |
-| CI/CD VM         | -            | template       |
-
-* Test SSH - you need a quick way to test your new SSH config on your laptop.  Using the Azure CLI you can create and manage the VM without using SSH.  
-
-* Bash shell - you need to reference a command in your automation and cannot remember how to use it, `azure vm quick-create` is the fastest way to a Bash shell on Azure to then test out that commands functionality.
-
-* Containers - you have a container you need to launch to test or verify.  You can use `quick-create` to launch a [CoreOS VM](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/) to quickly get a Docker host up and running to launch your container onto.
-
-* Jenkins - you are doing a Proof of Concept project for your team to showcase Continuous Integration and Deployment.  Launching a preconfigured [Jenkins VM from Bitnami](https://azure.microsoft.com/marketplace/partners/bitnami/jenkins/) gets you up and running so you can start building that CiCd POC.
-
-* Dev, Test and Production - you need to manage your teams Azure environments in a repeatable and consistent deployment method. Using DevOps best practices and treating all infrastructure as code you need to store that infrastructure as code in Git.  Azure templates are code and easily utiliized by all the Configuration Management tools like Ansible, Chef, Puppet and Salt.
 
 
 ## Next Steps
