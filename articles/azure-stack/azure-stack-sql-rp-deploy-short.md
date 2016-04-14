@@ -29,26 +29,26 @@ Server Resource Provider on your Azure Stack proof of concept (PoC).
 
 To deploy a SQL Server resource provider, you will:
 
-1.  Make sure you comply with all the [prerequisites](/azure-stack-sql-rp-long.md#Prerequisites) for RP deployment:
+1.  Make sure you comply with all the [prerequisites](/azure-stack-sql-rp-long.md#Prerequisites---Before-you-deploy) for RP deployment:
 
-    - [.Net3.5](#_Create_an_image) pre-setup in base image
-    - [Azure-Stack-Compatible](#_Install_the_latest) PowerShell release
-    - IE security settings [configured properly](#turn-off-ie-enhanced-security-and-enable) on ClientVM
+    - .Net 3.5 framework already setup in base image Windows Server image
+    - [Azure-Stack-Compatible](http://aka.ms/azStackPsh) PowerShell release
+    - IE security settings configured properly on ClientVM
 
 2. [Download the SQL Server RP binaries](http://download.microsoft.com/download/A/3/6/A36BCD4A-8040-44B7-8378-866FA7D1C4D2/AzureStack.Sql.5.11.69.0.zip) and extract it on the ClientVM in your Azure Stack PoC.
 
-3. [Run the bootstrap.cmd and script](#_Bootstrap_the_RP) - A set of scripts grouped by tabs will open in PowerShell Integrated Scripting Environment (ISE).
+3. [Run the bootstrap.cmd and script](/azure-stack-sql-rp-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment) - A set of scripts grouped by tabs will open in PowerShell Integrated Scripting Environment (ISE).
 
 4. Run all the loaded scripts in sequence from left to right in each tab. The scripts will:
     - In the “Prepare” tab:
-        - [Create a wildcard certificate](#create-the-required-certificates) to secure communication between the resource provider and Azure Resource Manager.
-        - [Upload](#upload-all-artifacts-to-a-storage-account-on-azure-stack) the certificates and all other artifacts to an Azure Stack storage account
-        - [Publish](#publish-gallery-items-for-later-resource-creation) gallery packages to allow deployment SQL and resources through gallery
+        - Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
+        - Upload the certificates and all other artifacts to an Azure Stack storage account
+        - Publish gallery packages to allow deployment SQL and resources through gallery
     - In the “Deploy” tab:
-        - [Deploy a VM](#deploy-a-sql-server-resource-provider) that will host both your resource provider and SQL Server instance *
+        - [Deploy a VM](/azure-stack-sql-rp-long.md#Deploy-your-SQL-RP-Resource-Provider-VM) that will host both your resource provider and SQL Server instance *
 
-        - [Register a local DNS record](#update-the-local-dns) that will map to your resource provider VM
-        - [Register you resource provider](#register-the-sql-rp-resource-provider) with the local Azure Resource Manager
+        - [Register a local DNS record](/azure-stack-sql-rp-long.md#Update-the-local-DNS) that will map to your resource provider VM
+        - [Register you resource provider](/azure-stack-sql-rp-long.md#Register-the-SQL-RP-Resource-Provider) with the local Azure Resource Manager
 
 >\*This script has a separate parameter file with passwords etc. which
 must be complete before running.
