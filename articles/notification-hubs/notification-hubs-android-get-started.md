@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="04/11/2016"
+	ms.date="04/13/2016"
 	ms.author="wesmc"/>
 
 # Sending push notifications to Android with Azure Notification Hubs
@@ -154,7 +154,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 	`NotificationSettings` code:
 
 		public class NotificationSettings {
-		    public static String SenderId = "<Your SenderId>";
+		    public static String SenderId = "<Your project number>";
 		    public static String HubName = "<Your HubName>";
 		    public static String HubListenConnectionString = "<Your default listen connection string>";
 		}
@@ -240,7 +240,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		        }
 		
 		        // Notify UI that registration has completed.
-		        MainActivity.mainActivity.ToastNotify(resultString);
+		        if (MainActivity.isVisible) {
+		            MainActivity.mainActivity.ToastNotify(resultString);
+		        }
 		    }
 		}
 
@@ -259,9 +261,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 5. Add the following private members at the top of the class. We will use these [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
 
 	    public static MainActivity mainActivity;
+    	public static Boolean isVisible = false;	
 		private GoogleCloudMessaging gcm;
 	    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-	    private static Boolean isVisible = false;
 
 6. In your `MainActivity` class, add the following method to the availability of Google Play Services. 
 
@@ -341,19 +343,17 @@ Your notification hub is now configured to work with GCM, and you have the conne
 	        isVisible = false;
 	    }
 	
-	    public void ToastNotify(final String notificationMessage)
-	    {
-	        if (isVisible == true)
-	            runOnUiThread(new Runnable() {
-	                @Override
-	                public void run() {
-	                    Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
-	                    TextView helloText = (TextView) findViewById(R.id.text_hello);
-	                    helloText.setText(notificationMessage);
-	                }
-	            });
+	    public void ToastNotify(final String notificationMessage) {
+	        runOnUiThread(new Runnable() {
+	            @Override
+	            public void run() {
+	                Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
+	                TextView helloText = (TextView) findViewById(R.id.text_hello);
+	                helloText.setText(notificationMessage);
+	            }
+	        });
 	    }
-	}
+
 
 10. The `ToastNotify` method uses the *"Hello World"* `TextView` control to report status and notifications persistently in the app. In your activity_main.xml layout, add the following id for that control.
 
@@ -371,52 +371,54 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		import android.support.v4.app.NotificationCompat;
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
+13. Add the following code for the `MyHandler` class making it a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler`.
 
-13. Update the class declaration as follows to make `MyHandler` a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler` as shown below.
+	This code overrides the `OnReceive` method, so the handler will report notifications that are received. The handler also sends the push notification to the Android notification manager by using the `sendNotification()` method. The `sendNotification()` method should be executed when the app is not running and a notification is received.
 
 		public class MyHandler extends NotificationsHandler {
-
-
-14. Add the following code for the `MyHandler` class.
-
-	This code overrides the `OnReceive` method, so the handler will pop up a Toast to show notifications that are received. The handler also sends the push notification to the Android notification manager by using the `sendNotification()` method.
-
-    	public static final int NOTIFICATION_ID = 1;
-    	private NotificationManager mNotificationManager;
-    	NotificationCompat.Builder builder;
-    	Context ctx;
-
-    	static public MainActivity mainActivity;
-
-    	@Override
-    	public void onReceive(Context context, Bundle bundle) {
-        	ctx = context;
-        	String nhMessage = bundle.getString("message");
-
-        	sendNotification(nhMessage);
-	        mainActivity.ToastNotify(nhMessage);
-    	}
-
-    	private void sendNotification(String msg) {
-        	mNotificationManager = (NotificationManager)
-                ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        	PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                new Intent(ctx, MainActivity.class), 0);
-
-			NotificationCompat.Builder mBuilder =
-				new NotificationCompat.Builder(ctx)
-					.setSmallIcon(R.mipmap.ic_launcher)
-					.setContentTitle("Notification Hub Demo")
-					.setStyle(new NotificationCompat.BigTextStyle()
-					.bigText(msg))
-					.setContentText(msg);
-
-			mBuilder.setContentIntent(contentIntent);
-			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+		    public static final int NOTIFICATION_ID = 1;
+		    private NotificationManager mNotificationManager;
+		    NotificationCompat.Builder builder;
+		    Context ctx;
+		
+		    @Override
+		    public void onReceive(Context context, Bundle bundle) {
+		        ctx = context;
+		        String nhMessage = bundle.getString("message");
+		        sendNotification(nhMessage);
+		        if (MainActivity.isVisible) {
+		            MainActivity.mainActivity.ToastNotify(nhMessage);
+		        }
+		    }
+		
+		    private void sendNotification(String msg) {
+		
+		        Intent intent = new Intent(ctx, MainActivity.class);
+		        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		
+		        mNotificationManager = (NotificationManager)
+		                ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+		
+		        PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+		                intent, PendingIntent.FLAG_ONE_SHOT);
+		
+		        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+		        NotificationCompat.Builder mBuilder =
+		                new NotificationCompat.Builder(ctx)
+		                        .setSmallIcon(R.mipmap.ic_launcher)
+		                        .setContentTitle("Notification Hub Demo")
+		                        .setStyle(new NotificationCompat.BigTextStyle()
+		                                .bigText(msg))
+		                        .setSound(defaultSoundUri)
+		                        .setContentText(msg);
+		
+		        mBuilder.setContentIntent(contentIntent);
+		        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+		    }
 		}
 
-15. In Android Studio on the menu bar, click **Build** > **Rebuild Project** to make sure that no errors are present in your code.
+
+14. In Android Studio on the menu bar, click **Build** > **Rebuild Project** to make sure that no errors are present in your code.
 
 ##Sending push notifications
 
