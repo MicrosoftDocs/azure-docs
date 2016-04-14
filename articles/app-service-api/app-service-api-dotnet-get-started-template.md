@@ -20,7 +20,11 @@
 
 ## Overview
 
-This tutorial shows how to deploy an ASP.NET Web API 2 application to an [API app in Azure App Service](app-service-web-overview.md) by using Visual Studio 2015. The tutorial assumes that you are an ASP.NET developer who has no prior experience with using Azure. On completing the tutorial, you'll have a simple Web API up and running in the cloud.
+This tutorial shows how to deploy an ASP.NET Web API 2 application to an [API app in Azure App Service](app-service-web-overview.md) by using Visual Studio 2015. You'll create a Visual Studio project and deploy it to an API app, as shown in the diagram.
+
+![Visual Studio create and deploy diagram](./media/app-service-api-dotnet-get-started-template/Create_App.png)
+
+The tutorial assumes that you are an ASP.NET developer who has no prior experience with using Azure. On completing the tutorial, you'll have a simple Web API up and running in the cloud.
 
 You'll learn:
 
@@ -56,10 +60,6 @@ This tutorial is about using ASP.NET Web API 2 with Azure App Service; it doesn'
 ## Create a project and an API app in Azure App Service
 
 Your first step is to create an ASP.NET Web API 2 project in Visual Studio and an API app in Azure App Service. When that's done, you deploy the project to the API app to make the Web API available on the Internet. 
-
-The diagram illustrates what you're doing in the create and deploy steps.
-
-![Visual Studio create and deploy diagram](./media/app-service-api-dotnet-get-started-template/Create_App.png)
 
 1. Open Visual Studio 2015.
 
@@ -198,11 +198,13 @@ In this section, you deploy web project to the API app, as illustrated in step 2
 
 ## Test the deployed Web API
 
-* Send an HTTP GET request to the URL *{your API app name}.azurewebsites.net/api/values*, using whichever HTTP client tool you prefer.
+1. Send an HTTP GET request to the URL *{your API app name}.azurewebsites.net/api/values*, using whichever HTTP client tool you prefer.
 
-	The Web API project template defines a `Values` controller that returns an array of two strings in JSON format for a GET request. The following illustration shows a request sent by Postman, with the JSON returned in the body of the response.
+	The Web API project template defines a `Values` controller that returns an array of two strings in JSON format for a GET request. The following illustration shows a request sent by [Postman](http://www.getpostman.com/), with the JSON returned in the body of the response.
 
 	![Visual Studio Output window reporting successful deployment](./media/app-service-api-dotnet-get-started-template/postman.png)
+
+2. You can now make changes to the code, redeploy the project the same way as for initial deployment, and see your changes working in Azure in seconds.
 
 ## <a id="portal"></a> Monitor and manage the API app in the Azure Portal
 
