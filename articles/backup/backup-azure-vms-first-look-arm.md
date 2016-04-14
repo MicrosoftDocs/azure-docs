@@ -28,7 +28,7 @@ This tutorial takes you through the steps for creating a Recovery Services vault
 - Azure Resource Manager (ARM) VMs
 - Classic VMs
 - Standard storage VMs
-- Premium storage VMs
+- [Premium storage VMs](backup-azure-vms-first-look.md#back-up-and-restore-premium-storage-vms)
 
 For additional information on protecting Premium storage VMs, see
 
