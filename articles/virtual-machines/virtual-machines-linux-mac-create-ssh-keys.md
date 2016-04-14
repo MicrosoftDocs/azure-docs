@@ -33,7 +33,7 @@ azure_fedora_id_rsa
 
 #Enter (twice) a [secure](https://www.xkcd.com/936/) password for the SSH key.
 
-#Enter passphrase for github_id_rsa:
+#Enter passphrase for azure_fedora_id_rsa:
 correct horse battery staple
 
 #Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
@@ -148,12 +148,12 @@ Host github.com
   Hostname github.com
   User git
   PubKeyAuthentication yes
-  IdentityFile /Users/steve/.ssh/github_id_rsa
+  IdentityFile /Users/steve/.ssh/azure_fedora_id_rsa
 Host github.private
   Hostname github.com
   User git
   PubKeyAuthentication yes
-  IdentityFile /Users/steve/.ssh/private_repo_github_id_rsa
+  IdentityFile /Users/steve/.ssh/private_repo_azure_fedora_id_rsa
 # ./Github Keys
 # Default Settings
 Host *
