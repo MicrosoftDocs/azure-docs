@@ -210,4 +210,8 @@ When `chrisL@fedora$ ssh fedora22` is executed SSH first locates and loads any s
 
 ## Next Steps
 
-Now you can go on to use your key files to [create a secure Linux VM in Azure using a template](virtual-machines-linux-create-ssh-secured-vm-from-template.md).
+Now you can go on to use your SSH key files to:
+
+- [Create a secure Linux VM using a Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Create a secure Linux VM using the Azure Portal](virtual-machines-linux-quick-create-portal.md)
+- [Create a secure Linux VM using the Azure CLI](virtual-machines-linux-quick-create-cli.md)
