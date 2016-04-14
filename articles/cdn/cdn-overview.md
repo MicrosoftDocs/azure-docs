@@ -28,9 +28,16 @@ The benefits of using the CDN to cache Azure data include:
 - Large distributed scale to better handle instantaneous high load, like at the start of a product launch event.
 
 
->[AZURE.IMPORTANT] When you create or enable a CDN endpoint, it may take up to 90 minutes to propagate worldwide.
+## How it works
 
-When a request for an object is first made to the CDN, the object is retrieved directly from the object's source origin location.  This origin can be an Azure storage account, web app, cloud service, or any custom origin (hosted in Azure or elsewhere) that accepts public web requests.  When a request is made using the CDN URL, the request is redirected to the CDN endpoint closest to the location from which the request was made to provide access to the object. If the object is not found at that endpoint, then it is retrieved from the service and cached at the endpoint, where a time-to-live (TTL) setting is maintained for the cached object.
+![CDN Overview](./media/cdn-overview/cdn-overview.png)
+
+1. A user (Alice) requests a file (also called an asset) using a URL with a special domain name, such as `<endpointname>.azureedge.net`.  DNS routes the request to the best performing Point-of-Presence (POP) location.  Usually this is the POP that is geographically closest to the user.
+2. If the edge servers in the POP do not have the file cached locally, the edge server requests the file from the origin.  The origin can be an Azure Web App, Azure Cloud Service, Azure Storage account, or any publicly accessible web server.
+3. The origin returns the file to the edge server, including optional HTTP headers describing the file's Time-to-Live (TTL).
+4. The edge server caches the file locally and returns the file to the original requestor (Alice).  The file will remain cached on the edge server until the TTL expires.
+5. Additional users (Bob) may then request the same file using that same URL, and may also be directed to that same POP.
+6. If the TTL for the file has not expired, the edge server returns the file from the cache. 
 
 ## Standard features
 
