@@ -19,7 +19,7 @@
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
 
-To create a password-secured SSH public and private key you need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
+To create a password-secured SSH public and private key you need a terminal open on your workstation.  Once you have SSH keys you can create new VMs with that key by default or add the public key to existing VMs.  The SSH private key created will have a [secure password](https://www.xkcd.com/936/) to safeguard it.  Anyone that has possession of a private key without a password can access any server with the public key installed.  Without the password the private key cannot be used.
 
 ## Quick Command Listing
 
@@ -29,12 +29,12 @@ In the following command examples, replace the values between &lt; and &gt; with
 [chrisL@fedora ~]$ ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
 
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
-azure_fedora_id_rsa
+<azure_fedora_id_rsa>
 
-#Enter (twice) a [secure](https://www.xkcd.com/936/) password for the SSH key.
+#Enter (twice) a password for the private SSH key.
 
 #Enter passphrase for azure_fedora_id_rsa:
-correct horse battery staple
+<correct horse battery staple>
 
 #Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
 [chrisL@fedora ~]$ eval "$(ssh-agent -s)"
@@ -44,9 +44,9 @@ correct horse battery staple
 [chrisL@fedora ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
 
 #Test the login using keys instead of a password.
-[chrisL@fedora ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+[chrisL@fedora ~]$ ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
 
-Last login: Tue Dec 29 07:07:09 2015 from 66.215.21.201
+Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 [chrisL@fedora ~]$
 
 ```
@@ -67,7 +67,7 @@ Azure requires at least 2048-bit, ssh-rsa format public and private keys. To cre
 This command creates a SSH Keypair using 2048 bit RSA and it will be commented to easily identify it.
 
 ```
-chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "username@fedoraVMAzure"
+chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "chrisL@fedoraVMAzure"
 ```
 
 ##### Command explained
@@ -78,12 +78,12 @@ chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "username@fedoraVMAzure"
 
 `-b 2048` = bits of the key
 
-`-C "username@fedoraVMAzure"` = a comment for the key to easy identify it. The comment is appended to the end of the public key file.  A commonly used comment is an email address but for this article we are going to enable using multiple SSH keys so a generic comment is suggested.
+`-C "chrisL@fedoraVMAzure"` = a comment appended to the end of the public key file to easily identify it.  Normally a email is used as the comment but you can use whatever works best for your infrastructure.
 
 #### Walkthrough of `ssh-keygen`
 
 ```bash
-chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "username@fedoraVMAzure"
+chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "chrisL@fedoraVMAzure"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/chrisL/.ssh/id_rsa): azure_fedora_id_rsa
 Enter passphrase (empty for no passphrase):
@@ -91,7 +91,7 @@ Enter same passphrase again:
 Your identification has been saved in azure_fedora_id_rsa.
 Your public key has been saved in azure_fedora_id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:79:ad:25:cc:65:e9:0c:07:e5:d1:a9:08 username@fedoraVMAzure
+14:a3:cb:3e:79:ad:25:cc:65:e9:0c:07:e5:d1:a9:08 chrisL@fedoraVMAzure
 The key's randomart image is:
 +--[ RSA 4096]----+
 |        o o. .   |
@@ -106,8 +106,8 @@ The key's randomart image is:
 +-----------------+
 
 chrisL@fedora$ ls -al ~/.ssh
--rw------- 1 username staff  1675 Aug 25 18:04 azure_fedora_id_rsa
--rw-r--r-- 1 username staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
+-rw------- 1 chrisL staff  1675 Aug 25 18:04 azure_fedora_id_rsa
+-rw-r--r-- 1 chrisL staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
 
 `Enter file in which to save the key (/Users/chrisL/.ssh/id_rsa): azure_fedora_id_rsa`
@@ -139,7 +139,7 @@ chrisL@fedora$ vim ~/.ssh/config
 #Azure Keys
 Host fedora22
   Hostname 102.160.203.241
-  User username
+  User chrisL
   PubkeyAuthentication yes
   IdentityFile /Users/chrisL/.ssh/azure_fedora_id_rsa
 # ./Azure Keys
