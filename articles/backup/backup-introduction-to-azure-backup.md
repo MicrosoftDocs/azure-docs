@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/06/2016"
+	ms.date="04/13/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # What is Azure Backup?
@@ -84,6 +84,7 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
+
 ## Back up and Restore Premium Storage VMs
 
 Premium storage is available for DS-series VMs in certain regions. Premium storage is the best storage option for data intensive workloads such as a database. The Azure Backup service now protects Premium Storage VMs.
@@ -92,7 +93,7 @@ Premium storage is available for DS-series VMs in certain regions. Premium stora
 
 While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM.
 
->[Azure.NOTE] Do not modify or edit the staging location.
+>[AZURE.NOTE] Do not modify or edit the staging location.
 
 Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
 
