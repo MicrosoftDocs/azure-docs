@@ -31,8 +31,6 @@ In the following command examples, replace the values between &lt; and &gt; with
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
 <azure_fedora_id_rsa>
 
-#Enter (twice) a password for the private SSH key.
-
 #Enter passphrase for azure_fedora_id_rsa:
 <correct horse battery staple>
 
