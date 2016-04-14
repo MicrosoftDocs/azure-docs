@@ -26,3 +26,6 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
+## Next steps
+
+You can also [create a custom virtual machine running Linux](virtual-machines-linux-classic-createportal.md) using the classic portal.

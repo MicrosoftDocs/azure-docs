@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Container Service container management with Docker Swarm | Microsoft Azure"
-   description="Deploy containers to an Docker Swarm on the Azure Container Service"
+   description="Deploy containers to a Docker Swarm in Azure Container Service"
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
@@ -20,12 +20,13 @@
 
 # Container management with Docker Swarm
 
-Docker Swarm provides an environment for deploying containerized workload, across a pooled set of Docker hosts. Docker Swarm uses the native Docker API, and the workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document will provide simple examples of deploying containerized workload, in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
+Docker Swarm provides an environment for deploying containerized workload across a pooled set of Docker hosts. Docker Swarm uses the native Docker API, and the workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document will provide simple examples of deploying containerized workload, in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
 
 Pre-requisites to the exercises in this document:
 
-- [Create a Swarm Cluster on the Azure Container Service](./container-service-deployment.md)
-- [Connect with the Swarm Cluster on the Azure Container Service](./container-service-connect.md)
+[Create a Swarm Cluster on the Azure Container Service](./container-service-deployment.md)
+
+[Connect with the Swarm Cluster on the Azure Container Service](./container-service-connect.md)
 
 ## Deploy a new container
 
@@ -38,8 +39,8 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 4298d397b9ab6f37e2d1978ef3c8c1537c938e98a8bf096ff00def2eab04bf72
 ```
 
-Once the container has been created, use `docker ps` to return information about the container. Notice here that the Swarm agent, hosting the container, is listed. 
- 
+Once the container has been created, use `docker ps` to return information about the container. Notice here that the Swarm agent, hosting the container, is listed.
+
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -69,10 +70,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Deploy containers using Docker Compose
 
-Docker compose can be used to automation the deployment and configuration of multiple containers. To so, ensure that an SSH tunnel has been created, and that the DOCKER_HOST variable has been set. 
+Docker compose can be used to automation the deployment and configuration of multiple containers. To so, ensure that an SSH tunnel has been created, and that the DOCKER_HOST variable has been set.
 
 Create a docker-compose.yml file on your local system. A sample can be found [here](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
-
 
 ```bash
 web:
@@ -118,3 +118,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 ## Next steps:
 
 [Read more about Docker Swarm](https://docs.docker.com/swarm/).
+
