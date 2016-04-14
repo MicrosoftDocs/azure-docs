@@ -74,36 +74,35 @@ To deploy a Mesos or Docker Swarm cluster, select one of the following templates
 Next, make sure that the Azure CLI has been connected to an Azure subscription. You can do this by using the following command:
 
 ```bash
-Azure account show
+
+azure account show
 ```
 If an Azure account is not returned, use the following command to sign the CLI in to Azure.
 
 ```bash
+
 azure login -u user@domain.com
 ```
 
 Next, configure the Azure CLI tools to use Azure Resource Manager.
 
 ```bash
+
 azure config mode arm
 ```
 
-If you want to create your cluster in a new resource group, you must first create the resource group. Use the following command, where `GROUP_NAME` is the name of the resource group that you want to create, and `REGION` is the region where you want to create the resource group:
+Create an Azure Resource Group and Container Service cluster with the following command, where:
 
+- **RESOURCE_GROUP** is the name of the Resource Group you want to use for this service.
+- **LOCATION** is the Azure region where the Resource Group and Azure Container Service deployment will be created.
+- **TEMPLATE_URI** is the location of the deployment file. **Note** - this must be the RAW file, not a pointer to the GitHub UI. To find this URL select the azuredeploy.json file in GitHub and click the RAW button:
+
+> Note - when running this command, the shell will prompt you for deployment parameter values.
+ 
 ```bash
-azure group create GROUP_NAME REGION
-```
+# sample deployment
 
-After you have created a resource group, you can create your cluster with this command, where:
-
-- **RESOURCE_GROUP** is the name of the resource group that you want to use for this service.
-- **DEPLOYMENT_NAME** is the name of this deployment.
-- **TEMPLATE_URI** is the location of the deployment file. Note that this must be the RAW file, *not* a pointer to the GitHub UI. To find this URL, select the azuredeploy.json file in GitHub, and select the **RAW** button.
-
-> [AZURE.NOTE] When you run this command, the shell will prompt you for deployment parameter values.
-
-```bash
-azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI
+azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
 ### Provide template parameters
@@ -111,12 +110,16 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 This version of the command requires you to define parameters interactively. If you want to provide parameters, such as a JSON-formatted string, you can do so by using the `-p` switch. For example:
 
  ```bash
+ # sample deployment
+
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
  ```
 
 Alternatively, you can provide a JSON-formatted parameters file by using the `-e` switch:
 
  ```bash
+ # sample deployment
+
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
  ```
 
@@ -152,6 +155,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 After you create a resource group, you can create your cluster with the following command. The URI of the desired template will be specified for the `-TemplateUri` parameter. When you run this command, PowerShell will prompt you for deployment parameter values.
 
 ```powershell
+# sample deployment
+
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
 
@@ -161,13 +166,16 @@ If you are familiar with PowerShell, you know that you can cycle through the ava
 
 Below is the full command, with parameters included. You can provide your own values for the names of the resources.
 
-```
+```powershell
+# sample deployment
+
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
 ## Next steps
-
-Now that you have a functioning cluster, see these articles for connection and management details.
-
-- [Connect to an Azure Container Service cluster](./container-service-connect.md)
+ 
+Now that you have a functioning cluster, visit these documents for connection and management details.
+ 
+- [Connect with an Azure Container Service cluster](./container-service-connect.md)
 - [Working with Azure Container Service and Mesos](./container-service-mesos-marathon-rest.md)
+- [Working with Azure Container Service and Docker Swarm](./container-service-docker-swarm.md)

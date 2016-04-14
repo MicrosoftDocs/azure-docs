@@ -78,6 +78,8 @@ You deploy Docker-formatted containers through Marathon by using a JSON file tha
 In order to deploy a Docker-formatted container, create your own JSON file, or use the sample provided at [Azure Container Service demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Store it in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file.
 
 ```
+# deploy container
+
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
 ```
 
@@ -106,6 +108,8 @@ Run the following command to scale out the application.
 >[AZURE.NOTE] The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 
 ```json
+# scale container
+
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
@@ -149,6 +153,8 @@ You deploy Docker-formatted containers through Marathon by using a JSON file tha
 Create your own JSON file, or use the sample provided at [Azure Container Service demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Store it in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file.
 
 ```powershell
+# deploy container
+
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
@@ -163,5 +169,15 @@ Run the following command to scale out the application.
 > [AZURE.NOTE] The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 
 ```powershell
+# scale container
+
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
+
+## Next steps
+
+- [Read more about the Meso HTTP endpoints]( http://mesos.apache.org/documentation/latest/endpoints/).
+- [Read more about the Marathon REST API]( https://mesosphere.github.io/marathon/docs/rest-api.html).
+
+
+
