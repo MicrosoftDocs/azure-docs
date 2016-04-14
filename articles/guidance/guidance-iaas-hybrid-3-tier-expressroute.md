@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="04/14/2016"
    ms.author="telmos"/>
 
 # Azure Blueprints: Implementing a Hybrid Network Architecture with Azure ExpressRoute
 
-This article describes best practices for connecting an on-premises network to virtual networks and services on Azure by using Azure ExpressRoute. ExpressRoute connections are made using a private dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure providing access to your own IaaS infrastructure in Azure, public endpoints used in PaaS services, and Office365 SaaS services. ExpressRoute connections do not go across the Internet, giving you predictable bandwidth up to 10 Gbps along with faster access compared to a VPN connection. 
+This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute. ExpressRoute connections are made using a private dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure providing access to your own IaaS infrastructure in Azure, public endpoints used in PaaS services, and Office365 SaaS services. This document focuses on using ExpressRoute to connect to a single Azure virtual network (VNet) using what is called private peering.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
@@ -57,17 +57,21 @@ The following diagram highlights the important components in this architecture:
 
 - **ExpressRoute circuit.** This is a layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
-> [AZURE.NOTE] ExpressRoute connectivity providers fall into one of the following categories:
+- **Connectivity providers.** These are companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
-> - **Exchange Providers (IXP).** These are OSI Layer 2 (*data link layer*) providers that supply virtual cross-connections to Azure. An IXP provides controlled access to its network switches that act as simple bridges between your on-premises networks and Azure, giving a direct connection from LAN to LAN. The customer has to provide information to configure these bridges to route requests from one network to another.
+> [AZURE.NOTE] ExpressRoute connectivity providers connect your datacenter to Azure in one of three different ways:
+
+> - **Co-located at a cloud exchange.** If you're co-located in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange. Co-location providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud..
 >
-> - **Network Service Providers (Telco).** These are OSI Layer 3 (*network layer*) providers that supply access to network switches that are configured by the provider to connect to Azure. These switches translate network addresses from your on-premises domain to the Microsoft domain, and route traffic between networks, often using Multiprotocol Label Switching (MPLS) or similar.
+> - **Point-to-point Ethernet connections.** You can connect your on-premises datacenters/offices to the Microsoft cloud through point-to-point Ethernet links. Point-to-point Ethernet providers can offer Layer 2 connections, or managed Layer 3 connections between your site and the Microsoft cloud.
+>
+> - **Any-to-any (IPVPN) networks.** You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters. The Microsoft cloud can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed Layer 3 connectivity.
 >
 > To obtain a list of connectivity providers available at your location, use the following Azure PowerShell command:
 > ```
 > Get-AzureRmExpressRouteServiceProvider
 > ```
-> For more information about circuits and routing, see [ExpressRoute circuits and routing domains][circuits-and-routing-domains].
+> For more information about connectivity providers, see [ExpressRoute circuits and routing domains][connectivity-providers].
 
 ## Implementing this architecture
 
@@ -75,13 +79,13 @@ The following high-level steps outline a process for implementing this architect
 
 - Create an ExpressRoute circuit by using the following command:
 
-    ```
+    ```powershell
      New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> `
         -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
     ```
 - Arrange for the ExpressRoute circuit to be provisioned.
 
-	If your service provider is a Telco:
+	If you're using a level 3 connection:
 
 	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /27 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
 
@@ -89,33 +93,34 @@ The following high-level steps outline a process for implementing this architect
 
 	- Wait for the provider to provision the circuit. You can verify the provisioning state of a circuit by using the following PowerShell command:
 
-        ```
+        ```powershell
         Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
         ```
 
 		The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
 
-	If your service provider is an IXP:
+		>[AZURE.NOTE]If you're using a level 3 connection, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
+
+	If your're using a level 2 connection:
 
 	- Send the `ServiceKey` for the new circuit to the service provider.
 
-	- Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you are implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [Create an ExpressRoute circuit][create-expressroute-circuit].
+	- Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you're implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [Create an ExpressRoute circuit][create-expressroute-circuit].
 
 	- Wait for the provider to provision the circuit.
 
 	- Configure routing for the ExpressRoute circuit.
 
-	If your connectivity provider is a Telco, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
 
-	<a name="address-space"></a>If your connectivity provider is an IXP, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following PowerShell commands to add a network peering for routing traffic:
+	>[AZURE.NOTE]If you're using a level 2 connection, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following PowerShell commands to add a network peering for routing traffic:
 
-	```
-	Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
+	>```powershell
+	>Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
 
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
-	```
+	>Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
+	>```
 
-	> [AZURE.NOTE]. The `PeeringType` parameter can be one of `AzurePublicPeering`, `MicrosoftPeering`, or `AzurePrivatePeering`.
+	>The `PeeringType` parameter can be one of `AzurePublicPeering`, `MicrosoftPeering`, or `AzurePrivatePeering`.
 	>
 	> For more information about primary and secondary peering addresses, see [Availability](#availability)
 
@@ -146,17 +151,17 @@ Note the following points:
 
 ## Availability
 
-You can configure high availability for your Azure connection in different ways, depending on the type of provider you use, and the number of ExpressRoute circuits and VPN gateway connection you are willing to configure. The points below summarize your availability options:
+You can configure high availability for your Azure connection in different ways, depending on the type of provider you use, and the number of ExpressRoute circuits and VPN gateway connection you're willing to configure. The points below summarize your availability options:
 
 - ExpressRoute does not support router redundancy protocols such as HSRP and VRRP to implement high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly-available connections to your network, Microsoft Azure provisions you with two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
 
-- If you are using an IXP connectivity provider, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router, and the secondary circuit to the other. This will give you a highly available connection at both ends of the connection. This is necessary if you require the ExpressRoute SLA. See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
+- If you're using a level 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router, and the secondary circuit to the other. This will give you a highly available connection at both ends of the connection. This is necessary if you require the ExpressRoute SLA. See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
 
 	The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a public peering and a private peering (each peering is designated a pair of /30 address spaces, as described in the previous section).
 
 	![IaaS: hybrid-expressroute](./media/blueprints/arch-iaas-hybrid-expressroute-redundant-routers.png)
 
-- If you are using a Telco connectivity provider, verify that it provides redundant BGP sessions that handle availability for you.
+- If you're using a level 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
 
 - Virtual networks can be connected to multiple ExpressRoute circuits and each  circuits can be supplied by different service providers. This strategy provides additional high-availability and disaster recovery capabilities.
 
@@ -186,7 +191,7 @@ ExpressRoute circuits provide a high bandwidth path between networks. Generally,
 
 - To minimize financial costs, start with the smallest estimated bandwidth that you expect to require. You can change the bandwidth of an existing circuit (if your connectivity provider supports this feature) by using the following command:
 
-	```
+	```powershell
 	$ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
 
     $ckt.ServiceProviderProperties.BandwidthInMbps = <<bandwidth-in-mbps>>
@@ -198,7 +203,7 @@ ExpressRoute circuits provide a high bandwidth path between networks. Generally,
 
 - Start with the standard SKU of ExpressRoute, and upgrade to ExpressRoute Premium only when required. If necessary, you can also change the pricing plan (metered or unlimited). Switch the SKU and pricing plan by using the following commands (the `Sku.Tier` property can be `Standard` or `Premium`; the `Sku.Name` property can be `MeteredData` or `UnlimitedData`):
 
-	```
+	```powershell
 	$ckt = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
 
     $ckt.Sku.Tier = "Premium"
@@ -208,9 +213,11 @@ ExpressRoute circuits provide a high bandwidth path between networks. Generally,
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 	```
 
+	>[AZURE.IMPORTANT] Make sure the `Sku.Name` property matches the `Sku.Tier` and `Sku.Family`. If you change the family and tier, but not the name, your connection will be disabled.
+
 	You can upgrade the SKU without disruption, but you cannot switch from the unlimited pricing plan to metered. When downgrading the SKU, your bandwidth consumption must remain within the default limit of the standard SKU.
 
-	> [AZURE.NOTE] ExpressRoute offers two pricing plans to customers, based on metering or unlimited data. See [ExpressRoute pricing][expressroute-pricing] for details. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `azure network express-route provider list` command to see the providers available in your region and the bandwidths that they offer.
+	> [AZURE.NOTE] ExpressRoute offers two pricing plans to customers, based on metering or unlimited data. See [ExpressRoute pricing][expressroute-pricing] for details. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `Get-AzureRmExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 	>
 	> A single ExpressRoute circuit can support a number of peerings and VNet links. See [ExpressRoute limits][expressroute-limits] for more information.
 	>
@@ -258,7 +265,7 @@ If a previously functioning ExpressRoute circuit now fails to connect, in the ab
 
 ## Deploying the sample solution
 
-The [Azure PowerShell][azure-powershell] commands in this section show how to connect an on-premises network to an Azure VNet by using an ExpressRoute connection. This script assumes that you are using a Telco provider.
+The [Azure PowerShell][azure-powershell] commands in this section show how to connect an on-premises network to an Azure VNet by using an ExpressRoute connection. This script assumes that you're using a level 3 connection.
 
 To use the script below, execute the following steps:
 
@@ -395,3 +402,4 @@ switch($PSCmdlet.ParameterSetName) {
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [expressroute-limits]: ../azure-subscription-service-limits/#networking-limits
 [sample-script]: #sample-solution-script
+[connectivity-providers]: ../expressroute/expressroute-introduction/#how-can-i-connect-my-network-to-microsoft-using-expressroute
