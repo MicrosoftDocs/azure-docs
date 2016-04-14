@@ -24,7 +24,7 @@ If you store historical data in a separate table, you can configure Stretch Data
 
 If you don't specify a filter predicate, the entire table is migrated.
 
-In CTP 3.1 through RC2, the option to specify a predicate isn't available in the Enable Database for Stretch wizard. You have to use the ALTER TABLE statement to configure Stretch Database with this option. For more info, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) and [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+In RC3, you can only specify a simple date-based filter predicate in the Enable Database for Stretch wizard. If you want to use a different filter predicate to select rows to migrate, run the CREATE TABLE statement, or run the ALTER TABLE statement to specify the filter predicate after you exit the wizard.
 
 ## Basic requirements for the inline table\-valued function
 The inline table\-valued function required for a Stretch Database filter predicate looks like the following example.
