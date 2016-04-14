@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/25/2016" 
+	ms.date="04/15/2016" 
 	ms.author="casoper"/>
 
 # Overview of the Azure Content Delivery Network (CDN)
 
-The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by cloud services at strategically placed locations to provide maximum bandwidth for delivering content to users.
-
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com).
-
+The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by web sites at strategically placed locations to provide maximum bandwidth for delivering content to users.
 
 The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. For a current list of CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
 
@@ -33,7 +30,7 @@ The benefits of using the CDN to cache Azure data include:
 
 >[AZURE.IMPORTANT] When you create or enable a CDN endpoint, it may take up to 90 minutes to propagate worldwide.
 
-When a request for an object is first made to the CDN, the object is retrieved directly from the object's source origin location.  This origin can be an Azure storage account, web app, cloud service, or any custom origin that accepts public web requests.  When a request is made using the CDN syntax, the request is redirected to the CDN endpoint closest to the location from which the request was made to provide access to the object. If the object is not found at that endpoint, then it is retrieved from the service and cached at the endpoint, where a time-to-live (TTL) setting is maintained for the cached object.
+When a request for an object is first made to the CDN, the object is retrieved directly from the object's source origin location.  This origin can be an Azure storage account, web app, cloud service, or any custom origin (hosted in Azure or elsewhere) that accepts public web requests.  When a request is made using the CDN URL, the request is redirected to the CDN endpoint closest to the location from which the request was made to provide access to the object. If the object is not found at that endpoint, then it is retrieved from the service and cached at the endpoint, where a time-to-live (TTL) setting is maintained for the cached object.
 
 ## Standard features
 
@@ -60,3 +57,9 @@ The Premium CDN tier includes all of the features of the Standard tier, plus the
 - [Customizable, rule-based content delivery engine](cdn-rules-engine.md)
 - [Advanced HTTP reports](cdn-advanced-http-reports.md)
 - [Real-time stats](cdn-real-time-stats.md)
+
+## Next steps
+
+To get started with CDN, see [Using Azure CDN](./cdn-how-to-use-cdn.md).
+
+If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com).

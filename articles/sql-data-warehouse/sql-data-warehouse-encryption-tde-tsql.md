@@ -3,7 +3,7 @@
    description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="twounder"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="03/23/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # Get started with Transparent Data Encryption (TDE)
 > [AZURE.SELECTOR]

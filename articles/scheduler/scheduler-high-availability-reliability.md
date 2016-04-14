@@ -1,6 +1,6 @@
 <properties
  pageTitle="Scheduler High-Availability and Reliability"
- description=""
+ description="Scheduler High-Availability and Reliability"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
