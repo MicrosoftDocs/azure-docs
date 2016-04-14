@@ -21,7 +21,7 @@
 
 This article describes how to vertically scale Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) with or without reprovisioning. For vertical scaling of VMs which are not in scale sets, refer to [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-vertical-scaling-automation.md).
 
-Vertical scaling means increasing or decreasing virtual machine (VM) sizes in response to a workload. Compare this with [horizontal scaling](./virtual-machine-scale-sets-autoscale-overview.md), where the number of VMs is altered depending on the workload. 
+Vertical scaling, also known as _scale up_ and _scale down_, means increasing or decreasing virtual machine (VM) sizes in response to a workload. Compare this with [horizontal scaling](./virtual-machine-scale-sets-autoscale-overview.md), also referred to as _scale out_ and _scale in_, where the number of VMs is altered depending on the workload. 
 
 Reprovisioning means removing an existing VM and replacing it with a new one. When you increase or decrease the size of VMs in a VM Scale Set, in some cases you want to resize existing VMs and retain your data, while in other cases you need to deploy new VMs of the new size. This document covers both cases. 
 
@@ -30,12 +30,12 @@ Vertical scaling can be useful when:
 - A service built on virtual machines is under-utilized (for example at weekends). Reducing the VM size can reduce monthly costs.
 - Increasing VM size to cope with larger demand without creating additional VMs.
 
-You can set up vertical scaling by following these steps: 
+You can set up vertical scaling to be triggered based on metric based alerts from your VM Scale Set. When the alert is activated it fires a webhook that triggers a runbook which can scale your scale set up or down. Vertical scaling can be configured by following these steps: 
   
 1. Create an Azure Automation account with run-as capability.
 2. Import Azure Automation Vertical Scale runbooks for VM Scale Sets into your subscription.
 3. Add a webhook to your runbook.
-4. Add an alert to your VM Scale Set.
+4. Add an alert to your VM Scale Set using a webhook notification.
 
 > [AZURE.NOTE] Vertical autoscaling can only take place within certain ranges of VM sizes. You can choose to scale between the following pairs of sizes:
 
@@ -113,6 +113,8 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
                             -Actions $actionEmail, $actionWebhook `
                             -Description $description
 ```
+
+> [AZURE.NOTE] It is recommended to configure a reasonable time window for the alert in order to avoid triggering vertical scaling, and any associated service interruption, too often. Consider a window of least 20-30 minutes or more. Consider horizontal scaling if you need to avoid any interruption.
 
 For more information on how to create alerts refer to the following articles:
 
