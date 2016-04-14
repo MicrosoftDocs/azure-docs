@@ -3,7 +3,7 @@
    description="Deploy containers to an Docker Swarm on the Azure Container Service"
    services="container-service"
    documentationCenter=""
-   authors="rgardler"
+   authors="nepeters"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="04/13/2016"
-   ms.author="rogardle"/>
+   ms.author="neilpeterson"/>
 
 # Container management with Docker Swarm
 
