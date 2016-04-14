@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="04/14/2016"
    ms.author="subramar"/>
 
 # Service Fabric application upgrade: advanced topics
@@ -85,7 +85,6 @@ In this case, you update the application manifest to 2.0.0, and the service mani
 app1/
   service1/
     code/
-
 ```
 
 ## Next steps
