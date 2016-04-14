@@ -31,6 +31,8 @@ There are also other tools available for administering HDInsight in addition to 
 
 - For more information on administering HDInsight by using the Azure CLI, see [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md).
 
+> [AZURE.WARNING] The latest versions of Azure PowerShell or the Azure CLI default to using Azure Resource Manager. HDInsight clusters created using this mode cannot be managed using the Azure Classic Portal.
+
 ##Prerequisites
 
 Before you begin this article, you must have the following:

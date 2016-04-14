@@ -29,6 +29,9 @@ Apache Ambari simplifies the management and monitoring of a Hadoop cluster by pr
 
 * [cURL](http://curl.haxx.se/): cURL is a cross-platform utility that can be used to work with REST APIs from the command-line. In this document, it is used to communicate with the Ambari REST API.
 * [jq](https://stedolan.github.io/jq/): jq is a cross-platform command-line utility for working with JSON documents. In this document, it is used to parse the JSON documents returned from the Ambari REST API.
+* [Azure CLI](../xplat-cli-install.md): a cross-platform command-line utility for working with Azure services.
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)] 
 
 ##<a id="whatis"></a>What is Ambari?
 
@@ -113,7 +116,7 @@ This will return a value similar to the following, where __CONTAINER__ is the de
 
     wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-You can then use this information with the [Azure CLI](../xplat-cli-install.md) to upload or download data from the container. For example:
+You can then use this information with the [Azure CLI](../xplat-cli-install.md) to upload or download data from the container.
 
 1. Get the resource group for the Storage Account. Replace __ACCOUNTNAME__ with the Storage Account name retrieved from Ambari:
 

@@ -35,6 +35,8 @@ Before you begin this tutorial, you must have the following:
 
 - __Azure CLI__. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) for more steps.
 
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 
 ##Download the flight data
 
