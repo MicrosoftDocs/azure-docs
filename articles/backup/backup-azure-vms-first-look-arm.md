@@ -31,7 +31,7 @@ This tutorial takes you through the steps for creating a Recovery Services vault
 - Standard storage VMs
 - Premium storage VMs
 
-For additional information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-azure-vms-first-look.md#back-up-and-restore-premium-storage-vms)
+For additional information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
 >[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM. Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article is for use with Resource Manager and ARM-based VMs.
 
