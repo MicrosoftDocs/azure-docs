@@ -52,8 +52,21 @@ These articles focus on the essential aspects of architecting systems to make op
 
 - **[Availability Checklist][AvailabilityChecklist]** lists recommended practices for ensuring availability in an Azure application.
 
+- **[Recommended naming conventions for Azure resources][naming-conventions]** recommends practical naming conventions for Azure resources.
 
 > [AZURE.NOTE] See our [Performance Optimization][PerformanceOptimization] guidance exploring how to design systems that are scalable and efficient under load.
+
+## Recent guidance projects
+
+- **[Running Elasticsearch on Azure][elasticsearch]** 
+    
+    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in big datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
+
+- **[Identity management for multitenant applications][identity-multitenant]** 
+    
+    This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] (Azure AD) to handle sign-in and authentication.
+    
+## Guidance content under development
 
 [PerformanceOptimization]: https://github.com/mspnp/performance-optimization
 
@@ -70,3 +83,6 @@ These articles focus on the essential aspects of architecting systems to make op
 [RetryPolicies]: Retry-Policies.md
 [ScalabilityChecklist]: ../best-practices-scalability-checklist/
 [AvailabilityChecklist]: ../best-practices-availability-checklist/
+[naming-conventions]: ./guidance-naming-conventions/
+[elasticsearch]: ./guidance-elasticsearch
+[identity-multitenant] ./guidance-multitenant-identity-intro/
