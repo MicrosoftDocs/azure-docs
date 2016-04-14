@@ -14,30 +14,56 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/14/2016"
 	ms.author="larryfr"/>
 
 #Availability and reliability of Hadoop clusters in HDInsight
 
-A second head node is used by Linux-based Hadoop clusters deployed by Azure HDInsight. This increases the availability and reliability of Hadoop services and jobs running in Azure.
+Hadoop achieves high availability and reliability by distributing redundant copies of services and data across the nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working.
+
+To address this potential problem, Linux-based HDInsight clusters on Azure provide two head nodes to increase the availability and reliability of Hadoop services and jobs running.
 
 > [AZURE.NOTE] The steps used in this document are specific to Linux-based HDInsight clusters. If you are using a Windows-based cluster, see [Availability and reliability of Windows-based Hadoop clusters in HDInsight](hdinsight-high-availability.md) for Windows-specific information.
 
-##Understanding the head nodes
+##Understanding the nodes
 
-Some implementations of Hadoop have a single head node that hosts services and components that manage the failure of data (worker) nodes smoothly. But any outages of master services running on the head node would cause the cluster to cease to work.
+Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. In the event that a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type will be used until the new node is brought online.
+
+The following sections discuss the individual node types used with HDInsight.
+
+> [AZURE.NOTE] Not all node types are used for a cluster type. For example, a Hadoop cluster type will not have any Nimbus nodes.
+
+###Head nodes
+
+Some implementations of Hadoop have a single head node that hosts services and components that manage the failure of worker nodes smoothly. But any outages of master services running on the head node would cause the cluster to cease to work.
 
 HDInsight clusters provide a secondary head node, which allows master services and components to continue to run on on the secondary node in the event of a failure on the primary.
 
 > [AZURE.IMPORTANT] Both head nodes are active and running within the cluster simultaneously. Some services, such as HDFS or YARN, are only 'active' on one head node at any given time (and ‘standby’ on the other head node). Other services such as HiveServer2 or Hive MetaStore are active on both head nodes at the same time.
 
-[ZooKeeper](http://zookeeper.apache.org/ ) nodes (ZKs) are used for leader election of master services on head nodes, and to insure that services, data (worker) nodes and gateways know which head node a master service is active on.
+###Nimbus Nodes
 
-## Accessing the head nodes
+For Storm clusters, the Nimbus nodes provide similar functionality to the Hadoop JobTracker by distributing and monitoring processing across worker nodes. HDInsight provides 2 Nimbus nodes for the Storm cluster type.
 
-In general, all access to the cluster through the public gateways (Ambari web and REST APIs,) is not effected by having multiple head nodes. The request is routed to the active head node and serviced as appropriate.
+###Zookeeper nodes
 
-When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to head node 0; connecting through port 23 will connect to head node 1.
+[ZooKeeper](http://zookeeper.apache.org/ ) nodes (ZKs) are used for leader election of master services on head nodes, and to insure that services, data (worker) nodes and gateways know which head node a master service is active on. HDInsight provides 3 ZooKeeper nodes.
+
+###Worker nodes
+
+Worker nodes perform the actual data analysis when a job is submitted to the cluster. If a worker node fails, the task that it was performing will be submitted to another worker node. By default, HDInsight will create 4 worker nodes; however, you can change this number to suit your needs both during cluster creation and after cluster creation (using the cluster scaling feature.)
+
+###Edge node
+
+An edge node does not actively participate in the cluster, but is instead a node used by developers or data scientists when working with Hadoop. For example, R Server on HDInsight provides an edge node that can be used test R code locally on the node before submitting it to the cluster for distributed analysis.
+
+## Accessing the nodes
+
+In general, all access to the cluster over the internet (public gateway,) is limited to connecting to the head nodes. Access to services running on the head nodes is not effected by having multiple head nodes. The request is routed to the active head node and serviced as appropriate. For example, if Ambari is currently hosted on head node 1, the gateway will route incoming requests for Ambari to that node.
+
+When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to head node 0; connecting through port 23 will connect to head node 1. For example, `ssh username@mycluster-ssh.azurehdinsight.net` will connect to head node 0 of the cluster named __mycluster__.
+
+The edge node provided with R Server on HDInsight clusters can also be directly accessed using SSH through port 22. For example, `ssh username@RServer.mycluster.ssh.azurehdinsight.net` will connect to the edge node for an R Server on HDInsight cluster named __mycluster__.
 
 ### Internal fully qualified domain names (FQDN)
 
@@ -50,6 +76,14 @@ For example, the Oozie service can only run on one head node, and using the `ooz
 This will return a value similar to the following, which contains the internal URL to use with the `oozie` command:
 
 	"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+
+### Accessing other node types
+
+Only the head nodes are directly accessible over the internet; however, you can connect to the other nodes using the following methods.
+
+* __SSH__: Once connected to a head node using SSH, you can then use SSH from the head node to connect to other nodes in the cluster.
+* __SSH Tunnel__: If you need to access a web service hosted on one of the nodes that is not exposed to the internet, you must [use an SSH tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
+* __Azure Virtual Network__: If your HDInsight cluster is part of an Azure Virtual Network, any resource on the same Virtual Network can directly access all nodes in the cluster.
 
 ## How to check on a service status
 
