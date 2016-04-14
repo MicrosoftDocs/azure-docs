@@ -88,10 +88,14 @@ When you create a new ExpressRoute circuit, the circuit will be in the following
 
 ![](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
-"ServiceProviderProvisioningState" provides information on the current state of provisioning on the service provider side. Status provides the state on the Microsoft side. For you to be able to use an ExpressRoute circuit, it must be in the following state. The circuit will change to this state when the connectivity provider is in the process of enabling it for you.
+"ServiceProviderProvisioningState" provides information on the current state of provisioning on the service provider side. Status provides the state on the Microsoft side. For you to be able to use an ExpressRoute circuit, it must be in the following state. 
 
 	Provider Status : Provisioned
 	Circuit Status  : Enabled
+
+The circuit will change to this state when the connectivity provider is in the process of enabling it for you.
+
+
 
 
 ### 5. Periodically check the status and the state of the circuit key.
