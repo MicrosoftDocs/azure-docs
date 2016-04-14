@@ -18,12 +18,9 @@
 
 # Add push notifications to your Mobile Services app
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push-xamarin](../../includes/mobile-services-selector-get-started-push-xamarin.md)]
-
 [AZURE.INCLUDE [mobile-services-content-not-ready](../../includes/mobile-services-content-not-ready.md)]
 
+&nbsp; 
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Add push notifications to your Xamarin.iOS app](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md).

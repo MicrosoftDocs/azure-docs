@@ -5,7 +5,7 @@
     keywords="c# database,sql development"
     documentationCenter=""
     authors="stevestein"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -20,7 +20,7 @@
 # C&#x23; database development: Create and configure an elastic database pool for SQL database
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -286,7 +286,7 @@ The following example updates the performance characteristics of an existing ela
 
 ## Move an existing database into an elastic database pool
 
-*After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Monitor and manage an elastic database pool with Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 The following example moves an existing Azure SQL database into a pool:
 

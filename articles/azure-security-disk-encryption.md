@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="03/22/2016"
    ms.author="devtiw"/>
 
 
@@ -196,7 +196,7 @@ Azure disk encryption safeguards the disk encryption keys and secrets in your Az
 To create a new Key Vault, use one of the two options listed below:
 
 - Use the "101-Create-KeyVault" ARM template located [here](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
-- Use the Azure PowerShell Key Vault cmdlets as described [here](key-vault-get-started.md)
+- Use the Azure PowerShell Key Vault cmdlets.
 
 **Note:** If you already have a Key Vault setup for your subscription, please proceed to next section.
 
@@ -530,7 +530,7 @@ Disk encryption can be enabled on customer encrypted VHD using the CLI command i
 
 ### Get encryption status of an encrypted IaaS VM
 
-You can get encryption status using Azure Management portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt622700.aspx) or CLI commands. The sections below will explain how to use the Azure Management (Preview) portal and CLI commands to get the encryption status.
+You can get encryption status using Azure Management portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt622700.aspx) or CLI commands. The sections below will explain how to use the Azure portal and CLI commands to get the encryption status.
 
 #### Get encryption status of an encrypted IaaS VM using Azure Management Portal
 

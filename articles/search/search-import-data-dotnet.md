@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Data import in Azure Search using the .NET SDK | Microsoft Azure | Hosted cloud search service"
-    description="How to upload data to an index in Azure Search using the .NET SDK."
+    pageTitle="Data upload in Azure Search using the .NET SDK | Microsoft Azure | Hosted cloud search service"
+    description="Learn how to upload data to an index in Azure Search using the .NET SDK."
     services="search"
     documentationCenter=""
     authors="brjohnstmsft"
@@ -17,15 +17,15 @@
     ms.date="03/09/2016"
     ms.author="brjohnst"/>
 
-# Import data to Azure Search using the .NET SDK
+# Upload data to Azure Search using the .NET SDK
 > [AZURE.SELECTOR]
 - [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-This article will show you how to use the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to import data into an Azure Search index. Before beginning this walkthrough, you should already have [created an Azure Search index](search-create-index-dotnet.md). This article also assumes that you have already created a `SearchServiceClient` object, as shown in [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
+This article will show you how to use the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to import data into an Azure Search index.
+
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md). This article also assumes that you have already created a `SearchServiceClient` object, as shown in [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
 
 Note that all sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto).
 
@@ -67,24 +67,24 @@ var actions =
     {
         IndexAction.Upload(
             new Hotel()
-            { 
-                HotelId = "1", 
-                BaseRate = 199.0, 
+            {
+                HotelId = "1",
+                BaseRate = 199.0,
                 Description = "Best hotel in town",
                 DescriptionFr = "Meilleur hôtel en ville",
                 HotelName = "Fancy Stay",
-                Category = "Luxury", 
+                Category = "Luxury",
                 Tags = new[] { "pool", "view", "wifi", "concierge" },
-                ParkingIncluded = false, 
+                ParkingIncluded = false,
                 SmokingAllowed = false,
-                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                Rating = 5, 
+                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                Rating = 5,
                 Location = GeographyPoint.Create(47.678581, -122.131577)
             }),
         IndexAction.Upload(
             new Hotel()
-            { 
-                HotelId = "2", 
+            {
+                HotelId = "2",
                 BaseRate = 79.99,
                 Description = "Cheapest hotel in town",
                 DescriptionFr = "Hôtel le moins cher en ville",
@@ -98,9 +98,9 @@ var actions =
                 Location = GeographyPoint.Create(49.678581, -122.131577)
             }),
         IndexAction.MergeOrUpload(
-            new Hotel() 
-            { 
-                HotelId = "3", 
+            new Hotel()
+            {
+                HotelId = "3",
                 BaseRate = 129.99,
                 Description = "Close to town hall and the river"
             }),
@@ -203,4 +203,4 @@ This is not just a hypothetical concern: Imagine a scenario where you add a new 
 For this reason, we recommend that you use nullable types in your model classes as a best practice.
 
 ## Next
-After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index using the .NET SDK](search-query-dotnet.md) for details.
+After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index](search-query-overview.md) for details.

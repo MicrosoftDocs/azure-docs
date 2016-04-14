@@ -627,7 +627,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 - [Use Sqoop with Hadoop in HDInsight][hdinsight-use-sqoop]
 - [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
 - [Use Pig with Hadoop on HDInsight][hdinsight-use-pig]
-- [Develop C# Hadoop streaming jobs for HDInsight][hdinsight-develop-streaming-jobs]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -653,7 +652,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md

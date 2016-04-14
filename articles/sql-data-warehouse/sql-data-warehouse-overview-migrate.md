@@ -3,7 +3,7 @@
    description="Migration guidance for bringing your solution to Azure SQL Data Warehouse platform."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="03/14/2016"
+   ms.author="barbkess;jrj;sonyama"/>
 
 # Migrate your solution to SQL Data Warehouse
 
@@ -45,7 +45,7 @@ Finally, check out the [loading overview][] that discusses various data loading 
 
 [development overview]: sql-data-warehouse-overview-develop.md
 [loading overview]: sql-data-warehouse-overview-load.md
-[Transact-SQL reference]: sql-data-warehouse-overview-migrate.md
+[Transact-SQL reference]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 

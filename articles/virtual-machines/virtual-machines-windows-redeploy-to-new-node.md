@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Redeploy Virtual Machines | Microsoft Azure" 
 	description="Describes how to redeploy Virtual Machines to mitigate RDP connection issues." 
-	services="virtual-machines" 
+	services="virtual-machines-windows" 
 	documentationCenter="virtual-machines" 
 	authors="dsk-2015" 
 	manager="timlt"
@@ -10,9 +10,9 @@
 	
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
 	ms.date="03/02/2016" 

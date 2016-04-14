@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/15/2016"
 	ms.author="jgao"/>
 
 # Analyze HDInsight logs
@@ -99,14 +99,14 @@ You can now use Excel to filter and sort as necessary. Obviously, you may want t
 2. From the **View** menu, click **Cloud Explorer**. Or simply click **CTRL+\, CTRL+X**.
 3. From **Cloud Explorer**, select **Resource Types**.  The other available option is **Resource Groups**.
 4. Expand **Storage Accounts**, the default storage account for your cluster, and then **Tables**.
-5. Double-click hadoopservicelog.
+5. Double-click **hadoopservicelog**.
 6. Add a filter. For example:
 	
 		TraceLevel eq 'ERROR'
 
 	![HDInsight Hadoop logs choose columns](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
 
-	For more information about constructing filters, see [Constructing Filter Strings for the Table Designer](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+	For more information about constructing filters, see [Construct Filter Strings for the Table Designer](../vs-azure-tools-table-designer-construct-filter-strings.md).
  
 ##Logs Written to Azure Blob Storage
 

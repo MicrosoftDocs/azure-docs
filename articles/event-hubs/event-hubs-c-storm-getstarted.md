@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
@@ -30,7 +30,7 @@ In this tutorial, you will learn how to ingest messages into an Event Hub using 
 
 In order to complete this tutorial you will need the following:
 
-+ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-tutorial.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
++ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
 
 + A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we will assume [Eclipse](https://www.eclipse.org/).
 
@@ -109,4 +109,3 @@ The following resources are available for developing applications integrating Ev
 [HDInsight Storm overview]: ../hdinsight/hdinsight-storm-overview.md/
 [Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
- 
