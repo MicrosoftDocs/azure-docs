@@ -96,7 +96,7 @@ data:        Name                        :clife36db80ae0539d2-os-1460152163612
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://<**subID**>.blob.core.windows.net/vhds/clife36db80ae0539d2-os-1460152163612.vhd
+data:          Uri                       :https://<**subscriptionsID**>.blob.core.windows.net/vhds/clife36db80ae0539d2-os-1460152163612.vhd
 data:
 data:    OS Profile:
 data:      Computer Name                 :exampleVMname
@@ -117,7 +117,7 @@ data:            FQDN                    :examp-westu-3894891836-pip.westus.clou
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
-data:      BootDiagnostics StorageUri    :https://<**subID**>.blob.core.windows.net/
+data:      BootDiagnostics StorageUri    :https://<**subscriptionsID**>.blob.core.windows.net/
 data:
 data:      Diagnostics Instance View:
 info:    vm quick-create command OK
