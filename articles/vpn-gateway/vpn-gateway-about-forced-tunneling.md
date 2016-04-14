@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configure forced tunneling for VPN Gateways using PowerShell | Microsoft Azure"
-   description="If you have a classic deployment model virtual network with a cross-premises VPN-gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location."
+   description="If you have a classic deployment model virtual network with a cross-premises VPN-gateway, you can redirect or 'force' all Internet-bound traffic back to your on-premises location."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
