@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="04/14/2016"
 	ms.author="chrande"/>
 
 # Azure Functions C# developer reference
@@ -217,7 +217,7 @@ After the *project.json* file is uploaded, you see output like the following exa
 
 ## Reusing .csx code
 
-You can use methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives at the top of your *run.csx* file, as shown in the following example.
+You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file, as shown in the following example.
 
 Example *run.csx*:
 
