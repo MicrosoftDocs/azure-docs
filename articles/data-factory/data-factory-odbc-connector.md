@@ -339,13 +339,17 @@ You create an ODBC linked service to link a [GE Proficy Historian (now GE Histor
 	        "typeProperties":
 	        {
 			    "connectionString": "DSN=<name of the GE Historian store>",
-			    "gatewayName": "ProficyGatewayTest",
+			    "gatewayName": "<gateway name>",
 			    "authenticationType": "Basic",
 			    "userName": "<user name>",
 			    "password": "<password>"
 	        }
 	    }
 	}
+
+You must install Data Management Gateway on an on-premises machine and register the gateway with the portal. The gateway installed on your on-premises computer uses the ODBC driver for GE Historian to connect to the GE Historian data store, so please install the driver if it is not already installed on the gateway machine. See [Enabling connectivity](#enabling-connectivity) section for details.
+
+Before you use the GE Historian store in a Data Factory solution, verify whether the gateway can connect to the data store using instructions in the next section. 
 
 Read the article from the beginning for a detailed overview of using ODBC data stores as source data stores in a copy operation.  
 
