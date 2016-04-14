@@ -1,6 +1,6 @@
 <properties
    pageTitle="Power BI Embedded Stack Overflow"
-   description=""
+   description="Power BI Embedded Stack Overflow"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
