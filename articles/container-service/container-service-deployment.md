@@ -37,10 +37,10 @@ Select ‘Azure Container Service’ and click ‘Create’.
 Enter the following information:
 
 - User Name – This is the user name that will be used for an account on each of the virtual machines and virtual machine scale sets in the Azure Container Service cluster.
-- SSH public key – Add the public key that will be used for authentication against Azure Container Service Virtual Machines. It is very important that you're careful when you paste your key value into this box. Some editors will insert line breaks into the content, and this will break the key. Verify that your key has no line breaks, and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should look something like 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. For guidance on creating SSH keys, see the [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) and [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) articles.
 - Subscription – select an Azure subscription.
 - Resource Group – select an existing Resource Group, or create a new one.
 - Location – select an Azure region for the Azure Container Service deployment.
+- SSH public key – Add the public key that will be used for authentication against Azure Container Service Virtual Machines. It is very important that this key contains no line breaks, and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should look something like the following, "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" For guidance on creating SSH keys, see the [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) and [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) articles.
 
 Click ‘OK’ when ready to proceed.
 
@@ -57,9 +57,9 @@ Click ‘OK’ when ready to proceed.
 
 Enter the following information:
 
-- Agent count – For Docker Swarm this will be the initial number of agents in the agent scale set. For Mesos, this will be the initial number of agents in the private scale set. Additionally, a public scale set is created containing a pre-determined number of agents. The number of agents in this public scale set will be 1, if you have configured 1 master, and 2, if you have configured either 3 or 5 masters.
-- Agent virtual machine size – the size of the agent virtual machines.
 - Master count – the number of masters in the cluster.
+- Agent count – For Docker Swarm this will be the initial number of agents in the agent scale set. For Mesos, this will be the initial number of agents in a private scale set. Additionally, a public scale set is created, containing a pre-determined number of agents. The number of agents in this public scale set is determent on how many masters have been created in the cluster, 1 public agent for 1 master, and 2 public agents for 3 or 5 masters.
+- Agent virtual machine size – the size of the agent virtual machines.
 - DNS prefix – A world unique name that will be used to prefix key parts of the fully qualified domain names for the service. 
 
 Click ‘OK’ when ready to proceed.
@@ -92,20 +92,17 @@ To deploy a Mesos or Docker Swarm cluster, select one of the following templates
 Next, make sure that the Azure CLI has been connected to an Azure subscription. You can do this by using the following command:
 
 ```bash
-
 azure account show
 ```
 If an Azure account is not returned, use the following command to sign the CLI in to Azure.
 
 ```bash
-
 azure login -u user@domain.com
 ```
 
 Next, configure the Azure CLI tools to use Azure Resource Manager.
 
 ```bash
-
 azure config mode arm
 ```
 
