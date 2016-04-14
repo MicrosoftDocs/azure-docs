@@ -64,9 +64,12 @@ These articles focus on the essential aspects of architecting systems to make op
 
 - **[Identity management for multitenant applications][identity-multitenant]** 
     
-    This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] (Azure AD) to handle sign-in and authentication.
+    _Multitenancy_ is an architecture where multiple tenants share the same physical instance of the app. This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] (Azure AD) to handle sign-in and authentication.
     
 ## Guidance content under development
+
+
+[AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
 [PerformanceOptimization]: https://github.com/mspnp/performance-optimization
 
@@ -85,4 +88,4 @@ These articles focus on the essential aspects of architecting systems to make op
 [AvailabilityChecklist]: ../best-practices-availability-checklist/
 [naming-conventions]: ./guidance-naming-conventions/
 [elasticsearch]: ./guidance-elasticsearch
-[identity-multitenant] ./guidance-multitenant-identity-intro/
+[identity-multitenant]: ./guidance-multitenant-identity-intro/
