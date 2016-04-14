@@ -17,8 +17,6 @@ ms.author="eugenesh" />
 
 # Indexing JSON blobs with Azure Search blob indexer 
 
-> [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
-
 By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want preserve the structure of your JSON documents. For example, given this JSON document 
 
 	{ 
@@ -29,9 +27,15 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 	    }
 	}
 
-you might want to extract the content into "text", "datePublished", and "tags" fields in your search index. 
+you might want to parse that document into "text", "datePublished", and "tags" fields in your search index.
 
-To accomplish this, you can use the blob indexer in "JSON parser" mode as follows: 
+This article shows how to configure Azure Search blob indexer for JSON parsing. Happy indexing! 
+
+> [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
+
+## Setting up JSON indexing
+
+To accomplish this, you can use the blob indexer in "JSON parsing" mode as follows: 
 
 1. Enable JSON parsing mode by enabling `useJsonParser` configuration setting in the indexer parameters: 
 
@@ -69,9 +73,34 @@ You can also refer to individual array elements by using a zero-based index. For
 
 	{ "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
+> [AZURE.TIP] If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index: 
+ 
+	{ 
+	   "text" : "A hopefully useful article explaining how to parse JSON blobs",
+	   "datePublished" : "2016-04-13" 
+       "tags" : [ "search", "storage", "howto" ]    
+ 	}
+
 > [AZURE.NOTE] If a source field name path refers to a non-existing property, this property is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). This does mean, however, that you need to take care to avoid typos in your field mapping specification. 
 
-Putting this all together, here's the complete indexer payload for our example: 
+## Request examples
+
+Putting this all together, here are the complete payloads examples. 
+
+Datasource: 
+
+	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	    "name" : "my-blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<my storage connection string>" },
+	    "container" : { "name" : "my-container", "query" : "optional, my-folder" }
+	}   
+
+Indexer:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -89,16 +118,6 @@ Putting this all together, here's the complete indexer payload for our example:
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
   	  ]
 	}
-
-> [AZURE.TIP] If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index: 
- 
-	{ 
-	   "text" : "A hopefully useful article explaining how to parse JSON blobs",
-	   "datePublished" : "2016-04-13" 
-       "tags" : [ "search", "storage", "howto" ]    
- 	}
-
-Happy JSON indexing!
 
 ## Help us make Azure Search better
 
