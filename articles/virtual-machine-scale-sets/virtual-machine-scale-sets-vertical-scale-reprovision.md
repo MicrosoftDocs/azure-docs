@@ -86,7 +86,7 @@ Once you've imported the runbooks you'll need to add a webhook to the runbook so
 ## Add an alert to your VM Scale Set
 
 Below is a PowerShell script which shows how to add an alert to a VM Scale Set. Refer to the following article to get the name of the metric to fire the alert on:
-[Azure Insights autoscaling common metrics](../azure-portal/insights-autoscale-common-metrics.md)
+[Azure Insights autoscaling common metrics](../azure-portal/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -117,7 +117,7 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 For more information on how to create alerts refer to the following articles:
 
 * [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
-* [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples/)
+* [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples.md)
 
 ## Summary
 
