@@ -84,7 +84,10 @@ The above policy can easily be modified to a scenario where you might want to al
 
 #### Virtual Machine Property Fields
 
-The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more on policy fields, see https://azure.microsoft.com/en-us/documentation/articles/resource-manager-policy/#fields-and-sources 
+The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more on policy fields, see the article below:
+
+* [Creating a Policy](../resource-manager-policy.md#fields-and-sources)
+
 
 | Field Name     | Description                                        |
 |----------------|----------------------------------------------------|
