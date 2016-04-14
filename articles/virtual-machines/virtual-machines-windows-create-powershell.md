@@ -50,15 +50,14 @@ Login to your account.
 
 	Login-AzureRmAccount
 
-Get your subscription name using the following command.
+Get the available subscriptions by using the following command.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Set your Azure subscription. Replace everything within the quotes, including the < and > characters, with the correct names.
+Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct names.
 
 	$subscr="<subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 ## Step 3: Create resources
 
