@@ -20,15 +20,17 @@
 
 ## Overview
 
-StorSimple support package is an easy to use mechanism which collects all relevant logs to assist Microsoft Support team with troubleshooting any StorSimple device issues. The collected logs are encrypted & compressed. 
+StorSimple support package is an easy to use mechanism which collects all relevant logs to assist Microsoft Support team with troubleshooting any StorSimple device issues. The collected logs are encrypted and compressed. 
 
 This tutorial includes step-by-step instructions to create and manage the support package.
 
 ## Create and upload support package in the Azure classic portal
 
-You can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in  the Azure classic portal. This package can then be retrieved by the Support Engineer from the Support site when the engineer supplies the pass key.
+You can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in  the Azure classic portal. 
 
-> [AZURE.NOTE] You will need to provide a support passkey to allow the upload. The support pass key should be provided to you by your Support Engineer in an email. An unencrypted, compressed support package is created (.cab file). 
+> [AZURE.NOTE] You will need to provide a support passkey to allow the upload. The support pass key should be provided to you by your Support Engineer in an email. 
+
+An encrypted and compressed support package is created (.cab file) and uploaded to Support site. This package can then be retrieved by the Support Engineer from the Support site for troubleshooting the issue.
 
 Perform the following steps in the classic portal to create a support package:
 
