@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to deploy an ASP.NET Web API 2 application to an [API app in Azure App Service](app-service-web-overview.md) by using Visual Studio 2015. You'll create a Visual Studio project and deploy it to an API app, as shown in the diagram.
+This tutorial shows how to deploy an ASP.NET Web API 2 application to an [API app](app-service-api-apps-why-best-platform.md)  in Azure App Service by using Visual Studio 2015. You'll create a Visual Studio project and deploy it to an API app, as shown in the diagram.
 
 ![Visual Studio create and deploy diagram](./media/app-service-api-dotnet-get-started-template/Create_App.png)
 
