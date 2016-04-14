@@ -20,8 +20,6 @@
 
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol on port 8883. IoT Hub requires all device communication to be secured using TLS/SSL.
 
-For additional information, see [Notes on MQTT support][lnk-mqtt-devguide] in the Azure IoT Hub developer guide.
-
 ## Connecting to IoT Hub
 
 A device can connect to an IoT hub using the MQTT protocol either by using the libraries in the [Microsoft Azure IoT SDKs][lnk-device-sdks] or by using the MQTT protocol directly.
@@ -81,11 +79,13 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 The device client application can also use `devices/{did}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
 
-### Receiving Messages
+### Receiving messages
 
 To receive messages from IoT Hub a device should subscribe using `devices/{did}/messages/devicebound/#”` as a **Topic Filter**. IoT Hub delivers messages with the **Topic Name** `devices/{did}/messages/devicebound/`, or `devices/{did}/messages/devicebound/{property_bag}` if there are any message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix.
 
 ## Next steps
+
+For additional information about MQTT support with the IoT Device SDKs, see [Notes on MQTT support][lnk-mqtt-devguide] in the Azure IoT Hub developer guide.
 
 To learn more about using the device client SDKs to communicate with IoT Hub, see [Get started with Azure IoT Hub][lnk-iot-get-stated].
 

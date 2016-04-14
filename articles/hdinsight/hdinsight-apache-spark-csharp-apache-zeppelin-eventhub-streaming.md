@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Spark Streaming: Process events from Azure Event Hubs with Apache Spark on HDInsight (Windows)
+# Spark Streaming: Process events from Azure Event Hubs with Apache Spark on HDInsight Windows (Preview)
 
 > [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to run a streaming application on HDInsight Spark Linux clusters, see [Spark Streaming: Process events from Azure Event Hubs with Apache Spark on HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
 

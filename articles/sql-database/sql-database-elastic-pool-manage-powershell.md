@@ -32,9 +32,6 @@ For common error codes, see [SQL error codes for SQL Database client application
 
 You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-
-
-
 ## Create a new elastic database in a pool
 
 To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter.
@@ -132,6 +129,12 @@ Export to a CSV file:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
+## Latency of elastic pool operations
+
+- Changing the guaranteed eDTUs per database (DatabaseDtuMin) or maximum eDTUs per database (DatabaseDtuMax) typically completes in 5 minutes or less.
+- Changing the eDTU / storage limit (Dtu) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
+
+
 ## Monitor and manage a pool PowerShell example
 
 
@@ -172,8 +175,3 @@ Export to a CSV file:
 ## Next steps
 
 - [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
-
-
-## Elastic database reference
-
-For more information about elastic databases and elastic database pools, including API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).

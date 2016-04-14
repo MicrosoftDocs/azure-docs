@@ -57,7 +57,7 @@ Foundation. It lists some of the [biggest names in
 IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as
 users and contributors.
 
-![Azure Container Service configured for Swarm showing agents and masters.](media/acs-intro/acs-mesos.png)
+![Azure Container Service configured for Swarm showing agents and masters.](media/acs-intro/acs-mesos2.png)
 
 Mesos includes an impressive feature set:
 
@@ -99,7 +99,7 @@ serves the standard Docker API, any tool that already communicates with
 a Docker daemon can use Swarm to transparently scale to multiple hosts
 on Azure Container Service.
 
-![Azure Container Service configured to use Apache Mesos--showing jumpbox, agents, and masters.](media/acs-intro/acs-swarm.png)
+![Azure Container Service configured to use Apache Mesos--showing jumpbox, agents, and masters.](media/acs-intro/acs-swarm2.png)
 
 Supported tools for managing containers on a Swarm cluster include, but are not limited
 to, the following:
