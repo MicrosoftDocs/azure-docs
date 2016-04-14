@@ -130,7 +130,7 @@ Now add the private key to `ssh-agent` using the command `ssh-add`, again on OSX
 
 `[chrisL@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa`
 
-The private key password is not stored so you will not have to type the key password with every SSH login.
+The private key password is now stored so you will not have to type the key password with every SSH login.
 
 ## Create and configure a SSH config file
 
