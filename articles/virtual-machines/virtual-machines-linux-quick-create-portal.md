@@ -47,7 +47,7 @@ This article shows how to use the [Azure Portal](https://portal.azure.com/) to c
 
     ![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
-5. In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.
+5. In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.  Notice the disk type has been set to Premium SSD by choosing DS1, the **S** notates SSD.
 
     ![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
