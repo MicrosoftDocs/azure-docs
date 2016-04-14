@@ -51,10 +51,10 @@ After you create a pool, you can add databases to the pool or remove them. You c
 
 2. In the **Configure pool** blade, click **Add to pool**.
 
-	![Clic Add to pool](/media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+	![Clic Add to pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 3. In the **Add databases** blade, select the database or databases to add to the pool. Then click **Select**.
 
-	![Select databases to add](/media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+	![Select databases to add](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
     The **Configure pool** blade now lists the database you just added, with various propertiesand a **Pending** status.
 
