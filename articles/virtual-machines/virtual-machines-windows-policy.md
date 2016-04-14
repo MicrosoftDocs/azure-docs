@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Apply policies to Azure Resource Manager Virtual Machines | Microsoft Azure"
-	description="How to apply a policy to an Azure Resource Manager Virtual Machine"
-	services="virtual-machines"
+	description="How to apply a policy to an Azure Resource Manager Windows Virtual Machine"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkay"
 	manager="drewm"
@@ -9,9 +9,9 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/13/2016"
@@ -39,7 +39,7 @@ For getting started with Azure Resource Manager policies, we recommend reading t
 ## Define a policy for your Virtual Machine
 
 One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps. 
-In this policy example, we are going to allow only Ubuntu 14.04.2-LTS Virtual Machines to be created. The policy definition looks like below
+In this policy example, we are going to allow only Windows Server 2012 R2 Datacenter Virtual Machines to be created. The policy definition looks like below
 
 ```
 "if": {
@@ -53,15 +53,15 @@ In this policy example, we are going to allow only Ubuntu 14.04.2-LTS Virtual Ma
         "allOf": [
           {
             "field": "Microsoft.Compute/virtualMachines/imagePublisher",
-            "equals": "Canonical"
+            "equals": "MicrosoftWindowsServer"
           },
           {
             "field": "Microsoft.Compute/virtualMachines/imageOffer",
-            "equals": "UbuntuServer"
+            "equals": "WindowsServer"
           },
           {
             "field": "Microsoft.Compute/virtualMachines/imageSku",
-            "equals": "14.04.2-LTS"
+            "equals": "2012-R2-Datacenter"
           }
         ]
       }
@@ -73,12 +73,12 @@ In this policy example, we are going to allow only Ubuntu 14.04.2-LTS Virtual Ma
 }
 ```
 
-The above policy can easily be modified to a scenario where you might want to allow any Ubuntu LTS image to be used for a Virtual Machine deployment with the below change
+The above policy can easily be modified to a scenario where you might want to allow any Windows Server Datacenter image to be used for a Virtual Machine deployment with the below change
 
 ```
 {
   "field": "Microsoft.Compute/virtualMachines/imageSku",
-  "like": "*LTS"
+  "like": "*Datacenter"
 }
 ```
 
