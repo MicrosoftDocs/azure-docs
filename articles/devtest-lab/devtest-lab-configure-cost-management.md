@@ -26,7 +26,7 @@ to view the current month's estimated cost-to-date as well as the projected end-
 
 ## Enabling the Monthly Estimated Cost Trend chart
 
-In order to view (and change) the policies for a lab, follow these steps:
+In order to enable the Monthly Estimated Cost Trend chart, follow these steps: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
