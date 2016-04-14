@@ -25,6 +25,7 @@
 - [Back up Classic mode VMs](backup-azure-vms-first-look.md)
 
 This tutorial takes you through the steps for creating a Recovery Services vault and backing up an Azure virtual machine (VM). Recovery Services vaults protect:
+
 - Azure Resource Manager (ARM) VMs
 - Classic VMs
 - Standard storage VMs
