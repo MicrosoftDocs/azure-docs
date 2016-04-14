@@ -24,7 +24,13 @@ If you store historical data in a separate table, you can configure Stretch Data
 
 If you don't specify a filter predicate, the entire table is migrated.
 
-In RC3, you can only specify a simple date-based filter predicate in the Enable Database for Stretch wizard. If you want to use a different filter predicate to select rows to migrate, run the CREATE TABLE statement, or run the ALTER TABLE statement to specify the filter predicate after you exit the wizard.
+In RC3, when you run the Enable Database for Stretch Wizard, you can migrate an entire table or you can specify a simple date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, do one of the following things.
+
+-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate.
+
+-   Run the ALTER TABLE statement to specify a predicate after you exit the wizard.
+
+The ALTER TABLE syntax for adding a predicate is described later in this topic.
 
 ## Basic requirements for the inline table\-valued function
 The inline table\-valued function required for a Stretch Database filter predicate looks like the following example.

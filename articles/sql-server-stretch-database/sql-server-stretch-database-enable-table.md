@@ -24,8 +24,6 @@ To configure a table for Stretch Database, select **Stretch | Enable** for a tab
 
 -   If your table contains both historical and current data, you can specify a filter predicate to select the rows to migrate.
 
-    In RC3, you can only specify a simple date-based filter predicate in the Enable Database for Stretch wizard. If you want to use a different filter predicate to select rows to migrate, run the ALTER TABLE statement to specify the filter predicate after you exit the wizard.
-
 **Prerequisites**. If you select **Stretch | Enable** for a table, and you have not yet enabled Stretch Database for the database, the wizard first configures the database for Stretch Database. Follow the steps in [Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md) instead of the steps in this topic.
 
 **Permissions**. Enabling Stretch Database on a database or a table requires db\_owner permissions. Enabling Stretch Database on  a table also requires ALTER permissions on the table.
@@ -45,7 +43,13 @@ Review the purpose of the wizard and the prerequisites.
 
 Confirm that the table you want to enable is displayed and selected.
 
-In RC3, you can migrate an entire table or you can specify a date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, run the ALTER TABLE statement to specify a predicate after you exit the wizard, or exit the wizard and run the ALTER TABLE statement, as described later in this topic.
+In RC3, you can migrate an entire table or you can specify a simple date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, do one of the following things.
+
+-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate.
+
+-   Run the ALTER TABLE statement to specify a predicate after you exit the wizard.
+
+The ALTER TABLE syntax is described later in this topic.
 
 **Summary**
 
@@ -64,8 +68,6 @@ Use the following options when you run CREATE TABLE or ALTER TABLE to enable Str
 -   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify  a predicate to select rows to migrate if the table contains both historical and current data. The predicate must call an inline table\-valued function. For more info, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
 
     >   [AZURE.NOTE] If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
-
-    In RC3, you can only specify a simple date-based filter predicate in the Enable Database for Stretch wizard. If you want to use a different filter predicate to select rows to migrate, run the CREATE TABLE statement, or run the ALTER TABLE statement to specify the filter predicate after you exit the wizard.
 
 -   Specify `MIGRATION_STATE = OUTBOUND` to start data migration immediately or  `MIGRATION_STATE = PAUSED` to postpone the start of data migration.
 
