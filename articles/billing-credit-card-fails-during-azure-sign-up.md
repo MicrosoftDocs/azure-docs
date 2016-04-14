@@ -79,4 +79,4 @@ Suggestions:
 If a free trial activation fails because you already activated an Azure subscription in the past, please use another available Azure plan listed in the [Microsoft Azure offer details](https://azure.microsoft.com/support/legal/offer-details/) instead of the Azure Free Trial plan.
 
 ## Next steps
-Have billing or subscription questions on Microsoft Azure? Check out the [Azure Billing and Subscription FAQ](https://azure.microsoft.com/en-us/documentation/articles/billing-subscription-faq/#what-payment-options-do-i-have-in-purchasing-azure).
+Have billing or subscription questions on Microsoft Azure? Check out the [Azure Billing and Subscription FAQ](billing-subscription-faq/#what-payment-options-do-i-have-in-purchasing-azure).

@@ -15,7 +15,6 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/14/2016"
-	ms.date="04/07/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
