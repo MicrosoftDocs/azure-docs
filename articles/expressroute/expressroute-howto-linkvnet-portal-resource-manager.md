@@ -70,7 +70,7 @@ You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRo
 
 ### To delete a connection
 
-You can delete a connection by selecting the delete connection icon.
+You can delete a connection by selecting the **Delete** icon on the blade for your connection.
 
 ## Connect a VNet in a different subscription to circuit
 
