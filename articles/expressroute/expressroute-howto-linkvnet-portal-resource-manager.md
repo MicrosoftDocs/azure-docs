@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="04/14/2016"
    ms.author="cherylmc" />
 
 # Link a virtual network to an ExpressRoute circuit
@@ -44,6 +44,7 @@ This article gives you an overview of how to link virtual networks (VNets) to Ex
 You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRoute circuits must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check out the [FAQ](expressroute-faqs.md) for more details on the premium add-on. 
 
 ## Connect a VNet in the same subscription to a circuit
+
 
 ### To create a connection
 
