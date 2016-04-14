@@ -3,7 +3,7 @@
    description="Install Visual Studio and/or SSDT development tools for Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/03/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="sonyama;barbkess"/>
 
 # Install Visual Studio 2015 and/or SSDT for SQL Data Warehouse
 

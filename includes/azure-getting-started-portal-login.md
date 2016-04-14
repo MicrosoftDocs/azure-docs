@@ -25,7 +25,7 @@ Using your [existing subscription]( https://account.windowsazure.com/Home/Index)
 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. When the sign in page appears, provide the credentials for your subscription
 
