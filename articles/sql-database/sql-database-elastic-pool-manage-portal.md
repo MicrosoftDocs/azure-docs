@@ -127,7 +127,7 @@ When you see the resource utilization of a pool, you may discover that the pool 
 
     ![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-2. With a different setting, and you'll see the estimated monthly cost of the change you want to make, and the chart updates to show the predicted utilization values with the new max eDTU you selected.
+2. When the setting changes, display shows the estimated monthly cost of the change.
 
     ![Updating a pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
