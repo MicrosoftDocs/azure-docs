@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Kernels available for Jupyter notebooks with Spark clusters on HDInsight (Linux)
+# Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight (Preview)
 
 Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. By default Jupyter notebook comes with a **Python2** kernel. A kernel is a program that runs and interprets your code. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
 

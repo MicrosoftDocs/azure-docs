@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# Known issues of Apache Spark in Azure HDInsight (Linux)
+# Known issues for Apache Spark on HDInsight Linux (Preview)
 
 This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
