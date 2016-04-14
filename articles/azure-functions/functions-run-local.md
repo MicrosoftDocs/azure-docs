@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/14/2016"
 	ms.author="tdykstra"/>
 
 # How to code and test Azure functions in Visual Studio
@@ -25,6 +25,8 @@ This article explains how to run [Azure Functions](functions-overview.md) locall
 The runtime for Azure Functions is an implementation of the WebJobs.Script open source project. This project is in turn built on the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md), and both frameworks can run locally. You do need to connect to an Azure storage account, however, because the WebJobs SDK uses storage account features that the storage emulator doesn't support.
 
 Functions are easy to code and test in the Azure portal, but sometimes it's useful to work with them locally before running in Azure. For example, some of the languages that Azure Functions supports are easier to write code for in Visual Studio because it provides [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx). And while you can debug a function remotely, it may be quicker and easier to debug locally. When you run locally, you can debug and set breakpoints in function code as well as in the WebJobs Script host code.  
+
+>[AZURE.NOTE] Azure Functions is currently in preview, and the overall experience including tooling is still under rapid development. The procedures outlined in this article do not reflect the final local development experience, and we’d love for you to [provide your feedback](feedback.azure.com).
 
 ## Prerequisites
 
