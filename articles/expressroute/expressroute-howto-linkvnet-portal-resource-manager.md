@@ -37,8 +37,11 @@ This article gives you an overview of how to link virtual networks (VNets) to Ex
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the [routing requirements](expressroute-routing.md) page, and the [workflows](expressroute-workflows.md) page before you begin configuration.
 - You must have an active ExpressRoute circuit. 
 	- Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
-	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
+	
+	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-portal-resource-manager.md) article for routing instructions. 
+	
 	- Azure private peering must be configured and the BGP peering between your network and Microsoft must be up for you to enable end-to-end connectivity.
+	
 	- You must have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [VPN gateway](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (follow only steps 1 - 5).
 
 You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRoute circuits must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check out the [FAQ](expressroute-faqs.md) for more details on the premium add-on. 
@@ -71,7 +74,7 @@ You can delete a connection by selecting the delete connection icon.
 
 ## Connect a VNet in a different subscription to circuit
 
-Connecting virtual networks across subscriptions is not supported through the Azure portal at this time. However, you can use PowerShell. Please see the [PowerShell](expressroute-howto-linkvnet-arm.md) article for more information.
+At this time, you cannot connect virtual networks across subscriptions by using the Azure portal. However, you can use PowerShell to do this. Please see the [PowerShell](expressroute-howto-linkvnet-arm.md) article for more information.
 
 ## Next steps
 
