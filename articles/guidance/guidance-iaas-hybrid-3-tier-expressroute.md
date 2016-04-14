@@ -47,7 +47,7 @@ The following diagram highlights the important components in this architecture:
 
 - **Azure public services.** These are Azure services that can be utilized within a hybrid application. These services are also available across the Internet, but accessing them via an ExpressRoute circuit provides low latency and more predictable performance since traffic does not go through the Internet. Connections are performed by using **public peering**, and traffic is routed to [IP address ranges published by Microsoft][datacenter-ip-ranges]. The ExpressRoute circuit performs a NAT translation of on-premises traffic to an endpoint in one of these ranges. Connections over public peering can only be initiated from on-premises.
 
-- **Office 365 services.** These are the publicly available Office 365 applications and services provided by Microsoft. Connections are performed by using **Microsoft peering**, with addresses that are either owned by your organization or supplied by your connectivity provider.
+- **Office 365 services.** These are the publicly available Office 365 applications and services provided by Microsoft. Connections are performed by using **Microsoft peering**, with addresses that are either owned by your organization or supplied by your connectivity provider. 
 
 - **On-premises corporate network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
