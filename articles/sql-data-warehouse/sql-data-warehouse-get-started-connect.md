@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="sonyama;barbkess"/>
 
 # Connect to SQL Data Warehouse with Visual Studio
 

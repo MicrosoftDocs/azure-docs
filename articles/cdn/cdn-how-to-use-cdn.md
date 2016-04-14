@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use CDN | Microsoft Azure"
+	pageTitle="Using Azure CDN | Microsoft Azure"
 	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content."
 	services="cdn"
 	documentationCenter=".net"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="04/15/2016"
 	ms.author="casoper"/>
 
 
-# Using CDN for Azure
+# Using Azure CDN
 
 The Azure Content Delivery Network (CDN) is the fundamental building block to scale any HTTP/HTTPS application in Azure. It offers Azure customers a global solution by caching and delivering content close to end users. As a result, instead of hitting the origin every single time, user requests are intelligently routed to the CDN edge node (POP, or Point of Presence) that provides them with the best response times. This significantly increases the performance and user experience. For a current list of
 CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
