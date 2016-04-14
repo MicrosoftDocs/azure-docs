@@ -118,6 +118,20 @@ It is strongly recommended to add a password (`ssh-keygen` calls this a "passphr
 `chrisL@fedora$ ls -al ~/.ssh`
 This shows your new key pairs and their permissions. `ssh-keygen` creates the `~/.ssh` directory if it is not present and also sets the correct ownership and file modes.
 
+## Using ssh-agent to store your private key password
+
+To avoid typing your private key file password with every SSH login you can use `ssh-agent` to cache your private key file password allowing for quick and secure logins to your Linux VM.  If you are using OSX, the Keychain will securely store your private key passwords when you invoke `ssh-agent`.
+
+First verify that `ssh-agent` is running
+
+`[chrisL@fedora ~]$ eval "$(ssh-agent -s)"`
+
+Now add the private key to `ssh-agent` using the command `ssh-add`, again on OSX this will launch the Keychain which will store the credentials.
+
+`[chrisL@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa`
+
+The private key password is not stored so you will not have to type the key password with every SSH login.
+
 ## Create and configure a SSH config file
 
 While not absolutely necessary to get up and running with a Linux VM, it is a best practice to create and configure an `~/.ssh/config` file in order to prevent you from accidentally using passwords to log on with your VMs, automate using different key pairs for different Azure VMs, and configure other programs such as **git** to target multiple servers as well.
