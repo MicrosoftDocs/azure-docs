@@ -71,8 +71,6 @@ chrisL@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 ## Next Steps
 
-If you want, go ahead and
-
 Now you've created a Linux VM quickly to use for testing or demonstration purposes. You can create a more secure execution environment with a Linux VM in Azure by:
 
 - [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md).
