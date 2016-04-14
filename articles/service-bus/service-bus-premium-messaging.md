@@ -30,6 +30,7 @@ Some high-level differences are highlighted in the table below.
 | Predictable performance               | Variable latency               |
 | Predictable pricing                   | Pay as you go variable pricing |
 | Ability to scale up and down workload | N/A                            |
+| Message size > 256KB                  | Message size is 256KB          |
 
 **Azure Service Bus Premium Messaging** provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution.
 
