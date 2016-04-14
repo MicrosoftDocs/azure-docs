@@ -71,7 +71,7 @@ In Azure Search, the document key uniquely identifies a document. Every search i
 
 Since table rows have a compound key, Azure Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then `Key` field's value will be `PK1RK1`. 
 
-> AZURE.NOTE The `Key` value may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by enabling the `base64EncodeKeys` option in the indexer properties - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
+> [AZURE.NOTE] The `Key` value may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by enabling the `base64EncodeKeys` option in the indexer properties - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
 
 ## Dealing with different field names
 

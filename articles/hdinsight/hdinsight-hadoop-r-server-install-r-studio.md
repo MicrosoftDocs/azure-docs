@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Install RStudio on HDInsight cluster with R Server | Microsoft Azure"
-	description="How to install RStudio on an HDInsight cluster R Server."
+	pageTitle="Install RStudio with R Server on HDInsight (preview) | Microsoft Azure"
+	description="How to install RStudio with R Server on HDInsight (preview)."
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,7 +17,7 @@
    ms.author="jeffstok"/>
 
 
-# Installing RStudio on HDInsight cluster with R Server
+# Installing RStudio with R Server on HDInsight (preview)
 
 There are multiple integrated development environments (IDE) available for R today, including Microsoft’s recently announced [R Tools for Visual Studio](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx) (RTVS), a family of desktop and server tools from [RStudio](https://www.rstudio.com/products/rstudio-server/), or Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet). Among the most popular on Linux is the use of [RStudio Server](https://www.rstudio.com/products/rstudio-server/) that provides a browser-based IDE for use by remote clients.  Installing RStudio Server on the edge node of an HDInsight Premium cluster provides a full IDE experience for the development and execution of R scripts with R Server on the cluster, and can be considerably more productive than default use of the R Console.
 
