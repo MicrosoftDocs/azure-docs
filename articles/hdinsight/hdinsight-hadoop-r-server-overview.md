@@ -17,7 +17,7 @@
    ms.author="jeffstok"/>
 
 
-# Overview: R Server on HDInsight (preview)
+#Overview: R Server on HDInsight \(preview\)
 
 With HDInsight Premium, R Server is now available as an option when creating HDInsight clusters in Azure. This new capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight. Clusters can be sized to the projects and tasks at hand and torn down when no longer needed. Being part of Azure HDInsight, these clusters come with enterprise-level 24/7 support, SLA of 99.9% up-time, and the flexibility of integration with other components of the Azure ecosystem.
 
