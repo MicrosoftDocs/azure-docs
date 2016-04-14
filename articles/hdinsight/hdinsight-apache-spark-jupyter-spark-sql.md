@@ -79,7 +79,7 @@ In this section, you create an HDInsight version 3.3 cluster (Spark version 1.5.
 
 ## Run Spark SQL queries using a Jupyter notebook
 
-In this section, you use Jupyter notebook to run Spark SQL queries against the Spark cluster. By default Jupyter notebook comes with a **Python2** kernel. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
+In this section, you use Jupyter notebook to run Spark SQL queries against the Spark cluster. HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook. These are:
 
 * **PySpark** (for applications written in Python)
 * **Spark** (for applications written in Scala)
