@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="13/04/2015"
-   ms.author="anbacker" />
+   ms.date="04/14/2015"
+   ms.author="alkohli" />
 
 
 # Create and manage a StorSimple support package
