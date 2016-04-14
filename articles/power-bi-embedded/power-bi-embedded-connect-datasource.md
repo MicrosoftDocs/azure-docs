@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded - Connecting to a data source"
-   description=""
+   description="Microsoft Power BI Embedded - Connecting to a data source"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

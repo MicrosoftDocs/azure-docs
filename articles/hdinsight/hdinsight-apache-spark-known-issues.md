@@ -14,17 +14,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# Known issues of Apache Spark in Azure HDInsight (Linux)
+# Known issues for Apache Spark on HDInsight Linux (Preview)
 
 This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
 ##Livy leaks interactive session
  
-**Symptom:**  
-
 When Livy is restarted with an interactive session (from Ambari or due to headnode 0 virtual machine reboot) still alive, an interactive job session will be leaked. Because of this, new jobs can stuck in the Accepted state, and cannot be started.
 
 **Mitigation:**
@@ -46,8 +44,6 @@ New jobs will start running.
 
 ##Spark History Server not started 
 
-**Symptom:**
- 
 Spark History Server is not started automatically after a cluster is created.  
 
 **Mitigation:** 
@@ -56,8 +52,6 @@ Manually start the history server from Ambari.
 
 ## Permission issue in Spark log directory 
 
-**Symptom:**
- 
 When hdiuser submits a job with spark-submit, there is an error java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied) and the driver log is not written. 
 
 **Mitigation:**
@@ -71,13 +65,21 @@ When hdiuser submits a job with spark-submit, there is an error java.io.FileNotF
 
 Following are some known issues related to Jupyter notebooks.
 
+### Cannot download Jupyter notebooks in .ipynb format
+
+If you are running the latest version of Jupyter notebooks for HDInsight Spark and you attempt to download a copy of the notebook as a **.ipynb** file from the Jupyter notebook user interface, you might see an internal server error.
+
+**Mitigation:**
+
+1.	Downloading the notebook in another format besides .ipynb (e.g. .txt) will succeed.  
+2.	If you need the .ipynb file, you can download it from your cluster container in your storage account at **/HdiNotebooks**. This only applies for the latest version of Jupyter notebooks for HDInsight, which supports notebook backups in the storage account. That said, previous versions of Jupyter notebooks for HDInsight Spark do not have this issue.
+
+
 ### Notebooks with non-ASCII characters in filenames
 
 Jupyter notebooks that can be used in Spark HDInsight clusters should not have non-ASCII characters in filenames. If you try to upload a file through the Jupyter UI which has a non-ASCII filename, it will fail silently (that is, Jupyter won’t let you upload the file, but it won’t throw a visible error either). 
 
 ### Error while loading notebooks of larger sizes
-
-**Symptom:**
 
 You might see an error **`Error loading notebook`** when you load notebooks that are larger in size.  
 
@@ -92,17 +94,13 @@ To prevent this error from happening in the future, you must follow some best pr
 
 ### Notebook initial startup takes longer than expected 
 
-**Symptom:** 
-
-First statement in Jupyter notebook using Spark magic could take more than a minute.  
+First code statement in Jupyter notebook using Spark magic could take more than a minute.  
 
 **Explanation:**
  
 This happens because when the first code cell is run. In the background this initiates session configuration and Spark, SQL, and Hive contexts are set. After these contexts are set, the first statement is run and this gives the impression that the statement took a long time to complete.
 
 ### Jupyter notebook timeout in creating the session
-
-**Symptom:** 
 
 When Spark cluster is out of resources, the Spark and Pyspark kernels in the Jupyter notebook will timeout trying to create the session. 
 

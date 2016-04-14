@@ -22,6 +22,10 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
+
+[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
+
+
 | | | | | 
 |---|---|---|---|---
 |[ago](#ago)|[dayofweek](#dayofweek)|[let clause](#let-clause)|[range](#range)|[summarize op](#summarize-operator)
@@ -44,8 +48,6 @@
 |[Date and time literals](#date-and-time-literals)|[JSON Path expressions](#json-path-expressions)|[rand](#rand)|[sum](#sum)
 
 
-
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 
 

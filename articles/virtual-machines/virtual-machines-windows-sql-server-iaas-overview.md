@@ -67,7 +67,7 @@ If you require high availability, consider configuring SQL Server AlwaysOn Avail
 
 If you want to manually configure your Availability Group and associated listener, see the following articles based on the Classic deployment model:
 
-- [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-availability.md)
+- [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [Extend on-premises AlwaysOn Availability Groups to Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
 

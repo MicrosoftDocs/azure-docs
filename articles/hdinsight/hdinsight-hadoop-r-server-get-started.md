@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with R Server on HDInsight | Azure"
-   description="Learn how to create a Apache Spark on HDInsight (Hadoop) cluster that includes R Server, and then submit an R script on the cluster."
+   pageTitle="Get started with R Server on HDInsight (preview) | Azure"
+   description="Learn how to create a Apache Spark on HDInsight (preview) cluster that includes R Server, and then submit an R script on the cluster."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -17,9 +17,9 @@
    ms.date="03/25/2016"
    ms.author="jeffstok"/>
 
-# Get started using R Server on HDInsight
+#Get started using R Server on HDInsight (preview)
 
-The premium tier offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight, then run an R script that demonstrates using Spark for distributed R computations.
+The premium tier offering for HDInsight includes R Server on HDInsight (preview). This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight, then run an R script that demonstrates using Spark for distributed R computations.
 
 ![Diagram of the workflow for this document](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 

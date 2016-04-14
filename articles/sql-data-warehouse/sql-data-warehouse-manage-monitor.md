@@ -3,7 +3,7 @@
    description="Learn how to monitor your workload using DMVs."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -152,6 +152,9 @@ For more tips on managing your SQL Data Warehouse, see [manage overview][].
 [manage overview]: sql-data-warehouse-overview-manage.md
 [table design]: sql-data-warehouse-develop-table-design.md
 [reference overview]: sql-data-warehouse-overview-reference.md
+[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
+
+<!--MSDN references-->
 [sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm_pdw_exec_requests]: http://msdn.microsoft.com/library/mt203887.aspx
 [sys.dm_pdw_exec_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
@@ -159,5 +162,3 @@ For more tips on managing your SQL Data Warehouse, see [manage overview][].
 [sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
-
-<!--MSDN references-->
