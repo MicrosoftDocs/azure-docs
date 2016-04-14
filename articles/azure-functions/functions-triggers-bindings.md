@@ -86,7 +86,7 @@ For information about how to set up a GitHub WebHook, see [GitHub Developer - Cr
 
 By default, an API key must be included with an HTTP request to trigger an HTTP or WebHook function. The key can be included in a query string variable named `code`, or it can be included in an `x-functions-key` HTTP header. For non-WebHook functions, you can indicate that an API key is not required by setting the `authLevel` property to "anonymous" in the *function.json* file.
 
-To require the master API key, set the `authLevel` property to "admin". Even if you don't specify "admin", you can use the master key to trigger a function even when the *function.json* sets it to `disabled` status. 
+To require the master API key, set the `authLevel` property to "admin". Even if you don't specify "admin", you can use the master key to trigger a disabled function. 
 
 You can find the API key values in the *D:\home\data\Functions\secrets* folder in the file system of the function app. The master key and default function key are set in the *host.json* file, as shown in this example.
 
