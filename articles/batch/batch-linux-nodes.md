@@ -24,9 +24,9 @@ Azure Batch enables you to run parallel compute workloads on both Linux and Wind
 
 ## Virtual Machine Configuration
 
-When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: **Cloud Services** and **Virtual Machine Configuration**.
+When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: **Cloud Services Configuration** and **Virtual Machine Configuration**.
 
-**Cloud Services** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool containing Cloud Services nodes, you need to specify only the node size and its "OS Family" which are found in these articles. When creating pools of Windows compute nodes, Cloud Services is most commonly used.
+**Cloud Services Configuration** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool containing Cloud Services nodes, you need to specify only the node size and its "OS Family" which are found in these articles. When creating pools of Windows compute nodes, Cloud Services is most commonly used.
 
 **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). When you specify a pool containing Virtual Machine Configuration nodes, you must specify the node size as well as several additional properties:
 
@@ -212,7 +212,7 @@ Note that instead of a password, you can specify an SSH public key when creating
 
 ## List of Virtual Machine images
 
-The table below lists the available Linux images **at the time of this writing**. It is important to note that this list is not definitive, as images may be added or removed at any time. We recommend that your Batch applications and services always use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
+The table below lists the available Virtual Machine Configuration images **at the time of this writing**. It is important to note that this list is not definitive, as images may be added or removed at any time. We recommend that your Batch applications and services always use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
 
 > [AZURE.WARNING] The list below may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the available SKUs when you run your Batch jobs.
 
@@ -234,6 +234,10 @@ The table below lists the available Linux images **at the time of this writing**
 | SUSE  	  | SLES-HPC 	   | 12 		 | latest  | batch.node.opensuse 42.1 |
 | SUSE  	  | openSUSE 	   | 13.2 		 | latest  | batch.node.opensuse 13.2 |
 | SUSE  	  | openSUSE-Leap  | 42.1 		 | latest  | batch.node.opensuse 42.1 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 				         | latest  | batch.node.windows amd64
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter 				     | latest  | batch.node.windows amd64
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter 			     | latest  | batch.node.windows amd64
+| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview  | latest  | batch.node.windows amd64
 
 ## Pricing
 
