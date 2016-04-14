@@ -26,7 +26,7 @@ To create a password-secured SSH public and private key you need a terminal open
 In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
 ```bash
-[chrisL@fedora ~]$ ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
+[ahmet@fedora ~]$ ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
 
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
 <azure_fedora_id_rsa>
@@ -35,17 +35,17 @@ In the following command examples, replace the values between &lt; and &gt; with
 <correct horse battery staple>
 
 #Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
-[chrisL@fedora ~]$ eval "$(ssh-agent -s)"
-[chrisL@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
+[ahmet@fedora ~]$ eval "$(ssh-agent -s)"
+[ahmet@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
 
 #Copy the SSH public key to your Linux Server.
-[chrisL@fedora ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+[ahmet@fedora ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
 
 #Test the login using keys instead of a password.
-[chrisL@fedora ~]$ ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+[ahmet@fedora ~]$ ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
 
 Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
-[chrisL@fedora ~]$
+[ahmet@fedora ~]$
 
 ```
 
@@ -66,7 +66,7 @@ Azure requires at least 2048-bit, ssh-rsa format public and private keys. To cre
 This command creates a password secured SSH Keypair using 2048 bit RSA and it will be commented to easily identify it.
 
 ```
-chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "chrisL@fedoraVMAzure"
+ahmet@fedora$ ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
 ```
 
 ##### Command explained
@@ -77,20 +77,20 @@ chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "chrisL@fedoraVMAzure"
 
 `-b 2048` = bits of the key
 
-`-C "chrisL@fedoraVMAzure"` = a comment appended to the end of the public key file to easily identify it.  Normally a email is used as the comment but you can use whatever works best for your infrastructure.
+`-C "ahmet@fedoraVMAzure"` = a comment appended to the end of the public key file to easily identify it.  Normally a email is used as the comment but you can use whatever works best for your infrastructure.
 
 #### Walkthrough of `ssh-keygen`
 
 ```bash
-chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "chrisL@fedoraVMAzure"
+ahmet@fedora$ ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/chrisL/.ssh/id_rsa): azure_fedora_id_rsa
+Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in azure_fedora_id_rsa.
 Your public key has been saved in azure_fedora_id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 chrisL@fedoraVMAzure
+14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 ahmet@fedoraVMAzure
 The key's randomart image is:
 +--[ RSA 2048]----+
 |        o o. .   |
@@ -104,18 +104,18 @@ The key's randomart image is:
 |        .        |
 +-----------------+
 
-chrisL@fedora$ ls -al ~/.ssh
--rw------- 1 chrisL staff  1675 Aug 25 18:04 azure_fedora_id_rsa
--rw-r--r-- 1 chrisL staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
+ahmet@fedora$ ls -al ~/.ssh
+-rw------- 1 ahmet staff  1675 Aug 25 18:04 azure_fedora_id_rsa
+-rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
 
-`Enter file in which to save the key (/home/chrisL/.ssh/id_rsa): azure_fedora_id_rsa`
+`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`
 The key pair name for this article.  Having a key pair named **id_rsa** is the default and some tools might expect the **id_rsa** private key file name so having one is a good idea. (`~/.ssh/` is the typical default location for all of your SSH key pairs and the SSH config file.)
 
 `Enter passphrase (empty for no passphrase):`
 It is strongly recommended to add a password (`ssh-keygen` calls this a "passphrase") to your key pairs. Without a password protecting the key pair, anyone with a copy of the private key file can use it to login to any server -- your servers -- that have the corresponding the public key. Adding a password therefore offers much more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
 
-`chrisL@fedora$ ls -al ~/.ssh`
+`ahmet@fedora$ ls -al ~/.ssh`
 This shows your new key pairs and their permissions. `ssh-keygen` creates the `~/.ssh` directory if it is not present and also sets the correct ownership and file modes.
 
 ## Using ssh-agent to store your private key password
@@ -124,11 +124,11 @@ To avoid typing your private key file password with every SSH login you can use 
 
 First verify that `ssh-agent` is running
 
-`[chrisL@fedora ~]$ eval "$(ssh-agent -s)"`
+`[ahmet@fedora ~]$ eval "$(ssh-agent -s)"`
 
 Now add the private key to `ssh-agent` using the command `ssh-add`, again on OSX this will launch the Keychain which will store the credentials.
 
-`[chrisL@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa`
+`[ahmet@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa`
 
 The private key password is now stored so you will not have to type the key password with every SSH login.
 
@@ -141,32 +141,32 @@ The following example shows a standard configuration.
 ### Create the file
 
 ```bash
-chrisL@fedora$ touch ~/.ssh/config
+ahmet@fedora$ touch ~/.ssh/config
 ```
 
 ### Edit the file to add the new SSH configuration
 
 ```bash
-chrisL@fedora$ vim ~/.ssh/config
+ahmet@fedora$ vim ~/.ssh/config
 
 #Azure Keys
 Host fedora22
   Hostname 102.160.203.241
-  User chrisL
+  User ahmet
   PubkeyAuthentication yes
-  IdentityFile /home/chrisL/.ssh/azure_fedora_id_rsa
+  IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa
 # ./Azure Keys
 # GitHub keys
 Host github.com
   Hostname github.com
   User git
   PubKeyAuthentication yes
-  IdentityFile /home/chrisL/.ssh/azure_fedora_id_rsa
+  IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa
 Host github.private
   Hostname github.com
   User git
   PubKeyAuthentication yes
-  IdentityFile /home/chrisL/.ssh/private_repo_azure_fedora_id_rsa
+  IdentityFile /home/ahmet/.ssh/private_repo_azure_fedora_id_rsa
 # ./Github Keys
 # Default Settings
 Host *
@@ -175,10 +175,10 @@ Host *
   ServerAliveInterval=60
   ServerAliveCountMax=30
   ControlMaster auto
-  ControlPath /home/chrisL/.ssh/Connections/ssh-%r@%h:%p
+  ControlPath /home/ahmet/.ssh/Connections/ssh-%r@%h:%p
   ControlPersist 4h
   StrictHostKeyChecking=no
-  IdentityFile /home/chrisL/.ssh/id_rsa
+  IdentityFile /home/ahmet/.ssh/id_rsa
   UseRoaming=no
 ```
 
@@ -195,18 +195,18 @@ This SSH config gives you sections for each service to enable each to have its o
 
 `PubKeyAuthentication yes` = this tells SSH you want to use a SSH key to login.
 
-`IdentityFile /home/chrisL/.ssh/azure_fedora_id_rsa` = this tells SSH which key pair to present to the server to authenticate the login.
+`IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa` = this tells SSH which key pair to present to the server to authenticate the login.
 
 
 ## SSH into a Linux VM without a password
 
 Now that you have a SSH key pair and a configured SSH config file, you can login to your Linux VM quickly and securely. The first time you login to a server using a SSH key the command prompts you for the passphrase for that key file.
 
-`chrisL@fedora$ ssh fedora22`
+`ahmet@fedora$ ssh fedora22`
 
 ##### Command explained
 
-When `chrisL@fedora$ ssh fedora22` is executed SSH first locates and loads any settings from the `Host fedora22` block, and then loads all the remaining settings from the last block, `Host *`.
+When `ahmet@fedora$ ssh fedora22` is executed SSH first locates and loads any settings from the `Host fedora22` block, and then loads all the remaining settings from the last block, `Host *`.
 
 ## Next Steps
 
