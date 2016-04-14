@@ -13,22 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="03/29/2016"
    ms.author="SubramaR"/>
 
-# Service Fabric Limited Preview on Linux
+# Service Fabric limited preview on Linux
 
+Recently we announced the availability of a limited preview of Service Fabric on Linux. This gives you complete customization when building an application (including Operating System preferences and dependencies). The Operating System choice may also allow you broaden your customer base, since different customers can have varying requirements for the environments where applications are executed. For example, healthcare and financial industry customers may have different needs than an automaker or a travel business, including different Operating Systems.
 
-successful platform must be cloud agnostic as well as Operating System agnostic offering maximum customization power and choice for customers.  Hence, we recently announced the availability of a Limited Preview of Service Fabric on Linux. A key benefit of Linux support is you have complete customization when you build an application (including OS specific dependencies) using Service Fabric in addition to avoiding the obvious Operating System lock-in. This also increases your potential to reach out to a broader set of customer base since different customers can have varying requirements for the environments where they want to run your applications, for example Healthcare and Financial industry customers may have different needs than an Automaker or a Travel business. 
-
-
- 
 ## Supported operating systems and programming languages
 
-The Limited Preview, will support creation of one-box development clusters as well as multi-machine cluster in Azure running Ubuntu Server 15.10.  With the preview, Java is the only supported language for creating Service Fabric applications, but as in Windows, any guest executables can run on Linux as well. In addition, support for C# is planned, along with support for other OS versions.
+The limited preview will support the creation of one-box development clusters as well as multi-machine clusters in Azure running Ubuntu Server 15.10. In this preview Java is the only supported language for creating Service Fabric applications. While any existing application can run as a [guest executable] (https://azure.microsoft.com/en-us/documentation/articles/service-fabric-deploy-existing-app/), Service Fabric applications using the provided Java APIs are best-placed to take advantage of all the features that the platform provides. Support for C# development is planned, along with support for other OS versions.
 
+## Participate in the preview
 
-## Participating in the Preview
-
-If you are interested in being considered to participate in the Limited Preview program (there are only a limited number of seats available), please fill out the survey at http://aka.ms/sflinux.
+If you are interested in being considered for participation in the limited preview program (there are only a limited number of seats available), please fill out the survey at [http://aka.ms/sflinuxsurvey](http://aka.ms/sflinuxsurvey). Since our offering on Linux is similar to the offering on Windows (except for OS specifics and Programming Language support), the public documentation at [http://aka.ms/servicefabric](http://aka.ms/servicefabric) and [http://aka.ms/servicefabricdocs](http://aka.ms/servicefabricdocs) will help you get familiar with the technology.
 
