@@ -28,9 +28,9 @@ This tutorial takes you through the steps for creating a Recovery Services vault
 - Azure Resource Manager (ARM) VMs
 - Classic VMs
 - Standard storage VMs
-- [Premium storage VMs](backup-azure-vms-first-look.md#back-up-and-restore-premium-storage-vms)
+- Premium storage VMs
 
-For additional information on protecting Premium storage VMs, see
+For additional information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-azure-vms-first-look.md#back-up-and-restore-premium-storage-vms)
 
 >[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM. Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article is for use with Resource Manager and ARM-based VMs.
 
@@ -229,28 +229,6 @@ The following table provides additional information about the VM Agent for Windo
 Once the VM Agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
 
 The backup extension is installed by the Backup service whether or not the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service will continue to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
-
-## Back up and Restore Premium Storage VMs
-
-Premium storage is available for DS-series VMs in certain regions. Premium storage is the best storage option for data intensive workloads such as a database. The Azure Backup service now protects Premium Storage VMs.
-
-### Back up Premium Storage VMs
-
-While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM.
-
->[Azure.NOTE] Do not modify or edit the staging location.
-
-Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
-
-### Restore Premium Storage VMs
-
-Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
-
-The steps to restore a Premium Storage VM recovery point to Premium Storage are:
-
-1. [Restore the VM recovery point to standard storage.](./backup-azure-restore-vms)
-2. [Copy the disks to premium storage.](../storage/storage-use-azcopy)
-3. [Create the Azure IaaS VM.](../virtual-machines/virtual-machines-windows-hero-tutorial)
 
 ## Troubleshooting information
 If you have issues accomplishing some of the tasks in this article, please consult the
