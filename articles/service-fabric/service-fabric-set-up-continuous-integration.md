@@ -247,7 +247,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 >[AZURE.NOTE] The build definition that you create from these instructions will not support multiple concurrent builds, even on separate machines. This is because each build would compete for the same resource group/cluster. If you want to run multiple build agents, you will need to modify the following instructions/scripts to prevent this interference.
 
-### Add a service fabric arm template to source control for your application
+### Add a Service Fabric Azure Resource Manager template to your application
 
 1. Download `azuredeploy.json` and `azuredeploy.parameters.json` from [this sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
 
@@ -311,9 +311,9 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 4. Select these values:
 
-	|Setting Name|Value|
+    |Setting Name|Value|
     |---|---|
-	|Solution|Click the **…** button and select the `.sln` file for your solution.|
+    |Solution|Click the **…** button and select the `.sln` file for your solution.|
     |Platform|`$(BuildPlatform)`|
     |Configuration|`$(BuildConfiguration)`|
 
@@ -329,9 +329,9 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 4. Select these values:
 
-	|Setting Name|Value|
+    |Setting Name|Value|
     |---|---|
-	|Solution|Click the **…** button and select your application project's `.sfproj` file.|
+    |Solution|Click the **…** button and select your application project's `.sfproj` file.|
     |Platform|`$(BuildPlatform)`|
     |Configuration|`$(BuildConfiguration)`|
     |MSBuild Arguments|`/t:Package`|
@@ -350,9 +350,9 @@ If a previous build did not clean up after itself (for example, if the build was
 
 4. Select these values:
 
-	|Setting Name|Value|
+    |Setting Name|Value|
     |---|---|
-	|AzureConnectionType|**Azure Resource Manager**|
+    |AzureConnectionType|**Azure Resource Manager**|
     |Azure RM Subscription|Select the connection endpoint that you created in the **Create a Service Principal** section.|
     |Action|**Delete Resource Group**|
     |Resource Group|Enter any unused name. You must use the same name in the next step.|
@@ -369,9 +369,9 @@ If a previous build did not clean up after itself (for example, if the build was
 
 4. Select these values:
 
-	|Setting Name|Value|
+    |Setting Name|Value|
     |---|---|
-	|AzureConnectionType|**Azure Resource Manager**|
+    |AzureConnectionType|**Azure Resource Manager**|
     |Azure RM Subscription|Select the connection endpoint that you created in the **Create a Service Principal** section.|
     |Action|**Create or Update Resource Group**|
     |Resource Group|Must match the name that you used in the previous step.|
@@ -391,9 +391,9 @@ If a previous build did not clean up after itself (for example, if the build was
 
 4. Select these values:
 
-	|Setting Name|Value|
+    |Setting Name|Value|
     |---|---|
-	|Type|**File Path**|
+    |Type|**File Path**|
     |Script filename|Click the **…** button and navigate to the **Scripts** directory inside your application project. Select `Deploy-FabricApplication.ps1`.|
     |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
