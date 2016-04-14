@@ -20,11 +20,9 @@
 
 Azure Active Directory (AD) Privileged Identity Management simplifies how enterprises manage privileged identities and access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.  
 
-If you have been assigned to an administrative role, you may be asked by your organization's security administrator to regularly review and confirm that you still need that role for your job.
+If you have been assigned to an administrative role, you may be asked by your organization's security administrator to regularly review and confirm that you still need that role for your job. You might get an email that includes a link, or you an go straight to the [Azure portal](https://portal.azure.com). Follow the steps in this article to perform a self-review of your assigned roles.
 
-You may receive an email indicating that they should review their access.  The email will contain a link in to the Azure portal.
-
-It is very easy to review and update your privileged access once a [review has been started](active-directory-privileged-identity-management-how-to-start-security-review.md).
+If you're a security administrator interested in security reviews, get more details at [How to start a security review](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 ## Add the Privileged Identity Management application
 

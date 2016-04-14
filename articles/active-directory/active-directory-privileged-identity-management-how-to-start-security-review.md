@@ -1,6 +1,6 @@
 <properties
    pageTitle="How to start a security review | Microsoft Azure"
-   description="Learn how to create a security review for privileged identities with the Azure Privileged Identity Management extension."
+   description="Learn how to create a security review for privileged identities with the Azure Privileged Identity Management application."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -18,7 +18,7 @@
 
 # How to start a security review in Azure AD Privileged Identity Management
 
-Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, you and other administrators should regularly review the roles that users have been given. This document covers the steps for starting a security review in Azure AD Privileged Identity Management (PIM).
+Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, security administrators should regularly review the roles that users have been given. This document covers the steps for starting a security review in Azure AD Privileged Identity Management (PIM).
 
 ## Start a security review
 > [AZURE.NOTE] If you haven't added the PIM application to your dashboard in the Azure portal, see the steps in  [Getting Started with Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
@@ -50,10 +50,10 @@ If you chose to have the users review their own role assignments, follow these s
 2. Enter a start date for the review in the **Start date** field.
 3. Enter an end date for the review in the **End date** field.  Some things that you should think about when setting the end date for the review are:
   - How many people are being reviewed?
-  - How quickly will the users be able to add the extension and complete the review?
+  - How quickly will the users be able to add the PIM application on the Azure portal and complete the review?
 4. Click the **OK** button in the **Change defaults** blade. It will close.
 5. Click the **OK** button in the **Start a review of a role** blade.  It will close. A notification will appear in the Azure portal main menu. Refresh the dashboard by clicking the **Refresh** button and the security review will appear in the **Security reviews** section.
-6. Notify the individuals in the role that they will need to add the extension and then [review their own administrative access](active-directory-privileged-identity-management-how-to-perform-security-review.md).  
+6. Notify the individuals in the role that they will need to add the PIM application and then [review their own administrative access](active-directory-privileged-identity-management-how-to-perform-security-review.md).  
 
 ## Manage the security review
 

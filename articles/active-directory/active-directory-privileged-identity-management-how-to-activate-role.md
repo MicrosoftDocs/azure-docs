@@ -20,7 +20,9 @@
 
 Azure Active Directory (AD) Privileged Identity Management simplifies how enterprises manage privileged identities and access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.  
 
-If you have been assigned to an administrative role, you can activate that role when you need to perform a task that requires that role.  For example, if you only need to manage Office 365 sometimes, your organization's security administrators don't want to make you a permanent admin. Instead, they make you a candidate for the Global Administrator or Exchange Online Administrator roles in Azure AD. This means that you can request a temporary role assignment when you need those privileges, and you'll have admin control for Office 365 for a predetermined time period.
+This article is for admins who need to activate their role in Azure AD Privileged Identity Management (PIM). It will walk you through the steps to activate a role when you need the permissions, and deactivate the role when you're done.
+
+If you have been assigned to an administrative role, you can activate that role when you need to perform a task that requires that role. For example, if you only need to manage Office 365 sometimes, your organization's security administrators don't want to make you a permanent admin. Instead, they make you a candidate for the Global Administrator or Exchange Online Administrator roles in Azure AD. This means that you can request a temporary role assignment when you need those privileges, and you'll have admin control for Office 365 for a predetermined time period.
 
 
 ## Add the Privileged Identity Management application
