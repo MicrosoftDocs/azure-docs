@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/13/2016"
+ ms.date="04/14/2016"
  ms.author="danlep"/>
 
 # Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload
@@ -78,15 +78,19 @@ The following are AutoGrowShrink parameters that you can modify by using the **S
 
 * **EnableGrowShrink** - Switch to enable or disable the **AutoGrowShrink** property.
 * **ParamSweepTasksPerCore** - Number of parametric sweep tasks to grow one core. The default is to grow one core per task. 
+ 
     >[AZURE.NOTE] HPC Pack QFE KB3134307 changes **ParamSweepTasksPerCore** to **TasksPerResourceUnit**. It is based on the job resource type and can be node, socket, or core.
+    
 * **GrowThreshold** - Threshold of queued tasks to trigger automatic growth. The default is 1, which means that if there are 1 or more tasks in the queued state, automatically grow nodes.
 * **GrowInterval** - Interval in minutes to trigger automatic growth. The default interval is 5 minutes.
 * **ShrinkInterval** - Interval in minutes to trigger automatic shrinking. The default interval is 5 minutes.|
 * **ShrinkIdleTimes** - Number of continuous checks to shrink to indicate the nodes are idle. The default is 3 times. For example, if the **ShrinkInterval** is 5 minutes, HPC Pack checks whether the node is idle every 5 minutes. If the nodes are in the idle state after 3 continuous checks (15 minutes), then HPC Pack shrinks that node.
 * **ExtraNodesGrowRatio** - Additional percentage of nodes to grow for Message Passing Interface (MPI) jobs. The default value is 1, which means that HPC Pack grows nodes 1% for MPI jobs. 
 * **GrowByMin** - Switch to indicate whether the autogrow policy is based on the minimum resources required for the job. The default is false, which means that HPC Pack grows nodes for jobs based on the maximum resources required for the jobs.
-* **SoaJobGrowThreshold** - Threshold of incoming SOA requests to trigger the automatic grow process. The default value is 50000.
+* **SoaJobGrowThreshold** - Threshold of incoming SOA requests to trigger the automatic grow process. The default value is 50000.  
+    
     >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
+    
 * **SoaRequestsPerCore** -Number of incoming SOA requests to grow one core. The default value is 20000.
     >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
 
