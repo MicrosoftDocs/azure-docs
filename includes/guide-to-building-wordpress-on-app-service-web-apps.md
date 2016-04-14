@@ -9,9 +9,18 @@
 - [Build your own Master-Master MySQL Cluster using Percona Cluster](https://azure.microsoft.com/en-us/documentation/templates/mysql-ha-pxc/) and [learn more on how to manage the cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 - [Deploy WordPress backed by MySQL replication cluster with master-slave configuration](https://azure.microsoft.com/en-us/documentation/templates/mysql-replication/)
 - [Deploy a WordPress app backed by SQL Azure DB managed by ProjectNami](https://azure.microsoft.com/en-us/marketplace/partners/projectnami/projectnami/)
+- [How to build a WordPress Multisite web app](https://azure.microsoft.com/en-us/documentation/articles/web-sites-php-convert-wordpress-multisite/)
 
-   
-### Chapter 2 : Troubleshooting WordPress Application
+
+###Porting your Application to App Service 
+- [How to Plan your migration to Azure App Service](https://azure.microsoft.com/en-us/blog/how-to-plan-your-migration-to-azure-websites/)
+- [How to migrate your existin WordPress site to Azure web apps](https://sunithamk.wordpress.com/2013/11/06/migrate-your-existing-wordpress-site-to-windows-azure/)
+- [How to migrate your Web App from Linux to Azure web apps](https://www.movemetothecloud.net/LinuxMigration)
+- [Checklist for going live on Azure Web Apps](https://sunithamk.wordpress.com/2015/10/27/azure-web-apps-basic-operations-checklist/)
+- [How to configure PHP](https://azure.microsoft.com/en-us/documentation/articles/web-sites-php-configure/)
+- [Setup multiple development environments for your WordPress app](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-staged-publishing-realworld-scenarios/)
+
+###Troubleshooting WordPress Application
 - [How to troubleshoot your WordPress app](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 - [Gather usage  telemetry using Azure Application Insights  service](https://azure.microsoft.com/en-us/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
 - [Run Zend Zray profiler against your web app to diagnose issues and performance](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
@@ -19,8 +28,7 @@
 - [Use various auto-heal rules to automate resolving real time incidents](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 - [How to backup your web app](https://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/) and [How to restore your web app](https://azure.microsoft.com/en-us/documentation/articles/web-sites-restore/)
 
- 
-### Chapter 3: Performance
+###Performance
 - [How to speed up WordPress web app](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
 - [How to enabled redis cache](https://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/) using [redis cache plugin](https://wordpress.org/plugins/wp-redis/)
 - [How to enable memcached object cache for WordPress](https://azure.microsoft.com/en-us/documentation/articles/web-sites-connect-to-redis-using-memcache-protocol/) using [memcached plugin](https://wordpress.org/plugins/memcached/)
