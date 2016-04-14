@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: Intranet SharePoint farm
@@ -35,8 +35,6 @@ Hosting an intranet SharePoint farm in Azure infrastructure services is an examp
 
 Your next step is to set up a dev/test intranet SharePoint farm hosted in Azure.
 
-> [AZURE.NOTE] Microsoft has released the SharePoint Server 2016 IT Preview. To make this preview easy to install and test, you can use an Azure virtual machine gallery image with SharePoint Server 2016 IT Preview and its prerequisites pre-installed. For more information, see [Test the SharePoint Server 2016 IT Preview in Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
-
 ## Create a dev/test intranet SharePoint farm hosted in Azure
 
 You have two choices for creating a dev/test environment for a SharePoint farm hosted in Azure:
@@ -44,7 +42,7 @@ You have two choices for creating a dev/test environment for a SharePoint farm h
 - Cloud-only virtual network
 - Cross-premises virtual network
 
-You can create these dev/test environments for free with your [Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) or an [Azure Trial Subscription](https://azure.microsoft.com/pricing/free-trial/).
+You can create these dev/test environments for with your [Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) or an Azure subscription.
 
 ### Cloud-only virtual network
 
@@ -54,7 +52,7 @@ A cloud-only virtual network is not connected to an on-premises network. If you 
 
 ### Cross-premises virtual network
 
-A cross-premises virtual network is connected to an on-premises network with a site-to-site VPN or ExpressRoute connection. If you want to create a dev/test environment that mimics the final configuration and experiment with accessing the SharePoint server and performing remote administration over a VPN connection, see [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
+A cross-premises virtual network is connected to an on-premises network with a site-to-site VPN or ExpressRoute connection. If you want to create a dev/test environment that mimics the final configuration and experiment with accessing the SharePoint server and performing remote administration over a VPN connection, see [Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md).
 
 ![](./media/virtual-machines-windows-sp-intranet/CreateSPFarmHybridCloud.png)
 

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="04/01/2016"
 	ms.author="genli"/>
 
 # Why have you received a notification that your Azure subscription has a past due balance?

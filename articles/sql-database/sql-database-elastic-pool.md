@@ -1,32 +1,32 @@
 <properties
 	pageTitle="Elastic database pool for SQL databases | Microsoft Azure"
-	description="Find out how you can tame explosive growth in SQL databases with elastic database pools, a way of sharing available resources across many databases."
+	description="Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will."
 	keywords="elastic database,sql databases"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/24/2016"
+	ms.date="04/04/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Tame explosive growth in SQL databases by using elastic database pools to share resources
+# What is an Azure elastic database pool?
 
-A SaaS developer must create and manage tens, hundreds, or even thousands of SQL databases. Elastic pools simplify the creation, maintenance, and performance management across these databases within a budget that you control. Add or subtract databases from the pool at will. See [Create a scalable elastic database pool for SQL databases in Azure portal](sql-database-elastic-pool-create-portal.md), or [using PowerShell](sql-database-elastic-pool-powershell.md), or [C#](sql-database-elastic-pool-csharp.md).
+A SaaS developer must create and manage tens, hundreds, or even thousands of SQL databases. An elastic database pool simplifies the creation, maintenance, and performance management across many databases. Add or subtract databases from the pool at will. See [Create a scalable elastic database pool for SQL databases in Azure portal](sql-database-elastic-pool-create-portal.md), or [using PowerShell](sql-database-elastic-pool-create-powershell.md), or [C#](sql-database-elastic-pool-csharp.md).
 
 For API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
 
 ## How it works
 
-A common SaaS application pattern is for each customer to be given a database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources? Traditionally, you had two options: either over-provision resources based on peak usage, and over pay, or under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic database pools solve this problem by ensuring that databases get the performance resources they need, when they need it, while  providing a simple resource allocation mechanism within a predictable budget.
+A common SaaS application pattern is the single-tenant database model: each customer is given a database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic database pools solve this problem by ensuring that databases get the performance resources they need, when they need it, while  providing a simple resource allocation mechanism within a predictable budget.
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
@@ -48,6 +48,23 @@ Databases that are great candidates for elastic database pools typically have pe
 
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers.
+
+## Elastic database pool properties
+Limits for elastic pools and elastic databases.
+
+| Property | Description |
+| :-- | :-- |
+| Service tier | Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition”.|
+| eDtu per pool | Maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
+| Storage per pool | Maximum amount of storage that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
+| Max eDTU per database | Maximum number of eDTUs that any database in the pool may use, and applies to all databases in the pool. The max eDTU per database is not a resource guarantee. |
+| Min eDTU per database | Minimum number of eDTUs that any database in the pool is guaranteed, and applies to all databases in the pool. The min eDTU per database may be set to 0.  Note that the product of the number of databases in the pool and the min eDTU per database cannot exceed the eDTU per pool. |
+
+
+## eDTU and storage limits for elastic pools and elastic databases
+
+
+[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 ## Elastic database jobs
 

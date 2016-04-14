@@ -32,6 +32,7 @@ Script Action can be applied through the following methods:
 | ----- |:-----:|:-----:|
 | Azure Portal | ✓ | ✓ |
 | Azure PowerShell | ✓ | ✓ |
+| Azure CLI | &nbsp; | ✓ |
 | HDInsight .NET SDK | ✓ | ✓ |
 | Azure Resource Manager Template | ✓ | &nbsp; |
 

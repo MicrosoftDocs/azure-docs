@@ -28,17 +28,13 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 
 This table helps you compare the choices offered by Azure.
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## Next steps
 
-Try out a virtual machine by creating a simple virtual machine quickly. For instructions, see [Create a virtual machine running Linux](virtual-machines-linux-cli-create.md).
+Try out a virtual machine by creating a simple virtual machine quickly. For instructions, see [Create a virtual machine running Linux](virtual-machines-linux-quick-create-cli.md).
 
 Because the tutorial helps you create a virtual machine quickly, it only shows you one way to do it instead of describing the various tools you can use to create virtual machines. For a summary of these tools and links to instructions, see [Different ways to create a Linux virtual machine](virtual-machines-linux-creation-choices.md).
-
-
-<!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
 

@@ -15,6 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/14/2016"
+	ms.date="04/07/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
@@ -46,6 +47,8 @@ This article answers some of the most common questions about Azure Billing and S
 - [I do not see an invoice for the last billing period. Why?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
 
 **Subscriptions**
+
+- [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
 
 - [How do I purchase Azure Support?](#how-do-i-purchase-azure-support)
 
@@ -153,6 +156,14 @@ There could be several reasons for this:
 - The invoice generation date has not yet arrived.
 
 ## Subscriptions
+
+### I am unable to log in to the Azure portal
+
+The following article will help you troubleshoot some common causes of login issues:
+
+[I am unable to log in to manage my Azure subscription](billing-cannot-login-subscription.md)
+
+**Note** Make sure you are logging in as the right administrator: An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/).
 
 ### How do I purchase Azure Support?
 Azure Support plans may be purchased either online or through an Enterprise Agreement. The Developer, Standard, or Professional Direct Support plans are available online through the [Azure Support Plans](https://azure.microsoft.com/support/plans/) page. You must be the Microsoft Azure account owner to purchase a support plan.
