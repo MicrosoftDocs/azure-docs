@@ -91,7 +91,8 @@ The following are AutoGrowShrink parameters that you can modify by using the **S
     
     >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
     
-* **SoaRequestsPerCore** -Number of incoming SOA requests to grow one core. The default value is 20000.
+* **SoaRequestsPerCore** -Number of incoming SOA requests to grow one core. The default value is 20000.  
+
     >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
 
 ### MPI example
