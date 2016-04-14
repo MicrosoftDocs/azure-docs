@@ -87,7 +87,7 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 
 ## Back up and Restore Premium Storage VMs
 
-Premium storage is available for DS-series VMs in certain regions. Premium storage is the best storage option for data intensive workloads such as a database. The Azure Backup service now protects Premium Storage VMs.
+The Azure Backup service now protects Premium Storage VMs.
 
 ### Back up Premium Storage VMs
 
