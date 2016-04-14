@@ -51,7 +51,7 @@ Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 
 ## Introduction
 
-Using SSH public and private keys is the most secure **and** easiest way to login into your Linux servers, but in addition [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) also provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.
+Using SSH public and private keys is the easiest way to login into your Linux servers, but in addition [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) also provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.
 
 This article creates *ssh-rsa* format key files, as those are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both classic and resource manager deployments.
 
