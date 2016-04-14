@@ -103,9 +103,9 @@ Restoring a Premium Storage VM recovery point back to Premium Storage is the typ
 
 The steps to restore a Premium Storage VM recovery point to Premium Storage are:
 
-1. [Restore the VM recovery point to standard storage.](./backup-azure-restore-vms)
-2. [Copy the disks to premium storage.](../storage/storage-use-azcopy)
-3. [Create the Azure IaaS VM.](../virtual-machines/virtual-machines-windows-hero-tutorial)
+1. [Restore the VM recovery point to standard storage.](backup-azure-restore-vms.md)
+2. [Copy the disks to premium storage.](./storage/storage-use-azcopy.md)
+3. [Create the Azure IaaS VM.](./virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 
 ## Functionality
