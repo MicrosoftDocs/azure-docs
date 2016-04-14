@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Run parallel compute workloads on Linux virtual machines in Azure Batch | Microsoft Azure"
+	pageTitle="Linux nodes in Azure Batch pools | Microsoft Azure"
 	description="Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch."
 	services="batch"
 	documentationCenter="python"
@@ -57,7 +57,7 @@ key = "<batch-account-key>"
 batch_url = "<batch-account-url>"
 
 # Pool settings
-pool_id = "mylinuxpool"
+pool_id = "LinuxNodesSamplePool"
 vm_size = "STANDARD_A1"
 node_count = 1
 
@@ -102,39 +102,47 @@ client.pool.add(new_pool)
 The following code snippet shows the creation of a pool of Ubuntu Server compute nodes using the [Batch .NET][nuget_batch_net] client library. You can find the [Batch .NET reference documentation][api_net] on MSDN.
 
 ```csharp
-// Obtain a collection of all available node agent SKUs
+// Pool settings
+const string poolId = "LinuxNodesSamplePool";
+const string vmSize = "STANDARD_A1";
+const int nodeCount = 1;
+
+// Obtain a collection of all available node agent SKUs.
+// This allows us to select from a list of known images.
 List<NodeAgentSku> nodeAgentSkus =
     batchClient.PoolOperations.ListNodeAgentSkus().ToList();
 
-// Define a delegate specifying properties for the VM image
+// Define a delegate specifying properties of the VM image
+// that we wish to use.
 Func<ImageReference, bool> ubuntuImageScanner = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
     imageRef.SkuId.Contains("14.04");
 
-// Obtain the first SKU in the collection for Ubuntu Server 14.04
+// Obtain the first SKU in the collection for Ubuntu Server 14.04.
+// There are one or more image references associated with this SKU.
 NodeAgentSku ubuntuSku = nodeAgentSkus.First(sku =>
     sku.VerifiedImageReferences.FirstOrDefault(ubuntuImageScanner) != null);
 
-// Create an ImageReference which require by the
-// VirtualMachineConfiguration
+// Select an ImageReference from those available for this SKU.
+// This is required by the VirtualMachineConfiguration.
 ImageReference imageReference =
     ubuntuSku.VerifiedImageReferences.First(ubuntuImageScanner);
 
-// Create the VirtualMachineConfiguration for use
-// when actually creating the pool
+// Create the VirtualMachineConfiguration for use when actually
+// creating the pool
 VirtualMachineConfiguration virtualMachineConfiguration =
     new VirtualMachineConfiguration(
         imageReference: imageReference,
         nodeAgentSkuId: ubuntuSku.Id);
 
-// Create the unbound pool object using the
-// VirtualMachineConfiguration created above
+// Create the unbound pool object using the VirtualMachineConfiguration
+// created above
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    virtualMachineSize: "STANDARD_A1",
+    virtualMachineSize: vmSize,
     virtualMachineConfiguration: virtualMachineConfiguration,
-    targetDedicated: 1);
+    targetDedicated: nodeCount);
 
 // Commit the pool to the Batch service
 pool.Commit();
@@ -152,7 +160,7 @@ ImageReference imageReference = new ImageReference(
 
 ## List of Virtual Machine images
 
-The table below lists the available Linux images **at the time of this writing**. It is important to note that this list is not definitive, as images may be added or removed at any time. We recommend that your Batch applications and services *always* use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
+The table below lists the available Linux images **at the time of this writing**. It is important to note that this list is not definitive, as images may be added or removed at any time. We recommend that your Batch applications and services always use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
 
 > [AZURE.WARNING] The list below may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the available SKUs when you run your Batch jobs.
 
@@ -181,15 +189,22 @@ Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technolo
 
 ## Next steps
 
-* Next step #1
+### Batch Python code samples
 
-* Next step #2
+Check out the [Python code samples][github_samples_py] in the [azure-batch-samples][github_samples] repository on GitHub for several scripts that show you how to perform common Batch operations such as pool, job, and task creation, and more. The [README][github_py_readme] that accompanies the Python samples has details on installing the required packages.
+
+### Batch Forum
+
+The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over to read helpful "stickied" posts, and post your questions as they arise while you build your Batch solutions.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://azure.microsoft.com/pricing/details/cloud-services/
+[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+[github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
+[github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [portal]: https://portal.azure.com
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
