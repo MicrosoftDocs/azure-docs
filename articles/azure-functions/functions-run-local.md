@@ -160,9 +160,9 @@ Click an invocation to see the **Invocation Details** page, which indicates when
 
 To run an HTTP or WebHook function, you'll need an API key unless you include `"authLevel": "anonymous"` in the *function.json* file.
 
-For example, if the API key is `apikey`, you can trigger the *HttpTrigger* function with the following URL when the WebJobs.Script.WebHost project is running.
+For example, if the API key is `12345`, you can trigger the *HttpTrigger* function with the following URL when the WebJobs.Script.WebHost project is running.
 
-	http://localhost:28549/api/httptrigger?code=apikey
+	http://localhost:28549/api/httptrigger?code=12345
 
 (As an alternative, you can put the API key in the `x-functions-key` HTTP header.)
 
@@ -172,11 +172,13 @@ API keys are stored in `.json` files in the [App_Data/secrets](https://github.co
 
 The *host.json* file in the *App_Data/secrets* folder has two keys:
 
+```json
 {
-  "masterKey": "t8laajal0a1ajkgzoqlfv5gxr4ebhqozebw4qzdy",
-  "functionKey": "zlnu496ve212kk1p84ncrtdvmtpembduqp25ajjc"
+  "masterKey": "hyexydhln844f2mb7hyexydhln844f2mb7",
+  "functionKey": "7hyexydhn844f2mb7hyexydhln844f2mb7"
 }
-  
+```
+
 The `functionKey` property stores a key that can be used for any HTTP or WebHook function if no override for that particular function is defined. This feature eliminates the need to always define new API keys for every function you create.
 
 The `masterKey` property stores a key that is useful in some testing scenarios:
@@ -189,9 +191,11 @@ The `masterKey` property stores a key that is useful in some testing scenarios:
 
 Files that are named *{function name}.json* contain the API key for a particular function. For example, the following example JSON content in *App_Data/secrets/HttpTrigger.json* sets the API key for the `HttpTrigger` function.
 
-	{
-	  "key": "hyexydhln844f2mb7hgsup2yf8dowlb0885mbiq1"
-	}
+```json
+{
+  "key": "844f2mdhn844f2mb7hyexydhln844f2mb7"
+}
+```
 
 ## Troubleshooting
 
