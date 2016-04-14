@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="04/14/2016"
 	ms.author="tarcher"/>
 
 # Configure cost management
@@ -42,7 +42,7 @@ In order to enable the Monthly Estimated Cost Trend chart, follow these steps:
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  
-1. Tap **On** to enable this policy, and **Off** to disable it.
+1. On the **Cost Thresholds** blade, tap **On** to enable this policy, and **Off** to disable it.
 
 1. Tap **Save**.
 
@@ -57,7 +57,7 @@ The following screen shot shows an example of a cost chart.
 The **Estimated Cost** value is the current month's estimated cost-to-date while the **Projected Cost** is the estimated
 cost for the entire month. 
 
-As the it states above the chart, the costs you see in the chart are *estimated* costs using Pay-As-You-Go offer rates.
+As it states in the chart, the costs you see in the chart are *estimated* costs using Pay-As-You-Go offer rates.
 Additionally, the following are *not* included in the cost calculation:
 
 - Your offer rates. Currently, we are not able to use your offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. We are using Pay-As-You-Go rates.
