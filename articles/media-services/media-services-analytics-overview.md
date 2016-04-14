@@ -49,7 +49,9 @@ Below are a couple of scenarios where Azure Media Analytics can help organizatio
 
 - **Surveillance** -  With the growth of IP cameras, there is an explosion of surveillance videos. Manually reviewing surveillance video is time intensive and prone to human error. Azure Media Analytics provides several components such as motion detection, face detection, and Hyperlapse to make the process of reviewing, managing and creating derivatives easier.
 
+##Demos
 
+[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ##Media Services learning paths
 
