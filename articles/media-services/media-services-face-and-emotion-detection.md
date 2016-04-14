@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/13win/2016"   
 	ms.author="milanga;juliako;"/>
 
 #Detect Face and Emotion with Azure Media Analytics
@@ -175,8 +175,8 @@ Below are recommended values for the aggregate window and interval settings. Win
 
    |Defaults(s)|Max(s)|Min(s)
 ---|---|---|---
-Window Length|2|3|1
-Interval|0.5|1|0.25
+AggregateEmotionWindowMs|0.5|2|0.25
+AggregateEmotionIntervalMs|0.5|1|0.25
 
 ###JSON output
 
