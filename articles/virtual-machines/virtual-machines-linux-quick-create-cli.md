@@ -163,9 +163,9 @@ To help you decide when you should use `vm quick-create` and when you should mov
 
 * Bash shell - you need to reference a command in your automation and cannot remember how to use it, `azure vm quick-create` is the fastest way to a Bash shell on Azure to then test out that commands functionality.
 
-* Containers - you have a container you need to launch to test or verify.  You can use `quick-create` to launch a [CoreOS VM](https://azure.microsoft.com/en-us/marketplace/partners/coreos/coreosstable/) to quickly get a Docker host up and running to launch your container onto.
+* Containers - you have a container you need to launch to test or verify.  You can use `quick-create` to launch a [CoreOS VM](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/) to quickly get a Docker host up and running to launch your container onto.
 
-* Jenkins - you are doing a Proof of Concept project for your team to showcase Continuous Integration and Deployment.  Launching a preconfigured [Jenkins VM from Bitnami](https://azure.microsoft.com/en-us/marketplace/partners/bitnami/jenkins/) gets you up and running so you can start building that CiCd POC.
+* Jenkins - you are doing a Proof of Concept project for your team to showcase Continuous Integration and Deployment.  Launching a preconfigured [Jenkins VM from Bitnami](https://azure.microsoft.com/marketplace/partners/bitnami/jenkins/) gets you up and running so you can start building that CiCd POC.
 
 * Dev, Test and Production - you need to manage your teams Azure environments in a repeatable and consistent deployment method. Using DevOps best practices and treating all infrastructure as code you need to store that infrastructure as code in Git.  Azure templates are code and easily utiliized by all the Configuration Management tools like Ansible, Chef, Puppet and Salt.
 
