@@ -26,14 +26,17 @@ Azure Batch enables you to run parallel compute workloads on both Linux and Wind
 
 When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: **Cloud Services** and **Virtual Machine Configuration**.
 
-**Cloud Services** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you specify a pool containing Cloud Services nodes, you need to specify only the node size and its "OS Family" which are found in these articles.
+**Cloud Services** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you specify a pool containing Cloud Services nodes, you need to specify only the node size and its "OS Family" which are found in these articles. When creating pools of Windows compute nodes, Cloud Services is most commonly used.
 
-**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). When you specify a pool containing Virtual Machine Configuration nodes, you must specify the node size as well as several properties of the operating system:
+**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). When you specify a pool containing Virtual Machine Configuration nodes, you must specify the node size as well as several properties of the image to install on the nodes:
 
- * Publisher
- * Offer
- * SKU
- * Version
+| Property		    | Example				   |
+| ----------------- | ------------------------ |
+| Publisher			| Canonical                |
+| Offer				| UbuntuServer             |
+| SKU				| 14.04.4-LTS              |
+| Version			| latest				   |
+| Node agent SKU ID	| batch.node.ubuntu 14.04  |
 
 These additional properties are required because the Batch service uses [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) under the hood to provide Linux compute nodes, and the operating system images for these virtual machines are provided by the Azure Marketplace. Because the list of available images (SKUs) changes periodically, there is no definitive list of the available images. However, the Batch SDKs provide the ability to list the available SKUs, which we discuss below in [List the available images (SKUs)](#list-the-available-images-skus).
 
@@ -109,7 +112,7 @@ Func<ImageReference, bool> ubuntuImageScanner = imageRef =>
     imageRef.Offer == "UbuntuServer" &&
     imageRef.SkuId.Contains("14.04");
 
-// Obtain the latest available SKU for Ubuntu Server 14.04
+// Obtain the first SKU in the collection for Ubuntu Server 14.04
 NodeAgentSku ubuntuSku = nodeAgentSkus.First(sku =>
     sku.VerifiedImageReferences.FirstOrDefault(ubuntuImageScanner) != null);
 
@@ -137,47 +140,44 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
-## List the available images (SKUs)
-
-Because the list of available images in the Azure Marketplace changes periodically, there is no definitive list of the available images. It may therefore be necessary to obtain a list of the available images to provide image selection capability in your Batch solution.
-
-### Batch Python
-
-Use the [list_node_agent_skus][py_list_skus] method of the [azure.batch.operations.AccountOperations][py_account_ops] class to list the available Marketplace images using the Batch Python client library.
-
-```python
-#python code snippet here
-```
-
-### Batch .NET
-
-Use the [ListNodeAgentSkus][net_list_skus] method of the [PoolOperations][net_pool_ops] class to list the available Marketplace images using the Batch .NET client library.
+The code snippet above uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to select a virtual machine image from the currently available Marketplace images. This technique is desirable because the list of available images may change from time to time (most commonly, images are added). You can, however, configure an ImageReference directly as is done in the Python code snippet. For example:
 
 ```csharp
-// Obtain a collection of all available node agent SKUs
-List<NodeAgentSku> nodeAgentSkus =
-    batchClient.PoolOperations.ListNodeAgentSkus().ToList();
-
-// Display the available SKUs
-foreach (NodeAgentSku sku in nodeAgentSkus)
-{
-    Console.WriteLine("{0} | {1}", sku.Id, sku.OSType);
-
-    foreach (ImageReference imgSku in sku.VerifiedImageReferences)
-    {
-        Console.WriteLine("    {0} | {1} | {2} | {3}",
-            imgSku.Offer, imgSku.Publisher, imgSku.SkuId, imgSku.Version);
-    }
-}
+ImageReference imageReference = new ImageReference(
+    publisher: "Canonical",
+    offer: "UbuntuServer",
+    skuId: "14.04.2-LTS",
+    version: "latest");
 ```
+
+## List of Virtual Machine images
+
+The table below lists the available Linux images **at the time of this writing**. It is important to note that this list is not definitive, as images may be added or removed at any time. We recommend that your Batch applications and services *always* use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
+
+> [AZURE.WARNING] The list below may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the available SKUs when you run your Batch jobs.
+
+| Publisher   | Offer 	  	   | Image SKU 	 | Version | Node agent SKU ID        |
+| ----------- | -------------- | ----------- | ------- | ------------------------ |
+| Canonical   | UbuntuServer   | 14.04.0-LTS | latest  | batch.node.ubuntu 14.04  |
+| Canonical   | UbuntuServer   | 14.04.1-LTS | latest  | batch.node.ubuntu 14.04  |
+| Canonical   | UbuntuServer   | 14.04.2-LTS | latest  | batch.node.ubuntu 14.04  |
+| Canonical   | UbuntuServer   | 14.04.3-LTS | latest  | batch.node.ubuntu 14.04  |
+| Canonical   | UbuntuServer   | 14.04.4-LTS | latest  | batch.node.ubuntu 14.04  |
+| Canonical   | UbuntuServer   | 15.10 		 | latest  | batch.node.debian 8      |
+| Credativ    | Debian 		   | 8 			 | latest  | batch.node.debian 8      |
+| OpenLogic   | CentOS 		   | 7.0 		 | latest  | batch.node.centos 7      |
+| OpenLogic   | CentOS 		   | 7.1 		 | latest  | batch.node.centos 7      |
+| OpenLogic   | CentOS 		   | 7.2 		 | latest  | batch.node.centos 7      |
+| Oracle      | Oracle-Linux-7 | OL70 		 | latest  | batch.node.centos 7      |
+| SUSE  	  | SLES 		   | 12 		 | latest  | batch.node.opensuse 42.1 |
+| SUSE  	  | SLES 		   | 12-SP1 	 | latest  | batch.node.opensuse 42.1 |
+| SUSE  	  | SLES-HPC 	   | 12 		 | latest  | batch.node.opensuse 42.1 |
+| SUSE  	  | openSUSE 	   | 13.2 		 | latest  | batch.node.opensuse 13.2 |
+| SUSE  	  | openSUSE-Leap  | 42.1 		 | latest  | batch.node.opensuse 42.1 |
 
 ## Pricing
 
-Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technology. The Batch service itself is offered at no cost, which means you are charged only for the compute resources consumed by your Batch solutions. When creating a pool with either the [Azure portal][portal] or one of the APIs (e.g. REST, .NET, Python) you can choose the type of pool to create. If you choose Cloud Services (which is Windows only) you will be charged based on the Cloud Services pricing structure. If you choose Virtual Machines (which provides Linux), you will be charged based on Linux Virtual Machines pricing structure.
-
-## Wrapping up
-
-Content here.
+Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technology. The Batch service itself is offered at no cost, which means you are charged only for the compute resources consumed by your Batch solutions. When you choose **Cloud Services** you will be charged based on the [Cloud Services pricing][cloud_services_pricing] structure. When you choose **Virtual Machine Configuration**, you will be charged based on the [Virtual Machines pricing][vm_pricing] structure.
 
 ## Next steps
 
@@ -188,9 +188,9 @@ Content here.
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[cloud_services_pricing]: https://azure.microsoft.com/pricing/details/cloud-services/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [portal]: https://portal.azure.com
-[storage_pricing]: https://azure.microsoft.com/pricing/details/storage/
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
 [net_pool_ops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.aspx
@@ -202,5 +202,6 @@ Content here.
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
+[vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Application packages high-level diagram"
