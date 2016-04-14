@@ -94,14 +94,14 @@ To move existing resources to another resource group or subscription, use the **
 
 The first example shows how to move one resource to a new resource group.
 
-    PS C:\> $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 
 The second example shows how to move multiple resources to a new resource group.
 
-    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 
 To move to a new subscription, include a value for the **DestinationSubscriptionId** parameter.
 
