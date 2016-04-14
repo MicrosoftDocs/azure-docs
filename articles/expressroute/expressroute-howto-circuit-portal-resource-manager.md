@@ -30,21 +30,20 @@ This article describes how to create an Azure ExpressRoute circuit by using the 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 
-## Configuration prerequisites
+## Before you begin
 
-To create an ExpressRoute circuit, you need to:
 
 - Review the [Prerequisites](expressroute-prerequisites.md) page and the [Workflows](expressroute-workflows.md) page before you begin configuration.
-- Ensure that you have access to the [Azure portal](https://portal.azure.com/)
+- Ensure that you have access to the [Azure portal](https://portal.azure.com).
 - Ensure that you have permissions to create new networking resources. Contact your account administrator if you do not have the right permissions.
 
 ## Create and provision an ExpressRoute circuit
 
-### 1. Sign in to the Azure portal
+### 1. Sign in to the Azure portal.
 
-From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign in with your Azure account.
 
-### 2. Create a new ExpressRoute circuit
+### 2. Create a new ExpressRoute circuit.
 
 >[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Please ensure that you perform this operation once the connectivity provider is ready to provision the circuit. 
 
@@ -52,7 +51,7 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if 
 
 	![](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 
-- **Step 2.** Once you click ExpressRoute, you will see the **Create ExpressRoute circuit** blade. When filling in the value on this blade, make sure that you specify the correct SKU tier and SKU family.
+- **Step 2.** Once you click ExpressRoute, you will see the **Create ExpressRoute circuit** blade. When filling in the values on this blade, make sure that you specify the correct SKU tier and data metering.
 
 	- **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify "Standard" to get the standard SKU, or "Premium" for the premium add-on.
 
@@ -63,23 +62,23 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if 
 
 
 
-### 3. View circuits and properties
+### 3. View circuits and properties.
 
 - **To view all circuits** 
 	
-	You can view all circuits you created by selecting "All Resources" on the left side menu. The below image shows a sample. 
+	You can view all circuits you created by selecting **All resources** on the left side menu.
 
 	![](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
 
 - **To view properties** 
 	
-	You can view the properties of the circuit you are interested in by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
+	You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
 
 	![](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 
 
-### 4. Send the service key to your connectivity provider for provisioning
+### 4. Send the service key to your connectivity provider for provisioning.
 
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
@@ -89,44 +88,40 @@ When you create a new ExpressRoute circuit, the circuit will be in the following
 
 ![](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
-"ServiceProviderProvisioningState" provides information on the current state of provisioning on the service provider side. Status provides the state on the Microsoft side. For you to be able to use an ExpressRoute circuit, it must be in the following state:
+"ServiceProviderProvisioningState" provides information on the current state of provisioning on the service provider side. Status provides the state on the Microsoft side. For you to be able to use an ExpressRoute circuit, it must be in the following state. The circuit will change to this state when the connectivity provider is in the process of enabling it for you.
 
 	Provider Status : Provisioned
 	Circuit Status  : Enabled
 
-The circuit will change to the following state when the connectivity provider is in the process of enabling it for you:
 
-	Provider Status : Provisioned
-	Circuit Status  : Enabled
+### 5. Periodically check the status and the state of the circuit key.
 
-### 5. Periodically check the status and the state of the circuit key
-
-You can view the properties of the circuit you are interested in by selecting it. Check the *Provider status* and ensure that it has moved to provisioned state before continuing.
+You can view the properties of the circuit you are interested in by selecting it. Check the **Provider status** and ensure that it has moved to **Provisioned** before continuing.
 
 
 ![](./media/expressroute-howto-circuit-portal-resource-manager/viewstatusprovisioned.png)
 
 
-### 6. Create your routing configuration
+### 6. Create your routing configuration.
 
 For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-portal-resource-manager.md) to create and modify circuit peerings.
 
 >[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
 
-### 7. Link a virtual network to an ExpressRoute circuit
+### 7. Link a virtual network to an ExpressRoute circuit.
 
 Next, link a virtual network to your ExpressRoute circuit. You can use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment model.
 
 ## Getting the status of an ExpressRoute circuit
 
-You can view the properties of a circuit by selecting it. 
+You can view the status of a circuit by selecting it. 
 
 ![](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 
 ## Modifying an ExpressRoute circuit
 
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity.At this time, you cannot modify ExpressRoute circuit properties by using the Azure portal. However, you can use PowerShell to modify circuit properties. Refer to  the article section[Modifying an ExpressRoute circuit using PowerShell](expressroute-howto-circuit-arm.md#modify). 
+You can modify certain properties of an ExpressRoute circuit without impacting connectivity. At this time, you cannot modify ExpressRoute circuit properties by using the Azure portal. However, you can use PowerShell to modify circuit properties. Refer to  the article section [Modifying an ExpressRoute circuit using PowerShell](expressroute-howto-circuit-arm.md#modify). 
 
 You can do the following with no downtime:
 
