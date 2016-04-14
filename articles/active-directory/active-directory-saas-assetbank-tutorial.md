@@ -85,6 +85,7 @@ To configure the integration of Asset Bank into Azure AD, you need to add Asset 
 
 7. In the results pane, select **Asset Bank**, and then click **Complete** to add the application.
 
+	![Creating an Azure AD test user](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_02.png)
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Asset Bank based on a test user called "Britta Simon".
