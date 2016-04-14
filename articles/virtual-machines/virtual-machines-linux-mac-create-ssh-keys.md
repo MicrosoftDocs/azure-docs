@@ -64,7 +64,7 @@ Azure requires at least 2048-bit, ssh-rsa format public and private keys. To cre
 
 ### Using `ssh-keygen`
 
-This command creates a SSH Keypair using 2048 bit RSA and it will be commented to easily identify it.
+This command creates a password secured SSH Keypair using 2048 bit RSA and it will be commented to easily identify it.
 
 ```
 chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "chrisL@fedoraVMAzure"
@@ -85,7 +85,7 @@ chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "chrisL@fedoraVMAzure"
 ```bash
 chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "chrisL@fedoraVMAzure"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/chrisL/.ssh/id_rsa): azure_fedora_id_rsa
+Enter file in which to save the key (/home/chrisL/.ssh/id_rsa): azure_fedora_id_rsa
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in azure_fedora_id_rsa.
@@ -110,7 +110,7 @@ chrisL@fedora$ ls -al ~/.ssh
 -rw-r--r-- 1 chrisL staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
 
-`Enter file in which to save the key (/Users/chrisL/.ssh/id_rsa): azure_fedora_id_rsa`
+`Enter file in which to save the key (/home/chrisL/.ssh/id_rsa): azure_fedora_id_rsa`
 The key pair name for this article.  Having a key pair named **id_rsa** is the default and some tools might expect the **id_rsa** private key file name so having one is a good idea. (`~/.ssh/` is the typical default location for all of your SSH key pairs and the SSH config file.)
 
 `Enter passphrase (empty for no passphrase):`
@@ -141,19 +141,19 @@ Host fedora22
   Hostname 102.160.203.241
   User chrisL
   PubkeyAuthentication yes
-  IdentityFile /Users/chrisL/.ssh/azure_fedora_id_rsa
+  IdentityFile /home/chrisL/.ssh/azure_fedora_id_rsa
 # ./Azure Keys
 # GitHub keys
 Host github.com
   Hostname github.com
   User git
   PubKeyAuthentication yes
-  IdentityFile /Users/chrisL/.ssh/azure_fedora_id_rsa
+  IdentityFile /home/chrisL/.ssh/azure_fedora_id_rsa
 Host github.private
   Hostname github.com
   User git
   PubKeyAuthentication yes
-  IdentityFile /Users/chrisL/.ssh/private_repo_azure_fedora_id_rsa
+  IdentityFile /home/chrisL/.ssh/private_repo_azure_fedora_id_rsa
 # ./Github Keys
 # Default Settings
 Host *
@@ -162,10 +162,10 @@ Host *
   ServerAliveInterval=60
   ServerAliveCountMax=30
   ControlMaster auto
-  ControlPath /Users/chrisL/.ssh/Connections/ssh-%r@%h:%p
+  ControlPath /home/chrisL/.ssh/Connections/ssh-%r@%h:%p
   ControlPersist 4h
   StrictHostKeyChecking=no
-  IdentityFile /Users/chrisL/.ssh/id_rsa
+  IdentityFile /home/chrisL/.ssh/id_rsa
   UseRoaming=no
 ```
 
@@ -182,7 +182,7 @@ This SSH config gives you sections for each service to enable each to have its o
 
 `PubKeyAuthentication yes` = this tells SSH you want to use a SSH key to login.
 
-`IdentityFile /Users/chrisL/.ssh/azure_fedora_id_rsa` = this tells SSH which key pair to present to the server to authenticate the login.
+`IdentityFile /home/chrisL/.ssh/azure_fedora_id_rsa` = this tells SSH which key pair to present to the server to authenticate the login.
 
 
 ## SSH into a Linux VM without a password
