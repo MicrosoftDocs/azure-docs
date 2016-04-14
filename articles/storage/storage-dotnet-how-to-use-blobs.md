@@ -380,7 +380,6 @@ to learn more.
 - [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 - [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-- [Using SQL Database from .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
