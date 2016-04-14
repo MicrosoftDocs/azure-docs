@@ -16,11 +16,11 @@
    ms.date="03/28/2016"
    ms.author="mcoskun"/>
 
-# Back up and restore Reliable Services
-
->[AZURE.NOTE] It is critical to backup and restore your data (and test that it works as expected) so you can recover from data loss scenarios.
+# Back up and restore Reliable Services and Reliable Actors
 
 Azure Service Fabric is a high-availability platform and replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases it is desirable for the service to back up data (to an external store).
+
+>[AZURE.NOTE] It is critical to backup and restore your data (and test that it works as expected) so you can recover from data loss scenarios.
 
 For example, a service may want to back up data in the following scenarios:
 
@@ -35,7 +35,7 @@ For example, a service may want to back up data in the following scenarios:
 The Backup/Restore feature allows services built on the Reliable Services API to create and restore backups. The backup APIs provided by the platform allow to take backup(s) of a service partition's state, without blocking read or write operations. The restore APIs allow a service partition's state to be restored from a chosen backup.
 
 
-## Backup operation
+## Backup Reliable Services
 
 The service author has full control of when to make backups and where backups will be stored.
 
@@ -53,7 +53,7 @@ await this.BackupAsync(myBackupDescription);
 
 **BackupInfo** provides information regarding the backup, including the location of the folder where the runtime saved the backup (**BackupInfo.Directory**). The callback function can move the **BackupInfo.Directory** to an external store or another location.  This function also returns a bool that indicates whether it was able to successfully move the backup folder to its target location.
 
-The following code demonstrates how the backupCallback can be used to upload the backup to Azure Storage:
+The following code demonstrates how the **BackupCallbackAsync** method can be used to upload the backup to Azure Storage:
 
 ```C#
 private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
@@ -74,10 +74,9 @@ Note that:
 
 - If a replica fails over while a backup is in progress, the backup may not have been completed. Thus, once the failover finishes, it is the service's responsibility to restart the backup by invoking **BackupAsync** as necessary.
 
-## Restore operation
+## Restore Reliable Services
 
 In general, the cases when you might need to perform a restore operation fall into one of these categories:
-
 
 - The service partition lost data. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped. The new primary may need to restore data from a backup.
 
@@ -87,7 +86,7 @@ In general, the cases when you might need to perform a restore operation fall in
 
 While many approaches are possible, we offer some examples on using **RestoreAsync** to recover from the above scenarios.
 
-## Partition data loss
+## Partition data loss in Reliable Services
 
 In this case, the runtime would automatically detect the data loss and invoke the **OnDataLossAsync** API.
 
@@ -99,11 +98,11 @@ The service author needs to perform the following to recover:
 
 - Download the latest backup (and uncompress the backup into the backup folder if it was compressed).
 
-- The **OnDataLossAsync** method provides a **RestoreContext**. Call the **RestoreAsync** API on the provided **RestoreContext**. 
+- The **OnDataLossAsync** method provides a **RestoreContext**. Call the **RestoreAsync** API on the provided **RestoreContext**.
 
 - Return true if the restoration was a success.
 
-Following is an example implementation of the **OnDataLossAsync** method: 
+Following is an example implementation of the **OnDataLossAsync** method:
 
 ```C#
 
@@ -153,13 +152,15 @@ Note that:
 1) When you create a custom actor service, you will need to register the custom actor service as well while registering the actor. See **ActorRuntime.RegistorActorAsync**.
 2) The **KvsActorStateProvider** currently only supports full backup. Support for incremental backup with come in future versions. Also the option **RestorePolicy.Safe** is ignored by the **KvsActorStateProvider**.
 
-## Testing Backup and Restore 
+## Testing Backup and Restore
 
-It is important to ensure that critical data is being backed up, and can be restored from. This can be done by invoking the **Invoke-ServiceFabricPartitionDataLoss** cmdlet in PowerShell that can induce data loss in a particular partition to test whether the data backup and restore functionality for your service is working as expected.  It is also possible to programmatically invoke data loss and restore from that event as well. 
+It is important to ensure that critical data is being backed up, and can be restored from. This can be done by invoking the **Invoke-ServiceFabricPartitionDataLoss** cmdlet in PowerShell that can induce data loss in a particular partition to test whether the data backup and restore functionality for your service is working as expected.  It is also possible to programmatically invoke data loss and restore from that event as well.
 
 >[AZURE.NOTE] You can find a sample implementation of backup and restore functionality in the Web Reference App on Github. Please look at the Inventory.Service service for more details.
 
-## Under the hood: More details on Backup and Restore
+## Under the hood: more details on backup and restore
+
+Here's some more details on backup and restore.
 
 ### Backup
 The Reliable State Manager provides the ability to create consistent backups without blocking any read or write operations. To do so, it utilizes a checkpoint and log persistence mechanism.  The Reliable State Manager takes fuzzy (lightweight) checkpoints at certain points to relieve pressure from the transactional log and improve recovery times.  When **BackupAsync** is called, the Reliable State Manager instructs all Reliable objects to copy their latest checkpoint files to a local backup folder.  Then, the Reliable State Manager copies all log records, starting from the "start pointer" to the latest log record into the backup folder.  Since all the log records up to the latest log record are included in the backup and the Reliable State Manager preserves write-ahead logging, the Reliable State Manager guarantees that all transactions that are committed (**CommitAsync** has returned successfully) are included in the backup.
@@ -172,7 +173,3 @@ The Reliable State Manager provides the ability to restore from a backup by usin
 
 
 **RestoreAsync** first drops all existing state in the primary replica that it was called on.  Then the Reliable State Manager creates all the Reliable objects that exist in the backup folder.  Next, the Reliable objects are instructed to restore from their checkpoints in the backup folder.  Finally, the Reliable State Manager recovers its own state from the log records in the backup folder and performs recovery.  As part of the recovery process, operations starting from the "starting point" that have commit log records in the backup folder are replayed to the Reliable objects.  This step ensures that the recovered state is consistent.
-
-
-
-

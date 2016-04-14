@@ -4,7 +4,7 @@
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/01/2016" 
+	ms.date="04/04/2016" 
 	ms.author="ddove;sidneyh" />
 
 # Upgrade to the latest elastic database client library

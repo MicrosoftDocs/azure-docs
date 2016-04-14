@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/23/2016"
 ms.author="deonhe"/>
 
 # Get started with the Office365 Video API
@@ -33,7 +33,7 @@ To add an operation in logic apps, see [Create a logic app](../app-service-logic
 
 ## Triggers and actions
 
-The Office 365 Users API has the following actions available. There are no triggers.
+The Office 365 Video API has the following actions available. There are no triggers.
 
 | Triggers | Actions|
 | --- | --- |

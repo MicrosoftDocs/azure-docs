@@ -1,14 +1,14 @@
 <properties
    pageTitle="An update infrastructure for Red Hat Enterprise Linux images | Microsoft Azure"
    description="Introduces the yum update service for an on-demand Red Hat Enterprise Linux instance in Azure"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="KylieLiang"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"

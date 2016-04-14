@@ -98,9 +98,9 @@ Here is more about the compute, data, networking and related services you can co
 
 ### Compute services
 
-Azure compute services are the core of a Big Compute solution, and the different compute services offer advantages for different scenarios. At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology. These instances can run a variety of standard and custom Linux and Windows operating systems and tools. Azure gives you a choice of [instance sizes](../virtual-machines/virtual-machines-size-specs.md) with different configurations of CPU cores, memory, disk capacity, and other characteristics. Depending on your needs you can scale the instances to thousands of cores and then scale down when you need fewer resources.
+Azure compute services are the core of a Big Compute solution, and the different compute services offer advantages for different scenarios. At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology. These instances can run a variety of standard and custom Linux and Windows operating systems and tools. Azure gives you a choice of [instance sizes](../virtual-machines/virtual-machines-linux-sizes.md) with different configurations of CPU cores, memory, disk capacity, and other characteristics. Depending on your needs you can scale the instances to thousands of cores and then scale down when you need fewer resources.
 
->[AZURE.NOTE] Take advantage of the A8-A11 instances to improve the performance of some HPC workloads, including parallel MPI applications that require a low latency and high throughput application network. See [About the A8, A9, A10, and A11 Compute Intensive Instances](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).  
+>[AZURE.NOTE] Take advantage of the A8-A11 instances to improve the performance of some HPC workloads, including parallel MPI applications that require a low latency and high throughput application network. See [About the A8, A9, A10, and A11 Compute Intensive Instances](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
 
 Service | Description
 ------------- | -----------

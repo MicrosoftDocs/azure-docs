@@ -3,9 +3,9 @@
 	description="Learn how to use Azure Table Storage in Azure. Code samples are written using the Ruby API."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.date="04/10/2016"
+	ms.author="robmcm"/>
 
 
 # How to use Azure Table Storage from Ruby
@@ -31,7 +31,8 @@ This guide shows you how to perform common scenarios using the Azure Table servi
 
 ## Create a Ruby application
 
-For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+
 
 ## Configure your application to access Storage
 

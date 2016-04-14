@@ -1,4 +1,4 @@
-<properties
+    <properties
 	pageTitle="Create a DevTest Lab custom image from a VHD file | Microsoft Azure"
 	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
@@ -31,7 +31,7 @@ Note that you'll need access to a valid VHD file to perform all the steps in thi
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
-1. From the list of labs, tap the desired lab. 
+1. From the list of labs, tap the desired lab.  
 
 1. The selected lab's **Settings** blade will be displayed. 
 

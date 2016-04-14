@@ -36,11 +36,11 @@ To create the **NSG-FrontEnd** NSG as shown in the scenario above, follow the st
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Click **Browse >** > **Network Security Groups**.
 
-	![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
 3. In the **Network security groups** blade, click **Add**.
-
-	![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+  
+    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
 4. In the **Create network security group** blade, create an NSG named *NSG-FrontEnd* in the *RG-NSG* resource group, and then click **Create**.
 

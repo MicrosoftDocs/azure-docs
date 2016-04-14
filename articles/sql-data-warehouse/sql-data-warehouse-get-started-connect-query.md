@@ -3,7 +3,7 @@
    description="Get started with connecting to SQL Data Warehouse and running some queries."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="03/23/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Connect and query with Visual Studio
 
@@ -69,13 +69,13 @@ Now that we have registered our server let's go ahead and write a query.
 
 3. Type the following code into the query window:
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. Run the query.
 
-	To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
+   To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
 
 ## Next steps
 
