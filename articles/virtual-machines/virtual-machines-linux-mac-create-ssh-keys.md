@@ -19,7 +19,7 @@
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
 
-To create a password-secured SSH public and private key you need a terminal open on your workstation.  Once you have SSH keys you can create new VMs with that key by default or add the public key to existing VMs.  The SSH private key created will have a [secure password](https://www.xkcd.com/936/) to safeguard it.  Anyone that has possession of a private key without a password can access any server with the public key installed.  Without the password the private key cannot be used.
+To create a password-secured SSH public and private key you need a terminal open on your workstation.  Once you have SSH keys you can create new VMs with that key by default or add the public key to existing VMs using both the Azure CLI and Azure templates.  
 
 ## Quick Command Listing
 
@@ -51,14 +51,15 @@ Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 
 ## Introduction
 
-Using SSH public and private keys is the easiest way to login into your Linux servers, but in addition [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) also provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.
+Using SSH public and private keys is the easiest way to login into your Linux servers, but in addition [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) also provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key created will have a [secure password](https://www.xkcd.com/936/) to safeguard it and this password is just to access the private SSH key and **is not** the user account password.  Anyone that has possession of a private key without a password can access any server with the public key installed.  Without the password the private key cannot be used.
+
 
 This article creates *ssh-rsa* format key files, as those are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both classic and resource manager deployments.
 
 
 ## Create the SSH Keys
 
-Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the pair, use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When you create your Azure VM, you pass the public key content, which is copied to the Linux VM and is used with your local and securely stored private key to authenticate you when you log in.
+Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the pair, we will use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When you create your Azure VM, you pass the public key content, which is copied to the Linux VM and is used with your local and securely stored private key to authenticate you when you log in.
 
 ### Using `ssh-keygen`
 
