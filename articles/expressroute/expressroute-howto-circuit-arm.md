@@ -30,16 +30,16 @@ This article describes how to create an Azure ExpressRoute circuit by using Wind
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## Configuration prerequisites
+## Before you begin
 
-To create an ExpressRoute circuit, you need to:
 
 - Obtain the latest version of the Azure PowerShell modules, version 1.0 or later. For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page.
+
 - Review the [Prerequisites](expressroute-prerequisites.md) page and the [Workflows](expressroute-workflows.md) page before you begin configuration.
 
 ## Create and provision an ExpressRoute circuit
 
-### Step 1. Sign in to your Azure account and select your subscription.
+### 1. Sign in to your Azure account and select your subscription.
 
 To begin your configuration, sign in to your Azure account. For more information about PowerShell, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md). Use the following examples to help you connect:
 
@@ -53,7 +53,7 @@ Select the subscription that you want to create an ExpressRoute circuit:
 
 	Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
-### Step 2. Get the list of supported providers, locations, and bandwidths.
+### 2. Get the list of supported providers, locations, and bandwidths.
 
 Before creating an ExpressRoute circuit, you need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` returns this information, which you’ll use in later steps.
 
@@ -69,7 +69,7 @@ Check to see if your connectivity provider is listed there. Make a note of the f
 
 You are now ready to create an ExpressRoute circuit.   
 
-### Step 3.  Create an ExpressRoute circuit.
+### 3. Create an ExpressRoute circuit.
 
 If you don't already have a resource group, you must create one before you create your ExpressRoute circuit. You can do so by running the following command:
 
@@ -96,7 +96,7 @@ The response contains the service key. You can get detailed descriptions of all 
 	get-help New-AzureRmExpressRouteCircuit -detailed
 
 
-### Step 4.  List all ExpressRoute circuits.
+### 4. List all ExpressRoute circuits.
 
 To get a list of all ExpressRoute circuits you created, run the `Get-AzureRmExpressRouteCircuit` command:
 
@@ -165,7 +165,7 @@ You can get detailed descriptions of all parameters by running the following:
 
 	get-help Get-AzureRmExpressRouteCircuit -detailed
 
-### Step 5.  Send the service key to your connectivity provider for provisioning.
+### 5. Send the service key to your connectivity provider for provisioning.
 
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
@@ -187,7 +187,7 @@ The circuit will change to the following state when the connectivity provider is
 
 	Status                           : Enabled
 
-### Step 6.  Periodically check the status and the state of the circuit key.
+### 6. Periodically check the status and the state of the circuit key.
 
 Checking the status and the state of the circuit key informs you when your provider has enabled your circuit. After the circuit has been configured, "ServiceProviderProvisioningState" appears as "Provisioned", as shown in the following example:
 
@@ -220,13 +220,13 @@ The response will look similar to the following example:
 	ServiceKey                       : **************************************
 	Peerings                         : []
 
-### Step 7.  Create your routing configuration.
+### 7. Create your routing configuration.
 
 For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-arm.md) to create and modify circuit peerings.
 
 >[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
 
-### Step 8.  Link a virtual network to an ExpressRoute circuit.
+### 8. Link a virtual network to an ExpressRoute circuit.
 
 Next, link a virtual network to your ExpressRoute circuit. You can use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment mode.
 
@@ -366,7 +366,7 @@ Your circuit will be sized up on the Microsoft side. Then you must contact your 
 
 **Important**: You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 
-### Move SKU from metered to unlimited
+### To move the SKU from metered to unlimited
 
 You can change the SKU of an ExpressRoute circuit by using the following PowerShell snippet:
 
