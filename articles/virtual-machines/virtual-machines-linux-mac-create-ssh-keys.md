@@ -91,9 +91,9 @@ Enter same passphrase again:
 Your identification has been saved in azure_fedora_id_rsa.
 Your public key has been saved in azure_fedora_id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:79:ad:25:cc:65:e9:0c:07:e5:d1:a9:08 chrisL@fedoraVMAzure
+14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 chrisL@fedoraVMAzure
 The key's randomart image is:
-+--[ RSA 4096]----+
++--[ RSA 2048]----+
 |        o o. .   |
 |      E. = .o    |
 |      ..o...     |
