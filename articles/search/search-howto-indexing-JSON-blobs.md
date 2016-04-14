@@ -90,6 +90,14 @@ Putting this all together, here's the complete indexer payload for our example:
   	  ]
 	}
 
+> [AZURE.TIP] If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index: 
+ 
+	{ 
+	   "text" : "A hopefully useful article explaining how to parse JSON blobs",
+	   "datePublished" : "2016-04-13" 
+       "tags" : [ "search", "storage", "howto" ]    
+ 	}
+
 Happy JSON indexing!
 
 ## Help us make Azure Search better
