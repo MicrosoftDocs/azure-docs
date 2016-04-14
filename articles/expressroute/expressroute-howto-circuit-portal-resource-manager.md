@@ -113,7 +113,7 @@ For step-by-step instructions, refer to the [ExpressRoute circuit routing config
 
 ### 7. Link a virtual network to an ExpressRoute circuit
 
-Next, link a virtual network to your ExpressRoute circuit. You can use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet.md) article when you work with the Resource Manager deployment model.
+Next, link a virtual network to your ExpressRoute circuit. You can use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment model.
 
 ## Getting the status of an ExpressRoute circuit
 
