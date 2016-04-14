@@ -35,13 +35,13 @@ This article shows how to configure Azure Search blob indexer for JSON parsing. 
 
 ## Setting up JSON indexing
 
-To accomplish this, you can use the blob indexer in "JSON parsing" mode as follows: 
+To index JSON blobs, use the blob indexer in "JSON parsing" mode: 
 
-1. Enable JSON parsing mode by enabling `useJsonParser` configuration setting in the indexer parameters: 
+1. Enable `useJsonParser` configuration setting in the indexer parameters: 
 
 	`"parameters" : { "configuration" : { "useJsonParser" : true } }`
 
-2. Optionally, use field mappings to construct a search document by picking the desired properties of the source JSON document.  This is described in detail below. 
+2. If needed, use field mappings to construct a search document by picking the desired properties of the source JSON document.  This is described in detail below. 
 
 > [AZURE.IMPORTANT] JSON parsing mode applies to all blobs in your data source. If the data source includes a mix of JSON blobs and blobs with other content formats, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
