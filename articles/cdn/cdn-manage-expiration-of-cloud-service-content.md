@@ -1,6 +1,6 @@
 <properties
- pageTitle="How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)"
- description=""
+ pageTitle="How to manage expiration of cloud service content in Azure CDN | Microsoft Azure"
+ description="Describes how to manage the expiration of cloud service content in Azure CDN"
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
