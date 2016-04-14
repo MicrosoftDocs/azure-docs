@@ -42,7 +42,7 @@ You'll learn:
 
 At the end of the tutorial, a [Troubleshooting](#troubleshooting) section gives ideas on what to do if something doesn't work, and a [Next steps](#next-steps) section provides links to other tutorials that go into more depth about how to use Azure App Service.
 
-> [AZURE.NOTE] Help us shape the scope and approach of this tutorial -- if there are other topics you'd like to see covered here in a getting-started tutorial, leave feedback in a [Disqus comment](#comments) at the end of the tutorial.
+## Prerequisites
 
 [AZURE.INCLUDE [prereqs](../../includes/app-service-web-dotnet-get-started-prereqs.md)]
 
