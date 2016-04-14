@@ -215,6 +215,39 @@ After the *project.json* file is uploaded, you see output like the following exa
 2016-04-04T19:02:57.455 Packages restored.
 ```
 
+## Reusing .csx code
+
+You can use methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives at the top of your *run.csx* file, as shown in the following example.
+
+Example *run.csx*:
+
+```csharp
+#load "mylogger.csx"
+
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Verbose($"Log by run.csx: {DateTime.Now}"); 
+    MyLogger(log, $"Log by MyLogger: {DateTime.Now}");
+}
+```
+
+Example *mylogger.csx*:
+
+```csharp
+public static void MyLogger(TraceWriter log, string logtext)
+{
+    log.Verbose(logtext); 
+}
+```
+
+You can use a relative address with the `#load` directive:
+
+* `#load "mylogger.csx"` loads a file located in the function folder.
+
+* `#load "loadedfiles\mylogger.csx"` loads a file located in a folder in the function folder.
+
+* `#load "..\shared\mylogger.csx"` loads a file located in a folder at the same level as the function folder, that is, directly under *wwwroot*.
+
 ## Next steps
 
 For more information, see the following resources:
