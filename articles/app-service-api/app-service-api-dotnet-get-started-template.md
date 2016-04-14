@@ -206,7 +206,7 @@ In this section, you deploy web project to the API app, as illustrated in step 2
 
 2. You can now make changes to the code, redeploy the project the same way as for initial deployment, and see your changes working in Azure in seconds.
 
-## <a id="portal"></a> Monitor and manage the API app in the Azure Portal
+## <a id="portal"></a> Optional: Monitor and manage the API app in the Azure Portal
 
 The [Azure portal](/services/management-portal/) is a web interface that you can use to manage and monitor your Azure services, such as the API app that you just created. In this section of the tutorial, you look at some of what you can do in the portal.
 
@@ -225,6 +225,8 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 3. The **Settings** blade shows more options for configuring your API app.
 
 	![Settings blade in Azure portal](./media/app-service-api-dotnet-get-started-template/portalconfigure1.png)
+
+	The **API** section links to blades for configuring an API metadata endpoint and CORS. See the [Next steps](#next-steps) section for tutorials that introduce these features.
 
 	Notice the **Deployment credentials** link in the **Publishing** section. That's where you can create a custom user name and password for deployment. Click the **Save** button at the top of the blade to submit your change. If you create a new user name and password, you have to enter the same values on the **Connection** tab of the **Publish Web** wizard in your web project.
 	
