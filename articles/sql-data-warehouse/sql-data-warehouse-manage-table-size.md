@@ -16,16 +16,9 @@
    ms.date="04/13/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Manage data skew for distributed tables in Azure SQL Data Warehouse
+# Manage table size in Azure SQL Data Warehouse
+
 This article identifies the size of your table partitions and helps you understand the size of your database.
-
-When table data is distributed using the hash distribution method there is a chance that some distributions will be skewed to have disproportionately more data than others. Excessive data skew can impact query performance because the final result of a distributed query will not be ready until the longest-running distribution finishes.  Depending on the degree of the data skew you might need to address it. 
-
-In this tutorial you will:
-
-- Use metadata to determine which tables have data skew
-- Learn tips for knowing when to resolve data skew
-- Re-create the table to resolve data skew
 
 
 ## Step 1: Create a view that summarises the table size
