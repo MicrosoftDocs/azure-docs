@@ -212,36 +212,36 @@ Note that instead of a password, you can specify an SSH public key when creating
 
 ## List of Virtual Machine images
 
-The table below lists the available Virtual Machine Configuration images **at the time of this writing**. It is important to note that this list is not definitive, as images may be added or removed at any time. We recommend that your Batch applications and services always use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
+The table below lists the supported Virtual Machine Configuration images **at the time of this writing**. It is important to note that this list is not definitive, as images may be added or removed at any time. We recommend that your Batch applications and services always use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
 
-> [AZURE.WARNING] The list below may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the available SKUs when you run your Batch jobs.
+> [AZURE.WARNING] The list below may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the supported SKUs when you run your Batch jobs.
 
-| **Publisher**   | **Offer** 	  	   | **Image SKU** 	 | **Version** | **Node agent SKU ID**        |
-| ----------- | -------------- | ----------- | ------- | ------------------------ |
-| Canonical   | UbuntuServer   | 14.04.0-LTS | latest  | batch.node.ubuntu 14.04  |
-| Canonical   | UbuntuServer   | 14.04.1-LTS | latest  | batch.node.ubuntu 14.04  |
-| Canonical   | UbuntuServer   | 14.04.2-LTS | latest  | batch.node.ubuntu 14.04  |
-| Canonical   | UbuntuServer   | 14.04.3-LTS | latest  | batch.node.ubuntu 14.04  |
-| Canonical   | UbuntuServer   | 14.04.4-LTS | latest  | batch.node.ubuntu 14.04  |
-| Canonical   | UbuntuServer   | 15.10 		 | latest  | batch.node.debian 8      |
-| Credativ    | Debian 		   | 8 			 | latest  | batch.node.debian 8      |
-| OpenLogic   | CentOS 		   | 7.0 		 | latest  | batch.node.centos 7      |
-| OpenLogic   | CentOS 		   | 7.1 		 | latest  | batch.node.centos 7      |
-| OpenLogic   | CentOS 		   | 7.2 		 | latest  | batch.node.centos 7      |
-| Oracle      | Oracle-Linux-7 | OL70 		 | latest  | batch.node.centos 7      |
-| SUSE  	  | SLES 		   | 12 		 | latest  | batch.node.opensuse 42.1 |
-| SUSE  	  | SLES 		   | 12-SP1 	 | latest  | batch.node.opensuse 42.1 |
-| SUSE  	  | SLES-HPC 	   | 12 		 | latest  | batch.node.opensuse 42.1 |
-| SUSE  	  | openSUSE 	   | 13.2 		 | latest  | batch.node.opensuse 13.2 |
-| SUSE  	  | openSUSE-Leap  | 42.1 		 | latest  | batch.node.opensuse 42.1 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 				         | latest  | batch.node.windows amd64
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter 				     | latest  | batch.node.windows amd64
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter 			     | latest  | batch.node.windows amd64
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview  | latest  | batch.node.windows amd64
+| **Publisher** | **Offer** | **Image SKU** | **Version** | **Node Agent SKU ID** |
+| ------- | ------- | ------- | ------- | ------- |
+| Canonical | UbuntuServer | 14.04.0-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 14.04.1-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 14.04.2-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 14.04.3-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 14.04.4-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 15.10 | latest | batch.node.debian 8 |
+| Credativ | Debian | 8 | latest | batch.node.debian 8 |
+| OpenLogic | CentOS | 7.0 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.1 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.2 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux-7 | OL70 | latest | batch.node.centos 7 |
+| SUSE | SLES | 12 | latest | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | latest | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12 | latest | batch.node.opensuse 42.1 |
+| SUSE | openSUSE | 13.2 | latest | batch.node.opensuse 13.2 |
+| SUSE | openSUSE-Leap | 42.1 | latest | batch.node.opensuse 42.1 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | latest | batch.node.windows amd64 |
 
 ## Pricing
 
-Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technology. The Batch service itself is offered at no cost, which means you are charged only for the compute resources consumed by your Batch solutions. When you choose **Cloud Services** you will be charged based on the [Cloud Services pricing][cloud_services_pricing] structure. When you choose **Virtual Machine Configuration**, you will be charged based on the [Virtual Machines pricing][vm_pricing] structure.
+Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technology. The Batch service itself is offered at no cost, which means you are charged only for the compute resources consumed by your Batch solutions. When you choose **Cloud Services Configuration** you will be charged based on the [Cloud Services pricing][cloud_services_pricing] structure. When you choose **Virtual Machine Configuration**, you will be charged based on the [Virtual Machines pricing][vm_pricing] structure.
 
 ## Next steps
 
