@@ -407,7 +407,7 @@ Select **Queue Build** to start a build. Builds will also be triggered upon push
 
 The previous instructions create a new cluster for each build and remove it at the end of the build. If you'd rather have each build perform an application upgrade (to an existing cluster) instead, use the following steps:
 
-1.	Manually create a test cluster through the Azure portal or Azure PowerShell by following [these instructions](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-creation-via-portal/).
+1.	Manually create a test cluster through the Azure portal or Azure PowerShell by following [these instructions](service-fabric-cluster-creation-via-portal.md).
 
 2.	Configure your publish profile to support application upgrade by following [these instructions](service-fabric-visualstudio-configure-upgrade.md).
 
