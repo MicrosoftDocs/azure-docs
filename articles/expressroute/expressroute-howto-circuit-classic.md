@@ -38,14 +38,14 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 ## Create and provision an ExpressRoute circuit
 
-1. Import the PowerShell module for ExpressRoute.
+### Step 1. Import the PowerShell module for ExpressRoute
 
  	You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. Run the following commands to import the Azure and ExpressRoute modules into the PowerShell session.  
 
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-2. Get the list of providers, locations, and bandwidths supported.
+### Step 2. Get the list of providers, locations, and bandwidths supported
 
 	Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information, which you’ll use in later steps. When you run the cmdlet, your result will look similar to the example below.
 
@@ -100,7 +100,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 		Zayo Group           Washington DC                  200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
     	
 
-3. Create an ExpressRoute circuit.
+### Step 3. Create an ExpressRoute circuit
 
 	The example below shows how to create a 200 Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request.
 
@@ -126,7 +126,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 		get-help new-azurededicatedcircuit -detailed 
 
-4. List all ExpressRoute circuits.
+### Step 4. List all ExpressRoute circuits
 
 	You can run the *Get-AzureDedicatedCircuit* command to get a list of all ExpressRoute circuits you created.
 
@@ -161,7 +161,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 		get-help get-azurededicatedcircuit -detailed 
 
-5. Send the Service Key to your connectivity provider for provisioning.
+### Step 5. Send the Service Key to your connectivity provider for provisioning
 
 	When you create a new ExpressRoute circuit, the circuit will be the following state:
 	
@@ -181,7 +181,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 
 
-5. Periodically check the status and the state of the circuit key.
+### Step 6. Periodically check the status and the state of the circuit key
 
 	This lets you know when your provider has enabled your circuit. Once the circuit has been configured, the *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
 
@@ -196,13 +196,13 @@ This article walks you through the steps to create an ExpressRoute circuit using
 		Sku                              : Standard
 		Status                           : Enabled
 
-6. Create your routing configuration.
+### Step 7. Create your routing configuration
 	
 	Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
 
 >[AZURE.IMPORTANT] These instructions only apply to circuits that are created with service providers that offer Layer 2 connectivity services. If you are using a service provider that offers managed Layer 3 services (typically an IP VPN, like MPLS), your connectivity provider will configure and manage routing for you. 
 
-7. Link a VNet to an ExpressRoute circuit.
+### Step 8. Link a VNet to an ExpressRoute circuit
 
 	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-classic.md) for step by step instructions. If you need to create a virtual network using the classic deployment model for ExpressRoute, see [Create a VNet for ExpressRoute](expressroute-howto-vnet-portal-classic.md) for instructions. 
 
