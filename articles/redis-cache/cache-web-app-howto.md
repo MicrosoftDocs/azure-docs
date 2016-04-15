@@ -30,7 +30,7 @@ Procedural steps only for tech review
  
     ![Create project][cache-create-project]
 
-3. Select **MVC** as the project type. Clear the **Host in the cloud** checkbox. We will publish the app to Azure later in the tutorial. 
+3. Select **MVC** as the project type. Clear the **Host in the cloud** checkbox. We will provision the Azure resources and publish the application to Azure later in the tutorial. 
 
     ![Select project template][cache-select-template]
 
@@ -142,9 +142,14 @@ Procedural steps only for tech review
 
 ## Add the controller
 
-Before adding the controller, press **F6** to build the project. In **Solution Explorer**, right-click the **Controllers** folder and choose **Add**, **Controller**.
 
-Choose **MVC 5 Controller with views, using Entity Framework**, and click **Add**. Select **Team (ContosoTeamStats.Models)** from the **Model class** drop-down list. Select **TeamContext (ContosoTeamStats.Models)** from the **Data context class** drop-down list. Type `TeamsController` in the **Controller** name textbox (if it is not automatically populated). Click **Add** to create the controller class and add the default views.
+
+1. Before adding the controller, press **F6** to build the project. 
+2. In **Solution Explorer**, right-click the **Controllers** folder and choose **Add**, **Controller**.
+
+    ![Add controller][]
+
+3. Choose **MVC 5 Controller with views, using Entity Framework**, and click **Add**. Select **Team (ContosoTeamStats.Models)** from the **Model class** drop-down list. Select **TeamContext (ContosoTeamStats.Models)** from the **Data context class** drop-down list. Type `TeamsController` in the **Controller** name textbox (if it is not automatically populated). Click **Add** to create the controller class and add the default views.
 
 In **Solution Explorer**, expand **Global.asax** and double-click **Global.asax.cs** to open it.
 
