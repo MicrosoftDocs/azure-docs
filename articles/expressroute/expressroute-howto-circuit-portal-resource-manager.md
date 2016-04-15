@@ -89,8 +89,6 @@ Circuit status	: Enabled
 ![](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
 
-
-
 The circuit will change to the following state when the connectivity provider is in the process of enabling it for you:
 
 Provider status : Provisioning<BR>

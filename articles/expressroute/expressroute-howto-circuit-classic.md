@@ -40,16 +40,16 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 ### Step 1. Import the PowerShell module for ExpressRoute
 
- 	You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. Run the following commands to import the Azure and ExpressRoute modules into the PowerShell session.  
+ You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. Run the following commands to import the Azure and ExpressRoute modules into the PowerShell session.  
 
-	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+	   Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
+	   Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 ### Step 2. Get the list of providers, locations, and bandwidths supported
 
-	Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information, which you’ll use in later steps. When you run the cmdlet, your result will look similar to the example below.
+Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information, which you’ll use in later steps. When you run the cmdlet, your result will look similar to the example below.
 
-		PS C:\> Get-AzureDedicatedCircuitServiceProvider
+		Get-AzureDedicatedCircuitServiceProvider
 
 		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
 		----                 -------------------------      --------------------------                                                                                                                                                                                   
@@ -102,109 +102,110 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 ### Step 3. Create an ExpressRoute circuit
 
-	The example below shows how to create a 200 Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request.
+The example below shows how to create a 200 Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request.
 
-	>[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Please ensure that you perform this operation once the connectivity provider is ready to provision the circuit. 
+>[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Please ensure that you perform this operation once the connectivity provider is ready to provision the circuit. 
 
 
-	Below is an example request for a new service key:
+Below is an example request for a new service key:
 
-		#Creating a new circuit
-		$Bandwidth = 200
-		$CircuitName = "MyTestCircuit"
-		$ServiceProvider = "Equinix"
-		$Location = "Silicon Valley"
+	$Bandwidth = 200
+	$CircuitName = "MyTestCircuit"
+	$ServiceProvider = "Equinix"
+	$Location = "Silicon Valley"
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData 
+	New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData 
 
-	Or, if you want to create an ExpressRoute circuit with the premium add-on, use the following example below. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more details on the premium add-on.
+Or, if you want to create an ExpressRoute circuit with the premium add-on, use the following example below. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more details on the premium add-on.
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
+	New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
 	
 	
-	The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
+The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
 
-		get-help new-azurededicatedcircuit -detailed 
+	get-help new-azurededicatedcircuit -detailed 
 
 ### Step 4. List all ExpressRoute circuits
 
-	You can run the *Get-AzureDedicatedCircuit* command to get a list of all ExpressRoute circuits you created.
+You can run the *Get-AzureDedicatedCircuit* command to get a list of all ExpressRoute circuits you created.
 
 		
-		Get-AzureDedicatedCircuit
+	Get-AzureDedicatedCircuit
 
-	The response will be something similar to the example below:
+The response will be something similar to the example below:
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : NotProvisioned
-		Sku                              : Standard
-		Status                           : Enabled
+	Bandwidth                        : 200
+	CircuitName                      : MyTestCircuit
+	Location                         : Silicon Valley
+	ServiceKey                       : *********************************
+	ServiceProviderName              : equinix
+	ServiceProviderProvisioningState : NotProvisioned
+	Sku                              : Standard
+	Status                           : Enabled
 
-	You can retrieve this information at any time using the `Get-AzureDedicatedCircuit` cmdlet. Making the call without any parameters will list all circuits. Your Service Key will be listed in the *ServiceKey* field.
+You can retrieve this information at any time using the `Get-AzureDedicatedCircuit` cmdlet. Making the call without any parameters will list all circuits. Your Service Key will be listed in the *ServiceKey* field.
 
-		PS C:\> Get-AzureDedicatedCircuit
+	Get-AzureDedicatedCircuit
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : NotProvisioned
-		Sku                              : Standard
-		Status                           : Enabled
+	Bandwidth                        : 200
+	CircuitName                      : MyTestCircuit
+	Location                         : Silicon Valley
+	ServiceKey                       : *********************************
+	ServiceProviderName              : equinix
+	ServiceProviderProvisioningState : NotProvisioned
+	Sku                              : Standard
+	Status                           : Enabled
 
-	You can get detailed descriptions of all the parameters by running the following:
+You can get detailed descriptions of all the parameters by running the following:
 
-		get-help get-azurededicatedcircuit -detailed 
+	get-help get-azurededicatedcircuit -detailed 
 
 ### Step 5. Send the Service Key to your connectivity provider for provisioning
 
-	When you create a new ExpressRoute circuit, the circuit will be the following state:
+
+The *ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side and the Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+
+When you create a new ExpressRoute circuit, the circuit will be the following state:
 	
-		ServiceProviderProvisioningState : NotProvisioned
-		
-		Status                           : Enabled
+	ServiceProviderProvisioningState : NotProvisioned	
+	Status                           : Enabled
 
-	The *ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side and the Status provides the state on the Microsoft side. An ExpressRoute circuit must be in the following state for you to be able to use it.
 
-		ServiceProviderProvisioningState : Provisioned
-		Status                           : Enabled
+The circuit will go to the following state when the connectivity provider is in the process of enabling it for you. 
 
-	The circuit will go to the following state when the connectivity provider is in the process of enabling it for you. 
+	ServiceProviderProvisioningState : Provisioning
+	Status                           : Enabled
 
-		ServiceProviderProvisioningState : Provisioned
-		Status                           : Enabled
+An ExpressRoute circuit must be in the following state for you to be able to use it. 
 
+	ServiceProviderProvisioningState : Provisioned
+	Status                           : Enabled
 
 
 ### Step 6. Periodically check the status and the state of the circuit key
 
-	This lets you know when your provider has enabled your circuit. Once the circuit has been configured, the *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
+This lets you know when your provider has enabled your circuit. Once the circuit has been configured, the *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
 
-		PS C:\> Get-AzureDedicatedCircuit
+	Get-AzureDedicatedCircuit
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+	Bandwidth                        : 200
+	CircuitName                      : MyTestCircuit
+	Location                         : Silicon Valley
+	ServiceKey                       : *********************************
+	ServiceProviderName              : equinix
+	ServiceProviderProvisioningState : Provisioned
+	Sku                              : Standard
+	Status                           : Enabled
 
 ### Step 7. Create your routing configuration
 	
-	Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
+Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
 
 >[AZURE.IMPORTANT] These instructions only apply to circuits that are created with service providers that offer Layer 2 connectivity services. If you are using a service provider that offers managed Layer 3 services (typically an IP VPN, like MPLS), your connectivity provider will configure and manage routing for you. 
 
 ### Step 8. Link a VNet to an ExpressRoute circuit
 
-	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-classic.md) for step by step instructions. If you need to create a virtual network using the classic deployment model for ExpressRoute, see [Create a VNet for ExpressRoute](expressroute-howto-vnet-portal-classic.md) for instructions. 
+Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-classic.md) for step by step instructions. If you need to create a virtual network using the classic deployment model for ExpressRoute, see [Create a VNet for ExpressRoute](expressroute-howto-vnet-portal-classic.md) for instructions. 
 
 
 
@@ -212,43 +213,43 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 You can retrieve this information at any time using the *Get-AzureCircuit* cmdlet. Making the call without any parameters will list all circuits. 
 
-		PS C:\> Get-AzureDedicatedCircuit
+	Get-AzureDedicatedCircuit
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+	Bandwidth                        : 200
+	CircuitName                      : MyTestCircuit
+	Location                         : Silicon Valley
+	ServiceKey                       : *********************************
+	ServiceProviderName              : equinix
+	ServiceProviderProvisioningState : Provisioned
+	Sku                              : Standard
+	Status                           : Enabled
 
-		Bandwidth                        : 1000
-		CircuitName                      : MyAsiaCircuit
-		Location                         : Singapore
-		ServiceKey                       : #################################
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+	Bandwidth                        : 1000
+	CircuitName                      : MyAsiaCircuit
+	Location                         : Singapore
+	ServiceKey                       : #################################
+	ServiceProviderName              : equinix
+	ServiceProviderProvisioningState : Provisioned
+	Sku                              : Standard
+	Status                           : Enabled
 
 You can get information on a specific ExpressRoute circuit by passing the service key as a parameter to the call.
 
-		PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+	Get-AzureDedicatedCircuit -ServiceKey "*********************************"
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+	Bandwidth                        : 200
+	CircuitName                      : MyTestCircuit
+	Location                         : Silicon Valley
+	ServiceKey                       : *********************************
+	ServiceProviderName              : equinix
+	ServiceProviderProvisioningState : Provisioned
+	Sku                              : Standard
+	Status                           : Enabled
 
 
 You can get detailed descriptions of all the parameters by running the following:
 
-		get-help get-azurededicatedcircuit -detailed 
+	get-help get-azurededicatedcircuit -detailed 
 
 ##  Modifying an ExpressRoute circuit
 
@@ -267,16 +268,16 @@ Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information 
 
 You can enable the ExpressRoute premium add-on for your existing circuit using the following PowerShell cmdlet:
 	
-		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
+	Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 		
-		Bandwidth                        : 1000
-		CircuitName                      : TestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Premium
-		Status                           : Enabled
+	Bandwidth                        : 1000
+	CircuitName                      : TestCircuit
+	Location                         : Silicon Valley
+	ServiceKey                       : *********************************
+	ServiceProviderName              : equinix
+	ServiceProviderProvisioningState : Provisioned
+	Sku                              : Premium
+	Status                           : Enabled
 
 Your circuit will now have the ExpressRoute premium add-on features enabled. Note that we will start billing you for the premium add-on capability as soon as the command has successfully run.
 
@@ -294,16 +295,16 @@ Note the following:
 
 You can disable the ExpressRoute premium add-on for your existing circuit using the following PowerShell cmdlet:
 	
-		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+	Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 		
-		Bandwidth                        : 1000
-		CircuitName                      : TestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+	Bandwidth                        : 1000
+	CircuitName                      : TestCircuit
+	Location                         : Silicon Valley
+	ServiceKey                       : *********************************
+	ServiceProviderName              : equinix
+	ServiceProviderProvisioningState : Provisioned
+	Sku                              : Standard
+	Status                           : Enabled
 
 
 
@@ -315,16 +316,16 @@ Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth 
 
 Once you decided what size you need, you can use the following command to re-size your circuit.
 
-		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
+	Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 		
-		Bandwidth                        : 1000
-		CircuitName                      : TestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+	Bandwidth                        : 1000
+	CircuitName                      : TestCircuit
+	Location                         : Silicon Valley
+	ServiceKey                       : *********************************
+	ServiceProviderName              : equinix
+	ServiceProviderProvisioningState : Provisioned
+	Sku                              : Standard
+	Status                           : Enabled
 
 Your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
 

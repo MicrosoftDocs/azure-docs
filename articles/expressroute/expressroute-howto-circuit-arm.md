@@ -167,13 +167,15 @@ You can get detailed descriptions of all parameters by running the following:
 
 ### 5. Send the service key to your connectivity provider for provisioning
 
+The "ServiceProviderProvisioningState" provides information on the current state of provisioning on the service provider side, and Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
 
 	ServiceProviderProvisioningState : NotProvisioned
 	CircuitProvisioningState         : Enabled
 
-"ServiceProviderProvisioningState" provides information on the current state of provisioning on the service provider side, and Status provides the state on the Microsoft side. 
+
 
 The circuit will change to the following state when the connectivity provider is in the process of enabling it for you:
 
