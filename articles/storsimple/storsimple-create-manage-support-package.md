@@ -51,12 +51,13 @@ Perform the following steps in the classic portal to create a support package:
 	- Click the check icon ![Check icon](./media/storsimple-create-manage-support-package/IC740895.png).
 
 
-## Manually create a support package using Windows PowerShell for StorSimple
+## Manually create a support package
 
-If you need to edit your log files prior to creating a package or if device is facing intenet connectivity issues, you will need to create your package through the Windows PowerShell for StorSimple. Generated support package can then be shared with Microsoft Support over email. 
-
-Perform the following steps to create a support package in Windows PowerShell for StorSimple:
-
+For the following scenerios, you will need to manually create the support package through the Windows PowerShell for StorSimple.
+ - Remove sensitive information from your log files prior to sharing with Microsoft Support 
+ - Device is facing internet connectivity issues to upload the package.
+ 
+Generated support package can then be shared with Microsoft Support over email. Perform the following steps to create a support package in Windows PowerShell for StorSimple:
 
 #### To create a support package in Windows PowerShell for StorSimple
 
@@ -132,14 +133,13 @@ To edit a support package before uploading it on the Microsoft Support site, you
  
 	`Import-module <Path to the folder that contains the Windows PowerShell script>`
 
-4. Decompress and decrypt: Note that all the files are *.aes* files that are compressed and encrypted. To decompress and decrypt files, type:
+4. All the files are *.aes* files that are compressed and encrypted. To decompress and decrypt files, type:
 
 	`Open-HcsSupportPackage <Path to the folder that contains support package files>`
 
 	This will decompress and decrypt the files. You will note that the actual file extensions are now displayed for all the files.
 	
 	![Edit Support Package 3](./media/storsimple-create-manage-support-package/IC750706.png)
-
 
 5. When prompted for the encryption passphrase, type the passphrase used when the support package was created.
 
@@ -149,7 +149,7 @@ To edit a support package before uploading it on the Microsoft Support site, you
 	
 6. Navigate to the folder that contains the log files. As the log files are now decompressed and decrypted, these will have original file extensions. Modify these files to remove any customer-specific information such as volume names and device IP addresses and save the files.
 
-7. Compress and encrypt: Closing the files will compress them with Gzip and then encrypt them with AES-256. This is for security and speed when transferring the support package over a network. To close files, type:
+7. Compress and encrypt: Closing the files will compress them with Gzip and then encrypt them with AES-256. This is for speed and security when transferring the support package over a network. To compress and encrypt files, type:
 
 	`Close-HcsSupportPackage <Path to the folder that contains support package files>`
 
