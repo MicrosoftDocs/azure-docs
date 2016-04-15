@@ -56,7 +56,7 @@ Copy the **service key** of the circuit that you want to move over to the Resour
 
 You can create a new resource group by using the following snippet:
 
-	# Sign in to your Azure Resource Manager deployment model
+	# Sign in to your Azure Resource Manager environment
 	Login-AzureRmAccount
 
 	# Select the appropriate Azure subscription
