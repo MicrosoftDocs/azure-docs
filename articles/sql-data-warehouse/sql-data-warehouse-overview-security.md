@@ -84,7 +84,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-You can also enable Transparent Data Encryption from database settings in the [Azure Classic Portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)](../sql-database/sql-data-warehouse-encryption-tde-tsql.md).
+You can also enable Transparent Data Encryption from database settings in the [Azure Classic Portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Auditing
 
