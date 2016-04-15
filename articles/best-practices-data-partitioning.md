@@ -554,7 +554,7 @@ When considering strategies for implementing data consistency, the following pat
 [Redis cluster tutorial]: http://redis.io/topics/cluster-tutorial
 [Running Redis on a CentOS Linux VM in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Scaling using the Elastic Database split-merge tool]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Using Content Delivery Network for Azure]: cdn/cdn-how-to-use-cdn.md
+[Using Azure Content Delivery Network]: cdn/cdn-create-new-endpoint.md
 [Service Bus quotas]: service-bus/service-bus-quotas.md
 [Service limits in Azure Search]:  search/search-limits-quotas-capacity.md
 [Sharding pattern]: http://aka.ms/Sharding-Pattern
