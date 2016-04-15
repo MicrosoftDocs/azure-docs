@@ -173,6 +173,7 @@ Copy and paste the **CreateDatabaseIfNotExists** method underneath the **GetStar
 			try
 			{
 					await this.client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(databaseName));
+					this.WriteToConsoleAndPromptToContinue("Created {0}", databaseName);
 			}
 			catch (DocumentClientException de)
 			{
@@ -216,6 +217,7 @@ Copy and paste the **CreateDocumentCollectionIfNotExists** method underneath you
 		 try
 		 {
 				 await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
+				 this.WriteToConsoleAndPromptToContinue("Found {0}", collectionName);
 		 }
 		 catch (DocumentClientException de)
 		 {
@@ -318,6 +320,7 @@ Copy and paste the **CreateFamilyDocumentIfNotExists** method underneath your **
 			try
 			{
 					await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, family.Id));
+					this.WriteToConsoleAndPromptToContinue("Found {0}", family.Id);
 			}
 			catch (DocumentClientException de)
 			{
