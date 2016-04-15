@@ -47,58 +47,19 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 ### 2. Get the list of providers, locations, and bandwidths supported
 
-Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information, which you’ll use in later steps. When you run the cmdlet, your result will look similar to the example below.
+Before you create an ExpressRoute circuit, you need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` returns this information, which you’ll use in later steps.
 
-		Get-AzureDedicatedCircuitServiceProvider
+	Get-AzureDedicatedCircuitServiceProvider
 
-		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
-		----                 -------------------------      --------------------------                                                                                                                                                                                   
-		Aryaka Networks      Silicon Valley,Washington      200Mbps:200, 500Mbps:500, 1Gbps:1000                                                                                                                                                                         
-		                     DC,Singapore                                                                                                                                                                                                                                
-		AT&T                 Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		AT&T Netbond         Washington DC,Silicon          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     Valley,Dallas                                                                                                                                                                                                                               
-		British Telecom      London,Amsterdam,Washington    10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     DC,Tokyo,Silicon Valley                                                                                                                                                                                                                     
-		Colt Ethernet        Amsterdam,London               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Colt IPVPN           Amsterdam,London               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Comcast              Washington DC,Silicon Valley   200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Equinix              Amsterdam,Atlanta,Chicago,Dall 200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		                     as,New York,Seattle,Silicon                                                                                                                                                                                                                 
-		                     Valley,Washington                                                                                                                                                                                                                           
-		                     DC,London,Hong Kong,Singapore,                                                                                                                                                                                                              
-		                     Sydney,Tokyo,Sao Paulo,Los                                                                                                                                                                                                                  
-		                     Angeles,Melbourne                                                                                                                                                                                                                           
-		IIJ                  Tokyo                          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		InterCloud           Washington                     200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		                     DC,London,Singapore,Amsterdam                                                                                                                                                                                                               
-		Internet Solutions   London,Amsterdam               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		– Cloud Connect                                                                                                                                                                                                                                                  
-		Interxion            Amsterdam                      200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Level 3              London,Chicago,Dallas,Seattle, 200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Communications -     Silicon Valley,Washington DC                                                                                                                                                                                                                
-		Exchange                                                                                                                                                                                                                                                         
-		Level 3              London,Chicago,Dallas,Seattle, 10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Communications -     Silicon Valley,Washington DC                                                                                                                                                                                                                
-		IPVPN                                                                                                                                                                                                                                                            
-		Megaport             Melbourne,Sydney               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		NEXTDC               Melbourne                      200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		NTT Communications   Tokyo                          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Orange               Amsterdam,London,Silicon       10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     Valley,Washington DC,Hong Kong                                                                                                                                                                                                              
-		PCCW Global Limited  Hong Kong                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		SingTel Domestic     Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		SingTel              Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		International                                                                                                                                                                                                                                                    
-		Tata Communications  Hong Kong,Singapore,London,Ams 10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     terdam,Chennai,Mumbai                                                                                                                                                                                                                       
-		TeleCity Group       Amsterdam,London               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Telstra Corporation  Sydney,Melbourne               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Verizon              London,Hong Kong,Silicon       10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     Valley,Washington DC                                                                                                                                                                                                                        
-		Vodafone             London                         10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Zayo Group           Washington DC                  200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-    	
+Check to see if your connectivity provider is listed there. Make a note of the following because you will need them later when you create a circuit:
+
+- Name
+
+- PeeringLocations
+
+- BandwidthsOffered
+
+You are now ready to create an ExpressRoute circuit. 		
 
 ### 3. Create an ExpressRoute circuit
 

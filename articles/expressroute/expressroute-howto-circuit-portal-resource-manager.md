@@ -114,7 +114,7 @@ For step-by-step instructions, refer to the [ExpressRoute circuit routing config
 
 >[AZURE.IMPORTANT] These instructions only apply to circuits that are created with service providers that offer Layer 2 connectivity services. If you are using a service provider that offers managed Layer 3 services (typically an IP VPN, like MPLS), your connectivity provider will configure and manage routing for you. 
 
-### 7. Link a virtual network to an ExpressRoute circuit.
+### 7. Link a virtual network to an ExpressRoute circuit
 
 Next, link a virtual network to your ExpressRoute circuit. You can use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment model.
 
