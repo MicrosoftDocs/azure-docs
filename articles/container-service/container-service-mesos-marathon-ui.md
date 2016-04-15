@@ -71,3 +71,7 @@ You can also use the Marathon web UI to scale the instance count of a container.
 After the scale operation is complete, you will see multiple instances of the same task spread across Mesos agents.
 
 ![Create deployment UI 7](media/ui8.png)
+
+## Next steps
+
+- [Work with the Mesos and Marathon API](./container-service-mesos-marathon-rest.md)
