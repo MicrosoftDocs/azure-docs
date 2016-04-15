@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/18/2016"
+	ms.date="04/15/2016"
 	ms.author="jeffstok"/>
 
 #  Stream Analytics & Power BI: A real-time analytics dashboard for streaming data
@@ -25,7 +25,7 @@ Use [Microsoft Power BI](https://powerbi.com/) to build a live dashboard quickly
 
 In this article, learn how create your own custom business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs and utilize a real-time dashboard.
 
-> [AZURE.NOTE] Power BI output is a preview feature of Azure Stream Analytics. At this time, creation and configuration of Power BI outputs is not supported in the Azure Portal but only the Azure Classic Portal.
+> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is not supported in the Azure Portal but only the Azure Classic Portal.
 
 ## Prerequisites
 
@@ -98,6 +98,7 @@ Provide values as below:
 * **Output Alias** – You can put any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In that case, you have to refer to this output in your query. For example, let’s use the output alias value = “OutPbi”.
 * **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use “pbidemo”.
 *	**Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.
+*	**Workspace** – Select a workspace in your Power BI tenant under which the dataset will be created.
 
 >	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
@@ -161,7 +162,7 @@ Now when you view the dashboard with this pinned report, you will see report upd
 
 Note that this tutorial demonstrated how to create but one kind of chart for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
 
-For further information on configuring a Power BI output and to utilize Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+For further information on configuring a Power BI output and to utilize Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## Limitations and best practices
 
@@ -199,7 +200,7 @@ To achieve this, in PowerBI utilize Q&A and asking a question such as "Maximum v
 
 ### Renew authorization
 
-There is a temporary limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Power BI output.  You will also need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated.  A symptom of this issue is no job output and an "Authenticate user error" in the Operations Logs:
+You will need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you will also need to renew Power BI authorization every 2 weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
 
 ![graphic12][graphic12]
 
