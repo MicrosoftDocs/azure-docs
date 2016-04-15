@@ -523,7 +523,7 @@ When considering strategies for implementing data consistency, the following pat
 - The page [Azure storage scalability and performance targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) on the Microsoft website documents the current sizing and throughput limits of Azure Storage.
 - The page [Performing entity group transactions] on the Microsoft website provides detailed information about implementing transactional operations over entities that are stored in Azure table storage.
 - The article [Azure Storage table design guide] on the Microsoft website contains detailed information about partitioning data in Azure table storage.
-- The page [Using Content Delivery Network for Azure] on the Microsoft website describes how to replicate data that's held in Azure blob storage by using the Azure Content Delivery Network.
+- The page [Using Azure Content Delivery Network] on the Microsoft website describes how to replicate data that's held in Azure blob storage by using the Azure Content Delivery Network.
 - The page [Manage DocumentDB capacity needs] on the Microsoft website contains information about how Azure DocumentDB databases allocate resources.
 - The page [What is Azure Search?] on the Microsoft website provides a full description of the capabilities that are available in Azure Search.
 - The page [Service limits in Azure Search] on the Microsoft website contains information about the capacity of each instance of Azure Search.
