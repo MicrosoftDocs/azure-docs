@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Vertically scale Azure virtual machine with Azure Automation | Microsoft Azure"
-	description="How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation"
-	services="virtual-machines"
+	description="How to vertically scale a Linux Virtual Machine in response to monitoring alerts with Azure Automation"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="singhkay"
 	manager="drewm"
@@ -9,9 +9,9 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/29/2016"
@@ -53,27 +53,9 @@ The outline for the steps to accomplish this is as below
 
 ## Setup Azure Automation to access your Virtual Machines
 
-In this section you will accomplish the following tasks
+The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale the VM Scale Set instances. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:
 
-* Create a user in your Active Directory
-* Create an AutomationPSCredential with the user's login information
-* Setup the user to access the resources in your subscription
-
-Before you can begin executing Azure Automation runbooks in your subscription you need to give Azure Automation access to your subscription. This is done by creating another user in your Active Directory. Then you need to create an AutomationPSCredential which allows the user to authenticate against Azure and run PowerShell commands that will resize your Virtual Machine.
-
-A walkthrough of creating a user and an AutomationPSCredential can be read in the following article
-
-* [Configuring Azure Automation](../automation/automation-configuring.md)
-
-After creating a user you will need to make that user a co-admin for your classic resources and giving it an "Owner" role for your Azure Resource Manager resources.
-
-The user needs to be added as a co-admin in the Classic Portal to be able to access classic resources.
-
-![Old Portal co-admin](./media/virtual-machines-vertical-scaling-automation/old-portal-automation-user.png)
-
-You'll need to use the Azure Portal to allow the user to access the Azure Resource Manager Virtual Machines.
-
-![New Portal admin](./media/virtual-machines-vertical-scaling-automation/new-portal-automation-user.png)
+* [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## Import the Azure Automation Vertical Scale runbooks into your subscription
 
