@@ -63,7 +63,7 @@ See [Deploy an application](service-fabric-deploy-remove-applications.md) for ex
 
 3. The *service developer* [tests service-to-service communication](service-fabric-testability-scenarios-service-communication.md) by authoring test scenarios that move primary replicas around the cluster.
 
-See [Overview of Testability](service-fabric-testability-overview.md) for more information.
+See [Introduction to the Fault Analysis Service](service-fabric-testability-overview.md) for more information.
 
 ## Upgrade
 1. A *service developer* updates the constituent services of the instantiated application and/or fixes bugs and provides a new version of the service manifest.
