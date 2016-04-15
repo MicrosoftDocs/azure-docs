@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Upload a Windows VHD for Azure Resource Manager | Microsoft Azure"
+	pageTitle="Upload a Windows VHD for Resource Manager | Microsoft Azure"
 	description="Learn to upload a Windows virtual machine image to use with the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -17,12 +17,12 @@
 	ms.date="02/05/2016"
 	ms.author="dkshir"/>
 
-# Upload a Windows VM image to Azure for Azure Resource Manager deployments
+# Upload a Windows VM image to Azure for Resource Manager deployments
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-createupload-vhd.md).
 
 
-This article shows you how to upload a virtual hard disk (VHD) with a Windows operating system so that you can use it to create new Windows virtual machines (VMs) by using the Resource Manager deployment model. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
+This article shows you how to upload a virtual hard disk (VHD) with a Windows operating system so that you can use it to create new Windows virtual machines (VMs) by using the Azure Resource Manager deployment model. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
 
 
 
@@ -30,7 +30,7 @@ This article shows you how to upload a virtual hard disk (VHD) with a Windows op
 
 This article assumes that you have:
 
-- **An Azure subscription**. If you don't have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits to try out paid Azure services. Even after they're used up, you can keep the account and use free Azure services, such as the Web Apps feature in Azure App Service. Your credit card won't be charged, unless you explicitly change your settings. You can also [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). The MSDN subscription gives credits every month that you can use for paid Azure services.
+- **An Azure subscription**. If you don't have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits to try out paid Azure services. Even after they're used up, you can keep the account and use free Azure services, such as Azure App Service. Your credit card won't be charged, unless you explicitly change your settings. You can also [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). The MSDN subscription gives credits every month that you can use for paid Azure services.
 
 - **Azure PowerShell 1.0.x**. If you don't already have Azure PowerShell version 1.0.x installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md). We recommend using at least version 1.0 because new Azure Resource Manager features will not be added to older PowerShell versions. Read [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) to learn more about the version differences.
 
