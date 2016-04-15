@@ -289,7 +289,7 @@ For more information, review the [Notification Hubs] documentation.
 
 ### <a name="legacy-push"></a>Legacy Push Settings
 
-If you configured push on your mobile service prior to the introduction on Notification Hubs, you are using Legacy Push.  If you are using push and you do not see a Notification Hub listed in your configuration, then it is likely you are using Legacy Push.  This feature will be migrated with all the other features and is still available.  However, we recommend that you upgrade to Notification Hubs soon after the migration is complete.
+If you configured push on your mobile service prior to the introduction on Notification Hubs, you are using _legacy push_.  If you are using push and you do not see a Notification Hub listed in your configuration, then it is likely you are using _legacy push_.  This feature will be migrated with all the other features and is still available.  However, we recommend that you upgrade to Notification Hubs soon after the migration is complete.
 
 In the interim, all the legacy push settings (with the notable exception of the APNS certificate) are available in App Settings.  The APNS certificate can be replaced by replacing the appropriate file on the site.  This can be done through any of the deployment options available for Azure App Service.
 
