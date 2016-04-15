@@ -18,15 +18,15 @@
 
 # Automatically scale compute nodes in an Azure Batch pool
 
-With automatic scaling in Azure Batch, you can dynamically add or remove compute nodes in a Batch pool during job execution. This allows you to automatically adjust the amount of compute resources used by your application, potentially saving you money, time, or both.
+With automatic scaling, the Azure Batch service can dynamically add or remove compute nodes in a pool based on parameters you define. This allows you to automatically adjust the amount of compute resources used by your application, potentially saving you time and money.
 
-You can enable automatic scaling on a pool of compute nodes by associating with it an *autoscale formula* that you define, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. The number of compute nodes in the pool, which responds to service metrics data samples that are collected periodically, is adjusted at a configurable interval based on your formula.
+You enable automatic scaling on a pool of compute nodes by associating with it an *autoscale formula* that you define, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. Batch responds to service metrics data samples that are collected periodically, and adjusts the number of compute nodes in the pool at a configurable interval based on your formula.
 
 You can enable automatic scaling when a pool is created, or on an existing pool. You can also change an existing formula on a pool that is "autoscale" enabled. Batch provides the ability to evaluate your formulas before assigning them to pools, as well as monitor the status of automatic scaling runs.
 
 ## Automatic scaling formulas
 
-An automatic scaling formula is a string value that you define that contains one or more statements, and is assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST API) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET API). When assigned to a pool, the Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing (more on intervals later). The formula string cannot exceed 8 KB in size, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
+An automatic scaling formula is a string value that you define that contains one or more statements, and is assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET). When assigned to a pool, the Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing (more on intervals later). The formula string cannot exceed 8 KB in size, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
 
 You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions that can include system-defined and user-defined variables, as well as constants. They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
 
