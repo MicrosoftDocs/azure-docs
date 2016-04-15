@@ -3,7 +3,7 @@
 	description="Management concepts and how-tos for managing a custom domain in Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
-	authors=jeffsta"
+	authors="jeffsta"
 	manager="stevenpo"
 	editor=""/>
 

@@ -3,7 +3,7 @@
 	description="Explains the conceptual framework for using custom domain names in Azure Active directory, including federation for single sign-on"
 	services="active-directory"
 	documentationCenter=""
-	authors=jeffsta"
+	authors="jeffsta"
 	manager="stevenpo"
 	editor=""/>
 
