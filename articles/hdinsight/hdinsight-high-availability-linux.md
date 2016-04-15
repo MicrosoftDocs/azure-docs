@@ -152,7 +152,7 @@ Selecting the link for one of the head nodes will display the services and compo
 
 ![Component status](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-## How to access log files on the secondary head node
+## How to access log files on the head nodes
 
 ###SSH
 
