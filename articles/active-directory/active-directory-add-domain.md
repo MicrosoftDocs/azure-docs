@@ -26,21 +26,21 @@ For background on how domain names are used in Azure AD, read [Domain Management
 
 To add a custom domain name to your directory:
 
--   Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with a user account that is a global administrator of your Azure AD.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with a user account that is a global administrator of your Azure AD.
 
--   Select **Active Directory** on the left navigation bar.
+2. Select **Active Directory** on the left navigation bar.
 
--   Open your directory.
+3. Open your directory.
 
--   Select the **Domains** tab.
+4. Select the **Domains** tab.
 
--   On the command bar, select **Add.**
+5. On the command bar, select **Add.**
 
--   Enter the name of your custom domain, such as ‘contoso.com’. Be sure to include the .com, .net, or other top-level extension.
+6. Enter the name of your custom domain, such as ‘contoso.com’. Be sure to include the .com, .net, or other top-level extension.
 
--   If you plan to configure this domain for [federated sign in](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) with your on-premises Active Directory, select the check box.
+7. If you plan to configure this domain for [federated sign in](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) with your on-premises Active Directory, select the check box.
 
--   Select **Add**.
+8. Select **Add**.
 
 Before you can assign user names that include your custom domain name, Azure AD must verify that your organization owns the domain name. To do perform this verification, you must update DNS entries at the domain name registrar for the domain.
 
