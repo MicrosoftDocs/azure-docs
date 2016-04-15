@@ -51,7 +51,7 @@ For Storm clusters, the Nimbus nodes provide similar functionality to the Hadoop
 
 ###Worker nodes
 
-Worker nodes perform the actual data analysis when a job is submitted to the cluster. If a worker node fails, the task that it was performing will be submitted to another worker node. By default, HDInsight will create 4 worker nodes; however, you can change this number to suit your needs both during cluster creation and after cluster creation (using the cluster scaling feature.)
+Worker nodes perform the actual data analysis when a job is submitted to the cluster. If a worker node fails, the task that it was performing will be submitted to another worker node. By default, HDInsight will create 4 worker nodes; however, you can change this number to suit your needs both during cluster creation and after cluster creation.
 
 ###Edge node
 
