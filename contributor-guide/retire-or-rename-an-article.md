@@ -4,7 +4,7 @@ This guidance is for SMEs who are listed as the author of an article that needs 
 
 If you're a member of our Azure community and you think an article should be retired for any reason, please leave a comment in the Disqus comment stream for the article to let the author know something is wrong with the article.
 
-SME authors need to follow several steps to gracefully retire content so users of the website don't have a bad experience when we retire content from the site. Deleting the article or changing it’s name should be the last thing that happens!
+SME authors need to follow several steps to gracefully retire content so users of the website don't have a bad experience when we retire content from the site. Deleting the article or changing its name should be the last thing that happens!
 
 ## Step 1: Set the article to no-index/no-follow and republish it
 
@@ -15,6 +15,8 @@ The first thing you should do is republish the article as no-index/no-follow a f
 Determine if there are any non-Microsoft inbound links to your content. Frequently, blogs, forums, and other content on the web points to articles. Frequently, you can work with blog owners to change these links, and you can remove or update links from forum posts. Web analytics tools can tell you if there are any high traffic inbound links you might need to manage in this way.
 
 ## Step 3: Remove all crosslinks to the article from the technical content repository
+
+Do not rely on redirects to take care of crosslinks from other articles. Update or remove the cross references to the article you are deleting or renaming, including in articles owned by other people.
 
 1. Ensure you are working in an up-to-date local branch – run `git pull upstream master` (or the appropriate variation on this command.
 
@@ -52,7 +54,9 @@ You'll have to work with the person who maintains and updates the documentation 
 
 ## Step 6: Retire the article
 
-After you've completed the prior steps and those changes are live, you can delete the article from the repository.
+After you've completed the prior steps and those changes are live, you can delete the article from the repository. 
+
+**Important:** When you delete files, you must use the `git add --all` command.
 
 ## Step 7: Remove links from MSDN
 

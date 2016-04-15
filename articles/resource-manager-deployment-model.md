@@ -131,7 +131,7 @@ For more information about using tags in Resource Manager, see [Using tags to or
 
 ## Supported operations for the deployment models
 
-The resources you created in the classic deployment model do not support Resource Manager operations. In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative tasks such as moving a classic resource to another resource group, but these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains Virtual Machines that were created with Resource Manager and classic. If you run the following PowerShell command: 
+The resources you created in the classic deployment model do not support Resource Manager operations. In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative tasks such as moving a classic resource to another resource group, but these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains Virtual Machines that were created with Resource Manager and classic. If you run the following PowerShell command:
 
     Get-AzureRmResourceGroup -Name ExampleGroup
 
@@ -145,7 +145,7 @@ It will return all of the Virtual Machines:
      ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
     ...
 
-However, if you run the **Get-AzureRmVM** command: 
+However, if you run the **Get-AzureRmVM** command:
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
 
@@ -168,8 +168,6 @@ There are some important considerations when working with Virtual Machines.
 - Virtual machines deployed with the classic deployment model don't have to be included in a virtual network.
 
 If you can afford downtime for your Virtual Machines, you can transition them from classic deployment to Resource Manager with the [ASM2ARM PowerShell scripts](https://github.com/fullscale180/asm2arm).
-
-For a list of equivalent Azure CLI commands when transitioning from classic deployment to Resource Manager, see [Equivalent Resource Manager and Service Management commands for VM operations](./virtual-machines/virtual-machines-linux-cli-manage.md).
 
 For more details about transitioning Compute, Storage, and Networking resources, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 

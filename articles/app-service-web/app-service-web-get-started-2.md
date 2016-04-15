@@ -20,16 +20,15 @@
 
 # Get started with Azure App Service - Part 2
 
-In [Get started with Azure App Service](app-service-web-get-started.md), you deployed a web app to Azure App Service and are all setup for fast and easy updates.
-In this article, you'll quickly add some crucial functionality to your deployed app to keep it humming along beautifully. In doing so, you'll find out for yourself that App 
-Service is so much more than a website hoster. It brings enterprise-class capabilities to your great app, so you can focus your creative energy on delighting 
-your users with your app and not on meeting the real-world demands of security, scalability, performance, management, etc.
+In [Get started with Azure App Service](app-service-web-get-started.md), you deployed a web app to Azure App Service.
+In this article, you'll quickly add some crucial functionality to your deployed app. App Service brings enterprise-class 
+capabilities to your great app to meet the real-world demands of security, scalability, performance, management, etc.
 
 In a few clicks, you'll learn how to:
 
 - enforce authentication for your users
 - autoscale your app
-- receive alerts on your app's performance
+- receive alerts on the performance of your app
 
 Regardless of which sample app you deployed in the previous article, you can follow along in the tutorial.
 
@@ -58,7 +57,7 @@ your default directory.
 7. Back in the portal blade of your app, click the **URL** link (or **Browse** in the menu bar). The link is an HTTP address.  
     ![Authenticate - browse to URL](./media/app-service-web-get-started/aad-login-browse-click.png)  
     But once it opens the app in a new tab, the URL box redirects several times and finishes on your app with an HTTPS address. What you're seeing is that
-    you're already logged in to the Microsoft account with your Azure subscription, and you're automatically logged in to the app using that account.  
+    you're already logged in to your Azure subscription, and you're automatically authenticated in the app.  
     ![Authenticate - logged in](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
     So if you now open an unauthenticated session in a different browser, you'll see a login screen when you navigate to the same URL:  
     ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  
@@ -72,7 +71,7 @@ You may have noticed in the **Authentication / Authorization** blade that you ca
 
 - Enable social login
 - Enable multiple login options
-- Change the default behavior when users first navigate to your app
+- Change the default behavior when people first navigate to your app
 
 App Service provides a turn-key solution for some of the common authentication needs so you don't need to provide the authentication logic yourself. 
 For more information, see [App Service Authentication/Authorization](/blog/announcing-app-service-authentication-authorization/).
@@ -82,8 +81,8 @@ For more information, see [App Service Authentication/Authorization](/blog/annou
 Next, let's scale your app. You scale your App Service app in two ways:
 
 - [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): When you scale up an App Service app, you change the pricing
-tier of the App Service plan the app belongs to. Scaling up gives you more CPU, memory, disk space, and extra features like
-dedicated VM instances, autoscaling, SLA of 99.95%, custom domains, custom SSL certificates, deployment slots, backup, restore, etc. 
+tier of the App Service plan the app belongs to. Scaling up gives you more CPU, memory, disk space. It also gives you extra features like
+dedicated VMs, autoscaling, 99.95% availability, custom domains and certificates, deployment slots, backup, etc. 
 Higher tiers provide more features to your App Service app.  
 - [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): When you scale out an App Service app, you change the number 
 of VM instances your app (or apps in the same App Service plan) runs on. With Standard tier or above, you can enable autoscaling of VM instances based
@@ -99,16 +98,16 @@ Without further ado, let's set up autoscaling for your app.
 
     You're done scaling up.
     
-    >[AZURE.IMPORTANT] This tier will burn your free trial credits. If you have a pay-per-use account, it will incur charges to your account.
+    >[AZURE.IMPORTANT] This tier expends your free trial credits. If you have a pay-per-use account, it incurs charges to your account.
     
 3. Next, let's configure autoscaling. In the portal blade of your app, click **Settings** > **Scale Out (App Service Plan)**.  
     ![Scale out - settings blade](./media/app-service-web-get-started/scale-out-settings.png)
 
-4. Change **Scale by** to **CPU Percentage**. The sliders underneath the dropdown will change accordingly. Then, define an **Instances** range between
-**1** and **2** and a **Target range** between **40** and **80**. Do this by typing in the boxes or by moving the sliders.  
+4. Change **Scale by** to **CPU Percentage**. The sliders underneath the dropdown update accordingly. Then, define an **Instances** range between
+**1** and **2** and a **Target range** between **40** and **80**. Do it by typing in the boxes or by moving the sliders.  
     ![Scale out - configure autoscaling](./media/app-service-web-get-started/scale-out-configure.png)
     
-    Based on this configuration, your app will automatically scale out when CPU utilization is above 80% and scale when CPU utilization is below 40%. 
+    Based on this configuration, your app automatically scales out when CPU utilization is above 80% and scales in when CPU utilization is below 40%. 
     
 5. Click **Save** in the menu bar.
 
@@ -145,7 +144,7 @@ and then click **OK**.
 
 Congratulations, you're now getting alerts. 
 
-This alert setting will now check CPU utilization every five minutes. If that number goes above 90%,
+This alert setting checks CPU utilization every five minutes. If that number goes above 90%,
 you'll receive an email alert, along with anyone who is authorized. To see everyone who is authorized to receive the alerts, go back to the portal blade of
 your app and click the **Access** button.  
 ![See who gets alerts](./media/app-service-web-get-started/alert-rbac.png)

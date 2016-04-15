@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/04/2016"
+	ms.date="04/11/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -38,6 +38,5 @@ To understand the eDTUs and service tiers, see [SQL Database options and perform
 
 - [Create an elastic database pool](sql-database-elastic-pool-create-portal.md)
 - [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
-- [Elastic database pool reference](sql-database-elastic-pool-reference.md)
 - [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
 - [PowerShell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md)

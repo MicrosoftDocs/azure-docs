@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
@@ -47,6 +47,8 @@ Before you start:
 ### To enable ingestion sampling
 
 From the Settings bar, open the Quotas and Pricing blade. Click Sampling and select a sampling ratio.
+
+Ingestion doesn't operate if the SDK is performing fixed or adaptive sampling. While the sampling rate at the SDK is less than 100%, the ingestion sampling setting is ignored.
 
 ### To enable adaptive sampling
 

@@ -30,7 +30,7 @@ Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter
 
 &nbsp; 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Twitter connector](../app-service-logic/app-service-logic-connector-twitter.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With Twitter, you can:
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/21/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Create an HDInsight cluster with Data Lake Store using Azure PowerShell
