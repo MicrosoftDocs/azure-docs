@@ -25,7 +25,7 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database logical servers and databases. This topic walks you through common tasks with SSMS. You should already have a logical server and database created in Azure SQL Database before you begin. See [Create your first Azure SQL Database](sql-database-get-started.md) and the article on how to [Connect and Quiery using SSMS](sql-database-connect-query-ssms.md) for information about how to connect and then run a simple SELECT query.
+You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database logical servers and databases. This topic walks you through common tasks with SSMS. You should already have a logical server and database created in Azure SQL Database before you begin. See [Create your first Azure SQL Database](sql-database-get-started.md) and the article on how to [Connect and Query using SSMS](sql-database-connect-query-ssms.md) for information about how to connect and then run a simple SELECT query.
 
 It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database. Visit [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) to get it.
 
