@@ -36,7 +36,7 @@ In this tutorial you will:
 
 The first step when loading data is to configure the PolyBase pre-requisite scripts:
 
-### [CREATE EXTERNAL DATA SOURCE][]
+### Create the external data source
 
 As the data is held in a public container the first task is to create the external data source:
 
@@ -53,7 +53,7 @@ There is no need to create a master key or a database scoped credential in this 
 
 > [AZURE.IMPORTANT] If you choose to make your azure blob storage containers public please bear in mind that there are data egress charges when data leaves the data center that you will be liable for.
 
-### [CREATE EXTERNAL FILE FORMAT][]
+### Create an external file format object
 
 The file format provides the information required to parse the text files held in blob storage.
 
@@ -71,7 +71,7 @@ WITH
 
 In our case the data is uncompressed and pipe delimited. 
 
-## [CREATE EXTERNAL TABLE][]
+## Create the external tables
 
 Now the connectivity to azure blob storage is set up we are able to create the external tables.
 
@@ -809,7 +809,7 @@ WITH
 ;
 ```
 
-## Loading the data with CTAS
+## Load the data with CTAS
 
 To load the data it's best to leverage the strongly typed external tables we have just created. Therefore simple [CTAS][] statements will suffice. 
 
@@ -853,7 +853,7 @@ CREATE TABLE [cso].[FactStrategyPlan]      WITH (DISTRIBUTION = HASH([EntityKey]
 
 You can track the progress of your load using the `[sys].[dm_pdw_exec_requests]` dynamic management view (DMV). As the CTAS statements above have a `label` you can also track the progress using the `label`. For more details please refer to the [label][] article.
 
-## Index rebuilds
+## Rebuild the indexes
 
 Finally, to ensure that the tables are in compressed columnstore format we can run a rebuild operation on the table. This converts any open or closed rowgroups to compressed columnstore format.
 
@@ -888,7 +888,7 @@ ALTER INDEX ALL ON [cso].[FactSalesQuota]           REBUILD;
 
 To find out more information on how to check on the state of your clustered columnstore pleaser refere to the [manage columnstore indexes][] article.
 
-## Create Statistics
+## Create some statistics objects
 
 To create the statistics on all the columns you can leverage the stored procedure code `prc_sqldw_create_stats` described in the [statistics][] article.
 
