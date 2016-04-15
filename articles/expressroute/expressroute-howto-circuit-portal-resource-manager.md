@@ -83,8 +83,8 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
 
-	Provider Status : Not provisioned
-	Circuit Status	: Enabled
+Provider status : Not provisioned<BR>
+Circuit status	: Enabled
 
 ![](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
@@ -93,13 +93,13 @@ Provider Status provides information on the current state of provisioning on the
 
 The circuit will change to the following state when the connectivity provider is in the process of enabling it for you:
 
-	Provider Status : Provisioning
-	Circuit Status	: Enabled
+Provider status : Provisioning<BR>
+Circuit status	: Enabled
 
 For you to be able to use an ExpressRoute circuit, it must be in the following state:
 
-	Provider Status : Provisioned
-	Circuit Status	: Enabled
+Provider status : Provisioned<BR>
+Circuit status	: Enabled
 
 
 ### 5. Periodically check the status and the state of the circuit key.
