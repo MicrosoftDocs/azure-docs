@@ -6,7 +6,7 @@
 	authors="davidmu1"
 	manager="timlt"
 	editor=""
-	tags=“azure-service-management"/>
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"
