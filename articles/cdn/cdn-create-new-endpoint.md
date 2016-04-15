@@ -81,10 +81,11 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 7. In the **Origin host header**, enter the host header you want the CDN to send with each request, or leave the default.
 
 8. For **Protocol** and **Origin port**, specify the protocols and ports used to access your resources at the origin.  Your clients will continue to use these same protocols and ports when they access resources on the CDN.  At least one protocol (HTTP or HTTPS) must be selected.
-	>[AZURE.TIP] Accessing CDN content using HTTPS has the following constraints:
-	>
-	>- You must use SSL the certificate provided by the CDN. Third party certificates are not supported.
-	>- You must use the CDN-provided domain (`<identifier>.azureedge.net`) to access HTTPS content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
+	
+	> [AZURE.TIP] Accessing CDN content using HTTPS has the following constraints:
+	> 
+	> - You must use SSL the certificate provided by the CDN. Third party certificates are not supported.
+	> - You must use the CDN-provided domain (`<identifier>.azureedge.net`) to access HTTPS content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
 
 9. Click the **Add** button to create the new endpoint.
 
