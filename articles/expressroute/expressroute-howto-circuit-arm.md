@@ -328,7 +328,9 @@ The circuit will now have the ExpressRoute premium add-on features enabled. Note
 
 ### To disable the ExpressRoute premium add-on
 
-Note that this operation can fail if you are using resources than are greater than what is permitted for the standard circuit.
+**Important:** This operation can fail if you are using resources than are greater than what is permitted for the standard circuit.
+
+Note the following:
 
 - Before you downgrade from premium to standard, you must ensure that the number of virtual networks linked to the circuit is less than 10. If you don't do so, your update request fails, and Microsoft will bill you at premium rates.
 
