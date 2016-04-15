@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/11/2016"
+	ms.date="04/12/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -73,7 +73,7 @@ Now you are ready to run the applications.
 
 1. From within Visual Studio, open the **Receiver** project you created earlier.
 
-2. Right-click the **Receiver** solution, then click **Add**, then click **Existing Project**.
+2. Right-click the **Receiver** solution, then click **Add**, and then click **Existing Project**.
  
 3. Locate the existing Sender.csproj file, then double-click it to add it to the solution.
  

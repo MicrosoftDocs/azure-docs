@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 # Azure API Management FAQ
@@ -28,6 +28,7 @@ Learn the answers to common questions, patterns and best practices for Azure API
 -	[How can I copy an API Management instance to a new instance?](#how-can-i-copy-an-api-management-instance-to-a-new-instance)
 -	[Can I manage my API Management instance programmatically?](#can-i-manage-my-api-management-instance-programmatically)
 -	[How can I add a user to the Administrators group?](#how-can-i-add-a-user-to-the-administrators-group)
+-	[Why is the policy that I want to add not enabled in the policy editor?](#why-is-the-policy-that-i-want-to-add-not-enabled-in-the-policy-editor)
 
 ### How can I ask a question to the API Management team?
 
@@ -62,5 +63,10 @@ Yes, you can manage it using the [API Management REST API](https://msdn.microsof
 ### How can I add a user to the Administrators group?
 
 At this time, administrators are limited to users that log in through the Azure Classic Portal as administrators or co-administrators on the Azure subscription that contains the API Management instance. Users created in the publisher portal cannot be designated as administrators or added to the administrators group.
+
+
+### Why is the policy that I want to add not enabled in the policy editor?
+
+If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section for that policy in the [Policy Reference](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
 
