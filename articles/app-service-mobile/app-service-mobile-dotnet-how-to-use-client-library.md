@@ -34,7 +34,7 @@ You can also find several client samples in the [Azure-Samples GitHub Repository
 
 ##<a name="setup"></a>Setup and Prerequisites
 
-We assume that you have already created and published your Mobile App backend project, which includes at one table.  In the code used in this topic, the
+We assume that you have already created and published your Mobile App backend project, which includes at least one table.  In the code used in this topic, the
 table is named `TodoItem` and it will have the following columns: `Id`, `Text`, and `Complete`. This is the same table created when you complete the
 [Azure Mobile Apps quickstart].
 
