@@ -58,7 +58,7 @@ Let's create a DocumentDB account. If you already have an account you want to us
 
 ##<a id="SetupVS"></a> Step 2: Setup your Visual Studio solution
 
-1. Open **Visual Studio** on your computer.
+1. Open **Visual Studio 2015** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **Console Application**, name your project, and then click **OK**.
 ![Screen shot of the New Project window](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
@@ -212,35 +212,38 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
 Copy and paste the **CreateDocumentCollectionIfNotExists** method underneath your **CreateDatabaseIfNotExists** method.
 
 	// ADD THIS PART TO YOUR CODE
-  private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
-  {
-		 try
-		 {
-				 await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
-				 this.WriteToConsoleAndPromptToContinue("Found {0}", collectionName);
-		 }
-		 catch (DocumentClientException de)
-		 {
-				 // If the document collection does not exist, create a new collection
-				 if (de.StatusCode == HttpStatusCode.NotFound)
-				 {
-						 DocumentCollection collectionInfo = new DocumentCollection();
-						 collectionInfo.Id = collectionName;
+	private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
+	{
+		try
+		{
+			await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
+			this.WriteToConsoleAndPromptToContinue("Found {0}", collectionName);
+		}
+		catch (DocumentClientException de)
+		{
+			// If the document collection does not exist, create a new collection
+			if (de.StatusCode == HttpStatusCode.NotFound)
+			{
+				DocumentCollection collectionInfo = new DocumentCollection();
+				collectionInfo.Id = collectionName;
 
-						 // Here we create a collection with 400 RU/s.
-						 await this.client.CreateDocumentCollectionAsync(
-								 UriFactory.CreateDatabaseUri(databaseName),
-								 new DocumentCollection { Id = collectionName },
-								 new RequestOptions { OfferThroughput = 400 });
+				// Configure collections for maximum query flexibility including string range queries.
+				collectionInfo.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
-						 this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
-				 }
-				 else
-				 {
-						 throw;
-				 }
-		 }
- }
+				// Here we create a collection with 400 RU/s.
+				await this.client.CreateDocumentCollectionAsync(
+					UriFactory.CreateDatabaseUri(databaseName),
+					new DocumentCollection { Id = collectionName },
+					new RequestOptions { OfferThroughput = 400 });
+
+				this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
+			}
+			else
+			{
+				throw;
+			}
+		}
+	}
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the database creation. This will create a document collection named *FamilyCollection*.
 
@@ -314,26 +317,26 @@ Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** c
 
 Copy and paste the **CreateFamilyDocumentIfNotExists** method underneath your **CreateDocumentCollectionIfNotExists** method.
 
-  // ADD THIS PART TO YOUR CODE
+	// ADD THIS PART TO YOUR CODE
 	private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
 	{
-			try
+		try
+		{
+			await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, family.Id));
+			this.WriteToConsoleAndPromptToContinue("Found {0}", family.Id);
+		}
+		catch (DocumentClientException de)
+		{
+			if (de.StatusCode == HttpStatusCode.NotFound)
 			{
-					await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, family.Id));
-					this.WriteToConsoleAndPromptToContinue("Found {0}", family.Id);
+				await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), family);
+				this.WriteToConsoleAndPromptToContinue("Created Family {0}", family.Id);
 			}
-			catch (DocumentClientException de)
+			else
 			{
-					if (de.StatusCode == HttpStatusCode.NotFound)
-					{
-							await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), family);
-							this.WriteToConsoleAndPromptToContinue("Created Family {0}", family.Id);
-					}
-					else
-					{
-							throw;
-					}
+				throw;
 			}
+		}
 	}
 
 And insert two documents, one each for the Andersen Family and the Wakefield Family.
@@ -422,11 +425,11 @@ DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documen
 
 Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyDocumentIfNotExists** method.
 
-  // ADD THIS PART TO YOUR CODE
+	// ADD THIS PART TO YOUR CODE
 	private void ExecuteSimpleQuery(string databaseName, string collectionName)
 	{
-			// Set some common query options
-			FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
+		// Set some common query options
+		FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 
 			// Here we find the Andersen family via its LastName
 			IQueryable<Family> familyQuery = this.client.CreateDocumentQuery<Family>(
