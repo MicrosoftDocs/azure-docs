@@ -85,7 +85,7 @@ You can also refer to individual array elements by using a zero-based index. For
 
 > [AZURE.NOTE] If a source field name in a field mapping path refers to a property that doesn't exist in the document, that mapping is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). This does mean, however, that you need to take care to avoid typos in your field mapping specification. 
 
-> [AZURE.WARNING] Azure Search currently only supports parsing one JSON blob into one search document. If your blob contains a JSON array that you'd like to parse into multiple search documents, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d) to help us prioritize this work. 
+> [AZURE.WARNING] Azure Search currently only supports parsing one JSON blob into one search document. If your blobs contain JSON arrays that you'd like to parse into multiple search documents, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d) to help us prioritize this work. 
 
 ## Request examples
 
