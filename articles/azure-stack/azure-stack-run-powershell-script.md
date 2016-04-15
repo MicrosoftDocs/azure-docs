@@ -66,7 +66,7 @@ To deploy the Azure Stack POC, you'll first need to [prepare the deployment mach
 
 13. Verify network connectivity to Azure.com.
 
-**Important**: Only one NIC is allowed during the deployment process. If you have multiple NICs, you'll need to make sure all but one is disabled before running the deployment script below. If you used the VHD boot steps defined above, you’ll need to do this after booting into the VHD and before starting the deployment script.
+**Important**: Only one NIC is allowed during the deployment process. If you have multiple NICs, make sure only one is enabled before running the deployment script below. If you used the VHD boot steps defined above, you’ll need to do this after booting into the VHD and before starting the deployment script.
 
 ## Run the PowerShell deployment script
 

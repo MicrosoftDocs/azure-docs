@@ -81,6 +81,8 @@ Click any alert to see its full detail.
 
 ## Configure alerts 
 
+You can disable proactive diagnostics, change the email recipients, create a webhook, or opt in to more detailed alert messages.
+
 Open the Alerts page. Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
 
 ![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-nrt-proactive-diagnostics/021.png)
@@ -91,6 +93,16 @@ Click the alert to configure it.
 
 Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
 
+
+#### Detailed alerts
+
+If you select "Receive detailed analysis" then the email will contain more diagnostic information. Sometimes you'll be able to diagnose the problem just from the data in the email. 
+
+There's a slight risk that the more detailed alert could contain sensitive information, because it includes exception and trace messages. However, this would only happen if your code could allow sensitive information into those messages. 
+
+Here's a sample detailed alert:
+
+![Configuration](./media/app-insights-nrt-proactive-diagnostics/060.png)
 
 ## What's the difference ...
 
