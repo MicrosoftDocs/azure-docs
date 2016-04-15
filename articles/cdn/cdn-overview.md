@@ -18,14 +18,13 @@
 
 # Overview of the Azure Content Delivery Network (CDN)
 
-The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by web sites at strategically placed locations to provide maximum bandwidth for delivering content to users.
-
-The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. For a current list of CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
+The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by web sites at strategically placed locations to provide maximum throughput for delivering content to users.  The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. For a current list of CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
 
 The benefits of using the CDN to cache Azure data include:
 
-- Better performance and user experience for end users who are far from a content source, and are using applications where many "internet trips" are required to load content
-- Large distributed scale to better handle instantaneous high load, like at the start of a product launch event.
+- Better performance and user experience for end users, especially when using applications where multiple round-trips are required to load content.
+- Large scaling to better handle instantaneous high load, like at the start of a product launch event.
+- By distributing user requests and serving content from edge servers, less traffic is sent to the origin.
 
 
 ## How it works
@@ -42,7 +41,7 @@ The benefits of using the CDN to cache Azure data include:
 
 5. Additional users (like Bob) may then request the same file using that same URL, and may also be directed to that same POP.
 
-6. If the TTL for the file has not expired, the edge server returns the file from the cache.
+6. If the TTL for the file hasn't expired, the edge server returns the file from the cache.  The result is 
 
 
 ## Standard features
@@ -54,7 +53,6 @@ The Standard CDN tier includes these features:
 - [Custom domain name support](cdn-map-content-to-custom-domain.md)
 - [Country filtering](cdn-restrict-access-by-country.md)
 - [Core analytics](cdn-analyze-usage-patterns.md)
-- [Custom content origins](cdn-how-to-use-cdn.md#caching-content-from-custom-origins)
 - [HTTPS support](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Load balancing
 - DDOS protection
@@ -73,6 +71,6 @@ The Premium CDN tier includes all of the features of the Standard tier, plus the
 
 ## Next steps
 
-To get started with CDN, see [Using Azure CDN](./cdn-how-to-use-cdn.md).
+To get started with CDN, see [Using Azure CDN](./cdn-create-new-endpoint.md).
 
 If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com).
