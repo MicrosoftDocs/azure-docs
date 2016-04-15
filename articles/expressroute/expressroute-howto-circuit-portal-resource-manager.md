@@ -51,14 +51,14 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
 	![](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 
-- **Step 2.** Once you click ExpressRoute, you will see the **Create ExpressRoute circuit** blade. When filling in the values on this blade, make sure that you specify the correct SKU tier and data metering.
+- **Step 2.** After you click **ExpressRoute**, you will see the **Create ExpressRoute circuit** blade. When filling in the values on this blade, make sure that you specify the correct SKU tier and data metering.
 
 	- **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify "Standard" to get the standard SKU, or "Premium" for the premium add-on.
 
 	- **Data metering** determines the billing type. You can specify "Metered" for a metered data plan and "Unlimited" for an unlimited data plan. **Note:** You can change the billing type from "Metered" to "Unlimited", but you can't change the type from "Unlimited" to "Metered".
 
 
-	![](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
+		![](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
 
 
