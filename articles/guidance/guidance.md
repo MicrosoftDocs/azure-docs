@@ -54,7 +54,7 @@ These articles focus on the essential aspects of architecting systems to make op
 
 - **[Recommended naming conventions for Azure resources][naming-conventions]** recommends practical naming conventions for Azure resources.
 
-> [AZURE.NOTE] See our [Performance Optimization][PerformanceOptimization] guidance exploring how to design systems that are scalable and efficient under load.
+> [AZURE.NOTE] See our [Performance Optimization][PerformanceOptimization] guidance exploring  common anti-patterns that affect systems under load.
 
 ## Recent guidance projects
 
@@ -64,10 +64,18 @@ These articles focus on the essential aspects of architecting systems to make op
 
 - **[Identity management for multitenant applications][identity-multitenant]** 
     
-    _Multitenancy_ is an architecture where multiple tenants share the same physical instance of the app. This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] (Azure AD) to handle sign-in and authentication.
+    Multitenancy is an architecture where multiple tenants share the same app but are isolated from one another. This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
     
 ## Guidance content under development
 
+We're creating a new set of guidance we're calling "blueprints". Each blueprint offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these blueprints, and some are available for preview. We're very intereseted in your feedback.
+
+- [Running a single VM on Azure][blueprint-single-vm-windows]
+- [Achieving availabitilty using multiple VM instances][blueprint-multi-vm-windows]
+- [Achieving manageability, scalability, availability, and security for a 3-tier app][blueprint-3-tier-windows]
+- Adding a network appliance and SQL AlwaysOn Availability Groups (_not yet available_)
+- Deploying to multiple datacenters, routing traffic, facilitating failover(_not yet available_)
+- [Extending an on-premises network to Azure using a site-to-site virtual private network][blueprint-hybrid-network-vpn].
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
@@ -87,5 +95,13 @@ These articles focus on the essential aspects of architecting systems to make op
 [ScalabilityChecklist]: ../best-practices-scalability-checklist/
 [AvailabilityChecklist]: ../best-practices-availability-checklist/
 [naming-conventions]: ./guidance-naming-conventions/
+
+<!-- guidance projects -->
 [elasticsearch]: ./guidance-elasticsearch
-[identity-multitenant]: ./guidance-multitenant-identity-intro/
+[identity-multitenant]: ./guidance-multitenant-identity/
+
+<!-- blueprints -->
+[blueprint-single-vm-windows]: ./guidance-compute-single-vm/
+[blueprint-multi-vm-windows]: ./guidance-compute-multi-vm/
+[blueprint-3-tier-windows]: ./guidance-compute-3-tier-vm/
+[blueprint-hybrid-network-vpn]: ./guidance-hybrid-network-vpn/
