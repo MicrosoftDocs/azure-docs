@@ -104,6 +104,9 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 	The example below shows how to create a 200 Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request.
 
+	>[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Please ensure that you perform this operation once the connectivity provider is ready to provision the circuit. 
+
+
 	Below is an example request for a new service key:
 
 		#Creating a new circuit
@@ -122,8 +125,6 @@ This article walks you through the steps to create an ExpressRoute circuit using
 	The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
 
 		get-help new-azurededicatedcircuit -detailed 
-
->[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Please ensure that you perform this operation once the connectivity provider is ready to provision the circuit. 
 
 4. List all ExpressRoute circuits.
 
