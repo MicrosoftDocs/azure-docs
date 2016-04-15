@@ -25,7 +25,7 @@
 
 
 
-This article gives you an overview of how to link virtual networks (VNets) to ExpressRoute circuits using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription, or part of another subscription.
+This article will help you link virtual networks (VNets) to ExpressRoute circuits using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription, or part of another subscription.
 
 **About Azure deployment models**
 
