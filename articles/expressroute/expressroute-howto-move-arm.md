@@ -17,7 +17,7 @@
    ms.author="ganesr"/>
 
 
-# Move ExpressRoute circuits from the classic to Resource Manager deployment model
+# Move ExpressRoute circuits from the classic to the Resource Manager deployment model
 
 ## Configuration prerequisites
 
@@ -29,7 +29,7 @@
 
 ## Move the ExpressRoute circuit to the Resource Manager deployment model
 
-You must move an ExpressRoute circuit to the Resource Manager deployment model so that you can use it across both the classic and Resource Manager deployment models. You can do this by running the following PowerShell commands.
+You must move an ExpressRoute circuit to the Resource Manager deployment model so that you can use it across both the classic and the Resource Manager deployment models. You can do this by running the following PowerShell commands.
 
 ### Step 1: Gather circuit details from the classic deployment model
 
@@ -69,7 +69,7 @@ You can also use an existing resource group if you already have one.
 
 ### Step 3: Move the ExpressRoute circuit to the Resource Manager deployment model
 
-You are now ready to move over your ExpressRoute circuit from the classic to Resource Manager deployment model. Review the information provided under [Moving an ExpressRoute circuit from the classic to Resource Manager deployment model](expressroute-move.md) before proceeding further.
+You are now ready to move over your ExpressRoute circuit from the classic to the Resource Manager deployment model. Review the information provided under [Moving an ExpressRoute circuit from the classic to the Resource Manager deployment model](expressroute-move.md) before proceeding further.
 
 You can do this by running the following snippet:
 
