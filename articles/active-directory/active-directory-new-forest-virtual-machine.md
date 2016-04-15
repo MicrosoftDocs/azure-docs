@@ -14,7 +14,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="01/25/2016" 
+	ms.date="04/07/2016" 
 	ms.author="markusvi"/>
 
 
@@ -25,7 +25,7 @@ This topic shows how to create a new Windows Server Active Directory environment
 You might also be interested in these related topics:
 
 - For a video that shows these steps, see [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-- You can optionally [configure a site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](../virtual-networks-install-replica-active-directory-domain-controller.md).
+- You can optionally [configure a site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md).
 -  For conceptual guidance about installing Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Scenario Diagram
@@ -120,9 +120,9 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 
 -  [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [Configure a Cloud-Only Virtual Network](../virtual-network/virtual-networks-create-vnet.md)
+
 -  [Configure a Site-to-Site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
--  [Install a Replica Active Directory Domain Controller in an Azure virtual network](../virtual-networks-install-replica-active-directory-domain-controller.md)
+-  [Install a Replica Active Directory Domain Controller in an Azure virtual network](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)

@@ -3,8 +3,8 @@
 	description="This tutorial helps you get started with the Azure SQL Data Sync (Preview)."
 	services="sql-database"
 	documentationCenter=""
-	authors="spelluru"
-	manager="JennieHubbard"
+	authors="jhubbard"
+	manager="jhubbard"
 	editor=""/>
 
 <tags

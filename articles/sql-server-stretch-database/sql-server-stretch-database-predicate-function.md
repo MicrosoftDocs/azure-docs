@@ -24,7 +24,13 @@ If you store historical data in a separate table, you can configure Stretch Data
 
 If you don't specify a filter predicate, the entire table is migrated.
 
-In CTP 3.1 through RC2, the option to specify a predicate isn't available in the Enable Database for Stretch wizard. You have to use the ALTER TABLE statement to configure Stretch Database with this option. For more info, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) and [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+In RC3, when you run the Enable Database for Stretch Wizard, you can migrate an entire table or you can specify a simple date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, do one of the following things.
+
+-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate.
+
+-   Run the ALTER TABLE statement to specify a predicate after you exit the wizard.
+
+The ALTER TABLE syntax for adding a predicate is described later in this topic.
 
 ## Basic requirements for the inline table\-valued function
 The inline table\-valued function required for a Stretch Database filter predicate looks like the following example.
@@ -212,7 +218,7 @@ SET (
 
 When you want to update the sliding window, do the following things.
 
-1.  Create a new function that specifies the new sliding window. The following example selects dates earlier than January 2, 2106, instead of January 1, 2016.
+1.  Create a new function that specifies the new sliding window. The following example selects dates earlier than January 2, 2016, instead of January 1, 2016.
 
 2.  Replace the previous filter predicate with the new one by calling ALTER TABLE, as shown in the following example.
 

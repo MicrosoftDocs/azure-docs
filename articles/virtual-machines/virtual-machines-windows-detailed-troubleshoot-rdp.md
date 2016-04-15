@@ -3,7 +3,7 @@
 	description="Detailed troubleshooting steps for RDP connections to an Azure virtual machine running Windows."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -13,9 +13,9 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/08/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/06/2016"
+	ms.author="iainfou"/>
 
 # Detailed troubleshooting for Remote Desktop connections to Windows based Azure virtual machines
 

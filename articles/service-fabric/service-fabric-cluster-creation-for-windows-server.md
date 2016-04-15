@@ -23,9 +23,9 @@ Azure Service Fabric allows the creation of Service Fabric clusters on any virtu
 
 This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on-premises, though it can be easily adapted for any other environment such as other clouds.
 
-## Service Fabric standalone package
+## Download the Service Fabric standalone package
 
-The standalone package for Service Fabric for Windows Server 2012 R2 deployments is named *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip* and can be downloaded [here](http://go.microsoft.com/fwlink/?LinkId=730690).
+[Download the standalone package for Service Fabric for Windows Server 2012 R2](http://go.microsoft.com/fwlink/?LinkId=730690), which is named *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
 In the download package you will find the following files:
 
@@ -52,7 +52,6 @@ Pre-requisites for each machine that you want to add to the cluster:
 - Windows Server 2012 R2 or Windows Server 2012 (you need to have KB2858668 installed for this).
 - .NET Framework 4.5.1 or higher, full install
 - Windows PowerShell 3.0
-- Visual C++ 2012 (VC++ 11.0) Redistributable Package
 - The cluster administrator deploying and configuring the cluster must have administrator privileges on each of the computers.
 
 ### Step 3: Determine the initial cluster size
@@ -101,7 +100,7 @@ Once you have modified the cluster configuration in the JSON doc and added all t
 This script can be run on any machine that has admin access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster.
 
 ```
-C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
 ```
 
 ## Next steps

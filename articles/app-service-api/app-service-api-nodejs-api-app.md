@@ -4,7 +4,7 @@
 	services="app-service\api"
 	documentationCenter="node"
 	authors="bradygaster"
-	manager="mohisri",
+	manager="mohisri"
 	editor="tdykstra "/>
 
 <tags

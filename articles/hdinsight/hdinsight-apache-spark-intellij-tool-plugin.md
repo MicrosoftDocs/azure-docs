@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Linux)
+# Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark Scala applications for HDInsight Spark Linux cluster (Preview)
 
 This article provides step-by-step guidance on developing Spark applications written in Scala and submitting it to an HDInsight Spark cluster using HDInsight plugin for IntelliJ IDEA. You can use the plugin in a few different ways:
 

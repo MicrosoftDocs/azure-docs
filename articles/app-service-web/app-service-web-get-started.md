@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="04/04/2016" 
 	ms.author="cephalin"
 />
 	
@@ -71,15 +71,15 @@ Let's deploy a web app to Azure App Service.
     
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
 
-4. Create the App Service app resource in Azure with a unique app name with the next command. Your web app's URL will be http://&lt;app_name>.azurewebsites.net.
+4. Create the App Service app resource in Azure with a unique app name with the next command.
 
-        azure site create --git <app_name> 
+        azure site create --git <app_name>
       
     >[AZURE.NOTE] If you've never set up deployment credentials for your Azure subscription, you'll be prompted to create them. These credentials, not your
     Azure account credentials, are used by App Service only for Git deployments and FTP logins. 
     
-    Not only is your app created in Azure now, but your current directory is also Git-initialized and connected to the new App Service app as a Git remote.
-    You can browse to your app's URL to see the beautiful default HTML page, but let's actually get your own code there now.
+    Your app is created in Azure now. Also, your current directory is Git-initialized and connected to the new App Service app as a Git remote.
+    You can browse to see the app URL (http://&lt;app_name>.azurewebsites.net) to see the beautiful default HTML page, but let's actually get your own code there now.
 
 4. Now, deploy your sample code to the new App Service app like you would push any code with Git:
 
@@ -89,19 +89,16 @@ Let's deploy a web app to Azure App Service.
     
     `git push` not only puts code in Azure, but also triggers deployment tasks in the deployment engine. If you have any package.json 
     (Node.js) or requirements.txt (Python) in your project (repository) root, or if you have a packages.config in your ASP.NET project, the deployment 
-    scripts will restore the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
+    scripts restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
     in your PHP app.
 
 Congratulations, you have deployed your app to Azure App Service. 
 
 ## See your app running live
 
-To see your app running live in Azure, run this command:
+To see your app running live in Azure, run this command from any directory in your repository:
 
-    azure site browse <app_name>
-
-If you see the error message: `Site <app_name> does not exist or has no hostnames`, retry the command in a few seconds. Some apps, such as Java apps, take longer
-to wrap up deployment.
+    azure site browse
 
 ## Make updates to your app
 
@@ -127,7 +124,7 @@ Now, let's go to the Azure portal to see what you created:
 
 2. On the left bar, click **App Services**.
 
-3. Click the App Service app that you just created to open its blade in the portal. You will see that the **Settings** blade is also opened by default for your convenience.
+3. Click the app that you just created to open its page in the portal (called a [blade](../azure-portal-overview.md)). The **Settings** blade is also opened by default for your convenience.
 
     ![Portal view of first app in Azure App Service](./media/app-service-web-get-started/portal-view.png) 
 
