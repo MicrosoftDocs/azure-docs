@@ -55,7 +55,7 @@ Worker nodes perform the actual data analysis when a job is submitted to the clu
 
 ###Edge node
 
-An edge node does not actively participate in the cluster, but is instead a node used by developers or data scientists when working with Hadoop. For example, R Server on HDInsight provides an edge node that can be used test R code locally on the node before submitting it to the cluster for distributed analysis.
+An edge node does not actively participate in the cluster, but is instead a node used by developers or data scientists when working with Hadoop. For example, R Server on HDInsight provides an edge node that can be used test R code locally on the node before submitting it to the cluster for distributed processing.
 
 ## Accessing the nodes
 
