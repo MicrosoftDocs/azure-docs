@@ -18,7 +18,7 @@
 
 # Overview of the Azure Content Delivery Network (CDN)
 
-The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by web sites at strategically placed locations to provide maximum throughput for delivering content to users.  The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. For a current list of CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
+The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by web sites at strategically placed locations to provide maximum throughput for delivering content to users.  The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. For a current list of CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
 
 The benefits of using the CDN to cache Azure data include:
 
