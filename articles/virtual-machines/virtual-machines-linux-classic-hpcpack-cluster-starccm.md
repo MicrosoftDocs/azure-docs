@@ -26,7 +26,7 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 ## Setup HPC Pack cluster
 Download the HPC Pack IaaS deployment scripts from [here](https://www.microsoft.com/en-us/download/details.aspx?id=44949) and extract them locally.
 
-Azure Powershell is a pre-requisite please read this article [How to install and configure Azure PowerShell](https://azure.microsoft.com/en-gb/documentation/articles/powershell-install-configure/) if not configured on your local machine.
+Azure Powershell is a pre-requisite please read this article [How to install and configure Azure PowerShell](../powershell-install-configure.md) if not configured on your local machine.
 
 At the time of this writing, the Linux image from the Azure Gallery which contains the Infiniband drivers for Azure is SLES 12. In order to retrieve the name of all Linux images supporting HPC in the gallery you can run the following powershell command :
 
