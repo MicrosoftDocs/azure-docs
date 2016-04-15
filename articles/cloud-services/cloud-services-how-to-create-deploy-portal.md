@@ -70,7 +70,7 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 ## Create and deploy
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Click **New > Compute**, and then scroll down to and click **Cloud Service**.
+2. Click **New > Virtual Machines**, and then scroll down to and click **Cloud Service**.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
