@@ -501,11 +501,11 @@ relies on the provider's web authentication interface. The client flow allows fo
 on provider-specific device-specific SDKs.
 
 In either case, you must register your app with your identity provider.  Your identity provider will provide a client ID and a client secret.  You
-must then configure Azure App Service Authentication / Authorization with the client ID and cleint secret provided by your identity provider.  For
+must then configure Azure App Service Authentication / Authorization with the client ID and client secret provided by your identity provider.  For
 more information, follow the detailed instructions in the tutorial [Add authentication to your app].
 
 ###<a name="serverflow"></a>Server flow
-Once you have registered your identity provider, call the MobileServiceCleint.[LoginAsync method] with the [MobileServiceAuthenticationProvider] value
+Once you have registered your identity provider, call the MobileServiceClient.[LoginAsync method] with the [MobileServiceAuthenticationProvider] value
 of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
 
 	private MobileServiceUser user;
