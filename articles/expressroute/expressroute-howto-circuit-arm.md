@@ -16,7 +16,7 @@
    ms.date="04/12/2016"
    ms.author="ganesr"/>
 
-# Create and modify an ExpressRoute circuit by using Resource Manager and PowerShell
+# Create and modify an ExpressRoute circuit
 
 > [AZURE.SELECTOR]
 [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)

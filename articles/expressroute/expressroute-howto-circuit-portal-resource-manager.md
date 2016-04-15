@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create and modify an ExpressRoute circuit by using Resource Manager through the Protal  | Microsoft Azure"
+   pageTitle="Create and modify an ExpressRoute circuit by using Resource Manager and the Azure portal | Microsoft Azure"
    description="This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit."
    documentationCenter="na"
    services="expressroute"
@@ -16,7 +16,7 @@
    ms.date="04/12/2016"
    ms.author="cherylmc"/>
 
-# Create and modify an ExpressRoute circuit by using Resource Manager and PowerShell
+# Create and modify an ExpressRoute circuit
 
 > [AZURE.SELECTOR]
 [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
