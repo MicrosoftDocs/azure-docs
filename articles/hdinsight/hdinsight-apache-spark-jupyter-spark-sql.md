@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/08/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Get started: Create Apache Spark cluster on Azure HDInsight (Linux) and run interactive queries using Spark SQL
+# Get started: Create Apache Spark cluster on HDInsight Linux and run interactive queries using Spark SQL (Preview)
 
 Learn how to create an Apache Spark cluster in HDInsight and then use [Jupyter](https://jupyter.org) notebook to run Spark SQL interactive queries on the Spark cluster.
 
@@ -79,7 +79,7 @@ In this section, you create an HDInsight version 3.3 cluster (Spark version 1.5.
 
 ## Run Spark SQL queries using a Jupyter notebook
 
-In this section, you use Jupyter notebook to run Spark SQL queries against the Spark cluster. By default Jupyter notebook comes with a **Python2** kernel. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
+In this section, you use Jupyter notebook to run Spark SQL queries against the Spark cluster. HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook. These are:
 
 * **PySpark** (for applications written in Python)
 * **Spark** (for applications written in Scala)

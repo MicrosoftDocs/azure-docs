@@ -3,7 +3,7 @@
    description="Maximum values for databases, tables, connections, and queries for SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
