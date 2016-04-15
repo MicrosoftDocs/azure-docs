@@ -41,7 +41,7 @@ The benefits of using the CDN to cache Azure data include:
 
 5. Additional users (like Bob) may then request the same file using that same URL, and may also be directed to that same POP.
 
-6. If the TTL for the file hasn't expired, the edge server returns the file from the cache.  The result is 
+6. If the TTL for the file hasn't expired, the edge server returns the file from the cache.  This results in a faster, more responsive user experience.
 
 
 ## Standard features
