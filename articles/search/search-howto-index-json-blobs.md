@@ -75,7 +75,9 @@ You can also refer to individual array elements by using a zero-based index. For
 
 	{ "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
-> [AZURE.TIP] If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index: 
+> [AZURE.NOTE] If a source field name in a field mapping path refers to a property that doesn't exist in the document, that mapping is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). This does mean, however, that you need to take care to avoid typos in your field mapping specification. 
+
+If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index: 
  
 	{ 
 	   "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -83,9 +85,7 @@ You can also refer to individual array elements by using a zero-based index. For
        "tags" : [ "search", "storage", "howto" ]    
  	}
 
-> [AZURE.NOTE] If a source field name in a field mapping path refers to a property that doesn't exist in the document, that mapping is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). This does mean, however, that you need to take care to avoid typos in your field mapping specification. 
-
-> [AZURE.WARNING] Azure Search currently only supports parsing one JSON blob into one search document. If your blobs contain JSON arrays that you'd like to parse into multiple search documents, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d) to help us prioritize this work. 
+> [AZURE.NOTE] Azure Search currently only supports parsing one JSON blob into one search document. If your blobs contain JSON arrays that you'd like to parse into multiple search documents, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d) to help us prioritize this work. 
 
 ## Request examples
 
