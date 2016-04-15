@@ -168,19 +168,19 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 ![Using quick links to view logs](./media/hdinsight-high-availability-linux/viewlogs.png)
 
-## How to configure the size of the head node ##
+## How to configure the node size ##
 
-The size of the head node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](https://azure.microsoft.com/pricing/details/hdinsight/).
+The size of the a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 When creating a new cluster, you can specify the size of the nodes. The following provide information on how to specify the size using the [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
 
-* **Azure Portal**: When creating a new cluster, you are given the option of setting the size (pricing tier,) of both the head and data (worker) nodes for the cluster:
+* **Azure Portal**: When creating a new cluster, you are given the option of setting the size (pricing tier,) of the head, worker and (if used by the cluster type,) ZooKeeper nodes for the cluster:
 
 	![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head node using the `--headNodeSize` parameter.
+* **Azure CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headNodeSize`, `--workerNodeSize`, and `--zookeeperNodeSize` parameters.
 
-* **Azure PowerShell**: When using the `New-AzureRmHDInsightCluster` cmdlet, you can set the size of the head node using the `-HeadNodeVMSize` parameter.
+* **Azure PowerShell**: When using the `New-AzureRmHDInsightCluster` cmdlet, you can set the size of the head, worker, and ZooKeeper nodes by using the `-HeadNodeVMSize`, `-WorkerNodeSize`, and `-ZookeeperNodeSize` parameters.
 
 ##Next steps
 
