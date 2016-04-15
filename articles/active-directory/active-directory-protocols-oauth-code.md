@@ -17,14 +17,14 @@
 	ms.author="priyamo"/>
 
 
-[AZURE.INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)]
-
-
 # Authorize access to web applications using OAuth 2.0 and Azure AD
 
 Azure AD uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749). It is used to perform authentication and authorization in the majority of app types, including web apps and natively installed apps.
+
+[AZURE.INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)]
+
 
 ## Protocol Diagram
 

@@ -18,7 +18,7 @@
 
 <!--TODO: Introduction -->
 
-# Getting Started
+## Register your application with your AD tenant
 
 First, you will need to register your application with your Active Directory tenant. This will give you a client ID for your application, as well as enable it to receive tokens.
 
@@ -37,7 +37,3 @@ First, you will need to register your application with your Active Directory ten
 - For Native Applications, provide a **Redirect URI**, which Azure AD will use to return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
 
 - Once you've completed registration, AAD will assign your application a unique client identifier. You will need this value in the next sections, so copy it in the **Configure** tab of your application.
-
-That's it! Now, you can use the following articles to integrate your application with our protocols directly.
-
-[Applications with OAuth 2.0](active-directory-protocols-oauth-code)
