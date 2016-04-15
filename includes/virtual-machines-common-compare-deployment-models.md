@@ -15,7 +15,7 @@ The Azure Resource Manager deployment model offers the ability to easily leverag
 
 ## Advancements of the Compute, Network, and Storage APIs under Azure Resource Manager
 
-In addition to the advantages mentioned above, there are some significant performance advancements in the APIs released.
+In addition to the advantages mentioned above, there are some significant performance advancements in the APIs released:
 
 -	Enabling massive and parallel deployment of Virtual Machines
 -	Support for 3 Fault Domains in Availability Sets
@@ -83,7 +83,7 @@ The quotas for the Virtual Machines, Virtual Networks, and Storage Accounts crea
 
 **Can I continue to use my automated scripts for provisioning Virtual Machines, Virtual Networks, Storage Accounts etc. through the new Azure Resource Manager APIs?**
 
-All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the new Azure Resource Manager mode. Read more about how to modify your [Azure CLI scripts](../articles/virtual-machines/virtual-machines-linux-cli-manage.md).
+All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the new Azure Resource Manager mode.
 
 **Can the Virtual Networks created using the new Azure Resource Manager APIs be connected to my Express Route circuit?**
 
