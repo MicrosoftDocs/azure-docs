@@ -19,7 +19,6 @@
 
 # Indexing Media Files with Azure Media Indexer 2 Preview
 
-
 ##Overview
 
 The **Azure Media Indexer 2 Preview** media processor (MP) enables you to make media files and content searchable, as well as generate closed captioning tracks. Compared to the previous version of [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** performs faster indexing and offers broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese, Portuguese and Arabic.

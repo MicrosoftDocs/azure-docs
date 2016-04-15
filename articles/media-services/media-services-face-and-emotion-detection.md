@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 #Detect Face and Emotion with Azure Media Analytics
 
 ##Overview

@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 # Detect Motions with Azure Media Analytics
 
 ##Overview
