@@ -128,6 +128,19 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
+## Next steps
+
+Now that you've created and deployed resources using ARM, learn how to manage these resources by viewing these articles:
+
+- [Manage Azure Service Bus using Azure Automation](service-bus-automation-manage.md)
+- [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
+- [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+
+Learn more about Service Bus queues here:
+
+- [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
+- [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
   [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/

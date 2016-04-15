@@ -143,6 +143,14 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-eventhub-and-consumergroup/azuredeploy.json][]
 ```
 
+## Next steps
+
+Now that you've created and deployed resources using ARM, learn how to manage these resources by viewing these articles:
+
+- [Manage Azure Service Bus using Azure Automation](service-bus-automation-manage.md)
+- [Manage Event Hubs with PowerShell](service-bus-powershell-how-to-provision.md)
+- [Manage Event Hubs resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md

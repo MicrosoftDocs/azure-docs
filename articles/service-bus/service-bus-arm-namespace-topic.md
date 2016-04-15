@@ -145,6 +145,19 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
+## Next steps
+
+Now that you've created and deployed resources using ARM, learn how to manage these resources by viewing these articles:
+
+- [Manage Azure Service Bus using Azure Automation](service-bus-automation-manage.md)
+- [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
+- [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+
+Learn more about Service Bus topics here:
+
+- [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
+- [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
   [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md

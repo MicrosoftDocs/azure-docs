@@ -162,6 +162,20 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
+## Next steps
+
+Now that you've created and deployed resources using ARM, learn how to manage these resources by viewing these articles:
+
+- [Manage Azure Service Bus using Azure Automation](service-bus-automation-manage.md)
+- [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
+- [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+
+Learn more about SAS here:
+
+- [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md)
+- [Shared Access Signatures](service-bus-sas-overview.md)
+- [AuthorizationRule class](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrule.aspx)
+
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
