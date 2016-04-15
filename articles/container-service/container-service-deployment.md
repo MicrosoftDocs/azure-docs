@@ -26,11 +26,11 @@ This document walks you through deploying an Azure Container Service cluster by 
 
 ## Create a service by using the Azure portal
 
-Log into the Azure portal, select new, and search the Azure market place for ‘Azure Container Service’.
+Log into the Azure portal, select new, and search the Azure market place for **Azure Container Service**.
 
 ![Create deployment](media/acs-portal1.png)  <br /> 
 
-Select ‘Azure Container Service’ and click ‘Create’.
+Select **Azure Container Service** and click **Create**.
 
 ![Create deployment](media/acs-portal2.png)  <br /> 
 
@@ -42,7 +42,7 @@ Enter the following information:
 - Location – select an Azure region for the Azure Container Service deployment.
 - SSH public key – Add the public key that will be used for authentication against Azure Container Service Virtual Machines. It is very important that this key contains no line breaks, and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should look something like the following, "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" For guidance on creating SSH keys, see the [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) and [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) articles.
 
-Click ‘OK’ when ready to proceed.
+Click **OK** when ready to proceed.
 
 ![Create deployment](media/acs-portal3.png)  <br /> 
 
@@ -51,7 +51,7 @@ Select an Orchestration type. The options are:
 - Mesos – deploys an Apache Mesos cluster.
 - Swarm – deploys a Docker Swarm cluster.
 
-Click ‘OK’ when ready to proceed.
+Click **OK** when ready to proceed.
 
 ![Create deployment](media/acs-portal4.png)  <br /> 
 
@@ -62,15 +62,15 @@ Enter the following information:
 - Agent virtual machine size – the size of the agent virtual machines.
 - DNS prefix – A world unique name that will be used to prefix key parts of the fully qualified domain names for the service. 
 
-Click ‘OK’ when ready to proceed.
+Click **OK** when ready to proceed.
 
 ![Create deployment](media/acs-portal5.png)  <br /> 
 
-Click ‘OK’ once service validation has completed.
+Click **OK** once service validation has completed.
 
 ![Create deployment](media/acs-portal6.png)  <br /> 
 
-Click ‘Create’ to start the deployment process.
+Click **Create** to start the deployment process.
 
 ![Create deployment](media/acs-portal7.png)  <br /> 
 
