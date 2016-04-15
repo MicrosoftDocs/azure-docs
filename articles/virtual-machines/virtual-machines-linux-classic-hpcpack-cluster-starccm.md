@@ -313,4 +313,4 @@ Later on, once you are done with your tests, to stop and start nodes you can use
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
-[clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/clustermanager.png
+[clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
