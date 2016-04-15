@@ -31,14 +31,14 @@ Azure disk encryption for Windows IaaS VMs is now in [General Availability](http
 
 ### Encryption Scenarios
 
-The Azure Disk Encryption solution supports the following 3 customer encryption scenarios:
+The Azure Disk Encryption solution supports the following customer scenarios:
 
 - Enable encryption on new IaaS VM’s created from pre-encrypted VHD and encryption keys
 - Enable encryption on new IaaS VM’s created from the Azure Gallery images 
 - Enable encryption on existing IaaS VM’s already running in Azure 
 - Disable encryption on Windows IaaS VMs  
 
-The solution supports the following for IaaS VMs for public preview release when enabled in Microsoft Azure:
+The solution supports the following for IaaS VMs when enabled in Microsoft Azure:
 
 - Integration with Azure Key Vault
 
@@ -54,7 +54,7 @@ The solution supports the following for IaaS VMs for public preview release when
 
 - All Azure public regions are supported in public preview and Azure Australia region is supported in GA for Windows IaaS VMs
 
-The solution does not support the following scenarios, features and technology in the public preview release:
+The solution does not support the following scenarios, features and technology in the release:
 
 - Basic VMs and Standard DS (Premium Storage) series IaaS VMs
 
@@ -67,8 +67,6 @@ The solution does not support the following scenarios, features and technology i
 - Integration with your on-premises Key Management Service
 
 - Windows Server 2016 Technical Preview 3 and above
-
-- Red Hat Enterprise Linux
 
 - Azure Files (Azure file share), Network file system (NFS), Dynamic volumes, Software-based RAID systems 
 
@@ -144,13 +142,13 @@ The following are prerequisites to enable Azure Disk Encryption on Azure IaaS VM
 
 - User must have a valid active Azure subscription to create resources in Azure in the regions supported
 
-- Azure Disk Encryption is supported on the following Windows server SKU’s - Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. The solution is not supported on the Windows Server 2008 operating system. Windows Server Technical Preview is not supported in public preview release.
+- Azure Disk Encryption is supported on the following Windows server SKU’s - Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. The solution is not supported on the Windows Server 2008 operating system. Windows Server 2016 Technical Preview 3 is not supported in this release.
 
 Azure Disk Encryption is supported on the following Windows client SKU’s - Windows 8 Client and Windows 10 Client.
 
 **Note**: For Windows Server 2008 R2, .Net framework 4.5 MUST be installed before enabling encryption in Azure. You can install it from Windows update by installing the optional update "Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based Systems ([KB2901983](https://support.microsoft.com/kb/2901983))"
 
-- Azure Disk Encryption is supported on the following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES). Red Hat Enterprise Linux is not supported in public preview release.
+- Azure Disk Encryption is supported on the following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES) and Red Hat Enterprise Linux.
 
 - All resources (Ex: Key Vault, Storage account, VM, etc..) must belong to the same Azure region and subscription.
 
