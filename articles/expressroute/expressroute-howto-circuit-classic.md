@@ -199,7 +199,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 	
 	Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
 
->[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
+>[AZURE.IMPORTANT] These instructions only apply to circuits that are created with service providers that offer Layer 2 connectivity services. If you are using a service provider that offers managed Layer 3 services (typically an IP VPN, like MPLS), your connectivity provider will configure and manage routing for you. 
 
 7. Link a VNet to an ExpressRoute circuit.
 
@@ -256,13 +256,13 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following with no downtime:
 
 - Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-- Increase the bandwidth of your ExpressRoute circuit. **Note** Downgrading the bandwidth of a circuit is upt supported. 
-- Change the metering plan from Metered Data to Unlimited Data. **Note** Changing metering plan from Unlimited Data to Metered Data is not supported. 
+- Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported. 
+- Change the metering plan from Metered Data to Unlimited Data. Note that changing metering plan from Unlimited Data to Metered Data is not supported. 
 -  You can enable and disable "Allow Classic Operations" 
 
 Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on limits and limitations. 
 
-### How to enable the ExpressRoute premium add-on
+### To enable the ExpressRoute premium add-on
 
 You can enable the ExpressRoute premium add-on for your existing circuit using the following PowerShell cmdlet:
 	
@@ -279,7 +279,17 @@ You can enable the ExpressRoute premium add-on for your existing circuit using t
 
 Your circuit will now have the ExpressRoute premium add-on features enabled. Note that we will start billing you for the premium add-on capability as soon as the command has successfully run.
 
-### How to disable the ExpressRoute premium add-on
+### To disable the ExpressRoute premium add-on
+
+**Important:** This operation can fail if you are using resources than are greater than what is permitted for the standard circuit.
+
+Note the following: 
+
+- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do so, your update request will fail and you will be billed the premium rates.
+
+- You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and you will be billed the premium rates.
+
+- Your route table must be less than 4000 routes for private peering. If your route table size is greater than 4000 routes, the BGP session will drop and won't be re-enabled till the number of advertised prefixes goes below 4000.
 
 You can disable the ExpressRoute premium add-on for your existing circuit using the following PowerShell cmdlet:
 	
@@ -294,22 +304,15 @@ You can disable the ExpressRoute premium add-on for your existing circuit using 
 		Sku                              : Standard
 		Status                           : Enabled
 
-The premium add-on is now disabled for your circuit. 
-
->[AZURE.IMPORTANT] This operation can fail if you are using resources greater than what is permitted for the standard circuit.
-
-Note the following: 
-
-- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do so, your update request will fail and you will be billed the premium rates.
-
-- You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and you will be billed the premium rates.
-
-- Your route table must be less than 4000 routes for private peering. If your route table size is greater than 4000 routes, the BGP session will drop and won't be re-enabled till the number of advertised prefixes goes below 4000.
 
 
-### How to update the ExpressRoute circuit bandwidth
+### To update the ExpressRoute circuit bandwidth
 
-Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth options for your provider. You can pick any size greater than the size of your existing circuit. Once you decided what size you need, you can use the following command to re-size your circuit.
+Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth options for your provider. You can pick any size greater than the size of your existing circuit. 
+
+>[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then re-provision a new ExpressRoute circuit.
+
+Once you decided what size you need, you can use the following command to re-size your circuit.
 
 		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 		
@@ -324,13 +327,9 @@ Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth 
 
 Your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
 
->[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then re-provision a new ExpressRoute circuit.
+
 
 ## Deleting and deprovisiong an ExpressRoute circuit
-
-You can delete your ExpressRoute circuit by running the following command:
-
-	Remove-AzureDedicatedCircuit -ServiceKey "*********************************"	
 
 Note the following:
 
@@ -339,6 +338,12 @@ Note the following:
 - If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *disabling* from enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
 
 - If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you. 
+
+You can delete your ExpressRoute circuit by running the following command:
+
+	Remove-AzureDedicatedCircuit -ServiceKey "*********************************"	
+
+
 
 ## Next steps
 

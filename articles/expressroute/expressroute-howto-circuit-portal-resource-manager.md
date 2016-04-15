@@ -43,7 +43,7 @@ This article describes how to create an Azure ExpressRoute circuit by using the 
 
 From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign in with your Azure account.
 
-### 2. Create a new ExpressRoute circuit.
+### 2. Create a new ExpressRoute circuit
 
 >[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Please ensure that you perform this operation once the connectivity provider is ready to provision the circuit. 
 
@@ -61,8 +61,7 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 		![](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
 
-
-### 3. View circuits and properties.
+### 3. View circuits and properties
 
 - **To view all circuits** 
 	
@@ -77,8 +76,7 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 	![](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 
-
-### 4. Send the service key to your connectivity provider for provisioning.
+### 4. Send the service key to your connectivity provider for provisioning
 
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
@@ -102,7 +100,7 @@ Provider status : Provisioned<BR>
 Circuit status	: Enabled
 
 
-### 5. Periodically check the status and the state of the circuit key.
+### 5. Periodically check the status and the state of the circuit key
 
 You can view the properties of the circuit you are interested in by selecting it. Check the **Provider status** and ensure that it has moved to **Provisioned** before continuing.
 
@@ -110,11 +108,11 @@ You can view the properties of the circuit you are interested in by selecting it
 ![](./media/expressroute-howto-circuit-portal-resource-manager/viewstatusprovisioned.png)
 
 
-### 6. Create your routing configuration.
+### 6. Create your routing configuration
 
 For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-portal-resource-manager.md) to create and modify circuit peerings.
 
->[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
+>[AZURE.IMPORTANT] These instructions only apply to circuits that are created with service providers that offer Layer 2 connectivity services. If you are using a service provider that offers managed Layer 3 services (typically an IP VPN, like MPLS), your connectivity provider will configure and manage routing for you. 
 
 ### 7. Link a virtual network to an ExpressRoute circuit.
 
@@ -135,9 +133,9 @@ You can do the following with no downtime:
 
 - Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
 
-- Increase the bandwidth of your ExpressRoute circuit. **Note** Downgrading the bandwidth of a circuit is upt supported. 
+- Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported. 
 
-- Change the metering plan from Metered Data to Unlimited Data. **Note** Changing metering plan from Unlimited Data to Metered Data is not supported. 
+- Change the metering plan from Metered Data to Unlimited Data. Note that changing metering plan from Unlimited Data to Metered Data is not supported. 
 
 -  You can enable and disable "Allow Classic Operations" 
 
