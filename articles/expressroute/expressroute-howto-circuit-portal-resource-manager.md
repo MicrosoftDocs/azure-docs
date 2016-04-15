@@ -39,7 +39,7 @@ This article describes how to create an Azure ExpressRoute circuit by using the 
 
 ## Create and provision an ExpressRoute circuit
 
-### 1. Sign in to the Azure portal.
+### 1. Sign in to the Azure portal
 
 From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign in with your Azure account.
 
@@ -78,6 +78,8 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
 ### 4. Send the service key to your connectivity provider for provisioning
 
+On this blade, Provider Status provides information on the current state of provisioning on the service provider side, and Circuit Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article. 
+
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
 
@@ -87,7 +89,7 @@ Circuit status	: Enabled
 ![](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
 
-Provider Status provides information on the current state of provisioning on the service provider side, and Circuit Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article. 
+
 
 The circuit will change to the following state when the connectivity provider is in the process of enabling it for you:
 
