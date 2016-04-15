@@ -27,10 +27,10 @@ The contoso dataset is approximately GB in size. The raw data is held in a azure
 
 In this tutorial you will:
 
-1) Configure PolyBase for loading from a public blob storage container
-2) Import the data using [CTAS][]
-3) [REBUILD][] the tables to ensure the columnstore indexes are optimised
-4) Create statistics on key columns
+1. Configure PolyBase for loading from a public blob storage container
+2. Import the data using [CTAS][]
+3. [REBUILD][] the tables to ensure the columnstore indexes are optimised
+4. Create statistics on key columns
 
 ## Configuring PolyBase
 
