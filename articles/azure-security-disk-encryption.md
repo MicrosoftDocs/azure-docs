@@ -604,7 +604,7 @@ ARM template parameters details for disabling encryption on running Windows IaaS
 
 ##### Disable encryption on existing/running IaaS Windows in Azure using PS cmdlet
 
-To disable using the PS cmdlet, [Disable-AzureRmVMDiskEncryption](https://msdn.microsoft.com/en-us/library/azure/mt715776.aspx) cmdlet disables encryption on an infrastructure as a service (IaaS) virtual machine. This cmdlet is only supported on Windows virtual machines and not Linux virtual machines. This cmdlet installs an extension on the virtual machine to disable encryption. If the Name parameter is not specified, an extension with the default name "AzureDiskEncryption for Windows VMs" is created. 
+To disable using the PS cmdlet, [Disable-AzureRmVMDiskEncryption](https://msdn.microsoft.com/library/azure/mt715776.aspx) cmdlet disables encryption on an infrastructure as a service (IaaS) virtual machine. This cmdlet is only supported on Windows virtual machines and not Linux virtual machines. This cmdlet installs an extension on the virtual machine to disable encryption. If the Name parameter is not specified, an extension with the default name "AzureDiskEncryption for Windows VMs" is created. 
 
 **Note**: This cmdlet reboots the virtual machine. 
 
