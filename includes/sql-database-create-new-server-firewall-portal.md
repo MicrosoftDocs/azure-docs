@@ -6,6 +6,7 @@ Latest Freshness check:  2016-04-11 , carlrab.
 
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
+articles/sql-database/sql-database-configure-firewall-settings
 
 -->
 ## Create a new Aure SQL Database server-level firewall
