@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="04/14/2016" 
 	ms.author="sstein"/>
 
 
@@ -243,3 +243,4 @@ For more information, see [EntityClient Provider for the Entity Framework](http:
 
 Now that you have learned the basics of connecting to SQL Database, see [Development: How-to Topics (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
+
