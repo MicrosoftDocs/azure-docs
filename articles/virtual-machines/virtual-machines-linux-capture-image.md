@@ -178,7 +178,7 @@ If you want the network set up automatically when you create a VM from the image
 
 ## Use the azure vm create command
 
-You'll generally want to use a Resource Manager template to create a VM from the image. However, you can create the VM _imperatively_ by using the **azure vm create** command with the **-Q** (**--image-urn**) parameter. You'll also pass the **-d** (**--os-disk-vhd**) parameter to specify the location of the OS .vhd file for the new VM. This must be in the vhds container of the storage account where the image VHD file is stored. The command will copy the VHD autoamtically.
+You'll generally want to use a Resource Manager template to create a VM from the image. However, you can create the VM _imperatively_ by using the **azure vm create** command with the **-Q** (**--image-urn**) parameter. You'll also pass the **-d** (**--os-disk-vhd**) parameter to specify the location of the OS .vhd file for the new VM. This must be in the vhds container of the storage account where the image VHD file is stored. The command will copy the VHD automatically.
 
 Do the following before running **azure vm create** with the image:
 
@@ -187,7 +187,7 @@ Do the following before running **azure vm create** with the image:
 2.	Create a public IP address resource and a NIC resource for the new VM. For steps to create a virtual network, public IP address, and NIC by using the CLI, see earlier in this article. (**azure vm create** can also create a new NIC but you will need to pass additional parameters for a virtual network and subnet.)
 
 
-Then run a command similar to the following, passing URIs to both the existing image (similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`) and the new OS VHD file.
+Then run a command similar to the following, passing URIs to both the existing image and the new OS VHD file.
 
 	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -d "https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/vhds/<your-new-VM-prefix>.vhd" -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
 
