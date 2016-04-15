@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to activate and deactivate a role | Microsoft Azure"
+   pageTitle="How to activate or deactivate a role | Microsoft Azure"
    description="Learn how to activate roles for privileged identities with the Azure Privileged Identity Management application."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/13/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
-# How to activate and deactivate roles in Azure AD Privileged Identity Management
+# How to activate or deactivate roles in Azure AD Privileged Identity Management
 
 Azure Active Directory (AD) Privileged Identity Management simplifies how enterprises manage privileged identities and access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.  
 
@@ -34,7 +34,7 @@ Use the Azure AD Privileged Identity Management application in the [Azure portal
 3. Click the **New** icon in the left navigation.
 4. Select **Security + Identity** from the Create menu.
 5. Select **Azure AD Privileged Identity Management**.
-6. Leave **Pin to dashboard** checked and then click the **Create** button. The Privileged Identity Management application will open.
+6. Check **Pin to dashboard** and then click the **Create** button. The Privileged Identity Management application will open.
 
 ## Activate a role
 
