@@ -35,7 +35,7 @@ These terms are used in [Adding a shard using Elastic Database tools](sql-databa
 
 **Multi-shard query**: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **data dependent routing**.
 
-**Multi-tenant** and **Single-tenant**: Shown here is a simple single-tenant database and a multi-tenant database:
+**Multi-tenant** and **Single-tenant**: This shows a single-tenant database and a multi-tenant database:
 
 ![Single and multi-tenant databases](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
 
