@@ -92,6 +92,7 @@ The easiest way to resolve this is to set the `OPENSSL_CONF` environment variabl
 
 1.	Follow one of the set of instructions above to be able to run `openssl.exe`
 2.	Type in the following command:
+
   ```
   openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
   ```
