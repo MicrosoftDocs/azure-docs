@@ -128,16 +128,19 @@ One useful tool that comes with HPC Pack is the clusrun utility. This command li
 In an elevated command windows on the HeadNode run the following commands.
 
 To create the mount directory.
+
 ```
     clusrun /nodegroup:LinuxNodes mkdir -p /hpcdata
 ```
 
 To mount the Azure File Share
+
 ```
     clusrun /nodegroup:LinuxNodes mount -t cifs //<saname>.file.core.windows.net/<sharename> /hpcdata -o vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777
 ```
 
 To persist the mount share
+
 ```
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
@@ -176,6 +179,7 @@ On the HeadNode, in the **/hpcdata** azure file share, create a shell script nam
     echo "*               soft    memlock         unlimited" >> /etc/security/limits.conf
 ```
 Now, to setup StarCCM+ on all your Linux compute nodes, open an elevated command window and run the following command
+
 ```
     clusrun /nodegroup:LinuxNodes bash /hpcdata/setupstarccm.sh
 ```
@@ -305,6 +309,7 @@ Finally, to start a job, make sure that your nodes are up and running and are on
 
 ## Stopping Nodes
 Later on, once you are done with your tests, to stop and start nodes you can use the following HPC Pack powershell commands :
+
 ```
     Stop-HPCIaaSNode.ps1 -Name <prefix>-00*
     Start-HPCIaaSNode.ps1 -Name <prefix>-00*
