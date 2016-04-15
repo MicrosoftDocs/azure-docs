@@ -326,7 +326,7 @@ Your circuit will have been sized up on the Microsoft side. You must contact you
 
 >[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then re-provision a new ExpressRoute circuit.
 
-##  To delete and deprovision an ExpressRoute circuit
+##  Deleting and deprovisiong an ExpressRoute circuit
 
 You can delete your ExpressRoute circuit by running the following command:
 
