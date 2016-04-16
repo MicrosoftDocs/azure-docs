@@ -139,14 +139,12 @@ The example above creates:
 - a virtual Network Interface Card (NIC) to associate the VM with the network
 - a public IP address and subdomain prefix to provide an internet address for external use and then creates the Linux VM inside that environment.
 
-
-
 ## Next Steps
 
-Now you've created a Linux VM quickly to use for testing or demonstration purposes. You can create a more secure execution environment with a Linux VM in Azure by:
+Now you've created a Linux VM quickly to use for testing or demonstration purposes. To create a Linux VM customized for your infrastructure you can follow any of the articles below.
 
-- [Create a Linux VM in Azure using Azure Templates](virtual-machines-linux-cli-deploy-templates.md)
-- [Create an SSH-Secured Linux VM in Azure using Azure Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Create a Linux VM in Azure using the Azure CLI and customizing the infrastructure](virtual-machines-linux-create-cli-complete.md)
+- [Create a Linux VM on Azure using Templates](virtual-machines-linux-cli-deploy-templates.md)
+- [Create a SSH Secured Linux VM on Azure using Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Create a Linux VM using the Azure CLI](virtual-machines-linux-create-cli-complete.md)
 
-as well as any number of proprietary and open-source infrastructure deployment, configuration, and orchestration tools.
+Those articles will get you started in building an Azure infrastructure as well as any number of proprietary and open-source infrastructure deployment, configuration, and orchestration tools.
