@@ -36,7 +36,7 @@ See [How to attach a data disk to a Windows virtual machine](virtual-machines-wi
 
 ## Log on to the virtual machine
 
-Next, you'll [log on to the virtual machine](virtual-machines-windows-classic-connect-logon) so you can install MySQL.
+Next, you'll [log on to the virtual machine](virtual-machines-windows-classic-connect-logon.md) so you can install MySQL.
 
 ##Install and run MySQL Community Server on the virtual machine
 
