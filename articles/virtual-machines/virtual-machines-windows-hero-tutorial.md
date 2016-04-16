@@ -30,7 +30,7 @@ Here's a [video walkthrough](https://channel9.msdn.com/Blogs/Azure-Documentation
 
 ## Select the Windows 2012 R2 virtual machine image from the marketplace
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the Hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
 
@@ -72,23 +72,22 @@ After you select the image, you can use Azure's default settings for most of the
 
 8. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu. 
 
-## Log on to the Windows virtual machine
 
-After you create the virtual machine, you'll want to log on to it so you can manage the settings and applications that will run on it.
+## Connect to the virtual machine
 
-1. Click your virtual machine on the dashboard or click on Virtual Machines and select it from the list.
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
 
-2. On the virtual machine blade, click **Connect**.
+2.	On the Hub menu, click **Virtual Machines**.
 
-	![Screenshot that shows where you find the Connect button on the Azure VM blade](./media/virtual-machines-windows-hero-tutorial/connect_vm_portal.png)
+3.	Select the virtual machine from the list.
 
-3. Click **Open** to use the Remote Desktop Protocol file that's automatically created for the Windows Server virtual machine.
+4. On the blade for the virtual machine, click **Connect**.
 
-4. Click **Connect**.
+	![Screenshot of the Azure portal showing how to connect to your VM.](./media/virtual-machines-windows-connect-logon/preview-portal-connect.png)
 
-5. Type the user name and password you set when you created the virtual machine, and then click **OK**.
+## Log on to the virtual machine
 
-6. Click **Yes** to verify the identity of the virtual machine.
+[AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 If you run into trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
