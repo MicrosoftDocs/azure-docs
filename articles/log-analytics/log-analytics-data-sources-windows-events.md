@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2016"
+   ms.date="04/15/2016"
    ms.author="bwren" />
 
 # Windows event logs in Log Analytics
@@ -70,5 +70,5 @@ The following table provides different examples of log queries that retrieve Win
 ## Next steps
 
 - Learn about log searches to analyze the data collected from data sources and solutions. 
-- Use [Custom Fields](log-analytics-custom-fields.md) to parse the event records into individual fields.
+- Use Custom Fields to parse the event records into individual fields.
 - Configure [collection of performance counters](log-analytics-data-sources-windows-performance-counters.md) from your Windows agents.

@@ -12,14 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2016"
+   ms.date="04/15/2016"
    ms.author="bwren" />
+
+# Windows performance counters in Log Analytics
 
 Performance counters in Windows provide with insight in the performance of hardware components, operating systems, and applications.  Log Analytics can collect Windows performance counters at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
 
 ![Windows Performance counters](media/log-analytics-data-sources-windows-performance-counters/overview.png)
 
-# Configuring Windows Performance counters
+## Configuring Windows Performance counters
 
 When you first configure Windows Performance counters for a new OMS workspace, you will be given the option to quickly create several common counters.  They will listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
@@ -33,14 +35,14 @@ Follow this procedure to add a new performance counter to collect.
 4. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
 
 
-# Data collection
+## Data collection
 
 Log Analytics will collect all specified performance counters at their specified sample interval on all Windows agents that have that counter installed.  Raw data will be available for 14 days in the expanded graph view in the OMS console.  
 
 All collected performance data is aggregated at 30 minute intervals.  The aggregated data is available in all log search views for the duration specified by your OMS subscription.
 
 
-# Windows Performance record properties
+## Windows Performance record properties
 
 Windows Performance records are created from performance data aggregated over 30 minute intervals.  The value for the record is the average value of the counter fore the previous 30 minutes.  Records are not created for raw NRT data.  The raw data is only available in the **Metrics** view of the OMS console.
 
@@ -57,13 +59,13 @@ Windows Performance records have a type of **Perf** and have the [standard prope
 
 
 
-# Sizing estimates
+## Sizing estimates
 
  A rough estimate for collection of a particular counter at 10 second intervals is about 1 MB per day per instance.  You can estimate the storage requirements of a particular counter with the following formula.
 
 	1 MB x (number of counters) x (number of agents) x (number of instances)
 
-# Log queries with Windows Performance records
+## Log queries with Windows Performance records
 
 The record type for a Windows Performance counter record is **Perf**.  The following table provides different examples of log queries that retrieve Windows Perf records.
 
