@@ -20,7 +20,7 @@
 
 We recommend that you require multi-factor authentication (MFA) for all of your administrators, and that all current and candidate administrators register for MFA. This reduces the risk of an attack due to a compromised password.
 
-You can require that users complete an MFA challenge when they sign in. The blog post [MFA for Office 365 and MFA for Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) compares what is included in Office and Azure subscriptions, with the features contained in the Windows Azure Multi-Factor Authentication offering.
+You can require that users complete an MFA challenge when they sign in. The blog post [MFA for Office 365 and MFA for Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) compares what is included in Office and Azure subscriptions, with the features contained in the Microsoft Azure Multi-Factor Authentication offering.
 
 You can also require that users complete an MFA challenge when they activate a role in Azure AD PIM. This way, if the user didn't complete an MFA challenge when they signed in, they will be prompted to do so by PIM.
 
