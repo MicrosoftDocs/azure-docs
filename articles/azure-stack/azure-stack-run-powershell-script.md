@@ -67,8 +67,10 @@ To deploy the Azure Stack POC, you'll first need to [prepare the deployment mach
 13. Verify network connectivity to Azure.com.
 
 > [AZURE.IMPORTANT] The TP1 POC deployment supports exactly four drives for the storage features and only one NIC for networking.
->   - For storage, use device manager or WMI to disable all other drives (taking the disks offline through disk manager is not enough).
->   - For network, if you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script below.
+>
+> - **For storage**, use device manager or WMI to disable all other drives (taking the disks offline through disk manager is not enough).
+>
+> - **For network**, if you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script below.
 >
 > If you used the VHD boot steps defined above, you’ll need to make these updates after booting into the VHD and before starting the deployment script.
 
