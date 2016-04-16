@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Spark Job Server on Azure HDInsight clusters (Windows)
+# Spark Job Server for Azure HDInsight Windows clusters (Preview)
 
 > [AZURE.NOTE] HDInsight now provides Spark clusters on Linux, which uses Livy to submit jobs remotely to a Spark cluster. For information on how to use Livy with HDInsight Spark clusters on Linux, see [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
 
