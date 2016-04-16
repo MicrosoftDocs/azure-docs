@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/06/2016"
+	ms.date="04/13/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # What is Azure Backup?
@@ -83,6 +83,30 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | Azure IaaS VM Backup | In Public Preview | In Public Preview - Linux VMs in Resource Manager deployment model <br>(File system level consistency)<br><br>Yes for Linux VMs in classic deployment model |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
+
+## Back up and Restore Premium Storage VMs
+
+The Azure Backup service now protects Premium Storage VMs.
+
+### Back up Premium Storage VMs
+
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM.
+
+>[AZURE.NOTE] Do not modify or edit the staging location.
+
+Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
+
+### Restore Premium Storage VMs
+
+Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
+
+The steps to restore a Premium Storage VM recovery point to Premium Storage are:
+
+1. [Restore the VM recovery point to standard storage.](backup-azure-restore-vms.md)
+2. [Copy the disks to premium storage.](../storage/storage-use-azcopy.md)
+3. [Create the Azure IaaS VM.](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+
 
 ## Functionality
 These five tables summarize how backup functionality is handled in each component.

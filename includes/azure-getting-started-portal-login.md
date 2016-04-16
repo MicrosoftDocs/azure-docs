@@ -23,11 +23,11 @@ If you do not have an existing Microsoft Azure account, follow one of the links 
 
 Using your [existing subscription]( https://account.windowsazure.com/Home/Index), follow the steps below to connect to the Azure portal. 
 
-1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
+1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. When the sign in page appear, provide the credentials for your subscription
+1. When the sign in page appears, provide the credentials for your subscription
 
    ![sign in](./media/azure-getting-started-portal-login/login.png)
    

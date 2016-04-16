@@ -3,7 +3,7 @@
    description="Learn about SQL Data Warehouse downlevel clients support for data auditing"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="twounder"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="03/03/2016" 
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL Data Warehouse -  Downlevel clients support for auditing and Dynamic Data Masking
 
