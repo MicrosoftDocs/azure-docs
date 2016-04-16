@@ -73,7 +73,7 @@ After you select the image, you can use Azure's default settings for most of the
 8. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu. 
 
 
-## Connect to the virtual machine
+## Connect to the virtual machine and log on
 
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -85,7 +85,6 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot of the Azure portal showing how to connect to your VM.](./media/virtual-machines-windows-connect-logon/preview-portal-connect.png)
 
-## Log on to the virtual machine
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
