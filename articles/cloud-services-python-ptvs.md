@@ -3,7 +3,7 @@
 	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles."
 	services="cloud-services"
 	documentationCenter="python"
-	authors="adegeo"
+	authors="thraka"
 	manager="wpickett"
 	editor=""/>
 
