@@ -13,7 +13,7 @@ In this section we will write a C app to send events to your Event Hub. We will 
 3. Download the [Qpid Proton library](http://qpid.apache.org/proton/index.html) library, and extract it, e.g.:
 
 	```
-	wget http://apache.fastbull.org/qpid/proton/0.7/qpid-proton-0.7.tar.gz
+	wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
 	tar xvfz qpid-proton-0.7.tar.gz
 	```
 
