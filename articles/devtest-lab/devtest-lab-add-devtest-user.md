@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="04/18/2016"
 	ms.author="tarcher"/>
 
 # Add owners and users to a DevTest Lab
@@ -27,8 +27,6 @@ Access to a DevTest Lab is controlled by Azure Role-Based Access Control (RBAC).
 You grant access to your DevTest Lab through two roles:
 
  - **Owner**: Users assigned to the **owner** role at the Azure subscription level have complete access to the lab, including management and monitoring functions.
-
-     > [AZURE.NOTE] **Owner** roles that are assigned at RBAC levels other than the subscription level are not supported in DevTest Lab. Assigning a user to the **Owner** role in the DevTest Lab is not supported.
 
  -  **DevTest Lab User**: Users assigned to the **DevTest Lab User** role can create, update, and delete VMs in the specified lab. Users can be either *internal* (a member of the Azure Active Directory for the subscription), or *external* (a user who is not a member of the Azure AD, such as a member of a partner organization).
 	-  A **DevTest Lab User** role must be assigned through the **Add Users** tiles of the lab.
