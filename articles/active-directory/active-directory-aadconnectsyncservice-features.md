@@ -55,12 +55,12 @@ When this feature is enabled, soft-match will be applied on UPN as well as the [
 
 Enabling this feature is particularly useful if you need to match on-premises AD accounts with existing accounts created in the cloud and you are not using Exchange Online. In this scenario, you generally don’t have a reason to set the SMTP attribute in the cloud.
 
-This feature is on by default for newly created Azure AD directories. You can see if this is enabled for you by running:
+This feature is on by default for newly created Azure AD directories. You can see if this is enabled for you by running:  
 ```
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
-If this feature is not enabled for your Azure AD directory, then you can enable it by running:
+If this feature is not enabled for your Azure AD directory, then you can enable it by running:  
 ```
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
@@ -75,11 +75,11 @@ For more details, see [User names in Office 365, Azure, or Intune don't match th
 
 Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises, unless if you use federated domains.
 
-This feature is on by default for newly created Azure AD directories. You can see if this is enabled for you by running:
+This feature is on by default for newly created Azure AD directories. You can see if this is enabled for you by running:  
 ```
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
-If this feature is not enabled for your Azure AD directory, then you can enable it by running:
+If this feature is not enabled for your Azure AD directory, then you can enable it by running:  
 ```
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
