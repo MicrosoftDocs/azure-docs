@@ -25,7 +25,7 @@
 
 
 
-This article will help you link virtual networks to ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription.
+This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription.
 
 **About Azure deployment models**
 
@@ -122,7 +122,7 @@ The circuit owner can revoke/delete authorizations to the user by running the fo
 
 ### Circuit user operations
 
-The circuit user needs the peer ID and an authorization key from the circuit owner. The circuit key looks similar to the one listed below:
+The circuit user needs the peer ID and an authorization key from the circuit owner. The circuit key looks similar to the one listed below.
 
 The authorization key is a GUID.
 
