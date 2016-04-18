@@ -28,7 +28,7 @@ preconfigured to run containerized applications. It uses an optimized configurat
 ![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
 <br /><br />
 
-Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and Mesosphere DC/OS or Docker Swarm so that you can scale these applications to thousands of containers, or even tens of thousands.
+Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and DC/OS or Docker Swarm so that you can scale these applications to thousands of containers, or even tens of thousands.
 
 By using Azure Container Service, you can take advantage of the
 enterprise-grade features of Azure, while still maintaining application portability--including portability at the orchestration layers.
@@ -37,21 +37,21 @@ Using Azure Container Service
 -----------------------------
 
 Our goal with Azure Container Service is to provide a container
-hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator. By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For Mesosphere DC/OS, you might choose to use the DCOS CLI.
+hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator. By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For DC/OS, you might choose to use the DCOS CLI.
 
 Creating a Docker cluster by using Azure Container Service
 -------------------------------------------------------
 
-To begin using Azure Container Service, you deploy an Azure Container Service cluster by using an Azure Resource Manager template. You can configure this deployment with different size and availability options, by using either Mesosphere DC/OS or Docker Swarm. You can deploy Azure Resource Manager templates through the Azure portal by using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](./container-service-deployment.md).
+To begin using Azure Container Service, you deploy an Azure Container Service cluster by using an Azure Resource Manager template. You can configure this deployment with different size and availability options, by using either DC/OS or Docker Swarm. You can deploy Azure Resource Manager templates through the Azure portal by using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](./container-service-deployment.md).
 
 Deploying an application
 ------------------------
 
-Azure Container Service provides a choice of either Docker Swarm or Mesosphere DC/OS for orchestration.
+Azure Container Service provides a choice of either Docker Swarm or DC/OS for orchestration.
 
-### Using Mesosphere DC/OS
+### Using DC/OS
 
-Mesosphere DC/OS is an open-source project that is housed at the Apache Software
+DC/OS is an open-source project that is housed at the Apache Software
 Foundation. It lists some of the [biggest names in
 IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as
 users and contributors.
@@ -98,7 +98,7 @@ serves the standard Docker API, any tool that already communicates with
 a Docker daemon can use Swarm to transparently scale to multiple hosts
 on Azure Container Service.
 
-![Azure Container Service configured to use Mesosphere DC/OS--showing jumpbox, agents, and masters.](media/acs-intro/acs-swarm2.png)
+![Azure Container Service configured to use DC/OS--showing jumpbox, agents, and masters.](media/acs-intro/acs-swarm2.png)
 
 Supported tools for managing containers on a Swarm cluster include, but are not limited
 to, the following:

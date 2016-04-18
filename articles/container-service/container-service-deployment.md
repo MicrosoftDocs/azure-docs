@@ -20,7 +20,7 @@
 
 # Deploy an Azure Container Service cluster
 
-Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. By using Azure Container Service, you can deploy Mesosphere DC/OS and Docker Swarm clusters with Azure Resource Manager templates or the Azure portal. You deploy these clusters by using Azure Virtual Machine Scale Sets--and the clusters take advantage of Azure networking and storage offerings. To access Azure Container Service, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. By using Azure Container Service, you can deploy DC/OS and Docker Swarm clusters with Azure Resource Manager templates or the Azure portal. You deploy these clusters by using Azure Virtual Machine Scale Sets--and the clusters take advantage of Azure networking and storage offerings. To access Azure Container Service, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 This document walks you through deploying an Azure Container Service cluster by using the [Azure portal](#creating-a-service-using-the-azure-portal), the [Azure command-line interface (CLI)](#creating-a-service-using-the-azure-cli), and the [Azure PowerShell module](#creating-a-service-using-powershell).  
 
@@ -48,7 +48,7 @@ Click **OK** when ready to proceed.
 
 Select an Orchestration type. The options are:
 
-- DC/OS – deploys an Mesosphere DC/OS cluster.
+- DC/OS – deploys a DC/OS cluster.
 - Swarm – deploys a Docker Swarm cluster.
 
 Click **OK** when ready to proceed.
@@ -84,7 +84,7 @@ When the deployment has completed, the Azure Container Service cluster is ready 
 
 To create an instance of Azure Container Service by using the command line, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). You also need to have installed and configured the Azure CLI.
 
-To deploy a Mesosphere DC/OS or Docker Swarm cluster, select one of the following templates from GitHub. Note that both of these templates are the same, with the exception of the default orchestrator selection.
+To deploy a DC/OS or Docker Swarm cluster, select one of the following templates from GitHub. Note that both of these templates are the same, with the exception of the default orchestrator selection.
 
 * [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -144,7 +144,7 @@ To see an example parameters file named `azuredeploy.parameters.json`, look for 
 
 You can also deploy an Azure Container Service cluster with PowerShell. This document is based on the version 1.0 [Azure PowerShell module](https://azure.microsoft.com/blog/azps-1-0/).
 
-To deploy a Mesosphere DC/OS or Docker Swarm cluster, select one of the following templates. Note that both of these templates are the same, with the exception of the default orchestrator selection.
+To deploy a DC/OS or Docker Swarm cluster, select one of the following templates. Note that both of these templates are the same, with the exception of the default orchestrator selection.
 
 * [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)

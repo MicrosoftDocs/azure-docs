@@ -21,7 +21,7 @@
 
 # Connect to an Azure Container Service cluster
 
-The Mesosphere DC/OS and Swarm clusters that are deployed by Azure Container Service expose REST endpoints. However, these endpoints are not open to the outside world. In order to manage these endpoints, you must create a Secure Shell (SSH) tunnel. Once an SSH tunnel has been established, you can run commands against the cluster endpoints and view the cluster UI through a browser on your own system. This document walks you through creating an SSH tunnel from Linux, OS X, and Windows.
+The DC/OS and Swarm clusters that are deployed by Azure Container Service expose REST endpoints. However, these endpoints are not open to the outside world. In order to manage these endpoints, you must create a Secure Shell (SSH) tunnel. Once an SSH tunnel has been established, you can run commands against the cluster endpoints and view the cluster UI through a browser on your own system. This document walks you through creating an SSH tunnel from Linux, OS X, and Windows.
 
 >[AZURE.NOTE] You can create an SSH session with a cluster management system. However, we don't recommend this. Working directly on a management system exposes the risk for inadvertent configuration changes.   
 
@@ -34,7 +34,7 @@ The first thing that you do when you create an SSH tunnel on Linux or OS X is to
 
 Now open a shell and run the following command where:
 
-**PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For Mesosphere DC/OS, use port 80.   
+**PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For DC/OS, use port 80.   
 **USERNAME** is the user name that was provided when you deployed the cluster.  
 **DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
 **REGION** is the region in which your resource group is located.  
