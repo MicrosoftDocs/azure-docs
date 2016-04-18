@@ -118,4 +118,3 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 ## Next steps:
 
 [Read more about Docker Swarm](https://docs.docker.com/swarm/).
-
