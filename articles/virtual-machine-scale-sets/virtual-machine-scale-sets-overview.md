@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="04/14/2016"
 	ms.author="guybo"/>
 
 # Virtual Machine Scale Sets Overview
@@ -132,7 +132,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 			"caching": "ReadOnly",
 			"createOption": "FromImage",
 			"image": {
-				"uri": [https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd](https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd)
+				"uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
 			},
 			"osType": "Windows"
 		}

@@ -3,7 +3,7 @@
    description="How to create and configure the HTTP listener and use it in a logic app in Azure App Service"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
+   authors="jeffhollan"
    manager="dwrede"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/17/2016"
-   ms.author="stepsic"/>
+   ms.date="04/05/2016"
+   ms.author="jehollan"/>
 
 
 # Logic apps as callable endpoints
@@ -46,7 +46,11 @@ This will create an endpoint that you can call at a URL that is like:
 https://prod-03.brazilsouth.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
 ```
 
-You can get this endpoint in the user interface, or, by calling:
+You can get this endpoint in the user interface here:
+
+![][1]
+
+Or, by calling:
 
 ```
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
@@ -56,6 +60,32 @@ POST https://management.azure.com/{resourceID of your logic app}/triggers/myendp
 Once you have the endpoint of your trigger, you can save that in your backend system and call it via a `POST` to the full URL. You can include additional query parameters, headers, and any content in your body.
 
 If the content-type is `application/json` then you will be able to reference properties from inside the request. Otherwise, it will be treated as a single Binary unit that can be passed to other APIs but cannot be referenced inside.
+
+In addition, you can specify a JSON Schema in the definition so the designer will generate tokens you can pass into steps.  For example the following will make a `title` and `name` token available in the designer:
+
+```
+{
+    "manual": {
+        "inputs":{
+            "schema": {
+                "properties":{
+                    "title": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "name"
+                ],
+                "type": "object"
+            }
+        }
+    }
+}
+```
 
 ## Referencing the content of the incoming request
 The `@triggerOutputs()` function will output the contents of the incoming request. For example, it would look like:
@@ -126,3 +156,6 @@ This functionality is available through **API management**:
 | Configure relative path | via API management |
 | Reference the incoming Body via  `@triggerOutputs().body.Content` | Reference via `@triggerOutputs().body` |
 | **Send HTTP response** action on the HTTP Listener | Click on **Respond to HTTP request** (no API app required)
+
+
+[1]: ./media/app-service-logic-http-endpoint/manualtrigger.png

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="04/14/2016"
 	ms.author="andkjell"/>
 
 
@@ -54,6 +54,9 @@ If you want to see how to do an in-place upgrade from DirSync to Azure AD Connec
 ![in-place upgrade](./media/active-directory-aadconnect-dirsync-deprecated/inplaceupgrade.png)
 
 ## FAQ
+**Q: I have received an email notification from the Azure Team and/or a message from the Office 365 message center, but I am using Connect.**  
+The notification was also sent to customers using Azure AD Connect with a build number 1.0.\*.0 (using a pre-1.1 release). Microsoft recommends customers to stay current with Azure AD Connect releases. With 1.1 the [automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature will make it really easy to always have a recent version of Azure AD Connect installed.
+
 **Q: Will DirSync/Azure AD Sync stop working on April 13, 2017?**  
 No. The date for when these will no longer be able to communicate with Azure AD will be announced at a later date. You will be able to find that information in this topic when available.
 
