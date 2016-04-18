@@ -66,7 +66,7 @@ There are two ways to run Azure Functions: using a Dynamic App Service Plan and 
 
 In a **Dynamic App Service Plan**, you don't have to worry about resource management. Whenever your function is run, Azure will provide all of the necessary computational resources. You only pay for the time that your code spends running. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions).
 
-A **Classic App Service Plan** allows you to run functions just like your web, mobile, and API apps. Thiss is a great solution if you are already using App Service for other applications - your functions can run on the same plan for no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
+A **Classic App Service Plan** allows you to run functions just like your web, mobile, and API apps. This is a great solution if you are already using App Service for other applications - your functions can run on the same plan for no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
 
 ## Reporting Issues
 
