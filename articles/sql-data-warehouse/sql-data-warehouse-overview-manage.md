@@ -3,7 +3,7 @@
    description="Introduction to management tools for SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="HappyNicolle"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/03/2016"
-   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
+   ms.author="barbkess;sonyama;"/>
 
 # Management Tools for SQL Data Warehouse
 This topic explores and compares tools and options for managing SQL Data Warehouse, so you can pick the right tool for your needs. Choosing the right tool depends on how many databases you manage, the task, and how often a task is performed.

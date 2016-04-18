@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with sample"
-   description=""
+   description="Get started with Microsoft Power BI Embedded sample"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
