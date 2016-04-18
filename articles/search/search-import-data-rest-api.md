@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Data import in Azure Search using the REST API | Microsoft Azure | Hosted cloud search service"
-    description="How to upload data to an index in Azure Search using the REST API."
+    pageTitle="Data upload in Azure Search using the REST API | Microsoft Azure | Hosted cloud search service"
+    description="Learn how to upload data to an index in Azure Search using the REST API."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -14,19 +14,18 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
-# Import data to Azure Search using the REST API
+# Upload data to Azure Search using the REST API
 > [AZURE.SELECTOR]
 - [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
+This article will show you how to use the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to import data into an Azure Search index.
 
-This article will show you how to use the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to import data into an Azure Search index. Before beginning this walkthrough, you should already have [created an Azure Search index](search-create-index-rest-api.md).
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md).
 
 In order to push documents into your index using the REST API, you will issue an HTTP POST request to your index's URL endpoint. The body of the HTTP request body is a JSON object containing the documents to be added, modified, or deleted.
 
@@ -160,11 +159,11 @@ A status code of `207` will be returned when at least one item was not successfu
 A status code of `429` will be returned when you have exceeded your quota on the number of documents per index.
 
 #### 503
-A status code of `503` will be returned if none of the items in the request were successfully indexed. This error means that the system is under heavy load and your request can't be processed at this time. 
+A status code of `503` will be returned if none of the items in the request were successfully indexed. This error means that the system is under heavy load and your request can't be processed at this time.
 
 > [AZURE.NOTE] In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
 
 For more information on document actions and success/error responses, please see [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Next
-After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index using the REST API](search-query-rest-api.md) for details.
+After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index](search-query-overview.md) for details.

@@ -3,7 +3,7 @@
    description="Learn how to monitor your workload using DMVs."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,68 +13,41 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="03/28/2016"
+   ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitor your workload using DMVs
 
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload and investigate query execution in Azure SQL Data Warehouse.
 
-
-
 ## Monitor Connections
 
-You can use the *sys.dm_pdw_nodes_exec_connections* view to retrieve information about the connections established to your Azure SQL Data Warehouse database. In addition, the *sys.dm_exec_sessions* view is helpful when retrieving information about all active user connections.
+The view *sys.dm_pdw_exec_sessions* allows you to monitor connections to your Azure SQL Data Warehouse database.
 
+```sql
+SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
-
-SELECT * FROM sys.dm_pdw_nodes_exec_connections;
-SELECT * FROM sys.dm_pdw_nodes_exec_sessions;
-
-```
-
-
-Use the following query to retrieve the information on the current connection.
-
-```
-
-SELECT *
-FROM sys.dm_pdw_nodes_exec_connections AS c
-   JOIN sys.dm_pdw_nodes_exec_sessions AS s
-   ON c.session_id = s.session_id
-WHERE c.session_id = @@SPID;
-
-```
-
-
-
-
 
 ## Investigate Query Execution
-You might encounter situations where your query is not completing or is running longer than expected. In such cases you can use the following steps to collect data and narrow down the issue.
+To monitor query execution, start with *sys.dm_pdw_exec_requests*.  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is also assigned sequentially for each new query.  The session_id is also important to see all queries for a given logon.
 
-
+In the scenario where you would like to investigate query execution, here are some common steps to follow.
 
 ### STEP 1: Find the query to investigate
 
-```
-
+```sql
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the longest running queries
-SELECT * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
-
+-- Find the 10 longest running queries
+SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
-Save the Request ID of the query.
-
-
+Note the Request ID of the query.
 
 ### STEP 2: Check if the query is waiting for resources
 
-```
-
+```sql
 -- Find waiting tasks for your session.
 -- Replace request_id with value from Step 1.
 
@@ -92,23 +65,18 @@ FROM   sys.dm_pdw_waits waits
    ON waits.request_id=requests.request_id
 WHERE waits.request_id = 'QID33188'
 ORDER BY waits.object_name, waits.object_type, waits.state;
-
 ```
 
-
-The results of the above query will show you the wait state of your request.
+The results of the above query will show you the wait state of your query.
 
 - If the query is waiting on resources from another query, then the state will be **AcquireResources**.
 - If the query has all the required resources and is not waiting, then the state will be **Granted**. In this case, proceed to look at the query steps.
-
-
-
 
 ### STEP 3: Find the longest running step of the query
 
 Use the Request ID to retrieve a list of all the distributed query steps. Find the long-running step by looking at the total elapsed time.
 
-```
+```sql
 
 -- Find the distributed query plan steps for a specific query.
 -- Replace request_id with value from Step 1.
@@ -116,7 +84,6 @@ Use the Request ID to retrieve a list of all the distributed query steps. Find t
 SELECT * FROM sys.dm_pdw_request_steps
 WHERE request_id = 'QID33209'
 ORDER BY step_index;
-
 ```
 
 Save the Step Index of the long-running step.
@@ -126,28 +93,22 @@ Check the *operation_type* column of the long-running query step:
 - Proceed with Step 4a for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
 - Proceed with Step 4b for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-
-
-
 ### STEP 4a: Find the execution progress of a SQL Step
 
 Use the Request ID and the Step Index to retrieve information about the SQL Server query distribution as a part of the SQL Step in the query. Save the Distribution ID and SPID.
 
-```
-
+```sql
 -- Find the distribution run times for a SQL step.
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID33209' AND step_index = 2;
-
 ```
 
 
-Use the following query to retrieve the SQL Server execution plan for the SQL Step on a particular node.
+If the query is currently running, following query can be used to retrieve the SQL Server execution plan for the currently running SQL Step for a particular distribution.
 
-```
-
+```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
@@ -155,14 +116,11 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ```
 
-
-
 ### STEP 4b: Find the execution progress of a DMS Step
 
 Use the Request ID and the Step Index to retrieve information about the Data Movement Step running on each distribution.
 
-```
-
+```sql
 -- Find the information about all the workers completing a Data Movement Step.
 -- Replace request_id and step_index with values from Step 1 and 3.
 
@@ -174,24 +132,15 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 - Check the *total_elapsed_time* column to see if a particular distribution is taking significantly longer than others for data movement.
 - For the long-running distribution, check the *rows_processed* column to see if the number of rows being moved from that distribution is significantly larger than others. This shows that your query has data skew.
 
-
-
-
-
 ## Investigate Data Skew
 
-```
-
+```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
-
 ```
-
 
 The result of this query will show you the number of table rows that are stored in each of the 60 distributions of your database. For optimal performance, the rows in your distributed table should be spread evenly across all the distributions.
 To learn more, see [table design][].
-
-
 
 ## Next steps
 For more tips on managing your SQL Data Warehouse, see [manage overview][].

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/28/2016" 
 	ms.author="spelluru"/>
 
 
@@ -380,6 +380,8 @@ Once the resource group deployment has completed successfully, you will see the 
 	TemplateLink      :
 	Parameters        :
 	Outputs           :
+
+> [AZURE.NOTE] You can use the [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) REST API to create an alert rule. The JSON payload is similar to the JSON example given above.  
 
 #### Retrieving the list of Azure Resource Group Deployments
 To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: **Get-AzureRmResourceGroupDeployment**, as shown in the following example:

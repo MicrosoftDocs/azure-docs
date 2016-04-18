@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # Using PowerShell cmdlets and REST APIs with SQL Data Warehouse
@@ -26,19 +26,19 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 
 ## Get and run the Azure PowerShell cmdlets
 
-1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on this installer, see [How to install and configure Azure PowerShell][].
 2. To run the module, at the start window type **Windows PowerShell**.
-3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell]():
+3. Run this cmdlet to login to Azure Resource Manager.
 
-	```
-	Login-AzureRmAccount
-	```
+```PowerShell
+Login-AzureRmAccount
+```
 
 3. Select your subscription for the database you want to suspend or resume. This selects the subscription named "MySubscription".
 
-	```
-	Select-AzureRmSubscription -SubscriptionName "MySubscription"
-	```
+```Powershell
+Select-AzureRmSubscription -SubscriptionName "MySubscription"
+```
 
 ## Suspend-AzureRmSqlDatabase
 
@@ -48,7 +48,7 @@ For the command reference, see [Suspend-AzureRmSqlDatabase](https://msdn.microso
 
 This example pauses a database named "Database02" hosted on a server named "Server01." The server is in an Azure resource group named "ResourceGroup1."
 
-```
+```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
@@ -56,7 +56,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "
 
 This example retrieves a database named "Database02" from a server named "Server01" contained in a resource group named "ResourceGroup1." It pipes the retrieved object to **Suspend-AzureRmSqlDatabase**. As a result, the database is paused. The final command shows the results.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
@@ -70,7 +70,7 @@ For the command reference, see [Resume-AzureRmSqlDatabase](https://msdn.microsof
 
 This example resumes operation of a database named "Database02" hosted on a server named "Server01." The server is contained in a resource group named "ResourceGroup1."
 
-```
+```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
@@ -78,7 +78,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "S
 
 This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." The object is piped to **Resume-AzureRmSqlDatabase**.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
@@ -97,7 +97,7 @@ RestorePointCreationDate |Backup Snapshot Time (Populated when restorePointType 
 ### Example 1: Retrieving a database’s restore points by name on a server
 This example retrieves the restore points for a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."
 
-```
+```Powershell
 $restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints
 ```
@@ -107,7 +107,7 @@ $restorePoints
 
 This example retrieves a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1." The database object is piped to **Get-AzureRmSqlDatabase**, and the result is the database’s restore points. The final command prints the results.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints = $database | Get-AzureRmSqlDatabaseRestorePoints
 $retorePoints

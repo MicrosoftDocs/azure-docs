@@ -149,7 +149,6 @@ You need to open some outgoing ports in your server's firewall to allow Status M
  +	`dc.services.visualstudio.com:80`
  +	`dc.services.visualstudio.com:443`
  +	`dc.applicationinsights.microsoft.com`
- +	`dc.services.vsallin.net:443` 
 + Configuration - needed only when making changes:
  -	`management.core.windows.net:443`
  -	`management.azure.com:443`

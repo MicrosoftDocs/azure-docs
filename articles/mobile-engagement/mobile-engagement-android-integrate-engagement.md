@@ -129,8 +129,6 @@ In order to activate the report of all the logs required by Engagement to comput
 
 > [AZURE.IMPORTANT] When using `EngagementListActivity` or `EngagementExpandableListActivity`, make sure any call to `requestWindowFeature(...);` is made before the call to `super.onCreate(...);`, otherwise a crash will occur.
 
-We provide sub-classes of `FragmentActivity` and `MapActivity`, but to avoid problems with applications using **ProGuard**, we do not include them in `engagement.jar`.
-
 You can find these classes in the `src` folder, and can copy them into your project. The classes are also in the **JavaDoc**.
 
 ### Alternate method: call `startActivity()` and `endActivity()` manually

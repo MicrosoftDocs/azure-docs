@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016" 
+	ms.date="03/11/2016" 
 	ms.author="jeannt"/>
 
 # Analyzing Customer Churn by using Azure Machine Learning
@@ -177,9 +177,9 @@ The following table summarizes the performance of the algorithms:
 
 *Table 1. General performance (accuracy) of the algorithms*
 
-**LR**|	**BT**|	**AP**|	**SVM**|
---|--|--|--|
-Average Model|	The Best Model|	Underperforming|	Average Model
+| LR|BT|AP|SVM|
+|---|---|---|---|
+|Average Model|The Best Model|Underperforming|Average Model|
 
 The models hosted in Machine Learning Studio outperformed SAS by 15-25% for speed of execution, but accuracy was largely on par.  
 

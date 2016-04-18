@@ -170,7 +170,7 @@ If your client program connects to to Azure SQL Database by using the .NET Frame
 
 When you build the [connection string](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) for your **SqlConnection** object, you should coordinate the values among the following parameters:
 
-- ConnectRetryCount &nbsp;&nbsp;*(Default is 0. Range is 0 through 255.)*
+- ConnectRetryCount &nbsp;&nbsp;*(Default is 1. Range is 0 through 255.)*
 - ConnectRetryInterval &nbsp;&nbsp;*(Default is 1 second. Range is 1 through 60.)*
 - Connection Timeout &nbsp;&nbsp;*(Default is 15 seconds. Range is 0 through 2147483647)*
 

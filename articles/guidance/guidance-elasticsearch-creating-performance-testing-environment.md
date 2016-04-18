@@ -83,7 +83,7 @@ instead of creating a new one.
 
 ## Creating the JMeter Master Virtual Machine
 
-Next [create a Windows VM](../articles/virtual-machines-windows-tutorial/) using the 
+Next [create a Windows VM](../articles/virtual-machines-windows-hero-tutorial/) using the 
 *Windows Server 2008 R2 SP1* image.  We recommend selecting a VM size with sufficient cores and memory 
 to run the performance tests. Ideally this will be a machine with at least 2 cores and 3.5GB of RAM 
 (A2 Standard or bigger).

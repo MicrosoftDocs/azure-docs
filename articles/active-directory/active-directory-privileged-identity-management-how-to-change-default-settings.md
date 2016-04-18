@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management: How To Change or View the Default Settings for a Role"
+   pageTitle="How to change or view the default settings for a role | Microsoft Azure"
    description="Learn how to change the default settings for privileged identities with the Azure Active Directory Privileged Identity Management extension."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/10/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: How to change or view the default activation settings for a role

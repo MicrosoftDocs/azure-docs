@@ -326,7 +326,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [nsg]: ../virtual-network/virtual-networks-nsg.md
 [password-reset]: ../virtual-machines/virtual-machines-windows-reset-password.md
 [planned-maintenance]: ../virtual-machines/virtual-machines-planned-maintenance.md
-[premium-storage]: ../storage/storage-premium-storage-preview-portal.md
+[premium-storage]: ../storage/storage-premium-storage.md
 [rbac]: ../active-directory/role-based-access-control-configure.md
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
@@ -334,12 +334,12 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [resource-manager-overview]: ../resource-group-overview.md
 [security-center]: https://azure.microsoft.com/en-us/services/security-center/
 [security-extensions]: ../virtual-machines/virtual-machines-extensions-features.md#security-and-protection
-[select-vm-image]: ../virtual-machines/resource-groups-vm-searching.md
+[select-vm-image]: ../virtual-machines/virtual-machines-linux-cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [static-ip]: ../virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Use Security Center]: ../security-center/security-center-get-started.md#use-security-center
-[virtual-machine-sizes]: ../virtual-machines/virtual-machines-size-specs.md
+[virtual-machine-sizes]: ../virtual-machines/virtual-machines-linux-sizes.md
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-faq]: ../virtual-machines/virtual-machines-questions.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/

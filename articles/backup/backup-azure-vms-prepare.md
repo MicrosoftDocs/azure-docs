@@ -41,7 +41,7 @@ If you know these conditions already exist in your environment then proceed to t
 - Cross-region backup and restore is not supported.
 - Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 - Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
-  - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
+  - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 	- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 	- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -208,3 +208,4 @@ Now that you have prepared your environment for backing up your VM, your next lo
 - [Back up virtual machines](backup-azure-vms.md)
 - [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
 - [Manage virtual machine backups](backup-azure-manage-vms.md)
+

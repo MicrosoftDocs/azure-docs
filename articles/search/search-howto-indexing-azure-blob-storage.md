@@ -208,15 +208,15 @@ AzureSearch_SkipContent | "true" | Instructs the blob indexer to only index the 
 <a name="IndexerParametersConfigurationControl"></a>
 ## Using indexer parameters to control document extraction
 
-If you want to skip content extraction for all blobs, you can do this using indexer configuration object, instead of having to add custom metadata to each blob individually. To do this, set `SkipContent` configuration property to `true` in the `parameters` object: 
+If you need to extract metadata but skip content extraction for all blobs, you can request this behavior using the indexer configuration, instead of having to add `AzureSearch_SkipContent` metadata to each blob individually. To do this, set the `skipContent` configuration property to `true` in the `parameters` object: 
 
- 	PUT https://[service name].search.windows.net/indexers/<your indexer name>?api-version=2015-02-28-Preview
+ 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
 	api-key: [admin key]
 
 	{
 	  ... other parts of indexer definition
-	  "parameters" : { "configuration" : { "SkipContent" : true } }
+	  "parameters" : { "configuration" : { "skipContent" : true } }
 	}
 
 ## Help us make Azure Search better

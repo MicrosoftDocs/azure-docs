@@ -1,7 +1,7 @@
 =======
 Entity|Quota (Standard Offer)
 ---|---
-Database Accounts*|5
+Database Accounts*|50
 Number of databases per database account|100
 Number of users per database account – across all databases|500,000
 Number of permissions per database account – across all databases|2,000,000

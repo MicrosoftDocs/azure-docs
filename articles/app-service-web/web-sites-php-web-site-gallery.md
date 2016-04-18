@@ -3,7 +3,7 @@
 	description="Learn how to create a new Azure web app for a WordPress blog using the Azure Portal."
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # Create a WordPress web app in Azure App Service
 

@@ -108,7 +108,7 @@ The following diagram shows a high-level data flow for security data collection 
 
 ![][1]
 
-Azure Diagnostics moves logs from customer Cloud Services applications and [Azure Virtual Machines](virtual-machines-about.md) to Azure Storage. Based on a log format, some data is stored in Azure tables and some in blobs. Data that is collected in [Azure Storage](storage-introduction.md) can be downloaded to on-premises SIEM systems by using Azure Storage client library for monitoring and analysis.
+Azure Diagnostics moves logs from customer Cloud Services applications and [Azure Virtual Machines](virtual-machines/virtual-machines-linux-about.md) to Azure Storage. Based on a log format, some data is stored in Azure tables and some in blobs. Data that is collected in [Azure Storage](storage-introduction.md) can be downloaded to on-premises SIEM systems by using Azure Storage client library for monitoring and analysis.
 
 Additionally, HDInsight can be used for further analysis of the data in the cloud. Following are some examples of security data collection that use Azure Diagnostics.
 

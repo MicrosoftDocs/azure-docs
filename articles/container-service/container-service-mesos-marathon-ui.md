@@ -37,7 +37,7 @@ To see the Marathon UI, browse to http://localhost/Marathon. From this screen yo
 
 ![Create deployment](media/ui2.png)
 
-## Deploy a Docker Container
+## Deploy a Docker Formated Container
 
 To use Marathon to start a new container on the Mesos cluster, click the `Create Application` button. The New Application form is used to define the application or container parameters. For this example, a simple Nginx container will be deployed. Enter the following information.
  Click  create` when completed. 
@@ -57,11 +57,11 @@ Back on the Marathon main page, deployment status for the container can be seen.
 
 ![Create deployment](media/ui4.png)
 
-If you switch back to the Mesos app (http://localhost/Mesos), you will now see that a task, in this case a Docker container, is running on the Mesos cluster. You can also see the cluster node that the task is running on.
+If you switch back to the Mesos app (http://localhost/Mesos), you will now see that a task, in this case a Docker formatted container, is running on the Mesos cluster. You can also see the cluster node that the task is running on.
 
 ![Create deployment](media/ui5.png)
 
-## Scale a Docker Container
+## Scale Your Containers
 
 The Marathon Web UI can also be used to scale the instance count of a container. To do so navigate to the Marathon page, select the container that you would like to scale, and click the `scale` button. On the Scale Application window, enter the number of container instance that you would like and select `Scale Application`.
 

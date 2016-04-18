@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="nitinme"/>
 
 # Securing data stored in Azure Data Lake Store
 
 Securing data in Azure Data Lake Store is a three-step approach.
 
-1. Start by creating security groups in Azure Active Directory (AAD). These security groups are used to implement role-based access control (RBAC) in Azure Portal. For more information see [Role-based Access Control in Microsoft Azure](role-based-access-control-configure.md).
+1. Start by creating security groups in Azure Active Directory (AAD). These security groups are used to implement role-based access control (RBAC) in Azure Portal. For more information see [Role-based Access Control in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 2. Assign the AAD security groups to the Azure Data Lake Store account. This controls access to the Data Lake Store account from the portal and management operations from the portal or APIs.
 
@@ -37,7 +37,7 @@ Before you begin this tutorial, you must have the following:
 
 ## Create security groups in Azure Active Directory
 
-For instructions on how to create AAD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](active-directory-accessmanagement-manage-groups.md).
+For instructions on how to create AAD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
 ## Assign users or security groups to Azure Data Lake Store accounts
 
@@ -160,7 +160,7 @@ When you remove security groups ACLs from Azure Data Lake Store file system, you
 
 - [Overview of Azure Data Lake Store](data-lake-store-overview.md)
 - [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)
 - [Get Started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)

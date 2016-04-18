@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Getting started with Azure AD Connect using express settings
@@ -47,7 +47,7 @@ Selecting Express Settings is the default option and is one of the most common s
 5. On the Connect to Azure AD screen, enter the username and password of an Azure global administrator for your Azure AD. Click **Next**.
 ![Connect to AAD](./media/active-directory-aadconnect-get-started-express/connectaad.png)
 If you receive an error and have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
-6. On the Connect to AD DS screen enter the username and password for an enterprise admin account.  Click **Next**.
+6. On the Connect to AD DS screen enter the username and password for an enterprise admin account. You can enter the domain part in either NetBios or FQDN format, i.e. FABRIKAM\administrator or fabrikam.com\administrator. Click **Next**.
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. On the Ready to configure screen, click **Install**.
 	- Optionally on the Ready to Configure page, you can un-check the **Start the synchronization process as soon as configuration completes** checkbox.  If you do this, the wizard will configure sync but will leave the task disabled so it will not run until you enable it manually in the Task Scheduler.  Once the task is enabled, synchronization will run every 30 minutes.
