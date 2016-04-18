@@ -103,11 +103,15 @@ The following high-level steps outline a process for implementing this architect
 
 	If your're using a level 2 connection:
 
+
 	- Send the `ServiceKey` for the new circuit to the service provider.
+
 
 	- Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you're implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [Create an ExpressRoute circuit][create-expressroute-circuit].
 
+
 	- Wait for the provider to provision the circuit.
+
 
 	- Configure routing for the ExpressRoute circuit.
 
@@ -122,7 +126,7 @@ The following high-level steps outline a process for implementing this architect
 
 	>The `PeeringType` parameter can be one of `AzurePublicPeering`, `MicrosoftPeering`, or `AzurePrivatePeering`.
 	>
-	> For more information about primary and secondary peering addresses, see [Availability](#availability)
+	> For more information about primary and secondary peering addresses, see [Availability](#availability).
 
 	Depending on your requirements, you may need to perform the following operations:
 
