@@ -2,17 +2,17 @@
 	pageTitle="Deploy LAMP on a Linux virtual machine | Microsoft Azure"
 	description="Learn how to install the LAMP stack on a Linux VM"
 	services="virtual-machines-linux"
-	documentationCenter=""
+	documentationCenter="virtual-machines"
 	authors="jluk"
-	manager="timlt"
-	editor="tysonn"
+	manager="squillace"
+	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
+	ms.devlang="NA"
 	ms.topic="article"
 	ms.date="04/13/2016"
 	ms.author="jluk"/>
@@ -25,11 +25,14 @@ There are two methods for installing LAMP covered in this article:
 ## Quick Command Summary
 
 1) Deploy LAMP on new VM
+
 ```
 # One command to quick-create a VM with LAMP pre-installed: the two required args are a Resource Group name and a VM name
 $ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
-```  
+```
+
 2) Deploy LAMP on existing VM
+
 ```
 # Two commands: one updates packages, the other installs Apache, MySQL, and PHP
 user@ubuntu$ sudo apt-get update
@@ -150,17 +153,13 @@ Restart Apache with this command so all new installs will take effect.
 
 ## Verify LAMP Successfully Installed
 
-Now you can check the PHP info page you just created in your browser by going to http://youruniqueDNS/info.php. You can find your unique DNS to your Linux VM from the Azure Portal. Below is an image of where it is located.
+Now you can check the PHP info page you just created in your browser by going to http://youruniqueDNS/info.php, it should look similar to this.
 
 ![][2]
 
-Once you have navigated to http://youruniqueDNS/info.php, it should look similar to this.
-
-![][3]
-
 You can check your Apache installation by viewing the Apache2 Ubuntu Default Page by going to you http://youruniqueDNS/. You should see something like this.
 
-![][4]
+![][3]
 
 Congratulations, you have just setup a LAMP stack on your Azure VM!
 
@@ -171,6 +170,5 @@ Check out the Ubuntu documentation on the LAMP stack:
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
 [1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
-[2]: ./media/virtual-machines-linux-deploy-lamp-stack/finddnsibizaportal.png
-[3]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
-[4]: ./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
+[2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
+[3]: ./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
