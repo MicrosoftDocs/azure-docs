@@ -3,7 +3,7 @@
 	description="How you can manage AD FS with Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
-	authors="anandmsft"
+	authors="anandyadavmsft"
 	manager="stevenpo"
 	editor=""/>
 
@@ -166,7 +166,7 @@ To add a sign-in page description to the sign-in page, use the following Windows
 
 ### Modifying AD FS claim rules
 
-AD FS provides the option to specify custom rules to issue claims. It supports a rich claim language using which you can use to create custom claim rules. For more information you can check the article [here](https://technet.microsoft.com/en-us/library/dd807118.aspx). 
+AD FS provides the option to specify custom rules to issue claims. It supports a rich claim language using which you can use to create custom claim rules. For more information you can check the article [here](https://technet.microsoft.com/library/dd807118.aspx). 
 
 Following sections detail how you can write custom rules for some scenarios pertaining to AAD and AD FS federation.
 
