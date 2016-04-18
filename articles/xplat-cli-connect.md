@@ -19,7 +19,7 @@
 
 # Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)
 
-The Azure CLI is a set of open-source, cross-platform commands for working with the Azure platform. This article describes ways to provide your Azure account credentials to connect the Azure CLI to your Azure subscription. If you haven't already installed the CLI, see [Install the Azure CLI](xplat-cli-install.md). If you don't have an Azure subscription, you can create a [free account][free-trial] in just a couple of minutes. 
+The Azure CLI is a set of open-source, cross-platform commands for working with the Azure platform. This article describes ways to provide your Azure account credentials to connect the Azure CLI to your Azure subscription. If you haven't already installed the CLI, see [Install the Azure CLI](xplat-cli-install.md). If you don't have an Azure subscription, you can create a [free account](http://azure.microsoft.com/free/) in just a couple of minutes. 
 
 There are two ways to connect to your subscription from the Azure CLI:
 
@@ -84,7 +84,7 @@ If you only need to use the Azure Service Management mode CLI commands, you can 
 
 		azure account download
 
-    This opens your default browser and prompts you to sign in to the [Azure classic portal][portal]. After you sign in, a `.publishsettings` file downloads. Make note of where this file is saved.
+    This opens your default browser and prompts you to sign in to the [Azure classic portal](https://manage.windowsazure.com). After you sign in, a `.publishsettings` file downloads. Make note of where this file is saved.
 
     > [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 
@@ -147,18 +147,10 @@ To log out, use the following command:
 If the subscriptions associated with the account were only authenticated with Active Directory, logging out deletes the subscription information from the local profile. However, if a publish settings file had also been imported for the subscriptions, logging out only deletes Active Directory related information from the local profile.
 ## Next steps
 
-* To use Azure CLI commands, see [Azure CLI commands in Azure Resource Manager mode][cliarm] and [Azure CLI commands with Azure Service Management mode][cliasm].
+* To use Azure CLI commands, see [Azure CLI commands in Azure Resource Manager mode](./virtual-machines/azure-cli-arm-commands.md) and [Azure CLI commands in Azure Service Management mode](virtual-machines-command-line-tools.md).
 
 * To learn more about the Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
 * If you encounter problems using the Azure CLI, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
 
-
-
-[free-trial]: http://azure.microsoft.com/free/
-[portal]: https://manage.windowsazure.com
-[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/azure-cli-arm-commands.md
-`

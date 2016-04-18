@@ -3,4 +3,4 @@ In addition to automatically connecting clients to the primary replica, a listen
 
 >[AZURE.NOTE] For troubleshooting tips on Azure listeners, see [Troubleshooting Availability Group Listener in Azure](http://blogs.msdn.com/b/alwaysonpro/archive/2016/02/01/troubleshooting-availability-group-listener-in-azure.aspx) in the AlwaysOn Support Team [blog](http://blogs.msdn.com/b/alwaysonpro/).
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
