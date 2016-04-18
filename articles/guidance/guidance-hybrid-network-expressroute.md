@@ -83,9 +83,7 @@ The following high-level steps outline a process for implementing this architect
      New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> `
         -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
     ```
-2. Arrange for the ExpressRoute circuit to be provisioned.
-
-	If you're using a level 3 connection:
+2. Arrange for the ExpressRoute circuit to be provisioned. If you're using a level 2 connection, go to item 3. If you're using a level 3 connection, follow the steps below.
 
 	1. Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /27 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
 
@@ -101,8 +99,7 @@ The following high-level steps outline a process for implementing this architect
 
 		>[AZURE.NOTE]If you're using a level 3 connection, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
 
-	If you're using a level 2 connection:
-
+3. Arrange for the ExpressRoute circuit to be provisioned for a level 2 connection:
 
 	1. Send the `ServiceKey` for the new circuit to the service provider.
 
@@ -133,7 +130,7 @@ The following high-level steps outline a process for implementing this architect
 	- Configure Microsoft peering for connecting between on-premises services and Office 365 services.
 
 
-3. [Link your private VNet(s) in the cloud to the ExpressRoute circuit][link-vnet-to-expressroute]. Use the following PowerShell commands:
+4. [Link your private VNet(s) in the cloud to the ExpressRoute circuit][link-vnet-to-expressroute]. Use the following PowerShell commands:
 
 	```
 	$circuit = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
