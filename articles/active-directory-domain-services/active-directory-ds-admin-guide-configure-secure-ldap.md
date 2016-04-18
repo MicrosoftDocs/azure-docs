@@ -28,7 +28,10 @@ To perform the tasks listed in this article, you will need:
 
 3. **Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](./active-directory-ds-getting-started.md).
 
-4. A **certificate to be used to enable secure LDAP**. You can choose to get a certificate from your enterprise CA or public certificate authority. Alternately, you may also choose to [create a self-signed certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-1---create-a-self-signed-certificate-for-secure-ldap) as shown later in this article.
+4. A **certificate to be used to enable secure LDAP**.
+    - **Recommended** - Obtain a certificate from your enterprise CA or public certificate authority. This is a much more secure configuration option.
+	- Alternately, you may also choose to [create a self-signed certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-1---create-a-self-signed-certificate-for-secure-ldap) as shown later in this article.
+
 
 
 ### Requirements for the secure LDAP certificate
@@ -44,8 +47,11 @@ Acquire a valid certificate per the guidelines below, before you enable secure L
 
 4. **Certificate purpose** - The certificate must be valid for SSL server authentication.
 
+<br>
 
 ## Task 1 - Create a self-signed certificate for secure LDAP
+Task 1 in this article assumes you use a self-signed certificate. Skip task 1, if you obtain a certificate from an enterprise certificate authority or from a public certificate authority.
+
 You may choose to create a self-signed certificate for secure LDAP, if:
 
 - certificates in your organization are not issued by an enterprise certificate authority or
@@ -64,8 +70,11 @@ In the sample above, replace 'contoso100.com' with the DNS domain name of your A
 
 The newly created certificate should be placed in the local machine's certificate store.
 
-### Export the self-signed certificate to a .PFX file
-Perform the following steps, in order to export the newly created certificate.
+
+# Task 2 - Export the LDAPS certificate to a .PFX file
+Before you start this task, ensure you have obtained the LDAPS certificate from your enterprise certificate authority or a public certificate authority or have created a self-signed certificate.
+
+Perform the following steps, in order to export the LDAPS certificate to a .PFX file.
 
 1. Press the **Start** button and type **R** to bring up the **Run** dialog. Type **mmc** and click **OK**.
 
@@ -111,13 +120,19 @@ Perform the following steps, in order to export the newly created certificate.
 
     ![Export certificate private key](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
 
+    > [AZURE.WARNING] You MUST export the private key along with the certificate. Enabling secure LDAP for your managed domain will fail if you provide a PFX that does not contain the private key for the certificate.
+
 13. On the **Export File Format** page, select **Personal Information Exchange - PKCS #12 (.PFX)** as the file format for the exported certificate.
 
     ![Export certificate file format](./media/active-directory-domain-services-admin-guide/secure-ldap-export-to-pfx.png)
 
+	> [AZURE.NOTE] Only the .PFX file format is supported. Do not export the certificate to the .CER file format.
+
 14. On the **Security** page, select the **Password** option and type in a password to protect the .PFX file. Remember this password since it will be needed in the next task. Click **Next** to proceed.
 
     ![Export certificate specify password](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+
+	> [AZURE.NOTE] Make a note of this password. You will need it while enabling secure LDAP for this managed domain in [Task 3 - Enable secure LDAP for the managed domain](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain)
 
 15. On the **File to Export** page, specify the file name and location where you'd like to export the certificate.
 
@@ -128,7 +143,7 @@ Perform the following steps, in order to export the newly created certificate.
     ![Export certificate done](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
 
-## Task 2 - Enable secure LDAP for the managed domain
+## Task 3 - Enable secure LDAP for the managed domain
 Perform the following configuration steps in order to enable secure LDAP.
 
 1. Navigate to the **[Azure classic portal](https://manage.windowsazure.com)**.
@@ -166,8 +181,10 @@ Perform the following configuration steps in order to enable secure LDAP.
     ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-enabled.png)
 
 
-## Task 3 - Enable secure LDAP access over the internet
-Complete the steps outlined in [Task 2](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-2---enable-secure-ldap-for-the-managed-domain).
+## Task 4 - Enable secure LDAP access over the internet
+** Optional task ** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
+
+Before you begin gthis task, ensure you have completed the steps outlined in [Task 3](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain).
 
 1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This will be set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
 
@@ -182,8 +199,21 @@ Complete the steps outlined in [Task 2](./active-directory-ds-admin-guide-config
 
     > [AZURE.NOTE] It will take about 10 minutes to enable internet access over secure LDAP for your managed domain.
 
-4. When secure LDAP access to your managed domain over the internet is successfully enabled, the **Pending...** message should disappear. You should see the external IP address that can be used to access your directory over LDAPS.
+4. When secure LDAP access to your managed domain over the internet is successfully enabled, the **Pending...** message should disappear. You should see the external IP address that can be used to access your directory over LDAPS in the field **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 
     ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-internet-access-enabled.png)
 
-That's it - you are now ready to connect to the managed domain over the internet using the external IP address. You can add a DNS record for this IP address so that client computers are able to find it.
+
+## Task 5 - Configure DNS to access the managed domain from the internet
+** Optional task ** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
+
+Before you begin this task, ensure you have completed the steps outlined in [Task 4](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-4---enable-secure-ldap-access-over-the-internet).
+
+Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 4, an external IP address is displayed on the **Configure** tab in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
+
+Go to your external DNS provider and configure it so that the managed domain points to this IP address. In this example, we will need to create the following DNS entry:
+    contoso100.com  -> 52.165.38.113
+
+That's it - you are now ready to connect to the managed domain using secure LDAP over the internet.
+
+> [AZURE.WARNING] Remember that client computers must trust the issuer of the LDAPS certificate in order to be able to connect successfully to the managed domain using LDAPS. If you are using an enterprise certificate authority or a publicly trusted certificate authority, this is not a problem since client computers will trust these certificate issuers. If you are using a self-signed certificate, you will need to install the public part of the self-signed certificate (i.e. exported without the private key)
