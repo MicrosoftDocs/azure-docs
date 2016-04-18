@@ -20,9 +20,9 @@
 
 ## Overview
 
-The Cost Management feature of DevTest Labs helps you track and control the cost of your lab. 
+The Cost Management feature of DevTest Labs helps you track the cost of your lab. 
 This article illustrates how to use the **Monthly Estimated Cost Trend** chart  
-to view the current month's estimated cost-to-date as well as the projected end-of-month cost.
+to view the current calendar month's estimated cost-to-date as well as the projected end-of-month cost for the current calendar month.
 
 ## Enabling the Monthly Estimated Cost Trend chart
 
@@ -42,22 +42,23 @@ In order to enable the Monthly Estimated Cost Trend chart, follow these steps:
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  
-1. On the **Cost Thresholds** blade, tap **On** to enable this policy, and **Off** to disable it.
+1. On the **Cost Thresholds** blade, tap **On** to enable this feature, and **Off** to disable it.
 
 1. Tap **Save**.
 
-Once you enable this policy, it can take up to 24 hours before the chart will display your estimated and projected costs.
-Currently, data is refreshed every 24 hours with 90–95% of the cost reported. 
-In cases of live site issues - such as outages - it can take more than 24 hours to report the cost.
+Once you enable this feature, it can take several hours before the chart will display your estimated and projected costs.
+This is because a service runs every hour to gather this information, but runs a few hours behind the live data being collected.
+For example, let's say you start a VM at 1:00 AM. The cost associated with that VM probably won't be incorporated into
+the cost chart for a couple of hours.  
+In cases of live site issues - such as outages - it can also take several hours to report the cost.
  
 The following screen shot shows an example of a cost chart. 
 
 ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
 
-The **Estimated Cost** value is the current month's estimated cost-to-date while the **Projected Cost** is the estimated
-cost for the entire month. 
+The **Estimated Cost** value is the current calendar month's estimated cost-to-date while the **Projected Cost** is the estimated cost for the entire current calendar month. 
 
-As it states above the chart, the costs you see in the chart are *estimated* costs using Pay-As-You-Go offer rates.
+As it states above the chart, the costs you see in the chart are *estimated* costs using [Pay-As-You-Go](https://azure.microsoft.com/en-us/offers/ms-azr-0003p/) offer rates.
 Additionally, the following are *not* included in the cost calculation:
 
 - Your offer rates. Currently, we are not able to use your offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. We are using Pay-As-You-Go rates.
@@ -67,7 +68,7 @@ Additionally, the following are *not* included in the cost calculation:
 
 ## Next steps
 
-Once you've defined and applied the various VM policy settings for your lab, here are some things to try next:
+Here are some things to try next:
 
 - [Define lab policies](./devtest-lab-set-lab-policy.md) - Learn how to set the various policies used to govern how your lab and its VMs are used. 
 - [Create custom image](./devtest-lab-create-template.md) - When you create a VM, you specify a base, which can be either a custom image or a Marketplace image. This article illustrates
