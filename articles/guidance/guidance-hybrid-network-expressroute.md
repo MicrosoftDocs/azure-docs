@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="telmosampaio"
-   manager=""
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -41,7 +41,7 @@ Typical use cases for this architecture include:
 
 The following diagram highlights the important components in this architecture:
 
-![IaaS: hybrid-expressroute](./media/blueprints/arch-iaas-hybrid-expressroute.png)
+![IaaS: hybrid-expressroute](./media/guidance-hybrid-network-expressroute/figure1.png)
 
 - **Azure Virtual Networks (VNets).** Each VNet can span multiple tiers, and tiers can be segmented using subnets in each VNet  and/or network security groups (NSGs). The VNets could reside in [multiple subscriptions][link-vnet-to-expressroute] in the same [geo-political region][expressroute-locations]. Connections are performed by using **private peering** utilizing addresses which are private to the VNet.
 
@@ -159,7 +159,7 @@ You can configure high availability for your Azure connection in different ways,
 
 	The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a public peering and a private peering (each peering is designated a pair of /30 address spaces, as described in the previous section).
 
-	![IaaS: hybrid-expressroute](./media/blueprints/arch-iaas-hybrid-expressroute-redundant-routers.png)
+	![IaaS: hybrid-expressroute](./media/guidance-hybrid-network-expressroute/figure2.png)
 
 - If you're using a level 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
 
@@ -175,11 +175,11 @@ You can configure security options for your Azure connection in different ways, 
 
 - To maximize security, add network security appliances between the on-premises network and the provider edge routers. This will help to restrict the inflow of unauthorized traffic from the VNet:
 
-	![IaaS: hybrid-expressroute-firewalls](./media/blueprints/arch-iaas-hybrid-expressroute-firewalls.png)
+	![IaaS: hybrid-expressroute-firewalls](./media/guidance-hybrid-network-expressroute/figure3.png)
 
 - For auditing or compliance purposes, it may be necessary to prohibit direct access from components running in the VNet to the Internet. In this situation, Internet traffic should be redirected back through a gateway or proxy running  on-premises where it can be audited. The gateway can be configured to block unauthorized traffic flowing out, and filter potentially malicious inbound traffic.
 
-	![IaaS: hybrid-expressroute-proxy](./media/blueprints/arch-iaas-hybrid-expressroute-proxy.png)
+	![IaaS: hybrid-expressroute-proxy](./media/guidance-hybrid-network-expressroute/figure4.png)
 
 - By default, Azure VMs expose endpoints used for providing login access for management purposes - RDP and Remote Powershell for Windows VMs, and SSH for Linux-based VMs when deployed through the Azure portal. To maximize security, do not enable a public IP address for your VMs, and use NSGs to ensure that these VMs aren't publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform any necessary configuration or maintenance.
 
