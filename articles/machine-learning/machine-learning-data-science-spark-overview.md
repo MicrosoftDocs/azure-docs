@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Machine learning modeling on a Spark cluster with the MLlib toolkit | Microsoft Azure"
+	pageTitle="Overview of Data Science using Spark on Azure HDInsight | Microsoft Azure"
 	description="The Spark MLlib toolkit brings considerable machine learning modeling capabilities to the distributed HDInsight environment."
 	services="machine-learning"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="04/18/2016"
 	ms.author="bradsev" />
 
-# Data Science using Spark on Azure HDInsight with the MLlib toolkit
+# Overview of Data Science using Spark on Azure HDInsight
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
@@ -106,11 +106,11 @@ We have taken a 0.1% sample of these files and joined these into a single datase
 
 You can launch the Jupyter Notebook from the Azure portal: find your Spark cluster and click on it to enter the detailed cluster management page. There you can click on the **Cluster Dashboards** where the icon for the Jupyter notebook associated with the Spark cluster.
 
-![](./media/machine-learning-data-science-spark-mllib-modeling/spark-jupyter-on-portal.png)
+![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
 You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to access the Jupyter Notebooks. You will need the password for your admin account to access the notebooks.
 
-![](./media/machine-learning-data-science-spark-mllib-modeling/spark-jupyter-notebook.png)
+![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
 Navigate to Python to see existing notebooks that run python scripts. You will see a directory that contains a few examples of pre-packaged notebooks listed. The notebook that contains the code samples in this topic are available in [Github]( https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
 
@@ -131,7 +131,7 @@ Now you can:
 
 Now that you are set up with an HDInsight Spark cluster and have uploaded the Jupyter notebooks, you are ready to work through the topics that correspond to these three notebooks, that show how to create, consume, and model using cross-validation and hyper-parameter sweeping.
 
-**Model creation:** Create the machine learning models to be scored and evaluated here by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](machine-learning-data-science-spark-mllib-toolkit-regression-classification.md) topic.
+**Model creation:** Create the machine learning models to be scored and evaluated here by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](machine-learning-data-science-spark-data-exploration-modeling.md) topic.
 
-**Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate machine learning models stored in an Azure blob using the Spark MLlib toolkit](machine-learning-data-science-spark-model-consumption.md).
+**Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md).
 

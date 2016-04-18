@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Score and evaluate machine learning models stored in an Azure blob using the Spark MLlib toolkit | Microsoft Azure"
-	description="How to access machine learning models that have been stored in Azure Blob Storage (WASB) and score datasets that have also stored in WASB."
+	pageTitle="Score and evaluate Spark-built machine learning models | Microsoft Azure"
+	description="How to score and evaluate learning models that have been stored in Azure Blob Storage (WASB)."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -16,21 +16,21 @@
 	ms.date="04/18/2016"
 	ms.author="deguhath;bradsev" />
 
-# Score and evaluate machine learning models stored in an Azure blob using the Spark MLlib toolkit
+# Score and evaluate Spark-built machine learning models 
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
 
 ## Introduction
 
-This topic describes how to access machine learning (ML) models that have been built using Spark MLlib and stored in Azure Blob Storage (WASB), and how to score datasets that have also been stored in WASB. It shows how to pre-process the input data, transform features using the indexing and encoding functions in the MLlib toolkit, and how to create a labeled point data object that can be used as input for scoring with the ML models. The models used for scoring and evaluation include Linear Regression, Logistic Regression, Random Forest Models, and Gradient Boosting Tree Models.
+This topic describes how to access machine learning (ML) models that have been built using Spark MLlib and stored in Azure Blob Storage (WASB), and how to score them with datasets that have also been stored in WASB. It shows how to pre-process the input data, transform features using the indexing and encoding functions in the MLlib toolkit, and how to create a labeled point data object that can be used as input for scoring with the ML models. The models used for scoring and evaluation include Linear Regression, Logistic Regression, Random Forest Models, and Gradient Boosting Tree Models.
 
 
 ## Prerequisites
 
-You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Machine learning modeling on a Spark cluster with the MLlib toolkit](machine-learning-data-science-spark-mllib-modeling.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. 
+1. You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. 
 
-2. You must also create the machine learning models to be scored and evaluated here by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](machine-learning-data-science-spark-mllib-toolkit-regression-classification.md) topic.
+2. You must also create the machine learning models to be scored and evaluated here by working through the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic.
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
  

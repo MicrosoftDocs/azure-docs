@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create binary classification and regression models for data with the Spark MLlib toolkit | Microsoft Azure"
-	description="Showcases the modeling capabilities of the Spark MLlib toolkit using binary classification and regression modeling examples."
+	pageTitle="Data exploration and modeling with Spark | Microsoft Azure"
+	description="Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -16,13 +16,13 @@
 	ms.date="04/18/2016"
 	ms.author="deguhath;bradsev" />
 
-# Create binary classification and regression models using the Spark MLlib toolkit
+# Data exploration and modeling with Spark
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
 ## Introduction 
 
-This walkthrough uses HDInsight Spark to do binary classification and regression modeling tasks on a sample of the NYC taxi trip and fare 2013 dataset.  It walks you through the steps of the [Data Science Process](http://aka.ms/datascienceprocess), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
+This walkthrough uses HDInsight Spark to do data exploration and binary classification and regression modeling tasks on a sample of the NYC taxi trip and fare 2013 dataset.  It walks you through the steps of the [Data Science Process](http://aka.ms/datascienceprocess), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
 
 - The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 - The **regression** task is to predict the amount of the tip based on other tip features. 
@@ -41,7 +41,7 @@ The models we use include logistic and linear regression, random forests and gra
 
 ## Prerequisites
 
-You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Machine learning modeling on a Spark cluster with the MLlib toolkit](machine-learning-data-science-spark-mllib-modeling.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. 
+You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -211,7 +211,7 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 
 **Output:**
 
-![Trip frequency by passenger count](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/trip-freqency-by-passenger-count.png)
+![Trip frequency by passenger count](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
 
 	
 ### Plot a histogram of tip amount and how tip amount varies with payment amount and type.
@@ -269,11 +269,11 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 
 **Output:** 
 
-![Tip amount distribution](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/tip-amount-distribution.png)
+![Tip amount distribution](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png)
 
-![Tip amount by passenger count](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/tip-amount-by-passenger-count.png)
+![Tip amount by passenger count](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
-![Tip amount by fare amount](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/tip-amount-by-fare-amount.png)
+![Tip amount by fare amount](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
 Time taken to execute above cell: 10.61 seconds
 
@@ -639,7 +639,7 @@ Precision = 0.984187223276
 Recall = 0.984187223276
 F1 Score = 0.984187223276
 
-![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/logistic-regression-roc-curve.png)
+![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png)
 
 Time taken to execute above cell: 26.63 seconds
 
@@ -899,7 +899,7 @@ RMSE = 0.962160568829
 
 R-sqr = 0.717354800581
 
-![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/actual-vs-predicted-tips.png)
+![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 	
 ## Cleanup objects from memory
@@ -929,7 +929,7 @@ Use `unpersist()` to delete objects cached in memory.​
 
 ## Record storage locations of the models for consumption and scoring
 
-For the consumption and scoring an independent dataset described in the [Score and evaluate machine learning models stored in an Azure blob using the Spark MLlib toolkit](machine-learning-data-science-spark-model-consumption.md) topic, you will need to copy and paste these file names containing the saved models created here into the Consumption Jupyter notebook. Here is the code to print out the paths to model files you need there.
+For the consumption and scoring an independent dataset described in the [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) topic, you will need to copy and paste these file names containing the saved models created here into the Consumption Jupyter notebook. Here is the code to print out the paths to model files you need there.
 
 	# MODEL FILE LOCATIONS FOR CONSUMPTION
 	print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
@@ -944,7 +944,7 @@ For the consumption and scoring an independent dataset described in the [Score a
 
 Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models.
 
-**Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate machine learning models stored in an Azure blob using the Spark MLlib toolkit](machine-learning-data-science-spark-model-consumption.md).
+**Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md).
 
 
 
