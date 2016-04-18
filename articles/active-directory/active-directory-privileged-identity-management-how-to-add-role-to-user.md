@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="04/18/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: How to add or remove a user role
@@ -36,15 +36,15 @@ If you want to give another user access to PIM itself, the roles which PIM requi
 Once you have navigated to the role blade, either by selecting a role in the Azure AD PIM dashboard or by clicking on the **Users in Admin Roles** button,
 
 1. Click **Add**.
-  - If you have navigated here from clicking on a user role in the role table, then the role will already be selected.
-  or
+  - If you have navigated here from clicking on a user role in the role table, then the role will already be selected.  
+  or  
   - Click **Select a role** and choose a role from the role list. For example, **Password Administrator**.
 2. Search for the user on the **Select users** blade.  If the user is in the directory, their accounts will appear as you are typing.
 3. Select the user from the search results list, and click **Done**.
 4. Click **OK** to save your selection. The user you have selected will appear in the list and the role will be temporary by default.
 
-  >[AZURE.NOTE] If you want to make the role permanent, click the user in the list. The user's information will appear in a new blade. Select **make perm** in the user information menu.
-  > You'll need to do this if the user cannot register for Azure Muti-Fator Authentication (MFA), or is using a Microsoft account. Temporary admins are asked to register for MFA during activation.
+  >[AZURE.NOTE] If you want to make the role permanent, click the user in the list. The user's information will appear in a new blade. Select **make perm** in the user information menu.  
+  You'll need to do this if the user cannot register for Azure Multi-Factor Authentication (MFA), or is using a Microsoft account. Temporary admins are asked to register for MFA during activation.
 
 Now that the user has been assigned a temporary role, let them know that they can activate it according to the instructions in [How to activate or deactivate a role](active-directory-privileged-identity-management-how-to-activate-role.md).
 
