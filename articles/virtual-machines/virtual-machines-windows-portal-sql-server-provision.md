@@ -84,7 +84,7 @@ Verify that the **Location** is correct for your requirements.
 <br/>
 
 ## 2. Choose virtual machine size
-On the **Create Virtual Machine** blade under **Size** choose a virtual machine size. The Azure portal will display recommended sizes. Find more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-linux-sizes.md). The sizes are based on the template you selected. The size estimates the monthly cost to run the VM.  Select a VM size for your server. For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md).
+On the **Create Virtual Machine** blade under **Size** choose a virtual machine size. The Azure portal will display recommended sizes. Find more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-linux-sizes.md). The sizes are based on the template you selected. The size estimates the monthly cost to run the VM.  Select a VM size for your server. For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 ## 3. Configure virtual machine settings
 On the **Create Virtual Machine** blade under **Settings**, configure Azure storage, networking and monitoring for the virtual machine.
@@ -162,7 +162,7 @@ The following image shows the Storage configuration blade.
 <br/>![SQL ARM Patching](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 <br/>
 
-For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-patch.md).
+For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md).
 
 ### Backups
 Enable automatic database backups for all databases under **SQL automated backup**.
@@ -175,7 +175,7 @@ When you enable SQL automated backup you can configure the following:
 <br/>![SQL ARM Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 <br/>
 
- For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-backup.md).
+ For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ### Key Vault Integration
 To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
@@ -221,4 +221,4 @@ The following steps are not required if you only need to access your Virtual Mac
 > [AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ##<a id="Next"> Next Steps
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-classic-sql-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

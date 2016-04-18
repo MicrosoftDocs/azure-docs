@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/11/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -34,7 +34,7 @@ For more information on how to apply recommendations read [Implementing security
 
 On the **Resources security health** tile you can to monitor the security state of your resources. In the example below, you can see a number of issues with high and medium severity that require attention. The security policies that are enabled will impact the types of controls that are monitored.
 
-![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
+![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
 
 If Security Center identifies a vulnerability that needs to addressed, such as a VM with missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here. 
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Accessing private Azure clouds with Visual Studio

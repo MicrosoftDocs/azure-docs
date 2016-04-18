@@ -32,7 +32,7 @@ The Linux Data Science Virtual Machine is an Azure virtual machine (VM) image th
     - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): a deep learning software from Microsoft Research
     - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): a fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
     - [XGBoost](https://xgboost.readthedocs.org/en/latest/): a tool providing fast and accurate boosted tree implementation
-    - [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily) : Tool that makes getting started with data mining in R very easy with a GUI based data exploration and modeling. 
+    - [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily) : Tool that makes getting started with data analytics and machine learning in R very easy with a GUI based data exploration and modeling with automatic R code generation. 
 - Azure SDK in Java, Python, node.js, Ruby, PHP
 - Libraries in R and Python for use in Azure Machine Learning and other Azure services
 - Development tools and editors (Eclipse, Emacs, gedit, vi)
@@ -123,7 +123,7 @@ Once you login to the VM using either the SSH client OR XFCE graphical desktop t
 
 Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the Jupyter notebook server installed on the machine.
 
-	python.exe -c "import IPython;print IPython.lib.passwd()"
+	python -c "import IPython;print(IPython.lib.passwd())"
 
 Enter a strong password when prompted.
 
@@ -138,7 +138,7 @@ Finally, you need to stop and restart the Jupyter service that is installed in /
 ## Tools installed on the Linux Data Science Virtual Machine
 
 ### Microsoft R Open 
-R is one of the most popular language for data analysis and machine learning. If you wish to use R for your analytics, the VM has Microsoft R Open (MRO) with the Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100% compatible with CRAN-R and any of the R libraries published in CRAN can be installed on the MRO. You can edit your R programs in one of the default editors like vi, Emacs or gedit. You are also able to download and use other IDEs as well such as [RStudio](http://www.rstudio.com).For your convenience, a simple script (installRStudio.sh) is provided in the **/dsvm/tools** directory that installs RStudio. If you are using the Emancs editor, note that the Emacs package ESS (Emacs Speaks Statistics), which simplifies working with R files within Emacs editor, has been pre-installed. 
+R is one of the most popular language for data analysis and machine learning. If you wish to use R for your analytics, the VM has Microsoft R Open (MRO) with the Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100% compatible with CRAN-R and any of the R libraries published in CRAN can be installed on the MRO. You can edit your R programs in one of the default editors like vi, Emacs or gedit. You are also able to download and use other IDEs as well such as [RStudio](http://www.rstudio.com). For your convenience, a simple script (installRStudio.sh) is provided in the **/dsvm/tools** directory that installs RStudio. If you are using the Emacs editor, note that the Emacs package ESS (Emacs Speaks Statistics), which simplifies working with R files within Emacs editor, has been pre-installed. 
 
 To launch R, you just type ***R*** in the shell. This takes you to an interactive environment. To develop your R program you will typically use an editor like Emacs or vi or gedit and then run the scripts within R. If you install RStudio you will have a full graphical IDE environment to develop your R program. 
 

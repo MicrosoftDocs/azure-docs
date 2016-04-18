@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/02/2016"
 	ms.author="dastrock"/>
 
 # Sign-in Microsoft Account & Azure AD users in a single app
@@ -39,6 +39,7 @@ The conceptual information here will be useful in understanding what is & what i
 ## Reference
 These links will be useful for exploring the platform in depth:
 
+- Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
 - Get help on Stack Overflow using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
 - [v2.0 Protocol Reference](active-directory-v2-protocols.md)
 - [v2.0 Token Reference](active-directory-v2-tokens.md)

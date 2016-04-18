@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Use Zeppelin notebooks with Spark cluster on HDInsight (Linux)
+# Use Zeppelin notebooks with Spark cluster on HDInsight Linux (Preview)
 
 Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zeppelin notebooks.
 

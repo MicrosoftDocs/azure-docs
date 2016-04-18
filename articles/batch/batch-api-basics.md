@@ -225,7 +225,7 @@ The root directory contains the following directory structure:
 
 - **Shared** – This location is a shared directory for all tasks that run on a node, regardless of job. On the node, the shared directory is accessed via  `%AZ_BATCH_NODE_SHARED_DIR%`. This directory provides read/write access to all tasks that execute on the node. Tasks can create, read, update, and delete files in this directory.
 
-- **Startup** – This location is used by a start task as its working directory. All of the files that are downloaded by the Batch service to launch the start task are also stored under this directory. On the node, the start directory is available via the `%AZ_BATCH_NODE_START_DIR%` environment variable. The start task can create, read, update, and delete files under this directory, and this directory can be used by start tasks to configure the operating system.
+- **Startup** – This location is used by a start task as its working directory. All of the files that are downloaded by the Batch service to launch the start task are also stored under this directory. On the node, the start directory is available via the `%AZ_BATCH_NODE_STARTUP_DIR%` environment variable. The start task can create, read, update, and delete files under this directory, and this directory can be used by start tasks to configure the operating system.
 
 - **Tasks** - A directory is created for each task that runs on the node, accessed via `%AZ_BATCH_TASK_DIR%`. Within each task directory, the Batch service creates a working directory (`wd`) whose unique path is specified by the `%AZ_BATCH_TASK_WORKING_DIR%` environment variable. This directory provides read/write access to the task. The task can create, read, update, and delete files under this directory, and this directory is retained based on the *RetentionTime* constraint specified for the task.
   - `stdout.txt` and `stderr.txt` - These files are written to the task folder during the execution of the task.
@@ -368,10 +368,10 @@ In situations where some of your tasks are failing, your Batch client applicatio
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
-[about_cloud_services]: https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#tell-me-about-cloud-services
+[about_cloud_services]: ../cloud-services/cloud-services-choose-me.md
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
