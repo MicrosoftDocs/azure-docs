@@ -28,17 +28,30 @@ When you create a pool of compute nodes in Batch, you have two options from whic
 
 **Cloud Services Configuration** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool containing Cloud Services nodes, you need to specify only the node size and its "OS Family" which are found in these articles. When creating pools of Windows compute nodes, Cloud Services is most commonly used.
 
-**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). When you specify a pool containing Virtual Machine Configuration nodes, you must specify the node size as well as several additional properties:
+**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). When you create a pool containing Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent** to be installed on the nodes.
 
-| **Property**		| **Example**			   |
+### Virtual machine image reference
+
+The Batch service uses [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) under the hood to provide Linux compute nodes, and the operating system images for these virtual machines are provided by the [Azure Virtual Machines Marketplace][vm_marketplace]. When you configure a virtual machine image reference, you specify the properties of a Marketplace virtual machine image. The following properties are required when creating a virtual machine image reference:
+
+| **Image reference properties** | **Example** |
 | ----------------- | ------------------------ |
 | Publisher			| Canonical                |
 | Offer				| UbuntuServer             |
 | SKU				| 14.04.4-LTS              |
 | Version			| latest				   |
-| Node agent SKU ID	| batch.node.ubuntu 14.04  |
 
-These additional properties are required because the Batch service uses [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) under the hood to provide Linux compute nodes, and the operating system images for these virtual machines are provided by the [Azure Marketplace][vm_marketplace]. Because the list of available images (SKUs) changes periodically, there is no definitive list of the available images. However, the Batch SDKs provide the ability to list the available SKUs, which we discuss below in [List of Virtual Machine images](#list-of-virtual-machine-images).
+> [AZURE.TIP] You can find out more about these properties and how to find images in the marketplace in [Navigate and select Linux virtual machine images in Azure with CLI or Powershell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md).
+
+### Node agent SKU
+
+The Batch node agent runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. Essentially, you first specify the VM image reference, and then specify which node agent to install on the image. Here are a few examples of node agent SKUs:
+
+* batch.node.ubuntu 14.04
+* batch.node.centos 7
+* batch.node.windows amd64
+
+> [AZURE.IMPORTANT] Not all virtual machine images available in the Marketplace are compatible with the currently available Batch node agents. You must use the Batch SDKs to list the available node agent SKUs and the virtual machine images with which they are compatible. See the [List of Virtual Machine images](#list-of-virtual-machine-images) below for more information.
 
 ## Create a Linux pool: Batch Python
 
@@ -76,21 +89,22 @@ start_task.run_elevated = True
 start_task.command_line = "printenv AZ_BATCH_NODE_STARTUP_DIR"
 new_pool.start_task = start_task
 
-# Create an ImageReference which is used
-# in creating the VirtualMachineConfiguration
+# Create an ImageReference which specifies the Marketplace
+# virtual machine image to install on the nodes.
 ir = batchmodels.ImageReference(
     publisher = "Canonical",
     offer = "UbuntuServer",
     sku = "14.04.2-LTS",
     version = "latest")
 
-# Create a VirtualMachineConfiguration using the
-# ImageReference and specifying the node agent SKU ID
+# Create the VirtualMachineConfiguration, specifying
+# the VM image reference and the Batch node agent to
+# be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
     image_reference = ir,
-    node_agent_sku_id = "Batch.Node.Ubuntu 14.04")
+    node_agent_sku_id = "batch.node.ubuntu 14.04")
 
-# Assign the VM config to the pool
+# Assign the virtual machine configuration to the pool
 new_pool.virtual_machine_configuration = vmc
 
 # Create pool in the Batch service
@@ -119,13 +133,13 @@ Func<ImageReference, bool> ubuntuImageScanner = imageRef =>
     imageRef.Offer == "UbuntuServer" &&
     imageRef.SkuId.Contains("14.04");
 
-// Obtain the first SKU in the collection for Ubuntu Server 14.04.
-// There are one or more image references associated with this SKU.
+// Obtain the first node agent SKU in the collection that matches
+// Ubuntu Server 14.04. Note that there are one or more image
+// references associated with this node agent SKU.
 NodeAgentSku ubuntuSku = nodeAgentSkus.First(sku =>
     sku.VerifiedImageReferences.FirstOrDefault(ubuntuImageScanner) != null);
 
-// Select an ImageReference from those available for this SKU.
-// This is required by the VirtualMachineConfiguration.
+// Select an ImageReference from those available for this node agent.
 ImageReference imageReference =
     ubuntuSku.VerifiedImageReferences.First(ubuntuImageScanner);
 
@@ -148,7 +162,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
-The code snippet above uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to select a virtual machine image from the currently available Marketplace images. This technique is desirable because the list of available images may change from time to time (most commonly, images are added). You can, however, configure an ImageReference directly as is done in the Python code snippet. For example:
+The code snippet above uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to select from the list of currently supported Marketplace image and node agent SKU combinations. This technique is desirable because the list of supported combinations may change from time to time (most commonly, images are added). You can, however, configure an ImageReference directly as is done in the Python code snippet. For example:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -157,6 +171,35 @@ ImageReference imageReference = new ImageReference(
     skuId: "14.04.2-LTS",
     version: "latest");
 ```
+
+## List of Virtual Machine images
+
+The table below lists which Marketplace virtual machine images are compatible with the available Batch node agents **at the time of this writing**. It is important to note that this list is not definitive, as images and node agents may be added or removed at any time. We recommend that your Batch applications and services always use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
+
+> [AZURE.WARNING] The list below may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the compatible virtual machine and node agent SKUs when you run your Batch jobs.
+
+| **Publisher** | **Offer** | **Image SKU** | **Version** | **Node Agent SKU ID** |
+| ------- | ------- | ------- | ------- | ------- |
+| Canonical | UbuntuServer | 14.04.0-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 14.04.1-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 14.04.2-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 14.04.3-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 14.04.4-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 15.10 | latest | batch.node.debian 8 |
+| Credativ | Debian | 8 | latest | batch.node.debian 8 |
+| OpenLogic | CentOS | 7.0 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.1 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.2 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux-7 | OL70 | latest | batch.node.centos 7 |
+| SUSE | SLES | 12 | latest | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | latest | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12 | latest | batch.node.opensuse 42.1 |
+| SUSE | openSUSE | 13.2 | latest | batch.node.opensuse 13.2 |
+| SUSE | openSUSE-Leap | 42.1 | latest | batch.node.opensuse 42.1 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | latest | batch.node.windows amd64 |
 
 ## Connect to Linux nodes
 
@@ -209,35 +252,6 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
 Note that instead of a password, you can specify an SSH public key when creating a user on a node. In the Python SDK, this done using the **ssh_public_key** parameter on [ComputeNodeUser][py_computenodeuser], and in .NET, this is done with the [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key] property.
-
-## List of Virtual Machine images
-
-The table below lists the supported Virtual Machine Configuration images **at the time of this writing**. It is important to note that this list is not definitive, as images may be added or removed at any time. We recommend that your Batch applications and services always use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
-
-> [AZURE.WARNING] The list below may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the supported SKUs when you run your Batch jobs.
-
-| **Publisher** | **Offer** | **Image SKU** | **Version** | **Node Agent SKU ID** |
-| ------- | ------- | ------- | ------- | ------- |
-| Canonical | UbuntuServer | 14.04.0-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14.04.1-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14.04.2-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14.04.3-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14.04.4-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 15.10 | latest | batch.node.debian 8 |
-| Credativ | Debian | 8 | latest | batch.node.debian 8 |
-| OpenLogic | CentOS | 7.0 | latest | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.1 | latest | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.2 | latest | batch.node.centos 7 |
-| Oracle | Oracle-Linux-7 | OL70 | latest | batch.node.centos 7 |
-| SUSE | SLES | 12 | latest | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | latest | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12 | latest | batch.node.opensuse 42.1 |
-| SUSE | openSUSE | 13.2 | latest | batch.node.opensuse 13.2 |
-| SUSE | openSUSE-Leap | 42.1 | latest | batch.node.opensuse 42.1 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | latest | batch.node.windows amd64 |
 
 ## Pricing
 
