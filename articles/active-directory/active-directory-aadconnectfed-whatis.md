@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/04/2016"
-	ms.author="anandmsft"/>
+	ms.author="anandyadavmsft"/>
 
 
 # Azure AD Connect and Federation
