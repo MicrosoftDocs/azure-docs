@@ -31,13 +31,15 @@ While frameworks are available for many popular workloads, this document will de
 
 With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This will load the DC/OS web UI. From the page, you can gather information about the DC/OS cluster--such as activated agents, task status, and resource availability.
 
-![Create deployment UI 1](media/ui1.png)
+![Create deployment UI 1](media/dcos/dcos1.png)
+
+![(media/dcos/dcos2.png)
 
 ## Explore the Marathon UI
 
 To see the Marathon UI, browse to http://localhost/Marathon. From this screen, you can start a new container or other application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
 
-![Create deployment UI 2](media/ui2.png)
+![](media/dcos/dcos3.png)
 
 ## Deploy a Docker-formatted container
 
@@ -52,26 +54,34 @@ Container Port  | 80
 Host Port       | 80
 Protocol        | TCP
 
-![Create deployment UI 3](media/ui3.png)
+![](media/dcos/dcos4.png)
+
+![](media/dcos/dcos5.png)
+
+![](media/dcos/dcos6.png)
 
 Back on the Marathon main page, you can see the deployment status for the container.
 
-![Create deployment UI 4](media/ui4.png)
+![](media/dcos/dcos7.png)
 
 If you switch back to the DC/OS app (http://localhost/Mesos), you will now see that a task, in this case a Docker-formatted container, is running on the DC/OS cluster. You can also see the cluster node that the task is running on.
 
-![Create deployment UI 5](media/ui5.png)
+![](media/dcos/dcos8.png)
+
+![](media/dcos/dcos9.png)
 
 ## Scale your containers
 
 You can also use the Marathon web UI to scale the instance count of a container. To do so, navigate to the Marathon page, select the container that you would like to scale, and click the **Scale** button. In the **Scale Application** dialog box, enter the number of container instances that you would like, and select **Scale Application**.
 
-![Create deployment UI 6](media/ui6.png)
+![](media/dcos/dcos10.png)
 
 After the scale operation is complete, you will see multiple instances of the same task spread across DC/OS agents.
 
-![Create deployment UI 7](media/ui8.png)
+![](media/dcos/dcos11.png)
+
+![](media/dcos/dcos12.png)
 
 ## Next steps
 
-- [Work with the DC/OS and Marathon API](./container-service-mesos-marathon-rest.md)
+[Work with the DC/OS and Marathon API](./container-service-mesos-marathon-rest.md)
