@@ -77,21 +77,21 @@ The following diagram highlights the important components in this architecture:
 
 The following high-level steps outline a process for implementing this architecture. Detailed examples using Azure PowerShell commands are described [later in this document][sample-script]. Note that this process assumes that you have already created a VNet for hosting the cloud application, that you have created the on-premises network, and that your organization has met the [ExpressRoute prerequiste requirements][expressroute-prereqs] for connecting to the Azure. 
 
-- Create an ExpressRoute circuit by using the following command:
+1. Create an ExpressRoute circuit by using the following command:
 
     ```powershell
      New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> `
         -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
     ```
-- Arrange for the ExpressRoute circuit to be provisioned.
+2. Arrange for the ExpressRoute circuit to be provisioned.
 
 	If you're using a level 3 connection:
 
-	- Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /27 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
+	1. Send the `ServiceKey` for the new circuit to the service provider, together with the address of a /27 subnet that is outside the range of you on-premises network(s) and Azure VNet(s).
 
 		> [AZURE.NOTE] The service provider may provide an online portal for you to supply this information.
 
-	- Wait for the provider to provision the circuit. You can verify the provisioning state of a circuit by using the following PowerShell command:
+	2. Wait for the provider to provision the circuit. You can verify the provisioning state of a circuit by using the following PowerShell command:
 
         ```powershell
         Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
@@ -104,13 +104,13 @@ The following high-level steps outline a process for implementing this architect
 	If you're using a level 2 connection:
 
 
-	- Send the `ServiceKey` for the new circuit to the service provider.
+	1. Send the `ServiceKey` for the new circuit to the service provider.
 
-	- Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you're implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [Create an ExpressRoute circuit][create-expressroute-circuit].	
+	2. Reserve several blocks of IP addresses to configure routing between your network and the Microsoft edge routers. Each peering requires two /30 subnets. For example, if you're implementing a private peering to a VNet and a public peering for accessing Azure services, you will require four /30 subnets. This is for availability purposes; one subnet provides a primary circuit while the other acts as a secondary circuit. The IP prefixes for these subnets cannot overlap with the IP prefixes used by your VNet or on-premises networks. For details, see [Create an ExpressRoute circuit][create-expressroute-circuit].	
 
-	- Wait for the provider to provision the circuit.
+	3. Wait for the provider to provision the circuit.
 
-	- Configure routing for the ExpressRoute circuit.
+	4. Configure routing for the ExpressRoute circuit.
 	
 	>[AZURE.NOTE]If you're using a level 2 connection, you will most likely be responsible for configuring routing yourself, using the /30 subnet addresses that you reserved. See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following PowerShell commands to add a network peering for routing traffic:
 
@@ -126,7 +126,6 @@ The following high-level steps outline a process for implementing this architect
 
 	Depending on your requirements, you may need to perform the following operations:
 
-
 	- Configure private peering for connecting between on-premises services and components running in the VNet.
 
 	- Configure public peering for connecting between on-premises services and Azure public services.
@@ -134,7 +133,7 @@ The following high-level steps outline a process for implementing this architect
 	- Configure Microsoft peering for connecting between on-premises services and Office 365 services.
 
 
-- [Link your private VNet(s) in the cloud to the ExpressRoute circuit][link-vnet-to-expressroute]. Use the following PowerShell commands:
+3. [Link your private VNet(s) in the cloud to the ExpressRoute circuit][link-vnet-to-expressroute]. Use the following PowerShell commands:
 
 	```
 	$circuit = Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
