@@ -16,7 +16,7 @@
 	ms.date="04/15/2016"
 	ms.author="tarcher"/>
 
-# Comparing DevTest Labs VM base image options | Microsoft Azure
+# Comparing DevTest Labs VM base image options
 
 ## Overview
 

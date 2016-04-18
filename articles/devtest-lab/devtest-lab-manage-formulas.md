@@ -26,14 +26,13 @@ from a Formula, the default values can be used as-is, or modified.
 
 In this article, you'll learn how to perform the following tasks:
 
-- [Create a new Formula](./#create-a-new-formula)
-- [Use a Formula to create a new VM](./#use-a-formula-to-create-a-new-vm)
-- [Modify a Formula](./#modify-a-formula)
-- [Remove a Formula](./#remove-a-formula)
-- [Combine Custom Images and Formulas](./#combine-custom-images-and-formulas)
+- [Create a new Formula](#create-a-new-formula)
+- [Use a Formula to create a new VM](#use-a-formula-to-create-a-new-vm)
+- [Modify a Formula](#modify-a-formula)
+- [Remove a Formula](#remove-a-formula)
 
 > [AZURE.NOTE] Formulas are similar to [Custom Images](./devtest-lab-create-template.md) in that 
-each is used as a base for VM creation/provisioning. To help decide which is right
+each allows you to create a base image from a VHD that is used to provision a VM. To help decide which is right
 for your particular environment, refer to the article,
 [Comparing VM base image types](./devtest-lab-comparing-vm-base-image-types.md).
 
@@ -81,8 +80,6 @@ The following steps guide you through the process of creating a new Formula from
 ## Modify a Formula
 
 ## Remove a Formula 
-
-## Combine Custom Images and Formulas
 
 ## Next steps
 Create VM
