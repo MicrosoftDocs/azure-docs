@@ -29,9 +29,9 @@ You may choose to create a self-signed certificate for secure LDAP, if:
 ### Create a self-signed certificate using PowerShell
 On your Windows computer, open a new PowerShell window as **Administrator** and type the following commands, in order to create a new self-signed certificate.
 
-    PS C:\> $lifetime=Get-Date
+    $lifetime=Get-Date
 
-    PS C:\> New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
+    New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
 
 In the sample above, replace 'contoso100.com' with the DNS domain name of your Azure AD Domain Services managed domain.
 
@@ -76,32 +76,31 @@ Perform the following steps, in order to export the newly created certificate.
 
 10. Select the self-signed certificate and **right click**. From the right-click menu, select **All Tasks** and select **Export...**.
 
-   ![Export certificate](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert.png)
+    ![Export certificate](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert.png)
 
 11. In the **Certificate Export Wizard**, click **Next**.
 
-   ![Export certificate wizard](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert-wizard.png)
+    ![Export certificate wizard](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert-wizard.png)
 
 12. On the **Export Private Key** page, select **Yes, export the private key** and click **Next**.
 
-   ![Export certificate private key](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
+    ![Export certificate private key](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
 
 13. On the **Export File Format** page, select **Personal Information Exchange - PKCS #12 (.PFX)** as the file format for the exported certificate.
 
-   ![Export certificate file format](./media/active-directory-domain-services-admin-guide/secure-ldap-export-to-pfx.png)
+    ![Export certificate file format](./media/active-directory-domain-services-admin-guide/secure-ldap-export-to-pfx.png)
 
 14. On the **Security** page, select the **Password** option and type in a password to protect the .PFX file. Remember this password since it will be needed in the next task. Click **Next** to proceed.
 
-   ![Export certificate specify password](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Export certificate specify password](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
 15. On the **File to Export** page, specify the file name and location where you'd like to export the certificate.
 
-   ![Export certificate specify path](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-path.png)
+    ![Export certificate specify path](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-path.png)
 
 16. On the following page, click **Finish** to export the certificate to a PFX file. You should see confirmation dialog when the certificate has been exported.
 
-   ![Export certificate done](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
-
+    ![Export certificate done](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
 
 ## Task 2 - Enable secure LDAP for the managed domain
@@ -135,7 +134,7 @@ Perform the following configuration steps in order to enable secure LDAP.
 
     ![Secure LDAP - pending state](./media/active-directory-domain-services-admin-guide/secure-ldap-pending-state.png)
 
-     > [AZURE.NOTE] It will take about 10 to 15 minutes to enable secure LDAP for your managed domain. If the provided secure LDAP certificate does not match the required criteria (eg. the domain name is incorrect, the certificate is expired or expires very soon etc.), secure LDAP will not be enabled for your directory and you will see a failure.
+    > [AZURE.NOTE] It will take about 10 to 15 minutes to enable secure LDAP for your managed domain. If the provided secure LDAP certificate does not match the required criteria (eg. the domain name is incorrect, the certificate is expired or expires very soon etc.), secure LDAP will not be enabled for your directory and you will see a failure.
 
 9. When secure LDAP is successfully enabled for your managed domain, the **Pending...** message should disappear. You should see the thumbprint of the certificate displayed.
 
@@ -143,7 +142,7 @@ Perform the following configuration steps in order to enable secure LDAP.
 
 
 ## Task 3 - Enable secure LDAP access over the internet
-Complete the steps outlined in [Task 2](./active-directory-ds-admin-guide-configure-secure-ldap.md#task-2-enable-secure-ldap-for-the-managed-domain).
+Complete the steps outlined in [Task 2](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-2---enable-secure-ldap-for-the-managed-domain).
 
 1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This will be set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
 
@@ -154,9 +153,9 @@ Complete the steps outlined in [Task 2](./active-directory-ds-admin-guide-config
 
 3. The **domain services** section of the **Configure** tab should get grayed out and will be in the **Pending...** state for a few minutes. During this period, internet access to your managed domain over secure LDAP will be enabled.
 
-	![Secure LDAP - pending state](./media/active-directory-domain-services-admin-guide/secure-ldap-enable-internet-access-pending-state.png)
+    ![Secure LDAP - pending state](./media/active-directory-domain-services-admin-guide/secure-ldap-enable-internet-access-pending-state.png)
 
-     > [AZURE.NOTE] It will take about 10 minutes to enable internet access over secure LDAP for your managed domain.
+    > [AZURE.NOTE] It will take about 10 minutes to enable internet access over secure LDAP for your managed domain.
 
 4. When secure LDAP access to your managed domain over the internet is successfully enabled, the **Pending...** message should disappear. You should see the external IP address that can be used to access your directory over LDAPS.
 
