@@ -331,8 +331,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Creating a virtual machine for a web application with Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md)
 
-[How to run a compute-intensive task in .NET on an Azure virtual machine](virtual-machines-windows-classic-run-compute-intensive-task.md)
-
 [How to run a compute-intensive task in Java on a virtual machine](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Django Hello World web application on a Windows Server VM](virtual-machines-windows-classic-python-django-web-app.md)
