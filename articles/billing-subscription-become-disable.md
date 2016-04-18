@@ -28,15 +28,16 @@ When your usage exhausts the monthly amounts included in your offer, we will dis
 
 Here is how you can remove your Spending Limit:
 
-1.	Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
-2.	Click **Accounts**.
-3.	Click **Subscriptions**.
-4.	Select the subscription which is cancelled.
+1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
+2. Select **Accounts**, and then	select **Subscriptions**.
+3. Select a subscription.
+4. If the subscription is disabled due to the Spending Limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click Remove spending limit in the SUBSCRIPTION STATUS area.
+5. Select one of the following options that is appropriate for you：
 
-If the subscription has been disabled due to the Spending Limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click "Remove spending limit" in the Tasks area.
-
-For more information about spending limits see [Azure Spending Limit](https://azure.microsoft.com/pricing/spending-limits/).
-
+|Option|Effect|
+|------|------|
+|Remove spending limit indefinitely|Removes the spending limit without turning it on automatically at the start of the next billing period.|
+|Remove spending limit for the current billing period|Removes the spending limit so that it turns back on automatically at the start of the next billing period.|
 ## Payment of an invoice is past due
 
 Pay your outstanding balance in full. To do this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
@@ -60,4 +61,4 @@ If you cannot access the portal, submit the support request from the Azure Suppo
  * To submit a support ticket from the [Azure Support web site](https://azure.microsoft.com/support/options/), click **Get support**.
  * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
 
-For more information see [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
+For more information, see [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
