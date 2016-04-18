@@ -57,7 +57,7 @@ From this table we can draw the following conclusions.
 | C3                   | 6 GB   | 400 / 50                        | 49000                          |
 | C4                   | 13 GB  | 500 / 62.5                        | 61000                          |
 | C5                   | 26 GB  | 1000 / 125                       | 115000                         |
-| C6                   | 53 GB  | 1000+ / 125+                       | 150000                         |
+| C6                   | 53 GB  | 2000 / 250                       | 150000                         |
 | **Premium cache sizes**  |  &nbsp;      |    &nbsp;                        | **Requests per second (RPS), per shard** |
 | P1                   | 6 GB   | 1000 / 125                       | 140000                         |
 | P2                   | 13 GB  | 2000 / 250                       | 220000                         |
