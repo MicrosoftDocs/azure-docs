@@ -13,13 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-<<<<<<< HEAD
-	ms.date="04/10/2016" 
-	ms.author="ryancraw"/>
-=======
 	ms.date="04/08/2016" 
 	ms.author="rnagpal"/>
->>>>>>> de8f2dd7f62fbff4bbe660577d13df863492ccad
 
 # DocumentDB SDK
 
@@ -41,12 +36,9 @@
 
 ## Release Notes
 
-<<<<<<< HEAD
-=======
 ### <a name="1.6.3"/>[1.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
   - Fixed a bug in Nuget packaging of .NET SDK for packaging it as part of a Azure Cloud Service solution.
   
->>>>>>> de8f2dd7f62fbff4bbe660577d13df863492ccad
 ### <a name="1.6.2"/>[1.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
   - Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
