@@ -4,7 +4,7 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="stevenpo
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -17,7 +17,32 @@
 	ms.author="maheshu"/>
 
 # Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
-This article shows how you can enable Secure Lightweight Directory Access Protocol (LDAPS) for your Azure AD Domain Services managed domain.
+This article shows how you can enable Secure Lightweight Directory Access Protocol (LDAPS) for your Azure AD Domain Services managed domain. Secure LDAP is also known as 'Lightweight Directory Access Protocol (LDAP) over Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
+
+## Before you begin
+To perform the tasks listed in this article, you will need:
+
+1. A valid **Azure subscription**.
+
+2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
+
+3. **Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](./active-directory-ds-getting-started.md).
+
+4. A **certificate to be used to enable secure LDAP**. You can choose to get a certificate from your enterprise CA or public certificate authority. Alternately, you may also choose to [create a self-signed certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-1---create-a-self-signed-certificate-for-secure-ldap) as shown later in this article.
+
+
+### Requirements for the secure LDAP certificate
+Acquire a valid certificate per the guidelines below, before you enable secure LDAP. You will encounter failures if you try to enable secure LDAP for your managed domain with an invalid/incorrect certificate.
+
+1. **Trusted issuer** - The certificate must be issued by an authority trusted by computers that need to connect to the domain using secure LDAP. This may be your organization's enterprise certificate authority or a public certificate authority trusted by these computers.
+
+2. **Lifetime** - The certificate must be valid for at least the next 3-6 months. This ensures that secure LDAP access to your managed domain is not broken when the certificate expires.
+
+3. **Subject name** - The subject name on the certificate must be a wildcard for your managed domain. For instance, if your domain is named 'contoso100.com', the certificate's subject name must be '*.contoso100.com'. The DNS name (subject alternate name) must also be set to this wildcard name.
+
+3. **Key usage** - The certificate must be configured for the following uses - Digital signatures and key encipherment.
+
+4. **Certificate purpose** - The certificate must be valid for SSL server authentication.
 
 
 ## Task 1 - Create a self-signed certificate for secure LDAP
