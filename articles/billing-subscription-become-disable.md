@@ -29,7 +29,7 @@ When your usage exhausts the monthly amounts included in your offer, we will dis
 Here is how you can remove your Spending Limit:
 
 1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
-2. Select **Accounts**, and then	select **Subscriptions**.
+2. Click **ACCOUNTS**, and then	click **Subscriptions**.
 3. Select a subscription.
 4. If the subscription is disabled due to the Spending Limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click Remove spending limit in the SUBSCRIPTION STATUS area.
 5. Select one of the following options that is appropriate for you：
