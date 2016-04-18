@@ -26,7 +26,7 @@ Spark on Azure HDInsight is able to manipulate data in-memory while processing i
 
 The Spark MLlib toolkit brings considerable machine learning (ML) modeling capabilities to this distributed environment. The collection of topics linked in the menu showcase this by working through binary classification and regression tasks on a sample of the NYC taxi trip and fare 2013 dataset and then store the  model results in WASB. The models build include logistic and linear regression, random forests and gradient boosted trees They also how to consume these model results to score and evaluate them with respect to other datasets stored in WASB. More advanced topics cover how models can be trained using cross-validation and hyper-parameter sweeping. 
 
-The modeling steps in these topics contain code showing how to train, evaluate and save each type of model. Python has been used to code the solution and to show the relevant plots and Python notebooks have been provide that can be run on the Jupyter notebooks installed on the Spark clusters.
+The modeling steps in these topics contain code showing how to train, evaluate, save, and consume each type of model. Python has been used to code the solution and to show the relevant plots and Python notebooks have been provided that can be run on the Jupyter notebooks installed on the Spark clusters.
 
 
 ## Prerequisites
@@ -89,7 +89,7 @@ We have taken a 0.1% sample of these files and joined these into a single datase
 | direct_distance |	Direct distance between pickup and dropoff locations
 | payment_type | Payment type (cas, credit-card etc.)
 | fare_amount | Fare amount in
-| surcharge	Surcharge surcharge
+| surcharge	| Surcharge surcharge
 | mta_tax |	Mta tax
 | tip_amount | Tip amount
 | tolls_amount | Tolls amount
@@ -104,9 +104,11 @@ You can launch the Jupyter Notebook from the Azure portal: find your Spark clust
 
 ![](./media/machine-learning-data-science-spark-mllib-modeling/spark-jupyter-on-portal.png)
 
-You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to access the Jupyter Notebook.  
+You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to access the Jupyter Notebooks. You will need the password for your admin account to access the notebooks.
 
-Once you have opened the notebook, you will see a directory that contains a few examples of pre-packaged notebooks listed. The notebook that contains the code samples in this topic are available in [Github]( https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
+![](./media/machine-learning-data-science-spark-mllib-modeling/spark-jupyter-notebook.png)
+
+Navigate to Python to see existing notebooks that run python scripts. You will see a directory that contains a few examples of pre-packaged notebooks listed. The notebook that contains the code samples in this topic are available in [Github]( https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
 
 You can upload the notebooks directly from Github to the Jupyter notebook server on your Spark cluster. On the home page of your Jupyter, click on the **Upload** button on the right part of the screen. It will open a file explorer. Here you can paste the Github (raw content) URL of the Notebook and click **Open**. You will see the file name on your Jupyter file list with an **Upload** button again. Click this **Upload** button. Now, you have imported the notebook. Repeat these steps to upload the following notebooks from this walkthrough.
 
