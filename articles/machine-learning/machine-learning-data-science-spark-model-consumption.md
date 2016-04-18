@@ -333,12 +333,12 @@ The scored results are stored in [Resilient Distributed Dataset (RDD)](http://sp
 
 **OUTPUT:**
 
-	Area under PR = 0.985335502594
-	Area under ROC = 0.983445023579
-	Summary Stats
-	Precision = 0.984201800095
-	Recall = 0.984201800095
-	F1 Score = 0.984201800095
+Area under PR = 0.985335502594
+Area under ROC = 0.983445023579
+Summary Stats
+Precision = 0.984201800095
+Recall = 0.984201800095
+F1 Score = 0.984201800095
 
 
 ![receiver-operating-characteristic-example](./media/machine-learning-data-science-spark-model-consumption/receiver-operating-characteristic-example.png)

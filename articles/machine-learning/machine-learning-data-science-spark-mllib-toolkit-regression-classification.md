@@ -78,7 +78,6 @@ The following code sample specifies the location of the data to be read and the 
 
 Set spark context and import necessary libraries with the following code.
 
-TBD: Why are the 2 lines below commented out? Do we need any guidance on when to uncomment them?
 
 	# IMPORT LIBRARIES
 	import pyspark
@@ -105,8 +104,6 @@ TBD: Why are the 2 lines below commented out? Do we need any guidance on when to
 	sc.defaultParallelism
 
 **Output:**
-
-datetime.datetime(2016, 3, 29, 13, 42, 8, 305457)
 
 4
 
@@ -327,7 +324,10 @@ This code shows how to create a new feature by binning hours into traffic time b
 This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. Depending on the model, you need to index or encode them in different ways:  
 
 - **Tree based modeling** requires categories to be encoded as numerical values (e.g. a feature with 3 categories may be encoded with 0, 1, 2). This is provided by MLlib’s [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Note that although indexed with numerical values for input and data handling, the tree based algorithms can be specified to treat them appropriately as categories. 
+
 - **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with 3 categories can be expanded into 3 feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect continuous valued features, such as logistic regression, to be applied to categorical features.
+
+Here is the code to index and encode categorical features:
 
 
 	# INDEX AND ENCODE CATEGORICAL FEATURES
@@ -336,7 +336,7 @@ This section shows how to index or encode categorical features for input into th
 	timestart = datetime.datetime.now()
 
 	# LOAD PYSPARK LIBRARIES	
-	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
+	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
 	
 	# INDEX AND ENCODE VENDOR_ID
 	stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
@@ -390,8 +390,9 @@ This section contains code that shows how to index categorical text data as a [l
 
 	# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
 	def parseRowIndexingBinary(line):
-	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.pickup_hour, line.weekday,
-	                         line.passenger_count, line.trip_time_in_secs, line.trip_distance, line.fare_amount])
+	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex,
+	                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+	                         line.trip_distance, line.fare_amount])
 	    labPt = LabeledPoint(line.tipped, features)
 	    return  labPt
 	
@@ -399,10 +400,10 @@ This section contains code that shows how to index categorical text data as a [l
 	def parseRowOneHotBinary(line):
 	    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
 	                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-	                               line.vendorVec.toArray(), line.rateVec.toArray(), line.paymentVec.toArray()), axis=0)
+	                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+	                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
 	    labPt = LabeledPoint(line.tipped, features)
 	    return  labPt
-
 
 
 	# FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
@@ -410,11 +411,8 @@ This section contains code that shows how to index categorical text data as a [l
 	# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
 	def parseRowIndexingRegression(line):
 	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
-	    line.pickup_hour, 
-		line.weekday, 
-		line.passenger_count, 
-		line.trip_time_in_secs, 
-	    line.trip_distance, line.fare_amount])
+	                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+	                         line.trip_distance, line.fare_amount])
 
 	    labPt = LabeledPoint(line.tip_amount, features)
 	    return  labPt
@@ -422,12 +420,9 @@ This section contains code that shows how to index categorical text data as a [l
 	# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
 	def parseRowOneHotRegression(line):
 	    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
-	    line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-	    line.vendorVec.toArray(), 
-		line.rateVec.toArray(), 
-	    line.paymentVec.toArray(), 
-		line.TrafficTimeBinsVec.toArray()), axis=0)
-
+	                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+	                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+	                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
 	    labPt = LabeledPoint(line.tip_amount, features)
 	    return  labPt
 
@@ -559,7 +554,6 @@ This section shows how use three models for the binary classification task of pr
 Each model building code section will be split into steps: 
 
 1. **Model training** data with one parameter set
-2. **Plotting the Area under ROC curve (AUC)** to assess model accuracy
 2. **Model evaluation** on a test data set with metrics
 3. **Saving model** in blob for future consumption
 
@@ -903,6 +897,14 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 	timeend = datetime.datetime.now()
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**OUTLOOK**
+
+RMSE = 0.962160568829
+
+R-sqr = 0.717354800581
+
+![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/actual-vs-predicted-tips.png)
 
 	
 ## Cleanup objects from memory
