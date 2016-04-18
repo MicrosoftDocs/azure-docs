@@ -46,7 +46,16 @@ Procedural steps only for tech review
 
     ![Add model class][cache-model-add-class-dialog]
 
-3. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other classes.
+3. Replace the `using` statements at the top of the `Team.cs` file with the following using statements.
+
+
+		using System;
+		using System.Collections.Generic;
+		using System.Data.Entity;
+		using System.Data.Entity.SqlServer;
+
+
+4. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](https://msdn.microsoft.com/data/jj193542).
 
 
 		public class Team
@@ -117,21 +126,12 @@ Procedural steps only for tech review
 		}
 
 
-1. Replace the using statements at the top of the `Team.cs` file with the following using statements.
-
-
-		using System;
-		using System.Collections.Generic;
-		using System.Data.Entity;
-		using System.Data.Entity.SqlServer;
-
-
 2. In **Solution Explorer** double-click **web.config** and add the following connection string to the `connectionStrings` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
 
 		<add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
 
 
-    After adding this, the `connectionStrings` section will look like the following example.
+    After adding this, the `connectionStrings` section should look like the following example.
 
 
 		<connectionStrings>
@@ -143,31 +143,61 @@ Procedural steps only for tech review
 ## Add the controller
 
 
-
-1. Before adding the controller, press **F6** to build the project. 
+1. Press **F6** to build the project. 
 2. In **Solution Explorer**, right-click the **Controllers** folder and choose **Add**, **Controller**.
 
-    ![Add controller][]
+    ![Add controller][cache-add-controller]
 
-3. Choose **MVC 5 Controller with views, using Entity Framework**, and click **Add**. Select **Team (ContosoTeamStats.Models)** from the **Model class** drop-down list. Select **TeamContext (ContosoTeamStats.Models)** from the **Data context class** drop-down list. Type `TeamsController` in the **Controller** name textbox (if it is not automatically populated). Click **Add** to create the controller class and add the default views.
+3. Choose **MVC 5 Controller with views, using Entity Framework**, and click **Add**. If you get an error after clicking **Add**, ensure that you have built the project first.
 
-In **Solution Explorer**, expand **Global.asax** and double-click **Global.asax.cs** to open it.
+    ![Add controller class][cache-add-controller-class]
 
-Add the two following using statements at the top of the file under the other using statements.
+5. Select **Team (ContosoTeamStats.Models)** from the **Model class** drop-down list. Select **TeamContext (ContosoTeamStats.Models)** from the **Data context class** drop-down list. Type `TeamsController` in the **Controller** name textbox (if it is not automatically populated). Click **Add** to create the controller class and add the default views.
 
-	using System.Web.Mvc;
-	using ContosoTeamStats.Models;
+    ![Configure controller][cache-configure-controller]
 
-Add the following line of code at the end of the `Application_Start` method.
+4. In **Solution Explorer**, expand **Global.asax** and double-click **Global.asax.cs** to open it.
 
-	Database.SetInitializer<TeamContext>(new TeamInitializer());
-	// TODO I am still having trouble getting the database to initialize
-	// I want the database to be seeded with data before the first query,
-	// not just on add/edit
+    ![Global.asax.cs][cache-global-asax]
 
-In **Solution Explorer**, expand the **Views** folder and then the **Shared** folder, and double-click **_Layout.cshtml**. Change the contents of the `title` element and replace `My ASP.NET Application` with `Contoso Team Stats` as shown in the following example.
+5. Add the following two using statements at the top of the file under the other using statements.
 
-	<title>@ViewBag.Title - Contoso Team Stats</title>
+
+        using System.Data.Entity;
+		using ContosoTeamStats.Models;
+
+
+6. Add the following line of code at the end of the `Application_Start` method.
+
+
+	    Database.SetInitializer<TeamContext>(new TeamInitializer());
+
+
+7. In **Solution Explorer**, expand `App_Start` and double-click `RouteConfig.cs`.
+
+    ![RouteConfig.cs][cache-RouteConfig-cs]
+
+8. Replace `controller = "Home"` in the following code in the `RegisterRoutes` method with `controller = "Teams"` as shown in the following example.
+
+
+	    routes.MapRoute(
+	        name: "Default",
+	        url: "{controller}/{action}/{id}",
+	        defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
+	    );
+
+
+## Configure the views
+
+1. In **Solution Explorer**, expand the **Views** folder and then the **Shared** folder, and double-click **_Layout.cshtml**. 
+
+    ![_Layout.cshtml][cache-layout-cshtml]
+
+2. Change the contents of the `title` element and replace `My ASP.NET Application` with `Contoso Team Stats` as shown in the following example.
+
+
+	    <title>@ViewBag.Title - Contoso Team Stats</title>
+
 
 In the `body` section, update the first `Html.ActionLink` statement and replace `Application name` with `Contoso Team Stats` and replace `Home` with `Teams`.
 
@@ -192,15 +222,7 @@ TODO I wish there was a way to call out sections of code - I am working on this 
 	
 
 
-In **Solution Explorer**, expand `App_Start` and double-click `RouteConfig.cs`.
 
-Replace `controller = "Home"` in the following code in the `RegisterRoutes` method with `controller = "Teams"` as shown in the following example.
-
-    routes.MapRoute(
-        name: "Default",
-        url: "{controller}/{action}/{id}",
-        defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
-    );
 
 Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. In the next section we'll add Redis Cache to the application.
 
@@ -241,7 +263,7 @@ Add the following two properties to the `TeamsController` class.
   
 TODO I am still figuring the best way to do this locally. I have it solved when hosting in Azure. I don't like the password being in the code or config file.
 
-Replace `<your cache name>` with the name of your cache, and replace `<primary or secondary key of your cache>` with the key from your cache. To retrieve these values, follow these instructions: https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#access-keys
+Replace `<your cache name>` with the name of your cache, and replace `<primary or secondary key of your cache>` with the key from your cache. To retrieve these values, follow these instructions: https://azure.microsoft.com/documentation/articles/cache-configure/#access-keys
 
 In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample we'll query the sorted set for the top 5 teams ranked by number of wins.
 
@@ -577,12 +599,12 @@ In the next section we'll publish the Web App to Azure and run it in the cloud.
 [cache-select-template]: ./media/cache-web-app-howto/cache-select-template.png
 [cache-model-add-class]: ./media/cache-web-app-howto/cache-model-add-class.png
 [cache-model-add-class-dialog]: ./media/cache-web-app-howto/cache-model-add-class-dialog.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
+[cache-add-controller]: ./media/cache-web-app-howto/cache-add-controller.png
+[cache-add-controller-class]: ./media/cache-web-app-howto/cache-add-controller-class.png
+[cache-configure-controller]: ./media/cache-web-app-howto/cache-configure-controller.png
+[cache-global-asax]: ./media/cache-web-app-howto/cache-global-asax.png
+[cache-RouteConfig-cs]: ./media/cache-web-app-howto/cache-RouteConfig-cs.png
+[cache-layout-cshtml]: ./media/cache-web-app-howto/cache-layout-cshtml.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
