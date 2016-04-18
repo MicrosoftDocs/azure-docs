@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery (legacy) | Microsoft Azure" 
-	description="Describes a legacy deployment for setting up Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure." " 
+	description="Describes a legacy deployment for setting up Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure." 
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"

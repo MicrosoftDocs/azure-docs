@@ -3,7 +3,7 @@
 	description="Use the RecoveryManager class to solve problems with shard maps" 
 	services="sql-database" 
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="ddove"/>
 
 <tags 

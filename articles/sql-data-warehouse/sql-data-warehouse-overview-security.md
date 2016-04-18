@@ -18,7 +18,7 @@
 
 # Secure a database in SQL Data Warehouse
 
-This article walks through the basics of securing your Azure SQL Data Warehouse database. In particular, this articles will get you started with resources for limiting access, protecting data, and monitoring activities on a database.
+This article walks through the basics of securing your Azure SQL Data Warehouse database. In particular, this article will get you started with resources for limiting access, protecting data, and monitoring activities on a database.
 
 ## Connection security
 
@@ -29,7 +29,7 @@ Firewall rules are used by both the server and the database to reject connection
 
 ## Authentication
 
-Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Authentication with a username and password.
+Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password.
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
 
@@ -67,15 +67,15 @@ The server admin account you are connecting with is a member of db_owner, which 
 
 There are ways to further limit what a user can do with Azure SQL Database:
 
-- [Database roles][] other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts.
-- Granular [Permissions][] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database.
+- Granular [Permissions][] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database. Use granular permissions to have the most control and grant the mimimum permissions necessary. The granular permission system is somewhat complicated and will require some study to use effectively.
+- [Database roles][] other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts. The built-in fixed database roles provide an easy way to grant permissions, but can result in granting more permissions than are necessary.
 - [Stored procedures][] can be used to limit the actions that can be taken on the database.
 
 Managing databases and logical servers from the Azure Classic Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal][].
 
 ## Encryption
 
-Azure SQL Data Warehouse can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent Data Encryption][]. To encrypt your database, connect to the master database on your server and execute:
+Azure SQL Data Warehouse can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent Data Encryption][]. You must be an administrator or a member of the dbmanager role in the master database to enable TDE. To encrypt your database, connect to the master database on your server and execute:
 
 
 ```sql
@@ -84,7 +84,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-You can also enable Transparent Data Encryption from database settings in the [Azure Classic Portal][].
+You can also enable Transparent Data Encryption from database settings in the [Azure Classic Portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Auditing
 
@@ -92,6 +92,7 @@ Auditing and tracking database events can help you maintain regulatory complianc
 
 ## Next steps
 For more development tips, see [development overview][].
+
 
 <!--Image references-->
 

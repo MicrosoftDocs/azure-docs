@@ -39,6 +39,10 @@ Use this architecture when the process server is on Azure and you have either a 
 
 ![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
+To see the complete list of ports and the failback architechture diagram refer to the image below
+
+![](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
+
 Here’s how failback works:
 
 - After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
@@ -54,6 +58,9 @@ Here’s how failback works:
 If you failed over a VMware VM you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes will be failed back. Note that:
 
 - If you failed over physical servers then failback is always to a new VMware VM.
+	- Before failing back a Physical machine note that
+	- Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware
+	- Ensure that you discover atleast one Master Target sever along with the necessary ESX/ESXi hosts to which you need to failback.
 - If you fail back to the original VM the following is required:
 	- If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
 	- If the VM is on an ESX host but isn’t managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
@@ -73,6 +80,7 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 	- **Create a process server in Azure**. This is an Azure VM that you’ll need to create and keep running during failback. You can delete the machine after failback is complete.
 	- **Create a master target server**: The master target server sends and receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback.
 	- if you want to create an additional master target server running on Linux, you’ll need to set up the Linux VM before you install the master target server, as described below.
+- Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback wont be successful. Hence ensure that you take regular scheduled backup of your server. In case of a disaster, you will need to restore it with the same IP address so that failback will work.
 
 ## Set up the process server in Azure
 
@@ -180,6 +188,13 @@ After failback completes your data will be back on the on-premises site, but won
 1.	In the Site Recovery portal > **Machines** tab select the VMs that have failed back and click **Re-Protect**. 
 2.	After you verify that replication to Azure is working as expected, in Azure you can delete the Azure VMs (currently not running) that were failed back.
 
+
+### Common Issues in failback
+
+1. If you perform Read-Only User vCenter discovery and protect virtual machines, it succeeds and failover works. At the time of Reprotect, it will fail since the datastores cannot be discovered. As a symptom you will not see the datastores listed while re-protecting. To resolve this, you can update the vCenter credential with appropriate account that has permissions and retry the job. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
+2. When you failback a Linux VM and run it on-prem, you will see that the Network Manager package is uninstalled from the machine. This is because when the VM is recovered in Azure, the Network Manager package is removed.
+3. When a VM is configured with Static IP address and is failed over to Azure, the IP address is acquired via DHCP. When you fail over back to On-prem, the VM continues to use DHCP to acquire the IP address. You will need to manually login into the machine and set the IP address back to Static address if required.
+4. If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback will not succeed. You will ned to upgrade to either Evaluation License to enable failback.
 
 ## Failing back with ExpressRoute
 
