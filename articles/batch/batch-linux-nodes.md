@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="04/15/2016"
+	ms.date="04/19/2016"
 	ms.author="marsma" />
 
 # Provision Linux compute nodes in Azure Batch pools
 
 Azure Batch enables you to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service using both the [Batch Python][py_batch_package] and [Batch .NET][api_net] client libraries.
 
-> [AZURE.NOTE] Linux support in Batch is currently in preview. Some aspects of the feature discussed here may change prior to general availability.
+> [AZURE.NOTE] Linux support in Batch is currently in preview. Some aspects of the feature discussed here may change prior to general availability. [Application packages](batch-application-packages.md) and [multi-instance tasks](batch-mpi.md) are **currently unsupported** on Linux compute nodes.
 
 ## Virtual Machine Configuration
 
@@ -45,7 +45,7 @@ The Batch service uses [Virtual Machine Scale Sets](../virtual-machine-scale-set
 
 ### Node agent SKU
 
-The Batch node agent runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. Essentially, when creating a Virtual Machine Configuration, you first specify the virtual machine image reference, and then specify which node agent to install on the image. Here are a few examples of node agent SKUs:
+The Batch node agent runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. Essentially, when creating a Virtual Machine Configuration, you first specify the virtual machine image reference, and then specify which node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. Here are a few examples of node agent SKUs:
 
 * batch.node.ubuntu 14.04
 * batch.node.centos 7
