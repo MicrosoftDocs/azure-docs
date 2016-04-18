@@ -20,13 +20,13 @@
 This article shows how you can enable Secure Lightweight Directory Access Protocol (LDAPS) for your Azure AD Domain Services managed domain.
 
 
-# Task 1 - Create a self-signed certificate for secure LDAP
+## Task 1 - Create a self-signed certificate for secure LDAP
 You may choose to create a self-signed certificate for secure LDAP, if:
 
 - certificates in your organization are not issued by an enterprise certificate authority or
 - you do not expect to use a certificate from a public certificate authority.
 
-## Create a self-signed certificate using PowerShell
+### Create a self-signed certificate using PowerShell
 On your Windows computer, open a new PowerShell window as **Administrator** and type the following commands, in order to create a new self-signed certificate.
 
     PS C:\> $lifetime=Get-Date
@@ -39,7 +39,7 @@ In the sample above, replace 'contoso100.com' with the DNS domain name of your A
 
 The newly created certificate should be placed in the local machine's certificate store.
 
-## Export the self-signed certificate to a .PFX file
+### Export the self-signed certificate to a .PFX file
 Perform the following steps, in order to export the newly created certificate.
 
 1. Press the **Start** button and type **R** to bring up the **Run** dialog. Type **mmc** and click **OK**.
@@ -104,7 +104,7 @@ Perform the following steps, in order to export the newly created certificate.
 
 
 
-# Task 2 - Enable secure LDAP for the managed domain
+## Task 2 - Enable secure LDAP for the managed domain
 Perform the following configuration steps in order to enable secure LDAP.
 
 1. Navigate to the **[Azure classic portal](https://manage.windowsazure.com)**.
@@ -142,7 +142,7 @@ Perform the following configuration steps in order to enable secure LDAP.
     ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-enabled.png)
 
 
-# Task 3 - Enable secure LDAP access over the internet
+## Task 3 - Enable secure LDAP access over the internet
 Complete the steps outlined in [Task 2](./active-directory-ds-admin-guide-configure-secure-ldap.md#task-2-enable-secure-ldap-for-the-managed-domain).
 
 1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This will be set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
