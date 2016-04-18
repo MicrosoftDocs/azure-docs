@@ -19,6 +19,8 @@
 
 # How to Scale Media Processing using the Azure Classic Portal
 
+## Achieve this task with other technologies  
+
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
 - [Portal](media-services-portal-encoding-units.md)
