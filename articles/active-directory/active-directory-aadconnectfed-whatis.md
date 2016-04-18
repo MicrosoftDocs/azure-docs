@@ -3,7 +3,7 @@
 	description="Explains how Azure AD Connect sync works and how to customize."
 	services="active-directory"
 	documentationCenter=""
-	authors="anandmsft"
+	authors="anandyadavmsft"
 	manager="stevenpo"
 	editor=""/>
 
