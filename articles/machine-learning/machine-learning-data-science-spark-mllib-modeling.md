@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/16/2016"
+	ms.date="04/18/2016"
 	ms.author="bradsev" />
 
-# Machine learning modeling on a Spark cluster with the MLlib toolkit
+# Data Science using Spark on Azure HDInsight with the MLlib toolkit
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 

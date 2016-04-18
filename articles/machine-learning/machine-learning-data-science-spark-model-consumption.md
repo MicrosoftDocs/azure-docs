@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/16/2016"
+	ms.date="04/18/2016"
 	ms.author="deguhath;bradsev" />
 
 # Score and evaluate machine learning models stored in an Azure blob using the Spark MLlib toolkit
