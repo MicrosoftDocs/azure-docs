@@ -48,11 +48,11 @@ For interactive and non-interactive applications, you must create and configure 
 
      ![select Active Directory][1]
      
-3. Select the directory that you want to use for creating the new application. For resources in your subscription, you can only assign access to service principals in the same directory as your subscription. So, you typically want to create the application in the directory where you subscription resides. 
+3. Select the directory that you want to use for creating the new application. For resources in your subscription, you can only assign access to service principals in the same directory as your subscription. Typically, you want to create the application in the directory where your subscription resides. 
 
      ![choose directory][2]
      
-    If you need to find the directory for your subscription, select **Setttings** and look for the directory name.
+    If you need to find the directory for your subscription, select **Settings** and look for the directory name.
    
      ![find default directory](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
