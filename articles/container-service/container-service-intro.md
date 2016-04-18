@@ -47,7 +47,7 @@ To begin using Azure Container Service, you deploy an Azure Container Service cl
 Deploying an application
 ------------------------
 
-During preview, we provide a choice of either Docker Swarm or Apache
+Azure Container Service provides a choice of either Docker Swarm or Apache
 Mesos (with DCOS Marathon and DCOS Chronos frameworks) for orchestration.
 
 ### Using Apache Mesos
