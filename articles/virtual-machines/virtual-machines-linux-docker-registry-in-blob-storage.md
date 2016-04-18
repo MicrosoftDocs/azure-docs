@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure-services"
-  ms.date="02/01/2016" 
+  ms.date="04/19/2016" 
   ms.author="ahmetb" />
 
 # Deploying Your Own Private Docker Registry on Azure
