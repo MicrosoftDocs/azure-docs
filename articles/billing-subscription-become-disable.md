@@ -39,7 +39,7 @@ For more information about spending limits see [Azure Spending Limit](https://az
 
 ## Payment of an invoice is past due
 
-Pay your outstanding balance in full. To do this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md)
+Pay your outstanding balance in full. To do this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
 
 ## The bill may exceed your credit card limit (H2)
 
