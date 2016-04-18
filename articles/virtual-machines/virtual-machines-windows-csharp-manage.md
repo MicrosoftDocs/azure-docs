@@ -17,7 +17,7 @@
 	ms.date="04/17/2016"
 	ms.author="davidmu"/>
 
-# Manage Azure Virtual Machines using Azure Resource Manager and C# 
+# Manage Azure Virtual Machines using Azure Resource Manager and C♯ 
 
 To complete the tasks in this article, you need:
 
