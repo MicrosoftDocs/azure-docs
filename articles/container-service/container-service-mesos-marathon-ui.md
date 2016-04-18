@@ -29,11 +29,7 @@ While frameworks are available for many popular workloads, this document will de
 
 ## Explore the DC/OS UI
 
-With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This will load the DC/OS web UI. If this is the first time accessing DC/OS, login with one of the provided authentication services.
-
-![Create deployment UI 1](media/dcos/dcos1.png)
-
-Once logged in, information about the cluster such as used resources, active agents, and running services can be seen.
+With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This will load the DC/OS web UI, and show information about the cluster such as used resources, active agents, and running services can be seen.
 
 ![](media/dcos/dcos2.png)
 

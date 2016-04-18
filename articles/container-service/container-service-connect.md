@@ -61,11 +61,9 @@ You can now access the DC/OS-related endpoints at:
 
 - DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
-- Chronos: `http://localhost/chronos`
+- Mesos: `http://localhost/mesos`
 
-Similarly, you can reach the rest APIs for each application through this tunnel: Marathon--`http://localhost/marathon/v2`. For more information on the various APIs that are available, see the Mesosphere documentation for the [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html). See the [Chronos API](https://mesos.github.io/chronos/docs/api.html) and the
-Apache documentation for the [Mesos Scheduler
-API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Similarly, you can reach the rest APIs for each application through this tunnel.
 
 ### Swarm tunnel
 
@@ -115,7 +113,7 @@ When you have configured the tunnel for DC/OS, you can access the related endpoi
 
 - DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
-- Chronos: `http://localhost/chronos`
+- Mesos: `http://localhost/mesos`
 
 When you have configured the tunnel for Docker Swarm, you can access the Swarm cluster through the Docker CLI. You will first need to configure a Windows environment variable named `DOCKER_HOST` with a value of ` :2375`.
 
