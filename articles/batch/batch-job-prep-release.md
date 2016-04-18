@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # Run job preparation and completion tasks on Azure Batch compute nodes
 
 Azure Batch jobs often require some form of setup prior to execution, and similarly, some sort of post-job maintenance after the job's tasks are completed. Batch provides the mechanisms for this preparation and maintenance in the form of optional *job preparation* and *job release* tasks.
@@ -78,7 +78,7 @@ In this code snippet, `myBatchClient` is a fully initialized instance of [BatchC
 
 		await myJob.CommitAsync();
 
-As mentioned above, the release task is executed when a job is terminated or deleted. Terminating a job with the Batch .NET API is performed by calling [PoolOperations.TerminateJobAsync][net_job_terminate]. Job deletion is performed with [PoolOperations.DeleteJobAsync][net_job_delete]. Both of these actions are typically done when a job's tasks are completed or when a timeout that you've defined has been reached.
+As mentioned above, the release task is executed when a job is terminated or deleted. Terminating a job with the Batch .NET API is performed by calling [JobOperations.TerminateJobAsync][net_job_terminate]. Job deletion is performed with [JobOperations.DeleteJobAsync][net_job_delete]. Both of these actions are typically done when a job's tasks are completed or when a timeout that you've defined has been reached.
 
 		// Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
 		// that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
