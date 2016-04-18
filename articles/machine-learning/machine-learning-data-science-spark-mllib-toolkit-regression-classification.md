@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/16/2016"
+	ms.date="04/18/2016"
 	ms.author="deguhath;bradsev" />
 
 # Create binary classification and regression models using the Spark MLlib toolkit
@@ -942,9 +942,9 @@ For the consumption and scoring an independent dataset described in the [Score a
 
 ## What's next?
 
-Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models and how to use some advanced model training techniques.
+Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models.
 
 **Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate machine learning models stored in an Azure blob using the Spark MLlib toolkit](machine-learning-data-science-spark-model-consumption.md).
 
-**Advanced model training:** For instructions on how to use Cross-validation and hyper-parameter sweeping when training a model, see [Advanced binary classification and regression with the Spark MLlib toolkit] (machine-learning-data-science-spark-mlib-toolkit-advanced-regression-classification.md). 
+
 

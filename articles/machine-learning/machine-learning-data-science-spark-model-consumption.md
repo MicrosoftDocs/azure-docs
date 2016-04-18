@@ -574,8 +574,4 @@ If you prefer a code free client experience, use the [Azure Logic Apps](../app-s
 
 ![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
-## What's next? 
 
-Now that you have created, scored and evaluated regression and classification models with the Spark MlLib, you are ready to use some advanced model training techniques.
-
-**Advanced model training:** For instructions on how to use Cross-validation and hyper-parameter sweeping when training a model, see [Advanced binary classification and regression with the Spark MLlib toolkit] (machine-learning-data-science-spark-mlib-toolkit-advanced-regression-classification.md). 

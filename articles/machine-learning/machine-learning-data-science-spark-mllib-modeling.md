@@ -135,4 +135,3 @@ Now that you are set up with an HDInsight Spark cluster and have uploaded the Ju
 
 **Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate machine learning models stored in an Azure blob using the Spark MLlib toolkit](machine-learning-data-science-spark-model-consumption.md).
 
-**Advanced model training:** For instructions on how to use Cross-validation and hyper-parameter sweeping when training a model, see [Advanced binary classification and regression with the Spark MLlib toolkit] (machine-learning-data-science-spark-mlib-toolkit-advanced-regression-classification.md). 
