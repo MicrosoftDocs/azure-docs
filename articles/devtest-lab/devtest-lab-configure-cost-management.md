@@ -49,8 +49,7 @@ In order to enable the Monthly Estimated Cost Trend chart, follow these steps:
 Once you enable this feature, it can take several hours before the chart will display your estimated and projected costs.
 This is because a service runs every hour to gather this information, but runs a few hours behind the live data being collected.
 For example, let's say you start a VM at 1:00 AM. The cost associated with that VM probably won't be incorporated into
-the cost chart for a couple of hours.  
-In cases of live site issues - such as outages - it can also take several hours to report the cost.
+the cost chart for a couple of hours.
  
 The following screen shot shows an example of a cost chart. 
 
