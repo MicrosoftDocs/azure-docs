@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/07/2016"
+	ms.date="04/18/2016"
 	ms.author="markvi"/>
 
 # Getting started with Azure Active Directory Premium
@@ -67,7 +67,7 @@ The email confirms that you can start managing your Azure Active Directory Premi
 If you have used Microsoft Azure before, you can proceed to [http://manage.windowsazure.com](http://manage.windowsazure.com) to assign the new licenses (see [Step 4](#step-4-assign-license-to-user-accounts) for more details). 
 
 If you are new to Microsoft Azure, you can either click **Sign In** in the email, or go to the [Access to Azure Active Directory activation page](https://account.windowsazure.com/signup?offer=MS-AZR-0110P). 
-Both methods are taking you through a series of steps to help you access your directory through the Azure Management Portal.
+Both methods are taking you through a series of steps to help you access your directory through the Azure classic portal.
 
 ![][4]
 
@@ -75,7 +75,7 @@ When you have signed in successfully, you need to complete a second factor authe
 
 ![][5]
 
-The activation can take a few minutes. Once your access is active, the brown bar disappears and you are able to click the Portal link.
+The activation can take a few minutes. Once your access is active, the brown bar disappears and you are able to click **Portal**.
 
 ![][6]
 
@@ -83,7 +83,7 @@ In this case, your Azure access is limited to Azure Active Directory.
 
 ![][7]
 
-You may already have had access to Azure from prior usage; in addition, you can upgrade your Access Azure Active Directory to full Azure access by activating additional Azure subscriptions. In these cases the Management Portal will have more capabilities as in the following.
+You may already have had access to Azure from prior usage; in addition, you can upgrade your Access Azure Active Directory to full Azure access by activating additional Azure subscriptions. In these cases the Azure classic portal has more capabilities.
 
 ![][8]
 
@@ -91,7 +91,7 @@ If you attempt to activate your access to Azure Active Directory prior to receiv
 
 ![][9]
 
-New administrators in your subscription can also activate their access to the Management Portal through this link.
+New administrators in your subscription can also activate their access to the Azure classic portal through this link.
 
 ## Step 4: Assign license to user accounts
 
@@ -99,7 +99,7 @@ Before you can start using the plan you purchased, you need to manually assign l
 
 To assign licenses to users:
 
-1. Sign into the Management Portal as the global administrator of the directory you wish to customize.
+1. Sign into the Azure classic portal as the global administrator of the directory you wish to customize.
 2. Click **Active Directory**, and then select the directory where you want to assign licenses.
 3. Select the **Licenses** tab, select **Active Directory Premium** or **Enterprise Mobility Suite**, and then click **Assign**.
 
