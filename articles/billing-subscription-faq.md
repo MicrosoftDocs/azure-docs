@@ -55,7 +55,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I upgrade to a higher tier Azure Support plan?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
 
--	[When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
+- [When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
 
 - [What happens at the end of the term?](#what-happens-at-the-end-of-the-term)
 
