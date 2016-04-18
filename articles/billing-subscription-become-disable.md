@@ -1,10 +1,10 @@
 <properties
-	pageTitle="What do I do if my Azure subscription becomes disabled? | Microsoft Azure"
+	pageTitle="What do I do if my Azure subscription is cancelled? | Microsoft Azure"
 	description="Describes the reasons and resolution for Azure subscription becomes disabled"
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="msmbaldwin"
 	editor="na"
 	tags="billing"
 	/>
@@ -15,24 +15,43 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/17/2016"
 	ms.author="genli"/>
 
-# What do I do if my Azure subscription becomes disabled?
+# What do I do if my Azure subscription is cancelled?
 
 Your Azure subscription can become disabled for the following reasons:
 
-### You have reached the spending limit
+## You may have reached the spending limit. You can opt to remove the spending limit.
 
-For more information about spending limits see [Azure Spending Limit](https://azure.microsoft.com/pricing/spending-limits/). This article explains that when your usage exhausts the monthly amounts included in your offer, we will disable your service for the remainder of that billing month. It goes on to describe how you can remove your Spending Limit.
+When your usage exhausts the monthly amounts included in your offer, we will disable your service for the remainder of that billing month.
 
-### Payment of an invoice is past due
+Here is how you can remove your Spending Limit:
 
-To resolve this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md)
+1.	Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
+2.	Click **Accounts**.
+3.	Click **Subscriptions**.
+4.	Select the subscription which is cancelled.
 
-### The Azure subscription is cancelled
+If the subscription has been disabled due to the Spending Limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click "Remove spending limit" in the Tasks area.
 
-To reactivate a subscription, you must create a support ticket: sign into the [Azure portal](https://portal.azure.com/), select **Help + support**>**New support request**.
+For more information about spending limits see [Azure Spending Limit](https://azure.microsoft.com/pricing/spending-limits/).
+
+## Payment of an invoice is past due
+
+Pay your outstanding balance in full. To do this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md)
+
+## The bill may exceed your credit card limit (H2)
+
+To resolve this issue, use one of the following method:
+
+- [Switch to a different credit card](billing-how-to-change-credit-card.md)
+- If you are a business, you can [switch to the invoice method of payment](https://azure.microsoft.com/pricing/invoicing/)
+
+
+## How to re-enable your subscription
+
+To re-enable a cancelled subscription, you must create a support ticket: sign into the [Azure portal](https://portal.azure.com/), select **Help + support**>**New support request**.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
