@@ -26,7 +26,7 @@ To complete the tasks in this article, you need:
 
 ## Create a Visual Studio project and install packages
 
-NuGet packages are the easiest way to install the libraries that you need to finish the tasks in this article. You must install the Azure Active Directory Authentication Library and the Computer Resource Provider Library. To get these libraries in Visual Studio, do this:
+NuGet packages are one of the easiest ways to install the libraries that you need to finish the tasks in this article. You must install the Azure Active Directory Authentication Library and the Computer Resource Provider Library. To get these libraries in Visual Studio, do this:
 
 1. Click **File** > **New** > **Project**.
 
