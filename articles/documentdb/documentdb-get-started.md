@@ -49,6 +49,7 @@ Please make sure you have the following:
 
 - An active Azure account. If you don't have one, you can sign up for a [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
+- .NET Framework 4.6
 
 ## Step 1: Create a DocumentDB account
 
@@ -78,6 +79,9 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
 		// ADD THIS PART TO YOUR CODE
+		using System;
+    using System.Linq;
+    using System.Threading.Tasks;
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -113,7 +117,7 @@ Below the **Main** method, add this new asynchronous task called **GetStartedDem
 	}
 
 	// ADD THIS PART TO YOUR CODE
-	private static async Task GetStartedDemo()
+	private async Task GetStartedDemo()
 	{
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 	}
@@ -173,7 +177,7 @@ Copy and paste the **CreateDatabaseIfNotExists** method underneath the **GetStar
 			try
 			{
 					await this.client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(databaseName));
-					this.WriteToConsoleAndPromptToContinue("Created {0}", databaseName);
+					this.WriteToConsoleAndPromptToContinue("Found {0}", databaseName);
 			}
 			catch (DocumentClientException de)
 			{
