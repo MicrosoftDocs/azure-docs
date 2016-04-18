@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carmonm"
+   manager="christb"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
+   ms.date="04/18/2016"
    ms.author="telmos" />
 
 # Virtual appliance scenario
@@ -39,7 +39,7 @@ The solution below uses firewall virtual appliances to implement a DMZ/protected
 You can deploy the environment explained above in Azure using different features available today, as follows.
 
 - **Virtual network (VNet)**. An Azure VNet acts in similar fashion to an on-premises network, and can be segmented into one or more subnets to provide traffic isolation, and separation of concerns.
-- **Fortinet virtual appliance**. Fortinet provides virtual appliances in the Azure Marketplace that can be used for the three firewalls described above. 
+- **Virtual appliance**. Several partners provide virtual appliances in the Azure Marketplace that can be used for the three firewalls described above. 
 - **User Defined Routes (UDR)**. Route tables can contain UDRs used by Azure networking to control the flow of packets within a VNet. These route tables can be applied to subnets. One of the newest features in Azure is the ability to apply a route table to the GatewaySubnet, providing the ability to forward all traffic coming into the Azure VNet from a hybrid connection to a virtual appliance.
 - **IP Forwarding**. By default, the Azure networking engine forward packets to virtual network interface cards (NICs) only if the packet destination IP address matches the NIC IP address. Therefore, if a UDR defines that a packet must be sent to a given virtual appliance, the Azure networking engine would drop that packet. To ensure the packet is delivered to a VM (in this case a virtual appliance) that is not the actual destination for the packet, you need to enable IP Forwarding for the virtual appliance.
 - **Network Security Groups (NSGs)**. The example below does not make use of NSGs, but you could use NSGs applied to the subnets and/or NICs in this solution to further filter the traffic in and out of those subnets and NICs.
@@ -63,13 +63,13 @@ In this example there is a subscription that contains the following:
 	- **azsn4**. Management subnet used exclusively to provide management access to all firewall virtual appliances. This subnet only contains a NIC for each firewall virtual appliance used in the solution.
 	- **GatewaySubnet**. Azure hybrid connection subnet required for ExpressRoute and VPN Gateway to provide connectivity between Azure VNets and other networks. 
 - There are 3 firewall virtual appliances in the **azurevnet** network. 
-	- **AZF1**. External firewall exposed to the public Internet by using a public IP address resource in Azure. You need a custom template from one of the several firewall appliance vendors to deploy a 3-NIC virtual appliance.
-	- **AZF2**. Internal firewall used to contrl traffic between **azsn2** and **azsn3**. THis is also a 3-NIC virtual appliance.
-	- **AZF3**. Management firewall accessible to administrators from the on-premises datacenter, and connected to a management subnet used to manage all firewall appliances. You can use the Azure Marketplace to deploy AZF1 from an existing 2-NIC firewall appliance template.
+	- **AZF1**. External firewall exposed to the public Internet by using a public IP address resource in Azure. You need to ensure you have a template from the Marketplace, or directly from your appliance vendor, that provisions a 3-NIC virtual appliance.
+	- **AZF2**. Internal firewall used to contrl traffic between **azsn2** and **azsn3**. This is also a 3-NIC virtual appliance.
+	- **AZF3**. Management firewall accessible to administrators from the on-premises datacenter, and connected to a management subnet used to manage all firewall appliances. You can find 2-NIC virtual appliance templates in the Marketplace, or request one directly from your appliance vendor.
 
 ## User Defined Routing (UDR)
 
-Each subnet in Azure can be linked to a UDR table used to define how traffic initiated in that subnet is routed. If not UDRs are defined, Azure uses default routes to allow traffic to flow from one subnet to another. To better understand UDRs, visit What are User Defined Routes and IP Forwarding.
+Each subnet in Azure can be linked to a UDR table used to define how traffic initiated in that subnet is routed. If no UDRs are defined, Azure uses default routes to allow traffic to flow from one subnet to another. To better understand UDRs, visit What are User Defined Routes and IP Forwarding.
 
 To ensure communication is done through the right firewall appliance, based on the last requirement above, you need to create the following route table containing UDRs in **azurevnet**.
 
@@ -101,7 +101,6 @@ You also need to create route tables for the subnets in **onpremvnet** to mimic 
 |Destination|Next hop|Explanation|
 |---|---|---|
 |192.168.2.0/24|192.168.1.4|Allows traffic to **onpremsn2** through **OPFW**|
-|0.0.0.0/0|192.168.1.4|Allows all other traffic to be routed through **OPFW**|
 
 ### onpremsn2udr
 
@@ -109,7 +108,6 @@ You also need to create route tables for the subnets in **onpremvnet** to mimic 
 |---|---|---|
 |10.0.3.0/24|192.168.2.4|Allows traffic to the backed subnet in Azure through **OPFW**|
 |192.168.1.0/24|192.168.2.4|Allows traffic to **onpremsn1** through **OPFW**|
-|0.0.0.0/0|192.168.2.4|Allows all other traffic to be routed through **OPFW**|
 
 ## IP Forwarding 
 
@@ -132,7 +130,7 @@ Without IP Forwarding enabled for **OPFW**, the Azure virtual networking logic w
 
 With IP Forwarding, the Azure virtual network logic will forward the packets to OPFW, without changing its original destination address. **OPFW** must handle the packets and determine what to do with them.
 
-For the scenario above to work, you must enable IP Forwarding on **OPFW**, **AZF1**, **AZF2**, and **AZF3**. 
+For the scenario above to work, you must enable IP Forwarding on the NICs for **OPFW**, **AZF1**, **AZF2**, and **AZF3** that are used for routing (all NICs except the ones linked to the management subnet). 
 
 ## Firewall Rules
 
@@ -178,4 +176,4 @@ To deploy this scenario, follow the high level steps below.
 2.	If you want to deploy a VNet to mimic the on-premises network, provision the resources that are part of **ONPREMRG**.
 3.	Provision the resources that are part of **AZURERG**.
 4.	Provision the tunnel from **onpremvnet** to **azurevnet**.
-5.	Once all resources are provisioned, log on to **onpremvm2** and ping 10.0.3.11 to test connectivity between **onpremsn2** and **azsn3**.
+5.	Once all resources are provisioned, log on to **onpremvm2** and ping 10.0.3.101 to test connectivity between **onpremsn2** and **azsn3**.
