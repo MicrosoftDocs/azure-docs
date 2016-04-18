@@ -142,7 +142,6 @@ Procedural steps only for tech review
 
 ## Add the controller
 
-
 1. Press **F6** to build the project. 
 2. In **Solution Explorer**, right-click the **Controllers** folder and choose **Add**, **Controller**.
 
@@ -199,32 +198,13 @@ Procedural steps only for tech review
 	    <title>@ViewBag.Title - Contoso Team Stats</title>
 
 
-In the `body` section, update the first `Html.ActionLink` statement and replace `Application name` with `Contoso Team Stats` and replace `Home` with `Teams`.
+3. In the `body` section, update the first `Html.ActionLink` statement and replace `Application name` with `Contoso Team Stats` and replace `Home` with `Teams`.
+	-	Before: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
+	-	After: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
 
-Before: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
-After: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
+    ![Code changes][cache-layout-cshtml-code]
 
-TODO I wish there was a way to call out sections of code - I am working on this and will show a more complete example here with callouts.
-
-	<body>
-	    <div class="navbar navbar-inverse navbar-fixed-top">
-	        <div class="container">
-	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                @Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })
-	            </div>
-
-
-	
-
-
-
-
-Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. In the next section we'll add Redis Cache to the application.
+4. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. In the next section we'll add Redis Cache to the application.
 
 ![Starter application][cache-starter-application]
 
@@ -605,7 +585,7 @@ In the next section we'll publish the Web App to Azure and run it in the cloud.
 [cache-global-asax]: ./media/cache-web-app-howto/cache-global-asax.png
 [cache-RouteConfig-cs]: ./media/cache-web-app-howto/cache-RouteConfig-cs.png
 [cache-layout-cshtml]: ./media/cache-web-app-howto/cache-layout-cshtml.png
-[]: ./media/cache-web-app-howto/.png
+[cache-layout-cshtml-code]: ./media/cache-web-app-howto/cache-layout-cshtml-code.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
