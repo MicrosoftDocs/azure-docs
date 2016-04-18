@@ -19,7 +19,7 @@
 
 # Install HDInsight applications
 
-HDInsight applications can be installed on existing Linux-based HDInsight clusters. These applications can be developed by Microsoft, an independent software vendor (ISV) or by yourself. In this article, you will learn how to install a published application. For the tutorial of install your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For packaging and deploying custom HDInsight applications, see [Package and deploy HDInsight applications](hdinsight-apps-deploy.md).
+HDInsight applications can be installed on existing Linux-based HDInsight clusters. These applications can be developed by Microsoft, an independent software vendor (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For packaging and deploying custom HDInsight applications, see [Package and deploy HDInsight applications](hdinsight-apps-deploy.md).
 
 The following are the published HDInsight applications:
 
@@ -87,7 +87,7 @@ If an application installation failed, you can see the error messages and debug 
 
 - HDInsight Applications
 
-    Open the cluster the portal, and click Apps from the Settings blade:
+    Open the cluster from the portal, and click Apps from the Settings blade:
 
     ![hdinsight applications application installation error](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
 
