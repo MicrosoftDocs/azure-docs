@@ -34,10 +34,10 @@ The first thing that you do when you create an SSH tunnel on Linux or OS X is to
 
 Now open a shell and run the following command where:
 
-**PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For Mesos, use port 80.
-**USERNAME** is the user name that was provided when you deployed the cluster.
-**DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.
-**REGION** is the region in which your resource group is located.
+**PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For Mesos, use port 80.  
+**USERNAME** is the user name that was provided when you deployed the cluster.  
+**DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
+**REGION** is the region in which your resource group is located.  
 **PATH_TO_PRIVATE_KEY** is the path to the private key corresponding to the public key you provided when creating the container service cluster.
 
 ```bash
