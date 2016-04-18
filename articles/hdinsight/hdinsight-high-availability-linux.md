@@ -31,9 +31,7 @@ Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. In t
 
 > [AZURE.NOTE] If the node is analyzing data when it fails, its progress on the job is lost. The job that the failing node was working on will be resubmitted to another node.
 
-The following sections discuss the individual node types used with HDInsight.
-
-> [AZURE.NOTE] Not all node types are used for a cluster type. For example, a Hadoop cluster type will not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+The following sections discuss the individual node types used with HDInsight. Not all node types are used for a cluster type. For example, a Hadoop cluster type will not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ###Head nodes
 
@@ -66,7 +64,7 @@ Currently, R Server on HDInsight is the only cluster type that provides an edge 
 
 ## Accessing the nodes
 
-Access to the cluster over the internet is provided through a public gateway. By default, access is limited to connecting to the head nodes and (if an R Server on HDInsight cluster,) the edge node. Access to services running on the head nodes is not effected by having multiple head nodes, as the public gateway routes requests to the head node that hosts the requested service. For example, if Ambari is currently hosted on head node 1, the gateway will route incoming requests for Ambari to that node.
+Access to the cluster over the internet is provided through a public gateway, and is limited to connecting to the head nodes and (if an R Server on HDInsight cluster,) the edge node. Access to services running on the head nodes is not effected by having multiple head nodes, as the public gateway routes requests to the head node that hosts the requested service. For example, if Ambari is currently hosted on head node 1, the gateway will route incoming requests for Ambari to that node.
 
 When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to head node 0; connecting through port 23 will connect to head node 1. For example, `ssh username@mycluster-ssh.azurehdinsight.net` will connect to head node 0 of the cluster named __mycluster__.
 
