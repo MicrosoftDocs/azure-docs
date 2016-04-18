@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/13/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
 # How to complete a security review in Azure AD Privileged Identity Management
@@ -21,7 +21,7 @@
 
 Security administrators can review privileged access once a [security review has been started](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) will automatically send an email prompting users to review their access. If a user did not get an email, you can send them the instructions in [how to perform a security review](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
-After the security review period is over, or all the users have finished their self-review, follow the steps in this article to manage the review and see the results. 
+After the security review period is over, or all the users have finished their self-review, follow the steps in this article to manage the review and see the results.
 
 ## Manage security reviews
 
@@ -30,8 +30,6 @@ After the security review period is over, or all the users have finished their s
 3. Select the security review that you want to manage. The security review's detail blade will appear.
 
 Once you're on the security review's detail blade, there are three options for managing that review. You can either complete the review, export the details, or delete it.
-
-3. If users have their access denied, you can complete the review to remove those users role assignments in the directory.  
 
 ### Complete or stop a review
 
