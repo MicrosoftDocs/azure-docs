@@ -32,9 +32,9 @@ Make sure there are always at least two users in a security administrator role, 
 4. Click **Select users** and the user list blade will open.
 5. Enter the name of the user in the search field.  If the user is in the directory, their accounts will appear as you are typing.
 6. Select the user from the search results, and click **Done**.
-7. Click **OK** to save your selection. The user you have selected will appear in the list and the role will be temporary by default.  
+7. Click **OK** to save your selection. The user you have selected will appear in the list and the role will be temporary by default.
 
-    >[AZURE.NOTE] If you want to make the role permanent, click the user in the list. The user's information will appear in a new blade. Select **make perm** in the user information menu.
+  - If you want to make the role permanent, click the user in the list. The user's information will appear in a new blade. Select **make perm** in the user information menu.
 
 8. Send the user a link to the Azure documentation on [Getting started with Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 

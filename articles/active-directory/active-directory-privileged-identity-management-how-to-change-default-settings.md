@@ -30,20 +30,19 @@ A security administrator can customize Azure AD Privileged Identity Management (
 6. Click **Enable** to allow administrators to enter ticketing information into their activation request. (This information can be helpful when auditing role access later.)
 7. Click **Enable** or **Disable** to require multi-factor authentication for an activation request, or not.
 
-  > [AZURE.NOTE] You cannot disable MFA for highly privileged roles for Azure AD and Office365, including:  
-  - Global administrator  
-  - User account administrator  
-  - Directory writer  
-  - Partner tier1 support  
-  - Partner tier2 support  
-  - Billing administrator  
-  - Security administrator  
-  - Exchange administrator  
-  - Mailbox administrator  
-  - Skype for Business administrator  
-  - SharePoint administrator  
-  - Compliance administrator  
-  For more information about using MFA with PIM, see [How to require MFA](active-directory-privileged-identity-management-how-to-require-mfa.md)
+    > [AZURE.NOTE] You cannot disable MFA for highly privileged roles for Azure AD and Office365, including:  
+    - Global administrator  
+    - User account administrator  
+    - Directory writer  
+    - Partner tier1 support  
+    - Partner tier2 support  
+    - Billing administrator  
+    - Security administrator  
+    - Exchange administrator  
+    - Mailbox administrator  
+    - Skype for Business administrator  
+    - SharePoint administrator  
+    - Compliance administrator  
 
 8. Click **Save**.
 
