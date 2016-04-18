@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="04/18/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -37,7 +37,7 @@ There are some important steps to perform before moving a resource. By verifying
 with that resource type. To learn how to 
 check the registration status and register resource providers, see [Resource providers and types](../resource-manager-supported-services/#resource-providers-and-types).
 3. If you are using Azure PowerShell or Azure CLI, use the latest version. To update your version, run the Microsoft Web Platform Installer and check if a 
-new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md) and [Install the Azure CLI]( xplat-cli-install.md).
+new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md) and [Install the Azure CLI](xplat-cli-install.md).
 4. If you are moving App Service app, you have reviewed [App Service limitations](#app-service-limitations).
 
 ## Services that support move
@@ -136,7 +136,7 @@ You specify where you would like to move the resource. If other resources must b
 ![select destination](./media/resource-group-move-resources/select-destination.png)
 
 ## Next steps
-- To learn about PowerShell cmdlets for managing your subscription, see [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md).
-- To learn about Azure CLI commands for managing your subscription, see [Using the Azure CLI with Resource Manager](./xplat-cli-azure-resource-manager.md).
-- To learn about portal features for managing your subscription, see [Using the Azure Portal to manage resources](azure-portal/resource-group-portal.md).
-- To learn about applying a logical organization to your resources, see [Using tags to organize your resources](./resource-group-using-tags.md).
+- To learn about PowerShell cmdlets for managing your subscription, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md).
+- To learn about Azure CLI commands for managing your subscription, see [Using the Azure CLI with Resource Manager](xplat-cli-azure-resource-manager.md).
+- To learn about portal features for managing your subscription, see [Using the Azure Portal to manage resources](./azure-portal/resource-group-portal.md).
+- To learn about applying a logical organization to your resources, see [Using tags to organize your resources](resource-group-using-tags.md).
