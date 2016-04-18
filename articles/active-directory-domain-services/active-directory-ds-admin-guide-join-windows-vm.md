@@ -4,7 +4,7 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="stevenpo
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,10 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="04/08/2016"
 	ms.author="maheshu"/>
 
 # Join a Windows Server virtual machine to a managed domain
+
+> [AZURE.SELECTOR]
+- [Azure classic portal - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
+- [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+
+<br>
+
 This article shows you how to join a virtual machine running Windows Server 2012 R2 to an Azure AD Domain Services managed domain, using the Azure classic portal.
 
 

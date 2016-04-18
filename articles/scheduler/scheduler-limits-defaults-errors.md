@@ -1,6 +1,6 @@
 <properties
  pageTitle="Scheduler Limits, Defaults, and Error Codes"
- description=""
+ description="Scheduler Limits, Defaults, and Error Codes"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
