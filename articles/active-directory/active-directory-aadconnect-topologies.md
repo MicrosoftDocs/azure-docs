@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="get-started-article"
-    ms.date="02/12/2016"
+    ms.date="04/14/2016"
     ms.author="andkjell"/>
 
 # Topologies for Azure AD Connect
@@ -112,6 +112,8 @@ In an account-resource forest topology, you have one or more account forests wit
 
 This scenario includes one forest that trusts all account forests. This forest has typically an extended AD schema with Exchange and Lync. All Exchange and Lync services as well as other shared services are located in this forest. Users have a disabled user account in this forest and the mailbox is linked to the account forest.
 
+It is also supported to use multiple resource forests. This could be the state after a merger. It is expected that a user will only have one disabled account in a resource forest.
+
 ## Office 365 and topology considerations
 Some Office 365 workloads have certain restrictions to supported topologies. If you plan to use any of these, please refer to each workload’s supported topologies pages.
 
@@ -150,7 +152,10 @@ In this topology one AAD Connect Sync server is connected to each Azure AD Direc
 
 In this topology there is no “GALsync” between the Azure AD directory instances so the address book in Exchange Online and Skype for Business will only show users in the same directory.
 
-With this topology only one of the Azure AD directories can enable Exchange hybrid with the on-premises Active Directory.
+This topology has the following restrictions to otherwise supported scenarios:
+
+- Only one of the Azure AD directories can enable Exchange hybrid with the on-premises Active Directory.
+- Windows 10 devices can only be associated with one Azure AD directory.
 
 The requirement for mutually exclusive set of objects also applies to write-back. This makes some writeback features not supported with this topology since these assume a single configuration on-premises. This includes:
 

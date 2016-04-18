@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Manage resources for the Apache Spark cluster in Azure HDInsight (Windows)
+# Manage resources for the Apache Spark cluster on HDInsight Windows (Preview)
 
 > [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to manage resources for a Spark cluster on HDInsight Linux, see [Manage resources for the Apache Spark cluster in Azure HDInsight (Linux)](hdinsight-apache-spark-resource-manager.md).
 

@@ -3,7 +3,7 @@
     description="how to set up cross-database queries over vertical partitions"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/06/2016"
+    ms.date="04/11/2016"
     ms.author="torsteng;sidneyh" />
 
 # Elastic database query for cross-database queries (vertical partitioning)
