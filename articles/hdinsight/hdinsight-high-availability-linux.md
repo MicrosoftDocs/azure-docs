@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/18/2016"
 	ms.author="larryfr"/>
 
 #Availability and reliability of Hadoop clusters in HDInsight
@@ -55,11 +55,16 @@ Worker nodes perform the actual data analysis when a job is submitted to the clu
 
 ###Edge node
 
-An edge node does not actively participate in the cluster, but is instead a node used by developers or data scientists when working with Hadoop. For example, R Server on HDInsight provides an edge node that can be used test R code locally on the node before submitting it to the cluster for distributed processing.
+An edge node does not actively participate in the cluster, but is instead a node used by developers or data scientists when working with Hadoop. The edge node lives in the same Azure Virtual Network as the other nodes in the cluster, and can directly access all other nodes.
+
+Currently, R Server on HDInsight is the only cluster type that provides an edge node by default. For R Server on HDInsight, the edge node is used test R code locally on the node before submitting it to the cluster for distributed processing.
+
+[Create a Linux-based HDInsight cluster with Hue on an Edge Node](https://azure.microsoft.com/documentation/templates/hdinsight-linux-with-hue-on-edge-node/) is an example template that can be used to create a Hadoop cluster type that has an Edge node.
+
 
 ## Accessing the nodes
 
-In general, all access to the cluster over the internet (public gateway,) is limited to connecting to the head nodes. Access to services running on the head nodes is not effected by having multiple head nodes. The request is routed to the active head node and serviced as appropriate. For example, if Ambari is currently hosted on head node 1, the gateway will route incoming requests for Ambari to that node.
+In general, all access to the cluster over the internet (public gateway) is limited to connecting to the head nodes. Access to services running on the head nodes is not effected by having multiple head nodes. The request is routed to the active head node and serviced as appropriate. For example, if Ambari is currently hosted on head node 1, the gateway will route incoming requests for Ambari to that node.
 
 When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to head node 0; connecting through port 23 will connect to head node 1. For example, `ssh username@mycluster-ssh.azurehdinsight.net` will connect to head node 0 of the cluster named __mycluster__.
 
@@ -90,6 +95,8 @@ Only the head nodes are directly accessible over the internet; however, you can 
 Either the Ambari Web UI or the Ambari REST API can be used to check the status of services that run on the head node.
 
 ###Ambari REST API
+
+The Ambari REST API is available over the internet, and the public gateway handles routing requests to the head node that is currently hosting the REST API.
 
 You can use the following command to check the state of a service through the Ambari REST API:
 
@@ -159,6 +166,22 @@ Selecting the link for one of the head nodes will display the services and compo
 While connected to a head node through SSH, log files can be found under **/var/log**. For example, **/var/log/hadoop-yarn/yarn** contain logs for YARN.
 
 Each head node can have unique log entries, so you should check the logs on both.
+
+###SFTP
+
+You can also connect to the head node using the SSH File Transfer Protocol or Secure File Transfer Protocol (SFTP), and download the log files directly.
+
+Similar to using an SSH client, when connecting to the cluster you must provide the SSH user account name and the SSH address of the cluster. For example, `sftp username@mycluster-ssh.azurehdinsight.net`. You must also provide the password for the account when prompted, or provide a public key using the `-i` parameter.
+
+Once connected, you are presented with a `sftp>` prompt. From this prompt, you can change directories, upload and download files. For example, the following commands change directories to the **/var/log/hadoop/hdfs** directory and then download all files in the directory.
+
+    cd /var/log/hadoop/hdfs
+    get *
+
+For a list of available commands, enter `help` at the `sftp>` prompt.
+
+> [AZURE.NOTE] There are also graphical interfaces that allow you to visualize the file system when connected using SFTP. For example, [MobaXTerm](http://mobaxterm.mobatek.net/) allows you to browse the file system using an interface similar to Windows Explorer.
+
 
 ###Ambari
 
