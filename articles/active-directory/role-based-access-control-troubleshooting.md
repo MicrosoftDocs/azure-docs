@@ -57,40 +57,38 @@ Web apps are complicated by the presence of a few different resources that inter
 
 As a result, if you grant someone access to just the web app, much of the functionality on the website blade in the Azure portal will be disabled.
 
-These items require access to the **App Service plan** that corresponds to your website:  
-- Viewing the web app’s pricing tier (Free or Standard)
-- Scale configuration (number of instances, virtual machine size, autoscale settings)
-- Quotas (storage, bandwidth, CPU)
+These items require **write** access to the **App Service plan** that corresponds to your website:  
 
-These items require access to the whole **Resource group** that contains your website:  
-- SSL Certificates and bindings (This is because SSL certificates can be shared between sites in the same resource group and geo-location)
-- Alert rules
-- Autoscale settings
-- Application insights components
-- Web tests
+- Viewing the web app’s pricing tier (Free or Standard)  
+- Scale configuration (number of instances, virtual machine size, autoscale settings)  
+- Quotas (storage, bandwidth, CPU)  
+
+These items require **write** access to the whole **Resource group** that contains your website:  
+
+- SSL Certificates and bindings (This is because SSL certificates can be shared between sites in the same resource group and geo-location)  
+- Alert rules  
+- Autoscale settings  
+- Application insights components  
+- Web tests  
 
 ## Virtual machine workloads
 
 Much like with web apps, some features on the virtual machine blade require write access to the virtual machine, or to other resources in the resource group.
 
-Virtual machines have these related resources:
+Virtual machines are related to Domain names, virtual networks, storage accounts, and alert rules.
 
-- Domain names
-- Virtual networks
-- Storage accounts
-- Alert rules
+These items require **write** access to the **Virtual machine**:
 
+- Endpoints  
+- IP addresses  
+- Disks  
+- Extensions  
 
-These items require **write** access to the Virtual machine:  
-- Endpoints
-- IP addresses
-- Disks
-- Extensions
+These require **write** access to both the **Virtual machine**, and the **Resource group** (along with the Domain name) that it is in:  
 
-These require **write** access to both the Virtual machine, and the Resource group (along with the Domain name) that it is in:  
-- Availability set
-- Load balanced set
-- Alert rules
+- Availability set  
+- Load balanced set  
+- Alert rules  
 
 If you can't access any of these tiles, you'll need to ask your administrator for Contributor access to the Resource group.
 

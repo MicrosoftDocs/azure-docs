@@ -60,15 +60,15 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 ### API Management Service Contributor
 Can manage API Management services
 
-#### Actions
-
-- `Microsoft.ApiManagement/Services/*` Create and manage API Management Services
-- `Microsoft.Authorization/*/read` Read authorization
-- `Microsoft.Resources/subscriptions/resourceGroups/read` Read roles and role assignments
-- `Microsoft.Resources/subscriptions/resourceGroups/resources/read` Read resource groups
-- `Microsoft.Resources/subscriptions/resourceGroups/deployments/*` Create and manage resource group deployments
-- `Microsoft.Insights/alertRules/*` Create and manage alert rules
-- `Microsoft.Support/*` Create and manage support tickets
+| **Actions** | |
+| ------- | ------ |
+| Microsoft.ApiManagement/Services/* | Create and manage API Management Services |
+| Microsoft.Authorization/*/read | Read authorization |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
+| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource groups |
+| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
+| Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.Support/* | Create and manage support tickets |
 
 ### Application Insights Component Contributor
 Can manage Application Insights components
@@ -130,12 +130,14 @@ Can manage ClearDB MySQL databases
 ### Contributor
 Can manage everything except access
 
-#### Actions
-- `*` Create and manage resources of all types
+| **Actions** ||
+| ------- | ------ |
+| * | Create and manage resources of all types |
 
-#### Not Actions
-- `Microsoft.Authorization/*/Write` Can’t create roles and role assignments
-- `Microsoft.Authorization/*/Delete` Can’t delete roles and role assignments
+| **Not Actions** ||
+| ------- | ------ |
+| Microsoft.Authorization/*/Write | Can’t create roles and role assignments |
+| Microsoft.Authorization/*/Delete | Can’t delete roles and role assignments |
 
 ### Data Factory Contributor
 Can manage data factories
@@ -293,33 +295,23 @@ Can manage security components, security policies and virtual machines
 ### SQL DB Contributor
 Can manage SQL databases but not their security related policies
 
-#### Actions
-- `Microsoft.Sql/servers/read`
-  - Read SQL Servers
-- `Microsoft.Sql/servers/databases/*`
-  - Create and manage SQL databases
-- `Microsoft.Authorization/*/read`
-  - Read roles and role Assignments
-- `Microsoft.Resources/subscriptions/resourceGroups/read`  
-  - Read resource groups
-- `Microsoft.Resources/subscriptions/resourceGroups/resources/read`  
-  - Read resource group resources
-- `Microsoft.Resources/subscriptions/resourceGroups/deployments/*`  
-  - Create and manage resource group deployments
-- `Microsoft.Insights/alertRules/*`
-  - Create and manage alert rules
-- `Microsoft.Support/*`
-  - Create and manage support tickets  
+| **Actions** ||
+| ------- | ------ |
+| Microsoft.Sql/servers/read | Read SQL Servers |
+| Microsoft.Sql/servers/databases/* | Create and manage SQL databases |
+| Microsoft.Authorization/*/read | Read roles and role Assignments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource group resources |
+| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
+| Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.Support/* | Create and manage support tickets |
 
-#### Not Actions
-- `Microsoft.Sql/servers/databases/auditingPolicies/*`  
-  - Can't edit audit policies
-- `Microsoft.Sql/servers/databases/connectionPolicies/*`  
-  - Can't edit connection policies
-- `Microsoft.Sql/servers/databases/dataMaskingPolicies/*`  
-  - Can't edit data masking policies
-- `Microsoft.Sql/servers/databases/securityMetrics/*`  
-  - Can't edit security metrics
+| **Not Actions** ||
+| ------- | ------ |
+| Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
+| Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit connection policies |
+| Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit data masking policies |
+| Microsoft.Sql/servers/databases/securityMetrics/* | Can't edit security metrics |
 
 ### SQL Security Manager
 Can manage the security related policies of SQL servers and databases
@@ -346,8 +338,7 @@ Can manage the security related policies of SQL servers and databases
 ### SQL Server Contributor
 Can manage SQL servers and databases but not their security related policies
 
-#### Actions
-|||
+| **Actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/* | Create and manage SQL servers |
 | Microsoft.Authorization/*/read | Read authorization|
@@ -357,8 +348,7 @@ Can manage SQL servers and databases but not their security related policies
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.Support/* | Create and manage support tickets |
 
-#### Not Actions
-| | |
+| **Not Actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Can't edit SQL server auditing policies |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit SQL server database auditing policies |
@@ -502,4 +492,4 @@ Can manage websites but not the web plans to which they are connected
 - [Role-Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
 - [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
 - [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
-- [Role-Based Access Control troubleshooting](role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues. 
+- [Role-Based Access Control troubleshooting](role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
