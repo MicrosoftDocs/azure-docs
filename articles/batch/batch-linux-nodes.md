@@ -28,7 +28,7 @@ When you create a pool of compute nodes in Batch, you have two options from whic
 
 **Cloud Services Configuration** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool containing Cloud Services nodes, you need to specify only the node size and its "OS Family" which are found in these articles. When creating pools of Windows compute nodes, Cloud Services is most commonly used.
 
-**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). When you create a pool containing Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent** to be installed on the nodes.
+**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). When you create a pool containing Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes.
 
 ### Virtual machine image reference
 
@@ -41,11 +41,11 @@ The Batch service uses [Virtual Machine Scale Sets](../virtual-machine-scale-set
 | SKU				| 14.04.4-LTS              |
 | Version			| latest				   |
 
-> [AZURE.TIP] You can find out more about these properties and how to find images in the marketplace in [Navigate and select Linux virtual machine images in Azure with CLI or Powershell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md).
+> [AZURE.TIP] You can find out more about these properties and how to list marketplace images in [Navigate and select Linux virtual machine images in Azure with CLI or Powershell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Note that not all Marketplace images are currently compatible with Batch--see [Node agent SKU](#node-agent-sku) below.
 
 ### Node agent SKU
 
-The Batch node agent runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. Essentially, you first specify the VM image reference, and then specify which node agent to install on the image. Here are a few examples of node agent SKUs:
+The Batch node agent runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. Essentially, when creating a Virtual Machine Configuration, you first specify the virtual machine image reference, and then specify which node agent to install on the image. Here are a few examples of node agent SKUs:
 
 * batch.node.ubuntu 14.04
 * batch.node.centos 7
