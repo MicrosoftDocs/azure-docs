@@ -27,7 +27,7 @@
 
 This article describes how to create and manage Azure resources by using the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows in the Azure Resource Manager mode.
 
->[AZURE.NOTE] To create and manage Azure resources on the command line, you will need an Azure account ([free trial here](https://azure.microsoft.com/pricing/free-trial/)). You will also need to [install the Azure CLI](xplat-cli-install.md), and to [log on to use Azure resources associated with your account](xplat-cli-connect.md). If you've done these things, you're ready to go.
+>[AZURE.NOTE] To create and manage Azure resources on the command line, you will need an Azure subscription ([free Azure account here](https://azure.microsoft.com/free/)). You will also need to [install the Azure CLI](xplat-cli-install.md), and to [log in to use Azure resources associated with your account](xplat-cli-connect.md). If you've done these things, you're ready to go.
 
 ## Azure resources
 
@@ -37,15 +37,15 @@ One advantage of the Azure Resource Manager is that you can create your Azure re
 
 When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Azure Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
 
-After you create a deployment, you can manage the individual resources imperatively on the command line, just like you can in the classic (Service Management) deployment model. For example, use Azure Resource Manager CLI commands to start, stop, or delete resources such as [Azure Resource Manager virtual machines](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
+After you create a deployment, you can manage the individual resources imperatively on the command line, just like you do in the classic deployment model. For example, use Azure Resource Manager CLI commands to start, stop, or delete resources such as [Azure Resource Manager virtual machines](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 ## Authentication
 
-Working with the Azure Resource Manager through the Azure CLI requires you to authenticate to Microsoft Azure using a work or school account (an organizational account) or a Microsoft account (starting in CLI version 0.9.10). Authenticating with a certificate installed through a .publishsettings file doesn't work in this mode.
+Working with the Azure Resource Manager through the Azure CLI currently requires you to authenticate to Microsoft Azure by using the 'azure login' command and then specifying a work or school account (an organizational account) or a Microsoft account. Authenticating with a certificate installed through a .publishsettings file doesn't work in this mode.
 
 For more information on authenticating to Microsoft Azure, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
->[AZURE.NOTE] When you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
+>[AZURE.NOTE] When you use an account managed by Azure Active Directory, you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
 ## Set the Azure Resource Manager mode
 
@@ -61,7 +61,9 @@ Most of the Azure Resource Manager commands need a valid location to create or f
 
 	azure location list
 
-This lists the Azure resources and the Azure regions in which they are available, such as "West US", "East US", and so on.
+This list the Azure regions that are available, such as "West US", "East US", and so on. For details of available resource providers and the locations in which they are available, use the `azure provider list` and `azure provider show` commands. For example, the following command lists the locations of the Azure Container service:
+
+    azure provider show Microsoft.ContainerService 
 
 ## Create a resource group
 
@@ -76,15 +78,15 @@ You will deploy to this "testRG" resource group later when you use a template to
 
 ### Locate and configure a resource group template
 
-When working with templates, you can either [create your own](resource-group-authoring-templates.md), or use one of the templates from the [Template Gallery](https://azure.microsoft.com/documentation/templates/), which are also available on [GitHub](https://github.com/Azure/azure-quickstart-templates).
+When working with templates, you can either [create your own](resource-group-authoring-templates.md), or use one of the templates from the [QuickStart templates](https://azure.microsoft.com/documentation/templates/), which are also available on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available in the [Template Gallery](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
+Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available in the [QuickStart Templates](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet. You only need to specify a resource group and the following few parameters to use this template:
 
 * An admin user name for the VM = `adminUsername`
 * A password = `adminPassword`
 * A domain name for the VM = `dnsLabelPrefix`
 
->[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
+>[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 1. Follow the "Learn more with GitHub" link to download the files azuredeploy.json and azuredeploy.parameters.json from GitHub to a working folder on your local computer. (Make sure to select the _raw_ format of each file in GitHub.)
 
