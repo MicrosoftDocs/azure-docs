@@ -91,6 +91,8 @@ The Service Bus API version of the template.
 
 ### Service Bus namespace
 
+Creates a standard Service Bus namespace of type **Messaging**.
+
 ```
 "resources": [
     {
