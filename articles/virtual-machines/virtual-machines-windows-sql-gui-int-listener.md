@@ -18,7 +18,7 @@
 
 # Configure an internal load balancer for an AlwaysOn availability group in Azure
 
-This topic explains how to create an internal load balancer for a SQL Server AlwaysOn availability group in Azure virtual machines running in resource manager mode. An AlwaysOn availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. To complete this task, you need to have a SQL Server AlwaysOn availability group deployed on Azure virtual machines in resource manager model. All Azure resources in this scenario must be in the one resource group. Both SQL Server virtual machines must be on the same network, in the same subnet, and belong to the same availability set.
+This topic explains how to create an internal load balancer for a SQL Server AlwaysOn availability group in Azure virtual machines running in resource manager mode. An AlwaysOn availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. To complete this task, you need to have a SQL Server AlwaysOn availability group deployed on Azure virtual machines in resource manager model. Both SQL Server virtual machines must be on the same network, in the same subnet, and belong to the same availability set.
 
 Related topics include:
 
@@ -121,7 +121,7 @@ The next step is to create a probe. The probe defines how Azure will verify whic
 
 - Click **OK**. 
 
->[AZURE.NOTE] Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. See [Add or Edit Firewall Rule](https://technet.microsoft.com/en-us/library/cc753558.aspx) for more information. 
+>[AZURE.NOTE] Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. See [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx) for more information. 
 
 Azure creates the probe. Azure will use the probe to test which SQL Server has the listener for the availability group.
 
