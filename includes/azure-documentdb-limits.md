@@ -9,3 +9,4 @@ Maximum request size of document |512KB
 Maximum execution time for stored procedure and trigger|5 seconds
 Maximum number of AND clauses per query* |200		
 Maximum number of OR clauses per query* |200
+Maximum response size|1 MB
