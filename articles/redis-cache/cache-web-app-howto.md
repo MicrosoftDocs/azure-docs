@@ -208,42 +208,53 @@ Procedural steps only for tech review
 
 ![Starter application][cache-starter-application]
 
-## Add Redis Cache to the application
+## Configure the application to use Redis Cache
 
-TODO These first few steps are abbreviated for now. I am thinking of supplying powershell cmdlets or maybe an ARM  template
+In this step of the tutorial, we'll configure the sample application to store and retrieve Contoso team statistics from a Redis Cache.
 
-Create a Redis Cache in the region in which you want to host your Web App by following these directions: https://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache
+1. To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
-Add the StackExchange.Redis NuGet package to your project by following these directions: https://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#configure-the-cache-clients
+    ![Manage NuGet packages][redis-cache-manage-nuget-menu]
 
-In **Solution Explorer**, expand the **Controllers** folder and double-click **TeamsController.cs** to open it.
+2. Type **StackExchange.Redis** into the search text box, select the desired version from the results, and click **Install**.
 
-Add the following using statement to **TeamsController.cs**.
+    ![StackExchange.Redis NuGet package][redis-cache-stack-exchange-nuget]
 
-	using StackExchange.Redis;
+    The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client. If you prefer to use a strong-named version of the **StackExchange.Redis** client library, choose **StackExchange.Redis.StrongName**; otherwise choose **StackExchange.Redis**.
 
-Add the following two properties to the `TeamsController` class.
+3. In **Solution Explorer**, expand the **Controllers** folder and double-click **TeamsController.cs** to open it.
 
-    // Redis Connection string info
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        //string cacheString = ConfigurationManager.ConnectionStrings["Cache"].ToString();
-        return ConnectionMultiplexer.Connect("<your cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary or secondary key of your cache");
-        //return ConnectionMultiplexer.Connect(cacheString);
+    ![Teams controller][cache-teamscontroller]
 
-    });
+4. Add the following using statement to **TeamsController.cs**.
 
-    public static ConnectionMultiplexer Connection
-    {
-        get
-        {
-            return lazyConnection.Value;
-        }
-    }
+	    using StackExchange.Redis;
+
+5. Add the following two properties to the `TeamsController` class.
+
+	    // Redis Connection string info
+	    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	    {
+	        string cacheString = ConfigurationManager.ConnectionStrings["Cache"].ToString();
+	        return ConnectionMultiplexer.Connect(cacheString);
+	
+	    });
+	
+	    public static ConnectionMultiplexer Connection
+	    {
+	        get
+	        {
+	            return lazyConnection.Value;
+	        }
+	    }
   
-TODO I am still figuring the best way to do this locally. I have it solved when hosting in Azure. I don't like the password being in the code or config file.
+2. In **Solution Explorer** double-click **web.config** and add the following connection string to the `connectionStrings` section. 
 
-Replace `<your cache name>` with the name of your cache, and replace `<primary or secondary key of your cache>` with the key from your cache. To retrieve these values, follow these instructions: https://azure.microsoft.com/documentation/articles/cache-configure/#access-keys
+
+		<add name="Cache" connectionString="127.0.0.1"/>
+
+
+    >[AZURE.NOTE] In this step of the tutorial I'll show you how you can use the MSOpenTech port of Redis Cache to provide a local Redis Cache emulator experience. Download the latest [MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases/) version, and simply run `redis-server.exe` on your local machine and connect to it using a connection string of `127.0.0.1`. For more information, see [cache-faq.md#is-there-a-local-emulator-for-azure-redis-cache](Is there a local emulator for Azure Redis Cache?) from the [Azure Redis Cache FAQ](cache-faq.md).
 
 In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample we'll query the sorted set for the top 5 teams ranked by number of wins.
 
@@ -586,9 +597,9 @@ In the next section we'll publish the Web App to Azure and run it in the cloud.
 [cache-RouteConfig-cs]: ./media/cache-web-app-howto/cache-RouteConfig-cs.png
 [cache-layout-cshtml]: ./media/cache-web-app-howto/cache-layout-cshtml.png
 [cache-layout-cshtml-code]: ./media/cache-web-app-howto/cache-layout-cshtml-code.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
+[redis-cache-manage-nuget-menu]: ./media/cache-web-app-howto/redis-cache-manage-nuget-menu.png
+[redis-cache-stack-exchange-nuget]: ./media/cache-web-app-howto/redis-cache-stack-exchange-nuget.png
+[cache-teamscontroller]: ./media/cache-web-app-howto/cache-teamscontroller.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
