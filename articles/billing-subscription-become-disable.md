@@ -42,12 +42,12 @@ Here is how you can remove your Spending Limit:
 
 Pay your outstanding balance in full. To do this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
 
-## The bill may exceed your credit card limit (H2)
+## The bill may exceed your credit card limit
 
 To resolve this issue, use one of the following method:
 
-- [Switch to a different credit card](billing-how-to-change-credit-card.md)
-- If you are a business, you can [switch to the invoice method of payment](https://azure.microsoft.com/pricing/invoicing/)
+- [Switch to a different credit card](billing-how-to-change-credit-card.md).
+- If you are a business, you can [switch to the invoice method of payment](https://azure.microsoft.com/pricing/invoicing/).
 
 
 ## How to re-enable your subscription
