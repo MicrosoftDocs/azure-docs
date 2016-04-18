@@ -93,7 +93,7 @@ Select Deploy Web Application Proxy from the list of available tasks
 
 On the next page, provide the Azure global administrator credentials
 
-![](media\active-directory-aadconnect-federation-management\WapServer2.PNG)
+![](media\active-directory-aadconnect-federation-management\wapserver2.PNG)
 
 Next, you will be presented with the Specify SSL certificate page where you need to provide the password for the PFX file that you provided while configuring the AD FS farm with Azure AD Connect
 
