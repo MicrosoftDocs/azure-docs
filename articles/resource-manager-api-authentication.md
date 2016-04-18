@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/13/2016"
+   ms.date="04/18/2016"
    ms.author="dugill;tomfitz" />
 
 
@@ -30,10 +30,10 @@ This topic gives a step-by-step description of how to create an app that employs
 
 You'll build a web application that:
 
-1. signs-in an Azure user
-2. queries Resource Manager on behalf of the user (user + app access) to get a list of Azure subscriptions that the user owns
-3. enables the user to "connect" subscriptions to the app; thereby, granting direct access on the subscription to the application
-4. accesses Resource Manager as the application to perform offline operations (app-only access)
+1. Signs-in an Azure user
+2. Queries Resource Manager on behalf of the user (user + app access) to get a list of Azure subscriptions that the user owns
+3. Enables the user to "connect" subscriptions to the app; thereby, granting direct access on the subscription to the application
+4. Accesses Resource Manager as the application to perform offline operations (app-only access)
 
 Here's the end-to-end flow of the web application that you will write.
 
@@ -98,11 +98,11 @@ You start at the point where the user decides to connect his or her Azure subscr
 
 You must ask the user two things:
 
-1. **Directory Domain Name**: the domain name of the Azure Active Directory associated with the user's Azure subscription. The OAuth 2.0 Authorization request must be sent to this Azure AD. The user can find out the domain name of their Azure AD by navigating to the Azure Management Portal and selecting the Settings node. You may choose to provide visual instructions to the user like: 
+1. **Directory Domain Name**: the domain name of the Azure Active Directory associated with the user's Azure subscription. The OAuth 2.0 Authorization request must be sent to this Azure AD. The user can find out the domain name of their Azure AD by navigating to the Azure Portal and selecting the account in the upper right corner. You may provide visual instructions to the user like: 
 
-     ![](./media/resource-manager-api-authentication/directory.png)
+     ![](./media/resource-manager-api-authentication/show-directory.png)
    
-1. Microsoft Account vs. Work Account: determine whether the user manages his or her Azure subscription with a Microsoft Account (aka Live Id) or a Work Account (aka Organizational Account). If Microsoft Account, your application will redirect the user to the Azure Active Directory login page with a query string parameter (&domain_hint=live.com) that will instruct Azure AD to take the user directly to the Microsoft Account sign-in page. The authorization code and tokens that you receive for either type of account will be processed in the same way.
+1. **Microsoft Account vs. Work Account**: determine whether the user manages his or her Azure subscription with a Microsoft Account (aka Live Id) or a Work Account (aka Organizational Account). If Microsoft Account, your application will redirect the user to the Azure Active Directory login page with a query string parameter (&domain_hint=live.com) that will instruct Azure AD to take the user directly to the Microsoft Account sign-in page. The authorization code and tokens that you receive for either type of account will be processed in the same way.
 
 Your application then redirects the user to Azure AD with an 
 OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back 
