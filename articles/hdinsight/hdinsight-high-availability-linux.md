@@ -29,9 +29,11 @@ To address this potential problem, Linux-based HDInsight clusters on Azure provi
 
 Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. In the event that a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type will be used until the new node is brought online.
 
+> [AZURE.NOTE] If the node is analyzing data when it fails, its progress on the job is lost. The job that the failing node was working on will be resubmitted to another node.
+
 The following sections discuss the individual node types used with HDInsight.
 
-> [AZURE.NOTE] Not all node types are used for a cluster type. For example, a Hadoop cluster type will not have any Nimbus nodes.
+> [AZURE.NOTE] Not all node types are used for a cluster type. For example, a Hadoop cluster type will not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ###Head nodes
 
@@ -47,7 +49,7 @@ For Storm clusters, the Nimbus nodes provide similar functionality to the Hadoop
 
 ###Zookeeper nodes
 
-[ZooKeeper](http://zookeeper.apache.org/ ) nodes (ZKs) are used for leader election of master services on head nodes, and to insure that services, data (worker) nodes and gateways know which head node a master service is active on. HDInsight provides 3 ZooKeeper nodes.
+[ZooKeeper](http://zookeeper.apache.org/ ) nodes (ZKs) are used for leader election of master services on head nodes, and to insure that services, data (worker) nodes and gateways know which head node a master service is active on. By default, HDInsight provides 3 ZooKeeper nodes.
 
 ###Worker nodes
 
@@ -55,7 +57,7 @@ Worker nodes perform the actual data analysis when a job is submitted to the clu
 
 ###Edge node
 
-An edge node does not actively participate in the cluster, but is instead a node used by developers or data scientists when working with Hadoop. The edge node lives in the same Azure Virtual Network as the other nodes in the cluster, and can directly access all other nodes.
+An edge node does not actively participate in data analysis within the cluster, but is instead used by developers or data scientists when working with Hadoop. The edge node lives in the same Azure Virtual Network as the other nodes in the cluster, and can directly access all other nodes. Since it is not involved in analyzing data for the cluster, it can be used without any concern of taking resources away from critical Hadoop services or analysis jobs.
 
 Currently, R Server on HDInsight is the only cluster type that provides an edge node by default. For R Server on HDInsight, the edge node is used test R code locally on the node before submitting it to the cluster for distributed processing.
 
@@ -64,11 +66,13 @@ Currently, R Server on HDInsight is the only cluster type that provides an edge 
 
 ## Accessing the nodes
 
-In general, all access to the cluster over the internet (public gateway) is limited to connecting to the head nodes. Access to services running on the head nodes is not effected by having multiple head nodes. The request is routed to the active head node and serviced as appropriate. For example, if Ambari is currently hosted on head node 1, the gateway will route incoming requests for Ambari to that node.
+Access to the cluster over the internet is provided through a public gateway. By default, access is limited to connecting to the head nodes and (if an R Server on HDInsight cluster,) the edge node. Access to services running on the head nodes is not effected by having multiple head nodes, as the public gateway routes requests to the head node that hosts the requested service. For example, if Ambari is currently hosted on head node 1, the gateway will route incoming requests for Ambari to that node.
 
 When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to head node 0; connecting through port 23 will connect to head node 1. For example, `ssh username@mycluster-ssh.azurehdinsight.net` will connect to head node 0 of the cluster named __mycluster__.
 
-The edge node provided with R Server on HDInsight clusters can also be directly accessed using SSH through port 22. For example, `ssh username@RServer.mycluster.ssh.azurehdinsight.net` will connect to the edge node for an R Server on HDInsight cluster named __mycluster__.
+> [AZURE.NOTE] This also applies to protocols based on SSH, such as the SSH File Transfer Protocol (SFTP).
+
+The edge node provided with R Server on HDInsight clusters can also be directly accessed using SSH through port 22. For example, `ssh username@RServer.mycluster.ssh.azurehdinsight.net` will connect to the edge node for an R Server on HDInsight cluster named __mycluster__. 
 
 ### Internal fully qualified domain names (FQDN)
 
@@ -84,7 +88,7 @@ This will return a value similar to the following, which contains the internal U
 
 ### Accessing other node types
 
-Only the head nodes are directly accessible over the internet; however, you can connect to the other nodes using the following methods.
+You can connect to nodes that are not directly accessible over the internet by using the following methods.
 
 * __SSH__: Once connected to a head node using SSH, you can then use SSH from the head node to connect to other nodes in the cluster.
 * __SSH Tunnel__: If you need to access a web service hosted on one of the nodes that is not exposed to the internet, you must [use an SSH tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
@@ -92,7 +96,25 @@ Only the head nodes are directly accessible over the internet; however, you can 
 
 ## How to check on a service status
 
-Either the Ambari Web UI or the Ambari REST API can be used to check the status of services that run on the head node.
+Either the Ambari Web UI or the Ambari REST API can be used to check the status of services that run on the head nodes.
+
+###Ambari Web UI
+
+The Ambari Web UI is viewable at https://CLUSTERNAME.azurehdinsight.net. Replace **CLUSTERNAME** with the name of your cluster. If prompted, enter the HTTP user credentials for your cluster. The default HTTP user name is **admin** and the password is the password you entered when creating the cluster.
+
+When you arrive on the Ambari page, the installed services will be listed on the left of the page.
+
+![Installed services](./media/hdinsight-high-availability-linux/services.png)
+
+There are a series of icons that may appear next to a service to indicate status. Any alerts related to a service can be viewed using the **Alerts** link at the top of the page. You can select each service to view more information on it.
+
+While the service page provides information on the status and configuration of each service, it does not provide information on which head node the service is running on. To view this information, use the **Hosts** link at the top of the page. This will display hosts within the cluster, including the head nodes.
+
+![hosts list](./media/hdinsight-high-availability-linux/hosts.png)
+
+Selecting the link for one of the head nodes will display the services and components running on that node.
+
+![Component status](./media/hdinsight-high-availability-linux/nodeservices.png)
 
 ###Ambari REST API
 
@@ -140,25 +162,7 @@ Services may contain components that you wish to check the status of individuall
 If you do not know what components are provided by a service, you can use the following to retrieve a list:
 
 	curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
-
-###Ambari Web UI
-
-The Ambari Web UI is viewable at https://CLUSTERNAME.azurehdinsight.net. Replace **CLUSTERNAME** with the name of your cluster. If prompted, enter the HTTP user credentials for your cluster. The default HTTP user name is **admin** and the password is the password you entered when creating the cluster.
-
-When you arrive on the Ambari page, the installed services will be listed on the left of the page.
-
-![Installed services](./media/hdinsight-high-availability-linux/services.png)
-
-There are a series of icons that may appear next to a service to indicate status. Any alerts related to a service can be viewed using the **Alerts** link at the top of the page. You can select each service to view more information on it.
-
-While the service page provides information on the status and configuration of each service, it does not provide information on which head node the service is running on. To view this information, use the **Hosts** link at the top of the page. This will display hosts within the cluster, including the head nodes.
-
-![hosts list](./media/hdinsight-high-availability-linux/hosts.png)
-
-Selecting the link for one of the head nodes will display the services and components running on that node.
-
-![Component status](./media/hdinsight-high-availability-linux/nodeservices.png)
-
+    
 ## How to access log files on the head nodes
 
 ###SSH
