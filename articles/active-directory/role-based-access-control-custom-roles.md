@@ -101,5 +101,4 @@ The **AssignableScopes** property of the custom role also controls who can view,
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
 	- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 	- [REST API](role-based-access-control-manage-access-rest.md)
-- [Built-in roles](role-based-access-control-built-in-roles.md): Get details about the roles that come standard in RBAC.
-- [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignment in RBAC.
+- [Built-in roles](role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
