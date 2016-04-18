@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/29/2016"
+   ms.date="04/14/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric on Linux

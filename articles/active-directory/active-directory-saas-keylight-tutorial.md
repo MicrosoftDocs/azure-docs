@@ -84,7 +84,7 @@ To configure the integration of Keylight into Azure AD, you need to add Keylight
 
 7. In the results pane, select **Keylight**, and then click **Complete** to add the application.
 
-
+	![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Keylight based on a test user called "Britta Simon".

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Power BI Embedded REST API"
-   description=""
+   description="Power BI Embedded REST API"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/14/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrate your existing Azure Mobile Service to Azure App Service
@@ -41,50 +41,20 @@ Microsoft is recommending that you migrate your Azure Mobile Service to take adv
 
 For more information on the benefits of Azure App Service, see the [Mobile Services vs. App Service] topic.
 
-## <a name="why-not-migrate"></a>Why you should not migrate your site
-
-There are a few reasons why you should not migrate your Azure Mobile Services now:
-
-  *  You are currently in a busy period and cannot afford a site restart at this time.
-  *  You do not wish to affect your production site before testing the migration process.
-  *  You have multiple sites in the Free or Basic pricing tiers and do not want to migrate all sites at the same time.
-
-In you are in a busy period, then please plan to migrate during a scheduled maintenance window.  The migration process restarts your
-site as part of the process and your users may notice this momentary availability disruption.
-
-There are workarounds for most of the items in this list.  Please refer to the [Before you begin](#before-you-begin) section below for details.
-
 ## <a name="before-you-begin"></a>Before you begin
 
-You should follow the following steps before migrating your site:
+Before beginning any major work on your site, you should [Back up your Mobile Service] scripts and SQL database.
 
-  *  [Back up your Mobile Service] scripts and SQL database
-  *  (Optional) Raise the Mobile Service tier to Standard
+If you wish to test the migration process before migrating your production site, duplicate your production Azure Mobile Service within a new [Azure Region] (complete with a copy of the data source) and test the migration against the new URL.  You will also need a test client implementation that points to the test site to properly test the migrated site.
 
-If you wish to test the migration process before migrating your production site, duplicate your production Azure Mobile Service (complete
-with a copy of the data source) and test the migration against the new URL.  You will also need a test client implementation that points
-to the test site to properly test the migrated site.
+## <a name="migrating-site"></a>Migrating your sites
 
-### <a name="opt-raise-service-tier"></a>(Optional) Raise the Mobile Service tier to Standard
-
-All Mobile Services sites that share a hosting plan are migrated at once.  Mobile Services in the Free or Basic pricing tiers share
-a hosting plan with other services in the same pricing tier and [Azure Region]. If your Mobile Service is operating on the Standard pricing
-tier, it is located in its own hosting plan.  If you wish to individually migrate sites in the Free or Basic pricing tiers, temporarily
-upgrade the Mobile Service pricing tier to Standard.  You can do this in the SCALE menu for your Mobile Service.
-
-  1.  Log onto the [Azure Classic Portal].
-  2.  Select your Mobile Service.
-  3.  Select the **SCALE UP** tab.
-  4.  Under **Mobile Service Tier**, click on the **STANDARD** tier.  Click on the **SAVE** icon at the bottom of the page.
-
-Remember to set the pricing tier to an appropriate setting after migration.
-
-## <a name="migrating-site"></a>Migrating your site
+The migration process will migrate all sites within a single Azure Region.
 
 To migrate your site:
 
   1.  Log onto the [Azure Classic Portal].
-  2.  Select your Mobile Service.
+  2.  Select a Mobile Service in the region you wish to migrate.
   3.  Click on the **Migrate to App Service** button.
 
     ![The Migrate Button][0]
@@ -92,9 +62,6 @@ To migrate your site:
   4.  Read the Migrate to App Service dialog.
   5.  Enter the name of your Mobile Service in the box provided.  For example, if your domain name is contoso.azure-mobile.net, then enter _contoso_ in the box provided.
   6.  Click on the tick button.
-
-If you are migrating a Mobile Service in the Free or Basic pricing tiers, all Mobile Services in that pricing tier will be migrated at the same time.   You
-can avoid this by [raising the Mobile Service you are migrating](#opt-raise-service-tier) to Standard during the migration.
 
 You can monitor the status of the migration in the activity monitor and your site will be listed as *migrating* in the Azure Classic Portal.
 
@@ -320,6 +287,12 @@ For more information, review the [Notification Hubs] documentation.
 > [AZURE.TIP] Notification Hubs management features in the [Azure Portal] is still in preview.  The [Azure Classic Portal] remains available for
 > managing all your Notification Hubs.
 
+### <a name="legacy-push"></a>Legacy Push Settings
+
+If you configured push on your mobile service prior to the introduction on Notification Hubs, you are using _legacy push_.  If you are using push and you do not see a Notification Hub listed in your configuration, then it is likely you are using _legacy push_.  This feature will be migrated with all the other features and is still available.  However, we recommend that you upgrade to Notification Hubs soon after the migration is complete.
+
+In the interim, all the legacy push settings (with the notable exception of the APNS certificate) are available in App Settings.  The APNS certificate can be replaced by replacing the appropriate file on the site.  This can be done through any of the deployment options available for Azure App Service.
+
 ### <a name="app-settings"></a>Other App Settings
 
 The following additional app settings are migrated from your Mobile Service and available under *Settings* > *App Settings*:
@@ -384,6 +357,14 @@ To view the logs:
 
 Logs will stream into the window provided as they are generated.  You can also download the logs for later analysis using your deployment credentials.  See
 the [Logging] documentation for more information.
+
+## <a name="known-issues"></a>Known Issues
+
+### Deleting a Migrated Mobile App Clone will cause a site outage
+
+If you clone your migrated mobile service using Azure PowerShell then delete the clone, the DNS entry for your production service will be removed.  As a result of this, your site will no longer be accessible from the Internet.  
+
+Resolution:  We are working on this issue.  If you wish to clone your site, please do so through the portal.
 
 ## <a name="next-steps"></a>Next Steps
 
