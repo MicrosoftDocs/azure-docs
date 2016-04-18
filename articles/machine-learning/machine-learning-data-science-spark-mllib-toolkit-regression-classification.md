@@ -37,18 +37,13 @@ The models we use include logistic and linear regression, random forests and gra
 - [Gradient boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
 
 
-[Spark](http://spark.apache.org/) is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. [MLlib](http://spark.apache.org/mllib/) is Spark's scalable machine learning library. 
-
-HDInsight Spark is the Azure hosted offering of open-source Spark. The setup steps and code provided in this walkthrough is for HDInsight Spark. However, the code is generic and should work on any Spark cluster. The cluster setup and management steps may be slightly different from what is shown here if you are not using HDInsight Spark. 
-
 >AZURE.NOTE: Although the Spark MLlib toolkit is designed to work on large datasets, for purposes of demonstrating its modeling capabilities, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used, for convenience. The exercise given here runs efficiently on an HDInsight cluster with 2 worker nodes (in about 10 mins). The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory or changing the cluster size.
 
 ## Prerequisites
 
-See the [Machine learning modeling on a Spark cluster with the MLlib toolkit](machine-learning-data-science-spark-mllib-modeling.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster 
+You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Machine learning modeling on a Spark cluster with the MLlib toolkit](machine-learning-data-science-spark-mllib-modeling.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 
 
 ## Setup: storage locations, libraries and Spark context
@@ -250,7 +245,7 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 	plt.suptitle('')
 	plt.show()
 	
-	# TIP BY PASSENGER COUNT
+	# TIP AMOUNT BY PASSENGER COUNT
 	ax2 = resultsPDDF.boxplot(column=['tip_amount'], by=['passenger_count'])
 	ax2.set_title('Tip amount by Passenger count')
 	ax2.set_xlabel('Passenger count')
@@ -276,9 +271,9 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 
 ![Tip amount distribution](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/tip-amount-distribution.png)
 
-![Tip amount by Payment type](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/tip-amount-by-payment-type.png)
+![Tip amount by passenger count](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/tip-amount-by-passenger-count.png)
 
-![Tip amount by Fare Amount](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/tip-amount-by-fare-amount.png)
+![Tip amount by fare amount](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/tip-amount-by-fare-amount.png)
 
 Time taken to execute above cell: 10.61 seconds
 
@@ -644,7 +639,7 @@ Precision = 0.984187223276
 Recall = 0.984187223276
 F1 Score = 0.984187223276
 
-![Receiver operating characteristic example](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/receiver-operating-characteristic-example.png)
+![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-mllib-toolkit-regression-classification/logistic-regression-roc-curve.png)
 
 Time taken to execute above cell: 26.63 seconds
 

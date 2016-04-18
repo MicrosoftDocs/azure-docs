@@ -28,7 +28,7 @@ This topic describes how to access machine learning (ML) models that have been b
 
 ## Prerequisites
 
-1. See the [Machine learning modeling on a Spark cluster with the MLlib toolkit](machine-learning-data-science-spark-mllib-modeling.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster 
+You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Machine learning modeling on a Spark cluster with the MLlib toolkit](machine-learning-data-science-spark-mllib-modeling.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. 
 
 2. You must also create the machine learning models to be scored and evaluated here by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](machine-learning-data-science-spark-mllib-toolkit-regression-classification.md) topic.
 
@@ -107,7 +107,7 @@ datetime.datetime(2016, 3, 26, 19, 16, 15, 532944)
 
 ## Ingest data and create a cleaned data frame
 
-This section contains the code for a series of tasks required to ingest the data sample to be modeled. Read in a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file), format the data, and then creates a clean data frame.
+This section contains the code for a series of tasks required to ingest the data to be scored. Read in a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file), format the data, and then creates a clean data frame.
 
 The taxi trip and fare files were joined based on the procedure provided in the: [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md) topic.
 
