@@ -131,7 +131,7 @@ On the next page of the wizard, provide the global administrator credentials for
 
 On the remote access credentials provide the domain administrator credentials
 
-![](media\active-directory-aadconnect-federation-management\AdditionalDomain3.PNG)
+![](media\active-directory-aadconnect-federation-management\additionaldomain3.PNG)
 
 On the next page the wizard will provide a list of Azure AD domains with which you want to federate your on-premises directory. Choose the domain from the list.
 
