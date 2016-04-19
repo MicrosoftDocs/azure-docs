@@ -57,8 +57,8 @@ The first task involves obtaining a certificate you will use for secure LDAP acc
 - Create a self-signed certificate.
 
 
-### Option A (Recommended) - Obtain a self-signed certificate from a certificate authority
-If your organization deploys an enterprise public key infrastructure (PKI), you will need to obtain a certificate from the enterprise certificate authority (CA) for your organization. If your organization obtains its certificates from a public certificate authority, you will need to obtain the LDAPS certificate from that public authority.
+### Option A (Recommended) - Obtain a secure LDAP certificate from a certificate authority
+If your organization deploys an enterprise public key infrastructure (PKI), you will need to obtain a certificate from the enterprise certificate authority (CA) for your organization. If your organization obtains its certificates from a public certificate authority, you will need to obtain the secure LDAP certificate from that public certificate authority.
 
 When requesting a certificate ensure that you follow the requirements outlined in [Requirement for the secure LDAP certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#requirements-for-the-secure-ldap-certificate).
 
@@ -72,6 +72,7 @@ You may choose to create a self-signed certificate for secure LDAP, if:
 - you do not expect to use a certificate from a public certificate authority.
 
 **Create a self-signed certificate using PowerShell**
+
 On your Windows computer, open a new PowerShell window as **Administrator** and type the following commands, in order to create a new self-signed certificate.
 
     $lifetime=Get-Date
