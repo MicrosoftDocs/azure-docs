@@ -31,15 +31,12 @@ The following table lists all the available connectors and API Apps created by M
 
 Name | Description
 --- | ---
-[Azure HDInsight](app-service-logic-connector-hdinsight.md) | Use this connector to create a Hadoop cluster on Azure, submit different Hadoop jobs, and more.
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions.
 [Bing Translator](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Use Bing to translate text into another language.
-[Chatter](app-service-logic-connector-chatter.md) | Connects to Chatter and can post messages, search, and even retrieve new messages.
 [HTTP](app-service-logic-connector-http.md) | The HTTP Listener opens an endpoint that acts as an HTTP server and listens to incoming HTTP or HTTPS requests. The HTTP action doesn't require an API App and is supported natively within Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | You can  complete different tasks including create, update, and query different entities from Intuit QuickBooks like customers, items, invoices, and so on.
 [Slack](app-service-logic-connector-slack.md) | Connect to Slack and post messages to Slack channels.
-[SugarCRM](app-service-logic-connector-sugarcrm.md) | Connects to SugarCRM Online and create, update, read, and more with different types of modules, including accounts, contacts, and so on.
 [Wait](app-service-logic-connector-wait.md) | Use this connector to delay the execution of your app. You can delay the app for a specific duration or until an occurrence at a specific time.
 
 

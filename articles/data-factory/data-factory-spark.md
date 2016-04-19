@@ -107,3 +107,11 @@ This MapReduce program (spark-adf-job-bin.jar) running on your HDInsight spark c
 To summarize, the **MapReduce activity** invokes the MapReduce program **spark-adf-job-bin.jar** that invokes the Spark program **sparkdemoapp_2.10-1.0.jar**. To run your own spark program, replace sparkdemoapp_2.10-1.0.jar with your own.
 
 > [AZURE.NOTE] You have to use your own HDInsight Spark cluster with this approach to invoke Spark programs using the MapReduce activity. Using an on-demand HDInsight cluster is not supported.  
+
+
+## See Also
+- [Hive Activity](data-factory-hive-activity.md)
+- [Pig Activity](data-factory-pig-activity.md)
+- [MapReduce Activity](data-factory-map-reduce.md)
+- [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
