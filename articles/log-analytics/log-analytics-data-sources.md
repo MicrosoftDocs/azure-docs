@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Data sources in Log Analytics"
    description="Data sources define the data that Log Analytics collects from agents and other connected sources.  This article describes the concept of how Log Analytics uses data sources, explains the details of how to configure them, and provides a summary of the different data sources available."
-   services="automation"
+   services="log-analytics"
    documentationCenter=""
    authors="bwren"
    manager="jwhit"
@@ -67,4 +67,4 @@ All data collected by Log Analytics is stored in the OMS repository as records. 
 
 - Learn about solutions that add functionality to Log Analytics and also collect data into the OMS repository.
 - Learn about log searches to analyze the data collected from data sources and solutions. 
-- Configure alerts to proactively notify you of critical data collected from data sources and solutions.
+- Configure [alerts](log-analytics-alerts.md) to proactively notify you of critical data collected from data sources and solutions.
