@@ -28,7 +28,7 @@ Download the HPC Pack IaaS deployment scripts from [here](https://www.microsoft.
 
 Azure Powershell is a pre-requisite please read this article [How to install and configure Azure PowerShell](../powershell-install-configure.md) if not configured on your local machine.
 
-At the time of this writing, the Linux image from the Azure Gallery which contains the Infiniband drivers for Azure is SLES 12. In order to retrieve the name of all Linux images supporting HPC in the gallery you can run the following powershell command :
+At the time of this writing, the Linux images from the Azure Gallery which contains the Infiniband drivers for Azure are for SLES 12, CentOS 6.5 and CentOS 7.1. This article is based on the usage of  SLES 12. In order to retrieve the name of all Linux images supporting HPC in the gallery you can run the following powershell command :
 
 ```
     get-azurevmimage | ?{$_.ImageName.Contains("hpc") -and $_.OS -eq "Linux" }
