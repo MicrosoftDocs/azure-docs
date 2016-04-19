@@ -123,7 +123,7 @@ Now that you have selected the recovery point, choose a storage account and the 
     - want configuration choices other than what is provided in Azure portal
     - want to restore only to extract a few files from disk
 
-  The **Recovery configuration** blade closes. The **Restore** blade shows Recovery configuration as configured. Click **Restore** to start the disk restoration job. Do not continue to step 5; instead proceed to [Creating a VM from restored disks](backup-azure-arm-restore-vms.md#creating-a-vm-from-restored-disks).
+  The **Recovery configuration** blade closes. The **Restore** blade shows Recovery configuration as configured. Click **Restore** to start the disk restoration job. Do not continue to step 5; instead proceed to [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations).
 
     ![Restore configured](./media/backup-azure-arm-restore-vms/restore-configured.png)
 
@@ -134,7 +134,7 @@ Now that you have selected the recovery point, choose a storage account and the 
 6. On the **Create VM** blade, enter or select values for each of the following fields:
 
     - **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for an ARM VM) or cloud service (for a Classic VM). If you are replacing an existing VM with the same name, first delete the existing VM and data disks, then restore the data from Azure Backup.
-    - **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. When creating a new resource group/cloud service, the name must be globally unique. Typically the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-networks/virtual-networks-migrate-to-regional-vnet).
+    - **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. When creating a new resource group/cloud service, the name must be globally unique. Typically the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet).
     - **Virtual Network** - Select the virtal network (VNET) when creating the VM. The field provides all VNETs associated with the subscription.
 
     > [AZURE.NOTE] You must select a VNET when restoring an ARM-based VM. A VNET is optional for a Classic VM.
