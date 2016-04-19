@@ -62,7 +62,7 @@ The following table lists the typical power consumption data (actual values may 
 Your StorSimple device supports up to 12 3.5-inch form factor Serial Attached SCSI (SAS) disk drives. The actual drives can be a mix of solid-state drives (SSDs) or hard disk drives (HDDs), depending on the product configuration. The 12 disk drive slots are located in a 3 by 4 configuration in front of the enclosure. The EBOD enclosure allows for additional storage for another 12 disk drives. These are always HDDs.  
 
 ## Storage specifications
-The StorSimple devices have a mix of hard disk drives and solid state drives for both the 8100 and 8600. The total usable capacity for the 8100 and 8600 are roughly 15 TB and 40 TB respectively. The following table documents the details of SSD, HDD, and cloud capacity in the context of the StorSimple solution capacity.
+The StorSimple devices have a mix of hard disk drives and solid state drives for both the 8100 and 8600. The total usable capacity for the 8100 and 8600 are roughly 15 TB and 38 TB respectively. The following table documents the details of SSD, HDD, and cloud capacity in the context of the StorSimple solution capacity.
 
 | Device model / Capacity                         | 8100                                                    | 8600                                                    |
 |------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
