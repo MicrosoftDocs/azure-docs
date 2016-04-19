@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use bcp to load data into SQL Data Warehouse | Microsoft Azure"
-   description="Learn what bcp is and how to use it for data warehousing scenarios."
+   pageTitle="Loading the Contoso Retail Data Warehouse into SQL Data Warehouse | Microsoft Azure"
+   description="Learn how to load Contoso Retail Data Warehouse into SQL Data Warehouse using PolyBase for maximum performance"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
