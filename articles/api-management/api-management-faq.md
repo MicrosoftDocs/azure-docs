@@ -30,6 +30,10 @@ Learn the answers to common questions, patterns and best practices for Azure API
 -	[How can I add a user to the Administrators group?](#how-can-i-add-a-user-to-the-administrators-group)
 -	[Why is the policy that I want to add not enabled in the policy editor?](#why-is-the-policy-that-i-want-to-add-not-enabled-in-the-policy-editor)
 -	[How can I achieve API versioning with API Management?](#how-can-i-achieve-api-versioning-with-api-management)
+-	[How can I configure multiple environments of APIs, for example Sandbox and Production?](#how-can-i-configure-multiple-environments-of-apis-for-example-sandbox-and-production)
+-	[Is SOAP supported in API Management?](#is-soap-supported-in-api-management)
+-	[Is the API Management gateway IP address constant? Can I use it in firewall rules?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
+-	[Can I configure an OAUth 2.0 Authorization Server with ADFS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 
 ### How can I ask a question to the API Management team?
 
@@ -76,4 +80,46 @@ If the policy that you want to add is not enabled, ensure that you are in the co
 -	You can configure distinct APIs in API Management representing different versions. For example, you may have `MyAPI v1` and `MyAPI v2` as two different APIs and developers can choose which version they want to use.
 -	You can also configure your API with a service URL that does not include a version segment, for example: `https://my.api`. You can then configure a version segment on each operation's [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) template, for example you can have an operation with a [URL template](api-management-howto-add-operations.md#url-template) of `/resource` and [Rewrite URL](api-management-howto-add-operations.md#rewrite-url-template) template of `/v1/Resource`. That way you would be able to change version segment value on each operation separately.
 -	If you'd like to keep a "default" version segment in the API's service URL then on selected operations you can set a policy that uses the [Set backend service](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) policy to change backend request path.
+
+### How can I configure multiple environments of APIs, for example Sandbox and Production?
+
+At this time, your options are:
+-	You can host distinct APIs on the same tenant
+-	You can host the same APIs on different tenants
+
+### Is SOAP supported in API Management?
+
+Currently, we offer limited support for SOAP within Azure API Management; it is a feature we are currently investigating. We would be very interested to get any example WSDLs from your customer and some description of the features they require, as this would help us in shaping our thinking. Please contact us using the contact information referenced in [How can I ask a question to the API Management team?](#how-can-i-ask-a-question-to-the-api-management-team)
+
+If you need to get it working, some of our community have suggested work-arounds – see [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
+
+Implementing the solution this way requires some manual configuration of policies, does not support WSDL import/export, and users will need to form up the body of requests made using the test console in the developer portal.
+
+### Is the API Management gateway IP address constant? Can I use it in firewall rules?
+
+In the Standard and Premium tiers the Public IP address (VIP) of the  API Management tenant is static for the lifetime of the tenant, with several  exceptions listed below. Note that Premium tier tenants configured for multi-region deployment are assigned one public IP address per region. 
+
+The IP address will change in the following circumstances:
+
+-	The service is deleted and recreated
+-	The service subscription is suspended (for example for non-payment) and reinstated
+-	VNET is added or removed (VNET is supported in the Premium tier only)
+-	Regional address changes if the region is vacated and re-entered (Multi-region deployment supported in the Premium tier only)
+
+The IP address (or addresses in the case of multi-region deployment) can be found on the tenant page in the Azure Classic Portal.
+
+### Can I configure an OAUth 2.0 Authorization Server with ADFS security?
+
+For information on configuring this scenario, see [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
+
+### Can I limit VNET to VNET communication using NSG in the subnet to which I deployed API Management?
+
+You can limit VNET to VNET communication by configuring the following ports to have higher priority in NSG to deny communications.
+
+| Ports (Source / Destination) | Direction | Transport Protocol | Purpose                                                                                                                                                                                                                                                                  | Source/Destination              |
+|------------------------------|-----------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
+| * / *                         | INBOUND   | TCP                | Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. | 168.63.128.16 / VIRTUAL_NETWORK |
+| * / *                        | OUTBOUND  | TCP                | Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. | VIRTUAL_NETWORK / 168.63.128.16 |
+| * / 1688                     | OUTBOUND  | TCP                | Windows images running in the virtual machines should be licensed. To do this, a licensing request is sent to the Key Management Service host servers that handle such queries. This will always be on outbound port 1688.                                               | VIRTUAL_NETWORK / Any           |
+
 
