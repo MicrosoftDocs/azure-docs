@@ -248,7 +248,7 @@ After you have enabled Password Writeback in the Azure AD Connect tool, you will
 1.	Once installation is complete, if you are blocking unknown outbound connections in your environment, you will also need to add the following rules to your firewall. Make sure you reboot your AAD Connect machine after making these changes:
    - Allow outbound connections over port 443 TCP
    - Allow outbound connections to https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   - When using a proxy or having general connectivity issues, allow outbound connections over port 9350-9354 TCP
+   - When using a proxy or having general connectivity issues, allow outbound connections over port 9350-9354 and port 5671 TCP
 
 ### Step 4: Set up the appropriate Active Directory permissions
 For every forest that contains users whose passwords will be reset, if X is the account that was specified for that forest in the configuration wizard (during initial configuration), then X must be given the **Reset Password**, **Change Password**, **Write Permissions** on `lockoutTime`, and **Write Permissions** on `pwdLastSet`, extended rights on the root object of each domain in that forest. The right should be marked as inherited by all user objects.  
