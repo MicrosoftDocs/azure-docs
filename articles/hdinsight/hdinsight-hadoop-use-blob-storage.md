@@ -103,6 +103,8 @@ When creating an HDInsight cluster from the Portal, you have the options to use 
 
 ###Using Azure CLI
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 If you have [installed and configured the Azure CLI](../xplat-cli-install.md), the following command can be used to a storage account and container.
 
 	azure storage account create <storageaccountname> --type LRS
