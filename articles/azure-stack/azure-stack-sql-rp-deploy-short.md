@@ -37,7 +37,7 @@ To deploy a SQL Server resource provider, you will:
 
 2. [Download the SQL Server RP binaries](http://download.microsoft.com/download/A/3/6/A36BCD4A-8040-44B7-8378-866FA7D1C4D2/AzureStack.Sql.5.11.69.0.zip) and extract it on the ClientVM in your Azure Stack PoC.
 
-3. [Run the bootstrap.cmd and script](/azure-stack-sql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment) - A set of scripts grouped by tabs will open in PowerShell Integrated Scripting Environment (ISE).
+3. [Run the bootstrap.cmd and script](azure-stack-sql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment) - A set of scripts grouped by tabs will open in PowerShell Integrated Scripting Environment (ISE).
 
 4. Run all the loaded scripts in sequence from left to right in each tab. The scripts will:
     - In the “Prepare” tab:
