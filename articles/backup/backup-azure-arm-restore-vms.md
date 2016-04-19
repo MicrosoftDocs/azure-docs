@@ -95,15 +95,15 @@ You protect your data with the Backup service by taking snapshots of your data a
 
 9. On the **Restore** blade, click **Recovery configuration** to open its blade.
 
-    ![recovery configuration wizare is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
+    ![recovery configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
 ## Choosing a VM recovery configuration
 
-Now that you have selected the recovery point, choose a storage account and the method for configuring your recovery VM. Your choices for configuring the recovery VM are: the Azure portal or PowerShell. When choosing a storage account, you must choose from accounts that share the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation.
+Now that you have selected the recovery point, choose a storage account and the method for configuring your recovery VM. Your choices for configuring the recovery VM are to use: Azure portal or PowerShell. When choosing a storage account, you must choose from accounts that share the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation.
 
 1. If you are not already there, go to the **Restore** blade. Ensure a **Recovery point** has been selected, and click **Recovery configuration** to open the **Recovery configuration** blade.
 
-    ![recovery configuration wizare is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
+    ![recovery configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
 2. On the **Recovery configuration** blade, click **Storage account** to open the list of storage accounts in the same location as the Recovery Services vault.
 
@@ -119,7 +119,7 @@ Now that you have selected the recovery point, choose a storage account and the 
 
     ![list of complex VM configurations](./media/backup-azure-arm-restore-vms/complex-vm-configurations.png)
 
-    If your restore configuration *is* considered to be complex, then on the **Recovery Configuration** blade, click **OK**. The **Recovery configuration** blade closes and a checkmark appears next to Recovery configuration. Click **Restore** to start the disk restoration job. Do not continue to step 5; instead proceed to [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations).
+    If the restore configuration *is* considered to be complex, then on the **Recovery Configuration** blade, click **OK**. The **Recovery configuration** blade closes and a checkmark appears next to Recovery configuration. Click **Restore** to start the disk restoration job. Do not continue to step 5; instead proceed to [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations).
 
     ![Restore configured](./media/backup-azure-arm-restore-vms/restore-configured.png)
 
@@ -130,8 +130,8 @@ Now that you have selected the recovery point, choose a storage account and the 
 6. On the **Create VM** blade, enter or select values for each of the following fields:
 
     - **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for an ARM VM) or cloud service (for a Classic VM). If you are replacing an existing VM with the same name, first delete the existing VM and data disks, then restore the data from Azure Backup.
-    - **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. When creating a new resource group/cloud service, the name must be globally unique. Typically the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet).
-    - **Virtual Network** - Select the virtal network (VNET) when creating the VM. The field provides all VNETs associated with the subscription.
+    - **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. When creating a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet).
+    - **Virtual Network** - Select the virtual network (VNET) when creating the VM. The field provides all VNETs associated with the subscription.
 
     > [AZURE.NOTE] You must select a VNET when restoring an ARM-based VM. A VNET is optional for a Classic VM.
 
@@ -185,26 +185,24 @@ To view the operation while it is processing, or to view when it completed, open
 
 
 ## Restoring VMs with special network configurations
-It is possible to backup and restore VMs with the following special network configurations. However, these configuration require some special consideration while going through the restore process.
+It is possible to backup and restore VMs with the following special network configurations. However, these configurations require some special consideration while going through the restore process.
 
-- VMs under load balancer ( internal and external)
+- VMs under load balancer (internal and external)
 - VMs with multiple reserved IPs
 - VMs with multiple NICs
-
 
 >[AZURE.IMPORTANT] When creating the special network configuration for VMs, you must use PowerShell to restore from disk.
 
 
-In order to fully recreate the virtual machine post restoring disks, follow these steps:
+In order to fully recreate the virtual machines after restoring to disk, follow these steps:
 
 1. Restore the disks from a recovery services vault using [Azure Backup PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
 
-2. Create the VM config required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
+2. Create the VM configuration required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
 	- Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
 	- Create VM to connect to [Internet facing load balancer] (https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)
 	- Create VM with [multiple NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Create VM with [multiple reserved IPs](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
-
 
 ## Next steps
 Now that you can restore your VMs, see the troubleshooting article for information on common errors with VMs. Also, check out the article on managing tasks with your VMs.
