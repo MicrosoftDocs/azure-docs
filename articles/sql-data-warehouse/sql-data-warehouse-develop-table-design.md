@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/19/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table design in SQL Data Warehouse #
@@ -288,10 +288,13 @@ SQL Data Warehouse does not use or support these features:
 - sparse columns
 - user-defined types
 - indexed views
-- identities
 - sequences
 - triggers
 - synonyms
+
+## Features with workarounds
+- identities
+To 
 
 
 ## Next steps
