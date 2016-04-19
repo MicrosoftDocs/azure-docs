@@ -36,7 +36,8 @@ This topic explains how you can customize the sign-in page and the access panel 
 
 ## Customizing the sign-in page
 
-Typically, if you need browser-based access to your cloud apps and services that your organization subscribes to, you use the sign-in page.<br>
+Typically, if you need browser-based access to your cloud apps and services that your organization subscribes to, you use the sign-in page.
+
 If you have applied changes to your sign-in page, it can take up to an hour for the changes to appear.
 
 A branded sign-in page only appears when you visit a service with a tenant-specific URL such as https://outlook.com/**contoso**.com, or https://mail.**contoso**.com.
@@ -175,7 +176,8 @@ It can take up to an hour for new change you made to the sign-in page branding t
 
 ## Testing and examples
 
-We recommend that you experiment with a test tenant before making changes in your production environment.<br>
+We recommend that you experiment with a test tenant before making changes in your production environment.
+
 **To verify whether your branding has been applied:**
 
 1. Open an InPrivate or Incognito browser session. 
