@@ -39,6 +39,7 @@ The modeling steps in these topics contain code showing how to train, evaluate, 
 
 2.To create your HDInsight Spark cluster, see [Get started: create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 
+
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
@@ -112,13 +113,13 @@ You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to a
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Navigate to Python to see existing notebooks that run python scripts. You will see a directory that contains a few examples of pre-packaged notebooks listed. The notebook that contains the code samples in this topic are available in [Github]( https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
+Navigate to Python to see existing notebooks that run python scripts. You will see a directory that contains a few examples of pre-packaged notebooks listed. The notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
 
 You can upload the notebooks directly from Github to the Jupyter notebook server on your Spark cluster. On the home page of your Jupyter, click on the **Upload** button on the right part of the screen. It will open a file explorer. Here you can paste the Github (raw content) URL of the Notebook and click **Open**. You will see the file name on your Jupyter file list with an **Upload** button again. Click this **Upload** button. Now, you have imported the notebook. Repeat these steps to upload the following notebooks from this walkthrough.
 
-1.	Data-Exploration-And-Modeling.ipynb
-2.	Model-Consumption.ipynb
-3.	Modeling-With-CV-Param-Sweeps.ipynb
+1.	machine-learning-data-science-spark-data-exploration-modeling.ipynb
+2.	machine-learning-data-science-spark-model-consumption.ipynb
+3.	machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb
 
 Now you can:
 

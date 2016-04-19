@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Score and evaluate Spark-built machine learning models | Microsoft Azure"
-	description="How to score and evaluate learning models that have been stored in Azure Blob Storage (WASB)."
+	pageTitle="Score Spark-built machine learning models | Microsoft Azure"
+	description="How to score learning models that have been stored in Azure Blob Storage (WASB)."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,42 +13,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="04/19/2016"
 	ms.author="deguhath;bradsev" />
 
-# Score and evaluate Spark-built machine learning models 
+# Score Spark-built machine learning models 
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
 
 ## Introduction
 
-This topic describes how to access machine learning (ML) models that have been built using Spark MLlib and stored in Azure Blob Storage (WASB), and how to score them with datasets that have also been stored in WASB. It shows how to pre-process the input data, transform features using the indexing and encoding functions in the MLlib toolkit, and how to create a labeled point data object that can be used as input for scoring with the ML models. The models used for scoring and evaluation include Linear Regression, Logistic Regression, Random Forest Models, and Gradient Boosting Tree Models.
+This topic describes how to load machine learning (ML) models that have been built using Spark MLlib and stored in Azure Blob Storage (WASB), and how to score them with datasets that have also been stored in WASB. It shows how to pre-process the input data, transform features using the indexing and encoding functions in the MLlib toolkit, and how to create a labeled point data object that can be used as input for scoring with the ML models. The models used for scoring include Linear Regression, Logistic Regression, Random Forest Models, and Gradient Boosting Tree Models.
 
 
 ## Prerequisites
 
-1. You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. 
+1. You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-model-consumption.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
 
-2. You must also create the machine learning models to be scored and evaluated here by working through the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic.
+2. You must also create the machine learning models to be scored here by working through the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic.
+
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
  
 
 ## Setup Spark and directory paths to stored data and models 
 
-Spark is able to read and write to Azure Blob storage (WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
+Spark is able to read and write to a Azure Storage Blob (WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
 To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: *"wasb//"*. The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output will be saved. 
 
-
-	# RECORD START TIME
-	import datetime
-	datetime.datetime.now()
-
-**OUTPUT:**
-
-datetime.datetime(2016, 4, 7, 18, 29, 22, 753259)
 
 ### Set directory paths for storage locations in WASB
 
@@ -56,10 +49,9 @@ Models are saved in: "wasb:///user/remoteuser/NYCTaxi/Models". If this path is n
 
 The scored results have been saved in: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". If the path to folder is incorrect, results will not be saved in that folder.
 
->AZURE.NOTE: The file path locations can be copied and pasted from the output of the last cell of the model training notebook) 
+>AZURE.NOTE: The file path locations can be copied and pasted into the placeholders in this code from the output of the last cell of the **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook.
 
-
-	# LOCATION OF DATA TO BE SCORED
+	# LOCATION OF DATA TO BE SCORED (TEST DATA)
 	taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
 	
 	# SET THE MODEL STORAGE DIRECTORY PATH 
@@ -71,12 +63,20 @@ The scored results have been saved in: "wasb:///user/remoteuser/NYCTaxi/ScoredRe
 	scoredResultDir = "wasb:///user/remoteuser/NYCTaxi/ScoredResults/"; 
 	
 	# FILE LOCATIONS FOR THE MODELS TO BE SCORED
-	logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-0718_02_18.158911"
-	linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-0718_05_50.275074"
-	randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-0718_04_43.815946"
-	randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-04-0718_06_25.457863"
-	BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-04-0718_05_06.929440"
-	BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-04-0718_06_53.473171"
+	logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-1817_40_35.796789"
+	linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-1817_44_00.993832"
+	randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-1817_42_58.899412"
+	randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-04-1817_44_27.204734"
+	BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-04-1817_43_16.354770"
+	BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-04-1817_44_46.206262"
+
+	# RECORD START TIME
+	import datetime
+	datetime.datetime.now()
+
+**OUTPUT:**
+
+datetime.datetime(2016, 4, 19, 17, 21, 28, 379845)
 
 
 ### Import libraries needed and set Spark context 
@@ -88,10 +88,6 @@ Set spark context and import necessary libraries with the following code
 	from pyspark import SparkConf
 	from pyspark import SparkContext
 	from pyspark.sql import SQLContext
-	%matplotlib inline
-	import matplotlib
-	import matplotlib.pyplot as plt
-	matplotlib.style.use('ggplot')
 	from pyspark.sql import Row
 	from pyspark.sql.functions import UserDefinedFunction
 	from pyspark.sql.types import *
@@ -109,7 +105,7 @@ Set spark context and import necessary libraries with the following code
 
 **OUTPUT:**
 
-2
+4
 
 
 ## Ingest data and create a cleaned data frame
@@ -118,7 +114,7 @@ This section contains the code for a series of tasks required to ingest the data
 
 The taxi trip and fare files were joined based on the procedure provided in the: [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md) topic.
 
-	# IMPORT FILE FROM PUBLIC BLOB
+	# INGEST DATA AND CREATE A CLEANED DATA FRAME
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
@@ -163,7 +159,7 @@ The taxi trip and fare files were joined based on the procedure provided in the:
 	    .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
 	    .drop('direct_distance').drop('surcharge')\
 	    .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
-
+	
 	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
 	taxi_df_test_cleaned.cache()
 	taxi_df_test_cleaned.count()
@@ -174,11 +170,11 @@ The taxi trip and fare files were joined based on the procedure provided in the:
 	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 	timeend = datetime.datetime.now()
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 **OUTPUT:**
 
-Time taken to execute above cell: 20.0 seconds
+Time taken to execute above cell: 15.36 seconds
 
 
 ## Prepare data for scoring in Spark 
@@ -193,6 +189,7 @@ The [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringi
 
 The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect continuous valued features, such as logistic regression, to be applied to categorical features.
 	
+	#INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
@@ -252,21 +249,22 @@ The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.pre
 
 **OUTPUT:**
 
-Time taken to execute above cell: 5.29 seconds
+Time taken to execute above cell: 4.88 seconds
 
-### Create labeled point objects and scale data for input into the models
 
-This section contains code that shows how to index categorical text data as a labeled point data type and encode it so it can be used to train and test MLlib logistic regression and tree-based models. It also contains code that shows how to scale data with the `StandardScalar` provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of machine learning models.
+### Create RDD objects with feature arrays for input into models
 
-A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response. It contains the label (or the target variable) and the features in a format that can be used for model training or scoring. 
+This section contains code that shows how to index categorical text data as an RDD object and one-hot encode it so it can be used to train and test MLlib logistic regression and tree-based models. The indexed data is stored in [Resilient Distributed Dataset (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objects. These are the basic abstraction in Spark. An RDD object represents an immutable, partitioned collection of elements that can be operated on in parallel with Spark.
 
-The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) is used to scale the features to unit variance. Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. 
+It also contains code that shows how to scale data with the `StandardScalar` provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of machine learning models. The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) is used to scale the features to unit variance. Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. 
+
+
+	# CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
 
 	# IMPORT LIBRARIES
-	from pyspark.mllib.regression import LabeledPoint
 	from pyspark.mllib.linalg import Vectors
 	from pyspark.mllib.feature import StandardScaler, StandardScalerModel
 	from pyspark.mllib.util import MLUtils
@@ -277,8 +275,7 @@ The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mll
 	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex,
 	                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
 	                         line.trip_distance, line.fare_amount])
-	    labPt = LabeledPoint(line.tipped, features)
-	    return  labPt
+	    return  features
 	
 	# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
 	def parseRowOneHotBinary(line):
@@ -286,16 +283,14 @@ The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mll
 	                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
 	                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
 	                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
-	    labPt = LabeledPoint(line.tipped, features)
-	    return  labPt
+	    return  features
 	
 	# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
 	def parseRowIndexingRegression(line):
 	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
 	                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
 	                         line.trip_distance, line.fare_amount])
-	    labPt = LabeledPoint(line.tip_amount, features)
-	    return  labPt
+	    return  features
 	
 	# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
 	def parseRowOneHotRegression(line):
@@ -303,10 +298,8 @@ The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mll
 	                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
 	                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
 	                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
-	    labPt = LabeledPoint(line.tip_amount, features)
-	    return  labPt
+	    return  features
 
-	
 	# FOR BINARY CLASSIFICATION TRAINING AND TESTING
 	indexedTESTbinary = encodedFinal.map(parseRowIndexingBinary)
 	oneHotTESTbinary = encodedFinal.map(parseRowOneHotBinary)
@@ -316,11 +309,15 @@ The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mll
 	oneHotTESTreg = encodedFinal.map(parseRowOneHotRegression)
 	
 	# SCALING FEATURES FOR LINEARREGRESSIONWITHSGD MODEL
-	label = oneHotTESTreg.map(lambda x: x.label)
-	features = oneHotTESTreg.map(lambda x: x.features)
-	scaler = StandardScaler(withMean=False, withStd=True).fit(features)
-	dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
-	oneHotTESTregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
+	scaler = StandardScaler(withMean=False, withStd=True).fit(oneHotTESTreg)
+	oneHotTESTregScaled = scaler.transform(oneHotTESTreg)
+	
+	# CACHE RDDS IN MEMORY
+	indexedTESTbinary.cache();
+	oneHotTESTbinary.cache();
+	indexedTESTreg.cache();
+	oneHotTESTreg.cache();
+	oneHotTESTregScaled.cache();
 	
 	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 	timeend = datetime.datetime.now()
@@ -329,14 +326,12 @@ The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mll
 
 **OUTPUT:**
 
-Time taken to execute above cell: 10.12 seconds
+Time taken to execute above cell: 9.94 seconds
 
 
-## Score with the Logistic Regression Model and evaluate the accuracy
+## Score with the Logistic Regression Model and save output to blob
 
-The code in this section shows how to load a saved Logistic Regression Model for predicting whether or not a tip is paid, score and evaluate its accuracy with standard classification metrics, and then save and plot the results using Pandas data frame.
-
-The scored results are stored in [Resilient Distributed Dataset (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objects. These are the basic abstraction in Spark. An RDD object represents an immutable, partitioned collection of elements that can be operated on in parallel with Spark.
+The code in this section shows how to load a Logistic Regression Model  saved in Azure blob storage and use it to predict whether or not a tip is paid on a taxi trip, score it with standard classification metrics, and then save and plot the results to blob storage. The scored results are stored in RDD objects. 
 
 
 	# SCORE AND EVALUATE LOGISTIC REGRESSION MODEL
@@ -346,61 +341,17 @@ The scored results are stored in [Resilient Distributed Dataset (RDD)](http://sp
 	
 	# IMPORT LIBRARIES
 	from pyspark.mllib.classification import LogisticRegressionModel
-	from sklearn.metrics import roc_curve,auc
-	from pyspark.mllib.util import MLUtils
-	from pyspark.mllib.evaluation import BinaryClassificationMetrics
-	from pyspark.mllib.evaluation import MulticlassMetrics
 	
-	# LOAD SAVED MODEL
+	## LOAD SAVED MODEL
 	savedModel = LogisticRegressionModel.load(sc, logisticRegFileLoc)
-	predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(savedModel.predict(lp.features)), lp.label))
+	predictions = oneHotTESTbinary.map(lambda features: (float(savedModel.predict(features))))
 	
-	# SAVE SCORED RESULTS (RDD) TO WASB
+	## SAVE SCORED RESULTS (RDD) TO BLOB
 	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	filename = "LogisticRegressionWithLBFGS_" + datestamp + ".txt";
-	dirfilename = scoredResultDir + filename;
-	predictionAndLabels.saveAsTextFile(dirfilename)
+	logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp + ".txt";
+	dirfilename = scoredResultDir + logisticregressionfilename;
+	predictions.saveAsTextFile(dirfilename)
 	
-	# EVALUATE SAVED MODEL USING ACCURACY METRICS
-
-	# Instantiate metrics object
-	metrics = BinaryClassificationMetrics(predictionAndLabels)
-	# Area under precision-recall curve
-	print("Area under PR = %s" % metrics.areaUnderPR)
-	# Area under ROC curve
-	print("Area under ROC = %s" % metrics.areaUnderROC)
-	metrics = MulticlassMetrics(predictionAndLabels)
-	# Overall statistics
-	precision = metrics.precision()
-	recall = metrics.recall()
-	f1Score = metrics.fMeasure()
-	print("Summary Stats")
-	print("Precision = %s" % precision)
-	print("Recall = %s" % recall)
-	print("F1 Score = %s" % f1Score)
-	
-	
-	# CREATE A PANDAS DATA-FRAME AND PLOT ROC-CURVE, FROM PREDICTED PROBS AND LABELS                                     
-	savedModel.clearThreshold()# This clears threshold for classification (0.5) and outputs probabilities
-	predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(savedModel.predict(lp.features)), lp.label))
-	predictionAndLabelsDF = predictionAndLabels.toDF()
-	test_predictions = predictionAndLabelsDF.toPandas()
-	predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
-	
-	prob = predictions_pddf["probability"] 
-	fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
-	roc_auc = auc(fpr, tpr)
-	
-	plt.figure()
-	plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
-	plt.plot([0, 1], [0, 1], 'k--')
-	plt.xlim([0.0, 1.0])
-	plt.ylim([0.0, 1.05])
-	plt.xlabel('False Positive Rate')
-	plt.ylabel('True Positive Rate')
-	plt.title('Receiver operating characteristic example')
-	plt.legend(loc="lower right")
-	plt.show()
 	
 	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 	timeend = datetime.datetime.now()
@@ -409,55 +360,32 @@ The scored results are stored in [Resilient Distributed Dataset (RDD)](http://sp
 
 **OUTPUT:**
 
-Area under PR = 0.985561411624
-
-Area under ROC = 0.983648167707
-
-Summary Stats
-
-Precision = 0.984418554785
-
-Recall = 0.984418554785
-
-F1 Score = 0.984418554785
+Time taken to execute above cell: 32.46 seconds
 
 
-![receiver-operating-characteristic-example](./media/machine-learning-data-science-spark-model-consumption/receiver-operating-characteristic-example.png)
-
-Time taken to execute above cell: 54.31 seconds
-
-
-## Score and evaluate a Linear Regression Model
+## Score a Linear Regression Model
 
 We used [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) to train a linear regression model using Stochastic Gradient Descent (SGD) for optimization to predict the amount of tips paid. 
 
-The code in this section shows how to load a Linear Regression Model, score using scaled variables, evaluate its performance with standard regression metrics, and then save the results.
+The code in this section shows how to load a Linear Regression Model from Azure blob storage, score using scaled variables, and then save the results back to the blob.
 
-	#SCORE AND EVALUATE LINEAR REGRESSION MODEL
+	#SCORE LINEAR REGRESSION MODEL
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
 	
 	#LOAD LIBRARIES​
-	from pyspark.mllib.regression import LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel
-	from pyspark.mllib.evaluation import RegressionMetrics
-	from scipy import stats
-	​
-	# LOAD MODEL AND SCORE USING **SCALED VARIABLES**
+	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
+	
+	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
-	predictionAndLabels = oneHotTESTregScaled.map(lambda lp: (float(savedModel.predict(lp.features)), lp.label))
-	​
-	# EVALUATE MODEL
-	testMetrics = RegressionMetrics(predictionAndLabels)
-	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-	print("R-sqr = %s" % testMetrics.r2)
-	​
+	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
+	
 	# SAVE RESULTS
 	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	filename = "LinearRegressionWithSGD_" + datestamp;
-	dirfilename = scoredResultDir + filename;
-	​
-	predictionAndLabels.saveAsTextFile(dirfilename)
+	linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
+	dirfilename = scoredResultDir + linearregressionfilename;
+	predictions.saveAsTextFile(dirfilename)
 	
 	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL​
 	timeend = datetime.datetime.now()
@@ -467,68 +395,46 @@ The code in this section shows how to load a Linear Regression Model, score usin
 
 **OUTPUT:**
 
-RMSE = 1.2524372322
-
-R-sqr = 0.619780748191
-
-Time taken to execute above cell: 47.72 seconds
+Time taken to execute above cell: 25.00 seconds
 
 
-## Score, evaluate and save classification and regression Random Forest Models
+## Score classification and regression Random Forest Models
 
-The code in this section shows how to load the saved classification and regression Random Forest Models, score and evaluate their performance with standard classifier and regression measures, and save and plot the results.
+The code in this section shows how to load the saved classification and regression Random Forest Models saved in Azure blob storage, score their performance with standard classifier and regression measures, and then save the results back to blob storage.
 
 [Random forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees in order to reduce the risk of overfitting. Random forests can handle categorical features, extend to the multiclass classification setting, do not require feature scaling, and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
 
 [spark.mllib](http://spark.apache.org/mllib/) supports random forests for binary and multiclass classification and for regression, using both continuous and categorical features. 
 
-	# RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
+	# SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
 
 	#IMPORT MLLIB LIBRARIES	
 	from pyspark.mllib.tree import RandomForest, RandomForestModel
-
-	# CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO WASB
+	
+	
+	# CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 	savedModel = RandomForestModel.load(sc, randomForestClassificationFileLoc)
-	predictions = savedModel.predict(indexedTESTbinary.map(lambda x: x.features))
-	predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
-	
-	metrics = BinaryClassificationMetrics(predictionAndLabels)
-	print("Area under ROC = %s" % metrics.areaUnderROC)
+	predictions = savedModel.predict(indexedTESTbinary)
 	
 	# SAVE RESULTS
 	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	filename = "RandomForestClassification_" + datestamp + ".txt";
-	dirfilename = scoredResultDir + filename;
-	predictionAndLabels.saveAsTextFile(dirfilename)
+	rfclassificationfilename = "RandomForestClassification_" + datestamp + ".txt";
+	dirfilename = scoredResultDir + rfclassificationfilename;
+	predictions.saveAsTextFile(dirfilename)
 	
-	
-	# REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO WASB
+
+	# REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 	savedModel = RandomForestModel.load(sc, randomForestRegFileLoc)
-	predictions = savedModel.predict(indexedTESTreg.map(lambda x: x.features))
-	predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
-	
-	testMetrics = RegressionMetrics(predictionAndLabels)
-	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-	print("R-sqr = %s" % testMetrics.r2)
+	predictions = savedModel.predict(indexedTESTreg)
 	
 	# SAVE RESULTS
 	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	filename = "RandomForestRegression_" + datestamp + ".txt";
-	dirfilename = scoredResultDir + filename;
-	predictionAndLabels.saveAsTextFile(dirfilename)
-	
-	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
-	test_predictions= sqlContext.createDataFrame(predictionAndLabels)
-	test_predictions_pddf = test_predictions.toPandas()
-	
-	ax = test_predictions_pddf.plot(kind='scatter', x='_1', y='_2', color='blue', alpha = 0.15, label='Actual vs. predicted');
-	ax.set_xlabel("Actual")
-	ax.set_ylabel("Predicted")
-	plt.axis([-1, 25, -1, 25])
-	plt.show(ax)
+	rfregressionfilename = "RandomForestRegression_" + datestamp + ".txt";
+	dirfilename = scoredResultDir + rfregressionfilename;
+	predictions.saveAsTextFile(dirfilename)
 
 	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 	timeend = datetime.datetime.now()
@@ -537,27 +443,19 @@ The code in this section shows how to load the saved classification and regressi
 
 **OUTPUT:**
 
-Area under ROC = 0.985572886748
-
-RMSE = 0.925336486487
-
-R-sqr = 0.730084136779
+Time taken to execute above cell: 52.2 seconds
 
 
-![random-forest-model-actual-vs-predicted](./media/machine-learning-data-science-spark-model-consumption/random-forest-model-actual-vs-predicted.png)
+## Score classification and regression Gradient Boosting Tree Models
 
-Time taken to execute above cell: 152.0 seconds
-
-## Score, evaluate and save classification and regression Gradient Boosting Tree Models
-
-The code in this section shows how to load the saved classification and regression Gradient Boosting Tree Models, score and evaluate their performance with standard classifier and regression measures, and save the results. 
+The code in this section shows how to load classification and regression Gradient Boosting Tree Models from Azure blob storage, score their performance with standard classifier and regression measures, and then save the results back to blob storage. 
 
 **spark.mllib** supports GBTs for binary classification and for regression, using both continuous and categorical features. 
 
 [Gradient Boosting Trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
 
 
-	# GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
+	# SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
@@ -565,38 +463,31 @@ The code in this section shows how to load the saved classification and regressi
 	#IMPORT MLLIB LIBRARIES
 	from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 	
-	# CLASSIFICATION: LOAD SAVED MODEL AND SCORE 
+	# CLASSIFICATION:LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+
+	#LOAD AND SCORE THE MODEL
 	savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeClassificationFileLoc)
-	predictions = savedModel.predict(indexedTESTbinary.map(lambda x: x.features))
-	predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
+	predictions = savedModel.predict(indexedTESTbinary)
 	
-	# EVALUATE CLASSIFICATION RESULTS
-	metrics = BinaryClassificationMetrics(predictionAndLabels)
-	print("Area under ROC = %s" % metrics.areaUnderROC)
-	
-	# SAVE CLASSIFICATION RESULTS TO WASB
+	# SAVE RESULTS
 	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	filename = "GradientBoostingTreeClassification_" + datestamp + ".txt";
-	dirfilename = scoredResultDir + filename;
-	predictionAndLabels.saveAsTextFile(dirfilename)
+	btclassificationfilename = "GradientBoostingTreeClassification_" + datestamp + ".txt";
+	dirfilename = scoredResultDir + btclassificationfilename;
+	predictions.saveAsTextFile(dirfilename)
 	
 
-	# REGRESSION: LOAD SAVED MODEL AND SCORE 
+	# REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+
+	# LOAD AND SCORE MODEL 
 	savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeRegressionFileLoc)
-	predictions = savedModel.predict(indexedTESTreg.map(lambda x: x.features))
-	predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
+	predictions = savedModel.predict(indexedTESTreg)
 	
-	# EVALUATE REGRESSION RESULTS
-	testMetrics = RegressionMetrics(predictionAndLabels)
-	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-	print("R-sqr = %s" % testMetrics.r2)
-	
-	
-	# SAVE REGRESSION RESULTS TO WASB
+	# SAVE RESULTS
 	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	filename = "GradientBoostingTreeRegression_" + datestamp + ".txt";
-	dirfilename = scoredResultDir + filename;
-	predictionAndLabels.saveAsTextFile(dirfilename)
+	btregressionfilename = "GradientBoostingTreeRegression_" + datestamp + ".txt";
+	dirfilename = scoredResultDir + btregressionfilename;
+	predictions.saveAsTextFile(dirfilename)
+
 
 	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 	timeend = datetime.datetime.now()
@@ -604,23 +495,19 @@ The code in this section shows how to load the saved classification and regressi
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 	
 **OUTPUT:**
-	
-Area under ROC = 0.985572886748
 
-RMSE = 0.945038735223
-
-R-sqr = 0.72806205162
-
-Time taken to execute above cell: 99.02 seconds
+Time taken to execute above cell: 27.73 seconds
 
 ## Cleanup objects from memory and print scored file locations
 
 	# UNPERSIST OBJECTS CACHED IN MEMORY
 	taxi_df_test_cleaned.unpersist()
+	indexedTESTbinary.unpersist();
+	oneHotTESTbinary.unpersist();
+	indexedTESTreg.unpersist();
+	oneHotTESTreg.unpersist();
+	oneHotTESTregScaled.unpersist();
 
-**OUTPUT:**
-
-DataFrame[vendor_id: string, rate_code: string, pickup_hour: int, pickup_week: int, weekday: int, passenger_count: int, trip_time_in_secs: float, trip_distance: float, payment_type: string, fare_amount: float, tip_amount: float, tipped: int]
 
 	# PRINT OUT PATH TO SCORED OUTPUT FILES
 	print "logisticRegFileLoc: " + logisticregressionfilename;
@@ -633,17 +520,18 @@ DataFrame[vendor_id: string, rate_code: string, pickup_hour: int, pickup_week: i
 
 **OUTPUT:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-04-0718_30_45.344582.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-04-1917_22_36.354603.txt
 
-linearRegFileLoc: LinearRegressionWithSGD_2016-04-0718_32_01.384031
+linearRegFileLoc: LinearRegressionWithSGD_2016-04-1917_23_06.083178
 
-randomForestClassificationFileLoc: RandomForestClassification_2016-04-0718_33_06.655659.txt
+randomForestClassificationFileLoc: RandomForestClassification_2016-04-1917_23_33.994108.txt
 
-randomForestRegFileLoc: RandomForestRegression_2016-04-0718_34_01.243828.txt
+randomForestRegFileLoc: RandomForestRegression_2016-04-1917_24_00.352683.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-04-0718_35_26.230385.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-04-1917_24_21.465683.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-04-0718_36_19.161919.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-04-1917_24_32.371641.txt
+
 
 
 ## Consume Spark Models through a web interface
