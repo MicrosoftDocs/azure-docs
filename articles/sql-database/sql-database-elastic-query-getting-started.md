@@ -15,7 +15,7 @@
 	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
-# Reporting across scaled-out cloud databases
+# Reporting across scaled-out cloud databases (preview)
 
 You can create reports from multiple Azure SQL databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded"). 
 

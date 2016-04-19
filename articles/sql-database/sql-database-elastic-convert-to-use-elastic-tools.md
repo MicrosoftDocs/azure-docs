@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/01/2016"
+   ms.date="04/19/2016"
    ms.author="SilviaDoomra"/>
 
 # Migrate existing databases to scaled-out databases
