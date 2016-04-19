@@ -30,7 +30,7 @@ These lists are a quick reference for reviewing the fundamental aspects of avail
 
 - **[Scalability Checklist][ScalabilityChecklist]** summarizes recommended practices for designing and implementing scalable services and handling data management.
 
-## Best pracitces articles
+## Best practices articles
 
 These articles provide an in-depth discussion of important concepts commonly associated with cloud computing. 
 
@@ -58,7 +58,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - **[Retry Service-specific guidance][RetryServiceSpecificGuidance]** summarizes the retry mechanism features for the majority of Azure services, and includes information to help you use, adapt, or extend the retry mechanism for that service.
 
-## Scenario Guides
+## Scenario guides
 
 - [Running Elasticsearch on Azure][elasticsearch] 
     
@@ -90,9 +90,12 @@ We're creating a new set of guidance we're calling "blueprints". Each blueprint 
 - [Running a single VM on Azure][blueprint-single-vm-windows]
 - [Achieving availabitilty using multiple VM instances][blueprint-multi-vm-windows]
 - [Achieving manageability, scalability, availability, and security for a 3-tier app][blueprint-3-tier-windows]
+- [Extending an on-premises network to Azure using a site-to-site virtual private network][blueprint-hybrid-network-vpn].
+
+<!--
 - Adding a network appliance and SQL AlwaysOn Availability Groups (_not yet available_)
 - Deploying to multiple datacenters, routing traffic, facilitating failover(_not yet available_)
-- [Extending an on-premises network to Azure using a site-to-site virtual private network][blueprint-hybrid-network-vpn].
+-->
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
