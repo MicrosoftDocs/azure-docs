@@ -115,11 +115,11 @@ We're creating a new set of guidance we're calling "blueprints". Each blueprint 
 [naming-conventions]: ./guidance-naming-conventions/
 
 <!-- guidance projects -->
-[elasticsearch]: ./guidance-elasticsearch
-[identity-multitenant]: ./guidance-multitenant-identity/
+[elasticsearch]: guidance-elasticsearch.md
+[identity-multitenant]: guidance-multitenant-identity.md
 
 <!-- blueprints -->
-[blueprint-single-vm-windows]: ./guidance-compute-single-vm/
-[blueprint-multi-vm-windows]: ./guidance-compute-multi-vm/
-[blueprint-3-tier-windows]: ./guidance-compute-3-tier-vm/
-[blueprint-hybrid-network-vpn]: ./guidance-hybrid-network-vpn/
+[blueprint-single-vm-windows]: guidance-compute-single-vm.md
+[blueprint-multi-vm-windows]: guidance-compute-multi-vm.md
+[blueprint-3-tier-windows]: guidance-compute-3-tier-vm.md
+[blueprint-hybrid-network-vpn]: guidance-hybrid-network-vpn.md
