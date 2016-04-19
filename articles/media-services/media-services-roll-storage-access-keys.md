@@ -3,7 +3,7 @@
 	description="This articles give you guidance on how to update Media Services after rolling storage access keys." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliao 
+	authors="Juliako"
 	manager="erikre" 
 	editor=""/>
 
