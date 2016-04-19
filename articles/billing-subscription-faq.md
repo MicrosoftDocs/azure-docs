@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="04/14/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
@@ -43,6 +43,8 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
+- [I do not see an invoice for the last billing period. Why?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+
 **Subscriptions**
 
 - [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
@@ -53,7 +55,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I upgrade to a higher tier Azure Support plan?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
 
--	[When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
+- [When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
 
 - [What happens at the end of the term?](#what-happens-at-the-end-of-the-term)
 
@@ -144,6 +146,13 @@ Azure SLA Credits are calculated on a per subscription basis as a percentage of 
 ### How will Azure Service Level Agreements work with current on premises Microsoft licensing agreements?
 
 Azure Service Level Agreements are independent of our on-premises Microsoft licensing agreements. Our SLAs for Azure provide you a monthly uptime guarantee for those services you consume in the cloud, with SLA credits against what we have billed you in the event we fail to meet the guarantee.
+
+### I do not see an invoice for the last billing period. Why?
+
+There could be several reasons for this:
+- It is less than 30 days from the day you subscribed to Azure.
+- Your subscription type is Free Trial or one of the member offers (MSDN/Open/BizSpark/DreamSpark) that doesn't have a credit card or other payment instrument associated with it.
+- The invoice generation date has not yet arrived.
 
 ## Subscriptions
 

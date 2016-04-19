@@ -25,6 +25,8 @@ Learn how to use the [Azure Command-line Interface](../xplat-cli-install.md) to 
 
 This article covers only using the Azure CLI with HDInsight. For a general guide on how to use Azure CLI, see [Install and configure Azure CLI][azure-command-line-tools].
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 ##Prerequisites
 
 Before you begin this article, you must have the following:
