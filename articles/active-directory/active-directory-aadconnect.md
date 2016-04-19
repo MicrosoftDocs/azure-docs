@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/13/2016"
+	ms.date="04/14/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -85,7 +85,7 @@ You also want to prepare for [operational](active-directory-aadconnectsync-opera
 | Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md) |
 | User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnect-user-signin.md) |
 
-## Configure features
+## Configure sync features
 Azure AD Connect comes with several features you can optionally turn on or are enabled by default. Some features might in some cases require additional configuration in certain scenarios and topologies.
 
 [Filtering](active-directory-aadconnectsync-configure-filtering.md) is used when you want to limit which objects are synchronized to Azure AD. By default all users, contacts, groups, and Windows 10 computers are synchronized, but you can limit this based on domains, OUs, or attributes.
@@ -100,7 +100,7 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 
 [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) is enabled by default for express settings installations and will ensure your Azure AD Connect is always up to date with the latest release.
 
-### Next steps to configure features
+### Next steps to configure sync features
 
 | Topic |  |
 | --------- | --------- |
@@ -131,12 +131,25 @@ The configuration model in sync is called [declarative provisioning](active-dire
 | Declarative provisioning | [Azure AD Connect Sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Change the default configuration | [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
+## Configure federation features
+ADFS can be configured to support [multiple domains](active-directory-aadconnect-multiple-domains.md). For example you might have multiple top domains you need to use for federation.
+
+if your ADFS server has not been configured to automatically update certificates from Azure AD or if you use a non-ADFS solution, then you will be notified when you have to [update certificates](active-directory-aadconnect-o365-certs.md).
+
+### Next steps to configure federation features
+
+| Topic |  |
+| --------- | --------- |
+| Configure ADFS with subdomains | [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md) |
+| Manually updating federation certificates | [Renewing Federation Certificates for Office 365 and Azure AD](active-directory-aadconnect-o365-certs.md) |
+
 ## More information and references
 
 | Topic |  |
 | --------- | --------- |
 | Version history | [Version history](active-directory-aadconnect-version-history.md) |
 | Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md) |
+| Non-ADFS compatibility list for Azure AD | [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md) |
 | Attributes synchronized | [Attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md) |
 | Monitoring using Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md) |
 | Frequently Asked Questions | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md) |

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="04/19/2016"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using the Ambari REST API
@@ -211,7 +211,7 @@ You can then use this information with the [Azure CLI](../xplat-cli-install.md) 
 
 ###Example: Restart a service component
 
-At this point, if you look at the Ambari web UI, the Spark service will indicate that it needs to be restarted before the new configuration can take effect. Use the following steps to restart the service. Looking more carefully will indicate 
+At this point, if you look at the Ambari web UI, the Spark service will indicate that it needs to be restarted before the new configuration can take effect. Use the following steps to restart the service.
 
 1. Use the following to enable maintenance mode for the Spark service.
 

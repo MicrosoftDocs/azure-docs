@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="04/09/2016"
+   ms.date="04/14/2016"
    ms.author="jimpark;"/>
 
 # First look: back up files and folders from Windows Server or client to Azure
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Step 2: Create a backup vault and download the necessary items
 
-To back up your files and folders, you need to create a backup vault in the region where you want to store the data. You also determine how storage is replicated and download credentials and the backup agent. 
+To back up your files and folders, you need to create a backup vault in the region where you want to store the data. You also determine how storage is replicated and download credentials and the backup agent.
 
 ### To create a backup vault
 
@@ -103,7 +103,7 @@ Now that your vault is created and you've downloaded everything, you install and
 ## Step 3: Install and register the backup agent
 
 1. Double click the **MARSagentinstaller.exe** from the saved location.
-2. Complete the Microsoft Azure Recovery Services Agent Setup Wizard. To complete the wizard, you'll need to:
+2. Complete the Microsoft Azure Recovery Services Agent Setup Wizard. To complete the wizard, you need to:
     - Choose a location for the installation and cache folder.
     - Provide your proxy server info if you use a proxy server to connect to the internet.
     - Provide your user name and password details if you use an authenticated proxy.
@@ -116,7 +116,7 @@ The agent is now installed and your machine is registered to the vault. You're r
 ## Step 4: Back up your files and folders
 If the backup agent isn't already open, you can find it by searching your machine for Microsoft Azure Backup.
 
-1. In the **Backup agent** click **Schedule Backup**.
+1. In the **Backup agent**, click **Schedule Backup**.
 
     ![Schedule a Windows Server Backup](./media/backup-try-azure-backup-in-10-mins/snap-in-schedule-backup-closeup.png)
 
@@ -130,11 +130,11 @@ If the backup agent isn't already open, you can find it by searching your machin
     Learn more about [completing the initial backup offline](backup-azure-backup-import-export.md).
 <br><br>
 
-3. When the wizard is complete return to the **Backup agent** and click **Back Up Now** to complete the initial backup over the network.
+3. When the wizard is complete, return to the **Backup agent** and click **Back Up Now** to complete the initial backup over the network.
 
     ![Windows Server backup now](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-4. On the **Confirmation** screen, click **Back Up**. If you close the wizard before the backup process completes it continues to run in the background.
+4. On the **Confirmation** screen, click **Back Up**. If you close the wizard before the backup process completes, it continues to run in the background.
 
     When the initial backup is done, the **Jobs** view in the console shows that the job is completed.
 

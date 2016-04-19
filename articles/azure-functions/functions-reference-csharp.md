@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="04/14/2016"
 	ms.author="chrande"/>
 
 # Azure Functions C# developer reference
@@ -214,6 +214,41 @@ After the *project.json* file is uploaded, you see output like the following exa
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.455 Packages restored.
 ```
+
+## Reusing .csx code
+
+You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file, as shown in the following example.
+
+Example *run.csx*:
+
+```csharp
+#load "mylogger.csx"
+
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Verbose($"Log by run.csx: {DateTime.Now}"); 
+    MyLogger(log, $"Log by MyLogger: {DateTime.Now}");
+}
+```
+
+Example *mylogger.csx*:
+
+```csharp
+public static void MyLogger(TraceWriter log, string logtext)
+{
+    log.Verbose(logtext); 
+}
+```
+
+You can use a relative path with the `#load` directive:
+
+* `#load "mylogger.csx"` loads a file located in the function folder.
+
+* `#load "loadedfiles\mylogger.csx"` loads a file located in a folder in the function folder.
+
+* `#load "..\shared\mylogger.csx"` loads a file located in a folder at the same level as the function folder, that is, directly under *wwwroot*.
+ 
+The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files. 
 
 ## Next steps
 
