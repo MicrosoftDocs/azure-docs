@@ -247,6 +247,8 @@ You can use a relative path with the `#load` directive:
 * `#load "loadedfiles\mylogger.csx"` loads a file located in a folder in the function folder.
 
 * `#load "..\shared\mylogger.csx"` loads a file located in a folder at the same level as the function folder, that is, directly under *wwwroot*.
+ 
+The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files. 
 
 ## Next steps
 
