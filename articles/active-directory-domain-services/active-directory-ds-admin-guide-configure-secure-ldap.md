@@ -29,7 +29,7 @@ To perform the tasks listed in this article, you will need:
 3. **Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](./active-directory-ds-getting-started.md).
 
 4. A **certificate to be used to enable secure LDAP**.
-    - **Recommended** - Obtain a certificate from your enterprise CA or public certificate authority. This is a much more secure configuration option.
+    - **Recommended** - Obtain a certificate from your enterprise CA or public certification authority. This is a much more secure configuration option.
 	- Alternately, you may also choose to [create a self-signed certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-1---obtain-a-certificate-for-secure-ldap) as shown later in this article.
 
 
@@ -37,7 +37,7 @@ To perform the tasks listed in this article, you will need:
 ### Requirements for the secure LDAP certificate
 Acquire a valid certificate per the guidelines below, before you enable secure LDAP. You will encounter failures if you try to enable secure LDAP for your managed domain with an invalid/incorrect certificate.
 
-1. **Trusted issuer** - The certificate must be issued by an authority trusted by computers that need to connect to the domain using secure LDAP. This may be your organization's enterprise certificate authority or a public certificate authority trusted by these computers.
+1. **Trusted issuer** - The certificate must be issued by an authority trusted by computers that need to connect to the domain using secure LDAP. This may be your organization's enterprise certification authority or a public certification authority trusted by these computers.
 
 2. **Lifetime** - The certificate must be valid for at least the next 3-6 months. This ensures that secure LDAP access to your managed domain is not broken when the certificate expires.
 
@@ -52,13 +52,13 @@ Acquire a valid certificate per the guidelines below, before you enable secure L
 ## Task 1 - Obtain a certificate for secure LDAP
 The first task involves obtaining a certificate you will use for secure LDAP access to the managed domain. You have two options:
 
-- Obtain a certificate from a certificate authority such as your organization's enterprise CA or from a public certificate authority.
+- Obtain a certificate from a certification authority such as your organization's enterprise CA or from a public certification authority.
 
 - Create a self-signed certificate.
 
 
-### Option A (Recommended) - Obtain a secure LDAP certificate from a certificate authority
-If your organization deploys an enterprise public key infrastructure (PKI), you will need to obtain a certificate from the enterprise certificate authority (CA) for your organization. If your organization obtains its certificates from a public certificate authority, you will need to obtain the secure LDAP certificate from that public certificate authority.
+### Option A (Recommended) - Obtain a secure LDAP certificate from a certification authority
+If your organization deploys an enterprise public key infrastructure (PKI), you will need to obtain a certificate from the enterprise certification authority (CA) for your organization. If your organization obtains its certificates from a public certification authority, you will need to obtain the secure LDAP certificate from that public certification authority.
 
 When requesting a certificate ensure that you follow the requirements outlined in [Requirement for the secure LDAP certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#requirements-for-the-secure-ldap-certificate).
 
@@ -68,8 +68,8 @@ Note that client computers that need to connect to the managed domain using secu
 ### Option B - Create a self-signed certificate for secure LDAP
 You may choose to create a self-signed certificate for secure LDAP, if:
 
-- certificates in your organization are not issued by an enterprise certificate authority or
-- you do not expect to use a certificate from a public certificate authority.
+- certificates in your organization are not issued by an enterprise certification authority or
+- you do not expect to use a certificate from a public certification authority.
 
 **Create a self-signed certificate using PowerShell**
 
@@ -87,7 +87,7 @@ The newly created self-signed certificate will be placed in the local machine's 
 
 
 ## Task 2 - Export the secure LDAP certificate to a .PFX file
-Before you start this task, ensure that you have obtained the secure LDAP certificate from your enterprise certificate authority or a public certificate authority or have created a self-signed certificate.
+Before you start this task, ensure that you have obtained the secure LDAP certificate from your enterprise certification authority or a public certification authority or have created a self-signed certificate.
 
 Perform the following steps, in order to export the LDAPS certificate to a .PFX file.
 
@@ -232,4 +232,4 @@ Configure your external DNS provider so that the DNS name of the managed domain 
 
 That's it - you are now ready to connect to the managed domain using secure LDAP over the internet.
 
-> [AZURE.WARNING] Remember that client computers must trust the issuer of the LDAPS certificate in order to be able to connect successfully to the managed domain using LDAPS. If you are using an enterprise certificate authority or a publicly trusted certificate authority, this is not a problem since client computers will trust these certificate issuers. If you are using a self-signed certificate, you will need to install the public part of the self-signed certificate (i.e. exported without the private key) into the trusted certificate store on the client computer.
+> [AZURE.WARNING] Remember that client computers must trust the issuer of the LDAPS certificate in order to be able to connect successfully to the managed domain using LDAPS. If you are using an enterprise certification authority or a publicly trusted certification authority, this is not a problem since client computers will trust these certificate issuers. If you are using a self-signed certificate, you will need to install the public part of the self-signed certificate (i.e. exported without the private key) into the trusted certificate store on the client computer.
