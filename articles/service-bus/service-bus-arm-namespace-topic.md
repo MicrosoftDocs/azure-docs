@@ -92,7 +92,7 @@ The Service Bus API version of the template.
 ```
 ## Resources to deploy
 
-Creates a standard Service Bus namespace with topic and subscription.
+Creates a standard Service Bus namespace of type **Messaging**, with topic and subscription.
 
 ```
 "resources ": [{

@@ -83,7 +83,7 @@ The Service Bus API version of the template.
 
 ## Resources to deploy
 
-Creates a standard Service Bus namespace with a queue.
+Creates a standard Service Bus namespace of type **Messaging**, with a queue.
 
 ```
 "resources ": [{

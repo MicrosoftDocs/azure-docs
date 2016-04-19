@@ -91,7 +91,7 @@ The Service Bus API version of the template.
 
 ## Resources to deploy
 
-Creates a Service Bus authorization rule for namespace and entity.
+Creates a standard Service Bus namespace of type **Messaging**, and a Service Bus authorization rule for namespace and entity.
 
 ```
 "resources": [
