@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="04/19/2016"
 	ms.author="maheshu"/>
 
 # Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
@@ -85,7 +85,7 @@ In the sample above, replace 'contoso100.com' with the DNS domain name of your A
 The newly created self-signed certificate will be placed in the local machine's certificate store.
 
 
-# Task 2 - Export the LDAPS certificate to a .PFX file
+## Task 2 - Export the LDAPS certificate to a .PFX file
 Before you start this task, ensure you have obtained the LDAPS certificate from your enterprise certificate authority or a public certificate authority or have created a self-signed certificate.
 
 Perform the following steps, in order to export the LDAPS certificate to a .PFX file.
