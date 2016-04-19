@@ -3,8 +3,8 @@
 	description="This topic gives an overview of Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,anilmur" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="02/02/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 #Azure Media Services Overview and Common Scenarios
 

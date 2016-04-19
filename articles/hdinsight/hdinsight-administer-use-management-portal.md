@@ -27,10 +27,6 @@ The information in this article only applies to Window-based HDInsight clusters.
 
 Click the tab selector for information on creating Hadoop clusters in HDInsight using other tools. 
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal-v1.md)
-
 **Prerequisites**
 
 Before you begin this article, you must have the following:

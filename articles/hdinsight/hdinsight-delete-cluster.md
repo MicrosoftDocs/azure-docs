@@ -44,7 +44,7 @@ Replace __CLUSTERNAME__ with the name of your HDInsight cluster.
 
 ##Azure CLI
 
-> [AZURE.NOTE] If you have not installed and configured the Azure CLI, use the steps in the [Install and configure Azure CLI](../xplat-cli-install.md) document.
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 From a prompt, use the following to delete the cluster:
 

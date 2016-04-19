@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight using the Azure CLI | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using the Azure CLI."
+   	pageTitle="Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight using Azure PowerShell | Microsoft Azure"
+   	description="Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using Azure PowerShell."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
