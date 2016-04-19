@@ -332,7 +332,7 @@ The circuit will now have the ExpressRoute premium add-on features enabled. Note
 
 ### To disable the ExpressRoute premium add-on
 
->[AZURE.IMPORTANT] This operation can fail if you are using resources than are greater than what is permitted for the standard circuit.
+**Important:** This operation can fail if you are using resources than are greater than what is permitted for the standard circuit.
 
 Note the following:
 
@@ -357,7 +357,7 @@ You can disable the ExpressRoute premium add-on for the existing circuit by usin
 
 For supported bandwidth options for your provider, check the [ExpressRoute FAQ](expressroute-faqs.md) page. You can pick any size greater than the size of your existing circuit. 
 
->[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+**Important**: You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 
 After you decide what size you need, use the following command to resize your circuit:
 

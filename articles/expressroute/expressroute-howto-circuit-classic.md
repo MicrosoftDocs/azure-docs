@@ -246,7 +246,7 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. Not
 
 ### To disable the ExpressRoute premium add-on
 
->[AZURE.IMPORTANT] This operation can fail if you are using resources than are greater than what is permitted for the standard circuit.
+**Important:** This operation can fail if you are using resources than are greater than what is permitted for the standard circuit.
 
 Note the following: 
 
