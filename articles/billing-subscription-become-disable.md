@@ -20,11 +20,11 @@
 
 # What do I do if my Azure subscription is cancelled?
 
-Your Azure subscription can become disabled for the following reasons:
+If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it. Your Azure subscription can become disabled for the following reasons:
 
-## You may have reached the spending limit. You can opt to remove the spending limit.
+## You may have reached the spending limit
 
-When your usage exhausts the monthly amounts included in your offer, we will disable your service for the remainder of that billing month.
+To protect you from accidentally incurring charges for usage beyond the included offer amount, we have introduced the [Spending Limit](https://azure.microsoft.com/pricing/spending-limits/) feature. When your usage exhausts the monthly amounts included in your offer, we will disable your service for the remainder of that billing month. You can opt to remove the spending limit to avoid this and [set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md) to help you monitor and manage billing activity for your Azure accounts.
 
 Here is how you can remove your Spending Limit:
 
