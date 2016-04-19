@@ -83,7 +83,7 @@ The Service Bus API version of the template.
 
 ## Resources to deploy
 
-Creates a standard Service Bus namespace with a queue.
+Creates a standard Service Bus namespace of type **Messaging**, with a queue.
 
 ```
 "resources ": [{
@@ -136,10 +136,6 @@ Now that you've created and deployed resources using ARM, learn how to manage th
 - [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
 - [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
-Learn more about Service Bus queues here:
-
-- [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
 
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
   [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
