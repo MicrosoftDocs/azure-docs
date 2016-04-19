@@ -30,10 +30,6 @@ The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoo
 	- Website log analysis
 	- Mahout movie recommendation
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Learn Hadoop by using the HDInsight Getting Started Gallery](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
-
 ![HDInsight Hadoop, Storm, and HBase Getting Started Gallery solutions including sample data.][hdinsight.sample.gallery]
 
 The following video shows how to run the Twitter trend analysis sample:
