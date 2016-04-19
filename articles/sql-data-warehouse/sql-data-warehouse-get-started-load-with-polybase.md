@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -72,7 +72,7 @@ To prepare a sample text file:
 
 To find your blob service endpoint:
 
-1. From the Azure Classic Portal select **Browse** > **Storage Accounts**.
+1. From the Azure Portal select **Browse** > **Storage Accounts**.
 2. Click the storage account you want to use.
 3. In the Storage account blade, click Blobs
 
@@ -86,7 +86,7 @@ To find your blob service endpoint:
 
 To find your Azure storage key:
 
-1. From the home screen, select **Browse** > **Storage Accounts**.
+1. From the Azure Portal, select **Browse** > **Storage Accounts**.
 2. Click on the storage account you want to use.
 3. Select **All settings** > **Access keys**.
 4. Click the copy box to copy one of your access keys to the clipboard.
@@ -128,7 +128,7 @@ To see the file you uploaded to blob storage:
 
 In this section we create an external table that defines the sample data.
 
-PolyBase uses external tables to access data in Azure blob storage or Hadoop. Since the data is not stored within SQL Data Warehouse, PolyBase handles authentication to the external data by using a database-scoped credential.
+PolyBase uses external tables to access data in Azure blob storage. Since the data is not stored within SQL Data Warehouse, PolyBase handles authentication to the external data by using a database-scoped credential.
 
 The example in this step uses these Transact-SQL statements to create an external table.
 
@@ -162,6 +162,7 @@ WITH
 
 
 -- C: Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 

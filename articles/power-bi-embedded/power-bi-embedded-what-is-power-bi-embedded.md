@@ -1,6 +1,6 @@
 ﻿<properties
    pageTitle="What is Microsoft Power BI Embedded"
-   description=""
+   description="Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
