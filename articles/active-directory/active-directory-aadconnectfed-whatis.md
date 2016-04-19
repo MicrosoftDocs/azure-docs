@@ -26,7 +26,7 @@ This topic is the home for information on Federation related functionalities for
 ## Azure AD Connect - Federation topics
 
 | Topic | What it covers and when to read |
-|:------||:-----------|
+|:------|:-----------|
 | **Azure AD Connect user sign-in options** ||
 | [Understanding User sign-in options](active-directory-aadconnect-user-signin.md) | Description of various user sign-in options and how they affect Azure sign-in user experience |
 | **AD FS installation using Azure AD Connect**||
