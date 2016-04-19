@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Using the Custom Script extension for Linux VMs With Azure Resource Manager templates
@@ -47,7 +47,7 @@ Define the following extension resource in the Resource section of the template
       }
     }
     }
-    
+
 In the example above, replace the file URL and the file name with your own settings.
 
 After authoring the template, you can deploy it using the Azure CLI.
