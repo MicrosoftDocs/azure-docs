@@ -68,7 +68,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
     
     Multitenancy is an architecture where multiple tenants share the same app but are isolated from one another. This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
     
- - [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
+- [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
 
     This guide explores the use of HDInsight in a range of use cases and scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
     
