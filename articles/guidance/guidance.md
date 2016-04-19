@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="04/19/2016"
    ms.author="christb"/>
 
 # Azure Guidance
@@ -38,6 +38,8 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - **[API Implementation][APIImplementation]** focuses on recommended practices for implementing a web API and publishing it to make it available to client applications.
 
+- [**API security guidance**](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) addresses  authentication and authorization concerns as well as design consideration such as token types, authorization protocols, authorization flows and threat mitigation.
+
 - **[Autoscaling guidance][AutoscalingGuidance]** summarizes considerations for taking advantage of the elasticity of cloud-hosted environments while easing management overhead by reducing the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
 
 - **[Background Jobs guidance][BackgroundJobsGuidance]** describes the available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
@@ -56,17 +58,21 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - **[Retry Service-specific guidance][RetryServiceSpecificGuidance]** summarizes the retry mechanism features for the majority of Azure services, and includes information to help you use, adapt, or extend the retry mechanism for that service.
 
-## Recent guidance projects
+## Scenario Guides
 
-- **[Running Elasticsearch on Azure][elasticsearch]** 
+- [Running Elasticsearch on Azure][elasticsearch] 
     
     Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in big datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
 
-- **[Identity management for multitenant applications][identity-multitenant]** 
+- [Identity management for multitenant applications][identity-multitenant] 
     
     Multitenancy is an architecture where multiple tenants share the same app but are isolated from one another. This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
     
-## Additional guidance content
+ - [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
+
+    This guide explores the use of HDInsight in a range of use cases and scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
+    
+## Patterns
 
 - [Cloud Design Patterns: Prescriptive Architecture Guidance for Cloud Applications](https://msdn.microsoft.com/library/dn568099.aspx)
 
@@ -76,13 +82,6 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
     This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstratraing 8 anti-patterns as well as a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-- [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md)
-
-    This articles is a companion to the API design and implementation best practices article. It addresses  authentication and authorization concerns as well as design consideration such as token types, authorization protocols, authorization flows and threat mitigation.
-    
-- [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
-
-    This guide explores the use of HDInsight in a range of use cases and scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
 
 ## Under development
 
