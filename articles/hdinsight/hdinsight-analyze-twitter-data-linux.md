@@ -37,8 +37,6 @@ Before you begin this tutorial, you must have the following:
 
 - __Python__ and [pip](https://pypi.python.org/pypi/pip)
 
-- The __Azure CLI__. For more information, see [Install and configure the Azure CLI](../xplat-cli-install.md)
-
 ##Get a Twitter feed
 
 Twitter allows you to retrieve the [data for each tweet](https://dev.twitter.com/docs/platform-objects/tweets) as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API. You must also create a _Twitter Application_ that contains the settings used to access the API.

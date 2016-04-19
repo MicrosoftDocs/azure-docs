@@ -3,8 +3,8 @@
    description="How to run performance tests for Elasticsearch with JMeter."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
-   manager="marksou"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/18/2016"
-   ms.author="masimms"/>
+   ms.author="masashin" />
    
 # Implementing a JMeter test plan for Elasticsearch
 

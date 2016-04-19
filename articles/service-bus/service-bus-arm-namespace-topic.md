@@ -92,7 +92,7 @@ The Service Bus API version of the template.
 ```
 ## Resources to deploy
 
-Creates a standard Service Bus namespace with topic and subscription.
+Creates a standard Service Bus namespace of type **Messaging**, with topic and subscription.
 
 ```
 "resources ": [{
@@ -125,7 +125,8 @@ Creates a standard Service Bus namespace with topic and subscription.
                 "properties": {}
             }]
         }]
-    }]```
+    }]
+```
 
 ## Commands to run deployment
 
@@ -153,10 +154,6 @@ Now that you've created and deployed resources using ARM, learn how to manage th
 - [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
 - [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
-Learn more about Service Bus topics here:
-
-- [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
