@@ -27,11 +27,11 @@ This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. I
 
 To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Team Services, follow these steps.
 
-## Step 1: Create a team project
+## 1: Create a team project
 
 Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
-## Step 2: Check in a project to source control
+## 2: Check in a project to source control
 
 1. In Visual Studio, open the solution you want to deploy, or create a new one.
 You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.
@@ -61,7 +61,7 @@ If you want to create a web app, choose the ASP.NET Web Application project temp
 
 	![][9]
 
-## Step 3: Connect the project to Azure
+## 3: Connect the project to Azure
 
 1. Now that you have a VS Team Services team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure classic portal](http://manage.windowsazure.com), select your cloud service or web app, or create a new one by choosing the **+** icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Team Services** link.
 
@@ -83,7 +83,7 @@ If you want to create a web app, choose the ASP.NET Web Application project temp
 
 	![][14]
 
-## Step 4: Trigger a rebuild and redeploy your project
+## 4: Trigger a rebuild and redeploy your project
 
 1. In Visual Studio's **Team Explorer**, choose the **Source Control Explorer** link.
 
@@ -178,19 +178,19 @@ If you want to create a web app, choose the ASP.NET Web Application project temp
 
 	![][33]
 
-## Step 5: Redeploy an earlier build
+## 5: Redeploy an earlier build
 
 This step applies to cloud services and is optional. In the Azure classic portal, choose an earlier deployment and then choose the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS and create a new entry in your deployment history.
 
 ![][34]
 
-## Step 6: Change the Production deployment
+## 6: Change the Production deployment
 
 This step applies only to cloud services, not web apps. When you are ready, you can promote the Staging environment to the production environment by choosing the **Swap** button in the Azure classic portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.
 
 ![][35]
 
-## Step 7: Run unit tests
+## 7: Run unit tests
 
 This step applies only to web apps, not cloud services. To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.
 
