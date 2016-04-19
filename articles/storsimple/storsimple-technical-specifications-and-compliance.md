@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/07/2016"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
@@ -73,7 +73,7 @@ The StorSimple devices have a mix of hard disk drives and solid state drives for
 | Spare capacity                                 |   4 TB                                                  | 4 TB                                                    |
 | Usable HDD capacity                            | 14 TB                                                   | 36 TB                                                   |
 | Usable SSD capacity                            | 800 GB                                                  | 2 TB                                                    |
-| Total usable capacity*                         | ~ 15 TB                                                 | ~ 40 TB                                                 |
+| Total usable capacity*                         | ~ 15 TB                                                 | ~ 38 TB                                                 |
 | Maximum solution capacity (including cloud)    | 200 TB                                                  | 500 TB                                                  |
 
 
