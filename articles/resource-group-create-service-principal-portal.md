@@ -21,10 +21,9 @@
 ## Overview
 When you have an automated process or application that needs to access or modify resources, you can use the classic portal to create an Active Directory application. You can execute the application either under its own identity or under the identity of the 
 signed-in user of your application. These two methods of authenticating the applications are referred to as interactive (user signs in) and non-interactive (app provides its own credentials). In the non-interactive mode, 
-you must assign a role with the correct permission to the identity for the application. If your app must run unattended, such as a backend process, you must use non-interactive authentication.
+you must assign a role with the correct permission to the identity for the application. If your app runs unattended, such as a backend process, you must use non-interactive authentication.
 
-This topic shows you how to create a new application using the classic portal. Currently, you must use the classic portal to create a new Active Directory application. This ability will be added to the 
-Azure portal in a later release. You can use the portal to assign the application to a role. 
+This topic shows you how to create a new application using the classic portal. Currently, you must use the classic portal to create a new Active Directory application. You can use the portal to assign the application to a role. 
 
 You can also perform these steps through Azure PowerShell or Azure CLI. For more information about using PowerShell or CLI with 
 the service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
