@@ -42,31 +42,41 @@ Spark is able to read and write to Azure Blob storage (WASB). So any of your exi
 To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: *"wasb//"*. The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output will be saved. 
 
 
+	# RECORD START TIME
+	import datetime
+	datetime.datetime.now()
+
+**OUTPUT:**
+
+datetime.datetime(2016, 4, 7, 18, 29, 22, 753259)
+
+### Set directory paths for storage locations in WASB
+
 Models are saved in: "wasb:///user/remoteuser/NYCTaxi/Models". If this path is not set properly, models will not be loaded for scoring.
 
 The scored results have been saved in: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". If the path to folder is incorrect, results will not be saved in that folder.
 
 >AZURE.NOTE: The file path locations can be copied and pasted from the output of the last cell of the model training notebook) 
 
-### Set directory paths for storage locations in WASB
 
 	# LOCATION OF DATA TO BE SCORED
 	taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
 	
 	# SET THE MODEL STORAGE DIRECTORY PATH 
-	# Note that the final backslash in the path is needed.
+	# NOTE THE LAST BACKSLASH IN THIS PATH IS NEEDED
 	modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
 	
 	# SET SCORDED RESULT DIRECTORY PATH
-	scoredResultDir = "wasb:///user/remoteuser/NYCTaxi/ScoredResults/"; # The last backslash is needed;
+	# NOTE THE LAST BACKSLASH IN THIS PATH IS NEEDED
+	scoredResultDir = "wasb:///user/remoteuser/NYCTaxi/ScoredResults/"; 
 	
-	# MODEL FILE LOCATIONS
-	logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-03-2618_38_19.171648";
-	linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-03-2618_49_19.425354";
-	randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-03-2618_47_50.524488";
-	randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-03-2618_49_43.812908";
-	BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-03-2618_48_30.850137";
-	BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-03-2618_50_25.701655";
+	# FILE LOCATIONS FOR THE MODELS TO BE SCORED
+	logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-0718_02_18.158911"
+	linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-0718_05_50.275074"
+	randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-0718_04_43.815946"
+	randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-04-0718_06_25.457863"
+	BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-04-0718_05_06.929440"
+	BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-04-0718_06_53.473171"
 
 
 ### Import libraries needed and set Spark context 
@@ -89,7 +99,6 @@ Set spark context and import necessary libraries with the following code
 	from numpy import array
 	import numpy as np
 	import datetime
-	datetime.datetime.now()
 	
 	# SET SPARK CONTEXT
 	sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
@@ -100,9 +109,7 @@ Set spark context and import necessary libraries with the following code
 
 **OUTPUT:**
 
-datetime.datetime(2016, 3, 26, 19, 16, 15, 532944)
-
-4
+2
 
 
 ## Ingest data and create a cleaned data frame
@@ -112,7 +119,11 @@ This section contains the code for a series of tasks required to ingest the data
 The taxi trip and fare files were joined based on the procedure provided in the: [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md) topic.
 
 	# IMPORT FILE FROM PUBLIC BLOB
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
 	
+	# IMPORT FILE FROM PUBLIC BLOB
 	taxi_test_file = sc.textFile(taxi_test_file_loc)
 	
 	# GET SCHEMA OF THE FILE FROM HEADER
@@ -151,7 +162,23 @@ The taxi trip and fare files were joined based on the procedure provided in the:
 	    .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
 	    .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
 	    .drop('direct_distance').drop('surcharge')\
-	    .filter("passenger_count > 0 AND passenger_count < 8 AND payment_type in('CSH','CRD') AND tip_amount >= 0 AND fare_amount > 0")
+	    .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
+
+	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+	taxi_df_test_cleaned.cache()
+	taxi_df_test_cleaned.count()
+	
+	# REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
+	taxi_df_test_cleaned.registerTempTable("taxi_test")
+	
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+
+**OUTPUT:**
+
+Time taken to execute above cell: 20.0 seconds
 
 
 ## Prepare data for scoring in Spark 
@@ -166,16 +193,34 @@ The [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringi
 
 The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect continuous valued features, such as logistic regression, to be applied to categorical features.
 	
+
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
-
+	
 	# LOAD PYSPARK LIBRARIES
 	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
 	
-	# INDEX AND ENCODE VENDOR_ID
+	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
+	sqlStatement = """
+	    SELECT *,
+	    CASE
+	     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
+	     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
+	     WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
+	     WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
+	    END as TrafficTimeBins
+	    FROM taxi_test 
+	"""
+	taxi_df_test_with_newFeatures = sqlContext.sql(sqlStatement)
+	
+	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+	taxi_df_test_with_newFeatures.cache()
+	taxi_df_test_with_newFeatures.count()
+	
+	# INDEX AND ONE-HOT ENCODING
 	stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
-	model = stringIndexer.fit(taxi_df_test_cleaned)
-	indexed = model.transform(taxi_df_test_cleaned)
+	model = stringIndexer.fit(taxi_df_test_with_newFeatures) # Input data-frame is the cleaned one from above
+	indexed = model.transform(taxi_df_test_with_newFeatures)
 	encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
 	encoded1 = encoder.transform(indexed)
 	
@@ -191,15 +236,23 @@ The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.pre
 	model = stringIndexer.fit(encoded2)
 	indexed = model.transform(encoded2)
 	encoder = OneHotEncoder(dropLast=False, inputCol="paymentIndex", outputCol="paymentVec")
+	encoded3 = encoder.transform(indexed)
+	
+	# INDEX AND ENCODE TRAFFIC TIME BINS
+	stringIndexer = StringIndexer(inputCol="TrafficTimeBins", outputCol="TrafficTimeBinsIndex")
+	model = stringIndexer.fit(encoded3)
+	indexed = model.transform(encoded3)
+	encoder = OneHotEncoder(dropLast=False, inputCol="TrafficTimeBinsIndex", outputCol="TrafficTimeBinsVec")
 	encodedFinal = encoder.transform(indexed)
-
-	# PRINT ELAPSED TIME
+	
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 	timeend = datetime.datetime.now()
-	timeend-timestart
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 **OUTPUT:**
 
-datetime.timedelta(0, 6, 375876)
+Time taken to execute above cell: 5.29 seconds
 
 ### Create labeled point objects and scale data for input into the models
 
@@ -209,6 +262,8 @@ A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#lab
 
 The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) is used to scale the features to unit variance. Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. 
 
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
 
 	# IMPORT LIBRARIES
 	from pyspark.mllib.regression import LabeledPoint
@@ -217,35 +272,40 @@ The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mll
 	from pyspark.mllib.util import MLUtils
 	from numpy import array
 	
-	# INDEXING CATEGORICAL TEXT VARIABLES FOR INPUT INTO TREE-BASED MODELS
+# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
 	def parseRowIndexingBinary(line):
-	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.pickup_hour, line.weekday,
-	                         line.passenger_count, line.trip_time_in_secs, line.trip_distance, line.fare_amount])
+	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex,
+	                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+	                         line.trip_distance, line.fare_amount])
 	    labPt = LabeledPoint(line.tipped, features)
 	    return  labPt
 	
-	# ONE-HOT ENCODING OF CATEGORICAL TEXT VARIABLES FOR INPUT INTO LOGISTIC RERESSION MODELS
+	# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
 	def parseRowOneHotBinary(line):
 	    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
 	                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-	                               line.vendorVec.toArray(), line.rateVec.toArray(), line.paymentVec.toArray()), axis=0)
+	                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+	                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
 	    labPt = LabeledPoint(line.tipped, features)
 	    return  labPt
 	
-	# ONE-HOT ENCODING OF CATEGORICAL TEXT VARIABLES FOR INPUT INTO TREE-BASED MODELS
+	# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
 	def parseRowIndexingRegression(line):
-	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.pickup_hour, line.weekday,
-	                         line.passenger_count, line.trip_time_in_secs, line.trip_distance, line.fare_amount])
+	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
+	                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+	                         line.trip_distance, line.fare_amount])
 	    labPt = LabeledPoint(line.tip_amount, features)
 	    return  labPt
 	
-	# INDEXING CATEGORICAL TEXT VARIABLES FOR INPUT INTO LOGISTIC RERESSION MODELS
+	# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
 	def parseRowOneHotRegression(line):
 	    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
 	                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-	                               line.vendorVec.toArray(), line.rateVec.toArray(), line.paymentVec.toArray()), axis=0)
+	                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+	                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
 	    labPt = LabeledPoint(line.tip_amount, features)
 	    return  labPt
+
 	
 	# FOR BINARY CLASSIFICATION TRAINING AND TESTING
 	indexedTESTbinary = encodedFinal.map(parseRowIndexingBinary)
@@ -261,16 +321,30 @@ The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mll
 	scaler = StandardScaler(withMean=False, withStd=True).fit(features)
 	dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
 	oneHotTESTregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
+	
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**OUTPUT:**
+
+Time taken to execute above cell: 10.12 seconds
 
 
-## Score data with the Logistic Regression Model and evaluate the accuracy
+## Score with the Logistic Regression Model and evaluate the accuracy
 
 The code in this section shows how to load a saved Logistic Regression Model for predicting whether or not a tip is paid, score and evaluate its accuracy with standard classification metrics, and then save and plot the results using Pandas data frame.
 
 The scored results are stored in [Resilient Distributed Dataset (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objects. These are the basic abstraction in Spark. An RDD object represents an immutable, partitioned collection of elements that can be operated on in parallel with Spark.
 
-	# timestart = datetime.datetime.now()
+
+	# SCORE AND EVALUATE LOGISTIC REGRESSION MODEL
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
 	
+	# IMPORT LIBRARIES
 	from pyspark.mllib.classification import LogisticRegressionModel
 	from sklearn.metrics import roc_curve,auc
 	from pyspark.mllib.util import MLUtils
@@ -328,32 +402,40 @@ The scored results are stored in [Resilient Distributed Dataset (RDD)](http://sp
 	plt.legend(loc="lower right")
 	plt.show()
 	
-	imeend = datetime.datetime.now()
-	timeend-timestart
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **OUTPUT:**
 
-Area under PR = 0.985335502594
-Area under ROC = 0.983445023579
+Area under PR = 0.985561411624
+
+Area under ROC = 0.983648167707
+
 Summary Stats
-Precision = 0.984201800095
-Recall = 0.984201800095
-F1 Score = 0.984201800095
+
+Precision = 0.984418554785
+
+Recall = 0.984418554785
+
+F1 Score = 0.984418554785
 
 
 ![receiver-operating-characteristic-example](./media/machine-learning-data-science-spark-model-consumption/receiver-operating-characteristic-example.png)
 
-datetime.timedelta(0, 6, 375876)
+Time taken to execute above cell: 54.31 seconds
 
 
-## Score and evaluate Linear Regression Model
+## Score and evaluate a Linear Regression Model
 
 We used [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) to train a linear regression model using Stochastic Gradient Descent (SGD) for optimization to predict the amount of tips paid. 
 
 The code in this section shows how to load a Linear Regression Model, score using scaled variables, evaluate its performance with standard regression metrics, and then save the results.
 
-	#LINEAR REGRESSION MODELS
+	#SCORE AND EVALUATE LINEAR REGRESSION MODEL
 
+	# RECORD START TIME
 	timestart = datetime.datetime.now()
 	
 	#LOAD LIBRARIES​
@@ -376,18 +458,20 @@ The code in this section shows how to load a Linear Regression Model, score usin
 	dirfilename = scoredResultDir + filename;
 	​
 	predictionAndLabels.saveAsTextFile(dirfilename)
-	​
+	
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL​
 	timeend = datetime.datetime.now()
-	timeend-timestart
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
 **OUTPUT:**
 
-RMSE = 1.4615798053
+RMSE = 1.2524372322
 
-R-sqr = 0.548240022305
+R-sqr = 0.619780748191
 
-datetime.timedelta(0, 35, 618163) 
+Time taken to execute above cell: 47.72 seconds
 
 
 ## Score, evaluate and save classification and regression Random Forest Models
@@ -400,6 +484,7 @@ The code in this section shows how to load the saved classification and regressi
 
 	# RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
+	# RECORD START TIME
 	timestart = datetime.datetime.now()
 
 	#IMPORT MLLIB LIBRARIES	
@@ -445,16 +530,23 @@ The code in this section shows how to load the saved classification and regressi
 	plt.axis([-1, 25, -1, 25])
 	plt.show(ax)
 
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **OUTPUT:**
 
-Area under ROC = 0.949940891117
+Area under ROC = 0.985572886748
 
-RMSE = 1.12909746632
+RMSE = 0.925336486487
 
-R-sqr = 0.623787375362
+R-sqr = 0.730084136779
+
 
 ![random-forest-model-actual-vs-predicted](./media/machine-learning-data-science-spark-model-consumption/random-forest-model-actual-vs-predicted.png)
+
+Time taken to execute above cell: 152.0 seconds
 
 ## Score, evaluate and save classification and regression Gradient Boosting Tree Models
 
@@ -467,6 +559,7 @@ The code in this section shows how to load the saved classification and regressi
 
 	# GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
+	# RECORD START TIME
 	timestart = datetime.datetime.now()
 
 	#IMPORT MLLIB LIBRARIES
@@ -504,14 +597,53 @@ The code in this section shows how to load the saved classification and regressi
 	filename = "GradientBoostingTreeRegression_" + datestamp + ".txt";
 	dirfilename = scoredResultDir + filename;
 	predictionAndLabels.saveAsTextFile(dirfilename)
+
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 	
 **OUTPUT:**
 	
-Area under ROC = 0.985335502594
+Area under ROC = 0.985572886748
 
-RMSE = 1.10776865011
+RMSE = 0.945038735223
 
-R-sqr = 0.648610183418
+R-sqr = 0.72806205162
+
+Time taken to execute above cell: 99.02 seconds
+
+## Cleanup objects from memory and print scored file locations
+
+	# UNPERSIST OBJECTS CACHED IN MEMORY
+	taxi_df_test_cleaned.unpersist()
+
+**OUTPUT:**
+
+DataFrame[vendor_id: string, rate_code: string, pickup_hour: int, pickup_week: int, weekday: int, passenger_count: int, trip_time_in_secs: float, trip_distance: float, payment_type: string, fare_amount: float, tip_amount: float, tipped: int]
+
+	# PRINT OUT PATH TO SCORED OUTPUT FILES
+	print "logisticRegFileLoc: " + logisticregressionfilename;
+	print "linearRegFileLoc: " + linearregressionfilename;
+	print "randomForestClassificationFileLoc: " + rfclassificationfilename;
+	print "randomForestRegFileLoc: " + rfregressionfilename;
+	print "BoostedTreeClassificationFileLoc: " + btclassificationfilename;
+	print "BoostedTreeRegressionFileLoc: " + btregressionfilename;
+
+
+**OUTPUT:**
+
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-04-0718_30_45.344582.txt
+
+linearRegFileLoc: LinearRegressionWithSGD_2016-04-0718_32_01.384031
+
+randomForestClassificationFileLoc: RandomForestClassification_2016-04-0718_33_06.655659.txt
+
+randomForestRegFileLoc: RandomForestRegression_2016-04-0718_34_01.243828.txt
+
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-04-0718_35_26.230385.txt
+
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-04-0718_36_19.161919.txt
 
 
 ## Consume Spark Models through a web interface
