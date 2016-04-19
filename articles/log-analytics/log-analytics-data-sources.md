@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Data sources in Log Analytics"
    description="Data sources define the data that Log Analytics collects from agents and other connected sources.  This article describes the concept of how Log Analytics uses data sources, explains the details of how to configure them, and provides a summary of the different data sources available."
-   services="automation"
+   services="log-analytics"
    documentationCenter=""
    authors="bwren"
    manager="jwhit"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2016"
+   ms.date="04/15/2016"
    ms.author="bwren" />
 
 # Data sources in Log Analytics
