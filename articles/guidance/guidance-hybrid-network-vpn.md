@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/08/2016"
+   ms.date="04/12/2016"
    ms.author="roshar"/>
 
 # Implementing a Hybrid Network Architecture with Azure and On-premises VPN
@@ -75,13 +75,13 @@ The following high-level steps outline a process for implementing this architect
 
 - Create an Azure VNet. The address space of the VNet must not overlap with the on-premises network. For example, the diagram above uses the address space 10.20.0.0/16 for the VNet.
 
-- Create a separate subnet named _GatewaySubnet_, with an address range of /28. Avoid placing this subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.240/28.  A quick formula to calculate the CIDR is as follows:
+- Create a separate subnet named _GatewaySubnet_, with an address range of /27. Avoid placing this subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.224/27.  A quick procedure to calculate the CIDR is as follows:
 
-    1. Decide on the size of gateway subnet (/29 is the minimum, but choose /28 if ExpressRoute may be used down the road).
+    1. Decide on the size of gateway subnet (/29 is the minimum, but choose /27 if ExpressRoute may be used down the road).
     2. Set the variable bits in the address space of the VNet to 1, up to the bits being used by the gateway subnet, then set the remaining bits to 0.
     3. Convert the resulting bits to decimal and express it as an address space with the prefix length set to the size of the gateway subnet.
 
- For example, for VNet with an IP address range of 10.20.0.0/16, applying step #2 above becomes 10.20.0b11111111.0b11110000.  Converting that to decimal and expressing it as an address space yields 10.20.255.240/28
+ For example, for VNet with an IP address range of 10.20.0.0/16, applying step #2 above becomes 10.20.0b11111111.0b11100000.  Converting that to decimal and expressing it as an address space yields 10.20.255.224/27
 
 - Allocate a public IP address for the virtual network gateway.
 
@@ -376,7 +376,7 @@ If traffic is unable to traverse the VPN connection, check the following:
         data:    Id                              : /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/virtualNetworks/profx-vnet/subnets/GatewaySubnet
         data:    Name                            : GatewaySubnet
         data:    Provisioning state              : Succeeded
-        data:    Address prefix                  : 10.20.3.0/28
+        data:    Address prefix                  : 10.20.3.0/27
         data:    Network Security Group id       : /subscriptions/########-####-####-####-############/resourceGroups/profx-prod-rg/providers/Microsoft.Network/networkSecurityGroups/VPN-Gateway-Group
         info:    network vnet subnet show command OK
 
@@ -476,12 +476,12 @@ IF "%~1"=="" (
     EXIT /B
     )
 
-:: Explicitly set the subscription to avoid confusion as to which subscription
-:: is active/default
+REM Explicitly set the subscription to avoid confusion as to which subscription
+REM is active/default
 
 SET SUBSCRIPTION=%1
 
-:: Set up variables to build out the naming conventions for deployment
+REM Set up variables to build out the naming conventions for deployment
 
 SET APP_NAME=hybrid
 SET LOCATION=centralus
@@ -491,14 +491,14 @@ SET VPN_GATEWAY_TYPE=RouteBased
 SET VNET_IP_RANGE=10.20.0.0/16
 SET ON_PREMISES_ADDRESS_SPACE=10.10.0.0/16
 SET ON_PREMISES_PUBLIC_IP=40.50.60.70
-:: This gives the gateway an IP range 10.20.255.240 - 10.20.255.254
-SET GATEWAY_SUBNET_IP_RANGE=10.20.255.240/28
-:: This give the internal subnet an IP range of 10.20.0.1 - 10.20.127.254
-SET INTERNAL_SUBNET_IP_RANGE=10.20.0.0/17
-:: We will put this at the end of the subnet
-SET INTERNAL_LOAD_BALANCER_FRONTEND_IP_ADDRESS=10.20.127.254
+REM This gives the gateway an IP range 10.20.255.224 - 10.20.255.254
+SET GATEWAY_SUBNET_IP_RANGE=10.20.255.224/27
+REM This give the internal subnet an IP range of 10.20.1.1 - 10.20.1.254
+SET INTERNAL_SUBNET_IP_RANGE=10.20.1.0/24
+REM We will put this at the end of the subnet
+SET INTERNAL_LOAD_BALANCER_FRONTEND_IP_ADDRESS=10.20.1.254
 
-:: Set up the names of things using recommended conventions
+REM Set up the names of things using recommended conventions
 SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
 SET VNET_NAME=%APP_NAME%-vnet
 SET PUBLIC_IP_NAME=%APP_NAME%-pip
@@ -517,56 +517,55 @@ SET INTERNAL_LOAD_BALANCER_PROBE_INTERVAL=300
 SET INTERNAL_LOAD_BALANCER_PROBE_COUNT=4
 SET INTERNAL_LOAD_BALANCER_PROBE_NAME=%INTERNAL_LOAD_BALANCER_NAME%-probe
 
-:: Set up the postfix variables attached to most CLI commands
+REM Set up the postfix variables attached to most CLI commands
 SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
 
 CALL azure config mode arm
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Create resources
+REM Create resources
 
-:: Create the enclosing resource group
+REM Create the enclosing resource group
 CALL :CallCLI azure group create --name %RESOURCE_GROUP% --location %LOCATION% ^
   --subscription %SUBSCRIPTION%
 
-:: Create the VNet
+REM Create the VNet
 CALL :CallCLI azure network vnet create --address-prefixes %VNET_IP_RANGE% ^
   --name %VNET_NAME% --location %LOCATION% %POSTFIX%
 
-:: Create the GatewaySubnet
+REM Create the GatewaySubnet
 CALL :CallCLI azure network vnet subnet create --vnet-name %VNET_NAME% ^
   --address-prefix %GATEWAY_SUBNET_IP_RANGE% --name GatewaySubnet %POSTFIX%
 
-:: Create public IP address for VPN Gateway
-:: Note that the Azure VPN Gateway only supports dynamic IP addresses
+REM Create public IP address for VPN Gateway
+REM Note that the Azure VPN Gateway only supports dynamic IP addresses
 CALL :CallCLI azure network public-ip create --allocation-method Dynamic ^
   --name %PUBLIC_IP_NAME% --location %LOCATION% %POSTFIX%
 
-:: Create virtual network gateway
+REM Create virtual network gateway
 CALL :CallCLI azure network vpn-gateway create --name %VPN_GATEWAY_NAME% ^
-  --type %VPN_GATEWAY_TYPE% --public-ip-name %PUBLIC_IP_NAME% --vnet-name %VNET_NAME% ^
+  --vpn-type %VPN_GATEWAY_TYPE% --public-ip-name %PUBLIC_IP_NAME% --vnet-name %VNET_NAME% ^
   --location %LOCATION% %POSTFIX%
 
-:: Create local gateway
+REM Create local gateway
 CALL :CallCLI azure network local-gateway create --name %LOCAL_GATEWAY_NAME% ^
   --address-space %ON_PREMISES_ADDRESS_SPACE% --ip-address %ON_PREMISES_PUBLIC_IP% ^
   --location %LOCATION% %POSTFIX%
 
-:: Create a site-to-site connection
+REM Create a site-to-site connection
 CALL :CallCLI azure network vpn-connection create --name %VPN_CONNECTION_NAME% ^
   --vnet-gateway1 %VPN_GATEWAY_NAME% --vnet-gateway1-group %RESOURCE_GROUP% ^
   --lnet-gateway2 %LOCAL_GATEWAY_NAME% --lnet-gateway2-group %RESOURCE_GROUP% ^
   --type IPsec --location %LOCATION% %POSTFIX%
 
-:: Create the internal subnet
+REM Create the internal subnet
 CALL :CallCLI azure network vnet subnet create --vnet-name %VNET_NAME% ^
   --address-prefix %INTERNAL_SUBNET_IP_RANGE% --name %INTERNAL_SUBNET_NAME% %POSTFIX%
 
-:: Create an internal load balancer for routing requests
+REM Create an internal load balancer for routing requests
 CALL :CallCLI azure network lb create --name %INTERNAL_LOAD_BALANCER_NAME% ^
   --location %LOCATION% %POSTFIX%
 
-:: Create a frontend IP address for the internal load balancer
+REM Create a frontend IP address for the internal load balancer
 CALL :CallCLI azure network lb frontend-ip create --subnet-vnet-name %VNET_NAME% ^
   --subnet-name %INTERNAL_SUBNET_NAME% ^
   --private-ip-address %INTERNAL_LOAD_BALANCER_FRONTEND_IP_ADDRESS% ^
@@ -574,16 +573,16 @@ CALL :CallCLI azure network lb frontend-ip create --subnet-vnet-name %VNET_NAME%
   --name %INTERNAL_LOAD_BALANCER_FRONTEND_IP_NAME% ^
   %POSTFIX%
 
-:: Create the backend address pool for the internal load balancer
+REM Create the backend address pool for the internal load balancer
 CALL :CallCLI azure network lb address-pool create --lb-name %INTERNAL_LOAD_BALANCER_NAME% ^
   --name %INTERNAL_LOAD_BALANCER_POOL_NAME% %POSTFIX%
 
-:: Create a health probe for the internal load balancer
+REM Create a health probe for the internal load balancer
 CALL :CallCLI azure network lb probe create --protocol %INTERNAL_LOAD_BALANCER_PROBE_PROTOCOL% ^
   --interval %INTERNAL_LOAD_BALANCER_PROBE_INTERVAL% --count %INTERNAL_LOAD_BALANCER_PROBE_COUNT% ^
   --lb-name %INTERNAL_LOAD_BALANCER_NAME% --name %INTERNAL_LOAD_BALANCER_PROBE_NAME% %POSTFIX%
 
-:: This will show the shared key for the VPN connection.  We do not need the error checking.
+REM This will show the shared key for the VPN connection.  We do not need the error checking.
 CALL azure network vpn-connection shared-key show --name %VPN_CONNECTION_NAME% %POSTFIX%
 
 GOTO :eof
@@ -593,20 +592,20 @@ SETLOCAL
 CALL %*
 IF ERRORLEVEL 1 (
     CALL :ShowError "Error executing CLI Command: " %*
-    :: This command executes in the main script context so we can exit the whole script on an error
+    REM This command executes in the main script context so we can exit the whole script on an error
     (GOTO) 2>NULL & GOTO :eof
 )
 GOTO :eof
 
 :ShowError
 SETLOCAL EnableDelayedExpansion
-:: Print the message
+REM Print the message
 ECHO %~1
 SHIFT
-:: Get the first part of the azure CLI command so we do not have an extra space at the beginning
+REM Get the first part of the azure CLI command so we do not have an extra space at the beginning
 SET CLICommand=%~1
 SHIFT
-:: Loop through the rest of the parameters and recreate the CLI command
+REM Loop through the rest of the parameters and recreate the CLI command
 :Loop
     IF "%~1"=="" GOTO Continue
     SET "CLICommand=!CLICommand! %~1"
@@ -615,7 +614,6 @@ GOTO Loop
 :Continue
 ECHO %CLICommand%
 GOTO :eof
-
 ```
 
 ## <a name="next-steps"></a>Next steps

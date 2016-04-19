@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/13/2016"
+   ms.date="04/18/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -72,7 +72,7 @@ To prepare a sample text file:
 
 To find your blob service endpoint:
 
-1. From the Azure Classic Portal select **Browse** > **Storage Accounts**.
+1. From the Azure Portal select **Browse** > **Storage Accounts**.
 2. Click the storage account you want to use.
 3. In the Storage account blade, click Blobs
 
@@ -86,7 +86,7 @@ To find your blob service endpoint:
 
 To find your Azure storage key:
 
-1. From the home screen, select **Browse** > **Storage Accounts**.
+1. From the Azure Portal, select **Browse** > **Storage Accounts**.
 2. Click on the storage account you want to use.
 3. Select **All settings** > **Access keys**.
 4. Click the copy box to copy one of your access keys to the clipboard.
