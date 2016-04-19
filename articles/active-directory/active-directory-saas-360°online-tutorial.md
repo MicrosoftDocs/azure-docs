@@ -25,7 +25,7 @@ The objective of this tutorial is to show the integration of Azure and 360° Onl
 - A valid Azure subscription
 - A 360° Online tenant
 
-After completing this tutorial, the Azure AD users you have assigned to 360° Online will be able to single sign into the application at your 360° Online company site (service provider initiated sign on), or using the [Introduction to the Access Panel](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saas-access-panel-introduction/).<br>
+After completing this tutorial, the Azure AD users you have assigned to 360° Online will be able to single sign into the application at your 360° Online company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).<br>
 
 The scenario outlined in this tutorial consists of the following building blocks:<br>
 
@@ -45,7 +45,7 @@ The objective of this section is to outline how to enable the application integr
 
 **To enable the application integration for 360° Online, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -68,7 +68,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure Azure AD single sign-on with 360° Online, perform the following steps:**
 
-1.In the Azure AD portal, on the **360° Online** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1.In the Azure classic portal, on the **360° Online** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][13] <br>
 
 2.On the **How would you like users to sign on to 360° Online** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -93,7 +93,7 @@ b. Click **Next**.
 
 5.To get SSO configured for your application, contact your 360° Online support team via support.community@software-innovation.com. Attach the downloaded metadata file to your mail and send the mail to 360° Online team to set up SSO on their side.
 
-6.In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6.In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
 
 7.On the **Single sign-on confirmation** page, click **Complete**.  
@@ -116,7 +116,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 **To assign users to 360° Online, perform the following steps:**
 
-1. In the Azure AD portal, create a test account.<br>
+1. In the Azure classic portal, create a test account.<br>
 
 2. On the **360° Online** application integration page, click **Assign users**.
 <br><br>![Assigning users](./media/active-directory-saas-360online-tutorial/tutorial_general_09.png)
@@ -134,7 +134,7 @@ If you want to test your single sign-on settings, open the Access Panel. For mor
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.<br>
 
-When you click the 360° Online tile in the Access Panel, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saas-access-panel-introduction/).<br>
+When you click the 360° Online tile in the Access Panel, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).<br>
 
 
 
