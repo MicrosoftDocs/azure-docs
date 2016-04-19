@@ -115,15 +115,11 @@ Now that you have selected the recovery point, choose a storage account and the 
 
     ![choose storage accounts](./media/backup-azure-arm-restore-vms/selected-storage-account.png)
 
-4. If your restore configuration is not one of the following choices, skip to the next step. If your restore configuration is one of the following choices, then on the **Recovery Configuration** blade, click **OK**. Do not specify a Virtual machine configuration in the blade.
+4. You can configure a basic ARM or Classic VM when restoring a VM in the portal. If you want to restore a complex configuration - like one of the options in the following list, you must use PowerShell to configure your VM from disk. If you are not configuring a complex configuration, skip to step 5.
 
-    - restore VMs under load balancer (internal and external)
-    - restore VMs with multiple reserved IPs
-    - restore VMs with multiple NICs
-    - want configuration choices other than what is provided in Azure portal
-    - want to restore only to extract a few files from disk
+    ![list of complex VM configurations](./media/backup-azure-arm-restore-vms/complex-vm-configurations.png)
 
-  The **Recovery configuration** blade closes. The **Restore** blade shows Recovery configuration as configured. Click **Restore** to start the disk restoration job. Do not continue to step 5; instead proceed to [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations).
+    If your restore configuration *is* considered to be complex, then on the **Recovery Configuration** blade, click **OK**. The **Recovery configuration** blade closes and a checkmark appears next to Recovery configuration. Click **Restore** to start the disk restoration job. Do not continue to step 5; instead proceed to [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations).
 
     ![Restore configured](./media/backup-azure-arm-restore-vms/restore-configured.png)
 
