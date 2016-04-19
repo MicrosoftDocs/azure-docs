@@ -152,14 +152,9 @@ certificate information you just inserted.
 
 Connect to the portal and...
 
-1. Select your cloud service by either:
-    - In the Portal, select your **Cloud Service**. (Which will be in the **Browse All/Recent area**.)
+1. Select your cloud service in the Portal, select your **Cloud Service**. (Which will be in the **All resources** section.) 
     
-        ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
-    
-        **OR**
-        
-    - Under **Browse All** select **Cloud Services** under **Filter By** and select the cloud service instance you want. 
+    ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 3. Open the **settings** for the cloud service.
 
