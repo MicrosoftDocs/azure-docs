@@ -53,7 +53,7 @@ The following settings are configured by Azure AD Connect and cannot be modified
 | UserWriteback | Not currently supported. |
 
 ## Duplicate attribute resiliency
-Instead of failing to provision objects with duplicate UPNs / proxyAddresses, the duplicated attribute is “quarantined” and a temporary value is assigned if necessary. When the conflict is resolved, the temporary UPN will be fixed up to the proper value automatically. This behavior can be enabled for UPN and proxyAddress separately. For more details, see [Identity synchronization and duplicate attribute resiliency]
+Instead of failing to provision objects with duplicate UPNs / proxyAddresses, the duplicated attribute is “quarantined” and a temporary value is assigned if necessary. When the conflict is resolved, the temporary UPN will be fixed up to the proper value automatically. This behavior can be enabled for UPN and proxyAddress separately. For more details, see [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
 ## UserPrincipalName soft match
 When this feature is enabled, soft-match will be applied on UPN as well as the [primary SMTP address](https://support.microsoft.com/kb/2641663), which is always enabled. Soft-match is used to match existing cloud users in Azure AD with on-premises users.
