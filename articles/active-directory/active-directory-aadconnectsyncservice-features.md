@@ -13,14 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="04/19/2016"
 	ms.author="andkjell;markusvi"/>
 
 # Azure AD Connect sync service features
 
-The synchronization feature of Azure AD Connect has two components. One is the on-premises installation named **Azure AD Connect sync** and also called **sync engine**. The other component is the service residing in Azure AD. This service is referred to as **Azure AD Connect sync service**. This component has some features which can be configured, which this topic will cover.
+The synchronization feature of Azure AD Connect has two components:
 
-These settings are configured by the [Azure Active Directory Module for Windows PowerShell](http://aka.ms/aadposh) and you must download and install it separately from Azure AD Connect to be able to configure these settings. The cmdlets documented were introduced in the 2016 March release.
+- The on-premises component named **Azure AD Connect sync**, also called **sync engine**.
+- The service residing in Azure AD also known as **Azure AD Connect sync service**
+
+This topic explains how the following features of the **Azure AD Connect sync service** work and how you can configure them using Windows PowerShell.
+
+These settings are configured by the [Azure Active Directory Module for Windows PowerShell](http://aka.ms/aadposh) and you must download and install it separately from Azure AD Connect to be able to configure these settings. The cmdlets documented were introduced in the [2016 March release (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
 
 To see the configuration in your Azure AD directory, run `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures result](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
@@ -79,17 +84,13 @@ This feature is on by default for newly created Azure AD directories. You can se
 ```
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
+
 If this feature is not enabled for your Azure AD directory, then you can enable it by running:  
 ```
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
 
-<!-- Running full sync? Looks odd, must be verified. -->
-
-After enabling this feature, users with UserPrincipalName values in the cloud that do not match their UPN in the on-premises Active Directory are not updated automatically. In order for these UPNs to be updated, one of the following things must occur:
-
-- You run a full synchronization
-- In the on-premises directory, manually update any synchronized attributes for the User(s) in question. This causes AADConnect to perform a delta sync on the users and the UPN will be updated to match the on-prem value.
+After enabling this feature, existing userPrincipalName values will remain as-is. On next change of the userPrincipalName attribute on-premises, the normal delta sync on users will update the UPN.  
 
 ## Future changes
 These settings will be enabled for all Azure AD directories in the future.
