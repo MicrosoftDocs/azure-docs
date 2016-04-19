@@ -45,7 +45,7 @@ The Batch service uses [Virtual Machine Scale Sets](../virtual-machine-scale-set
 
 ### Node agent SKU
 
-The Batch node agent runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. Essentially, when creating a Virtual Machine Configuration, you first specify the virtual machine image reference, and then specify which node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. Here are a few examples of node agent SKUs:
+The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. Essentially, when creating a Virtual Machine Configuration, you first specify the virtual machine image reference, and then specify which node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. Here are a few examples of node agent SKUs:
 
 * batch.node.ubuntu 14.04
 * batch.node.centos 7
@@ -56,6 +56,8 @@ The Batch node agent runs on each node in the pool, and provides the command-and
 ## Create a Linux pool: Batch Python
 
 The following code snippet shows the creation of a pool of Ubuntu Server compute nodes using the [Microsoft Azure Batch Client Library for Python][py_batch_package]. Reference documentation for the Batch Python module can be found at [azure.batch package ][py_batch_docs] on Read the Docs.
+
+In this snippet, we create an [ImageReference][py_imagereference] explicitly, specifying each of its properties (publisher, offer, sku, version). We recommend, however, that in production code you use the [list_node_agent_skus][py_list_skus] method to determine and select from the available image and node agent SKU combinations at runtime.
 
 ```python
 # Import the required modules from the
@@ -111,9 +113,30 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
+As mentioned above, we recommend that instead of creating the [ImageReference][py_imagereference] explicitly, you use the [list_node_agent_skus][py_list_skus] method to dynamically select from the currently supported node agent/Marketplace image combinations. The following Python snippet shows usage of this method.
+
+```python
+# Get the list of node agents from the Batch service
+nodeagents = client.account.list_node_agent_skus()
+
+# Obtain the desired node agent
+ubuntu1404agent = next(agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
+
+# Pick the first image reference from the list of verified references
+ir = ubuntu1404agent.verified_image_references[0]
+
+# Create the VirtualMachineConfiguration, specifying the VM image
+# reference and the Batch node agent to be installed on the node.
+vmc = batchmodels.VirtualMachineConfiguration(
+    image_reference = ir,
+    node_agent_sku_id = ubuntu1404agent.id)
+```
+
 ## Create a Linux pool: Batch .NET
 
 The following code snippet shows the creation of a pool of Ubuntu Server compute nodes using the [Batch .NET][nuget_batch_net] client library. You can find the [Batch .NET reference documentation][api_net] on MSDN.
+
+The code snippet below uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to select from the list of currently supported Marketplace image and node agent SKU combinations. This technique is desirable because the list of supported combinations may change from time to time (most commonly, supported combinations added).
 
 ```csharp
 // Pool settings
@@ -122,13 +145,14 @@ const string vmSize = "STANDARD_A1";
 const int nodeCount = 1;
 
 // Obtain a collection of all available node agent SKUs.
-// This allows us to select from a list of known images.
+// This allows us to select from a list of supported
+// VM image/node agent combinations.
 List<NodeAgentSku> nodeAgentSkus =
     batchClient.PoolOperations.ListNodeAgentSkus().ToList();
 
 // Define a delegate specifying properties of the VM image
 // that we wish to use.
-Func<ImageReference, bool> ubuntuImageScanner = imageRef =>
+Func<ImageReference, bool> isUbuntu1404 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
     imageRef.SkuId.Contains("14.04");
@@ -136,19 +160,19 @@ Func<ImageReference, bool> ubuntuImageScanner = imageRef =>
 // Obtain the first node agent SKU in the collection that matches
 // Ubuntu Server 14.04. Note that there are one or more image
 // references associated with this node agent SKU.
-NodeAgentSku ubuntuSku = nodeAgentSkus.First(sku =>
-    sku.VerifiedImageReferences.FirstOrDefault(ubuntuImageScanner) != null);
+NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
+    sku.VerifiedImageReferences.Any(isUbuntu1404));
 
-// Select an ImageReference from those available for this node agent.
+// Select an ImageReference from those available for node agent.
 ImageReference imageReference =
-    ubuntuSku.VerifiedImageReferences.First(ubuntuImageScanner);
+    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1404);
 
 // Create the VirtualMachineConfiguration for use when actually
 // creating the pool
 VirtualMachineConfiguration virtualMachineConfiguration =
     new VirtualMachineConfiguration(
         imageReference: imageReference,
-        nodeAgentSkuId: ubuntuSku.Id);
+        nodeAgentSkuId: ubuntuAgentSku.Id);
 
 // Create the unbound pool object using the VirtualMachineConfiguration
 // created above
@@ -162,7 +186,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
-The code snippet above uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to select from the list of currently supported Marketplace image and node agent SKU combinations. This technique is desirable because the list of supported combinations may change from time to time (most commonly, images are added). You can, however, configure an ImageReference directly as is done in the Python code snippet. For example:
+Although the snippet above uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to dynamically list and select from supported image and node agent SKU combinations (recommended), you can also configure an [ImageReference][net_imagereference] explicitly:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -278,6 +302,7 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [portal]: https://portal.azure.com
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_computenodeuser]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.aspx
+[net_imagereference]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.imagereference.aspx
 [net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
 [net_pool_ops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.aspx
 [net_ssh_key]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.sshpublickey.aspx
@@ -288,6 +313,7 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_computenodeuser]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ComputeNodeUser
+[py_imagereference]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ImageReference
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
