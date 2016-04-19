@@ -32,7 +32,7 @@ In this article, we will set up a web front end which can be scaled up to delive
 
 There are two load-balacing layers in a Container Service cluster: Azure LB for the public entry points (the ones end users will hit), and the underlying marathon-lb that routes inbound requests to container instances servicing requests. As we scale the containers providing the service, the marathon-lb will dynamically adapt. The Azure LB, however, needs to be manually configured. 
 
-In theory, you could abandon the Arue LB and use only the marathon-lb, but using the Azure LB as the public facing LB provides additional features such as security and (*** TODO ***) that would have to be configured and managed separately if marathon-lb were the only LB. 
+In theory, you could abandon the Arue LB and use only the marathon-lb, but using the Azure LB as the public facing LB provides additional features such as security that would have to be configured and managed separately if marathon-lb were the only LB. 
 
 
 ## Azure LB 
@@ -42,7 +42,7 @@ By default the Azure LB exposes ports 80, 8080 and 443. If you are using one of 
 When you add or remove public endpoints, you need to manually update the Azure LB to expose the port(s) through which services are exposed in marathon-lb. That is, when you want to add a port for the public, marathon-lb will know about it, but Azure LB will not, so you’ll have to manually open that port in the azure lb and point it at the marathon lb.
  
 
-To use the Azure LB, add a probe for port 8080 to the agents LB: 
+To use the Azure LB, add a probe for port 8080 to the agents' LB: 
 
 (*** TODO ***)
 FIXME: Add the configuration 
