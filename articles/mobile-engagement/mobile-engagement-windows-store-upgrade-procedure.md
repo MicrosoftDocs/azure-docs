@@ -24,6 +24,15 @@ You may have to follow several procedures if you missed several versions of the 
 
 ##From 3.3.0 to 3.4.0
 
+### Test logs
+
+Console logs produced by the SDK can now be enabled/disabled/filtered. To customize this, update the property `EngagementAgent.Instance.TestLogEnabled` to one of the value available from the `EngagementTestLogLevel` enumeration, for instance:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+### Resources
+
 The Reach overlay has been improved. It is part of the SDK NuGet package resources.
 
 While upgrading to the new version of the SDK you can choose whether you want to keep your existing files from the overlay folder of your resources or not:
