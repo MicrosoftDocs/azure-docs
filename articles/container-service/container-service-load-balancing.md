@@ -39,7 +39,7 @@ In theory, you could abandon the Azure LB and use only the marathon-lb, but usin
 The Marathon LB solution will dynamically reconfigure itself based on the containers you have deployed. It's also resilient to the loss of a container or an agent; if this occurs, Mesos will simply restart the container elsewhere and reconfigure the Marathon LB. 
 
 
-To install the Marathon LB, run the following command:
+To install the Marathon LB, run the following command from your client machine:
 
 ```bash
 dcos package install marathon-lb 
@@ -84,12 +84,12 @@ Now that we have the marathon-lb package, we can deploy a simple web server usin
 ```
 
 The key parts of this are: 
-  * Set the value of HAProxy_0_VHOST to the FQDN of the load balancer for your agents. This is of the form <acsName>agents.<region>.cloudapp.azure.com. For example, if I created the container service with name "negatacs" in region "West US", the FQDN would be: negatacsagents.westus.cloudapp.azure.com. You can also find this by looking for the load balancer with "agent" in the name when looking through the resources in the resource group you created for your container service in the [Azure Portal](https://portal.azure.com).
-  * Set the servicePort to a port >= 10,000. Doing so identifies the service being run in this container; marathon-lb uses this to identify services it should balance across.
-  * Set the HAPROXY_GROUP label to "external" 
+  * Set the value of HAProxy_0_VHOST to the FQDN of the load balancer for your agents. This is of the form `<acsName>agents.<region>.cloudapp.azure.com`. For example, if I created a Container Service cluster with name `negatacs` in region `West US`, the FQDN would be: `negatacsagents.westus.cloudapp.azure.com`. You can also find this by looking for the load balancer with "agent" in the name when looking through the resources in the resource group you created for your container service in the [Azure Portal](https://portal.azure.com).
+  * Set the servicePort to a port &ge 10,000. Doing so identifies the service being run in this container; marathon-lb uses this to identify services it should balance across.
+  * Set the HAPROXY_GROUP label to "external".
   * Set hostPort to 0. Doing so means that marathon will arbitrarily allocate an available port.
 
-Copy this JSON into a file called `hello-web.json` and use it to deploy it in a container: 
+Copy this JSON into a file called `hello-web.json` and use it to deploy a container: 
 
 ```bash
 dcos marathon app add hello-web.json 
