@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="04/19/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Managing custom domain names in your Azure Active Directory
@@ -77,3 +77,5 @@ Most management tasks for domain names in Azure Active Directory can also be com
 **Next steps**
 
 -   [Learn about domain names in Azure AD](active-directory-add-domain-concepts.md)
+
+-   [Manage custom domain names](active-directory-add-manage-domain-names.md)

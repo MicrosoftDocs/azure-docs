@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="04/19/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Conceptual overview of custom domain names in Azure Active Directory
@@ -58,7 +58,7 @@ An Azure web app uses its own mechanism to verify ownership of a domain. A domai
 
 Domain management tasks can be completed from the Azure classic portal and from PowerShell. Many tasks can be completed using the Azure AD Graph API (in public preview).
 
--   [Adding and verifying a domain name](active-directory-add-domain.md)
+-   [Adding and verifying a custom domain name](active-directory-add-domain.md)
 
 -   [Managing domains in the Azure classic portal](active-directory-add-manage-domain-names.md)
 
