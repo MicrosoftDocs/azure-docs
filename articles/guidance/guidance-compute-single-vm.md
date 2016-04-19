@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="04/19/2016"
    ms.author="mikewasson"/>
 
 # Running a Single Windows VM on Azure
