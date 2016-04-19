@@ -58,7 +58,7 @@ If you receive an error and have problems with connectivity, please see [Trouble
 
 For a video on using the express installation check out the following:
 
-[AZURE.VIDEO azure-active-directory-connect-express-settings]
+>[AZURE.VIDEO azure-active-directory-connect-express-settings]
 
 ## Next steps
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).

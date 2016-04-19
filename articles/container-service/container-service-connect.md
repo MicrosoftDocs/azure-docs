@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="04/12/2016"
    ms.author="rogardle"/>
 
 
@@ -29,6 +29,7 @@ The Mesos and Swarm clusters that are deployed by Azure Container Service expose
 
 The first thing that you do when you create an SSH tunnel on Linux or OS X is to locate the public DNS name of load-balanced masters. To do this, expand the resource group so that each resource is being displayed. Locate and select the public IP address of the master. This will open up a blade that contains information about the public IP address, which includes the DNS name. Save this name for later use. <br />
 
+
 ![Public DNS name](media/pubdns.png)
 
 Now open a shell and run the following command where:
@@ -38,14 +39,21 @@ Now open a shell and run the following command where:
 **DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
 **REGION** is the region in which your resource group is located.  
 
-```
+> The SSH connection port is 2200 and not the standard 22.
+
+```bash
+# ssh sample
+
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
 ```
+
 ### Mesos tunnel
 
 To open a tunnel to the Mesos-related endpoints, execute a command that is similar to the following:
 
-```
+```bash
+# ssh sample
+
 ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -63,13 +71,15 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 To open a tunnel to the Swarm endpoint, execute a command that looks similar to the following:
 
-```
+```bash
+# ssh sample
+
 ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Now you can set your DOCKER_HOST environment variable as follows and continue to use your Docker command-line interface (CLI) as normal.
 
-```
+```bash
 export DOCKER_HOST=:2375
 ```
 
@@ -114,3 +124,4 @@ When you have configured the tunnel for Docker Swarm, you can access the Swarm c
 Deploy and manage containers with Mesos or Swarm.
 
 - [Working with Azure Container Service and Mesos](./container-service-mesos-marathon-rest.md)
+- [Working with the Azure Container Service and Docker Swarm](./container-service-docker-swarm.md)

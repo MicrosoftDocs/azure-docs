@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Build Machine Learning applications using Apache Spark on Azure HDInsight (Windows)
+# Build Machine Learning applications using Apache Spark on HDInsight Windows (Preview)
 
 > [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to create a machine learning application on HDInsight Spark Linux clusters, see [Build Machine Learning applications using Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md).
 
@@ -45,7 +45,7 @@ We use this data to predict whether a building will be hotter or colder based on
 
 ##<a name="app"></a>Write a machine learning application using Spark MLlib
 
-1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 

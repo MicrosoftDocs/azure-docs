@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="swkrish"/>
 
 #  Azure Active Directory B2C preview: Use custom attributes to collect information about your consumers
@@ -47,3 +47,8 @@ The custom attribute is now available in the list of **User attributes**, and fo
 6. Click **Save** at the top of the blade.
 
 You can use the "Run now" feature on the policy to verify the consumer experience. You should now see "ShoeSize" in the list of attributes collected during consumer sign-up, and see it in the token sent back to your application.
+
+## Notes
+
+- Along with sign-up policies, custom attributes can also be used in sign-up or sign-in policies and profile editing policies.
+- There is a known limitation of custom attributes. It is only created the first time it is used in any policy, and not when you add it to the list of **User attributes**. We plan to fix this soon.

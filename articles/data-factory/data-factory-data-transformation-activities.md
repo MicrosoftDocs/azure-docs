@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
 # Transform and analyze using Azure Data Factory
@@ -33,6 +33,10 @@ Transformation activity |  Compute environment
 [Data Lake Analytics U-SQL](data-factory-usql-activity.md) | Azure Data Lake Analytics 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] or Azure Batch
    
+> [AZURE.NOTE] 
+> You can use MapReduce activity to run Spark programs on your HDInsight Spark cluster. See [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) for details.
+> You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
+ 
 
 You need to create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two types of compute environments supported by Data Factory. 
 

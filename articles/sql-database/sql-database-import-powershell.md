@@ -4,7 +4,7 @@
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor=""/>
 
 <tags
@@ -38,7 +38,7 @@ The database is created from a BACPAC imported from an Azure storage blob contai
 To import a SQL database you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
-- A .bacpac file (BACPAC) of the database you want to import. The BACPAC needs to be in an [Azure Storage account (classic)](storage-create-storage-account.md) blob container.
+- A .bacpac file (BACPAC) of the database you want to import. The BACPAC needs to be in an [Azure Storage account (classic)](../storage/storage-create-storage-account.md) blob container.
 
 
 > [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.

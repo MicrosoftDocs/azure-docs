@@ -3,8 +3,8 @@
 	description="This page describes some common resource limits for Azure SQL Database."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="03/02/2016"
-	ms.author="jroth" />
+	ms.author="carlrab" />
 
 
 # Azure SQL Database resource limits

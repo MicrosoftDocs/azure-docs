@@ -13,14 +13,14 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/14/2016"
+ ms.date="04/14/2016"
  ms.author="danlep"/>
 
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-This article shows you how to configure an on-premises client computer running Windows to run HPC Pack job submission tools that communicate with an HPC Pack cluster in Azure over HTTPS. This provides a straightforward, flexible way for a variety of cluster users to submit jobs to a cloud-based HPC Pack cluster without needing to connect directly to the head node VM or access an Azure subscription to
+Configure an on-premises client computer running Windows to run HPC Pack job submission tools that communicate with an HPC Pack cluster in Azure over HTTPS. This provides a straightforward, flexible way for a variety of cluster users to submit jobs to a cloud-based HPC Pack cluster without needing to connect directly to the head node VM or access an Azure subscription to
 run job submission tools.
 
 ![Submit a job to a cluster in Azure][jobsubmit]
@@ -55,7 +55,7 @@ configure the components by running the HPC PowerShell script
 For detailed procedures, see [Install the Microsoft HPC Pack Web
 Components](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP] Certain Azure quickstart templates install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster,
+>[AZURE.TIP] Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster,
 you can optionally install and configure the web web components as part of the deployment.
 
 **To install the web components**
@@ -99,7 +99,7 @@ you can optionally install and configure the web web components as part of the d
 
 ## Step 2: Install the HPC Pack client utilities on an on-premises computer
 
-If you haven't already done so, download the
+If you want to install the HPC Pack client utilities, download the
 HPC Pack setup files (full installation) from the [Microsoft Download
 Center](http://go.microsoft.com/fwlink/?LinkId=328024) to the client
 computer. When you begin the installation, choose the setup option for the HPC Pack client utilities.
@@ -110,9 +110,9 @@ To use the HPC Pack client tools to submit jobs to the head node VM, you'll also
 
 1. On the head node, add the Certificates snap-in to a Microsoft Management Console for the Local Computer account. For steps to add the snap-in, see [Add the Certificates Snap-in to an MMC](https://technet.microsoft.com/library/cc754431.aspx).
 
-2. In the console tree, expand **Certificates – Local Computer**, expand **Personal**, and then click **Certificates**.
+2. In the console tree, expand **Certificates – Local Computer** > **Personal**, and then click **Certificates**.
 
-3. Locate the certificate that you configured for the HPC Pack web components in [Step 1: Install and configure the web components on the head node](#step-1:-install-and-configure-the-web-components-on-the-head-node) (for example, CN=&lt;HeadNodeDnsName&gt;.cloudapp.net).
+3. Locate the certificate that you configured for the HPC Pack web components in [Step 1: Install and configure the web components on the head node](#step-1:-install-and-configure-the-web-components-on-the-head-node) (for example, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
 
 4. Right-click the certificate, click **All Tasks**, and then click **Export**.
 
@@ -128,7 +128,7 @@ To use the HPC Pack client tools to submit jobs to the head node VM, you'll also
 
 2. On the client computer, run certmgr.msc.
 
-3. In Certificate Manager, expand **Certificates – Current user**, expand **Trusted Root Certification Authorities**, right-click **Certificates**, click **All Tasks**, and then click **Import**.
+3. In Certificate Manager, expand **Certificates – Current user** > **Trusted Root Certification Authorities**, right-click **Certificates**, click **All Tasks**, and then click **Import**.
 
 4. In the Certificate Import Wizard, click **Next** and follow the steps to import the certificate that you exported from the head node to the Trusted Root Certification Authorities store.
 
@@ -186,7 +186,7 @@ utilities. For example, you can use HPC Pack GUI tools or command-line commands 
     ```
     https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
 
-    https://<HeadNodeDnsName>.<region>cloudapp.azure.com/HpcPortal
+    https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
 2. In the security dialog box that appears, type the domain credentials of the HPC cluster administrator. (You can also add other cluster users in different roles. See [Managing Cluster Users](https://technet.microsoft.com/library/ff919335.aspx).)
 
@@ -204,7 +204,7 @@ utilities. For example, you can use HPC Pack GUI tools or command-line commands 
 
 * You can also submit jobs to the Azure cluster with the [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 
-* If you want to submit cluster from a Linux client, see the Python sample in the [HPC Pack 2012 R2 SDK and Sample Code](https://www.microsoft.com/download/details.aspx?id=41633).
+* If you want to submit cluster jobs from a Linux client, see the Python sample in the [HPC Pack 2012 R2 SDK and Sample Code](https://www.microsoft.com/download/details.aspx?id=41633).
 
 
 <!--Image references-->

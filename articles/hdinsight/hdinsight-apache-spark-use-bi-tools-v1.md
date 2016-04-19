@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Use BI tools with Apache Spark on Azure HDInsight (Windows)
+# Use BI tools with Apache Spark on HDInsight Windows (Preview)
 
 > [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to use BI tools with Spark cluster on HDInsight Linux, see [Use BI tools with Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-use-bi-tools.md).
 
@@ -42,7 +42,7 @@ In this section, we use the [Jupyter](https://jupyter.org) notebook associated w
 
 Once your data is saved as a Hive table, in the next section we will connect to the Hive table using BI tools such as Power BI and Tableau.
 
-1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 

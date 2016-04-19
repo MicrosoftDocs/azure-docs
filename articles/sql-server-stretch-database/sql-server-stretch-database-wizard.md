@@ -44,9 +44,29 @@ Select the tables that you want to enable for Stretch.
 |**Name**|Specifies the name of the column in the table.|
 |(no title)|A symbol in this column typically indicates that you can't enable the selected table for Stretch because of a blocking issue. This may be because the table uses an unsupported data type. Hover over the symbol to display more info in a tooltip. For more info, see [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md).|
 |**Stretched**|Indicates whether the table is already enabled.|
+|**Migrate**|In RC3, you can migrate an entire table (**Entire Table**) or you can specify a date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, run the ALTER TABLE statement to specify the filter predicate after you exit the wizard. For more info about the filter predicate, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md). For more info about how to apply the predicate, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) or [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Rows**|Specifies the number of rows in the table.|
 |**Size (KB)**|Specifies the size of the table in KB.|
-|**Migrate**|In CTP 3.1 through RC1, you can only migrate an entire table by using the wizard. If you want to specify  a predicate to select rows to migrate from a table that contains both historical and current data, run the ALTER TABLE statement to specify a predicate after you exit the wizard. For more info, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) or [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+
+## <a name="Filter"></a>Optionally provide a date-based filter predicate
+
+If you want to provide a date-based filter predicate to select rows to migrate, do the following things on the **Select tables** page.
+
+1.  In the **Select the tables you want to stretch** list, click **Entire Table** in the row for the table. The **Select rows to stretch** dialog box opens.
+
+    ![Define a date-based filter predicate][StretchWizardImage2a]
+
+2.  In the **Select rows to stretch** dialog box, select **Choose Rows**.
+
+3.  In the **Name field**, provide a name for the filter predicate.
+
+4.  For the **Where** clause, pick a date column from the table, pick an operator, and provide a date value.
+
+5. Click **Check** to test the predicate. If the predicate returns results from the table - that is, if there are rows to migrate that satisfy the condition - the test reports **Success**.
+
+6.  Click Done to return to the **Select tables** page.
+
+    ![Select Tables page after defining a filter predicate][StretchWizardImage2b]
 
 ## <a name="Configure"></a>Configure Azure deployment
 
@@ -135,6 +155,8 @@ Enable additional tables for Stretch Database. Monitor data migration and manage
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
+[StretchWizardImage2a]: ./media/sql-server-stretch-database-wizard/stretchwiz2a.png
+[StretchWizardImage2b]: ./media/sql-server-stretch-database-wizard/stretchwiz2b.png
 [StretchWizardImage3]: ./media/sql-server-stretch-database-wizard/stretchwiz3.png
 [StretchWizardImage4]: ./media/sql-server-stretch-database-wizard/stretchwiz4.png
 [StretchWizardImage5]: ./media/sql-server-stretch-database-wizard/stretchwiz5.png

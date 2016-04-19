@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/18/2016"
+ms.date="04/12/2016"
 ms.author="larryfr"/>
 
 #Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's
@@ -161,9 +161,9 @@ After following these steps, only requests for URLs that contain the string __in
 
 Once the cluster has been established, use the following steps to verify that you can access service web UIs from the Ambari Web:
 
-1. In your browser, go to https://CLUSTERNAME.azurehdinsight.net, where CLUSTERNAME is the name of your HDInsight cluster.
-
-	When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, re-enter the information.
+1. In your browser, go to http://headnodehost:8080. The `headnodehost` address will be sent over the tunnel to the cluster and resolve to the headnode that Ambari is running on. When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, re-enter the information.
+    
+    > [AZURE.NOTE] When using the http://headnodehost:8080 address to connect to the cluster, you are connecting directly over the tunnel to the head node that Ambari is running on using HTTP and communication is secured using the SSH tunnel. when connecting over the internet without the use of a tunnel, communication is secured using HTTPS. To connect over the internet using HTTPS, use https://CLUSTERNAME.azurehdinsight.net, where __CLUSTERNAME__ is the name of the cluster.
 
 2. From the Ambari Web UI, select YARN from the list on the left of the page.
 
@@ -174,15 +174,14 @@ Once the cluster has been established, use the following steps to verify that yo
 	![Image with the QuickLinks menu expanded](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
 
 	> [AZURE.NOTE] If you have a slow internet connection, or the head node is very busy, you may get a wait indicator instead of a menu when you select __Quick Links__. If so, wait a minute or two for the data to be received from the server, then try the list again.
-
-
-	> [AZURE.TIP] If you have a lower resolution monitor, or your browser window is not maximized, some entries in the __Quick Links__ menu may be cut off by the right side of the screen. If so, expand the menu using your mouse, then use the right arrow key to scroll the screen to the right to see the rest of the menu.
+    >
+	> If you have a lower resolution monitor, or your browser window is not maximized, some entries in the __Quick Links__ menu may be cut off by the right side of the screen. If so, expand the menu using your mouse, then use the right arrow key to scroll the screen to the right to see the rest of the menu.
 
 4. A page similar to the following should appear:
 
 	![Image of the YARN ResourceManager UI](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP] Notice the URL for this page; it should be similar to __http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. This is using the internal fully qualified domain name (FQDN) of the node, and is not accessible without using an SSH tunnel.
+	> [AZURE.NOTE] Notice the URL for this page; it should be similar to __http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. This is using the internal fully qualified domain name (FQDN) of the node, and is not accessible without using an SSH tunnel.
 
 ##Next steps
 

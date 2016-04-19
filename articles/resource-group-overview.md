@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="04/11/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -79,11 +79,13 @@ Resource Manager provides extensions for scenarios when you need additional oper
 
 When you create a solution from the Marketplace, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs.
 
+You can retrieve a template for an existing resource group by either exporting the current state of the resource group to a template, or viewing the template that was used for a particular deployment. Both options are shown in [Using the Azure Portal to deploy and manage your Azure resources](./azure-portal/resource-group-portal.md).
+
 Finally, the template becomes part of the source code for your app. You can check it in to your source code repository and update it as your app evolves. You can edit the template through Visual Studio.
 
 For more information about defining the template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
 
-For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+For step-by-step instructions on creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
 
 For guidance about how to structure your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md).
 
@@ -121,7 +123,7 @@ For information about PowerShell, see [Using Azure PowerShell with Resource Mana
 
 For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 
-For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx). To view REST operations for your deployed resources, see [Use Azure Resource Explorer to view and modify resources](resource-manager-resource-explorer.md).
 
 For information about using the portal, see [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md).
 

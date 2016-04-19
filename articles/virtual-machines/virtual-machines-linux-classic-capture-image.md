@@ -3,7 +3,7 @@
 	description="Learn how to capture an image of a Linux-based Azure virtual machine (VM) created with the classic deployment model."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 
 # How to capture a classic Linux virtual machine as an image
@@ -38,7 +38,7 @@ These steps assume that you've already created an Azure virtual machine using th
 
 2. In the SSH window, type the following command.  Note that the output from `waagent` may vary slightly depending on the version of this utility:
 
-	`sudo waagent -deprovision`
+	`sudo waagent -deprovision+user`
 
 	This command will attempt to clean the system and make it suitable for re-provisioning. This operation performs the following tasks:
 
@@ -87,7 +87,7 @@ These steps assume that you've already created an Azure virtual machine using th
 
 
 ## Next steps
-The image is ready to be used to create virtual machines. You can use the Azure CLI command `azure vm create` and supply the image name you just created. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md) for details about the command. Alternatively, use the [Azure classic portal] [] to create a custom virtual machine by using the **From Gallery** method and selecting the image you just created. See [How to Create a Custom Virtual Machine] [] for more details.
+The image is ready to be used to create virtual machines. You can use the Azure CLI command `azure vm create` and supply the image name you just created. See [Using the Azure CLI with Azure Service Management](../virtual-machines-command-line-tools.md) for details about the command. Alternatively, use the [Azure classic portal] [] to create a custom virtual machine by using the **From Gallery** method and selecting the image you just created. See [How to Create a Custom Virtual Machine] [] for more details.
 
 **See Also:** [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
 

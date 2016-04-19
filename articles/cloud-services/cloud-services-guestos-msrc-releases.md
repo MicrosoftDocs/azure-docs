@@ -13,12 +13,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/15/2015"
+   ms.date="04/18/2016"
    ms.author="yuemlu"/>
 
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+
+## April Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-037 | [3148531] | Cumulative Security Update for Internet Explorer | 4.31, 3.38, 2.50 | April 12, 2016 |  
+| MS16-039 | [3148522] | Security Update for Microsoft Graphics Component | 4.31, 3.38, 2.50 | April 12, 2016 | 
+| MS16-040 | [3148541] | Security Update for Microsoft XML Core Service | 4.31, 3.38, 2.50 | April 12, 2016 | 
+| MS16-044 | [3146706] | Security Update for Windows OLE | 4.31, 3.38, 2.50 | April 12, 2016 | 
+| MS16-045 | [3143118] | Security Update for Windows Hyper-V | 4.31, 3.38 | April 12, 2016 | 
+| MS16-047 | [3148527] | Security Update for Security Account Manager Remote Protocol | 4.31, 3.38, 2.50 | April 12, 2016 | 
+| MS16-048 | [3148528] | Security Update for CSRSS | 4.31, 3.38 | April 12, 2016 | 
+
+## March Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-023 | [3142015] | Cumulative Security Update for Internet Explorer | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-026 | [3143148] | Security Update to Graphic Fonts to Address Remote Code Execution | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-027 | [3143146] | Security Updates for Windows Media Player to address Remote Code Execution | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-028 | [3143081] | Security Update for Microsoft Windows PDF Library to Address Remote Code Execution | 4.30, 3.37 | March 8, 2016 |  
+| MS16-030 | [3143136] | Security Update for Windows OLE to Address Remote Code Execution | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-031 | [3140410] | Security Update for Microsoft Windows to Address Elevation of Privilege | 2.49 | March 8, 2016 |  
+| MS16-032 | [3143141] | Security Update to Secondary Logon to Address Elevation of Privilege | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-033 | [3143142] | Security Update to USB Mass Storage Class Driver to Address Elevation of Privilege | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-034 | [3143145] | Security Updates for Kernel-Mode Driver to address Elevation of Privilege | 4.30, 3.37, 2.49 | March 8, 2016 | | MS16-035 | [3141780] | Security Update for .NET Framework to Address Security Feature Bypass | 4.30, 3.37, 2.49 | March 8, 2016 |  
 
 
 ## February Guest OS
@@ -241,6 +268,26 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [3007054][3007054]  | PIN-protected printing option always shows when you print a document within a Windows Store application in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+
+[3148531]: http://support.microsoft.com/kb/3148531
+[3148522]: http://support.microsoft.com/kb/3148522
+[3148541]: http://support.microsoft.com/kb/3148541
+[3146706]: http://support.microsoft.com/kb/3146706
+[3143118]: http://support.microsoft.com/kb/3143118
+[3148527]: http://support.microsoft.com/kb/3148527
+[3148528]: http://support.microsoft.com/kb/3148528
+
+
+[3142015]: http://support.microsoft.com/kb/3142015  
+[3143148]: http://support.microsoft.com/kb/3143148  
+[3143146]: http://support.microsoft.com/kb/3143146  
+[3143081]: http://support.microsoft.com/kb/3143081  
+[3143136]: http://support.microsoft.com/kb/3143136  
+[3140410]: http://support.microsoft.com/kb/3140410  
+[3143141]: http://support.microsoft.com/kb/3143141  
+[3143142]: http://support.microsoft.com/kb/3143142  
+[3143145]: http://support.microsoft.com/kb/3143145  
+[3141780]: http://support.microsoft.com/kb/3141780
 
 [3134220]: http://support.microsoft.com/kb/3134220
 [3134811]: http://support.microsoft.com/kb/3134811

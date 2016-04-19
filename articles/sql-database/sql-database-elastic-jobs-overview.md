@@ -2,8 +2,9 @@
 	pageTitle="Elastic database jobs overview | Microsoft Azure" 
 	description="Illustrates the elastic database job service" 
 	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
+	services="sql-database" 
+    documentationCenter=""  
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
