@@ -55,63 +55,63 @@ A Service Fabric cluster in Azure is placed behind an Azure Load Balancer. All e
 
 For example, in order to accept external traffic on port **80**, the following things must be configured:
 
- 1. Write a service the listens on port 80. Configure port 80 in the service's ServiceManifest.xml and open a listener in the service, for example, a self-hosted web server.
+1. Write a service the listens on port 80. Configure port 80 in the service's ServiceManifest.xml and open a listener in the service, for example, a self-hosted web server.
  
-  ```xml
-  <Resources>
-      <Endpoints>
-         <Endpoint Name="WebEndpoint" Protocol="http" Port="80" />
-      </Endpoints>
-   </Resources>
-   ```
-   ```csharp
-    public sealed class HttpCommunicationListener : ICommunicationListener
-    {
-        ...
-        
-        public Task<string> OpenAsync(CancellationToken cancellationToken)
+    ```xml
+    <Resources>
+        <Endpoints>
+            <Endpoint Name="WebEndpoint" Protocol="http" Port="80" />
+        </Endpoints>
+    </Resources>
+    ```
+    ```csharp
+        class HttpCommunicationListener : ICommunicationListener
         {
-            EndpointResourceDescription endpoint = 
-                serviceContext.CodePackageActivationContext.GetEndpoint("WebEndpoint");
+            ...
+            
+            public Task<string> OpenAsync(CancellationToken cancellationToken)
+            {
+                EndpointResourceDescription endpoint = 
+                    serviceContext.CodePackageActivationContext.GetEndpoint("WebEndpoint");
 
-            string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
+                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
 
-            this.httpListener = new HttpListener();
-            this.httpListener.Prefixes.Add(uriPrefix);
-            this.httpListener.Start();
+                this.httpListener = new HttpListener();
+                this.httpListener.Prefixes.Add(uriPrefix);
+                this.httpListener.Start();
 
-            string uriPublished = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+                string uriPublished = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-            return Task.FromResult(this.publishUri);
+                return Task.FromResult(this.publishUri);
+            }
+            
+            ...
         }
         
-        ...
-    }
-    
-    public class WebService : StatelessService
-    {
-        ...
-        
-        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+        class WebService : StatelessService
         {
-            return new[] {new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+            ...
+            
+            protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+            {
+                return new[] {new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+            }
+            
+            ...
         }
-        
-        ...
-    }
-   ```
+    ```
   
- 2. Create a Service Fabric Cluster in Azure and specify port **80** as a custom endpoint port for the node type that will host the service. If you have more than one node type, you can set up a *placement constraint* on the service to ensure it only runs on the node type that has the custom endpoint port opened.
- 
-  ![Open a port on a node type][4]
- 
- 3. Once the cluster has been created, configure the Azure Load Balancer in the cluster's Resource Group to forward traffic on port 80. When creating a cluster through the Azure portal, this is set up automatically for each custom endpoint port that was configured.
- 
-  ![Forward traffic in the Azure Load Balancer][5]
- 
- 4. The Azure Load Balancer uses a probe to determine whether or not to send traffic to a particular node. The probe periodically checks an endpoint on each node to determine whether or not the node is responding. If the probe fails to receive a response after a configured number of times, the load balancer stops sending traffic to that node. When creating a cluster through the Azure portal, a probe is automatically set up for each custom endpoint port that was configured.
- 
-  ![Forward traffic in the Azure Load Balancer][8]
+2. Create a Service Fabric Cluster in Azure and specify port **80** as a custom endpoint port for the node type that will host the service. If you have more than one node type, you can set up a *placement constraint* on the service to ensure it only runs on the node type that has the custom endpoint port opened.
+
+    ![Open a port on a node type][4]
+
+3. Once the cluster has been created, configure the Azure Load Balancer in the cluster's Resource Group to forward traffic on port 80. When creating a cluster through the Azure portal, this is set up automatically for each custom endpoint port that was configured.
+
+    ![Forward traffic in the Azure Load Balancer][5]
+
+4. The Azure Load Balancer uses a probe to determine whether or not to send traffic to a particular node. The probe periodically checks an endpoint on each node to determine whether or not the node is responding. If the probe fails to receive a response after a configured number of times, the load balancer stops sending traffic to that node. When creating a cluster through the Azure portal, a probe is automatically set up for each custom endpoint port that was configured.
+
+    ![Forward traffic in the Azure Load Balancer][8]
 
 It's important to remember that the Azure Load Balancer and the probe only know about the *nodes*, not the *services* running on the nodes. The Azure Load Balancer will always send traffic to nodes that respond to the probe, so care must be taken to ensure services are available on the nodes that are able to respond to the probe.
 
