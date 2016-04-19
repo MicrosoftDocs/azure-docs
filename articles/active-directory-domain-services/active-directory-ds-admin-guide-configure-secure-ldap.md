@@ -85,8 +85,8 @@ In the sample above, replace 'contoso100.com' with the DNS domain name of your A
 The newly created self-signed certificate will be placed in the local machine's certificate store.
 
 
-## Task 2 - Export the LDAPS certificate to a .PFX file
-Before you start this task, ensure you have obtained the LDAPS certificate from your enterprise certificate authority or a public certificate authority or have created a self-signed certificate.
+## Task 2 - Export the secure LDAP certificate to a .PFX file
+Before you start this task, ensure that you have obtained the secure LDAP certificate from your enterprise certificate authority or a public certificate authority or have created a self-signed certificate.
 
 Perform the following steps, in order to export the LDAPS certificate to a .PFX file.
 
@@ -196,7 +196,7 @@ Perform the following configuration steps in order to enable secure LDAP.
 
 
 ## Task 4 - Enable secure LDAP access over the internet
-** Optional task ** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
+**Optional task** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
 
 Before you begin gthis task, ensure you have completed the steps outlined in [Task 3](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain).
 
@@ -219,13 +219,14 @@ Before you begin gthis task, ensure you have completed the steps outlined in [Ta
 
 
 ## Task 5 - Configure DNS to access the managed domain from the internet
-** Optional task ** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
+**Optional task** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
 
 Before you begin this task, ensure you have completed the steps outlined in [Task 4](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-4---enable-secure-ldap-access-over-the-internet).
 
 Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 4, an external IP address is displayed on the **Configure** tab in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 
-Go to your external DNS provider and configure it so that the managed domain points to this IP address. In this example, we will need to create the following DNS entry:
+Configure your external DNS provider so that the DNS name of the managed domain (eg. 'contoso100.com') points to this external IP address. In our example, we will need to create the following DNS entry:
+
     contoso100.com  -> 52.165.38.113
 
 That's it - you are now ready to connect to the managed domain using secure LDAP over the internet.
