@@ -240,7 +240,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-You can use a relative address with the `#load` directive:
+You can use a relative path with the `#load` directive:
 
 * `#load "mylogger.csx"` loads a file located in the function folder.
 
