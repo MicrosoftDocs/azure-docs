@@ -1,6 +1,6 @@
 1. Log in at the [Azure Portal].
 
-2. At the top left of the window, click the **+NEW** button > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
+2. Click **+NEW** > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
 
 3. Select an existing resource group or if you have no resource group, create a new one. Use the same name as your app.  
  
