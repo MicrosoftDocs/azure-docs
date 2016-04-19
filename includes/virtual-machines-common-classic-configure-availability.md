@@ -81,7 +81,7 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 
 ## Additional resources
 
-[Articles for virtual machines in Service Management]
+[Articles for virtual machines created with the classic deployment model]
 
 <!-- LINKS -->
 [Option 1: Create a virtual machine and an availability set at the same time]: #createset
@@ -92,4 +92,4 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 
 [Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
-[Articles for virtual machines in Service Management]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines 
+[Articles for classic virtual machines]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines 
