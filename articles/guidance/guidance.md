@@ -79,6 +79,10 @@ These articles provide an in-depth discussion of important concepts commonly ass
 - [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md)
 
     This articles is a companion to the API design and implementation best practices article. It addresses  authentication and authorization concerns as well as design consideration such as token types, authorization protocols, authorization flows and threat mitigation.
+    
+- [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
+
+    This guide explores the use of HDInsight in a range of use cases and scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
 
 ## Under development
 
