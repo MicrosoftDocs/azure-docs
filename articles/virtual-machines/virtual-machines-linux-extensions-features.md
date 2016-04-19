@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="12/08/2015"
+ ms.date="03/29/2016"
  ms.author="rasquill"/>
 
 #About virtual machine extensions and features
