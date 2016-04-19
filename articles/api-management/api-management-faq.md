@@ -34,6 +34,9 @@ Learn the answers to common questions, patterns and best practices for Azure API
 -	[Is SOAP supported in API Management?](#is-soap-supported-in-api-management)
 -	[Is the API Management gateway IP address constant? Can I use it in firewall rules?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 -	[Can I configure an OAUth 2.0 Authorization Server with ADFS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
+-	[What routing method does API Management use when deployed to multiple geographic locations?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
+
+
 
 ### How can I ask a question to the API Management team?
 
@@ -116,10 +119,12 @@ For information on configuring this scenario, see [Using ADFS in API Management]
 
 You can limit VNET to VNET communication by configuring the following ports to have higher priority in NSG to deny communications.
 
-| Ports (Source / Destination) | Direction | Transport Protocol | Purpose                                                                                                                                                                                                                                                                  | Source/Destination              |
+| Ports (Source / Destination) | Direction | Transport Protocol | Purpose                                                                                                                                                                                                                                                                  | Source / Destination              |
 |------------------------------|-----------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
 | * / *                         | INBOUND   | TCP                | Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. | 168.63.128.16 / VIRTUAL_NETWORK |
 | * / *                        | OUTBOUND  | TCP                | Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. | VIRTUAL_NETWORK / 168.63.128.16 |
 | * / 1688                     | OUTBOUND  | TCP                | Windows images running in the virtual machines should be licensed. To do this, a licensing request is sent to the Key Management Service host servers that handle such queries. This will always be on outbound port 1688.                                               | VIRTUAL_NETWORK / Any           |
 
+### What routing method does API Management use when deployed to multiple geographic locations? 
 
+API Management uses the [Performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Incoming traffic will be routed to the closest API gateway. If one region goes offline, incoming traffic will be automatically routed to the next closest gateway. For more information about routing methods, see [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method).
