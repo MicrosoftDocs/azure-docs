@@ -22,7 +22,7 @@
 
 ## Overview
 
-This tutorial shows how to add ([Azure Mobile Apps](app-service-mobile-value-prop.md)), a cloud backend service, to an iOS app. We'll create a new mobile backend and use a simple _Todo list_ iOS app that stores data in Azure.
+This tutorial shows how to add [Azure Mobile Apps](app-service-mobile-value-prop.md), a cloud backend service, to an iOS app. We'll create a new mobile backend and use a simple _Todo list_ iOS app that stores data in Azure.
 
 ## Prerequisites
 
