@@ -272,7 +272,7 @@ The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mll
 	from pyspark.mllib.util import MLUtils
 	from numpy import array
 	
-# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
+	# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
 	def parseRowIndexingBinary(line):
 	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex,
 	                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
