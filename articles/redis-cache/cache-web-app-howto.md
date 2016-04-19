@@ -226,9 +226,10 @@ In this step of the tutorial, we'll configure the sample application to store an
 
     ![Teams controller][cache-teamscontroller]
 
-4. Add the following using statement to **TeamsController.cs**.
+4. Add the following two using statements to **TeamsController.cs**.
 
-	    using StackExchange.Redis;
+	    using System.Configuration;
+        using StackExchange.Redis;
 
 5. Add the following two properties to the `TeamsController` class.
 
@@ -237,7 +238,6 @@ In this step of the tutorial, we'll configure the sample application to store an
 	    {
 	        string cacheString = ConfigurationManager.ConnectionStrings["Cache"].ToString();
 	        return ConnectionMultiplexer.Connect(cacheString);
-	
 	    });
 	
 	    public static ConnectionMultiplexer Connection
@@ -254,201 +254,210 @@ In this step of the tutorial, we'll configure the sample application to store an
 		<add name="Cache" connectionString="127.0.0.1"/>
 
 
-    >[AZURE.NOTE] In this step of the tutorial I'll show you how you can use the MSOpenTech port of Redis Cache to provide a local Redis Cache emulator experience. Download the latest [MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases/) version, and simply run `redis-server.exe` on your local machine and connect to it using a connection string of `127.0.0.1`. For more information, see [cache-faq.md#is-there-a-local-emulator-for-azure-redis-cache](Is there a local emulator for Azure Redis Cache?) from the [Azure Redis Cache FAQ](cache-faq.md).
+    >[AZURE.NOTE] In this step of the tutorial I'll show you how you can use the MSOpenTech port of Redis Cache to provide a local Redis Cache emulator experience. Download the latest [MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases/) version, and simply run `redis-server.exe` on your local machine and connect to it using a connection string of `127.0.0.1`. For more information, see [Is there a local emulator for Azure Redis Cache?](cache-faq.md#is-there-a-local-emulator-for-azure-redis-cache) from the [Azure Redis Cache FAQ](cache-faq.md).
 
-In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample we'll query the sorted set for the top 5 teams ranked by number of wins.
 
 ### Update the TeamsController class to return results from the cache or the database
 
-Add the following using statements to the `TeamsController.cs` file at the top with the other using statements.
+In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample we'll query the sorted set for the top 5 teams ranked by number of wins.
 
-	using System.Diagnostics;
-	using Newtonsoft.Json;
+1. Add the following using statements to the `TeamsController.cs` file at the top with the other using statements.
 
-Replace the current `public ActionResult Index()` method with the following implementation.
+		using System.Diagnostics;
+		using Newtonsoft.Json;
 
-	// GET: Teams
-	public ActionResult Index(string actionType, string resultType)
-	{
-	    List<Team> teams = null;
-	
-	    switch(actionType)
+2. Replace the current `public ActionResult Index()` method with the following implementation.
+
+
+		// GET: Teams
+		public ActionResult Index(string actionType, string resultType)
+		{
+		    List<Team> teams = null;
+		
+		    switch(actionType)
+		    {
+		        case "playGames": // Play a new season of games.
+		            PlayGames();
+		            break;
+		
+		        case "clearCache": // Clear the results from the cache.
+		            ClearCachedTeams();
+		            break;
+		
+		        case "rebuildDB": // Reseed the database with sample data.
+		            RebuildDB();
+		            break;
+		    }
+		
+		    // Measure the time it takes to retrieve the results.
+		    Stopwatch sw = Stopwatch.StartNew();
+		
+		    switch(resultType)
+		    {
+		        case "teamsSortedSet": // Retrieve teams from sorted set.
+		            teams = GetFromSortedSet();
+		            break;
+		
+		        case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
+		            teams = GetFromSortedSetTop5();
+		            break;
+		
+		        case "teamsList": // Retrieve teams froms erialized List<Team>.
+		            teams = GetFromList();
+		            break;
+		
+		        case "fromDB": // Retrieve results from the database.
+		        default:
+		            teams = GetFromDB();
+		            break;
+		    }
+		
+		    sw.Stop();
+		    double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
+		    ViewBag.msg += " MS: " + ms.ToString();
+		
+		    return View(teams);
+		}
+
+
+3. Add the following three methods to the `TeamsController` class to implement the `playGames`, `clearCache`, and `rebuildDB` action types from the switch statement added in the previous code snippet.
+
+	    void PlayGames()
 	    {
-	        case "playGames": // Play a new season of games.
-	            PlayGames();
-	            break;
+	        ViewBag.msg += "Updating team statistics. ";
+	        // Play a "season" of games
+	        var teams = from t in db.Teams
+	                    select t;
 	
-	        case "clearCache": // Clear the results from the cache.
-	            ClearCachedTeams();
-	            break;
+	        Team.PlayGames(teams);
 	
-	        case "rebuildDB": // Reseed the database with sample data.
-	            RebuildDB();
-	            break;
+	        db.SaveChanges();
+	
+	        // Clear any cached results
+	        ClearCachedTeams();
 	    }
 	
-	    // Measure the time it takes to retrieve the results.
-	    Stopwatch sw = Stopwatch.StartNew();
-	
-	    switch(resultType)
+	    void RebuildDB()
 	    {
-	        case "teamsSortedSet": // Retrieve teams from sorted set.
-	            teams = GetFromSortedSet();
-	            break;
+	        ViewBag.msg += "Rebuilding DB. ";
+	        // Re-iniatialize the database.
+	        db.Database.Initialize(true);
 	
-	        case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
-	            teams = GetFromSortedSetTop5();
-	            break;
+	        PlayGames();
+	    }
 	
-	        case "teamsList": // Retrieve teams froms erialized List<Team>.
-	            teams = GetFromList();
-	            break;
+	    void ClearCachedTeams()
+	    {
+	        IDatabase cache = Connection.GetDatabase();
+	        cache.KeyDelete("teamsList");
+	        cache.KeyDelete("teamsSortedSet");
+	        ViewBag.msg += "Team data removed from cache. ";
+	    } 
+
+4. Add the following four methods to the `TeamsController` class to implement the various ways of retrieving the teams data from the cache and the database.
+
+    The `GetFromDB` method reads the team statistics from the database.
+
+	    List<Team> GetFromDB()
+	    {
+	        ViewBag.msg += "Results read from DB. ";
+	        var results = from t in db.Teams
+	            orderby t.Wins descending
+	            select t; 
 	
-	        case "fromDB": // Retrieve results from the database.
-	        default:
+	        return results.ToList<Team>();
+	    }
+
+
+    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database, and then stored in the cache. In this sample we're using JSON.NET serialization.
+
+	    List<Team> GetFromList()
+	    {
+	        List<Team> teams = null;
+	
+	        IDatabase cache = Connection.GetDatabase();
+	        if (cache.KeyExists("teamsList"))
+	        {
+	            teams = JsonConvert.DeserializeObject<List<Team>>(cache.StringGet("teamsList"));
+	
+	            ViewBag.msg += "List read from cache. ";
+	        }
+	        else
+	        {
+	            ViewBag.msg += "Teams list cache miss. ";
+	            // Get from database and store in cache
 	            teams = GetFromDB();
-	            break;
+	
+	            ViewBag.msg += "Storing results to cache. ";
+	            cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
+	
+	        }
+	
+	        return teams;
 	    }
+
+
+    The `GetFromSortedSet` method reads the team statistics from a cached sorted set. If there is a cache miss, the teams statistics are read from the database and stored in the cache as a sorted set.
+
+
+	    List<Team> GetFromSortedSet()
+	    {
+	        List<Team> teams = null;
+	        IDatabase cache = Connection.GetDatabase();
+	        if (cache.KeyExists("teamsSortedSet"))
+	        {
+	            ViewBag.msg += "Reading sorted set from cache. ";
+	            teams = new List<Team>();
+	            foreach (var t in cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending))
+	            {
+	                Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
+	                teams.Add(tt);
+	            }
+	        }
+	        else
+	        {
+	            ViewBag.msg += "Teams sorted set cache miss. ";
 	
-	    sw.Stop();
-	    double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
-	    ViewBag.msg += " MS: " + ms.ToString();
+	            // Read from DB
+	            teams = GetFromDB();
 	
-	    return View(teams);
-	}
+	            ViewBag.msg += "Storing results to cache. ";
+	            foreach (var t in teams)
+	            {
+	                Console.WriteLine("Adding to sorted set: {0} - {1}", t.Name, t.Wins);
+	                cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
+	            }
+	        }
+	
+	        return teams;
+	    }
 
-Add the following three methods to the `TeamsController` class to implement the `playGames`, `clearCache`, and `rebuildDB` action types from the switch statement added in the previous code snippet.
 
-    void PlayGames()
-    {
-        ViewBag.msg += "Updating team statistics. ";
-        // Play a "season" of games
-        var teams = from t in db.Teams
-                    select t;
+    The `GetFromSortedSetTop5` method reads the top 5 teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next the cached sorted set is queried for the top 5 teams which are returned.
 
-        Team.PlayGames(teams);
 
-        db.SaveChanges();
+	    List<Team> GetFromSortedSetTop5()
+	    {
+	        List<Team> teams = null;
+	        IDatabase cache = Connection.GetDatabase();
+	
+	        // If the sorted set of teams is not in the cache, load it there first
+	        if(!cache.KeyExists("teamsSortedSet"))
+	        {
+	            GetFromSortedSet();
+	        }
+	
+	        ViewBag.msg += "Retrieving top 5 teams from cache. ";
+	        // Get the top 5 teams from the sorted set
+	        teams = new List<Team>();
+	        foreach (var team in cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending))
+	        {
+	            teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
+	        }
+	
+	        return teams;
+	    }
 
-        // Clear any cached results
-        ClearCachedTeams();
-    }
-
-    void RebuildDB()
-    {
-        ViewBag.msg += "Rebuilding DB. ";
-        // Re-iniatialize the database.
-        db.Database.Initialize(true);
-
-        PlayGames();
-    }
-
-    void ClearCachedTeams()
-    {
-        IDatabase cache = Connection.GetDatabase();
-        cache.KeyDelete("teamsList");
-        cache.KeyDelete("teamsSortedSet");
-        ViewBag.msg += "Team data removed from cache. ";
-    } 
-
-Add the following four methods to the `TeamsController` class to implement the various ways of retrieving the teams data from the cache and the database.
-
-The `GetFromDB` method reads the team statistics from the database.
-
-    List<Team> GetFromDB()
-    {
-        ViewBag.msg += "Results read from DB. ";
-        var results = from t in db.Teams
-            orderby t.Wins descending
-            select t; 
-
-        return results.ToList<Team>();
-    }
-
-The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database, and then stored in the cache. In this sample we're using JSON.NET serialization.
-
-    List<Team> GetFromList()
-    {
-        List<Team> teams = null;
-
-        IDatabase cache = Connection.GetDatabase();
-        if (cache.KeyExists("teamsList"))
-        {
-            teams = JsonConvert.DeserializeObject<List<Team>>(cache.StringGet("teamsList"));
-
-            ViewBag.msg += "List read from cache. ";
-        }
-        else
-        {
-            ViewBag.msg += "Teams list cache miss. ";
-            // Get from database and store in cache
-            teams = GetFromDB();
-
-            ViewBag.msg += "Storing results to cache. ";
-            cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
-
-        }
-
-        return teams;
-    }
-
-The `GetFromSortedSet` method reads the team statistics from a cached sorted set. If there is a cache miss, the teams statistics are read from the database and stored in the cache as a sorted set.
-
-    List<Team> GetFromSortedSet()
-    {
-        List<Team> teams = null;
-        IDatabase cache = Connection.GetDatabase();
-        if (cache.KeyExists("teamsSortedSet"))
-        {
-            ViewBag.msg += "Reading sorted set from cache. ";
-            teams = new List<Team>();
-            foreach (var t in cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending))
-            {
-                Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
-                teams.Add(tt);
-            }
-        }
-        else
-        {
-            ViewBag.msg += "Teams sorted set cache miss. ";
-
-            // Read from DB
-            teams = GetFromDB();
-
-            ViewBag.msg += "Storing results to cache. ";
-            foreach (var t in teams)
-            {
-                Console.WriteLine("Adding to sorted set: {0} - {1}", t.Name, t.Wins);
-                cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
-            }
-        }
-
-        return teams;
-    }
-
-The `GetFromSortedSetTop5` method reads the top 5 teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next the cached sorted set is queried for the top 5 teams which are returned.
-
-    List<Team> GetFromSortedSetTop5()
-    {
-        List<Team> teams = null;
-        IDatabase cache = Connection.GetDatabase();
-
-        // If the sorted set of teams is not in the cache, load it there first
-        if(!cache.KeyExists("teamsSortedSet"))
-        {
-            GetFromSortedSet();
-        }
-
-        ViewBag.msg += "Retrieving top 5 teams from cache. ";
-        // Get the top 5 teams from the sorted set
-        teams = new List<Team>();
-        foreach (var team in cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending))
-        {
-            teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
-        }
-
-        return teams;
-    }
 
 ### Update the Create, Edit, and Delete methods to work with the cache
 
