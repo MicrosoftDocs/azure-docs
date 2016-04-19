@@ -28,9 +28,9 @@ Learn how to manage an [elastic database pool](sql-database-elastic-pool.md) usi
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
-
-You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+## Prerequisites
+* Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Elastic database pools are only available with SQL Database V12 servers. If you have a SQL Database V11 server, [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
 ## Create a new database in an elastic pool
 
@@ -171,6 +171,8 @@ Export to a CSV file:
     $metrics = $metrics + (Get-Metrics -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime2 -EndTime $endTime2)
     $table = Format-MetricsAsTable $metrics
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
+
+
 
 ## Next steps
 

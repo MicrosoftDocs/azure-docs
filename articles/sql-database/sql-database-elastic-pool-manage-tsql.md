@@ -40,14 +40,13 @@ All databases in an elastic pool inherit the service tier of the elastic pool (B
 
 
 ## Move a database between elastic pools
-Use the ALTER DATABASE command with the MODIFY and set SERVICE_OBJECTIVE option as ELASTIC_POOL; set the name to the name of the target pool.
+Use the ALTER DATABASE command with the MODIFY and set SERVICE\_OBJECTIVE option as ELASTIC\_POOL; set the name to the name of the target pool.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [PM125] ));
 	-- Move the database named db1 to a pool named P1M125  
 
-
 ## Move a database into an elastic pool 
-Use the ALTER DATABASE command with the MODIFY and set SERVICE_OBJECTIVE option as ELASTIC_POOL; set the name to the name of the target pool.
+Use the ALTER DATABASE command with the MODIFY and set SERVICE\_OBJECTIVE option as ELASTIC_POOL; set the name to the name of the target pool.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
@@ -61,7 +60,7 @@ Use the ALTER DATABASE command and set the SERVICE_OBJECTIVE to one of the perfo
 ## List databases in an elastic pool
 Use the [sys.database\_service \_objectives view](https://msdn.microsoft.com/library/mt712619) to list all the databases in an elastic pool. Log in to the master database to query the view.
 
->[AZURE.NOTE] Currently the service_objective_column for databases in elastic pools returns an internal token of the service objective string. This will be replaced by the string "ElasticPool."
+>[AZURE.NOTE] Currently the service\_objective_column for databases in elastic pools returns an internal token of the service objective string. This will be replaced by the string "ElasticPool."
 >
 
 	SELECT d.name, slo.*  

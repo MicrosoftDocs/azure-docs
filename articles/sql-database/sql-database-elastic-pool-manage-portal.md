@@ -35,7 +35,7 @@ To work through the steps in this article, you'll need databases and a pool. See
 
 - In the [Azure portal](https://portal.azure.com) click **Browse**, click **SQL elastic pools**, and then click the pool you want to work with from the list.
 
-## Create a new database in an elastic pool
+## Create a new database into an elastic pool
 
 In the blade for the pool, click **Create database**. In the **SQL database** blade, type a name and set the new database's properties. Then click **OK**.
 

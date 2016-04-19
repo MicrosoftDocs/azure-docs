@@ -41,7 +41,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
     // Create a new database in the pool
 
-    // Create a database: configure create or update parameters and properties explicitly
+    // Create a database: create, configure, or update parameters and properties explicitly.
     DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
     {
         Location = currentServer.Location,
