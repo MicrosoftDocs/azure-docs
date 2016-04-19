@@ -231,6 +231,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
  
 	![Assign User][201] 
 
+
 2. In the applications list, select **360° Online**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-360online-tutorial/tutorial_360online_50.png) 
