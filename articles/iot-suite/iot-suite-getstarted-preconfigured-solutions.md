@@ -53,7 +53,7 @@ In order to complete this tutorial, you’ll need an active Azure subscription.
 
 4. Click on the tile and you'll see the details of your solution in the right-hand pane.
 
-> [AZURE.NOTE] If you are encountering issues deploying the pre-configured solution, take a look at [Permissions on the azureiotsuite.com site][lnk-permissions].
+> [AZURE.NOTE] If you are encountering issues deploying the pre-configured solution, take a look at [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, please create a service ticket on the [portal][lnk-portal].
 
 Are there details you'd expect to see that aren't listed for your solution? Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -252,3 +252,4 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-faq]: https://azure.microsoft.com/documentation/articles/iot-suite-faq/
