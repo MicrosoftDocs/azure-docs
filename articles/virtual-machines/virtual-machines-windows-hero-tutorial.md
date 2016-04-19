@@ -51,7 +51,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 3. Enter administrative **User name**, and a strong **Password**. The password must be at 8-123 characters long and have at least 3 of the following: one lower case character, one upper case character, one number, and one special character. **You need the user name and password to connect to the virtual machine**.
 
-4. If you have more than one subscription, specify the one for the new virtual machine. Select a new or existing [Resource group](../resource-group-overview.md/#resource-groups) and an Azure datacenter **Location** such as **West US**.
+4. If you have more than one subscription, specify the one for the new virtual machine. Select a new or existing [Resource group](../resource-group-overview.md/#resource-groups) and an Azure datacenter **Location** such as **West US**. 
 
 	![Screenshot that shows the basic settings to configure for an Azure VM](./media/virtual-machines-windows-hero-tutorial/create_vm_basics.PNG)
 
