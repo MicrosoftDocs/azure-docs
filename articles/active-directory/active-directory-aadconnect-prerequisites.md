@@ -28,7 +28,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 - An Azure AD directory will by default allow 50k objects. When you verify your domain the limit will be increased to 300k objects. If you need even more objects in Azure AD you need to open a support case to have the limit increased even further. If you need more than 500k objects, you will need a license such as Office 365, Azure AD Basic, Azure AD Premium, or Enterprise Mobility Suite.
 
 ### Prepare your on-premises data
-- Review [optional sync features you can enabled in Azure AD](active-directory-aadconnectsyncservice-features.md) and evaluate which features you should enable.
+- Review [optional sync features you can enable in Azure AD](active-directory-aadconnectsyncservice-features.md) and evaluate which features you should enable.
 
 ### On-premises servers and environment
 - The AD schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
