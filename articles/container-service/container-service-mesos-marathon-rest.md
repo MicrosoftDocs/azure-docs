@@ -80,7 +80,7 @@ In order to deploy a Docker-formatted container, create your own JSON file, or u
 ```
 # deploy container
 
-curl -X POST http://localhost/marathon/v2/apps?force=true -d @marathon.json -H "Content-type: application/json"
+curl -X POST http://localhost/marathon/v2/apps? -d @marathon.json -H "Content-type: application/json"
 ```
 
 The output will be similar to the following:
