@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/12/2016" 
+	ms.date="04/19/2016" 
 	ms.author="sdanie"/>
 
 # Azure API Management FAQ
@@ -29,6 +29,7 @@ Learn the answers to common questions, patterns and best practices for Azure API
 -	[Can I manage my API Management instance programmatically?](#can-i-manage-my-api-management-instance-programmatically)
 -	[How can I add a user to the Administrators group?](#how-can-i-add-a-user-to-the-administrators-group)
 -	[Why is the policy that I want to add not enabled in the policy editor?](#why-is-the-policy-that-i-want-to-add-not-enabled-in-the-policy-editor)
+-	[How can I achieve API versioning with API Management?](#how-can-i-achieve-api-versioning-with-api-management)
 
 ### How can I ask a question to the API Management team?
 
@@ -58,7 +59,7 @@ There are several different options you can use to copy an API Management servic
 
 ### Can I manage my API Management instance programmatically?
 
-Yes, you can manage it using the [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx), and [Service deployment](https://msdn.microsoft.com/library/mt619282.aspx) and [Service management](https://msdn.microsoft.com/library/mt613507.aspx) PowerShell cmdlets.
+Yes, you can manage it using the [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx), [Microsoft Azure API Management Service Management Library SDK](http://aka.ms/apimsdk), and [Service deployment](https://msdn.microsoft.com/library/mt619282.aspx) and [Service management](https://msdn.microsoft.com/library/mt613507.aspx) PowerShell cmdlets.
 
 ### How can I add a user to the Administrators group?
 
@@ -69,4 +70,10 @@ At this time, administrators are limited to users that log in through the Azure 
 
 If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section for that policy in the [Policy Reference](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
+
+### How can I achieve API versioning with API Management?
+
+-	You can configure distinct APIs in API Management representing different versions. For example, you may have `MyAPI v1` and `MyAPI v2` as two different APIs and developers can choose which version they want to use.
+-	You can also configure your API with a service URL that does not include a version segment, for example: `https://my.api`. You can then configure a version segment on each operation's [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) template, for example you can have an operation with a [URL template](api-management-howto-add-operations.md#url-template) of `/resource` and [Rewrite URL](api-management-howto-add-operations.md#rewrite-url-template) template of `/v1/Resource`. That way you would be able to change version segment value on each operation separately.
+-	If you'd like to keep a "default" version segment in the API's service URL then on selected operations you can set a policy that uses the [Set backend service](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) policy to change backend request path.
 
