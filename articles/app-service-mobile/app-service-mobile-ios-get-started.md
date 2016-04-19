@@ -30,7 +30,7 @@ To complete this tutorial, you need the following:
 
 * An [active Azure account](https://azure.microsoft.com/pricing/free-trial/)
 * A PC with [Visual Studio Community 2013] or later 
-* A Mac with the latest Xcode 7.3 or later
+* A Mac with Xcode 7.3 or later
 
 ## 1. Create a new Azure mobile app backend
 
