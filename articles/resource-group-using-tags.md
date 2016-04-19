@@ -104,7 +104,7 @@ Selecting any of these tags will display the resources and resource groups with 
 
 ![Show tagged resources](./media/resource-group-using-tags/show-tagged-resources.png)
 
-Pin the most important tags to your Startboard for quick access.
+Pin the most important tags to your Dashboard for quick access.
 
 ![Pin tags to the Startboard](./media/resource-group-using-tags/show-pinned-tag.png)
 
