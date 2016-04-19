@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/19/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -196,15 +196,12 @@ It is possible to backup and restore VMs with the following special network conf
 - VMs with multiple NICs
 
 
->[AZURE.TIP] When creating the special network configuration for VMs, use PowerShell to restore from disk.
+>[AZURE.IMPORTANT] When creating the special network configuration for VMs, you must use PowerShell to restore from disk.
 
-
-### Restoring from PowerShell:
-PowerShell has the ability to just restore the VM disks from backup and not create the virtual machine. This is helpful when restoring virtual machines which require special network configurations mentioned above.
 
 In order to fully recreate the virtual machine post restoring disks, follow these steps:
 
-1. Restore the disks from backup vault using [Azure Backup PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Restore the disks from a recovery services vault using [Azure Backup PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
 
 2. Create the VM config required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
 	- Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
@@ -214,5 +211,7 @@ In order to fully recreate the virtual machine post restoring disks, follow thes
 
 
 ## Next steps
+Now that you can restore your VMs, see the troubleshooting article for information on common errors with VMs. Also, check out the article on managing tasks with your VMs.
+
 - [Troubleshooting errors](backup-azure-vms-troubleshoot.md#restore)
 - [Manage virtual machines](backup-azure-manage-vms.md)
