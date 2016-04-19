@@ -37,23 +37,21 @@ One advantage of the Azure Resource Manager is that you can create your Azure re
 
 When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Azure Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
 
-After you create a deployment, you can manage the individual resources imperatively on the command line, just like you do in the classic deployment model. For example, use Azure Resource Manager CLI commands to start, stop, or delete resources such as [Azure Resource Manager virtual machines](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
+After you create a deployment, you can manage the individual resources imperatively on the command line, just like you do in the classic deployment model. For example, use CLI commands in Resource Manager mode to start, stop, or delete resources such as [Azure Resource Manager virtual machines](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 ## Authentication
 
-Working with the Azure Resource Manager through the Azure CLI currently requires you to authenticate to Microsoft Azure by using the 'azure login' command and then specifying a work or school account (an organizational account) or a Microsoft account. Authenticating with a certificate installed through a .publishsettings file doesn't work in this mode.
+Working with the Azure Resource Manager through the Azure CLI currently requires you to authenticate to Microsoft Azure by using the 'azure login' command and then specifying an account managed by Azure Active Directory - either work or school account (an organizational account) or a Microsoft account. Authenticating with a certificate installed through a .publishsettings file doesn't work in this mode.
 
 For more information on authenticating to Microsoft Azure, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
 >[AZURE.NOTE] When you use an account managed by Azure Active Directory, you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
-## Set the Azure Resource Manager mode
+## Set the Resource Manager mode
 
-Because the Azure Resource Manager mode is not enabled by default, use the following command to enable Azure CLI Resource Manager commands.
+Because the CLI is not in Resource Manager mode by default, use the following command to enable Azure CLI Resource Manager commands.
 
 	azure config mode arm
-
->[AZURE.NOTE] The Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 ## Find the locations
 
@@ -67,20 +65,20 @@ This list the Azure regions that are available, such as "West US", "East US", an
 
 ## Create a resource group
 
-A resource group is a logical grouping of network, storage, and other resources. Almost all commands in the Azure Resource Manager mode need a resource group. You can create a resource group named _testRG_, for example, by using the following command.
+A resource group is a logical grouping of network, storage, and other resources. Almost all commands in the Resource Manager mode need a resource group. You can create a resource group named _testRG_, for example, by using the following command.
 
 	azure group create -n "testRG" -l "West US"
 
-You will deploy to this "testRG" resource group later when you use a template to launch an Ubuntu VM.  Once you have a resource group created you can add resources like virtual machines and networks or storage.
+You will deploy to this "testRG" resource group later when you use a template to launch an Ubuntu VM.  Once you have create a resource group, you can add resources like virtual machines and networks or storage.
 
 
 ## Use resource group templates
 
 ### Locate and configure a resource group template
 
-When working with templates, you can either [create your own](resource-group-authoring-templates.md), or use one of the templates from the [QuickStart templates](https://azure.microsoft.com/documentation/templates/), which are also available on [GitHub](https://github.com/Azure/azure-quickstart-templates).
+When working with templates, you can either [create your own](resource-group-authoring-templates.md), or use one of the community-contributed [QuickStart templates](https://azure.microsoft.com/documentation/templates/), which are also available on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available in the [QuickStart Templates](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet. You only need to specify a resource group and the following few parameters to use this template:
+Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available in the [QuickStart templates](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet. You only need to specify a resource group and the following few parameters to use this template:
 
 * An admin user name for the VM = `adminUsername`
 * A password = `adminPassword`
