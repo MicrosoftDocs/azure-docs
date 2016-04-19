@@ -4,15 +4,15 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="04/01/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -125,7 +125,6 @@ Elastic jobs let you run Transact-SQL scripts against any number of databases in
 
 ## Additional resources
 
-- [Elastic database reference](sql-database-elastic-pool-reference.md)
 - [SQL Database elastic pool](sql-database-elastic-pool.md)
 - [Create an elastic database pool with the portal](sql-database-elastic-pool-create-csharp.md)
 - [Create an elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md)

@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
-# Frequently asked question about Azure Virtual Machines created with the classic deployment model
+# Frequently asked question about Azure virtual machines created with the classic deployment model
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 

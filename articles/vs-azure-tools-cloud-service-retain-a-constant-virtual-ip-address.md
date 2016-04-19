@@ -25,7 +25,7 @@ The VIP of a cloud service is allocated when you first deploy it to Azure in a p
 
 ### To update a cloud service without changing its VIP
 
-1. After you’ve deployed your cloud service at least once, open the shortcut menu for the node for your Azure project, and then choose **Publish**. The **Publish Azure Application** wizard appears.
+1. After you deploy your cloud service at least once, open the shortcut menu for the node for your Azure project, and then choose **Publish**. The **Publish Azure Application** wizard appears.
 
 1. In the list of subscriptions, choose the one to which you want to deploy, and then choose the **Next** button. The **Settings** page of the wizard appears.
 

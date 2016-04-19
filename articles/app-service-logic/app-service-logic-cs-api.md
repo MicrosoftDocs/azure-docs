@@ -105,7 +105,7 @@ The action returns the object that you returned from your function in a results 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic app. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 

@@ -49,7 +49,7 @@ Finally, if you want to create a new app in a different region, and that region 
 
 ## Create an App Service plan
 
-You can create an empty **App Service plan** from the **App Service plan** browse expireince or as part of app creation.
+You can create an empty **App Service plan** from the **App Service plan** browse experience or as part of app creation.
 
 To do this in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), click **NEW**, then select **Web + mobile**, then select **Web Apps**, **Mobile Apps**, **Logic Apps** or **API Apps**. 
 ![][createWebApp]

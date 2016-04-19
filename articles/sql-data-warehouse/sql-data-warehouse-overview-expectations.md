@@ -3,7 +3,7 @@
    description="Summary of public preview capabilities and our goals for general availability of SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="04/12/2016"
+   ms.author="nicw;barbkess;sonyama"/>
+
 
 # SQL Data Warehouse preview expectations
 

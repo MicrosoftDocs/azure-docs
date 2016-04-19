@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -107,10 +107,14 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 3. On the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_04.png) <br>
 
+    > [AZURE.NOTE] If you don't know what the correct values for Sign-On URL and Identifier URL are, see "[To enable SSO in Heroku, perform the following steps](#x123)" for instructions on how to get them.   
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Heroku application using the following pattern: **“https://sso.heroku.com/saml/\<company name\>/init”**. 
 
-    b. Click **Next**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Heroku application using the following pattern: **“https://sso.heroku.com/saml/\<company name\>/init”**. 
+
+    b. In the **Identifier** textbox, type a URL with following pattern: "**https://sso.heroku.com/saml/\<company name\>**".  
+
+    c. Click **Next**.
 
 
 4. On the **Configure single sign-on at Heroku** page, perform the following steps:
@@ -133,7 +137,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     e. When the setup is successful, administrators will see a confirmation dialog and the URL of the SSO Login for   end users is displayed.
 
-    f. Copy your **Heroku Login URL**, and then, on the Azure AD classic portal, go back to the **Configure App Settings** page, and paste the value into the **Sign On URL** textbox.
+    f. <a name="x123"></a>Copy your **Heroku Login URL** and **Heroku Entity ID**, and then, on the Azure AD classic portal, go back to the **Configure App Settings** page, and paste the values into the related textboxes.
+
   
     <br>![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png) <br><br>
 

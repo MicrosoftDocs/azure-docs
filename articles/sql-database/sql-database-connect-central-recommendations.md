@@ -3,8 +3,8 @@
 	description="A starting point topic that gathers together links and best practice recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/07/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # Connecting to SQL Database: Best Practices and Design Guidelines
