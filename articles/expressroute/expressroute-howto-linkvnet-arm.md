@@ -19,7 +19,7 @@
 # Link a virtual network to an ExpressRoute circuit
 
 > [AZURE.SELECTOR]
-- [Azure portal - Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
+- [Azure Portal - Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
 - [PowerShell - Resource Manager](expressroute-howto-linkvnet-arm.md)
 - [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
 
