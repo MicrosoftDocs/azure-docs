@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
+   ms.date="04/13/2016"
    ms.author="nepeters"/>
 
 # Container management with Docker Swarm
@@ -24,8 +24,9 @@ Docker Swarm provides an environment for deploying containerized workload across
 
 Pre-requisites to the exercises in this document:
 
-- [Create a Swarm Cluster on the Azure Container Service](./container-service-deployment.md)
-- [Connect with the Swarm Cluster on the Azure Container Service](./container-service-connect.md)
+[Create a Swarm Cluster on the Azure Container Service](./container-service-deployment.md)
+
+[Connect with the Swarm Cluster on the Azure Container Service](./container-service-connect.md)
 
 ## Deploy a new container
 
@@ -71,14 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 Docker compose can be used to automation the deployment and configuration of multiple containers. To so, ensure that an SSH tunnel has been created, and that the DOCKER_HOST variable has been set.
 
-```bash
-# set Docker host variable
-
-export DOCKER_HOST=:2375
-```
-
-Create a docker-compose.yaml file on your local system. A sample can be found [here](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
-
+Create a docker-compose.yml file on your local system. A sample can be found [here](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
 ```bash
 web:
@@ -123,4 +117,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 ## Next steps:
 
-- [Read more about Docker Swarm](https://docs.docker.com/swarm/).
+[Read more about Docker Swarm](https://docs.docker.com/swarm/).
