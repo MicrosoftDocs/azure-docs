@@ -91,7 +91,7 @@ The Service Bus API version of the template.
 
 ## Resources to deploy
 
-Creates a Service Bus authorization rule for namespace and entity.
+Creates a standard Service Bus namespace of type **Messaging**, and a Service Bus authorization rule for namespace and entity.
 
 ```
 "resources": [
@@ -169,12 +169,7 @@ Now that you've created and deployed resources using ARM, learn how to manage th
 - [Manage Azure Service Bus using Azure Automation](service-bus-automation-manage.md)
 - [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
 - [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-
-Learn more about SAS here:
-
 - [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md)
-- [Shared Access Signatures](service-bus-sas-overview.md)
-- [AuthorizationRule class](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrule.aspx)
 
   [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
