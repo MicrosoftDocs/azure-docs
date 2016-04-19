@@ -39,9 +39,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md)
 
-[Virtual Machine Scale Sets Overview](virtual-machines-windows-scale-sets-overview.md)
-
-
 
 ### Environment setup
 
@@ -117,8 +114,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md)
-
-[Automatically scale machines in a Virtual Machine Scale Set](virtual-machines-windows-ps-vmss-create.md)
 
 
 
