@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="carlrabeler"
 	manager="jhubbard"
-	editor="monicar" />
+	editor="" />
 
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
+	ms.date="04/11/2016"
 	ms.author="carlrab" />
 
 # Azure SQL Database performance guidance for single databases

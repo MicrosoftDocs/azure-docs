@@ -58,7 +58,7 @@ You can configure CORS in the Azure portal or by using [Azure Resource Manager](
 
 	After you click **Save**, the API app will accept JavaScript calls from the specified URLs.
 
-### Configure CORS by using Azure Resource Manager tools
+#### Configure CORS by using Azure Resource Manager tools
 
 You can also configure CORS for an API app by using [Azure Resource Manager templates](../resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](../powershell-install-configure.md) and the [Azure CLI](../xplat-cli-install.md). 
 
@@ -261,11 +261,9 @@ The following steps summarize the process for enabling Web API CORS support. For
 		namespace ToDoListAPI.Controllers 
 		{
 		    [HttpOperationExceptionFilterAttribute]
-		    [EnableCors(origins:"*", headers:"*", methods: "*")]
+		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
-	> **Note**: Use this attribute with caution. Specifying wildcards for all of the parameters opens your API up to all origins and all HTTP requests. The settings shown here are only for demonstration purposes.
-
 ## Troubleshooting
 
 If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer lets you know that no installation is needed.

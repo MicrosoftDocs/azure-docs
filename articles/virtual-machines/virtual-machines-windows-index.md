@@ -12,7 +12,7 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
@@ -38,9 +38,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 [Learn about Azure Resource Manager deployments](../resource-group-overview.md)
 
 [Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md)
-
-[Virtual Machine Scale Sets Overview](virtual-machines-windows-scale-sets-overview.md)
-
 
 
 ### Environment setup
@@ -114,11 +111,9 @@ Find all the documentation you need to create and manage Windows-based virtual m
 	
 [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-windows-cli-deploy-templates.md)
 		
-[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-backup.md)
+[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-patch.md)
-
-[Automatically scale machines in a Virtual Machine Scale Set](virtual-machines-windows-ps-vmss-create.md)
+[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md)
 
 
 
@@ -163,7 +158,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-windows-lob.md)
 
@@ -283,9 +278,9 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Custom Script extension for classic Windows virtual machines](virtual-machines-windows-classic-extensions-customscript.md)
 
-[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-backup.md)
+[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-patch.md)
+[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md)
 
 
 
@@ -331,8 +326,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Creating a virtual machine for a web application with Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md)
 
-[How to run a compute-intensive task in .NET on an Azure virtual machine](virtual-machines-windows-classic-run-compute-intensive-task.md)
-
 [How to run a compute-intensive task in Java on a virtual machine](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Django Hello World web application on a Windows Server VM](virtual-machines-windows-classic-python-django-web-app.md)
@@ -353,7 +346,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Oracle](virtual-machines-windows-classic-oracle.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [SharePoint](virtual-machines-windows-sharepoint-farm.md)
 

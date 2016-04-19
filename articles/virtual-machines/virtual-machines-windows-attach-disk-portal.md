@@ -19,7 +19,7 @@
 
 # How to attach a data disk to a Windows VM in the Azure portal
 
-This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Linux VM in the Azure portal](virtual-machines-linux-attach-disk-portal.md). Before you do this, review these tips:
+This article shows you how to attach both new and existing disks to a Windows virtual machine through the Azure portal. You can also [attach a data disk to a Linux VM in the Azure portal](virtual-machines-linux-attach-disk-portal.md). Before you do this, review these tips:
 
 - The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md).
 - To use Premium storage, you'll need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
@@ -31,7 +31,7 @@ This article shows you how to attach both new and existing disks to a Linux virt
 
 ## <a id="initializeinWS"></a>How to: initialize a new data disk in Windows Server
 
-1. Connect to the virtual machine. For instructions, see [How to log on to a virtual machine running Windows Server](virtual-machines-windows-log-on.md).
+1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows Server](virtual-machines-windows-connect-logon.md).
 
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, select **File and Storage Services**.
 
