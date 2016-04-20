@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Kenexa | Microsoft Azure"
+	pageTitle="Tutorial: Azure Active Directory integration with IBM Kenexa Survey Enterprise | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and IBM Kenexa Survey Enterprise."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="04/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -108,7 +108,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your IBM Kenexa Survey Enterprise application using the following pattern: **“https://surveys.kenexa.com/\<company code\>”**.
 
-    b. In the **Identifier** textbox, type 
+    b. In the **IDENTIFIER** textbox, type the URL with the following pattern: **https://surveys.kenexa.com/\<CompanyCode\>/tools**.
+
+	> [AZURE.NOTE] Please provide the IDENTIFIER URL to IBM Kenexa Survey team and tell them to set this as Entity ID for your instance. 
   
 
     c. Click **Next**.
@@ -129,7 +131,10 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
  - The **SAML SSO URL** 
  - The **Single Sign Out Service URL**
 
-	> [AZURE.NOTE] Please note that NameID claim value in the Response has to match with SSO ID configured in Kenexa system. So please work with Kenexa support team to map the appropriate user identifier in your organization as SSO ID. By default Azure AD will set the NameIdentifier as UPN value. You can change this from Attribute tab. The integration will only work after completing the correct mapping. 
+	> [AZURE.NOTE] Please note that NameID claim value in the Response has to match with SSO ID configured in Kenexa system. So please work with Kenexa support team to map the appropriate user identifier in your organization as SSO ID. By default Azure AD will set the NameIdentifier as UPN value. You can change this from Attribute tab as shown in the screenshot below. The integration will only work after completing the correct mapping. 
+ 	
+	![Configure Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_51.png)
+
  
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>

@@ -93,10 +93,21 @@ The Service Bus API version of the template.
 
 ## Resources to deploy
 
-Creates a standard Service Bus namespace with an Event Hub and a consumer group.
+Creates a Service Bus namespace of type **Event Hub**, with an Event Hub and a consumer group.
 
 ```
-"resources ": [
+"resources": [
+        {
+            "apiVersion": "[variables('ehVersion')]",
+            "name": "[parameters('serviceBusNamespaceName')]",
+            "type": "Microsoft.ServiceBus/Namespaces",
+            "location": "[variables('location')]",
+            "kind": "EventHub",
+            "sku": {
+                "name": "StandardSku",
+                "tier": "Standard"
+            },
+            "resources": [
                 {
                     "apiVersion": "[variables('ehVersion')]",
                     "name": "[parameters('serviceBusEventHubName')]",
