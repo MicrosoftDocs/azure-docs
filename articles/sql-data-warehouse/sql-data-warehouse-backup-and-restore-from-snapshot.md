@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="04/19/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Recover a database from user error in SQL Data Warehouse
@@ -44,9 +44,9 @@ To Restore using the Azure Portal, use the following steps.
 
 ### PowerShell
 
-Use Azure PowerShell to programmatically perform a database restore. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). You can check your version by running Get-Module -ListAvailable -Name AzureRM.Sql. This article is based on Microsoft AzureRM.Sql PowerShell version 1.0.5.
+> [AZURE.NOTE]  In order to use Microsoft Azure Powershell with SQL Data Warehouse, you should download and install the latest version of Azure PowerShell cmdlets.  This article is based on Microsoft Azure PowerShell version 1.0.3 or greater. You can check your version by running Get-Module -ListAvailable -Name Azure.  The lastest version can be installed from  [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on installing the lastest PowerShell cmlets, see [How to install and configure Azure PowerShell][].
 
-To restore a database, use the [Restore-AzureRmSqlDatabase][] cmdlet.
+Use Azure PowerShell to programmatically perform a database restore with the [Restore-AzureRmSqlDatabase][] cmdlet.
 
 1. Open Windows PowerShell.
 2. Connect to your Azure account and list all the subscriptions associated with your account.
