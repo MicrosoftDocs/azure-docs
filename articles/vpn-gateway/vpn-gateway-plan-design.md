@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/28/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # Planning and design for VPN Gateway
 
-When planning and designing your cross-premises and VNet-to-VNet connections can be either very simple or quite complicated, depending on your networking needs.
+Planning and designing your cross-premises and VNet-to-VNet configurations can be either very simple, or quite complicated, depending on your networking needs. This article will walk you through basic planning and design considerations.
 
 ## Planning
 
