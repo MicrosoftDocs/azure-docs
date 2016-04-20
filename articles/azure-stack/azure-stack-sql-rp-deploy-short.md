@@ -13,65 +13,59 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="04/20/2016"
 	ms.author="dumagar"/>
-	
-#Using SQL Databases on Azure Stack
+
+# Using SQL databases on Azure Stack
+
+Use the SQL Server Resource Provider Adapter to expose SQL databases as an Azure Stack service. After you install the adapter, you and your users can create databases for cloud-native apps, SQL-based websites, and SQL-based workloads without having to provision a virtual machine that hosts SQL Server each time. Because the adapter does not provide all the capabilities of Azure SQL Database during the POC, this article begins with an overview of the adapter architecture. Then you get a quick overview of the steps to set up the adapter, with links to more detailed steps in [Deploy the SQL Database Resource Provider Adapter on Azure Stack POC](azure-stack-sql-rp-deploy-long.md).
+
+## SQL Server Resource Provider Adapter architecture
+During the Azure Stack proof of concept (POC), the adapter doesn't offer all the features of Azure SQL Database. The database management capabilities of SQL Database aren't available--for example, elastic database pools and that ability to dial database performance up and down on the fly. The adapter supports the same create, read, update, and delete (CRUD) operations and T-SQL functionality available in [SQL Server 2016](https://msdn.microsoft.com/en-us/library/ms130214.aspx).
+
+The adapter is made up of three components:
+
+- **The SQL Resource Provider Adapter VM**, which encompasses the adapter process and hosting SQL Servers
+- **The adapter itself**, which processes provisioning requests
+- **Hosting SQL servers**, which provide capacity for databases
+
+The conceptual diagram shows these components and the steps you go through as you deploy the adapter and set up a database to test it.
+
+![Azure Stack SQL Resource Provider Adapter simple architecture](./media/azure-stack-sql-rp-deploy-short/sqlrparch.png)
 
 
-Because Azure Stack is still in beta, the SQL Server Resource Provider
-adaptor provides the majority of Azure SQL DB functionalities. The SQL
-Server Resource Provider adaptor lets you use any SQL Server-based
-workload and expose it as a service so that SQL server databases can be
-used when you deploy cloud native apps as well as SQL-based websites on
-Azure Stack. This article will teach you how to quickly setup your SQL
-Server Resource Provider on your Azure Stack proof of concept (PoC).
+# Quick steps to deploy the SQL Server Resource Provider Adapter
+Use these steps if you're already familiar with Azure Stack. If you want more detail, follow the links in each section or go straight to [Deploy the SQL Database Resource Provider Adapter on Azure Stack POC](azure-stack-sql-rp-deploy-long.md).
 
-To deploy a SQL Server resource provider, you will:
+1.  Make sure you fulfill all the [set up steps before you deploy](azure-stack-sql-rp-deploy-long.md#set-up-steps-before-you-deploy):
 
-1.  Make sure you comply with all the [prerequisites](/azure-stack-sql-rp-deploy-long.md#Prerequisites---Before-you-deploy) for RP deployment:
+    - .NET 3.5 framework already setup in base image Windows Server image (if you downloaded the Azure Stack bits after 2/23/2016, you can skip this step)
+    - [Azure-Stack-Compatible PowerShell release](http://aka.ms/azStackPsh)
+    - IE security settings configured properly on ClientVM [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#Turn-off-IE-enhanced-security-and-enable-cookies)
 
-    - .Net 3.5 framework already setup in base image Windows Server image
-    - [Azure-Stack-Compatible](http://aka.ms/azStackPsh) PowerShell release
-    - IE security settings configured properly on ClientVM
-
-2. [Download the SQL Server RP binaries](http://download.microsoft.com/download/A/3/6/A36BCD4A-8040-44B7-8378-866FA7D1C4D2/AzureStack.Sql.5.11.69.0.zip) and extract it on the ClientVM in your Azure Stack PoC.
+2. [Download the SQL Server RP binaries](http://aka.ms/massqlrprfrsh) and extract it on the ClientVM in your Azure Stack PoC.
 
 3. [Run the bootstrap.cmd and script](azure-stack-sql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment) - A set of scripts grouped by tabs will open in PowerShell Integrated Scripting Environment (ISE).
 
 4. Run all the loaded scripts in sequence from left to right in each tab. The scripts will:
     - In the “Prepare” tab:
         - Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
-        - Upload the certificates and all other artifacts to an Azure Stack storage account
-        - Publish gallery packages to allow deployment SQL and resources through gallery
+        - Upload the certificates and all other artifacts to an Azure Stack storage account.
+        - Publish gallery packages to allow deployment SQL and resources through gallery.
     - In the “Deploy” tab:
-        - [Deploy a VM](/azure-stack-sql-rp-deploy-long.md#Deploy-your-SQL-RP-Resource-Provider-VM) that will host both your resource provider and SQL Server instance *
+        - [Deploy a VM](azure-stack-sql-rp-deploy-long.md#Deploy-your-SQL-RP-Resource-Provider-VM) that hosts both your resource provider and hosting SQL Server. This script references a JSON parameter file, which you need to update with some values before running the script.
+        - [Register a local DNS record](azure-stack-sql-rp-deploy-long.md#Update-the-local-DNS) that maps to your resource provider VM.
+        - [Register you resource provider](azure-stack-sql-rp-deploy-long.md#Register-the-SQL-RP-Resource-Provider) with the local Azure Resource Manager.
 
-        - [Register a local DNS record](/azure-stack-sql-rp-deploy-long.md#Update-the-local-DNS) that will map to your resource provider VM
-        - [Register you resource provider](/azure-stack-sql-rp-deploy-long.md#Register-the-SQL-RP-Resource-Provider) with the local Azure Resource Manager
+    > [AZURE.IMPORTANT] All scripts assume the base operating system image fulfills the prerequisites (.NET 3.5, Javascript and cookies enabled on the clientVM, and the latest version of Azure PowerShell. If you get errors running the scripts, double-check that you fulfilled the prerequisites.
 
->\*This script has a separate parameter file with passwords etc. which
-must be complete before running.
+5. [Connect the resource provider to a hosting SQL Server](#Provide-capacity-to-your-SQL-Resource-Provider-by-connecting-it-to-a-hosting-SQL-server) in the Azure Stack portal:
 
->\*\*All scripts assume the base operating system image has .Net 3.5
-preinstalled, that the clientVM has JavaScript and cookies enabled, and
-that you are using the latest Azure PowerShell.
+    **Browse** &gt; **Resource** **Providers** &gt; **SQLRP** &gt; **Go to Resource Provider** **Management** &gt; **Servers** &gt; **Add**
 
-5\. [Connect your resource provider to a SQL Server](#connec5-long-doc)
-    instance in the admin Azure Stack portal:
+    Use “sa” for username and the password you used when deploying the resource provider VM.
 
-**Browse** &gt; **Resource** **Providers** &gt; **SQLRP** &gt; **Go to Resource Provider** **Management** &gt; **Servers** &gt; **Add**
-
-Use “sa” for username and the password you used when deploying the resource provider VM.
-
-6\. [Test your new SQL Server RP](/azure-stack-sql-rp-deploy-long.md#test-your-deployment-create-your-first-sql-database) by deploying a SQL database from the Azure Stack portal:
+6. [Test your new SQL Server RP](/azure-stack-sql-rp-deploy-long.md#test-your-deployment-create-your-first-sql-database) by deploying a SQL database in the Azure Stack portal:
 **Create &gt; Custom &gt; SQL Server Database**
 
-This should get your SQL Server Resource Provider up and running in
-about 45 minutes (depending on your hardware). If you wish to know more
-about each step, go to the [detailed SQL Server RP deployment
-instructions](#_Instructions_for_deploying)
-
-<span id="before-you-deploy" class="anchor"><span
-id="_Prerequisites_-_Before" class="anchor"><span
-id="_Instructions_for_deploying" class="anchor"></span></span></span>
+This should get your SQL Server Resource Provider up and running in about 45 minutes (depending on your hardware).
