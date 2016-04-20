@@ -3,7 +3,7 @@
    description="Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,16 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/02/2016"
+   ms.date="04/19/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse
 
-SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs.
-
-Most of the commands defined for **Azure SQL Database** are also used for **SQL Data Warehouse**. For a current list, see [Azure SQL Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx). The cmdlets [Suspend-AzureRmSqlDatabase][] and [Resume-AzureRmSqlDatabase][] are additions designed for SQL Data Warehouse.
-
-Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL Data Warehouse** instances. For the current list, see [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx).
+Many SQL Data Warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  For a list of PowerShell cmdlets to automate these tasks, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx).  For a list of REST APIs to automate these same tasks, see [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx).
 
 ## Get started with Azure PowerShell cmdlets
 
@@ -36,11 +32,9 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
+## Frequently Used PowerShell cmdlets
 
-## Frequently-used PowerShell cmdlets
-
-These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse:
-
+These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse.
 
 - [Get-AzureRmSqlDatabase][]
 - [Get-AzureRmSqlDeletedDatabaseBackup][]
@@ -53,19 +47,14 @@ These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse:
 - [Set-AzureRmSqlDatabase][]
 - [Suspend-AzureRmSqlDatabase][]
 
+## Example: Pause SQL Data Warehouse
 
-## Examples for SQL Data Warehouse
-
-These examples are for capabilities that apply only to SQL Data Warehouse.
-
-### [Suspend-AzureRmSqlDatabase][]
-
-Pause a database named "Database02" hosted on a server named "Server01." The server is in an Azure resource group named "ResourceGroup1." 
+Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1." 
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-A variation, this example pipes the retrieved object to [Suspend-AzureRmSqlDatabase][]. As a result, the database is paused. The final command shows the results.
+A variation, this example pipes the retrieved object to [Suspend-AzureRmSqlDatabase][].  As a result, the database is paused. The final command shows the results.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -73,7 +62,7 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-### [Resume-AzureRmSqlDatabase][]
+## Example: Start SQL Data Warehouse
 
 Resume operation of a database named "Database02" hosted on a server named "Server01." The server is contained in a resource group named "ResourceGroup1."
 
