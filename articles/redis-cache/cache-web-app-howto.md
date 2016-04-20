@@ -68,7 +68,7 @@ Procedural steps only for tech review
 		
 		    static public void PlayGames(IEnumerable<Team> teams)
 		    {
-		        // Simple random generation of statistics
+		        // Simple random generation of statistics.
 		        Random r = new Random();
 		
 		        foreach (var t in teams)
@@ -251,10 +251,10 @@ In this step of the tutorial, we'll configure the sample application to store an
 2. In **Solution Explorer** double-click **web.config** and add the following connection string to the `connectionStrings` section. 
 
 
-		<add name="Cache" connectionString="127.0.0.1"/>
+		<add name="Cache" connectionString="127.0.0.1:6739"/>
 
 
-    >[AZURE.NOTE] In this step of the tutorial I'll show you how you can use the MSOpenTech port of Redis Cache to provide a local Redis Cache emulator experience. Download the latest [MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases/) version, and simply run `redis-server.exe` on your local machine and connect to it using a connection string of `127.0.0.1`. For more information, see [Is there a local emulator for Azure Redis Cache?](cache-faq.md#is-there-a-local-emulator-for-azure-redis-cache) from the [Azure Redis Cache FAQ](cache-faq.md).
+    >[AZURE.NOTE] This tutorial shows you how you can use the MSOpenTech port of Redis Cache to provide a local Redis Cache emulator experience. If you want to run the sample using an Azure Redis Cache instance you have provisioned in Azure, update the connection string to point to your cache, like `<add name="Cache" connectionString="contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>`. If you do, you may note that retrieving results from the cache is slower than retrieving them from the database. This is because the database is running locally on your machine, but the cache is hosted in Azure. Laster in the tutorial we'll provision a resource group containing all of the Azure services used to host and run this sample in Azure.
 
 
 ### Update the TeamsController class to return results from the cache or the database
@@ -322,10 +322,13 @@ In this sample, team statistics can be retrieved from the database or from the c
 
 3. Add the following three methods to the `TeamsController` class to implement the `playGames`, `clearCache`, and `rebuildDB` action types from the switch statement added in the previous code snippet.
 
+    The `PlayGames` method uses a simple random number generation scheme to simulate scores for a season of games.
+
+
 	    void PlayGames()
 	    {
 	        ViewBag.msg += "Updating team statistics. ";
-	        // Play a "season" of games
+	        // Play a "season" of games.
 	        var teams = from t in db.Teams
 	                    select t;
 	
@@ -336,6 +339,9 @@ In this sample, team statistics can be retrieved from the database or from the c
 	        // Clear any cached results
 	        ClearCachedTeams();
 	    }
+
+
+    The `RebuildDB` method reinitializes the database with the default set of teams and generates statistics for them.
 	
 	    void RebuildDB()
 	    {
@@ -345,6 +351,10 @@ In this sample, team statistics can be retrieved from the database or from the c
 	
 	        PlayGames();
 	    }
+
+
+    The `ClearCachedTeams` method removes any cached team statistics from the cache.
+
 	
 	    void ClearCachedTeams()
 	    {
@@ -353,6 +363,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 	        cache.KeyDelete("teamsSortedSet");
 	        ViewBag.msg += "Team data removed from cache. ";
 	    } 
+
 
 4. Add the following four methods to the `TeamsController` class to implement the various ways of retrieving the teams data from the cache and the database.
 
@@ -371,49 +382,52 @@ In this sample, team statistics can be retrieved from the database or from the c
 
     The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database, and then stored in the cache. In this sample we're using JSON.NET serialization.
 
-	    List<Team> GetFromList()
-	    {
-	        List<Team> teams = null;
-	
-	        IDatabase cache = Connection.GetDatabase();
-	        if (cache.KeyExists("teamsList"))
-	        {
-	            teams = JsonConvert.DeserializeObject<List<Team>>(cache.StringGet("teamsList"));
-	
-	            ViewBag.msg += "List read from cache. ";
-	        }
-	        else
-	        {
-	            ViewBag.msg += "Teams list cache miss. ";
-	            // Get from database and store in cache
-	            teams = GetFromDB();
-	
-	            ViewBag.msg += "Storing results to cache. ";
-	            cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
-	
-	        }
-	
-	        return teams;
-	    }
+        List<Team> GetFromList()
+        {
+            List<Team> teams = null;
+
+            IDatabase cache = Connection.GetDatabase();
+            string serializedTeams = cache.StringGet("teamsList");
+            if (!String.IsNullOrEmpty(serializedTeams))
+            {
+                teams = JsonConvert.DeserializeObject<List<Team>>(serializedTeams);
+
+                ViewBag.msg += "List read from cache. ";
+            }
+            else
+            {
+                ViewBag.msg += "Teams list cache miss. ";
+                // Get from database and store in cache
+                teams = GetFromDB();
+
+                ViewBag.msg += "Storing results to cache. ";
+                cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
+
+            }
+
+            return teams;
+        }
 
 
-    The `GetFromSortedSet` method reads the team statistics from a cached sorted set. If there is a cache miss, the teams statistics are read from the database and stored in the cache as a sorted set.
+    The `GetFromSortedSet` method reads the team statistics from a cached sorted set. If there is a cache miss, the team statistics are read from the database and stored in the cache as a sorted set.
 
 
 	    List<Team> GetFromSortedSet()
 	    {
-	        List<Team> teams = null;
-	        IDatabase cache = Connection.GetDatabase();
-	        if (cache.KeyExists("teamsSortedSet"))
-	        {
-	            ViewBag.msg += "Reading sorted set from cache. ";
-	            teams = new List<Team>();
-	            foreach (var t in cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending))
-	            {
-	                Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
-	                teams.Add(tt);
-	            }
-	        }
+            List<Team> teams = null;
+            IDatabase cache = Connection.GetDatabase();
+            // If the key teamsSortedSet is not present, this method returns a 0 length collection.
+            var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending);
+            if (teamsSortedSet.Count() > 0)
+            {
+                ViewBag.msg += "Reading sorted set from cache. ";
+                teams = new List<Team>();
+                foreach (var t in teamsSortedSet)
+                {
+                    Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
+                    teams.Add(tt);
+                }
+            }
 	        else
 	        {
 	            ViewBag.msg += "Teams sorted set cache miss. ";
@@ -436,136 +450,161 @@ In this sample, team statistics can be retrieved from the database or from the c
     The `GetFromSortedSetTop5` method reads the top 5 teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next the cached sorted set is queried for the top 5 teams which are returned.
 
 
-	    List<Team> GetFromSortedSetTop5()
-	    {
-	        List<Team> teams = null;
-	        IDatabase cache = Connection.GetDatabase();
-	
-	        // If the sorted set of teams is not in the cache, load it there first
-	        if(!cache.KeyExists("teamsSortedSet"))
-	        {
-	            GetFromSortedSet();
-	        }
-	
-	        ViewBag.msg += "Retrieving top 5 teams from cache. ";
-	        // Get the top 5 teams from the sorted set
-	        teams = new List<Team>();
-	        foreach (var team in cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending))
-	        {
-	            teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
-	        }
-	
-	        return teams;
-	    }
+        List<Team> GetFromSortedSetTop5()
+        {
+            List<Team> teams = null;
+            IDatabase cache = Connection.GetDatabase();
+
+            // If the key teamsSortedSet is not present, this method returns a 0 length collection.
+            var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
+            while(teamsSortedSet.Count() == 0)
+            {
+                // Load the entire sorted set into the cache.
+                GetFromSortedSet();
+
+                // Retrieve the top 5 teams.
+                teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
+            }
+
+            ViewBag.msg += "Retrieving top 5 teams from cache. ";
+            // Get the top 5 teams from the sorted set
+            teams = new List<Team>();
+            foreach (var team in teamsSortedSet)
+            {
+                teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
+            }
+
+            return teams;
+        }
 
 
 ### Update the Create, Edit, and Delete methods to work with the cache
 
 The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section we'll modify these three methods to clear the cached teams so that the cache won't be out of sync with the database.
 
-Browse to the ` public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
+1.Browse to the ` public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
-    // POST: Teams/Create
-    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
-    {
-        if (ModelState.IsValid)
-        {
-            db.Teams.Add(team);
-            db.SaveChanges();
-            // When a team is added, the cache is out of date.
-            // Clear the cached teams.
-            ClearCachedTeams();
-            return RedirectToAction("Index");
-        }
 
-        return View(team);
-    }
+	    // POST: Teams/Create
+	    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+	    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+	    [HttpPost]
+	    [ValidateAntiForgeryToken]
+	    public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+	    {
+	        if (ModelState.IsValid)
+	        {
+	            db.Teams.Add(team);
+	            db.SaveChanges();
+	            // When a team is added, the cache is out of date.
+	            // Clear the cached teams.
+	            ClearCachedTeams();
+	            return RedirectToAction("Index");
+	        }
+	
+	        return View(team);
+	    }
 
-Browse to the `public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
-    // POST: Teams/Edit/5
-    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
-    {
-        if (ModelState.IsValid)
-        {
-            db.Entry(team).State = EntityState.Modified;
-            db.SaveChanges();
-            // When a team is edited, the cache is out of date.
-            // Clear the cached teams.
-            ClearCachedTeams();
-            return RedirectToAction("Index");
-        }
-        return View(team);
-	}
+2. Browse to the `public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
-Browse to the `public ActionResult DeleteConfirmed(int id)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
-    // POST: Teams/Delete/5
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public ActionResult DeleteConfirmed(int id)
-    {
-        Team team = db.Teams.Find(id);
-        db.Teams.Remove(team);
-        db.SaveChanges();
-        // When a team is deleted, the cache is out of date.
-        // Clear the cached teams.
-        ClearCachedTeams();
-        return RedirectToAction("Index");
-    }
+	    // POST: Teams/Edit/5
+	    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+	    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+	    [HttpPost]
+	    [ValidateAntiForgeryToken]
+	    public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+	    {
+	        if (ModelState.IsValid)
+	        {
+	            db.Entry(team).State = EntityState.Modified;
+	            db.SaveChanges();
+	            // When a team is edited, the cache is out of date.
+	            // Clear the cached teams.
+	            ClearCachedTeams();
+	            return RedirectToAction("Index");
+	        }
+	        return View(team);
+		}
+
+
+3. Browse to the `public ActionResult DeleteConfirmed(int id)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
+
+
+	    // POST: Teams/Delete/5
+	    [HttpPost, ActionName("Delete")]
+	    [ValidateAntiForgeryToken]
+	    public ActionResult DeleteConfirmed(int id)
+	    {
+	        Team team = db.Teams.Find(id);
+	        db.Teams.Remove(team);
+	        db.SaveChanges();
+	        // When a team is deleted, the cache is out of date.
+	        // Clear the cached teams.
+	        ClearCachedTeams();
+	        return RedirectToAction("Index");
+	    }
+
 
 ### Update the Teams Index view to work
 
-In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
+1. In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
 
-Near the top of the file, look for the following paragraph element.
+2. Near the top of the file, look for the following paragraph element.
 
-	<p>
-	    @Html.ActionLink("Create New", "Create")
-	</p>
 
-This is the link to create a new team. Replace the `paragraph` element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and reloading the database with fresh sample data.
+		<p>
+		    @Html.ActionLink("Create New", "Create")
+		</p>
 
-	<table class="table">
-	    <tr>
-	        <td>
-	            @Html.ActionLink("Create New", "Create")
-	        </td>
-	        <td>
-	            @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
-	        </td>
-	        <td>
-	            @Html.ActionLink("Clear Cache", "Index", new { actionType = "clearCache" })
-	        </td>
-	        <td>
-	            @Html.ActionLink("List from Cache", "Index", new { resultType = "teamsList" })
-	        </td>
-	        <td>
-	            @Html.ActionLink("Sorted Set from Cache", "Index", new { resultType = "teamsSortedSet" })
-	        </td>
-	        <td>
-	            @Html.ActionLink("Top 5 Teams from Cache", "Index", new { resultType = "teamsSortedSetTop5" })
-	        </td>
-	        <td>
-	            @Html.ActionLink("Load from DB", "Index", new { resultType = "fromDB" })
-	        </td>
-	        <td>
-	            @Html.ActionLink("Rebuild DB", "Index", new { actionType = "rebuildDB" })
-	        </td>
-	    </tr>    
-	</table>
 
-Scroll to the bottom of the **Index.cshtml** file and add the following `tr` element so that it is the last row in the last table in the file.
+    This is the link to create a new team. Replace the `paragraph` element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and reloading the database with fresh sample data.
 
-	<tr><td colspan="5">@ViewBag.Msg</td></tr>
+
+		<table class="table">
+		    <tr>
+		        <td>
+		            @Html.ActionLink("Create New", "Create")
+		        </td>
+		        <td>
+		            @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
+		        </td>
+		        <td>
+		            @Html.ActionLink("Clear Cache", "Index", new { actionType = "clearCache" })
+		        </td>
+		        <td>
+		            @Html.ActionLink("List from Cache", "Index", new { resultType = "teamsList" })
+		        </td>
+		        <td>
+		            @Html.ActionLink("Sorted Set from Cache", "Index", new { resultType = "teamsSortedSet" })
+		        </td>
+		        <td>
+		            @Html.ActionLink("Top 5 Teams from Cache", "Index", new { resultType = "teamsSortedSetTop5" })
+		        </td>
+		        <td>
+		            @Html.ActionLink("Load from DB", "Index", new { resultType = "fromDB" })
+		        </td>
+		        <td>
+		            @Html.ActionLink("Rebuild DB", "Index", new { actionType = "rebuildDB" })
+		        </td>
+		    </tr>    
+		</table>
+
+
+3. Scroll to the bottom of the **Index.cshtml** file and add the following `tr` element so that it is the last row in the last table in the file.
+
+
+	    <tr><td colspan="5">@ViewBag.Msg</td></tr>
+
+
+## Run the sample application
+
+If you want to use the MSOpenTech port of Redis to host the cache locally on your machine, download the latest [MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases/) version, and simply run `redis-server.exe` on your local machine before starting the sample. The sample will connect to your local cache using a connection string of `127.0.0.1:6739`, as configured previously. For more information, see [Is there a local emulator for Azure Redis Cache?](cache-faq.md#is-there-a-local-emulator-for-azure-redis-cache) from the [Azure Redis Cache FAQ](cache-faq.md).
+
+If you want to run the sample locally and connect to an Azure Redis Cache instance hosted in Azure, update the cache connection string to point to your cache, as shown in the following example.
+
+    `<add name="Cache" connectionString="contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>`
 
 Press **Ctrl+F5** to run the application.
 
@@ -585,11 +624,10 @@ The following table describes each action link from the sample application.
 | Rebuild DB              | Rebuild the database and reload it with sample team data.                                                                                                        |
 | Edit / Details / Delete | Edit a team, view details for a team, delete a team.                                                                                                             |
 
+
 Click some of the actions and experiment with retrieving the data from the different sources.
 
-Note that retrieving results from the cache is slower than retrieving them from the database. This is because the database is running locally on your machine, but the cache is hosted in Azure. If you want to run the cache locally, you can download and run the [MSOpenTech port of Redis](https://github.com/MSOpenTech/Redis) and change your cache connection string to point to your locally running instance of redis-server.exe, e.g. `return ConnectionMultiplexer.Connect("127.0.0.1");`. For more information, see [Is there a local emulator for Azure Redis Cache?](cache-faq.md#cache-emulator)
-
-In the next section we'll publish the Web App to Azure and run it in the cloud.
+## Provision and deploy the application to Azure
 
 
 <!-- IMAGES -->
