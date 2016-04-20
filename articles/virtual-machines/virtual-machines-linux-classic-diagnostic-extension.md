@@ -117,8 +117,8 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content.
 
 	{
-     	“perfCfg”:[],
-     	“enableSyslog”:”False”
+     	"perfCfg":[],
+     	"enableSyslog":”False”
 	}
 
 
