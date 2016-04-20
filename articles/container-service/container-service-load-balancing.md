@@ -3,7 +3,7 @@
    description="Load balance an Azure Container Service cluster."
    services="container-service"
    documentationCenter=""
-   authors="gatneil"
+   authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="04/18/2016"
-   ms.author="negat"/>
+   ms.author="rogardle"/>
 
 # Load balance an Azure Container Service cluster
 
@@ -81,7 +81,7 @@ Now that we have the marathon-lb package, we can deploy a simple web server usin
 ```
 
 The key parts of this are: 
-  * Set the value of HAProxy_0_VHOST to the FQDN of the load balancer for your agents. This is of the form `<acsName>agents.<region>.cloudapp.azure.com`. For example, if I created a Container Service cluster with name `negatacs` in region `West US`, the FQDN would be: `negatacsagents.westus.cloudapp.azure.com`. You can also find this by looking for the load balancer with "agent" in the name when looking through the resources in the resource group you created for your container service in the [Azure Portal](https://portal.azure.com).
+  * Set the value of HAProxy_0_VHOST to the FQDN of the load balancer for your agents. This is of the form `<acsName>agents.<region>.cloudapp.azure.com`. For example, if I created a Container Service cluster with name `myacs` in region `West US`, the FQDN would be: `myacsagents.westus.cloudapp.azure.com`. You can also find this by looking for the load balancer with "agent" in the name when looking through the resources in the resource group you created for your container service in the [Azure Portal](https://portal.azure.com).
   * Set the servicePort to a port >= 10,000. Doing so identifies the service being run in this container; marathon-lb uses this to identify services it should balance across.
   * Set the HAPROXY_GROUP label to "external".
   * Set hostPort to 0. Doing so means that marathon will arbitrarily allocate an available port.

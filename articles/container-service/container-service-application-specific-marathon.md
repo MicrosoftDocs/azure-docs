@@ -3,7 +3,7 @@
    description="Create an application or user specific Marathon service"
    services="container-service"
    documentationCenter=""
-   authors="gatneil"
+   authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="04/12/2016"
-   ms.author="negat"/>
+   ms.author="rogardle"/>
 
 # Create an application or user specific marathon service
 
