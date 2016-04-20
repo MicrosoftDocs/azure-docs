@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/14/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Design concepts
@@ -36,6 +36,7 @@ This topic will only talk about sourceAnchor as it relates to users. The same ru
 The attribute value must follow the following rules:
 
 - Be less than 60 characters in length
+    - Characters not being a-z, A-Z, or 0-9 will be encoded and counted as 3 characters
 - Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 - Must be globally unique
 - Must be either a string, integer or binary
