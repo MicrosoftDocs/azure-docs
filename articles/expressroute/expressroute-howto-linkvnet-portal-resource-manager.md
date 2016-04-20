@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Link a virtual network to an ExpressRoute circuit using the Resource Manager deployment model and the Azure portal | Microsoft Azure"
+   pageTitle="Link a virtual network to an ExpressRoute circuit by using the Resource Manager deployment model and the Azure portal | Microsoft Azure"
    description="This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits."
    services="expressroute"
    documentationCenter="na"
@@ -36,7 +36,7 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 - You must have an active ExpressRoute circuit.
-	- Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider.
+	- Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider.
 
 	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-portal-resource-manager.md) article for routing instructions.
 
