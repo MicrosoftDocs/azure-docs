@@ -36,6 +36,8 @@ These steps show you how to construct a set of Azure PowerShell commands to crea
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. If you are an advanced PowerShell user, you can take the commands and substitute your own values for the variables (the lines beginning with "$")
 
+> [AZURE.IMPORTANT] If you want your VM to be part of an availability set, you need to add it to the set when you create the VM. There currently isn't a way to add a VM to an availability set after it has been created.
+
 ## Step 1: Install Azure PowerShell
 
 There are two main options for installation, [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) and [WebPI](http://aka.ms/webpi-azps). WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. 
@@ -113,6 +115,7 @@ To test whether a chosen domain name label is globally unique, use these command
 If DNSNameAvailability is "True", your proposed name is globally unique.
 
 ### Availability set
+
 
 
 If needed, create a new availability set for the new virtual machine with these commands.
