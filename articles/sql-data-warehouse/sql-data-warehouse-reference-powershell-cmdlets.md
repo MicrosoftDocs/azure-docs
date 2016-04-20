@@ -22,9 +22,10 @@ Many SQL Data Warehouse administration tasks can be managed using either Azure P
 
 ## Get started with Azure PowerShell cmdlets
 
-1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on this installer, see [How to install and configure Azure PowerShell][].
-2. To start PowerShell, click **Start** and type **Windows PowerShell**.
-3. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
+> [AZURE.NOTE]  In order to use Microsoft Azure Powershell with SQL Data Warehouse, you should download and install the latest version of Azure PowerShell cmdlets.  This article is based on Microsoft Azure PowerShell version 1.0.3 or greater. You can check your version by running Get-Module -ListAvailable -Name Azure.  The lastest version can be installed from  [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on installing the lastest PowerShell cmlets, see [How to install and configure Azure PowerShell][].
+
+1. To start PowerShell, click **Start** and type **Windows PowerShell**.
+2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
 
     ```PowerShell
     Login-AzureRmAccount
