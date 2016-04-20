@@ -31,9 +31,9 @@ Before starting, be sure you have the following prerequisites.
 
 ## Creating a SQL Data Warehouse database
 
-> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on installing the latest version, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][]).
 
-1. Start Windows PowerShell by clicking Start and typing **Windows PowerShell**.
+1. Open Windows PowerShell.
 2. Run this cmdlet to login to Azure Resource Manager.
 	```Powershell
 	Login-AzureRmAccount
@@ -55,9 +55,8 @@ Before starting, be sure you have the following prerequisites.
  	- **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
  	- **Edition**: You must set edition to "DataWarehouse" to create a SQL Data Warehouse.
 
-For the command reference, see [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx)
-
-For the parameter options, see [Create Database (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt204021.aspx).
+For more details on the parameter options, see [Create Database (Azure SQL Data Warehouse)][].
+For the command reference, see [New-AzureRmSqlDatabase][]
 
 ## Next steps
 After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
@@ -67,11 +66,20 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 <!--Image references-->
 
 <!--Article references-->
-[migrate]: ./sql-data-warehouse-overview-migrate.md
-[develop]: ./sql-data-warehouse-overview-develop.md
-[load]: ./sql-data-warehouse-load-with-bcp.md
-[load sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Powershell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-load-with-bcp.md
+[load sample data]: sql-data-warehouse-get-started-manually-load-samples.md
+[Powershell]: sql-data-warehouse-reference-powershell-cmdlets.md
+[firewall rules]: sql-database-configure-firewall-settings.md
+[How to install and configure Azure PowerShell]: powershell-install-configure.md
+
+<!--MSDN references--> 
 [REST API]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [MSDN]:https://msdn.microsoft.com/library/azure/dn546722.aspx
-[firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
+[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
+[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
+
+ <!--Other Web references-->
+ [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+ 
