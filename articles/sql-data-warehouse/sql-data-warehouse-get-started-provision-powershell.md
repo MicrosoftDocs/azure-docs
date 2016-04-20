@@ -25,8 +25,8 @@
 
 ### Prerequisites
 Before starting, be sure you have the following prerequisites.
-+ A V12 Azure SQL Server to host the database
-+ Know the resource group name for the SQL Server.
+	- A V12 Azure SQL Server to host the database
+	- Know the resource group name for the SQL Server.
 
 ## Creating a SQL Data Warehouse database
 
@@ -46,13 +46,13 @@ Before starting, be sure you have the following prerequisites.
 	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw1" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
 	```
 
-The parameters required for this cmdlet are:
+	The parameters required for this cmdlet are:
 
- + **RequestedServiceObjectiveName**: The amount of DWU you are requesting, in the form "DWXXX" currently supported values are: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
- + **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
- + **ServerName**: The name of the server that you are using for creation (must be V12).
- + **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
- + **Edition**: You must set edition to "DataWarehouse" to create a SQL Data Warehouse.
+	- **RequestedServiceObjectiveName**: The amount of DWU you are requesting, in the form "DWXXX" currently supported values are: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
+ 	- **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
+ 	- **ServerName**: The name of the server that you are using for creation (must be V12).
+ 	- **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
+ 	- **Edition**: You must set edition to "DataWarehouse" to create a SQL Data Warehouse.
 
 For the command reference, see [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx)
 
