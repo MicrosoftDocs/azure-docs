@@ -27,9 +27,9 @@
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-The Azure ADK for Node.js can be used for managing Azure Data Lake store accounts, and the file system:
+The Azure SDK for Node.js can be used for managing Azure Data Lake Store accounts as well as file system operations:
 
-- Accoutn management: create, get, list, update and delete.
+- Account management: create, get, list, update and delete.
 - File system management: create, get, upload, append, download, read, delete, list.
 
 **Prerequisites**
