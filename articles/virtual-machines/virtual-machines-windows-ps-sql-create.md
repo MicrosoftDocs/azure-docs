@@ -36,7 +36,7 @@ For this tutorial you'll need:
 - [Azure PowerShell)](../powershell-install-configure.md), minimum version of 1.0.0 or later (this tutorial written using version 1.0.4).
     - To retrieve your version, type **Get-Module Azure -ListAvailable**.
 
-## Configure your credentials and select your subscription
+## Configure your subscription
 
 Open Windows PowerShell and establish access to your Azure account by running the following cmdlet. You will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
@@ -50,11 +50,11 @@ To change to another SubscriptionID, run the following cmdlet with your desired 
 
 	Select-AzureRmSubscription -SubscriptionId xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-## Set Variables
+## Define image variables
 
 To simplify usability and understanding of the completed script from this tutorial, we will start by defining a number of variables. Change the parameter values as you see fit, but beware of naming restrictions related to name lengths and special characters when modifying the values provided.
 
-### Define Global Variables
+### Location and Resource Group
 Use two variables to define the data region and the resource group into which you will create the other resources for the virtual machine.
 
 Modify as desired and then execute the following cmdlets to initialize these variables.
@@ -62,16 +62,16 @@ Modify as desired and then execute the following cmdlets to initialize these var
 	$Location = "SouthCentralUS"
     $ResourceGroupName = "sqlvm1"
 
-### Define Storage Variables
+### Storage properties
 
 Use the following variables to define the storage account and the type of storage to be used by the virtual machine.
 
-Modify as desired and then execute the following cmdlet to initialize these variables.
+Modify as desired and then execute the following cmdlet to initialize these variables. Note that in this example, we are using [Premium Storage](../storage/storage-premium-storage.md), which is recommended for production workloads. For details on this guidance and other recommendations, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
     $StorageName = $ResourceGroupName + "storage"
     $StorageType = "Premium_LRS"
 
-### Define Network Variables
+### Network properties
 
 Use the following variables to define the network interface, the TCP/IP allocation method, the virtual network name, the virtual subnet name, the range of IP addresses for the virtual network, the range of IP addresses for the subnet, and the public domain name label to be used by the network in the virtual machine.
 
@@ -85,7 +85,7 @@ Modify as desired and then execute the following cmdlet to initialize these vari
     $VNetSubnetAddressPrefix = "10.0.0.0/24"
     $DomainName = "sqlvm1"   
 
-### Define Compute Variables
+### Virtual machine properties
 
 Use the following variables to define the virtual machine name, the computer name, the virtual machine size, and the operating system disk name for the virtual machine.
 
@@ -96,9 +96,9 @@ Modify as desired and then execute the following cmdlet to initialize these vari
     $VMSize = "Standard_DS13"
     $OSDiskName = $VMName + "OSDisk"
 
-## Define Image Variables
+### Image properties
 
-Use the following variables to define the image to use with the virtual machine. In this example, the SQL Server 2016 RC3 evaluation image is used.
+Use the following variables to define the image to use for the virtual machine. In this example, the SQL Server 2016 RC3 evaluation image is used.
 
 Modify as desired and then execute the following cmdlet to initialize these variables.
 
@@ -117,7 +117,7 @@ And you can see the Skus available for an offering with the Get-AzureRmVMImageSk
 
 ## Create a resource group
 
-With the Resource Manager deployment model, the first object that you create is the resource group. We will use the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt678985.aspx) cmdlet to create an Azure resource gorup and its resources with the resource group name and location defined by the variables that you previously initialized.
+With the Resource Manager deployment model, the first object that you create is the resource group. We will use the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt678985.aspx) cmdlet to create an Azure resource group and its resources with the resource group name and location defined by the variables that you previously initialized.
 
 Execute the following cmdlet to create your new resource group.
 
@@ -125,13 +125,13 @@ Execute the following cmdlet to create your new resource group.
 
 ## Create a storage account
 
-The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For this tutorial, we will create a single disk for both (to keep this tutorial simple). You can attach additioanl disks later using the [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) cmdlet in order to place your SQL Server data and log files on dedicated disks. We will use the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet to create the storage account in your new  resource group and with the storage account name, storage name, and location defined using the variables that you previously initialized.
+The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For simplicity, we will create a single disk for both. You can attach additional disks later using the [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) cmdlet in order to place your SQL Server data and log files on dedicated disks. We will use the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet to create the storage account in your new  resource group and with the storage account name, storage name, and location defined using the variables that you previously initialized.
 
 Execute the following cmdlet to create your new storage account.  
 
     $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -Type $StorageType -Location $Location
 
-## Create network resources in the resource group
+## Create network resources
 
 The virtual machine requires a number of network resources for network connectivity.
 
@@ -143,7 +143,7 @@ The virtual machine requires a number of network resources for network connectiv
 
 We will start by creating a subnet configuration for our virtual network. For our tutorial, we will create a default subnet using the [New-AzureRmVirtualNetworkSubnetConfig](https://msdn.microsoft.com/library/mt619412.aspx) cmdlet. We will create our virtual network subnet configuration with the subnet name and address prefix defined using the variables that you previously initialized.
 
-**Note**: You can define additional properties of the virtual network subnet configuration using this cmdlet, but that is beyond the scope of this tutorial.
+>[AZURE.NOTE] You can define additional properties of the virtual network subnet configuration using this cmdlet, but that is beyond the scope of this tutorial.
 
 Execute the following cmdlet to create your virtual subnet configuration.
 
@@ -159,9 +159,9 @@ Execute the following cmdlet to create your virtual network.
 
 ### Create the public IP address
 
-Now that we have our virtual network defined, we need to configure an IP address for connectivity to the virtual machine. For this tutoorial, we will create a public IP address using dynamic IP addressing to support Internet connectivity. We will use the [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) cmdlet to create the public IP address in the resource group created prevously and with the name, location, allocation method, and DNS domain name label defined using the variables that you previously initialized.
+Now that we have our virtual network defined, we need to configure an IP address for connectivity to the virtual machine. For this tutorial, we will create a public IP address using dynamic IP addressing to support Internet connectivity. We will use the [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) cmdlet to create the public IP address in the resource group created prevously and with the name, location, allocation method, and DNS domain name label defined using the variables that you previously initialized.
 
-**Note**: You can define additional properties of the public IP address using this cmdlet, but that is beyond the scope of this initial tutorial. You could also create a private address or an address with a static address, but that is also beyond the scope of this tutorial.
+>[AZURE.NOTE] You can define additional properties of the public IP address using this cmdlet, but that is beyond the scope of this initial tutorial. You could also create a private address or an address with a static address, but that is also beyond the scope of this tutorial.
 
 Execute the following cmdlet to create your public IP address.
 
@@ -175,11 +175,11 @@ Execute the following cmdlet to create your network interface.
 
     $Interface = New-AzureRmNetworkInterface -Name $InterfaceName -ResourceGroupName $ResourceGroupName -Location $Location -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $PublicIp.Id
 
-## Create compute resources in the resource group
+## Configure a VM object
 
 Now that we have storage and network resources defined, we are ready to define compute resources for the virtual machine. For our tutorial, we will specify the virtual machine size and various operating system properties, specify the network interface that we previously created, define blob storage, and then specify the operating system disk.
 
-### Create the virtual machine object
+### Create the VM object
 
 We will start by specifying the virtual machine size. For this tutorial, we are specifying a DS13. We will use the [New-AzureRmVMConfig](https://msdn.microsoft.com/library/mt603727.aspx) cmdlet to create a configurable virtual machine object with the name and size defined using the variables that you previously initialized.
 
@@ -191,13 +191,13 @@ Execute the following cmdlet to create the virtual machine object.
 
 Before we can set the operating system properties for the virtual machine, we need to supply the credentials for the local administrator account as a secure string. To accomplish this, we will use the [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
 
-Execute the following cmdlet and, in the WIndows PowerShell credential request window, type the name and password to use for the local administrator account in the Windows virtual machine.
+Execute the following cmdlet and, in the Windows PowerShell credential request window, type the name and password to use for the local administrator account in the Windows virtual machine.
 
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### Set the operating system properties for the virtual machine
 
-Now we are ready to set the virtual machines's operating system properties. We will use the [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) cmdlet to set the the type of operating system as Windows, require the [virtual machine agent](virtual-machines-windows-classic-agents-and-extensions.md) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
+Now we are ready to set the virtual machine's operating system properties. We will use the [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](virtual-machines-windows-classic-agents-and-extensions.md) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
 
 Execute the following cmdlet to set the operating system properties for your virtual machine.
 
@@ -205,7 +205,7 @@ Execute the following cmdlet to set the operating system properties for your vir
 
 ### Add the network interface to the virtual machine
 
-Next, we will add the network interface that we created previously to the virtual machine. We will use the [Add-AzureRmVMNetworkInterface](https://msdn.microsoft.com/library/mt619351.aspx) cmdlet to add the network interface using the network intreface vairiable that you defined earlier.
+Next, we will add the network interface that we created previously to the virtual machine. We will use the [Add-AzureRmVMNetworkInterface](https://msdn.microsoft.com/library/mt619351.aspx) cmdlet to add the network interface using the network interface variable that you defined earlier.
 
 Execute the following cmdlet to set the network interface for your virtual machine.
 
@@ -235,7 +235,7 @@ Execute the following cmdlet to specify the platform image for your virtual mach
 
     $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName $PublisherName -Offer $OfferName -Skus $Sku -Version $Version
 
-## Create the virtual machine
+## Create the SQL VM
 
 Now that you have finished the configuration steps, you are ready to create the virtual machine. We will use the [New-AzureRmVM](https://msdn.microsoft.com/library/mt603754.aspx) cmdlet to create the virtual machine using the variables that we have defined.
 
@@ -247,13 +247,13 @@ The virtual machine is created. Notice that a standard storage account is create
 
 You can now view this machine in the Azure Portal to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md#Connect).  
 
-## Example PowerShell script
+## Example script
 
-The following script contains the complete PowerShell script for this tutorial.
+The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Add-AzureRmAccount** and **Select-AzureRmSubscription** commands.
 
-    Login-AzureRmAccount
-        # Variables
-        ## Global
+
+    # Variables
+    ## Global
     $Location = "SouthCentralUS"
     $ResourceGroupName = "sqlvm1"
     ## Storage
@@ -277,7 +277,7 @@ The following script contains the complete PowerShell script for this tutorial.
 
     ##Image
     $PublisherName = "MicrosoftSQLServer"
-    $OfferName = "SQL2016CTP3.3-WS2012R2"
+    $OfferName = "SQL2016RC3-WS2012R2"
     $Sku = "Evaluation"
     $Version = "latest"
 
