@@ -67,7 +67,7 @@ Now you are set up to create a new Python project. Navigate to **File** -> **New
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
  
 To launch the Jupyter Notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter Notebook. If it prompts you for a password, please use instructions provided on the 
-[DSVM documentation page](machine-learning-data-science-provision-vm.md/#how-to-create-a-strong-password-on-the-jupyter-notebook-server) to create a strong password to access the Jupyter notebook. 
+[DSVM documentation page](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-provision-vm/#how-to-create-a-strong-password-on-the-jupyter-notebook-server) to create a strong password to access the Jupyter notebook. 
 
 Once you have opened the notebook, you will see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
 
