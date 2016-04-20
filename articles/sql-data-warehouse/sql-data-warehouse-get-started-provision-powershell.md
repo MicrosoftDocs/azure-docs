@@ -31,7 +31,7 @@ Before starting, be sure you have the following prerequisites.
 
 ## Creating a SQL Data Warehouse database
 
-> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on installing the latest version, see [How to install and configure Azure PowerShell](./powershell-install-configure.md).
+> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on installing the latest version, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
 1. Start Windows PowerShell by clicking Start and typing **Windows PowerShell**.
 2. Run this cmdlet to login to Azure Resource Manager.
