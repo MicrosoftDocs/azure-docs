@@ -4,7 +4,7 @@
 
 3. For the **Resource Group**, either select an existing resource group, or create a new one (using the same name as your app.) 
  
-4. Use the default App Service plan, select a different plan or [create a new plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan), then click **Create**. This creates the Mobile App backend. The App Service plan's settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/en-us/pricing/details/app-service/) associated with your app. 
+4. For the **App Service plan**, create the default App Service plan, or [craft a new plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Click **Create**. This creates the Mobile App backend. The App Service plan's settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/en-us/pricing/details/app-service/) associated with your app. 
 	
 6. In the **Settings** blade for the new Mobile App backend, click **Quick start** > your client app platform > **Connect a database**. 
 
