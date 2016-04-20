@@ -278,21 +278,22 @@ Apply the following recommendations for generating statistics:
 
 ## Unsupported features
 SQL Data Warehouse does not use or support these features:
-|Feature|Workaround|
-|---|---|
-|Identities| [Assigning Surrogate Keys]  |
-|primary keys| N/A |
-|foreign keys| N/A |
-|check constraints| N/A |
-|unique constraints| N/A |
-|unique indexes| N/A |
-|computed columns| N/A |
-|sparse columns| N/A |
-|user-defined types| N/A |
-|indexed views| N/A |
-|sequences| N/A |
-|triggers| N/A |
-|synonyms| N/A |
+
+| Feature | Workaround |
+| --- | --- |
+| identities | [Assigning Surrogate Keys]  |
+| primary keys | N/A |
+| foreign keys | N/A |
+| check constraints | N/A |
+| unique constraints | N/A |
+| unique indexes | N/A |
+| computed columns | N/A |
+| sparse columns | N/A |
+| user-defined types | N/A |
+| indexed views | N/A |
+| sequences | N/A |
+| triggers | N/A |
+| synonyms | N/A |
 
 ## Next steps
 For more development tips, see [development overview][].
