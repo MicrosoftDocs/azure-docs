@@ -152,7 +152,7 @@ The sample copies data to an Azure Data Lake store. New data is copies to Data L
 		"name": "AzureDataLakeStoreOutput",
 	  	"properties": {
 			"type": "AzureDataLakeStore",
-		    "linkedServiceName": " AzureDataLakeStoreLinkedService",
+		    "linkedServiceName": "AzureDataLakeStoreLinkedService",
 		    "typeProperties": {
 				"folderPath": "datalake/output/"
 		    },
