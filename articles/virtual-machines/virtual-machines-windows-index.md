@@ -39,9 +39,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md)
 
-[Virtual Machine Scale Sets Overview](virtual-machines-windows-scale-sets-overview.md)
-
-
 
 ### Environment setup
 
@@ -117,8 +114,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md)
-
-[Automatically scale machines in a Virtual Machine Scale Set](virtual-machines-windows-ps-vmss-create.md)
 
 
 
@@ -330,8 +325,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 [Create and Manage Azure Virtual Machines in Visual Studio](virtual-machines-windows-classic-manage-visual-studio.md)
 
 [Creating a virtual machine for a web application with Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md)
-
-[How to run a compute-intensive task in .NET on an Azure virtual machine](virtual-machines-windows-classic-run-compute-intensive-task.md)
 
 [How to run a compute-intensive task in Java on a virtual machine](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 

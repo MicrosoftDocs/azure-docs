@@ -3,8 +3,8 @@
 	description="This topic shows how to use .NET to perform live encoding with on-premises encoders." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"  
+	ms.author="cenkdin;juliako"/>
 
 #How to perform live encoding with on-premises encoders
 
