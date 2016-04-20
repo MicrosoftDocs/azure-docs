@@ -19,13 +19,14 @@
 # Configure AlwaysOn Availability Groups in Azure VM (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Resource Manager - Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Portal - Resource Manager - Manual](virtual-machines-sql-gui-alwayson-availability-groups-manual.md)
+- [Portal - Classic - Manual](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [PowerShell - Classic](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
 
 
 This end-to-end tutorial shows you how to implement availability groups using SQL Server AlwaysOn running on Azure resource manager virtual machines. 
@@ -118,14 +119,14 @@ Configure the virtual network on the **Create virtual network** blade.
 
 The table below shows the settings for the virtual network. 
 
-| Field | Value |
+| **Field** | Value |
 | ----- | ----- |
-| Name | autoHAVNET |
-| Address space | 10.0.0.0/16 |
-| Subnet name | Subnet-1 |
-| Subnet address range | 10.0.0.0/24 |
-| Subscription | Specify the subscription that you intend to use. If you only have one subscription this may be blank. |
-| Location | Specify the Azure location where you will deploy your availability group |
+| **Name** | autoHAVNET |
+| **Address space** | 10.0.0.0/16 |
+| **Subnet name** | Subnet-1 |
+| **Subnet address range** | 10.0.0.0/24 |
+| **Subscription** | Specify the subscription that you intend to use. If you only have one subscription this may be blank. |
+| **Location** | Specify the Azure location where you will deploy your availability group |
 
 Note that your address space and subnet address range may be different from the table. Depending on your subscription Azure will automatically specify an available address space and corresponding subnet address range. If no sufficient address space is available use a different subscription. 
 
@@ -163,7 +164,7 @@ Click **OK**.
    
 Here is a summary of the configuration settings for the virtual network and both subnets.
 
-| Field | Value |
+| **Field** | Value |
 | ----- | ----- |
 | **Name** | **autoHAVNET** |
 | **Address space** | Depends on available address spaces in your subscription. A typical value is 10.0.0.0/16 |
@@ -185,12 +186,12 @@ To create an availablity set go to the resource group and click **Add**. Filter 
 
 Configure two availablity sets according to the parameters in the following table.
 
-| Field | Domain Controller Availabiltiy Set | SQL Server Availablity Set |
+| **Field** | Domain Controller Availabiltiy Set | SQL Server Availablity Set |
 | ----- | ----- | ----- |
-| Name  | adAvailablitySet | sqlAvailabilitySet|
-| Resource group | SQL-HA-RG | SQL-HA-RG |
-| Fault domains | 3 | 3 |
-| Update domains | 5 | 3 |
+| **Name**  | adAvailablitySet | sqlAvailabilitySet|
+| **Resource group** | SQL-HA-RG | SQL-HA-RG |
+| **Fault domains** | 3 | 3 |
+| **Update domains** | 5 | 3 |
 
 After you create the availability sets, return to the resource group in the Azure portal.
 
@@ -200,15 +201,15 @@ All of the resources in this solution are on an Azure virtual network, with no a
 
 To create a load balancer go to the resource group, click **Add** search for **load balancer**, click on **Load balancer** click **Create**. On the create load balancer tag configure the load balancer according to the following table:
 
-| Field | Value  
+| **Field** | Value  
 | ----- | -----
-| Name | rdpLoadBalancer
-| Scheme | Public
-| Public IP Address Name | rdpIP
-| Assignment | Static
-| Subscription | *Your subscription*
-| Resource Group | SQL-HA-RG
-| Location | The same as previous objects
+| **Name** | rdpLoadBalancer
+| **Scheme** | Public
+| **Public IP Address Name** | rdpIP
+| **Assignment** | Static
+| **Subscription** | *Your subscription*
+| **Resource Group** | SQL-HA-RG
+| **Location** | The same as previous objects
 
 >[AZURE.NOTE] For the public IP address, click *Choose a public IP address* and create a new IP address. 
 
@@ -235,23 +236,23 @@ You will go through that process twice to create two virtual machines. Name the 
 
 The following table shows the settings for these two machines.
 
-| Field | Value 
+| **Field** | Value 
 | ----- | ---- 
-| User name  | DomainAdmin
-| Password | Contoso!000 |
-| Subscription | *your subscription* |
-| Resource group | SQL-HA-RG |
-| Location | *your location* 
-| Size | D1_V2 (Standard)
-| Storage type | standard
-| Storage account | *Automatically created*
-| Virtual network | autoHAVNET
-| Subnet | subnet-1
-| Public IP address | None
-| Network Security Group | None
-| Diagnostics | Enabled
-| Diagnostics storage account | *Automatically created*
-| Availability set | adAvailabilitySet
+| **User name**  | DomainAdmin
+| **Password** | Contoso!000 |
+| **Subscription** | *your subscription* |
+| **Resource group** | SQL-HA-RG |
+| **Location** | *your location* 
+| **Size** | D1_V2 (Standard)
+| **Storage type** | standard
+| **Storage account** | *Automatically created*
+| **Virtual network** | autoHAVNET
+| **Subnet** | subnet-1
+| **Public IP address** | None
+| **Network Security Group** | None
+| **Diagnostics** | Enabled
+| **Diagnostics storage account** | *Automatically created*
+| **Availability set** | adAvailabilitySet
 
 >[AZURE.NOTE] You cannot change the availabilty set on a VM after it is created.
 
@@ -338,10 +339,10 @@ In the following steps, configure the ad-primary-dc machine as a domain controll
 
 1. In the **Active Directory Domain Services Configuration Wizard**, use the following values:
 
-|Page|Setting|
+| **Page** |Setting|
 |---|---|
-|Deployment Configuration|**Add a new forest** = Selected<br/>**Root domain name** = corp.contoso.com|
-|Domain Controller Options|**DSRM Password** = Contoso!000<br/>**Confirm Password** = Contoso!000|
+|** Deployment Configuration** |**Add a new forest** = Selected<br/>**Root domain name** = corp.contoso.com|
+|**Domain Controller Options**|**DSRM Password** = Contoso!000<br/>**Confirm Password** = Contoso!000|
 
 1. Click **Next** to go through the other pages in the wizard. On the **Prerequisites Check** page, verify that you see the following message: **All prerequisite checks passed successfully**. Note that you should review any applicable warning messages, but it is possible to continue with the install.
 
@@ -357,8 +358,8 @@ In the following steps, configure the ad-primary-dc machine as a domain controll
 
 |Page|Setting|
 |---|---|
-|Deployment Configuration|**Add a domain controller to an existing domain** = Selected<br/>**Root domain name** = corp.contoso.com|
-|Domain Controller Options|**DSRM Password** = Contoso!000<br/>**Confirm Password** = Contoso!000|
+|**Deployment Configuration**|**Add a domain controller to an existing domain** = Selected<br/>**Root domain name** = corp.contoso.com|
+|**Domain Controller Options**|**DSRM Password** = Contoso!000<br/>**Confirm Password** = Contoso!000|
 
 
 ## Configure Domain Accounts
