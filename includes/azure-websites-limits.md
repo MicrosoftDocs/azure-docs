@@ -31,7 +31,7 @@ SLA||<p>|99.9%|99.95%<sup>10</sup>|99.95%<sup>10</sup>
 <sup>3</sup>Dedicated instances can be of different sizes. See [App Service Pricing](../../pricing/details/app-service/) for more details. Additional instances are available by opening a support request.  
 <sup>4</sup>Premium tier allows up to 50 computes instances (subject to availability) and 500 GB of disk space when using App Service Environments, and 20 compute instances and 250 GB storage otherwise.  
 <sup>5</sup>The storage limit is the total content size across all apps in the
-same App Service plan. Storage limits can be increased by opening a support request.  
+same App Service plan. More storage options are available in [App Service Environment](../articles/app-service-web/app-service-web-configure-an-app-service-environment.md#storage) 
 <sup>6</sup>These resources are constrained by physical resources on the dedicated instances (the instance size and the number of instances).  
 <sup>7</sup>If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances.  
 <sup>8</sup>Premium tier allows backup intervals down up to every 5 minutes when using App Service Environments, and 50 times per day otherwise.  
