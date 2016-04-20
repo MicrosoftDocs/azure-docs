@@ -278,24 +278,21 @@ Apply the following recommendations for generating statistics:
 
 ## Unsupported features
 SQL Data Warehouse does not use or support these features:
-
-- primary keys
-- foreign keys
-- check constraints
-- unique constraints
-- unique indexes
-- computed columns
-- sparse columns
-- user-defined types
-- indexed views
-- sequences
-- triggers
-- synonyms
-
-## Features with workarounds
-- identities
-To 
-
+|Feature|Workaround|
+|---|---|
+|Identities| [Assigning Surrogate Keys]  |
+|primary keys| N/A |
+|foreign keys| N/A |
+|check constraints| N/A |
+|unique constraints| N/A |
+|unique indexes| N/A |
+|computed columns| N/A |
+|sparse columns| N/A |
+|user-defined types| N/A |
+|indexed views| N/A |
+|sequences| N/A |
+|triggers| N/A |
+|synonyms| N/A |
 
 ## Next steps
 For more development tips, see [development overview][].
@@ -304,6 +301,7 @@ For more development tips, see [development overview][].
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
+[Assigning Surrogate Keys]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 
 <!--MSDN references-->
 
