@@ -39,6 +39,9 @@ This tutorial shows you how to:
 Before you begin this tutorial, you must have done the following:
 
 - A workstation with [Azure PowerShell][powershell-install], and [Microsoft Visual Studio](https://www.visualstudio.com/).
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 

@@ -34,15 +34,19 @@ to a Linux-based cluster, see [Analyze Twitter data using Hive in HDInsight (Lin
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation** with Azure PowerShell installed and configured. See [Install and use Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). To execute Windows PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
+- **A workstation** with Azure PowerShell installed and configured. 
 
-	Before running Windows PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-		Login-AzureRmAccount
+    To execute Windows PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
 
-	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
+    Before running Windows PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:
 
-		Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
+        Login-AzureRmAccount
+
+    If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
+
+        Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
 
 
 - **An Azure HDInsight cluster**. For instructions on cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters] [hdinsight-provision]. You will need the cluster name later in the tutorial.

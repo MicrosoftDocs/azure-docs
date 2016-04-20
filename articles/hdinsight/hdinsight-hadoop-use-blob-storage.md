@@ -125,6 +125,8 @@ To create a container, use the following command:
 
 If you [installed and configured Azure PowerShell][powershell-install], you can use the following from the Azure PowerShell prompt to create a storage account and container:
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 	$SubscriptionID = "<Your Azure Subscription ID>"
 	$ResourceGroupName = "<New Azure Resource Group Name>"
 	$Location = "EAST US 2"
