@@ -235,7 +235,7 @@ If a previously functioning ExpressRoute circuit now fails to connect, in the ab
 		CircuitProvisioningState         : Enabled
 		ServiceProviderProvisioningState : NotProvisioned
 
-- If the `ProvisioningState` is not set to `Suceeded` after you tried to create a new circuit, remove the circuit by using the command below and try to create it again.
+- If the `ProvisioningState` is not set to `Succeeded` after you tried to create a new circuit, remove the circuit by using the command below and try to create it again.
 
 	```powershell
 	Remove-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
