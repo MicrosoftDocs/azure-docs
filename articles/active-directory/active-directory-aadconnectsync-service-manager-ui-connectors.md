@@ -40,7 +40,7 @@ The Connectors tab is used to manage all systems the sync engine is connected to
 | Import Connector | Do not use. |
 | Update Connector | Do not use. |
 | Refresh Schema | Refreshes the cached schema. It is preferred to use the option in the installation wizard instead since that will also update sync rules.
-| Search Connector Space | Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system). |
+| [Search Connector Space](#search-connector-space) | Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system). |
 
 ### Delete
 The delete action is used for two different things.

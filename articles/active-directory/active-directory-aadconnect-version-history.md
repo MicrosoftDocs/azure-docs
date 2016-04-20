@@ -37,7 +37,7 @@ Released: 2016 April
 
 - Added support for multi-valued attributes to [Directory Extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
 - Added support for more configuration variations for [automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) to be considered eligible for upgrade.
-- Added some cmdlets for [custom scheduler](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler)
+- Added some cmdlets for [custom scheduler](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## 1.1.119.0
 Released: 2016 March
