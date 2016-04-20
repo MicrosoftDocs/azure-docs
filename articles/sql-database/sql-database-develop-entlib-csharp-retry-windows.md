@@ -22,6 +22,7 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
+
 This topic presents a complete code sample that demonstrates the Enterprise Library(EntLib).  EntLib eases many tasks for client programs that interact with cloud services such as Azure SQL Database. Our sample focuses on the important task of including retry logic for transient faults.
 
 

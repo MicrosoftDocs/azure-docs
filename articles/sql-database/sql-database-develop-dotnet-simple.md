@@ -20,7 +20,9 @@
 
 # Using SQL Database from .NET (C#)
 
+
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
+
 
 ## Step 1:  Configure Development Environment
 

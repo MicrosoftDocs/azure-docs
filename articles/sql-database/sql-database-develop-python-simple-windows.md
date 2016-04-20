@@ -20,6 +20,7 @@
 
 # Connect to SQL Database by using Python on Windows
 
+
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 

@@ -20,7 +20,11 @@
 
 # Code sample: Retry logic in C# for connecting to SQL Database
 
+
+
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
+
+
 
 This topic provides a C# code sample that demonstrates custom retry logic. The retry logic is designed to gracefully process temporary errors or *transient faults* that tend to go away if the program waits a few seconds and retries.
 
