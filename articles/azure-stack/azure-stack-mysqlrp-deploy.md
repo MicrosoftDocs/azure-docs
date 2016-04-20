@@ -47,7 +47,7 @@ Before deploying MySQL resource providers, turn off IE Enhanced Security, instal
   - mysql-5.6.26-winx64.zip
   - \_.AzureStack.local.pfx
 
-## Deploy a MySQL resource provider
+## Deploy the MySQL resource provider VM
 
 Now that you have prepared the Azure Stack POC with the necessary certificates and marketplace items, you can deploy a MySQL resource provider.
 
