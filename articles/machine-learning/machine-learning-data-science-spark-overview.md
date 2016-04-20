@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="04/20/2016"
 	ms.author="bradsev" />
 
 # Overview of Data Science using Spark on Azure HDInsight
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
-
-## Introduction
 
 Spark on Azure HDInsight is able to manipulate data in-memory while processing it on an HDInsight (Hadoop) cluster in a distributed way. This Spark cluster thus combines speed with capacity. It also includes support for Jupyter notebooks on the Spark cluster that can run Spark SQL interactive queries for transforming, filtering and visualizing data stored in Azure Blobs (WASB).
 
