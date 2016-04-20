@@ -62,6 +62,8 @@ Microsoft provides the following utilities to work with Azure Blob storage:
 
 The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 1. [Install and configure the Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
 
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
@@ -103,6 +105,8 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 ###<a id="powershell"></a>Azure PowerShell
 
 Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
+
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **To upload a local file to Azure Blob storage**
 

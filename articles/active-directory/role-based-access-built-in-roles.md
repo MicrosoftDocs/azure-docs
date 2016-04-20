@@ -13,19 +13,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="04/18/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Built-in roles
 
 ## Built-in roles
 
-Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources.
+Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
 
-Click the links below to see the **actions** and **not actions** properties of a role definition. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property of a role definition specifies the actions that must be excluded from the allowed actions.
+The table below provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **not actions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property specifies the actions that are excluded from the allowed actions.
 
 
-| Role Name | Description |
+| Role name | Description |
 | --------- | ----------- |
 | [API-Management Service Contributor](#api-management-service-contributor) | Can manage API Management services |
 | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components |
@@ -45,24 +45,24 @@ Click the links below to see the **actions** and **not actions** properties of a
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Can manage scheduler job collections |
 | [Search Service Contributor](#search-service-contributor) | Can manage search services |
 | [Security Manager](#security-manager) | Can manage security components, security policies, and virtual machines |
-| [SQL DB Contributor](#sql-db-contributor) | Can manage SQL databases but not their security related policies |
+| [SQL DB Contributor](#sql-db-contributor) | Can manage SQL databases, but not their security related policies |
 | [SQL Security Manager](#sql-security-manager) | Can manage the security related policies of SQL servers and databases |
-| [SQL Server Contributor](#sql-server-contributor) | Can manage SQL servers and databases but not their security-related policies |
+| [SQL Server Contributor](#sql-server-contributor) | Can manage SQL servers and databases, but not their security-related policies |
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) | Can manage classic storage accounts |
 | [Storage Account Contributor](#storage-account-contributor) | Can manage storage accounts |
 | [User Access Administrator](#user-access-administrator) | Can manage user access to Azure resources |
-| [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Can manage classic virtual machines but not the virtual network or storage account to which they are connected |
-| [Virtual Machine Contributor](#virtual-machine-contributor) | Can manage virtual machines but not the virtual network or storage account to which they are connected |
+| [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Can manage classic virtual machines, but not the virtual network or storage account to which they are connected |
+| [Virtual Machine Contributor](#virtual-machine-contributor) | Can manage virtual machines, but not the virtual network or storage account to which they are connected |
 | [Classic Network Contributor](#classic-network-contributor) | Can manage classic virtual networks and reserved IPs |
 | [Web Plan Contributor](#web-plan-contributor) | Can manage web plans |
-| [Website Contributor](#website-contributor) | Can manage websites but not the web plans to which they are connected |
+| [Website Contributor](#website-contributor) | Can manage websites, but not the web plans to which they are connected |
 
 ### API Management Service Contributor
 Can manage API Management services
 
 | **Actions** | |
 | ------- | ------ |
-| Microsoft.ApiManagement/Services/* | Create and manage API Management Services  |
+| Microsoft.ApiManagement/Services/* | Create and manage API Management Services |
 | Microsoft.Authorization/*/read | Read authorization |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
 | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource groups |
@@ -134,7 +134,7 @@ Can manage everything except access
 | ------- | ------ |
 | * | Create and manage resources of all types |
 
-| **Not Actions** |  |
+| **Not Actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | Can’t create roles and role assignments |
 | Microsoft.Authorization/*/Delete | Can’t delete roles and role assignments |
@@ -304,9 +304,9 @@ Can manage SQL databases but not their security related policies
 | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource group resources |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
-| Microsoft.Support/* | Create and manage support tickets  |
+| Microsoft.Support/* | Create and manage support tickets |
 
-| **Not Actions** |  |
+| **Not Actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit connection policies |
@@ -348,7 +348,7 @@ Can manage SQL servers and databases but not their security related policies
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.Support/* | Create and manage support tickets |
 
-| **Not Actions** | |
+| **Not Actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Can't edit SQL server auditing policies |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit SQL server database auditing policies |
@@ -488,5 +488,8 @@ Can manage websites but not the web plans to which they are connected
 | Microsoft.Support/* | Create and manage support tickets |
 | Microsoft.Insights/components/* | Create and manage Insights components |
 
-## RBAC Topics
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+## See also
+- [Role-Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+- [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
+- [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
+- [Role-Based Access Control troubleshooting](role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
