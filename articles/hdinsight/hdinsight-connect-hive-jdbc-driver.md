@@ -161,7 +161,7 @@ __Symptoms__: When connecting to an HDInsight cluster that is version 3.3 or 3.4
     at java.util.concurrent.FutureTas...(FutureTask.java:122)
     at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
-__Cause__: This error is caused by a mismatch in the version of the commons_codec.jar file used by SQuirreL and the one required by the Hive JDBC components downloaded from the HDInsight cluster.
+__Cause__: This error is caused by a mismatch in the version of the common-codec.jar file used by SQuirreL and the one required by the Hive JDBC components downloaded from the HDInsight cluster.
 
 __Resolution__: To fix this error, use the following steps.
 
