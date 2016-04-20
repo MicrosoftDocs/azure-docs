@@ -18,7 +18,7 @@
 
 # BizTalk XML Validator
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Use the BizTalk XML Validator connector in your app to validate XML data against predefined XML schemas. Users can use existing schemas or generate schemas based on a flat file instance, JSON instance, or existing connectors.
 

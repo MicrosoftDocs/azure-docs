@@ -18,7 +18,7 @@
 
 # BizTalk Transform
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## Overview
 The BizTalk Transform API App converts data from one format to another format. For example, you might take shipping and billing addresses from a purchase order and insert them into an invoice document. Or you may have an incoming message that contains the current date in the *YearMonthDay* format. You want to reformat the date to be in the *MonthDayYear* format. 

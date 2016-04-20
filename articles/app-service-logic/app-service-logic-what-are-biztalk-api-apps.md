@@ -17,7 +17,9 @@
 	ms.author="mandia"/>
 
 # What are Connectors and BizTalk API Apps
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 Azure App Services is built atop a principle of extensibility and common connectivity through API Apps. A *Connector* is a type of API App that focuses on connectivity. Connectors, like any other API App, are used from Web Apps, Mobile Apps, and Logic Apps. Connectors make it easy to connect to existing services and help manage authentication, provide monitoring, analytics, and more.
 

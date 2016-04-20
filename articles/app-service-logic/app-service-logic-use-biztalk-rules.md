@@ -18,7 +18,7 @@
 
 #BizTalk Rules
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Business Rules encapsulates the policies and decisions that control business processes. These policies may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. These policies are dynamic and subject to change over time due to changes in business plans, regulations or other reasons.
 

@@ -18,7 +18,8 @@
 
 # Creating a B2B process
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 ## Business Scenario 
 Contoso and Northwind are two business partners. Contoso (the retailer) sends purchase orders to Northwind (the supplier) over an industry level transport such as AS2. Northwind stores all incoming orders in its Cloud storage. The purchase orders are XML messages between these two partners. Once the message is stored in Northwind's cloud storage then Northwind's internal processes handle the order from that point on.

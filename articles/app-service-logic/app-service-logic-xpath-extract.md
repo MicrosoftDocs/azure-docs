@@ -18,7 +18,8 @@
 
 # BizTalk XPath Extractor
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 BizTalk XPath Extract connector helps your app lookup and extract data from XML content based on a given XPath.
 

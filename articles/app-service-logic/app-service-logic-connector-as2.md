@@ -17,7 +17,8 @@
    ms.author="rajram"/>
 
 # Get started with the AS2 Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Use the AS2 Connector to receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet. Security is achieved using digital certificates and encryption.
 

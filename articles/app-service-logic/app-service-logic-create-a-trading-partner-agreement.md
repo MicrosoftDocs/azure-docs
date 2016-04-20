@@ -18,7 +18,7 @@
 
 # Creating a Trading Partner Agreement   
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners establish a relationship, this is referred to as an *Agreement*. The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific. The various B2B protocols and transports supported by Azure App Service include:
 

@@ -17,7 +17,9 @@
    ms.author="rajram"/>
 
 # Get started with the BizTalk JSON Encoder and add it to your Logic App 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 BizTalk JSON Encode Decode connector helps your app interop between JSON and XML data. It can convert a given JSON instance to XML and vice versa.
 
