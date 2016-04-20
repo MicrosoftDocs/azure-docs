@@ -19,7 +19,12 @@
 
 # Archive Overview of AS2 Connector Messages
 
-[AZURE.INCLUDE [app-service-logic-version-message] (..\..\includes\app-service-logic-version-message.md)]
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]  
+
+
+
+
 
 The [AS2 Connector](app-service-logic-connector-as2.md) exposes the ability to archive messages. Archiving stores the message in the **Azure Blob Container** that is a part of package settings. 
 
