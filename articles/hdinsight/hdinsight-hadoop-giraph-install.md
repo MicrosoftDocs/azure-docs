@@ -42,10 +42,6 @@ You can install Giraph on any type of cluster (Hadoop, Storm, HBase, Spark) on A
 
 ## Install Giraph using portal
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-v1.md)
-
 1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md#portal).
 2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the script action, as shown below:
 
