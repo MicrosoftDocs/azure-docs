@@ -34,6 +34,8 @@ Before you begin this tutorial, you must have the following:
 - **Workstation**: A computer with an SSH client.
 - **Azure CLI**: For more information, see [Install and Configure the Azure CLI](../xplat-cli-install.md)
 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 ##Sqoop export
 
 2. Use the following command to create a link to the SQL Server JDBC driver from the Sqoop lib directory. This allows Sqoop to use this driver to talk to SQL Database:
