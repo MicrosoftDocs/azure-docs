@@ -48,8 +48,6 @@ At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will cons
 
 - An availability group with two synchronous-commit replicas of an availability database
 
-After completing the tutorial you will need to configure a load balancer in azure and the listener on the cluster. For instructions, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-sql-gui-int-listener.md). 
-
 The figure below is a graphical representation of the solution.
 
 ![Architecture for AG in ARM](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/00-EndstateSample.png)
@@ -765,9 +763,54 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 >[AZURE.WARNING] Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The WSFC Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
 
+## Configure an internal load balancer in Azure and an availablity group listener in the cluster
+
+In order to connect to the availability group directly, you need to configure an internal load balancer in Azure and then create the listener on the cluster. This section provides a high level overview of those steps. For detailed instructions, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-sql-gui-int-listener.md).  
+
+### Create the load balancer in Azure
+
+1. In the Azure portal, go to **SQL-HA-RG** and click **+ Add**.
+
+1. Search for **Load Balancer**. Choose the load balancer published by Microsoft and click **Create**.
+
+1. Configure the following parameters for the load balancer.
+
+| Setting | Field |
+| --- | ---
+| **Name** | sqlLB
+| **Scheme** | Internal
+| **Virtual network ** | autoHAVNET
+| **Subnet** | subnet-2
+| **IP address assignment** | Static
+| **IP address** | Use an available address from subnet-2.
+| **Subscription** | Use the same subscription as all other resources in this solution.
+| **Location** | Use the same location as all other resources in this solution.
+
+Click **Create**.
+
+Make the following settings on the load balancer:
+
+| Setting | Field |
+| --- | ---|
+| **Backend pool** Name | sqlLBBE 
+| **SQLLBBE Availability set** | sqlAvailabilitySet
+| **SQLLBBE Virtual machines** | sqlserver-0, sqlserver-1
+| **SQLLBBE Used by** | SQLAlwaysOnEndPointListener
+| **Probe** Name | SQLAlwaysOnEndPointProbe
+| **Probe Protocol** | TCP
+| **Probe Port** | 59999 - Note that you can use any unused port.
+| **Probe Interval** | 5
+| **Probe Unhealthy threshold** | 2
+| **Probe Used by** | SQLAlwaysOnEndPointListener
+| **Load balancing rules** Name | SQLAlwaysOnEndPointListener
+| **Load balancing rules Protocol** | TCP
+| **Load balancing rules Port** | 1433 - Note that this is because this is the SQL Server default port.
+| **Load balancing rules Backend Pool** | SQLLBBE
+| **Load balancing rules Probe** | SQLAlwaysOnEndPointProbe
+| **Load balancing rules Session Persistence** | None
+| **Load balancing rules Idle Timeout ** | 4
+| **Floating IP (direct server return)** | Enabled
+
 ## Next Steps
-You have now successfully implemented SQL Server AlwaysOn by creating an availability group in Azure. For instructions, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-sql-gui-int-listener.md). 
-
-
 
 For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
