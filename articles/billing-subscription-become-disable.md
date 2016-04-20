@@ -22,7 +22,7 @@
 
 If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it. Your Azure subscription can become disabled for the following reasons:
 
-## You may have reached the spending limit
+## You have reached your spending limit
 
 To protect you from accidentally incurring charges for usage beyond the included offer amount, we have introduced the [Spending Limit](https://azure.microsoft.com/pricing/spending-limits/) feature. When your usage exhausts the monthly amounts included in your offer, we will disable your service for the remainder of that billing month. You can opt to remove the spending limit to avoid this and [set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md) to help you monitor and manage billing activity for your Azure accounts.
 
@@ -38,11 +38,11 @@ Here is how you can remove your Spending Limit:
 |------|------|
 |Remove spending limit indefinitely|Removes the spending limit without turning it on automatically at the start of the next billing period.|
 |Remove spending limit for the current billing period|Removes the spending limit so that it turns back on automatically at the start of the next billing period.|
-## Payment of an invoice is past due
+## Your bill is past due
 
 Pay your outstanding balance in full. To do this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
 
-## The bill may exceed your credit card limit
+## The bill exceeds your credit card limit
 
 To resolve this issue, use one of the following method:
 
@@ -56,7 +56,7 @@ To re-enable a cancelled subscription, you must create a support ticket: sign in
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
-If you cannot access the portal, submit the support request from the Azure Support web site or from the Azure Accounts Center:
+If you cannot access the portal, submit a support request from the Azure Support web site or from the Azure Accounts Center:
 
  * To submit a support ticket from the [Azure Support web site](https://azure.microsoft.com/support/options/), click **Get support**.
  * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
