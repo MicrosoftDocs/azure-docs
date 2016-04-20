@@ -1,6 +1,6 @@
 <properties
  pageTitle="Scheduler Outbound Authentication"
- description=""
+ description="Scheduler Outbound Authentication"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"

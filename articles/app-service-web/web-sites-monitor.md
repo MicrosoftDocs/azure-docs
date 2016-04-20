@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="04/04/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitor Web Apps in Azure App Service
@@ -201,7 +201,7 @@ You may also view a lie stream of log events by using the following command:
 
 This will display log information to the command prompt, PowerShell, bash or terminal session that the command is ran from.
 
-> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure CLI](../virtual-machines-command-line-tools.md) for installation and configuration information.
+> [AZURE.NOTE] If the **azure** command is not installed, see [Install the Azure CLI](../xplat-cli-install.md) for installation and configuration information.
 
 ### Reading log files ###
 
