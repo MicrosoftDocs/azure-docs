@@ -365,7 +365,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 	    } 
 
 
-4. Add the following four methods to the `TeamsController` class to implement the various ways of retrieving the teams data from the cache and the database.
+4. Add the following four methods to the `TeamsController` class to implement the various ways of retrieving the team statistics from the cache and the database.
 
     The `GetFromDB` method reads the team statistics from the database.
 
@@ -602,7 +602,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 If you want to use the MSOpenTech port of Redis to host the cache locally on your machine, download the latest [MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases/) version, and simply run `redis-server.exe` on your local machine before starting the sample. The sample will connect to your local cache using a connection string of `127.0.0.1:6739`, as configured previously. For more information, see [Is there a local emulator for Azure Redis Cache?](cache-faq.md#is-there-a-local-emulator-for-azure-redis-cache) from the [Azure Redis Cache FAQ](cache-faq.md).
 
-If you want to run the sample locally and connect to an Azure Redis Cache instance hosted in Azure, update the cache connection string to point to your cache, as shown in the following example.
+If you want to run the sample locally and connect to an Azure Redis Cache instance hosted in Azure, update the cache connection string to point to your cache, as shown in the following example. For more information about connecting to the cache, see [Connect to the cache](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
 
     `<add name="Cache" connectionString="contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>`
 
@@ -615,7 +615,7 @@ The following table describes each action link from the sample application.
 | Action                  | Description                                                                                                                                                      |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Create New              | Create a new Team.                                                                                                                                               |
-| Play Season             | Play a season of games, update the team stats, and clear the teams data from the cache.                                                                          |
+| Play Season             | Play a season of games, update the team stats, and clear any outdated team data from the cache.                                                                          |
 | Clear Cache             | Clear the team stats from the cache.                                                                                                                             |
 | List from Cache         | Retrieve the team stats from the cache. If there is a cache miss, load the stats from the database and save to the cache.                                        |
 | Sorted Set from Cache   | Retrieve the team stats from the cache using a sorted set. If there is a cache miss, load the stats from the database and save to the cache using a sorted set.  |
