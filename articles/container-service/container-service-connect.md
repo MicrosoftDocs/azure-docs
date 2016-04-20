@@ -38,7 +38,7 @@ Now open a shell and run the following command where:
 **USERNAME** is the user name that was provided when you deployed the cluster.  
 **DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
 **REGION** is the region in which your resource group is located.  
-**PATH_TO_PRIVATE_KEY** [OPTIONAL] is the path to the private key corresponding to the public key you provided when creating the container service cluster.
+**PATH_TO_PRIVATE_KEY** [OPTIONAL] is the path to the private key corresponding to the public key you provided when creating the container service cluster. Use this option with the -i flag.
 
 ```bash
 # ssh sample
@@ -54,7 +54,7 @@ To open a tunnel to the DC/OS-related endpoints, execute a command that is simil
 ```bash
 # ssh sample
 
-sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200 -i ~/.ssh/id_rsa
+sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 You can now access the DC/OS-related endpoints at:
