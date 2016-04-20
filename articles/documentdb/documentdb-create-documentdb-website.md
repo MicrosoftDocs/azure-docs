@@ -2,7 +2,7 @@
 	pageTitle="Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template | Microsoft Azure" 
 	description="Learn how to deploy a DocumentDB account, Azure App Service Web Apps, and a sample web application using an Azure Resource Manager template." 
 	services="documentdb, app-service\web" 
-	authors="ryancrawcour" 
+	authors="stephbaron" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,9 +14,9 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/01/2016" 
-	ms.author="ryancraw"/>
+	ms.author="stbaro"/>
 
-# Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template #
+# Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template
 
 This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app, and a sample web application.
 
@@ -26,7 +26,7 @@ After completing this tutorial, you'll be able to answer the following questions
 -	How can I use an Azure Resource Manager template to deploy and integrate a DocumentDB account, a web app in App Service Web Apps, and a Webdeploy application?
 
 <a id="Prerequisites"></a>
-## Prerequisites ##
+## Prerequisites
 > [AZURE.TIP] While this tutorial does not assume prior experience with Azure Resource Manager templates, JSON, or Azure PowerShell, should you wish to modify the referenced templates or deployment options, then knowledge of each of these areas will be required.
 
 Before following the instructions in this tutorial, ensure that you have the following:
@@ -47,7 +47,7 @@ Let's start by downloading the sample files we will use in this tutorial.
 ![Screenshot of the Properties window with the Unblock button highlighted](./media/documentdb-create-documentdb-website/image1.png)
 
 <a id="Build"></a>
-##Step 2: Deploy the Document account, App Service web app and demo application sample ##
+##Step 2: Deploy the Document account, App Service web app and demo application sample
 
 Now let's deploy our first template.
 
@@ -147,7 +147,7 @@ Now let's deploy our first template.
 12. Feel free to explore the DocumentDB portal experience or modify the sample Todo application.  When you're ready, let's deploy another template.
 	
 <a id="Build"></a> 
-## Step 3: Deploy the Document account and web app sample ##
+## Step 3: Deploy the Document account and web app sample
 
 Now let's deploy our second template.
 
