@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="04/20/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -234,7 +234,7 @@ There is no local emulator for Azure Redis Cache, but you can run the MSOpenTech
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
 		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
-	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	    return ConnectionMultiplexer.Connect("127.0.0.1:6379");
 	});
 	
 	public static ConnectionMultiplexer Connection
