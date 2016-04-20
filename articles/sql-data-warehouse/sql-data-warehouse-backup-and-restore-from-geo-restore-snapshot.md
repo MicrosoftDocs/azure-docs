@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="04/20/2016"
    ms.author="sahajs;barbkess"/>
 
 # Recover a database from an outage in SQL Data Warehouse
@@ -41,9 +41,10 @@ Recovering a database creates a new database from the latest geo-redundant backu
 
 
 ### PowerShell
-Use Azure PowerShell to programmatically perform database recovery. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). You can check your version by running Get-Module -ListAvailable -Name Azure. This article is based on Microsoft Azure PowerShell version 1.0.4.
 
 To recover a database, use the [Restore-AzureRmSqlDatabase][] cmdlet.
+
+> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The lastest version can be installed from  [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on installing the lastest version, see [How to install and configure Azure PowerShell](./powershell-install-configure.md).
 
 1. Open Windows PowerShell.
 2. Connect to your Azure account and list all the subscriptions associated with your account.
