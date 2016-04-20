@@ -70,5 +70,5 @@ The following table provides different examples of log queries that retrieve Win
 ## Next steps
 
 - Learn about log searches to analyze the data collected from data sources and solutions. 
-- Use [Custom Fields](log-analytics-custom-fields.md) to parse the event records into individual fields.
-- Configure [collection of performance counters](log-analytics-data-sources-windows-performance-counters.md) from your Windows agents.
+- Use Custom Fields to parse the event records into individual fields.
+- Configure [collection of performance counters](log-analytics-data-sources-performance-counters.md) from your Windows agents.

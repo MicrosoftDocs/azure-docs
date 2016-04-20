@@ -67,4 +67,4 @@ All data collected by Log Analytics is stored in the OMS repository as records. 
 
 - Learn about solutions that add functionality to Log Analytics and also collect data into the OMS repository.
 - Learn about log searches to analyze the data collected from data sources and solutions. 
-- Configure [alerts](log-analytics-alerts.md) to proactively notify you of critical data collected from data sources and solutions.
+- Configure alerts to proactively notify you of critical data collected from data sources and solutions.

@@ -21,7 +21,7 @@ Performance counters in Windows and Linux provide insight into the performance o
 
 ![Performance counters](media/log-analytics-data-sources-performance-counters/overview.png)
 
-# Configuring Performance counters
+## Configuring Performance counters
 
 Configure  Performance counters from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md/configuring-data-sources).
 
@@ -46,14 +46,14 @@ Follow this procedure to add a new Linux performance counter to collect.
 3. All counters for an object will use the same **Sample Interval**.  The default is 10 seconds, and you change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
 4. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
 
-# Data collection
+## Data collection
 
 Log Analytics will collect all specified performance counters at their specified sample interval on all agents that have that counter installed.  Raw data will be available for 14 days in the expanded graph view in the OMS console.  
 
 All collected performance data is aggregated at 30 minute intervals.  The aggregated data is available in all log search views for the duration specified by your OMS subscription.
 
 
-# Performance record properties
+## Performance record properties
 
 Performance records are created from performance data aggregated over 30 minute intervals.  The value for the record is the average value of the counter fore the previous 30 minutes.  Records are not created for raw NRT data.  The raw data is only available in the **Metrics** view of the OMS console.
 
@@ -70,13 +70,13 @@ Performance records have a type of **Perf** and have the [standard properties of
 
 
 
-# Sizing estimates
+## Sizing estimates
 
  A rough estimate for collection of a particular counter at 10 second intervals is about 1 MB per day per instance.  You can estimate the storage requirements of a particular counter with the following formula.
 
 	1 MB x (number of counters) x (number of agents) x (number of instances)
 
-# Log queries with Performance records
+## Log queries with Performance records
 
 The following table provides different examples of log queries that retrieve Performance records.
 
@@ -107,4 +107,4 @@ If the time range you have selected is 6 hours or less, then the graph will disp
 ## Next steps
 
 - Learn about log searches to analyze the data collected from data sources and solutions. 
-- Export collected data to [Power BI](log-analytics-powerbi.md) for additional visualizations and analysis.
+- Export collected data to Power BI for additional visualizations and analysis.
