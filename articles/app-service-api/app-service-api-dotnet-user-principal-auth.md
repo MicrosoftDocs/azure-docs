@@ -84,7 +84,7 @@ If you want to follow this tutorial without going through the first and second t
  
 3. Download or clone the [To Do List sample repository](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) to get the code that you'll work with locally in Visual Studio.
 
-These steps get you to the same starting point as if you did the first two tutorials, with one exception: Visual Studio won't already know which web app or API app that each project gets deployed to. When you deploy a project, you'll have to select the the Azure web app or API app to deploy to. To get the web app and API app names, open the Azure portal and browse to the resource group blade for the resource group that you created by clicking the **Deploy to Azure** button.
+These steps get you to the same starting point as if you did the first two tutorials, with one exception: Visual Studio won't already know which web app or API app that each project gets deployed to. When you deploy a project, you'll have to select the the Azure web app or API app to deploy to. To get the web app and API app names, open the Azure portal and browse to the resource group blade for the resource group that you created when you clicked the **Deploy to Azure** button.
 
 ## <a id="azureauth"></a> Set up authentication in App Service and Azure AD
 
