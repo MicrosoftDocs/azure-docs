@@ -22,13 +22,6 @@ The following are advanced operational topics that allow you to customize Azure 
 ## Add additional sync administrators
 By default only the user who did the installation and local administrators will be able to manage the installed sync engine. For additional people to be able to access and manage the sync engine, locate the group named ADSyncAdmins on the local server and add them to this group.
 
-## Optional configuration on your AD FS service
-You can customize the illustration and logo image for your AD FS login pages by logging into the AD FS and using PSH to make this configuration.
-
-	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
-
-See [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx) for a full description on configuration possibilities.
-
 ## Assigning licenses to Azure AD Premium and Enterprise Mobility users
 
 Now that your users have been synchronized to the cloud, you will need to assign them a license so they can get going with cloud apps such as Office 365.

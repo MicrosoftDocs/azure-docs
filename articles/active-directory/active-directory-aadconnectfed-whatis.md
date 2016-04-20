@@ -30,18 +30,17 @@ This topic is the home for information on Federation related functionalities for
 | **Azure AD Connect user sign-in options** ||
 | [Understanding User sign-in options](active-directory-aadconnect-user-signin.md) | Description of various user sign-in options and how they affect Azure sign-in user experience |
 | **AD FS installation using Azure AD Connect**||
-| [Pre-requisites](active-directory-aadconnect-get-started-custom.md#AD-FS-configuration-pre-requisites) | Pre-requisites for a successful AD FS installation via Azure AD Connect|
-| [Configure AD FS farm](active-directory-aadconnect-get-started-custom.md#Configuring-federation-with-AD-FS) | How to install a new AD FS farm using Azure AD Connect |
-| [Troubleshooting AD FS configuration]() | Troubleshooting issues faced during AD FS configuration using Azure AD wizard |
+| [Pre-requisites](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) | Pre-requisites for a successful AD FS installation via Azure AD Connect|
+| [Configure AD FS farm](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) | How to install a new AD FS farm using Azure AD Connect |
 | **Modifying the AD FS configuration** | |
-| [Repairing the trust](active-directory-aadconnect-federation-management.md#Reparing-the-trust) | How to repair current trust between on-premises AD FS and Office 365 / Azure |
-| [Adding a new AD FS server](active-directory-aadconnect-federation-management.md#Adding-a-new-ad-fs-server) | Expanding AD FS farm with additional AD FS server post initial installation |
+| [Repairing the trust](active-directory-aadconnect-federation-management.md#reparing-the-trust) | How to repair current trust between on-premises AD FS and Office 365 / Azure |
+| [Adding a new AD FS server](active-directory-aadconnect-federation-management.md#adding-a-new-ad-fs-server) | Expanding AD FS farm with additional AD FS server post initial installation |
 | [Adding a new AD FS WAP server](active-directory-aadconnect-federation-management.md#adding-a-new-wap-server) | Expanding AD FS farm with additional WAP server post initial installation |
 | [Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain) | Add another domain to be federated with Azure AD |
 |**Post installation tasks**||
 | [Add custom company logo / illustration](active-directory-aadconnect-federation-management.md#add-custom-company-logo-or-illustration)| Modify the sign-in experience by specifying the custom logo that will be shown on the AD FS sign-in page |
 | [Add sign-in description](active-directory-aadconnect-federation-management.md#add-sign-in-description) | Changing sign-in description on the AD FS sign-in page | 
-| [Modifying AD FS claim rules](active-directory-aadconnect-federation-management.md#Modifying-ad-fs-claim-rules) | Modify / add claim rules in AD FS corresponding to Azure AD Connect sync configuration |
+| [Modifying AD FS claim rules](active-directory-aadconnect-federation-management.md#modifying-ad-fs-claim-rules) | Modify / add claim rules in AD FS corresponding to Azure AD Connect sync configuration |
 
 
 ## Additional Resources
