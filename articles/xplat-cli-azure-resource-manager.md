@@ -232,6 +232,6 @@ Using the Azure CLI, you can either export a template that represents the curren
 ## Next steps
 
 * For information on working with Azure Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
-* For information on working with Azure Resource Manager from the Azure portal, see [Using the Azure Portal to deploy and manage your Azure resources](resource-group-portal.md).
+* For information on working with Azure Resource Manager from the Azure portal, see [Using the Azure Portal to deploy and manage your Azure resources](./azure-portal/resource-group-portal.md).
 
 
