@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Customize the Azure AD B2C user interface (UI)
 
-User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active consumers and truly engaged ones. Azure Active Directory (Azure AD) B2C lets you customize consumer sign-up, sign-in (*see note below*), and profile editing pages with pixel-perfect control.
+User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active consumers and truly engaged ones. Azure Active Directory (Azure AD) B2C lets you customize consumer sign-up, sign-in (*see note below*), profile editing, and  password reset pages with pixel-perfect control.
 
 > [AZURE.NOTE]
-Currently, local account sign-in pages, verification emails and self-service password reset pages can be customized only by using the [company branding feature](../active-directory/active-directory-add-company-branding.md) and not by the mechanisms described in this article.
+Currently, local account sign-in pages (and its accompaning password reset pages) and verification emails can be customized only by using the [company branding feature](../active-directory/active-directory-add-company-branding.md) and not by the mechanisms described in this article.
 
 In this article, you will read about:
 
@@ -36,7 +36,7 @@ In this article, you will read about:
 
 With the page UI customization feature, you can customize the look and feel of consumer sign-up, sign-in, and profile-editing pages (by configuring [policies](active-directory-b2c-reference-policies.md)). Your consumers will have consistent experiences when navigating between your application and pages that are served by the Azure AD B2C service.
 
-Unlike other services where UI options are limited or are only available via APIs, Azure AD B2C uses a modern (and simpler) approach to page UI customization. Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges UI elements from Azure AD B2C with the content loaded from your URL, and displays the page to your consumer. All you need to do is create well-formed HTML5 content with a `<div id="api"></div>` element located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted. This content must be hosted on an HTTPS endpoint (with CORS allowed). You can also fully style UI elements of Azure AD B2C.
+Unlike other services where UI options are limited or are only available via APIs, Azure AD B2C uses a modern (and simpler) approach to page UI customization. Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges UI elements from Azure AD B2C with the content loaded from your URL, and displays the page to your consumer. All you need to do is create well-formed HTML5 content with a `<div id="api"></div>` element (needs to be an empty element) located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted. This content must be hosted on an HTTPS endpoint (with CORS allowed). You can also fully style UI elements of Azure AD B2C.
 
 ## Try out the UI customization feature
 
@@ -44,7 +44,7 @@ If you want to try out the UI customization feature by using our sample HTML and
 
 ## The core UI elements in each type of page
 
-In the following sections, you will find examples of HTML5 fragments (for each type of page) that Azure AD B2C merges into the <div id="api"></div> element located in your content. You can use your own style sheets to customize these UI elements. These style sheets will have to override the default style sheets that we add into these pages in the <head> fragments.
+In the following sections, you will find examples of HTML5 fragments that Azure AD B2C merges into the <div id="api"></div> element located in your content. Do not insert these fragments in your HTML 5 content. They are only shown here for illustration purposes; the Azure AD B2C service inserts them at run-time. You can use your own style sheets to customize these UI elements. These style sheets will have to override the default style sheets that we add into these pages in the <head> fragments.
 
 > [AZURE.IMPORTANT]
 	During preview, expect the exact UI elements to change as we learn and adapt from your feedback. Always inspect the source code of default pages for the latest updates. In fact, the first change being considered is the removal of our default style sheets; this would mean that you would always have to supply your own style sheets for these UI elements in your content.
@@ -265,7 +265,7 @@ On this page, users can verify their phone numbers (using text or voice) during 
 
 If you are planning to use the page UI customization feature, review the following best practices:
 
-- Don't copy the Azure AD B2C default template and attempt to modify it. It is best to build your HTML5 content from scratch and to use the default template as reference.
+- Don't copy the Azure AD B2C's default content and attempt to modify it. It is best to build your HTML5 content from scratch and to use default content as reference.
 - For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out of the box. If not, use [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) to request new functionality.
 - Supported browser versions:
 	- Internet Explorer 11
