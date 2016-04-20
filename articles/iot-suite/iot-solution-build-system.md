@@ -109,7 +109,7 @@ Unzip the file to a folder with a short path name, such as C:\\code.
 
 Alternatively, if you want to keep up to date with or contribute to our code, clone the repository as follows:
 
-> git clone <https://github.com/Azure-Samples/MyDriving.git>
+**git clone https://github.com/Azure-Samples/MyDriving.git**
 
 ## Add Bing maps developer code
 
