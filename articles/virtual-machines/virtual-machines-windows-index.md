@@ -1,6 +1,5 @@
 <properties
-   pageTitle="Technical articles for Windows VMs |
-    Microsoft Azure"
+   pageTitle="Technical articles for classic Windows VMs | Microsoft Azure"
    description="A complete list of Microsoft Azure documentation articles for Windows virtual machines in the classic deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
