@@ -25,8 +25,9 @@
 
 ### Prerequisites
 Before starting, be sure you have the following prerequisites.
-	- A V12 Azure SQL Server to host the database
-	- Know the resource group name for the SQL Server.
+
+- A V12 Azure SQL Server to host the database
+- Know the resource group name for the SQL Server.
 
 ## Creating a SQL Data Warehouse database
 
