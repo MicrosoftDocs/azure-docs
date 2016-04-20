@@ -69,9 +69,12 @@ This task can be completed using either the Office 365 account portal, the Windo
 
 In Azure AD, you can very easily set up a simple rule (a rule that makes only a single comparison) to determine which users are to be members of the group. For example, if a group is assigned to a SaaS application, and you set up a rule to add users who have a job title of "Sales Rep," all users within your Azure AD directory with that job title will have access to this SaaS application.
 
-> [AZURE.NOTE] You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships are not supported for group-based assignment to applications at this time. Dynamic memberships for groups require that an Azure AD Premium license is assigned to
->- The administrator who manages the rule on a group
->- All users who are selected by the rule to be a member of the group
+> [AZURE.NOTE] You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships are not supported for group-based assignment to applications at this time.
+>
+> Dynamic memberships for groups require an Azure AD Premium license to be assigned to
+> 
+> - The administrator who manages the rule on a group
+> - All users who are selected by the rule to be a member of the group
 
 **To enable dynamic membership for a group**
 
