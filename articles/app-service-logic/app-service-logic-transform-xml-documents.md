@@ -2,7 +2,7 @@
 	pageTitle="Using the BizTalk Transform in logic apps in Azure App Service| Microsoft Azure" 
 	description="Learn how to transform XML documents from one schema to another" 
 	authors="anuragdalmia" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="04/20/2016"
 	ms.author="anuragdalmia"/>
 
 # BizTalk Transform
