@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="04/20/2016"
    ms.author="richcar"/>
 
 # ExpressRoute for Cloud Solution Providers (CSP)
 
- Microsoft provides Hyper-scale services for traditional resellers and distributors (CSP) to be able to rapidly provision new services and solutions for your customers without the need to invest in developing these new services. To allow the Cloud Solution Provider (CSP) the ability to directly manage these new services, Microsoft provides programs and APIs that allow the CSP to manage Microsoft Azure resources on behalf of your customers. One of those resources is ExpressRoute. ExpressRoute allows the CSP to connect existing customer resources to Azure services. ExpressRoute is a high speed private communications link to services in Azure. 
+Microsoft provides Hyper-scale services for traditional resellers and distributors (CSP) to be able to rapidly provision new services and solutions for your customers without the need to invest in developing these new services. To allow the Cloud Solution Provider (CSP) the ability to directly manage these new services, Microsoft provides programs and APIs that allow the CSP to manage Microsoft Azure resources on behalf of your customers. One of those resources is ExpressRoute. ExpressRoute allows the CSP to connect existing customer resources to Azure services. ExpressRoute is a high speed private communications link to services in Azure. 
 
 Microsoft Azure provides a growing number of services that you can offer to your customers.  To best take advantage of these services will require the use ExpressRoute connections to provide high speed low latency access to the Microsoft Azure environment.
 
@@ -29,7 +29,7 @@ Microsoft Azure provides a growing number of services that you can offer to your
 ## Microsoft Azure management
 Microsoft provides CSPs with APIs to manage the Azure customer subscriptions by allowing programmatic integration with your own service management systems. Supported management capabilities can be found [here](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
->[AZURE.NOTE] if the CSP is managing resources in the customers Microsoft Azure subscription they will need tobe given administrative rights in the customer subscription(s).
+>[AZURE.NOTE] if the CSP is managing resources in the customers Microsoft Azure subscription they will need to be given administrative rights in the customer subscription(s).
 
 ## Microsoft Azure resource management
 Depending on the contract you have with your customer will determine how the subscription will be managed. The CSP can directly manage the creation and maintenance of resources or the customer can maintain control of the Microsoft Azure subscription and create the Azure resources as they need. If your customer manages the creation of resources in their Microsoft Azure subscription they will use one of two models: “Connect-Through” model, or “Direct-To” model. These models are described in detail in the following sections.  
@@ -67,18 +67,18 @@ ExpressRoute supports network speeds from 50 Mb/s to 10Gb/s. This allows custome
 
 >[AZURE.NOTE] Network bandwidth can be increased as needed without disrupting communications, but to reduce the network speed requires tearing down the circuit and recreating it at the lower network speed.  
 
-ExpressRoute supports the connection of multiple vNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared amoung multiple Azure subscriptions owned by the same customer.
+ExpressRoute supports the connection of multiple vNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
 
 >[AZURE.NOTE] Microsoft does not support sharing ExpressRoute circuits between companies. There is currently no way to associate one ExpressRoute circuit with more than one customer with an Azure subscription or virtual network.  
 
 ## Configuring ExpressRoute
-ExpressRoute can be configured to support three types of traffic ([routing domains](#ExpressRoute-routing-domains)) over a single ExpressRoute circuit. This traffic is segragated into Microsoft peering, Azure public peering and private peering. You can choose one or all types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the Expressroute circuit and isolation required by your customer. Your customers security posture may not allow public traffic and private traffic to traverse over the same circuit.
+ExpressRoute can be configured to support three types of traffic ([routing domains](#ExpressRoute-routing-domains)) over a single ExpressRoute circuit. This traffic is segregated into Microsoft peering, Azure public peering and private peering. You can choose one or all types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the ExpressRoute circuit and isolation required by your customer. The security posture of your customer may not allow public traffic and private traffic to traverse over the same circuit.
 
 ### Connect-through model
-In a connect-through configuration the you will be responsible for all of the networking underpinnings to connect your customers datacenter resources to the subscriptions hosted in Azure. Each of your customers that want to use Azure capabilities will need their own ExpressRoute connection, which will be managed by the You. The you will use the same methods the customer would use to procure the ExpressRoute circuit. The yOU will follow the same steps outlined in the article [ExpressRoute workflows](./expressroute-workflows.md) for circuit provisioning and circuit states. The you will then configure the Border Gateway Protocol (BGP) routes to control the traffic flowing between the on-premises network and Azure vNet.
+In a connect-through configuration the you will be responsible for all of the networking underpinnings to connect your customers datacenter resources to the subscriptions hosted in Azure. Each of your customers that want to use Azure capabilities will need their own ExpressRoute connection, which will be managed by the You. The you will use the same methods the customer would use to procure the ExpressRoute circuit. The you will follow the same steps outlined in the article [ExpressRoute workflows](./expressroute-workflows.md) for circuit provisioning and circuit states. The you will then configure the Border Gateway Protocol (BGP) routes to control the traffic flowing between the on-premises network and Azure vNet.
 
 ### Connect-to model
-In a connect-to configuration, your customer has an existing connection to Azure or will initiate a connection to the internet service provider linking ExpressRoute from your customer’s own datacenter directly to Azure, instead of the your datacenter. To begin the provisioning process, your customer will follow the steps as described in the Connect-Through model, above. Once the circuit has been established your customer will need to configure the on-premises routers to be able to access both your network and Azure vNets.
+In a connect-to configuration, your customer already has an existing connection to Azure or will initiate a connection to the internet service provider linking ExpressRoute from your customer’s own datacenter directly to Azure, instead of your datacenter. To begin the provisioning process, your customer will follow the steps as described in the Connect-Through model, above. Once the circuit has been established your customer will need to configure the on-premises routers to be able to access both your network and Azure vNets.
 
 You can assist with setting up the connection and configuring the routes to allow the resources in your datacenter(s) to communicate with the client resources in your datacenter, or with the resources hosted in Azure.
 
@@ -87,7 +87,7 @@ ExpressRoute offers three routing domains: public, private, and Microsoft peerin
 
 [AZURE.NOTE] Communications through the Public domain is always initiated from your internal network; no traffic originates from the Azure side of the public peering circuit bound for your internal network.  
 
-You can define custom routes filters to allow only the route(s) you want to allow or need. For more information, To see how to make these changes see article: [Create and modify routing for an ExpressRoute circuit using PowerShell](./expressroute-howto-routing-classic.md).  
+You can define custom routes filters to allow only the route(s) you want to allow or need. For more information or to see how to make these changes see article: [Create and modify routing for an ExpressRoute circuit using PowerShell](./expressroute-howto-routing-classic.md).  
 
 [AZURE.NOTE] For Microsoft peering We do not allow customers to select limited sets of routes to Microsoft services. For example, advertising a route to Outlook, but not a route to Skype services, is not allowed. All Microsoft Services will be available to client machines.  
 
@@ -124,7 +124,7 @@ Depending on which model is in use, Connect-To or Connect-Through, your customer
 3.	**Force tunneling** —This is an option to redirect internet bound traffic originating in Azure to be redirected over the 
 ExpressRoute connection to the on premises datacenter. For more information about Forced tunneling look [here](./expressroute-routing.md#advertising-default-routes).  
 
->[Azure.Note] Forced tunneling is enabled by the customer by publishing a default route of 0.0.0.0  
+>[AZURE.NOTE] Forced tunneling is enabled by the customer by publishing a default route of 0.0.0.0  
 
 4.	**Encryption** — Even though the ExpressRoute circuits are dedicated to a specific customer, there is the possibility that the network provider could be breached, allowing an intruder to examine packet traffic. To address this potential, a customer or CSP can encrypt traffic over the connection by defining IPSec tunnel-mode policies for all traffic flowing between the on premises resources and Azure resources (refer to the optional Tunnel mode IPSec for Customer 1 in Figure 5: ExpressRoute Security, above). The second option would be to use a firewall appliance at each the end point of the ExpressRoute circuit. This will require additional 3rd party firewall VMs/Appliances to be installed on both ends to encrypt the traffic over the ExpressRoute circuit.
 
@@ -132,10 +132,10 @@ ExpressRoute connection to the on premises datacenter. For more information abou
 ![alt text](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
 ## Next steps
-The Cloud Solution Provider service provides you a way to increase your value to your customers without the need for expensive infrastructure and capability purchases, while maintaining your position as the primary outsourcing provider. Integration with Microsoft Azure can be accomplished seamlessly to your customers through the CSP API, allowing the You to integrate management of Microsoft Azure within your exist management frameworks.  
+The Cloud Solution Provider service provides you a way to increase your value to your customers without the need for expensive infrastructure and capability purchases, while maintaining your position as the primary outsourcing provider. Seamless integration with Microsoft Azure can be accomplished through the CSP API, allowing you to integrate management of Microsoft Azure within your existing management frameworks.  
 
 Additional Information can be found at the following links:
 
 [Microsoft Cloud Solution Provider program](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
-[Get ready to transact as a Cloud SOlution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
+[Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
