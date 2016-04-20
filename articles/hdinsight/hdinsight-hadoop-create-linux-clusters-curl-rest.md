@@ -36,7 +36,7 @@ The Azure REST API allows you to perform management operations on services hoste
 
 - __Azure CLI__. The Azure CLI is used to create a service principal, which is then used to generate authentication tokens for requests to the Azure REST API.
 
-    For information on installing the CLI, see [Install the Azure CLI](../xplat-cli-install.md).
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 - __cURL__. This utility is available through your package management system, or can be downloaded from [http://curl.haxx.se/](http://curl.haxx.se/).
 

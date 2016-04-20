@@ -3,8 +3,8 @@
    description="A summary of considerations when optimizing query and search performance for Elasticsearch."
    services=""
    documentationCenter="na"
-   authors="masashin"
-   manager="masimms"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 

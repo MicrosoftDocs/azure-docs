@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/14/2016"
+ms.date="04/20/2016"
 ms.author="eugenesh" />
 
 # Indexing JSON blobs with Azure Search blob indexer 
 
-By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want preserve the structure of your JSON documents. For example, given this JSON document 
+By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want preserve the structure of your JSON documents. For example, given the JSON document 
 
 	{ 
 		"article" : {
@@ -27,25 +27,27 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 	    }
 	}
 
-you might want to parse that document into "text", "datePublished", and "tags" fields in your search index.
+you might want to parse it into "text", "datePublished", and "tags" fields in your search index.
 
 This article shows how to configure Azure Search blob indexer for JSON parsing. Happy indexing! 
 
-> [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
+> [AZURE.IMPORTANT] This functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
 
 ## Setting up JSON indexing
 
-To index JSON blobs, use the blob indexer in "JSON parsing" mode: 
+To index JSON blobs, use the blob indexer in "JSON parsing" mode. Enable the `useJsonParser` configuration setting in the indexer definition's `parameters` property: 
 
-1. Enable `useJsonParser` configuration setting in the indexer parameters: 
+	{
+	  "name" : "my-json-indexer",
+	  ... other indexer properties
+	  "parameters" : { "configuration" : { "useJsonParser" : true } }
+	}
 
-	`"parameters" : { "configuration" : { "useJsonParser" : true } }`
+If needed, use **field mappings** to pick the properties of the source JSON document used to populate your target search index.  This is described in detail below. 
 
-2. If needed, use field mappings to construct a search document by picking the desired properties of the source JSON document.  This is described in detail below. 
+> [AZURE.IMPORTANT] When you use JSON parsing mode, Azure Search assumes that all blobs in your data source will be JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
-> [AZURE.IMPORTANT] JSON parsing mode applies to all blobs in your data source. If the data source includes a mix of JSON blobs and blobs with other content formats, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
-
-## Using field mappings to build search document 
+## Using field mappings to build search documents 
 
 Currently, Azure Search cannot index arbitrary JSON documents directly, because it supports only primitive data types, string arrays, and GeoJSON points. However, you can use **field mappings** to pick parts of your JSON document and "lift" them into top-level fields of the search document. To learn about field mappings basics, see [Azure Search Indexer Customization](search-indexers-customization.md).
 
@@ -73,7 +75,9 @@ You can also refer to individual array elements by using a zero-based index. For
 
 	{ "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
-> [AZURE.TIP] If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index: 
+> [AZURE.NOTE] If a source field name in a field mapping path refers to a property that doesn't exist in JSON, that mapping is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). Because there is no validation, you need to take care to avoid typos in your field mapping specification. 
+
+If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index: 
  
 	{ 
 	   "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -81,7 +85,7 @@ You can also refer to individual array elements by using a zero-based index. For
        "tags" : [ "search", "storage", "howto" ]    
  	}
 
-> [AZURE.NOTE] If a source field name path refers to a non-existing property, this property is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). This does mean, however, that you need to take care to avoid typos in your field mapping specification. 
+> [AZURE.NOTE] Azure Search currently only supports parsing one JSON blob into one search document. If your blobs contain JSON arrays that you'd like to parse into multiple search documents, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d) to help us prioritize this work. 
 
 ## Request examples
 
