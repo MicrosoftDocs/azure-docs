@@ -22,7 +22,7 @@ Many SQL Data Warehouse administration tasks can be managed using either Azure P
 
 ## Get started with Azure PowerShell cmdlets
 
-> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The lastest version can be installed from  [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on installing the lastest version, see [How to install and configure Azure PowerShell](./powershell-install-configure.md).
+> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on installing the latest version, see [How to install and configure Azure PowerShell](./powershell-install-configure.md).
 
 1. To start PowerShell, click **Start** and type **Windows PowerShell**.
 2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
