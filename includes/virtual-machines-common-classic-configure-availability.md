@@ -44,11 +44,7 @@ To use the Azure classic portal:
 
 	From the dashboard of the new virtual machine, you can click **Configure** to see that the virtual machine belongs to the new availability set.
 
-To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see the following:
-
-
-- [Use Azure PowerShell to create and preconfigure Linux-based virtual machines](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
-- [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
+To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
 
@@ -81,7 +77,7 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 
 ## Additional resources
 
-[Articles for virtual machines created with the classic deployment model]
+[Articles for classic virtual machines] []
 
 <!-- LINKS -->
 [Option 1: Create a virtual machine and an availability set at the same time]: #createset
