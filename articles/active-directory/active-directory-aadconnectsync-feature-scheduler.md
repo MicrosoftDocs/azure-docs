@@ -93,6 +93,41 @@ When a sync cycle is running, you cannot make configuration changes. You could w
 
 The scheduler is still active and will start again on next opportunity.
 
+## Custom scheduler
+The cmdlets documented in this section are only available in build [1.1.130.0](active-directory-aadconnectsync-connector-version-history.md#11130) and later.
+
+If the built-in scheduler does not satisfy your requirements, then you can schedule the Connectors using PowerShell.
+
+### Invoke-ADSyncRunProfile
+You can start a profile for a Connector in this way:
+```
+Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
+```
+The names to use for [Connector names](active-directory-aadconnectsync-service-manager-ui-connectors.md) and [Run Profile Names](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) can be found in the [Synchronization Service Manager UI](active-directory-aadconnectsync-service-manager-ui.md).
+
+![Invoke Run Profile](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)  
+
+The `Invoke-ADSyncRunProfile` cmdlet is synchronous, i.e. it will not return control until the Connector has completed the operation, either successfully or with an error.
+
+When you schedule your Connectors, the recommendation is to schedule them in the following order:
+
+1. (Full/Delta) Import from on-premises directories, such as Active Directory
+2. (Full/Delta) Import from Azure AD
+3. (Full/Delta) Synchronization from on-premises directories, such as Active Directory
+4. (Full/Delta) Synchronization from Azure AD
+5. Export to Azure AD
+6. Export to on-premises directories, such as Active Directory
+
+If you look at the built-in scheduler, this is the order the Connectors will run.
+
+### Get-ADSyncConnectorRunStatus
+You can also monitor the sync engine to see if it is busy or idle. This cmdlet will return an empty result if the sync engine is idle and is not running a Connector. If a Connector is running, it will return the name of the Connector.
+```
+Get-ADSyncConnectorRunStatus
+```
+![Connector Run Status](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
+In the picture above, the first line is from a state where the sync engine is idle. The second from when the Azure AD Connector is running.
+
 ## Scheduler and installation wizard
 If you start the installation wizard, then the scheduler will be temporarily suspended. This is because it is assumed you will make configuration changes and these cannot be applied if the sync engine is actively running. For this reason, do not leave the installation wizard open since it will stop the sync engine from performing any synchronization actions.
 
