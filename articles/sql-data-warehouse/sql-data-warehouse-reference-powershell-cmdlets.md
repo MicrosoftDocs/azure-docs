@@ -82,6 +82,7 @@ These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse.
 
 ## Next steps
 For more PowerShell examples, see:
+
 - [Create a SQL Data Warehouse using PowerShell][]
 - [Restore from snapshot][]
 - [Geo-restore from snapshot][]
