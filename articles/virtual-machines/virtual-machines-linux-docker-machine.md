@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create Docker hosts in Azure"
-	description="Describes use of docker-machine to create docker hosts in Azure."
+	pageTitle="Create Docker hosts in Azure with Docker Machine"
+	description="Describes use of Docker Machine to create docker hosts in Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="squillace"
@@ -16,18 +16,9 @@
 	ms.date="04/20/2016"
 	ms.author="rasquill"/>
 
-# Create docker hosts in Azure
+# Create docker hosts in Azure using Docker Machine
 
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating application data and computing on shared resources. This topic when and how to use `docker-machine` to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
-
-## Comparing docker-machine and the Azure Docker VM Extension
-
-The main difference between the open source `docker-machine` client and the new [resource manager Azure driver](https://docs.docker.com/machine/drivers/azure/) and the [Docker VM Extension](virtual-machines-linux-dockerextension.md) is in deployment and management.
-
-1. `docker-machine` is outside of the Azure deployment system, so resources it creates or modifies are known only to `docker-machine`.
-2. The Docker VM extension is a formal part of the Azure deployment system, and as such can be controlled, described in Azure templates, tagged for various purposes, and so on as part of the Azure infrastructure.
-
-As a result, if you know and love using `docker-machine`, you'll feel comfortable continuing to use that. If you would like to use the Azure resource manager deployment system, templates, you can use the Docker VM extension. You can choose the tool that suits your needs.
+[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses Linux containers rather than virtual machines as a way of isolating application data and computing on shared resources. This topic when and how to use [Docker Machine](https://docs.docker.com/machine/) to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
 
 
 ## Create VMs with docker-machine
@@ -72,7 +63,19 @@ Docker is up and running!
 To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env machine
 ```
 
-Now, type `docker-machine env <VM name>` to point the docker environment variables at the newly created VM, and list the machines:
+Now, type `docker-machine env <VM name>` to see what you need to do to configure the shell.
+
+```bash
+docker-machine env machine
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://191.237.46.90:2376"
+export DOCKER_CERT_PATH="/Users/rasquill/.docker/machine/machines/machine"
+export DOCKER_MACHINE_NAME="machine"
+# Run this command to configure your shell:
+# eval $(docker-machine env machine)
+```
+
+Having configured the shell using `eval` as instructed, point the docker environment variables at the newly created VM, and list the machines:
 
 ```bash
 docker-machine ls
@@ -85,7 +88,7 @@ machine   *        azure    Running   tcp://191.237.46.90:2376           v1.11.0
 Now you can run a simple web server to test whether all works correctly.
 
 ```bash
-docker run -d -p 80:80 nginx
+docker run -d -p 80:80 --restart=always nginx
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
 efd26ecc9548: Pull complete
@@ -97,11 +100,19 @@ Status: Downloaded newer image for nginx:latest
 25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
 ```
 
+Examine the containers using `docker ps`:
+
+```bash
+docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
+d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
+```
+
 And check to see the running container:
 
 ![Running ngnix container](./media/virtual-machines-linux-docker-machine/nginxsuccess.png)
 
 ## Next steps
 
-If you're interested, you can try out the Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md) to do the same thing. 
+If you're interested, you can try out the Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md) to do the same operation using the Azure CLI or Azure resource manager templates. 
 
