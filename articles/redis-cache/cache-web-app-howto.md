@@ -236,8 +236,8 @@ In this step of the tutorial, we'll configure the sample application to store an
 	    // Redis Connection string info
 	    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	    {
-	        string cacheString = ConfigurationManager.ConnectionStrings["Cache"].ToString();
-	        return ConnectionMultiplexer.Connect(cacheString);
+            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+            return ConnectionMultiplexer.Connect(cacheConnection);
 	    });
 	
 	    public static ConnectionMultiplexer Connection
@@ -248,13 +248,21 @@ In this step of the tutorial, we'll configure the sample application to store an
 	        }
 	    }
   
-2. In **Solution Explorer** double-click **web.config** and add the following connection string to the `connectionStrings` section. 
+1. Create a file on your computer named `WebAppPlusCacheAppSecrests.config` and place it in a location that won't be checked in with the source code of your sample application, should you decide to check it in somewhere. In this example the `AppSettingsSecrets.config` file is located at `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
+
+2. Edit the `WebAppPlusCacheAppSecrests.config` file and add the following contents. Later in the tutorial we'll provision an Azure Redis Cache instance and update the cache name and password.
 
 
-		<add name="Cache" connectionString="127.0.0.1:6739"/>
+		<appSettings>
+		  <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+		</appSettings>
 
 
-    >[AZURE.NOTE] This tutorial shows you how you can use the MSOpenTech port of Redis Cache to provide a local Redis Cache emulator experience. If you want to run the sample using an Azure Redis Cache instance you have provisioned in Azure, update the connection string to point to your cache, like `<add name="Cache" connectionString="contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>`. If you do, you may note that retrieving results from the cache is slower than retrieving them from the database. This is because the database is running locally on your machine, but the cache is hosted in Azure. Laster in the tutorial we'll provision a resource group containing all of the Azure services used to host and run this sample in Azure.
+2. In **Solution Explorer** double-click **web.config** and add the following `file` attribute to the `appSettings` element. If you used a different file name or location, substitute those values for the ones shown in the example.
+	-	Before: `<appSettings>`
+	-	After: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
+
+    The ASP.NET runtime merges the contents of the external file with the markup in `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you use the **Deploy to Azure** button in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 
 ### Update the TeamsController class to return results from the cache or the database
