@@ -35,7 +35,7 @@ In the following command, you can use any image you want, but this example uses 
 In the following command walk through, please replace the prompts with values from your own environment, We are using "example" values.  The output should look like this.  
 
 ```bash
-# Create the Linux VM using prompts
+# Follow the prompts and enter your own names
 ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
@@ -46,7 +46,7 @@ ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to 
 User name: ahmet
 Password: ************************************************
 Confirm password: ************************************************
-##########################output##################################
+########################## output ##################################
 + Looking up the VM "exampleVMname"
 info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
