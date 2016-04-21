@@ -113,7 +113,7 @@ This **New-SslCert.ps1** script adds the \_.AzureStack.local.pfx SSL certificate
 
   ![](media/azure-stack-sql-rp-deploy-long/2.png)
 
-	> [AZURE.TIP]> If the pop-up doesn't appear, you either haven’t turned off IE enhanced security to enable JavaScript on this machine and user, or you haven’t accepted cookies in IE. See [Set up steps before you deploy](#set-up-steps-before-you-deploy).
+	> [AZURE.TIP] If the pop-up doesn't appear, you either haven’t turned off IE enhanced security to enable JavaScript on this machine and user, or you haven’t accepted cookies in IE. See [Set up steps before you deploy](#set-up-steps-before-you-deploy).
 
 4. Type your your Azure Stack Service Admin credentials and then click **Sign In**.
 
@@ -219,11 +219,6 @@ The full deployment may take between 25 and 55 minutes on some highly utilized A
 
 ![](media/azure-stack-sql-rp-deploy-long/11.png)
 
-**Next steps**
+## Next steps
 
-**You can also try out other [PaaS
-services](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-tools-paas-services/),
-like the My[SQL Server resource
-provider](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-sqlrp-deploy/)
-and [Web Apps resource
-provider](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-webapps-deploy/).**
+Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-rp-deploy-short.md) and the [Web Apps resource provider](azure-stack-webapps-deploy.md).
