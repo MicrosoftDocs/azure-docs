@@ -34,14 +34,19 @@ Before starting, be sure you have the following prerequisites.
 ## Creating a SQL Data Warehouse database
 1. Open Windows PowerShell.
 2. Run this cmdlet to login to Azure Resource Manager.
+
 	```Powershell
 	Login-AzureRmAccount
 	```
+	
 3. Select the subscription you want to use for your current session.
+
 	```Powershell
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
+
 4.  Create database. This example deploys a new database named "mynewsqldw1", with service objective  level "DW400", to the server named "sqldwserver1" which is in the resource group named "mywesteuroperesgp1".
+
 	```Powershell
 	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw1" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
 	```
