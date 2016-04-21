@@ -869,7 +869,8 @@ Example *function.json* file for a Service Bus trigger and output binding:
     }
   ],
   "disabled": false
-}```
+}
+```
 
 ### <a id="sbtrigger"></a> Azure Service Bus queue trigger
 
