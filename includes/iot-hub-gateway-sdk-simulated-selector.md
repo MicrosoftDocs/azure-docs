@@ -1,8 +1,8 @@
 > [AZURE.SELECTOR]
-- [Windows](../articles/iot-hub/iot-hub-gw-simulateddevice-win.md)
-- [Linux](../articles/iot-hub/iot-hub-gw-simulateddevice-lin.md)
+- [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md)
+- [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-simulated-device.md)
 
-This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use the [Microsoft Azure IoT Gateway SDK for C][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
+This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use the [Microsoft Azure IoT Gateway SDK][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
 
 This walkthrough covers:
 
@@ -61,8 +61,8 @@ Instead of opening a connection to IoT Hub for each simulated device, this modul
 
 
 <!-- Images -->
-[1]: media/iot-hub-gw-simulated-selector/image1.png
-[2]: media/iot-hub-gw-simulated-selector/image2.png
+[1]: media/iot-hub-gateway-sdk-simulated-selector/image1.png
+[2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
 [Simulated Device Cloud Upload sample]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
