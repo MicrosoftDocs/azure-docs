@@ -57,7 +57,10 @@ The name of the Service Bus namespace to create.
 
 ```
 "serviceBusNamespaceName": {
-"type": "string"
+"type": "string",
+"metadata": { 
+    "description": "Name of the Service Bus namespace" 
+    }
 }
 ```
 
