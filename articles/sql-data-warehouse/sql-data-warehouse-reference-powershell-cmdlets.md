@@ -81,7 +81,6 @@ These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse.
 - [Suspend-AzureRmSqlDatabase][]
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse reference overview][].
 For more PowerShell examples, see:
 - [Create a SQL Data Warehouse using PowerShell][]
 - [Restore from snapshot][]
@@ -90,7 +89,6 @@ For more PowerShell examples, see:
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
 [Create a SQL Data Warehouse using PowerShell]: sql-data-warehouse-get-started-provision-powershell.md
 [Restore from snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
