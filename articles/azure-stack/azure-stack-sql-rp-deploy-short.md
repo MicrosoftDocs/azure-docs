@@ -21,7 +21,7 @@
 Use the SQL Server Resource Provider Adapter to expose SQL databases as an Azure Stack service. After you install the resource provider, you and your users can create databases for cloud-native apps, SQL-based websites, and SQL-based workloads without having to provision a virtual machine that hosts SQL Server each time. Because the resource provider does not provide all the capabilities of Azure SQL Database during the POC, this article begins with an overview of the resource provider architecture. Then you get a quick overview of the steps to set up the resource provider, with links to the more detailed steps in [Deploy the SQL Database Resource Provider Adapter on Azure Stack POC](azure-stack-sql-rp-deploy-long.md).
 
 ## SQL Server Resource Provider Adapter architecture
-During the Azure Stack proof of concept (POC), the resource provider doesn't offer all the database management capabilities of Azure SQL Database--for example, elastic database pools and the ability to dial database performance up and down on the fly aren't available. The resource provider supports the same create, read, update, and delete (CRUD) operations and T-SQL functionality available in [SQL Server 2016](https://msdn.microsoft.com/library/ms130214.aspx).
+During the Azure Stack proof of concept (POC), the resource provider doesn't offer all the database management capabilities of Azure SQL Database--for example, elastic database pools and the ability to dial database performance up and down on the fly aren't available. But the resource provider does support the same create, read, update, and delete (CRUD) operations available in Azure SQL Database.
 
 The resource provider is made up of three components:
 
