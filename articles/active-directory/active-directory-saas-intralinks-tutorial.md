@@ -63,6 +63,7 @@ To configure the integration of Intralinks into Azure AD, you need to add Intral
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
 	![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
@@ -80,11 +81,14 @@ To configure the integration of Intralinks into Azure AD, you need to add Intral
 6. In the search box, type **Intralinks**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_01.png)
+
 7. In the results pane, select **Intralinks**, and then click **Complete** to add the application.
 
+	![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_02.png)
 
 
 ##  Configuring and testing Azure AD single sign-on
+
 In this section, you configure and test Azure AD single sign-on with Intralinks based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Intralinks is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Intralinks needs to be established.
@@ -277,7 +281,7 @@ After that you can follow the below procedure to add another Intralinks applicat
 	a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Intralinks application using the following pattern: **https://\<CompanyName\>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/\<AzureADTenantID\>/**
 
 
-11. Click Next
+11. Click **Next**.
 
 12. Assign the application to user or groups as shown in the section **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)**
 
