@@ -220,7 +220,7 @@ You have created input/output linked services and tables so far. Now, you will c
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
 
-If you receive the error: "This subscription is not registered to use namespace Microsoft.DataFactory", do one of the following and try publishing again: 
+If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
 
 - In Azure PowerShell, run the following command to register the Data Factory provider. 
 		
