@@ -35,7 +35,7 @@ See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
 
 ## How can I connect my network to Microsoft using ExpressRoute?
 
-You can create a connection between your on-premises network and the Microsoft cloud in three different ways
+You can create a connection between your on-premises network and the Microsoft cloud in three different ways:
 
 ### Co-located at a cloud exchange
 
@@ -57,7 +57,7 @@ Connectivity providers can offer one or more connectivity models. You can work w
 
 ## ExpressRoute features
 
-ExpressRoute supports the following features and capabilities. 
+ExpressRoute supports the following features and capabilities: 
 
 ### Layer 3 connectivity
 
