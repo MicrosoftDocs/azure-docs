@@ -18,11 +18,11 @@
 
 # Deploy the SQL Server Resource Provider Adapter on Azure Stack
 
-Use this article to follow the detailed steps for setting up the SQL Server Resource Provider Adapter on the Azure Stack proof of concept (POC). See [use SQL databases on Azure Stack](azure-stack-sql-rp-deploy-short.md) to understand the capabilities the adapter provides and adapter architecture.
+Use this article to follow the detailed steps for setting up the SQL Server Resource Provider Adapter on the Azure Stack proof of concept (POC). See [use SQL databases on Azure Stack](azure-stack-sql-rp-deploy-short.md) to understand resource provider capabilities and architecture.
 
 ## Set up steps before you deploy
 
-Before you deploy the SQL Resource Provider Adapter, you need to:
+Before you deploy the resource provider, you need to:
 - Have a default Windows Server image with .NET 3.5
 - Turn off Internet Explorer (IE) Enhanced Security
 - Install the latest version of Azure PowerShell
@@ -61,17 +61,17 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 
 ### Install an Azure Stack compatible release of Azure PowerShell
 
-1. Uninstall any existing Azure PowerShell from your Client VM
+1. Uninstall any existing Azure PowerShell from your Client VM.
 
 2. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
 
 3. Using Remote Desktop, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
 
-4. Open the Control Panel, click **Uninstall a program** &gt; click **Azure PowerShell** > &gt; click **Uninstall**.
+4. Open the Control Panel, click **Uninstall a program** &gt; click **Azure PowerShell** &gt; click **Uninstall**.
 
 5. [Download the latest Azure PowerShell that supports Azure Stack](http://aka.ms/azstackpsh) and install it.
 
-    After you install PowerShell, you can run this verification PowerShell script to make sure that you can connect to your Azure Stack instance (a logon web page should appear).
+    After you install PowerShell, you can run this verification PowerShell script to make sure that you can connect to your Azure Stack instance (a login web page should appear).
 
 ## Bootstrap the resource provider deployment PowerShell
 
@@ -85,7 +85,7 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 
 4. When the PowerShell ISE window completes loading, click the play button or press F5.
 
-  ![](./media/azure-stack-sql-rp-deploy-long/1strun.png)
+	![](./media/azure-stack-sql-rp-deploy-long/1strun.png)
 
 	Two major tabs will load, each containing all the scripts and files necessary to deploy your SQL Resource Provider.
 
@@ -106,16 +106,18 @@ This **New-SslCert.ps1** script adds the \_.AzureStack.local.pfx SSL certificate
 ### Upload all artifacts to a storage account on Azure Stack
 
 1. Click the **Upload-Microsoft.Sql-RP.ps1** tab and run it.
+
 2. In the Windows PowerShell credential request dialog box, type the Azure Stack service administrator credentials.
+
 3. When prompted for the Azure Active Directory Tenant ID, input your Azure Active Directory tenant fully qualified domain name, e.g. microsoftazurestack.onmicrosoft.com.
 
-   A pop-up window asks for credentials.
+	A pop-up window asks for credentials.
 
-  ![](./media/azure-stack-sql-rp-deploy-long/2.png)
+	![](./media/azure-stack-sql-rp-deploy-long/2.png)
 
 	> [AZURE.TIP] If the pop-up doesn't appear, you either haven’t turned off IE enhanced security to enable JavaScript on this machine and user, or you haven’t accepted cookies in IE. See [Set up steps before you deploy](#set-up-steps-before-you-deploy).
 
-4. Type your your Azure Stack Service Admin credentials and then click **Sign In**.
+4. Type your Azure Stack Service Admin credentials and then click **Sign In**.
 
 ### Publish gallery items for later resource creation
 
@@ -125,10 +127,10 @@ Select the **Publish-GalleryPackages.ps1** tab and run it. This script adds two 
 
 Now that you have prepared the Azure Stack PoC with the necessary certificates and marketplace items, you can deploy a SQL Server Resource Provider. Click the **Deploy SQL provider** tab to:
 
-- Provide values in a JSON file that the deployment process will references
-- Deploy the resource provider
-- Update the local DNS
-- Register the SQL Server Resource Provider adapter
+   - Provide values in a JSON file that the deployment process will references
+   - Deploy the resource provider
+   - Update the local DNS
+   - Register the SQL Server Resource Provider Adapter
 
 ### Provide values in the JSON file
 
@@ -136,11 +138,11 @@ Click **Microsoft.Sqlprovider.Parameters.JSON**. This parameter file contains th
 
 1. Fill out the **empty** parameters in the JSON file:
 
-   - Make sure to provide the **adminusername** and **adminpassword** for the SQL Resource Provider VM:
+	- Make sure to provide the **adminusername** and **adminpassword** for the SQL Resource Provider VM:
 
-    ![](./media/azure-stack-sql-rp-deploy-long/3.png)
+		![](./media/azure-stack-sql-rp-deploy-long/3.png)
 
-   - Make sure you input the password for the **SetupPfxPassword** parameter that you made a note of in the [Prepare prequisites](#prepare-prerequisites) step:
+	- Make sure you input the password for the **SetupPfxPassword** parameter that you made a note of in the [Prepare prequisites](#prepare-prerequisites) step:
 
     ![](./media/azure-stack-sql-rp-deploy-long/4.png)
 
@@ -172,8 +174,10 @@ The full deployment may take between 25 and 55 minutes on some highly utilized A
 
 ## Verify the deployment using the Azure Stack Portal
 
-1. Log off the ClientVM and log on again as **AzureStack\User**.
+1. Log off the ClientVM and log in again as **AzureStack\User**.
+
 2. On the desktop, click **Azure Stack POC Portal** and log on to the portal as the service admin.
+
 3. Verify that the deployment succeeded. Click **Browse** &gt; **Resource Groups** &gt; click the resource group you used (default is SQLRP), and then make sure that the essentials part of the blade (upper half) reads **deployment succeeded**.
 
       ![](./media/azure-stack-sql-rp-deploy-long/5.png)
@@ -188,9 +192,9 @@ The full deployment may take between 25 and 55 minutes on some highly utilized A
 
 2. Click **Resource Providers** &gt; **SQL Local** &gt; **Go To Resource Provider Management** &gt; **Servers** &gt; **Add**.
 
-   The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the Resource Provider’s backend.
+	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the Resource Provider’s backend.
 
-   ![](./media/azure-stack-sql-rp-deploy-long/7.png)
+	![](./media/azure-stack-sql-rp-deploy-long/7.png)
 
 3. Fill the form with the connection details of your SQL Server instance. By default, a preconfigured SQL Server called “SQLRP” with the administrator username “sa” and the password you called out in the “adminpassword” parameter in the parameters JSON is running on the VM.
 
@@ -203,21 +207,21 @@ The full deployment may take between 25 and 55 minutes on some highly utilized A
 
 3. Fill in the form with database details, including a **Server Name**, **Server Admin Login**, and **Password** for a new *virtual server* in the **New Server** blade.
 
-   ![](./media/azure-stack-sql-rp-deploy-long/9.png)
+	![](./media/azure-stack-sql-rp-deploy-long/9.png)
 
-   The virtual server is an artificial construct. It doesn’t map to the SQL Server itself, instead it manifests through the username inside the connection string, which the resource provider adapter generates at the end of this process. Note the password you input separately for the virtual server. The portal will never show the password.
+	The virtual server is an artificial construct. It doesn’t map to the SQL Server itself, instead it manifests through the username inside the connection string, which the resource provider generates at the end of this process. Note the password you input separately for the virtual server. The portal will never show the password.
 
 4. You're asked to pick a pricing tier for your database.
 
-   ![](./media/azure-stack-sql-rp-deploy-long/10.png)
+	![](./media/azure-stack-sql-rp-deploy-long/10.png)
 
-   Tiers are not implemented in this version, but their consumption is tracked by the Azure Resource Manager as a way to showcase the differentiation you can create in quota enforcement etc.
+	Tiers are not implemented in this version, but their consumption is tracked by the Azure Resource Manager as a way to showcase the differentiation you can create in quota enforcement etc.
 
 5. Submit the form and wait for the deployment to complete.
 
 6. In the resulting blade, notice the “Connection string” field. You can use that string in any application that requires SQL Server access (for example, a web app) in your Azure Stack.
 
-![](./media/azure-stack-sql-rp-deploy-long/11.png)
+	![](./media/azure-stack-sql-rp-deploy-long/11.png)
 
 ## Next steps
 
