@@ -25,7 +25,7 @@ Integrating Weekdone with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Weekdone
 - You can enable your users to automatically get signed-on to Weekdone (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -60,7 +60,7 @@ To configure the integration of Weekdone into Azure AD, you need to add Weekdone
 
 **To add Weekdone from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. 
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
 	![Active Directory][1]
 
@@ -103,13 +103,13 @@ To configure and test Azure AD single sign-on with Weekdone, you need to complet
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Weekdone application.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Weekdone application.
 
 
 
 **To configure Azure AD single sign-on with Weekdone, perform the following steps:**
 
-1. In the Azure AD portal, on the **Weekdone** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure classic portal, on the **Weekdone** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
 	![Configure Single Sign-On][6] 
 
@@ -149,7 +149,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 5. To get SSO configured for your application, contact your Weekdone support team via hello@weekdone.com. Attach the downloaded certificate file to your mail and share the metadata urls (ISSUER URL, SAML SSO URL and SINGLE SIGN-OUT SERVICE URL) with Weekdone team to set up SSO on their side.
 
-6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
 	![Azure AD Single Sign-On][10]
 
@@ -161,13 +161,13 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
 ![Create Azure AD User][20]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_09.png) 
 
@@ -232,7 +232,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 **To assign Britta Simon to Weekdone, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 
 	![Assign User][201] 
 
