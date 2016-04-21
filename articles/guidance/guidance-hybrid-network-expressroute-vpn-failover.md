@@ -113,35 +113,11 @@ The following high-level steps outline a process for implementing this architect
 
 	- Prohibited traffic in both directions is blocked correctly.
 
-## Availability
+## Availability, Security, Scalability, Monitoring, and Troubleshooting
 
-- For ExpressRoute availability recommendations, see the [Availability][availability-expressroute] section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance
+- For ExpressRoute recommendations, see the appropriate section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance
 
-- For VPN security recommendations, see the [Availability][availability-vpn] section of the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance
-
-## Security
-
-- For ExpressRoute security recommendations, see the [Security][security-expressroute] section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance
-
-- For VPN security recommendations, see the [Security][security-vpn] section of the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance
-
-## Scalability
-
-- For ExpressRoute scalability recommendations, see the [Scalability][scalability-expressroute] section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance
-
-- For VPN scalability recommendations, see the [Scalability][scalability-vpn] section of the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance
-
-## Monitoring and manageability
-
-- For ExpressRoute monitoring recommendations, see the [Monitoring][monitoring-expressroute] section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance
-
-- For VPN monitoring recommendations, see the [Monitoring and manageability][monitoring-vpn] section of the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance
-
-## Troubleshooting
-
-- For ExpressRoute troubleshooting recommendations, see the [Troubleshooting][troubleshooting-expressroute] section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance
-
-- For VPN troubleshooting recommendations, see the [Troubleshooting][troubleshooting-vpn] section of the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance
+- For Site-to-Site VPN recommendations, see the appropriate section of the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance
 
 ## Azure PowerShell commands
 
@@ -163,27 +139,14 @@ Put PowerShell here!
 
 <!-- links -->
 
-[er-vpn-limits-and-limitations]: ./expressroute/expressroute-how-to-coexist-resource-manager.md#limits-and-limitations
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md
 [guidance-vpn]: ./guidance-hybrid-network-vpn.md
 [implementing-expressroute]: ./guidance-hybrid-network-expressroute.md#implementing-this-architecture
-[security-expressroute]: ./guidance-hybrid-network-expressroute.md#security
-[security-vpn]: ./guidance-hybrid-network-vpn.md#security
-[scalability-expressroute]: ./guidance-hybrid-network-expressroute.md#scalability
-[scalability-vpn]: ./guidance-hybrid-network-vpn.md#scalability
-[monitoring-expressroute]: ./guidance-hybrid-network-expressroute.md#monitoring
-[monitoring-vpn]: ./guidance-hybrid-network-vpn.md#monitoring-and-manageability
-[troubleshooting-expressroute]: ./guidance-hybrid-network-expressroute.md#troubleshooting
-[troubleshooting-vpn]: ./guidance-hybrid-network-vpn.md#troubleshooting
-[availability-expressroute]: ./guidance-hybrid-network-expressroute.md#availability
-[availability-vpn]: ./guidance-hybrid-network-vpn.md#availability
-
 [resource-manager-overview]: ../resource-group-overview.md
 [vpn-appliance]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
 [implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[create-on-prem-network]: https://technet.microsoft.com/library/dn786406.aspx#routing
 [azure-powershell]: ../powershell-azure-resource-manager.md
-
+[create-on-prem-network]: https://technet.microsoft.com/library/dn786406.aspx#routing
