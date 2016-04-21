@@ -103,6 +103,7 @@ ORDER BY
 ```
  
 **STEP 2:** Increase the Resource Class of a user which has permissions to rebuild the index on this table to the recommended resource class from the 2nd column of the above query.
+
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
