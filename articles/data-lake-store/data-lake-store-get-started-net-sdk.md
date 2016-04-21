@@ -428,7 +428,6 @@ Finally, make sure the local path and file name you provide here must exist on t
                 _adlsClient.SubscriptionId = subscriptionId;
 
                 _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(tokenCreds);
-                _adlsFileSystemClient.SubscriptionId = subscriptionId;
             }
 
             // Create account
