@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create Docker hosts in Azure with Docker Machine"
+	pageTitle="Create Docker hosts in Azure with Docker Machine | Microsoft Azure"
 	description="Describes use of Docker Machine to create docker hosts in Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 
 # Use Docker Machine with the Azure driver
 
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses Linux containers rather than virtual machines as a way of isolating application data and computing on shared resources. This topic describes when and how to use [Docker Machine](https://docs.docker.com/machine/) to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
+[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses Linux containers rather than virtual machines as a way of isolating application data and computing on shared resources. This topic describes when and how to use [Docker Machine](https://docs.docker.com/machine/) (the `docker-machine` command) to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
 
 
 ## Create VMs with Docker Machine
