@@ -20,14 +20,14 @@
 # Data Warehouse Migration Utility (Preview)
 
 > [AZURE.SELECTOR]
-- [Download Migration Utility](https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip)
+- [Download Migration Utility][]
 
 The Data Warehouse Migration Utility is a tool designed to migrate schema and data from SQL Server and Azure SQL Database to Azure SQL Data Warehouse. During schema migration, the tool automatically maps the corresponding schema from source to destination. After the schema has been migrated, users are also presented with the option of moving data through automatically generated scripts.
 
 In addition to schema and data migration, this tool gives users the option to generate compatibility reports which summarize incompatibilities between the target and source instances which would prevent streamlined migration.
 
 ## Get started
-The Data Warehouse Migration Utility can be downloaded [here][]. As a prerequisite for installation, you will need the BCP command-line utility to run migration scripts and Office to view the compatibility report. After launching the executable that is downloaded you will be prompted to accept a standard EULA before the tool will be installed.
+As a prerequisite for installation, you will need the BCP command-line utility to run migration scripts and Office to view the compatibility report. After launching the executable that is downloaded you will be prompted to accept a standard EULA before the tool will be installed.
 
 In addition, to run the Migration Utiliy, you will need the one following permissions on the database that you are looking to migrate: CREATE DATABASE, ALTER ANY DATABASE or VIEW ANY DEFINITION.
 
@@ -63,4 +63,4 @@ Now that you've migrated some data, check out how to [develop][].
 [develop]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[here]:https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
