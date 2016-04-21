@@ -65,7 +65,7 @@ For the command reference, see [New-AzureRmSqlDatabase][]
 ## Next steps
 After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
 
-If you're interested in more on how to manage SQL Data Warehouse programmatically, check out our [Powershell][] or [REST API][] documentation.
+If you're interested in more on how to manage SQL Data Warehouse programmatically, check out our article on how to use [PowerShell cmdlets and REST APIs][] wtih SQL Data Warehouse.
 
 <!--Image references-->
 
@@ -74,16 +74,15 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [develop]: sql-data-warehouse-overview-develop.md
 [load]: sql-data-warehouse-load-with-bcp.md
 [load sample data]: sql-data-warehouse-get-started-manually-load-samples.md
-[Powershell]: sql-data-warehouse-reference-powershell-cmdlets.md
+[PowerShell cmdlets and REST APIs]: sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: sql-database-configure-firewall-settings.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
 
 <!--MSDN references--> 
-[REST API]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [MSDN]:https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
 
- <!--Other Web references-->
- [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+<!--Other Web references-->
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
  
