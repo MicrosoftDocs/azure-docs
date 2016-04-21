@@ -57,8 +57,6 @@ Provisioning a single VM in Azure involves more moving parts than the core VM it
 
 - When moving an existing workload to Azure, choose the [VM size][virtual-machine-sizes] that most closely matches your on-premise servers. We recommend the DS- and GS-series, which can use Premium Storage for I/O intensive workloads.
 
-    - If your workload does not require high-performance, low-latency disk access, consider the other Standard tier VM sizes, such as A-series or D-series.
-
 - When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure CLI command:
 
     ```
@@ -69,13 +67,7 @@ Provisioning a single VM in Azure involves more moving parts than the core VM it
 
 ## Disk and storage recommendations
 
-We recommend [Premium Storage][premium-storage], for the best disk I/O performance. However, note that Premium Storage requires DS- or GS-series VMs.
-
-- For Premium Storage, cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). .
-
-- For Standard Storage, cost is based on the amount of data written to disk. Therefore, it is a good practice to provision the maximum size (1023 GB). However, make sure to use quick format when formatting the disks. A full disk format writes zeroes to the disk, which results in actual storage being used. See [Azure Storage Pricing][storage-price].
-
-- If you select Standard storage, we recommend Geo-Redundant Storage (GRS), because it is durable even in the case of a complete regional outage, or a disaster in which the primary region is not recoverable.  
+- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
 - Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk.
 
