@@ -53,7 +53,9 @@ Alternatively, you can run the same command with sqlcmd by runnig the following 
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-Note the **MAXSIZE** and **SERVICE_OBJECTIVE** parameters.  These parameters dictate the maximum space the database may use on disk as well as the compute resources allocated to your Data Warehouse instance.  The MAXSIZE can be between 250 GB and 60 TB.  The Service Objective can be between DW100 and DW2000.  The Service Objective is essentially an allocation of CPU and memory which scales linearly with the size of DWU.  For a complete list of all valid values for MAXSIZE and SERVICE_OBJECTIVE see the MSDN documentation for [CREATE DATABASE][].  Both the MAXSIZE and SERVICE_OBJECTIVE can also be changed with an [ALTER DATABASE][] T-SQL command.
+The **MAXSIZE** and **SERVICE_OBJECTIVE** parameters specify the maximum space the database may use on disk and the compute resources allocated to your Data Warehouse instance.  The Service Objective is essentially an allocation of CPU and memory which scales linearly with the size of DWU.  
+
+The MAXSIZE can be between 250 GB and 60 TB.  The Service Objective can be between DW100 and DW2000.  For a complete list of all valid values for MAXSIZE and SERVICE_OBJECTIVE see the MSDN documentation for [CREATE DATABASE][].  Both the MAXSIZE and SERVICE_OBJECTIVE can also be changed with an [ALTER DATABASE][] T-SQL command.  Caution should be used when changing the SERVICE_OBJECTIVE as this causes a restart of services which will cancel all queries in flight.  Changing MAXSIZE does not have this caution as it is just a simple metadata operation.
 
 ## Next steps
 After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
