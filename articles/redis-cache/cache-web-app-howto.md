@@ -126,7 +126,11 @@ Procedural steps only for tech review
 		}
 
 
-2. In **Solution Explorer** double-click **web.config** and add the following connection string to the `connectionStrings` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
+2. In **Solution Explorer** double-click **web.config** to open it.
+
+    ![Web.config][cache-web-config]
+
+3.  Add the following connection string to the `connectionStrings` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
 
 		<add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
 
@@ -258,7 +262,11 @@ In this step of the tutorial, we'll configure the sample application to store an
 		</appSettings>
 
 
-2. In **Solution Explorer** double-click **web.config** and add the following `file` attribute to the `appSettings` element. If you used a different file name or location, substitute those values for the ones shown in the example.
+2. In **Solution Explorer** double-click **web.config** to open it.
+
+    ![Web.config][cache-web-config]
+
+3. Add the following `file` attribute to the `appSettings` element. If you used a different file name or location, substitute those values for the ones shown in the example.
 	-	Before: `<appSettings>`
 	-	After: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
 
@@ -559,6 +567,8 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 1. In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
 
+    ![Index.cshtml][cache-views-teams-index-cshtml]
+
 2. Near the top of the file, look for the following paragraph element.
 
 
@@ -655,8 +665,8 @@ Click some of the actions and experiment with retrieving the data from the diffe
 [redis-cache-manage-nuget-menu]: ./media/cache-web-app-howto/redis-cache-manage-nuget-menu.png
 [redis-cache-stack-exchange-nuget]: ./media/cache-web-app-howto/redis-cache-stack-exchange-nuget.png
 [cache-teamscontroller]: ./media/cache-web-app-howto/cache-teamscontroller.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
+[cache-web-config]: ./media/cache-web-app-howto/cache-web-config.png
+[cache-views-teams-index-cshtml]: ./media/cache-web-app-howto/cache-views-teams-index-cshtml.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
