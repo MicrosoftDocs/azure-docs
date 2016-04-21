@@ -23,7 +23,7 @@ SQL Data Warehouse offers two core capabilities for recovering from user error w
 - Restore a live database
 - Restore a deleted database
 
-Both of these capabilities restore to a new database on the same server. It is important to make sure the server you are restoring to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support][].
+Both of these capabilities restore to a new database on the same server. It is important to make sure the server you are restoring to has enough DTU capacity for the new database. See this blog post for more information on [how to view and increase DTU quota][].
 
 ## Recover a live database
 Azure SQL Data Warehouse service protects all live databases with database snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. Database snapshots are also created when you pause or drop your database and are retained for 7 days. In the event of user error causing unintended data modification, you can restore the database to any of the restore points within the retention period.
@@ -163,7 +163,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Blog references-->
-[contacting support]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
+[how to view and increase DTU quota]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
