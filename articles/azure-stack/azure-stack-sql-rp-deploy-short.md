@@ -21,7 +21,7 @@
 Use the SQL Server Resource Provider Adapter to expose SQL databases as an Azure Stack service. After you install the resource provider, you and your users can create databases for cloud-native apps, SQL-based websites, and SQL-based workloads without having to provision a virtual machine that hosts SQL Server each time. Because the resource provider does not provide all the capabilities of Azure SQL Database during the POC, this article begins with an overview of the resource provider architecture. Then you get a quick overview of the steps to set up the resource provider, with links to the more detailed steps in [Deploy the SQL Database Resource Provider Adapter on Azure Stack POC](azure-stack-sql-rp-deploy-long.md).
 
 ## SQL Server Resource Provider Adapter architecture
-During the Azure Stack proof of concept (POC), the resource provider doesn't offer all the features of Azure SQL Database. The database management capabilities of SQL Database aren't available--for example, elastic database pools and that ability to dial database performance up and down on the fly. The resource provider supports the same create, read, update, and delete (CRUD) operations and T-SQL functionality available in [SQL Server 2016](https://msdn.microsoft.com/library/ms130214.aspx).
+During the Azure Stack proof of concept (POC), the resource provider doesn't offer all the database management capabilities of Azure SQL Database--for example, elastic database pools and the ability to dial database performance up and down on the fly aren't available. The resource provider supports the same create, read, update, and delete (CRUD) operations and T-SQL functionality available in [SQL Server 2016](https://msdn.microsoft.com/library/ms130214.aspx).
 
 The resource provider is made up of three components:
 
@@ -29,7 +29,7 @@ The resource provider is made up of three components:
 - **The resource provider itself**, which processes provisioning requests and exposes databases resources
 - **Hosting SQL Servers**, which provide capacity for databases
 
-The conceptual diagram shows these components and the steps you go through as you deploy the resource provider, set up a hosting SQL Server, and then create a database.
+The conceptual diagram below shows these components and the steps you go through as you deploy the resource provider, set up a hosting SQL Server, and then create a database.
 
 ![Azure Stack SQL Resource Provider Adapter simple architecture](./media/azure-stack-sql-rp-deploy-short/sqlrparch.png)
 
@@ -38,11 +38,11 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
 1.  Make sure you fulfill all [set up steps before you deploy](azure-stack-sql-rp-deploy-long.md#set-up-steps-before-you-deploy):
 
-    - .NET 3.5 framework already setup in base image Windows Server image (if you downloaded the Azure Stack bits after 2/23/2016, you can skip this step)
+    - .NET 3.5 framework already set up in base image Windows Server image (if you downloaded the Azure Stack bits after 2/23/2016, you can skip this step)
     - [Azure-Stack-Compatible PowerShell release](http://aka.ms/azStackPsh)
     - IE security settings configured properly on the ClientVM [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#Turn-off-IE-enhanced-security-and-enable-cookies)
 
-2. [Download the SQL Server RP binaries](http://aka.ms/massqlrprfrsh) and extract it to the ClientVM in your Azure Stack POC.
+2. [Download the SQL Server RP binaries](http://aka.ms/massqlrprfrsh) and extract the zip file to the ClientVM in your Azure Stack POC.
 
 3. [Run the bootstrap.cmd and script](azure-stack-sql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment)
 
