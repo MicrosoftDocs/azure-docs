@@ -624,7 +624,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 - [Use time-based Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]
 - [Get started using Hadoop with Hive in HDInsight to analyze mobile handset use][hdinsight-get-started]
-- [Get started with the HDInsight Emulator][hdinsight-get-started-emulator]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data for Hadoop jobs in HDInsight][hdinsight-upload-data]
@@ -654,7 +653,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 

@@ -56,8 +56,6 @@ The workflow contains two actions:
 
 > [AZURE.NOTE] For supported Oozie versions on HDInsight clusters, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
 
-> [AZURE.NOTE] This tutorials works on HDInsight cluster version 2.1 and 3.0. This article has not been tested on HDInsight emulator.
-
 
 ##<a id="prerequisites"></a>Prerequisites
 
@@ -693,7 +691,6 @@ Here is a sample Windows PowerShell script that you can use:
 In this tutorial, you learned how to define an Oozie workflow and an Oozie coordinator, and how to run an Oozie coordinator job by using Azure PowerShell. To learn more, see the following articles:
 
 - [Get started with HDInsight][hdinsight-get-started]
-- [Get started with the HDInsight Emulator][hdinsight-get-started-emulator]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight by using Azure PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
@@ -720,7 +717,6 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
