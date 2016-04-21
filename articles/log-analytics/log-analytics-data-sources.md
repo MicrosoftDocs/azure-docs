@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/15/2016"
+   ms.date="04/21/2016"
    ms.author="bwren" />
 
 # Data sources in Log Analytics
@@ -29,10 +29,10 @@ The data sources that are currently available in Log Analytics are listed in the
 
 | Data Source | Event Type | Description |
 |:--|:--|:--|
-| [Custom logs](log-analytics-custom-logs.md) | \<LogName\>_CL | Text files on Windows or Linux agents containing log information. |
-| [Windows Event logs](log-analytics-windows-events.md) | Event | Events collected from the event log on Windows computers. |
-| [Windows Performance counters](log-analytics-windows-performance-counters.md) | Perf | Performance counters collected from Windows computers. |
-| Linux Performance counters | Perf | Performance counters collected from Linux computers. |
+| [Custom logs](log-analytics-data-sources-custom-logs.md) | \<LogName\>_CL | Text files on Windows or Linux agents containing log information. |
+| [Windows Event logs](log-analytics-data-sources-windows-events.md) | Event | Events collected from the event log on Windows computers. |
+| [Windows Performance counters](log-analytics-data-sources-performance-counters.md) | Perf | Performance counters collected from Windows computers. |
+| [Linux Performance counters](log-analytics-data-sources-performance-counters.md) | Perf | Performance counters collected from Linux computers. |
 | IIS logs | W3CIISLog | Internet Information Services logs in W3C format. |
 | Syslog | Syslog | Syslog events on Windows or Linux computers. |
 

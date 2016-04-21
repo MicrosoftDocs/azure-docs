@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="04/21/2016"
    ms.author="bwren" />
 
 # Windows and Linux performance counters in Log Analytics 
@@ -76,9 +76,9 @@ Performance records have a type of **Perf** and have the [standard properties of
 
 	1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## Log queries with Performance records
+## Log searches with Performance records
 
-The following table provides different examples of log queries that retrieve Performance records.
+The following table provides different examples of log searches that retrieve Performance records.
 
 | Query | Description |
 |:--|:--|
@@ -107,4 +107,4 @@ If the time range you have selected is 6 hours or less, then the graph will disp
 ## Next steps
 
 - Learn about log searches to analyze the data collected from data sources and solutions. 
-- Export collected data to Power BI for additional visualizations and analysis.
+- Export collected data to [Power BI](log-analytics-powerbi.md) for additional visualizations and analysis.
