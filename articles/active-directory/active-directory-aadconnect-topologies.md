@@ -130,7 +130,7 @@ Azure AD Connect supports installing a second server in **Staging mode**. A serv
 
 A staging server can also be used to test a new custom configuration and the effect it has on your data. You can preview the changes and adjust the configuration. When you are happy with the new configuration, you can make the staging server the active server and set the old active server in staging mode.
 
-This method can also be used to replace the active sync server. Prepare the new server and set it in staging mode, fall over, and shut down the currently active server.
+This method can also be used to replace the active sync server. Prepare the new server and set it in staging mode. Make sure it is in good state, disable staging mode (making it active), and shut down the currently active server.
 
 It is possible to have more than one staging server when you want to have multiple backups in different data centers.
 
