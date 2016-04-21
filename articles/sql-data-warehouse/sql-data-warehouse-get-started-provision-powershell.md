@@ -27,9 +27,11 @@
 Before starting, be sure you have the following prerequisites.
 
 - A V12 Azure SQL Server to host the database
-- Know the resource group name for the SQL Server.
+- Know the resource group name for the SQL Server
 
-> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][]).
+For more details on the above prerequisites, see **Configure and create a server** in the article [how to create a SQL Data Warehouse from the Azure Portal][].
+
+> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
 ## Creating a SQL Data Warehouse database
 1. Open Windows PowerShell.
@@ -49,9 +51,11 @@ Before starting, be sure you have the following prerequisites.
 
 > [AZURE.NOTE] Running this command may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
+
 	```Powershell
 	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
 	```
+
 
 	The parameters required for this cmdlet are:
 
@@ -65,9 +69,9 @@ For more details on the parameter options, see [Create Database (Azure SQL Data 
 For the command reference, see [New-AzureRmSqlDatabase][]
 
 ## Next steps
-After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
+After your SQL Data Warehouse has finished provisioning you may want to try [loading sample data][] or check out how to [develop][], [load][], or [migrate][].
 
-If you're interested in more on how to manage SQL Data Warehouse programmatically, check out our article on how to use [PowerShell cmdlets and REST APIs][] with SQL Data Warehouse.
+If you're interested in more on how to manage SQL Data Warehouse programmatically, check out our article on how to use [PowerShell cmdlets and REST APIs][].
 
 <!--Image references-->
 
@@ -75,10 +79,11 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [migrate]: sql-data-warehouse-overview-migrate.md
 [develop]: sql-data-warehouse-overview-develop.md
 [load]: sql-data-warehouse-load-with-bcp.md
-[load sample data]: sql-data-warehouse-get-started-manually-load-samples.md
+[loading sample data]: sql-data-warehouse-get-started-manually-load-samples.md
 [PowerShell cmdlets and REST APIs]: sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: sql-database-configure-firewall-settings.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
+[how to create a SQL Data Warehouse from the Azure Portal]: sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references--> 
 [MSDN]:https://msdn.microsoft.com/library/azure/dn546722.aspx
