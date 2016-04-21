@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Connect and Federation | Microsoft Azure"
-	description="Explains how Azure AD Connect sync works and how to customize."
+	description="Learn how to perform ADFS operations with Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
