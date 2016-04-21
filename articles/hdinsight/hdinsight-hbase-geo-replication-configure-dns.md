@@ -44,8 +44,6 @@ Before you begin this tutorial, you must have the following:
 
 - **A workstation with Azure PowerShell**.
 
-    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
 	Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
 
 		Add-AzureAccount
@@ -53,6 +51,8 @@ Before you begin this tutorial, you must have the following:
 	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
 
 		Select-AzureSubscription <AzureSubscriptionName>
+		
+	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 - **Two Azure virtual network with VPN connectivity**.  For instructions, see [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-geo-replication-vnet].
 
