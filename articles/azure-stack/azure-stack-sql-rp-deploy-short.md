@@ -34,7 +34,7 @@ The conceptual diagram shows these components and the steps you go through as yo
 ![Azure Stack SQL Resource Provider Adapter simple architecture](./media/azure-stack-sql-rp-deploy-short/sqlrparch.png)
 
 
-# Quick steps to deploy the SQL Server Resource Provider Adapter
+## Quick steps to deploy the SQL Server Resource Provider Adapter
 Use these steps if you're already familiar with Azure Stack. If you want more detail, follow the links in each section or go straight to [Deploy the SQL Database Resource Provider Adapter on Azure Stack POC](azure-stack-sql-rp-deploy-long.md).
 
 1.  Make sure you fulfill all the [set up steps before you deploy](azure-stack-sql-rp-deploy-long.md#set-up-steps-before-you-deploy):
