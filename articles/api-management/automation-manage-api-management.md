@@ -42,4 +42,4 @@ Here are some examples of using API Management with Automation:
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure API Management, follow these links to learn more.
 
-* See the Azure Automation [Getting Started Tutorial](../automation/automation-create-runbook-from-samples.md).
+* See the Azure Automation [getting started tutorial](../automation/automation-first-runbook-graphical).
