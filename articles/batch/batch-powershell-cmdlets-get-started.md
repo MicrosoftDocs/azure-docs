@@ -30,7 +30,10 @@ For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure 
     
     * We recommend that you update your Azure PowerShell frequently to take advantage of service updates and enhancements. 
     
-    * If you aren't able to run the Batch cmdlets, confirm that the Microsoft.Batch resource provider is registered by running the `Get-AzureRmResourceProvider –ListAvailable cmdlet`. If necessary, register the provider by running `Register-AzureRMResourceProvider`.
+* **Register with the Batch provider namespace (one-time operation)** - Before working with your Batch accounts, you have to register with the Batch provider namespace. This operation only needs to be performed once per subscription. Run the following cmdlet:
+
+        Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
+
 
 ## Manage Batch accounts and keys
 
@@ -78,11 +81,9 @@ When prompted, confirm you want to remove the account. Account removal can take 
 
 ## Create a BatchAccountContext object
 
-To authenticate with the Batch service to create and manage Batch pools, jobs, tasks, and other resources with Azure PowerShell, you first need to create a BatchAccountContext object to store your account name and keys:
-
+To authenticate using the Batch PowerShell cmdlets when you to create and manage Batch pools, jobs, tasks, and other resources, you first need to create a BatchAccountContext object to store your account name and keys:
 
     $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
-
 
 You pass the BatchAccountContext object into cmdlets that use the **BatchContext** parameter.
 
@@ -100,10 +101,11 @@ For example, the following cmdlet creates a new Batch pool, configured to use si
 
     New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
 
+>[AZURE.NOTE]Currently the Batch PowerShell cmdlets support only the cloud services configuration for compute nodes. This allows you to choose one of the Azure Guest OS releases of the Windows Server operating system to run on the compute nodes. For other compute node configuration options for Batch pools, use the Batch SDKs or the Azure CLI.
 
 ## Query for pool, jobs, tasks, and other details
 
-Use cmdlets such as **Get-AzureBatchPool** ,  **Get-AzureBatchJob**, and **Get-AzureBatchTask** to query for entities created under a Batch account.
+Use cmdlets such as **Get-AzureBatchPool**, **Get-AzureBatchJob**, and **Get-AzureBatchTask** to query for entities created under a Batch account.
 
 
 ### Query for data
@@ -155,6 +157,6 @@ Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets.
 
 
 ## Next steps
-* For detailed cmdlet syntax and more examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 * See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about the reducing the number of items and the type of information that is returned for queries to Batch. 
