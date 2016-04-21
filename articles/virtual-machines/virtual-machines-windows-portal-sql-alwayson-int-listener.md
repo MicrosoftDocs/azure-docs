@@ -24,7 +24,7 @@ This topic explains how to create an internal load balancer for a SQL Server Alw
 
 To complete this task, you need to have a SQL Server AlwaysOn availability group deployed on Azure virtual machines in resource manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the AlwaysOn availability group in Azure resource manager. This template automatically creates the internal load balancer for you. 
 
-If you prefer, you can [manually configure an AlwaysOn availability group](virtual-machines-windows-sql-gui-alwayson-availability-groups-manual.md).
+If you prefer, you can [manually configure an AlwaysOn availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 This topic requires that your availablity groups are already configured.  
 
@@ -32,7 +32,7 @@ Related topics include:
 
  - [Configure AlwaysOn Availability Groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
  
- - [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](./vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+ - [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 
 ## Steps
 
@@ -155,7 +155,7 @@ Set the load balancing rules. The load balancing rules configure how the load ba
 | **Name** | A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
 | **Protocol** | **TCP** |
 | **Port** | *1433*   |
-| **Backend Port** | *1433*. Note that this will be disable because this rule uses **Floating IP (direct server return**.   |
+| **Backend Port** | *1433*. Note that this will be disabled because this rule uses **Floating IP (direct server return)**.   |
 | **Probe** | Use the name of the probe that you created for this load balancer. |
 | **Session persistance**  | **None** | 
 | **Idle timeout (minutes)**  | *4* | 
@@ -256,7 +256,7 @@ To test the connection:
 
         sqlmd -S <listenerName> -E
 
-
+The SQLCMD connection automatically connect to whichever instance of SQL Server hosts the primary replica. 
 
 ## Guidelines and limitations
 
