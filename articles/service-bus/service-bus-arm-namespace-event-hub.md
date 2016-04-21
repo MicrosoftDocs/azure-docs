@@ -66,7 +66,7 @@ The name of the Service Bus namespace to create.
 The name of the Event Hub created in the Service Bus namespace.
 
 ```
-" serviceBusEventHubName": {
+"serviceBusEventHubName": {
 "type": "string"
 }
 ```
@@ -76,7 +76,7 @@ The name of the Event Hub created in the Service Bus namespace.
 The name of the consumer group created for the Event Hub in the Service Bus namespace.
 
 ```
-" serviceBusConsumerGroupName": {
+"serviceBusConsumerGroupName": {
 "type": "string"
 }
 ```
