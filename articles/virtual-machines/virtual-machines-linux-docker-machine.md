@@ -18,12 +18,14 @@
 
 # Use Docker Machine with the Azure driver
 
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses Linux containers rather than virtual machines as a way of isolating application data and computing on shared resources. This topic when and how to use [Docker Machine](https://docs.docker.com/machine/) to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
+[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses Linux containers rather than virtual machines as a way of isolating application data and computing on shared resources. This topic describes when and how to use [Docker Machine](https://docs.docker.com/machine/) to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
 
 
 ## Create VMs with Docker Machine
 
-Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver argument for the driver option (`-d`) and following the prompts. The following example relies upon the default values, but it does open port 80 on the VM to the internet to test with an nginx container. Type `docker-machine create --driver azure` to see the options and their default values. (Note that if you have two-factor authentication enabled, you will be prompted to authenticate using the second factor.)
+Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver argument for the driver option (`-d`) and any other arguments. 
+
+The following example relies upon the default values, but it does open port 80 on the VM to the internet to test with an nginx container. Type `docker-machine create --driver azure` to see the options and their default values. (Note that if you have two-factor authentication enabled, you will be prompted to authenticate using the second factor.)
 
 ```bash
 docker-machine create -d azure \
@@ -63,6 +65,7 @@ Docker is up and running!
 To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env machine
 ```
 
+## Configure your docker shell
 Now, type `docker-machine env <VM name>` to see what you need to do to configure the shell.
 
 ```bash
@@ -75,7 +78,7 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env machine)
 ```
 
-Having configured the shell using `eval` as instructed, point the docker environment variables at the newly created VM, and list the machines:
+Having configured the shell using `eval` as instructed, list the machines with `docker-machine ls`:
 
 ```bash
 docker-machine ls
@@ -100,7 +103,9 @@ Status: Downloaded newer image for nginx:latest
 25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
 ```
 
-Examine the containers using `docker ps`:
+## Confirm the container is running
+
+Examine running containers using `docker ps`:
 
 ```bash
 docker ps
