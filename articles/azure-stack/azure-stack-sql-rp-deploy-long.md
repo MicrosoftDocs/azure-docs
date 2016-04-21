@@ -92,9 +92,10 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 ## Prepare prerequisites
 
 Click the **Prepare Prerequisites** tab to:
-- Create required certificates
-- Upload artifacts to a storage account on Azure Stack
-- Publish gallery items
+
+	- Create required certificates
+	- Upload artifacts to a storage account on Azure Stack
+	- Publish gallery items
 
 ### Create the required certificates
 This **New-SslCert.ps1** script adds the \_.AzureStack.local.pfx SSL certificate to the D:\\SQLRP\\Prerequisites\\BlobStorage\\Container folder. The certificate secures communication between the resource provider and the local instance of the Azure Resource Manager.
