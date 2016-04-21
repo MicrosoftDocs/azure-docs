@@ -6,16 +6,16 @@ Limits depend on the [pricing tier](https://azure.microsoft.com/pricing/details/
 -------- | ------------- | -------------
 Session data points<sup>1</sup> per month | unlimited | 
 Other data points per month | 5 million | 50 million<sup>2</sup>
-[Trace or Log](../articles/app-insights-search-diagnostic-logs.md) data rate | 200 dp/s | 500 dp/s
-[Exception](../articles/app-insights-asp-net-exceptions.md) data rate | 50 dp/s | 50 dp/s
+[Trace or Log](../articles/application-insights/app-insights-search-diagnostic-logs.md) data rate | 200 dp/s | 500 dp/s
+[Exception](../articles/application-insights/app-insights-asp-net-exceptions.md) data rate | 50 dp/s | 50 dp/s
 Other telemetry data rate | 200 dp/s | 500 dp/s
-[Raw data](../articles/app-insights-diagnostic-search.md) retention | 7 days
-[Aggregated data](../articles/app-insights-metrics-explorer.md) retention | 90 days
-[Property](../articles/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
+[Raw data](../articles/application-insights/app-insights-diagnostic-search.md) retention | 7 days
+[Aggregated data](../articles/application-insights/app-insights-metrics-explorer.md) retention | 90 days
+[Property](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
 Property name length | 100 | 
 Property value length | 1000 | 
 Trace and Exception message length | 10000 |
-[Metric](../articles/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
+[Metric](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
 Metric name length |  100 | 
 [Availability tests](../articles/app-insights-monitor-web-app-availability.md) | 10 | 
 
