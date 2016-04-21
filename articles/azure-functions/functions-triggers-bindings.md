@@ -808,7 +808,6 @@ This section contains the following subsections:
 
 
 * [Azure Service Bus connection string in Function App](#sbconnsetting)
-* [Azure Service Bus function.json properties](#sbprops)
 * [How Azure Service Bus queue or topic trigger works](#sbhowworks)
 * [Azure Service Bus queue trigger](#sbtrigger)
 * [Azure Storage Bus queue output binding](#sboutput)
@@ -829,7 +828,7 @@ The SDK receives a message in `PeekLock` mode and calls `Complete` on the messag
 
 Service Bus does its own poison queue handling which cannot be controlled or configured by the WebJobs SDK. 
 
-### <a id="sbprops"></a> Azure Service Bus function.json properties
+### <a id="sbtrigger"></a> Azure Service Bus queue trigger
 
 The *function.json* file for a Service Bus trigger specifies the following properties.
 
@@ -839,49 +838,12 @@ The *function.json* file for a Service Bus trigger specifies the following prope
 - `type` : Must be set to *serviceBusTrigger*.
 - `direction` : Must be set to *in*. 
 
-The *function.json* file for a Service Bus output binding specifies the following properties.
-
-- `name` : The variable name used in function code for the queue or queue message. 
-- `queueName` : The name of the queue or topic.
-- `connection` : Same as for Service Bus trigger.
-- `type` : Must be set to *serviceBus*.
-- `direction` : Must be set to *out*. 
-
-Example *function.json* file for a Service Bus trigger and output binding:
-
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue",
-      "connection": "",
-      "name": "myQueueItem",
-      "type": "serviceBusTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "outputSbQueueMsg",
-      "type": "serviceBus",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsServiceBus",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-### <a id="sbtrigger"></a> Azure Service Bus queue trigger
-
 The Service Bus queue message can be deserialized to any of the following types:
 
 * Object (from JSON)
 * string
 * byte array 
 * `BrokeredMessage` (C#) 
-
-The following example writes a log for each message received on a Service Bus queue.
 
 *Function.json* example for using a Service Bus queue trigger:
 
@@ -920,6 +882,14 @@ module.exports = function(context, myQueueItem) {
 
 ## <a id="sboutput"></a> Service Bus queue output
 
+The *function.json* file for a Service Bus output binding specifies the following properties.
+
+- `name` : The variable name used in function code for the queue or queue message. 
+- `queueName` : The name of the queue or topic.
+- `connection` : Same as for Service Bus trigger.
+- `type` : Must be set to *serviceBus*.
+- `direction` : Must be set to *out*. 
+
 Azure Functions can create a Service Bus queue message from any of the following types.
 
 * Object (always creates a JSON message, creates the message with a null object if the value is null when the function ends)
@@ -927,9 +897,7 @@ Azure Functions can create a Service Bus queue message from any of the following
 * byte array (works like string) 
 * `BrokeredMessage` (C#, works like string)
 
-For creating multiple messages in a C# function, you can use `ICollector<T>` or `IAsyncCollector<T>`. With these types a message is created when an item is added.
-
-The following example uses a timer trigger and and writes messages to a Service Bus queue.
+For creating multiple messages in a C# function, you can use `ICollector<T>` or `IAsyncCollector<T>`. A message is created when you call the `Add` method.
 
 *Function.json* example for using a timer trigger to write Service Bus queue messages:
 
