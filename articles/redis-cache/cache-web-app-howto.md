@@ -214,7 +214,7 @@ Procedural steps only for tech review
 
 ## Configure the application to use Redis Cache
 
-In this step of the tutorial, we'll configure the sample application to store and retrieve Contoso team statistics from a Redis Cache.
+In this step of the tutorial, we'll configure the sample application to store and retrieve Contoso team statistics from a Redis Cache using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
 
 1. To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
@@ -270,7 +270,7 @@ In this step of the tutorial, we'll configure the sample application to store an
 	-	Before: `<appSettings>`
 	-	After: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
 
-    The ASP.NET runtime merges the contents of the external file with the markup in `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you use the **Deploy to Azure** button in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+    The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you use the **Deploy to Azure** button in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 
 ### Update the TeamsController class to return results from the cache or the database
@@ -338,7 +338,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
 3. Add the following three methods to the `TeamsController` class to implement the `playGames`, `clearCache`, and `rebuildDB` action types from the switch statement added in the previous code snippet.
 
-    The `PlayGames` method uses a simple random number generation scheme to simulate scores for a season of games.
+    The `PlayGames` method updates the team statistics by simulating a season of games.
 
 
 	    void PlayGames()
@@ -396,7 +396,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 	    }
 
 
-    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database, and then stored in the cache. In this sample we're using JSON.NET serialization.
+    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database and then stored in the cache for next time. In this sample we're using JSON.NET serialization.
 
         List<Team> GetFromList()
         {
@@ -418,9 +418,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
                 ViewBag.msg += "Storing results to cache. ";
                 cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
-
             }
-
             return teams;
         }
 
@@ -458,7 +456,6 @@ In this sample, team statistics can be retrieved from the database or from the c
 	                cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
 	            }
 	        }
-	
 	        return teams;
 	    }
 
@@ -489,7 +486,6 @@ In this sample, team statistics can be retrieved from the database or from the c
             {
                 teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
             }
-
             return teams;
         }
 
@@ -498,7 +494,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
 The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section we'll modify these three methods to clear the cached teams so that the cache won't be out of sync with the database.
 
-1. Browse to the ` public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
+1. Browse to the `Create(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
 
 	    // POST: Teams/Create
@@ -522,7 +518,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 	    }
 
 
-2. Browse to the `public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
+2. Browse to the `Edit(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
 
 	    // POST: Teams/Edit/5
@@ -545,7 +541,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 		}
 
 
-3. Browse to the `public ActionResult DeleteConfirmed(int id)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
+3. Browse to the `DeleteConfirmed(int id)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
 
 	    // POST: Teams/Delete/5
@@ -563,7 +559,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 	    }
 
 
-### Update the Teams Index view to work
+## Update the Teams Index view
 
 1. In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
 
@@ -571,13 +567,9 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 2. Near the top of the file, look for the following paragraph element.
 
+    ![Action table][cache-teams-index-table]
 
-		<p>
-		    @Html.ActionLink("Create New", "Create")
-		</p>
-
-
-    This is the link to create a new team. Replace the `paragraph` element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and reloading the database with fresh sample data.
+    This is the link to create a new team. Replace the paragraph element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and reloading the database with fresh sample data.
 
 
 		<table class="table">
@@ -612,13 +604,41 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 3. Scroll to the bottom of the **Index.cshtml** file and add the following `tr` element so that it is the last row in the last table in the file.
 
+        <tr><td colspan="5">@ViewBag.Msg</td></tr>
 
-	    <tr><td colspan="5">@ViewBag.Msg</td></tr>
+    This row displays the value of `ViewBag.Msg` which contains a status report about the current operation which is set when you click one of the action links from the previous step.   
+
+    ![Status message][cache-status-message]
+
+4. Press **F6** to build the project.
+
+## Provision and deploy the application Azure
+
+To host your application in Azure, you must first provision the Azure services that your application requires. The sample application in this tutorial uses the following Azure services.
+
+-	Azure Redis Cache
+-	App Service Web App
+-	SQL Database
+
+>[AZURE.NOTE] If you don't have an Azure account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+
+To create a new resource group that contains these resources, click the following **Deploy to Azure** button.
+
+[![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+
+The **Deploy to Azure** button uses the [Create a Web App plus Redis Cache plus SQL Database using a template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) Azure Quickstart template to provision these services and set the connection string for the SQL Database and the application setting for the Azure Redis Cache connection string.
 
 
-## Run the sample application
 
-If you want to use the MSOpenTech port of Redis to host the cache locally on your machine, download the latest [MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases/) version, and simply run `redis-server.exe` on your local machine before starting the sample. The sample will connect to your local cache using a connection string of `127.0.0.1:6739`, as configured previously. For more information, see [Is there a local emulator for Azure Redis Cache?](cache-faq.md#is-there-a-local-emulator-for-azure-redis-cache) from the [Azure Redis Cache FAQ](cache-faq.md).
+## Run the sample application on your local machine
+
+To run the application locally on your machine, you need an Azure Redis Cache instance in which to cache your data. To create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache), or you can simply click the following **Deploy to Azure** button.
+
+[![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+
+>[AZURE.NOTE] For more information about the ARM template used by the Deploy to Azure button, see [Create a Redis Cache using a template](cache-redis-cache-arm-provision.md).
+
+If you already have an existing Azure Redis Cache instance, you can use that to run this sample locally.
 
 If you want to run the sample locally and connect to an Azure Redis Cache instance hosted in Azure, update the cache connection string to point to your cache, as shown in the following example. For more information about connecting to the cache, see [Connect to the cache](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
 
@@ -647,6 +667,7 @@ Click some of the actions and experiment with retrieving the data from the diffe
 
 ## Provision and deploy the application to Azure
 
+![Deploy to Azure][deploybutton]
 
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png
@@ -667,9 +688,9 @@ Click some of the actions and experiment with retrieving the data from the diffe
 [cache-teamscontroller]: ./media/cache-web-app-howto/cache-teamscontroller.png
 [cache-web-config]: ./media/cache-web-app-howto/cache-web-config.png
 [cache-views-teams-index-cshtml]: ./media/cache-web-app-howto/cache-views-teams-index-cshtml.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
+[cache-teams-index-table]: ./media/cache-web-app-howto/cache-teams-index-table.png
+[cache-status-message]: ./media/cache-web-app-howto/cache-status-message.png
+[deploybutton]: ./media/cache-web-app-howto/deploybutton.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
