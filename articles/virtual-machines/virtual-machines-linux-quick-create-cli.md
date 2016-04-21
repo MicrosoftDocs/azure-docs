@@ -24,7 +24,7 @@ This article shows how to quickly create a Linux Virtual Machine on Azure using 
 ## Quick Command Summary
 
 ```
-# One command to deploy the VM attaching your SSH public key
+# One command to deploy the VM and attach your SSH key
 ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
