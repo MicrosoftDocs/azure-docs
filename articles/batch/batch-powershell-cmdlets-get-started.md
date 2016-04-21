@@ -29,12 +29,8 @@ For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure 
     * Because the Azure Batch cmdlets ship in the Azure Resource Manager module, you'll need to run the **Login-AzureRmAccount** cmdlet to connect to your subscription. 
     
     * We recommend that you update your Azure PowerShell frequently to take advantage of service updates and enhancements. 
-
-* **Register with the Batch provider namespace (one-time operation)** - Before working with your Batch accounts, you have to register with the Batch provider namespace. This operation only needs to be performed once per subscription.
-
-
-    Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
-
+    
+    * If you aren't able to run the Batch cmdlets, confirm that the Microsoft.Batch resource provider is registered by running the `Get-AzureRmResourceProvider –ListAvailable cmdlet`. If necessary, register the provider by running `Register-AzureRMResourceProvider`.
 
 ## Manage Batch accounts and keys
 
@@ -97,9 +93,9 @@ You pass the BatchAccountContext object into cmdlets that use the **BatchContext
 ## Create and modify Batch resources
 Use cmdlets such as **New-AzureBatchPool**, **New-AzureBatchJob**, and **New-AzureBatchTask** to create  resources under a Batch account. There are corresponding **Get-** and **Set-** cmdlets to update the properties of existing resources, and  **Remove-** cmdlets to remove resources under a Batch account. 
 
-### Example: Create a Batch pool
+### Create a Batch pool
 
-The following cmdlet creates a new Batch pool. configured to use size Small virtual machines imaged with the latest operating system version of family 3 (Windows Server 2012), with the target number of compute nodes determined by an autoscaling formula. In this case, the  formula is simply $TargetDedicated=3, indicating the number of compute nodes in the pool is 3 at most. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
+For example, the following cmdlet creates a new Batch pool, configured to use size Small virtual machines imaged with the latest operating system version of family 3 (Windows Server 2012), with the target number of compute nodes determined by an autoscaling formula. In this case, the formula is simply **$TargetDedicated=3**, indicating the number of compute nodes in the pool is 3 at most. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
 
     New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
