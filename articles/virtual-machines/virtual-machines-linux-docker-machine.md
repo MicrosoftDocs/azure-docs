@@ -66,6 +66,7 @@ To see how to connect your Docker Client to the Docker Engine running on this vi
 ```
 
 ## Configure your docker shell
+
 Now, type `docker-machine env <VM name>` to see what you need to do to configure the shell.
 
 ```bash
