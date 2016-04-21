@@ -802,10 +802,9 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-### Azure Service Bus triggers and bindings
+## Azure Service Bus triggers and bindings
 
 This section contains the following subsections:
-
 
 * [Azure Service Bus connection string in Function App](#sbconnsetting)
 * [How Azure Service Bus queue or topic trigger works](#sbhowworks)
@@ -822,7 +821,7 @@ To use a Service Bus trigger or binding, set up the function app by adding a con
 
 3. Scroll down to the **App settings** section, and add an entry with **Key** = AzureWebJobsServiceBus and **Value** = the connection string for your Service Bus namespace.
 
-#### <a id="sbhowworks"></a> How Service Bus queue or topic trigger works 
+### <a id="sbhowworks"></a> How Service Bus queue or topic trigger works 
 
 The SDK receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
 
@@ -880,7 +879,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-## <a id="sboutput"></a> Service Bus queue output
+### <a id="sboutput"></a> Azure Service Bus queue output
 
 The *function.json* file for a Service Bus output binding specifies the following properties.
 
