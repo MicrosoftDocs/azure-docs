@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal - Resource Manager - Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal - Resource Manager - Manual](virtual-machines-sql-gui-alwayson-availability-groups-manual.md)
+- [Portal - Resource Manager - Manual](virtual-machines-windows-sql-gui-alwayson-availability-groups-manual.md)
 - [Portal - Classic - Manual](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [PowerShell - Classic](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 

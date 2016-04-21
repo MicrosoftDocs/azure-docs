@@ -461,7 +461,7 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 
 1. Select Use the following DNS server addresses and specify the address of the primary domain controller in **Preferred DNS server**.
 
-1. The address is the address assigned to a VM in the subnet-1 subnet in the Azure virtual network, and that VM is **ad-primary-dc**. To verify **ad-primary-dc**'s IP address, use the **nslookup corp.contoso.com** in the command prompt, as shown below.
+1. The address is the address assigned to a VM in the subnet-1 subnet in the Azure virtual network, and that VM is **ad-primary-dc**. To verify **ad-primary-dc**'s IP address, use the **nslookup ad-primary-dc** in the command prompt, as shown below.
 
 	![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC664954.png)
 
@@ -518,7 +518,7 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 
 1. Log out of the VM.
 
-1. Repeat the steps in this section for all three servers -- **ContosoWSFCNode**, **sqlserver-0**, and **sqlserver-1**.
+1. Repeat the steps in this section for all three servers -- **cluster-fsw**, **sqlserver-0**, and **sqlserver-1**.
 
 The SQL Server VMs are now provisioned and running, but they are installed with SQL Server with default options.
 
@@ -558,7 +558,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 
 1. In the Create Cluster Wizard, create a one-node cluster by stepping through the pages with the settings below:
 
-	|Page|Settings|
+|Page|Settings|
 |---|---|
 |Before You Begin|Use defaults|
 |Select Servers|Type **sqlserver-0** in **Enter server name** and click **Add**|
@@ -690,7 +690,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. In the **Destination** section, click **Add**.
 
-1. In the **File name** text box, type **\\sqlserver-0\backup\MyDB1.bak**. Then, click **OK**, and then click **OK** again to backup the database. When the backup operation completes, click **OK** again to close the dialog.
+1. In the **File name** text box, type **\\\\sqlserver-0\backup\MyDB1.bak**. Then, click **OK**, and then click **OK** again to backup the database. When the backup operation completes, click **OK** again to close the dialog.
 
 1. Next, you take a transaction log backup of the database. In the **Object Explorer**, expand **Databases**, then right-click **MyDB1**, then point to **Tasks**, and then click **Back Up**.
 
@@ -706,7 +706,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. In **Select backup devices**, click **Add**.
 
-1. In Backup file location, type \\sqlserver-0\backup, then click Refresh, then select MyDB1.bak, then click OK, and then click OK again. You should now see the full backup and the log backup in the Backup sets to restore pane.
+1. In Backup file location, type **\\\\sqlserver-0\backup**, then click Refresh, then select MyDB1.bak, then click OK, and then click OK again. You should now see the full backup and the log backup in the Backup sets to restore pane.
 
 1. Go to the Options page, then select RESTORE WITH NORECOVERY in Recovery state, and then click OK to restore the database. Once the restore operation completes, click OK.
 
@@ -726,19 +726,19 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. In the **Specify Replicas** page, click **Add Replica**.
 
-	![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665526.gif)
+	![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665526.png)
 
 1. The **Connect to Server** dialog pops up. Type **sqlserver-1** in **Server name**, then click **Connect**.
 
-	![New AG Wizard, Connect to Server](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665527.gif)
+	![New AG Wizard, Connect to Server](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665527.png)
 
 1. Back in the **Specify Replicas** page, you should now see **sqlserver-1** listed in **Available Replicas**. Configure the replicas as shown below. When you are finished, click **Next**.
 
-	![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665528.gif)
+	![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665528.png)
 
 1. In the **Select Initial Data Synchronization** page, select **Join only** and click **Next**. You have already performed data synchronization manually when you took the full and transaction backups on **sqlserver-0** and restored them on **sqlserver-1**. You can instead choose not to perform the backup and restore operations on your database and select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, this is not recommended for very large databases that are found in some enterprises.
 
-	![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665529.gif)
+	![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665529.png)
 
 1. In the **Validation** page, click **Next**. This page should look similar to below. There is a warning for the listener configuration because you have not configured an availability group listener. You can ignore this warning, because this tutorial does not configure a listener. This tutorial will have you create the listener later. For details on how to configure a listener, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-sql-gui-int-listener.md).
 
@@ -746,21 +746,21 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. In the **Summary** page, click **Finish**, then wait while the wizard configures the new availability group. In the **Progress** page, you can click **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created, as shown below, then click **Close** to exit the wizard.
 
-	![New AG Wizard, Results](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665531.gif)
+	![New AG Wizard, Results](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665531.png)
 
 1. In the **Object Explorer**, expand **AlwaysOn High Availability**, then expand **Availability Groups**. You should now see the new availability group in this container. Right-click **AG1 (Primary)** and click **Show Dashboard**.
 
-	![Show AG Dashboard](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665532.gif)
+	![Show AG Dashboard](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665532.png)
 
 1. Your **AlwaysOn Dashboard** should look similar to the one shown below. You can see the replicas, the failover mode of each replica and the synchronization state.
 
-	![AG Dashboard](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665533.gif)
+	![AG Dashboard](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665533.png)
 
 1. Return to **Server Manager**, select **Tools**, and then launch **Failover Cluster Manager**.
 
 1. Expand **Cluster1.corp.contoso.com**, and then expand **Services and applications**. Select **Roles** and note that the **AG1** availability group role has been created. Note that AG1 does not have any IP address by which database clients can connect to the availability group, because you did not configure a listener. You can connect directly to the primary node for read-write operations and the secondary node for read-only queries.
 
-	![AG in Failover Cluster Manager](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665534.gif)
+	![AG in Failover Cluster Manager](./media/virtual-machines-windows-sql-gui-alwayson-availability-groups-manual/IC665534.png)
 
 >[AZURE.WARNING] Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The WSFC Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
 
