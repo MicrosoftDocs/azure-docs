@@ -29,7 +29,7 @@ In this article, you'll learn how to perform the following tasks:
 - [Create a new Formula](#create-a-new-formula)
 - [Use a Formula to create a new VM](#use-a-formula-to-create-a-new-vm)
 - [Modify a Formula](#modify-a-formula)
-- [Remove a Formula](#remove-a-formula)
+- [Delete a Formula](#delete-a-formula)
 
 > [AZURE.NOTE] Formulas are similar to [Custom Images](./devtest-lab-create-template.md) in that 
 each allows you to create a base image from a VHD that is used to provision a VM. To help decide which is right
@@ -40,8 +40,8 @@ for your particular environment, refer to the article,
 Anyone with DevTest Labs *Users* permissions is able to create VMs in a lab using a Formula as a base. 
 There are two ways to create formulas: 
 
-- From scratch - Use when you know which VM creation settings to be defined.
-- From an existing lab VM - Use when you want to use an existing VM as the starting point for your Formula.
+- From scratch - Use when you want to define all the characteristics of the Formula from scratch.
+- From an existing lab VM - Use when you want to create a Formula based on the settings of an existing VM.
 
 ### Create a new Formula from scratch
 The following steps guide you through the process of creating a new Formula from scratch.
@@ -84,12 +84,67 @@ The following steps guide you through the process of creating a new Formula from
 	![Newly created formula](./media/devtest-lab-manage-formulas/newly-created-formula.png)
 
 ### Create a new Formula from a lab VM
+The following steps guide you through the process of creating a Formula based on an existing VM. 
 
-## Use a Formula to create a new VM
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+
+1. From the list of labs, tap the desired lab.  
+
+1. On the lab blade, locate the section with the title **My VMs** and click the VM from which you wish to create the new Formula.
+
+	![Labs VMs](./media/devtest-lab-manage-formulas/my-vms.png)
+
+1. On the VM's **Settings** blade, tap **Create Formula**.
+
+	![Create Formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
+
+1. On the **Create formula** blade, enter a **Name** and **Description** for your new Formula, and tap **OK**. When the portal has created the Formula, it will be listed on the **Lab formulas** blade.
+
+	![Create Formula blade](./media/devtest-lab-manage-formulas/create-formula-blade.png)
 
 ## Modify a Formula
+To modify a Formula, follow these steps:
 
-## Remove a Formula 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+
+1. From the list of labs, tap the desired lab.  
+
+1. On the lab **Settings** blade, tap **Formulas**.
+
+    ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+
+1. On the **Lab formulas** blade, tap the Formula you wish to modify.
+
+1. On the **Update formula** blade, make the desired edits, and tap **Update**.
+
+## Delete a Formula 
+To delete a Formula, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+
+1. From the list of labs, tap the desired lab.  
+
+1. On the lab **Settings** blade, tap **Formulas**.
+
+    ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+
+1. On the **Lab formulas** blade, click the ellipsis to the right of the Formula you wish to delete.
+
+    ![Formula menu](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
+
+1. On the Formula's context menu, select **Delete**.
+
+    ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)
+
+1. Tap **Yes** to the deletion confirmation dialog.
+
+    ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
 ## Next steps
-Create VM
+Once you have created a Formula for use when creating a VM, the next step is to [add a VM to your DevTest Lab](./devtest-lab-add-vm-with-artifacts.md).

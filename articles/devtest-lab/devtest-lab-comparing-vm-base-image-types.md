@@ -13,39 +13,39 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="04/21/2016"
 	ms.author="tarcher"/>
 
 # Comparing DevTest Labs VM base image options
 
 ## Overview
+Both [Custom Images](./devtest-lab-create-template.md) and [Formulas](./devtest-lab-manage-formulas.md) 
+can be used as bases for [created new VMs](./devtest-lab-add-vm-with-artifacts.md). 
+However, the key distinction between Custom Images and Formulas is that 
+a Custom Image is simply an image based on a VHD, while a Formula is 
+an image based on a VHD *in addition to* preconfigured settings - such as 
+VM Size, virtual network and subnet, artifacts, 
+and so on. These preconfigured settings are set up with default values that can be overridden
+at the time of VM creation. This article explains some of the advantages (pros) and 
+disadvantages (cons) to using Custom Images versus using Formulas.
+ 
+## Custom Images pros and cons
+Custom Images provide a a static, immutable way to create VMs from a desired environment. 
 
-## Custom Images vs. Formulas
+**Pros**
+- VM provisioning from a Custom Image is fast as nothing changes after the VM is spun up from the image. In other words, there are no settings to apply as the Custom Image is simply an image without settings. 
+- VMs created from a single Custom Image are identical.
 
+**Cons**
+- If you need to update some aspect of the Custom Image, the image must be recreated.  
 
-Custom images support in the lab provides a static/immutable way to create VMs from a desired environment. 
+## Formula pros and cons
+Formulas provide a dynamic way to create VMs from the desired configuration/settings.
 
-Pros:
-VM provisioning from a custom image is super fast, since nothing change (no software to install or system settings to update) after the VM is spun up from an image. 
-All settings/configuration is locked down and baked in the images, so it forces all the VMs are identical if using the same images.
+**Pros**
+- Changes in the environment can be captured on the fly via artifacts. For example, if you want a VM installed with the latest bits from your release pipeline or enlist the latest code from your repository, you can simply specify an artifact that deploys the latest bits or enlists the latest code in the Formula together with a target base image. Whenever this formula is used to create VMs, the latest bits/code are deployed/enlisted to the VM. 
+- Formulas can define default settings that custom images cannot provide - such as VM sizes and virtual network settings. 
+- The settings saved in a Formula are shown as default values, but can be modified when the VM is created. 
 
-Cons:
-Every time when changes happen in the environment, a new custom image needs to be generated and maintained, which requires extra effort. 
-
-
-
-
-
-Formulas support in the lab provides a dynamic way to create VMs from the desired configuration/settings.
-
-Pros:
-Changes in the environment can be captured on the fly, thanks to artifacts. It means no extra cost to generate or maintain new custom image files. E.g. if you want a VM installed with the latest bits from your release pipeline or enlist the latest code from your repository, you can simply specify an artifact that deploy the latest bits or enlist the latest code in the formula together with a target base image. So that whenever this formula is used to create VMs, it's always the latest bits/code that are deployed/enlisted to the VM. 
-
-The public DevTest Labs GitHub repo has already offered the artifacts for deploying the latest drop from VSTS and cloning a Git repository respectively. You can leverage and customize those to meet your own needs. Artifacts from this public repo is available to all the DevTest labs by default.
-
-Formula can define default settings that custom images cannot provide, including VM sizes and the virtual network. 
-
-All the settings saved in a formula are shown as default values, but changeable when users use them to create the VM. So it's more flexible to feed multiple needs. E.g. you can change the base image between different versions of Windows (or Linux) for compatibility testing, but keep all the other VM creation settings (artifacts, virtual networks etc.) the same.
-
-Cons:
-It takes additional time after the VM is created from a base image when using artifacts to install extra software or running some system configurations.
+**Cons**
+- Creating a VM from a Formula can take more time than creating a VM from a Custom Image.
