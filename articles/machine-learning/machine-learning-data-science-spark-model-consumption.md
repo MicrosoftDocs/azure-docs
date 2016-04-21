@@ -596,4 +596,4 @@ If you prefer a code free client experience, use the [Azure Logic Apps](../app-s
 
 The advanced data exploration and modeling notebook dives deeper into including cross-validation, hyper-parameter sweeping and model evaluation. 
 
-**Cross-validation and hyperparameter sweeping**: See [Advanced binary classification and regression with the Spark MLlib toolkit](machine-learning-data-science-spark-mlib-toolkit-advanced-regression-classification.md) on how models can be trained using cross-validation and hyper-parameter sweeping.
+**Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) on how models can be trained using cross-validation and hyper-parameter sweeping.

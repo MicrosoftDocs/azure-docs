@@ -945,7 +945,7 @@ Now that you have created regression and classification models with the Spark Ml
 
 **Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md).
 
-**Cross-validation and hyperparameter sweeping**: See [Advanced binary classification and regression with the Spark MLlib toolkit](machine-learning-data-science-spark-mlib-toolkit-advanced-regression-classification.md) on how models can be trained using cross-validation and hyper-parameter sweeping. 
+**Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) on how models can be trained using cross-validation and hyper-parameter sweeping
 
 
 
