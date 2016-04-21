@@ -140,7 +140,7 @@ The availability section below specifies that the dataset is either produced hou
 	"availability":	
 	{	
 		"frequency": "Hour",		
-		"interval": "1",	
+		"interval": 1	
 	}
 
 The following table describes properties you can use in the availability section. 
