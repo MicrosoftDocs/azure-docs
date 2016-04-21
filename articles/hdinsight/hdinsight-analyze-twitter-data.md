@@ -48,7 +48,6 @@ Before you begin this tutorial, you must have the following:
 
         Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
 
-
 - **An Azure HDInsight cluster**. For instructions on cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters] [hdinsight-provision]. You will need the cluster name later in the tutorial.
 
 The following table lists the files used in this tutorial:
