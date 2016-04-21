@@ -47,9 +47,7 @@ For more details on the above prerequisites, see **Configure and create a server
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
-> [AZURE.NOTE] Creating a new SQL Data Warehouse database may result in a new billable charges.  See [SQL Data Warehouse pricing][] for more details on pricing.
-
-4.  Create database. This example creates a new database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1" which is in the resource group named "mywesteuroperesgp1".
+4.  Create database. This example creates a new database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1" which is in the resource group named "mywesteuroperesgp1".  **NOTE: Creating a new SQL Data Warehouse database may result in a new billable charges.  See [SQL Data Warehouse pricing][] for more details on pricing.**
 
 	```Powershell
 	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
