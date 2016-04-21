@@ -16,12 +16,12 @@
 	ms.date="04/20/2016"
 	ms.author="rasquill"/>
 
-# Create docker hosts in Azure using Docker Machine
+# Use Docker Machine with the Azure driver
 
 [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses Linux containers rather than virtual machines as a way of isolating application data and computing on shared resources. This topic when and how to use [Docker Machine](https://docs.docker.com/machine/) to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
 
 
-## Create VMs with docker-machine
+## Create VMs with Docker Machine
 
 Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver argument for the driver option (`-d`) and following the prompts. The following example relies upon the default values, but it does open port 80 on the VM to the internet to test with an nginx container. Type `docker-machine create --driver azure` to see the options and their default values. (Note that if you have two-factor authentication enabled, you will be prompted to authenticate using the second factor.)
 
