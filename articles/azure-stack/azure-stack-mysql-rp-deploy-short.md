@@ -39,7 +39,7 @@ To deploy a MySQL resource provider, you will:
         - Upload the certificates and all other artifacts to an Azure Stack storage account
         - Publish gallery packages to allow deployment MySQL resources through gallery
     - In the “Deploy” tab:
-        - [Deploy a VM](/azure-stack-mysql-rp-deploy-long.md#Deploy-your-SQL-RP-Resource-Provider-VM) that will host both your resource provider and SQL Server instance *
+        - [Deploy a VM](/azure-stack-mysql-rp-deploy-long.md#Deploy-your-MySQL-RP-Resource-Provider-VM) that will host both your resource provider and MySQL Servers and databases you will instantiate *
 
         - [Register a local DNS record](/azure-stack-mysql-rp-deploy-long.md#Update-the-local-DNS) that will map to your resource provider VM
         - [Register you resource provider](/azure-stack-mysql-rp-deploy-long.md#Register-the-MySQL-RP-Resource-Provider) with the local Azure Resource Manager
@@ -52,10 +52,10 @@ preinstalled, that the clientVM has JavaScript and cookies enabled, and
 that you are using the latest Azure PowerShell.
 
 
-5\. [Test your new MySQL RP](/azure-stack-MySql-rp-deploy-long.md#test-your-deployment-create-your-first-sql-database) by deploying a SQL database from the Azure Stack portal:
-**Create &gt; Custom &gt; MySQL Server Database**
+5\. [Test your new MySQL RP](/azure-stack-MySql-rp-deploy-long.md#test-your-deployment-create-your-first-sql-database) by deploying a MySQL database from the Azure Stack portal:
+**Create &gt; Custom &gt; MySQL Server and Database**
 
-This should get your MySQL Resource Provider up and running in about 45 minutes (depending on your hardware). If you wish to know more
+This should get your MySQL Resource Provider up and running in about 25 minutes (depending on your hardware). If you wish to know more
 about each step, go to the [detailed MySQL Server RP deployment instructions](/azure-stack-MySql-rp-deploy-long.md#Instructions-for-deploying)
 
 <span id="before-you-deploy" class="anchor"><span
