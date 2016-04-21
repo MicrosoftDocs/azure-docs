@@ -592,3 +592,8 @@ If you prefer a code free client experience, use the [Azure Logic Apps](../app-s
 ![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
 
+## What's next?
+
+The advanced data exploration and modeling notebook dives deeper into including cross-validation, hyper-parameter sweeping and model evaluation. 
+
+**Cross-validation and hyperparameter sweeping**: See [Advanced binary classification and regression with the Spark MLlib toolkit](machine-learning-data-science-spark-mlib-toolkit-advanced-regression-classification.md) on how models can be trained using cross-validation and hyper-parameter sweeping.
