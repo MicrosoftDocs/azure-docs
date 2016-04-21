@@ -30,9 +30,9 @@ ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 
 ## Create the Linux VM
 
-In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to create a VM quickly. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).) It will look something like the following.
+In the following command for the ImageURN we will use `canonical:ubuntuserver:14.04.2-LTS:latest` to deploy a Ubuntu 14.04 VM. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).).
 
-In the following command walk through, please replace the prompts with values from your own environment, We are using "example" values.  The output should look like this.  
+In the following command walk through, please replace the prompts with values from your own environment, we are using "example" values.  The output should look like the following output block.  
 
 ```bash
 # Follow the prompts and enter your own names
