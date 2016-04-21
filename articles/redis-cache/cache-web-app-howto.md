@@ -300,7 +300,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 		            ClearCachedTeams();
 		            break;
 		
-		        case "rebuildDB": // Reseed the database with sample data.
+		        case "rebuildDB": // Rebuild the database with sample data.
 		            RebuildDB();
 		            break;
 		    }
@@ -359,14 +359,13 @@ In this sample, team statistics can be retrieved from the database or from the c
 
     The `RebuildDB` method reinitializes the database with the default set of teams and generates statistics for them.
 	
-	    void RebuildDB()
-	    {
-	        ViewBag.msg += "Rebuilding DB. ";
-	        // Re-iniatialize the database.
-	        db.Database.Initialize(true);
-	
-	        PlayGames();
-	    }
+        void RebuildDB()
+        {
+            ViewBag.msg += "Rebuilding DB. ";
+            // Delete and re-initialize the database with sample data.
+            db.Database.Delete();
+            db.Database.Initialize(true);
+        }
 
 
     The `ClearCachedTeams` method removes any cached team statistics from the cache.
@@ -620,15 +619,29 @@ To host your application in Azure, you must first provision the Azure services t
 -	App Service Web App
 -	SQL Database
 
->[AZURE.NOTE] If you don't have an Azure account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
-
 To create a new resource group that contains these resources, click the following **Deploy to Azure** button.
 
 [![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
 The **Deploy to Azure** button uses the [Create a Web App plus Redis Cache plus SQL Database using a template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) Azure Quickstart template to provision these services and set the connection string for the SQL Database and the application setting for the Azure Redis Cache connection string.
 
+>[AZURE.NOTE] If you don't have an Azure account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
+Clicking the **Deploy to Azure** button takes you to the Azure portal and initiates the process of creating the resources described by the template.
+
+![Deploy to Azure][cache-deploy-to-azure-step-1]
+
+On the **Parameters** blade, specify an administrator account name (**ADMINISTRATORLOGIN** - don't use **admin**), administrator login password (**ADMINISTRATORLOGINPASSWORD**), and database name (**DATABASENAME**). The other parameters are configured for a free App Service hosting plan, and lower cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier. Change any of the other settings are desired, or keep the defaults, and click **OK**.
+
+On the **Custom deployment** blade, select an existing resource group or create a new one, and specify the location for the resource group. Once the settings and the **Parameters** blade and the resource group are configured, click **Review legal terms**.
+
+![Deploy to Azure][cache-deploy-to-azure-step-2]
+
+Read the terms on the **Create** blade, click **Create**, and then click **Create** on the **Custom deployment** blade.
+
+![Deployment started][cache-deployment-started]
+
+![Deploy to Azure][cache-deploy-to-azure-step-3]
 
 ## Run the sample application on your local machine
 
@@ -691,10 +704,10 @@ Click some of the actions and experiment with retrieving the data from the diffe
 [cache-teams-index-table]: ./media/cache-web-app-howto/cache-teams-index-table.png
 [cache-status-message]: ./media/cache-web-app-howto/cache-status-message.png
 [deploybutton]: ./media/cache-web-app-howto/deploybutton.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
+[cache-deploy-to-azure-step-1]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-1.png
+[cache-deploy-to-azure-step-2]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-2.png
+[cache-deploy-to-azure-step-3]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-3.png
+[cache-deployment-started]: ./media/cache-web-app-howto/cache-deployment-started.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
