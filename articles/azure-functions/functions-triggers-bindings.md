@@ -806,12 +806,12 @@ module.exports = function (context, myQueueItem) {
 
 This section contains the following subsections:
 
-* [Azure Service Bus connection string in Function App](#sbconnsetting)
+* [Azure Service Bus connection string in function app settings](#sbconnsetting)
 * [How Azure Service Bus queue or topic trigger works](#sbhowworks)
 * [Azure Service Bus queue trigger](#sbtrigger)
 * [Azure Storage Bus queue output binding](#sboutput)
 
-### <a id="sbconnsetting"></a> Azure Service Bus connection string App Setting
+### <a id="sbconnsetting"></a> Azure Service Bus connection string in function app settings
 
 To use a Service Bus trigger or binding, set up the function app by adding a connection string for your Service Bus namespace in an app setting named AzureWebJobsServiceBus. 
 
@@ -825,7 +825,7 @@ To use a Service Bus trigger or binding, set up the function app by adding a con
 
 The SDK receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
 
-Service Bus does its own poison queue handling which cannot be controlled or configured by the WebJobs SDK. 
+Service Bus does its own poison queue handling which cannot be controlled or configured in *host.json*, *function.json*, or code. 
 
 ### <a id="sbtrigger"></a> Azure Service Bus queue trigger
 
