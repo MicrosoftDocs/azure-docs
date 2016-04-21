@@ -56,7 +56,7 @@ Common topologies are discussed in the next section: [Separate topologies](#mult
 
 The default configuration in Azure AD Connect sync assumes:
 
-1. Users have only one enabled account and the forest where this account is located is used to authenticate the user. This assumption is for both password sync and for federation. UserPrincipalName and sourceAnchor/immutableID comes from this forest.
+1. Users have only one enabled account and the forest where this account is located is used to authenticate the user. This assumption is for both password sync and for federation. UserPrincipalName and sourceAnchor/immutableID come from this forest.
 2. Users have only one mailbox.
 3. The forest that hosts the mailbox for a user has the best data quality for attributes visible in the Exchange Global Address List (GAL). If there is no mailbox on the user, then any forest can be used to contribute these attribute values.
 4. If you have a linked mailbox, then there is also another account in different forest used for login.
