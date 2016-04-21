@@ -121,7 +121,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 
-## Step 2: Create a Recovery Services vault
+## Step 2: Create a Recovery Services vault 
 
 1. Create an ARM resource group if you don't have one already
 
