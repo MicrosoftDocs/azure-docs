@@ -457,7 +457,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
             // If the key teamsSortedSet is not present, this method returns a 0 length collection.
             var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
-            while(teamsSortedSet.Count() == 0)
+            if(teamsSortedSet.Count() == 0)
             {
                 // Load the entire sorted set into the cache.
                 GetFromSortedSet();
@@ -482,7 +482,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
 The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section we'll modify these three methods to clear the cached teams so that the cache won't be out of sync with the database.
 
-1.Browse to the ` public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
+1. Browse to the ` public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
 
 	    // POST: Teams/Create
