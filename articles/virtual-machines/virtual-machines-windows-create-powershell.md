@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a VM with Powershell | Microsoft Azure"
-	description="Create and configure an Azure virtual machine with the Powershell and the Resource Manager deployment model."
+	description="Create and configure an Azure virtual machine using PowerShell in the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="03/04/2016"
 	ms.author="cynthn"/>
 
-# Create and configure a Windows Virtual Machine with Resource Manager and Azure PowerShell
+# Create and configure a Windows Virtual Machine using Azure PowerShell in the Resource Manager deployment model
 
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-hero-tutorial.md)
@@ -27,10 +27,6 @@
 - [CLI](virtual-machines-linux-quick-create-cli.md)
 
 <br>
-
-
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-create-powershell.md).
 
 These steps show you how to construct a set of Azure PowerShell commands to create and configure an Azure virtual machine. You can use this building block process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment. You can also use it to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
