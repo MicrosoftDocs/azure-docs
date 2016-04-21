@@ -802,6 +802,184 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+### Azure Service Bus triggers and bindings
+
+This section contains the following subsections:
+
+
+* [Azure Service Bus connection string in Function App](#sbconnsetting)
+* [Azure Service Bus function.json properties](#sbprops)
+* [How Azure Service Bus queue or topic trigger works](#sbhowworks)
+* [Azure Service Bus queue trigger](#sbtrigger)
+* [Azure Storage Bus queue output binding](#sboutput)
+
+### <a id="sbconnsetting"></a> Azure Service Bus connection string App Setting
+
+To use a Service Bus trigger or binding, set up the function app by adding a connection string for your Service Bus namespace in an app setting named AzureWebJobsServiceBus. 
+
+1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service Settings**.
+
+2. In the **Settings** blade, click **Application Settings**.
+
+3. Scroll down to the **App settings** section, and add an entry with **Key** = AzureWebJobsServiceBus and **Value** = the connection string for your Service Bus namespace.
+
+#### <a id="sbhowworks"></a> How Service Bus queue or topic trigger works 
+
+The SDK receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+
+Service Bus does its own poison queue handling which cannot be controlled or configured by the WebJobs SDK. 
+
+### <a id="sbprops"></a> Azure Service Bus function.json properties
+
+The *function.json* file for a Service Bus trigger specifies the following properties.
+
+- `name` : The variable name used in function code for the queue or queue message. 
+- `queueName` : The name of the queue or topic.
+- `connection` : The name of an app setting that contains a Service Bus connection string. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is the one specified by the AzureWebJobsServiceBus app setting.
+- `type` : Must be set to *serviceBusTrigger*.
+- `direction` : Must be set to *in*. 
+
+The *function.json* file for a Service Bus output binding specifies the following properties.
+
+- `name` : The variable name used in function code for the queue or queue message. 
+- `queueName` : The name of the queue or topic.
+- `connection` : Same as for Service Bus trigger.
+- `type` : Must be set to *serviceBus*.
+- `direction` : Must be set to *out*. 
+
+Example *function.json* file for a Service Bus trigger and output binding:
+
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue",
+      "connection": "",
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "outputSbQueueMsg",
+      "type": "serviceBus",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsServiceBus",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}```
+
+### <a id="sbtrigger"></a> Azure Service Bus queue trigger
+
+The Service Bus queue message can be deserialized to any of the following types:
+
+* Object (from JSON)
+* string
+* byte array 
+* `BrokeredMessage` (C#) 
+
+The following example writes a log for each message received on a Service Bus queue.
+
+*Function.json* example for using a Service Bus queue trigger:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "testqueue",
+      "connection": "",
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# code example that works with the preceding *function.json* file:
+
+```csharp
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Verbose($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
+```
+
+Node.js code example that works with the preceding *function.json* file:
+
+```javascript
+module.exports = function(context, myQueueItem) {
+    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.done();
+};
+```
+
+## <a id="sboutput"></a> Service Bus queue output
+
+Azure Functions can create a Service Bus queue message from any of the following types.
+
+* Object (always creates a JSON message, creates the message with a null object if the value is null when the function ends)
+* string (creates a message if the value is non-null when the function ends)
+* byte array (works like string) 
+* `BrokeredMessage` (C#, works like string)
+
+For creating multiple messages in a C# function, you can use `ICollector<T>` or `IAsyncCollector<T>`. With these types a message is created when an item is added.
+
+The following example uses a timer trigger and and writes messages to a Service Bus queue.
+
+*Function.json* example for using a timer trigger to write Service Bus queue messages:
+
+```JSON
+{
+  "bindings": [
+    {
+      "schedule": "0/15 * * * * *",
+      "name": "myTimer",
+      "runsOnStartup": true,
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "outputSbQueue",
+      "type": "serviceBus",
+      "queueName": "testqueue",
+      "connection": "",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+C# code example that works with the preceding *function.json* file:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+{
+    log.Verbose($"Service Bus queue message created at: {DateTime.Now}"); 
+    outputSbQueue.Add($"Service Bus queue message created at: {DateTime.Now}");
+}
+```
+
+Node.js code example that works with the preceding *function.json* file:
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Service Bus queue message created at ', timeStamp);   
+    context.outputSbQueueMsg = 'Service Bus queue message created at ' + timeStamp;
+    context.done();
+};
+```
+
 ## Azure DocumentDB bindings
 
 This section contains the following subsections:
