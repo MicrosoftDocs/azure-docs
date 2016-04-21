@@ -41,7 +41,8 @@ Learn the answers to common questions, patterns and best practices for Azure API
 ### How can I ask a question to the API Management team?
 
 -	You can post your questions to our [API Management MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
--	You can also send us an email at: `apimgmt@microsoft.com`.
+-	You can send us an email at: `apimgmt@microsoft.com`.
+-	You can send us a [feature request](https://feedback.azure.com/forums/248703-api-management).
 
 ### What does it mean if a feature is in Preview?
 
@@ -114,16 +115,6 @@ The IP address (or addresses in the case of multi-region deployment) can be foun
 ### Can I configure an OAUth 2.0 Authorization Server with ADFS security?
 
 For information on configuring this scenario, see [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
-
-### Can I limit VNET to VNET communication using NSG in the subnet to which I deployed API Management?
-
-You can limit VNET to VNET communication by configuring the following ports to have higher priority in NSG to deny communications.
-
-| Ports (Source / Destination) | Direction | Transport Protocol | Purpose                                                                                                                                                                                                                                                                  | Source / Destination              |
-|------------------------------|-----------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
-| * / *                         | INBOUND   | TCP                | Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. | 168.63.128.16 / VIRTUAL_NETWORK |
-| * / *                        | OUTBOUND  | TCP                | Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. | VIRTUAL_NETWORK / 168.63.128.16 |
-| * / 1688                     | OUTBOUND  | TCP                | Windows images running in the virtual machines should be licensed. To do this, a licensing request is sent to the Key Management Service host servers that handle such queries. This will always be on outbound port 1688.                                               | VIRTUAL_NETWORK / Any           |
 
 ### What routing method does API Management use when deployed to multiple geographic locations? 
 
