@@ -129,14 +129,6 @@ ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 
 The `azure vm quick-create` is the way to quickly create a VM so you can log in  to a bash shell and get working. Using `vm quick-create` does not give you the additional benefits of a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](virtual-machines-linux-cli-deploy-templates.md), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
 
-The example above creates:
-
-- an Azure Resource Group to deploy the VM into
-- an Azure Storage account to hold the .vhd file that is the VM image
-- an Azure Virtual Network and subnet to provide connectivity to the VM
-- a virtual Network Interface Card (NIC) to associate the VM with the network
-- a public IP address and subdomain prefix to provide an internet address for external use and then creates the Linux VM inside that environment.
-
 ## Next Steps
 
 Now you've created a Linux VM quickly to use for testing or demonstration purposes. To create a Linux VM customized for your infrastructure you can follow any of the articles below.
