@@ -19,6 +19,7 @@
 
 # Tutorial: Azure Active Directory integration with 360° Online
 
+
 The objective of this tutorial is to show you how to integrate 360° Online with Azure Active Directory (Azure AD).
 
 Integrating 360° Online with Azure AD provides you with the following benefits:
