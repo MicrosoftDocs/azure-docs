@@ -27,7 +27,7 @@ The recovery operation requires changing the SQL connection string upon recovery
 - Your Azure Portal shows an alert about an incident in the region with broad impact.
 
 ## Recover using Geo-Restore
-Recovering a database creates a new database from the latest geo-redundant backup. It is important to make sure the server you are recovering to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support][].
+Recovering a database creates a new database from the latest geo-redundant backup. It is important to make sure the server you are restoring to has enough DTU capacity for the new database. See this blog post for more information on [how to view and increase DTU quota][].
 
 ### Azure Portal
 1. Log in to the [Azure Portal][]
@@ -104,7 +104,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Database Operation Status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
 
 <!--Blog references-->
-[contacting support]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
+[how to view and increase DTU quota]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
