@@ -108,9 +108,7 @@ bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Use
 You can verify the data was loaded by running the following query using sqlcmd:
 
 ```sql
-sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
-SELECT * FROM DimDate2 ORDER BY 1;
-"
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
 This should return the following results:
