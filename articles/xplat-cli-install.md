@@ -14,10 +14,14 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="04/20/2016"
 	ms.author="danlep"/>
-
+    
 # Install the Azure CLI
+
+> [AZURE.SELECTOR]
+- [PowerShell](powershell-install-configure.md)
+- [Azure CLI](xplat-cli-install.md)
 
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several installation choices: use one of the provided installer packages for different operating systems, install from an npm package, or install the Azure CLI as a container in a Docker host. For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
 
