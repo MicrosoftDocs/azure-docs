@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016" 
+	ms.date="04/21/2016" 
 	ms.author="sdanie"/>
 
 # Azure API Management FAQ
@@ -88,6 +88,7 @@ If the policy that you want to add is not enabled, ensure that you are in the co
 ### How can I configure multiple environments of APIs, for example Sandbox and Production?
 
 At this time, your options are:
+
 -	You can host distinct APIs on the same tenant
 -	You can host the same APIs on different tenants
 
@@ -118,4 +119,4 @@ For information on configuring this scenario, see [Using ADFS in API Management]
 
 ### What routing method does API Management use when deployed to multiple geographic locations? 
 
-API Management uses the [Performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Incoming traffic will be routed to the closest API gateway. If one region goes offline, incoming traffic will be automatically routed to the next closest gateway. For more information about routing methods, see [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method).
+API Management uses the [Performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Incoming traffic will be routed to the closest API gateway. If one region goes offline, incoming traffic will be automatically routed to the next closest gateway. For more information about routing methods, see [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
