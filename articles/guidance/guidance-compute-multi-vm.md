@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/21/2016"
+   ms.date="04/19/2016"
    ms.author="mikewasson"/>
 
 # Running multiple Windows VM instances on Azure (single tier, Internet-facing)
@@ -37,15 +37,15 @@ The following diagram builds on the topology shown in [Running a Single Windows 
     - **Front-end configuration.** Associates the public IP address with the load balancer.
     - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
 
-- Create **load balancer rules** for the network traffic that should be distributed among the VMs. For example, for HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
+- Create **load balancer rules** for the network traffic that should be distributed across the VMs. For example, for HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
 
 - Create **NAT rules** when you need to route traffic to a specific VM &mdash; for example, to allow remote desktop to a VM instance. When you create a NAT rule, associate it with the NIC for the VM instance.
 
-    - Example: To enable **remote desktop (RDP)** to the VMs, create a separate NAT rule for each VM, mapping a distinct port number to port 3389. (RDP uses port 3389.) For example, use port 50001 for "VM1", port 50002 for "VM2", and so on. Then assign the NAT rules to the NICs on the VMs. Connect o the VM by using the _external_ port number (50001, 50002, etc).
+    - Example: To enable **remote desktop (RDP)** to the VMs, create a separate NAT rule for each VM, mapping a distinct port number to port 3389. (RDP uses port 3389.) For example, use port 50001 for "VM1", port 50002 for "VM2", and so on. Then assign the NAT rules to the NICs on the VMs. Connect to the VM by using the _external_ port number (50001, 50002, etc).
 
 - **Network interfaces (NICs)**. Provision a NIC for each VM. The NIC provides network connectivity to the VM. Associate the NIC with the subnet and also with the back-end address pool of the load balancer.
 
-- **Storage.** Create separate Azure storage accounts for each VM to hold the VHDs for that VM. Create one storage account for diagnostic logs. That account can be shared by all the VMs.
+- **Storage.** Create separate Azure storage accounts for each VM to hold the VHDs, in order to avoid hitting the [IOPS limits][vm-disk-limits] for storage accounts. Create one storage account for diagnostic logs. That account can be shared by all the VMs.
 
 ## Scalability
 
@@ -56,6 +56,8 @@ For example, suppose you're running a web server. You would add a load balancer 
 It's important that any VM instance can handle any request that is routed through the load balancer.
 
 > [AZURE.TIP] When you add a new VM to an Availability Set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, Internet traffic won't be routed to the new VM.
+
+The Azure load balancer is a layer-4 load balancer, meaning it distributes traffic based on TCP/UDP port numbers. Another option is [Azure Application Gateway][app-gateway], which is a layer-7 load balancer (HTTP/HTTPS) that supports URL-based routing and SSL offload. For a comparison of the two, see [Load Balancer differences][load balancer differences].
 
 ## Availability
 
@@ -118,25 +120,39 @@ The script uses the naming conventions described in [Recommended Naming Conventi
 ECHO OFF
 SETLOCAL
 
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Set up variables for deploying resources to Azure.
+:: Change these variables for your own deployment.
+
+:: The APP_NAME variable must not exceed 4 characters in size.
+:: If it does the 15 character size limitation of the VM name may be exceeded.
+SET APP_NAME=app1
+SET LOCATION=eastus2
+SET ENVIRONMENT=dev
+SET USERNAME=testuser
+SET NUM_VM_INSTANCES=2
+
+:: For Windows, use the following command to get the list of URNs:
+:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
+SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
+
+:: For a list of VM sizes see:
+::   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
+:: To see the VM sizes available in a region:
+:: 	azure vm sizes --location <location>
+SET VM_SIZE=Standard_DS1
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 IF "%~2"=="" (
     ECHO Usage: %0 subscription-id admin-password
     EXIT /B
     )
 
-:: Set up variables to build out the naming conventions for deploying
-:: the cluster
-
-SET LOCATION=eastus2
-SET APP_NAME=app1
-SET ENVIRONMENT=dev
-SET USERNAME=testuser
-SET PASSWORD=%2
-
-SET NUM_VM_INSTANCES=2
-
 :: Explicitly set the subscription to avoid confusion as to which subscription
 :: is active/default
 SET SUBSCRIPTION=%1
+SET PASSWORD=%2
 
 :: Set up the names of things using recommended conventions
 SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
@@ -150,13 +166,6 @@ SET IP_NAME=%APP_NAME%-pip
 SET SUBNET_NAME=%APP_NAME%-subnet
 SET VNET_NAME=%APP_NAME%-vnet
 SET DIAGNOSTICS_STORAGE=%APP_NAME:-=%diag
-
-:: For Windows, use the following command to get the list of URNs:
-:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
-SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
-
-:: For a list of VM sizes see...
-SET VM_SIZE=Standard_DS1
 
 :: Set up the postfix variables attached to most CLI commands
 SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
@@ -274,7 +283,7 @@ goto :eof
 [3-tier-blueprint]: guidance-compute-3-tier-vm.md
 [availability set]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
-[app gateway]: ../application-gateway/application-gateway-ssl-arm.md
+[app-gateway]: ../application-gateway/application-gateway-ssl-arm.md
 [azure-automation]: https://azure.microsoft.com/en-us/documentation/services/automation/
 [azure-cli]: ../virtual-machines-command-line-tools.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
@@ -282,10 +291,12 @@ goto :eof
 [health probes]: ../load-balancer/load-balancer-overview.md#service-monitoring
 [health-probe-ip]: ../virtual-network/virtual-networks-nsg.md#special-rules
 [load balancer]: ../load-balancer/load-balancer-get-started-internet-arm-cli.md
+[load balancer differences]: ../load-balancer/load-balancer-overview.md#load-balancer-differences
 [load balancer hashing]: ../load-balancer/load-balancer-overview.md#hash-based-distribution
 [naming conventions]: guidance-naming-conventions.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
 [oms]: https://www.microsoft.com/en-us/server-cloud/operations-management-suite/overview.aspx
 [Runbook Gallery]: ../automation/automation-runbook-gallery.md#runbooks-in-runbook-gallery
 [single vm]: guidance-compute-single-vm.md
+[vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/

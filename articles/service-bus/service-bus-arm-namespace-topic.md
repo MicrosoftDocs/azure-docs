@@ -86,7 +86,7 @@ The name of the subscription created in the Service Bus namespace.
 The Service Bus API version of the template.
 
 ```
-" serviceBusApiVersion": {
+"serviceBusApiVersion": {
 "type": "string"
 }
 ```
