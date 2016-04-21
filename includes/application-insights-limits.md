@@ -17,7 +17,7 @@ Property value length | 1000 |
 Trace and Exception message length | 10000 |
 [Metric](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
 Metric name length |  100 | 
-[Availability tests](../articles/app-insights-monitor-web-app-availability.md) | 10 | 
+[Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
 
 <sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
 
