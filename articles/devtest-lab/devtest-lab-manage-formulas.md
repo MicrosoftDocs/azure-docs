@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="04/21/2016"
 	ms.author="tarcher"/>
 
 # Manage DevTest Labs Formulas to create VMs
@@ -60,18 +60,28 @@ The following steps guide you through the process of creating a new Formula from
 
 1. On the **Lab formulas** blade, tap **+ Add**.
 
-    ![Add a new formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+    ![Add a new formula](./media/devtest-lab-manage-formulas/add-formula.png)
 
 1. On the **Choose a base** blade, tap the Custom Image or Marketplace Image from which you want to create the Formula.
 
     ![Base list](./media/devtest-lab-manage-formulas/base-list.png)
 
-1. The **Create formula** blade contains the following fields:
+1. On the **Create formula** blade, specify the following values:
 
-	- Formula name - Enter a name for your Formula. The name is validated as you type it. If the name is not valid, a message will indicate the requirements for a valid name. 
-	- Description -  
-	- Image - This field is read-only and  
+	- **Formula name** - Enter a name for your Formula. This value will be displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message will indicate the requirements for a valid name.
+	- **Description** - Enter a meaningful description for your Formula. This value is available from the Formula's context menu when you create a VM.
+	- **Image** - This is a read-only field displaying the base image you selected on the previous blade.
+	- Tap **VM Size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
+	- **Virtual network** - Tap and select the desired virtual network.
+	- **Subnet** Tap and and select the desired subnet.
+	- **Public IP address** - If the lab policy is set to allow public IP addresses for the selected subnet, specify whether or not you want the IP address to be public by selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**.
+	- **Artifacts** - Tap and, from the list of artifacts, select and configure the artifacts that you want to add to the base image. 
 
+    	![Create formula](./media/devtest-lab-manage-formulas/create-formula.png)
+
+1. Tap **Create** to create the Formula. When the portal has created the Formula, it will be listed on the **Lab formulas** blade.
+
+	![Newly created formula](./media/devtest-lab-manage-formulas/newly-created-formula.png)
 
 ### Create a new Formula from a lab VM
 
