@@ -32,7 +32,7 @@ This end-to-end tutorial shows you how to implement availability groups using SQ
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
 
->[AZURE.NOTE] In the Azure Portal, there is a new gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md). 
+>[AZURE.NOTE] In the Azure Portal, there is a new gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
 
 At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:
 
@@ -60,7 +60,7 @@ This tutorial assumes the following:
 
 - You already have an Azure account.
 
-- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md)
+- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
 - You already have a solid understanding of AlwaysOn Availability Groups. For more information, see [AlwaysOn Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -96,7 +96,7 @@ Azure will create the new resource group and pin a shortcut to the resource grou
 
 The next step is to create the networks and subnets in the Azure resource group.
 
-The solution uses one virtual network with two subnets. You should understand the basics of networks and how networks work in Azure. The [Virtual Network Overview](virtual-networks-overview.md) provides more information about networks in Azure.
+The solution uses one virtual network with two subnets. You should understand the basics of networks and how networks work in Azure. The [Virtual Network Overview](./virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
 
 To create the virtual network:
 
@@ -179,7 +179,7 @@ Here is a summary of the configuration settings for the virtual network and both
 
 ## Create Availability Sets
 
-Before creating virtual machines, you need to create availability sets. Availablity sets reduce downtime for planned or unplanned maintenance events. An Azure availablity set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availablity set have separate power and network resouces. An update domain ensures that members of the availabilty set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-manage-availability.md).
+Before creating virtual machines, you need to create availability sets. Availablity sets reduce downtime for planned or unplanned maintenance events. An Azure availablity set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availablity set have separate power and network resouces. An update domain ensures that members of the availabilty set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
 
 You will need two availability sets. One is for the domain controllers, the second is for the SQL Servers.
 
@@ -422,7 +422,7 @@ Next, create three VMs, including two SQL Server VMs, and a WSFC cluster node. T
 
 <br/>
 
->[AZURE.NOTE] The previous configuration suggests STANDARD tier virtual machines because BASIC tier machines do not support load-balanced endpoints required by the availability group listener. Also, the machine sizes suggested here are meant for testing availability groups in Azure VMs. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
+>[AZURE.NOTE] The previous configuration suggests STANDARD tier virtual machines because BASIC tier machines do not support load-balanced endpoints required by the availability group listener. Also, the machine sizes suggested here are meant for testing availability groups in Azure VMs. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 
 
@@ -855,10 +855,10 @@ To test the connection:
 
 1. Use sqlcmd utility to test the connection. For example, the following script establishes a sqlcmd connection to the primary replica through the listener with Windows authentication:
 
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
 
 
 
 ## Next Steps
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../articles/virtual-machines/virtual-machines-sql-server-iaas-overview.md).

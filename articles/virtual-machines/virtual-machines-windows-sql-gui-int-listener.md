@@ -22,7 +22,7 @@ This topic explains how to create an internal load balancer for a SQL Server Alw
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
 
-To complete this task, you need to have a SQL Server AlwaysOn availability group deployed on Azure virtual machines in resource manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machsines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the AlwaysOn availability group in Azure resource manager. This template automatically creates the internal load balancer for you. 
+To complete this task, you need to have a SQL Server AlwaysOn availability group deployed on Azure virtual machines in resource manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the AlwaysOn availability group in Azure resource manager. This template automatically creates the internal load balancer for you. 
 
 If you prefer, you can [manually configure an AlwaysOn availability group](virtual-machines-windows-sql-gui-alwayson-availability-groups-manual.md).
 
@@ -30,9 +30,9 @@ This topic requires that your availablity groups are already configured.
 
 Related topics include:
 
- - [Configure AlwaysOn Availability Groups in Azure VM (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui-arm-manual.md)   
+ - [Configure AlwaysOn Availability Groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
  
- - [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+ - [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](./vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 ## Steps
 
