@@ -18,13 +18,13 @@
 
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse
 
-Many SQL Data Warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  For a list of task which can be automated with PowerShell, see [Azure SQL Database Cmdlets][].  Alternatively, for a list of REST APIs to automate these  same tasks, see [Operations for Azure SQL Databases][].
-
-## Get started with Azure PowerShell cmdlets
+Many SQL Data Warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL Data Warehouse.  Alternatively, for a list of REST APIs to automate these same tasks, see [Operations for Azure SQL Databases][].
 
 > [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
-1. To start PowerShell, click **Start** and type **Windows PowerShell**.
+## Get started with Azure PowerShell cmdlets
+
+1. Open Windows PowerShell. 
 2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
 
     ```PowerShell
@@ -85,6 +85,8 @@ For more PowerShell examples, see:
 - [Create a SQL Data Warehouse using PowerShell][]
 - [Restore from snapshot][]
 - [Geo-restore from snapshot][]
+
+For a list of all tasks which can be automated with PowerShell, see [Azure SQL Database Cmdlets][].
 
 <!--Image references-->
 
