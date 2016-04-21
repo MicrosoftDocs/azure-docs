@@ -31,6 +31,7 @@ Compression for your endpoint is enabled, but files are being returned uncompres
 There are several possible causes, including:
 
 - The requested content is not eligible for compression.
+- Compression is not enabled for the requested file type.
 - The HTTP request did not include a header requesting a valid compression type.
 
 ## Troubleshooting steps
@@ -44,7 +45,9 @@ First, we should do a quick sanity check on the request.  You can use your brows
 
 ![CDN request headers](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### Verify compression settings
+### Verify compression settings (Standard CDN profile)
+
+> [AZURE.NOTE] This step only applies if your CDN profile is in the **Standard** pricing tier.
 
 Navigate to your endpoint in the [Azure Portal](https://portal.azure.com) and click the **Configure** button.
 
@@ -52,6 +55,19 @@ Navigate to your endpoint in the [Azure Portal](https://portal.azure.com) and cl
 - Verify the MIME type for the content to be compressed is included in the list of compressed formats.
 
 ![CDN compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
+
+### Verify compression settings (Premium CDN profile)
+
+> [AZURE.NOTE] This step only applies if your CDN profile is in the **Premium** pricing tier.
+
+Navigate to your endpoint in the [Azure Portal](https://portal.azure.com) and click the **Manage** button.  The supplemental portal will open.  Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Click on **Compression**. 
+
+- Verify compression is enabled.
+- Verify the **File Types** list contains a comma-separated list of MIME types.
+- Verify the MIME type for the content to be compressed is included in the list of compressed formats.
+
+![CDN premium compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
+
 
 ### Verify the content is cached
 
