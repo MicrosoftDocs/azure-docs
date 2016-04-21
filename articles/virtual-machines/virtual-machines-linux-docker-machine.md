@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create Docker hosts in Azure with Docker Machine"
+	pageTitle="Create Docker hosts in Azure with Docker Machine | Microsoft Azure"
 	description="Describes use of Docker Machine to create docker hosts in Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -18,14 +18,14 @@
 
 # Use Docker Machine with the Azure driver
 
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses Linux containers rather than virtual machines as a way of isolating application data and computing on shared resources. This topic describes when and how to use [Docker Machine](https://docs.docker.com/machine/) to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
+[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses Linux containers rather than virtual machines as a way of isolating application data and computing on shared resources. This topic describes when and how to use [Docker Machine](https://docs.docker.com/machine/) (the `docker-machine` command) to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
 
 
 ## Create VMs with Docker Machine
 
 Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver argument for the driver option (`-d`) and any other arguments. 
 
-The following example relies upon the default values, but it does open port 80 on the VM to the internet to test with an nginx container. Type `docker-machine create --driver azure` to see the options and their default values. (Note that if you have two-factor authentication enabled, you will be prompted to authenticate using the second factor.)
+The following example relies upon the default values, but it does open port 80 on the VM to the internet to test with an nginx container. Type `docker-machine create --driver azure` to see the options and their default values; you can also read the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/). (Note that if you have two-factor authentication enabled, you will be prompted to authenticate using the second factor.)
 
 ```bash
 $ docker-machine create -d azure \
@@ -105,7 +105,7 @@ Status: Downloaded newer image for nginx:latest
 25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
 ```
 
-## Confirm the container is running
+## Test the container
 
 Examine running containers using `docker ps`:
 
