@@ -136,14 +136,14 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 ## Node Version & Package Management
 
-The node version is currently locked at `4.1.1`. We're investigating adding support for more versions and making it configurable.
+The node version is currently locked at `5.9.1`. We're investigating adding support for more versions and making it configurable.
 
 You can include packages in your function directory (i.e. via `npm install`) and then import them to your function in the usual ways (i.e. via `require('packagename')`)
 
 ```javascript
 // Import the underescore.js library
 var _ = require('underscore');
-var version = process.version; // version === 'v4.1.1'
+var version = process.version; // version === 'v5.9.1'
 
 module.exports = function(context) {
     // Using our imported underscore.js library

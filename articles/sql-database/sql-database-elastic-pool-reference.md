@@ -25,7 +25,7 @@ For SaaS developers who have tens, hundreds, or even thousands of databases, an 
 ## Prerequisites for creating and managing elastic database pools
 
 - Elastic database pools are only available in Azure SQL Database V12 servers. To upgrade to V12 and migrate your databases directly into a pool, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-powershell.md).
-- Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), [Powerhell](sql-database-elastic-pool-create-powershell.md), and a .NET Client Library (Azure Resource Manager only); the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
+- Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-create-powershell.md), and a .NET Client Library (Azure Resource Manager only); the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
 - Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using [Transact-SQL](#transact-sql).
 
 
@@ -99,7 +99,8 @@ Here's a quick reference of cmdlets and equivalent REST API operations related t
 | [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [Gets elastic  database pools and their property values](https://msdn.microsoft.com/library/mt163646.aspx) |
 | [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [Get Status of Elastic Database Pool Operations](https://msdn.microsoft.com/library/mt163669.aspx) |
 | [Get-AzureRmSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [Get Databases in an Elastic Database Pool](https://msdn.microsoft.com/library/mt163646.aspx) |
-| [Get-AzureRmSqlElasticPoolDatabaseActivity]() | [Gets the status of moving databases in and out of a pool](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureRmSqlDatabaseActivity]() | [Gets the status of moving databases in and out of a pool](https://msdn.microsoft.com/library/mt603687.aspx) |
+
 
 ## Transact-SQL
 

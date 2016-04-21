@@ -27,9 +27,7 @@
 
 If you've received an error when deploying resources to Azure, you need to troubleshoot what went wrong. Azure PowerShell provides cmdlets that enable you to easily find the errors and determine potential fixes.
 
-You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This topic shows both methods.
-
-You can avoid some errors by validating your template and infrastructure prior to deployment. For more information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+[AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 ## Use audit logs to troubleshoot
 
@@ -40,19 +38,21 @@ To see errors for a deployment, use the following steps:
 1. To retrieve log entries, run the **Get-AzureRmLog** command. You can use the **ResourceGroup** and **Status** parameters to return only events that failed for a single resource group. If you do not specify a start and end time, entries for the last hour are returned.
 For example, to retrieve the failed operations for the past hour run:
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
     You can specify a particular timespan. In the next example, we'll look for failed actions for the last 14 days. 
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
       
     Or, you can set an exact start and end time for failed actions:
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
 
 2. If this command returns too many entries and properties, you can focus your auditing efforts by retrieving the **Properties** property. We'll also include the **DetailedOutput** parameter to see the error messages.
 
-        PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        
+    Which returns properties of the log entries in the following format:
         
         Content
         -------
@@ -62,7 +62,9 @@ For example, to retrieve the failed operations for the past hour run:
 
 3. You can further refine the results by looking at the status message for one particular entry.
 
-        PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        
+    Which returns the status message in the following format:
         
         Code       : Conflict
         Message    : Website with given name mysite already exists.
@@ -75,7 +77,9 @@ For example, to retrieve the failed operations for the past hour run:
 
 1. To get the overall status of a deployment, use the **Get-AzureRmResourceGroupDeployment** command. You can filter the results for only those deployments that have failed.
 
-        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        
+    Which returns the failed deployments in the following format:
         
         DeploymentName    : ExampleDeployment
         ResourceGroupName : ExampleGroup
@@ -97,7 +101,9 @@ For example, to retrieve the failed operations for the past hour run:
 2. Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the 
 deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
 
-        PS C:\> Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        
+    Which returns the operations in the following format:
         
         Id          : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/ExampleDeployment/operations/8518B32868A437C8
         OperationId : 8518B32868A437C8
@@ -107,7 +113,9 @@ deployment operations. You can see the status of the operations with **Get-Azure
 
 3. To get more details about the operation, retrieve the **Properties** object.
 
-        PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
+        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
+        
+    Which returns operation properties in the following format:
         
         ProvisioningOperation : Create
         ProvisioningState     : Failed
@@ -122,7 +130,9 @@ deployment operations. You can see the status of the operations with **Get-Azure
 
 4. To focus on the status message of failed operations, use the following command:
 
-        PS C:\> ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
+        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
+        
+    Which returns the status message in the following format:
         
         Code       : Conflict
         Message    : Website with given name mysite already exists.
@@ -132,6 +142,7 @@ deployment operations. You can see the status of the operations with **Get-Azure
 
 ## Next steps
 
+- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 - To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
 - To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 

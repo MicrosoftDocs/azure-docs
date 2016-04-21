@@ -87,8 +87,8 @@ npm update -g azure-cli
 
 * For Linux systems, you can also install the Azure CLI by building it from the [source](http://aka.ms/linux-azure-cli). For more information on building from source, see the INSTALL file included in the source archive.
 
-[mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
-[windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
-[linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
+[mac-installer]: http://aka.ms/mac-azure-cli
+[windows-installer]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=windowsazurexplatcli&mode=new
+[linux-installer]: http://aka.ms/linux-azure-cli
 [cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/azure-cli-arm-commands.md
+[cliarm]: ./virtual-machines/azure-cli-arm-commands.md

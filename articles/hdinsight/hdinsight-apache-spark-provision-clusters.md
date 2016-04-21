@@ -17,7 +17,7 @@
     ms.date="12/08/2015"
     ms.author="nitinme"/>
 
-# Create Apache Spark clusters in HDInsight using custom options (Windows)
+# Create Apache Spark clusters in HDInsight Windows using custom options (Preview)
 
 > [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to custom-create a Spark cluster on HDInsight Linux, see [Create Linux-based clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 

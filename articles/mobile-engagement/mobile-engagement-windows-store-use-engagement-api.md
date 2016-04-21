@@ -358,4 +358,13 @@ Application information are limited to **1024** characters per call.
 In the previous example, the JSON sent to the server is 44 characters long:
 
 			{"birthdate":"1983-12-07","gender":"female"}
+
+##Logging
+###Enable Logging
+
+The SDK can be configured to produce test logs in the IDE console.
+These logs are not activated by default. To customize this, update the property `EngagementAgent.Instance.TestLogEnabled` to one of the value available from the `EngagementTestLogLevel` enumeration, for instance:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
  

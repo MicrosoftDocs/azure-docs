@@ -3,7 +3,7 @@
 	description="Learn all about the Python SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK." 
 	services="documentdb" 
 	documentationCenter="python" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/18/2016" 
+	ms.author="rnagpal"/>
 
 # DocumentDB SDK
 
@@ -35,6 +35,9 @@
 </table></br>
 
 ## Release notes
+
+### <a name="1.6.1"/>[1.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
+- Bug fixes related to server side partitioning to allow special characters in partitionkey path.
 
 ### <a name="1.6.0"/>[1.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
 - Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
@@ -74,6 +77,7 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.6.1](#1.6.1) | April 08, 2016 |---
 | [1.6.0](#1.6.0) | March 29, 2016 |---
 | [1.5.0](#1.5.0) | January 03, 2016 |---
 | [1.4.2](#1.4.2) | October 06, 2015 |---

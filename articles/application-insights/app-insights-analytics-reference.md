@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -22,31 +22,31 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
-| | | | | 
-|---|---|---|---|---
-|[ago](#ago)|[dayofweek](#dayofweek)|[let clause](#let-clause)|[range](#range)|[summarize op](#summarize-operator)
-|[any](#any)|[dcount](#dcount)|[limit op](#limit-operator)|[range op](#range-operator)|[take op](#take-operator)
-|[argmax](#argmax)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[reduce op](#reduce-operator)|[todatetime](#todatetime)
-|[argmin](#argmin)|[extend op](#extend-operator)|[makeset](#makeset)|[render directive](#render-directive)|[todouble](#todouble)
-|[Arithmetic ops](#arithmetic-operators)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
-|[Array and object literals](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[Scalar comparisons](#scalar-comparisons)|[toint](#toint)
-|[arraylength](#arraylength)|[floor](#floor)|[mvexpand op](#mvexpand-operator)|[sort op](#sort-operator)|[tolong](#tolong)
-|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[split](#split)|[tolower](#tolower)
-|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[top op](#top-operator)
-|[Boolean Literals](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
-|[Boolean ops](#boolean-operators)|[hash](#hash)|[Numeric literals](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
-|[buildschema](#buildschema)|[iff](#iff)|[Obfuscated String Literals](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
-|[Casts](#casts)|[isempty](#isempty)|[parse op](#parse-operator)|[strcat](#strcat)|[union op](#union-operator)
-|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[String comparisons](#string-comparisons)|[variance](#variance)
-|[count op](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[String Literals](#string-literals)|[where op](#where-operator)
-|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
-|[Date and time expressions](#date-and-time-expressions)|[join op](#join-operator)|[project op](#project-operator)|[substring](#substring)
-|[Date and time literals](#date-and-time-literals)|[JSON Path expressions](#json-path-expressions)|[rand](#rand)|[sum](#sum)
-
-
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
+
+| | | | | 
+|---|---|---|---|---
+|[ago](#ago)|[dayofweek](#dayofweek)|[let clause](#let-clause)|[rand](#rand)|[sum](#sum)
+|[any](#any)|[dcount](#dcount)|[limit op](#limit-operator)|[range](#range)|[summarize op](#summarize-operator)
+|[argmax](#argmax)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[log](#log)|[range op](#range-operator)|[take op](#take-operator)
+|[argmin](#argmin)|[exp](#exp)|[makelist](#makelist)|[reduce op](#reduce-operator)|[todatetime](#todatetime)
+|[Arithmetic ops](#arithmetic-operators)|[extend op](#extend-operator)|[makeset](#makeset)|[render directive](#render-directive)|[todouble](#todouble)
+|[Array and object literals](#array-and-object-literals)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
+|[arraylength](#arraylength)|[extractjson](#extractjson)|[min](#min)|[restrict clause](#restrict-clause)|[toint](#toint)
+|[avg](#avg)|[floor](#floor)|[mvexpand op](#mvexpand-operator)|[Scalar comparisons](#scalar-comparisons)|[tolong](#tolong)
+|[bin](#bin)|[getmonth](#getmonth)|[notempty](#notempty)|[sort op](#sort-operator)|[tolower](#tolower)
+|[Boolean Literals](#boolean-literals)|[gettype](#gettype)|[notnull](#notnull)|[split](#split)|[top op](#top-operator)
+|[Boolean ops](#boolean-operators)|[getyear](#getyear)|[now](#now)|[sqrt](#sqrt)|[totimespan](#totimespan)
+|[buildschema](#buildschema)|[hash](#hash)|[Numeric literals](#numeric-literals)|[startofmonth](#startofmonth)|[toupper](#toupper)
+|[Casts](#casts)|[iff](#iff)|[Obfuscated String Literals](#obfuscated-string-literals)|[startofyear](#startofyear)|[treepath](#treepath)
+|[count](#count)|[isempty](#isempty)|[parse op](#parse-operator)|[stdev](#stdev)|[union op](#union-operator)
+|[count op](#count-operator)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[strcat](#strcat)|[variance](#variance)
+|[countif](#countif)|[isnotnull](#isnotnull)|[percentile](#percentile)|[String comparisons](#string-comparisons)|[where op](#where-operator)
+|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[String Literals](#string-literals)
+|[Date and time expressions](#date-and-time-expressions)|[join op](#join-operator)|[project op](#project-operator)|[strlen](#strlen)
+|[Date and time literals](#date-and-time-literals)|[JSON Path expressions](#json-path-expressions)|[project-away op](#project-away-operator)|[substring](#substring)
 
 
 ## Queries and operators
@@ -55,12 +55,15 @@ A query over your telemetry is made up of a reference to a source stream, follow
 
 
 ```AIQL
-requests
-| where client_City == "London" and timestamp > ago(3d)
-| count
+requests // The request table starts this pipeline.
+| where client_City == "London" // filter the records
+   and timestamp > ago(3d)
+| count 
 ```
     
 Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](##scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
+
+Queries may contain single line breaks, but are terminated by a blank line. They may contain comments between `//` and end of line.
 
 A query may be prefixed by one or more [let clauses](#let-clause), which define scalars, tables, or functions that can be used within the query.
 
@@ -116,7 +119,7 @@ Append one or more calculated columns to a table.
 **Arguments**
 
 * *T:* The input table.
-* *ColumnName:* The name of a columns to add. 
+* *ColumnName:* The name of a columns to add. [Names](#names) are case-sensitive and can contain alphabetic, numeric or '_' characters. Use `['...']` or `["..."]` to quote keywords or names with other characters.
 * *Expression:* A calculation over the existing columns.
 
 **Returns**
@@ -225,7 +228,7 @@ Get extended activities from a log in which some entries mark the start and end 
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-A let clause binds a name to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
+A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
 
 **Syntax**
 
@@ -239,9 +242,6 @@ A let clause binds a name to a tabular result, scalar value or function. The cla
 * *plain_query:* A query not prefixed by a let-clause.
 
 **Examples**
-
-
-
 
     let rows(n:long) = range steps from 1 to n step 1;
     rows(10) | ...
@@ -459,7 +459,7 @@ Select the columns to include, rename or drop, and insert new computed columns. 
 **Arguments**
 
 * *T:* The input table.
-* *ColumnName:* The name of a column to appear in the output. If there is no *Expression*, a column of that name must appear in the input. 
+* *ColumnName:* The name of a column to appear in the output. If there is no *Expression*, a column of that name must appear in the input. [Names](#names) are case-sensitive and can contain alphabetic, numeric or '_' characters. Use `['...']` or `["..."]` to quote keywords or names with other characters.
 * *Expression:* Optional scalar expression referencing the input columns. 
 
     It is legal to return a new calculated column with the same name as an existing column in the input.
@@ -476,13 +476,18 @@ using the `project` operator. The input table `T` has three columns of type `int
 ```AIQL
 T
 | project
-    X=C,                       // Rename column C to X
-    A=2*B,                     // Calculate a new column A from the old B
+    X=C,               // Rename column C to X
+    A=2*B,             // Calculate a new column A from the old B
     C=strcat("-",tostring(C)), // Calculate a new column C from the old C
-    B=2*B                      // Calculate a new column B from the old B
+    B=2*B,              // Calculate a new column B from the old B
+    ['where'] = client_City // rename, using a keyword as a column name
 ```
 
+### project-away operator
 
+    T | project-away column1, column2, ...
+
+Exclude specified columns. The result contains all the input columns except those you name.
 
 ### range operator
 
@@ -588,6 +593,15 @@ For example, the result of `reduce by city` might include:
 
 Render directs the presentation layer how to show the table. It should be the last element of the pipe. It's a convenient alternative to using the controls on the display, allowing you to save a query with a particular presentation method.
 
+### restrict clause 
+
+Specifies the set of table names available to operators that follow. For example:
+
+    let e1 = requests | project name, client_City;
+    let e2 =  requests | project name, success;
+    // Exclude predefined tables from the union:
+    restrict access to (e1, e2);
+    union * |  take 10 
 
 ### sort operator 
 
@@ -641,7 +655,7 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 
 **Arguments**
 
-* *Column:* Optional name for a result column. Defaults to a name derived from the expression. 
+* *Column:* Optional name for a result column. Defaults to a name derived from the expression. [Names](#names) are case-sensitive and can contain alphabetic, numeric or '_' characters. Use `['...']` or `["..."]` to quote keywords or names with other characters.
 * *Aggregation:* A call to an aggregation function such as `count()` or `avg()`, with column names as arguments. See [aggregations](#aggregations).
 * *GroupExpression:* An expression over the columns, that provides a set of distinct values. Typically it's either a column name that already provides a restricted set of values, or `bin()` with a numeric or time column as argument. 
 
@@ -707,9 +721,9 @@ Takes two or more tables and returns the rows of all of them.
 **Arguments**
 
 * *Table1*, *Table2* ...
- *  The name of a table, such as `events`; or
- *  A query expression, such as `(events | where id==42)`
- *  A set of tables specified with a wildcard. For example, `E*` would form the union of all the tables in the database whose names begin `E`.
+ *  The name of a table, such as `requests`, or a table defined in a [let clause](#let-clause); or
+ *  A query expression, such as `(requests | where success=="True")`
+ *  A set of tables specified with a wildcard. For example, `e*` would form the union of all the tables defined in previous let clauses whose name began with 'e', together with the 'exceptions' table.
 * `kind`: 
  * `inner` - The result has the subset of columns that are common to all of the input tables.
  * `outer` - The result has all the columns that occur in any of the inputs. Cells that were not defined by an input row are set to `null`.
@@ -718,7 +732,7 @@ called *ColumnName* whose value indicates which source table has contributed eac
 
 **Returns**
 
-A table with as many rows as there are in all the input tables.
+A table with as many rows as there are in all the input tables, and as many columns as there are unique column names in the inputs.
 
 **Example**
 
@@ -800,7 +814,11 @@ Notice that we put the comparison between two columns last, as it can't utilize 
 
 
 
-## Aggregrations and summarize
+## Aggregrations
+
+Aggregations are functions used to combine values in groups created in the [summarize operation](#summarize-operator). For example, in this query, dcount() is an aggregation function:
+
+    requests | summarize dcount(name) by success
 
 ### any 
 
@@ -956,7 +974,16 @@ Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predic
 **Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
 
 > [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
-   
+
+### countif
+
+    countif(Predicate)
+
+Returns a count of rows for which *Predicate* evaluates to `true`.
+
+**Perf tip**: use `summarize countif(filter)` instead of `where filter | summarize count()`
+
+> [AZURE.NOTE] Avoid using countif() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
 
 ### dcount
 
@@ -973,7 +1000,7 @@ Returns an estimate of the number of distinct values of *Expr* in the group. (To
 **Example**
 
     pageViews 
-    | summarize countries=dcount(client_City) 
+    | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-aggregations/dcount.png)
@@ -997,7 +1024,7 @@ Returns a `dynamic` (JSON) array of the set of distinct values that *Expr* takes
 **Example**
 
     pageViews 
-    | summarize countries=makeset(client_City) 
+    | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-aggregations/makeset.png)
@@ -1345,11 +1372,27 @@ with a bucket size of 1 second:
 
     T | summarize Hits=count() by bin(Duration, 1s)
 ```
+### exp
+
+    exp(v)   // e raised to the power v
+    exp2(v)  // 2 raised to the power v
+    exp10(v) // 10 raised to the power v
+
+
 
 ### floor
 
 An alias for [`bin()`](#bin).
 
+
+### log
+
+    log(v)    // Natural logarithm of v
+    log2(v)   // Logarithm base 2 of v
+    log10(v)  // Logarithm base 10 of v
+
+
+`v` should be a real number > 0. Otherwise, null is returned.
 
 ### rand
 
@@ -1666,7 +1709,7 @@ Counts occurrences of a substring in a string. Plain string matches may overlap;
 **Arguments**
 
 * *text:* A string.
-* *search:* The plain string or [regular expression](app-analytics-reference.md#regular-expressions) to match inside *text*.
+* *search:* The plain string or regular expression to match inside *text*.
 * *kind:* `"normal"|"regex"` Default `normal`. 
 
 **Returns**
@@ -1912,7 +1955,7 @@ Converts a string to upper case.
 
 Here's the result of a query on an Application Insights exception. The value in `details` is an array.
 
-![](./media/app-analytics-scalars/310.png)
+![](./media/app-insights-analytics-scalars/310.png)
 
 **Indexing:** Index arrays and objects just as in JavaScript:
 
@@ -1944,7 +1987,7 @@ Here's the result of a query on an Application Insights exception. The value in 
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-analytics-scalars/410.png)
+![](./media/app-insights-analytics-scalars/410.png)
 
 
 **treepath:** To find all the paths in a complex object:
@@ -1954,7 +1997,7 @@ Here's the result of a query on an Application Insights exception. The value in 
     | mvexpand path
 
 
-![](./media/app-analytics-scalars/420.png)
+![](./media/app-insights-analytics-scalars/420.png)
 
 **buildschema:** To find the minimum schema that admits all values of the expression in the table:
 
@@ -2018,15 +2061,15 @@ T
 |[`extractjson(`path,object`)`](#extractjson)|Uses path to navigate into object.
 |[`parsejson(`source`)`](#parsejson)| Turns a JSON string into a dynamic object.
 |[`range(`from,to,step`)`](#range)| An array of values
-|[`mvexpand` listColumn](app-analytics-queries.md#mvexpand-operator) | Replicates a row for each value in a list in a specified cell.
-|[`summarize buildschema(`column`)`](app-analytics-queries.md#summarize-operator) |Infers the type schema from column content
-|[`summarize makelist(`column`)` ](app-analytics-queries.md#summarize-operator)| Flattens groups of rows and puts the values of the column in an array.
-|[`summarize makeset(`column`)`](app-analytics-queries.md#summarize-operator) | Flattens groups of rows and puts the values of the column in an array, without duplication.
+|[`mvexpand` listColumn](#mvexpand-operator) | Replicates a row for each value in a list in a specified cell.
+|[`summarize buildschema(`column`)`](#buildschema) |Infers the type schema from column content
+|[`summarize makelist(`column`)` ](#makelist)| Flattens groups of rows and puts the values of the column in an array.
+|[`summarize makeset(`column`)`](#makeset) | Flattens groups of rows and puts the values of the column in an array, without duplication.
 
 ### Dynamic objects in let clauses
 
 
-[Let clauses](app-analytics-queries.md#let-clause) store dynamic values as strings, so these two clauses are equivalent, and both need the `parsejson` (or `todynamic`) before being used:
+[Let clauses](#let-clause) store dynamic values as strings, so these two clauses are equivalent, and both need the `parsejson` (or `todynamic`) before being used:
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2217,7 +2260,28 @@ An array of path expressions.
 
 Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
 
+## Names
 
+Names can be up to 1024 characters long. They are case-sensitive and may contain letters, digits and underscores (`_`). 
+
+Quote a name using [' ... '] or [" ... "] to include other characters or use a keyword as a name. For example:
+
+```AIQL
+
+    requests | 
+    summarize  ["distinct urls"] = dcount(name) // non-alphanumerics
+    by  ['where'] = client_City, // using a keyword as a name
+        ['outcome!'] = success // non-alphanumerics
+```
+
+
+|||
+|---|---|
+|['path\\file\n\'x\''] | Use \ to escape characters|
+|["d-e.=/f#\n"] | |
+|[@'path\file'] | No escapes - \ is literal|
+|[@"\now & then\"] | |
+|[where] | Using a language keyword as a name|
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

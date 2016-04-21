@@ -1,9 +1,9 @@
 <properties
    pageTitle="SQL Data Warehouse capacity limits | Microsoft Azure"
-   description="Maximum values for connections, queries, Transact-SQL DDL and DML, and system views for SQL Data Warehouse."
+   description="Maximum values for databases, tables, connections, and queries for SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/05/2016"
-   ms.author="barbkess;jrj;sonyama"/>
+   ms.date="04/20/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # SQL Data Warehouse capacity limits
 
@@ -24,6 +24,7 @@ Maximum values to support the most demanding analytics workloads while also ensu
 
 | Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
+| Database           | Maximum size                                | 60 TB Compressed<br/><br/>SQL Data Warehouse allows up to 60 TB of raw space on disk per database.  The space on disk is the compressed size for permanent tables.  This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.   Clustered columnstore compression is estimated at 5X which means that the uncompressed size of the database could grow to approximately 300 TB when all tables are clustered columnstore (the default table type).  The 60 TB limit will be increased to 240 TB at the end of public preview, which should allow most databases to grow to over 1 PB of uncompressed data.|
 | Database           | Concurrent open sessions                     | 1024<br/><br/>We support a maximum of 1024 active connections which can submit requests to each SQL Data Warehouse database at the same time. Note, there are limits on the number of queries that can actually execute concurrently. When a limit is exceeded the request goes into an internal queue where it waits to be processed.|
 | Database connection | Maximum memory for prepared statements       | 20 MB              |
 | Workload management | Maximum concurrent queries                   | 32<br/><br/> SQL Data Warehouse has 32 units of concurrency called concurrency slots.<br/><br/>If all queries run with the default resource allocation of one concurrency slot, it is possible to have 32 concurrent user queries. In practice, the maximum concurrent queries depends on the service level objective (SLO) and the resource requirements for each query.  When resources are not available, queries wait in an internal queue. For more information, see [Concurrency and workload management][].|
@@ -34,6 +35,7 @@ Maximum values to support the most demanding analytics workloads while also ensu
 
 | Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
+| Table             | Max size                                     | 60 TB compressed on disk   |
 | Table             | Tables per database                          | 2 billion          |
 | Table             | Columns per table                            | 1024 columns       |
 | Table             | Bytes per column                             | 8000 bytes         |
