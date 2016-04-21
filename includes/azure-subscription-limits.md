@@ -16,4 +16,4 @@ Alert rules per subscription|250|250
 
 <sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
 
-<sup>2</sup>If you require more than 100 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case. If they approve, they will allow you to have up to 250 storage accounts. 
+<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 100 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
