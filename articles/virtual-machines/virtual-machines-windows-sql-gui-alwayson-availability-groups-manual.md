@@ -26,10 +26,11 @@
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
 
 
 This end-to-end tutorial shows you how to implement availability groups using SQL Server AlwaysOn running on Azure resource manager virtual machines. 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
 
 >[AZURE.NOTE] In the Azure Portal, there is a new gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md). 
 
@@ -834,13 +835,13 @@ The next thing to do is to configure an AlwaysOn availability group listener on 
 
 1. On the cluster node that currently hosts the primary replica, open an elevated PowerShell ISE and paste the following commands into a new script.
 
-    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-    $IPResourceName = "<IPResourceName>" # the IP Address resource name
-    $ILBIP = "<X.X.X.X>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+        $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+        $IPResourceName = "<IPResourceName>" # the IP Address resource name
+        $ILBIP = "<X.X.X.X>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
 
-    Import-Module FailoverClusters
+        Import-Module FailoverClusters
 
-    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+        Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
     
 1. Update the variables and run the PowerShell script to configure the IP address and port for the new listener.
 
