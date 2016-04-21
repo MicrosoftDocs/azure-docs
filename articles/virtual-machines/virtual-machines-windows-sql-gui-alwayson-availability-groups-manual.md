@@ -567,9 +567,9 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 |Access Point for Administering the Cluster|Type **Cluster1** in **Cluster Name**|
 |Confirmation|Use defaults unless you are using Storage Spaces. See the note following this table.|
 
-	>[AZURE.WARNING] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
+>[AZURE.NOTE] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
 
-1. In the left-pane, expand **Failover Cluster Manager**, and then click **Cluster1.corp.contoso.com**.
+Now that you have created the cluster, verify the configuration and add the remaining nodes. 
 
 1. In the center pane, scroll down to **Cluster Core Resources** section and expand the **Name: Clutser1** details. You should see both the **Name** and the **IP Address** resources in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as that of the machine itself, which is a duplicate address.
 
