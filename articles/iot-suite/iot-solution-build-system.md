@@ -85,7 +85,7 @@ Also, make sure that you have the right Visual Studio extensions. Check that und
 
 The Mac (Yosemite or later) is required if you want to develop for iOS. Although we use Visual Studio with Xamarin on Windows to develop and manage all the code, Xamarin uses an agent installed on a Mac in order to build and sign the iOS code.
 
-![Comparison of Windows development to Mac development](./media/iot-solution-build-system/image1.png)
+![Develop on Windows and build on Mac](./media/iot-solution-build-system/image1.png)
 
 (As an alternative, you can use Xamarin Studio directly on the Mac to develop cross-platform apps.)
 
@@ -111,7 +111,7 @@ Alternatively, if you want to keep up to date with or contribute to our code, cl
 
 **git clone https://github.com/Azure-Samples/MyDriving.git**
 
-## Add Bing maps developer code
+## Replace Bing Maps API key
 
 [Register for a Bing Maps API key](https://msdn.microsoft.com/library/ff428642.aspx).
 
