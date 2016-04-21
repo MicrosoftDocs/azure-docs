@@ -19,7 +19,7 @@
 
 # Create a Linux VM on Azure using the CLI
 
-This article shows how to quickly create a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM with a basic infrastructure surrounding it that you can use to prototype or test a concept very rapidly. Think of it as the quickest way to a Linux bash shell.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)] and [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).  You can also quickly create a Linux VM using the [Azure Portal](virtual-machines-linux-quick-create-portal.md).
+This article shows how to quickly deploy a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM with a basic infrastructure surrounding it that you can use to prototype or test a concept very rapidly. Think of it as the quickest way to a Linux bash shell.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)] and [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).  You can also quickly deploy a Linux VM using the [Azure Portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Quick Command Summary
 
@@ -28,7 +28,7 @@ This article shows how to quickly create a Linux Virtual Machine on Azure using 
 ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
-## Create the Linux VM
+## Deploy the Linux VM
 
 Using the same command from above we will show each prompt along with the output you should expect to see.  
 
@@ -132,7 +132,7 @@ ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 
 ## Next Steps
 
-The `azure vm quick-create` is the way to quickly create a VM so you can log in  to a bash shell and get working. Using `vm quick-create` does not give you the additional benefits of a complex environment.  To create a Linux VM customized for your infrastructure you can follow any of the articles below.
+The `azure vm quick-create` is the way to quickly deploy a VM so you can log in  to a bash shell and get working. Using `vm quick-create` does not give you the additional benefits of a complex environment.  To deploy a Linux VM customized for your infrastructure you can follow any of the articles below.
 
 - [Use an Azure resource manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md)
 - [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
