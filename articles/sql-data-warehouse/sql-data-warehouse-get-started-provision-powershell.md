@@ -51,19 +51,16 @@ For more details on the above prerequisites, see **Configure and create a server
 
 > [AZURE.NOTE] Running this command may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
-
 	```Powershell
 	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
 	```
 
-
-	The parameters required for this cmdlet are:
-
-	- **RequestedServiceObjectiveName**: The amount of DWU you are requesting, in the form "DWXXX". DWU represents an allocation of CPU and memory.  Each DWU value represents a linear increase in these resources.  Currently supported values are: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
- 	- **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
- 	- **ServerName**: The name of the server that you are using for creation (must be V12).
- 	- **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
- 	- **Edition**: You must set edition to "DataWarehouse" to create a SQL Data Warehouse.
+The parameters required for this cmdlet are:
+- **RequestedServiceObjectiveName**: The amount of DWU you are requesting, in the form "DWXXX". DWU represents an allocation of CPU and memory.  Each DWU value represents a linear increase in these resources.  Currently supported values are: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
+- **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
+- **ServerName**: The name of the server that you are using for creation (must be V12).
+- **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
+- **Edition**: You must set edition to "DataWarehouse" to create a SQL Data Warehouse.
 
 For more details on the parameter options, see [Create Database (Azure SQL Data Warehouse)][].
 For the command reference, see [New-AzureRmSqlDatabase][]
