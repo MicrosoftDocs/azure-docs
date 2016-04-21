@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/> 
 
 # Business-to-Business Connectors and API Apps in Microsoft Azure App Service
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Microsoft Azure App Service (or App Service for short) includes many BizTalk API Apps that are vital to integration environments. These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Azure App Service. 
 

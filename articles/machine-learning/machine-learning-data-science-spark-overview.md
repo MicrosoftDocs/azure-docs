@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="04/20/2016"
 	ms.author="bradsev" />
 
 # Overview of Data Science using Spark on Azure HDInsight
@@ -22,16 +22,15 @@
 
 ## Introduction
 
-Spark on Azure HDInsight is able to manipulate data in-memory while processing it on an HDInsight (Hadoop) cluster in a distributed way. This Spark cluster thus combines speed with capacity. It also includes support for Jupyter notebooks on the Spark cluster that can run Spark SQL interactive queries for transforming, filtering and visualizing data stored in Azure Blobs (WASB).
+[Spark](http://spark.apache.org/) is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. [MLlib](http://spark.apache.org/mllib/) is Spark's scalable machine learning library that brings modeling capabilities to this distributed environment. 
 
-[Spark](http://spark.apache.org/) is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. [MLlib](http://spark.apache.org/mllib/) is Spark's scalable machine learning library. 
+HDInsight Spark is the Azure hosted offering of open-source Spark. It also includes support for Jupyter notebooks on the Spark cluster that can run Spark SQL interactive queries for transforming, filtering and visualizing data stored in Azure Blobs (WASB). 
 
-HDInsight Spark is the Azure hosted offering of open-source Spark. The setup steps and code provided in this walkthrough is for HDInsight Spark. However, the code is generic and should work on any Spark cluster. The cluster setup and management steps may be slightly different from what is shown here if you are not using HDInsight Spark. 
+The collection of topics linked in the menu showcase this by working through binary classification and regression tasks on a sample of the NYC taxi trip and fare 2013 dataset and then store the  model in WASB. The models built include logistic and linear regression, random forests and gradient boosted trees. They also show how to consume these models to score and evaluate the predictive performance of the models. More advanced topics will cover how models can be trained using cross-validation and hyper-parameter sweeping. 
 
-The Spark MLlib toolkit brings considerable machine learning (ML) modeling capabilities to this distributed environment. The collection of topics linked in the menu showcase this by working through binary classification and regression tasks on a sample of the NYC taxi trip and fare 2013 dataset and then store the  model results in WASB. The models build include logistic and linear regression, random forests and gradient boosted trees They also how to consume these model results to score and evaluate them with respect to other datasets stored in WASB. More advanced topics will cover how models can be trained using cross-validation and hyper-parameter sweeping. 
+The modeling steps in these topics contain code showing how to train, evaluate, save, and consume each type of model. Python (PySpark) running in Jupyter notebooks installed on the Spark clusters has been used to code the solution and to show the relevant plots to visualize the data. 
 
-The modeling steps in these topics contain code showing how to train, evaluate, save, and consume each type of model. Python has been used to code the solution and to show the relevant plots and Python notebooks have been provided that can be run on the Jupyter notebooks installed on the Spark clusters.
-
+The setup steps and code provided in this walkthrough is for HDInsight Spark. However, the code is generic and should work on any Spark cluster. The cluster setup and management steps may be slightly different from what is shown here if you are not using HDInsight Spark. 
 
 ## Prerequisites
 
@@ -115,11 +114,11 @@ You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to a
 
 Navigate to Python to see existing notebooks that run python scripts. You will see a directory that contains a few examples of pre-packaged notebooks listed. The notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
 
-You can upload the notebooks directly from Github to the Jupyter notebook server on your Spark cluster. On the home page of your Jupyter, click on the **Upload** button on the right part of the screen. It will open a file explorer. Here you can paste the Github (raw content) URL of the Notebook and click **Open**. You will see the file name on your Jupyter file list with an **Upload** button again. Click this **Upload** button. Now, you have imported the notebook. Repeat these steps to upload the following notebooks from this walkthrough.
+You can upload the notebooks directly from Github to the Jupyter notebook server on your Spark cluster. On the home page of your Jupyter, click on the **Upload** button on the right part of the screen. It will open a file explorer. Here you can paste the Github (raw content) URL of the Notebook and click **Open**. You will see the file name on your Jupyter file list with an **Upload** button again. Click this **Upload** button. Now, you have imported the notebook. Repeat these steps to upload the following notebooks from this walkthrough. (Note: You can right click the links below on your browser and select **Copy Link** to get the github raw content URL that you can paste into the Jupyter Upload file explorer dialog box)
 
-1.	machine-learning-data-science-spark-data-exploration-modeling.ipynb
-2.	machine-learning-data-science-spark-model-consumption.ipynb
-3.	machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb
+1.	[machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-data-exploration-modeling.ipynb)
+2.	[machine-learning-data-science-spark-model-consumption.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-model-consumption.ipynb)
+3.	[machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
 
 Now you can:
 
@@ -130,9 +129,9 @@ Now you can:
 
 ## What's next?
 
-Now that you are set up with an HDInsight Spark cluster and have uploaded the Jupyter notebooks, you are ready to work through the topics that correspond to these three notebooks, that show how to create, consume, and model using cross-validation and hyper-parameter sweeping.
+Now that you are set up with an HDInsight Spark cluster and have uploaded the Jupyter notebooks, you are ready to work through the topics that correspond to these three notebooks, that show how to explore your data, create and consume models. The advanced data exploration and modeling notebook dives deeper into including cross-validation, hyper-parameter sweeping and model evaluation. 
 
-**Model creation:** Create the machine learning models to be scored and evaluated here by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](machine-learning-data-science-spark-data-exploration-modeling.md) topic.
+**Data Exploration and modeling with Spark:** Explore the dataset, create the machine learning models to be scored and evaluated here by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](machine-learning-data-science-spark-data-exploration-modeling.md) topic.
 
-**Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md).
+**Model consumption:** To learn how to score the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md).
 
