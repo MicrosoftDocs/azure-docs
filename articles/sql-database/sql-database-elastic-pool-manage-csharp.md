@@ -38,10 +38,8 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 ## Create a new database in an elastic pool
 
+Create a new database in the pool. Configure create or update parameters with existing property values, override those to be changed.
 
-    // Create a new database in the pool
-
-    // Create a database: create, configure, or update parameters and properties explicitly.
     DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
     {
         Location = currentServer.Location,
@@ -60,10 +58,10 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 ## Move a database into an elastic pool
 
+Update the database service objective to add the database to a pool.
 
-    // Update database service objective to add the database to a pool
+    // Retrieve current database properties.
 
-    // Retrieve current database properties
     currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
 
     // Configure create or update parameters with existing property values, override those to be changed.
@@ -80,7 +78,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
         }
     };
 
-    // Update the database
+    // Update the database.
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
 ## List databases in an elastic pool
@@ -119,8 +117,8 @@ The following example lists all databases in a pool:
 
 ## Latency of elastic pool operations
 
-- Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.
-- Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
+* Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.
+* Changing the eDTU per pool (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 
 ## Manage a pool C&#x23; example

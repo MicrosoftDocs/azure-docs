@@ -71,17 +71,18 @@ You can track the status of elastic database operations including creation and u
 
 Metrics that can be retrieved as a percentage of the resource pool limit:   
 
-* Average CPU utilization  - cpu_percent 
-* Average IO utilization - data_io_percent 
-* Average Log utilization - log_write_percent 
-* Average Memory utilization - memory_percent 
-* Average eDTU utilization (as a max value of CPU/IO/Log utilization) – DTU_percent 
-* Maximum number of concurrent user requests (workers) – max_concurrent_requests 
-* Maximum number of concurrent user sessions – max_concurrent_sessions 
-* Total storage size for the elastic pool – storage_in_megabytes 
 
+| Metric name | Description |
+| cpu\_percent | Average CPU utilization |
+| data\_io\_percent | Average IO utilization | 
+| log\_write\_percent | Average Log utilization | 
+| memory\_percent | Average Memory utilization | 
+| DTU\_percent | Average eDTU utilization (as a max value of CPU/IO/Log utilization) |  
+| max\_concurrent\_requests | Maximum number of concurrent user requests (workers) |  
+| max\_concurrent\_sessions | Maximum number of concurrent user sessions | 
+| storage\_in\_megabytes | Total storage size for the elastic pool | 
 
-Metrics granularity/retention periods:
+**Metrics granularity/retention periods:**
 
 * Data will be returned at 5 minute granularity.  
 * Data retention is 14 days.  
@@ -92,19 +93,12 @@ This cmdlet and API limits the number of rows that can be retrieved in one call 
 
 Retrieve the metrics:
 
-	$metrics = (Get-Metrics -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+	$metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
 Get additional days by repeating the call and appending the data:
 
-	$metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
- 
-Format the table:
+	$metrics = $metrics + (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
 
-    $table = Format-MetricsAsTable $metrics 
-
-Export to a CSV file:
-
-    foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation} 
 
 ## Get resource consumption metrics for an elastic database
 
@@ -114,25 +108,16 @@ These APIs are the same as the current (V12) APIs used for monitoring the resour
 
 Get the metrics:
 
-    $metrics = (Get-Metrics -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+    $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
 Get additional days if needed by repeating the call and appending the data:
 
-    $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
-
-Format the table:
-
-    $table = Format-MetricsAsTable $metrics 
-
-Export to a CSV file:
-
-    foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
-
+    $metrics = $metrics + (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
 
 ## Latency of elastic pool operations
 
 - Changing the guaranteed eDTUs per database (DatabaseDtuMin) or maximum eDTUs per database (DatabaseDtuMax) typically completes in 5 minutes or less.
-- Changing the eDTU / storage limit (Dtu) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
+- Changing the eDTU per pool (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 
 ## Monitor and manage a pool PowerShell example
@@ -158,21 +143,15 @@ Export to a CSV file:
     $startTime2 = '2/14/2016'
     $endTime2 = '2/18/2016'
     
-    
-    
-    $metrics = (Get-Metrics -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime1 -EndTime $endTime1) 
+    $metrics = (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime1 -EndTime $endTime1) 
     $metrics
     
-    $metrics = $metrics + (Get-Metrics -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime2 -EndTime $endTime2)
-    $table = Format-MetricsAsTable $metrics
-    foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
+    $metrics = $metrics + (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime2 -EndTime $endTime2)
+        
+    $metrics = (Get-AzureRmMetric -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime1 -EndTime $endTime1) 
     
-    $metrics = (Get-Metrics -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime1 -EndTime $endTime1) 
-    $metrics = $metrics + (Get-Metrics -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime2 -EndTime $endTime2)
-    $table = Format-MetricsAsTable $metrics
-    foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
-
-
+	$metrics = $metrics + (Get-AzureRmMetric -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime2 -EndTime $endTime2)
+    
 
 ## Next steps
 

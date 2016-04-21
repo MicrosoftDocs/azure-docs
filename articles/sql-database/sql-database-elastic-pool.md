@@ -76,24 +76,12 @@ For more information about other tools, see the [Elastic database tools learning
 
 Currently in the preview, elastic databases support most [business continuity features](sql-database-business-continuity.md) that are available to single databases on V12 servers.
 
-### Point in Time Restore
-
-Databases in an elastic database pool are backed up automatically by the system and the backup retention policy is the same as the corresponding service tier for single databases. In sum, databases in  each tier has a different restore range:
-
-* **Basic pool**: Restore-able to any point within the last 7 days.
-* **Standard pool**: Restore-able to any point within the last 14 days.
-* **Premium pool**: Restore-able to any point within the last 35 days.
-
-During preview, databases in a pool will be restored to a new database in the same pool. Dropped databases will always be restored as a standalone database outside the pool into the lowest performance level for that service tier. For example, an elastic database in a Standard pool that is dropped will be restored as an S0 database. You can perform database restore operations through the Azure Portal or programmatically using REST API. PowerShell cmdlet support is coming soon.
-
-### Geo-Restore
-
-Geo-Restore allows you to recover a database in a pool to a server in a different region. During the preview, to restore a database in a pool on a different server, the target server needs to have a pool with the same name as the source pool. If needed, create a new pool on the target server and give it the same name prior to restoring the database. If a pool with the same name on the target server doesn’t exist the Geo-Restore operation will fail. For details, see [Recover using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore).
-
 
 ### Geo-Replication
 
 Geo-replication is available for any database in a Standard or Premium elastic database pool.  One or all databases in a geo-replication partnership can be in an elastic database pool as long as the service tiers are the same. You can configure geo-replication for elastic database pools using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+
+When configuring geo-replication, you can use the Azure portal to target an existing database server and elastic pool on that server. 
 
 ### Import and Export
 

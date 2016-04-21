@@ -60,16 +60,16 @@ Use the ALTER DATABASE command and set the SERVICE_OBJECTIVE to one of the perfo
 ## List databases in an elastic pool
 Use the [sys.database\_service \_objectives view](https://msdn.microsoft.com/library/mt712619) to list all the databases in an elastic pool. Log in to the master database to query the view.
 
->[AZURE.NOTE] Currently the service\_objective_column for databases in elastic pools returns an internal token of the service objective string. This will be replaced by the string "ElasticPool."
->
-
 	SELECT d.name, slo.*  
 	FROM sys.databases d 
 	JOIN sys.database_service_objectives slo  
 	ON d.database_id = slo.database_id
 	WHERE elastic_pool_name = 'MyElasticPool'; 
 
-## Monitor resource usage of elastic pools
+>[AZURE.NOTE] Currently the service\_objective_column for databases in elastic pools returns an internal token of the service objective string. This will be replaced by the string "ElasticPool."
+>
+
+## Monitor resource usage of an elastic pool
 
 Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/library/mt280062.aspx) to examine the resource usage statistics of an elastic pool on a logical server. Log in to the master database to query the view.
 
@@ -78,6 +78,7 @@ Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/l
 	ORDER BY end_time DESC;
 
 ## Monitor resource usage of a database in an elastic pool
+
 Use the [sys.dm \_resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) or [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx) to examine the resource usage statistics of a database in an elastic pool. This process is similar to querying resource usage for any single database.
 
 ## Next steps

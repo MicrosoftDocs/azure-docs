@@ -27,7 +27,9 @@
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
-This article describes how to use the Azure portal to monitor, manage, and right-size an elastic database pool and the databases in the pool. SQL Database has built-in intelligence that analyzes historical usage telemetry and proactively recommends a pool for databases when it's more cost-effective. You can also add and remove databases before you commit to changes and see the impact on pool performance and storage. 
+You can use the Azure portal to monitor, manage, and configure an elastic database pool and the databases in the pool. SQL Database has built-in intelligence that analyzes historical usage of all databases on a server (whether they are in pools or not), and recommends a pool for databases when it's more cost-effective. 
+
+You can also add and remove databases before you commit to changes and see the impact on pool performance and storage. You can also change pool and database settings and commit all changes simultaneously.
 
 To work through the steps in this article, you'll need databases and a pool. See [create a pool](sql-database-elastic-pool-create-portal.md) if you already have databases, and the [SQL database tutorial](sql-database-get-started) if you don't. 
 
@@ -37,13 +39,13 @@ To work through the steps in this article, you'll need databases and a pool. See
 
 ## Create a new database into an elastic pool
 
-In the blade for the pool, click **Create database**. In the **SQL database** blade, type a name and set the new database's properties. Then click **OK**.
+This procedure creates a new database, then adds it to the pool. In the blade for the pool, click **Create database**. In the **SQL database** blade, type a name and set the new database's properties. Then click **OK**.
 
    ![create elastic database](./media/sql-database-elastic-pool-manage-portal/create-database.png)
 
 ## Move a database into an elastic pool
 
-After you create a pool, you can add databases to the pool or remove them. You can only add databases on the same SQL server.
+After you create a pool, you can add databases to the pool or remove them. The databases can be in other pools. However, you can only add databases on the same SQL server.
 
 1. In the blade for the pool, under **Elastic databases** click **Configure pool**.
 
@@ -52,6 +54,8 @@ After you create a pool, you can add databases to the pool or remove them. You c
 2. In the **Configure pool** blade, click **Add to pool**.
 
 	![Clic Add to pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+
+	
 3. In the **Add databases** blade, select the database or databases to add to the pool. Then click **Select**.
 
 	![Select databases to add](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
@@ -74,9 +78,12 @@ After you create a pool, you can add databases to the pool or remove them. You c
 
     ![databases listing](./media/sql-database-elastic-pool-manage-portal/remove-from-pool.png)
 
+	Selected databases show up in the UI as "databases selected to be removed."
+
 
 
 ## Monitor resource utilization of a pool
+
 After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool.
 
 ![Monitor elastic pool](./media/sql-database-elastic-pool-manage-portal/monitor-elastic-pool.png)
@@ -93,15 +100,9 @@ After you select a pool to work with, under **Elastic Pool Monitoring**, a chart
 
 - Then click **OK**.
 
-**To add a tile:**
 
-1. In the area you want to customize, click **Add tiles**.
+## Add an alert to a pool resource
 
-	![Click edit](./media/sql-database-elastic-pool-manage-portal/add-tiles.png)
-2. Select a tile to add. 
-3. To finish, click **Done customizing**.
-
-##Add an alert to a pool resource
 You can add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up.
 
 **To add an alert to any resource:**
@@ -115,7 +116,7 @@ You can add rules to resources that send email to people or alert strings to URL
 4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
 5. Click **OK**.
 
-##Change eDTU per pool and database eDTU
+## Change eDTU per pool and database eDTU
 
 When you see the resource utilization of a pool, you may discover that the pool needs a different eDTU setting, or individual databases in the pool need different eDTU settings. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md) for more information.
 
@@ -131,7 +132,14 @@ When you see the resource utilization of a pool, you may discover that the pool 
 
     ![Updating a pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
-##Create and manage elastic jobs
+## Preview database actions
+
+You can preview the addition and removal of databases before committing the action on the **Configure pool** blade:
+
+![preview database addition and removal](./media/sql-database-elastic-pool-manage-portal/pools-tab.png).
+
+
+## Create and manage elastic jobs
 
 Elastic jobs let you run Transact-SQL scripts against any number of databases in the pool. Before you use jobs, install elastic jobs components and provide your credentials. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 
