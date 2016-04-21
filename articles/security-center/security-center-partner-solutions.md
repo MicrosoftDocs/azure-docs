@@ -67,6 +67,6 @@ In this document, you were introduced to the **Partner Solutions** tile in Secur
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
 [2]: ./media/security-center-partner-solutions/no-partner-solutions-to-display.png
-[3]: ./media/security-center-patner-solutions/partner-solutions.png
+[3]: ./media/security-center-partner-solutions/partner-solutions.png
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png
