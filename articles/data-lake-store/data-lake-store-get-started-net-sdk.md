@@ -109,7 +109,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
                     _location = "East US 2";
 
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
+                    string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
                     string remoteFilePath = remoteFolderPath + "file.txt";
 				}
@@ -325,7 +325,7 @@ Finally, make sure the local path and file name you provide here must exist on t
                 _location = "East US 2";
 
                 string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
+                string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
                 string remoteFolderPath = "/data_lake_path/";
                 string remoteFilePath = remoteFolderPath + "file.txt";
 
