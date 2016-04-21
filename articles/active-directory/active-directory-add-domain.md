@@ -84,6 +84,20 @@ Now you can [assign user names that include your custom domain name](active-dire
 
 If your organization uses more than one custom domain name, such as ‘contoso.com’ and ‘contosobank.com’, you can add each of them to your Azure AD directory, up to a maximum of 900 domains. Use the same steps listed above to add each subsequent domain name.
 
+## Troubleshooting
+If you can't verify a custom domain name, there are a few potential causes. We'll start with the most common and work down to the least common.
+
+- You tried to verify the domain name before the DNS entry could propagate. Wait for a while and try again.
+
+- The DNS record was not entered at all. Verify the DNS entry and wait for it to propagate, and then try again.
+
+- The domain name was already verified in another directory. Locate the domain name and delete it from the other directory, and try again.
+
+- The DNS record contains an error. Correct the error and try again.
+
+- You don't have sufficient permission to update DNS records. Share the DNS entries with the person or team at your organization who has this access and ask them to add the DNS entry.
+
+
 ## Next steps
 
 -   [Assign user names that include your custom domain name](active-directory-add-domain-add-users.md)
