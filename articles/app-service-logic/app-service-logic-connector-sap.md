@@ -18,7 +18,8 @@
 
 
 # Get started with the SAP Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+>[AZURE.NOTE] Based on customer feedback, we are upgrading this connector. We’ll update this page when it is ready. We do not recommend using the SAP connector before the new version is available. This version of the article applies to logic apps 2014-12-01-preview schema version.
 
 Connect to on-premises SAP to call RFC or get metadata. There are scenarios where you may need to work with SAP, which is installed on-premises and behind the firewall. By leveraging the SAP Connector in your flow, you can achieve a variety of scenarios. A few examples:  
 

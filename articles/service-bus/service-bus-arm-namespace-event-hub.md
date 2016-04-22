@@ -66,7 +66,7 @@ The name of the Service Bus namespace to create.
 The name of the Event Hub created in the Service Bus namespace.
 
 ```
-" serviceBusEventHubName": {
+"serviceBusEventHubName": {
 "type": "string"
 }
 ```
@@ -76,7 +76,7 @@ The name of the Event Hub created in the Service Bus namespace.
 The name of the consumer group created for the Event Hub in the Service Bus namespace.
 
 ```
-" serviceBusConsumerGroupName": {
+"serviceBusConsumerGroupName": {
 "type": "string"
 }
 ```
@@ -93,10 +93,21 @@ The Service Bus API version of the template.
 
 ## Resources to deploy
 
-Creates a standard Service Bus namespace with an Event Hub and a consumer group.
+Creates a Service Bus namespace of type **Event Hub**, with an Event Hub and a consumer group.
 
 ```
-"resources ": [
+"resources": [
+        {
+            "apiVersion": "[variables('ehVersion')]",
+            "name": "[parameters('serviceBusNamespaceName')]",
+            "type": "Microsoft.ServiceBus/Namespaces",
+            "location": "[variables('location')]",
+            "kind": "EventHub",
+            "sku": {
+                "name": "StandardSku",
+                "tier": "Standard"
+            },
+            "resources": [
                 {
                     "apiVersion": "[variables('ehVersion')]",
                     "name": "[parameters('serviceBusEventHubName')]",

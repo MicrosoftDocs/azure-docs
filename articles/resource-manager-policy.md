@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="ravbhatnagar"
 	manager="ryjones"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/13/2016"
+	ms.date="04/18/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -30,8 +30,6 @@ definition language that you can use to create policies. Then we will
 describe how you can apply these policies at different scopes and
 finally we will show some examples of how you can achieve this through
 REST API.
-
-Policy is currently available as a preview.
 
 ## How is it different from RBAC?
 
@@ -93,7 +91,7 @@ event service log. For example, an administrator can create a policy which cause
 
 Policy will be evaluated when resource creation or template deployment happens using HTTP PUT. In case of template deployment, policy will be evaluated during the creation of each resource in the template. 
 
-Note: Resource types that do not support tags, kind, and location are not evaluated by Policy, such as Microsoft.Resources/deployments. The support will be added at a future time. To avoid backward compatibility issues, it is best practice to explicitly specify type when authoring policies. For example, a tag policy without specifying types will be applied for all types, so template deployment may fail if there is a nested resource that don't support tag when the resource type is added to evaluation at a future time. 
+> [AZURE.NOTE] Currently, policy does not evaluate resource types that do not support tags, kind, and location, such as the Microsoft.Resources/deployments resource type. This support will be added at a future time. To avoid backward compatibility issues, you should explicitly specify type when authoring policies. For example, a tag policy that does not specify types will be applied for all types. In that case, a template deployment may fail in the future if there is a nested resource that don't support tag, and the deployment resource type has been added to policy evaluation. 
 
 ## Logical Operators
 
@@ -120,15 +118,13 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 | In						| "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey	 | "containsKey" : "&lt;keyName&gt;" |
 
-### Fields and Sources
+### Fields
 
 Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
 
 The following fields and sources are supported:
 
 Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
-
-Sources: **action**. 
 
 ### Property aliases 
 Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and skus. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
@@ -375,8 +371,8 @@ The below example shows how to nest logical operators to require an application 
                 }
               },
               {
-                "source": "action",
-                "like": "Microsoft.Storage/*"
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
               }
             ]
         },
@@ -428,7 +424,7 @@ With a request body similar to the following:
 
 
 The policy-definition can be defined as one of the examples shown above.
-For api-version use *2015-10-01-preview*. For examples and more details,
+For api-version use *2016-04-01*. For examples and more details,
 see [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Create Policy Definition using PowerShell
@@ -464,7 +460,7 @@ To create a new policy assignment, run:
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
 The {policy-assignment} is the name of the policy assignment. For
-api-version use *2015-10-01-preview*. 
+api-version use *2016-04-01*. 
 
 With a request body similar to the following:
 

@@ -33,7 +33,9 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**
 
-- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli-install.md)
+- **Azure CLI**
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Configure environment variables
 

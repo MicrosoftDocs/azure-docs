@@ -32,6 +32,8 @@ Script Action can be used to install additional software running on a Hadoop clu
 
 For creating HDInsight clusters on Windows operating system, the Script Action is Azure PowerShell script.The following is a sample script for configure the site configuration files:
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
 	    [parameter(Mandatory)][string] $Name,

@@ -50,7 +50,7 @@ Azure App Service Web Apps is a fully managed platform that enables you to build
 - **Hybrid connections** - - Access on-premises data using [hybrid connections](../biztalk-services/integration-hybrid-connection-overview.md) and [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
 
 ## Getting Started ##
-To get started with Web Apps, follow the [Create an ASP.NET web app] [create] tutorial.
+To get started with Web Apps, follow the [Get started with web apps in Azure App Service] [create] tutorial.
 
 For more information on Azure App Service platform, see [Azure App Service][appservice].
 
@@ -60,7 +60,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [appservice]: ../app-service/app-service-value-prop-what-is.md
-[create]: web-sites-dotnet-get-started.md
+[create]: app-service-web-get-started.md
 [Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
 [Slots]: web-sites-staged-publishing.md
 

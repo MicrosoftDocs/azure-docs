@@ -20,31 +20,31 @@
 
 # Container management through the REST API
 
-Mesos provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of Mesos, there is a framework that manages scheduling and executing compute workloads.
+DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
-Although frameworks are available for many popular workloads, this document describes how you can create and scale container deployments by using Marathon. Before working through these examples, you need a Mesos cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
+Although frameworks are available for many popular workloads, this document describes how you can create and scale container deployments by using Marathon. Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
 - [Deploying an Azure Container Service cluster](./container-service-deployment.md)
 - [Connecting to an Azure Container Service cluster](./container-service-connect.md)
 
-After you are connected to the Azure Container Service cluster, you can access the Mesos and related REST APIs through http://localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoint can be reached at `http://localhost/marathon/v2/`. For more information on the various APIs, see the Mesosphere documentation for the [Marathon
+After you are connected to the Azure Container Service cluster, you can access the DC/OS and related REST APIs through http://localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoint can be reached at `http://localhost/marathon/v2/`. For more information on the various APIs, see the Mesosphere documentation for the [Marathon
 API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
 [Chronos API](https://mesos.github.io/chronos/docs/api.html), and the
 Apache documentation for the [Mesos Scheduler
 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
-## Gather information from Mesos and Marathon
+## Gather information from DC/OS and Marathon
 
-Before you deploy containers to the Mesos cluster, gather some
-information about the Mesos cluster, such as the names and current
-status of the Mesos agents. To do so, query the `master/slaves`
-endpoint of the Mesos REST API. If everything goes well, you will see a list of Mesos agents and several properties for each.
+Before you deploy containers to the DC/OS cluster, gather some
+information about the DC/OS cluster, such as the names and current
+status of the DC/OS agents. To do so, query the `master/slaves`
+endpoint of the DC/OS REST API. If everything goes well, you will see a list of DC/OS agents and several properties for each.
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-Now, use the Marathon `/apps` endpoint to check for current application deployments to the Mesos cluster. If this is a new cluster, you will see an empty array for apps.
+Now, use the Marathon `/apps` endpoint to check for current application deployments to the DC/OS cluster. If this is a new cluster, you will see an empty array for apps.
 
 ```
 curl localhost/marathon/v2/apps
@@ -54,7 +54,7 @@ curl localhost/marathon/v2/apps
 
 ## Deploy a Docker-formatted container
 
-You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the Mesos agent to port 80 of the container.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container. Also note that the ‘acceptedResourceRoles’ property is set to ‘slave_public’. This will deploy the container to an agent in the public facing agent scale set.
 
 ```json
 {
@@ -62,6 +62,9 @@ You deploy Docker-formatted containers through Marathon by using a JSON file tha
   "cpus": 0.1,
   "mem": 16.0,
   "instances": 1,
+    "acceptedResourceRoles": [
+    "slave_public"
+  ],
   "container": {
     "type": "DOCKER",
     "docker": {
@@ -80,7 +83,7 @@ In order to deploy a Docker-formatted container, create your own JSON file, or u
 ```
 # deploy container
 
-curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
+curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
 The output will be similar to the following:
@@ -123,13 +126,13 @@ curl localhost/marathon/v2/apps
 
 You can perform these same actions by using PowerShell commands on a Windows system.
 
-To gather information about the Mesos cluster, such as agent names and agent status, run the following command.
+To gather information about the DC/OS cluster, such as agent names and agent status, run the following command.
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the Mesos agent to port 80 of the container.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container.
 
 ```json
 {
@@ -176,8 +179,8 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## Next steps
 
-- [Read more about the Meso HTTP endpoints]( http://mesos.apache.org/documentation/latest/endpoints/).
-- [Read more about the Marathon REST API]( https://mesosphere.github.io/marathon/docs/rest-api.html).
+[Read more about the Meso HTTP endpoints]( http://mesos.apache.org/documentation/latest/endpoints/).
+[Read more about the Marathon REST API]( https://mesosphere.github.io/marathon/docs/rest-api.html).
 
 
 

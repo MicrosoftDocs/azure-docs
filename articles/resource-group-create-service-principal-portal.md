@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,25 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="04/18/2016"
    ms.author="tomfitz"/>
 
 # Create Active Directory application and service principal using portal
 
 ## Overview
-When you have an automated process or application that needs to access or modify resources, you can use the classic portal to create an Active Directory application. When you create an Active Directory application 
-through the classic portal, it actually creates both the application and a service principal. You can execute the application either under its own identity or under the identity of the 
+When you have an automated process or application that needs to access or modify resources, you can use the classic portal to create an Active Directory application. You can execute the application either under its own identity or under the identity of the 
 signed-in user of your application. These two methods of authenticating the applications are referred to as interactive (user signs in) and non-interactive (app provides its own credentials). In the non-interactive mode, 
-you must assign the service principal to a role with the correct permission.
+you must assign a role with the correct permission to the identity for the application. If your app runs unattended, such as a backend process, you must use non-interactive authentication.
 
-This topic shows you how to create a new application and service principal using the classic portal. Currently, you must use the classic portal to create a new Active Directory application. This ability will be added to the 
-Azure portal in a later release. You can use the portal to assign the application to a role. You can also perform these steps through Azure PowerShell or Azure CLI. For more information about using PowerShell or CLI with 
+This topic shows you how to create a new application using the classic portal. Currently, you must use the classic portal to create a new Active Directory application. You can use the portal to assign the application to a role. 
+
+You can also perform these steps through Azure PowerShell or Azure CLI. For more information about using PowerShell or CLI with 
 the service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Concepts
 1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure Active Directory](active-directory/active-directory-whatis.md)
-2. Service Principal - an instance of an application in a directory.
-3. AD Application - a directory record in AAD that identifies an application to AAD. 
+2. AD Application - a directory record in Active Directory that identifies an application. 
+3. Service Principal - an instance of the application to which you can apply access control roles.
 
 For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](active-directory/active-directory-application-objects.md). 
 For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](active-directory/active-directory-authentication-scenarios.md).
@@ -46,10 +46,14 @@ For interactive and non-interactive applications, you must create and configure 
 2. Select **Active Directory** from the left pane.
 
      ![select Active Directory][1]
-
-3. Select the directory that you want to use for creating the new application.
+     
+3. Select the directory that you want to use for creating the new application. For resources in your subscription, you can only assign access to service principals in the same directory as your subscription. Typically, you want to create the application in the directory where your subscription resides. 
 
      ![choose directory][2]
+     
+    If you need to find the directory for your subscription, select **Settings** and look for the directory name.
+   
+     ![find default directory](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
 3. To view the applications in your directory, click on **Applications**.
 
@@ -91,7 +95,7 @@ In some cases, you need to pass the tenant id with your authentication request. 
 
 Endpoints are not available for Native Client Applications. Instead, you can retrieve the tenant id through PowerShell:
 
-    PS C:\> Get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 Or, Azure CLI:
 
@@ -230,7 +234,7 @@ You can pass the token in the request header with the following code:
 
 - To learn about specifying security policies, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).  
 - For a video demonstration of these steps, see [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- To learn about using Azure PowerShell or Azure CLI to work with Active Directory applications and service principals, including how to use a certificate for authentication, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md).
+- To learn about using Azure PowerShell or Azure CLI to work with Active Directory applications and service principals, including how to use a certificate for authentication, see [Authenticating a Service Principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - For guidance on implementing security with Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
 
 
