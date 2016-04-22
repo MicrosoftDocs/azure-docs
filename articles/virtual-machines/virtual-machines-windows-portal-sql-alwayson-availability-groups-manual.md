@@ -96,7 +96,7 @@ Azure will create the new resource group and pin a shortcut to the resource grou
 
 The next step is to create the networks and subnets in the Azure resource group.
 
-The solution uses one virtual network with two subnets. You should understand the basics of networks and how networks work in Azure. The [Virtual Network Overview](virtual-networks-overview.md) provides more information about networks in Azure.
+The solution uses one virtual network with two subnets. You should understand the basics of networks and how networks work in Azure. The [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
 
 To create the virtual network:
 
@@ -921,4 +921,4 @@ To test the connection:
 
 ## Next Steps
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-sql-server-iaas-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
