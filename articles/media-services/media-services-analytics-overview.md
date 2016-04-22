@@ -26,7 +26,7 @@ To address this growing need in the marketplace, Azure Media Services offers Med
 
 Azure Media Analytics enable developers to quickly get started with vision capabilities for video at limited scale and bring this advanced functionality into Bots and applications. Azure Media Analytics is built to be used by enterprise environments with the full scale, compliance, security and global reach required by large organizations.
 
-The following diagram shows **Analytics** and other major parts of the Media Services platform. Note that, Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
+The following diagram shows **Media Analytics** and other major parts of the Media Services platform. Note that, Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
 
 ![VoD workflow][overview]
 
