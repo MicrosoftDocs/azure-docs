@@ -77,11 +77,11 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
-	using System;
+  using System;
   using System.Linq;
   using System.Threading.Tasks;
 
-	// ADD THIS PART TO YOUR CODE
+  // ADD THIS PART TO YOUR CODE
   using System.Net;
   using Microsoft.Azure.Documents;
   using Microsoft.Azure.Documents.Client;
