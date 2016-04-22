@@ -51,7 +51,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **A workstation with Azure PowerShell**.
 
 	Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
 
@@ -60,6 +60,8 @@ Before you begin this tutorial, you must have the following:
 	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
 
 		Select-AzureSubscription <AzureSubscriptionName>
+		
+	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 >[AZURE.NOTE] Azure service names and virtual machine names must be unique. The name used in this tutorial is Contoso-[Azure Service/VM name]-[EU/US]. For example, Contoso-VNet-EU is the Azure virtual network in the North Europe data center; Contoso-DNS-US is the DNS server VM in the East U.S. datacenter. You must come up with your own names.
