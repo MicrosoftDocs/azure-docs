@@ -146,7 +146,7 @@ For more information on limits and limitations, refer to the [ExpressRoute FAQ](
 
 You can delete your ExpressRoute circuit selecting the **delete** icon. Note the following:
 
-- You must all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
+- You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
 
 - If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to "disabling" from an enabled state. You must work with your service provider to deprovision the circuit on their side. Microsoft will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
