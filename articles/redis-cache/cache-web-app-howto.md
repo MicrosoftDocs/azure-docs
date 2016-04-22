@@ -663,7 +663,7 @@ When provisioning is complete, you can publish your application to Azure from Vi
 
     ![Publish][cache-publish-to-app-service]
 
-3. Select the subscription used when creating the Azure resources, expand the resource group containing the resources, and select the desired Web App, and click **OK**. If you used the **Deploy to Azure** button your Web App name with start with **website** followed by some additional characters.
+3. Select the subscription used when creating the Azure resources, expand the resource group containing the resources, select the desired Web App, and click **OK**. If you used the **Deploy to Azure** button your Web App name starts with **website** followed by some additional characters.
 
     ![Select Web App][cache-select-web-app]
 
@@ -709,7 +709,7 @@ When you are finished with the sample application, you can delete the resources 
 
 After a few moments the resource group and all of its contained resources are deleted.
 
->[AZURE.IMPORTANT] Note that deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group, you can delete them individually from their respective blades.
+>[AZURE.IMPORTANT] Note that deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group, you can delete each resource individually from their respective blades.
 
 ## Run the sample application on your local machine
 
@@ -719,9 +719,11 @@ To run the application locally on your machine, you need an Azure Redis Cache in
 -	If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
 -	If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
+Once you have selected the cache to use, browse to the cache in the Azure portal to your cache and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+
 1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
 
-2. Edit the `value` attribute and replace `MyCache.redis.cache.windows.net` with the [host name](cache-configure.md#properties) of your cache, and specify either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password. For instructions on browsing to your cache and retrieving these values, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+2. Edit the `value` attribute and replace `MyCache.redis.cache.windows.net` with the [host name](cache-configure.md#properties) of your cache, and specify either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password.
 
 
 		<appSettings>
@@ -731,7 +733,7 @@ To run the application locally on your machine, you need an Azure Redis Cache in
 
 3. Press **Ctrl+F5** to run the application.
 
-
+>[AZURE.NOTE] Note that because the application, including the database, is running locally and the Redis Cache is hosted in Azure, the cache may appear to under perform the database. For best performance, the client application and Azure Redis Cache instance should be in the same location.
 
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png
