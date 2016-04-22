@@ -186,4 +186,4 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 
 ## Next steps
-- [Search logs](log-analytics-log-search.md)
+- [Search logs](log-analytics-log-searches.md)
