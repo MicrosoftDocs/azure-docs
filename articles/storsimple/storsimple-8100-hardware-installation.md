@@ -73,9 +73,12 @@ The next step is to rack-mount your device.
 
 ## Rack-mount your StorSimple 8100 device
 
-Follow the next steps to install your StorSimple 8100 storage device in a standard 19-inch rack with front and rear posts (StorSimple devices must be rack-mounted for proper operation). The StorSimple 8100 device has a single primary enclosure.
+Follow the next steps to install your StorSimple 8100 storage device in a standard 19-inch rack with front and rear posts . The StorSimple 8100 device has a single primary enclosure.
 
 The installation consists of multiple steps, each of which is discussed in the following procedures.
+
+> [AZURE.IMPORTANT]
+StorSimple devices must be rack-mounted for proper operation.
 
 ### Prepare the site
 

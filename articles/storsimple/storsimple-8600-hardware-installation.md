@@ -74,9 +74,14 @@ The next step is to rack-mount your device.
 
 ## Rack-mount your StorSimple 8600 device
 
-Follow the next steps to install your StorSimple 8600 storage device in a standard 19-inch rack with front and rear posts (StorSimple devices must be rack-mounted for proper operation). This device comes with two enclosures: a primary enclosure and an EBOD enclosure. Both of these need to be rack-mounted.
+Follow the next steps to install your StorSimple 8600 storage device in a standard 19-inch rack with front and rear posts. This device comes with two enclosures: a primary enclosure and an EBOD enclosure. Both of these need to be rack-mounted.
 
 The installation consists of multiple steps, each of which is discussed in the following procedures.
+
+> [AZURE.IMPORTANT]
+StorSimple devices must be rack-mounted for proper operation.
+
+
 
 ### Site preparation
 
