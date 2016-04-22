@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/16/2015"
+	ms.date="04/22/2015"
 	ms.author="MikeRayMSFT" />
 
 # Configure AlwaysOn Availability Groups in Azure VM (GUI)
@@ -42,8 +42,6 @@ At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will cons
 
 - A 3-node WSFC cluster with the Node Majority quorum model
 
-- An internet facing load balancer to provide RDP connectivity to one of the domain controllers
-
 - An internal load balancer to provide an IP address to the AlwaysOn availabiltiy groups
 
 - An availability group with two synchronous-commit replicas of an availability database
@@ -66,7 +64,9 @@ This tutorial assumes the following:
 
 >[AZURE.NOTE] If you are interested in using AlwaysOn Availability Groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-## Connect to your Azure subscription and create a resource group
+## Create and resource group, networks, and domain controllers
+
+### Connect to your Azure subscription and create a resource group
 
 1. Sign in to the [Azure portal](http://portal.azure.com). 
 
@@ -92,7 +92,7 @@ This tutorial assumes the following:
 
 Azure will create the new resource group and pin a shortcut to the resource group in the portal.
 
-## Create network and subnets
+### Create network and subnets
 
 The next step is to create the networks and subnets in the Azure resource group.
 
@@ -137,7 +137,7 @@ Click **Create**
 
 Azure will return you to the portal dashboard and notify you when the new network is created.
 
-###Create the second subnet
+### Create the second subnet
 
 At this point your virtual network contains one subnet, named Subnet-1. The domain controllers will use this subnet. The SQL Servers will use a second subnet named **Subnet-2**. To configure Subnet-2
 
@@ -177,7 +177,7 @@ Here is a summary of the configuration settings for the virtual network and both
 | **Resource Group** | **SQL-HA-RG** |
 | **Location** | Specify the same location that you chose for the resource group. |
 
-## Create Availability Sets
+### Create Availability Sets
 
 Before creating virtual machines, you need to create availability sets. Availablity sets reduce downtime for planned or unplanned maintenance events. An Azure availablity set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availablity set have separate power and network resouces. An update domain ensures that members of the availabilty set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
 
@@ -195,32 +195,6 @@ Configure two availablity sets according to the parameters in the following tabl
 | **Update domains** | 5 | 3 |
 
 After you create the availability sets, return to the resource group in the Azure portal.
-
-## Create internet facing load balancer
-
-All of the resources in this solution are on an Azure virtual network, with no access to the internet. In order to access a virtual machine, create an internet facing load balancer. The front end of the load balancer provides an IP address, and the back end points to one of the domain controller virtual machines.  You will use RDP through that load balancer to one domain controller. From that domain controller you will use RDP to connect to and configure all other virtual machines. 
-
-Do the following steps to create a load balancer:
-
-1. In the Azure portal, go to the **SQL-HA-RG** resource group and  click **+ Add**.
-
-1. Search for **load balancer**, click on **Load balancer** click **Create**. 
-
-1. On the **Create load balancer** blade, configure the load balancer according to the following table:
-
-| **Field** | Value  
-| ----- | -----
-| **Name** | rdpLoadBalancer
-| **Scheme** | Public
-| **Public IP Address** | Create a new public IP address named **rdpIP**.
-| **Assignment** | Static
-| **Subscription** | *Your subscription*
-| **Resource Group** | SQL-HA-RG
-| **Location** | The same as previous objects
-
->[AZURE.NOTE] For the public IP address, click *Choose a public IP address* and create a new IP address. 
-
-Click **Create** to create the internet facing load balancer.
 
 ## Create and configure domain controllers
 
@@ -241,6 +215,8 @@ You will go through that process twice to create two virtual machines. Name the 
 - ad-primary-dc
 - ad-secondary-dc
 
+ [AZURE.NOTE] **ad-secondary-dc** is an optional component to provide high availability for Active Directory domain services. 
+
 The following table shows the settings for these two machines.
 
 | **Field** | Value 
@@ -255,8 +231,8 @@ The following table shows the settings for these two machines.
 | **Storage account** | *Automatically created*
 | **Virtual network** | autoHAVNET
 | **Subnet** | subnet-1
-| **Public IP address** | None
-| **Network Security Group** | None
+| **Public IP address** |  *Same name as the VM*
+| **Network Security Group** | *Same name as the VM*
 | **Diagnostics** | Enabled
 | **Diagnostics storage account** | *Automatically created*
 | **Availability set** | adAvailabilitySet
@@ -265,52 +241,13 @@ The following table shows the settings for these two machines.
 
 Azure will create the virtual machines.
 
-After the virtual machines are created, configure the internet facing load balancer to allow RDP connection to the primary domain controller. 
-
-### Configure the internet facing load balancer to allow RDP connection to the primary domain controller
- 
-In the resource group, click **rdpLoadBalancer** to open the settings for the **rdpLoadbalancer**.
- 
-Click **Backend pools**.
- 
-On the **Backend address pools** blade, click **Add**.
- 
-In the **Add backend address pool** blade configure the backend address pool according to the settings in this table:
- 
-| Field | Setting
-| ----- | -----
-| **Name** | adLBBE
-| **Availability set**| adAvailabilitySet
-| **Virtual machines** | ad-primary-dc
-
-This load balancer is only connected to one virtual machine. 
-
- 
-  
-### Add Inbound NAT Rools on the rdpLoad Balancer
-
-Add an inbound NAT rule on the rdpLoad Balancer. Configure the rule according to the following table:
-
-| Field | Setting
-| ----- | -----
-| **Name** |RDP
-| **Service** | RDP
-| **Protocol** | TCP
-| **Target** | ad-primary-dc
-
-Sometimes it takes multiple attempts to configure the target. If the first configuration attempt fails, retry a few times.
-
-After Azure finishes updating the load balancer, you can connect to **ad-primary-dc** with remote desktop.
-
-## Set the domain controller network interfaces to use a static IP address
-
-In the Azure portal, under the **SQL-HA-RG** resource group, locate the network interface card for each of the virtual machines. On each network interface card, click **IP addresses**. Set **Assignment** to **Static** and save the change. While here, note the IP address that Azure has assigned to each network interface cards. This is the private IP address the server uses on the Azure virtual network.
+After the virtual machines are created, configure the domain controller.
 
 ## Configure the domain controller
 
-In the following steps, configure the ad-primary-dc machine as a domain controller for corp.contoso.com.
+In the following steps, configure the **ad-primary-dc** machine as a domain controller for corp.contoso.com.
 
-1. In the portal open the **SQL-HA-RG** resource group and select the **ad-primary-dc** machine. On the **ad-primary-dc** blade, click **Connect** to open an RDP file for remote desktop access. If the connect button is not enabled, verify the load balancer configuration from the previous step.
+1. In the portal open the **SQL-HA-RG** resource group and select the **ad-primary-dc** machine. On the **ad-primary-dc** blade, click **Connect** to open an RDP file for remote desktop access.
 
 	![Connect to Vritual Machine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/20-connectrdp.png)
 
@@ -357,7 +294,7 @@ In the following steps, configure the ad-primary-dc machine as a domain controll
 
 ### Configure the second domain controller
 
-To complete this step, you will need to know the private IP address for the domain controller. You can get this from the Azure portal. 
+After the primary domain controller reboots, you can configure the second domain controller. This optional step is for high availability. To complete this step, you will need to know the private IP address for the domain controller. You can get this from the Azure portal.  Follow these steps to configure the second domain controller.
 
 1. Log back into the **ad-primary-dc** machine. 
 
@@ -400,7 +337,7 @@ To complete this step, you will need to know the private IP address for the doma
 |**Domain Controller Options**|**DSRM Password** = Contoso!000<br/>**Confirm Password** = Contoso!000|
 
 
-## Configure Domain Accounts
+### Configure Domain Accounts
 
 The next steps configure the Active Directory (AD) accounts for later use.
 
@@ -445,7 +382,9 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 Now that you have finished configuring Active Directory and the user objects, you will create two SQL Server VMs, and a witness server VM, and join all three to this domain.
 
-## Create the SQL Server VMs
+## Create the SQL Servers and configure clustering
+
+###Create and configure the SQL Server VMs
 
 Next, create three VMs, including two SQL Server VMs, and a WSFC cluster node. To create each of the VMs, go back to **HA-AG-RG** resource group, click **Add**, search for the appropriate gallery item, **Virtual Machine**, and then **From Gallery**. Then use the templates in the following table to help you create the VMs.
 
@@ -564,7 +503,7 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 
 The SQL Server VMs are now provisioned and running, but they are installed with SQL Server with default options.
 
-## Create the WSFC Cluster
+### Create the WSFC Cluster
 
 In this section, you create the WSFC cluster that will host the availability group you will create later. By now, you should have done the following to each of the three VMs you will use in the WSFC cluster:
 
@@ -638,7 +577,7 @@ Now that you have created the cluster, verify the configuration and add the rema
 
 1. Log out of the remote desktop session.
 
-## Prepare the SQL Server Instances for Availability Group
+## Configure AlwaysOn Availability Groups
 
 In this section, you will do the following on both **sqlserver-0** and **sqlserver-1**:
 
@@ -708,7 +647,7 @@ Do these steps on both SQL Servers.
 
 1. Log out of the VMs.
 
-## Create the Availability Group
+### Create the Availability Group
 
 You are now ready to configure an availability group. Below is an outline of what you will do:
 
@@ -921,7 +860,7 @@ To test the connection:
 
 1. Use sqlcmd utility to test the connection. For example, the following script establishes a sqlcmd connection to the primary replica through the listener with Windows authentication:
 
-    sqlcmd -S <listenerName> -E
+        sqlcmd -S "<listenerName>" -E
 
 
 
