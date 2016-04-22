@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="04/21/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Conceptual overview of custom domain names in Azure Active Directory
@@ -26,7 +26,7 @@ Domain names in Azure AD are globally unique. A domain name can be used by a sin
 
 Every domain name in Azure AD is either an initial domain name, or a custom domain name.
 
-Every Azure AD comes with an initial domain name in the form contoso.onmicrosoft.com. This third level domain name, in this example “contoso.onmicrosoft.com,” was established when the directory was created, typically by the admin who created the directory. The initial domain name for a directory ican't be changed or deleted. The initial domain name, while fully functional, is intended primarily to be used as a bootstrapping mechanism until a custom domain name is verified.
+Every Azure AD comes with an initial domain name in the form contoso.onmicrosoft.com. This third level domain name, in this example “contoso.onmicrosoft.com,” was established when the directory was created, typically by the admin who created the directory. The initial domain name for a directory can't be changed or deleted. The initial domain name, while fully functional, is intended primarily to be used as a bootstrapping mechanism until a custom domain name is verified.
 
 In most production environments, a directory has at least one verified custom domain, such as “contoso.com,” and it is that custom domain that is visible to end users. A custom domain name is a domain name that is owned and used by that organization, such as “contoso.com,” for uses such as hosting its web site. This domain name is familiar to employees because it is part of the user name that they use to sign in to the corporate network, or to send and retrieve email.
 
