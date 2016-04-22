@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="04/22/2016"
    ms.author="bwren" />
 
 # Custom logs in Log Analytics
@@ -168,3 +168,4 @@ We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* 
 ## Next steps
 
 - Use [Custom Fields](log-analytics-custom-fields.md) to parse the entries in the custom log into individual fields.
+- Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 

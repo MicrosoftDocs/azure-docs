@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Windows Event logs in Log Analytics"
-   description="Windows Event logs are one of the most common data sources used by Log Analytics.  This article describes how to configure collection of Windows Event logs and details of the events they create in the OMS repository."
+   description="Windows Event logs are one of the most common data sources used by Log Analytics.  This article describes how to configure collection of Windows Event logs and details of the records they create in the OMS repository."
    services="log-analytics"
    documentationCenter=""
    authors="bwren"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="04/22/2016"
    ms.author="bwren" />
 
 # Windows event logs in Log Analytics
@@ -69,6 +69,7 @@ The following table provides different examples of log searches that retrieve Wi
 
 ## Next steps
 
-- Learn about log searches to analyze the data collected from data sources and solutions. 
+- Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.
+- Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
 - Use [Custom Fields](log-analytics-custom-fields.md) to parse the event records into individual fields.
 - Configure [collection of performance counters](log-analytics-data-sources-performance-counters.md) from your Windows agents.
