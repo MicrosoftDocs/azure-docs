@@ -909,7 +909,7 @@ The next thing to do is to configure an AlwaysOn availability group listener on 
 
 1. In **Failover Cluster Manager**, right-click the availability group resource, and click **Properties**. On the **Dependencies** tab, set the resource group to be dependent on the listener network name.  
 
-1. Set the listener port property to 1433. To do this, open SQL Server Management Studio, right click on the availability group listener, and select properties.
+1. Set the listener port property to 1433. To do this, open SQL Server Management Studio, right click on the availability group listener, and select properties. Set **Port** to 1433.
 
 1. At this point you can [bring the listener online](virtual-machines-windows-portal-sql-alwayson-int-listener.md#2-bring-the-listener-online).
 
