@@ -81,7 +81,7 @@ When prompted, confirm you want to remove the account. Account removal can take 
 
 ## Create a BatchAccountContext object
 
-To authenticate using the Batch PowerShell cmdlets when you to create and manage Batch pools, jobs, tasks, and other resources, you first need to create a BatchAccountContext object to store your account name and keys:
+To authenticate using the Batch PowerShell cmdlets when you create and manage Batch pools, jobs, tasks, and other resources, first create a BatchAccountContext object to store your account name and keys:
 
     $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
 
