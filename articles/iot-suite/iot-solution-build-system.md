@@ -111,7 +111,7 @@ Alternatively, if you want to keep up to date with or contribute to our code, cl
 
 **git clone https://github.com/Azure-Samples/MyDriving.git**
 
-## Replace Bing Maps API key
+## Get a Bing maps API key
 
 [Register for a Bing Maps API key](https://msdn.microsoft.com/library/ff428642.aspx).
 
@@ -176,7 +176,7 @@ In the solution, you'll find:
 
     -   Azure SQL Database: Debugging databases.
 
--   SQL Database: CreateTables for schema definitions.
+-   SQL Database: CreateTables: schema definitions.
 
 -   Azure Stream Analytics: Queries that transform the incoming data stream.
 
@@ -186,13 +186,14 @@ Take action to run the apps, based on the device that you're using:
 
 -  Back end: Set MyDrivingService as the startup project, and press F5 to run the back-end web service. It will open a browser view of the API listing.
 
--  Mobile clients: The [mobile apps are developed in Xamarin](https://developer.xamarin.com/guides/cross-platform/deployment,_testing,_and_metrics/debugging_with_xamarin/). For details, see [Debugging Android in Xamarin](http://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/debugging_with_xamarin_android/).
+-  Mobile clients: The [mobile apps are developed in Xamarin](https://developer.xamarin.com/guides/cross-platform/deployment,_testing,_and_metrics/debugging_with_xamarin/).
+ -  Android: For details, see [Debugging Android in Xamarin](http://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/debugging_with_xamarin_android/).
 
--  iOS: For details, see [Debugging in iOS](http://developer.xamarin.com/guides/ios/deployment,_testing,_and_metrics/debugging_in_xamarin_ios/).
+ -  iOS: For details, see [Debugging in iOS](http://developer.xamarin.com/guides/ios/deployment,_testing,_and_metrics/debugging_in_xamarin_ios/).
 
--  Windows Phone: For details, see [Xamarin + Windows Phone](https://developer.xamarin.com/guides/cross-platform/windows/phone/).
+ -  Windows Phone: For details, see [Xamarin + Windows Phone](https://developer.xamarin.com/guides/cross-platform/windows/phone/).
 
-## Sign in to HockeyApp
+## Upload the mobile app to HockeyApp
 
 HockeyApp manages the distribution of your Android, iOS, or Windows app to test users, notifying users of new releases. It also collects useful crash reports, user feedback with screenshots, and usage metrics.
 
@@ -216,7 +217,7 @@ Repeat the process for each platform that your app runs on. Then you can do the 
 
 Read more at the [HockeyApp site](https://hockeyapp.net).
 
-## Use Xamarin Test Cloud
+## Test the mobile app on Xamarin Test Cloud
 
 [Xamarin Test Cloud](https://developer.xamarin.com/guides/testcloud/introduction-to-test-cloud/) automates UI testing on real devices in the cloud. By using the NUnit framework, you write tests that run your app through the user interface.
 
@@ -257,7 +258,7 @@ In scenario\_complete.json:
 
 -   Search for "baseName" and change it to a name that you prefer.
 
--   Search for "Create." Each of these sections creates a resource.
+-   Search for "Create". Each of these sections creates a resource.
 
 -   Set sqlServerAdminLogin and sqlServerAdminPassword to suitable values.
 
@@ -311,7 +312,7 @@ If the script fails for any reason, you can re-run it.
 
 The script gives you the option of configuring continuous integration in Visual Studio Team Services. If you have set up a Team Services project, you'll have a URL: https://yourAccountName.visualstudio.com. Enter the complete URL when you're asked. You can give it a new or existing name for a Team Services project.
 
-## Set up definitions in Visual Studio Team Services
+## Set up build and test definitions in Visual Studio Team Services
 
 We use Team Services on this project mostly for its build and test features. But it also provides excellent collaboration support, such as task management with Kanban boards, code review integrated with tasks and source control, and gated builds. It integrates well with other tools such as GitHub, Xamarin, HockeyApp, and of course, Visual Studio. You can access it through the web interface or through Visual Studio, whichever is more convenient at any moment.
 
@@ -343,19 +344,19 @@ We have build definitions for each of the main targets. We also have variations 
 
     -   MyDriving.Xamarin.UWP-Regression
 
-If you want to see the full details of our configuration, see section 4.7 of the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), "Build and Release Configuration." They follow the same general pattern:
+If you want to see the full details of our configuration, see section 4.7 of the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), "Build and Release Configuration." They follow the same general pattern. The script:
 
-1.  Restore the NuGet package. We don't keep compiled code in the repository, so the first steps of each build are to restore the required NuGet packages.
+1.  Restores the NuGet package. We don't keep compiled code in the repository, so the first steps of each build are to restore the required NuGet packages.
 
-2.  Activate the license. The build is performed in the cloud, so where we need a license--in particular, for the Xamarin build service--we have to activate our license on the current build machine. Then we deactivate it immediately afterward, to allow it to be used on another machine.
+2.  Activates the license. The build is performed in the cloud, so where we need a license--in particular, for the Xamarin build service--we have to activate our license on the current build machine. Then we deactivate it immediately afterward, to allow it to be used on another machine.
 
-3.  Build by using the appropriate service. We use Xamarin builds for the mobile apps, and Visual Studio builds for the back-end web service.
+3.  Builds by using the appropriate service. We use Xamarin builds for the mobile apps, and Visual Studio builds for the back-end web service.
 
-4.  Build tests.
+4.  Builds tests.
 
-5.  Run tests. We run the mobile app tests in Xamarin Test Cloud.
+5.  Runs tests. We run the mobile app tests in Xamarin Test Cloud.
 
-6.  Publish the build result to the drop location.
+6.  Publishes the build result to the drop location.
 
 The trigger for the main builds is set to continuous integration. That is, the build is run every time code is checked in to the master branch.
 
@@ -403,7 +404,7 @@ Just to be sure that your web service is always up and running, you can set up [
 
 It's remarkably inexpensive to run an app like this one at small scale. Many of the services have free entry-level tiers, so that development and small-scale operation cost very little. And of course, your own apps don't have to use all the features demonstrated in MyDriving.
 
-Here's a rough estimate of the costs of setting up the development configuration for MyDriving. We also note some alternatives that we did *not* use.
+Here's a rough estimate of our costs in setting up the development configuration for MyDriving. We also note some alternatives that we did *not* use. This information might be helpful as you estimate your own costs.
 
 We assume:
 
