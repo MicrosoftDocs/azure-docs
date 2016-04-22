@@ -21,7 +21,7 @@ Internet Information Services (IIS) stores user activity in log files that can b
 ![IIS logs](media/log-analytics-data-sources-iis-logs/overview.png)
 
 ## Configuring IIS logs
-Log Analytics collects entries from log files created by IIS, so you must [configure IIS for logging](https://technet.microsoft.com/en-us/library/hh831775.aspx) and select the fields that you want Log Analytics to collect.  IIS does not log all fields by default, so you may want to manually select additional fields beyond the default. 
+Log Analytics collects entries from log files created by IIS, so you must [configure IIS for logging](https://technet.microsoft.com/library/hh831775.aspx) and select the fields that you want Log Analytics to collect.  IIS does not log all fields by default, so you may want to manually select additional fields beyond the default. 
 
 Log Analytics only supports IIS log files stored in W3C format.  It will not collect logs in NCSA or IIS native format.
 
