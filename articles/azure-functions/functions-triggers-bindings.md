@@ -807,9 +807,9 @@ module.exports = function (context, myQueueItem) {
 This section contains the following subsections:
 
 * [Azure Service Bus connection string in function app settings](#sbconnsetting)
-* [How Azure Service Bus queue or topic trigger works](#sbhowworks)
-* [Azure Service Bus queue trigger](#sbtrigger)
-* [Azure Storage Bus queue output binding](#sboutput)
+* [Azure Service Bus triggers: PeekLock and poison message handling](#sbhowworks)
+* [Azure Service Bus queue or topic trigger](#sbtrigger)
+* [Azure Storage Bus queue or topic output binding](#sboutput)
 
 ### <a id="sbconnsetting"></a> Azure Service Bus connection string in function app settings
 
@@ -821,19 +821,20 @@ To use a Service Bus trigger or binding, set up the function app by adding a con
 
 3. Scroll down to the **App settings** section, and add an entry with **Key** = AzureWebJobsServiceBus and **Value** = the connection string for your Service Bus namespace.
 
-### <a id="sbhowworks"></a> How Service Bus queue or topic trigger works 
+### <a id="sbhowworks"></a> Azure Service Bus triggers: PeekLock and poison message handling
 
-The SDK receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+The Functions runtime receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
 
-Service Bus does its own poison queue handling which cannot be controlled or configured in *host.json*, *function.json*, or code. 
+Service Bus does its own poison message handling which cannot be controlled or configured in Azure Functions configuration or code. 
 
-### <a id="sbtrigger"></a> Azure Service Bus queue trigger
+### <a id="sbtrigger"></a> Azure Service Bus queue or topic trigger
 
 The *function.json* file for a Service Bus trigger specifies the following properties.
 
 - `name` : The variable name used in function code for the queue or queue message. 
 - `queueName` : The name of the queue or topic.
 - `connection` : The name of an app setting that contains a Service Bus connection string. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is the one specified by the AzureWebJobsServiceBus app setting.
+- `subscriptionName` : For topics only, the subscription name.
 - `type` : Must be set to *serviceBusTrigger*.
 - `direction` : Must be set to *in*. 
 
@@ -879,7 +880,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-### <a id="sboutput"></a> Azure Service Bus queue output
+### <a id="sboutput"></a> Azure Service Bus queue or topic output
 
 The *function.json* file for a Service Bus output binding specifies the following properties.
 
