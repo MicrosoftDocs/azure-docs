@@ -16,7 +16,7 @@
 	ms.date="03/31/2016"
 	ms.author="dumagar"/>
 
-#Instructions for deploying SQL Server Resource Provider Adaptor on Azure Stack PoC#
+#Instructions for deploying MySQL Server Resource Provider Adaptor on Azure Stack PoC#
 
 
 This article shows the detailed instructions for each step, so that you
@@ -82,7 +82,7 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 - Download the [MySQL RP binaries](http://aka.ms/masmysqlrp) file, and extract its contents to D:\\MySQLRP.
 
 - Run the D:\\MySQLRP\\Bootstrap.cmd file as an administrator (azurestack\\administrator). This opens the Bootstrap.ps1 file in PowerShell ISE.
-When the PowerShell ISE windows completes loading (see screenshot) run the bootstrap script by clicking the “play” button or pressing F5. Two major tabs will load, each containing all the scripts and files necessary to deploy your SQL Resource Provider.
+When the PowerShell ISE windows completes loading (see screenshot) run the bootstrap script by clicking the “play” button or pressing F5. Two major tabs will load, each containing all the scripts and files necessary to deploy your MySQL Resource Provider.
 
     ![](media/azure-stack-sql-rp-deploy-long/1strun.png) 
 
@@ -107,7 +107,7 @@ Select the **Upload-Microsoft.MySql-RP.ps1** tab and run it.
 ###Publish gallery items for later resource creation###
 
 
-Select the **Publish-GalleryPackages.ps1** tab and run it. This command adds two marketplace items to the Azure Stack POC portal’s marketplace that will allow you to deploy database resources as marketplace items in your Azure Stack portal's marketplace. Deploy a SQL Server Resource Provider
+Select the **Publish-GalleryPackages.ps1** tab and run it. This command adds two marketplace items to the Azure Stack POC portal’s marketplace that will allow you to deploy database resources as marketplace items in your Azure Stack portal's marketplace.
 
 ##Deploy your MySQL RP Resource Provider VM##
 
@@ -157,9 +157,8 @@ When prompted for credentials, use what you noted as the **basicAuthUserName** a
 
 - Sign in to the Azure Stack POC portal as service admin.
 
-- Browse to the SQL databases blade and click the “add” button. **Custom** &gt; **MySQL Databases**
-- Fill in the form with the database details and click **create**
-> the connections string for your database will include the "server" name as part of the user name: eg: ** "user@Server" **. you will need to input a username in this form for e.g. when deploying a MySQL web site using the Azure Web Site resource provider
+- click the **+** button &gt; **Custom** &gt; **MySQL Swerver & Databases**
+- the connections string for your database will include the "server" name as part of the user name: eg: ** "user@Server" **. you will need to input a username in this form for e.g. when deploying a MySQL web site using the Azure Web Site resource provider
 
 
 **Next steps**
