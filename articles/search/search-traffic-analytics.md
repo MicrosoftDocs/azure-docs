@@ -47,7 +47,7 @@ You have the option to set the retention policy for your data from 1 to 365 days
 
 ### 2. Using PowerShell
 
-First, make sure you have the latest [Azure PowerShell cmdlets]((https://github.com/Azure/azure-powershell/releases)) installed.
+First, make sure you have the latest [Azure PowerShell cmdlets](https://github.com/Azure/azure-powershell/releases) installed.
 
 Then, get the Resource Ids for your Search Service and your Storage account. You can find them in the portal navigating to Settings -> Properties -> ResourceId.
 
