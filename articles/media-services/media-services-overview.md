@@ -70,7 +70,7 @@ For a how-to series that introduces you to all the main components of Azure Medi
 
 This section describes common scenarios and provides links to relevant topics. The following diagram shows the major parts of the Media Services platform that are involved in delivering content on demand. 
 
-![VoD workflow][vod-overview]
+![VoD workflow](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 
 ###Protect content in storage and deliver streaming media in the clear (non-encrypted)
@@ -109,13 +109,15 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 
 Media Analytics is a collection of speech and vision components that make it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
 
-You can use one of the following Media Analytics services:
-
-- **Indexer** – [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
-- **Hyperlapse** – [Hyperlapse Media Files with Azure Media Hyperlapse](media-services-hyperlapse-content.md)
-- **Motion detection** – [Motion Detection for Azure Media Analytics](media-services-motion-detection.md).
-- **Face detection and Face emotions** – [Face and Emotion Detection for Azure Media Analytics](media-services-face-and-emotion-detection.md).
-- **Video summarization** – [Use Azure Media Video Thumbnails to Create a Video Summarization](media-services-video-summarization.md)
+1. Upload a high-quality mezzanine file into an asset.
+2. Use one of the following Media Analytics services to process your videos:
+	
+	- **Indexer** – [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
+	- **Hyperlapse** – [Hyperlapse Media Files with Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+	- **Motion detection** – [Motion Detection for Azure Media Analytics](media-services-motion-detection.md).
+	- **Face detection and Face emotions** – [Face and Emotion Detection for Azure Media Analytics](media-services-face-and-emotion-detection.md).
+	- **Video summarization** – [Use Azure Media Video Thumbnails to Create a Video Summarization](media-services-video-summarization.md)
+3. Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
 
 
 ###Deliver progressive download 
