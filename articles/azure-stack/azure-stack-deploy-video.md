@@ -16,7 +16,7 @@
 	ms.date="04/22/2016"
 	ms.author="chjoy"/>
 
-# Video tutorial: Deploy Azure Stack
+# Video: Deploy Azure Stack
 
 This video walks you through the entire Azure Stack Technical Preview 1 deployment process - from just after the ZIP file download, all the way to the first use of the portal and API. 
 
