@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="4/21/2016"
+   ms.date="04/21/2016"
    ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js
