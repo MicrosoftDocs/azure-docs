@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/21/2016"
+   ms.date="04/22/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database By Using Azure Active Directory Authentication
