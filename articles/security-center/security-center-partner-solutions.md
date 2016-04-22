@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/21/2016"
+   ms.date="04/22/2016"
    ms.author="terrylan"/>
 
 # Monitoring partner solutions with Azure Security Center
@@ -34,11 +34,11 @@ The **Partner solutions** tile displays the number of partner solutions and a st
 
 The **STATUS** of a partner solution can be:
 
-- Protected (green) - there is no health issue
-- Unhealthy (red) - there is a health issue that requires immediate attention
-- Stopped reporting (orange) - the solution has stopped reporting its health
-- Unknown protection status (orange) - the health of the solution is unknown at this time due to a failed process of adding a new resource to the existing solution
-- Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has just been connected and is still deploying
+- Protected (green) - there is no health issue.
+- Unhealthy (red) - there is a health issue that requires immediate attention.
+- Stopped reporting (orange) - the solution has stopped reporting its health.
+- Unknown protection status (orange) - the health of the solution is unknown at this time due to a failed process of adding a new resource to the existing solution.
+- Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has just been connected and is still deploying.
 
 If there are no solutions integrated with your subscription the tile will state that there are no solutions. Selecting the **Partner solutions** tile will enable you to open the **Recommendations** blade to deploy partner security solutions.
 ![No partner solutions][2]
