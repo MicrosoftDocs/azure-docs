@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/07/2016"
+   ms.date="04/21/2016"
    ms.author="nitinme"/>
 
 # Manage Azure Data Lake Store using Azure SDK for Node.js
@@ -46,9 +46,7 @@ Right now it supports:
 npm install azure-arm-datalake-store
 ```
 
-## How to Use
-
-### Authentication
+## Authenticate using Azure Active Directory
 
  ```javascript
  var msrestAzure = require('ms-rest-azure');
@@ -58,7 +56,7 @@ npm install azure-arm-datalake-store
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-### Create the Data Lake Analytics Clients
+## Create the Data Lake Analytics Clients
 
 ```javascript
 var adlsManagement = require("azure-arm-datalake-store");
@@ -66,7 +64,7 @@ var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, 
 var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credentials, 'azuredatalakestore.net');
 ```
 
-### Create a Data Lake Store Account
+## Create a Data Lake Store Account
 
 ```javascript
 var util = require('util');
@@ -103,7 +101,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-### Create a file with content
+## Create a file with content
 ```javascript
 var util = require('util');
 var accountName = 'testadlsacct';
@@ -122,7 +120,7 @@ filesystemClient.filesystem.listFileStatus(accountName, fileToCreate, options, f
 });
 ```
 
-### Get a list of files and folders
+## Get a list of files and folders
 
 ```javascript
 var util = require('util');
