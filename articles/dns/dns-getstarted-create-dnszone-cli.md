@@ -3,7 +3,7 @@
    description="Learn how to create DNS zones for Azure DNS step-by-step to start hosting your DNS domain using CLI"
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Get started with Azure DNS using CLI
 

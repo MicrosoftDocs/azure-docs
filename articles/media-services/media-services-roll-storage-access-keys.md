@@ -3,8 +3,8 @@
 	description="This articles give you guidance on how to update Media Services after rolling storage access keys." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,milangada,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako"
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016" 
+	ms.author="milangada;cenkdin;juliako"/>
 
 #How To: Update Media Services after Rolling Storage Access Keys
 
