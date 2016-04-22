@@ -30,7 +30,8 @@ The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 
 
 At a high level, the entire authentication flow for an application looks a bit like this:
 
-<!-- TODO: Insert protocol diagram -->
+![OAuth Auth Code Flow](../media/active-directory-flows/OAuth_CodeFlow_NativeApp.png)
+
 
 ## Request an authorization code
 

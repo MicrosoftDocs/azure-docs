@@ -22,7 +22,12 @@
 
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
 
-<!-- TODO: Protocol Diagram -->
+## Protocol Diagram
+
+The most basic sign-in flow contains the following steps - each of them is described in detail below.
+
+![OpenId Connect Code Flow](../media/active-directory-flows/OAuth_CodeFlow_WebApp.png)
+
 
 ## Send the sign-in request
 
@@ -131,9 +136,6 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ## Token Acquisition
 
 Many web apps need to not only sign the user in, but also access a web service on behalf of that user using OAuth. This scenario combines OpenID Connect for user authentication while simultaneously acquiring an `authorization_code` that can be used to get `access_tokens` using the OAuth Authorization Code Flow.
-
-### Protocol Diagram
-<!--TODO: Protocol Diagram -->
 
 ## Get Access Tokens
 
