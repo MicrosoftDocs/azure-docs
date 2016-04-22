@@ -27,8 +27,8 @@ There are two methods for installing LAMP covered in this article:
 1) Deploy LAMP on new VM
 
 ```
-# One command to quick-create a VM with LAMP pre-installed: the two required args are a Resource Group name and a VM name
-$ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
+# One command to quick-create a VM with LAMP pre-installed, then follow prompts
+$ azure group create -n uniqueResourceGroup -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json
 ```
 
 2) Deploy LAMP on existing VM
