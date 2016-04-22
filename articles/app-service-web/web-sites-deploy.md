@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="04/21/2016"
 	ms.author="cephalin;tdykstra;dariac"/>
     
 # Deploy your app to Azure App Service
@@ -33,19 +33,19 @@ a matter of deploying your code, binaries, content files, and their respective d
 [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory 
 for WebJobs). App Service supports the following deployment options: 
 
-1. [FTP or FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): Use your favorite FTP or FTPS enabled tool to move your 
+- [FTP or FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): Use your favorite FTP or FTPS enabled tool to move your 
 files to Azure, from [FileZilla](https://filezilla-project.org) to full-featured IDEs like [NetBeans](https://netbeans.org). This is strictly
 a file upload process. No additional services are provided by App Service, such as version control, file structure management, etc. 
 
-2. [Kudu (Git/Mercurial or OneDrive/Dropbox)](https://github.com/projectkudu/kudu/wiki/Deployment): Use the [deployment engine](https://github.com/projectkudu/kudu/wiki) 
+- [Kudu (Git/Mercurial or OneDrive/Dropbox)](https://github.com/projectkudu/kudu/wiki/Deployment): Use the [deployment engine](https://github.com/projectkudu/kudu/wiki) 
 in App Service. Push your code to Kudu directly from any repository. Kudu also provides added services whenever code is 
 pushed to it, including version control, package restore, MSBuild, and [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) 
 for continuous deployment and other automation tasks. The Kudu deployment engine supports 3 different types of deployment sources:   
-    2.1. Content sync from OneDrive and Dropbox   
-    2.2. Repository-based continuous deployment with auto-sync from GitHub, Bitbucket, and Visual Studio Team Services  
-    2.3. Repository-based deployment with manual sync from local Git  
+    * Content sync from OneDrive and Dropbox   
+    * Repository-based continuous deployment with auto-sync from GitHub, Bitbucket, and Visual Studio Team Services  
+    * Repository-based deployment with manual sync from local Git  
 
-3. [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): Deploy code to App Service directly from your favorite Microsoft tools
+- [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): Deploy code to App Service directly from your favorite Microsoft tools
 such as Visual Studio using the same tooling that automates deployment to IIS servers. This tool supports diff-only deployment, database creation, transforms of 
 connection strings, etc. Web Deploy differs from Kudu in that application binaries are built before they are deployed to Azure. 
 Similar to FTP, no additional services are provided by App Service.
@@ -58,13 +58,6 @@ from Kudu, you do get package restore and MSBuild automation in Visual Studio.
 >[AZURE.NOTE] These deployment processes don't actually [provision the Azure resources](resource-group-portal) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy 
 your code to it end-to-end. You can also find additional options for provisioning Azure resources in the 
 [Automate deployment by using command-line tools](#automate) section.
-
-## <a name="deploymentcredentials"></a>Establish deployment credentials
-App Service supports the following types of deployment credentials:
-1. App Service user scoped deployment credentials  
-    These deployment credentials apply to all App Service apps where the user has deployment permissions. To configure navigate to your app's blade in the [Azure Portal](https://portal.azure.com) and click **Settings** > **Deployment Credentials**.
-2. App scoped deployment credentials  
-     A publish profile is available for each App Service app. To download navigate to your app's blade in the [Azure Portal](https://portal.azure.com) and click **Get publish profile**.
      
 ## <a name="ftp"></a>Deploy via FTP by copying files to Azure manually
 If you are used to manually copying your web content to a web server, you can use an [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) utility to copy files, such as Windows Explorer or 
@@ -80,15 +73,15 @@ The cons of copying files manually are:
 
 - Having to know how to deploy files to the correct directories in App Service. 
 - No version control for rollback when failures occur.
-- No built-in deployment history for troubleshooting.
+- No built-in deployment history for troubleshooting deployment issues.
 - Potential long deployment times because many FTP tools don't provide diff-only copying and simply copy all the files.  
 
 ### <a name="howtoftp"></a>How to deploy by copying files to Azure manually
 Copying files to Azure involves a few simple steps:
 
-1. After you establish eployment credentials, obtain the FTP connection information by going to **Settings** > **Properties**, and then
+1. Assuming you already established deployment credentials, obtain the FTP connection information by going to **Settings** > **Properties**, and then
 copying the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**. Please copy the **FTP/Deployment User** user value as displayed by the Azure Portal including the app name in order to provide proper context for the FTP server.
-2. From your FTP client, use the connection information you gathered to connect to your app. Either user scoped or app scoped credentials could be used for this step.
+2. From your FTP client, use the connection information you gathered to connect to your app.
 3. Copy your files and their respective directory structure to the 
 [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory 
 for WebJobs).
@@ -134,7 +127,7 @@ Con of deploying from a cloud-based source control service is:
 - Some knowledge of the respective SCM service required.
 
 ###<a name="vsts"></a>How to deploy continuously from a cloud-based source control service
-In the [Azure Portal](https://portal.azure.com), you can configure continuous deployment from GitHub, Bitbucket, and Visual Studio Team Services .
+In the [Azure Portal](https://portal.azure.com), you can configure continuous deployment from GitHub, Bitbucket, and Visual Studio Team Services.
 
 * [Continous Deployment to Azure App Service](app-service-continous-deployment.md). 
 
@@ -149,39 +142,14 @@ Pros of deploying from local Git are:
 
 Con of deploying from local Git is:
 
-- Solution not ideal for team collaboration.
+- Some knowledge of the respective SCM system required.
+- No turn-key solutions for continuous deployment. 
 
 ###<a name="vsts"></a>How to deploy from local Git
 In the [Azure Portal](https://portal.azure.com), you can configure local Git deployment.
 
 * [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md). 
 * [Publishing to Web Apps from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).  
-
-## <a name="onprem"></a>Deploy from an on-premises source control system
-If your development team uses an on-premises source code management (SCM) system like 
-[Team Foundation Server](https://www.visualstudio.com/products/tfs-overview-vs.aspx) (TFS), you can configure App Service to integrate with your repository and deploy
-directly to App Service in your source control workflow. If you use TFS, you can also configure it to deploy continuously to App Service.   
-
-TFS uses Web Deploy to deploy to App Service, while deployment from Git/Mercurial repositories uses Kudu (see [Overview of deployment processes](#overview)).
-
-Pros of deploying from TFS when an on-premises source control system is required include:
-
-- Continuous integration (CI) for builds, tests, and deployment.
-- Built-in collaboration tools that work with your existing IDE or editor.
-- Support for Git for distributed version control or Team Foundation version control (TFVC) for centralized version control. 
-- Rich tools for agile deployment.
-- Ready-made integrations for [Jenkins](https://jenkins-ci.org), [Slack](https://slack.com), [ZenDesk](https://www.zendesk.com), 
-[Trello](https://trello.com), [Azure Service Bus](/services/service-bus/), and much more. 
-- [Team Foundation Server Express](https://www.microsoft.com/download/details.aspx?id=48259) is free for a team of up to 5 developers.
-
-Con of deploying from an on-premises source control system is:
-
-- Some TFS tooling specific knowledge required.
-
-###<a name="tfs"></a>How to deploy continuously with TFS
-
-* [Continuous Delivery for Cloud Services in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md). This document is for an Azure Cloud 
-Service, but some of its content is relevant to Web Apps.
 
 ## Deploy using an IDE
 If you are already using [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 
