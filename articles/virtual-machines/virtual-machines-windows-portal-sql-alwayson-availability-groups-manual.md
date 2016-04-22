@@ -64,7 +64,7 @@ This tutorial assumes the following:
 
 >[AZURE.NOTE] If you are interested in using AlwaysOn Availability Groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-## Create and resource group, networks, and domain controllers
+## Create resource group, networks, and domain controllers
 
 ### Connect to your Azure subscription and create a resource group
 
