@@ -25,17 +25,21 @@
 
 Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver argument for the driver option (`-d`) and any other arguments. 
 
-The following example relies upon the default values, but it does open port 80 on the VM to the internet to test with an nginx container. Type `docker-machine create --driver azure` to see the options and their default values; you can also read the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/). (Note that if you have two-factor authentication enabled, you will be prompted to authenticate using the second factor.)
+The following example relies upon the default values, but it does open port 80 on the VM to the internet to test with an nginx container, makes `ops` the logon user for SSH, and calls the new VM `machine`. 
+
+Type `docker-machine create --driver azure` to see the options and their default values; you can also read the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/). (Note that if you have two-factor authentication enabled, you will be prompted to authenticate using the second factor.)
 
 ```bash
-$ docker-machine create -d azure \
---azure-ssh-user ops \
---azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> \
---azure-resource-group machine \
---azure-location eastus \
---azure-open-port 80 \
+docker-machine create -d azure \
+  --azure-ssh-user ops \
+  --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> \
+  --azure-open-port 80 \
   machine
+```
 
+The output should look something like this, depending upon whether you have two-factor authentication configured in your account.
+
+```
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
@@ -68,10 +72,15 @@ To see how to connect your Docker Client to the Docker Engine running on this vi
 
 ## Configure your docker shell
 
-Now, type `docker-machine env <VM name>` to see what you need to do to configure the shell. Note the IP address has been assigned.
+Now, type `docker-machine env <VM name>` to see what you need to do to configure the shell. 
 
 ```bash
-$ docker-machine env machine
+docker-machine env machine
+```
+
+That prints the environment information, which looks something like this. Note the IP address has been assigned, which you'll need to test the VM.
+
+```
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://191.237.46.90:2376"
 export DOCKER_CERT_PATH="/Users/rasquill/.docker/machine/machines/machine"
@@ -80,20 +89,19 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env machine)
 ```
 
-Having configured the shell using `eval` as instructed, list the machines with `docker-machine ls`:
-
-```bash
-$ docker-machine ls
-NAME      ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER    ERRORS
-machine   *        azure    Running   tcp://191.237.46.90:2376           v1.11.0
-```
+You can either run the suggested configuration command, or you can set the environment variables yourself. 
 
 ## Run a container
 
-Now you can run a simple web server to test whether all works correctly.
+Now you can run a simple web server to test whether all works correctly. Here we use a standard nginx image, specify that it should listen on port 80, and that if the VM restarts the container should restart as well (`--restart=always`). 
 
 ```bash
-$ docker run -d -p 80:80 --restart=always nginx
+docker run -d -p 80:80 --restart=always nginx
+```
+
+The output should look something like the following:
+
+```
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
 efd26ecc9548: Pull complete
@@ -110,7 +118,6 @@ Status: Downloaded newer image for nginx:latest
 Examine running containers using `docker ps`:
 
 ```bash
-$ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
 d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
 ```
