@@ -29,23 +29,28 @@
 
 You can use the Azure portal to monitor, manage, and configure an elastic database pool and the databases in the pool. SQL Database has built-in intelligence that analyzes historical usage of all databases on a server (whether they are in pools or not), and recommends a pool for databases when it's more cost-effective. 
 
-You can also add and remove databases before you commit to changes and see the impact on pool performance and storage. You can also change pool and database settings and commit all changes simultaneously.
+The portal lets you change pool and database settings, preview the changes, then commit all changes simultaneously. You can preview changes such as adding and removing databases. The potential effect on performance and pricing will also be displayed. 
 
-To work through the steps in this article, you'll need databases and a pool. See [create a pool](sql-database-elastic-pool-create-portal.md) if you already have databases, and the [SQL database tutorial](sql-database-get-started) if you don't. 
+To work through the steps in this article, you'll need a few databases and a pool. If you have existing databases, see [create a pool](sql-database-elastic-pool-create-portal.md); if you don't have a database, see the [SQL database tutorial](sql-database-get-started). 
 
-## Choose a pool to work with
+## Select a pool to work with
 
-- In the [Azure portal](https://portal.azure.com) click **Browse**, click **SQL elastic pools**, and then click the pool you want to work with from the list.
+1. In the [Azure portal](https://portal.azure.com) click **Browse**
+2. Click **SQL elastic pools**
+3. From the list, click the pool you want to work with.
 
-## Create a new database into an elastic pool
+## Create a new database in an elastic pool
 
-This procedure creates a new database, then adds it to the pool. In the blade for the pool, click **Create database**. In the **SQL database** blade, type a name and set the new database's properties. Then click **OK**.
+This procedure creates a new database, then adds it to the pool. 
+
+1. In the blade for the pool, click **Create database**. 
+2. In the **SQL database** blade, type a name and set the new database's properties. Then click **OK**.
 
    ![create elastic database](./media/sql-database-elastic-pool-manage-portal/create-database.png)
 
 ## Move a database into an elastic pool
 
-After you create a pool, you can add databases to the pool or remove them. The databases can be in other pools. However, you can only add databases on the same SQL server.
+You can add or remove databases from an existing pool. The databases can be in other pools. However, you can only add databases that are on the same logical server.
 
 1. In the blade for the pool, under **Elastic databases** click **Configure pool**.
 
@@ -81,10 +86,11 @@ After you create a pool, you can add databases to the pool or remove them. The d
 	Selected databases show up in the UI as "databases selected to be removed."
 
 
-
 ## Monitor resource utilization of a pool
 
-After you select a pool to work with, under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool.
+
+1. Select a pool to work with.
+2. Under **Elastic Pool Monitoring**, a chart and live tiles show you important utilization information for your pool.
 
 ![Monitor elastic pool](./media/sql-database-elastic-pool-manage-portal/monitor-elastic-pool.png)
 
