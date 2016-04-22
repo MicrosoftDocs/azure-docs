@@ -19,8 +19,6 @@
 
 # SQL Server on Azure Virtual Machines FAQ
 
-## Overview
-
 This topic provides answers to some of the most common questions about running [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 ## Frequently Asked Questions
