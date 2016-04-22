@@ -20,7 +20,7 @@
 
 This video walks you through the entire Azure Stack Technical Preview 1 deployment process - from just after the ZIP file download, all the way to the first use of the portal and API. 
 
-[AZURE.VIDEO microsoft-azure-stack-tp1-poc-deployment-tutorial]
+> [AZURE.VIDEO microsoft-azure-stack-tp1-poc-deployment-tutorial]
 
 ## Next steps
 
