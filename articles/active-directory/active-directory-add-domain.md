@@ -18,7 +18,7 @@
 
 # Add your custom domain name to simplify sign-in using Azure Active Directory
 
-When you first get your directory in Azure Active Directory (Azure AD), one of the important first tasks is to verify a custom domain name that your organization uses, such as ‘contoso.com’. This lets you assign user names that are familiar to your users, such as ‘alice@contoso.com.’ Until you verify your custom domain name, your users will sign in with user names like ‘alice@contoso.onmicrosoft.com’ which use the initial domain name for your directory.
+When you first get your directory in Azure Active Directory (Azure AD), one of the important first tasks is to verify a custom domain name that your organization uses, such as 'contoso.com'. This lets you assign user names that are familiar to your users, such as 'alice@contoso.com.' Until you verify your custom domain name, your users will sign in with user names like 'alice@contoso.onmicrosoft.com' which use the initial domain name for your directory.
 
 ## Add a custom domain name to your directory
 
@@ -32,7 +32,7 @@ To add a custom domain name to your directory:
 
 5. On the command bar, select **Add.**
 
-6. Enter the name of your custom domain, such as ‘contoso.com’. Be sure to include the .com, .net, or other top-level extension.
+6. Enter the name of your custom domain, such as 'contoso.com'. Be sure to include the .com, .net, or other top-level extension.
 
 7. If you plan to configure this domain for [federated sign in](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) with your on-premises Active Directory, select the check box.
 
@@ -82,7 +82,7 @@ Now you can [assign user names that include your custom domain name](active-dire
 
 ## Add more custom domain names
 
-If your organization uses more than one custom domain name, such as ‘contoso.com’ and ‘contosobank.com’, you can add each of them to your Azure AD directory, up to a maximum of 900 domains. Use the same steps listed above to add each subsequent domain name.
+If your organization uses more than one custom domain name, such as 'contoso.com' and 'contosobank.com', you can add each of them to your Azure AD directory, up to a maximum of 900 domains. Use the same steps listed above to add each subsequent domain name.
 
 ## Troubleshooting
 If you can't verify a custom domain name, there are a few potential causes. We'll start with the most common and work down to the least common.
@@ -104,7 +104,7 @@ If you can't verify a custom domain name, there are a few potential causes. We'l
 
 -   [Manage custom domain names](active-directory-add-manage-domain-names.md)
 
--   [Show your company’s branding when your users sign in](active-directory-add-company-branding.md)
+-   [Show your company's branding when your users sign in](active-directory-add-company-branding.md)
 
 -   [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
