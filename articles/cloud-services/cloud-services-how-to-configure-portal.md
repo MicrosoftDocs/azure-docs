@@ -60,6 +60,8 @@ From here you can setup an alert. With the **Mertic** drop down box, you can set
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
+### Configure monitoring from a metric tile
+
 You can click on one of the metric tiles on the **Monitoring** section of the **Cloud service** blade.
 
 ![Cloud Service Monitoring](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
