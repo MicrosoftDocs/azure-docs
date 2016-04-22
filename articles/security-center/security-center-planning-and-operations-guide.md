@@ -128,7 +128,7 @@ Before configuring security policies, you should review each of the [security re
 
 **Baseline Configurations**: If virtual machine operating system configurations do not match the recommended baselines, a recommendation will be surfaced. You should review the set of baselines [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) and consider how operating system configurations will be applied. 
 
-**Disk Encryption**: If you have virtual machine disks that are not encrypted, Azure Security Center will recommend that you apply Azure Disk Encryption, which leverages BitLocker for Windows and DM-Crypt for Linux to provide volume encryption for the OS and data disks. This recommendation will redirect you to a [step by step guide](../azure-security-disk-encryption.md) that has the instructions on how to perform this encryption. 
+**Disk Encryption**: If you have virtual machine disks that are not encrypted, Azure Security Center will recommend that you apply Azure Disk Encryption, which leverages BitLocker for Windows and DM-Crypt for Linux to provide volume encryption for the OS and data disks. This recommendation will redirect you to a [step by step guide](security-center-disk-encryption.md) that has the instructions on how to perform this encryption. 
 
 Be aware that there are several encryption scenarios that you need to address. You will need to plan for the unique requirements for each of these scenarios:
 
