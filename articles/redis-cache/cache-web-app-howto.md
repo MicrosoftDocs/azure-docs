@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="04/22/2016" 
 	ms.author="sdanie"/>
 
 # How to create a Web App with Redis Cache
 
-Procedural steps only for tech review
+Procedural steps only for tech review - TODO write an introduction
 
 ## Create the Visual Studio project
 
@@ -252,9 +252,9 @@ In this step of the tutorial, we'll configure the sample application to store an
 	        }
 	    }
   
-1. Create a file on your computer named `WebAppPlusCacheAppSecrests.config` and place it in a location that won't be checked in with the source code of your sample application, should you decide to check it in somewhere. In this example the `AppSettingsSecrets.config` file is located at `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
+1. Create a file on your computer named `WebAppPlusCacheAppSecrets.config` and place it in a location that won't be checked in with the source code of your sample application, should you decide to check it in somewhere. In this example the `AppSettingsSecrets.config` file is located at `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
 
-2. Edit the `WebAppPlusCacheAppSecrests.config` file and add the following contents. Later in the tutorial we'll provision an Azure Redis Cache instance and update the cache name and password.
+2. Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents. Later in the tutorial we'll provision an Azure Redis Cache instance and update the cache name and password.
 
 
 		<appSettings>
@@ -611,7 +611,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 4. Press **F6** to build the project.
 
-## Provision and deploy the application Azure
+## Provision the Azure resources
 
 To host your application in Azure, you must first provision the Azure services that your application requires. The sample application in this tutorial uses the following Azure services.
 
@@ -619,7 +619,7 @@ To host your application in Azure, you must first provision the Azure services t
 -	App Service Web App
 -	SQL Database
 
-To create a new resource group that contains these resources, click the following **Deploy to Azure** button.
+To specify the resource group to contains these resources, click the following **Deploy to Azure** button.
 
 [![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
@@ -631,35 +631,49 @@ Clicking the **Deploy to Azure** button takes you to the Azure portal and initia
 
 ![Deploy to Azure][cache-deploy-to-azure-step-1]
 
-On the **Parameters** blade, specify an administrator account name (**ADMINISTRATORLOGIN** - don't use **admin**), administrator login password (**ADMINISTRATORLOGINPASSWORD**), and database name (**DATABASENAME**). The other parameters are configured for a free App Service hosting plan, and lower cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier. Change any of the other settings are desired, or keep the defaults, and click **OK**.
-
-On the **Custom deployment** blade, select an existing resource group or create a new one, and specify the location for the resource group. Once the settings and the **Parameters** blade and the resource group are configured, click **Review legal terms**.
+1. On the **Custom deployment** blade, select an existing resource group or create a new one and specify its location.
+2. On the **Parameters** blade, specify an administrator account name (**ADMINISTRATORLOGIN** - don't use **admin**), administrator login password (**ADMINISTRATORLOGINPASSWORD**), and database name (**DATABASENAME**). The other parameters are configured for a free App Service hosting plan, and lower cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
+3. Change any of the other settings if desired, or keep the defaults, and click **OK**.
+4. Once the settings are configured, click **Review legal terms**.
 
 ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
-Read the terms on the **Create** blade, click **Create**, and then click **Create** on the **Custom deployment** blade.
+1. Read the terms on the **Create** blade and click **Create**.
+2. To begin provisioning the resources, click **Create** on the **Custom deployment** blade.
+
+To view the progress of your deployment, click the notification icon and click **Deployment started**.
 
 ![Deployment started][cache-deployment-started]
 
+You can view the status of your deployment on the **Microsoft.Template** blade.
+
 ![Deploy to Azure][cache-deploy-to-azure-step-3]
 
-## Run the sample application on your local machine
+When provisioning is complete, you can publish your application to Azure from Visual Studio.
 
-To run the application locally on your machine, you need an Azure Redis Cache instance in which to cache your data. To create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache), or you can simply click the following **Deploy to Azure** button.
+>[AZURE.NOTE] Any errors that may occur during the provisioning process are displayed on the **Microsoft.Template** blade. Common errors are too many SQL Servers or too many Free App Service hosting plans per subscription. Resolve any errors and restart the process by clicking the **Deploy to Azure** button.
 
-[![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+## Publish the application to Azure
 
->[AZURE.NOTE] For more information about the ARM template used by the Deploy to Azure button, see [Create a Redis Cache using a template](cache-redis-cache-arm-provision.md).
+1. Right-click the **ContosoTeamStats** project in Visual Studio and choose **Publish**.
 
-If you already have an existing Azure Redis Cache instance, you can use that to run this sample locally.
+    ![Publish][cache-publish-app]
 
-If you want to run the sample locally and connect to an Azure Redis Cache instance hosted in Azure, update the cache connection string to point to your cache, as shown in the following example. For more information about connecting to the cache, see [Connect to the cache](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
+2. Click **Microsoft Azure App Service**.
 
-    `<add name="Cache" connectionString="contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>`
+    ![Publish][cache-publish-to-app-service]
 
-Press **Ctrl+F5** to run the application.
+3. Select the subscription used when creating the Azure resources, expand the resource group containing the resources, and select the desired Web App, and click **OK**. If you used the **Deploy to Azure** button your Web App name with start with **website** followed by some additional characters.
 
-![Cache added][cache-added-to-application]
+    ![Select Web App][cache-select-web-app]
+
+4. Click **Validate Connection** to verify your settings, and then click **Publish**.
+
+    ![Publish][cache-publish]
+
+    After a few moments the publshing process will complete and a browser will be launched with the running sample application.
+
+    ![Cache added][cache-added-to-application]
 
 The following table describes each action link from the sample application.
 
@@ -678,9 +692,46 @@ The following table describes each action link from the sample application.
 
 Click some of the actions and experiment with retrieving the data from the different sources.
 
-## Provision and deploy the application to Azure
+## To delete the resources when you are finished with the application
 
-![Deploy to Azure][deploybutton]
+When you are finished with the sample application, you can delete the resources used in order to conserve cost and resources. 
+
+1. Sign in to the [Azure portal][https://portal.azure.com] and click **Resource groups**.
+2. Type the name of your resource group into the **Filter items...** textbox.
+3. Click **...** to the right of your resource group.
+4. Click **Delete**.
+
+    ![Delete][cache-delete-resource-group]
+
+5. Type the name of your resource group and click **Delete**.
+
+    ![Confirm delete][cache-delete-confirm]
+
+After a few moments the resource group and all of its contained resources are deleted.
+
+>[AZURE.IMPORTANT] Note that deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group, you can delete them individually from their respective blades.
+
+## Run the sample application on your local machine
+
+To run the application locally on your machine, you need an Azure Redis Cache instance in which to cache your data. 
+
+-	If you have published your application to Azure, you can use the Azure Redis Cache instance that was provisioned during that step.
+-	If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
+-	If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+
+1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
+
+2. Edit the `value` attribute and replace `MyCache.redis.cache.windows.net` with the [host name](cache-configure.md#properties) of your cache, and specify either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password. For instructions on browsing to your cache and retrieving these values, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+
+
+		<appSettings>
+		  <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+		</appSettings>
+
+
+3. Press **Ctrl+F5** to run the application.
+
+
 
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png
@@ -708,12 +759,12 @@ Click some of the actions and experiment with retrieving the data from the diffe
 [cache-deploy-to-azure-step-2]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-2.png
 [cache-deploy-to-azure-step-3]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-3.png
 [cache-deployment-started]: ./media/cache-web-app-howto/cache-deployment-started.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
+[cache-publish-app]: ./media/cache-web-app-howto/cache-publish-app.png
+[cache-publish-to-app-service]: ./media/cache-web-app-howto/cache-publish-to-app-service.png
+[cache-select-web-app]: ./media/cache-web-app-howto/cache-select-web-app.png
+[cache-publish]: ./media/cache-web-app-howto/cache-publish.png
+[cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
+[cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
 []: ./media/cache-web-app-howto/.png
