@@ -33,9 +33,13 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 
 >[AZURE.NOTE] You must perform these steps *before* creating the cluster so in cases where the scripts expect cluster names and endpoints, these should be the planned values, not ones which you have already created.
 
-1. [Download the scripts][sf-aad-ps-script-download] and extract them before proceeding.
+1. [Download the scripts][sf-aad-ps-script-download] to your computer.
 
-2. Run `SetupApplications.ps1`, providing the TenantId, ClusterName, and WebApplicationReplyUrl as parameters. For example:
+2. Right click on the zip file, choose **Properties**, then check the **Unblock** checkbox and apply.
+
+3. Extract the zip file.
+
+4. Run `SetupApplications.ps1`, providing the TenantId, ClusterName, and WebApplicationReplyUrl as parameters. For example:
 
     ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
