@@ -34,7 +34,7 @@ In this article, you'll learn how to perform the following tasks:
 > [AZURE.NOTE] Formulas are similar to [Custom Images](./devtest-lab-create-template.md) in that 
 each allows you to create a base image from a VHD that is used to provision a VM. To help decide which is right
 for your particular environment, refer to the article,
-[Comparing DevTest Labs VM base image options](./devtest-lab-comparing-vm-base-image-types.md).
+[Comparing Custom Images and Formulas in DevTest Labs](./devtest-lab-comparing-vm-base-image-types.md).
 
 ## Create a new Formula
 Anyone with DevTest Labs *Users* permissions is able to create VMs in a lab using a Formula as a base. 
