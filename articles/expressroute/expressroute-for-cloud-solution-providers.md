@@ -36,7 +36,9 @@ Depending on the contract you have with your customer will determine how the sub
 ![alt text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 In the connect-through model, the CSP creates a direct connection between your datacenter and your customer’s Azure subscription. The direct connection is made using ExpressRoute, connecting your network with Azure. Then your customer connects to your network. This scenario requires that the customer passes through the CSP network to access Azure services. 
-If the customer has other Azure subscriptions not managed by the you, they would use the public Internet or their own private connection to connect to those services provisioned under the non CSP subscription. 
+
+If your customer has other Azure subscriptions not managed by the you, they would use the public Internet or their own private connection to connect to those services provisioned under the non CSP subscription. 
+
 For CSP managing Azure services, it is assumed that the CSP has a previously established customer identity store which would then be replicated into Azure Active Directory for management of their CSP subscription through Administrate-On-Behalf-Of (AOBO). Key drivers for this scenario include where a given partner or service provider has an established relationship with the customer, the customer is consuming provider services currently or the partner has a desire to provide a combination of provider-hosted and Azure-hosted solutions to provide flexibility and address customer challenges which cannot be satisfied by CSP alone. This model is illustrated in **Figure**, below.
 
 ![alt text](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
@@ -82,7 +84,7 @@ ExpressRoute offers three routing domains: public, private, and Microsoft peerin
 
 You can define custom routes filters to allow only the route(s) you want to allow or need. For more information or to see how to make these changes see article: [Create and modify routing for an ExpressRoute circuit using PowerShell](./expressroute-howto-routing-classic.md) for more details about routing filters.
 
-[AZURE.NOTE] For Microsoft and Public Peering connectivity must be though a public IP address owned by the customer or CSP and must adhere to all defined rules. For more information, see the [ExpressRoute Prerequisites](expressroute-prerequisites.md) page.  
+>[AZURE.NOTE] For Microsoft and Public Peering connectivity must be though a public IP address owned by the customer or CSP and must adhere to all defined rules. For more information, see the [ExpressRoute Prerequisites](expressroute-prerequisites.md) page.  
 
 ## Routing
 ExpressRoute connects to the Azure networks through the Azure Virtual Network Gateway. Network gateways provide routing for Azure virtual networks.
