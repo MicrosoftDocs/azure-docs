@@ -32,7 +32,7 @@ To add a custom domain name to your directory:
 
 5. On the command bar, select **Add.**
 
-6. Enter the name of your custom domain, such as ‘contoso.com’. Be sure to include the .com, .net, or other top-level extension.
+6. Enter the name of your custom domain, such as 'contoso.com'. Be sure to include the .com, .net, or other top-level extension.
 
 7. If you plan to configure this domain for [federated sign-in](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) with your on-premises Active Directory, select the check box.
 
@@ -104,7 +104,7 @@ If you can't verify a custom domain name, there are a few potential causes. We'l
 
 -   [Manage custom domain names](active-directory-add-manage-domain-names.md)
 
--   [Show your company’s branding when your users sign in](active-directory-add-company-branding.md)
+-   [Show your company's branding when your users sign in](active-directory-add-company-branding.md)
 
 -   [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
