@@ -81,8 +81,11 @@ Kickoff the HeadNode creation by running the powershell command in an elevated c
 After 20 to 30mn the HeadNode should be ready. You can connect to it from the Azure portal by clicking on the Connect icon of the Virtual Machine.
 
 You may eventually have to fix the DNS forwarder. To do so, start the DNS Manager.
-1.   Right-click the server name in DNS Manager, select Properties, select the Forwarders tab
+
+1.  Right-click the server name in DNS Manager, select Properties, select the Forwarders tab
+
 2.  Click the Edit button remove any forwarders then click OK
+
 3.  Make sure that the check box “Use root hints if no forwarders are available” is checked and click OK
 
 ## Setup Linux Compute Nodes
@@ -92,9 +95,13 @@ Copy the file **MyCluster.xml** from your local machine to the HeadNode and upda
 On the Head Node, copy the HPC Pack IaaS deployment scripts.
 
 Open an Azure Powershell in an elevated command window :
+
 1.  Run **Add-AzureAccount** to connect to your azure subscription
+
 2.  If you have multiple subscriptions, run the **Get-AzureSubscription** to list them
+
 3.  Set a default one running the command **Select-AzureSubscription -SubscriptionName xxxx -Default**
+
 4.  Run **.\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** to start deploying Linux Compute Nodes.
     ![HeadNode deployment in action][hndeploy]
 
