@@ -32,8 +32,6 @@ This end-to-end tutorial shows you how to implement availability groups using SQ
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
 
->[AZURE.NOTE] In the Azure Portal, there is a new gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
-
 At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:
 
 - A virtual network containing two subnets, including a front-end and a back-end subnet
@@ -55,6 +53,10 @@ The figure below is a graphical representation of the solution.
 ![Architecture for AG in ARM](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/00-EndstateSample.png)
 
 Note that this is one possible configuration. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster. This method reduces the VM count by one from the above configuration.
+
+[AZURE.NOTE] Completing this tutorial takes a significant amount of time. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
+
+
 
 This tutorial assumes the following:
 
@@ -682,9 +684,13 @@ This solution requires two firewall rules on each SQL Server. The first rule pro
 
 1. In the **Name** page, specify a rule name, such as **SQL Server (Program Rule)** in the **Name** text box, then click **Finish**.
 
-1. Create an additional inbound firewall rule for the probe port. This rulie is an inbound rule for TCP 59999, for the purposes of this tutorial.
+1. Create an additional inbound firewall rule for the probe port. This rule is an inbound rule to TCP port 59999, for the purposes of this tutorial. Name the rule **SQL Server Listener**.
+
+Complete all steps on both SQL Servers.
 
 ### Enable AlwaysOn Availability Groups feature on each SQL Server
+
+Do these steps on both SQL Servers. 
 
 1. Next, you enable the **AlwaysOn Availability Groups** feature. From the **Start** screen, launch **SQL Server Configuration Manager**.
 
@@ -695,6 +701,8 @@ This solution requires two firewall rules on each SQL Server. The first rule pro
 	![Enable AlwaysOn Availability Groups](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665520.gif)
 
 ### Set the SQL Server service account on each SQL Server
+
+Do these steps on both SQL Servers.
 
 1. Next, you change the SQL Server service account. Click the **Log On** tab, then type **CORP\SQLSvc1** (for **sqlserver-0**) or **CORP\SQLSvc2** (for **sqlserver-1**) in **Account Name**, then fill in and confirm the password, and then click **OK**.
 
