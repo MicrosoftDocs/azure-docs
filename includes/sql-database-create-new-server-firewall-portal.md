@@ -9,7 +9,7 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Create a new Aure SQL Database server-level firewall
+## Create a new Azure SQL Database server-level firewall
 
 Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer) or an entire IP address range to a SQL Database logical server. 
 
