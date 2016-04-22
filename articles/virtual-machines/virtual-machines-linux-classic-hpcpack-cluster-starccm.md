@@ -322,6 +322,13 @@ Later on, once you are done with your tests, to stop and start nodes you can use
     Start-HPCIaaSNode.ps1 -Name <prefix>-00*
 ```
 
+## Next steps
+Try running other Linux workloads for example see :
+
+* [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md).
+
+* [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
+
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
