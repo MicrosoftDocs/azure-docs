@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="04/22/2016"
    ms.author="bwren" />
 
 # Windows and Linux performance counters in Log Analytics 
@@ -106,5 +106,5 @@ If the time range you have selected is 6 hours or less, then the graph will disp
 
 ## Next steps
 
-- Learn about log searches to analyze the data collected from data sources and solutions. 
+- Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
 - Export collected data to [Power BI](log-analytics-powerbi.md) for additional visualizations and analysis.
