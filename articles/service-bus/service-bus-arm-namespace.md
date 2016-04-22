@@ -53,7 +53,10 @@ The name of the Service Bus namespace to create.
 
 ```
 "serviceBusNamespaceName": {
-"type": "string"
+"type": "string",
+"metadata": { 
+    "description": "Name of the Service Bus namespace" 
+    }
 }
 ```
 
@@ -62,11 +65,17 @@ The name of the Service Bus namespace to create.
 The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) to create.
 
 ```
-"serviceBusSKU": {
-"type": "string",
-"allowedValues": ["Basic","Standard"],
-"defaultValue": "Standard"
-}
+"serviceBusSku": { 
+    "type": "string", 
+    "allowedValues": [ 
+        "Basic", 
+        "Standard" 
+    ], 
+    "defaultValue": "Standard", 
+    "metadata": { 
+        "description": "The messaging tier for service Bus namespace" 
+    } 
+
 ```
 
 The template defines the values that are permitted for this parameter (Basic or Standard) and assigns a default value (Standard) if no value is specified.
@@ -80,11 +89,12 @@ For more information about Service Bus pricing, please see [Service Bus pricing 
 The Service Bus API version of the template.
 
 ```
-"serviceBusApiVersion": {
-
-"type": "string"
-
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2015-08-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       } 
 ```
 
 ## Resources to deploy

@@ -57,6 +57,18 @@ Protocol        | TCP
 
 ![](media/dcos/dcos6.png)
 
+If you would like to statically map the container port to a port on the agent, this must be completed using ‘JSON Mode’. To do so, switch the New Application wizard to JSON Mode using the toggle, and then enter the following under the ‘portMappings’ section of the application definition. This example bind port 80 of the container to port 80 of the DC/OS agent. This Wizard can be switch out of JSON Mode once this change has been made.
+
+```none
+“hostPort”: 80,
+```
+
+![](media/dcos/dcos13.png)
+
+The DC/OS cluster is deployed with set of private and public agents. To access application from the internet, they must be deployed to a public agent. To do so, select the ‘optional’ tab of the New Application wizard and enter ‘slave_public’ for the ‘Accepted Resource Roles’.
+
+![](media/dcos/dcos14.png)
+
 Back on the Marathon main page, you can see the deployment status for the container.
 
 ![](media/dcos/dcos7.png)

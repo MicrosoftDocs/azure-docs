@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/12/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -149,9 +149,7 @@ You must establish an ExpressRoute circuit and configure routes for public peeri
 Yes. We accept up to 4000 route prefixes for private peering and 200 each for public peering and Microsoft peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
-Prefixes advertised through BGP must be /29 or larger (/28 to /8).
-
-We will filter out private prefixes (RFC1918) in the public peering BGP session.
+We do not accept private prefixes (RFC1918) in the public peering BGP session.
 
 ### What happens if I exceed the BGP limits?
 BGP sessions will be dropped. They will be reset once the prefix count goes below the limit.
