@@ -77,7 +77,7 @@ For interactive and non-interactive applications, you must create and configure 
 
 7. Fill in the properties for your app. For **SIGN-ON URL**, provide the URI to a web-site that describes your application. The existence of the web-site is not validated. 
 For **APP ID URI**, provide the URI that identifies your application. The uniqueness or existence of the endpoint is not validated. If you had selected **Native Client Application** for the application type, you will 
-provide a **Redirect URI** value. Click the **Complete** to create you AAD Application.
+provide a **Redirect URI** value. Click the **Complete** to create your AAD Application.
 
      ![application properties][4]
 
