@@ -696,7 +696,7 @@ Click some of the actions and experiment with retrieving the data from the diffe
 
 When you are finished with the sample application, you can delete the resources used in order to conserve cost and resources. 
 
-1. Sign in to the [Azure portal][https://portal.azure.com] and click **Resource groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 2. Type the name of your resource group into the **Filter items...** textbox.
 3. Click **...** to the right of your resource group.
 4. Click **Delete**.
