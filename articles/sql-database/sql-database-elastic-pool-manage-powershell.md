@@ -73,6 +73,7 @@ Metrics that can be retrieved as a percentage of the resource pool limit:
 
 
 | Metric name | Description |
+| :-- | :-- |
 | cpu\_percent | Average CPU utilization |
 | data\_io\_percent | Average IO utilization | 
 | log\_write\_percent | Average Log utilization | 
