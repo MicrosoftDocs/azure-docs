@@ -19,11 +19,13 @@
 
 Microsoft provides Hyper-scale services for traditional resellers and distributors (CSP) to be able to rapidly provision new services and solutions for your customers without the need to invest in developing these new services. To allow the Cloud Solution Provider (CSP) the ability to directly manage these new services, Microsoft provides programs and APIs that allow the CSP to manage Microsoft Azure resources on behalf of your customers. One of those resources is ExpressRoute. ExpressRoute allows the CSP to connect existing customer resources to Azure services. ExpressRoute is a high speed private communications link to services in Azure. 
 
+ExpresRoute is comprised of a pair of circuits for high availability that are attached to a single customer subscription(s) and cannot be shared by multiple customers. Each circuit should be terminated in a different router to maintain the high availability.
+
+>[AZURE.NOTE] There are bandwidth and connection caps on ExpressRoute which means that large/complex implementations will require multiple ExpressRoute circuits for a single customer.<Br>
+
 Microsoft Azure provides a growing number of services that you can offer to your customers.  To best take advantage of these services will require the use ExpressRoute connections to provide high speed low latency access to the Microsoft Azure environment.
 
->[AZURE.NOTE] In the current implementation of ExpressRoute each circuit pair must be connected to a single customer subscription(s) and cannot be shared by multiple customers.  
-
->[AZURE.NOTE] There are bandwidth and connection caps on ExpressRoute which means that large/complex implementations will require multiple ExpressRoute circuits for a single customer.  
+ 
 
 
 ## Microsoft Azure management
@@ -83,11 +85,12 @@ In a connect-to configuration, your customer already has an existing connection 
 You can assist with setting up the connection and configuring the routes to allow the resources in your datacenter(s) to communicate with the client resources in your datacenter, or with the resources hosted in Azure.
 
 ## ExpressRoute routing domains
-ExpressRoute offers three routing domains: public, private, and Microsoft peering. Each of the routing domains are configured with identical routers in active-active configuration for high availability. For more details on ExpressRoute routing domains look [here](./expressroute-circuit-peerings.md).  
+ExpressRoute offers three routing domains: public, private, and Microsoft peering. Each of the routing domains are configured with identical routers in active-active configuration for high availability. For more details on ExpressRoute routing domains look [here](./expressroute-circuit-peerings.md).<BR>
 
-[AZURE.NOTE] Communications through the Public domain is always initiated from your internal network; no traffic originates from the Azure side of the public peering circuit bound for your internal network.  
+[AZURE.NOTE] 
+- Communications through the Public domain is always initiated from your internal network; no traffic originates from the Azure side of the public peering circuit bound for your internal network.  
 
-You can define custom routes filters to allow only the route(s) you want to allow or need. For more information or to see how to make these changes see article: [Create and modify routing for an ExpressRoute circuit using PowerShell](./expressroute-howto-routing-classic.md).  
+You can define custom routes filters to allow only the route(s) you want to allow or need. For more information or to see how to make these changes see article: [Create and modify routing for an ExpressRoute circuit using PowerShell](./expressroute-howto-routing-classic.md).<BR>
 
 [AZURE.NOTE] For Microsoft peering We do not allow customers to select limited sets of routes to Microsoft services. For example, advertising a route to Outlook, but not a route to Skype services, is not allowed. All Microsoft Services will be available to client machines.  
 
