@@ -619,7 +619,7 @@ To host your application in Azure, you must first provision the Azure services t
 -	App Service Web App
 -	SQL Database
 
-To specify the resource group to contains these resources, click the following **Deploy to Azure** button.
+To deploy these services to a new or existing resource group of your choice, click the following **Deploy to Azure** button.
 
 [![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
