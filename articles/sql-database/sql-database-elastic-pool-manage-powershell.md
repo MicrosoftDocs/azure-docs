@@ -24,7 +24,7 @@
 - [C#](sql-database-elastic-pool-manage-csharp.md)
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
-Learn how to manage an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
+Manage an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
@@ -120,6 +120,21 @@ Get additional days if needed by repeating the call and appending the data:
 - Changing the guaranteed eDTUs per database (DatabaseDtuMin) or maximum eDTUs per database (DatabaseDtuMax) typically completes in 5 minutes or less.
 - Changing the eDTU per pool (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
+## Migrate from V11 to V12 servers
+
+PowerShell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
+
+- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server-powershell.md)
+
+For reference documentation about these PowerShell cmdlets, see:
+
+
+- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
+
+
+The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, other than starting again from the beginning. The Stop- cmdlet cleans up and releases all appropriate resources.
 
 ## Monitor and manage a pool PowerShell example
 
