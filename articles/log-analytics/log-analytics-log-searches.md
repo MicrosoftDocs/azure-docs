@@ -556,7 +556,7 @@ Let’s say that you want to know what is the average CPU across all your comput
 Type:Perf CounterName="% Processor Time" InstanceName="_Total" | measure avg(CounterValue) by Computer Interval 1HOUR
 ```
 
-![OMS-measure-avg-interval](./media/log-analytics-log-searches/OMS-measure-avg-interval.png)
+![measure average interval](./media/log-analytics-log-searches/oms-measure-avg-interval.png)
 
 By default these results will be displayed in a multi-series interactive line chart.  This chart supports series toggling (with y-axis rescaling), zooming, and hovering.  The table display option is still available for viewing the raw data if necessary.
 
