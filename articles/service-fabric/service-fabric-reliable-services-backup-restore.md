@@ -126,7 +126,7 @@ If a service is removed, you must first re-create the service before the data ca
 
 From this point, implementation is the same as the above scenario. Each partition needs to restore the latest relevant backup from the external store. One caveat is that the partition ID may have now changed, since the runtime creates partition IDs dynamically. Thus, the service needs to store the appropriate partition information and service name to identify the correct latest backup to restore from for each partition.
 
->[AZURE.NOTE] It is not recommended to use FabricClient.ServiceManager.InvokeDataLossAsync on each partition to restore the entire service, since that may corrupt your cluster state.
+>[AZURE.NOTE] It is not recommended to use **FabricClient.ServiceManager.InvokeDataLossAsync** on each partition to restore the entire service, since that may corrupt your cluster state.
 
 ## Replication of corrupt application data
 
