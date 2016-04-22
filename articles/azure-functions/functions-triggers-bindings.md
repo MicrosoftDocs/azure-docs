@@ -806,34 +806,34 @@ module.exports = function (context, myQueueItem) {
 
 This section contains the following subsections:
 
-* [Azure Service Bus triggers: PeekLock behavior](#sbpeeklock)
-* [Azure Service Bus triggers: poison message handling](#sbpoison)
-* [Azure Service Bus triggers: single-threading](#sbsinglethread)
+* [Azure Service Bus: PeekLock behavior](#sbpeeklock)
+* [Azure Service Bus: poison message handling](#sbpoison)
+* [Azure Service Bus: single-threading](#sbsinglethread)
 * [Azure Service Bus queue or topic trigger](#sbtrigger)
 * [Azure Storage Bus queue or topic output binding](#sboutput)
 
-### <a id="sbpeeklock"></a> Azure Service Bus triggers: PeekLock
+### <a id="sbpeeklock"></a> Azure Service Bus: PeekLock behavior
 
 The Functions runtime receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
 
-### <a id="sbpoison"></a> Azure Service Bus triggers: poison message handling
+### <a id="sbpoison"></a> Azure Service Bus: poison message handling
 
 Service Bus does its own poison message handling which can't be controlled or configured in Azure Functions configuration or code. 
 
-### <a id="sbsinglethread"></a> Azure Service Bus triggers: single-threading
+### <a id="sbsinglethread"></a> Azure Service Bus: single-threading
 
-By default the Functions runtime processes multiple queue messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `serviceBus.maxConcurrrentCalls` to 1 in the *host.json* file. For information about the *host.json* file, see [Folder Structure in the Developer reference article](functions-reference.md), and [host.json in the WebJobs.Script repository wiki](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+By default the Functions runtime processes multiple queue messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `serviceBus.maxConcurrrentCalls` to 1 in the *host.json* file. For information about the *host.json* file, see [Folder Structure](functions-reference.md) in the Developer reference article, and [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
 
 ### <a id="sbtrigger"></a> Azure Service Bus queue or topic trigger
 
 The *function.json* file for a Service Bus trigger specifies the following properties.
 
-- `name` : The variable name used in function code for the queue or queue message. 
+- `name` : The variable name used in function code for the queue or topic, or the queue or topic message. 
 - `queueName` : For queue trigger only, the name of the queue to poll.
 - `topicName` : For topic trigger only, the name of the topic to poll.
 - `connection` : The name of an app setting that contains a Service Bus connection string. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is specified by the AzureWebJobsServiceBus app setting.
 - `subscriptionName` : For topic trigger only, the subscription name.
-- `accessRights` : Specifies the access rights available for the connection string in use. Default value is `manage`. Set to `listen` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights, such as creating queues.
+- `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `listen` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights, such as creating queues.
 - `type` : Must be set to *serviceBusTrigger*.
 - `direction` : Must be set to *in*. 
 
@@ -844,7 +844,7 @@ The Service Bus queue message can be deserialized to any of the following types:
 * byte array 
 * `BrokeredMessage` (C#) 
 
-#### *Function.json* example for using a Service Bus queue trigger:
+#### *Function.json* example for using a Service Bus queue trigger
 
 ```json
 {
@@ -861,7 +861,7 @@ The Service Bus queue message can be deserialized to any of the following types:
 }
 ```
 
-#### C# code example that works with the preceding *function.json* file:
+#### C# code example that processes a Service Bus queue message
 
 ```csharp
 public static void Run(string myQueueItem, TraceWriter log)
@@ -870,7 +870,7 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
-#### Node.js code example that works with the preceding *function.json* file:
+#### Node.js code example that processes a Service Bus queue message
 
 ```javascript
 module.exports = function(context, myQueueItem) {
@@ -899,7 +899,7 @@ Azure Functions can create a Service Bus queue message from any of the following
 
 For creating multiple messages in a C# function, you can use `ICollector<T>` or `IAsyncCollector<T>`. A message is created when you call the `Add` method.
 
-#### *function.json* example for using a timer trigger to write Service Bus queue messages:
+#### *function.json* example for using a timer trigger to write Service Bus queue messages
 
 ```JSON
 {
@@ -923,7 +923,7 @@ For creating multiple messages in a C# function, you can use `ICollector<T>` or 
 }
 ``` 
 
-#### C# code examples that work with the preceding *function.json* file:
+#### C# code examples that create Service Bus queue messages
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
@@ -944,7 +944,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 }
 ```
 
-#### Node.js code example that works with the preceding *function.json* file:
+#### Node.js code example that creates a Service Bus queue message
 
 ```javascript
 module.exports = function (context, myTimer) {
