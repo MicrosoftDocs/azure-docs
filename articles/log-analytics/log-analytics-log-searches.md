@@ -586,6 +586,8 @@ Here is another example:
 
 
 ## Next steps
+
 For additional information about log searches, see:
+
 - Use [Custom fields](log-analytics-custom-fields.md) to extend log searches.
 - [Log Analytics search reference](log-analytics-search-reference.md)

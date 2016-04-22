@@ -52,7 +52,7 @@ When you install the solution, the AdvisorAssessment.exe file is added to monito
 The following table shows data collection methods and other details about how data is collected for AD Assessment.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
-|---|---|---|---|---|---|--|
+|---|---|---|---|---|---|---|
 |Windows|![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png)|![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png)|![No](./media/log-analytics-ad-assessment/oms-bullet-red.png)|	![No](./media/log-analytics-ad-assessment/oms-bullet-red.png)|![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png)|	7 days|
 
 

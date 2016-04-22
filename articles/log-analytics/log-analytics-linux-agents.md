@@ -68,7 +68,7 @@ After installing the OMS agent for Linux packages, the following additional syst
 The following table shows data collection methods and other details about how data is collected.
 
 | source | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
-|---|---|---|---|---|---|--|
+|---|---|---|---|---|---|---|
 |Zabbix|![Yes](./media/log-analytics-linux-agents/oms-bullet-green.png)|![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|            ![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|1 minute|
 |Nagios|![Yes](./media/log-analytics-linux-agents/oms-bullet-green.png)|![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|            ![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|on arrival|
 |syslog|![Yes](./media/log-analytics-linux-agents/oms-bullet-green.png)|![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|            ![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|![No](./media/log-analytics-linux-agents/oms-bullet-red.png)|from Azure storage: 10 minutes; from agent: on arrival|
@@ -335,6 +335,7 @@ log { source(src); filter(f_warning_oms); destination(warning_oms); };
 2. In the **Log Management** grouping, choose a predefined syslog search and then select one to run it.
 
 This example shows all Syslog events.
+
 ![Syslog events shown in Log Search](./media/log-analytics-linux-agents/oms-linux-syslog.png)
 
 Now you can drill into search results.

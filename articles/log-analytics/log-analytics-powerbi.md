@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Log Analytics and Power BI"
    description="Power BI is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can continuously export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.  This article describes how to configure queries in Log Analytics that automatically export to Power BI at regular intervals."
    services="log-analytics"
@@ -6,7 +6,7 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
    ms.topic="article"
@@ -25,7 +25,7 @@ When you configure Power BI with Log Analytics, you create log queries that expo
 
 ## Power BI Schedules
 
-A *Power BI Schedule* includes a log search that exports a set of data from the OMS repository to a corresponding dataset in Power BI and a schedule that defines how often this search is run to keep the dataset current. 
+A *Power BI Schedule* includes a log search that exports a set of data from the OMS repository to a corresponding dataset in Power BI and a schedule that defines how often this search is run to keep the dataset current.
 
 The fields in the dataset will match the properties of the records returned by the log search.  If the search returns records of different types then the dataset will include all of the properties from each of the included record types.  
 
@@ -42,8 +42,8 @@ Before you can export from Log Analytics to Power BI, you must connect your OMS 
 
 ## Create a Power BI Schedule
 
-Create a Power BI Schedule for each dataset using the following procedure. 
- 
+Create a Power BI Schedule for each dataset using the following procedure.
+
 1. In the OMS console click the **Log Search** tile.
 2. Type in a new query or select a saved search that returns the data that you want to export to **Power BI**.  
 3. Click the **Power BI** button at the top of the page to open the **Power BI** dialog.
@@ -113,5 +113,5 @@ We save the report by clicking on the Save button at the top of the screen and v
 
 ## Next steps
 
-- Learn about log searches to build queries that can be exported to Power BI.
+- Learn about [log searches](log-analytics-log-searches.md) to build queries that can be exported to Power BI.
 - Learn more about [Power BI](powerbi.microsoft.com) to build visualizations based on Log Analytics exports.  

@@ -19,9 +19,10 @@
 # Operations Manager agents
 
 To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your OMS workspace.  This allows you leverage the opportunities of OMS while continuing to use Operations Manager to:
-* Continue monitoring the health of your IT services with Operations Manager
-* Maintain integration with your ITSM solutions supporting incident and problem management
-* Manage the lifecycle of agents deployed to on-premise and public cloud IaaS virtual machines that you monitor with Operations Manager
+
+- Continue monitoring the health of your IT services with Operations Manager
+- Maintain integration with your ITSM solutions supporting incident and problem management
+- Manage the lifecycle of agents deployed to on-premise and public cloud IaaS virtual machines that you monitor with Operations Manager
 
 Integrating with System Center Operations Manager adds value to your service operations strategy by leveraging the speed and efficiency of OMS in collecting, storing and analyzing data from Operations Manager.  OMS helps correlate and work towards identifying the faults of problems and surfacing reoccurrences in support of your existing problem management process.   The flexibility of the search engine to examine performance, event and alert data, with rich dashboards and reporting capabilities to expose this data in meaningful ways, demonstrates the strength OMS brings in complimenting Operations Manager.
 
@@ -33,8 +34,9 @@ The following diagram shows the System Center Operations Manager and OMS relatio
 
 ## System requirements
 Before starting, please review the following details to verify you meet necessary prerequisites.
-* OMS only supports Operations Manager 2012 SP1 UR6 and greater, and Operations Manager 2012 R2 UR2 and greater.  Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
-* An OMS subscription.  For further information, please review [First Look: Get started with Log Analytics](log-analytics-get-started.md).
+
+- OMS only supports Operations Manager 2012 SP1 UR6 and greater, and Operations Manager 2012 R2 UR2 and greater.  Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
+- An OMS subscription.  For further information, please review [First Look: Get started with Log Analytics](log-analytics-get-started.md).
 
 ## Connecting Operations Manager to OMS
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your OMS workspaces.
@@ -61,6 +63,7 @@ You can view computers and groups configured to collect data from the Managed Co
 
 ### Configure OMS proxy settings in the Operations console
 Perform the following steps if an internal proxy server is between the management group and OMS web service.  These settings are centrally managed from the management group and distributed to agent-managed systems that are included in the scope to collect data for OMS.  This is beneficial for when certain solutions bypass the management server and send data directly to OMS web service.
+
 1. Open the Operations Manager console and select the **Administration** workspace.
 2. Expand Operations Management Suite, and then click **Connections**.
 3. In the OMS Connection view, click **Configure Proxy Server**.
@@ -77,31 +80,36 @@ If your proxy server requires authentication, perform the following steps to con
 7.	Click **OK** to close the **Add a Run As account** box.
 8.	Click **Save** to complete the wizard and save your changes.
 
-After the connection is created and you configure which agents will be collecting and reporting data to OMS, the following configuration is applied in the management group (not necessarily in order):
-* The Run As Account **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** is created.  It is associated with the Run As profile **Microsoft System Center Advisor Run As Profile Blob** and is targeting two classes - **Collection Server** and **Operations Manager Management Group**.
-* Two connectors are created.  The first is named **Microsoft.SystemCenter.Advisor.DataConnector** and is automatically configured with a subscription that will forward all alerts generated from instances of all classes in the management group to OMS Log Analytics. The second connector is **Advisor Connector**, which is responsible for communicating with OMS web service and sharing data.
-* Agents and groups that you have selected to collect data in the management group will be added to the **Microsoft System Center Advisor Monitoring Server Group**.
+After the connection is created and you configure which agents will be collecting and reporting data to OMS, the following configuration is applied in the management group, not necessarily in order:
+
+- The Run As Account **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** is created.  It is associated with the Run As profile **Microsoft System Center Advisor Run As Profile Blob** and is targeting two classes - **Collection Server** and **Operations Manager Management Group**.
+- Two connectors are created.  The first is named **Microsoft.SystemCenter.Advisor.DataConnector** and is automatically configured with a subscription that will forward all alerts generated from instances of all classes in the management group to OMS Log Analytics. The second connector is **Advisor Connector**, which is responsible for communicating with OMS web service and sharing data.
+- Agents and groups that you have selected to collect data in the management group will be added to the **Microsoft System Center Advisor Monitoring Server Group**.
 
 ## Management pack updates
 After configuration is completed, the Operations Manager management group establishes a connection with the OMS service.  The management server will synchronize with the web service and receive updated configuration information in the form of management packs for the solutions you have enabled that integrate with Operations Manager.   Operations Manager will check for updates to these management packs automatically download and import them when they’re available.  There are two rules in particular which control this behavior:
-* **Microsoft.SystemCenter.Advisor.MPUpdate** - Updates the base OMS management packs. Runs every twelve (12) hours by default.
-* **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Updates solution management packs enabled in your workspace. Runs every five (5) minutes by default.
+
+- **Microsoft.SystemCenter.Advisor.MPUpdate** - Updates the base OMS management packs. Runs every twelve (12) hours by default.
+- **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Updates solution management packs enabled in your workspace. Runs every five (5) minutes by default.
 
 You can override these two rules to either prevent automatic download by disabling them, or modify the frequency for how often the management server synchronizes with OMS to determine if a new management pack is available and should be downloaded.  Follow the steps [How to Override a Rule or Monitor]( https://technet.microsoft.com/library/hh212869.aspx) to modify the **Frequency** parameter with a value in seconds to change the synchronization schedule, or modify the **Enabled** parameter to disable the rules.  Target the overrides to all objects of class Operations Manager Management Group.
+
 If you want to continue following your existing change control process for controlling management pack releases in your production management group, you can disable the rules and enable them during specific times when updates are allowed. If you have a development or QA management group in your environment and it has connectivity to the Internet, you can configure that management group with an OMS workspace to support this scenario.  This will allow you to review and evaluate the iterative releases of the OMS management packs before releasing them into your production management group.
 
 ## Validate Operations Manager integration with OMS
 There are a few different ways you can verify that your OMS to Operations Manager integration is successful.
 
-To confirm integration from the OMS portal, perform the following steps:
+### To confirm integration from the OMS portal
+
 1.	In the OMS portal, click on the **Settings** tile
 2.	On the top menu, click **Connected Sources**.
 3.	Under the System Center Operations Manager section, you should see the status **1 MGMT Group Connected** and in the table below it, the name of the management group listed with the number of agents and status when data was last received.
 
-To confirm integration from the Operations console, you can perform the following steps:
+### To confirm integration from the Operations console
+
 1.	Open the Operations Manager console and select the **Administration** workspace.
-2.	Click on the **Management Packs** node and in the **Look for:** text box type **Advisor** or **Intelligence**.
+2.	Click on the **Management Packs** node and in the **Look for:** text box, type **Advisor** or **Intelligence**.
 3.	Depending on the solutions you have enabled, you will see a corresponding management pack listed in the search results.  For example, if you have enabled the Alert Management solution, the management pack Microsoft System Center Advisor Alert Management will be in the list.
 
 ## Next steps
-- connect [data sources](log-analytics-data-sources.md)
+- Connect [data sources](log-analytics-data-sources.md)

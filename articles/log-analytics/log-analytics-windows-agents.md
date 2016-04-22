@@ -58,9 +58,9 @@ Before you install or deploy agents, review the following details to ensure you 
 3. On the License Terms page, read the license and then click **I Agree**.
 4. On the Destination Folder page, change or keep the default installation folder and then click **Next**.
 5. On the Agent Setup Options page, you can choose to connect the agent to Operational Insights (OMS), Operations Manager, or you can leave the choices blank if you want to configure the agent later. Click **Next**.   
-    - If you chose to connect to Operational Insights (OMS), paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous procedure and then click **Next**.
+    - If you chose to connect to Operational Insights (OMS), paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous procedure and then click **Next**.  
         ![paste Workspace ID and Primary Key](./media/log-analytics-windows-agents/oms-mma-aoi-setup.png)
-    - If you chose to connect to Operations Manager, type the **Management Group Name**, **Management Server** name, and **Management Server Port**, and then click **Next**. On the Agent Action Account page, choose either the Local System account or a local domain account and then click **Next**.
+    - If you chose to connect to Operations Manager, type the **Management Group Name**, **Management Server** name, and **Management Server Port**, and then click **Next**. On the Agent Action Account page, choose either the Local System account or a local domain account and then click **Next**.  
         ![management group configuration](./media/log-analytics-windows-agents/oms-mma-om-setup01.png)![agent action account](./media/log-analytics-windows-agents/oms-mma-om-setup02.png)
 
 6. On the Ready to Install page, review your choices and then click **Install**.
@@ -170,9 +170,7 @@ See [OMS Log Analytics Forwarder](https://blogs.technet.microsoft.com/msoms/2016
 For information about how to configure your agents to use a proxy server, which in this case is the OMS Forwarder, see [Configure proxy and firewall settings (Optional)](log-analytics-proxy-firewall.md).
 
 ## Optionally, configure proxy and firewall settings
-If you have proxy servers or firewalls in your environment that restrict access to the Internet, you might need to follow the following information to enable your agents to communicate to the OMS service.
-
-- [Configure proxy and firewall settings (Optional)](log-analytics-proxy-firewall.md)
+If you have proxy servers or firewalls in your environment that restrict access to the Internet, you might need to [configure proxy and firewall settings](log-analytics-proxy-firewall.md) to enable your agents to communicate to the OMS service.
 
 ## Next steps
-- [connect data sources](log-analytics-data-sources.md)
+- [Connect data sources](log-analytics-data-sources.md)
