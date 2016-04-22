@@ -62,6 +62,8 @@ Microsoft provides the following utilities to work with Azure Blob storage:
 
 The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 1. [Install and configure the Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
 
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
@@ -103,6 +105,8 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 ###<a id="powershell"></a>Azure PowerShell
 
 Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
+
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **To upload a local file to Azure Blob storage**
 
@@ -251,13 +255,13 @@ Now that you understand how to get data into HDInsight, read the following artic
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
-[azure-create-storage-account]: ../storage-create-storage-account.md
-[azure-azcopy-download]: ../storage-use-azcopy.md
-[azure-azcopy]: ../storage-use-azcopy.md
+[azure-create-storage-account]: ../storage/storage-create-storage-account.md
+[azure-azcopy-download]: ../storage/storage-use-azcopy.md
+[azure-azcopy]: ../storage/storage-use-azcopy.md
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 

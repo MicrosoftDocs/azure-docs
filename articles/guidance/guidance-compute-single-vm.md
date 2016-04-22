@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/21/2016"
+   ms.date="04/19/2016"
    ms.author="mikewasson"/>
 
 # Running a Single Windows VM on Azure
@@ -83,6 +83,8 @@ We recommend [Premium Storage][premium-storage], for the best disk I/O performan
 
 - For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
+- When possible, install applications on a data disk, not the OS disk. However, some legacy applications might need to install components on the C: drive. In that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
+
 ## Network recommendations
 
 - For a single VM, create one VNet with one subnet. Also create an NSG and public IP address.
@@ -91,7 +93,7 @@ We recommend [Premium Storage][premium-storage], for the best disk I/O performan
 
     - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be whitelisted.
 
-    - By default, the IP address does not have a fully qualified domain name (FQDN). For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
+    - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
 
 - Allocate a NIC and associate it with the IP address, subnet, and NSG.
 
@@ -137,7 +139,7 @@ To resize a VM:
 
 - Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
-- Do not put a single VM into an availability set. Putting the VM into an availability set tells Azure to treat the VM as part of a multi-instance set, and you will receive no advanced warning or notification about planned maintenance reboots.
+- Do not put a single VM into an availability set. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events. (You will get an email notification before a planned maintenance event.)
 
 - VHDs are backed by [Azure Storage][azure-storage], which is replicated for durability and availability.
 
@@ -209,23 +211,40 @@ The script uses the naming conventions described in [Recommended Naming Conventi
 ECHO OFF
 SETLOCAL
 
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Set up variables for deploying resources to Azure.
+:: Change these variables for your own deployment.
+
+:: The APP_NAME variable must not exceed 4 characters in size.
+:: If it does the 15 character size limitation of the VM name may be exceeded.
+
+SET APP_NAME=app1
+SET LOCATION=eastus2
+SET ENVIRONMENT=dev
+SET USERNAME=testuser
+
+
+:: For Windows, use the following command to get the list of URNs:
+:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
+SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
+
+:: For a list of VM sizes see:
+::   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
+:: To see the VM sizes available in a region:
+:: 	azure vm sizes --location <location>
+SET VM_SIZE=Standard_DS1
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 IF "%2"=="" (
     ECHO Usage: %0 subscription-id admin-password
     EXIT /B
     )
 
-:: Set up variables to build out the naming conventions for deploying
-:: the cluster
-
-SET LOCATION=eastus2
-SET APP_NAME=app1
-SET ENVIRONMENT=dev
-SET USERNAME=testuser
-SET PASSWORD=%2
-
 :: Explicitly set the subscription to avoid confusion as to which subscription
 :: is active/default
 SET SUBSCRIPTION=%1
+SET PASSWORD=%2
 
 :: Set up the names of things using recommended conventions
 SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
@@ -238,13 +257,6 @@ SET SUBNET_NAME=%APP_NAME%-subnet
 SET VNET_NAME=%APP_NAME%-vnet
 SET VHD_STORAGE=%VM_NAME:-=%st0
 SET DIAGNOSTICS_STORAGE=%VM_NAME:-=%diag
-
-:: For Windows, use the following command to get the list of URNs:
-:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
-SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
-
-:: For a list of VM sizes see...
-SET VM_SIZE=Standard_DS1
 
 :: Set up the postfix variables attached to most CLI commands
 SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
@@ -318,6 +330,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [blob-snapshot]: ../storage/storage-blob-snapshots.md
 [blob-storage]: ../storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
+[cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../azure-security-disk-encryption.md
 [enable-monitoring]: ../azure-portal/insights-how-to-use-diagnostics.md
@@ -332,6 +345,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [premium-storage]: ../storage/storage-premium-storage.md
 [rbac]: ../active-directory/role-based-access-control-configure.md
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
+[resize-os-disk]: ../virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-manager-overview]: ../resource-group-overview.md
