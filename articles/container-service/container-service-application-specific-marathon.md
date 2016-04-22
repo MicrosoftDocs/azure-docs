@@ -28,7 +28,7 @@ Since this service will belong to a single user or team, they are free to config
 
 [Deploy an instance of Azure Container Service](./container-service-deployment.md) with orchestrator type DCOS, [ensure your client can connect to your cluster](./container-service-connect.md), and [install the DC/OS CLI](./container-service-install-dcos-cli.md).
 
-## Creating an appliction or user specific Marathon service.
+## Creating an application or user specific Marathon service.
 
 Begin by creating a JSON configuration file that defines the name of the application service you want to create. Here we use `marathon-alice` as the framework name. Save the file as something like `marathon-alice.json`:
 

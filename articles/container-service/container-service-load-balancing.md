@@ -28,7 +28,7 @@ In this article, we will set up a web front end which can be scaled up to delive
 [Deploy an instance of Azure Container Service](./container-service-deployment.md) with orchestrator type DCOS, [ensure your client can connect to your cluster](./container-service-connect.md), and [install the DC/OS CLI](./container-service-install-dcos-cli.md).
 
 
-## Load Balancing
+## Load balancing
 
 There are two load-balacing layers in a Container Service cluster: Azure LB for the public entry points (the ones end users will hit), and the underlying marathon-lb that routes inbound requests to container instances servicing requests. As we scale the containers providing the service, the marathon-lb will dynamically adapt.
 
