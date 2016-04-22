@@ -209,7 +209,7 @@ Message Analyzer includes assets for Azure Storage that help you to analyze serv
 	- **Azure Storage View Layouts:** Azure Storage view layouts are predefined column layouts and groupings in the Analysis Grid.
 4. Restart Message Analyzer after you've installed the assets.
 
-![Message Analyzer Start Page](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
+![Message Analyzer Asset Manager](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
 
 > [AZURE.NOTE] Install all of the Azure Storage assets shown for the purposes of this tutorial.
 
