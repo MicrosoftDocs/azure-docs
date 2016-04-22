@@ -21,7 +21,7 @@
 
 # Using cloud-init to customize a Linux VM during creation
 
-For this article we will create cloud-init scripts to set the hostname, update installed packages and manage user accounts.  We will then launch those cloud-init scripts during the creation of the Linux VM using [the Azure CLI](../../xplat-cli-install.md).
+For this article we will create cloud-init scripts to set the hostname, update installed packages and manage user accounts.  We will then launch those cloud-init scripts during the creation of the Linux VM using [the Azure CLI](../xplat-cli-install.md).
 
 ## Prerequisites
 
