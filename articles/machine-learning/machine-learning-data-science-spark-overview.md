@@ -3,7 +3,7 @@
 	description="The Spark MLlib toolkit brings considerable machine learning modeling capabilities to the distributed HDInsight environment."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="bradsev,deguhath,gokuma"
 	manager="paulettm"
 	editor="cgronlun"  />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="04/22/2016"
 	ms.author="bradsev" />
 
 # Overview of Data Science using Spark on Azure HDInsight

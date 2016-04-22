@@ -3,7 +3,7 @@
 	description="TBD."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="bradsev,deguhath,gokuma"
 	manager="paulettm"
 	editor="cgronlun"  />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="04/22/2016"
 	ms.author="deguhath;bradsev" />
 
 # Advanced data exploration and modeling with Spark 
