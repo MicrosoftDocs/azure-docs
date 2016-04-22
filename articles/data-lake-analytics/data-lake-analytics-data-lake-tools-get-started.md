@@ -28,7 +28,7 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 
 ###Prerequisites
 
-- **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. Visual Studio "15" is currently not supported and we are working on that.** 
+- **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. Visual Studio "15" is currently not supported and we are working on that.**
 - **Microsoft Azure SDK for .NET version 2.7.1 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
 

@@ -3,7 +3,7 @@
    description="Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/02/2016"
-   ms.author="barbkess;mausher;sonyama"/>
+   ms.date="04/20/2016"
+   ms.author="sonyama;barbkess;mausher"/>
 
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse
 
-SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs.
+Many SQL Data Warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL Data Warehouse.  Alternatively, for a list of REST APIs to automate these same tasks, see [Operations for Azure SQL Databases][].
 
-Most of the commands defined for **Azure SQL Database** are also used for **SQL Data Warehouse**. For a current list, see [Azure SQL Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx). The cmdlets [Suspend-AzureRmSqlDatabase][] and [Resume-AzureRmSqlDatabase][] are additions designed for SQL Data Warehouse.
-
-Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL Data Warehouse** instances. For the current list, see [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx).
+> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
 ## Get started with Azure PowerShell cmdlets
 
-1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://aka.ms/webpi-azps).  For more information on this installer, see [How to install and configure Azure PowerShell][].
-2. To start PowerShell, click **Start** and type **Windows PowerShell**.
-3. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
+1. Open Windows PowerShell. 
+2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
 
     ```PowerShell
     Login-AzureRmAccount
@@ -36,36 +33,14 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
+## Pause SQL Data Warehouse Example
 
-## Frequently-used PowerShell cmdlets
-
-These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse:
-
-
-- [Get-AzureRmSqlDatabase][]
-- [Get-AzureRmSqlDeletedDatabaseBackup][]
-- [Get-AzureRmSqlDatabaseRestorePoints][]
-- [New-AzureRmSqlDatabase][]
-- [Remove-AzureRmSqlDatabase][]
-- [Restore-AzureRmSqlDatabase][] 
-- [Resume-AzureRmSqlDatabase][]
-- [Select-AzureRmSubscription][]
-- [Set-AzureRmSqlDatabase][]
-- [Suspend-AzureRmSqlDatabase][]
-
-
-## Examples for SQL Data Warehouse
-
-These examples are for capabilities that apply only to SQL Data Warehouse.
-
-### [Suspend-AzureRmSqlDatabase][]
-
-Pause a database named "Database02" hosted on a server named "Server01." The server is in an Azure resource group named "ResourceGroup1." 
+Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1." 
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-A variation, this example pipes the retrieved object to [Suspend-AzureRmSqlDatabase][]. As a result, the database is paused. The final command shows the results.
+A variation, this example pipes the retrieved object to [Suspend-AzureRmSqlDatabase][].  As a result, the database is paused. The final command shows the results.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -73,7 +48,7 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-### [Resume-AzureRmSqlDatabase][]
+## Start SQL Data Warehouse Example
 
 Resume operation of a database named "Database02" hosted on a server named "Server01." The server is contained in a resource group named "ResourceGroup1."
 
@@ -90,21 +65,41 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 
 > [AZURE.NOTE] Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the PowerShell cmdlets.
 
+## Frequently Used PowerShell cmdlets
+
+These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse.
+
+- [Get-AzureRmSqlDatabase][]
+- [Get-AzureRmSqlDeletedDatabaseBackup][]
+- [Get-AzureRmSqlDatabaseRestorePoints][]
+- [New-AzureRmSqlDatabase][]
+- [Remove-AzureRmSqlDatabase][]
+- [Restore-AzureRmSqlDatabase][] 
+- [Resume-AzureRmSqlDatabase][]
+- [Select-AzureRmSubscription][]
+- [Set-AzureRmSqlDatabase][]
+- [Suspend-AzureRmSqlDatabase][]
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse reference overview][].
 For more PowerShell examples, see:
-- [Create a SQL Data Warehouse using PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-- [Restore from snapshot](sql-data-warehouse-backup-and-restore-from-snapshot.md)
-- [Geo-restore from snapshot](sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md)
+
+- [Create a SQL Data Warehouse using PowerShell][]
+- [Restore from snapshot][]
+- [Geo-restore from snapshot][]
+
+For a list of all tasks which can be automated with PowerShell, see [Azure SQL Database Cmdlets][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-[How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
+[How to install and configure Azure PowerShell]: powershell-install-configure.md
+[Create a SQL Data Warehouse using PowerShell]: sql-data-warehouse-get-started-provision-powershell.md
+[Restore from snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Geo-restore from snapshot]: sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
 
 <!--MSDN references-->
+[Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
+[Operations for Azure SQL Databases]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
 [Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
 [Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
@@ -112,11 +107,10 @@ For more PowerShell examples, see:
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
-<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureRmSubscription -->
+<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
-[Suspend-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619337.aspx
-
-
+[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 
 <!--Other Web references-->
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

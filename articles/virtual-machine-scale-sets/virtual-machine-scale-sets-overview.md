@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/02/2016"
+	ms.date="04/14/2016"
 	ms.author="guybo"/>
 
 # Virtual Machine Scale Sets Overview
 
 Virtual machine scale sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs are required – and as such make it easier to build large-scale services targeting big compute, big data, and containerized workloads.
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the recent [Azure blog announcement](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/).
+For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the recent [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
 Take a look at these videos for more about VM scale sets:
 
@@ -132,7 +132,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 			"caching": "ReadOnly",
 			"createOption": "FromImage",
 			"image": {
-				"uri": [https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd](https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd)
+				"uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
 			},
 			"osType": "Windows"
 		}

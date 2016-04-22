@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Use Zeppelin notebooks with Spark cluster on HDInsight (Linux)
+# Use Zeppelin notebooks with Spark cluster on HDInsight Linux (Preview)
 
 Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zeppelin notebooks.
 
@@ -63,7 +63,10 @@ For instructions on how to use HDInsight .NET SDK to run script action to instal
 
 ### Using Azure PowerShell
 
-Use the following PowerShell snippet to create a Spark cluster on HDInsight Linux with Zeppelin installed. Make sure you have PowerShell installed before you proceed. See [Install and configure Azure PowerShell](../powershell-install-configure.md) for instructions.
+Use the following PowerShell snippet to create a Spark cluster on HDInsight Linux with Zeppelin installed.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 
 	Login-AzureRMAccount
 	
