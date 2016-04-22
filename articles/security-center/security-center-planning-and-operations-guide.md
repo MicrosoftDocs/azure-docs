@@ -140,7 +140,7 @@ Planning requirements will be different for each of these scenarios. Please refe
 
 **Web Application Firewall**: Azure Security Center will identify virtual machines running web applications and recommend that you install a Web Application Firewall (WAF). Evaluate the available partner solutions to determine which is the best fit for your organization and determine how the solution will be licensed (partners may support Bring Your Own License and/or Pay As You Go models). For more information on how to deploy a web application firewall in your Azure VMs using Azure Security Center, read [Add a web application firewall in Azure Security Center](security-center-add-web-application-firewall.md).
 
-**Virtual Networking**: Azure Security Center will evaluate your [Azure Virtual Network](https://azure.microsoft.com/en-us/documentation/services/virtual-network/) infrastructure and configuration to check that [Network Security Groups](./virtual-network/virtual-network.md) are applied and properly configured with inbound traffic rules. You should consider what traffic rules should be defined and communicate this to the individuals who will be applying the related security recommendations.
+**Virtual Networking**: Azure Security Center will evaluate your [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) infrastructure and configuration to check that [Network Security Groups](./virtual-network/virtual-network.md) are applied and properly configured with inbound traffic rules. You should consider what traffic rules should be defined and communicate this to the individuals who will be applying the related security recommendations.
 
 ## Data Collection and Storage
 
@@ -158,7 +158,7 @@ For each region in which you have virtual machines running, you choose the stora
 
 If you are using a storage account shared among different Azure resources, ensure that you read [Azure Storage Scalability and Performance Targets](./storage/storage-scalability-targets.md) article for more information about size limits and constraints. Your subscription also has storage account limits, review [Azure subscription and service limits, quotas, and constraints](./azure-subscription-service-limits) to better understand these limits.
 
-> [AZURE.NOTE] Costs associated with this storage are not included in the price of the Azure Security Center service and will be charged separately at regular [Azure storage rates](https://azure.microsoft.com/en-us/pricing/details/storage/). 
+> [AZURE.NOTE] Costs associated with this storage are not included in the price of the Azure Security Center service and will be charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/). 
 
 Performance and scalability considerations should also be planned according to your Azure environment size and the resources that are consuming your storage account. Review Microsoft Azure Storage Performance and Scalability Checklist for more information.
 
