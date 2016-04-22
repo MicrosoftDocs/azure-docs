@@ -42,4 +42,5 @@ Built on top of Reliable Services, the Reliable Actor framework is an applicatio
 
 As Reliable Actors itself is an application framework built on Reliable Services, it is fully integrated with the Service Fabric platform and benefits from the full set of features offered by the platform.
 
+## Next steps
 [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md) or get started by [writing your first Reliable Actor service](service-fabric-reliable-actors-get-started.md)
