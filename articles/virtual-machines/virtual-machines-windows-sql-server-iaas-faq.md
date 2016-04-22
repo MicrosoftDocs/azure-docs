@@ -33,13 +33,13 @@ This topic provides answers to some of the most common questions about running [
 
 	Conceptually, running SQL Server on an Azure virtual machine is not that different from running SQL Server in a remote datacenter. In contrast, [SQL Database](../sql-database/sql-database-technical-overview.md) offers database-as-a-service. With SQL Database, you do not have access to the machines that host your databases. For a full comparison, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/media/data-management-azure-sql-database-and-sql-server-iaas.md).
 
-1. **How can I migrate my on-premises SQL Server database to the Cloud?** 
+1. **How can I migrate my on-premises SQL Server database to the Cloud?**
 
 	First create an Azure virtual machine with a SQL Server instance. Then migrate your on-premises databases to that instance. For data migration strategies, see [Migrate a SQL Server database to SQL Server in an Azure VM](virtual-machines-windows-migrate-sql.md).
 
-2. **Can I install a second instance of SQL Server on the same VM?**
+2. **Can I change the installed features or install a second instance of SQL Server on the same VM?**
 
-	You cannot install another instance of SQL Server on VM that was built with a SQL virtual machine gallery image.
+	Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine.
 
 3. **How do I upgrade to a new version/edition of the SQL Server in an Azure VM?**
 
@@ -55,11 +55,11 @@ This topic provides answers to some of the most common questions about running [
 
 6. **How are updates and service packs applied on a SQL Server VM?**
 
-	Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](virtual-machines-windows-classic-sql-automated-patching.md). For SQL Server, it is also your responsibility to apply updates and service packs to the SQL Server Instance. Automated Patching does not apply SQL Server updates.
+	Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](virtual-machines-windows-classic-sql-automated-patching.md). Automated Patching installs any updates that are marked important, including SQL Server updates in that category. Other optional updates to SQL Server must be installed manually.
 
-7. **Is there a way to create a VM with a configuration of SQL Server and Windows Server that is not shown in the virtual machine gallery?**
+7. **Is it possible to set up configurations not shown in the virtual machine gallery (For example Windows 2008 R2 + SQL Server 2012)?**
 
-	For virtual machine gallery images that include SQL Server, you must select one of the provided images.
+	No. For virtual machine gallery images that include SQL Server, you must select one of the provided images.
 
 9. **How do I install SQL Data tools on my Azure VM?**
 
