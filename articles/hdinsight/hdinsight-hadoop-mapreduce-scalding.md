@@ -229,9 +229,9 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 ## Run the job on a Windows-based cluster
 
-> [AZURE.NOTE] The following steps use Windows PowerShell. For other methods of running MapReduce jobs, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
+The following steps use Windows PowerShell. For other methods of running MapReduce jobs, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
 
-1. [Install and configure Azure PowerShell](../powershell-install-configure.md).
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 2. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
 

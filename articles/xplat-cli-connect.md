@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2015"
+	ms.date="04/08/2016"
 	ms.author="danlep"/>
 
 # Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)

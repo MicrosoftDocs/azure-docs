@@ -159,4 +159,5 @@ if your ADFS server has not been configured to automatically update certificates
 
 Ignite 2015 presentation on extending your on-premises directories to the cloud.
 
-[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
+>[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
+

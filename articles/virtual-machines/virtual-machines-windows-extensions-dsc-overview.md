@@ -89,7 +89,7 @@ The portal will need input.
 
 **Configuration Data PSD1 File**: This is an optional field. If your configuration requires a configuration data file in .psd1, use this field to select it and upload it to your user blob storage, where it will be secured by a SAS token. 
  
-**Module-Qualified Name of Configuration**: .ps1 files can have multiple configuration functions. Enter the name of the configuration .ps1 script followed by a  '\' and the name of the configuration function. e.g. 
+**Module-Qualified Name of Configuration**: .ps1 files can have multiple configuration functions. Enter the name of the configuration .ps1 script followed by a  '\' and the name of the configuration function. For example, if your .ps1 script has the name "configuration.ps1", and the configuration is "IisInstall", you would enter: `configuration.ps1\IisInstall`
 
 **Configuration Arguments**: If the configuration function takes arguments, enter them in here in the format `argumentName1=value1,argumentName2=value2`. Note this is a different format than how configuration arguments are accepted through PowerShell cmdlets or ARM templates. 
 
