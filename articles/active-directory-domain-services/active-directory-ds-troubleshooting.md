@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="04/22/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Troubleshooting guide
@@ -44,6 +44,8 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 - Ensure that the affected user account is not an external account in the Azure AD tenant. Examples of external accounts include Microsoft accounts (for example, 'joe@live.com') or user accounts from an external Azure AD directory. Since Azure AD Domain Services does not have credentials for such user accounts, these users cannot sign in to the managed domain.
 
 - Ensure that the affected user account's UPN prefix (i.e. the first part of the UPN) in your Azure AD tenant is less than 20 characters in length. For instance, for the UPN 'joereallylongnameuser@contoso.com', the prefix ('joereallylongnameuser') exceeds 20 characters and this account will not be available in the Azure AD Domain Services managed domain.
+
+- Ensure that you do not have other user accounts in your Azure AD tenant which have the same UPN prefix (i.e. the first part of the UPN) as that of the affected user account. For instance, if you have two user accounts 'joeuser@finance.contoso.com' and 'joeuser@engineering.contoso.com', both users will encounter issues signing in to the managed domain. We are working on a fix for this issue.
 
 - **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify the following:
     - You have deployed or updated to the [latest recommended release of Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
