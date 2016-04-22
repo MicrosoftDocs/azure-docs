@@ -40,7 +40,7 @@ The models we use include logistic and linear regression, random forests and gra
 - [Random forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees in order to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features, extend to the multiclass classification setting, do not require feature scaling, and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
 - [Gradient boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
 
-Modeling examples using CV and Hyperparameter sweep are shown for the binary classification problem. Simpler examples are presented in the main topic for regression tasks. But in the appendix, validation using elastic net for linear regression and CV with parameter sweep using for random forest regression are also presented. The **elastic net** is a regularized regression method for fitting linear regression models that linearly combines the L1 and L2 metrics as penalties of the [LASSO](https://en.wikipedia.org/wiki/Lasso_(statistics)) and [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) methods.
+Modeling examples using CV and Hyperparameter sweep are shown for the binary classification problem. Simpler examples (without parameter sweeps) are presented in the main topic for regression tasks. But in the appendix, validation using elastic net for linear regression and CV with parameter sweep using for random forest regression are also presented. The **elastic net** is a regularized regression method for fitting linear regression models that linearly combines the L1 and L2 metrics as penalties of the lasso and [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) methods.
 
 
 >AZURE.NOTE: Although the Spark MLlib toolkit is designed to work on large datasets, for purposes of demonstrating its modeling capabilities, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used, for convenience. The exercise given here runs efficiently on an HDInsight cluster with 2 worker nodes (in about 10 minutes). The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory or changing the cluster size.
@@ -323,7 +323,7 @@ This code shows how to create a new feature by binning hours into traffic time b
 
 This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. 
 
-Depending on the model, you need to index or encode them in different ways. For example, Logistic and Linear Regression models require one-hot encoding, where, for example, a feature with 3 categories can be expanded into 3 feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect continuous valued features, such as logistic regression, to be applied to categorical features.
+Depending on the model, you need to index or encode them in different ways. For example, Logistic and Linear Regression models require one-hot encoding, where, for example, a feature with 3 categories can be expanded into 3 feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
 Here is the code to index and encode categorical features:
 
@@ -545,7 +545,7 @@ TBD: review validity in this context.
 This section shows how use three models for the binary classification task of predicting whether or not a tip is paid for a taxi trip. The models presented are:
 
 - Logistic regression 
-- Random forest model
+- Random forest
 - Gradient Boosting Trees
 
 Each model building code section will be split into steps: 
@@ -832,9 +832,9 @@ The code in this section shows how to train, evaluate, and save a logistic regre
 Time taken to execute above cell: 118.25 seconds
 
 
-### Random forest model classification
+### Random forest classification
 
-The code in this section shows how to train evaluate, and save a random forest model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
+The code in this section shows how to train evaluate, and save a random forest regression that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
 
 	# RECORD START TIME
@@ -938,7 +938,7 @@ Time taken to execute above cell: 22.41 seconds
 This section shows how use three models for the regression task of predicting the amount of the tip paid for a taxi trip based on other tip features. The models presented are:
 
 - Regularized linear regression
-- Random forest model
+- Random forest
 - Gradient Boosting Trees
 
 These models were described in the introduction. Each model building code section will be split into steps: 
@@ -949,7 +949,7 @@ These models were described in the introduction. Each model building code sectio
 
 >AZURE NOTE: Cross-validation is not used with the three regression models in this section. But an example showing how to use CV with Elastic Net for linear regression is provided in the Appendix of this topic.
 
->AZURE NOTE: In our experience, there can be frequent issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps (shown below). Elastic net regression, shown below in the Appendix, can also be use to improve convergence.
+>AZURE NOTE: In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps (shown below). Elastic net regression, shown below in the Appendix, can also be use to improve convergence.
 
 ### Linear regression with SGD
 

@@ -319,7 +319,7 @@ This section shows how to index or encode categorical features for input into th
 
 - **Tree based modeling** requires categories to be encoded as numerical values (e.g. a feature with 3 categories may be encoded with 0, 1, 2). This is provided by MLlib’s [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Note that although indexed with numerical values for input and data handling, the tree based algorithms can be specified to treat them appropriately as categories. 
 
-- **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with 3 categories can be expanded into 3 feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect continuous valued features, such as logistic regression, to be applied to categorical features.
+- **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with 3 categories can be expanded into 3 feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
 Here is the code to index and encode categorical features:
 
@@ -642,7 +642,7 @@ F1 Score = 0.984187223276
 
 Time taken to execute above cell: 26.63 seconds
 
-### Random forest model classification
+### Random forest classification
 
 The code in this section shows how to train evaluate, and save a random forest model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 	
@@ -743,7 +743,7 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 This section shows how use three models for the regression task of predicting the amount of the tip paid for a taxi trip based on other tip features. The models presented are:
 
 - Regularized linear regression
-- Random forest model
+- Random forest
 - Gradient Boosting Trees
 
 These models were described in the introduction. Each model building code section will be split into steps: 
@@ -756,7 +756,7 @@ These models were described in the introduction. Each model building code sectio
 
 The code in this section shows how to use scaled features to train a linear regression that uses stochastic gradient descent (SGD) for optimization, and how to score, evaluate, and save the model in Azure Blob Storage (WASB).
 
->AZURE NOTE: In our experience, there can be frequent issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps (shown below). 
+>AZURE NOTE: In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps (shown below). 
 
 	#PREDICT TIP AMOUNTS USING LINEAR REGRESSION WITH SGD
 
@@ -794,7 +794,7 @@ The code in this section shows how to use scaled features to train a linear regr
 
 ### Random Forest regression
 
-The code in this section shows how to train evaluate, and save a random forest model that predicts tip amount for the NYC taxi trip data.
+The code in this section shows how to train evaluate, and save a random forest regression that predicts tip amount for the NYC taxi trip data.
 
 
 	#PREDICT TIP AMOUNTS USING RANDOM FOREST
@@ -868,7 +868,7 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 	print("R-sqr = %s" % testMetrics.r2)
 	
 	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
-	test_predictions = sqlContext.createDataFrame(predictionAndLabels)
+	test_predictions= sqlContext.createDataFrame(predictionAndLabels)
 	test_predictions_pddf = test_predictions.toPandas()
 	
 	ax = test_predictions_pddf.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
