@@ -25,13 +25,8 @@ ExpresRoute is comprised of a pair of circuits for high availability that are at
 
 Microsoft Azure provides a growing number of services that you can offer to your customers.  To best take advantage of these services will require the use ExpressRoute connections to provide high speed low latency access to the Microsoft Azure environment.
 
- 
-
-
 ## Microsoft Azure management
 Microsoft provides CSPs with APIs to manage the Azure customer subscriptions by allowing programmatic integration with your own service management systems. Supported management capabilities can be found [here](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
-
->[AZURE.NOTE] if the CSP is managing resources in the customers Microsoft Azure subscription they will need to be given administrative rights in the customer subscription(s).
 
 ## Microsoft Azure resource management
 Depending on the contract you have with your customer will determine how the subscription will be managed. The CSP can directly manage the creation and maintenance of resources or the customer can maintain control of the Microsoft Azure subscription and create the Azure resources as they need. If your customer manages the creation of resources in their Microsoft Azure subscription they will use one of two models: “Connect-Through” model, or “Direct-To” model. These models are described in detail in the following sections.  
@@ -71,8 +66,6 @@ ExpressRoute supports network speeds from 50 Mb/s to 10Gb/s. This allows custome
 
 ExpressRoute supports the connection of multiple vNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
 
->[AZURE.NOTE] Microsoft does not support sharing ExpressRoute circuits between companies. There is currently no way to associate one ExpressRoute circuit with more than one customer with an Azure subscription or virtual network.  
-
 ## Configuring ExpressRoute
 ExpressRoute can be configured to support three types of traffic ([routing domains](#ExpressRoute-routing-domains)) over a single ExpressRoute circuit. This traffic is segregated into Microsoft peering, Azure public peering and private peering. You can choose one or all types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the ExpressRoute circuit and isolation required by your customer. The security posture of your customer may not allow public traffic and private traffic to traverse over the same circuit.
 
@@ -85,14 +78,9 @@ In a connect-to configuration, your customer already has an existing connection 
 You can assist with setting up the connection and configuring the routes to allow the resources in your datacenter(s) to communicate with the client resources in your datacenter, or with the resources hosted in Azure.
 
 ## ExpressRoute routing domains
-ExpressRoute offers three routing domains: public, private, and Microsoft peering. Each of the routing domains are configured with identical routers in active-active configuration for high availability. For more details on ExpressRoute routing domains look [here](./expressroute-circuit-peerings.md).<BR>
+ExpressRoute offers three routing domains: public, private, and Microsoft peering. Each of the routing domains are configured with identical routers in active-active configuration for high availability. For more details on ExpressRoute routing domains look [here](./expressroute-circuit-peerings.md).
 
-[AZURE.NOTE] 
-- Communications through the Public domain is always initiated from your internal network; no traffic originates from the Azure side of the public peering circuit bound for your internal network.  
-
-You can define custom routes filters to allow only the route(s) you want to allow or need. For more information or to see how to make these changes see article: [Create and modify routing for an ExpressRoute circuit using PowerShell](./expressroute-howto-routing-classic.md).<BR>
-
-[AZURE.NOTE] For Microsoft peering We do not allow customers to select limited sets of routes to Microsoft services. For example, advertising a route to Outlook, but not a route to Skype services, is not allowed. All Microsoft Services will be available to client machines.  
+You can define custom routes filters to allow only the route(s) you want to allow or need. For more information or to see how to make these changes see article: [Create and modify routing for an ExpressRoute circuit using PowerShell](./expressroute-howto-routing-classic.md) for more details about routing filters.
 
 [AZURE.NOTE] For Microsoft and Public Peering connectivity must be though a public IP address owned by the customer or CSP and must adhere to all defined rules. For more information, see the [ExpressRoute Prerequisites](expressroute-prerequisites.md) page.  
 
@@ -100,8 +88,6 @@ You can define custom routes filters to allow only the route(s) you want to allo
 ExpressRoute connects to the Azure networks through the Azure Virtual Network Gateway. Network gateways provide routing for Azure virtual networks.
 
 Creating Azure Virtual Networks also creates a default routing table for the vNet to direct traffic to/from the subnets of the vNet. If the default route table is insufficient for the solution custom routes can be created to route outgoing traffic to custom appliances or to block routes to specific subnets or external networks.
-
-[AZURE.NOTE] Each subnet can only have one routing table, but a single routing table can be applied to multiple subnets.
 
 ### Default routing
 The default route table includes the following routes:
@@ -115,9 +101,7 @@ The default route table includes the following routes:
 ![alt text](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### User-defined routing (UDR)
-User-defined routes allow the control of traffic outbound from the assigned subnet to other subnets in the virtual network or over one of the other predefined gateways (ExpressRoute; internet or VPN). The default system routing table can be replaced with a user-defined routing table that replaces the default routing table with custom routes. With user-defined routing, customers can create specific routes to appliances such as firewalls or intrusion detection appliances, or block access to specific subnets from the subnet hosting the user-defined route. For more information about User Defined Routes look [here](../virtual-network/virtual-networks-udr-overview.md). 
-
-[AZURE.NOTE] User-defined routes do not affect incoming traffic into the subnet.  
+User-defined routes allow the control of traffic outbound from the assigned subnet to other subnets in the virtual network or over one of the other predefined gateways (ExpressRoute; internet or VPN). The default system routing table can be replaced with a user-defined routing table that replaces the default routing table with custom routes. With user-defined routing, customers can create specific routes to appliances such as firewalls or intrusion detection appliances, or block access to specific subnets from the subnet hosting the user-defined route. For an overview of User Defined Routes look [here](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## Security
 Depending on which model is in use, Connect-To or Connect-Through, your customer defines the security policies in their vNet or provides the security policy requirements to the CSP to define to their vNets. The following security criteria can be defined:
@@ -126,8 +110,6 @@ Depending on which model is in use, Connect-To or Connect-Through, your customer
 2.	**Network Security Group (NSG)** rules are for defining allowed traffic into and out of the subnets within vNets in Azure. By default, the NSG contain Block rules to block traffic from the Internet to the vNet and Allow rules for traffic within a vNet. For more information about Network Security Groups look [here](https://azure.microsoft.com/blog/network-security-groups/).
 3.	**Force tunneling** —This is an option to redirect internet bound traffic originating in Azure to be redirected over the 
 ExpressRoute connection to the on premises datacenter. For more information about Forced tunneling look [here](./expressroute-routing.md#advertising-default-routes).  
-
->[AZURE.NOTE] Forced tunneling is enabled by the customer by publishing a default route of 0.0.0.0  
 
 4.	**Encryption** — Even though the ExpressRoute circuits are dedicated to a specific customer, there is the possibility that the network provider could be breached, allowing an intruder to examine packet traffic. To address this potential, a customer or CSP can encrypt traffic over the connection by defining IPSec tunnel-mode policies for all traffic flowing between the on premises resources and Azure resources (refer to the optional Tunnel mode IPSec for Customer 1 in Figure 5: ExpressRoute Security, above). The second option would be to use a firewall appliance at each the end point of the ExpressRoute circuit. This will require additional 3rd party firewall VMs/Appliances to be installed on both ends to encrypt the traffic over the ExpressRoute circuit.
 
