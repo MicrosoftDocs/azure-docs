@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="04/22/2016"
 	ms.author="tarcher"/>
 
 # Manage DevTest Labs Formulas to create VMs
@@ -70,12 +70,12 @@ The following steps guide you through the process of creating a new Formula from
 
 	- **Formula name** - Enter a name for your Formula. This value will be displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message will indicate the requirements for a valid name.
 	- **Description** - Enter a meaningful description for your Formula. This value is available from the Formula's context menu when you create a VM.
-	- **Image** - This is a read-only field displaying the base image you selected on the previous blade.
-	- Tap **VM Size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
+	- **Image** - This field displays name of the base image you selected on the previous blade. 
+	- **VM Size** - Tap to one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 	- **Virtual network** - Tap and select the desired virtual network.
 	- **Subnet** Tap and and select the desired subnet.
 	- **Public IP address** - If the lab policy is set to allow public IP addresses for the selected subnet, specify whether or not you want the IP address to be public by selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**.
-	- **Artifacts** - Tap and, from the list of artifacts, select and configure the artifacts that you want to add to the base image. 
+	- **Artifacts** - Tap and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. Note that artifact parameters that are secure strings don’t display, since the Formula doesn’t save any secure string values. 
 
     	![Create formula](./media/devtest-lab-manage-formulas/create-formula.png)
 
@@ -85,6 +85,8 @@ The following steps guide you through the process of creating a new Formula from
 
 ### Create a new Formula from a lab VM
 The following steps guide you through the process of creating a Formula based on an existing VM. 
+
+> [AZURE.NOTE] Only VMs created after March 30, 2016 support creating a new Formula from a lab VM. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

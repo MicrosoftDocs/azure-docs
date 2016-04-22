@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Comparing DevTest Labs VM base image options | Microsoft Azure"
-	description="Learn about the different VM base image types so you can decide which one best suits your environment."
+	pageTitle="Comparing Custom Images and Formulas in DevTest Labs | Microsoft Azure"
+	description="Learn about the differences between Custom Images and Formulas as VM bases so you can decide which one best suits your environment."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="04/22/2016"
 	ms.author="tarcher"/>
 
-# Comparing DevTest Labs VM base image options
+# Comparing Custom Images and Formulas in DevTest Labs
 
 ## Overview
 Both [Custom Images](./devtest-lab-create-template.md) and [Formulas](./devtest-lab-manage-formulas.md) 
