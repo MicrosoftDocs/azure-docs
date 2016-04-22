@@ -54,9 +54,7 @@ The figure below is a graphical representation of the solution.
 
 Note that this is one possible configuration. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster. This method reduces the VM count by one from the above configuration.
 
-[AZURE.NOTE] Completing this tutorial takes a significant amount of time. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
-
-
+>[AZURE.NOTE] Completing this tutorial takes a significant amount of time. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
 
 This tutorial assumes the following:
 
