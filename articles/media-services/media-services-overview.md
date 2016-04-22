@@ -105,14 +105,17 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 1. Publish the asset by creating an OnDemand locator.
 1. Stream published content. 
 
-###Index content
+###Use Media Analytics to derive actionable insights from your videos 
 
-1. Upload a high-quality mezzanine file into an Asset.
-1. Index content.
+Media Analytics is a collection of speech and vision components that make it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
 
-	The indexing job generates files that can be used as Closed Captions (CC) in video playback. It also generates files that enable you to do in-video search and jump to the exact location of the video.	
+You can use one of the following Media Analytics services:
 
-1. Consume indexed content.
+- **Indexer** – [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
+- **Hyperlapse** – [Hyperlapse Media Files with Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+- **Motion detection** – [Motion Detection for Azure Media Analytics](media-services-motion-detection.md).
+- **Face detection and Face emotions** – [Face and Emotion Detection for Azure Media Analytics](media-services-face-and-emotion-detection.md).
+- **Video summarization** – [Use Azure Media Video Thumbnails to Create a Video Summarization](media-services-video-summarization.md)
 
 
 ###Deliver progressive download 
@@ -133,7 +136,7 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 - [How to get media processor](media-services-get-media-processor.md)
 - [How to encode content](media-services-manage-content.md#encode)
 - [How to monitor jobs](media-services-portal-check-job-progress.md)
-- [How to index content](media-services-manage-content.md#index)
+- [How to use analytics](media-services-analytics-overview.md)
 - [How to protect content](media-services-manage-content.md#encrypt)
 - [How to protect publish](media-services-manage-content.md#publish)
 - [How to scale encoding](media-services-portal-encoding-units.md)
