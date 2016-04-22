@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="03/14/2016"
+	ms.date="04/25/2016"
 	ms.author="marsma" />
 
 # Application deployment with Azure Batch application packages
@@ -111,29 +111,6 @@ Click **Add** on the *Applications* blade to open the *New application* blade.
 ![New application blade in Azure portal][5]
 
 The *New application* blade provides the following fields for specifying the settings of your new application and application package.
-
-**Metadata**
-
-You can either supply the application metadata manually by entering values directly into the **Application id** and **Version** text boxes, or you can upload a JSON file that contains this metadata. To specify the application id and version manually, simply leave the **Metadata** drop-down selector on **Enter metadata** (the default), and manually enter the values into the **Application id** and **Version** text boxes.
-
-To specify a JSON-formatted metadata file containing the id and version for a package, select **Upload metatdata file** from the **Metadata** drop-down:
-
-![Upload metadata file drop-down selector][6]
-
-Then, click the folder icon next to the **Metadata file** text box that appears, and browse to the local file containing the JSON data. In this example, the file `litware_1.1001.2b.json` has been selected for upload, and the **Application id** and **Version** text boxes have been automatically populated with the information in the file:
-
-![Metadata file selection detail][13]
-
-Use the following JSON format to specify the application package metadata in a file:
-
-```
-{
-    "id": "litware",
-    "version": "1.1001.2b"
-}
-```
-
-> [AZURE.NOTE] If you upload a JSON metadata file for the id and version, you do *not* also need to edit the "Application id" or "Version" text boxes--they are automatically populated with the data in the JSON file.
 
 **Application id**
 
@@ -308,11 +285,9 @@ With application packages, you can more easily provide your customers with the a
 [3]: ./media/batch-application-packages/app_pkg_03.png "Applications blade in Azure portal"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Application details blade in Azure portal"
 [5]: ./media/batch-application-packages/app_pkg_05.png "New application blade in Azure portal"
-[6]: ./media/batch-application-packages/app_pkg_06.png "Upload metadata file drop-down selector"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Update or delete packages drop-down in Azure portal"
 [8]: ./media/batch-application-packages/app_pkg_08.png "New application package blade in Azure portal"
 [9]: ./media/batch-application-packages/app_pkg_09.png "No linked Storage account alert"
 [10]: ./media/batch-application-packages/app_pkg_10.png "Choose storage account blade in Azure portal"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Update package blade in Azure portal"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Delete package confirmation dialog in Azure portal"
-[13]: ./media/batch-application-packages/app_pkg_13.png "Metadata file selection detail"
