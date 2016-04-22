@@ -28,7 +28,7 @@ Learn how to create an [elastic database pool](sql-database-elastic-pool.md) usi
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
+Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
 The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) so you need to install the library. You can install by running the following command in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
@@ -36,7 +36,8 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 ## Create a new pool
 
-    // Create elastic pool: configure create or update parameters and properties explicitly
+Create a new elastic pool. The values for DTU, minimum, and maximum Dtus are constrained by the edition value. See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+
     ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
     {
         Location = "South Central US",
@@ -97,14 +98,13 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 ## Create a pool C&#x23; example
 
-
 The following libraries are required to run this example. You can install by running the following commands in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md).
+Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md). Use the [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) cmdlet to retrieve the value for the subscriptionId.
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
