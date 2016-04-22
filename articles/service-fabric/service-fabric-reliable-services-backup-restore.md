@@ -123,6 +123,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 ## Deleted or lost service
 
 If a service is removed, you must first re-create the service before the data can be restored.  It is important to create the service with the same configuration, e.g., partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (**OnDataLossAsync** above) has to be invoked on every partition of this service. One way of achieving this is by using **[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)** on every partition.  
+>[AZURE.NOTE] It is not recommended to use FabricClient.ServiceManager.InvokeDataLossAsync on each partition to restore the entire service, since that may corrupt your cluster state.
 
 From this point, implementation is the same as the above scenario. Each partition needs to restore the latest relevant backup from the external store. One caveat is that the partition ID may have now changed, since the runtime creates partition IDs dynamically. Thus, the service needs to store the appropriate partition information and service name to identify the correct latest backup to restore from for each partition.
 
@@ -150,6 +151,8 @@ Backup and restore for Reliable Actors builds on the backup and restore function
 
 - When you create a custom actor service, you will need to register the custom actor service as well while registering the actor. See **ActorRuntime.RegistorActorAsync**.
 - The **KvsActorStateProvider** currently only supports full backup. Support for incremental backup with come in future versions. Also the option **RestorePolicy.Safe** is ignored by the **KvsActorStateProvider**.
+
+>[AZURE.NOTE] The default ActorStateProvider **does not** cleanup the backup folders by itself (under the \svcfab\_App\{application}\work folder). This may cause your work folder to get filled up. It is recommended to explicitly do the cleanup in the backup callback.
 
 ## Testing Backup and Restore
 
