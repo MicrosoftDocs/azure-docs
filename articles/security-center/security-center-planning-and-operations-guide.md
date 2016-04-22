@@ -41,7 +41,7 @@ In the next section you will learn how to plan for each one of those areas and a
 
 Depending on the size and structure of your organization, multiple individuals and teams may use Security Center to perform different security-related tasks. Below you have an example of fictitious personas and their respective roles and security responsibilities:
 
-![Roles](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig1.png)
+![Roles](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01.png)
 
 Azure Security Center enables these individuals to meet these various responsibilities. For example:
 
@@ -128,7 +128,7 @@ Before configuring security policies, you should review each of the [security re
 
 **Baseline Configurations**: If virtual machine operating system configurations do not match the recommended baselines, a recommendation will be surfaced. You should review the set of baselines [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) and consider how operating system configurations will be applied. 
 
-**Disk Encryption**: If you have virtual machine disks that are not encrypted, Azure Security Center will recommend that you apply Azure Disk Encryption, which leverages BitLocker for Windows and DM-Crypt for Linux to provide volume encryption for the OS and data disks. This recommendation will redirect you to a [step by step guide](./azure-security-disk-encryption.md) that has the instructions on how to perform this encryption. 
+**Disk Encryption**: If you have virtual machine disks that are not encrypted, Azure Security Center will recommend that you apply Azure Disk Encryption, which leverages BitLocker for Windows and DM-Crypt for Linux to provide volume encryption for the OS and data disks. This recommendation will redirect you to a [step by step guide](../azure-security-disk-encryption.md) that has the instructions on how to perform this encryption. 
 
 Be aware that there are several encryption scenarios that you need to address. You will need to plan for the unique requirements for each of these scenarios:
 
@@ -140,7 +140,7 @@ Planning requirements will be different for each of these scenarios. Please refe
 
 **Web Application Firewall**: Azure Security Center will identify virtual machines running web applications and recommend that you install a Web Application Firewall (WAF). Evaluate the available partner solutions to determine which is the best fit for your organization and determine how the solution will be licensed (partners may support Bring Your Own License and/or Pay As You Go models). For more information on how to deploy a web application firewall in your Azure VMs using Azure Security Center, read [Add a web application firewall in Azure Security Center](security-center-add-web-application-firewall.md).
 
-**Virtual Networking**: Azure Security Center will evaluate your [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) infrastructure and configuration to check that [Network Security Groups](./virtual-network/virtual-network.md) are applied and properly configured with inbound traffic rules. You should consider what traffic rules should be defined and communicate this to the individuals who will be applying the related security recommendations.
+**Virtual Networking**: Azure Security Center will evaluate your [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) infrastructure and configuration to check that [Network Security Group](../virtual-network/virtual-networks-nsg.md) are applied and properly configured with inbound traffic rules. You should consider what traffic rules should be defined and communicate this to the individuals who will be applying the related security recommendations.
 
 ## Data Collection and Storage
 
@@ -148,7 +148,7 @@ We strongly recommend that you turn data collection on for each of your subscrip
 
 The Azure Security Monitoring extension scans for various security relevant configuration and collects security logs from the virtual machine. This data is sent to a Storage account you specify. The scan manager (ASMSoftwareScanner.exe) will be also installed in the virtual machine and be used as a patch scanner.
 
-After data collection is enabled in the security policy, the monitoring agent and extensions are installed automatically on all existing and any new supported virtual machines that are provisioned in Azure.  The agent’s process is noninvasive, doesn’t affect the VM’s performance.
+After data collection is enabled in the security policy, the monitoring agent and extensions are installed automatically on all existing and any new supported virtual machines that are provisioned in Azure.  The agent’s process is non-invasive and doesn’t affect the VM’s performance.
  
 If at some point you want to disable Data Collection, you can turn it off in the security policy. To delete monitoring agents previously deployed, select the Delete Agents menu option.
 
@@ -156,17 +156,17 @@ If at some point you want to disable Data Collection, you can turn it off in the
 
 For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, one will be created for you. You can choose the storage location per region or store all information in a central location. While security policies can be set at the Azure subscription level and resource group level, the region for your storage account can only be selected at the subscription level.
 
-If you are using a storage account shared among different Azure resources, ensure that you read [Azure Storage Scalability and Performance Targets](./storage/storage-scalability-targets.md) article for more information about size limits and constraints. Your subscription also has storage account limits, review [Azure subscription and service limits, quotas, and constraints](./azure-subscription-service-limits) to better understand these limits.
+If you are using a storage account shared among different Azure resources, ensure that you read [Azure Storage Scalability and Performance Targets](../storage/storage-scalability-targets.md) article for more information about size limits and constraints. Your subscription also has storage account limits, review [Azure subscription and service limits, quotas, and constraints](./azure-subscription-service-limits) to better understand these limits.
 
 > [AZURE.NOTE] Costs associated with this storage are not included in the price of the Azure Security Center service and will be charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/). 
 
-Performance and scalability considerations should also be planned according to your Azure environment size and the resources that are consuming your storage account. Review Microsoft Azure Storage Performance and Scalability Checklist for more information.
+Performance and scalability considerations should also be planned according to your Azure environment size and the resources that are consuming your storage account. Review [Microsoft Azure Storage Performance and Scalability Checklist](../storage/storage-performance-checklist.md) for more information.
 
 ## Ongoing security monitoring
 
 After initial configuration and application of Azure Security Center recommendations, the next step is considering Azure Security Center operational processes. 
 
-To access Azure Security Center from Azure Portal you can click **Browse** and type **Security Center** in the **Filter** field. The views that the user gets are according to these applied filters.
+To access Azure Security Center from the Azure Portal you can click **Browse** and type **Security Center** in the **Filter** field. The views that the user gets are according to these applied filters.
 
 Azure Security Center will not interfere with your normal operational procedures, it will passively monitor your deployments and provide recommendations based on the security policies you enabled.
 
@@ -181,11 +181,11 @@ Once you address all recommendations, the **Prevention** section should be green
 
 The **Detection** section is more reactive, these are alerts regarding issues that are either taking place now, or occurred in the past and were detected by Azure Security Center controls and 3rd party systems. The Security Alerts tile will show bar graphs that represent the number of threat detection alerts that were found in each day, and their distribution among the different severity categories (low, medium, high). For more information about Security Alerts, read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). 
 
-> [AZURE.NOTE] you can also leverage Microsoft Power BI to visualize your Azure Security Center data. Read [Get insights from Azure Security Center data with Power BI](security-center-powerbi.md).
+> [AZURE.NOTE] You can also leverage Microsoft Power BI to visualize your Azure Security Center data. Read [Get insights from Azure Security Center data with Power BI](security-center-powerbi.md).
 
 ### Monitoring for new or changed resources
 
-Most Azure environments are dynamic, with new resources being spun up and down on a regular basis, configurations are changes, etc. Azure Security Center helps ensure that you have visibility into the security state of these new resources.
+Most Azure environments are dynamic, with new resources being spun up and down on a regular basis, configurations or changes, etc. Azure Security Center helps ensure that you have visibility into the security state of these new resources.
 
 When you add new resources (VMs, SQL DBs) to your Azure Environment, Azure Security Center will automatically discover these resources and begin to monitor their security. If Data Collection is enabled in the Security Policy, additional monitoring capabilities will be enabled automatically for your virtual machines. 
 
@@ -193,7 +193,7 @@ When you add new resources (VMs, SQL DBs) to your Azure Environment, Azure Secur
 
 1.	For virtual machines, access the **Resource security health** tile, click **Virtual Machines**. Any issues with enabling data collection or related recommendations will be surfaced in the **Monitoring Recommendations** section.
 2.	View the **Recommendations** to see what, if any, security risks were identified for the new resource.
-3.	It is very common that when new VMs are added to your environment, only the operating system is initially installed. The resource owner might need some time to deploy other apps that will be used by these VMs.  Ideally you should know what the final intent of this workload. Is it going to be an Application Server? Based on what this new workload is going to be, you can enable the appropriate **Security Policy**, which is the third step in this workflow.
+3.	It is very common that when new VMs are added to your environment, only the operating system is initially installed. The resource owner might need some time to deploy other apps that will be used by these VMs.  Ideally, you should know the final intent of this workload. Is it going to be an Application Server? Based on what this new workload is going to be, you can enable the appropriate **Security Policy**, which is the third step in this workflow.
 4.	As new resources are added to your Azure environment, it is possible that new alerts appear in the **Security Alerts** tile. Always verify if there are new alerts in this tile and take actions according to Azure Security Center recommendations.
 
 You will also want to regularly monitor the state of existing resources to identify configuration changes that have created security risks, drift from recommended baselines, and security alerts. Start at the Azure Security Center dashboard. From there you have three major areas to review on a consistent basis.
@@ -208,7 +208,7 @@ You will also want to regularly monitor the state of existing resources to ident
 
 Azure Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack.
 
-> [AZURE.NOTE] this article does not have the intent to assist you creating your own Incident Response plan. You can use the National Institute of Standards and Technology (NIST) [Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) as a reference to assist you building your own.
+> [AZURE.NOTE] This article does not have the intent to assist you creating your own Incident Response plan. You can use the National Institute of Standards and Technology (NIST) [Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) as a reference to assist you building your own.
 
 Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided, to inform further research and to begin mitigation.
 
