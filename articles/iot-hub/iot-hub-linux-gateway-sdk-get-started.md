@@ -35,7 +35,7 @@ Before you get started, you must [set up your development environment][lnk-setup
 
 1. The **build.sh** script generates its output in the **~/cmake/gateway** folder. This includes the two modules used in this sample.
 
-    The build script places **liblogger_hl.so** in the **/modules/logger/** folder and **libhelloworld_dl.so** in  the **/modules/helloworld/** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
+    The build script places **liblogger_hl.so** in the **/modules/logger/** folder and **libhello_world_dl.so** in  the **/modules/hello_world/** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
 
 2. For the **logger_hl** module, in **args** set the **filename** value to the path of the file that will contain the log data.
 
@@ -54,19 +54,16 @@ Before you get started, you must [set up your development environment][lnk-setup
           }
         },
         {
-          "module name" : "helloworld",
-          "module path" : "./modules/helloworld/libhelloworld_hl.so",
-          "args" : 
-          {
-            "notused":"at_all"
-          }
+          "module name" : "hello_world",
+          "module path" : "./modules/hello_world/libhello_world_hl.so",
+          "args" : null
         }
       ]
     }
     ```
 
-3. In your shell, navigate to **~/cmake/gateway/samples/helloworld** folder.
-4. Run the executable **./helloworld_sample**. 
+3. In your shell, navigate to **~/cmake/gateway/samples/hello_world** folder.
+4. Run the executable **./hello_world_sample**. 
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
 

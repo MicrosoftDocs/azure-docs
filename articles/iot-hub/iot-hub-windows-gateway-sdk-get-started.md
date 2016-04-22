@@ -27,13 +27,13 @@ Before you get started, you must [set up your development environment][lnk-setup
 
 1. Open a **Developer Command Prompt for VS2015** command prompt.
 2. Navigate to the folder **azure-iot-gateway-sdk\build\** in your local copy of the repository.
-3. Run the **build.cmd** script. This script creates a Visual Studio solution file, compiles the solution, and runs the tests. You can find the Visual Studio solution in the **azure-iot-gateway-sdk\.cmake** folder in your local copy of the repository.
+3. Run the **build.cmd** script. This script creates a Visual Studio solution file, builds the solution, and runs the tests. You can find the Visual Studio solution in the **azure-iot-gateway-sdk\.cmake** folder in your local copy of the repository.
 
 ## How to run the sample
 
 1. The **build.cmd** script creates a folder called **.cmake** in your local copy of the repository. This includes the two modules used in this sample.
 
-    The build script places **logger_hl.dll** in the **modules\logger\** folder and **helloworld_hl.dl** in the **modules\helloworld** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
+    The build script places **logger_hl.dll** in the **modules\logger\** folder and **hello_world_hl.dl** in the **modules\hello_world** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
 
 2. For the **logger_hl** module, in **args** set the **filename** value to the path of the file that will contain the log data.
 
@@ -52,12 +52,9 @@ Before you get started, you must [set up your development environment][lnk-setup
           }
         },
         {
-          "module name" : "helloworld",
-          "module path" : "..\\..\\..\\modules\\helloworld\\Debug\\helloworld_hl.dll",
-          "args" : 
-          {
-            "notused":"at_all"
-          }
+          "module name" : "hello_world",
+          "module path" : "..\\..\\..\\modules\\hello_world\\Debug\\hello_world_hl.dll",
+          "args" : null
         }
       ]
     }

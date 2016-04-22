@@ -1,6 +1,6 @@
  ## Typical output
 
-Below is an example of the output written to the log file by the Hello World sample:
+Below is an example of the output written to the log file by the Hello World sample. Newline and Tab characters have been added for legibility:
 
 ```
 [{
@@ -78,7 +78,7 @@ The following sample shows the JSON settings file used to configure the Hello Wo
         },
         {
             "module name" : "helloworld",
-            "module path" : "./modules/helloworld/libhelloworld_hl.so",
+            "module path" : "./modules/hello_world/libhello_world_hl.so",
 			"args" : null
         }
     ]
@@ -87,7 +87,7 @@ The following sample shows the JSON settings file used to configure the Hello Wo
 
 ### Hello World module message publishing
 
-You can find the code used by the "hello world" module to publish messages in the ['helloworld.c'][lnk-helloworld-c] file. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
+You can find the code used by the "hello world" module to publish messages in the ['hello_world.c'][lnk-helloworld-c] file. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
 
 ```
 int helloWorldThread(void *param)
@@ -193,5 +193,5 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-field-gateway-sdk/blob/master/samples/helloworld/src/main.c
-[lnk-helloworld-c]: https://github.com/Azure/azure-iot-field-gateway-sdk/blob/master/modules/helloworld/src/helloworld.c
+[lnk-helloworld-c]: https://github.com/Azure/azure-iot-field-gateway-sdk/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/azure-iot-field-gateway-sdk/blob/master/modules/logger/src/logger.c

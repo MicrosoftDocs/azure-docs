@@ -2,7 +2,7 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-This article provides a detailed walkthrough of the [Hello World][lnk-helloworld-sample] sample to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
+This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
 
 This walkthrough covers:
 
@@ -70,5 +70,5 @@ The figure above shows the architecture of the Hello World sample and the relati
 [5]: media/iot-hub-gateway-sdk-getstarted-selector/detailed_architecture.png
 
 <!-- Links -->
-[lnk-helloworld-sample]: https://github.com/Azure/azure-iot-field-gateway-sdk/tree/master/samples/helloworld
+[lnk-helloworld-sample]: https://github.com/Azure/azure-iot-field-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-field-gateway-sdk
