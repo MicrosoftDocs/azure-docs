@@ -162,7 +162,7 @@ The following instructions give you general guidance, but are not exhaustive. If
 3. Click **Add Collection** to create a collection with an id of `musicstorecoll`.
 3. Click **Document Explorer**.
 4. Click **Upload**.
-5. In **Upload Document**, navigate to the local folder that contains the JSON files you downloaded in step 1. Select JSON files in batches of 100 or fewer.
+5. In **Upload Document**, navigate to the local folder that contains the JSON files you downloaded previously. Select JSON files in batches of 100 or fewer.
 	- 386.json
 	- 387.json
 	- . . .
