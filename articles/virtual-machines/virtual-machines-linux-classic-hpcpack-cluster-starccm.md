@@ -160,7 +160,7 @@ Azure VM instances A8 and A9 provides Infiniband support and RDMA capabilities. 
 
 CD-Adapco StarCCM+ release 11.x and above is bundled with Intel MPI version 5.x, so Infiniband support for Azure is included.
 
-Get the Linux64 StarCCM+ package from the CD-Adapco portal https://steve.cd-adapco.com in our case we used version 11.02.010 in mixed precision.
+Get the Linux64 StarCCM+ package from the [CD-Adapco portal](https://steve.cd-adapco.com)  in our case we used version 11.02.010 in mixed precision.
 
 On the HeadNode, in the **/hpcdata** azure file share, create a shell script named **setupstarccm.sh** with the following content. This script will be launched on each compute nodes to setup StarCCM+ locally.
 
@@ -196,6 +196,7 @@ While the command is running, you can monitor the CPU usage with the heatmap of 
 ## Running StarCCM+ Jobs
 HPC Pack is used for its job scheduler capabilities in order to run StarCCM+ jobs. To do so we need the support of few scripts that are used to kick off the job and execute StarCCM+. The input data are kept on the Azure File share first for simplicity.
 The following Powershell script is used to queue a StarCCM+ job. It takes 3 arguments :
+
 *  The Model name
 *  The number of nodes to be used
 *  The number of cores on each node to be used
@@ -233,7 +234,7 @@ Log files are named with the job ID and are stored in the **/hpcdata share** as 
 
     Submit-HpcJob -Job $job -Scheduler $scheduler
 ```
-Replace the runner.java with your preferred StarCCM+ java model launcher and logging code.
+Replace the **runner.java** with your preferred StarCCM+ java model launcher and logging code.
 
 #### sample runstarccm.sh script
 ```
