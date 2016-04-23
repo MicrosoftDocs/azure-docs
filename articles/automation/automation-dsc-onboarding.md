@@ -138,6 +138,10 @@ Azure virtual machines can be deployed and onboarded to Azure Automation DSC via
 
 The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
 
+## Amazon Web Services (AWS) virtual machines
+
+You can easily onboard Amazon Web Services virtual machines for configuration management by Azure Automation DSC using the AWS DSC Toolkit. You can learn more about the toolkit [here](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
+
 ## Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
 
 On-premises Windows machines and Windows machines in non-Azure clouds (such as Amazon Web Services) can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
