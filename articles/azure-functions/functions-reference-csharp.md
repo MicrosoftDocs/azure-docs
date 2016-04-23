@@ -180,7 +180,7 @@ Function apps are built on App Service, so all of the [deployment options availa
 
 #### To upload project.json by using the function app's SCM (Kudu) endpoint
 
-1. Navigate to: *https://<function_app_name>.scm.azurewebsites.net*.
+1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Click **Debug Console > CMD**.
 
