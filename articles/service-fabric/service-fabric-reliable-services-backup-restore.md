@@ -152,7 +152,7 @@ Backup and restore for Reliable Actors builds on the backup and restore function
 - When you create a custom actor service, you will need to register the custom actor service as well while registering the actor. See **ActorRuntime.RegistorActorAsync**.
 - The **KvsActorStateProvider** currently only supports full backup. Also the option **RestorePolicy.Safe** is ignored by the **KvsActorStateProvider**.
 
->[AZURE.NOTE] The default ActorStateProvider (i.e., **KvsActorStateProvider**) **does not** cleanup the backup folders by itself (under the application work folder obtained through ICodePackageActivationContext.WorkDirectory). This may cause your work folder to get filled up. You should explicitly cleanup the backup folder in the backup callback after you have moved the backup to an external storage. Support for auto cleanup will come in future versions.
+>[AZURE.NOTE] The default ActorStateProvider (i.e., **KvsActorStateProvider**) **does not** cleanup the backup folders by itself (under the application work folder obtained through ICodePackageActivationContext.WorkDirectory). This may cause your work folder to get filled up. You should explicitly cleanup the backup folder in the backup callback after you have moved the backup to an external storage. 
 
 
 ## Testing Backup and Restore
