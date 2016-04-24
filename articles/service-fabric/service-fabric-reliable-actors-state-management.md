@@ -179,7 +179,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-At the end of an actor method, the State Manager automatically saves any values that have been added or modified by an insert or update operation. A "save" can include persisting to disk and replication, depending on the settings used. Values that have not been modified are not persisted or replicated. If no values have bene modified, the save operation does nothing. In the event that saving fails, the modified state is discarded and the original state is reloaded.
+At the end of an actor method, the State Manager automatically saves any values that have been added or modified by an insert or update operation. A "save" can include persisting to disk and replication, depending on the settings used. Values that have not been modified are not persisted or replicated. If no values have been modified, the save operation does nothing. In the event that saving fails, the modified state is discarded and the original state is reloaded.
 
 State can also be saved manually be calling the `SaveStateAsync` method on the actor base:
 
