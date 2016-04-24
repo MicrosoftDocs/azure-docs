@@ -1,3 +1,21 @@
+<properties
+   pageTitle="Logic apps examples and scenarios | Microsoft Azure"
+   description="See common Logic apps examples and learn how to implement common scenarios"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="msftman"
+   manager="erikre"
+   editor=""/>
+
+<tags
+   ms.service="app-service-logic"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="04/25/2016"
+   ms.author="deonhe"/>
+
 # Logic apps examples and common scenarios
 
 This document details common scenarios and examples to help you to understand some of the ways you can use Logic apps to automate business processes. 
