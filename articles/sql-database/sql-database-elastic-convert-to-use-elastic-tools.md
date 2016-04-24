@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Convert existing databases to use elastic database tools"
+   pageTitle="Migrate existing databases to scaled-out databases"
    description="Convert sharded databases to use elastic database tools by creating a shard map manager"
    services="sql-database"
    documentationCenter=""
@@ -13,31 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/01/2016"
+   ms.date="04/19/2016"
    ms.author="SilviaDoomra"/>
 
-# Convert existing databases to use elastic database tools
+# Migrate existing databases to scaled-out databases
 
-If you have an existing scaled-out, sharded solution, you can take advantage of the Elastic database tools, like [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), by using the techniques described here. 
+To take advantage of the elastic database tools (such as the [Elastic Database client library](sql-database-elastic-database-client-library.md)), you must convert an existing set of databases to use the [shard map manager](sql-database-elastic-scale-shard-map-management.md). To migrate an existing application: 
+
+1. Prepare the [shard map manager database](sql-database-elastic-scale-shard-map-management.md).
+2. Create the shard map.
+3. Prepare the individual shards.  
+2. Add mappings to the shard map.
 
 These techniques can be implemented using either the [.NET Framework client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
-Note that you must create the databases before executing the Add-Shard and New-ShardMapManager cmdlets. The cmdlets do not create databases for you.
-
-There are four steps:
-
-1. Prepare the shard map manager database.
-2. Create the shard map.
-3. Prepare the individual shards.  
-2. Add the mappings to the shard map.
-
 For more information about the ShardMapManager, see [Shard map management](sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
 
-## Preparation of the shard map manager database
-You can use a new or existing database as the shard map manager. 
+## Prepare the shard map manager database
+
+The shard map manager is a special database that contains the data to manage scaled-out databases. You can use an existing database, or create a new database. Note that a database acting as shard map manager should not be the same database as a shard. Also note that the PowerShell script does not create the database for you. 
 
 ## Step 1: create a shard map manager
-Note that a database acting as shard map manager shouldn’t be the same database as a shard. 
 
 	# Create a shard map manager. 
 	New-ShardMapManager -UserName '<user_name>' 
@@ -61,7 +57,7 @@ After creation, you can retrieve the shard map manager with this cmdlet. This st
   
 ## Step 2: create a shard map
 
-The choice is to create one of the following models: 
+You must select the type of shard map to create. The choice depends on the database architecture: 
 
 1. Single tenant per database 
 2. Multiple tenants per database (two types):
@@ -69,7 +65,7 @@ The choice is to create one of the following models:
 	4. List mapping
  
 
-If you are using a single-tenant database model, use the list mapping. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
+If you are using a single-tenant database model, create a list mapping shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
 
 ![List mapping][1]
 

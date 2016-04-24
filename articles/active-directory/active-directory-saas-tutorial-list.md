@@ -102,6 +102,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HPESaaS.jpg)| [HPE SaaS](https://go.microsoft.com/fwLink/?LinkID=708663&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_HR2day.jpg)| [HR2day by Merces](https://go.microsoft.com/fwLink/?LinkID=708684&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Huddle.jpg)| [Huddle](https://go.microsoft.com/fwLink/?LinkID=403227&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_IBM_Kenexa_Survey_Enterprise.jpg)| [IBM Kenexa Survey Enterprise](https://go.microsoft.com/fwLink/?LinkID=785280&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ICIMS.jpg)| [ICIMS](https://go.microsoft.com/fwLink/?LinkID=708675&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_IdeaScale.jpg)| [IdeaScale](https://go.microsoft.com/fwLink/?LinkID=512746&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_IglooSoftware.jpg)| [Igloo Software](https://go.microsoft.com/fwLink/?LinkID=522555&clcid=0x409)|
@@ -110,6 +111,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_InsideView.jpg)| [InsideView](https://go.microsoft.com/fwLink/?LinkID=512719&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Insperity.jpg)| [Insperity ExpensAble](https://go.microsoft.com/fwLink/?LinkID=733447&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Intacct.jpg)| [Intacct](https://go.microsoft.com/fwLink/?LinkID=403230&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Intralinks.jpg)| [Intralinks](https://go.microsoft.com/fwLink/?LinkID=733456&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ITRP.jpg)| [ITRP](https://go.microsoft.com/fwLink/?LinkID=510250&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_JitbitHelpdesk.jpg)| [Jitbit Helpdesk](https://go.microsoft.com/fwLink/?LinkID=522554&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Jive.jpg)| [Jive](https://go.microsoft.com/fwLink/?LinkID=403258&clcid=0x409)|

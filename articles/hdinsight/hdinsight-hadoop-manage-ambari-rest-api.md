@@ -31,7 +31,7 @@ Apache Ambari simplifies the management and monitoring of a Hadoop cluster by pr
 * [jq](https://stedolan.github.io/jq/): jq is a cross-platform command-line utility for working with JSON documents. In this document, it is used to parse the JSON documents returned from the Ambari REST API.
 * [Azure CLI](../xplat-cli-install.md): a cross-platform command-line utility for working with Azure services.
 
-    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)] 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ##<a id="whatis"></a>What is Ambari?
 

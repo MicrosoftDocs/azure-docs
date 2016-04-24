@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/20/2016"
 	ms.author="andkjell"/>
 
 
@@ -59,6 +59,9 @@ The notification was also sent to customers using Azure AD Connect with a build 
 
 **Q: Will DirSync/Azure AD Sync stop working on April 13, 2017?**  
 No. The date for when these will no longer be able to communicate with Azure AD will be announced at a later date. You will be able to find that information in this topic when available.
+
+**Q: Which DirSync versions can I upgrade from?**  
+It is supported to upgrade from any DirSync release currently being used.
 
 **Q: What about the Azure AD Connector for FIM/MIM?**  
 The Azure AD Connector for FIM/MIM has **not** been announced as deprecated. It is at **feature freeze**; no new functionality is added and it receives no bug fixes. Microsoft recommends customers using it to plan to move from it to Azure AD Connect. It is strongly recommended to not start any new deployments using it. This Connector will be announced deprecated in the future.
