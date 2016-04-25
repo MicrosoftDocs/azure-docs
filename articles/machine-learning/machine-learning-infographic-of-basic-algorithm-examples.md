@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="04/25/2016"
 	ms.author="garye" />
 
 
@@ -27,11 +27,9 @@ What are examples of machine learning algorithms?
 [Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms that you can use to solve predictive analytics problems. 
 The infographic below demonstrates how the four types of machine learning algorithms - **regression**, **anomaly detection**, **clustering**, and **classification** - can be used to answer your machine learning questions.
 
-## Download the infographic
-
-You can download the infographic below as a PDF file. The PDF file contains embedded links to examples of each algorithm. 
-
-**Download the infographic here: [Infographic of machine learning basic algorithms](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+> [AZURE.NOTE] You can download this infographic as a PDF file. The PDF file contains embedded links to examples of each algorithm. 
+>
+>**Download the infographic here: [Infographic of machine learning basic algorithms](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 
 ![Infographic of machine learning basic algorithms](./media/machine-learning-infographic-of-basic-algorithm-examples/machine-learning-infographic-of-basic-algorithm-examples.png)
