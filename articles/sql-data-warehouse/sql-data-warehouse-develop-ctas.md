@@ -21,7 +21,7 @@ Create table as select or `CTAS` is one of the most important T-SQL features ava
 
 ## Using CTAS to copy a table
 
-Perhaps one of the most common uses of `CTAS` is creating a copy of a table so that you can change the DDL. If for example you originally created your table as `ROUND_ROBIN` and now want change it to a table distributed on a column, `CTAS` is how you would change the distribution column. `CTAS` can also be used to changed partitioning, indexing, or column types.
+Perhaps one of the most common uses of `CTAS` is creating a copy of a table so that you can change the DDL. If for example you originally created your table as `ROUND_ROBIN` and now want change it to a table distributed on a column, `CTAS` is how you would change the distribution column. `CTAS` can also be used to change partitioning, indexing, or column types.
 
 Let's say you created this table using the default distribution type of `ROUND_ROBIN` distributed since no distribution column was specified in the `CREATE TABLE`.
 
@@ -282,7 +282,7 @@ SELECT @d*@f
 ;
 ```
 
-Instinctively you might think you should migrate this code to a CTAS and you would be correct. However, their is a hidden issue here.
+Instinctively you might think you should migrate this code to a CTAS and you would be correct. However, there is a hidden issue here.
 
 The following code does NOT yield the same result:
 

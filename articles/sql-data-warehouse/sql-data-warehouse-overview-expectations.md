@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/12/2016"
+   ms.date="04/19/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -24,7 +24,8 @@ This article describes SQL Data Warehouse preview capabilities, and our goals fo
 Our goals for SQL Data Warehouse:
 
 - Predictable performance and linear scalability up to petabytes of data.
-- High reliability for all data warehouse operations, backed by a service level agreement (SLA).
+- High reliability for all data warehouse operations
+- Short time from data loading to data insights across relational and non-relational data
 
 We will continuously work toward these goals before promoting SQL Data Warehouse to general availability.
 
@@ -37,11 +38,10 @@ Any data warehouse has 2 fundamental performance metrics:
 - Load rate. The number of records that can be loaded into the data warehouse per second. We specifically measure the number of records that can be imported, via PolyBase, from Azure Blob Storage to a table with a Clustered Column-Store Index.
 - Scan rate. The number of records that can be sequentially retrieved from the data warehouse per second. We specifically measure the number of records returned by a query on a clustered columnstore index.
 
-
 We’re measuring some important performance enhancements and will soon share the expected rates. During preview we will make continuous enhancements (e.g. increasing compression and caching) to increase these rates and to ensure they scale predictably.  
 
 
-## High reliability backed by an SLA
+## High reliability
 
 ### Data Protection
 
@@ -58,6 +58,11 @@ Snapshots are copied asynchronously to a remote Azure region for added recoverab
 ### Query completion
 
 SQL Data Warehouse stores data across one or more computing nodes that each store some of the user data and control query execution on that data. As part of the massively parallel processing (MPP) architecture, the queries run in parallel across the Compute nodes. SQL Data Warehouse automatically detects and mitigates Compute node failures. However, during preview, an operation (e.g. data load or query) may fail due to individual node failures. During preview, we are making continuous enhancements to successfully complete operations despite node failures.
+
+
+### Upgrades and downtime
+
+During the preview, SQL Data Warehouse will periodically be upgraded in order to add new features and install critical fixes.  These upgrades can be disruptive and at this time upgrades are not done on a predictable schedule.  If you find that this process is too disruptive, we encourage you to [create a support ticket][] so that we can help you work around this process.
 
 
 ## Next steps

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/22/2016"
+   ms.date="04/20/2016"
    ms.author="larryfr"/>
 
 
@@ -93,7 +93,7 @@ Allowing inbound access from these addresses will allow you to successfully inst
 
 The following is an example script that will create a new Network Security Group that allows the required addresses, and applies the security group to a subnet within your Virtual Network. These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
 
-> [AZURE.NOTE] You must have installed and configured Azure PowerShell before running this script. For more information, see [Install and Configure Azure PowerShell](../powershell-install-configure.md).
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
     $vnetName = "Replace with your virtual network name"
     $resourceGroupName = "Replace with the resource group the virtual network is in"

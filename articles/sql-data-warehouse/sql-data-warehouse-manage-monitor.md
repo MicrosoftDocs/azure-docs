@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/12/2016"
+   ms.date="04/14/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitor your workload using DMVs
@@ -141,20 +141,6 @@ If the query is currently running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to
 DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 ```
-
-
-## Investigate Data Skew
-
-Use [DBCC PDW_SHOWSPACEUSED][] to lookup space used by a table.
-
-```sql
--- Find data skew for a distributed table
-DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
-```
-
-The result of this query will show you the number of table rows that are stored in each of the 60 distributions of your database. For optimal performance, the rows in your distributed table should be spread evenly across all the distributions.
-
-To learn more, see [manage data skew for distributed tables][] or [table design][].
 
 ## Next steps
 For more information on Transact-SQL and Dynamic Management Views (DMVs), see [reference overview][]

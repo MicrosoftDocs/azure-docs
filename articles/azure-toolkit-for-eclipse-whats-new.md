@@ -24,6 +24,14 @@
 
 This article contains information on the various releases and latest updates to the Azure Toolkit for Eclipse.
 
+### April 12, 2016
+
+The Azure Toolkit for Eclipse - April 2016 release includes the following enhancements:
+
+* **Support for Azure SDK v2.9.0**. The latest version of the Azure SDK is now the minimum pre-requisite for the Azure Toolkit for Eclipse.
+* **Miscellaneous usability, responsiveness and performance improvements related to Azure Web App support**. A number of performance optimizations in how the Toolkit communicates with Azure result in a more responsive UI.
+* **Ability to delete an existing Web Application container in Azure from within Eclipse**. The Azure Toolkit for Eclipse now allows you to delete an existing Azure Web container without leaving Eclipse.
+
 ### March 7, 2016
 
 The Azure Toolkit for Eclipse - March 2016 release includes the following enhancements:
@@ -32,7 +40,7 @@ The Azure Toolkit for Eclipse - March 2016 release includes the following enhanc
 * **Support for Web App management using the Azure Explorer view**. The Azure Explorer view in the toolkit now supports for listing, starting and stopping Azure Web Apps.
 * **Updated Tomcat, Jetty, and Zulu OpenJDK distributions**. The Azure Toolkit for Eclipse provides support for updated versions of Tomcat, Jetty and Zulu OpenJDK for Java deployments into Azure cloud services.
 
-### January 4, 2015
+### January 4, 2016
 
 The Azure Toolkit for Eclipse - January 2016 release includes the following enhancements:
 

@@ -54,7 +54,9 @@ There are many benefits with using HDInsight with Data factory:
 Before you begin the instructions in this article, you must have the following:
 
 - [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure CLI](../xplat-cli-install.md) or [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater). 
+- Azure CLI or Azure PowerShell. 
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##Prepare storage account
 
@@ -82,6 +84,8 @@ To simplify the tutorial, you will use one storage account to serve the 3 purpos
 **To prepare the storage and copy the files using Azure CLI**
 
     azure login
+    
+    azure config mode arm
 
     azure group create --name "<Azure Resource Group Name>" --location "East US 2"
 
