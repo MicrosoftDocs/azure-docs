@@ -14,12 +14,12 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="04/12/2016"
+   	ms.date="04/25/2016"
    	ms.author="jgao"/>
 
 # Install custom HDInsight applications
 
-HDInsight applications can be installed on existing Linux-based HDInsight clusters. These applications can be developed by Microsoft, an independent software vendor (ISV) or by yourself. In this article, you will learn how to install an HDInsight application that has not been published to the Azure portal on HDInsight. The application you will install is [Hue](http://gethue.com/). 
+HDInsight applications can be installed on Linux-based HDInsight clusters. These applications can be developed by Microsoft, an independent software vendor (ISV) or by yourself. In this article, you will learn how to install an HDInsight application that has not been published to the Azure portal on HDInsight. The application you will install is [Hue](http://gethue.com/). 
 
 Other related articles:
 
@@ -67,7 +67,7 @@ The files needed for deploying this application can be found in a public Azure b
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
 3. Click the cluster where you installed the application.
-4. From the **Settings** blade, click **Apps** under the **General** category. You shall see **hue** listed in the **Installed** Apps blade.
+4. From the **Settings** blade, click **Applications** under the **General** category. You shall see **hue** listed in the **Installed** Apps blade.
 5. Click **hue** from the list to list the properties.  
 6. Click the Webpage link. 
 7. Use the HDInsight cluster HTTP user credentials to login.

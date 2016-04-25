@@ -14,14 +14,14 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="04/12/2016"
+   	ms.date="04/25/2016"
    	ms.author="jgao"/>
 
 # Install HDInsight applications
 
-HDInsight applications can be installed on existing Linux-based HDInsight clusters. These applications can be developed by Microsoft, an independent software vendor (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For packaging and deploying custom HDInsight applications, see [Package and deploy HDInsight applications](hdinsight-apps-deploy.md).
+HDInsight applications can be installed on Linux-based HDInsight clusters. These applications can be developed by Microsoft, an independent software vendor (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For packaging and deploying custom HDInsight applications, see [Package and deploy HDInsight applications](hdinsight-apps-deploy.md).
 
-The following are the published HDInsight applications:
+The following are the published HDInsight applications: [jgao: will these applications be ready by the this Friday?]
 
 - **Data-Centric Security for HDInsight(Bluetalon)**: [jgao: description to be provided] 
 - **Datameer powered by Azure(Datameer)**: 
@@ -36,16 +36,14 @@ Before you begin this tutorial, you must have:
 
 ## Install HDInsight apps
 
-HDInsight applications can be installed using the Azure portal. 
-
-[jgao: can HDInsight applications be installed using PowerShell/CLI/.NET? Theoretically, we can use PowerShell and CLI to publish any ARM templates.]
+HDInsight applications can be installed using the Azure portal. You can also export the ARM template from the portal or obtain a copy of the ARM template from the vendor, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates).
 
 **To install an HDInsight application**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
 3. Click an HDInsight cluster.  If you don't have one, you must create one first.  see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. From the **Settings** blade, click **Apps** under the **General** category. The **Installed Apps** blade lists all the installed applications. 
+4. From the **Settings** blade, click **Applications** under the **General** category. The **Installed Apps** blade lists all the installed applications. 
 
     ![hdinsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Click **Submit New** from the blade menu. You shall see a list of existing HDInsight applications.
@@ -64,7 +62,7 @@ The portal shows a list of the installed HDInsight applications for a cluster, a
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
 3. Click an HDInsight cluster.
-4. From the **Settings** blade, click **Apps** under the **General** category. The Installed Apps blade lists all the installed applications. 
+4. From the **Settings** blade, click **Applications** under the **General** category. The Installed Apps blade lists all the installed applications. 
 5. Click one of the installed applications to show the property. The property blade lists:
 
     - App name: application name.
@@ -87,7 +85,7 @@ If an application installation failed, you can see the error messages and debug 
 
 - HDInsight Applications
 
-    Open the cluster from the portal, and click Apps from the Settings blade:
+    Open the cluster from the portal, and click Applicationss from the Settings blade:
 
     ![hdinsight applications application installation error](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
 
