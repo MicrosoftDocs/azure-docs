@@ -13,12 +13,22 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016" 
+	ms.date="04/25/2016" 
 	ms.author="sdanie"/>
 
 # How to create a Web App with Redis Cache
 
-Procedural steps only for tech review - TODO write an introduction
+This tutorial shows how to create and deploy an ASP.NET web application to a [web app in Azure App Service](../app-service-web/app-service-web-overview.md) using Visual Studio 2015. The sample application displays a list of team statistics and shows different ways to use Azure Redis Cache to store and retrieve data from the cache. 
+
+You'll learn:
+
+-	How to create an ASP.NET MVC 5 web application in Visual Studio.
+-	How to read data from a database using Entity Framework.
+-	How to store and retrieve data using Azure Redis Cache.
+-	How to use a Redis sorted set to display the top 5 teams.
+-	How to provision the Azure resources for the application using ARM templates.
+-	How to publish the application to Azure using Visual Studio.
+-	How to use the [Azure Portal](/features/azure-portal/) to monitor and manage your web app.
 
 ## Prerequisites
 
