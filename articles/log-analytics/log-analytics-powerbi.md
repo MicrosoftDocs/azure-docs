@@ -114,4 +114,4 @@ We save the report by clicking on the Save button at the top of the screen and v
 ## Next steps
 
 - Learn about [log searches](log-analytics-log-searches.md) to build queries that can be exported to Power BI.
-- Learn more about [Power BI](powerbi.microsoft.com) to build visualizations based on Log Analytics exports.  
+- Learn more about [Power BI](powerbi.microsoft.com) to build visualizations based on Log Analytics exports.

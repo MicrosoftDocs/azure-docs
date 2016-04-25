@@ -83,7 +83,9 @@ We use the SimpleShortestPathsComputation example to demonstrate the basic <a hr
 
 
 
-4. Run the SimpleShortestPathsComputation example. Use the following Azure PowerShell cmdlets to run the example by using the tiny_graph.txt file as input. This requires that you have installed and configured [Azure PowerShell][powershell-install].
+4. Run the SimpleShortestPathsComputation example. Use the following Azure PowerShell cmdlets to run the example by using the tiny_graph.txt file as input. 
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 		$clusterName = "clustername"
 		# Giraph examples jar

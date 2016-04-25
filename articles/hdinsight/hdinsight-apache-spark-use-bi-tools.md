@@ -25,7 +25,9 @@ Learn how to use Apache Spark in Azure HDInsight to do the following:
 * Take raw sample data and save it as a Hive table
 * Use BI tools such as Power BI and Tableau to analyze and visualize the data.
 
-> [AZURE.TIP] This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Use BI tools with Apache Spark on HDInsight.ipynb** under the **Python** folder.
+> [AZURE.NOTE] This tutorial is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
+
+This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Use BI tools with Apache Spark on HDInsight.ipynb** under the **Python** folder.
 
 **Prerequisites:**
 

@@ -249,3 +249,95 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 | retryTimeout | The timeout for each retry attempt.<br/><br/>If this is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry will time out.<br/><br/>If all attempts for the validation times out, the slice will be marked as TimedOut. | No | 00:10:00 (10 minutes) |
 | maximumRetry | Number of times to check for the availability of the external data. The allowed maximum value is 10. | No | 3 | 
 
+## Scoped datasets
+You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only used by activities within this pipeline but not by activities in other pipelines. The following example defines a pipeline with two datasets - InputDataset-rdc and OutputDataset-rdc - to be used within the pipeline.  
+
+	{
+	    "name": "CopyPipeline-rdc",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource",
+	                        "recursive": false
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "InputDataset-rdc"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "OutputDataset-rdc"
+	                    }
+	                ],
+	                "scheduler": {
+	                    "frequency": "Day",
+	                    "interval": 1,
+	                    "style": "StartOfInterval"
+	                },
+	                "name": "CopyActivity-0"
+	            }
+	        ],
+	        "start": "2016-02-28T00:00:00Z",
+	        "end": "2016-02-28T00:00:00Z",
+	        "isPaused": false,
+	        "pipelineMode": "OneTime",
+	        "expirationTime": "15.00:00:00",
+	        "datasets": [
+	            {
+	                "name": "InputDataset-rdc",
+	                "properties": {
+	                    "type": "AzureBlob",
+	                    "linkedServiceName": "InputLinkedService-rdc",
+	                    "typeProperties": {
+	                        "fileName": "emp.txt",
+	                        "folderPath": "adftutorial/input",
+	                        "format": {
+	                            "type": "TextFormat",
+	                            "rowDelimiter": "\n",
+	                            "columnDelimiter": ","
+	                        }
+	                    },
+	                    "availability": {
+	                        "frequency": "Day",
+	                        "interval": 1
+	                    },
+	                    "external": true,
+	                    "policy": {}
+	                }
+	            },
+	            {
+	                "name": "OutputDataset-rdc",
+	                "properties": {
+	                    "type": "AzureBlob",
+	                    "linkedServiceName": "OutputLinkedService-rdc",
+	                    "typeProperties": {
+	                        "fileName": "emp.txt",
+	                        "folderPath": "adftutorial/output",
+	                        "format": {
+	                            "type": "TextFormat",
+	                            "rowDelimiter": "\n",
+	                            "columnDelimiter": ","
+	                        }
+	                    },
+	                    "availability": {
+	                        "frequency": "Day",
+	                        "interval": 1
+	                    },
+	                    "external": false,
+	                    "policy": {}
+	                }
+	            }
+	        ]
+	    }
+	}
+
