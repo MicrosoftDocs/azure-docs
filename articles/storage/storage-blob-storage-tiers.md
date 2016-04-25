@@ -167,12 +167,15 @@ To change the access tier on a Blob storage account using the Azure Portal:
 The purpose of this section is to help users to make a smooth transition to Blob storage accounts. A Blob storage account is specialized for storing only blobs. Existing general purpose storage accounts which also allow you to store tables, queues and files, cannot be converted to Blob storage accounts. This means that in order to use the features offered by Blob storage account you will need to create new Blob storage accounts with the appropriate access tier and migrate your existing data into the newly created accounts.
 
 ### Planning the migration of existing data
+
 If you are moving your data to a Blob storage account, you probably want to take advantage of the cool access tier to save on storage costs for less frequently used data. The first step in planning the migration of data in a Blob storage account in the cool access tier is to evaluate your existing usage pattern to determine whether you will benefit from migrating to a Blob storage account. In general, you will want to know:
 
 - Your storage consumption pattern – How much data is being stored and how does this change on a monthly basis?
 - Your storage access patterns – How much data is being read from and written to the account (including new data)? How many and which transactions are used for data access?
 
 To monitor your existing storage accounts and to gather this data please see, [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md). Now using this data, you can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+
+### Migrating existing data
 
 You can use the following methods to migrate existing data into Blob storage accounts from an on-premise storage solution, from a third-party cloud storage provider, or from your existing general purpose storage accounts in Azure:
 
