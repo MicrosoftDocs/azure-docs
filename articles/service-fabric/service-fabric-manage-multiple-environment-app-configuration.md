@@ -119,7 +119,7 @@ You can choose from the list of available parameter files when you publish your 
 The `Deploy-FabricApplication.ps1` PowerShell script included in the application project template accepts a publish profile as a parameter and the PublishProfile contains a reference to the application parameters file.
 
   ```PowerShell
-    ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
+    ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
   ```
 
 ## Next steps
