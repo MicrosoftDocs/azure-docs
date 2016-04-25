@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/25/2016"
 	ms.author="mikeray" />
 
 # Configure an external listener for AlwaysOn Availability Groups in Azure
@@ -22,7 +22,7 @@
 - [Internal Listener](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [External Listener](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-This topic shows you how to configure a listener for an AlwaysOn Availability Group that is externally accessible on the internet. This is made possible associating the cloud service's **public Virtual IP (VIP)** address with the listener.
+This topic shows you how to configure a listener for an AlwaysOn Availability Group that is externally accessible on the internet. This is made possible by associating the cloud service's **public Virtual IP (VIP)** address with the listener.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
