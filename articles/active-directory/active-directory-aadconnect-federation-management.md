@@ -1,6 +1,6 @@
 <properties
 	pageTitle="AD FS Management and customizaton with Azure AD Connect | Microsoft Azure"
-	description="How you can manage AD FS with Azure AD Connect"
+	description="AD FS management using Azure AD Connect and customization of user AD FS sign-in experience using Azure AD Connect and Poershell."
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -14,13 +14,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/14/2016"
-	ms.author="anandyadavmsft"/>
+	ms.author="anandy"/>
 
 # AD FS management and customizaton with Azure AD Connect
 
 This article details the various AD FS related tasks that can be performed using Azure AD Connect and other common AD FS tasks that may be required for a complete configuration of an AD FS farm.
 
-## AD FS Management
+## AD FS managemet
 
 Azure AD Connect provides various AD FS related tasks that can be performed using the Azure AD Connect wizard with minimal user intervention. After you have finished installing Azure AD Connect by running the wizard, you can run the wizard again to perform additional tasks.
 
@@ -28,7 +28,7 @@ Azure AD Connect provides various AD FS related tasks that can be performed usin
 
 Azure AD Connect can check for the current health of the AD FS and Azure ADtrust and take appropriate actions to repair the trust. Follow the below steps to repair your Azure AD and AD FS trust.
 
-Select **Repair Azure AD and ADFS Trus** from the list of tasks available.
+Select **Repair Azure AD and ADFS trust** from the list of tasks available.
 
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
@@ -52,7 +52,7 @@ Click on install to go ahead and repair the trust.
 
 >[AZURE.NOTE] Azure AD Connect can only repair / take action on the certificates that are self signed. Third party certificates cannot be repaired by Azure AD Connect.
 
-### Adding a new AD FS Server
+### Adding a new AD FS server
 
 > [AZURE.NOTE] Azure AD Connect requires the PFX certifcate file to add an AD FS server. Therefore, you will be able to perform this operation only if you configured the AD FS farm using Azure AD Connect.
 
@@ -144,7 +144,7 @@ Click on next and **Ready to configure** page will show the list of actions that
 
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain5.PNG)
 
-## AD FS Customization
+## AD FS customization
 
 The following sections provide details on how you can perform some of the common tasks that you may have to do for customizing your AD FS sign-in page. 
 
@@ -173,7 +173,7 @@ Following sections detail how you can write custom rules for some scenarios pert
 
 #### Immutable ID conditional on value being present in the attribute
 
-Azure AD Connect lets you specify an attribute to be used as source anchor when objects will be synced to AAD. It is possible that you might want to issue immutable ID claim depending on the condition if the value in the custom attribute is not empty. For the example, consider that you selected ms-ds-consistencyguid as the attribute for source anchor and want to issue ImmutableID as ms-ds-consistencyguid in case the attribute has a value against it, otherwise issue objectGuid as the immutable ID. You can construct the set of custom claim rules as described below:
+Azure AD Connect lets you specify an attribute to be used as source anchor when objects will be synced to Azure AD. It is possible that you might want to issue immutable ID claim depending on the condition if the value in the custom attribute is not empty. For the example, consider that you selected ms-ds-consistencyguid as the attribute for source anchor and want to issue ImmutableID as ms-ds-consistencyguid in case the attribute has a value against it, otherwise issue objectGuid as the immutable ID. You can construct the set of custom claim rules as described below:
 
 **Rule 1  (Query Attributes)**
 
