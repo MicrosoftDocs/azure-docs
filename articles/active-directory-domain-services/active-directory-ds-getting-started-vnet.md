@@ -68,4 +68,4 @@ Perform the following configuration steps in order to create an Azure virtual ne
 <br>
 
 ## Task 3 - Enable Azure AD Domain Services
-The next configuration task is to [enable Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
+The next configuration task is to [enable Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md).

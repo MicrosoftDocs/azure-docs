@@ -19,9 +19,9 @@
 # Azure AD Domain Services *(Preview)* - Enable password synchronization to Azure AD Domain Services
 
 ## Task 5: Enable password synchronization to AAD Domain Services for a synced Azure AD tenant
-Once you have enabled Azure AD Domain Services for your Azure AD tenant, the next task is to enable synchronization of passwords. This enables users to sign in to the domain using their corporate credentials.
+Once you have enabled Azure AD Domain Services for your Azure AD directory, the next task is to enable synchronization of passwords to Azure AD Domain Services. This enables users to sign in to the domain using their corporate credentials.
 
-The steps involved are different based on whether your organization is a cloud-only Azure AD tenant or is set to synchronize with your on-premises directory using Azure AD Connect.
+The steps involved are different based on whether your organization has a cloud-only Azure AD directory or is set to synchronize with your on-premises directory using Azure AD Connect.
 
 <br>
 
@@ -36,11 +36,11 @@ If the Azure AD tenant for your organization is set to synchronize with your on-
 
 #### Install or update Azure AD Connect
 
-You will need to install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you will need to update it to use the Azure AD Connect GA build. Ensure you use the latest version of Azure AD Connect, in order to avoid known issues/bugs.
+You will need to install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you will need to update it to use the Azure AD Connect GA build. Ensure you use the latest version of Azure AD Connect, in order to avoid known issues/bugs that may have already been fixed.
 
 **[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Minimum recommended version: **1.0.9131** - published on December 3, 2015.
+Recommended version: **1.1.130.0** - published on April 12, 2016.
 
   > [AZURE.WARNING] You MUST install the latest recommended release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to synchronize to your Azure AD tenant. This functionality is not available in prior releases of Azure AD Connect or with the legacy DirSync tool.
 
@@ -66,3 +66,16 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ```
 
 Depending on the size of your directory (number of users, groups etc.), synchronization of credentials to Azure AD will take time. The passwords will be usable on the Azure AD Domain Services managed domain shortly after the credential hashes have synchronized to Azure AD.
+
+
+<br>
+
+## Related Content
+
+- [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](active-directory-ds-getting-started-password-sync.md)
+
+- [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
+
+- [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-dire-admin-guide-join-rhel-linux-vm.md)
