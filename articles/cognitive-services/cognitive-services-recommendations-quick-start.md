@@ -140,7 +140,7 @@ In this task, you will use the sample application to build your first model.
  + Get a recommendation based on a pair of items
 <p></p>
 
-1. Replace the values for the **accountEmail** and **accountKey** fields with your email and the key from Task 1.
+1. Replace the value for the **AccountKey** field with the key from Task 1.
 
 1. Step through the solution, and you will see how a model gets created.
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="03/15/2016"
+   ms.date="04/22/2016"
    ms.author="coreyp"/>
 
 # Onboarding machines for management by Azure Automation DSC
@@ -26,7 +26,8 @@ Azure Automation DSC can be used to manage a variety of machines:
 
 *    Azure virtual machines (classic)
 *    Azure virtual machines
-*    Physical/virtual Windows machines on-premises, or in a cloud other than Azure
+*    Amazon Web Services (AWS) virtual machines
+*    Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
 *    Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
 In addition, if you are not ready to manage machine configuration from the cloud, Azure Automation DSC can also be used as a report-only endpoint. This allows you to set (push) desired configuration through DSC on-premises and view rich reporting details on node compliance with the desired state in Azure Automation.
@@ -137,7 +138,11 @@ Azure virtual machines can be deployed and onboarded to Azure Automation DSC via
 
 The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
 
-## Physical/virtual Windows machines on-premises, or in a cloud other than Azure
+## Amazon Web Services (AWS) virtual machines
+
+You can easily onboard Amazon Web Services virtual machines for configuration management by Azure Automation DSC using the AWS DSC Toolkit. You can learn more about the toolkit [here](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
+
+## Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
 
 On-premises Windows machines and Windows machines in non-Azure clouds (such as Amazon Web Services) can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
 
