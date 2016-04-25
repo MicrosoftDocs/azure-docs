@@ -29,7 +29,7 @@ Each of these data access scenarios described above benefits from a differentiat
 
 ## Blob storage accounts
 
-**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between cool and hot access tiers to store your less frequently accessed cool data at a lower storage cost, and store more frequently accessed hot data at a lower access cost. Your storage and data access will then be billed accordingly, depending on the access tier chosen. Blob storage accounts are similar to your existing general purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts, to take advantage of the differentiated pricing model.
+**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between cool and hot access tiers to store your less frequently accessed cool data at a lower storage cost, and store more frequently accessed hot data at a lower access cost. Your storage and data access will then be billed accordingly, depending on the access tier chosen. Blob storage accounts are similar to your existing general purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs.
 
 Blob storage accounts expose the **Access Tier** attribute, which allow you to specify the access tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time.
 
@@ -48,7 +48,14 @@ Example usage scenarios for the cool access tier include:
 
 See [About Azure storage accounts](storage-create-storage-account.md) for more information on storage accounts.
 
-> [AZURE.NOTE] Blob storage accounts are currently supported in some regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services).
+For applications requiring only block or append blob storage, we recommend using Blob storage accounts, to take advantage of the differentiated pricing model of tiered storage. However, we understand that this might not be possible under certain circumstances where using general purpose storage accounts would be the way to go, such as:
+
+- You need to use tables, queues, or files and want your blobs stored in the same storage account. Note that there is no technical advantage to storing these in the same account other than having the same shared keys.
+- You still need to use the Classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
+- You need to use page blobs. We generally recommend using block blobs unless you have a specific need for page blobs.
+- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/en-us/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
+
+> [AZURE.NOTE] Blob storage accounts are currently supported in a majority of Azure regions with more to follow. You can find the updated list of available regions on the [Azure Services by Region](https://azure.microsoft.com/regions/#services) page.
 
 ## Comparison between the access tiers
 
@@ -214,12 +221,3 @@ For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-t
 8.	**Will there be a change in user experience?**
 
     A Blob storage account stores blobs only, but otherwise it is very similar to a general purpose storage account, and inherits all the key features of Azure Storage, including high durability and availability, scalability, performance, and security. Other than the features and restrictions specific to Blob storage accounts and its access tiers that have been called out above, everything else remains the same.
-
-9.	**When should I use a general purpose storage account vs. a Blob storage account?**
-
-    While we do recommend that you use a Blob storage account, we understand that this might not be possible under certain circumstances where using general purpose storage accounts would be the way to go, such as:
-
-    - You need to use tables, queues, or files and want your blobs stored in the same storage account. Note that there is no technical advantage to storing these in the same account other than having the same shared keys.
-    - You still need to use the Classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
-    - You need to use page blobs. We generally recommend using block blobs unless you have a specific need for page blobs.
-    - You use a version of the REST API that is earlier than 2015-04-05 or a client library with a version lower than 6.x, and cannot upgrade your application.
