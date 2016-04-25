@@ -19,9 +19,7 @@
 
 ![Query across tables in different databases][1]
 
-Vertically-partitioned databases use different sets of tables on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database. The functionality depends on [Shard map management](sql-database-elastic-scale-shard-map-management.md).
-
-This document explains how to set up elastic query to work. 
+Vertically-partitioned databases use different sets of tables on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database. 
 
 ## Prerequisites
 
