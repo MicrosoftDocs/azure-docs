@@ -20,7 +20,7 @@ The Simulated Device Cloud Upload sample shows how to use the SDK to create a ga
 The gateway solves these problems for the simulated devices in the following ways:
 
 - The gateway understands the protocol used by the simulated devices, receives device-to-cloud telemetry from the devices, and forwards those messages to IoT Hub using a protocol understood by the hub.
-- The gateway stores IoT Hub identities fon behalf of the simulated devices and acts as a proxy when the simulated devices send messages to IoT Hub.
+- The gateway stores IoT Hub identities on behalf of the simulated devices and acts as a proxy when the simulated devices send messages to IoT Hub.
 
 The following diagram shows the main components of the sample, including the gateway modules:
 
