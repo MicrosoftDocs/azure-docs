@@ -832,7 +832,7 @@ The *function.json* file for a Service Bus trigger specifies the following prope
 - `queueName` : For queue trigger only, the name of the queue to poll.
 - `topicName` : For topic trigger only, the name of the topic to poll.
 - `subscriptionName` : For topic trigger only, the subscription name.
-- `connection` : The name of an app setting that contains a Service Bus connection string. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is specified by the AzureWebJobsServiceBus app setting.
+- `connection` : The name of an app setting that contains a Service Bus connection string. The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is specified by the AzureWebJobsServiceBus app setting.
 - `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `listen` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights, such as creating queues.
 - `type` : Must be set to *serviceBusTrigger*.
 - `direction` : Must be set to *in*. 
