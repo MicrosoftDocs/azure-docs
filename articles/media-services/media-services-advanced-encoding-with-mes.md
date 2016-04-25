@@ -970,7 +970,7 @@ The preset examples below assumes that all the input videos start with a timesta
 
 Note also that the preset JSON makes explicit references to the AssetID values of the input assets.
 
-The sample code assumes that the JSON preset has been saved to a local file, such as “C:\supportFiles\preset.json”,. It also assumes that two assets have been created by uploading two video files, and that you know the resultant AssetID values.
+The sample code assumes that the JSON preset has been saved to a local file, such as "C:\supportFiles\preset.json". It also assumes that two assets have been created by uploading two video files, and that you know the resultant AssetID values.
 
 	
 	IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
