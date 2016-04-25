@@ -55,14 +55,13 @@ Limits for elastic pools and elastic databases.
 | Property | Description |
 | :-- | :-- |
 | Service tier | Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition”.|
-| eDtu per pool | Maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
-| Storage per pool | Maximum amount of storage that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
+| eDtus per pool | Maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
+| Storage per pool | Maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
+| Min. eDTUs | Minimum number of eDTUs that any database in the pool is guaranteed; this applies to all databases in the pool. The min eDTU per database may be set to 0.  Note that the product of the number of databases in the pool and the min eDTU per database cannot exceed the eDTU per pool. |
 | Max. eDTUs | Maximum number of eDTUs that any database in the pool may use, and applies to all databases in the pool. The max eDTU per database is not a resource guarantee. |
-| Min. eDTUa | Minimum number of eDTUs that any database in the pool is guaranteed, and applies to all databases in the pool. The min eDTU per database may be set to 0.  Note that the product of the number of databases in the pool and the min eDTU per database cannot exceed the eDTU per pool. |
 
 
 ## eDTU and storage limits for elastic pools and elastic databases
-
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 

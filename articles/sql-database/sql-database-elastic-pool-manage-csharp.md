@@ -38,7 +38,7 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 ## Create a new database in an elastic pool
 
-Create a new database in the pool. Configure create or update parameters with existing property values, override those to be changed.
+Create a [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) instance using values from [Azure Active Directory](sql-database-client-id-keys.md). Create a [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) instance, and call the [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate) method. 
 
     DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
     {
@@ -83,7 +83,7 @@ Update the database service objective to add the database to a pool.
 
 ## List databases in an elastic pool
 
-The following example lists all databases in a pool:
+To retrieve all databases in a pool, call the [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases) method.
 
     //List databases in the elastic pool
     DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
@@ -95,7 +95,7 @@ The following example lists all databases in a pool:
 
 ## Update a pool
 
-Retrieve existing pool properties, then modify values. Then excecute the CreateOrUpdate method.
+Retrieve existing pool properties, then modify values. Then execute the CreateOrUpdate method.
 
     var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
 
@@ -118,8 +118,8 @@ Retrieve existing pool properties, then modify values. Then excecute the CreateO
 
 ## Latency of elastic pool operations
 
-* Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.
-* Changing the eDTU per pool (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
+- Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
+- Changing the eDTUs per pool of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 
 ## Manage a pool C&#x23; example
