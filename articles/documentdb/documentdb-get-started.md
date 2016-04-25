@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/22/2016"
+	ms.date="04/25/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -66,7 +66,7 @@ Let's create a DocumentDB account. If you already have an account you want to us
 4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution.
 5. Then without leaving the menu, click on **Manage NuGet Packages...**
 ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. In the **Nuget** tab, click **Browse**, and type **Azure DocumentDB** in the search box.
+6. In the **Nuget** tab, click **Browse**, and type **azure documentdb** in the search box.
 7. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
 The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 ![Screen shot of the Nuget Menu for finding DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
