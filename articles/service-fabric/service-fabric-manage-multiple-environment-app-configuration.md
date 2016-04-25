@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="04/25/2016"
    ms.author="seanmck"/>
 
 # Manage application parameters for multiple environments
@@ -116,9 +116,11 @@ You can choose from the list of available parameter files when you publish your 
 
 ### Deploy from PowerShell
 
-The `DeployCreate-FabricApplication.ps1` PowerShell script accepts a parameter file as a parameter.
+The `Deploy-FabricApplication.ps1` PowerShell script included in the application project template accepts a publish profile as a parameter and the PublishProfile contains a reference to the application parameters file.
 
-    ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
+  ```PowerShell
+    ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
+  ```
 
 ## Next steps
 
