@@ -53,7 +53,7 @@ For applications requiring only block or append blob storage, we recommend using
 - You need to use tables, queues, or files and want your blobs stored in the same storage account. Note that there is no technical advantage to storing these in the same account other than having the same shared keys.
 - You still need to use the Classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
 - You need to use page blobs. We generally recommend using block blobs unless you have a specific need for page blobs.
-- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/en-us/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
+- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
 
 > [AZURE.NOTE] Blob storage accounts are currently supported in a majority of Azure regions with more to follow. You can find the updated list of available regions on the [Azure Services by Region](https://azure.microsoft.com/regions/#services) page.
 
@@ -219,7 +219,7 @@ For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-t
 
 7.	**Will I need to change my existing applications to use Blob storage accounts?**
 
-    Blob storage accounts are 100% API consistent with general purpose storage accounts as long as you use the latest version (2014-02-14) of the [Storage Services REST API](https://msdn.microsoft.com/en-us/library/azure/dd894041.aspx). If you are using an older version of the protocol, then you will need to update your application to use the new version so as to work seamlessly with both types of storage accounts.  In general, we always recommend using the latest version regardless of which storage account type you use.
+    Blob storage accounts are 100% API consistent with general purpose storage accounts as long as you use the latest version (2014-02-14) of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx). If you are using an older version of the protocol, then you will need to update your application to use the new version so as to work seamlessly with both types of storage accounts.  In general, we always recommend using the latest version regardless of which storage account type you use.
 
 8.	**Will there be a change in user experience?**
 
