@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Create a Service Bus namespace with Event Hub and consumer group | Microsoft Azure"
-    description="Create a Service Bus namespace with Event Hub and consumer group using ARM template"
+    pageTitle="Create a Service Bus namespace with Event Hub and consumer group using an Azure Resource Manager template | Microsoft Azure"
+    description="Create a Service Bus namespace with Event Hub and consumer group using Azure Resource Manager template"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -16,20 +16,20 @@
     ms.date="04/15/2016"
     ms.author="sethm;shvija"/>
 
-# Create a Service Bus namespace with Event Hub and consumer group using an ARM template
+# Create a Service Bus namespace with Event Hub and consumer group using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager (ARM) template that creates a Service Bus namespace with an Event Hub and a consumer group. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with an Event Hub and a consumer group. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, please see [Authoring Azure Resource Manager Templates][].
 
 For the complete template, see the [Service Bus Event Hub and consumer group template][] on GitHub.
 
->[AZURE.NOTE] The following ARM templates are available for download and deployment.
+>[AZURE.NOTE] The following Azure Resource Manager templates are available for download and deployment.
 >
->-    [Create a Service Bus namespace with queue and authorization rule](service-bus-arm-namespace-auth-rule.md)
->-    [Create a Service Bus namespace with queue](service-bus-arm-namespace-queue.md)
->-    [Create a Service Bus namespace with topic and subscription](service-bus-arm-namespace-topic.md)
->-    [Create a Service Bus namespace](service-bus-arm-namespace.md)
+>-    [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
+>-    [Create a Service Bus namespace with queue](service-bus-resource-manager-namespace-queue.md)
+>-    [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
+>-    [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
 >
 >To check for the latest templates, see the [Azure Quickstart Templates][] and search for Service Bus.
 
@@ -43,7 +43,7 @@ Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.
 
 To run the deployment automatically, click the following button:
 
-[![Deploy to Azure](./media/service-bus-arm-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-eventhub-and-consumergroup%2Fazuredeploy.json)
+[![Deploy to Azure](./media/service-bus-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-eventhub-and-consumergroup%2Fazuredeploy.json)
 
 ## Parameters
 
@@ -156,7 +156,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 ## Next steps
 
-Now that you've created and deployed resources using ARM, learn how to manage these resources by viewing these articles:
+Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
 - [Manage Azure Service Bus using Azure Automation](service-bus-automation-manage.md)
 - [Manage Event Hubs with PowerShell](service-bus-powershell-how-to-provision.md)
