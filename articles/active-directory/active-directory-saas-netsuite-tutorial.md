@@ -3,7 +3,7 @@
     description="Learn how to use NetSuite with Azure Active Directory to enable single sign-on, automated  provisioning, and more!"
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Tutorial: How to integrate NetSuite with Azure Active Directory
 
