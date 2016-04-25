@@ -104,14 +104,16 @@ Just in case you don't have them handy, we have provided some sample data for yo
  We should point out that a catalog file can be much richer, for instance you can add  metadata about the products (We call these *item features*). You should see the [catalog format](http://go.microsoft.com/fwlink/?LinkID=760716) section in the API Reference for more details on the catalog format.
 
 1. Let's do the same with the usage data. You will notice that the usage date is of the format
-`<User Id>,<Item Id>`.
+`<User Id>,<Item Id>,<Time Stamp>,<Event>`.
 
-  > 00030000A11B024B,GZA-00202<br>
-  > 0003BFFD93B934B7,P2W-00004<br>
-  > 000300009C01C881,W6F-00121<br>
-  > 00060000AF0D2B04,QR2-00011<br>
+  > 00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase
+  > 0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase
+  > 0003BFFDD4C2118D,297833300,2015/08/04T11:02:40,Purchase
+  > 00030000D16C4237,297833300,2015/08/04T11:02:37,Purchase
+  > 0003BFFDD4C20B63,297833400,2015/08/04T11:02:12,Purchase
+  > 00037FFEC8567FB8,297833400,2015/08/04T11:02:04,Purchase
 
- This is the minimum data required for a valid usage file. A more complex usage file could contain additional information for each transaction, including a timestamp for the transaction and the type of event that occurred (a click, a purchase, etc.). You can check out the [usage format](http://go.microsoft.com/fwlink/?LinkID=760712) for more information on this topic.
+Notice that the first three elements are mandatory. The event type is optional. You can check out the [usage format](http://go.microsoft.com/fwlink/?LinkID=760712) for more information on this topic.
 
  > **How much data do you need?**
  <p>
@@ -140,7 +142,7 @@ In this task, you will use the sample application to build your first model.
  + Get a recommendation based on a pair of items
 <p></p>
 
-1. Replace the values for the **accountEmail** and **accountKey** fields with your email and the key from Task 1.
+1. Replace the value for the **AccountKey** field with the key from Task 1.
 
 1. Step through the solution, and you will see how a model gets created.
 

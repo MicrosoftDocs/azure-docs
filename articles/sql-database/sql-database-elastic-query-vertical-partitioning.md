@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Queries across sharded cloud databases (vertically partitioned) | Microsoft Azure"
+    pageTitle="Query across cloud databases with different schema | Microsoft Azure"
     description="how to set up cross-database queries over vertical partitions"    
     services="sql-database"
     documentationCenter=""  
@@ -15,13 +15,11 @@
     ms.date="04/11/2016"
     ms.author="torsteng;sidneyh" />
 
-# Queries across sharded cloud databases (vertically partitioned) (preview)
+# Query across cloud databases with different schema (preview)
 
 ![Query across tables in different databases][1]
 
-Vertically-partitioned databases use different sets of tables on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database. The functionality depends on [Shard map management](sql-database-elastic-scale-shard-map-management.md).
-
-This document explains how to set up elastic query to work. 
+Vertically-partitioned databases use different sets of tables on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database. 
 
 ## Prerequisites
 
