@@ -166,13 +166,13 @@ If you need to change the Azure subscription that the OMS workspace is linked to
 
 1.	Sign into the [Azure portal](http://portal.azure.com).
 2.	Browse for **Log Analytics (OMS)** and then select it.
-3.	You’ll see your list of existing workspaces. Select a workspace.
+3.	You’ll see your list of existing workspaces. Select a workspace.  
     ![list of workspaces](./media/log-analytics-manage-access/manage-access-change-plan01.png)
-4.	Under **Settings**, click **Pricing tier**.
+4.	Under **Settings**, click **Pricing tier**.  
     ![pricing tier](./media/log-analytics-manage-access/manage-access-change-plan02.png)
-5.	Under **Pricing tier**, select a data plan and then click **Select**.
+5.	Under **Pricing tier**, select a data plan and then click **Select**.  
     ![select plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6.	When you refresh your view in the Azure portal, you’ll see **Pricing tier** updated for the plan you selected.
+6.	When you refresh your view in the Azure portal, you’ll see **Pricing tier** updated for the plan you selected.  
     ![update pricing tier](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
 Now you can collect data beyond the "free" data cap.
@@ -185,7 +185,7 @@ You can associate your Operational Insights (OMS) workspace with an Azure Active
 ### To add an Azure Active Directory Organization to an existing workspace
 
 1. On the Settings page in OMS, click **Accounts** and then click **Workspace Information**.  
-2. Review the information about organizational accounts, and then click **Add Organization**.
+2. Review the information about organizational accounts, and then click **Add Organization**.  
     ![add organization](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
 3. Enter the identity information for the administrator of your Azure Active Directory domain. Afterward, you'll see an acknowledgment stating that your workspace is linked to your Azure Active Directory domain.
     ![linked workspace acknowledgment](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
@@ -218,4 +218,4 @@ If you are an administrator, and there are multiple users associated with the wo
 3. Click **Close workspace**.
 
 ## Next Steps
-- connect [Windows agents](log-analytics-windows-agents.md)
+- Connect [Windows agents](log-analytics-windows-agents.md)

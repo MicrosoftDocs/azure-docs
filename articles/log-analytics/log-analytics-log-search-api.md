@@ -402,4 +402,4 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 
 ## Next steps
-- [search logs](log-analytics-log-searches.md)
+- Learn about [log searches](log-analytics-log-searches.md) to build queries using custom fields for criteria.

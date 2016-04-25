@@ -53,9 +53,9 @@ You can install the agent for OMS and connect the Azure virtual machine that it 
     ![connected](./media/log-analytics-azure-storage/oms-connect-azure-05.png)
 
 >[AZURE.NOTE] The [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md) must be installed to automatically install the agent for OMS. If you have an Azure Resource Manager virtual machine, it will not appear in the list and you must use PowerShell or create an ARM template to install the agent.
-gent.
 
 If you have VMs that do not appear in the Azure Management portal, some possible reasons include:
+
 - The VM is already managed by a different OMS workspace
 - The VM is an ARM VM, which isn't supported at this time
 
@@ -263,10 +263,6 @@ You can enable storage analysis and configure OMS to read from the Azure Storage
 
 In approximately 1 hour you will begin to see data from the storage account available for analysis within OMS.
 
-## Related content
-
-- [Windows agents](log-analytics-windows-agents.md)
-- [Blog post: Enable Operational Insights for Azure Virtual machines](http://azure.microsoft.com/updates/easily-enable-operational-insights-for-azure-virtual-machines/)
 
 ## Next steps
 

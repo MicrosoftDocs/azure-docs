@@ -57,7 +57,7 @@ When you install the solution, the AdvisorAssessment.exe file is added to monito
 The following table shows data collection methods and other details about how data is collected for SQL Assessment.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
-|---|---|---|---|---|---|--|
+|---|---|---|---|---|---|---|
 |Windows|![Yes](./media/log-analytics-sql-assessment/oms-bullet-green.png)|![Yes](./media/log-analytics-sql-assessment/oms-bullet-green.png)|![No](./media/log-analytics-sql-assessment/oms-bullet-red.png)|	![No](./media/log-analytics-sql-assessment/oms-bullet-red.png)|![Yes](./media/log-analytics-sql-assessment/oms-bullet-green.png)|	7 days|
 
 ## Operations Manager run-as accounts for OMS
@@ -250,4 +250,5 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 
 ## Next steps
-- [Search logs](log-analytics-log-searches.md)
+
+- Learn about [log searches](log-analytics-log-searches.md) to build queries for Active Directory assessment data.

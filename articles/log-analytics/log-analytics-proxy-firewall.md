@@ -202,4 +202,4 @@ For the on-premise machine running Hybrid Runbook Worker, it must have outbound 
 
 ## Next Steps
 - [Add solutions](log-analytics-add-solutions.md)
-- [Log searches](log-analytics-log-searches.md)
+- Learn about [log searches](log-analytics-log-searches.md) to start viewing data from your computers.

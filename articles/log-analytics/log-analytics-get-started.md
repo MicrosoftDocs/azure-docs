@@ -101,7 +101,8 @@ You can read more about connecting agents to the Operations Management Suite at 
 
 1. In the Operations Manager console, select **Administration**.
 2. Expand the **Operational Insights** node and select **Operational Insights Connection**.
-    >[AZURE.NOTE] Depending on what Update Rollup of SCOM you are in, you may see a node for *System Center Advisor*, *Operational Insights*, or *Operations Management Suite*.
+  >[AZURE.NOTE] Depending on what Update Rollup of SCOM you are in, you may see a node for *System Center Advisor*, *Operational Insights*, or *Operations Management Suite*.
+
 3. Click the **Register to Operational Insights** link towards the top right and follow the instructions.
 4. After completing the registration wizard, click the **Add a Computer/Group** link.
 5. In the **Computer Search** dialog box you can search for computers or groups monitored by Operations Manager. Select computers or groups to onboard them to Log Analytics, click **Add**, and then click **OK**. You can verify that the OMS service is receiving data by going to the **Usage** tile in the Operations Management Suite portal. Data should appear in about 5-10 minutes.
