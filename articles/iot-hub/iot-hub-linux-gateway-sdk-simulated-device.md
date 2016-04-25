@@ -32,7 +32,7 @@ Before you get started, you must:
 To build the sample:
 
 1. Open a shell.
-2. Navigate to the **azure-iot-gateway-sdk\build\** folder in your local copy of the repository.
+2. Navigate to the **azure-iot-gateway-sdk/tools/** folder in your local copy of the repository.
 3. Run the **build.sh** script.
 
 To run the sample:
@@ -107,7 +107,7 @@ Save any changes you made to the configuration file.
 
 To run the sample:
 
-1. In your shell, navigate to the **~/cmake/gateway** folder in your local copy of the repository.
+1. In your shell, navigate to the **build** folder in your local copy of the repository.
 2. Run the following command:
 
     ```
