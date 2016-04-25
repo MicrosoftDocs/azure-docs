@@ -55,7 +55,11 @@ To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
+## Bulk creation using an Azure Resource Manager template
 
+You can also use an ARM template to do bulk operations with PowerShell. 
+
+To get the latest, see [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 
 ## Create a pool PowerShell example
 
