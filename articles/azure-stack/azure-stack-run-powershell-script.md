@@ -146,13 +146,13 @@ Microsoft Azure Stack Technical Preview 1 includes a set of validation tests use
 
 **To turn off TiP automated tests**
 
-1. On the ClientVM, run the following cmdlet:
+  - On the ClientVM, run the following cmdlet:
 
   `Disable-ScheduledTask -TaskName AzureStackSystemvalidationTask`
 
 **To view the test results**
 
-1. On the ClientVM, run the following cmdlet:
+  - On the ClientVM, run the following cmdlet:
 
   `Get-AzureStackTiPTestsResult`
 

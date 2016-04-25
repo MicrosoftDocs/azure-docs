@@ -20,7 +20,7 @@
 
 Although Logic Apps has a rich set of 40+ connectors for a variety of services, you may want to call into your own custom API that can run your own code. One of the easiest and most scalable ways to host your own custom web API's is to use App Service. This article covers how to call into any web API hosted in an App Service API app, web app or mobile app.
 
-For information on building APIs as a trigger or action within Logic Apps, check out [this article](./app-service-logic-create-api-app) for more 
+For information on building APIs as a trigger or action within Logic Apps, check out [this article](app-service-logic-create-api-app.md).
 
 ## Deploy your Web App
 

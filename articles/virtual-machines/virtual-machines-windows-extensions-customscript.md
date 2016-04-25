@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Using the Custom Script extension for Windows VMs With Azure Resource Manager templates
@@ -38,7 +38,8 @@ Define the following resource in the Resource section of the template
        "properties": {
            "publisher": "Microsoft.Compute",
            "type": "CustomScriptExtension",
-           "typeHandlerVersion": "1.4",
+           "typeHandlerVersion": "1.7",
+           "autoUpgradeMinorVersion":true,
            "settings": {
                "fileUris": [
                "http://Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
@@ -47,7 +48,7 @@ Define the following resource in the Resource section of the template
          }
        }
      }
-     
+
 In the example above, replace the file URL and the file name with your own settings.
 
 After authoring the template, you can deploy it using Azure Powershell.
