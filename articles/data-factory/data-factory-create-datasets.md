@@ -182,7 +182,7 @@ For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 
 
 ### offset/style Example
 
-If you need to run a pipeline on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the **offset** tag to set the date and time it should run. 
+If you need dataset on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the **offset** tag to set the date and time it should run. 
 
 	{
 	  "name": "MyDataset",
