@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with access management in the Azure portal | Microsoft Azure"
-	description="Get started in access management with Azure role-based access control in the Azure Portal. Use role assignments to assign permissions in your directory."
+	pageTitle="Use Role-Based Access control in the Azure portal | Microsoft Azure"
+	description="Get started in access management with Role-Based Access Control in the Azure Portal. Use role assignments to assign permissions in your directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -13,23 +13,19 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/20/2016"
+	ms.date="04/25/2016"
 	ms.author="kgremban"/>
 
-# Get started with access management in the Azure portal
+# Use role assignments to manage access to your Azure Active Directory resources
 
-## Role-Based Access Control
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. This article helps you get up and running with RBAC in the Azure portal.
+Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. This article helps you get up and running with RBAC in the Azure portal. If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](active-directory-role-based-access-control-what-is.md).
 
-
-
-## Manage access using the Azure portal
-### View access
+## View access
 You can see who has access to a resource, resource group, or subscription from its main blade in the [Azure portal](https://portal.azure.com). For example, we want to see who has access to one of our resource groups:
 
-1. Select the **Resource group** icon in the navigation bar on the left.
-2. Select the name of the resource group you want to examine from the **Resource groups** blade.
-3. Select the **Users** icon on the top right of the resource group blade.
+1. Select ![Resource groups - icon](./media/role-based-access-control-configure/resourcegroups_icon.png) in the navigation bar on the left.
+2. Select the name of the resource group from the **Resource groups** blade.
+3. Select **Users** ![Users - icon](./media/role-based-access-control-configure/users_icon.png) on the top right of the resource group blade.
 4. The **Users** blade lists all users, groups, and applications that have been granted access to the resource group.
 
 ![Users blade - inherited vs assigned access screenshot](./media/role-based-access-control-configure/view-access.png)
@@ -39,15 +35,15 @@ Notice that some users were **Assigned** access while others **Inherited** it. A
 > [AZURE.NOTE] Classic subscription admins and co-admins are considered owners of the subscription in the new RBAC model.
 
 
-### Add Access
+## Add Access
 You grant access from within the resource, resource group, or subscription that is the scope of the role assignment.
 
-1. Select the **Add** icon on the **Users** blade. ![Add access blade - select a role screenshot](./media/role-based-access-control-configure/grant-access1.png)
+1. Select ![Add - icon](./media/role-based-access-control-configure/add_icon.png) on the **Users** blade. The **Select a role** blade opens. ![Add access blade - select a role screenshot](./media/role-based-access-control-configure/grant-access1.png)
 2. Select the role that you wish to assign.
 3. Select the user, group, or application in your directory that you wish to grant access to. You can search the directory with display names, email addresses, and object identifiers.
 ![Add users blade - search screenshot](./media/role-based-access-control-configure/grant-access2.png)
 
-### Remove Access
+## Remove Access
 
 1. In the **Users** blade, select the role assignment that you wish to remove.
 2. Click the **Remove** icon in the assignment details blade.
