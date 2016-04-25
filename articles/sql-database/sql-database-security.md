@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="01/22/2016"
+   ms.date="04/25/2016"
    ms.author="thmullan;jackr"/>
 
 
@@ -101,6 +101,8 @@ For other ways to encrypt your data secrets, consider:
 ## Auditing
 
 Auditing and tracking database events can help you maintain regulatory compliance and identify suspicious activity. SQL Database Auditing allows you to record events in your database to an audit log in your Azure Storage account. SQL Database Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses. For more information, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md).
+
+SQL Database Threat Detection provides an additional layer of security on top of Auditing. It enables you to respond to threats as they occur by providing security alerts on anomalous activities. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).  
 
 ## Compliance
 
