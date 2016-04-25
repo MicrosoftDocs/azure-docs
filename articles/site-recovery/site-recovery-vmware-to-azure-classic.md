@@ -381,7 +381,7 @@ If you're replicating VMware VMs you need to add a vCenter server (or ESXi host)
 > [AZURE.VIDEO enhanced-vmware-to-azure-protection]
 
 
-A protection group contain virtual machines or physical servers that will share the same replication settings.
+Protection groups are logical groupings of virtual machines or physical servers that you want to protect using the same protection settings. You apply protection settings to a protection group, and those settings are applied to all virtual machines/physical machines that you add to the group.
 
 1. Open **Protected Items** > **Protection Group** and click to add a protection group.
 

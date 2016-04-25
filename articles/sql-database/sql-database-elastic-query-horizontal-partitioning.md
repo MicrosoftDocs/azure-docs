@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Queries across sharded cloud databases | Microsoft Azure"
+    pageTitle="Reporting across scaled-out cloud databases | Microsoft Azure"
     description="how to set up elastic queries over horizontal partitions"    
     services="sql-database"
     documentationCenter=""  
@@ -12,16 +12,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/18/2016"
+    ms.date="04/26/2016"
     ms.author="torsteng;sidneyh" />
 
-# Create reports across sharded cloud databases (horizontally partitioned) (preview)
+# Reporting across scaled-out cloud databases (preview)
 
 ![Query across shards][1]
 
-Horizontally partitioned databases distribute rows across a scaled out data tier (also called "sharding"). With this approach, the schema is identical on all participating databases. For non-sharded databases, see [Queries across sharded cloud databases (vertically partitioned)](sql-database-elastic-query-vertical-partitioning.md). 
+Sharded databases distribute rows across a scaled out data tier. The schema is identical on all participating databases, also known as horizontal partitioning. Using an elastic query, you can create reports that span all databases in a sharded database.
 
 For a quick start, see [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md).
+
+For non-sharded databases, see [Queries across sharded cloud databases (vertically partitioned)](sql-database-elastic-query-vertical-partitioning.md). 
+
  
 ## Prerequisites
 
