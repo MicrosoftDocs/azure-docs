@@ -26,7 +26,7 @@ There are a broad range of platforms on which the SDK has been tested (see the [
 
 In this article you'll be introduced to the architecture of the Azure IoT device SDK for C. We'll demonstrate how to initialize the device library, send events to IoT Hub as well as receive messages from it. The information in this article should be enough to get started using the SDK, but also provides pointers to additional information about the libraries.
 
->> [AZURE.NOTE] This article does not include information about how to use the *device management* capabilities of the C libraries in the SDK. To learn how to use the device management capabilities, see [Making devices manageable with Azure IoT Hub](iot-hub-dm-sdk-c-intro.md).
+>> [AZURE.NOTE] This article does not include information about how to use the *device management* capabilities of the C libraries in the SDK. To learn how to use the device management capabilities, see [Making devices manageable with Azure IoT Hub](iot-hub-device-management-sdk-c-intro.md).
 
 ## SDK architecture
 
