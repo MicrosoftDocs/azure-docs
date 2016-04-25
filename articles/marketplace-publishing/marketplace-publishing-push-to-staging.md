@@ -51,7 +51,7 @@ All the logos uploaded in the Publishing Portal should follow the below guidelin
 - Wide logo should be of size 255 X 115 px
 - Hero logo should be of size 815 X 290 px
 
-    ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-01.png)
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-01.png)
 
 Additional guidelines for the Hero logo banner:
 - The Hero logo is optional. You can choose not to upload a Hero logo.
