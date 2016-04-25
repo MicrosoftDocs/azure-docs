@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="04/25/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Troubleshooting guide
@@ -49,8 +49,11 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 
 - **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify the following:
     - You have deployed or updated to the [latest recommended release of Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
+
     - You have configured Azure AD Connect to [perform a full synchronization](active-directory-ds-getting-started-password-sync.md).
+
     - Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD Domain Services. Ensure you wait long enough before retrying authentication (depending on the size of your directory - a few hours to a day or two for large directories).
+
     - If the issue persists after verifying the steps above, try restarting the Microsoft Azure AD Sync Service. From your sync machine, launch a command prompt and execute the following commands:
       1. net stop 'Microsoft Azure AD Sync'
       2. net start 'Microsoft Azure AD Sync'
@@ -59,8 +62,4 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 
 
 ### Contact Us
-If you have issues with your managed domain, check to see if the steps outlined in this troubleshooting guide resolve the issue. If you're still having trouble, feel free to reach out to us at:
-
-- **Email:** You may email us at [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com). Ensure you include the tenant ID for your Azure AD directory and the domain name you've configured for AAD Domain Services, so we can investigate the issue. The tenant ID is the GUID you will notice in the browser's address bar when you navigate to the page from where you enable AAD Domain Services for your directory.
-
-- **[Azure Active Directory User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/):** Ensure you pre-pend your question with the words **'AADDS'** in order to reach us.
+Contact the Azure Active Directory Domain Services product team to [share feedback or for support] (active-directory-ds-contact-us.md).

@@ -18,14 +18,16 @@
 
 # Azure AD Domain Services *(Preview)* - Enable password synchronization to Azure AD Domain Services
 
-## Task 5: Enable password synchronization
+## Task 5: Enable password synchronization to AAD Domain Services for a synced Azure AD tenant
 Once you have enabled Azure AD Domain Services for your Azure AD tenant, the next task is to enable synchronization of passwords. This enables users to sign in to the domain using their corporate credentials.
 
 The steps involved are different based on whether your organization is a cloud-only Azure AD tenant or is set to synchronize with your on-premises directory using Azure AD Connect.
 
+<br>
+
 > [AZURE.SELECTOR]
-- [Cloud-only Azure AD tenants](active-directory-ds-getting-started-password-sync.md)
-- [Synced Azure AD tenants](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Cloud-only Azure AD directory](active-directory-ds-getting-started-password-sync.md)
+- [Synced Azure AD directory](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 

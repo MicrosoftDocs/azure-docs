@@ -18,19 +18,21 @@
 
 # Azure AD Domain Services *(Preview)* - Enable password synchronization to Azure AD Domain Services
 
-## Task 5: Enable password synchronization
+## Task 5: Enable password synchronization to AAD Domain Services for a cloud-only Azure AD tenant
 Once you have enabled Azure AD Domain Services for your Azure AD tenant, the next task is to enable synchronization of passwords. This enables users to sign in to the domain using their corporate credentials.
 
 The steps involved are different based on whether your organization is a cloud-only Azure AD tenant or is set to synchronize with your on-premises directory using Azure AD Connect.
 
+<br>
+
 > [AZURE.SELECTOR]
-- [Cloud-only Azure AD tenants](active-directory-ds-getting-started-password-sync.md)
-- [Synced Azure AD tenants](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Cloud-only Azure AD directory](active-directory-ds-getting-started-password-sync.md)
+- [Synced Azure AD directory](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
 ### Cloud-only tenants - Enable NTLM and Kerberos credential hash generation in Azure AD
-If your organization is a cloud-only Azure AD tenant, users that need to use Azure AD Domain Services will need to change their passwords. This step causes the credential hashes required by Azure AD Domain Services for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire passwords for all users in the tenant that need to use Azure AD Domain Services or instruct these users to change their passwords.
+If your organization is a cloud-only Azure AD tenant, users that need to use Azure AD Domain Services will need to change their passwords. This password change process causes the credential hashes required by Azure AD Domain Services for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire passwords for all users in the tenant that need to use Azure AD Domain Services or instruct these users to change their passwords.
 
 Here are instructions you need to provide end-users, in order to change their passwords:
 
