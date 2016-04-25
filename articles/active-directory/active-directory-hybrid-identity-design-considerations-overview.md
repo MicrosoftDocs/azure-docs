@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="04/25/2016"
 	ms.author="yuridio"/>
 
 # Azure Active Directory Hybrid Identity Design Considerations

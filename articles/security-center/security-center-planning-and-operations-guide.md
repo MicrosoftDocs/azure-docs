@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="04/25/2016"
    ms.author="yurid"/>
  
 # Azure Security Center Planning and Operations Guide
