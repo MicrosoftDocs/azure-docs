@@ -191,12 +191,12 @@ It is possible to backup and restore VMs with the following special network conf
 - VMs with multiple reserved IPs
 - VMs with multiple NICs
 
->[AZURE.IMPORTANT] When creating the special network configuration for VMs, you must use PowerShell to restore from disk.
+>[AZURE.IMPORTANT] When creating the special network configuration for VMs, you must use PowerShell to create VMs from the disks restored. 
 
 
 In order to fully recreate the virtual machines after restoring to disk, follow these steps:
 
-1. Restore the disks from a recovery services vault using [Azure Backup PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Restore the disks from a recovery services vault using steps 1-4 mentioned in [Choosing a VM recovery configuration](#Choosing-a-VM-recovery-configuration).
 
 2. Create the VM configuration required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
 	- Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
