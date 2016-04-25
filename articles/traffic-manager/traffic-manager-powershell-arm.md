@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # Azure Resource Manager support for Azure Traffic Manager Preview
@@ -137,25 +137,28 @@ For example, to change the profile TTL:
 
 ## Add Traffic Manager Endpoints
 There are three types of Traffic Manager endpoints:
-1. Azure endpoints: these represent services hosted in Azure.
-2. External endpoints: these represent services hosted outside of Azure.
-3. Nested endpoints: these are used to construct nested hierarchies of Traffic Manager profiles, to enable advanced traffic-routing configurations for more complex applications.  They are not yet supported via the ARM API.
 
-In all three cases, endpoints can be added in two ways:
-1. Using a 3-step process similar to that described in [Update a Traffic Manager Profile](#update-traffic-manager-profile): get the profile object using Get-AzureRmTrafficManagerProfile; update it off-line to add an endpoint, using Add-AzureRmTrafficManagerEndpointConfig; upload changes to Azure Traffic Manager using Set-AzureRmTrafficManagerProfile.  The advantage of this method is that a number of endpoint changes can be made in a single update.
+1. Azure endpoints: these represent services hosted in Azure.<BR>
+2. External endpoints: these represent services hosted outside of Azure.<BR>
+3. Nested endpoints: these are used to construct nested hierarchies of Traffic Manager profiles, to enable advanced traffic-routing configurations for more complex applications.  They are not yet supported via the ARM API.<BR>
+
+In all three cases, endpoints can be added in two ways:<BR>
+
+1. Using a 3-step process similar to that described in [Update a Traffic Manager Profile](#update-traffic-manager-profile): get the profile object using Get-AzureRmTrafficManagerProfile; update it off-line to add an endpoint, using Add-AzureRmTrafficManagerEndpointConfig; upload changes to Azure Traffic Manager using Set-AzureRmTrafficManagerProfile.  The advantage of this method is that a number of endpoint changes can be made in a single update.<BR>
+
 2. Using the New-AzureRmTrafficManagerEndpoint cmdlet.  This adds an endpoint to an existing Traffic Manager profile in a single operation.
 
 ### Adding Azure Endpoints
 
-Azure endpoints reference other services hosted in Azure.  Currently, 3 types of Azure endpoint are supported:
-1. Azure Web Apps
-2. 'Classic' cloud services (which can contain either a PaaS service or IaaS virtual machines)
+Azure endpoints reference other services hosted in Azure.  Currently, 3 types of Azure endpoint are supported:<BR>
+1. Azure Web Apps <BR>
+2. 'Classic' cloud services (which can contain either a PaaS service or IaaS virtual machines)<BR>
 3. ARM Microsoft.Network/publicIpAddress resources (which can be attached either to a load-balancer or a virtual machine NIC).  Note that the publicIpAddress must have a DNS name assigned to be used in Traffic Manager.
 
 In each case:
- - The service is specified using the 'targetResourceId' parameter of Add-AzureRmTrafficManagerEndpointConfig or New-AzureRmTrafficManagerEndpoint.
- - The 'Target' and 'EndpointLocation' should not be specified, they are implied by the TargetResourceId specified above
- - Specifying the 'Weight' is optional.  Weights are only used if the profile is configured to use the 'Weighted' traffic-routing method, otherwise they are ignored.  If specified, they must be from the range 1...1000.  The default value is '1'.
+ - The service is specified using the 'targetResourceId' parameter of Add-AzureRmTrafficManagerEndpointConfig or New-AzureRmTrafficManagerEndpoint.<BR>
+ - The 'Target' and 'EndpointLocation' should not be specified, they are implied by the TargetResourceId specified above<BR>
+ - Specifying the 'Weight' is optional.  Weights are only used if the profile is configured to use the 'Weighted' traffic-routing method, otherwise they are ignored.  If specified, they must be from the range 1...1000.  The default value is '1'.<BR>
  - Specifying the 'Priority' is optional.  Priorities are only used if the profile is configured to use the 'Priority' traffic-routing method, otherwise they are ignored.  Valid values are from 1 to 1000 (lower values are higher priority).  If specified for one endpoint, they must be specified for all endpoints.  If omitted, default values starting from 1, 2, 3, etc. are applied in the order the endpoints are provided.
 
 #### Example 1: Adding Web App endpoints using Add-AzureRmTrafficManagerEndpointConfig
@@ -184,9 +187,10 @@ In this example, an ARM public IP address resource is added to the Traffic Manag
 Traffic Manager uses external endpoints to direct traffic to services hosted outside of Azure.  As with Azure endpoints, external endpoints can be added either using Add-AzureRmTrafficManagerEndpointConfig followed by Set-AzureRmTrafficManagerProfile, or New-AzureRMTrafficManagerEndpoint.
 
 When specifying external endpoints:
- - The endpoint domain name must be specified using the 'Target' parameter
- - The 'EndpointLocation' is required if the 'Performance' traffic-routing method is used, otherwise it is optional.  The value must be a [valid Azure region name](https://azure.microsoft.com/regions/).
- - The 'Weight' and 'Priority' are optional, as for Azure endpoints.
+ - The endpoint domain name must be specified using the 'Target' parameter<BR>
+ - The 'EndpointLocation' is required if the 'Performance' traffic-routing method is used, otherwise it is optional.  The value must be a [valid Azure region name](https://azure.microsoft.com/regions/).<BR>
+ - The 'Weight' and 'Priority' are optional, as for Azure endpoints.<BR>
+ 
 
 #### Example 1: Adding external endpoints using Add-AzureRmTrafficManagerEndpointConfig and Set-AzureRmTrafficManagerProfile
 In this example, we create a new Traffic Manager profile, add two external endpoints, and commit the changes.
@@ -208,15 +212,15 @@ Traffic Manager allows you to configure a Traffic Manager profile (we'll call it
 Nesting Traffic Manager enable you to create more flexible and powerful traffic-routing and failover schemes to support the needs of larger, more complex deployments. [This blog post](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) gives several examples.
 
 Nested endpoints are configured at the parent profile, using a specific endpoint type, 'NestedEndpoints'.  When specifying nested endpoints:
- - The endpoint (i.e. child profile) must be specified using the 'targetResourceId' parameter
- - The 'EndpointLocation' is required if the 'Performance' traffic-routing method is used, otherwise it is optional.  The value must be a [valid Azure region name](http://azure.microsoft.com/regions/).
- - The 'Weight' and 'Priority' are optional, as for Azure endpoints.
- - The 'MinChildEndpoints' parameter is optional, default '1'.  If the number of available endpoints in the child profile falls below this threshold, the parent profile will consider the child profile 'degraded' and divert traffic to the other parent profile endpoints.
+ - The endpoint (i.e. child profile) must be specified using the 'targetResourceId' parameter <BR>
+ - The 'EndpointLocation' is required if the 'Performance' traffic-routing method is used, otherwise it is optional.  The value must be a [valid Azure region name](http://azure.microsoft.com/regions/).<BR>
+ - The 'Weight' and 'Priority' are optional, as for Azure endpoints.<BR>
+ - The 'MinChildEndpoints' parameter is optional, default '1'.  If the number of available endpoints in the child profile falls below this threshold, the parent profile will consider the child profile 'degraded' and divert traffic to the other parent profile endpoints.<BR>
 
 
 #### Example 1: Adding nested endpoints using Add-AzureRmTrafficManagerEndpointConfig and Set-AzureRmTrafficManagerProfile
 
-In this example, we create new Traffic Manager child and parent profiles, add the child as a nested endpoint in the parent, and commit the changes. (For brevity, we will not add any other endpoints to the child profile or to the parent profile, although normally these would also be required.)
+In this example, we create new Traffic Manager child and parent profiles, add the child as a nested endpoint in the parent, and commit the changes. (For brevity, we will not add any other endpoints to the child profile or to the parent profile, although normally these would also be required.)<BR>
 
 	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -232,9 +236,10 @@ In this example, we add an existing child profile as a nested endpoint to an exi
 
 
 ## Update a Traffic Manager Endpoint
-There are two ways to update an existing Traffic Manager endpoint:
-1. Get the Traffic Manager profile using Get-AzureRmTrafficManagerProfile, update the endpoint properties within the profile, and commit the changes using Set-AzureRmTrafficManagerProfile.  This method has the advantage of being able to update more than one endpoint in a single operation.
-2. Get the Traffic Manager endpoint using Get-AzureRmTrafficManagerEndpoint, update the endpoint properties, and commit the changes using Set-AzureRmTrafficManagerEndpoint.  This method is simpler, since it does not require indexing into the Endpoints array in the profile.
+There are two ways to update an existing Traffic Manager endpoint:<BR>
+
+1. Get the Traffic Manager profile using Get-AzureRmTrafficManagerProfile, update the endpoint properties within the profile, and commit the changes using Set-AzureRmTrafficManagerProfile.  This method has the advantage of being able to update more than one endpoint in a single operation.<BR>
+2. Get the Traffic Manager endpoint using Get-AzureRmTrafficManagerEndpoint, update the endpoint properties, and commit the changes using Set-AzureRmTrafficManagerEndpoint.  This method is simpler, since it does not require indexing into the Endpoints array in the profile.<BR>
 
 #### Example 1: Updating endpoints using Get-AzureRmTrafficManagerProfile and Set-AzureRmTrafficManagerProfile
 In this example, we will modify the priority on two endpoints within an existing profile.

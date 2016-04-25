@@ -27,7 +27,7 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 ## Get and run the Azure PowerShell cmdlets
 
 1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. To run the module, at the start window type **Microsoft Azure PowerShell**.
+2. To run the module, at the start window type **Windows PowerShell**.
 3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell]():
 
 	```

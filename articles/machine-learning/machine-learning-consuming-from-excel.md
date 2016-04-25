@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="02/12/2016"
 	ms.author="tedway"/>
 
 
@@ -27,7 +27,7 @@
 
 ## Steps
 
-1. Publish a web service. [This page](machine-learning-walkthrough-5-publish-web-service.md) explains how to do it. Currently the Excel Workbook feature is only supported for Request/Response services that have a single output (that is, a single scoring label).
+1. Publish a web service. [This page](machine-learning-walkthrough-5-publish-web-service.md) explains how to do it. Currently the Excel workbook feature is only supported for Request/Response services that have a single output (that is, a single scoring label).
 
 2. Once you have a web service, click on the **WEB SERVICES** section on the left of the studio, and then select the web service to consume from Excel.
 

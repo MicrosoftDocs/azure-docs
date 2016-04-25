@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/23/2015"
+   ms.date="02/16/2016"
    ms.author="chackdan"/>
 
 # Upgrade a Service Fabric cluster
@@ -37,8 +37,6 @@ If the cluster health policies are not met, the upgrade is rolled back and an em
 We try to execute the same upgrade a few more times in case any upgrades failed for infrastructure reasons. After the n days from the date the email was sent, we proceed to Phase 2.
 
 If the cluster health policies are met, the upgrade is considered successful and marked complete. This can happen during the initial upgrade or any of the upgrade reruns in this phase. There is no email confirmation of a successful run. This is to avoid sending you too many emails; receiving an email should be seen as an exception to normal. We expect most of the cluster upgrades to succeed without impacting your application availability.
-
-For details on how to set custom health policies for your cluster, refer to  [Cluster upgrade and health parameters](service-fabric-cluster-health-parameters.md).
 
 ### Phase 2: Upgrade is performed using default health policies only
 

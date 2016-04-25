@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2015" 
-	ms.author="sergkanz"/>
+	ms.date="02/12/2016" 
+	ms.author="joshweb"/>
  
 # Release Notes for Application Insights SDK for Windows Phone and Store
 

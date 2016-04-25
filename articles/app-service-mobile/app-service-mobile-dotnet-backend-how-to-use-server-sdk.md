@@ -146,7 +146,7 @@ The following NuGet-based extension packages provide various mobile features tha
 
 ## <a name="publish-server-project"></a>How to: Publish the server project
 
-This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using Git or any of the other methods covered in the [Azure App Service deployment documentation](../app-service-web/web-site-deploy.md).
+This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using Git or any of the other methods covered in the [Azure App Service deployment documentation](../app-service-web/web-sites-deploy.md).
 
 1. In Visual Studio, rebuild the project to restore NuGet packages.
 

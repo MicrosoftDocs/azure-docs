@@ -83,8 +83,8 @@ This article will walk you through connecting two virtual networks, VNet1 and VN
 
 
 - Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-- Install the PowerShell modules. You'll need the latest version of the Azure Resource Manager PowerShell cmdlets to configure your connection. [AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
+	
+- You'll need to install the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
 
 ## Step 1 - Plan your IP address ranges

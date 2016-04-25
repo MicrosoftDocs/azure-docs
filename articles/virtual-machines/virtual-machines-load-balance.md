@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="joaoma"
-	manager="adinah"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="02/02/2016"
 	ms.author="joaoma"/>
 
 
@@ -77,10 +77,17 @@ The following diagram shows an example of an internal load-balanced endpoint for
 
 ![loadbalancing](./media/virtual-machines-load-balance/LOBServers.png)
 
+## Load balancer considerations
+
+A load balancer is configured by default to timeout an idle session in 4 minutes. If your application behind a load balancer leaves a connection idle for more than 4 minutes and it doesn't have a Keep-Alive configuration, the connection will be dropped. You can change the load balancer behavior to allow a [longer timeout setting for Azure load balancer](../load-balancer/load-balancer-tcp-idle-timeout.md).
+
+Other consideration is the type of distribution mode supported by Azure Load Balancer. You can configure source IP affinity (source IP, destination IP) or source IP protocol (source IP , destination IP and protocol). Check out [Azure Load Balancer distribution mode (source IP affinity)](../load-balancer/load-balancer-distribution-mode.md) for more information.
+
+
 ## Next steps
 
 For the steps to create a load-balanced set, see [Configure an internal load-balanced set](../load-balancer/load-balancer-internal-getstarted.md).
 
 For more information about load balancer, see [Internal load balancing](../load-balancer/load-balancer-internal-overview.md).
 
-<!-- LINKS -->
+

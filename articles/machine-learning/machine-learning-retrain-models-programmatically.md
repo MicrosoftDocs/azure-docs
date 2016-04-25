@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/12/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -106,6 +106,8 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 7. *Update the added endpoint’s Trained Model*  
 	To complete the process, we need to update the trained model of the predicative endpoint we created in Step 4 above.  
 
+	(If you added the new endpoint using the Azure Portal, you can click on the new endpoint's name, then the UpdateResource link to get the URL you would need to update the endpoint's model.)
+
 	The BES output above shows the information for the result of retraining for “output1” which contains the retrained model location information. We now need to take this trained model and update the scoring endpoint (created  in step 4 above). Sample code follows:
 
 	```C#
@@ -148,7 +150,7 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 	}
 	```
 
-	The “apiKey” and the “endpointUrl” for this call are visible on the endpoint dashboard.
+	The “apiKey” and the “endpointUrl” for this call are visible on the endpoint dashboard. The "Name" parameter in Resources should match the name of the Saved Trained Model in the Predictive Experiment.
 
 	With the success of this call, the new endpoint will start using a retrained model approximately within 15 seconds.  
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copy output data to an on-premises SQL Server database (Azure PowerShell)" 
+	pageTitle="Walkthrough: Copy output data to SQL Server database (Azure PowerShell)" 
 	description="This walkthrough extends the tutorial using Azure PowerShell such that the pipeline copies output data to a SQL Server database."
 	services="data-factory" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 
-# Walkthrough: Copy campaign effectiveness data to an on-premises SQL Server database
+# Walkthrough: Copy output data to an on-premises SQL Server database (Azure PowerShell)
 In this walkthrough, you will learn how to set up the environment to enable the pipeline to work with your on-premises data.
  
 In the last step of log processing scenario from the first walkthrough with Partition -> Enrich -> Analyze workflow, the marketing campaign effectiveness output was copied to an Azure SQL database. You could also move this data to on-premises SQL Server for analytics within your organization.

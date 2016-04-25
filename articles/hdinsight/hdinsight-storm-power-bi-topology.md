@@ -17,9 +17,9 @@
  ms.date="01/08/2016"
  ms.author="larryfr"/>
 
-# Use Power BI (preview) to visualize data from an Apache Storm topology
+# Use Power BI to visualize data from an Apache Storm topology
 
-The Power BI preview allows you to visually display data as reports, or dashboards. Using the Power BI REST API, you can easily use data from a topology running on an Apache Storm on HDInsight cluster to Power BI.
+The Power BI allows you to visually display data as reports, or dashboards. Using the Power BI REST API, you can easily use data from a topology running on an Apache Storm on HDInsight cluster to Power BI.
 
 In this document, you will learn how to use Power BI to create a report and dashboard from data created by a Storm topology.
 

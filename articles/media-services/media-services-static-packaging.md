@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/28/2016"   
+	ms.date="02/14/2016"   
 	ms.author="juliako"/>
 
 
@@ -166,7 +166,7 @@ The following code sample uses Azure Media Services .NET SDK Extensions.  Make s
 	
 	            // Get the SDK extension method to  get a reference to the Azure Media Packager.
 	            IMediaProcessor processor = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaPackager);
+	                MediaProcessorNames.WindowsAzureMediaPackager);
 	
 	            // Create a task with the conversion details, using the configuration data. 
 	            ITask task = job.Tasks.AddNew("Mp4 Validation Task",

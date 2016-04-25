@@ -145,6 +145,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Shenzhen Jiuzhou Electric Co.,Ltd
 - Shenzhen Skyworth Digital Technology Co., Ltd
 - Sichuan Changhong Electric Co., Ltd.
+- Sky Deutschland Fernsehen GmbH & Co. KG
 - SmarDTV S.A.
 - SoftAtHome
 - TCL Overseas Marketing (Macao Commercial Offshore) Limited

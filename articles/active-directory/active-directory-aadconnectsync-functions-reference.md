@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi"/>
 
 
@@ -679,7 +679,7 @@ For an attribute, this would evaluate to True if the attribute is absent or is p
 The inverse of this function is named IsPresent.
 
 **Example:** <br>
-`IsNull([displayName])` <br>
+`IsNullOrEmpty([displayName])` <br>
 Returns True if the attribute is not present or is an empty string in the CS or MV.
 
 

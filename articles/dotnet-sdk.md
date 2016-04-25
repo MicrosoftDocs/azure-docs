@@ -36,7 +36,7 @@ The Azure SDK for .NET installs the following products:
 - [Microsoft Azure Storage Emulator](#stgemulator)
 - [Microsoft Azure Storage Tools](#stgtools)
 - [Microsoft Azure Libraries for .NET](#libraries)
-- [HDInsight Tools for Visual Studio](#hdinsight) and [Microsoft Hive ODBC Driver](#hdinsight)
+- [HDInsight Tools for Visual Studio and Microsoft Hive ODBC Driver](#hdinsight)
 - [Microsoft Azure Mobile App SDK V1.0](#mobile)
 - [Microsoft Azure PowerShell](#ps)
 
@@ -101,7 +101,7 @@ This includes the following:
 
 HDInsight tools in Server Explorer enable you to navigate Hive databases and linked storage accounts for HDInsight clusters, create tables, and create and submit Hive queries. For more information, see [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-###<a id="mobile">Microsoft Azure Mobile App SDK
+###<a id="mobile"></a>Microsoft Azure Mobile App SDK V1.0
 
 Tools for working with [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop.md).
 

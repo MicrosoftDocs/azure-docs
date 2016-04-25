@@ -21,7 +21,7 @@
 
 ## Overview
 
-This article will show you how to perform common scenarios using Microsoft Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage iOS Library](https://github.com/Azure/azure-storage-ios). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
+This article will show you how to perform common scenarios using Microsoft Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -90,7 +90,7 @@ When you create the SAS, you can specify the time interval over which the SAS is
 
 The following example shows how to use Azure CLI to generate a SAS token that grants read and write permissions for the container,*sascontainer*, until 12:00AM (UTC) September 5, 2015.  
 
-1. First, follow this [guide](../xplat-cli/#how-to-install-the-azure-cli)  to learn how to install Azure CLI and connect to your Azure subscription.
+1. First, see [Install the Azure CLI](../xplat-cli-install.md) to learn how to install Azure CLI and connect to your Azure subscription.
 
 2. Next, type the following command in Azure CLI to get the connection string for your account:
 
@@ -113,7 +113,7 @@ The following example shows how to use Azure CLI to generate a SAS token that gr
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-As you can see, when using a SAS token, you’re not exposing your account name and account key in your iOS application. You can learn more about SAS by checking out the [Shared Access Signature tutorial](../storage-dotnet-shared-access-signature-part-1).
+As you can see, when using a SAS token, you’re not exposing your account name and account key in your iOS application. You can learn more about SAS by checking out [Shared Access Signatures: Understanding the SAS model](../storage-dotnet-shared-access-signature-part-1).
 
 ##Asynchronous Operations
 > [AZURE.NOTE] All methods that perform a request against the service are asynchronous operations. In the code samples, you’ll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.
@@ -350,14 +350,10 @@ The following example shows how to delete a container.
 
 Now that you've learned the basics of Blob storage, follow these links to learn about more complex storage tasks.
 
-- [Azure Storage iOS Library]
-- [Azure Storage REST API]
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
-- [Azure Storage Team Blog]
+- [Azure Storage Client Library for iOS](https://github.com/azure/azure-storage-ios)
+- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+- [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage)
 
 If you have questions regarding this library feel free to post to our [MSDN Azure forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
-If you have feature suggestions for Azure Storage please post to [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).
-
-[Azure Storage iOS Library]: https://github.com/azure/azure-storage-ios
-[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage
+If you have feature suggestions for Azure Storage, please post to [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).

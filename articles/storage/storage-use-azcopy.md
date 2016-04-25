@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/15/2016" 
 	ms.author="micurd"/>
 
 # Transfer data with the AzCopy Command-Line Utility
@@ -447,7 +447,7 @@ The examples below demonstrate a variety of scenarios for copying blobs with AzC
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-For more information about working with your storage access keys, please see [View, copy, and regenerate storage access keys](../storage-create-storage-account/#regeneratestoragekeys).
+For more information about working with your storage access keys, please see [Manage your storage access keys](storage-create-storage-account.md#manage-your-storage-access-keys).
 
 ### Copy a blob via server-side copy
 
@@ -968,18 +968,17 @@ For more information about Azure Storage and AzCopy, see the following resources
 
 ### Azure Storage documentation:
 
-- [Introduction to Azure Storage](storage-introduction.md)
-- [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md)
-- [How to use File storage from .NET](storage-dotnet-how-to-use-files.md)
-- [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md)
-- [How to create, manage, or delete a storage account](storage-create-storage-account.md)
-- [Use the Import/Export Service to transfer data to Blob Storage](storage-import-export-service.md)
+- [Introduction to Microsoft Azure Storage](storage-introduction.md)
+- [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
+- [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
+- [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md)
+- [About Azure storage accounts](storage-create-storage-account.md)
+- [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](storage-import-export-service.md)
 
 ### Azure Storage blog posts:
-- [DML: Introducing azure storage data movement library preview] (https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-- [AzCopy: Introducing synchronous copy and customized content type] (http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+- [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+- [AzCopy: Introducing synchronous copy and customized content type](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-- [AzCopy: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [AzCopy: Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 - [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)

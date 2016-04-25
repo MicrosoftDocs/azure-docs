@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 # Determine incident response requirements for your hybrid identity solution

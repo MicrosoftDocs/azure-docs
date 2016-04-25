@@ -39,7 +39,7 @@ Ensure that the following products and versions are installed to successfully co
 
 The following steps create the cloud service project that will host the Socket.IO application.
 
-1. From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**. Finally, right-click **Azure PowerShell** and select **Run As Administrator**.
+1. From the **Start Menu** or **Start Screen**, search for **Windows PowerShell**. Finally, right-click **Windows PowerShell** and select **Run As Administrator**.
 
 	![Azure PowerShell icon][powershell-menu]
 

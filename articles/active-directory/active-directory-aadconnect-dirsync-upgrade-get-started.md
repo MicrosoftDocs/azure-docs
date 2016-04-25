@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="shoatman;billmath"/>
 
-# Upgrading Windows Azure Active Directory sync (DirSync) to Azure AD Connect
+# Azure AD Connect: Upgrade Windows Azure Active Directory sync (DirSync)
 
 The following documentation will help you upgrade your existing DirSync installation to Azure AD Connect.
 
@@ -58,13 +58,13 @@ The following configuration changes are supported with DirSync and will be upgra
 - Your forest/domain and Azure AD settings
 - Filtering based on user attributes
 
-The following changes cannot be upgraded. If you have made any of these changes the upgrade will be blocked.
+The following change cannot be upgraded. If you have made this change the upgrade will be blocked:
+
+- Unsupported DirSync changes, e.g. removed attributes and using a custom extension DLL
 
 ![Upgrade blocked](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
 In those cases the recommendation is to install a new Azure AD Connect server in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) and verify the old DirSync and new Azure AD Connect configuration. Reapply any changes using custom configuration, as described in [Azure AD Connect Sync custom configuration](active-directory-aadconnectsync-whatis.md).
-
-- Unsupported DirSync changes, e.g. removed attributes and using a custom extension DLL
 
 The passwords used by DirSync for the service accounts cannot be retrieved and will not be migrated. These passwords will be reset during the upgrade.
 

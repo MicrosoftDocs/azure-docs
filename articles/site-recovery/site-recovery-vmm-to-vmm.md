@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Replicate Hyper-V virtual machines (in VMM clouds) to a secondary VMM site | Microsoft Azure"
-	description="Learn how to replicate Hyper-V VMs in VMM clouds to a secondary VMM site with Azure Site Recovery."
+	pageTitle="Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site | Microsoft Azure"
+	description="This article describes how to replicate Hyper-V VMs in VMM clouds to a secondary VMM site with Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/17/2016"
 	ms.author="raynew"/>
 
-# Replicate Hyper-V virtual machines (in VMM clouds) to a secondary VMM site
+# Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
 
 ## Overview
 
-This article describes how to deploy Site Recovery to orchestrate and automate protection for Hyper-V virtual machines located in System Center Virtual Machine Manager (VMM) private clouds. In this scenario virtual machines are replicated from a primary VMM site to a secondary VMM site using Site Recovery and Hyper-V Replica.
+This article describes how to replicate Hyper-V virtual machines on Hyper-V host servers that are managed in VMM clouds to secondary VMM site using Azure Site Recovery.
 
 The article includes prerequisites, shows you how to set up a Site Recovery vault, install the Azure Site Recovery Provider on source and target VMM servers, register the servers in the vault, configure protection settings for VMM clouds and then enable protection for Hyper-V VMs. Finish up by testing the failover to make sure everything's working as expected.
 
-Post any questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Architecture
 
@@ -41,8 +41,8 @@ Make sure you have these prerequisites in place:
 **Prerequisites** | **Details** 
 --- | ---
 **Azure**| You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. 
-**VMM** | You'll need at least one VMM server.<br/><br/>The VMM server should be running at least System Center 2012 SP1 with the latest cumulative updates.<br/><br/>If you want to set up protection with a single VMM server you'll need at least two clouds configured on the server.<br/><br/>If you want to deploy protection with two VMM servers each server must have at least one cloud configured on the primary VMM server you want to protect and one cloud configured on the secondary VMM server you want to use for protection and recovery<br/><br/>All VMM clouds must have the Hyper-V Capacity profile set.<br/><br/>The source cloud that you want to protect must contain one or more VMM host groups.<br/><br/>Learn more about setting up VMM clouds in [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric), and [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
-**Hyper-V** | You'll need one or more Hyper-V host servers in the primary and secondary VMM host groups, and one or more virtual machines on each Hyper-V host server.<br/><br/>The host and target Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role and have the latest updates installed.<br/><br/>Any Hyper-V server containing VMs you want to protect must be located in a VMM cloud.<br/><br/>If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
+**VMM** | You'll need at least one VMM server.<br/><br/>The VMM server should be running at least System Center 2012 SP1 with the latest cumulative updates.<br/><br/>If you want to set up protection with a single VMM server you'll need at least two clouds configured on the server.<br/><br/>If you want to deploy protection with two VMM servers each server must have at least one cloud configured on the primary VMM server you want to protect and one cloud configured on the secondary VMM server you want to use for protection and recovery<br/><br/>All VMM clouds must have the Hyper-V capability profile set.<br/><br/>The source cloud that you want to protect must contain one or more VMM host groups.<br/><br/>Learn more about setting up VMM clouds in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) on Keith Mayer's blog.
+**Hyper-V** | You'll need one or more Hyper-V host servers in the primary and secondary VMM host groups, and one or more virtual machines on each Hyper-V host server.<br/><br/>The host and target Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role and have the latest updates installed.<br/><br/>Any Hyper-V server containing VMs you want to protect must be located in a VMM cloud.<br/><br/>If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. [Learn more](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) in Aidan Finn's blog entry.
 **Network mapping** | You can configure network mapping to make sure that replicated virtual machines are optimally placed on secondary Hyper-V host servers after failover, and that they can connect to appropriate VM networks. If you don't configure network mapping replica VMs won't be connected to any network after failover.<br/><br/>To set up network mapping during deployment make sure that the virtual machines on the source Hyper-V host server are connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.<br/<br/>The target cloud on the secondary VMM server that you use for recovery should have a corresponding VM network configured, and it in turn should be linked to a corresponding logical network that is associated with the target cloud.<br/><br/>[Learn more](site-recovery-network-mapping.md) about network mapping.
 **Storage mapping** | By default when you replicate a virtual machine on a source Hyper-V host server to a target Hyper-V host server, replicated data is stored in the default location that’s indicated for the target Hyper-V host in Hyper-V Manager. For more control over where replicated data is stored, you can configure storage mapping<br/><br/> To configure storage mapping you'll need to set up storage classifications on the source and target VMM servers before you begin deployment. [Learn more](site-recovery-storage-mapping.md).
 

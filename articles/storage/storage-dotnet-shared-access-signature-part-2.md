@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -543,9 +543,9 @@ Run the console application and observe the output to see which operations are p
 
 ## Next Steps
 
-[Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1/)
+[Shared Access Signatures, Part 1: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
 
-[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/library/azure/ee393343.aspx)
+[Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md)
 
 [Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 

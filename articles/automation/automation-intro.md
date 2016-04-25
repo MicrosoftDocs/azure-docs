@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="02/09/2016"
+	ms.topic="get-started-article" 
+	ms.date="02/11/2016"
 	ms.author="bwren;sngun"/>
 
 # Azure Automation overview

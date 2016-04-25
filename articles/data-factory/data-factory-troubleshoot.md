@@ -52,9 +52,9 @@ Verify that the SQL Server is reachable from the machine where the gateway is in
 2. Try connecting to the SQL Server instance using the credentials you specified on the Azure Classic Portal using SQL Server Management Studio (SSMS).
 
 
-## Problem: Input slices are in PendingExecution or PendingValidation state for ever
+## Problem: Input slices are in Waiting state for ever
 
-The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property . This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
+The slices could be in **Waiting** state due to a number of reasons and one of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property . This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
 
 See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.. 
 

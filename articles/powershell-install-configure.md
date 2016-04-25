@@ -34,23 +34,11 @@ Following are the two methods by which you can install Azure PowerShell. You can
 
 Installing Azure PowerShell 1.0 and greater from WebPI is the same as it was for 0.9.x. Download [Azure Powershell](http://aka.ms/webpi-azps) and start the install. If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires you to remove the modules before installation to ensure a consistent Azure PowerShell environment.
 
-> [AZURE.NOTE] If you have installed the PowerShell Gallery Azure modules, you will be asked to uninstall them. This is to prevent confussion about which modules you have installed and where they are located. PowerShell Gallery modules will normally install in **%ProgramFiles%\WindowsPowerShell\Modules**. In contrast, the WebPI installer will install the Azure modules in **%ProgramFiles%\Microsoft SDKs\Azure\PowerShell\**. **PowerShellGet** will uninstall modules and leave behind locked .dlls and their folders if a module dependency is loaded when it's being uninstalled. If you have uninstalled your PowerShell Gallery modules and still receive the error on install, remove the Azure* folders in your **%ProgramFiles%\WindowsPowerShell\Modules** folder.
+> [AZURE.NOTE] If you have installed the PowerShell Gallery Azure modules, the installer will automatically remove them. This is to prevent confussion about which modules you have installed and where they are located. PowerShell Gallery modules will normally install in **%ProgramFiles%\WindowsPowerShell\Modules**. In contrast, the WebPI installer will install the Azure modules in **%ProgramFiles%\Microsoft SDKs\Azure\PowerShell\**. **PowerShellGet** will uninstall modules and leave behind locked .dlls and their folders if a module dependency is loaded when it's being uninstalled. If an error occurs during install, remove the Azure* folders in your **%ProgramFiles%\WindowsPowerShell\Modules** folder.
 
-If you installed Azure PowerShell via PowerShell Gallery but instead want to use the WebPI installation, run the following commands before installing from WebPI.
+If you installed Azure PowerShell via PowerShell Gallery but instead want to use the WebPI installation, the WebPI installation wil automatically remove the cmdlets installed from the gallery.
 
-    # Uninstall the AzureRM component modules
-    Uninstall-AzureRM
-
-    # Uninstall AzureRM module
-    Uninstall-Module AzureRM
-
-    # Uninstall the Azure module
-    Uninstall-Module Azure
-
-    # Or, you can remove all Azure modules
-    # Uninstall-Module Azure* -Force
-
-> [AZURE.NOTE] There is a known issue with PowerShell **$env:PSModulePath** that occurs when installing from WebPI. If your computer requires a restart due to system updates or other installations, it may cause the **$env:PSModulePath** to not include the path where Azure PowerShell is installed. This can be corrected by restarting the machine or adding the Azure PowerShell path to the **$env:PSModulePath**.
+> [AZURE.NOTE] There is a known issue with PowerShell **$env:PSModulePath** that occurs when installing from WebPI. If your computer requires a restart due to system updates or other installations, it may cause the **$env:PSModulePath** to not include the path where Azure PowerShell is installed. This can be corrected by restarting the machine.
 
 ###Installing Azure PowerShell from the Gallery
 
@@ -79,12 +67,12 @@ Install Azure PowerShell 1.0 or greater from the Gallery using the following com
 
 
 ## Step 2: Start
-The module installs a customized console for Azure PowerShell. You can run the cmdlets from the standard Windows PowerShell console, or from the Azure PowerShell console.
+You can run the cmdlets from the standard Windows PowerShell console, or from PowerShell Integrated Scripting Environment (ISE).
 The method you use to open either console depends on the version of Windows you're running:
 
-- On a computer running at least Windows 8 or Windows Server 2012, you can use the built-in Search. From the **Start** screen, begin typing power. This returns a scoped list of apps that includes Windows PowerShell and Azure PowerShell. To open the console, click either app. (To pin the app to the **Start** screen, right-click the icon.)
+- On a computer running at least Windows 8 or Windows Server 2012, you can use the built-in Search. From the **Start** screen, begin typing power. This returns a scoped list of apps that includes Windows PowerShell. To open the console, click either app. (To pin the app to the **Start** screen, right-click the icon.)
 
-- On a computer running a version earlier than Windows 8 or Windows Server 2012, use the **Start menu**. From the **Start** menu, click **All Programs**, click **Azure**, and then click **Azure PowerShell**.
+- On a computer running a version earlier than Windows 8 or Windows Server 2012, use the **Start menu**. From the **Start** menu, click **All Programs**, click  **Accessories**, click the **Windows PowerShell** folder, and then click **Windows PowerShell**.
 
 You can also run the **Windows PowerShell ISE** to use menu items and keyboard shortcuts to perform many of the same tasks that you would perform in the Windows PowerShell console. To use the ISE, in the Windows PowerShell console, Cmd.exe, or in the **Run** box, type, **powershell_ise.exe**.
 

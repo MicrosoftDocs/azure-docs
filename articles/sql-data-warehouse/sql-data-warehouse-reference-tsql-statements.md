@@ -27,6 +27,7 @@
 - [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
 - [CREATE COLUMNSTORE INDEX](https://msdn.microsoft.com/library/gg492153.aspx)
 - [CREATE DATABASE](https://msdn.microsoft.com/library/mt204021.aspx)
+- [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 - [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 - [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx)
 - [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)

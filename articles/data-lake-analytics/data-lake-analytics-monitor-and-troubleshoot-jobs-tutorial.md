@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Troubleshoot Azure Data Lake Analytics jobs using Azure Portal
@@ -26,9 +26,9 @@ In this tutorial, you will setup a missing source file problem, and use the Azur
 
 Before you begin this tutorial, you must have the following:
 
-- **Basic knowledge of Data Lake Analytics job process**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-use-portal.md).
-- **A Data Lake Analytics account**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
-- **Copy the sample data to the default Data Lake Store account**.  See [Prepare source data](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data)
+- **Basic knowledge of Data Lake Analytics job process**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
+- **A Data Lake Analytics account**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md#create-adl-analytics-account).
+- **Copy the sample data to the default Data Lake Store account**.  See [Prepare source data](data-lake-analytics-get-started-portal.md#prepare-source-data)
 
 ##Submit a Data Lake Analytics job
 
@@ -109,7 +109,7 @@ In the last section, you have submitted a job, and the job failed.
 
 - [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
 - [Get started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Get started with Azure Data Lake Analytics and U-SQL using Visual Studio](data-lake-analytics-get-started-u-sql-studio.md)
+- [Get started with Azure Data Lake Analytics and U-SQL using Visual Studio](data-lake-analytics-u-sql-get-started.md)
 - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
 
 

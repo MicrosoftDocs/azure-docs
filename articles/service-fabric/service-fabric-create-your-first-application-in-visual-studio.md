@@ -86,7 +86,7 @@ Now that you have an application, you can try running it.
 
 	The local cluster contains five nodes that are hosted on a single machine. It mimics a five-node cluster, where nodes are on distinct machines. Let's take down one of the nodes on the local cluster to simulate the loss of a machine and exercise the Visual Studio debugger at the same time.
 
-    >[AZURE.NOTE] The application diagnostic events that are emitted by the project template use the included `ServiceEventSource` class. For more information, see [How to monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally).
+    >[AZURE.NOTE] The application diagnostic events that are emitted by the project template use the included `ServiceEventSource` class. For more information, see [How to monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 4. Find the class in your service project that derives from StatefulService (e.g. MyStatefulService) and set a breakpoint on the first line of the `RunAsync` method.
 

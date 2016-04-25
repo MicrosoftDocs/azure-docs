@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/23/2015"
+   ms.date="02/12/2016"
    ms.author="tedway; neerajkh"/>
 
 # Multi-Geo Help documentation

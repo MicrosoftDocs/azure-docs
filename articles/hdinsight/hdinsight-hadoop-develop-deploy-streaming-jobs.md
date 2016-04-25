@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/28/2016"
 	ms.author="jgao"/>
 
 
@@ -30,16 +30,15 @@ Hadoop provides a streaming API for MapReduce that enables you to write map and 
 
 This tutorial shows you how to:
 
-- Develop and test a Hadoop streaming MapReduce program by using C# on the HDInsight Emulator for Azure
-- Run the same MapReduce job on Azure HDInsight
+- Develop a Hadoop streaming MapReduce program by using C# 
+- Run the MapReduce job on Azure HDInsight
 - Retrieve the results of the MapReduce job
 
-##Prerequisites
+###Prerequisites
 
 Before you begin this tutorial, you must have done the following:
 
-- Install the HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-get-started-emulator].
-- Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install].
+- A workstation with [Azure PowerShell][powershell-install], and [Microsoft Visual Studio](https://www.visualstudio.com/).
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 
@@ -47,246 +46,93 @@ Before you begin this tutorial, you must have done the following:
 
 The word-count solution contains two console application projects: mapper and reducer. The mapper application streams each word into the console, and the reducer application counts the number of words that are streamed from a document. Both the mapper and the reducer read characters, line by line, from the standard input stream (stdin) and write to the standard output stream (stdout).
 
-**To create a C# console application**
-
-1. Open Visual Studio 2013.
-2. Click **FILE**, click **New**, and then click **Project**.
-3. Type or select the following values:
-
-
-Field|Value
----|---
-Template|Visual C#/Windows/Console Application
-Name|WordCountMapper
-Location|C:\Tutorials
-Solution name|WordCount
-
-
-4. Click **OK** to create the project.
-
 **To create the mapper program**
 
-5. In Solution Explorer, right-click **Program.cs**, and then click **Rename**.
-6. Rename the file to **WordCountMapper.cs**, and then press **ENTER**.
-7. Click **Yes** to confirm renaming all references.
-8. Double-click **WordCountMapper.cs** to open it.
-9. Add the following **using** statement:
+1. Open Visual Studio and create a C# console application called **WordCountMapper**.
+2. In Solution Explorer, rename **Program.cs** to **WordCountMapper.cs**. Click **Yes** to confirm renaming all references.
+3. Replace the code in WordCountMapper.cs with the following:
 
-		using System.IO;
+        using System;
+        using System.IO;
 
-10. Replace the **Main()** function with the following:
+        namespace WordCountMapper
+        {
+            class WordCountMapper
+            {
+                static void Main(string[] args)
+                {
+                    if (args.Length > 0)
+                    {
+                        Console.SetIn(new StreamReader(args[0]));
+                    }
 
-		static void Main(string[] args)
-		{
-		    if (args.Length > 0)
-		    {
-		        Console.SetIn(new StreamReader(args[0]));
-		    }
+                    string line;
+                    string[] words;
 
-		    string line;
-		    string[] words;
+                    while ((line = Console.ReadLine()) != null)
+                    {
+                        words = line.Split(' ');
 
-		    while ((line = Console.ReadLine()) != null)
-		    {
-		        words = line.Split(' ');
+                        foreach (string word in words)
+                            Console.WriteLine(word.ToLower());
+                    }
+                }
+            }
+        }
 
-		        foreach (string word in words)
-		            Console.WriteLine(word.ToLower());
-		    }
-		}
-
-11. Click **BUILD**, and then click **Build Solution** to compile the mapper program.
-
+4. Build the solution, and make sure there is no compilation errors.
 
 **To create the reducer program**
 
-1. From Visual Studio 2013, click **FILE**, click **Add**, and then click **New Project**.
-2. Type or select the following values:
-
-Field|Value
----|---
-Template|Visual C#/Windows/Console Application
-Name|WordCountReducer
+1. Add another C# console application to the solution called **WordCountReducer**".
 Location|C:\Tutorials\WordCount
+2. In Solution Explorer, rename **Program.cs** to **WordCountReducer.cs**. Click **Yes** to confirm renaming all references.
+3. Replace the code in WordCountReducer.cs with the following:
 
-3. Clear the check box to **Create directory for solution**, and then click **OK** to create the project.
-4. From Solution Explorer, right-click **Program.cs**, and then click **Rename**.
-5. Rename the file to **WordCountReducer.cs**, and then press **ENTER**.
-7. Click **Yes** to confirm renaming all references.
-8. Double-click **WordCountReducer.cs** to open it.
-9. Add the following **using** statement:
+        using System;
+        using System.IO;
 
-		using System.IO;
+        namespace WordCountReducer
+        {
+            class WordCountReducer
+            {
+                static void Main(string[] args)
+                {
+                    string word, lastWord = null;
+                    int count = 0;
 
-10. Replace the **Main()** function with the following:
+                    if (args.Length > 0)
+                    {
+                        Console.SetIn(new StreamReader(args[0]));
+                    }
 
-		static void Main(string[] args)
-		{
-		    string word, lastWord = null;
-		    int count = 0;
+                    while ((word = Console.ReadLine()) != null)
+                    {
+                        if (word != lastWord)
+                        {
+                            if (lastWord != null)
+                                Console.WriteLine("{0}[{1}]", lastWord, count);
 
-		    if (args.Length > 0)
-		    {
-		        Console.SetIn(new StreamReader(args[0]));
-		    }
+                            count = 1;
+                            lastWord = word;
+                        }
+                        else
+                        {
+                            count += 1;
+                        }
+                    }
+                    Console.WriteLine(count);
+                }
+            }
+        }
 
-		    while ((word = Console.ReadLine()) != null)
-		    {
-		        if (word != lastWord)
-		        {
-		            if(lastWord != null)
-		                Console.WriteLine("{0}[{1}]", lastWord, count);
+4. Build the solution, and make sure there is no compilation errors.
 
-		            count = 1;
-		            lastWord = word;
-		        }
-		        else
-		        {
-		            count += 1;
-		        }
-		    }
-		    Console.WriteLine(count);
-		}
+You shall get the mapper and reducer executables:
 
-11. Click **BUILD**, and then click **Build Solution** to compile the reducer program.
+- ..\WordCountMapper\bin\Debug\WordCountMapper.exe
+- ..\WordCountReducer\bin\Debug\WordCountReducer.exe
 
-The mapper and reducer executables are located at:
-
-- C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe
-- C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe
-
-
-##Test the program on the emulator
-
-Do the following to test the program on the HDInsight Emulator:
-
-1. Upload data to the emulator's file system
-2. Upload the mapper and reducer applications to the emulator's file system
-3. Submit a word-count MapReduce job
-4. Check the job status
-5. Retrieve the job results
-
-By default, HDInsight emulator uses Hadoop Distributed File System (HDFS) as the file system. Optionally, you can configure the HDInsight Emulator to use Azure Blob storage. For details, see [Get started with HDInsight Emulator][hdinsight-emulator-wasb]. In this section, you will use the HDFS **copyFromLocal** command to upload the files. The next section shows you how to upload files by using Azure PowerShell. For other methods, see [Upload data to HDInsight][hdinsight-upload-data].
-
-This tutorial uses the following folder structure:
-
-Folder|Note
----|---
-\WordCount|The root folder for the word-count project.
-\WordCount\Apps|The folder for the mapper and reducer executables.
-\WordCount\Input|The MapReduce source file folder.
-\WordCount\Output|The MapReduce output file folder.
-\WordCount\MRStatusOutput|The job output folder.
-
-
-This tutorial uses the .txt files located in the %hadoop_home% directory.
-
-> [AZURE.NOTE] The Hadoop HDFS commands are case sensitive.
-
-**To copy the text files to the emulator's file system**
-
-1. From the Hadoop command-line window, run the following command to make a directory for the input files:
-
-		hadoop fs -mkdir /WordCount/
-		hadoop fs -mkdir /WordCount/Input
-
-	The path used here is the relative path. It is equivalent to the following:
-
-		hadoop fs -mkdir hdfs://localhost:8020/WordCount/Input
-
-2. Run the following command to copy some text files to the input folder on HDFS:
-
-		hadoop fs -copyFromLocal %hadoop_home%\share\doc\hadoop\common\*.txt \WordCount\Input
-
-3. Run the following command to list the uploaded files:
-
-		hadoop fs -ls \WordCount\Input
-
-
-
-
-**To deploy the mapper and the reducer to the emulator's file system**
-
-1. Open a Hadoop command line from your desktop and create the /Apps folder in HDFS:
-
-		hadoop fs -mkdir /WordCount/Apps
-
-2. Run the following commands:
-
-		hadoop fs -copyFromLocal C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe /WordCount/Apps/WordCountMapper.exe
-		hadoop fs -copyFromLocal C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe /WordCount/Apps/WordCountReducer.exe
-
-3. Run the following command to list the uploaded files:
-
-		hadoop fs -ls /WordCount/Apps
-
-	You shall see the two .exe files.
-
-
-**To run the MapReduce job by using Azure PowerShell**
-
-1. Open Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install].
-3. Run the following commands to set variables:
-
-		$clusterName = "http://localhost:50111"
-
-		$mrMapper = "WordCountMapper.exe"
-		$mrReducer = "WordCountReducer.exe"
-		$mrMapperFile = "/WordCount/Apps/WordCountMapper.exe"
-		$mrReducerFile = "/WordCount/Apps/WordCountReducer.exe"
-		$mrInput = "/WordCount/Input/"
-		$mrOutput = "/WordCount/Output"
-		$mrStatusOutput = "/WordCount/MRStatusOutput"
-
-	The HDInsight emulator cluster name is "http://localhost:50111".  
-
-4. Run the following commands to define the streaming job:
-
-		$mrJobDef = New-AzureHDInsightStreamingMapReduceJobDefinition -JobName mrWordCountStreamingJob -StatusFolder $mrStatusOutput -Mapper $mrMapper -Reducer $mrReducer -InputPath $mrInput -OutputPath $mrOutput
-		$mrJobDef.Files.Add($mrMapperFile)
-		$mrJobDef.Files.Add($mrReducerFile)
-
-5. Run the following command to create a credential object:
-
-		$creds = Get-Credential -Message "Enter password" -UserName "hadoop"
-
-	You will get a prompt to enter the password. The password can be any string. The user name must be "hadoop".
-
-6. Run the following commands to submit the MapReduce job and wait for the job to finish:
-
-		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -Credential $creds -JobDefinition $mrJobDef
-		Wait-AzureHDInsightJob -Credential $creds -job $mrJob -WaitTimeoutInSeconds 3600
-
-	When the job finishes, you will get an output similar to the following:
-
-		StatusDirectory : /WordCount/MRStatusOutput
-		ExitCode        :
-		Name            : mrWordCountStreamingJob
-		Query           :
-		State           : Completed
-		SubmissionTime  : 11/15/2013 7:18:16 PM
-		Cluster         : http://localhost:50111
-		PercentComplete : map 100%  reduce 100%
-		JobId           : job_201311132317_0034
-
-	You can see the job ID in the output, for example, *job-201311132317-0034*.
-
-**To check the job status**
-
-1. From the desktop, click **Hadoop YARN Status**, or browse to **http://localhost:50030/jobtracker.jsp**.
-2. Find the job by using the job ID under either the **RUNNING** or **FINISHED** category.
-3. If a job failed, you can find it under the **FAILED** category. You can also open the job details and find some helpful information for debugging.
-
-
-**To display the output from HDFS**
-
-1. Open the Hadoop command line.
-2. Run the following commands to display the output:
-
-		hadoop fs -ls /WordCount/Output/
-		hadoop fs -cat /WordCount/Output/part-00000
-
-	You can append "|more" at the end of the command to get the page view.
 
 ##Upload data to Azure Blob storage
 Azure HDInsight uses Azure Blob storage as the default file system. You can configure an HDInsight cluster to use additional Blob storage for the data files. In this section, you will create an Azure Storage account and upload the data files to the Blob storage. The data files are the .txt files in the %hadoop_home%\share\doc\hadoop\common directory.
@@ -523,7 +369,7 @@ This section shows you how to download and display the output. For information o
 ##Next steps
 In this tutorial, you have learned how to develop a Hadoop streaming MapReduce job, how to test the application on the HDInsight Emulator, and how to write an Azure PowerShell script to provision an HDInsight cluster and run a MapReduce job on the cluster. To learn more, see the following articles:
 
-- [Get started with Azure HDInsight](../hdinsight-get-started.md)
+- [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Get started with the HDInsight Emulator][hdinsight-get-started-emulator]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
@@ -542,7 +388,7 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 [hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md

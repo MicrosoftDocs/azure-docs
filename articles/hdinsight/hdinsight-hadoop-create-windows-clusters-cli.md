@@ -36,7 +36,7 @@ Use the following command to connect to Azure:
 
 	azure login
 
-For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
+For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 	
 Use the following command to switch to the ARM mode:
 
@@ -130,7 +130,7 @@ You can use CLI to create clusters by calling ARM templates. See [Deploy with Az
 
 ## See also
 
-- [Get started with Azure HDInsight](hdinsight-get-started.md) - Learn how to start working with your HDInsight cluster
+- [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
 - [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
 - [Manage Hadoop clusters in HDInsight using the Azure CLI](hdinsight-administer-use-command-line.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md)
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](../virtual-machines/virtual-machines-command-line-tools.md)

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Every Article on Application Management in Azure Active Directory | Microsoft Azure"
+	pageTitle="Article Index for Application Management in Azure Active Directory | Microsoft Azure"
 	description="Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/16/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Article Index for Application Management in Azure Active Directory
@@ -24,7 +24,7 @@ There is a brief introduction to each major feature area, as well as guidance on
 
 ##Overview Articles
 
-The articles below are good starting points for those who simply want a brief explanation of Azure AD application management features. These topics are explored at depth throughout the rest of this guide.
+The articles below are good starting points for those who simply want a brief explanation of Azure AD application management features.
 
 | Article Guide |   |
 | :---: | --- |
@@ -32,6 +32,18 @@ The articles below are good starting points for those who simply want a brief ex
 | An overview of the various features in Azure AD related to enabling single sign-on, defining who has access to apps, and how users launch apps | [Application Access and Single Sign-on in Azure Active Directory](active-directory-appssoaccess-whatis.md) |
 | A look at the different steps involved when integrating apps into your Azure AD | [Integrating Azure Active Directory with Applications](active-directory-integrating-applications-getting-started.md)<br /><br />[Enabling Single Sign-On to SaaS Apps](active-directory-sso-integrate-saas-apps.md)<br /><br />[Managing Access to Apps](active-directory-managing-access-to-apps.md) |
 | A technical explanation of how apps are represented in Azure AD | [How and Why Applications are Added to Azure AD](active-directory-how-applications-are-added.md) |
+
+##Troubleshooting Articles
+
+This section provides quick access to relevant troubleshooting guides. More information about each feature area can be found on the rest of this page.
+
+| Feature Area |   |
+| :---: | --- |
+| Federated Single Sign-On | [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
+| Password-Based Single Sign-On | [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Application Proxy | [App Proxy Troubleshooting Guide](active-directory-application-proxy-troubleshoot.md) |
+| Single sign-on between on-prem AD and Azure AD | [Troubleshooting Password Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md#managing-password-synchronization)<br /><br />[Troubleshooting Password Writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) | 
+| Dynamic Group Memberships | [Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
 
 ##Single Sign-On (SSO)
 
@@ -77,7 +89,7 @@ If you have applications in your private network that need to be accessed by use
 
 Application Proxy is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to assign access to applications](#how-to-manage-who-has-access-to-which-apps).
 
-You may also be interested in [Azure AD Domain Services](active-directory-ds-overview.md), which allows you to migrate your on-premises applications to Azure while still satisfying the identity needs of those applications.
+You may also be interested in [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md), which allows you to migrate your on-premises applications to Azure while still satisfying the identity needs of those applications.
 
 ###Enabling single sign-on between Azure AD and on-premises AD
 
@@ -87,7 +99,9 @@ If your organization maintains a Windows Server Active Directory on premises alo
 | :---: | --- |
 | An overview on the single sign-on options offered in Azure AD Connect, as well as information on managing hybrid environments | [User Sign On Options in Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | General guidance for managing environments with both on-premises Active Directory and Azure Active Directory | [Azure AD Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrating your On-Premises Identities with Azure Active Directory](active-directory-aadconnect.md) |
-| Guidance on using Password Sync to enable SSO, and how to use Password Writeback with Azure AD Self-Service Password Reset | [Implement Password Synchronization with Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Getting Started with Password Management in Azure AD](active-directory-passwords-getting-started.md) |
+| Guidance on using Password Sync to enable SSO | [Implement Password Synchronization with Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Troubleshoot Password Synchronization](https://support.microsoft.com/en-us/kb/2855271) |
+| Guidance on using Password Writeback to enable SSO | [Getting Started with Password Management in Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Troubleshoot Password Writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Guidance on using third party identity providers to enable SSO | [List of Compatible Third-Party Identity Providers That Can Be Used to Enable Single Sign-On](https://aka.ms/ssoproviders) | 
 | How Windows 10 users can enjoy the benefits of single sign-on via Azure AD Join | [Extending Cloud Capabilities to Windows 10 Devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
 Azure AD Connect is available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure AD Self-Service Password Reset is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Password Writeback to on-prem AD is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature. 
@@ -128,7 +142,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 
 | Article Guide |   |
 | :---: | --- |
-| Learn about how it works and find answers to common questions | [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
+| Learn about how it works and find answers to common questions | [Automate User Provisioning & Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
 | Configure how information is mapped between Azure AD and your SaaS app | [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | How to enable automated provisioning to any app that supports the SCIM protocol | [Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
 | Get notified of provisioning failures | [Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md) |
