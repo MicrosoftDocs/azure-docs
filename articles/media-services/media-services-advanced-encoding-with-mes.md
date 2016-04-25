@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="04/24/2016"    
 	ms.author="juliako"/>
 
 
@@ -31,6 +31,7 @@ The custom presets that perform the following encoding tasks are demonstrated:
 - [Insert a silent audio track when input has no audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Disable auto de-interlacing](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [Audio-only presets](media-services-custom-mes-presets-with-dotnet.md#audio_only)
+- [Concatenate MP4 files](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 
 ##<a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -40,8 +41,8 @@ The following code example uses Media Services .NET SDK to perform the following
 - Get a reference to the Media Encoder Standard encoder.
 - Load the custom XML or JSON preset. You can save the XML or JSON (for example, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) or [JSON](media-services-custom-mes-presets-with-dotnet.md#json) in a file and use the following code to load the file.
 
-			// Load the XML (or JSON) from the local file.
-		    string configuration = File.ReadAllText(fileName);  
+		// Load the XML (or JSON) from the local file.
+	    string configuration = File.ReadAllText(fileName);  
 - Add an encoding task to the job. 
 - Specify the input asset to be encoded.
 - Create an output asset that will contain the encoded asset.
@@ -947,6 +948,105 @@ This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Qua
 	    }
 	  ]
 	}
+
+##<a id="concatenate"></a>Concatenate MP4 files
+
+###Considerations
+
+- MP4 videos should only have one audio track.
+- You must upload your videos into separate assets.
+- You must know the duration of your videos.
+- Assumes that all MP4s start with timestamp of zero.
+
+###.NET code
+	
+	IAsset asset1 = _context.Assets.Where(ass => ass.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
+	IAsset asset2 = _context.Assets.Where(ass => ass.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
+	
+	// Declare a new job.
+	IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+	// Get a media processor reference, and pass to it the name of the 
+	// processor to use for the specific task.
+	IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+	
+	// Load the XML (or JSON) from the local file.
+	string configuration = File.ReadAllText(@"c:\supportFiles\preset.json");
+	
+	// Create a task
+	ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+	    processor,
+	    configuration,
+	    TaskOptions.None);
+	
+	// Specify the input asset to be encoded.
+	task.InputAssets.Add(asset1);
+	task.InputAssets.Add(asset2);
+	// Add an output asset to contain the results of the job. 
+	// This output is specified as AssetCreationOptions.None, which 
+	// means the output asset is not encrypted. 
+	task.OutputAssets.AddNew("Output asset",
+	    AssetCreationOptions.None);
+	
+	job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+	job.Submit();
+	job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+###JSON preset
+
+Update your custom preset with ids of the assets that you want to concatenate.
+
+	{
+	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "AssetID": "606db602-efd7-4436-97b4-c0b867ba195b",
+	      "StartTime": "00:00:01",
+	      "Duration": "00:00:15"
+	    },
+	    {
+	      "AssetID": "a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e",
+	      "StartTime": "00:00:02",
+	      "Duration": "00:00:05"
+	    }
+	  ],
+	  "Codecs": [
+	    {
+	      "KeyFrameInterval": "00:00:02",
+	      "SceneChangeDetection": true,
+	      "H264Layers": [
+	        {
+	          "Level": "auto",
+	          "Bitrate": 1800,
+	          "MaxBitrate": 1800,
+	          "BufferWindow": "00:00:05",
+	          "BFrames": 3,
+	          "ReferenceFrames": 3,
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "Width": "640",
+	          "Height": "360",
+	          "FrameRate": "0/1"
+	        }
+	      ],
+	      "Type": "H264Video"
+	    },
+	    {
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+	
 
 ##Media Services learning paths
 
