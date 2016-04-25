@@ -20,7 +20,7 @@
 
 This topic lists the minimum version number for each library/driver that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.
 
-| Language  | Platform              | Learn More                                                                            | Download                                                              | 
+| Language  | Platform              | Learn More                                                                            | Download 
 | :--       | :--                   | :--                                                                                   | :--                                                                   |
 | ADO.NET   | Windows, Linux, Mac   | [Microsoft ADO.NET for SQL Server](sql-database-develop-dotnet-simple.md)             | [Download](https://msdn.microsoft.com/vstudio/aa496123.aspx)          |
 | Java      | Windows               | [Microsoft JDBC Driver for SQL Server](sql-database-develop-java-simple-windows.md)   | [Download](http://go.microsoft.com/fwlink/?LinkId=245496)             |
