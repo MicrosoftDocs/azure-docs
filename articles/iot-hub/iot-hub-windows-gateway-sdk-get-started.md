@@ -26,8 +26,8 @@
 Before you get started, you must [set up your development environment][lnk-setupdevbox] for working with the SDK on Windows.
 
 1. Open a **Developer Command Prompt for VS2015** command prompt.
-2. Navigate to the folder **azure-iot-gateway-sdk\build\** in your local copy of the repository.
-3. Run the **build.cmd** script. This script creates a Visual Studio solution file, builds the solution, and runs the tests. You can find the Visual Studio solution in the **azure-iot-gateway-sdk\.cmake** folder in your local copy of the repository.
+2. Navigate to the folder **azure-iot-gateway-sdk\\tools** in your local copy of the repository.
+3. Run the **build.cmd** script. This script creates a Visual Studio solution file, builds the solution, and runs the tests. You can find the Visual Studio solution in the **azure-iot-gateway-sdk\\build** folder in your local copy of the repository.
 
 ## How to run the sample
 
@@ -60,8 +60,8 @@ Before you get started, you must [set up your development environment][lnk-setup
     }
     ```
 
-3. At the command prompt, navigate to the **.cmake\samples\helloworld\Debug\** folder.
-4. Run the **helloworld_sample.exe** executable.
+3. At the command prompt, navigate to the **build\\samples\\hello_world\\Debug** folder.
+4. Run the **hello_world_sample.exe** executable.
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
 

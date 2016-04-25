@@ -26,14 +26,14 @@
 Before you get started, you must [set up your development environment][lnk-setupdevbox] for working with the SDK on Linux.
 
 1. Open a shell.
-2. Navigate to the **azure-iot-gateway-sdk\build\** folder in your local copy of the repository.
-3. Run the **build.sh** script. This script uses the **cmake** utility to create a folder called **cmake** in your home directory and generate a makefile. The script then builds the solution and runs the tests.
+2. Navigate to the **azure-iot-gateway-sdk\tools\** folder in your local copy of the repository.
+3. Run the **build.sh** script. This script uses the **cmake** utility to create a folder called **build** in your home directory and generate a makefile. The script then builds the solution and runs the tests.
 
-> [AZURE.NOTE]  Every time you run the **build.sh** script, it deletes and then recreates the **cmake** folder in your home directory.
+> [AZURE.NOTE]  Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in your home directory.
 
 ## How to run the sample
 
-1. The **build.sh** script generates its output in the **~/cmake/gateway** folder. This includes the two modules used in this sample.
+1. The **build.sh** script generates its output in the **azure-iot-gateway-sdk/build** folder. This includes the two modules used in this sample.
 
     The build script places **liblogger_hl.so** in the **/modules/logger/** folder and **libhello_world_dl.so** in  the **/modules/hello_world/** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
 
@@ -62,7 +62,7 @@ Before you get started, you must [set up your development environment][lnk-setup
     }
     ```
 
-3. In your shell, navigate to **~/cmake/gateway/samples/hello_world** folder.
+3. In your shell, navigate to **azure-iot-gateway-sdk/build/samples/hello_world** folder.
 4. Run the executable **./hello_world_sample**. 
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
