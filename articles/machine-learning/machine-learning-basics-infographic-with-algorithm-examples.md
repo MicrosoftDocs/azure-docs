@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="04/26/2016"
 	ms.author="garye" />
 
 
@@ -27,14 +27,14 @@ Use this easy-to-understand, downloadable infographic overview of machine learni
 
 The downloadable infographic below demonstrates how the four types of machine learning algorithms - **regression**, **anomaly detection**, **clustering**, and **classification** - can be used to answer your machine learning questions.
 
-##Download the machine learning basics infographic
+## Download the machine learning basics infographic
 
 > [AZURE.NOTE] You can download this infographic as a PDF file. The PDF file contains embedded links to examples of each algorithm.
 >
->**Download the infographic here: [Infographic of machine learning basic algorithms](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+>**[Download the infographic overview of machine learning basics with algorithm examples](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 
-![Infographic of machine learning basic algorithms](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
+![Infographic: Machine learning basics with algorithm examples. Popular algorithms. Machine learning for beginners.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
 ## More help with algorithms for beginners and advanced users
 
