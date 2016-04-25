@@ -114,14 +114,12 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 2. Perform this step only if inner rails are not installed on your device. Typically, the inner rails are installed at the factory. If rails are not installed, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.<br/>
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    **Attaching inner rail slides to the sides of the enclosure**
 
-   **Attaching inner rail slides to the sides of the enclosure**
-
-    	Label | Description
-    	----- | -----------
-    	1     | M 3x4 button-head screws
-   		2     | Chassis slides
-
+	   Label | Description
+       ----- | -----------
+       1     | M 3x4 button-head screws
+       2     | Chassis slides
 
 3. Attach the outer left rail and outer right rail assemblies to the rack cabinet vertical members. The brackets are marked **LH**, **RH**, and **This side up** to guide you through the correct orientation.
 
