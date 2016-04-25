@@ -37,7 +37,10 @@ In this step of the publishing process, you will need to provide certain marketi
 6. Upload images of the required specifications (mentioned in the Publishing Portal) in PNG format, one for each size.
 7. Ensure that the logos follow the Azure Marketplace logo guidelines mentioned below.
 
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
+
 **Azure Marketplace Logo Guidelines**
+
 All the logos uploaded in the Publishing Portal should follow the below guidelines:
 - The Azure design has a simple color palette. Please keep the number of primary and secondary colors on the logos low.
 - Logos should not be placed on a white background. We recommend simple primary colors or transparent backgrounds.
@@ -51,9 +54,10 @@ All the logos uploaded in the Publishing Portal should follow the below guidelin
 - Wide logo should be of size 255 X 115 px
 - Hero logo should be of size 815 X 290 px
 
-  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-01.png)
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
 
-Additional guidelines for the Hero logo banner:
+**Additional guidelines for the Hero logo banner:**
+
 - The Hero logo is optional. You can choose not to upload a Hero logo.
 - The publisher display name, SKU title, the offer long summary and the create button are embedded automatically inside the Hero logo once the offer goes live. So you do not have to enter them while you are designing the Hero logo.
 - As the Publisher Display Name, SKU title and the offer long summary are displayed in white font color, you should avoid keeping the background of the Hero Icon as white, or any light color.
@@ -75,6 +79,8 @@ On the **Sample Images** tab on the left menu, upload a new image by clicking **
 
 ### Legal
 On the **Legal** tab, provide a link to your policies/terms of use. Enter or paste the terms in the large **Terms of Use** box. The character limit for the legal terms of use is 1,000,000 characters.
+
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
 > [AZURE.NOTE] For virtual machines, you cannot change the following once a SKU is staged or live: **Offer identifier**, **Publisher identifier**, and **SKU identifier**.
 
