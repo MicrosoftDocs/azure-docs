@@ -119,9 +119,9 @@ To enable password synchronization, you have two options:
 
 - If you use custom settings when you install Azure AD Connect, you enable password synchronization on the user sign-in page.
 
-<br>
+
 ![Enabling password synchronization](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
-<br>
+
 
 If you select to use **Federation with AD FS**, then you can optionally enable password sync as a backup in case your AD FS infrastructure fails. If you plan to use Azure AD Domain Services, you can also enable it.
 
@@ -182,7 +182,7 @@ The status column can have the following values:
 
 ## Triggering a full sync of all passwords
 
-Typically, there is no need to force a full sync of all passwords.<br>
+Typically, there is no need to force a full sync of all passwords.
 However, if necessary, you can trigger a full sync of all passwords using the following script:
 
     $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
