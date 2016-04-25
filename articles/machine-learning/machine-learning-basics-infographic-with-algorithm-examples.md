@@ -31,7 +31,7 @@ The downloadable infographic below demonstrates how the four types of machine le
 
 You can download this infographic as a PDF file. The PDF file contains embedded links to examples of each algorithm.
 
-**[Download the infographic overview of machine learning basics with algorithm examples](http://go.microsoft.com/fwlink/p/?LinkId=787546)**
+**[Download the infographic overview of machine learning basics with algorithm examples](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 
 ![Infographic: Machine learning basics with algorithm examples. Popular algorithms. Machine learning for beginners.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
