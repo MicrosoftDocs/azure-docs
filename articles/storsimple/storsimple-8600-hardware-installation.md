@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Unpack, rack-mount, and cable your StorSimple 8600 device
