@@ -56,7 +56,7 @@ Batch handles the details of working with Azure Storage in the background to sto
 
 ## Upload and manage applications
 
-Using the Azure portal, you can add, update, and delete application packages, and configure default versions for each application. At this time, these operations are supported only in the Azure portal.
+Using the Azure portal, you can add, update, and delete application packages, and configure default versions for each application.
 
 In the next few sections, we'll first cover associating a Storage account with your Batch account, then review the package management features available in the Azure portal. After that, you'll learn how to deploy these packages to compute nodes using the [Batch .NET][api_net] library.
 
@@ -269,6 +269,7 @@ With application packages, you can more easily provide your customers with the a
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/
 [net_appops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.aspx
