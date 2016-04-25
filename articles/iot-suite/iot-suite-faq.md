@@ -39,7 +39,7 @@ Two. You can create only two Free Bing Maps APIs in a subscription. The remote m
  2. Click All Settings, then Key Management. 
  3. You'll notice two keys: MasterKey and QueryKey. Copy the value for QueryKey.
 
- > [AZURE.NOTE] Don't have a Bing Maps API for Enterprise account? Create one in the [Azure portal][lnk-azure-portal] by clicking + New, searching for Bing Maps API for Enterprise and follow prompts to create.
+     > [AZURE.NOTE] Don't have a Bing Maps API for Enterprise account? Create one in the [Azure portal][lnk-azure-portal] by clicking + New, searching for Bing Maps API for Enterprise and follow prompts to create.
 
 2. Pull down the latest code from the [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
 
