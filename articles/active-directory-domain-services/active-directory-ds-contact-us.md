@@ -20,14 +20,16 @@
 # Azure AD Domain Services (Preview) - Contact Us
 
 ## Contact Us
-If you have issues with your managed domain, check to see if the steps outlined in this troubleshooting guide resolve the issue. If you're still having trouble, feel free to reach out to us at:
+If you have issues with your managed domain, check to see if the steps outlined in this troubleshooting guide resolve the issue. If you're still having trouble, feel free to reach out to us.
 
-**Email:** You may email us at [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com).
+You may email us at: [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com).
 
-Ensure that you include the tenant ID for your Azure AD directory and the domain name you've configured for AAD Domain Services, so we can investigate the issue. The tenant ID is the GUID you will notice in the browser's address bar when you navigate to the page from where you enable AAD Domain Services for your directory.
+Ensure that you include the following, so we can investigate the issue.
+
+- The **tenant ID** for your Azure AD directory. The tenant ID is the GUID you will notice in the browser's address bar when you navigate to the page from where you enable AAD Domain Services for your directory.
+
+- The **DNS domain name** you've configured for your AAD Domain Services managed domain.
 
 
 ## Provide feedback
-We welcome your feedback about Azure AD Domain Services.
-
-**[Azure Active Directory User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/):** Ensure that you pre-pend your question with the words **'AADDS'**, in order for it to reach us.
+We welcome your feedback about Azure AD Domain Services via the **[Azure Active Directory User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/)**. Ensure that you pre-pend your question or feedback with the words **'AADDS'**, in order for it to reach us.
