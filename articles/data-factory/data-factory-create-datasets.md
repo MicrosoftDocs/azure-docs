@@ -160,7 +160,7 @@ Daily slices that start at 6 AM instead of the default midnight.
 	"availability":
 	{
 		"frequency": "Day",
-		"interval": "1",
+		"interval": 1,
 		"offset": "06:00:00"
 	}
 
@@ -176,7 +176,7 @@ For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 
 	"availability":	
 	{	
 		"frequency": "Hour",		
-		"interval": "23",	
+		"interval": 23,	
 		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
