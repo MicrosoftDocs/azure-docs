@@ -31,7 +31,7 @@ The custom presets that perform the following encoding tasks are demonstrated:
 - [Insert a silent audio track when input has no audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Disable auto de-interlacing](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [Audio-only presets](media-services-custom-mes-presets-with-dotnet.md#audio_only)
-- [Concatenate MP4 files](media-services-custom-mes-presets-with-dotnet.md#concatenate)
+- [Concatenate two or more video files](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 
 ##<a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -447,7 +447,7 @@ The following considerations apply:
 
 This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. Note that **Sources** should be placed at the top of the schema. 
+To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. Note that **Sources** should be placed at the beginning of the preset. 
  
 ###<a id="json"></a>JSON preset
 	
@@ -700,7 +700,7 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 >
 >The overlay opacity setting is not supported.
 >
->Your source video file and the overlay file have to be in the same asset.
+>Your source video file and the overlay image file have to be in the same asset, and the video file needs to be set as the primary file in this asset.
 
 ###JSON preset
 	
@@ -749,7 +749,7 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	      "KeyFrameInterval": "00:00:02",
 	      "H264Layers": [
 	        {
-	          "Profile": "Baseline",
+	          "Profile": "Auto",
 	          "Level": "auto",
 	          "Bitrate": 1045,
 	          "MaxBitrate": 1045,
@@ -758,8 +758,8 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	          "EntropyMode": "Cavlc",
 	          "AdaptiveBFrame": true,
 	          "Type": "H264Layer",
-	          "Width": "400",
-	          "Height": "400",
+	          "Width": "640",
+	          "Height": "360",
 	          "FrameRate": "0/1"
 	        }
 	      ],
@@ -778,6 +778,7 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	    }
 	  ]
 	}
+
 
 ###XML preset
 	
@@ -818,10 +819,10 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	      <H264Layers>
 	        <H264Layer>
 	          <Bitrate>1045</Bitrate>
-	          <Width>400</Width>
-	          <Height>400</Height>
+	          <Width>640</Width>
+	          <Height>360</Height>
 	          <FrameRate>0/1</FrameRate>
-	          <Profile>Baseline</Profile>
+	          <Profile>Auto</Profile>
 	          <Level>auto</Level>
 	          <BFrames>0</BFrames>
 	          <ReferenceFrames>3</ReferenceFrames>
@@ -841,6 +842,7 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	    </Output>
 	  </Outputs>
 	</Preset>
+
 
 ##<a id="silent_audio"></a>Insert a silent audio track when input has no audio
 
@@ -949,22 +951,33 @@ This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Qua
 	  ]
 	}
 
-##<a id="concatenate"></a>Concatenate MP4 files
+##<a id="concatenate"></a>Concatenate two or more video files
 
-###Considerations
+The following example illustrates how you can generate a preset to concatenate two or more video files. The most common scenario is when you want to add a header or a trailer to the main video. The intended use is when the video files being edited together share the same properties (video resolution, frame rate, audio track count, etc.). You should take care not to mix videos of different frame rates, or with different number of audio tracks.
 
-- MP4 videos should only have one audio track.
-- You must upload your videos into separate assets.
-- You must know the duration of your videos.
-- Assumes that all MP4s start with timestamp of zero.
+###Requirements
+
+- Input videos should only have one audio track.
+- Input videos should all have the same frame rate.
+- You must upload your videos into separate assets and set the videos as the primary file in each asset.
+- You need to know the duration of your videos.
+
 
 ###.NET code
+
+
+The preset examples below assumes that all the input videos start with a timestamp of zero. You will need to modify the StartTime values if the videos have different starting timestamp, as is typically the case with live archives.
+
+Note also that the preset JSON makes explicit references to the AssetID values of the input assets.
+
+The sample code assumes that the JSON preset has been saved to a local file, such as “C:\supportFiles\preset.json”,. It also assumes that two assets have been created by uploading two video files, and that you know the resultant AssetID values.
+
 	
-	IAsset asset1 = _context.Assets.Where(ass => ass.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
-	IAsset asset2 = _context.Assets.Where(ass => ass.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
+	IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
+	IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
 	
 	// Declare a new job.
-	IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+	IJob job = _context.Jobs.Create("Media Encoder Standard Job for Concatenating Videos");
 	// Get a media processor reference, and pass to it the name of the 
 	// processor to use for the specific task.
 	IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
@@ -978,7 +991,7 @@ This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Qua
 	    configuration,
 	    TaskOptions.None);
 	
-	// Specify the input asset to be encoded.
+	// Specify the input videos to be concatenated (in order).
 	task.InputAssets.Add(asset1);
 	task.InputAssets.Add(asset2);
 	// Add an output asset to contain the results of the job. 
@@ -993,7 +1006,7 @@ This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Qua
 
 ###JSON preset
 
-Update your custom preset with ids of the assets that you want to concatenate.
+Update your custom preset with ids of the assets that you want to concatenate, and with the appropriate time segment for each video.
 
 	{
 	  "Version": 1.0,
