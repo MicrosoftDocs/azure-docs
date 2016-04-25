@@ -1,6 +1,6 @@
 <properties
 	pageTitle="AD FS Management and customizaton with Azure AD Connect | Microsoft Azure"
-	description="AD FS management using Azure AD Connect and customization of user AD FS sign-in experience using Azure AD Connect and Poershell."
+	description="AD FS management using Azure AD Connect and customization of user AD FS sign-in experience using Azure AD Connect and Powershell."
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
