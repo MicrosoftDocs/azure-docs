@@ -831,8 +831,8 @@ The *function.json* file for a Service Bus trigger specifies the following prope
 - `name` : The variable name used in function code for the queue or topic, or the queue or topic message. 
 - `queueName` : For queue trigger only, the name of the queue to poll.
 - `topicName` : For topic trigger only, the name of the topic to poll.
-- `connection` : The name of an app setting that contains a Service Bus connection string. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is specified by the AzureWebJobsServiceBus app setting.
 - `subscriptionName` : For topic trigger only, the subscription name.
+- `connection` : The name of an app setting that contains a Service Bus connection string. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is specified by the AzureWebJobsServiceBus app setting.
 - `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `listen` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights, such as creating queues.
 - `type` : Must be set to *serviceBusTrigger*.
 - `direction` : Must be set to *in*. 
@@ -884,7 +884,9 @@ module.exports = function(context, myQueueItem) {
 The *function.json* file for a Service Bus output binding specifies the following properties.
 
 - `name` : The variable name used in function code for the queue or queue message. 
-- `queueName` : The name of the queue or topic.
+- `queueName` : For queue trigger only, the name of the queue to poll.
+- `topicName` : For topic trigger only, the name of the topic to poll.
+- `subscriptionName` : For topic trigger only, the subscription name.
 - `connection` : Same as for Service Bus trigger.
 - `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `send` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights, such as creating queues.
 - `type` : Must be set to *serviceBus*.
