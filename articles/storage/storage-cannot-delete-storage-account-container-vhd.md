@@ -19,7 +19,7 @@
 
 # Troubleshoot errors while deleting Azure storage accounts, containers, or VHDs
 
-This article provides a resolution to solve the most common errors that occur when you try to delete the Azure storage account, container, or VHD in the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/). See [Error string lookup](#error-string-lookup) section for the details of the most common error.
+This article provides a solution to solve the most common errors that occur when you try to delete the Azure storage account, container, or VHD in the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/). See [Error string lookup](#error-string-lookup) section for the details of the most common error.
 
 The issues can be caused by the following circumstances:
 
