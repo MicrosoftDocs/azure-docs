@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure SQL Database - client library"
-    description="Build scalable .NET database apps"
+    pageTitle="Building scalable cloud database applications | Microsoft Azure"
+    description="Build scalable .NET database apps with the elastic database client library"
     services="sql-database"
     documentationCenter=""
     manager="jhubbard"
@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/01/2016"
+    ms.date="04/25/2016"
     ms.author="ddove;sidneyh"/>
 
-# Elastic Database client library overview
+# Building scalable cloud database applications
 
 The **Elastic Database client library** helps you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases hosted on Microsoft Azure. Such designs are commonly used for Software as a Service (SaaS) applications, which are typically single tenant architectures--where each tenant is provisioned with a database. Building and managing such an application is a goal of the library. 
 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Queries across sharded cloud databases (vertically partitioned) | Microsoft Azure"
+    pageTitle="Query across cloud databases with different schema | Microsoft Azure"
     description="how to set up cross-database queries over vertical partitions"    
     services="sql-database"
     documentationCenter=""  
@@ -15,7 +15,7 @@
     ms.date="04/11/2016"
     ms.author="torsteng;sidneyh" />
 
-# Queries across sharded cloud databases (vertically partitioned) (preview)
+# Query across cloud databases with different schema (preview)
 
 ![Query across tables in different databases][1]
 

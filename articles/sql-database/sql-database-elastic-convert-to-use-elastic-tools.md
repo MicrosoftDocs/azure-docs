@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrate existing databases to scaled-out databases"
+   pageTitle="Migrate existing databases to scale-out | Microsoft Azure"
    description="Convert sharded databases to use elastic database tools by creating a shard map manager"
    services="sql-database"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/19/2016"
+   ms.date="04/26/2016"
    ms.author="SilviaDoomra"/>
 
-# Migrate existing databases to scaled-out databases
+# Migrate existing databases to scale-out
 
 To take advantage of the elastic database tools (such as the [Elastic Database client library](sql-database-elastic-database-client-library.md)), you must convert an existing set of databases to use the [shard map manager](sql-database-elastic-scale-shard-map-management.md). To migrate an existing application: 
 
