@@ -17,7 +17,7 @@
 	ms.author="billmath;andkjell"/>
 
 # Getting started with Azure AD Connect using express settings
-This topic helps you get started with Azure Active Directory Connect. This documentation explains the express installation for Azure AD Connect. Express settings is used in a single-forest topology with password synchronization.
+This topic helps you get started with Azure Active Directory Connect. This documentation explains the express installation for Azure AD Connect. Express settings is used in a single-forest topology with password synchronization. You are only a few short clicks away to extend your on-premises directory to the cloud.
 
 ## Related documentation
 If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md), the following table provides links to related topics. The first two topics in bold are required before you start the installation.
@@ -33,8 +33,8 @@ If you did not read the documentation on [Integrating your on-premises identitie
 
 
 ## Express installation of Azure AD Connect
-Selecting **Express Settings** is the default option and is used for one of the most common scenarios. You are only a few short clicks away to extend your on-premises directory to the cloud. When doing this, Azure AD Connect deploys sync for a single forest topology. Password sync is enabled
-and allows your users to use their on-premises password to sign in to the cloud. Using the Express Settings automatically starts a synchronization when the installation is complete (though you can choose to not do this step).
+**Express Settings** is the default option and is used for the most common deployment scenario. When you use express settings, Azure AD Connect deploys sync for a single forest topology. [Password sync](active-directory-aadconnectsync-implement-password-synchronization.md) is enabled
+and allows your users to use their on-premises password to sign in to the cloud. [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) is enabled, which will make your maintenance easier. Using the Express Settings automatically starts a synchronization when the installation is complete (though you can choose to not do this step).
 
 ### To install Azure AD Connect using express settings
 
@@ -51,7 +51,7 @@ If you receive an error and have problems with connectivity, please see [Trouble
 ![Connect to AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. On the Ready to configure screen, click **Install**.
 	- Optionally on the Ready to configure page, you can unselect the **Start the synchronization process as soon as configuration completes** checkbox. You should unselect this checkbox if you want to do additional configuration, such as [filtering](active-directory-aadconnectsync-configure-filtering.md). If you unselect this option, the wizard configures sync but leaves the scheduler disabled. It will not run until you enable it manually by re-running the installation wizard.
-	- Also optionally you can choose to configure sync services for **Exchange Hybrid deployment** by selecting the corresponding checkbox. If you don’t plan to have Exchange mailboxes both in the cloud and on-premises, you do not need to enable this option.
+	- Also optionally you can choose to configure sync services for **Exchange Hybrid deployment** by selecting the corresponding checkbox. Enable this option if you plan to have Exchange mailboxes both in the cloud and on-premises at the same time.
 ![Ready to configure Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 8. When the installation completes, click **Exit**.
 9. After the installation has completed, sign off and sign in again before you use Synchronization Service Manager or Synchronization Rule Editor.
