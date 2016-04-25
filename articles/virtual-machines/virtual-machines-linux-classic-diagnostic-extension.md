@@ -44,7 +44,7 @@ The extension can be enabled through the [Azure portal](https://ms.portal.azure.
 To view and configure the system and performance data directly from the Azure portal, follow these [steps](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL to the Windows blog"/).
 
 
-This article focuses on enabling and configuring the extension through Azure CLI commands.This allows you to read and view the data from the storage table directly.
+This article focuses on enabling and configuring the extension through Azure CLI commands.This allows you to read and view the data from the storage table directly. Note that the configuration methods described below won't work for the Azure portal. In order to view and configure the system and performance data directly from the Azure portal, this extension must be enabled through the Azure portal, as mentioned in the previous paragraph.
 
 
 ## Prerequisites
@@ -76,15 +76,13 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 ###   Scenario 2. Customize the performance monitor metric  
 This section describes how to customize the performance and diagnostic data table.
 
-Step 1. Create a file named PrivateConfig.json with the content that appears in the next example. Specify the particular data you want to collect.
+Step 1. Create a file named PrivateConfig.json with the content as described in Scenario 1 above. Also create a file named PublicConfig.json that appears in the next example. Specify the particular data you want to collect.
 
 For all supported providers and variables, reference this [document](https://scx.codeplex.com/wikipage?title=xplatproviders). You can have multiple queries and store them in multiple tables by appending more queries to the script.
 
 By default, the Rsyslog data is always collected.
 
 	{
-     	"storageAccountName":"storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"perfCfg":[
            	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
            	}
@@ -92,19 +90,17 @@ By default, the Rsyslog data is always collected.
 	}
 
 
-Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.*
---private-config-path PrivateConfig.json**.
+Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'
+--private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Scenario 3. Upload your own log files
 This section describes how to collect and upload particular log files to your storage account.
 You need to specify the path to your log file, and specify the table name to store your log. You can have multiple log files by adding multiple file/table entries to the script.
 
-Step 1. Create a file named PrivateConfig.json with the following content.
+Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"fileCfg":[
            	{"file":"/var/log/mysql.err",
              "table":"mysqlerr"
@@ -113,23 +109,21 @@ Step 1. Create a file named PrivateConfig.json with the following content.
 	}
 
 
-Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.*
---private-config-path PrivateConfig.json**.
+Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'
+--private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Scenario 4. Disable the Linux monitor extension
-Step 1. Create a file named PrivateConfig.json with the following content.
+Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account",
-     	“perfCfg”:[],
-     	“enableSyslog”:”False”
+     	"perfCfg":[],
+     	"enableSyslog":”False”
 	}
 
 
-Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.*
---private-config-path PrivateConfig.json**.
+Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'
+--private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ## Review your data
