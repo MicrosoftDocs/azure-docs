@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Manage Azure Data Lake Stores using Azure SDK for Node.js | Azure" 
-   description="Learn how to manage Data Lake Store accounts, and the file system." 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Manage Azure Data Lake Stores using Azure SDK for Node.js | Microsoft Azure"
+   description="Learn how to manage Data Lake Store accounts, and the file system."
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="04/07/2016"
    ms.author="nitinme"/>
 
@@ -27,7 +27,8 @@
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-The Azure SDK for Node.js can be used for managing Azure Data Lake store accounts, and the file system:
+
+The Azure SDK for Node.js can be used for managing Azure Data Lake store accounts as well as file system operations.
 
 Right now it supports:
 
@@ -141,4 +142,3 @@ filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, functio
 
 - [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
 - [Microsoft Azure SDK for Node.js - Data Lake Analytics Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-
