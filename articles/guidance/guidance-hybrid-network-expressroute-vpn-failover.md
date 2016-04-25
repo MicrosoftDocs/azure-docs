@@ -130,7 +130,143 @@ This script assumes that you have:
 - Installed and configured an on-premises VPN device with a public IP address. This example uses a fictitious IP address of 40.50.60.70.
 
 ```text
-Put PowerShell here!
+param(
+    [parameter(Mandatory=$true)]
+    [ValidateScript({
+        try {
+            [System.Guid]::Parse($_) | Out-Null
+            $true
+        }
+        catch {
+            $false
+        }
+    })]
+    [string]$SubscriptionId,
+
+    [Parameter(Mandatory=$false)]
+    [string]$BaseName = "hybrid-vpn-er",
+
+    [Parameter(Mandatory=$false)]
+    [string]$Location = "Central US",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateERCircuit")]
+    [ValidateSet("Premium", "Standard")]
+    [string]$ExpressRouteSkuTier = "Standard",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateERCircuit")]
+    [ValidateSet("MeteredData", "UnlimitedData")]
+    [string]$ExpressRouteSkuFamily = "MeteredData",
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
+    [string]$ExpressRouteServiceProviderName,
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
+    [string]$ExpressRoutePeeringLocation,
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateERCircuit")]
+    [string]$ExpressRouteBandwidth,
+
+
+    [Parameter(Mandatory=$true, ParameterSetName="CreateVNet")]
+    [switch]$CreateVNet,
+    
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$VnetAddressPrefix = "10.20.0.0/16",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$GatewaySubnetAddressPrefix = "10.20.255.224/27",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$InternalSubnetAddressPrefix = "10.20.1.0/24",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$OnPremisesPublicIpAddress = "40.50.60.70",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
+    [string]$OnPremisesAddressPrefix = "10.10.0.0/16",
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateERGateway")]
+    [switch]$CreateERGateway,
+
+    [Parameter(Mandatory=$false, ParameterSetName="CreateVNetGateway")]
+    [switch]$CreateVNetGateway
+)
+
+$resourceGroup = "$BaseName-rg"
+$vnetName = "$BaseName-vnet"
+$internalSubnetName = "$BaseName-internal-subnet"
+$expressRouteCircuitName = "$BaseName-erc"
+
+$erGatewayPublicIpAddressName = "$BaseName-er-pip"
+$vpnGatewayPublicIpAddressName = "$BaseName-vpn-pip"
+
+$erVnetGatewayName = "$BaseName-er-vgw"
+$vpnVnetGatewayName = "$BaseName-vpn-vgw"
+
+$erVpnConnectionName = "$BaseName-er-conn"
+$vpnVpnConnectionName = "$BaseName-vpn-conn"
+
+$vpnLocalGatewayName = "$BaseName-vpn-lgw"
+
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+switch($PSCmdlet.ParameterSetName) {
+    "CreateERCircuit" {
+        New-AzureRmResourceGroup -Name $resourceGroup -Location $Location
+        New-AzureRmExpressRouteCircuit -Name $expressRouteCircuitName `
+            -ResourceGroupName $resourceGroup -Location $Location -SkuTier $ExpressRouteSkuTier `
+            -SkuFamily $ExpressRouteSkuFamily -ServiceProviderName $ExpressRouteServiceProviderName `
+            -PeeringLocation $ExpressRoutePeeringLocation -BandwidthInMbps $ExpressRouteBandwidth
+    }
+    "CreateVNetGateway" {
+        New-AzureRmPublicIpAddress -Name $vpnGatewayPublicIpAddressName -ResourceGroupName $resourceGroup `
+            -Location $Location -AllocationMethod Dynamic | Tee-Object -Variable vpnGatewayPublicIpAddress | Out-Host
+
+        $gatewaySubnetConfig = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name GatewaySubnet
+
+        $vpnGatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "vpn-gw-ipconfig" `
+            -SubnetId $gatewaySubnetConfig.Id -PublicIpAddressId $vpnGatewayPublicIpAddress.Id
+        New-AzureRmVirtualNetworkGateway -Name $vpnVnetGatewayName `
+            -ResourceGroupName $resourceGroup -Location $Location -IpConfigurations $vpnGatewayIpConfig `
+            -GatewayType Vpn -GatewaySku Standard -VpnType RouteBased | Tee-Object -Variable vpnVnetGateway | Out-Host
+        $vpnLocalGateway = New-AzureRmLocalNetworkGateway -Name $vpnLocalGatewayName `
+            -ResourceGroupName $resourceGroup -Location $Location -GatewayIpAddress $OnPremisesPublicIpAddress `
+            -AddressPrefix $OnPremisesAddressPrefix
+        New-AzureRmVirtualNetworkGatewayConnection -Name $vpnVpnConnectionName `
+            -ResourceGroupName $resourceGroup -Location $Location -VirtualNetworkGateway1 $vpnVnetGateway `
+            -LocalNetworkGateway2 $vpnLocalGateway -ConnectionType IPsec
+    }
+    "CreateERGateway" {
+        New-AzureRmPublicIpAddress -Name $erGatewayPublicIpAddressName -ResourceGroupName $resourceGroup `
+            -Location $Location -AllocationMethod Dynamic | Tee-Object -Variable erGatewayPublicIpAddress | Out-Host
+        
+        $gatewaySubnetConfig = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name GatewaySubnet
+
+        $erGatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "er-gw-ipconfig" `
+            -SubnetId $gatewaySubnetConfig.Id -PublicIpAddressId $erGatewayPublicIpAddress.Id
+        New-AzureRmVirtualNetworkGateway -Name $erVnetGatewayName `
+            -ResourceGroupName $resourceGroup -Location $Location -IpConfigurations $erGatewayIpConfig `
+            -GatewayType ExpressRoute -GatewaySku Standard | Tee-Object -Variable erVnetGateway | Out-Host
+
+        $erVnetGateway = Get-AzureRmVirtualNetworkGateway -Name $erVnetGatewayName -ResourceGroupName $resourceGroup
+
+        $expressRouteCircuit = Get-AzureRmExpressRouteCircuit -Name $expressRouteCircuitName `
+            -ResourceGroupName $resourceGroup
+        New-AzureRmVirtualNetworkGatewayConnection -Name $erVpnConnectionName `
+            -ResourceGroupName $resourceGroup -Location $Location -VirtualNetworkGateway1 $erVnetGateway `
+            -PeerId $expressRouteCircuit.Id -ConnectionType ExpressRoute | Tee-Object vpnConnection | Out-Host
+    }
+    "CreateVNet" {
+        $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
+            -AddressPrefix $GatewaySubnetAddressPrefix
+        $internalSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $internalSubnetName `
+            -AddressPrefix $InternalSubnetAddressPrefix
+        New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup `
+            -Location $Location -AddressPrefix $VnetAddressPrefix `
+            -Subnet $gatewaySubnetConfig, $internalSubnetConfig | Tee-Object -Variable vnet | Out-Host
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Next steps
