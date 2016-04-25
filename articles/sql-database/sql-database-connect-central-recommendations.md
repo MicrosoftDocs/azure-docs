@@ -175,7 +175,3 @@ Various code samples are given for clients that run on Windows, Linux, and Mac p
 - [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 
 
-**Driver libraries:** For information about connection driver libraries, see:
-
-- [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
-
