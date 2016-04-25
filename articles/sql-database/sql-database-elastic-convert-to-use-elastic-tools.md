@@ -3,7 +3,7 @@
    description="Convert sharded databases to use elastic database tools by creating a shard map manager"
    services="sql-database"
    documentationCenter=""
-   authors="sdoomra"
+   authors="SilviaDoomra"
    manager="jhubbard"
    editor=""/>
 
