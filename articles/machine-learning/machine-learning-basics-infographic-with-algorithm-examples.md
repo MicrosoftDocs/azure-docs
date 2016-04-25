@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Infographic of basic machine learning algorithm examples | Microsoft Azure"
-	description="An infographic of machine learning basics, with examples of how algorithms can answer machine learning questions."
-	keywords="machine learning basics,algorithm examples,machine learning for beginners,machine learning questions,popular algorithms"
+	pageTitle="Infographic: Machine learning basics - algorithm examples | Microsoft Azure"
+	description="An easy-to-understand overview of machine learning basics includes algorithm examples. The downloadable infographic covers most machine learning questions."
+	keywords="machine learning basics,algorithm examples,machine learning for beginners,machine learning questions,popular algorithms,algorithm infographic"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -18,23 +18,25 @@
 	ms.author="garye" />
 
 
-# Infographic of basic machine learning algorithm examples 
+# Infographic: Machine learning basics with algorithm examples
 
-What are machine learning basics?
-What machine learning questions can you answer using the most popular algorithms in Azure Machine Learning?
-What are examples of machine learning algorithms?
+Use this easy-to-understand, downloadable infographic overview of machine learning basics to identify the popular algorithms used to answer common machine learning questions. Algorithm examples help the machine learning beginner understand which algorithms to use and what they are used for.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms that you can use to solve predictive analytics problems. 
-The infographic below demonstrates how the four types of machine learning algorithms - **regression**, **anomaly detection**, **clustering**, and **classification** - can be used to answer your machine learning questions.
+## Popular algorithms are available in Machine Learning Studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms that you can use to solve predictive analytics problems.
 
-> [AZURE.NOTE] You can download this infographic as a PDF file. The PDF file contains embedded links to examples of each algorithm. 
+The downloadable infographic below demonstrates how the four types of machine learning algorithms - **regression**, **anomaly detection**, **clustering**, and **classification** - can be used to answer your machine learning questions.
+
+##Download the machine learning basics infographic
+
+> [AZURE.NOTE] You can download this infographic as a PDF file. The PDF file contains embedded links to examples of each algorithm.
 >
 >**Download the infographic here: [Infographic of machine learning basic algorithms](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 
-![Infographic of machine learning basic algorithms](./media/machine-learning-infographic-of-basic-algorithm-examples/machine-learning-infographic-of-basic-algorithm-examples.png)
+![Infographic of machine learning basic algorithms](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
-## More help with algorithms
+## More help with algorithms for beginners and advanced users
 
 * For a deeper discussion of the different types of machine learning algorithms, how they're used, and how to choose the right one for your solution, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 * For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
