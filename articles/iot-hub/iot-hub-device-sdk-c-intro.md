@@ -464,4 +464,4 @@ Each of these three functions align with the three initialization functions desc
 
 This article covered the basics of using the libraries in the **Azure IoT device SDK for C**. It provided you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](iot-hub-device-sdk-c-iothubclient.md).
 
-To learn how to use the device management capabilities in the **Azure IoT device SDK for C**, see [Making devices manageable with Azure IoT Hub](iot-hub-dm-sdk-c-intro.md).
+To learn how to use the device management capabilities in the **Azure IoT device SDK for C**, see [Making devices manageable with Azure IoT Hub](iot-hub-device-management-sdk-c-intro.md).
