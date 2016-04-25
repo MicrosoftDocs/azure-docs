@@ -185,7 +185,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     d.	Select the **Add** button, enter **Network Service**, and then select **Check Names**.
 
-    e.	Select **OK**, and then close the certificate manager.
+    e.	Select **OK**.
 
     ![Screenshot of steps for granting Local Service account permission](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
