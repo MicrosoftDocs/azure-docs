@@ -18,7 +18,7 @@
 
 # Connection libraries for SQL Database and SQL Server
 
-This topic lists the minimum version number for each library/driver that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.
+This topic lists each library/driver that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.
 
 | Language  | Platform              | Learn More                                                                            | Download 
 | :--       | :--                   | :--                                                                                   | :--                                                                   |
