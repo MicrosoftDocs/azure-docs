@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/22/2016"
 	ms.author="spelluru"/>
 
 
@@ -22,6 +22,14 @@
 This topic lists every topic that applies directly to the Data Factory service of Azure. You can search this webpage for keywords by using **Ctrl+F**, to find the topics of current interest.
 
 
+
+
+## New
+
+
+| Title | Description |
+| :-- | :-- |
+| [Invoke Spark Programs from Data Factory](data-factory-spark.md) | Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity. |
 
 
 ## Core Concepts
