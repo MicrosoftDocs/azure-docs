@@ -76,11 +76,10 @@ For more information about other tools, see the [Elastic database tools learning
 Currently in the preview, elastic databases support most [business continuity features](sql-database-business-continuity.md) that are available to single databases on V12 servers.
 
 
-### Geo-Replication
+## Geo-Replication
 
 Geo-replication is available for any database in a Standard or Premium elastic database pool.  One or all databases in a geo-replication partnership can be in an elastic database pool as long as the service tiers are the same. You can configure geo-replication for elastic database pools using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
-When configuring geo-replication, you can use the Azure portal to target an existing database server and elastic pool on that server. 
 
 ### Import and Export
 
