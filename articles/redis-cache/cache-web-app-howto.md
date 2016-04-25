@@ -20,6 +20,10 @@
 
 Procedural steps only for tech review - TODO write an introduction
 
+## Prerequisites
+
+[AZURE.INCLUDE [prereqs](../../includes/app-service-web-dotnet-get-started-prereqs.md)]
+
 ## Create the Visual Studio project
 
 
@@ -692,7 +696,7 @@ The following table describes each action link from the sample application.
 
 Click some of the actions and experiment with retrieving the data from the different sources.
 
-## To delete the resources when you are finished with the application
+## Delete the resources when you are finished with the application
 
 When you are finished with the sample application, you can delete the resources used in order to conserve cost and resources. 
 
