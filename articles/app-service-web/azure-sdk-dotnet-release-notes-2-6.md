@@ -4,7 +4,7 @@
    services="app-service/web" 
    documentationCenter=".net" 
    authors="Juliako" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
 
-
+ 
 # Azure SDK for .NET 2.6 Release Notes
 
 This document contains the release notes for the Azure SDK for .NET 2.6 release. 
