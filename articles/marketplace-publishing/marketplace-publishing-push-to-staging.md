@@ -42,6 +42,7 @@ In this step of the publishing process, you will need to provide certain marketi
 **Azure Marketplace Logo Guidelines**
 
 All the logos uploaded in the Publishing Portal should follow the below guidelines:
+
 - The Azure design has a simple color palette. Please keep the number of primary and secondary colors on the logos low.
 - Logos should not be placed on a white background. We recommend simple primary colors or transparent backgrounds.
 - Do not use a gradient background on the logo.
