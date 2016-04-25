@@ -32,12 +32,12 @@ Before you get started, you must:
 To build the sample:
 
 1. Open a **Developer Command Prompt for VS2015** command prompt.
-2. Navigate to the **azure-iot-gateway-sdk\build\** folder in your local copy of the repository.
+2. Navigate to the **azure-iot-gateway-sdk\\tools** folder in your local copy of the repository.
 3. Run the **build.cmd** script.
 
 To run the sample:
 
-In a text editor, open the file **azure-iot-gateway-sdk\samples\simple_device_cloud_upload\src\simple_device_cloud_upload_win.json** in your local copy of the repository. This file configures the modules in the sample gateway:
+In a text editor, open the file **azure-iot-gateway-sdk\\samples\\simple_device_cloud_upload\\src\\simple_device_cloud_upload_win.json** in your local copy of the repository. This file configures the modules in the sample gateway:
 
 - The **IoTHub** module connects to your IoT hub. You must configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the value of **IoTHubSuffix** to **azure-devices.net**.
 - The **mapping** module maps the MAC addresses of your simulated devices to your IoT Hub device ids. Make sure that **deviceId** values match the ids of the two devices you added to your IoT hub, and that the **deviceKey** values contain the keys of your two devices.
@@ -106,7 +106,7 @@ Save any changes you made to the configuration file.
 
 To run the sample:
 
-1. In your **Developer Command Prompt for VS2015** command prompt, navigate to the **azure-iot-gateway-sdk\.cmake\samples\simple_device_cloud_upload** folder in your local copy of the repository.
+1. In your **Developer Command Prompt for VS2015** command prompt, navigate to the **azure-iot-gateway-sdk\\build\\samples\\simple_device_cloud_upload** folder in your local copy of the repository.
 2. Run the following command:
 
     ```
