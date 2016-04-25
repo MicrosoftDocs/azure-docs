@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/13/2016"
+    ms.date="04/26/2016"
     ms.author="sstein"/>
 
 # Create a new elastic pool with C&#x23;
@@ -36,7 +36,8 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
 
 ## Create a new pool
 
-Create a new elastic pool. The values for DTU, minimum, and maximum Dtus are constrained by the edition value. See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Create a [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) instance using values from [Azure Active Directory](sql-database-client-id-keys.md). Create a [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) instance, and call the [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate) method. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+
 
     ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
     {
@@ -55,8 +56,8 @@ Create a new elastic pool. The values for DTU, minimum, and maximum Dtus are con
 
 ## Move an existing database into a pool
 
+Retrieve the target database properties, then set the elastic pool name to the pool to move into. 
 
-    // Retrieve current database properties
     currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
 
     // Configure create or update parameters with existing property values, override those to be changed.
@@ -77,7 +78,7 @@ Create a new elastic pool. The values for DTU, minimum, and maximum Dtus are con
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
 ## Create a new database in a pool
-
+Create a DatabaseCreateOrUpdateParameters object, and set the properties of the new database. Then call the CreateOrUpdate method with the resource group, server name, and new database name.
 
     // Create a database: configure create or update parameters and properties explicitly
     DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
