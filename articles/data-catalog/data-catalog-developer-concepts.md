@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Data Catalog developer concepts"
    description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
@@ -269,7 +269,9 @@ By default any authenticated user has **Read** right for any item in the catalog
 **Set Contributor to <Everyone> when publishing an item.**
 Special security principal <Everyone> has objectId "00000000-0000-0000-0000-000000000201".
   **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
-  [!INCLUDE[ADC_302](../Token/ADC_302_md.md)]
+
+> [AZURE.NOTE] Some HTTP client implementations may automatically re-issue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to ADC, you must ensure the Authorization header is still provided when re-issuing a request to a redirect location specified by ADC. Below is sample code demonstrating this using the .NET HttpWebRequest object.
+
 **Body**
 
 	{
