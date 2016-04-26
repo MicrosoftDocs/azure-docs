@@ -21,6 +21,7 @@
 
 In this tutorial, you learn how to integrate CA PPM with Azure Active Directory (Azure AD).
 
+
 Integrating CA PPM with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to CA PPM
