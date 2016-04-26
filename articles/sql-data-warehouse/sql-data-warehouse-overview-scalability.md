@@ -62,11 +62,7 @@ To adjust DWUs, you can use any of these individual methods.
 
 - [Scale performance with Azure portal][]
 - [Scale performance with PowerShell][]
-<!-- 
-[Scale performance with REST APIs][]
-[Scale performance with TSQL][]
--->
-
+- [Scale performance with REST APIs][]
 
 ### How many DWUs should I use?
  
@@ -82,7 +78,6 @@ Recommendations for finding the best DWU for your workload:
 4. Increase or decrease the number of DWUs in proportion to how much faster or slower you want your workload to perform. The service will respond quickly and adjust the compute resources to meet the new DWU requirements.
 5. Continue making adjustments until you reach an optimum performance level for your business requirements.
 
-
 ### When should I scale DWUs?
 
 Overall, we want DWUs to be simple. When you need faster results, increase your DWUs and pay for greater performance.  When you need less compute power, decrease your DWUs and pay only for what you need. 
@@ -92,7 +87,6 @@ Recommendations for when to scale DWUs:
 1. If your application has a fluctuating workload, scale DWU levels up or down to accommodate peaks and low points. For example, if your workload typically peaks at the end of the month, plan to add more DWUs during those peak days, then scale down once the peak period is over.
 1. Before you perform a heavy data loading or transformation operation, scale up DWUs so that your data is available more quickly.
 
-
 ## Pause compute
 
 [AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
@@ -101,10 +95,7 @@ To pause a database, use any of these individual methods.
 
 - [Pause compute with Azure portal][]
 - [Pause compute with PowerShell][]
-<!--
-[Pause compute with REST APIs][]
--->
-
+- [Pause compute with REST APIs][]
 
 ## Resume compute
 
@@ -113,11 +104,8 @@ To pause a database, use any of these individual methods.
 To pause a database, use any of these individual methods.
 
 - [Resume compute with Azure portal][]
-<!--
-[Resume compute with PowerShell][]
-[Resume compute with REST APIs][]
--->
-
+- [Resume compute with PowerShell][]
+- [Resume compute with REST APIs][]
 
 ## Next steps
 Please refer to the following articles to help you understand some additional key performance and scale concepts:
