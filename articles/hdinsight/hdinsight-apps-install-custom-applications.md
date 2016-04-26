@@ -39,9 +39,9 @@ The files needed for deploying this application can be found in a public Azure b
 
 - [azuredeploym.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): The ARM template for installing HDInsight application. See [Deploy HDInsight applications](hdinsight-apps-deploy.md) for developing your own ARM template.
 - [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): The Script action being called by the ARM template for configuring the edge node. 
-- [hue-binaries.tgz](https://hditutorialdata.blob.core.windows.net/hdinsightapps/hue-binaries-14-04.tgz): The hue binary file being called from hui-install_v0.sh. 
-- [hue-binaries-14-04.tgz](https://hditutorialdata.blob.core.windows.net/hdinsightapps/hue-binaries-14-04.tgz): The hue binary file being called from hui-install_v0.sh. 
-- [webwasb-tomcat.tar.gz](https://hditutorialdata.blob.core.windows.net/hdinsightapps/webwasb-tomcat.tar.gz): A sample web application (Tomcat) being called from hui-install_v0.sh.
+- [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): The hue binary file being called from hui-install_v0.sh. 
+- [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): The hue binary file being called from hui-install_v0.sh. 
+- [webwasb-tomcat.tar.gz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): A sample web application (Tomcat) being called from hui-install_v0.sh.
 
 **To install Hue to an existing HDInsight cluster**
 

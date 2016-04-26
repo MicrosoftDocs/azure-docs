@@ -28,11 +28,30 @@ The following are the published HDInsight applications: [jgao: will these applic
 - **DataTorrent RTS(DataTorrent)**: 
 - **R Server for HDInsight (Microsoft)**: 
 
-The instructions provided in this article use Azure Portal. You can also export the ARM template from the portal or obtain a copy of the ARM template from vendors, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates).
+The instructions provided in this article use Azure Portal. You can also export the ARM template from the portal or obtain a copy of the ARM template from vendors, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ### Prerequisites
 
 If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
+
+## Install applications to existing clusters
+
+The following procedure shows you how to install HDInsight applications to an existing HDInsight cluster.
+
+**To install an HDInsight application**
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
+3. Click an HDInsight cluster.  If you don't have one, you must create one first.  see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+4. From the **Settings** blade, click **Applications** under the **General** category. The **Installed Apps** blade lists all the installed applications. 
+
+    ![hdinsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+5. Click **Submit New** from the blade menu. You shall see a list of existing HDInsight applications.
+
+    ![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
+6. Click one of the applications, and then click **Select**.
+
+You can see the installation status from the portal notifications (click the bell icon on the top of the portal). After the application is installed, the application will appear on the Installed Apps blade.
 
 ## Install applications during cluster creation
 
@@ -56,25 +75,6 @@ The following procedure shows you how to install HDInsight applications when you
 9. Click **Resource Group** to select an existing resource group, or click **New** to create a new resource group
 
 10. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. 
-
-## Install applications to existing clusters
-
-The following procedure shows you how to install HDInsight applications to an existing HDInsight cluster.
-
-**To install an HDInsight application**
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
-3. Click an HDInsight cluster.  If you don't have one, you must create one first.  see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. From the **Settings** blade, click **Applications** under the **General** category. The **Installed Apps** blade lists all the installed applications. 
-
-    ![hdinsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. Click **Submit New** from the blade menu. You shall see a list of existing HDInsight applications.
-
-    ![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
-6. Click one of the applications, and then click **Select**.
-
-You can see the installation status from the portal notifications (click the bell icon on the top of the portal). After the application is installed, the application will appear on the Installed Apps blade.
 
 ## List installed HDInsight apps and properties
 

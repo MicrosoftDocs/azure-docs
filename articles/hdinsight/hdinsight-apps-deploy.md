@@ -19,7 +19,7 @@
 
 # Package and deploy HDInsight applications
 
-An HDInsight application is an application that users can install on an Linux-based HDInsight cluster. HDInsight Application deployment first creates a virtual machine referred to as *edgenode* in the same virtual network as the cluster, and then utilizes HDInsight [Script Action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) to deploy HDInsight applications to the edgenode. The centerpiece for deploying an HDInsight application is configuring an ARM template.  In this article, you will learn how to develop ARM templates for deploying HDInsight applications, and use the ARM templates to deploy the applications.
+An HDInsight application is an application that users can install on an Linux-based HDInsight cluster. HDInsight Application deployment first creates a virtual machine referred to as *edgenode* in the same virtual network as the cluster, and then utilizes HDInsight [Script Action](hdinsight-hadoop-customize-cluster-linux.md) to deploy HDInsight applications to the edgenode. The centerpiece for deploying an HDInsight application is configuring an ARM template.  In this article, you will learn how to develop ARM templates for deploying HDInsight applications, and use the ARM templates to deploy the applications.
 
 HDInsight applications use the “Bring Your Own License” (BYOL) model, where application provider is responsible for licensing the application to end-users, and end-users are only charged by Azure for the resources they create, such as the HDInsight cluster and its VMs/nodes. At this time, billing for the application itself is not done through Azure.
 
@@ -30,7 +30,7 @@ Other HDInsight application related articles:
 
 ## Prerequisites
 
-- HDInsight cluster: If you choose to install applications to an existing HDInsight cluster, you will need a cluster. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+- HDInsight cluster: If you choose to install applications to an existing HDInsight cluster, you will need create a cluster first. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 - Knowledge of ARM template: See [Azure Resource Manager overview](../resource-group-overview.md), [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
 ## The architecture
@@ -77,7 +77,7 @@ Each application has two types of script actions: [install](#install-application
     "installScriptActions": [
         {
             "name": "hue-install_v0",
-            "uri": "https://hditutorialdata.blob.core.windows.net/hdinsightapps/Hue-install_v0.sh",
+            "uri": "https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/scripts/Hue-install_v0.sh",
             "roles": ["edgenode"],
             "parameters":""
         }
@@ -140,7 +140,7 @@ This feature will be released soon.
 
 ##Appendix A 
 
-The ARM template sample installs Hue on an existing HDInsight cluster. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) for a tutorial about calling the ARM template:
+Use this ARM template sample to install Hue on an existing HDInsight cluster. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) for a tutorial about calling the ARM template:
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -198,7 +198,7 @@ The ARM template sample installs Hue on an existing HDInsight cluster. See [Inst
     
 ##Appendix B 
 
-The ARM template sample creates an HDInsight cluster and then installs Hue on the cluster. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) for a tutorial about calling the ARM template:
+Use this ARM template sample to create an HDInsight cluster and then install Hue on the cluster. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) for a tutorial about calling the ARM template:
 
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -383,7 +383,7 @@ The ARM template sample creates an HDInsight cluster and then installs Hue on th
           "installScriptActions": [
             {
               "name": "hue-install",
-              "uri": "https://hditutorialdata.blob.core.windows.net/hdinsightapps/Hue-install_v0.sh",
+              "uri": "https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/scripts/Hue-install_v0.sh",
               "roles": [ "edgenode" ],
               "parameters": "[parameters('clusterName')]"
             }
