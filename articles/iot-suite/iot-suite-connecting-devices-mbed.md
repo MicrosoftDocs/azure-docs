@@ -199,7 +199,7 @@ For reference, here is a sample **Command** received from IoT Hub:
 
     ![][11]
 
-4. In PuTTY, click the **Serial** connection type. The device typically connects at 115200 baud, so enter 115200 in the **Speed** box. Then click **Open**.
+4. In PuTTY, click the **Serial** connection type. The device typically connects at 9600 baud, so enter 9600 in the **Speed** box. Then click **Open**.
 
 5. The program starts executing. You may have to reset the board (press CTRL+Break or press on the board's reset button) if the program does not start automatically when you connect.
 
