@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="04/26/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -296,19 +296,35 @@ The following example splits the input string with a comma.
 
 **string(valueToConvert)**
 
-Converts the specified value to String.
+Converts the specified value to a string.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| valueToConvert                     |   Yes    | The value to convert to String. The type of value can only be Boolean, Integer or String.
+| valueToConvert                     |   Yes    | The value to convert to string. Any type of value can be converted, including objects and arrays.
 
-The following example converts the user-provided parameter value to String.
+The following example converts the user-provided parameter values to strings.
 
     "parameters": {
-        "appId": { "type": "int" }
+      "jsonObject": {
+        "type": "object",
+        "defaultValue": {
+          "valueA": 10,
+          "valueB": "Example Text"
+        }
+      },
+      "jsonArray": {
+        "type": "array",
+        "defaultValue": [ "a", "b", "c" ]
+      },
+      "jsonInt": {
+        "type": "int",
+        "defaultValue": 5
+      }
     },
     "variables": { 
-        "stringValue": "[string(parameters('appId'))]"
+      "objectString": "[string(parameters('jsonObject'))]",
+      "arrayString": "[string(parameters('jsonArray'))]",
+      "intString": "[string(parameters('jsonInt'))]"
     }
 
 <a id="substring" />
