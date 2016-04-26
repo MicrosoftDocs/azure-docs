@@ -13,13 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-<<<<<<< HEAD
    ms.date="04/26/2016"
    ms.author="edmaca"/>
-=======
-   ms.date="04/21/2016"
-   ms.author="jgao"/>
->>>>>>> 3a69f578bdaee5011ba164932ffeae0e27721991
 
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js
 
