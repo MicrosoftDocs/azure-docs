@@ -11,7 +11,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/15/2016"
 	ms.author="markusvi;andkjell"/>
 
@@ -36,7 +36,7 @@ To use this feature, you need to install Azure Active Directory Connect synchron
 
 Password synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. This feature requires directory synchronization between your on-premises AD and your Azure Active Directory to be configured.
 
-The Active Directory domain service stores passwords in form of a hash value representation of the actual user password. 
+The Active Directory domain service stores passwords in form of a hash value representation of the actual user password.
 You cannot use a password hash to:
 
 - Sign in to your on-premises network
@@ -55,12 +55,12 @@ Passwords are synchronized:
 
 A synchronized password overwrites the existing cloud password.
 
-The first time you enable the password synchronization feature, it performs an initial synchronization of the passwords of all in-scope users. You cannot explicitly define a subset of user passwords you want to synchronize. 
+The first time you enable the password synchronization feature, it performs an initial synchronization of the passwords of all in-scope users. You cannot explicitly define a subset of user passwords you want to synchronize.
 
-When you change an on-premises password, the updated password is synchronized, most often in a matter of minutes. 
+When you change an on-premises password, the updated password is synchronized, most often in a matter of minutes.
 The password synchronization feature automatically retries failed user password syncs. If an error occurs during an attempt to synchronize a password, an error is logged in your event viewer.
 
-The synchronization of a password has no impact on the currently logged on user. 
+The synchronization of a password has no impact on the currently logged on user.
 If a password change is synchronized while you are logged into a cloud service, your cloud service session is not immediately affected by this. However, as soon as the cloud service requires you to authenticate again, you need to provide your new password.
 
 > [AZURE.NOTE] Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.

@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="04/26/2016"
     ms.author="curtand"/>
 
 # Integrate Azure Active Directory single sign-on with SaaS apps  
@@ -47,7 +47,7 @@ Setting up single sign on for an application that your organization already uses
 
 ### Mapping user accounts
 
-A user's identity typically has a unique identifier that could be an email address, or universal personal name (UPN). You will need to link (map) each user's application identity to their respective Azure AD identity. There are a couple of ways to accomplish this depending on how the requirement of your application authentication.
+A user's identity typically has a unique identifier that could be an email address, or user principal name (UPN). You will need to link (map) each user's application identity to their respective Azure AD identity. There are a couple of ways to accomplish this depending on how the requirement of your application authentication.
 
 For more information about mapping application identities with Azure AD identities, see [Customizing claims issued in the SAML token](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) and [Customizing attribute mappings for provisioning](active-directory-saas-customizing-attribute-mappings.md).
 

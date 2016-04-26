@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/19/2016"
 	ms.author="mikeray" />
 
 # Configure an ILB listener for AlwaysOn Availability Groups in Azure
