@@ -134,6 +134,30 @@ Time | URL
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
+## Errors from ADAL
+
+### invalid_grant
+
+### unknown_user_type
+
+### user_realm_discovery_failed
+
+### user_password_expired
+
+### AuthorizationFailure
+
+### authentication_cancelled
+
+### ConnectToMSOnline
+
+### AzureRoleMissing
+
+### PrivilegedIdentityManagement
+
+### CompanyInfoUnavailable
+
+### RetrieveDomains
+
 ## Troubleshooting steps for previous releases.
 With releases starting with build number 1.1.105.0 (released February 2016) the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
 
