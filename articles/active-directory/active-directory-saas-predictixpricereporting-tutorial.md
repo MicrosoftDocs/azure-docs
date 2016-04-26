@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="04/25/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,10 +93,10 @@ This link relationship is established by assigning the value of the **user name*
 
 To configure and test Azure AD single sign-on with Predictix Price Reporting, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating an Predictix Price Reporting test user](#creating-an-predictixpricereporting-test-user)** - to have a counterpart of Britta Simon in Predictix Price Reporting that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+3. **[Creating a Predictix Price Reporting test user](#creating-a-predictix-price-reporting-test-user)** - to have a counterpart of Britta Simon in Predictix Price Reporting that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD Single Sign-On
@@ -114,12 +114,14 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_03.png) 
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+3. On the **Configure App Settings** dialog page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Predictix Price Reporting application using the following pattern: **https://\<CompanyName-pricing\>.Predictix.com/sso/request**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Predictix Price Reporting application using the following pattern: **https://\<company name-pricing\>.predictix.com/sso/request**.
 	
+	b. click **Next**
+ 
 4. On the **Configure single sign-on at Predictix Price Reporting** page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_05.png)
@@ -129,8 +131,15 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact Predictix Price Reporting support team and email the attach downloaded certificate file along with the **Entity ID**, **SAML SSO URL** and **Single Sign Out Service URL** so that they can be configured for SSO integration.
+5. To get SSO configured for your application, contact Predictix Price Reporting support team and provide them with the following:
 
+	• The downloaded certificate
+
+	• The **Entity ID**
+
+	• The **SAML SSO URL**
+
+	• The **Single Sign Out Service URL**
 
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
@@ -144,7 +153,6 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 ### Creating an Azure AD test user
 In this section, you create a test user in the classic portal called Britta Simon.
 
-In the Users list, select **Britta Simon**.
 
 ![Create Azure AD User][20]
 
