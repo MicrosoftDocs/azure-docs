@@ -58,7 +58,7 @@ Create a [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azur
 
 ## Move a database into an elastic pool
 
-Update the database service objective to add the database to a pool.
+Change the elastic pool name to the target pool before calling CreateOrUpdate.
 
     // Retrieve current database properties.
 
@@ -95,7 +95,7 @@ To retrieve all databases in a pool, call the [ListDatabases](https://msdn.micro
 
 ## Update a pool
 
-Retrieve existing pool properties, then modify values. Then execute the CreateOrUpdate method.
+Retrieve existing the pool properties. Modify the values and execute the CreateOrUpdate method.
 
     var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
 

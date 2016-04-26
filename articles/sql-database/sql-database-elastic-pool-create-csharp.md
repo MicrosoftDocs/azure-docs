@@ -78,7 +78,8 @@ Retrieve the target database properties, then set the elastic pool name to the p
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
 ## Create a new database in a pool
-Create a DatabaseCreateOrUpdateParameters object, and set the properties of the new database. Then call the CreateOrUpdate method with the resource group, server name, and new database name.
+
+Create a [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties) instance, and set the properties of the new database. Then call the CreateOrUpdate method with the resource group, server name, and new database name.
 
     // Create a database: configure create or update parameters and properties explicitly
     DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
