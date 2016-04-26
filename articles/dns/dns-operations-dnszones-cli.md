@@ -3,8 +3,8 @@
    description="You can manage DNS zones using Azure CLI. How to update, delete and create DNS zones on Azure DNS" 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
-   manager="Adinah" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # How to manage DNS Zones using CLI
 
