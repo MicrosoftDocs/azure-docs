@@ -41,13 +41,16 @@ In general, most targeted attacks that result in data breaches can be traced to 
 For more secure management and operations, you can minimize a client’s attack surface by reducing the number of possible entry points. This can be done through security principles: “separation of duties” and “segregation of environments.”
 
 Isolate sensitive functions from one another to decrease the likelihood that a mistake at one level will lead to a breach in another. Examples:
+
 - Administrative tasks should not be combined with activities that might lead to a compromise (for example, malware in an administrator’s email that then infects an infrastructure server).
 - A workstation used for high-sensitivity operations should not be the same system used for high-risk purposes such as browsing the Internet.
 
 Reduce the system’s attack surface by removing unnecessary software. Example:
+
 - Standard administrative, support, or development workstation should not require installation of an email client or other productivity applications if the device’s main purpose is to manage cloud services.
 
 Client systems that have administrator access to infrastructure components should be subjected to the strictest possible policy to reduce security risks. Examples:
+
 - Security policies can include Group Policy settings that deny open Internet access from the device and use of a restrictive firewall configuration.
 - Use Internet Protocol security (IPsec) VPNs if direct access is needed.
 - Configure separate management and development Active Directory domains.
