@@ -825,12 +825,12 @@ In the **pipeline JSON**, use HDInsight (on-demand or your own) linked service:
 
 ## Examples
 
-| Sample | What custom activity does| 
-| ------ | ----------- | 
-| [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Downloads data from an HTTP Endpoint to Azure Blob Storage using custom C# Activity in Data Factory. |
-| [Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Invokes an Azure ML model and do sentiment analysis, scoring, prediction etc. |
-|  [Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. | 
-| [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Uses different assembly versions from ones used by the Data Factory launcher (e.g., WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.). |
+Sample | What custom activity does 
+------ | ----------- 
+[HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Downloads data from an HTTP Endpoint to Azure Blob Storage using custom C# Activity in Data Factory.
+[Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Invokes an Azure ML model and do sentiment analysis, scoring, prediction etc.
+[Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. 
+[Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Uses different assembly versions from ones used by the Data Factory launcher  
  
 
 ## See Also
