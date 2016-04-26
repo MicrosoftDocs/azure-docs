@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="04/26/2016"
 	ms.author="gokuma;weig;bradsev" />
 
 # Ten things you can do on the Data science Virtual Machine
@@ -32,9 +32,11 @@ In this article we walk you through how to use your DSVM to perform various data
 7. Access various Azure data and analytics services like Azure blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure DocumentDB, Azure SQL Data Warehouse & databases
 8. Build reports and dashboard using the Power BI Desktop pre-installed on the DSVM and deploy them on the cloud
 9. Dynamically scale your DSVM to meet your project needs
-10. Install additional tools on your virtual machine
+10. Install additional tools on your virtual machine   
+
 
 >[AZURE.NOTE] Additional usage charges will apply for many of the additional data storage and analytics services listed in this article. Please refer to the [Azure Pricing](https://azure.microsoft.com/pricing/) page for details.
+
 
 **Prerequisites**
 
@@ -66,17 +68,19 @@ Now you are set up to create a new Python project. Navigate to **File** -> **New
 
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
 
-To launch the Jupyter Notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter Notebook. If it prompts you for a password, please use instructions provided on the
-[DSVM documentation page](machine-learning-data-science-provision-vm.md/#how-to-create-a-strong-password-on-the-jupyter-notebook-server) to create a strong password to access the Jupyter notebook. 
+To launch the Jupyter Notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter Notebook. If it prompts you for a password, use instructions provided in the ***How to create a strong password on the Jupyter notebook server*** section of the 
+[Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) topic to create a strong password to access the Jupyter notebook. 
 
 Once you have opened the notebook, you will see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
 
 - click on the notebook to see the code.
 - execute each cell by pressing **SHIFT-ENTER**.
 - run the entire notebook by clicking on **Cell** -> **Run**
-- create a new notebook by clicking on the Jupyter Icon (left top corner) and then clicking **New** button on the right and then choosing the notebook language (also known as kernels).
+- create a new notebook by clicking on the Jupyter Icon (left top corner) and then clicking **New** button on the right and then choosing the notebook language (also known as kernels).   
 
->[AZURE.NOTE] Currently we support Python 2.7, Python 3.5 and R. The R kernel supports programming in both Open source R as well as the enterprise scalable Microsoft R Server.
+
+>[AZURE.NOTE] Currently we support Python 2.7, Python 3.5 and R. The R kernel supports programming in both Open source R as well as the enterprise scalable Microsoft R Server.   
+
 
 Once you are in the notebook you can explore your data, build the model, test the model using your choice of libraries.
 
@@ -85,9 +89,11 @@ Once you are in the notebook you can explore your data, build the model, test th
 
 Once you have built and validated your model the next step is usually to deploy it into production. This allows your client applications to invoke the model predictions on a real time or on a batch mode basis. Azure Machine Learning provides a mechanism to operationalize a model built in either R or Python.
 
-When you operationalize your model in Azure Machine Learning, a web service is exposed that allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs.
+When you operationalize your model in Azure Machine Learning, a web service is exposed that allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs.   
+
 
 >[AZURE.NOTE] If you have not yet signed up for AzureML, you can obtain a free workspace or a standard workspace by visiting the [AzureML Studio](https://studio.azureml.net/) home page and clicking on "Get Started".   
+
 
 ### Build and Operationalize Python models
 
@@ -124,7 +130,8 @@ A client can now make calls to the web service. There are convenience wrappers t
 	IrisPredictor(3,2,3,4)
 
 
->[AZURE.NOTE] The Azure Machine Learning library is only supported on Python 2.7 currently.
+>[AZURE.NOTE] The Azure Machine Learning library is only supported on Python 2.7 currently.   
+
 
 ### Build and Operationalize R models
 
@@ -188,6 +195,7 @@ The following code is used to consume the model published as an Azure Machine Le
 
 More information about the Azure Machine Learning R library can be found [here](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf).
 
+
 ## 4. Administer your Azure resources using Azure Portal or Powershell
 
 The DSVM not only allows you to build your analytics solution locally on the virtual machine, but also allows you to access services on Microsoft's Azure cloud. Azure provides several compute, storage, data analytics services and other services that you can administer and access from your DSVM.
@@ -200,9 +208,11 @@ You can run Azure Powershell from a shortcut on the desktop or from the start me
 
 ## 5. Extend your storage space with a shared file system
 
-Data scientists can share large datasets, code or other resources within the team. The DSVM itself has about 70GB of space available. To extend your storage, you can use the Azure File Service and either mount it on the DSVM or access it via a REST API.
+Data scientists can share large datasets, code or other resources within the team. The DSVM itself has about 70GB of space available. To extend your storage, you can use the Azure File Service and either mount it on the DSVM or access it via a REST API.   
 
->[AZURE.NOTE] The maximum space of the Azure File Service share is 5TB and individual file size limit is 1TB.
+
+>[AZURE.NOTE] The maximum space of the Azure File Service share is 5TB and individual file size limit is 1TB.   
+
 
 You can use Azure Powershell to create an Azure File Service share. Here is the script to run under Azure PowerShell to create a Azure File service share.
 
@@ -270,14 +280,17 @@ Azure blob is a reliable, economical cloud storage for data big and small. Let u
 
 - Confirm that the pre-installed command line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. You can add the directory containing the azcopy.exe to your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool please refer to [AzCopy documentation](../storage/storage-use-azcopy.md)
 
-- Start the Azure Storage Explorer from a icon on the VM desktop. You can also find it in the directory ```C:\Program Files (x86)\Neudesic\Azure Storage Explorer 6```.  
+- Start the Azure Storage Explorer from a icon on the VM desktop. You can also find it in the directory ***C:\Program Files (x86)\Neudesic\Azure Storage Explorer 6***.  
+
 
 ![AzureStorageExplorer_v4](./media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_v4.png)
+
 
 **Move data from VM to Azure Blob: AzCopy**
 
 To move data between your local files and blob storage, you can use AzCopy in command line or PowerShell:
-`AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt`
+
+	AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
 Replace **C:\myfolder** to the path where your file is stored, **mystorageaccount** to your blob storage account name, **mycontainer** to the container name, **storage account key** to your blob storage access key. You can find your storage account credentials in [Azure Portal](http://portal.azure.com).
 
@@ -304,12 +317,14 @@ Once you run your AzCopy command to copy to an Azure blob you see your file show
 
 You can also upload data from the local file in your VM using Azure Storage Explorer:
 
+
 ![](./media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_upload_v2.png)
 
 
 **Read data from Azure Blob: AML reader module**
 
 In Azure Machine Learning Studio you can use a **Reader module** to read data from your blob.
+
 
 ![AML_ReaderBlob_Module_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 

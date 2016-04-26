@@ -27,7 +27,7 @@ This topic describes how to load machine learning (ML) models that have been bui
 
 1. You need an Azure account and an HDInsight Spark cluster, version Spark 1.5.2 (HDI 3.3), to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-model-consumption.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
 
-2. You must also create the machine learning models to be scored here by working through the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic.
+2. You must also create the machine learning models to be scored here by working through the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic.   
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -44,9 +44,13 @@ To save models or files in WASB, the path needs to be specified properly. The de
 
 Models are saved in: "wasb:///user/remoteuser/NYCTaxi/Models". If this path is not set properly, models will not be loaded for scoring.
 
-The scored results have been saved in: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". If the path to folder is incorrect, results will not be saved in that folder.
+The scored results have been saved in: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". If the path to folder is incorrect, results will not be saved in that folder.   
 
->AZURE.NOTE: The file path locations can be copied and pasted into the placeholders in this code from the output of the last cell of the **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook.
+
+>AZURE.NOTE: The file path locations can be copied and pasted into the placeholders in this code from the output of the last cell of the **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook.   
+
+
+Here is the code to set directory paths: 
 
 	# LOCATION OF DATA TO BE SCORED (TEST DATA)
 	taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
@@ -536,9 +540,11 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-04-1917_24_32.
 Spark provides a mechanism to remotely submit batch jobs or interactive queries through a REST interface with a component called Livy. Livy is enabled by default on your HDInsight Spark cluster. For more information on Livy see: [Submit Spark jobs remotely using Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
 
 You can use Livy to remotely submit a job that batch scores a file that is stored in an Azure blob and then writes the results to another blob. To do this, you upload the Python script from  
-[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) to the blob of the Spark cluster. You can use a tool like **Microsoft Azure Storage Explorer** or **AzCopy** to copy the script to the cluster blob. In our case we uploaded  the script to ***wasb:///example/python/ConsumeGBNYCReg.py***.
+[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) to the blob of the Spark cluster. You can use a tool like **Microsoft Azure Storage Explorer** or **AzCopy** to copy the script to the cluster blob. In our case we uploaded  the script to ***wasb:///example/python/ConsumeGBNYCReg.py***.   
+
 
 >AZURE.NOTE: The access keys that you need can be found on the portal for the storage account associated with the Spark cluster. 
+
 
 Once uploaded to this location, this script will run within the Spark cluster in a distributed context. It will load the model and run predictions on input files based on the model.  
 
@@ -550,9 +556,11 @@ You need to replace CLUSTERLOGIN, CLUSTERPASSWORD, CLUSTERNAME with the appropri
 
     curl -k --user "CLUSTERLOGIN:CLUSTERPASSWORD" -X POST --data "{\"file\": \"wasb:///example/python/ConsumeGBNYCReg.py\"}" -H "Content-Type: application/json" https://CLUSTERNAME.azurehdinsight.net/livy/batches
 
-You can use any language on the remote system to invoke the Spark job through Livy by making a simple HTTPS call with Basic Authentication. 
+You can use any language on the remote system to invoke the Spark job through Livy by making a simple HTTPS call with Basic Authentication.   
 
->AZURE.NOTE: It would be convenient to use the Python Requests library when making this HTTP call, but it is not currently installed by default in Azure Functions. So older HTTP libraries are used instead.
+
+>AZURE.NOTE: It would be convenient to use the Python Requests library when making this HTTP call, but it is not currently installed by default in Azure Functions. So older HTTP libraries are used instead.   
+
 
 Here is the Python code for the HTTP call:
 
@@ -581,9 +589,9 @@ Here is the Python code for the HTTP call:
 	conn.close()
 
 
-You can also add this Python code to [Azure Functions](../azure-functions/functions-overview.md)  to trigger a Spark job submission that scores a blob based on various events like a timer, creation or update of a blob. 
+You can also add this Python code to [Azure Functions](https://azure.microsoft.com/en-us/documentation/services/functions/) to trigger a Spark job submission that scores a blob based on various events like a timer, creation or update of a blob. 
 
-If you prefer a code free client experience, use the [Azure Logic Apps](../app-service-logic/app-service-logic-create-a-logic-app.md) to invoke the Spark batch scoring by defining a HTTP action on the **Logic Apps Designer** and setting its parameters. 
+If you prefer a code free client experience, use the [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) to invoke the Spark batch scoring by defining a HTTP action on the **Logic Apps Designer** and setting its parameters. 
 
 - From Azure Portal, create a new Logic App by selecting **+New** -> **Web + Mobile** -> **Logic App**. 
 - Enter the name of the Logic App and App Service Plan to bring up the **Logic Apps Designer**.

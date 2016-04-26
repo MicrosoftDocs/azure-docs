@@ -25,14 +25,14 @@ This walkthrough uses HDInsight Spark to do data exploration and binary classifi
 - The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 - The **regression** task is to predict the amount of the tip based on other tip features. 
 
-The modeling steps also contain code showing how to train, evaluate and save each type of model. Python has been used to code the solution and to show the relevant plots.
-
 The models we use include logistic and linear regression, random forests and gradient boosted trees:
 
 - [Linear regression with SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) is a linear regression model that uses a Stochastic Gradient Descent (SGD) method and for optimization and feature scaling to predict the tip amounts paid. 
 - [Logistic regression with LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) or "logit" regression, is a regression model that can be used when the dependent variable is categorical to do data classification. LBFGS is a quasi-Newton optimization algorithm that approximates the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm using a limited amount of computer memory and that is widely used in machine learning.
 - [Random forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees in order to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features, extend to the multiclass classification setting, do not require feature scaling, and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
 - [Gradient boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
+
+The modeling steps also contain code showing how to train, evaluate and save each type of model. Python has been used to code the solution and to show the relevant plots.   
 
 
 >AZURE.NOTE: Although the Spark MLlib toolkit is designed to work on large datasets, for purposes of demonstrating its modeling capabilities, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used, for convenience. The exercise given here runs efficiently on an HDInsight cluster with 2 worker nodes (in about 10 mins). The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory or changing the cluster size.
@@ -471,6 +471,9 @@ Feature scaling, also known as data normalization, insures that features with wi
 
 >AZURE.NOTE: We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.
 
+Here is the code to scale to scale variables for use with the regularized linear SGD algorithm.
+
+	# FEATURE SCALING
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
@@ -756,7 +759,8 @@ These models were described in the introduction. Each model building code sectio
 
 The code in this section shows how to use scaled features to train a linear regression that uses stochastic gradient descent (SGD) for optimization, and how to score, evaluate, and save the model in Azure Blob Storage (WASB).
 
->AZURE NOTE: In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps (shown below). 
+In our experience, there can be issues with the convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. 
+
 
 	#PREDICT TIP AMOUNTS USING LINEAR REGRESSION WITH SGD
 
