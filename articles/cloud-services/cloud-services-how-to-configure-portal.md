@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to configure a cloud service | Microsoft Azure" 
+	pageTitle="How to configure a cloud service (portal) | Microsoft Azure" 
 	description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -46,7 +46,7 @@ The **Settings** or **All settings** links will open up the **Settings** blade w
 
 ## Monitoring
 
-You can setup monitor alerts and rules two ways. First, you can click **Settings** > **Alert Rules** > **Add alert**. 
+You can add alerts to your cloud service. Click **Settings** > **Alert Rules** > **Add alert**. 
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,11 +62,11 @@ From here you can setup an alert. With the **Mertic** drop down box, you can set
 
 ### Configure monitoring from a metric tile
 
-You can click on one of the metric tiles on the **Monitoring** section of the **Cloud service** blade.
+Instead of using **Settings** > **Alert Rules**, you can click on one of the metric tiles in the **Monitoring** section of the **Cloud service** blade.
 
 ![Cloud Service Monitoring](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
-From here you can add an alert rule (just like above) or customize the chart.
+From here you can customize the chart used with the tile, or add an alert rule.
 
 
 ## Reboot, reimage, or remote desktop
