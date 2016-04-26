@@ -87,10 +87,10 @@ There are two ways CDN can support compression:
 	3.	Cache **Hit**: If the file is cached with different compression method, the edge server will transcode the asset to the requested compression method.
 	4.	Cache **Hit**: If the file is cached in an uncompressed format, a check will be performed to determine whether the request is eligible for edge server compression.  If eligible, the edge server will compress the file and serve it to the client.  Otherwise, it will return the uncompressed content.
 		
->[AZURE.IMPORTANT] To be eligible for compression, a file must:
->1. Be larger than 128 bytes.
->2. Be smaller than 1 MB.
->3. Be a MIME type that has been [configured for compression](#enabling-compression).
+> [AZURE.IMPORTANT] To be eligible for compression, a file must:
+> - Be larger than 128 bytes.
+> - Be smaller than 1 MB.
+> - Be a MIME type that has been [configured for compression](#enabling-compression).
 
 ### Tables
 
