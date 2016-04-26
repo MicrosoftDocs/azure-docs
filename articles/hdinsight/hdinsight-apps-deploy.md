@@ -30,15 +30,13 @@ Other HDInsight application related articles:
 
 ## Prerequisites
 
-- HDInsight cluster: HDInsight applications can only be installed on existing HDInsight clusters.  To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+- HDInsight cluster: If you choose to install applications to an existing HDInsight cluster, you will need a cluster. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 - Knowledge of ARM template: See [Azure Resource Manager overview](../resource-group-overview.md), [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
 ## The architecture
 
 Because the edgenode resides in the same virtual network as the Hadoop cluster in HDInsight, the applications can communicate with the Hadoop cluster in HDInsight freely. 
-HDInsight applications allow you to define HTTP routes (HTTP endpoints) that will be internet addressable. This leverages HDInsight's secure HTTP gateway as a reverse proxy and provides SSL and Authorization for free to the application. 
-
-[jgao: insert the architecture diagram here]
+HDInsight applications allow you to define HTTP routes (HTTP endpoints) that will be internet addressable. This leverages HDInsight's secure HTTP gateway as a reverse proxy and provides SSL and authorization for free to the applications. 
 
 ## Configure ARM templates
 
@@ -202,7 +200,7 @@ The ARM template sample installs Hue on an existing HDInsight cluster. See [Inst
 
 The ARM template sample creates an HDInsight cluster and then installs Hue on the cluster. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) for a tutorial about calling the ARM template:
 
-  {
+    {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
