@@ -46,7 +46,7 @@ To sign in a user with one of these providers, they must be redirected to a logi
 
 Users interacting with your application through a web browser will have a cookie set so that they can remain authenticated as they navigate your application. For other client types, such as mobile, a JSON web token (JWT) will be issued to the client which should be presented in the `X-ZUMO-AUTH` header. The Mobile Apps client SDKs will handle this for you. Alternatively, an Azure Active Directory access token may be directly included in the `Authorization` header as a [bearer token](https://tools.ietf.org/html/rfc6750).
 
-The App Service will validate any cookie or token that it issued, allowing users to be authenticated. To restrict who can access your application, see the [Authorization](#authorization) section below.
+App Service will validate any cookie or token that your application issued, allowing users to be authenticated. To restrict who can access your application, see the [Authorization](#authorization) section below.
 
 ### Mobile authentication with a provider SDK
 
