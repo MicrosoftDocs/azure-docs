@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Performance scalability for Azure SQL Data Warehouse | Microsoft Azure"
-   description="Understand SQL Data Warehouse elasticity using Data Warehouse Units to scale compute resources up and down."
+   pageTitle="Scalable performance in Azure SQL Data Warehouse | Microsoft Azure"
+   description="Understand performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs or pause and resume compute resources to save costs."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -16,7 +16,7 @@
    ms.date="04/26/2016"
    ms.author="barbkess;sonyama"/>
 
-# Performance scalability overview for Azure SQL Data Warehouse
+# Performance scalability for Azure SQL Data Warehouse
 
 The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale out performance while saving costs costs by only paying for performance when you need it. 
 
@@ -24,6 +24,13 @@ This overview describes the following performance scale-out capabilities of SQL 
 
 - Scale performance by adjusting data warehouse units (DWUs)
 - Pause or resume compute resources
+
+**Skip to tutorials:**
+
+- [Change DWUs][]
+- [Pause compute][]
+- [Resume compute][]
+
 
 ## Scale performance
 
@@ -124,6 +131,12 @@ Please refer to the following articles to help you understand some additional ke
 <!--Image reference-->
 
 <!--Article references-->
+
+[Change DWUs]: ./sql-data-warehouse-manage-scale-out-tasks.md
+[Pause compute]: ./sql-data-warehouse-manage-scale-out-tasks.md
+[Resume compute]: ./sql-data-warehouse-manage-scale-out-tasks.md
+
+
 [Scale performance with Azure portal]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-1-scale-performance
 [Scale performance with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-1-scale-performance
 [Scale performance with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-1-scale-performance
