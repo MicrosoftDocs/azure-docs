@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="04/26/2016"
 	ms.author="asmalser"/>
 
 
 # Tutorial: Azure Active Directory integration with Facebook at Work
 
-The objective of this tutorial is to show you how to integrate Facebook at Work with Azure Active Directory (Azure AD).<br>Integrating Facebook at Work with Azure AD provides you with the following benefits: 
+The objective of this tutorial is to show you how to integrate Facebook at Work with Azure Active Directory (Azure AD).
+
+Integrating Facebook at Work with Azure AD provides you with the following benefits: 
 
 - You can control in Azure AD who has access to Facebook at Work 
 - You can automatically provision account for users who have been granted access to Facebook at Work
@@ -47,19 +49,23 @@ To configure the integration of Facebook at Work into Azure AD, you need to add 
 
 **To add Facebook at Work from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. 
-<br><br>![Active Directory][1]<br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+	![Active Directory][1]
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
-<br><br>![Applications][2]<br>
+
+	![Applications][2]
 
 4. Click **Add** at the bottom of the page.
-<br><br>![Applications][3]<br>
+	
+	![Applications][3]
 
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-<br><br>![Applications][4]<br>
+
+	![Applications][4]
 
 6. In the search box, type **Facebook at Work**.
 
@@ -72,7 +78,7 @@ This section outlines how to enable users to authenticate to Facebook at Work wi
 
 **To configure Azure AD single sign-on with Facebook at Work, perform the following steps:**
 
-1.	After adding Facebook at Work in the Azure management portal, click **Configure Single Sign-On**.
+1.	After adding Facebook at Work in the Azure classic portal, click **Configure Single Sign-On**.
 
 2.	In the **Configure App URL** screen, enter the URL where users will sign into your Facebook at Work application. This is your Facebook at Work tenant URL 
 (Example: https://example.facebook.com/). Once finished, click **Next**.
@@ -81,25 +87,25 @@ This section outlines how to enable users to authenticate to Facebook at Work wi
 
 4. Follow the instructions at the following URL to configure Facebook at Work to use Azure AD as an identity provider: [https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers)
 
-5.	Once completed, return to the browser windows showing the Azure management portal, click the checkbox to confirm you have completed the procedure, then click **Next** and **Complete**.
+5.	Once completed, return to the browser windows showing the Azure classic portal, click the checkbox to confirm you have completed the procedure, then click **Next** and **Complete**.
 
 
 ## Automatically provisioning users to Facebook at Work
 
 Azure AD supports the ability to automatically synchonize the account details of assigned users to Facebook at Work. This automatic sychronization enables Facebook at Work to get the data it needs to authorize users for access, in advance of them attempting to sign-in for the first time. It also de-provisions users from Facebook at Work when access has been revoked in Azure AD.
 
-Automatic provisioning can be set up by clicking **Configure account provisioning** in the Azure management portal window.
+Automatic provisioning can be set up by clicking **Configure account provisioning** in the Azure classic portal window.
 
 For additional details on how to configure automatic provisioning, see [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
 
 ## Assigning users to Facebook at Work
 
-For provisioned AAD users to be able to see Facebook at Work on their Access Panel, they must be assigned access inside the Azure management portal.
+For provisioned AAD users to be able to see Facebook at Work on their Access Panel, they must be assigned access inside the Azure classic portal.
 
 **To assign users to Facebook at Work:**
 
-1.	On the start page for Facebook at Work in the Azure management portal, click **Assign accounts**.
+1.	On the start page for Facebook at Work in the Azure classic portal, click **Assign accounts**.
 
 2.	In the **Show** menu, select whether you want to assign a user or a group to Facebook at Work and click the Checkmark button.
 
