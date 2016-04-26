@@ -19,10 +19,8 @@
 
 # How to create a copy of a Windows virtual machine in the Resource Manager deployment model
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-
-This article shows you how to create a copy of your Azure virtual machine (VM) running Windows, using the Azure PowerShell and the Azure Portal. This process allows you to copy over the user accounts and other personal information from your original VM. This is called a **_specialized_** image. You can copy over the OS and data disks this way and then set up the network resources to create the new virtual machine. 
+This article shows you how to create a copy of your Azure virtual machine (VM) running Windows, in the Resource Manager deployment model using the Azure PowerShell and the Azure Portal. This process allows you to copy over the user accounts and other personal information from your original VM. This is called a **_specialized_** image. You can copy over the OS and data disks this way and then set up the network resources to create the new virtual machine. 
 
 You will need a specialized image for scenarios like porting your Windows VM from classic deployment model to the Resource Manager deployment model, or creating a backup copy of your Windows VM created in the Resource Manager deployment model. If you need to create mass deployments of similar Windows VMs, you need a *generalized* image; for that, read [How to capture a Windows virtual machine](virtual-machines-windows-capture-image.md). 
 
@@ -45,25 +43,33 @@ This article assumes the following prerequisites are met before you start the st
 > [AZURE.NOTE] Similar steps apply for a VM created using either of the two deployment models as the source image. We will note the the minor differences where applicable.
 
 
-## Copy VHDs from source to your Resource Manager storage account
+## Copy VHDs to your Resource Manager storage account
 
 
 1. First free up the VHDs used by the source VM, by doing either of the following:
 
-	- Stop and deallocate the source virtual machine.  If the VM was created using classic deployment model, then you can either do this in [Azure portal](https://portal.azure.com), by clicking **Browse** > **Virtual machines (classic)** > *your VM* > **Stop**, or in PowerShell, by using `Stop-AzureVM -ServiceName <yourServiceName> -Name <yourVmName>`. For a VM in Resource Manager deployment model, you can login to the portal and click **Browse** > **Virtual machines** > *your VM* > **Stop**, or use PowerShell command `Stop-AzureRmVM -ResourceGroupName <VM-resource-group> -Name <your-VM-name>`. Notice that the *Status* of the VM in the portal changes from **Running** to **Stopped (deallocated)**.	
+	- Stop and deallocate the source virtual machine.  
+	
+		- For a VM created using classic deployment model, you can either use the [portal](https://portal.azure.com), and click **Browse** > **Virtual machines (classic)** > *your VM* > **Stop**, or the PowerShell command `Stop-AzureVM -ServiceName <yourServiceName> -Name <yourVmName>`. 
+		
+		- For a VM in Resource Manager deployment model, you can login to the portal and click **Browse** > **Virtual machines** > *your VM* > **Stop**, or use PowerShell command `Stop-AzureRmVM -ResourceGroupName <yourResourceGroup> -Name <yourVmName>`. Notice that the *Status* of the VM in the portal changes from **Running** to **Stopped (deallocated)**.	
 	
 	OR
-	
+</br>
 	- Delete the source VM and use the VHD left behind. **Browse** to your virtual machine in the [portal](https://portal.azure.com) and click **Delete**.
 	
-1. Find the access keys for the storage account which contains your source VHD, as well as the storage account where you will copy your VHD to create the new VM. If your source VM was created using the classic deployment model, click **Browse** > **Storage accounts (classic)** > *your storage account* > **All Settings** > **Keys** and copy the key labelled as **PRIMARY ACCESS KEY**. For a VM created using the Resource Manager deployment model or for the storage account that you will use for your new VM, click **Browse** > **Storage accounts** > *your storage account* > **All Settings** > **Access keys** and copy the key labelled as **key1**. The key for the account from where we are copying the VHD is called the *Source Key* and that for the account to which it will be copied to is called the *Destination Key*. Read [About Azure storage accounts](../storage/storage-create-storage-account.md) for more information on access keys.
+1. Find the access keys for the storage account which contains your source VHD, as well as the storage account where you will copy your VHD to create the new VM. The key for the account from where we are copying the VHD is called the *Source Key* and that for the account to which it will be copied to is called the *Destination Key*. Read [About Azure storage accounts](../storage/storage-create-storage-account.md) for more information on access keys.
+
+	- If your source VM was created using the classic deployment model, click **Browse** > **Storage accounts (classic)** > *your storage account* > **All Settings** > **Keys** and copy the key labelled as **PRIMARY ACCESS KEY**. 
+	
+	- For a VM created using the Resource Manager deployment model or for the storage account that you will use for your new VM, click **Browse** > **Storage accounts** > *your storage account* > **All Settings** > **Access keys** and copy the key labelled as **key1**. 
 
 1. Get the URLs to access your source and destination storage accounts. In the portal, **Browse** to your storage account and click on **Blobs**. Then click the container that hosts your source VHD (e.g. *vhds* for classic deployment model) or the container that you want the VHD to be copied to. Click **Properties** for the container and copy the text labelled **URL**. We will need the URLs of both the source and destination containers. The URLs will look similar to `https://myaccount.blob.core.windows.net/mycontainer`.
 
 1. On your local computer, open a command window and navigate to the folder where AzCopy is installed. It would be similar to *C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy*. From there, run the following command:
 </br>
 
-		AzCopy /source:<URL_of_the_source_blob_container> /Dest:<URL_of_the_destination_blob_container> /SourceKey:<Access_key_for_the_source_storage> /DestKey:<Access_key_for_the_destination_storage> /Pattern:<File_name_of_the_VHD_you_are_copying>
+		AzCopy /Source:<URL_of_the_source_blob_container> /Dest:<URL_of_the_destination_blob_container> /SourceKey:<Access_key_for_the_source_storage> /DestKey:<Access_key_for_the_destination_storage> /Pattern:<File_name_of_the_VHD_you_are_copying>
 </br>
 
 >[AZURE.NOTE] You will need to copy the OS and data disks separately by using AzCopy as described above. 
