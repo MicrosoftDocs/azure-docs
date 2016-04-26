@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="04/26/2016" 
 	ms.author="casoper"/>
 
 #Controlling caching behavior of CDN requests with query strings - Premium
@@ -26,7 +26,7 @@
 
 Query string caching controls how files are to be cached when they contain query strings.
 
-> [AZURE.NOTE] The Standard and Premium CDN tiers provide the same query string caching functionality, but the user interface differs.  This document describes the **Premium** tier user interface.  For the Standard tier, see [Controlling caching behavior of CDN requests with query strings](cdn-query-string.md).
+> [AZURE.IMPORTANT] The Standard and Premium CDN tiers provide the same query string caching functionality, but the user interface differs.  This document describes the **Premium** tier user interface.  For the Standard tier, see [Controlling caching behavior of CDN requests with query strings](cdn-query-string.md).
 
 Three modes are available:
 
@@ -36,7 +36,7 @@ Three modes are available:
 
 	>[AZURE.WARNING] This mode should not be used when the query string contains parameters that will change with every request, such as a session ID or a user name, since this would result in a very low cache hit ratio.
 
-##Changing query string caching settings
+##Changing query string caching settings for premium CDN profiles
 
 1. From the CDN profile blade, click the **Manage** button.
 

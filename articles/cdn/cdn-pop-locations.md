@@ -40,6 +40,7 @@ This topic lists current Microsoft Azure CDN point of presence (POP) locations.
 ## South America
 
 - São Paulo
+- Rio de Janeiro
 - Quito
 - Medellin
 - Buenos Aires
