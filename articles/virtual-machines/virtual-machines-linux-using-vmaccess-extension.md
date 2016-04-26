@@ -35,7 +35,7 @@ disk_check_repair.json
   "repair_disk": "true, user-disk-name"
 }
 
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
 
@@ -48,7 +48,7 @@ reset_root_password.json
   "password":"exampleNewPassword",   
 }
 
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 
@@ -61,7 +61,7 @@ reset_ssh_key.json
   "ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== exampleUser@exampleServer",   
 }
 
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
 
@@ -75,7 +75,7 @@ create_new_user.json
 "password":"examplePassword",
 }
 
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 
@@ -87,7 +87,7 @@ remove_user.json
 "remove_user":"exampleUser",
 }
 
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 
@@ -99,7 +99,7 @@ reset_sshd.json
   "reset_ssh": true
 }
 
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
@@ -127,7 +127,7 @@ VMAccess files are all written as JSON and we will run them from the Azure CLI b
 ```
 
 ```bash
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
 ```
@@ -146,7 +146,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```
 
 ```bash
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
@@ -163,7 +163,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```
 
 ```bash
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
 ```
@@ -183,7 +183,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```
 
 ```bash
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
@@ -199,7 +199,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```
 
 ```bash
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
@@ -219,7 +219,7 @@ If you make changes to the Linux VMs SSHD configuration and close the SSH connec
 ```
 
 ```bash
-bill@slackware$ azure vm extension set exampleResourceGruop exampleVM \
+ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
