@@ -21,10 +21,10 @@ The elastic database query feature (in preview) enables you to run a Transact-SQ
 
 ## Documentation
 
-* [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md)
-* [Getting started with cross-database queries](sql-database-elastic-query-getting-started-vertical.md)
-* [Queries across sharded cloud databases (horizontally partitioned)](sql-database-elastic-query-horizontal-partitioning.md)
-* [Queries across sharded cloud databases (vertically partitioned)](sql-database-elastic-query-vertical-partitioning.md)
+* [Get started with cross-database queries](sql-database-elastic-query-getting-started-vertical.md)
+* [Report across scaled-out cloud databases](sql-database-elastic-query-getting-started.md)
+* [Query across sharded cloud databases (horizontally partitioned)](sql-database-elastic-query-horizontal-partitioning.md)
+* [Query across cloud databases with different schemas (vertically partitioned)](sql-database-elastic-query-vertical-partitioning.md)
 * [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)
 
 

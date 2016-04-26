@@ -15,7 +15,7 @@
     ms.date="04/11/2016"
     ms.author="torsteng;sidneyh" />
 
-# Query across cloud databases with different schema (preview)
+# Query across cloud databases with different schemas (preview)
 
 ![Query across tables in different databases][1]
 
