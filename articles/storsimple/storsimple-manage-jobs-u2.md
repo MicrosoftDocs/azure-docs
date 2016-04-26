@@ -23,7 +23,7 @@
 
 The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, and failed jobs for multiple devices. Results are presented in a tabular format. 
 
-![Jobs page](./media/storsimple-manage-jobs-u2/HCS_JobsPage.png)
+![Jobs page](./media/storsimple-manage-jobs-u2/jobs.png)
 
 You can quickly find the jobs you are interested in by filtering on fields such as:
 
