@@ -2,7 +2,7 @@
 	pageTitle="How to install and configure Azure PowerShell"
 	description="Learn how to install and configure Azure PowerShell."
 	editor="tysonn"
-	manager="stevenka"
+	manager="dongill"
 	documentationCenter=""
 	services=""
 	authors="coreyp-at-msft"/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/22/2016"
 	ms.author="coreyp"/>
 
 # How to install and configure Azure PowerShell
