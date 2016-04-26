@@ -38,7 +38,7 @@ To back up a VM, there are five main steps:
 
 ![High-level view of VM backup process](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This tutorial is for use with the VMs that can be created in the Azure Classic portal. The Azure Backup service supports Azure Resource Manager (ARM)-based VMs - also known as IaaS V2 VMs. For details on backing up ARM VMs, see [First Look: Back up ARM VMs to a Recovery Services vault](./backup-azure-arm-vms-first-look-arm.md).
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This tutorial is for use with the VMs that can be created in the Azure Classic portal. The Azure Backup service supports Azure Resource Manager (ARM)-based VMs - also known as IaaS V2 VMs. For details on backing up ARM VMs, see [First Look: Back up ARM VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
 
 
 
