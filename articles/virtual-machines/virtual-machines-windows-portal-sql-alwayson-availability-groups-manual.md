@@ -28,8 +28,7 @@
 
 This end-to-end tutorial shows you how to implement availability groups using SQL Server AlwaysOn running on Azure resource manager virtual machines. 
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model. For the Classic model version of this topic, see [Configure AlwaysOn Availability Groups (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
 
 At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:
 
