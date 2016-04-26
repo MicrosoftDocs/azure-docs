@@ -88,7 +88,7 @@ $resultDatabase
 ```
 
 
-## Task #3: Scale DWUs
+## Task #3: Scale out compute
 
 [AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 

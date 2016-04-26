@@ -83,7 +83,7 @@ Recommendations for when to scale DWUs:
 1. Before you perform a heavy data loading or transformation operation, scale up DWUs so that your data is available more quickly.
 
 
-## Pause a database
+## Pause compute
 
 [AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
@@ -94,7 +94,7 @@ To pause a database, use any of these individual methods.
 - [Pause with REST APIs][]
 
 
-## Resume a database
+## Resume compute
 
 [AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
@@ -114,19 +114,19 @@ Please refer to the following articles to help you understand some additional ke
 - [choose a hash distribution key for your table][]
 - [statistics to improve performance][]
 
-<!--Image references-->
+<!--Image reference-->
 
 <!--Article references-->
 [Scale DWUs with Azure portal]: ./sql-data-warehouse-manage-scale-out-tasks.md
 [Scale DWUs with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md
 [Scale DWUs with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
-[capacity limits]: ./sql-data-warehouse-service-capaticy-limits#service.md
-[Pause with Azure portal]:  ./sql-data-warehouse-manage-scale-out-tasks#task-1-pause-compute.md
-[Pause with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell#task-1-pause-compute.md
-[Pause with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api#task-1-pause-compute.md
-[Resume with Azure portal]:  ./sql-data-warehouse-manage-scale-out-tasks#task-1-resume-compute.md
-[Resume with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell#task-1-resume-compute.md
-[Resume with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api#task-1-resume-compute.md
+[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md#service
+[Pause with Azure portal]:  ./sql-data-warehouse-manage-scale-out-tasks.md#task-1-pause-compute
+[Pause with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-1-pause-compute
+[Pause with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-1-pause-compute
+[Resume with Azure portal]:  ./sql-data-warehouse-manage-scale-out-tasks.md#task-2-resume-compute
+[Resume with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-2-resume-compute
+[Resume with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-2-resume-compute
 
 
 
