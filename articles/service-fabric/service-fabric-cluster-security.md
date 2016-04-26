@@ -84,7 +84,7 @@ Login-AzureRmAccount
 The following script will create a new resource group and/or a key vault if they are not already present.
 **Please note: if you're using an existing keyvault, it must be configured to support deployment, by using this script.**
 ```
-Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForDeployment
 ```
 
 ```
