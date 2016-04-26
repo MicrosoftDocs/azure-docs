@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Overview of performance scalability for Azure SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Performance scalability for Azure SQL Data Warehouse | Microsoft Azure"
    description="Understand SQL Data Warehouse elasticity using Data Warehouse Units to scale compute resources up and down."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/25/2016"
+   ms.date="04/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # Performance scalability overview for Azure SQL Data Warehouse
@@ -22,7 +22,7 @@ The architecture of SQL Data Warehouse separates storage and compute, allowing e
 
 This overview describes the following performance scale-out capabilities of SQL Data Warehouse and gives recommendations on how and when to use them. 
 
-- Scale performance with data warehouse units (DWUs)
+- Scale performance by adjusting data warehouse units (DWUs)
 - Pause or resume compute resources
 
 ## Scale performance
@@ -55,8 +55,10 @@ To adjust DWUs, you can use any of these individual methods.
 
 - [Scale performance with Azure portal][]
 - [Scale performance with PowerShell][]
-- [Scale performance with REST APIs][]
-- [Scale performance with TSQL][]
+<!-- 
+[Scale performance with REST APIs][]
+[Scale performance with TSQL][]
+-->
 
 
 ### How many DWUs should I use?
@@ -65,7 +67,7 @@ Performance in SQL Data Warehouse scales linearly, and changing from one compute
 
 > [AZURE.NOTE] You might not see expected performance scaling at lower data volumes. We recommend starting with data volumes at or above 1 TB in order to get accurate performance testing results.
 
-Recommendations for finding the best DWU for your situation:
+Recommendations for finding the best DWU for your workload:
 
 1. For a data warehouse in development, begin by selecting small number of DWUs.
 2. Monitor your application performance, observing the number of DWUs selected compared to the performance you observe.
@@ -92,7 +94,9 @@ To pause a database, use any of these individual methods.
 
 - [Pause compute with Azure portal][]
 - [Pause compute with PowerShell][]
-- [Pause compute with REST APIs][]
+<!--
+[Pause compute with REST APIs][]
+-->
 
 
 ## Resume compute
@@ -102,8 +106,10 @@ To pause a database, use any of these individual methods.
 To pause a database, use any of these individual methods.
 
 - [Resume compute with Azure portal][]
-- [Resume compute with PowerShell][]
-- [Resume compute with REST APIs][]
+<!--
+[Resume compute with PowerShell][]
+[Resume compute with REST APIs][]
+-->
 
 
 ## Next steps

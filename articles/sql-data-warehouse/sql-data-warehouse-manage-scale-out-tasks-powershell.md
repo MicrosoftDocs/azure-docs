@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tasks to scale out compute resources in Azure SQL Data Warehouse | Microsoft Azure"
-   description="See how to pause (suspend) or start (resume) compute resources for an Azure SQL Data Warehouse database and how to scale out or scale back the DWU setting for the service-level objective (SLO).  These tasks use the Azure PowerShell cmdlets."
+   pageTitle="Scale out performance or pause and resume compute resources in Azure SQL Data Warehouse | Microsoft Azure"
+   description="Powershell scalability tasks for SQL Data Warehouse. Scale performance by adjusting the DWU setting. To save costs, pause or resume compute resources."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
+   ms.date="04/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # Tasks to scale out or scale-back compute resources in Azure SQL Data Warehouse
@@ -27,9 +27,12 @@ Elastically scale out compute resources and memory to meet the changing demands 
 
 This collection of tasks uses PowerShell cmdlets to:
 
+- Scale performance by adjusting DWUs
 - Pause compute resources
 - Resume compute resources
-- Change compute resources by adjusting DWUs
+
+
+For scale-out capabilities and recommendations, see [Performance scalability for Azure SQL Data Warehouse][].
 
 ## Before you begin
 
@@ -105,6 +108,7 @@ For other management tasks, see [Management overview][].
 <!--Image references-->
 
 <!--Article references-->
+[Performance scalability for Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-scalability.md
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Management overview]: ./sql-data-warehouse-overview-manage.md
 
