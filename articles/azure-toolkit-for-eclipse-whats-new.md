@@ -40,7 +40,7 @@ The Azure Toolkit for Eclipse - March 2016 release includes the following enhanc
 * **Support for Web App management using the Azure Explorer view**. The Azure Explorer view in the toolkit now supports for listing, starting and stopping Azure Web Apps.
 * **Updated Tomcat, Jetty, and Zulu OpenJDK distributions**. The Azure Toolkit for Eclipse provides support for updated versions of Tomcat, Jetty and Zulu OpenJDK for Java deployments into Azure cloud services.
 
-### January 4, 2015
+### January 4, 2016
 
 The Azure Toolkit for Eclipse - January 2016 release includes the following enhancements:
 

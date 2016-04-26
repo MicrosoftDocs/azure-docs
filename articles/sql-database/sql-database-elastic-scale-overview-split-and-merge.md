@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Scaling using the elastic database split-merge tool | Microsoft Azure" 
+    pageTitle="Moving data between scaled-out cloud databases | Microsoft Azure" 
     description="Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs." 
     services="sql-database" 
     documentationCenter="" 
@@ -12,10 +12,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/02/2016" 
+    ms.date="04/26/2016" 
     ms.author="ddove;sidneyh" />
 
-# Scaling using the Elastic Database split-merge tool
+# Moving data between scaled-out cloud databases
 
 [Elastic database tools](sql-database-elastic-scale-introduction.md) includes a tool for rebalancing the data distribution and managing hotspots for sharded applications. The **split-merge tool** manages scale-in and scale-out; you can add or remove databases from your shard set and use the split-merge tool to rebalance the distribution of shardlets among them. (For term definitions, see [Elastic scale glossary](sql-database-elastic-scale-glossary.md)). 
 
