@@ -135,28 +135,40 @@ Time | URL
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
 ## Errors from ADAL
+This section covers errors which can be returned from ADAL (the authentication library used by Azure AD Connect). The error explained should help you in understanding your next steps.
 
 ### invalid_grant
+Invalid username or password.
 
 ### unknown_user_type
+Your Azure AD directory cannot be found or resolved.
 
 ### user_realm_discovery_failed
+Network or proxy configuration issues. The network cannot be reached, see [Troubleshoot connectivity issues in the installation wizard](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ### user_password_expired
+Your credentials have expired. Change your password.
 
 ### AuthorizationFailure
+Unknown issue.
 
 ### authentication_cancelled
+The multi-factor authentication (MFA) challenge was cancelled.
 
 ### ConnectToMSOnline
+Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
 ### AzureRoleMissing
+Authentication was successful. You are not a global administrator.
 
 ### PrivilegedIdentityManagement
+Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator.
 
 ### CompanyInfoUnavailable
+Authentication was successful. Could not retrieve company information from Azure AD.
 
 ### RetrieveDomains
+Authentication was successful. Could not retrieve domain information from Azure AD.
 
 ## Troubleshooting steps for previous releases.
 With releases starting with build number 1.1.105.0 (released February 2016) the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
