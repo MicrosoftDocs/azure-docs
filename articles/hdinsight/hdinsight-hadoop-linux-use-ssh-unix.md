@@ -35,7 +35,9 @@
 
 OR
 
-* [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
+* [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ##What is SSH?
 

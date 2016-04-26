@@ -27,7 +27,10 @@ This tutorial walks you through an end-to-end scenario for developing a word-cou
 Before you begin this tutorial, you must have completed the following:
 
 - Install the HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator]. Make sure all the required services are running. On the computer that has HDInsight Emulator installed, launch the Hadoop Command line from the Desktop shortcut, navigate to **C:\hdp**, and run the command **start_local_hdp_services.cmd**.
-- Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
+- Install Azure PowerShell on the emulator computer.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 - Install Java platform JDK 7 or higher on the emulator computer. This is already available on the emulator computer.
 - Install and configure [Apache Maven](http://maven.apache.org/).
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
@@ -591,10 +594,10 @@ In this tutorial, you have learned how to develop a Java MapReduce job, how to t
 
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
+[hdinsight-emulator]: hdinsight-get-started-emulator.md
+[hdinsight-emulator-wasb]: hdinsight-get-started-emulator.md#blobstorage
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md

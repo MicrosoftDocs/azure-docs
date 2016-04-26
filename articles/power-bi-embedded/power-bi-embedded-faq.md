@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Power BI Embedded FAQ"
+   pageTitle="FAQ"
    description="Power BI Embedded FAQ"
    services="power-bi-embedded"
    documentationCenter=""

@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="willzhan"  
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016"  
+	ms.date="04/18/2016"     
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services

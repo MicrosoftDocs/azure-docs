@@ -17,7 +17,7 @@
      ms.date="03/02/2016"
      ms.author="stevehob"/>
 
-# Customizing preconfigured solutions
+# Customize a preconfigured solution
 
 The preconfigured solutions provided with the Azure IoT Suite demonstrate the services within the suite working together to deliver an end-to-end solution. From this starting point, there are a variety of places in which you can extend and customize the solution for specific scenarios. The following sections describe these common customization points.
 

@@ -4,7 +4,7 @@
 	keywords="asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step"
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,8 +15,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="03/30/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/18/2016" 
+	ms.author="andrl"/>
 
 #<a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with DocumentDB
 
