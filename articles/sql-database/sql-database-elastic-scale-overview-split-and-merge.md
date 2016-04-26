@@ -17,32 +17,38 @@
 
 # Moving data between scaled-out cloud databases
 
-[Elastic database tools](sql-database-elastic-scale-introduction.md) includes a tool for rebalancing the data distribution and managing hotspots for sharded applications. The **split-merge tool** manages scale-in and scale-out; you can add or remove databases from your shard set and use the split-merge tool to rebalance the distribution of shardlets among them. (For term definitions, see [Elastic scale glossary](sql-database-elastic-scale-glossary.md)). 
+If you are a Software as a Service developer, and suddenly your app undergoes tremendous demand, you need to accommodate the growth. So you add more databases (shards). How do you redistribute the data to the new databases without disrupting the data integrity? Use the **split-merge tool** to move data from constrained databases to the new databases.  
 
-Get the latest from: [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
-
-The tool moves shardlets on demand between different databases and integrates with [shard map management](sql-database-elastic-scale-shard-map-management.md) to maintain consistent mappings.
+The split-merge tool runs as an Azure web service. An administrator or developer uses the tool to move shardlets (data from a shard) between different databases (shards). The tool uses shard map management to maintain the service metadata database, and ensure consistent mappings.
 
 ![Overview][1]
 
+## Download
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+
+
 ## Documentation
-* [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+1. [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 * [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
-* [Elastic Scale Security Considerations](sql-database-elastic-scale-split-merge-security-configuration.md) 
+* [Elastic Scale Security Considerations](sql-database-elastic-scale-split-merge-security-configuration.md)
+* [Shard map management](sql-database-elastic-scale-shard-map-management.md)
+* [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
+* [Elastic database tools](sql-database-elastic-scale-introduction.md)
+* [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md)
 
 ## Why use the split-merge tool?
 
 **Flexibility**
 
-Applications need to stretch flexibly beyond the limits of a single Azure SQL DB database, as illustrated by the following scenarios: 
+Applications need to stretch flexibly beyond the limits of a single Azure SQL DB database. Use the tool to move data as needed to new databases while retaining integrity.
 
 **Split to grow** 
 
-You need to grow overall capacity at the data tier to handle explosive growth. In this scenario, the application provides the additional capacity by sharding the data and by distributing it across incrementally more databases until capacity needs are fulfilled. The ‘split’ feature of the Elastic Scale split-merge Service addresses this scenario. 
+You need to increase overall capacity to handle explosive growth. To do so, create additional capacity by sharding the data and by distributing it across incrementally more databases until capacity needs are fulfilled. This is a prime example of the ‘split’ feature. 
 
 **Merge to shrink**
 
-Capacity fluctuates due to the seasonal nature of a business. This scenario underlines the need to easily scale back to fewer scale units when business slows. The ‘merge’ feature in the Elastic Scale split-merge Service covers this requirement. 
+Capacity needs shrink due to the seasonal nature of a business. The tool lets you scale down to fewer scale units when business slows. The ‘merge’ feature in the Elastic Scale split-merge Service covers this requirement. 
 
 **Manage hotspots by moving shardlets**
 
