@@ -47,7 +47,7 @@ You can enable ExpressRoute circuits that are created in the Resource Manager de
 >[AZURE.IMPORTANT] All quotas that are documented on the [service limits](../azure-subscription-service-limits.md) page apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and the Resource Manager deployment models.
 
 
-### Controlling access to the classic deployment model
+## Controlling access to the classic deployment model
 
 You can enable a single ExpressRoute circuit to link to virtual networks in both deployment models by setting the **allowClassicOperations** parameter of the ExpressRoute circuit.
 
@@ -55,7 +55,7 @@ Setting **allowClassicOperations** to TRUE enables you to link virtual networks 
 
 Setting **allowClassicOperations** to FALSE blocks access to the circuit from the classic deployment model. However, all virtual network links in the classic deployment model are preserved. In this case, the ExpressRoute circuit is not visible in the classic deployment model.
 
-### Supported operations in the classic deployment model
+## Supported operations in the classic deployment model
 
 The following classic operations are supported on an ExpressRoute circuit when **allowClassicOperations** is set to TRUE:
 
@@ -80,7 +80,7 @@ You can continue to access resources that are typically accessible through Azure
 
 ## What's supported
 
-This section describes what's supported through this capability:
+This section describes what's supported for ExpressRoute circuits:
 
  - You can use a single ExpressRoute circuit to access virtual networks that are deployed in the classic and the Resource Manager deployment models.
  - You can move an ExpressRoute circuit from the classic to the Resource Manager deployment model. After it is moved, the ExpressRoute circuit looks, feels, and performs like any other ExpressRoute circuit that is created in the Resource Manager deployment model.
@@ -91,7 +91,7 @@ This section describes what's supported through this capability:
 
 ## What's not supported
 
-This section describes what's not supported through this capability:
+This section describes what's not supported for ExpressRoute circuits:
 
  - Moving circuit links, gateways, and virtual networks from the classic to the Resource Manager deployment model.
  - Managing the life cycle of an ExpressRoute circuit from the classic deployment model.
