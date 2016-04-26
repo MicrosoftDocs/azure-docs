@@ -27,7 +27,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-In this tutorial, you'll learn how to use the Aure portal to:
+In this tutorial, you'll learn how to use the Azure portal to:
 
 - Create a SQL Database logical server to host SQL databases
 - Create a SQL database with no data, with sanple data or with data fron a SQL database backup.
