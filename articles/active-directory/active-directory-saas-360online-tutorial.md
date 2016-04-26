@@ -86,6 +86,7 @@ To configure the integration of 360° Online into Azure AD, you need to add 360�
 	![Creating an Azure AD test user](./media/active-directory-saas-360online-tutorial/tutorial_360online_01.png)
 
 7. In the results pane, select **360° Online**, and then click **Complete** to add the application.
+	![Applications](./media/active-directory-saas-360online-tutorial/tutorial_360online_06.png)
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -124,9 +125,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. In the Sign On URL textbox, type the URL used by your users to sign-on to your 360° Online application (e.g.: https://\<company name\>.public360online.com).
 
-    b. In the IDENTIFIER textbox, type the URL in the following pattern: **"https://360online-ne.accesscontrol.windows.net"**
-
-    c. Click **Next**
+    b. Click **Next**
 
 4. On the **Configure App URL** dialog page, perform the following steps and then click **Next**.
 
