@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Scalable performance in Azure SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Performance scalability overview for Azure SQL Data Warehouse | Microsoft Azure"
    description="Understand performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs or pause and resume compute resources to save costs."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="04/26/2016"
    ms.author="barbkess;sonyama"/>
 
-# Performance scalability for Azure SQL Data Warehouse
+# Performance scalability overview for Azure SQL Data Warehouse
 
 The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale out performance while saving costs costs by only paying for performance when you need it. 
 
