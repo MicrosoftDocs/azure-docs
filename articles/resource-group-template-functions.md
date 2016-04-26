@@ -279,7 +279,7 @@ Returns an array of strings that contains the substrings of the input string tha
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| inputString                        |   Yes    | The string to to be splitted.
+| inputString                        |   Yes    | The string to split.
 | delimiter                          |   Yes    | The delimiter to use, can be a single string or an array of strings.
 
 The following example splits the input string with a comma.
@@ -414,14 +414,14 @@ The following example trims the white-space characters from the user-provided pa
 
 **uniqueString (stringForCreatingUniqueString, ...)**
 
-Performs a 64-bit hash of the provided strings to create a unique string. This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
+Creates a unique string based on the values provided as parameters. This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | stringForCreatingUniqueString      |   Yes    | The base string used in the hash function to create a unique string.
-| additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level for uniqueness.
+| additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level of uniqueness.
 
-The returned value is not a completely random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a more friendly name.
+The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is easier to recognize.
 
 The following examples show how to use uniqueString to create a unique value for a different commonly-used levels.
 
