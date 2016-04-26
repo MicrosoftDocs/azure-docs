@@ -169,7 +169,7 @@ We will now modify the runbook so that it will only attempt to start the virtual
 2. Remove the link between **Connect to Azure** and **Start-AzureRmVM** by clicking on it and then pressing the *Delete* key.
 3. In the Library control, type **Get-AzureRm** in the search textbox.
 4. Add **Get-AzureRmVM** to the canvas.
-5. Select **Get-AzureRmVM** and and then **Parameter Set** to view the sets for **Get-AzureRmVM**.  Select the **GetVirtualMachineInResourceGroupNameParamSet** parameter set.  Note that **ResourceGroupName** and **Name** have exclamation points next them. This indicates that they are required parameters. Also note both expect string values.
+5. Select **Get-AzureRmVM** and then **Parameter Set** to view the sets for **Get-AzureRmVM**.  Select the **GetVirtualMachineInResourceGroupNameParamSet** parameter set.  Note that **ResourceGroupName** and **Name** have exclamation points next them. This indicates that they are required parameters. Also note both expect string values.
 6. Under **Data source** for **Name**, select **Runbook input** and then select **VMName**.  Click **OK**.
 7. Under **Data source** for **ResourceGroupName**, select **Runbook input** and then select **ResourceGroupName**.  Click **OK**.
 8. Under **Data source** for **Status**, select **Constant value** and then click on **True**.  Click **OK**.  
@@ -210,6 +210,6 @@ We will now modify the runbook so that it will only attempt to start the virtual
 
 ## Next Steps
 
--	[Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
--	[My first PowerShell Workflow runbook](automation-first-runbook-textual.md)
--	[My first PowerShell runbook](automation-first-runbook-textual-PowerShell.md)
+-	To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
+-	To get started with PowerShell workflow runbooks, see [My first PowerShell Workflow runbook](automation-first-runbook-textual.md)
+-	To get started with PowerShell workflow runbooks, see  [My first PowerShell runbook](automation-first-runbook-textual-PowerShell.md)
