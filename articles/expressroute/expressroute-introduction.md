@@ -33,7 +33,7 @@ Microsoft Azure ExpressRoute lets you extend your on-premises networks into the 
 
 See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
 
-## How can I connect my network to Microsoft using ExpressRoute?
+## <a name="howtoconnect"></a>How can I connect my network to Microsoft using ExpressRoute?
 
 You can create a connection between your on-premises network and the Microsoft cloud in three different ways:
 

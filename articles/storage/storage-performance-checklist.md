@@ -34,6 +34,7 @@ This article organizes the proven practices into the following groups. Proven pr
 |Done|	Area|	Category|	Question
 |----|------|-----------|-----------
 ||All Services|	Scalability Targets|[Is your application designed to avoid approaching the scalability targets?](#subheading1)
+||All Services|	Scalability Targets|[Is your naming convention designed to enable better load-balancing?](#subheading47)
 ||All Services|	Networking|	[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#subheading2)
 ||All Services|	Networking|	[Do client side devices have a high enough quality link?](#subheading3)
 ||All Services|	Networking|	[Is the client application located "near" the storage account?](#subheading4)
@@ -107,6 +108,15 @@ The following links provide additional detail on scalability targets:
 -	See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for information about scalability targets.
 -	See [Azure Storage replication](storage-redundancy.md) and the blog post [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) for information about storage redundancy options.
 -	For current information about pricing for Azure services, see [Azure pricing](https://azure.microsoft.com/pricing/overview/).  
+
+###<a name="subheading47"></a>Partition Naming Convention
+Azure Storage uses a range-based partitioning scheme to scale and load balance the system. The partition key is used to partition data into ranges and these ranges are load-balanced across the system. This means naming conventions such as lexical ordering (e.g. msftpayroll, msftperformance, msftemployees, etc) or using time-stamps (log20160101, log20160102, log20160102, etc) will lend itself to the partitions being potentially co-located on the same partition server, until a load balancing operation splits them out into smaller ranges. For example, all blobs within a container can be served by a single server until the load on these blobs requires further rebalancing of the partition ranges. Similarly, a group of lightly loaded accounts with their names arranged in lexical order may be served by a single server until the load on one or all of these accounts require them to be split across multiple partitions servers. Each load balancing operation may impact the latency of storage calls during the operation. The system’s ability to handle a sudden burst of traffic to a partition is limited by the scalability of a single partition server until the load balancing operation kicks-in and rebalances the partition key range.  
+
+You can follow some best practices to reduce the frequency of such operations.  
+
+-	Examine the naming convention you use for accounts, containers, blobs, tables and queues, closely. Consider prefixing account names with a 3-digit hash using a hashing function that best suits your needs.  
+-	If you organize your data using timestamps or numerical identifiers, you have to ensure you are not using an append-only (or prepend-only) traffic patterns. These patterns are not suitable for a range based partitioning system, and could lead to all the traffic going to a single partition and limiting the system from effectively load balancing. For instance, if you have daily operations that use a blob object with a timestamp such as yyyymmdd, then all the traffic for that daily operation is directed to a single object which is served by a single partition server. Look at whether the per blob limits and per partition limits meet your needs, and consider breaking this operation into multiple blobs if needed. Similarly, if you store time series data in your tables, all the traffic could be directed to the last part of the key namespace. If you must use timestamps or numerical IDs, prefix the with a 3-digit hash, or in the case of timestamps prefix the seconds part of the time such as ssyyyymmdd. If listing and querying operations are routinely performed, choose a hashing function that will limit your number of queries. In other cases, a random prefix may be sufficient.  
+-	For additional information on the partitioning scheme used in Azure Storage, read the SOSP paper [here](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ###Networking
 While the API calls matter, often the physical network constraints of the application have a significant impact on performance. The following describe some of limitations users may encounter.  
