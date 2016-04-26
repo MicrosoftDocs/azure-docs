@@ -35,7 +35,7 @@ Network | Description
 32-Gbps back end, RDMA capable | Enables low-latency, high-throughput application communication between instances within a single cloud service or availability set. Reserved for MPI traffic only.
 
 
->[AZURE.IMPORTANT]See [Access to the RDMA network](#access-the-rdma-network) in this article for additional requirements for MPI applications to access the RDMA netowrk.
+>[AZURE.IMPORTANT]See [Access to the RDMA network](#access-to-the-rdma-network) in this article for additional requirements for MPI applications to access the RDMA netowrk.
 
 A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that connects to Azure services and the Internet.
 
@@ -49,7 +49,7 @@ A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that conne
 
 * **Virtual network** – An Azure [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) is not required to use the compute-intensive instances. However, you may need at least a cloud-based Azure virtual network for many IaaS scenarios, or a site-to-site connection if you need to access on-premises resources such as an application license server. You will need to create a new virtual network to deploy the instances. Adding an A8, A9, A10, or A11 VM to a virtual network in an affinity group is not supported.
 
-* **Cloud service or availability set** – To connect through the RDMA network, the A8 and A9 instances must be deployed in the same cloud service (if you use the classic deployment model) or the same availability set (if you use the Azure Resource Manager deployment model).
+* **Cloud service or availability set** – To connect through the RDMA network, size A8 or A9 VMs must be deployed in the same cloud service (if you use the classic deployment model) or the same availability set (if you use the Azure Resource Manager deployment model).
 
 * **Pricing** - The A8–A11 VM sizes are available only in the Standard pricing tier.
 

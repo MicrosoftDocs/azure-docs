@@ -28,17 +28,21 @@ Here is background information and some considerations for using the Azure A8, A
 
 Within a single cloud service or an availability set, the A8 and A9 instances can access the RDMA network in Azure to run Linux MPI applications. At this time, Azure Linux RDMA is only supported with [Intel MPI Library 5](https://software.intel.com/en-us/intel-mpi-library/).
 
->[AZURE.NOTE] Currently, Azure Linux RDMA drivers are not available for installation via driver extensions. They are available only by using RDMA-enabled SUSE Linux Enterprise Server and CentOS HPC images from the Azure Marketplace.
 
-The following table summarizes prerequisites for Linux MPI applications to access the RDMA network in clusters of virtual machines (IaaS). See [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md) for deployment options and sample configuration steps.
+The following table lists the Linux VM images in the Azure Marketplace you can use for Linux RDMA network access. See [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md) for deployment options and sample configuration steps.
 
-Prerequisite | Virtual machines (IaaS)
------------- | -------------
-Operating system | SLES 12, CentOS 6.5, or CentOS 7.1 HPC image from the Azure Marketplace
-MPI | Intel MPI Library 5
+Description | Image name | Notes
+------------ | ------------- | ----------------
+SUSE Linux Enterprise Server 12 for HPC | b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708|
+SUSE Linux Enterprise Server 12 for HPC (Premium) | b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708 | includes SUSE priority support (additional charges apply)
+CentOS-based 6.5 HPC | 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-65-HPC-20160408 | installs Intel MPI
+CentOS-based 7.1 HPC | 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-71-HPC-20160408 | installs Intel MPI
+
+
+>[AZURE.NOTE] Currently, Azure Linux RDMA drivers are only installed when you deploy RDMA-enabled SUSE Linux Enterprise Server and CentOS HPC images from the Azure Marketplace. You can't install the drivers on other Linux VMs you deploy.
 
 ## Linux RDMA driver updates for SLES 12
-After you create a Linux VMr based on a SLES 12 HPC image, you might need to update the RDMA drivers on the VMs for RDMA network connectivity.
+After you create a Linux VM based on a SUSE Linux Enterprise Server (SLES) 12 HPC image, you might need to update the RDMA drivers on the VMs for RDMA network connectivity.
 
 >[AZURE.IMPORTANT]Currently this step is **required** for SLES 12 HPC VM deployments in most Azure regions. **The only SLES 12 HPC VMs you should not update are those created in the following Azure regions: US West, West Europe, and Japan East.**
 

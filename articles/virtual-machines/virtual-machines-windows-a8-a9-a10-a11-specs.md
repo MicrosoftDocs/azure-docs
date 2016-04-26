@@ -34,7 +34,7 @@ See the following table for prerequisites for MPI applications to access the RDM
 Prerequisite | Virtual machines (IaaS) | Cloud services or Batch pool (PaaS)
 ---------- | ------------ | ------------- 
 Operating system | Windows Server 2012 R2 or Windows Server 2012 | Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 Guest OS family 
-MPI | MS-MPI 2012 R2 or later, Intel MPI Library 5 | MS-MPI 2012 R2 or later, Intel MPI Library 5 
+MPI | MS-MPI 2012 R2 or later, or Intel MPI Library 5 | MS-MPI 2012 R2 or later, or Intel MPI Library 5 
 
 
 >[AZURE.NOTE]For IaaS scenarios, the HpcVmDrivers extension must be added to the VMs to install Windows network device drivers that are needed for RDMA connectivity. Depending on your deployment method, the HpcVmDrivers extension might be added to a size A8 or A9 VM automatically, or you might need to add it yourself. To add the extension yourself, see [Manage VM extensions](virtual-machines-windows-classic-manage-extensions.md).

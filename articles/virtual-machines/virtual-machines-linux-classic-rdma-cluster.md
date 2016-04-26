@@ -1,6 +1,6 @@
 <properties
  pageTitle="Linux RDMA cluster to run MPI applications | Microsoft Azure"
- description="Create a Linux cluster of size A8 or A9 VMs to use RDMA to run MPI apps."
+ description="Create a Linux cluster of size A8 or A9 VMs to use RDMA to run MPI apps"
  services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
@@ -23,20 +23,19 @@ ms.service="virtual-machines-linux"
 
 This article shows you how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-linux-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you configure size A8 and A9 Linux-based VMs to run a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
->[AZURE.NOTE] Azure Linux RDMA is currently supported with Intel MPI Library version 5 running on a SUSE Linux Enterprise Server 12 (SLES 12) image in the Azure Marketplace. This article is based on Intel MPI version 5.0.3.048.
->
-> Azure also provides A10 and A11 compute intensive instances, with processing capabilities identical to the A8 and A9 instances, but without a connection to an RDMA backend network. To run MPI workloads in Azure, you will generally get best performance with the A8 and A9 instances.
+>[AZURE.NOTE] Azure Linux RDMA is currently supported with Intel MPI Library version 5 running on size A8 or A9 VMs created from a SUSE Linux Enterprise Server (SLES) 12 HPC image or a CentOS 6.5 or 7.1 HPC image in the Azure Marketplace. This article is based on Intel MPI version 5.0.3.048.
+
 
 
 ## Linux cluster deployment options
 
 Following are methods you can use to create a Linux RDMA cluster either with or without a job scheduler.
 
-* **HPC Pack** - Create a Microsoft HPC Pack cluster in Azure and add compute nodes that run supported Linux distributions. Certain Linux nodes can be configured to access the RDMA network. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+* **HPC Pack** - Create a Microsoft HPC Pack cluster in Azure and add size A8 or A9 compute nodes that run supported Linux distributions to access the RDMA network. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
-* **Azure CLI scripts** - As shown in the steps in the rest of this article, use the [Azure Command Line Interface](../xplat-cli-install.md) (CLI) for Mac, Linux, and Windows to script the deployment of a virtual network and the other necessary components to create a Linux cluster. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so if you are deploying many compute nodes it might take several minutes to complete the deployment.
+* **Azure CLI scripts** - As shown in the steps in the rest of this article, use the [Azure Command-Line Interface](../xplat-cli-install.md) (CLI) to script the deployment of a virtual network and the other necessary components to create a cluster of size A8 or A9 Linux VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so if you are deploying many compute nodes it might take several minutes to complete the deployment.
 
-* **Azure Resource Manager templates** - Use the Azure Resource Manager deployment model to deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources for a compute cluster that can take advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure Quickstart Templates page](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster.
+* **Azure Resource Manager templates** - Use the Azure Resource Manager deployment model to deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources for a compute cluster that can take advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster.
 
 ## Classic deployment with Azure CLI scripts
 
@@ -109,6 +108,8 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
 *   **Updates** - Install updates using **zypper**. You might also want to install NFS utilities.  
 
     >[AZURE.IMPORTANT]At this time we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.
+
+*   **Linux RDMA driver updates** - You'll need to update the RDMA drivers on SLES 12 HPC VMs deployed in certain Azure regions. See [virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12] for details.
 
 *   **Intel MPI** - Download and install the Intel MPI Library 5 runtime from the Intel.com site by running commands similar to the following.
 
