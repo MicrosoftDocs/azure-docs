@@ -42,16 +42,19 @@ You grant access from within the resource, resource group, or subscription that 
 2. Select the role that you wish to assign.
 3. Select the user, group, or application in your directory that you wish to grant access to. You can search the directory with display names, email addresses, and object identifiers.
 ![Add users blade - search screenshot](./media/role-based-access-control-configure/grant-access2.png)
+4. Select **OK** to create the assignment. The **Adding user** popup tracks the progress. ![Adding user progress bar - screenshot](./media/role-based-access-control-configure/addinguser_popup.png)
+
+After successfully adding a role assignment, it will appear on the **Users** blade.
 
 ## Remove Access
 
-1. In the **Users** blade, select the role assignment that you wish to remove.
-2. Click the **Remove** icon in the assignment details blade.
+1. Select the role assignment on the **Users** blade.
+2. Click ![Remove - icon](./media/role-based-access-control-configure/remove_icon.png) in the assignment details blade.
 3. Click **yes** to confirm removal.
 
 ![Users blade - remove from role screenshot](./media/role-based-access-control-configure/remove-access1.png)
 
-Inherited assignments cannot be removed from child scopes. Go to the parent scope to remove the role assignment.
+Inherited assignments cannot be removed. Notice in the image below that the remove button is grayed out. Instead, look at the **Assigned At** detail. Go to the resource listed there to remove the role assignment.
 
 ![Users blade - inherited access disables remove button screenshot](./media/role-based-access-control-configure/remove-access2.png)
 
