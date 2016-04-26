@@ -17,7 +17,7 @@
  ms.date="04/05/2016"
  ms.author="yurid"/>
 
-# Securing your Internet of Things from the ground up
+# Internet of Things security from the ground up
 
 The Internet of Things (IoT) poses unique security, privacy, and compliance challenges to businesses worldwide. Unlike traditional cyber technology where these issues revolve around software and how it is implemented, IoT concerns what happens when the cyber and the physical worlds converge. Protecting IoT solutions requires ensuring secure provisioning of devices, secure connectivity between these devices and the cloud, and secure data protection in the cloud during processing and storage. Working against such functionality, however, are resource-constrained devices, geographic distribution of deployments, and a large number of devices within a solution.
 
