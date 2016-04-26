@@ -13,16 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2015"
+	ms.date="04/22/2016"
 	ms.author="MikeRayMSFT" />
 
 # Configure AlwaysOn Availability Groups in Azure VM (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager - Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal - Resource Manager - Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-- [Portal - Classic - Manual](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell - Classic](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 
 <br/>
 
@@ -30,7 +28,8 @@
 
 This end-to-end tutorial shows you how to implement availability groups using SQL Server AlwaysOn running on Azure resource manager virtual machines. 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model. For the Classic model version of this topic, see [Configure AlwaysOn Availability Groups (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+
 
 At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:
 
@@ -64,7 +63,7 @@ This tutorial assumes the following:
 
 >[AZURE.NOTE] If you are interested in using AlwaysOn Availability Groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-## Create resource group, networks, and domain controllers
+## Create resource group, network, and availability sets
 
 ### Connect to your Azure subscription and create a resource group
 
@@ -243,7 +242,7 @@ Azure will create the virtual machines.
 
 After the virtual machines are created, configure the domain controller.
 
-## Configure the domain controller
+### Configure the domain controller
 
 In the following steps, configure the **ad-primary-dc** machine as a domain controller for corp.contoso.com.
 
