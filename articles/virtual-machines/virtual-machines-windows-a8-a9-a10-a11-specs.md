@@ -50,9 +50,9 @@ For more information and checklists to use the compute-intensive instances with 
 
 ## Next steps
 
-* For details about availability and pricing of the A8, A9, A10, and A11 instances, see [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Cloud Services pricing](https://azure.microsoft.com/pricing/details/cloud-services/).
+* For details about availability and pricing of the A8, A9, A10, and A11 instances, see [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows) and [Cloud Services pricing](https://azure.microsoft.com/pricing/details/cloud-services/).
 
-* For storage capacities and disk details, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).
+* For storage capacities and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
 * To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-rdma-cluster.md).
 

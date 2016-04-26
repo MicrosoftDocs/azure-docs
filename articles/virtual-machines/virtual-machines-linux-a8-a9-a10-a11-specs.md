@@ -100,9 +100,9 @@ done
 
 ## Next steps
 
-* For details about availability and pricing of the A8, A9, A10, and A11 instances, see [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+* For details about availability and pricing of the A8, A9, A10, and A11 instances, see [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
 
-* For storage capacities and disk details, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).
+* For storage capacities and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
 * To get started deploying and using A8 and A9 instances with RDMA on Linux, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 
