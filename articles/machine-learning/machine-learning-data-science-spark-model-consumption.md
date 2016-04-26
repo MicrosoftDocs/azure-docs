@@ -589,7 +589,7 @@ Here is the Python code for the HTTP call:
 	conn.close()
 
 
-You can also add this Python code to [Azure Functions](https://azure.microsoft.com/en-us/documentation/services/functions/) to trigger a Spark job submission that scores a blob based on various events like a timer, creation or update of a blob. 
+You can also add this Python code to [Azure Functions](https://azure.microsoft.com/documentation/services/functions/) to trigger a Spark job submission that scores a blob based on various events like a timer, creation or update of a blob. 
 
 If you prefer a code free client experience, use the [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) to invoke the Spark batch scoring by defining a HTTP action on the **Logic Apps Designer** and setting its parameters. 
 
