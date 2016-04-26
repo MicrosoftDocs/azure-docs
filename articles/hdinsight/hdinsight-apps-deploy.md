@@ -48,7 +48,7 @@ An HDInsight Application ARM templates is composed of 3 parts:
 - [script actions](#script-action)
 - [HTTP endpoints](#http-endpoint)
 
-See [Appendix A](#appendix-a---arm-template-sample) for a complete sample template for install Hue on an existing HDInsight cluster.  See .
+See [Appendix A](#appendix-a) for a complete sample template for installing Hue on an existing HDInsight cluster.  See [Appendix B](#appendix-b) for a complete sample template for creating an HDInsight cluster and installing Hue on the cluster. 
 
 ### <a id="role"></a>The role
 
@@ -198,219 +198,218 @@ The ARM template sample installs Hue on an existing HDInsight cluster. See [Inst
         ]
     }
     
-##Appendix B - ARM template sample
+##Appendix B 
 
 The ARM template sample creates an HDInsight cluster and then installs Hue on the cluster. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) for a tutorial about calling the ARM template:
 
-
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "clusterName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the HDInsight cluster to create."
-      }
-    },
-    "clusterLoginUserName": {
-      "type": "string",
-      "defaultValue": "admin",
-      "metadata": {
-        "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
-      }
-    },
-    "clusterLoginPassword": {
-      "type": "securestring",
-      "metadata": {
-        "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
-      }
-    },
-    "sshUserName": {
-      "type": "string",
-      "defaultValue": "sshuser",
-      "metadata": {
-        "description": "These credentials can be used to remotely access the cluster."
-      }
-    },
-    "sshPassword": {
-      "type": "securestring",
-      "metadata": {
-        "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "East US",
-      "allowedValues": [
-        "East US",
-        "East US 2",
-        "North Central US",
-        "South Central US",
-        "West US",
-        "North Europe",
-        "West Europe",
-        "East Asia",
-        "Southeast Asia",
-        "Japan East",
-        "Japan West",
-        "Australia East",
-        "Australia Southeast"
-      ],
-      "metadata": {
-        "description": "The location where all azure resources will be deployed."
-      }
-    },
-    "clusterType": {
-      "type": "string",
-      "defaultValue": "hadoop",
-      "allowedValues": [
-        "hadoop",
-        "hbase",
-        "storm",
-        "spark"
-      ],
-      "metadata": {
-        "description": "The type of the HDInsight cluster to create."
-      }
-    },
-    "clusterWorkerNodeCount": {
-      "type": "int",
-      "defaultValue": 2,
-      "metadata": {
-        "description": "The number of nodes in the HDInsight cluster."
-      }
-    }
-  },
-  "variables": {
-    "defaultApiVersion": "2015-05-01-preview",
-    "clusterApiVersion": "2015-03-01-preview",
-    "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"
-  },
-  "resources": [
-    {
-      "name": "[variables('clusterStorageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "location": "[parameters('location')]",
-      "apiVersion": "[variables('defaultApiVersion')]",
-      "dependsOn": [ ],
-      "tags": {
-
+  {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "clusterName": {
+        "type": "string",
+        "metadata": {
+          "description": "The name of the HDInsight cluster to create."
+        }
       },
-      "properties": {
-        "accountType": "Standard_LRS"
-      }
-    },
-    {
-      "name": "[parameters('clusterName')]",
-      "type": "Microsoft.HDInsight/clusters",
-      "location": "[parameters('location')]",
-      "apiVersion": "[variables('clusterApiVersion')]",
-      "dependsOn": [ "[concat('Microsoft.Storage/storageAccounts/',variables('clusterStorageAccountName'))]" ],
-      "tags": {
-
+      "clusterLoginUserName": {
+        "type": "string",
+        "defaultValue": "admin",
+        "metadata": {
+          "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+        }
       },
-      "properties": {
-        "clusterVersion": "3.2",
-        "osType": "Linux",
-        "clusterDefinition": {
-          "kind": "[parameters('clusterType')]",
-          "configurations": {
-            "gateway": {
-              "restAuthCredential.isEnabled": true,
-              "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
-              "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-            }
-          }
-        },
-        "storageProfile": {
-          "storageaccounts": [
-            {
-              "name": "[concat(variables('clusterStorageAccountName'),'.blob.core.windows.net')]",
-              "isDefault": true,
-              "container": "[parameters('clusterName')]",
-              "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).key1]"
-            }
-          ]
-        },
-        "computeProfile": {
-          "roles": [
-            {
-              "name": "headnode",
-              "targetInstanceCount": "2",
-              "hardwareProfile": {
-                "vmSize": "Standard_D3"
-              },
-              "osProfile": {
-                "linuxOperatingSystemProfile": {
-                  "username": "[parameters('sshUserName')]",
-                  "password": "[parameters('sshPassword')]"
-                }
-              }
-            },
-            {
-              "name": "workernode",
-              "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-              "hardwareProfile": {
-                "vmSize": "Standard_D3"
-              },
-              "osProfile": {
-                "linuxOperatingSystemProfile": {
-                  "username": "[parameters('sshUserName')]",
-                  "password": "[parameters('sshPassword')]"
-                }
-              }
-            }
-          ]
+      "clusterLoginPassword": {
+        "type": "securestring",
+        "metadata": {
+          "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+        }
+      },
+      "sshUserName": {
+        "type": "string",
+        "defaultValue": "sshuser",
+        "metadata": {
+          "description": "These credentials can be used to remotely access the cluster."
+        }
+      },
+      "sshPassword": {
+        "type": "securestring",
+        "metadata": {
+          "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+        }
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "East US",
+        "allowedValues": [
+          "East US",
+          "East US 2",
+          "North Central US",
+          "South Central US",
+          "West US",
+          "North Europe",
+          "West Europe",
+          "East Asia",
+          "Southeast Asia",
+          "Japan East",
+          "Japan West",
+          "Australia East",
+          "Australia Southeast"
+        ],
+        "metadata": {
+          "description": "The location where all azure resources will be deployed."
+        }
+      },
+      "clusterType": {
+        "type": "string",
+        "defaultValue": "hadoop",
+        "allowedValues": [
+          "hadoop",
+          "hbase",
+          "storm",
+          "spark"
+        ],
+        "metadata": {
+          "description": "The type of the HDInsight cluster to create."
+        }
+      },
+      "clusterWorkerNodeCount": {
+        "type": "int",
+        "defaultValue": 2,
+        "metadata": {
+          "description": "The number of nodes in the HDInsight cluster."
         }
       }
     },
+    "variables": {
+      "defaultApiVersion": "2015-05-01-preview",
+      "clusterApiVersion": "2015-03-01-preview",
+      "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"
+    },
+    "resources": [
+      {
+        "name": "[variables('clusterStorageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "location": "[parameters('location')]",
+        "apiVersion": "[variables('defaultApiVersion')]",
+        "dependsOn": [ ],
+        "tags": {
 
-    {
-      "name": "[concat(parameters('clusterName'),'/hue')]",
-      "type": "Microsoft.HDInsight/clusters/applications",
-      "apiVersion": "[variables('clusterApiVersion')]",
-      "dependsOn": ["[parameters('clusterName')]"],
-      "properties": {
-        "computeProfile": {
-          "roles": [
-            {
-              "name": "edgenode",
-              "targetInstanceCount": 1,
-              "hardwareProfile": {
-                "vmSize": "Standard_D3"
+        },
+        "properties": {
+          "accountType": "Standard_LRS"
+        }
+      },
+      {
+        "name": "[parameters('clusterName')]",
+        "type": "Microsoft.HDInsight/clusters",
+        "location": "[parameters('location')]",
+        "apiVersion": "[variables('clusterApiVersion')]",
+        "dependsOn": [ "[concat('Microsoft.Storage/storageAccounts/',variables('clusterStorageAccountName'))]" ],
+        "tags": {
+
+        },
+        "properties": {
+          "clusterVersion": "3.2",
+          "osType": "Linux",
+          "clusterDefinition": {
+            "kind": "[parameters('clusterType')]",
+            "configurations": {
+              "gateway": {
+                "restAuthCredential.isEnabled": true,
+                "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+                "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
               }
             }
-          ]
-        },
-        "installScriptActions": [
-          {
-            "name": "hue-install",
-            "uri": "https://hditutorialdata.blob.core.windows.net/hdinsightapps/Hue-install_v0.sh",
-            "roles": [ "edgenode" ],
-            "parameters": "[parameters('clusterName')]"
-          }
-        ],
-        "uninstallScriptActions": [ ],
-        "httpsEndpoints": [
-          {
-            "subDomainSuffix": "hue",
-            "destinationPort": 8888,
-            "accessModes": [ "webpage" ]
           },
-          {
-            "subDomainSuffix": "was",
-            "destinationPort": 50073
+          "storageProfile": {
+            "storageaccounts": [
+              {
+                "name": "[concat(variables('clusterStorageAccountName'),'.blob.core.windows.net')]",
+                "isDefault": true,
+                "container": "[parameters('clusterName')]",
+                "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).key1]"
+              }
+            ]
+          },
+          "computeProfile": {
+            "roles": [
+              {
+                "name": "headnode",
+                "targetInstanceCount": "2",
+                "hardwareProfile": {
+                  "vmSize": "Standard_D3"
+                },
+                "osProfile": {
+                  "linuxOperatingSystemProfile": {
+                    "username": "[parameters('sshUserName')]",
+                    "password": "[parameters('sshPassword')]"
+                  }
+                }
+              },
+              {
+                "name": "workernode",
+                "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
+                "hardwareProfile": {
+                  "vmSize": "Standard_D3"
+                },
+                "osProfile": {
+                  "linuxOperatingSystemProfile": {
+                    "username": "[parameters('sshUserName')]",
+                    "password": "[parameters('sshPassword')]"
+                  }
+                }
+              }
+            ]
           }
-        ],
-        "applicationType": "CustomApplication"
+        }
+      },
+
+      {
+        "name": "[concat(parameters('clusterName'),'/hue')]",
+        "type": "Microsoft.HDInsight/clusters/applications",
+        "apiVersion": "[variables('clusterApiVersion')]",
+        "dependsOn": ["[parameters('clusterName')]"],
+        "properties": {
+          "computeProfile": {
+            "roles": [
+              {
+                "name": "edgenode",
+                "targetInstanceCount": 1,
+                "hardwareProfile": {
+                  "vmSize": "Standard_D3"
+                }
+              }
+            ]
+          },
+          "installScriptActions": [
+            {
+              "name": "hue-install",
+              "uri": "https://hditutorialdata.blob.core.windows.net/hdinsightapps/Hue-install_v0.sh",
+              "roles": [ "edgenode" ],
+              "parameters": "[parameters('clusterName')]"
+            }
+          ],
+          "uninstallScriptActions": [ ],
+          "httpsEndpoints": [
+            {
+              "subDomainSuffix": "hue",
+              "destinationPort": 8888,
+              "accessModes": [ "webpage" ]
+            },
+            {
+              "subDomainSuffix": "was",
+              "destinationPort": 50073
+            }
+          ],
+          "applicationType": "CustomApplication"
+        }
+      }
+    ],
+    "outputs": {
+      "cluster": {
+        "type": "object",
+        "value": "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
       }
     }
-  ],
-  "outputs": {
-    "cluster": {
-      "type": "object",
-      "value": "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
-    }
   }
-}
