@@ -289,7 +289,7 @@ switch($PSCmdlet.ParameterSetName) {
 [vpn-appliance]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [azure-vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[https://technet.microsoft.com/library/dn786406.aspx]: ../virtual-networks/virtual-networks-nsg.md
+[azure-network-security-group]: ../virtual-networks/virtual-networks-nsg.md
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
 [implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
 [script]: #sample-solution-script
