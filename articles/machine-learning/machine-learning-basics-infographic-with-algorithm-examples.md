@@ -29,7 +29,7 @@ The downloadable infographic below demonstrates how the four types of machine le
 
 ## Download the machine learning basics infographic
 
-Download the infographic to get the most out of it - the PDF has links to examples of each algorithm.
+Get the most out of the infographic by downloading it - the PDF has links to examples of each algorithm.
 
 **[Download: Infographic of machine learning basics with links to algorithm examples](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
