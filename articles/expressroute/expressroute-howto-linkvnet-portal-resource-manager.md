@@ -25,7 +25,7 @@
 
 
 
-This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription or part of another subscription.
+This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription or can be part of another subscription.
 
 
 **About Azure deployment models**
@@ -38,11 +38,11 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 - You must have an active ExpressRoute circuit.
 	- Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider.
 
-	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-portal-resource-manager.md) article for routing instructions.
+	- Ensure that you have Azure private peering configured for your circuit. See the [Configure routing](expressroute-howto-routing-portal-resource-manager.md) article for routing instructions.
 
 	- Ensure that Azure private peering is configured and the BGP peering between your network and Microsoft is up so that you can enable end-to-end connectivity.
 
-	- Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [VPN gateway](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (follow only steps 1 - 5).
+	- Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [VPN gateway](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (follow only steps 1-5).
 
 You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRoute circuits must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 
@@ -55,9 +55,9 @@ You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRo
 
 	![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
 
-	>[AZURE.NOTE] BGP configuration information will not show up if your peerings were configured by the layer 3 provider. If your circuit is in a provisioned state, you should be able to create connections.
+	>[AZURE.NOTE] BGP configuration information will not show up if the layer 3 provider configured your peerings. If your circuit is in a provisioned state, you should be able to create connections.
 
-2. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Click **Connection** **>** **Add** to open the **Add connection** blade, and then configure the values. See the following reference example.
+2. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Click **Connection** > **Add** to open the **Add connection** blade, and then configure the values. See the following reference example.
 
 
 	![Add connection screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
