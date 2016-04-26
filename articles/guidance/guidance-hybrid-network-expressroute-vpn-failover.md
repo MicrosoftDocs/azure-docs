@@ -68,20 +68,26 @@ The following diagram highlights the important components in this architecture:
 The following high-level steps outline a process for implementing this architecture. Detailed examples using Azure PowerShell commands are describe [later in this document][script]. Note that this process assumes that you have already created a VNet for hosting the cloud application, that you have created the on-premises network, that your on-premises network has a VPN appliance, and that your organization has met the [ExpressRoute prerequisite requirements][expressroute-prereq] for connecting to Azure.
 
 1. If you already have a VPN gateway in your Azure VNet remove the VPN gateway, as shown below.
-```powershell
-Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
-```
+
+	```powershell
+	Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
+	```
+
 2. Make sure your **GatewaySubnet** has a /27 mask. If it does not, remove the existing subnet as shown below.
-```powershell
-$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
-Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
-```
+
+	```powershell
+	$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
+	Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
+	```
+
 3. If needed, add a **GatewaySubnet** that has a /27 mask or larger, as shown below.
-```powershell
-$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
-Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.224/27"
-$vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-```
+
+	```powershell
+	$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+	Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.224/27"
+	$vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+	```
+
 4. Follow the instructions in [Implementing a hybrid network architecture with Azure ExpressRoute][implementing-expressroute] to establish your ExpressRoute connection.
 
 5. Follow the instructions in [Implementing a hybrid network architecture with Azure and On-premises VPN][implementing-vpn] to establish your VPN gateway connection.
@@ -92,11 +98,15 @@ Once the connections are established, test the environment as following:
 
 1. Make sure you can connect from your on-premises network to your Azure VNet.
 2. Remove the ExpressRoute connection.
+
 ```powershell
 Remove-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection>
 ```
+
 3. Verify that the you can still connect from your on-premises network to your Azure VNet.
+
 4. Reestablish the ExpressRoute connection.
+
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection> -ConnectionType ExpressRoute -VirtualNetworkGateway1 <gateway1> -VirtualNetworkGateway2 <gateway2> -LocalNetworkGateway2 <localgw1> -SharedKey <sharedKey>
 ```
@@ -121,6 +131,7 @@ To use the script below, execute the following steps:
 	```powershell
 	.\<<scriptfilename>>.ps1 -SubscriptionId <<subscription-id>> -BaseName <<prefix-for-resources>> -Location <<azure-location>> -CreateVNet -VnetAddressPrefix <<vnetaddressprefix>> -GatewaySubnetAddressPrefix <<gatewaysubnetaddressprefix>>
 	```
+
 5. 5.Contact your provider with your circuit `ServiceKey` and wait for the circuit to be provisioned
 6. Run the script with the necessary parameters to create the ExpressRoute circuit in Azure, as shown below.
 
