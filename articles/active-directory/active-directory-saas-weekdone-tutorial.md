@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="04/22/2016"
 	ms.author="jeedes"/>
 
 
@@ -84,6 +84,7 @@ To configure the integration of Weekdone into Azure AD, you need to add Weekdone
 
 7. In the results pane, select **Weekdone**, and then click **Complete** to add the application.
 
+	![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_02.png)
 
 
 ##  Configuring and testing Azure AD single sign-on
