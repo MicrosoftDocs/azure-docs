@@ -22,7 +22,7 @@ Creates a secret that is stored in a key vault. This resource type is frequently
 
 ## Schema format
 
-To create a key vault secret, add the following schema to your template. The secret can be defined as either a child resource of a key vault or as top-level resource. You can define it as a child resourece when 
+To create a key vault secret, add the following schema to your template. The secret can be defined as either a child resource of a key vault or as top-level resource. You can define it as a child resource when 
 the key vault is deployed in the same template. You will need to define the secret as a top-level resource when the key vault is not deployed in the same template, or when you need to create multiple secrets by looping on the 
 resource type. 
 
