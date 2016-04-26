@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="04/25/2016"
+ ms.date="04/26/2016"
  ms.author="danlep"/>
 
 # About the A8, A9, A10, and A11 compute-intensive instances
@@ -28,16 +28,16 @@ Here is background information and some considerations for using the Azure A8, A
 
 Within a single cloud service, availability set, or Azure Batch pool, the A8 and A9 instances can access the RDMA network in Azure to run Windows MPI applications that use the Microsoft Network Direct interface to communicate between instances.
 
-See the following table for prerequisites for MPI applications to access the RDMA network in virtual machines, cloud services, and Azure Batch deployments of the A8 or A9 instances. For typical deployment scenarios, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) and [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](../batch/batch-mpi.md).
+See the following table for prerequisites for MPI applications to access the RDMA network in Windows virtual machines, cloud services, and Azure Batch pools of the A8 or A9 instances. For typical deployment scenarios, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) and [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](../batch/batch-mpi.md).
 
 
-Prerequisite | Virtual machines (IaaS) | Cloud services or Batch pool (PaaS)
+Prerequisite | Virtual machines | Cloud services or Batch pool 
 ---------- | ------------ | ------------- 
 Operating system | Windows Server 2012 R2 or Windows Server 2012 | Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 Guest OS family 
 MPI | MS-MPI 2012 R2 or later, or Intel MPI Library 5 | MS-MPI 2012 R2 or later, or Intel MPI Library 5 
 
 
->[AZURE.NOTE]For IaaS scenarios, the HpcVmDrivers extension must be added to the VMs to install Windows network device drivers that are needed for RDMA connectivity. Depending on your deployment method, the HpcVmDrivers extension might be added to a size A8 or A9 VM automatically, or you might need to add it yourself. To add the extension yourself, see [Manage VM extensions](virtual-machines-windows-classic-manage-extensions.md).
+>[AZURE.NOTE]On size A8 and A9 virtual machines, the HpcVmDrivers extension must be added to the VMs to install Windows network device drivers that are needed for RDMA connectivity. Depending on your deployment method, the HpcVmDrivers extension might be added to a size A8 or A9 VM automatically, or you might need to add it yourself. To add the extension yourself, see [Manage VM extensions](virtual-machines-windows-classic-manage-extensions.md).
 
 ## Considerations for HPC Pack and Windows
 

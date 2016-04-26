@@ -26,20 +26,19 @@ Here is background information and some considerations for using the Azure A8, A
 
 ## Access to the RDMA network
 
-Within a single cloud service or an availability set, the A8 and A9 instances can access the RDMA network in Azure to run Linux MPI applications. At this time, Azure Linux RDMA is only supported with [Intel MPI Library 5](https://software.intel.com/en-us/intel-mpi-library/).
+Within a single cloud service or an availability set, clusters of size A8 and A9 Linux virtual machines that run a supported Linux HPC distribution and a supported MPI implementation can access the RDMA network in Azure to run Linux MPI applications. 
+
+The following table summarizes current prerequisites for the clustered Linux VMs. See [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md) for deployment options and sample configuration steps.
+
+Prerequisite | Virtual machines 
+------------ | -------------
+Operating system | SUSE Linux Enterprise Server (SLES) 12 for HPC,<br/>SLES 12 for HPC (Premium),<br/>CentOS-based 7.1 HPC, or<br/>CentOS-based 6.5 HPC Marketplace image
+MPI | Intel MPI Library 5
 
 
-The following table lists the Linux VM images in the Azure Marketplace you can use for Linux RDMA network access. See [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md) for deployment options and sample configuration steps.
-
-Description | Image name | Notes
------------- | ------------- | ----------------
-SUSE Linux Enterprise Server 12 for HPC | b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708|
-SUSE Linux Enterprise Server 12 for HPC (Premium) | b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708 | includes SUSE priority support (additional charges apply)
-CentOS-based 6.5 HPC | 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-65-HPC-20160408 | installs Intel MPI
-CentOS-based 7.1 HPC | 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-71-HPC-20160408 | installs Intel MPI
-
-
->[AZURE.NOTE] Currently, Azure Linux RDMA drivers are only installed when you deploy RDMA-enabled SUSE Linux Enterprise Server and CentOS HPC images from the Azure Marketplace. You can't install the drivers on other Linux VMs you deploy.
+>[AZURE.NOTE] Currently, Azure Linux RDMA drivers are only installed when you deploy RDMA-enabled SLES 12 HPC and CentOS HPC images from the Azure Marketplace. You can't install the drivers on other Linux VMs you deploy.
+>
+>The CentOS-based HPC images in the Marketplace also include Intel MPI 5. You must install Intel MPI on SLES 12 HPC VMs.
 
 ## Linux RDMA driver updates for SLES 12
 After you create a Linux VM based on a SUSE Linux Enterprise Server (SLES) 12 HPC image, you might need to update the RDMA drivers on the VMs for RDMA network connectivity.
@@ -68,6 +67,8 @@ azure vm extension set <resource-group> <vm-name> RDMAUpdateForLinux Microsoft.O
 ```
 
 >[AZURE.NOTE]It might take some time to install the drivers, and the command will return without output. After the update, your VM will restart and should be ready for use in several minutes.
+
+### Sample script for driver updates
 
 If you have a cluster of SLES 12 HPC VMs, you can script the driver update across all the nodes in your cluster. For example, the following script updates the drivers in an 8-node cluster.
 
@@ -100,6 +101,11 @@ done
 
 [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) is Microsoft’s free HPC cluster and job management solution for Windows. The latest releases of HPC Pack 2012 R2 support several Linux distributions to run on compute nodes deployed in Azure VMs, managed by a Windows Server head node. Linux compute nodes deployed on A8 or A9 VMs and running a supported MPI implementation can run MPI applications that access the RDMA network. To get started, see the [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
+## Network topology considerations
+
+* On size A8 or A9 Linux VMs in Azure, Eth1 is reserved for RDMA network traffic. Do not change any Eth1 settings or any information in the configuration file referring to this network. Eth0 is reserved for regular Azure network traffic.
+
+* In Azure IP over Infiniband (IB) is not supported. Only RDMA over IB is supported.
 
 
 ## Next steps
