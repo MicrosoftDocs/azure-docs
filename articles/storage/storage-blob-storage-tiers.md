@@ -121,9 +121,7 @@ Blob storage accounts use a new pricing model for blob storage based on the acce
 - **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general purpose storage accounts.
 - **Changing access tier**: Changing the access tier from cool to hot will incur a charge equal to reading all the data existing in the storage account for every transition. On the other hand, changing the access tier from hot to cool will be free of cost.
 
-> [AZURE.NOTE] In order to allow users to try out the new storage tiers and validate functionality post launch, the charge for changing the access tier from cool to hot will be waived off until June 30th 2016. Starting July 1st 2016, the charge will be applied to all transitions from cool to hot.
-
-> [AZURE.NOTE] For more details on the pricing model for Blob storage accounts see, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more details on the outbound data transfer charges see, [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
+> [AZURE.NOTE] In order to allow users to try out the new storage tiers and validate functionality post launch, the charge for changing the access tier from cool to hot will be waived off until June 30th 2016. Starting July 1st 2016, the charge will be applied to all transitions from cool to hot. For more details on the pricing model for Blob storage accounts see, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more details on the outbound data transfer charges see, [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
 
 ## Quick Start
 
@@ -134,7 +132,7 @@ In this section we will demonstrate the following scenarios using the Azure Port
 
 ### Using the Azure Portal
 
-To create a Blob storage account using the Azure Portal:
+#### Create a Blob storage account using the Azure Portal
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 
@@ -148,7 +146,7 @@ To create a Blob storage account using the Azure Portal:
 
 6. Select the access tier: **Hot** or **Cool**. The default is **Hot**.
 
-7. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
+7. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
 
 8. Select the subscription in which you want to create the new storage account.
 
@@ -158,7 +156,7 @@ To create a Blob storage account using the Azure Portal:
 
 11. Click **Create** to create the storage account.
 
-To change the access tier on a Blob storage account using the Azure Portal:
+#### Change the access tier on a Blob storage account using the Azure Portal
 
 1.	Sign in to the [Azure Portal](https://portal.azure.com) and navigate to your storage account.
 

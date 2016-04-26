@@ -89,9 +89,13 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ### Change your account configuration
 
-After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure Portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Configuration** to view and/or change the account configuration. Changing the replication option will change your pricing. For Blob storage accounts, changing the access tier may incur charges for the change in addition to changing your pricing. For more details, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page.
+After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure Portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Configuration** to view and/or change the account configuration.
 
 > [AZURE.NOTE] Depending on the performance tier you chose when creating the storage account, some replication options may not be available.
+
+Changing the replication option will change your pricing. For more details, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page.
+
+For Blob storage accounts, changing the access tier may incur charges for the change in addition to changing your pricing. Please see the [Blob storage accounts - Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) for more details.
 
 ### Manage your storage access keys
 
