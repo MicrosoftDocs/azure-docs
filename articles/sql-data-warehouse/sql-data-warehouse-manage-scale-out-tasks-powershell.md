@@ -50,7 +50,18 @@ To get started:
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
-## Task #1: Pause compute
+## Task 1: Scale performance
+
+[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+
+To change the DWUs, use the [Set-AzureRmSqlDatabase][] PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW which is hosted on server MyServer. 
+
+```Powershell
+Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+```
+
+
+## Task 2: Pause compute
 
 [AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
@@ -69,7 +80,7 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## Task #2: Resume compute
+## Task 3: Resume compute
 
 [AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
@@ -85,17 +96,6 @@ A variation, this next example retrieves the database into the $database object.
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
-```
-
-
-## Task #3: Scale out compute
-
-[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
-
-To change the DWUs, use the [Set-AzureRmSqlDatabase][] PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW which is hosted on server MyServer. 
-
-```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 ## Next steps
