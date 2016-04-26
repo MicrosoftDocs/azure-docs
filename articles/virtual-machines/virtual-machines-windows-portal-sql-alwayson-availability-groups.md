@@ -19,8 +19,9 @@
 # Configure an AlwaysOn availability group in Azure Resource Manager virtual machines (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal - Classic](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Portal - Resource Manager - Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Portal - Resource Manager - Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Portal - Classic - Manual](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [PowerShell - Classic](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>

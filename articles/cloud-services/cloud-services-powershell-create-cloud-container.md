@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="cawa"/>
 
 # Use an Azure PowerShell command to create an empty cloud service container
@@ -34,7 +34,7 @@ This article explains how to quickly create a Cloud Services container using Azu
 
 5. Follow this example to invoke the cmdlet:
 ```
-New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
+New-AzureService -ServiceName "mytestcloudservice" -Location "Central US" -Label "mytestcloudservice"
 ```
 
 For more information about creating the Azure cloud service, run:
