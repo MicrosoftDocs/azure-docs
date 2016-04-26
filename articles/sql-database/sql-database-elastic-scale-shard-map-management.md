@@ -16,12 +16,14 @@
 	ms.date="04/26/2016" 
 	ms.author="ddove;sidneyh"/>
 
-# Shard map management
+# Scale out databases with the shard map manager
 
-In a sharded database environment, a [**shard map**](sql-database-elastic-scale-glossary.md) maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is essential to shard map management. For Azure SQL Database, use the [ShardMapManager class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), found in the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage shard maps. 
+To easily scale out databases on SQL Azure, use a shard map manager. The shard map manager is a special database that maintains global mapping information about all shards (databases) in a shard set. The metadata allows an application to connect to the correct database based upon the value of the **sharding key**. In addition, every shard in the set contains maps that track the local shard data (known as **shardlets**). 
 
-To convert an existing set of databases, see [Convert existing databases to use elastic database tools](sql-database-elastic-convert-to-use-elastic-tools.md).
- 
+![Shard map management](../media/sql-database-elastic-scale-shard-map-management/glossary.png)
+
+Understanding how these maps are constructed is essential to shard map management. This is done using the [ShardMapManager class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), found in the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage shard maps.  
+
 
 ## Shard maps and shard mappings
  

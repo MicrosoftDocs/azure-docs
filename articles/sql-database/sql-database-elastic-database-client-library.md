@@ -22,8 +22,6 @@ Scaling out databases can be easily accomplished using scalable tools and featur
 
 To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
-![Elastic scale capabilities][1]
-
 ## Documentation
 1. [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md)
 * [Elastic Database features](sql-database-elastic-scale-introduction.md)
