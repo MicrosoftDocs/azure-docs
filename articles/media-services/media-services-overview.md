@@ -70,7 +70,7 @@ For a how-to series that introduces you to all the main components of Azure Medi
 
 This section describes common scenarios and provides links to relevant topics. The following diagram shows the major parts of the Media Services platform that are involved in delivering content on demand. 
 
-![VoD workflow][vod-overview]
+![VoD workflow](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 
 ###Protect content in storage and deliver streaming media in the clear (non-encrypted)
@@ -105,14 +105,19 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 1. Publish the asset by creating an OnDemand locator.
 1. Stream published content. 
 
-###Index content
+###Use Media Analytics to derive actionable insights from your videos 
 
-1. Upload a high-quality mezzanine file into an Asset.
-1. Index content.
+Media Analytics is a collection of speech and vision components that make it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
 
-	The indexing job generates files that can be used as Closed Captions (CC) in video playback. It also generates files that enable you to do in-video search and jump to the exact location of the video.	
-
-1. Consume indexed content.
+1. Upload a high-quality mezzanine file into an asset.
+2. Use one of the following Media Analytics services to process your videos:
+	
+	- **Indexer** – [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
+	- **Hyperlapse** – [Hyperlapse Media Files with Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+	- **Motion detection** – [Motion Detection for Azure Media Analytics](media-services-motion-detection.md).
+	- **Face detection and Face emotions** – [Face and Emotion Detection for Azure Media Analytics](media-services-face-and-emotion-detection.md).
+	- **Video summarization** – [Use Azure Media Video Thumbnails to Create a Video Summarization](media-services-video-summarization.md)
+3. Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
 
 
 ###Deliver progressive download 
@@ -133,7 +138,7 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 - [How to get media processor](media-services-get-media-processor.md)
 - [How to encode content](media-services-manage-content.md#encode)
 - [How to monitor jobs](media-services-portal-check-job-progress.md)
-- [How to index content](media-services-manage-content.md#index)
+- [How to use analytics](media-services-analytics-overview.md)
 - [How to protect content](media-services-manage-content.md#encrypt)
 - [How to protect publish](media-services-manage-content.md#publish)
 - [How to scale encoding](media-services-portal-encoding-units.md)

@@ -86,7 +86,7 @@ No, auditing does not need to be enabled on AD FS Application Proxy Servers or W
 
 **Q: How do Azure AD Connect Health Alerts get resolved?**
 
-Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis. For a few alerts, the suppression is time based. That is if the same error condition is not observed within 48 hours from alert generation, the alert is automatically resolved.
+Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis. For a few alerts, the suppression is time based. That is if the same error condition is not observed within 72 hours from alert generation, the alert is automatically resolved.
 
 
 
