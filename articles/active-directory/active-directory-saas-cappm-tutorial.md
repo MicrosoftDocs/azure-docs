@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="04/27/2016"
 	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with CA PPM
 
 In this tutorial, you learn how to integrate CA PPM with Azure Active Directory (Azure AD).
-
 
 Integrating CA PPM with Azure AD provides you with the following benefits:
 
@@ -119,9 +118,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your CA PPM application using the following pattern: **https://ca.ondemand.saml.20.post.\<company name\>**.
+    a. In the **IDENTIFIER** textbox, type the URL used by your users to sign-on to your CA PPM application using the following pattern: **https://ca.ondemand.saml.20.post.\<company name\>**.
 	
-	b. click **Next**
+	b. In the **REPLY URL** textbox type **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
+
+	c. click **Next**
  
 4. On the **Configure single sign-on at CA PPM** page, perform the following steps:
 
@@ -132,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact CA PPM support team and provide them with the following:
+5. To get SSO configured for your application, contact [CA Technical Support](mailto:catechnicalsupport@ca.com) and provide them with the following:
 
 	• The downloaded certificate
 
