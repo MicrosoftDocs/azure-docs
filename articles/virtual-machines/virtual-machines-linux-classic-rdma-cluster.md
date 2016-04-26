@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="01/21/2016"
+ ms.date="04/25/2016"
  ms.author="danlep"/>
 
 # Set up a Linux RDMA cluster to run MPI applications
@@ -21,7 +21,7 @@ ms.service="virtual-machines-linux"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-This article shows you how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-windows-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you configure size A8 and A9 Linux-based VMs to run a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
+This article shows you how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-linux-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you configure size A8 and A9 Linux-based VMs to run a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
 >[AZURE.NOTE] Azure Linux RDMA is currently supported with Intel MPI Library version 5 running on a SUSE Linux Enterprise Server 12 (SLES 12) image in the Azure Marketplace. This article is based on Intel MPI version 5.0.3.048.
 >
@@ -34,11 +34,11 @@ Following are methods you can use to create a Linux RDMA cluster either with or 
 
 * **HPC Pack** - Create a Microsoft HPC Pack cluster in Azure and add compute nodes that run supported Linux distributions. Certain Linux nodes can be configured to access the RDMA network. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
-* **Azure CLI scripts** - As shown in the steps in the rest of this article, use the [Azure Command Line Interface](../xplat-cli-install.md) (CLI) for Mac, Linux, and Windows to script the deployment of a virtual network and the other necessary components to create a Linux cluster. The CLI in the classic (Service Management) deployment mode creates the cluster nodes serially, so if you are deploying many compute nodes it might take several minutes to complete the deployment.
+* **Azure CLI scripts** - As shown in the steps in the rest of this article, use the [Azure Command Line Interface](../xplat-cli-install.md) (CLI) for Mac, Linux, and Windows to script the deployment of a virtual network and the other necessary components to create a Linux cluster. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so if you are deploying many compute nodes it might take several minutes to complete the deployment.
 
 * **Azure Resource Manager templates** - Use the Azure Resource Manager deployment model to deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources for a compute cluster that can take advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure Quickstart Templates page](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster.
 
-## Deployment in Azure Service Management with Azure CLI scripts
+## Classic deployment with Azure CLI scripts
 
 The following steps will help you use the Azure CLI to deploy a SUSE Linux Enterprise Server 12 VM, install Intel MPI Library and other customizations, create a custom VM image, and then script the deployment of a cluster of A8 or A9 VMs.
 
@@ -46,17 +46,19 @@ The following steps will help you use the Azure CLI to deploy a SUSE Linux Enter
 
 *   **Client computer** - You'll need a Mac, Linux, or Windows-based client computer to communicate with Azure. These steps assume you are using a Linux client.
 
-*   **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+*   **Azure subscription** - If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. 
 
 *   **Cores quota** - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs. For example, you will need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
-*   **Azure CLI** - [Install](../xplat-cli-install.md) the Azure CLI and [configure it ](../xplat-cli-connect.md) to connect to your Azure subscription from the client computer.
+*   **Azure CLI** - [Install](../xplat-cli-install.md) the Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md) from the client computer.
 
-*   **Intel MPI** - As part of customizing a Linux VM image for your cluster (see details later in this article), you need to download and install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). To prepare for this, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
+*   **Intel MPI** - As part of customizing a SLES 12 HPC VM image for your cluster (see details later in this article), you need to download and install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). To prepare for this, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
+
+    >[AZURE.NOTE] If you use the CentOS 6.5 or CentOS 7.1 HPC image om the Azure Marketplace, Intel MPI is preinstalled.
 
 ### Provision a SLES 12 VM
 
-After logging in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows **asm** mode, indicating that the CLI is in Azure Service Management mode. If it is not, set the mode by running this command:
+After logging in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows **asm** mode, indicating that the CLI is in Service Management mode. If it is not, set the mode by running this command:
 
 ```
 azure config mode asm
@@ -224,60 +226,7 @@ done
 # Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
 ```
 
-## Update the Linux RDMA drivers for SLES 12
 
-After you create your Linux RDMA cluster based on a SLES 12 HPC image, you might need to update the RDMA drivers on the VMs for RDMA network connectivity.
-
->[AZURE.IMPORTANT]Currently this step is **required** for Linux RDMA cluster deployments in most Azure regions. **The only SLES 12 VMs you should not update are those created in the following Azure regions: US West, West Europe, and Japan East.**
-
-Before you update the drivers, stop all **zypper** processes or any processes that lock the SUSE repo databases on the VM. Otherwise the drivers might not update properly.  
-
-
-Update the Linux RDMA drivers on each VM by running one of the following sets of Azure CLI commands on your client computer.
-
-**For a VM provisioned in Azure Service Management**
-
-```
-azure config mode asm
-
-azure vm extension set <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
-```
-
-**For a VM provisioned in Azure Resource Manager**
-
-```
-azure config mode arm
-
-azure vm extension set <resource-group> <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
-```
-
->[AZURE.NOTE]It might take some time to install the drivers, and the command will return without output. After the update, your VM will restart and should be ready for use in several minutes.
-
-You can script the driver update across all the nodes in your cluster. For example, the following script updates the drivers in the 8-node cluster created by the script in the previous step.
-
-```
-
-#!/bin/bash -x
-
-# Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
-
-vmname=cluster
-
-# Plug in appropriate numbers in the for loop below.
-
-for (( i=11; i<19; i++ )); do
-
-# For ASM VMs use the following command in your script.
-
-azure vm extension set $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
-
-# For ARM VMs use the following command in your script.
-
-# azure vm extension set <resource-group> $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
-
-done
-
-```
 
 ## Configure and run Intel MPI
 

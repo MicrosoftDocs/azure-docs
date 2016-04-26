@@ -1,10 +1,9 @@
 
+Key features of these instances include:
 
-This article provides background information and considerations for using the Azure A8, A9, A10, and A11 instances, also known as *compute-intensive* instances. Key features of these instances include:
+* **High-performance hardware** – The Azure datacenter hardware that runs these instances is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) and batch applications, modeling, and large-scale simulations.
 
-* **High-performance hardware** – The Azure datacenter hardware that runs these instances is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations.
-
-* **RDMA network connection for MPI applications** – Set up the A8 and A9 instances to communicate with other A8 and A9 instances over a low-latency, high-throughput network in Azure that is based on remote direct memory access (RDMA) technology. This feature can boost the performance of certain Linux and Windows Message Passing Interface (MPI) applications .
+* **RDMA network connection for MPI applications** – Set up the A8 and A9 instances to communicate with other A8 and A9 instances over a low-latency, high-throughput network in Azure that is based on remote direct memory access (RDMA) technology. This feature can boost the performance of certain Linux and Windows Message Passing Interface (MPI) applications.
 
 * **Support for HPC clusters** – Deploy cluster management and job scheduling software on the A8, A9, A10, and A11 instances in Azure to create a stand-alone HPC cluster or to add capacity to an on-premises cluster.
 
@@ -23,7 +22,7 @@ A8 and A10 | Intel Xeon E5-2670<br/>8 cores @ 2.6 GHz | DDR3-1600 MHz<br/>56 GB
 A9 and A11 | Intel Xeon E5-2670<br/>16 cores @ 2.6 GHz | DDR3-1600 MHz<br/>112 GB
 
 
->[AZURE.NOTE]Additional processor details, including supported instruction set extensions, are at the Intel.com website. For VM storage capacities and disk details, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).
+>[AZURE.NOTE]Additional processor details, including supported instruction set extensions, are at the Intel.com website. 
 
 ### Network adapters
 
@@ -42,11 +41,11 @@ A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that conne
 
 ## Deployment considerations
 
-* **Azure account** – If you want to deploy more than a small number of compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. You can also use your MSDN subscription. See [Azure benefit for MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're using an [Azure free account](https://azure.microsoft.com/pricing/free-trial/), you can use only a limited number of Azure compute cores.
+* **Azure account** – If you want to deploy more than a small number of compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 
-* **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores per subscription (if you use the classic deployment model) or 20 cores per region (if you use the Azure Resource Manager deployment model). To request a quota increase, open a support ticket at no charge as shown in [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores per subscription (if you use the classic deployment model) or 20 cores per region (if you use the Resource Manager deployment model). To request a quota increase, open a support ticket at no charge as shown in [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
-    >[AZURE.NOTE]Azure quotas are credit limits, not capacity guarantees. You are charged only for cores that you use.
+    >[AZURE.NOTE]Contact Azure Support if you have large-scale capacity needs. Azure quotas are credit limits, not capacity guarantees. Regardless of your quota, you are charged only for cores that you use.
 
 * **Virtual network** – An Azure [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) is not required to use the compute-intensive instances. However, you may need at least a cloud-based Azure virtual network for many IaaS scenarios, or a site-to-site connection if you need to access on-premises resources such as an application license server. You will need to create a new virtual network to deploy the instances. Adding an A8, A9, A10, or A11 VM to a virtual network in an affinity group is not supported.
 
