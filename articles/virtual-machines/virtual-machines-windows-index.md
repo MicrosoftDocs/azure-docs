@@ -156,11 +156,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 ## Workloads
 
-[High-availability line of business application](virtual-machines-windows-lob.md)
-
 [HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
-
-[Hybrid cloud test environment](virtual-machines-windows-classic-hybrid-test-env.md)
 
 [MongoDB](virtual-machines-windows-classic-install-mongodb.md)
 

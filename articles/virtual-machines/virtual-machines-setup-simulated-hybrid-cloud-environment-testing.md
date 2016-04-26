@@ -55,7 +55,7 @@ Use the instructions in the [Base Configuration Test Environment](virtual-machin
 
 Next, start an Azure PowerShell prompt.
 
-> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see Azure PowerShell 1.0.
+> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Login to your account.
 
