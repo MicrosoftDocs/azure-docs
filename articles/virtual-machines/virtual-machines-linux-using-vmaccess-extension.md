@@ -25,9 +25,11 @@ This article shows how to use the [VMAcesss VM extension (Github Repo)](https://
 
 ## Quick Commands
 
-```
-# To check and then repair the disk for Linux use this VMAccess script-
+## Disk Check & Repair
 
+To check and then repair the disk for Linux use this VMAccess script:
+
+```bash
 disk_check_repair.json
 
 {
@@ -38,9 +40,13 @@ disk_check_repair.json
 ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
+```
 
-# To reset the root password use this VMAccess script -
+## Reset Root Password
 
+To reset the root password use this VMAccess script:
+
+```bash
 reset_root_password.json
 
 {
@@ -51,9 +57,13 @@ reset_root_password.json
 ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
+```
 
-# To reset the SSH key of a non root user use this VMAccess script -
+## SSH Key Reset
 
+To reset the SSH key of a non root user use this VMAccess script:
+
+```bash
 reset_ssh_key.json
 
 {
@@ -64,9 +74,13 @@ reset_ssh_key.json
 ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
+```
 
-# To create a new user use this VMAccess script -
+## Create a User
 
+To create a new user use this VMAccess script:
+
+```bash
 create_new_user.json
 
 {
@@ -78,9 +92,13 @@ create_new_user.json
 ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
+```
 
-# To remove a user use this VMAccess script -
+## Remove a User
 
+To remove a user use this VMAccess script:
+
+```bash
 remove_user.json
 
 {
@@ -90,9 +108,13 @@ remove_user.json
 ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
+```
 
-# To reset the SSHD configuration use this VMAccess script -
+## Reset SSHD
 
+To reset the SSHD configuration use this VMAccess script:
+
+```bash
 reset_sshd.json
 
 {
