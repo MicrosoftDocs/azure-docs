@@ -39,12 +39,9 @@ Now open a shell and run the following command where:
 **DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
 **REGION** is the region in which your resource group is located.  
 
-> The SSH connection port is 2200 and not the standard 22.
-
 ```bash
 # ssh sample
-
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
+ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
 ### DC/OS tunnel
