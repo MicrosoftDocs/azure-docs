@@ -89,9 +89,9 @@ Then, copy and paste the code snippet below and set properties ```config.endpoin
 Copy and paste the ```database id```, ```collection id```, and ```JSON documents``` to your ```config``` object below where you set your ```config.endpoint``` and ```config.authKey``` properties. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md) rather than adding the document definitions.
 
 	config.endpoint = "~your DocumentDB endpoint uri here~";
-		config.primaryKey = "~your primary key here~";
+	config.primaryKey = "~your primary key here~";
 
-		// ADD THIS PART TO YOUR CODE
+	// ADD THIS PART TO YOUR CODE
     config.database = {
         "id": "FamilyDB"
     };
@@ -162,12 +162,12 @@ The database, collection, and document definitions will act as your DocumentDB `
 
 Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 
-						},
-						"isRegistered": false
-					}
-			};
+		},
+			"isRegistered": false
+		}
+	};
 
-		// ADD THIS PART TO YOUR CODE
+	// ADD THIS PART TO YOUR CODE
     module.exports = config;
 
 ##<a id="Connect"></a> Step 4: Connect to a DocumentDB account
@@ -416,7 +416,7 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 
 Congratulations! You have successfully queried DocumentDB documents.
 
-##<a id="ReplaceDocument"></a>Step 9: Replace the document
+##<a id="ReplaceDocument"></a>Step 9: Replace a document
 DocumentDB supports replacing JSON documents.
 
 Copy and paste the **replaceDocument** function underneath the **queryCollection** function.
@@ -460,7 +460,7 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 
 Congratulations! You have successfully replaced a DocumentDB document.
 
-##<a id="DeleteDocument"></a>Step 10: Delete the document
+##<a id="DeleteDocument"></a>Step 10: Delete a document
 DocumentDB supports deleting JSON documents.
 
 Copy and paste the **deleteDocument** function underneath the **replaceDocument** function.
