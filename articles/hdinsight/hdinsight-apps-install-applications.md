@@ -19,7 +19,7 @@
 
 # Install HDInsight applications
 
-HDInsight applications can be installed on Linux-based HDInsight clusters. These applications can be developed by Microsoft, an independent software vendor (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For packaging and deploying custom HDInsight applications, see [Package and deploy HDInsight applications](hdinsight-apps-deploy.md).
+An HDInsight application is an application that users can install on an Linux-based HDInsight cluster. HDInsight applications can be installed on Linux-based HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For packaging and deploying custom HDInsight applications, see [Package and deploy HDInsight applications](hdinsight-apps-deploy.md).
 
 The following are the published HDInsight applications: [jgao: will these applications be ready by this Friday?]
 
@@ -32,7 +32,7 @@ The instructions provided in this article use Azure Portal. You can also export 
 
 ### Prerequisites
 
-If you want to install HDInsight applications to an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
+If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
 
 ## Install applications during cluster creation
 
@@ -52,7 +52,7 @@ The following procedure shows you how to install HDInsight applications when you
     - **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
 6. Click **Applications**, click one of the published applications, and then click **Select**.
 6. Click **Credentials** and then enter a password for the admin user. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
-8. Click ** Data Source**, select one of the existing storage account or create a new storage account to be used as the default storage account for the cluster.
+8. Click **Data Source**, select one of the existing storage account or create a new storage account to be used as the default storage account for the cluster.
 9. Click **Resource Group** to select an existing resource group, or click **New** to create a new resource group
 
 10. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. 
