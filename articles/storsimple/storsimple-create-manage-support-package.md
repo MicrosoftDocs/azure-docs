@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="04/26/2015"
    ms.author="alkohli" />
 
 
@@ -53,9 +53,11 @@ Perform the following steps in the classic portal to create a support package:
 
 ## Manually create a support package
 
-For the following scenerios, you will need to manually create the support package through the Windows PowerShell for StorSimple.
- - Remove sensitive information from your log files prior to sharing with Microsoft Support 
- - Device is facing internet connectivity issues to upload the package.
+For the following scenerios, you will need to manually create the support package through the Windows PowerShell for StorSimple. 
+
+- Remove sensitive information from your log files prior to sharing with Microsoft Support 
+
+- Device is facing internet connectivity issues to upload the package.
  
 Generated support package can then be shared with Microsoft Support over email. Perform the following steps to create a support package in Windows PowerShell for StorSimple:
 
