@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="04/26/2016"
 	ms.author="deguhath;bradsev" />
 
 # Score Spark-built machine learning models 
@@ -25,7 +25,7 @@ This topic describes how to load machine learning (ML) models that have been bui
 
 ## Prerequisites
 
-1. You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-model-consumption.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
+1. You need an Azure account and an HDInsight Spark cluster, version Spark 1.5.2 (HDI 3.3), to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-model-consumption.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
 
 2. You must also create the machine learning models to be scored here by working through the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic.
 
@@ -581,9 +581,9 @@ Here is the Python code for the HTTP call:
 	conn.close()
 
 
-You can also add this Python code to [Azure Functions](../functions/)  to trigger a Spark job submission that scores a blob based on various events like a timer, creation or update of a blob. 
+You can also add this Python code to [Azure Functions](../azure-functions/functions-overview.md)  to trigger a Spark job submission that scores a blob based on various events like a timer, creation or update of a blob. 
 
-If you prefer a code free client experience, use the [Azure Logic Apps](../app-service/logic/) to invoke the Spark batch scoring by defining a HTTP action on the **Logic Apps Designer** and setting its parameters. 
+If you prefer a code free client experience, use the [Azure Logic Apps](../app-service-logic/app-service-logic-create-a-logic-app.md) to invoke the Spark batch scoring by defining a HTTP action on the **Logic Apps Designer** and setting its parameters. 
 
 - From Azure Portal, create a new Logic App by selecting **+New** -> **Web + Mobile** -> **Logic App**. 
 - Enter the name of the Logic App and App Service Plan to bring up the **Logic Apps Designer**.
