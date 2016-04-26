@@ -28,11 +28,9 @@ Before starting this tutorial, you must first complete the [Getting Started](mob
 
 > [AZURE.IMPORTANT] Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).
 
-## Options with your Getting Started app
-
 The tutorial you completed was deliberately direct and simple, but there are a number of options you can choose from.
 
-### Building with ProGuard
+## Building with ProGuard
 
 If you build your application package with ProGuard, you need to keep some classes. You can use the following configuration snippet:
 
@@ -42,13 +40,13 @@ If you build your application package with ProGuard, you need to keep some class
 			<methods>;
 		 	}
 
-### Tags in the AndroidManifest.xml file
+## Tags in the AndroidManifest.xml file
 
 In the service tag in your AndroidManifest.xml file, the `android:label` attribute allows you to choose the name of the Engagement service as it will appear to the end-users in the "Running services" screen of their phone. We recommended setting this attribute to `"<Your application name>Service"` (e.g. `"AcmeFunGameService"`).
 
 Specifying the `android:process` attribute ensures that the Engagement service will run in its own process (running Engagement in the same process as your application will make your main/UI thread potentially less responsive).
 
-### Using Application.onCreate()
+## Using Application.onCreate()
 
 Any code you place in `Application.onCreate()` and in other application callbacks will be run for all your application's processes, including the Engagement service. It may have unwanted side effects, like unneeded memory allocations and threads in the Engagement's process, or duplicate broadcast receivers or services.
 
@@ -66,49 +64,15 @@ You can do the same thing for `Application.onTerminate()`, `Application.onLowMem
 
 You can also extend `EngagementApplication` instead of extending `Application`: the callback `Application.onCreate()` does the process check and calls `Application.onApplicationProcessCreate()` only if the current process is not the one hosting the Engagement service, the same rules apply for the other callbacks.
 
-### Recommended method: overload your `Activity` classes
+## Modifying your `Activity` classes
 
-In order to activate the report of all the logs required by Engagement to compute Users, Sessions, Activities, Crashes and Technical statistics, you just have to make all your `*Activity` sub-classes inherit from the corresponding `Engagement*Activity` classes (e.g. if your legacy activity extends `ListActivity`, make it extend `EngagementListActivity`).
-
-**Without Engagement :**
-
-			package com.company.myapp;
-
-			import android.app.Activity;
-			import android.os.Bundle;
-
-			public class MyApp extends Activity
-			{
-			  @Override
-			  public void onCreate(Bundle savedInstanceState)
-			  {
-			    super.onCreate(savedInstanceState);
-			    setContentView(R.layout.main);
-			  }
-			}
-
-**With Engagement :**
-
-			package com.company.myapp;
-
-			import com.microsoft.azure.engagement.activity.EngagementActivity;
-			import android.os.Bundle;
-
-			public class MyApp extends EngagementActivity
-			{
-			  @Override
-			  public void onCreate(Bundle savedInstanceState)
-			  {
-			    super.onCreate(savedInstanceState);
-			    setContentView(R.layout.main);
-			  }
-			}
+In the [Getting Started tutorial](mobile-engagement-android-get-started.md), all you had to do was to make your `*Activity` sub-classes inherit from the corresponding `Engagement*Activity` classes (e.g. if your legacy activity extended `ListActivity`, you would make it extend `EngagementListActivity`).
 
 > [AZURE.IMPORTANT] When using `EngagementListActivity` or `EngagementExpandableListActivity`, make sure any call to `requestWindowFeature(...);` is made before the call to `super.onCreate(...);`, otherwise a crash will occur.
 
 You can find these classes in the `src` folder, and can copy them into your project. The classes are also in the **JavaDoc**.
 
-### Alternate method: call `startActivity()` and `endActivity()` manually
+## Alternate method: call `startActivity()` and `endActivity()` manually
 
 If you cannot or do not want to overload your `Activity` classes, you can instead start and end your activities by calling the `EngagementAgent`'s methods directly.
 
