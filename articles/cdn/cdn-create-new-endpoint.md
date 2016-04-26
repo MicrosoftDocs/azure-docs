@@ -17,7 +17,7 @@
 
 # How to use Azure CDN  
 
-This topic walks through enabling Azure CDN.  We will demonstrate how to create a new CDN profile and endpoint.
+This topic walks through enabling Azure CDN by creating a new CDN profile and endpoint.
 
 >[AZURE.IMPORTANT] For an introduction to how CDN works, as well as a list of features, see the [CDN Overview](./cdn-overview.md).
 
