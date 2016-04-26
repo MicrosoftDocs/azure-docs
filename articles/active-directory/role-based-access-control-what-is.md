@@ -60,3 +60,5 @@ Azure RBAC only supports management operations of the Azure resources in the Azu
 
 ## Next Steps
 - Get started with [Role-Based Access Control in the Azure portal](role-based-access-control-configure.md).
+- See the [RBAC built-in roles](role-based-access-built-in-roles.md)
+- Define your own [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)
