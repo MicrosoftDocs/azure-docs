@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
 # Security management in Azure
@@ -28,7 +28,7 @@ The potential for attacks increases in this type of environment because it is ch
 
 ### Remote management threats
 
-Attackers often attempt to gain privileged access by compromising account credentials (for example, through password brute forcing, phishing, and credential harvesting), or by tricking users into running malicious code (for example, from malicious websites with drive-by downloads or from malicious email attachments). In a remotely managed cloud environment, account breaches can lead to an increased risk due to anywhere, anytime access.
+Attackers often attempt to gain privileged access by compromising account credentials (for example, through password brute forcing, phishing, and credential harvesting), or by tricking users into running harmful code (for example, from malicious websites with drive-by downloads or from malicious email attachments). In a remotely managed cloud environment, account breaches can lead to an increased risk due to anywhere, anytime access.
 
 Even with tight controls on primary administrator accounts, lower-level user accounts can be used to exploit weaknesses in one’s security strategy. Lack of appropriate security training can also lead to breaches through accidental disclosure or exposure of account information.
 
@@ -38,21 +38,25 @@ In general, most targeted attacks that result in data breaches can be traced to 
 
 ### Operational security fundamentals
 
-For more secure management and operations, you can minimize a client’s attack surface by reducing the number of possible entry points. This can be done through “separation of duties” and “segregation of environments” security principles: isolating sensitive functions from one another decreases the likelihood that a mistake at one level will lead to a breach in another. As such, administrative tasks should not be combined with activities that might lead to a compromise (for example, malware in an administrator’s email that then infects an infrastructure server). Similarly, the workstation used for high-sensitivity operations should not be the same system used for high-risk purposes such as browsing the Internet.
+For more secure management and operations, you can minimize a client’s attack surface by reducing the number of possible entry points. This can be done through security principles: “separation of duties” and “segregation of environments.”
 
-Each application or service installed on an administrator’s workstation increases security risks due to potential vulnerabilities that can be exploited. Therefore, reducing the system’s attack surface by removing unnecessary software from a standard installation system image improves client manageability and stability, and hardens the client software security profile. For example, any standard administrative, support, or development workstation should not require installation of an email client or other productivity applications if the device’s main purpose is to manage cloud services.
+Isolate sensitive functions from one another to decrease the likelihood that a mistake at one level will lead to a breach in another. Examples:
+- Administrative tasks should not be combined with activities that might lead to a compromise (for example, malware in an administrator’s email that then infects an infrastructure server).
+- A workstation used for high-sensitivity operations should not be the same system used for high-risk purposes such as browsing the Internet.
 
-The network should treat client systems that have administrator access to infrastructure components as if they are as sensitive as the infrastructure components themselves. Since a compromise of an administrator or administrator system might lead to a service breach, the client should be subjected to the strictest possible policy to reduce security risks. Security policies that increase scrutiny on client devices that possess administrative privileges can include Group Policy settings that deny open Internet access from the device and use of a restrictive firewall configuration.
+Reduce the system’s attack surface by removing unnecessary software. Example:
+- Standard administrative, support, or development workstation should not require installation of an email client or other productivity applications if the device’s main purpose is to manage cloud services.
 
-You can implement other measures, including:
-
-- Using Internet Protocol security (IPsec) VPNs if direct access is needed.
-- Configuring separate management and development Active Directory domains.
-- Isolating and filtering management workstation network traffic.
-- Using antimalware software.
-- Implementing multi-factor authentication to reduce the risk of stolen credentials.
+Client systems that have administrator access to infrastructure components should be subjected to the strictest possible policy to reduce security risks. Examples:
+- Security policies can include Group Policy settings that deny open Internet access from the device and use of a restrictive firewall configuration.
+- Use Internet Protocol security (IPsec) VPNs if direct access is needed.
+- Configure separate management and development Active Directory domains.
+- Isolate and filter management workstation network traffic.
+- Use antimalware software.
+- Implement multi-factor authentication to reduce the risk of stolen credentials.
 
 Consolidating access resources and eliminating unmanaged endpoints also simplifies management tasks.
+
 
 ### Providing security for Azure remote management
 
