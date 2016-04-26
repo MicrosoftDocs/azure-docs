@@ -180,7 +180,7 @@ You have all the resources that you need, now it's time to create the scale set.
 1. Replace the text in quotes with the name that you want to use for the IP configuration and then create it:
 
         $ipName = "IP configuration name"
-        $ipConfig = New-AzureRmVmssIpConfigurationConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
+        $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
 2. Replace the text in quotes with the name that you want to use for the scale set configuration and then create it. This step includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](..\virtual-machines\virtual-machines-windows-sizes.md) to find a size that meets your needs. For this example, it is recommended to use Standard_A0.:
 
@@ -259,7 +259,7 @@ You have all the resources that you need, now it's time to create the scale set.
         $imageOffer = "offer from publisher, such as WindowsServer"
         $imageSku = "sku of image, such as 2012-R2-Datacenter"
         $vhdContainer = "URI of storage container"
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -CreateOption "FromImage" -Caching "None"
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -OsDiskCreateOption "FromImage" -OsDiskCaching "None"
 
     You should see something like this in the storageProfile section:
 
@@ -285,7 +285,7 @@ You have all the resources that you need, now it's time to create the scale set.
 5. Replace the text in quotes with the name of the virtual machine scale set and then create it:
 
         $vmssName = "scale set name"
-        New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSetCreateOrUpdateParameter $vmss
+        New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
     You should see something like this that shows you the deployment succeeded:
 
