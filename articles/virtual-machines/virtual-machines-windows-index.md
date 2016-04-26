@@ -168,8 +168,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
-[SharePoint](virtual-machines-windows-sharepoint-farm.md)
-
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
 ## Reference
