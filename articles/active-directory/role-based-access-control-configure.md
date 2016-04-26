@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/25/2016"
+	ms.date="04/26/2016"
 	ms.author="kgremban"/>
 
 # Use role assignments to manage access to your Azure Active Directory resources
