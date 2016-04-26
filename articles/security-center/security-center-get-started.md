@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Getting started with Azure Security Center | Microsoft Azure"
+   pageTitle="Azure Security Center Quick Start Guide | Microsoft Azure"
    description="This document helps you get started quickly with Azure Security Center by guiding you through the security monitoring and policy management components and linking you to next steps."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
-# Getting started with Azure Security Center
+# Azure Security Center quick start guide
 
 This document helps you get started quickly with Azure Security Center by guiding you through the security monitoring and policy management components and linking you to next steps.
 
@@ -95,15 +95,6 @@ View the health of your **Partner solutions**:
 
 3. Select a partner solution. In this example, lets select the **F5-WAF2** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
 ![Partner solution detail][10]
-
-The **STATUS** of a partner solution can be:
-
-- Protected (green) - there is no health issue.
-- Unhealthy (red) - there is a health issue that requires immediate attention.
-- Stopped reporting (orange) - the solution has stopped reporting its health.
-- Unknown protection status (orange) - the health of the solution is unknown at this time due to a failed process of adding a new resource to the existing solution.
-- Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has just been connected and is still deploying.
-
 
 ## Next steps
 In this document, you were introduced to the security monitoring and policy management components in Security Center. To learn more, see the following:
