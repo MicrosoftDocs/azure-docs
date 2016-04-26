@@ -47,7 +47,7 @@ Models are saved in: "wasb:///user/remoteuser/NYCTaxi/Models". If this path is n
 The scored results have been saved in: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". If the path to folder is incorrect, results will not be saved in that folder.   
 
 
->AZURE.NOTE: The file path locations can be copied and pasted into the placeholders in this code from the output of the last cell of the **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook.   
+>[AZURE.NOTE] The file path locations can be copied and pasted into the placeholders in this code from the output of the last cell of the **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook.   
 
 
 Here is the code to set directory paths: 
@@ -543,7 +543,7 @@ You can use Livy to remotely submit a job that batch scores a file that is store
 [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) to the blob of the Spark cluster. You can use a tool like **Microsoft Azure Storage Explorer** or **AzCopy** to copy the script to the cluster blob. In our case we uploaded  the script to ***wasb:///example/python/ConsumeGBNYCReg.py***.   
 
 
->AZURE.NOTE: The access keys that you need can be found on the portal for the storage account associated with the Spark cluster. 
+>[AZURE.NOTE] The access keys that you need can be found on the portal for the storage account associated with the Spark cluster. 
 
 
 Once uploaded to this location, this script will run within the Spark cluster in a distributed context. It will load the model and run predictions on input files based on the model.  
@@ -559,7 +559,7 @@ You need to replace CLUSTERLOGIN, CLUSTERPASSWORD, CLUSTERNAME with the appropri
 You can use any language on the remote system to invoke the Spark job through Livy by making a simple HTTPS call with Basic Authentication.   
 
 
->AZURE.NOTE: It would be convenient to use the Python Requests library when making this HTTP call, but it is not currently installed by default in Azure Functions. So older HTTP libraries are used instead.   
+>[AZURE.NOTE] It would be convenient to use the Python Requests library when making this HTTP call, but it is not currently installed by default in Azure Functions. So older HTTP libraries are used instead.   
 
 
 Here is the Python code for the HTTP call:
