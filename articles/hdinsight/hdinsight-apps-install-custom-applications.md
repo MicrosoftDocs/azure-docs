@@ -47,16 +47,16 @@ The files needed for deploying this application can be found in a public Azure b
 
 1. Click the following image to sign in to Azure and open the ARM template in the Azure Portal. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Finstall-hdinsight-applications-hue.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    This button opens an ARM template on the Azure portal.  The ARM template is located at [https://hditutorialdata.blob.core.windows.net/hdinsightapps/install-hdinsight-applications-hue.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/install-hdinsight-applications-hue.json).  To learn how to write this ARM template, see [Package and deploy HDInsight applications](hdinsight-apps-deploy.md).
+    This button opens an ARM template on the Azure portal.  The ARM template is located at [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue).  To learn how to write this ARM template, see [Package and deploy HDInsight applications](hdinsight-apps-deploy.md).
     
 2. From the **Parameters** blade, enter the following:
 
     - **ClusterName**: Enter the name of the cluster where you want to install the application. This cluster must be an existing cluster.
     
 3. Click **OK** to save the parameters.
-4. From the **Custom deployment** blade, enter **Resource group**.  The resource group is a container that groups the cluster, the dependent storage account and other resources. It is recommended to use the same resource group as the cluster.
+4. From the **Custom deployment** blade, enter **Resource group**.  The resource group is a container that groups the cluster, the dependent storage account and other resources. It is required to use the same resource group as the cluster.
 5. Click **Legal terms**, and then click **Create**.
 6. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**. You can see the installation status from the tile pinned to the portal dashboard and the portal notification (click the bell icon on the top of the portal).  It takes about 10 minutes to install the application.
 
