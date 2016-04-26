@@ -138,7 +138,7 @@ If you don't yet have a machine, you can quickly provision an Azure virtual mach
 
 ### Install the Service Fabric SDK
 
-Install the [Service Fabric SDK](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-get-started/#install-the-runtime-sdk-and-tools) on your machine.
+Install the [Service Fabric SDK](service-fabric-get-started.md#install-the-runtime-sdk-and-tools) on your machine.
 
 ### Install Azure PowerShell
 
