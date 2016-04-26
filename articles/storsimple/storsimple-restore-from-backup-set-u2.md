@@ -73,7 +73,7 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
 
 1. On the StorSimple Manager service page, click the **Backup catalog** tab.
 
-    ![Backup catalog](./media/storsimple-restore-from-backup-set-u2/HCS_Restore.png)
+    ![Backup catalog](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 2. Select a backup set as follows:
   1. Select the appropriate device.
