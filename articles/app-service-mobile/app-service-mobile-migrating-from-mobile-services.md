@@ -391,7 +391,7 @@ For more information, consult the [XDT Transform Samples] documentation on GitHu
 
 ### Migrated Mobile Services cannot be added to Traffic Manager
 
-When you create a Traffic Manager profile, you cannot directly choose a migrated mobile servie to the profile.  You need to use an "external endpoint".  The external endpoint can only be added through PowerShell.  Refer to the [Azure Documentation](https://azure.microsoft.com/en-us/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) for more information.
+When you create a Traffic Manager profile, you cannot directly choose a migrated mobile servie to the profile.  You need to use an "external endpoint".  The external endpoint can only be added through PowerShell.  Refer to the [Traffic Manager tutorial](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) for more information.
 
 ## <a name="next-steps"></a>Next Steps
 
