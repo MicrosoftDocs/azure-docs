@@ -66,6 +66,6 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
     Use “sa” for username and the password you used when you deployed the resource provider VM.
 
-6. [Test your new SQL Server RP](/azure-stack-sql-rp-deploy-long.md#test-your-deployment-create-your-first-sql-database) by deploying a SQL database in the Azure Stack portal. Click **Create &gt; Custom &gt; SQL Server Database**.
+6. [Test your new SQL Server RP](/azure-stack-sql-rp-deploy-long.md#create-your-first-sql-database-to-test-your-deployment) by deploying a SQL database in the Azure Stack portal. Click **Create &gt; Custom &gt; SQL Server Database**.
 
 This should get your SQL Server Resource Provider up and running in about 45 minutes (depending on your hardware).
