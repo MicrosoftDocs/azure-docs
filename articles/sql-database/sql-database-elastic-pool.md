@@ -51,7 +51,7 @@ Databases that are great candidates for elastic database pools typically have pe
 
 ## Elastic database pool properties
 
-**Limits for elastic pools**
+### Limits for elastic pools
 
 | Property | Description |
 | :-- | :-- |
@@ -63,11 +63,12 @@ Databases that are great candidates for elastic database pools typically have pe
 | Max concurrent logins per pool | The maximum number of concurrent logins for all databases in the pool. |
 | Max concurrent sessions per pool | The maximum number of sessions available for all databases in the pool. |
 
-**Limits for elastic databases**
+
+### Limits for elastic databases
 
 | Property | Description |
 | :-- | :-- |
-| Max eDTUs per database | Maximum number of eDTUs that any database in the pool may use, and applies to all databases in the pool. The max eDTU per database is not a resource guarantee. |
+| Max eDTUs per database | Maximum number of eDTUs that any database in the pool may use, and applies to all databases in the pool. The max eDTUs per database is not a resource guarantee. |
 | Min eDTUs per database | Minimum number of eDTUs that any database in the pool is guaranteed; this applies to all databases in the pool. The min eDTUs may be set to 0.  Note that the product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool. |
 | Max. storage per database (GB) | The maximum storage for a database in a pool. |
 
