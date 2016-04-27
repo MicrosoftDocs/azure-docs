@@ -46,17 +46,15 @@ This article assumes the following prerequisites are met before you start the st
 ## Copy VHDs to your Resource Manager storage account
 
 
-1. First free up the VHDs used by the source VM, by doing either of the following:
+1. First free up the VHDs used by the source VM, by doing either of the following two options:
 
-	- Stop and deallocate the source virtual machine.  
+	1. Stop and deallocate the source virtual machine.  
 	
 		- For a VM created using classic deployment model, you can either use the [portal](https://portal.azure.com), and click **Browse** > **Virtual machines (classic)** > *your VM* > **Stop**, or the PowerShell command `Stop-AzureVM -ServiceName <yourServiceName> -Name <yourVmName>`. 
 		
 		- For a VM in Resource Manager deployment model, you can login to the portal and click **Browse** > **Virtual machines** > *your VM* > **Stop**, or use PowerShell command `Stop-AzureRmVM -ResourceGroupName <yourResourceGroup> -Name <yourVmName>`. Notice that the *Status* of the VM in the portal changes from **Running** to **Stopped (deallocated)**.	
 	
-	OR
-</br>
-	- Delete the source VM and use the VHD left behind. **Browse** to your virtual machine in the [portal](https://portal.azure.com) and click **Delete**.
+	2. Delete the source VM and use the VHD left behind. **Browse** to your virtual machine in the [portal](https://portal.azure.com) and click **Delete**.
 	
 1. Find the access keys for the storage account which contains your source VHD, as well as the storage account where you will copy your VHD to create the new VM. The key for the account from where we are copying the VHD is called the *Source Key* and that for the account to which it will be copied to is called the *Destination Key*. Read [About Azure storage accounts](../storage/storage-create-storage-account.md) for more information on access keys.
 

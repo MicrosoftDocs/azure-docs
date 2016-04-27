@@ -21,7 +21,7 @@
 
 
 
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux, in the Resource Manager deployment model using Azure CLI and the Azure Portal. This process allows you to copy over the user accounts and other personal information from your original VM. This is called a **_specialized_** image. You can copy over the OS and data disks this way and then set up the network resources to create the new virtual machine. 
+This article shows you how to create a copy of your Azure virtual machine (VM) running Linux, in the Resource Manager deployment model using the Azure CLI and the Azure Portal. This process allows you to copy over the user accounts and other personal information from your original VM. This is called a **_specialized_** image. You can copy over the OS and data disks this way and then set up the network resources to create the new virtual machine. 
 
 You will need a specialized image for scenarios like porting your Linux VM from classic deployment model to the Resource Manager deployment model, or creating a backup copy of your Linux VM created in the Resource Manager deployment model. If you need to create mass deployments of similar Linux VMs, you need a *generalized* image; for that, read [How to capture a Linux virtual machine](virtual-machines-linux-capture-image.md).
 
@@ -46,13 +46,11 @@ This article assumes the following prerequisites are met before you start the st
 ## Copy VHDs to your Resource Manager storage account
 
 
-1. First free up the VHDs used by the source VM. To do that you can do either of the following:
+1. First free up the VHDs used by the source VM, by doing either of the following two options:
 
-	- Stop and deallocate the source virtual machine. In portal, click **Browse** > **Virtual machines** or **Virtual machines (classic)** > *your VM* > **Stop**. For VMs created in the Resource Manager deployment model, you can also use the Azure CLI command `azure vm stop <yourResourceGroup> <yourVmName>` followed by `azure vm deallocate <yourResourceGroup> <yourVmName>`. Notice that the *Status* of the VM in the portal changes from **Running** to **Stopped (deallocated)**.	
+	1. Stop and deallocate the source virtual machine. In portal, click **Browse** > **Virtual machines** or **Virtual machines (classic)** > *your VM* > **Stop**. For VMs created in the Resource Manager deployment model, you can also use the Azure CLI command `azure vm stop <yourResourceGroup> <yourVmName>` followed by `azure vm deallocate <yourResourceGroup> <yourVmName>`. Notice that the *Status* of the VM in the portal changes from **Running** to **Stopped (deallocated)**.	
 	
-	OR
-</br>	
-	- Delete the source VM and use the VHD left behind. **Browse** to your virtual machine in the [portal](https://portal.azure.com) and click **Delete**.
+	2. Delete the source VM and use the VHD left behind. **Browse** to your virtual machine in the [portal](https://portal.azure.com) and click **Delete**.
 	
 1. Find the access keys for the storage account which contains your source VHD, as well as the storage account where you will copy your VHD to create the new VM. The key for the account from where we are copying the VHD is called the *Source Key* and that for the account to which it will be copied to, is called the *Destination Key*. Read [About Azure storage accounts](../storage/storage-create-storage-account.md) for more information on access keys.
 
