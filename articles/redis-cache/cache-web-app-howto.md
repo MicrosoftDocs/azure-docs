@@ -18,15 +18,15 @@
 
 # How to create a Web App with Redis Cache
 
-This tutorial shows how to create and deploy an ASP.NET web application to a [web app in Azure App Service](../app-service-web/app-service-web-overview.md) using Visual Studio 2015. The sample application displays a list of team statistics and shows different ways to use Azure Redis Cache to store and retrieve data from the cache. 
+This tutorial shows how to create and deploy an ASP.NET web application to a web app in Azure App Service using Visual Studio 2015. The sample application displays a list of team statistics from a database and shows different ways to use Azure Redis Cache to store and retrieve data from the cache. When you complete the tutorial you'll have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
 
 You'll learn:
 
 -	How to create an ASP.NET MVC 5 web application in Visual Studio.
 -	How to read data from a database using Entity Framework.
--	How to store and retrieve data using Azure Redis Cache.
--	How to use a Redis sorted set to display the top 5 teams.
--	How to provision the Azure resources for the application using ARM templates.
+-	How to improve data throughout and reduce database load by storing and retrieving data using Azure Redis Cache.
+-	How to use a Redis sorted set to retrieve the top 5 teams.
+-	How to provision the Azure resources for the application using an ARM template.
 -	How to publish the application to Azure using Visual Studio.
 -	How to use the [Azure Portal](/features/azure-portal/) to monitor and manage your Azure application.
 
@@ -764,6 +764,7 @@ Once you have selected the cache to use, browse to the cache in the Azure portal
 
 -	Learn more about [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site.
 -	Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
+-	Learn more about [web apps in Azure App Service](../app-service-web/app-service-web-overview.md)
 -	Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal.
 
 -	Explore Azure Redis Cache premium features
