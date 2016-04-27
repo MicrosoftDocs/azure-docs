@@ -162,7 +162,7 @@ The database, collection, and document definitions will act as your DocumentDB `
 
 Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 
-		},
+			},
 			"isRegistered": false
 		}
 	};
@@ -207,7 +207,7 @@ Copy and paste the **getDatabase** function for creating your new database in th
 
     var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
 
-		// ADD THIS PART TO YOUR CODE
+	// ADD THIS PART TO YOUR CODE
     function getDatabase() {
         console.log(`Getting database:\n${config.database.id}\n`);
 
@@ -231,25 +231,25 @@ Copy and paste the **getDatabase** function for creating your new database in th
 
 Copy and paste the code below where you set the **getDatabase** function to add the helper function **exit** that will print the exit message and the call to **getDatabase** function.
 
-								} else {
-										resolve(result);
-									}
-							});
-					});
-			}
+			} else {
+					resolve(result);
+				}
+			});
+		});
+	}
 
-			// ADD THIS PART TO YOUR CODE
-			function exit(message) {
-				console.log(message);
-				console.log('Press any key to exit');
-				process.stdin.setRawMode(true);
-				process.stdin.resume();
-				process.stdin.on('data', process.exit.bind(process, 0));
-			}
+	// ADD THIS PART TO YOUR CODE
+	function exit(message) {
+		console.log(message);
+		console.log('Press any key to exit');
+		process.stdin.setRawMode(true);
+		process.stdin.resume();
+		process.stdin.on('data', process.exit.bind(process, 0));
+	}
 
-			getDatabase()
-			.then(() => { exit(`Completed successfully`); })
-			.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+	getDatabase()
+	.then(() => { exit(`Completed successfully`); })
+	.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
@@ -263,44 +263,45 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
 
 Copy and paste the **getCollection** function underneath the **getDatabase** function for creating your new collection with the ```id``` specified in the ```config``` object. Again, we'll check to make sure a collection with the same ```FamilyCollection``` id does not already exist. If it does exist, we'll return that collection instead of creating a new one.
 
-								} else {
-										resolve(result);
-								}
-						});
-				});
-		}
+			} else {
+					resolve(result);
+				}
+			});
+		});
+	}
 
-		// ADD THIS PART TO YOUR CODE
-		function getCollection() {
-		    console.log(`Getting collection:\n${config.collection.id}\n`);
+	// ADD THIS PART TO YOUR CODE
+	function getCollection() {
+		console.log(`Getting collection:\n${config.collection.id}\n`);
 
-		    return new Promise((resolve, reject) => {
-		        client.readCollection(collectionUrl, (err, result) => {
-		            if (err) {
-		                if (err.code == HttpStatusCodes.NOTFOUND) {
-		                    client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
-		                        if (err) reject(err)
-		                        else resolve(created);
-		                    });
-		                } else {
-		                    reject(err);
-		                }
-		            } else {
-		                resolve(result);
-		            }
-		        });
-		    });
-		}
+		return new Promise((resolve, reject) => {
+			client.readCollection(collectionUrl, (err, result) => {
+				if (err) {
+					if (err.code == HttpStatusCodes.NOTFOUND) {
+						client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
+							if (err) reject(err)
+								else resolve(created);
+								});
+							} else {
+								reject(err);
+							}
+				} else {
+						resolve(result);
+				}
+			});
+		});
+	}
 
 Copy and paste the code below the call to **getDatabase** to execute the **getCollection** function.
-		getDatabase()
 
-		// ADD THIS PART TO YOUR CODE
-		.then(() => getCollection())
-		// ENDS HERE
+	getDatabase()
 
-		.then(() => { exit(`Completed successfully`); })
-		.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+	// ADD THIS PART TO YOUR CODE
+	.then(() => getCollection())
+	// ENDS HERE
+
+	.then(() => { exit(`Completed successfully`); })
+	.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
@@ -311,14 +312,14 @@ A [document](documentdb-resources.md#documents) can be created by using the [cre
 
 Copy and paste the **getFamilyDocument** function underneath the **getCollection** function for creating the documents containing the JSON data saved in the ```config``` object. Again, we'll check to make sure a document with the same id does not already exist.
 
-								} else {
-										resolve(result);
-								}
-						});
-				});
-		}
+				} else {
+					resolve(result);
+				}
+			});
+		});
+	}
 
-		// ADD THIS PART TO YOUR CODE
+	// ADD THIS PART TO YOUR CODE
     function getFamilyDocument(document) {
         let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Getting document:\n${document.id}\n`);
@@ -342,16 +343,17 @@ Copy and paste the **getFamilyDocument** function underneath the **getCollection
     };
 
 Copy and paste the code below the call to **getCollection** to execute the **getFamilyDocument** function.
-		getDatabase()
-		.then(() => getCollection())
 
-		// ADD THIS PART TO YOUR CODE
-		.then(() => getFamilyDocument(config.documents.Andersen))
-		.then(() => getFamilyDocument(config.documents.Wakefield))
-		// ENDS HERE
+	getDatabase()
+	.then(() => getCollection())
 
-		.then(() => { exit(`Completed successfully`); })
-		.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+	// ADD THIS PART TO YOUR CODE
+	.then(() => getFamilyDocument(config.documents.Andersen))
+	.then(() => getFamilyDocument(config.documents.Wakefield))
+	// ENDS HERE
+
+	.then(() => { exit(`Completed successfully`); })
+	.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
@@ -365,34 +367,34 @@ DocumentDB supports [rich queries](documentdb-sql-query.md) against JSON documen
 
 Copy and paste the **queryCollection** function underneath the **getFamilyDocument** function. DocumentDB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](documentdb-sql-query.md).
 
-								} else {
-										resolve(result);
-								}
-						});
-				});
-		}
+				} else {
+					resolve(result);
+				}
+			});
+		});
+	}
 
-		// ADD THIS PART TO YOUR CODE
-		function queryCollection() {
-		    console.log(`Querying collection through index:\n${config.collection.id}`);
+	// ADD THIS PART TO YOUR CODE
+	function queryCollection() {
+    console.log(`Querying collection through index:\n${config.collection.id}`);
 
-		    return new Promise((resolve, reject) => {
-		        client.queryDocuments(
-		            collectionUrl,
-		            'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
-		        ).toArray((err, results) => {
-		            if (err) reject(err)
-		            else {
-		                for (var queryResult of results) {
-		                    let resultString = JSON.stringify(queryResult);
-		                    console.log(`\tQuery returned ${resultString}`);
-		                }
-		                console.log();
-		                resolve(results);
-		            }
-		        });
-		    });
-		};
+    return new Promise((resolve, reject) => {
+      client.queryDocuments(
+        collectionUrl,
+        'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
+      ).toArray((err, results) => {
+        if (err) reject(err)
+        else {
+          for (var queryResult of results) {
+            let resultString = JSON.stringify(queryResult);
+            console.log(`\tQuery returned ${resultString}`);
+          }
+        	console.log();
+        	resolve(results);
+      	}
+		  });
+  	});
+	};
 
 
 The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created.
@@ -402,15 +404,16 @@ The following diagram illustrates how the DocumentDB SQL query syntax is called 
 The [FROM](documentdb-sql-query.md/#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
 Copy and paste the code below the call to **getFamilyDocument** to execute the **queryCollection** function.
-		.then(() => getFamilyDocument(config.documents.Andersen))
-		.then(() => getFamilyDocument(config.documents.Wakefield))
 
-		// ADD THIS PART TO YOUR CODE
-		.then(() => queryCollection())
-		// ENDS HERE
+	.then(() => getFamilyDocument(config.documents.Andersen))
+	.then(() => getFamilyDocument(config.documents.Wakefield))
 
-		.then(() => { exit(`Completed successfully`); })
-		.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+	// ADD THIS PART TO YOUR CODE
+	.then(() => queryCollection())
+	// ENDS HERE
+
+	.then(() => { exit(`Completed successfully`); })
+	.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
@@ -420,41 +423,43 @@ Congratulations! You have successfully queried DocumentDB documents.
 DocumentDB supports replacing JSON documents.
 
 Copy and paste the **replaceDocument** function underneath the **queryCollection** function.
-		                console.log();
-										resolve(result);
-								}
-						});
-				});
-		}
 
-		// ADD THIS PART TO YOUR CODE
-		function replaceFamilyDocument(document) {
-		    let documentUrl = `${collectionUrl}/docs/${document.id}`;
-		    console.log(`Replacing document:\n${document.id}\n`);
-		    document.children[0].grade = 6;
+          console.log();
+					resolve(result);
+				}
+			});
+		});
+	}
 
-		    return new Promise((resolve, reject) => {
-		        client.replaceDocument(documentUrl, document, (err, result) => {
-		            if (err) reject(err);
-		            else {
-		                resolve(result);
-		            }
-		        });
-		    });
-		};
+	// ADD THIS PART TO YOUR CODE
+	function replaceFamilyDocument(document) {
+    let documentUrl = `${collectionUrl}/docs/${document.id}`;
+    console.log(`Replacing document:\n${document.id}\n`);
+    document.children[0].grade = 6;
+
+    return new Promise((resolve, reject) => {
+      client.replaceDocument(documentUrl, document, (err, result) => {
+        if (err) reject(err);
+        else {
+          resolve(result);
+        }
+      });
+  	});
+	};
 
 Copy and paste the code below the call to **queryCollection** to execute the **replaceDocument** function. Also, add the code to call **queryCollection** again to verify that the document had successfully changed.
-		.then(() => getFamilyDocument(config.documents.Andersen))
-		.then(() => getFamilyDocument(config.documents.Wakefield))
-		.then(() => queryCollection())
 
-		// ADD THIS PART TO YOUR CODE
-		.then(() => replaceFamilyDocument(config.documents.Andersen))
-    .then(() => queryCollection())
-		// ENDS HERE
+	.then(() => getFamilyDocument(config.documents.Andersen))
+	.then(() => getFamilyDocument(config.documents.Wakefield))
+	.then(() => queryCollection())
 
-		.then(() => { exit(`Completed successfully`); })
-		.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+	// ADD THIS PART TO YOUR CODE
+	.then(() => replaceFamilyDocument(config.documents.Andersen))
+  .then(() => queryCollection())
+	// ENDS HERE
+
+	.then(() => { exit(`Completed successfully`); })
+	.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
@@ -464,39 +469,41 @@ Congratulations! You have successfully replaced a DocumentDB document.
 DocumentDB supports deleting JSON documents.
 
 Copy and paste the **deleteDocument** function underneath the **replaceDocument** function.
-								else {
-										resolve(result);
-								}
-						});
-				});
-		};
 
-		// ADD THIS PART TO YOUR CODE
-		function deleteFamilyDocument(document) {
-		    let documentUrl = `${collectionUrl}/docs/${document.id}`;
-		    console.log(`Deleting document:\n${document.id}\n`);
+				else {
+					resolve(result);
+				}
+			});
+		});
+	};
 
-		    return new Promise((resolve, reject) => {
-		        client.deleteDocument(documentUrl, (err, result) => {
-		            if (err) reject(err);
-		            else {
-		                resolve(result);
-		            }
-		        });
-		    });
-		};
+	// ADD THIS PART TO YOUR CODE
+	function deleteFamilyDocument(document) {
+    let documentUrl = `${collectionUrl}/docs/${document.id}`;
+    console.log(`Deleting document:\n${document.id}\n`);
+
+    return new Promise((resolve, reject) => {
+      client.deleteDocument(documentUrl, (err, result) => {
+        if (err) reject(err);
+		    else {
+		      resolve(result);
+		    }
+		  });
+	  });
+	};
 
 Copy and paste the code below the call to the second **queryCollection** to execute the **deleteDocument** function.
-		.then(() => queryCollection())
-		.then(() => replaceFamilyDocument(config.documents.Andersen))
-		.then(() => queryCollection())
 
-		// ADD THIS PART TO YOUR CODE
-		.then(() => deleteFamilyDocument(config.documents.Andersen))
-		// ENDS HERE
+	.then(() => queryCollection())
+	.then(() => replaceFamilyDocument(config.documents.Andersen))
+	.then(() => queryCollection())
 
-		.then(() => { exit(`Completed successfully`); })
-		.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+	// ADD THIS PART TO YOUR CODE
+	.then(() => deleteFamilyDocument(config.documents.Andersen))
+	// ENDS HERE
+
+	.then(() => { exit(`Completed successfully`); })
+	.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
@@ -508,83 +515,84 @@ Deleting the created database will remove the database and all children resource
 
 Copy and paste the following code snippet (function **cleanup**) to remove the database and all the children resources.
 
-								else {
-										resolve(result);
-								}
-						});
-				});
-		};
+				else {
+					resolve(result);
+				}
+			});
+		});
+	};
 
-		// ADD THIS PART TO YOUR CODE
-    function cleanup() {
-        console.log(`Cleaning up by deleting database ${config.database.id}`);
+	// ADD THIS PART TO YOUR CODE
+  function cleanup() {
+    console.log(`Cleaning up by deleting database ${config.database.id}`);
 
-        return new Promise((resolve, reject) => {
-            client.deleteDatabase(databaseUrl, (err) => {
-                if (err) reject(err)
-                else resolve(null);
-            });
-        });
-    }
+    return new Promise((resolve, reject) => {
+      client.deleteDatabase(databaseUrl, (err) => {
+        if (err) reject(err)
+        else resolve(null);
+      });
+    });
+  }
 
 Copy and paste the code below the call to **deleteDocument** to execute the **cleanup** function.
-		.then(() => queryCollection())
+	.then(() => queryCollection())
 
-		// ADD THIS PART TO YOUR CODE
-		.then(() => deleteFamilyDocument(config.documents.Andersen))
-		// ENDS HERE
+	// ADD THIS PART TO YOUR CODE
+	.then(() => deleteFamilyDocument(config.documents.Andersen))
+	// ENDS HERE
 
-		.then(() => { exit(`Completed successfully`); })
-		.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+	.then(() => { exit(`Completed successfully`); })
+	.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 ##<a id="Run"></a>Step 12: Run your Node.js application all together!
 
 Altogether, the sequence for calling your functions should look like this:
-		getDatabase()
-		    .then(() => getCollection())
-		    .then(() => getFamilyDocument(config.documents.Andersen))
-		    .then(() => getFamilyDocument(config.documents.Wakefield))
-		    .then(() => queryCollection())
-		    .then(() => replaceFamilyDocument(config.documents.Andersen))
-		    .then(() => queryCollection())
-		    .then(() => deleteFamilyDocument(config.documents.Andersen))
-		    .then(() => cleanup())
-		    .then(() => { exit(`Completed successfully`); })
-		    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+
+	getDatabase()
+  	.then(() => getCollection())
+  	.then(() => getFamilyDocument(config.documents.Andersen))
+		.then(() => getFamilyDocument(config.documents.Wakefield))
+		.then(() => queryCollection())
+		.then(() => replaceFamilyDocument(config.documents.Andersen))
+		.then(() => queryCollection())
+		.then(() => deleteFamilyDocument(config.documents.Andersen))
+		.then(() => cleanup())
+		.then(() => { exit(`Completed successfully`); })
+		.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
 You should see the output of your get started app. The output should match the example text below.
 
-		Getting database:
-		FamilyDB
+	Getting database:
+	FamilyDB
 
-		Getting collection:
-		FamilyColl
+	Getting collection:
+	FamilyColl
 
-		Getting document:
-		Anderson.1
+	Getting document:
+	Anderson.1
 
-		Getting document:
-		Wakefield.7
+	Getting document:
+	Wakefield.7
 
-		Querying collection through index:
-		FamilyColl
-		        Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":5,"pets":[{"givenName":"Fluffy"}]}]
+	Querying collection through index:
+	FamilyColl
+    	Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":5,"pets":[{"givenName":"Fluffy"}]}]
 
-		Replacing document:
-		Anderson.1
+	Replacing document:
+	Anderson.1
 
-		Querying collection through index:
-		FamilyColl
-		        Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":6,"pets":[{"givenName":"Fluffy"}]}]
+	Querying collection through index:
+	FamilyColl
+      Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":6,"pets":[{"givenName":"Fluffy"}]}]
 
-		Deleting document:
-		Anderson.1
+	Deleting document:
+	Anderson.1
 
-		Cleaning up by deleting database FamilyDB
-		Completed successfully
-		Press any key to exit
+	Cleaning up by deleting database FamilyDB
+	Completed successfully
+	Press any key to exit
 
 Congratulations! You've created you've completed the Node.js tutorial and have your first DocumentDB console application!
 
