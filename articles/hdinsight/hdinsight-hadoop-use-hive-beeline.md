@@ -68,12 +68,12 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 2. From the `beeline>` prompt, use the following to connect to the HiveServer2 service. Replace __HOSTNAME__ with the host name returned for the head node earlier:
 
         !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
+        
+    > [AZURE.TIP] This instructs Beeline to connect to port __10001__ on the specified __HOSTNAME__, and that __HTTP__ is the transport method. The __admin__ account is used to authenticate the connection.
 
     When prompted, enter the password for the administrator (admin) account for your HDInsight cluster. Once the connection is established, the prompt will change to the following:
     
         jdbc:hive2://HOSTNAME:10001/>
-        
-    > [AZURE.NOTE] Note that the port is 10001, not 10000.
 
 3. Beeline commands usually begin with a `!` character, for example `!help` displays help. However the `!` can often be omitted. For example, `help` will also work.
 
