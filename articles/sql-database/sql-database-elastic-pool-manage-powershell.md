@@ -75,14 +75,17 @@ Metrics that can be retrieved as a percentage of the resource pool limit:
 
 | Metric name | Description |
 | :-- | :-- |
-| cpu\_percent | Average CPU utilization |
-| data\_io\_percent | Average IO utilization | 
-| log\_write\_percent | Average Log utilization | 
-| memory\_percent | Average Memory utilization | 
-| DTU\_percent | Average eDTU utilization (as a max value of CPU/IO/Log utilization) |  
-| max\_concurrent\_requests | Maximum number of concurrent user requests (workers) |  
-| max\_concurrent\_sessions | Maximum number of concurrent user sessions | 
-| storage\_in\_megabytes | Total storage size for the elastic pool | 
+| cpu\_percent | Average compute utilization in percentage of the limit of the pool. |
+| physica\_data\_read\_percent | Average I/O utilization in percentage based on the limit of the pool. |
+| log\_write\_percent | Average write resource utilization in percentage of the limit of the pool. | 
+| DTU\_consumption\_percent | Average eDTU utilization in percentage of eDTU limit for the pool | 
+| storage\_percent | Average storage utilization in percentage of the storage limit of the pool. |  
+| workers\_percent | Maximum concurrent workers (requests) in percentage based on the limit of the pool. |  
+| sessions\_percent | Maximum concurrent sessions in percentage based on the limit of the pool. | 
+| eDTU_limit | Current max elastic pool DTU setting for this elastic pool during this interval. |
+| storage\_limit | Current max elastic pool storage limit setting for this elastic pool in megabytes during this interval. |
+| eDTU\_used | Average eDTUs used by the pool in this interval. |
+| storage\_used | Average storage used by the pool in this interval in bytes |
 
 **Metrics granularity/retention periods:**
 
@@ -92,29 +95,83 @@ Metrics that can be retrieved as a percentage of the resource pool limit:
 
 This cmdlet and API limits the number of rows that can be retrieved in one call to 1000 rows (about 3 days of data at 5 minute granularity). But this command can be called multiple times with different start/end time intervals to retrieve more data 
 
-
 Retrieve the metrics:
 
-	$metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
-
-Get additional days by repeating the call and appending the data:
-
-	$metrics = $metrics + (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
+	$metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")  
 
 
 ## Get resource consumption metrics for an elastic database
 
-These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a standalone database, except for the following semantic difference 
+These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a standalone database, except for the following semantic difference. 
 
-* For this API metrics retrieved are expressed as a percentage of the per databaseDtuMax (or equivalent cap for the underlying metric like CPU, IO etc) set for that pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per DB cap limit for that resource in the parent pool. 
+•	For this API, metrics retrieved are expressed as a percentage of the per databaseDtuMax (or equivalent cap for the underlying metric like CPU, IO etc) set for that pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per DB cap limit for that resource in the parent pool. 
+
 
 Get the metrics:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
-Get additional days if needed by repeating the call and appending the data:
+## Resource consumption metrics retrieval for pool and its databases: full  example
 
-    $metrics = $metrics + (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
+This example retrieves the resource consumption metrics for a given elastic pool and all its databases. Collected data is formatted and written to a .csv formatted file for easy browsing through an excel spreadsheet.
+
+	$subscriptionId = '<Azure subscription id>'	      # Azure subscription ID
+	$resourceGroupName = '<resource group name>'             # Resource Group
+	$serverName = <server name>                              # server name
+	$poolName = <elastic pool name>                          # pool name
+		
+	# Login to Azure account and select the subscription.
+	Login-AzureRmAccount
+	Set-AzureRmContext -SubscriptionId $subscriptionId
+	
+	# Get resource usage metrics for an elastic pool for the specified time interval.
+	$startTime = '4/27/2016 00:00:00'  # start time in UTC
+	$endTime = '4/27/2016 01:00:00'    # end time in UTC
+	
+	# Construct the pool resource ID and retrive pool metrics at 5 minute granularity.
+	$poolResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticPools/' + $poolName
+	$poolMetrics = (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime) 
+	
+	# Get the list of databases in this pool.
+	$dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
+	
+	# Get resource usage metrics for a database in an elastic database for the specified time interval.
+	$dbMetrics = @()
+	foreach ($db in $dbList)
+	{
+	    $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
+	    $dbMetrics = $dbMetrics + (Get-AzureRmMetric -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime)
+	}
+	
+	#Optionally you can format the metrics and output as .csv file using the following script block.
+	$command = {
+    param($metricList, $outputFile)
+
+    # Format metrics into a table.
+    $table = @()
+    foreach($metric in $metricList) { 
+      foreach($metricValue in $metric.MetricValues) {
+        $sx = New-Object PSObject -Property @{
+            Timestamp = $metricValue.Timestamp.ToString()
+            MetricName = $metric.Name; 
+            Average = $metricValue.Average;
+            ResourceID = $metric.ResourceId 
+          }
+          $table = $table += $sx
+      }
+    }
+    
+    # Output the metrics into a .csv file.
+    write-output $table | Export-csv -Path $outputFile -Append -NoTypeInformation
+	}
+	
+	# Format and output pool metrics
+	Invoke-Command -ScriptBlock $command -ArgumentList $poolMetrics,c:\temp\poolmetrics.csv
+	
+	# Format and output database metrics
+	Invoke-Command -ScriptBlock $command -ArgumentList $dbMetrics,c:\temp\dbmetrics.csv
+
+
 
 ## Latency of elastic pool operations
 

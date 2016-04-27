@@ -93,7 +93,7 @@ To retrieve all databases in a pool, call the [ListDatabases](https://msdn.micro
         Console.WriteLine("  Database {0}", db.Name);
     }
 
-## Update a pool
+## Change performance settings of a pool
 
 Retrieve existing the pool properties. Modify the values and execute the CreateOrUpdate method.
 

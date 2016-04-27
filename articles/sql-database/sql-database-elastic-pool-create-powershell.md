@@ -47,17 +47,9 @@ Use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt6193
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Move a stand-alone database into a pool
+## Create a pool and populate it with new databases 
 
-To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet and set the **ElasticPoolName** parameter to the name of the target pool.
-
-	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
-
-## Bulk creation using an Azure Resource Manager template
-
-You can also use an ARM template to do bulk operations with PowerShell. 
-
-To get the latest, see [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
+Creation of a large number of databases in a pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into a new pool, see [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
 
 ## Create a pool PowerShell example
 
