@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="04/28/2016" 
 	ms.author="sdanie"/>
 
 # How to create a Web App with Redis Cache
@@ -685,7 +685,7 @@ Clicking the **Deploy to Azure** button takes you to the Azure portal and initia
 
 ![Deploy to Azure][cache-deploy-to-azure-step-1]
 
-1. On the **Custom deployment** blade, select an existing resource group or create a new one and specify its location.
+1. On the **Custom deployment** blade, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
 2. On the **Parameters** blade, specify an administrator account name (**ADMINISTRATORLOGIN** - don't use **admin**), administrator login password (**ADMINISTRATORLOGINPASSWORD**), and database name (**DATABASENAME**). The other parameters are configured for a free App Service hosting plan, and lower cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
 3. Change any of the other settings if desired, or keep the defaults, and click **OK**.
 4. Once the settings are configured, click **Review legal terms**.
@@ -705,7 +705,7 @@ You can view the status of your deployment on the **Microsoft.Template** blade.
 
 When provisioning is complete, you can publish your application to Azure from Visual Studio.
 
->[AZURE.NOTE] Any errors that may occur during the provisioning process are displayed on the **Microsoft.Template** blade. Common errors are too many SQL Servers or too many Free App Service hosting plans per subscription. Resolve any errors and restart the process by clicking the **Deploy to Azure** button.
+>[AZURE.NOTE] Any errors that may occur during the provisioning process are displayed on the **Microsoft.Template** blade. Common errors are too many SQL Servers or too many Free App Service hosting plans per subscription. Resolve any errors and restart the process by clicking **Redeploy** on the **Microsoft.Template** blade or the **Deploy to Azure** button in this tutorial.
 
 ## Publish the application to Azure
 
@@ -719,7 +719,7 @@ In this step of the tutorial, you'll publish the application to Azure and run it
 
     ![Publish][cache-publish-to-app-service]
 
-3. Select the subscription used when creating the Azure resources, expand the resource group containing the resources, select the desired Web App, and click **OK**. If you used the **Deploy to Azure** button your Web App name starts with **website** followed by some additional characters.
+3. Select the subscription used when creating the Azure resources, expand the resource group containing the resources, select the desired Web App, and click **OK**. If you used the **Deploy to Azure** button your Web App name starts with **webSite** followed by some additional characters.
 
     ![Select Web App][cache-select-web-app]
 
@@ -727,7 +727,7 @@ In this step of the tutorial, you'll publish the application to Azure and run it
 
     ![Publish][cache-publish]
 
-    After a few moments the publshing process will complete and a browser will be launched with the running sample application. If you get a DNS error when validating or publishing, and the provisioning process for the Azure resources for the application has just recently completed, wait a moment and try again.
+    After a few moments the publishing process will complete and a browser will be launched with the running sample application. If you get a DNS error when validating or publishing, and the provisioning process for the Azure resources for the application has just recently completed, wait a moment and try again.
 
     ![Cache added][cache-added-to-application]
 
@@ -738,7 +738,7 @@ The following table describes each action link from the sample application.
 | Create New              | Create a new Team.                                                                                                                                               |
 | Play Season             | Play a season of games, update the team stats, and clear any outdated team data from the cache.                                                                          |
 | Clear Cache             | Clear the team stats from the cache.                                                                                                                             |
-| List from Cache         | Retrieve the team stats from the cache. If there is a cache miss, load the stats from the database and save to the cache.                                        |
+| List from Cache         | Retrieve the team stats from the cache. If there is a cache miss, load the stats from the database and save to the cache for next time.                                        |
 | Sorted Set from Cache   | Retrieve the team stats from the cache using a sorted set. If there is a cache miss, load the stats from the database and save to the cache using a sorted set.  |
 | Top 5 Teams from Cache  | Retrieve the top 5 teams from the cache using a sorted set. If there is a cache miss, load the stats from the database and save to the cache using a sorted set. |
 | Load from DB            | Retrieve the team stats from the database.                                                                                                                       |
@@ -750,7 +750,7 @@ Click some of the actions and experiment with retrieving the data from the diffe
 
 ## Delete the resources when you are finished with the application
 
-When you are finished with the sample tutorial application, you can delete the Azure resources used in order to conserve cost and resources. If you use the **Deploy to Azure** button in the [Provision the Azure resources](#provision-the-azure-resources) section, all of your resources are contained in the same resource group, and you can delete them together by deleting the resource group.
+When you are finished with the sample tutorial application, you can delete the Azure resources used in order to conserve cost and resources. If you use the **Deploy to Azure** button in the [Provision the Azure resources](#provision-the-azure-resources) section and all of your resources are contained in the same resource group, you can delete them together in one operation by deleting the resource group.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 2. Type the name of your resource group into the **Filter items...** textbox.
@@ -775,7 +775,7 @@ To run the application locally on your machine, you need an Azure Redis Cache in
 -	If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
 -	If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Once you have selected the cache to use, browse to the cache in the Azure portal and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+Once you have selected or created the cache to use, browse to the cache in the Azure portal and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
 
 1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
 
