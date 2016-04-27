@@ -57,7 +57,7 @@ To create a cache, first sign in to the [Azure Portal][], and click **New**, **D
 
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE] If you don't have an Azure account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial][].
+>[AZURE.NOTE] If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
 
 In the **New Redis Cache** blade, specify the desired configuration for the cache.
 
@@ -333,4 +333,4 @@ Now that you've learned the basics, follow these links to learn more about Azure
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
+
