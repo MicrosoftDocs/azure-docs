@@ -149,6 +149,8 @@ VMAccess files are all written as JSON and we will run them from the Azure CLI b
 
 ### Using VMAccess to check or repair the disk of a Linux VM
 
+Using VMAccess you can do a fsck run on the disk under your Linux VM.  You can do a disk check and then a disk repair if you find any errors.
+
 To check and then repair the disk use this VMAccess script:
 
 `disk_check_repair.json`
@@ -169,6 +171,8 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```
 
 ### Using VMAccess to reset user access to Linux
+
+If you have lost access to root on your Linux VM you can launch a VMAccess script to reset the root password, unlocking Linux.
 
 To reset the root password use this VMAccess script:
 
@@ -210,6 +214,8 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### Using VMAccess to manage user accounts on Linux
 
+VMAccess is a Python script that can be used to manage users on your Linux VM without logging in and using sudo or the root account.
+
 To create a new user use this VMAccess script:
 
 `create_new_user.json`
@@ -250,7 +256,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### Using VMAccess to reset the SSHD configuration on Linux
 
-If you make changes to the Linux VMs SSHD configuration and close the SSH connection before verifying the changes, you may be prevented from SSH'ing back in.  VMAccess can be used to reset the SSHD configuration.
+If you make changes to the Linux VMs SSHD configuration and close the SSH connection before verifying the changes, you may be prevented from SSH'ing back in.  VMAccess can be used to reset the SSHD configuration back to a known good configuration.
 
 To reset the SSHD configuration use this VMAccess script:
 
