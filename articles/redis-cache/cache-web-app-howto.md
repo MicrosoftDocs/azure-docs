@@ -59,7 +59,7 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
  
     ![Create project][cache-create-project]
 
-3. Select **MVC** as the project type. Clear the **Host in the cloud** checkbox. We'll [provision the Azure resources](#provision-the-azure-resources) and [publish the application to Azure](#publish-the-application-to-azure) in subsequent steps in the tutorial. 
+3. Select **MVC** as the project type. Clear the **Host in the cloud** checkbox. You'll [provision the Azure resources](#provision-the-azure-resources) and [publish the application to Azure](#publish-the-application-to-azure) in subsequent steps in the tutorial. 
 
     ![Select project template][cache-select-template]
 
@@ -67,7 +67,7 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 
 ## Create the ASP.NET MVC application
 
-In this section of the tutorial, we'll create the basic application that reads and displays team statistics from a database.
+In this section of the tutorial, you'll create the basic application that reads and displays team statistics from a database.
 
 -	[Add the model](#add-the-model)
 -	[Add the controller](#add-the-controller)
@@ -245,13 +245,13 @@ In this section of the tutorial, we'll create the basic application that reads a
 
     ![Code changes][cache-layout-cshtml-code]
 
-4. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. Note the **Create New**, **Edit**, **Details**, and **Delete** actions that were automatically added to the application by the **MVC 5 Controller with views, using Entity Framework**. In the next section we'll add Redis Cache to optimize the data access and provide additional features to the application.
+4. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. Note the **Create New**, **Edit**, **Details**, and **Delete** actions that were automatically added to the application by the **MVC 5 Controller with views, using Entity Framework**. In the next section you'll add Redis Cache to optimize the data access and provide additional features to the application.
 
 ![Starter application][cache-starter-application]
 
 ## Configure the application to use Redis Cache
 
-In this section of the tutorial, we'll configure the sample application to store and retrieve Contoso team statistics from a Redis Cache using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
+In this section of the tutorial, you'll configure the sample application to store and retrieve Contoso team statistics from a Redis Cache using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
 
 -	[Configure the application to use StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
 -	[Update the TeamsController class to return results from the cache or the database](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
@@ -299,7 +299,7 @@ In this section of the tutorial, we'll configure the sample application to store
   
 1. Create a file on your computer named `WebAppPlusCacheAppSecrets.config` and place it in a location that won't be checked in with the source code of your sample application, should you decide to check it in somewhere. In this example the `AppSettingsSecrets.config` file is located at `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
 
-    Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents. If you run the application locally this information is used to connect to your Azure Redis Cache instance. When you deploy to Azure the application retrieves the cache connection information from the app setting for the Web App. Later in the tutorial we'll provision an Azure Redis Cache instance and update the cache name and password. If you don't plan to run the sample application locally you can skip the creation of this file and the subsequent steps that reference the file. Since the `WebAppPlusCacheAppSecrets.config` is not deployed to Azure with your application, you don't need it unless you are going to run the application locally.
+    Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents. If you run the application locally this information is used to connect to your Azure Redis Cache instance. When you deploy to Azure the application retrieves the cache connection information from the app setting for the Web App. Later in the tutorial you'll provision an Azure Redis Cache instance and update the cache name and password. If you don't plan to run the sample application locally you can skip the creation of this file and the subsequent steps that reference the file. Since the `WebAppPlusCacheAppSecrets.config` is not deployed to Azure with your application, you don't need it unless you are going to run the application locally.
 
 
 		<appSettings>
@@ -320,7 +320,7 @@ In this section of the tutorial, we'll configure the sample application to store
 
 ### Update the TeamsController class to return results from the cache or the database
 
-In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample we'll query the sorted set for the top 5 teams ranked by number of wins.
+In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample you'll query the sorted set for the top 5 teams ranked by number of wins.
 
 >[AZURE.NOTE] Note that it is not required to store the team statistics in multiple formats in the cache in order to use Azure Redis Cache. This tutorial uses multiple formats in order to demonstrate some of the different ways and different data types you can use to cache data.
 
@@ -543,7 +543,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
 ### Update the Create, Edit, and Delete methods to work with the cache
 
-The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section we'll modify these three methods to clear the cached teams so that the cache won't be out of sync with the database.
+The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section you'll modify these three methods to clear the cached teams so that the cache won't be out of sync with the database.
 
 1. Browse to the `Create(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
