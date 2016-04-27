@@ -38,7 +38,7 @@ Click:
 * **Any chart or tile** to see more detail.
 * **Settings** to get to predefined pages of other metrics.
 * [**Metrics Explorer**](app-insights-metrics-explorer.md) to create metrics pages of your own choice.
-* [**Search**](app-insights-diagnostics-explorer.md) to investigate specific instances of events such as requests, exceptions or log traces.
+* [**Search**](app-insights-diagnostic-search.md) to investigate specific instances of events such as requests, exceptions or log traces.
 * [**Analytics**](app-insights-analytics.md) for powerful queries over your telemetry.
 
 
