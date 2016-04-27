@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/08/2016"
+   ms.date="04/27/2016"
    ms.author="v-livech"/>
 
 
 # Create a Linux VM on Azure using the CLI
 
-This article shows how to quickly deploy a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM with a basic infrastructure surrounding it that you can use to prototype or test a concept very rapidly. Think of it as the quickest way to a Linux bash shell.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)] and [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).  You can also quickly deploy a Linux VM using the [Azure Portal](virtual-machines-linux-quick-create-portal.md).
+This article shows how to quickly deploy a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM with a basic infrastructure surrounding it that you can use to prototype or test a concept very rapidly. Think of it as the quickest way to a Linux bash shell.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)), and [the Azure CLI](../xplat-cli-install.md) logged in (`azure login`) and in resource manager mode (`azure config mode arm`).  You can also quickly deploy a Linux VM using the [Azure Portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Quick Command Summary
 
@@ -32,7 +32,7 @@ ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 
 Using the same command from above we will show each prompt along with the output you should expect to see.  
 
-For the ImageURN we will use `canonical:ubuntuserver:14.04.2-LTS:latest` to deploy a Ubuntu 14.04 VM. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).).
+For the ImageURN we will use `canonical:ubuntuserver:14.04.2-LTS:latest` to deploy a Ubuntu 14.04 VM. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md)).
 
 In the following command walk through, please replace the prompts with values from your own environment, we are using "example" values.  The output should look like the following output block.  
 
@@ -127,7 +127,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-You can now SSH into your VM on the default SSH port 22 and the Public IP address listed in the output above.
+You can now SSH into your VM on the default SSH port 22 and the Public IP address (or the fully qualified domain name -- FQDN) listed in the output above.
 
 ```
 ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244

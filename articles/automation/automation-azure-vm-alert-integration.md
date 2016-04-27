@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="04/11/2016"
+    ms.date="04/24/2016"
     ms.author="csand;magoedte" />
 
 # Azure Automation solution - remediate Azure VM alerts
@@ -65,6 +65,102 @@ Click **OK** in the **Add an alert rule** blade and the alert rule will be creat
 ### Enable or disable a runbook
 
 If you have a runbook configured for an alert, you can disable it without removing the runbook configuration. This allows you to keep the alert running and perhaps test some of the alert rules and then later re-enable the runbook.
+
+## Create a runbook that works with an Azure alert
+
+When you choose a runbook as part of an Azure alert rule, the runbook needs to have logic in it to manage the alert data that is passed to it.  When a runbook is configured in an alert rule, a webhook is created for the runbook; that webhook is then used to start the runbook each time the alert triggers.  The actual call to start the runbook is an HTTP POST request to the webhook URL. The body of the POST request contains a JSON-formated object that contains useful properties related to the alert.  As you can see below, the alert data contains details like subscriptionID, resourceGroupName, resourceName, and resourceType.
+
+### Example of Alert data
+```
+{
+    "WebhookName": "AzureAlertTest",
+    "RequestBody": "{
+	\"status\":\"Activated\",
+	\"context\": {
+		\"id\":\"/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/microsoft.insights/alertrules/AlertTest\",
+		\"name\":\"AlertTest\",
+		\"description\":\"\",
+		\"condition\": {
+			\"metricName\":\"CPU percentage guest OS\",
+			\"metricUnit\":\"Percent\",
+			\"metricValue\":\"4.26337916666667\",
+			\"threshold\":\"1\",
+			\"windowSize\":\"60\",
+			\"timeAggregation\":\"Average\",
+			\"operator\":\"GreaterThan\"},
+		\"subscriptionId\":\<subscriptionID> \",
+		\"resourceGroupName\":\"TestResourceGroup\",
+		\"timestamp\":\"2016-04-24T23:19:50.1440170Z\",
+		\"resourceName\":\"TestVM\",
+		\"resourceType\":\"microsoft.compute/virtualmachines\",
+		\"resourceRegion\":\"westus\",
+		\"resourceId\":\"/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM\",
+		\"portalLink\":\"https://portal.azure.com/#resource/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM\"
+		},
+	\"properties\":{}
+	}",
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "<webhookURL>"
+    }
+}
+```
+
+When the Automation webhook service receives the HTTP POST it extracts the alert data and passes it to the runbook in the WebhookData runbook input parameter.  Below is a sample runbook that shows how to use the WebhookData parameter and extract the alert data and use it to manage the Azure resource that triggered the alert.
+
+### Example runbook
+
+```
+#  This runbook will restart an ARM (V2) VM in response to an Azure VM alert.
+
+[OutputType("PSAzureOperationResponse")]
+
+param ( [object] $WebhookData )
+
+if ($WebhookData)
+{
+	# Get the data object from WebhookData
+	$WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
+
+    # Assure that the alert status is 'Activated' (alert condition went from false to true)
+    # and not 'Resolved' (alert condition went from true to false)
+	if ($WebhookBody.status -eq "Activated")
+    {
+	    # Get the info needed to identify the VM
+	    $AlertContext = [object] $WebhookBody.context
+	    $ResourceName = $AlertContext.resourceName
+	    $ResourceType = $AlertContext.resourceType
+        $ResourceGroupName = $AlertContext.resourceGroupName
+        $SubId = $AlertContext.subscriptionId
+
+	    # Assure that this is the expected resource type
+	    Write-Verbose "ResourceType: $ResourceType"
+	    if ($ResourceType -eq "microsoft.compute/virtualmachines")
+	    {
+		    # This is an ARM (V2) VM
+
+		    # Authenticate to Azure with service principal and certificate
+            $ConnectionAssetName = "AzureRunAsConnection"
+		    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
+		    if ($Conn -eq $null) {
+                throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
+            }
+		    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+		    Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+
+            # Restart the VM
+		    Restart-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName
+	    } else {
+		    Write-Error "$ResourceType is not a supported resource type for this runbook."
+	    }
+    } else {
+        # The alert status was not 'Activated' so no action taken
+		Write-Verbose ("No action taken. Alert status: " + $WebhookBody.status)
+    }
+} else {
+    Write-Error "This runbook is meant to be started from an Azure alert only."
+}
+```
 
 ## Summary
 

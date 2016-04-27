@@ -40,11 +40,12 @@ The models we use include logistic and linear regression, random forests and gra
 - [Random forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees in order to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features, extend to the multiclass classification setting, do not require feature scaling, and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
 - [Gradient boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
 
-Modeling examples using CV and Hyperparameter sweep are shown for the binary classification problem. Simpler examples (without parameter sweeps) are presented in the main topic for regression tasks. But in the appendix, validation using elastic net for linear regression and CV with parameter sweep using for random forest regression are also presented. The **elastic net** is a regularized regression method for fitting linear regression models that linearly combines the L1 and L2 metrics as penalties of the [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) and [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) methods.
+Modeling examples using CV and Hyperparameter sweep are shown for the binary classification problem. Simpler examples (without parameter sweeps) are presented in the main topic for regression tasks. But in the appendix, validation using elastic net for linear regression and CV with parameter sweep using for random forest regression are also presented. The **elastic net** is a regularized regression method for fitting linear regression models that linearly combines the L1 and L2 metrics as penalties of the [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) and [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) methods.   
 
 
 
->AZURE.NOTE: Although the Spark MLlib toolkit is designed to work on large datasets, for purposes of demonstrating its modeling capabilities, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used, for convenience. The exercise given here runs efficiently on an HDInsight cluster with 2 worker nodes (in about 10 minutes). The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory or changing the cluster size.
+>[AZURE.NOTE] Although the Spark MLlib toolkit is designed to work on large datasets, for purposes of demonstrating its modeling capabilities, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used, for convenience. The exercise given here runs efficiently on an HDInsight cluster with 2 worker nodes (in about 10 minutes). The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory or changing the cluster size.
+
 
 ## Prerequisites
 
@@ -223,6 +224,7 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 
 ![Frequency of trips by passenger count](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
 
+
 ### Plot a histogram of tip amounts and how tip amount varies by passenger count and fare amounts.
 
 The code uses a SQL squery to sample the data and converts the results to a Pandas data frame to plot.
@@ -283,6 +285,7 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 
 Time taken to execute above cell: 10.42 seconds
 
+
 ## Feature engineering, transformation and data preparation for modeling
 
 This section describes and provides the code for procedures used to prepare data for use in ML modeling. It shows how to do the following tasks:
@@ -293,6 +296,7 @@ This section describes and provides the code for procedures used to prepare data
 - Create a random sub-sampling of the data and split it into training and testing sets
 - Feature scaling
 - Cache objects in memory
+
 
 ### Create a new feature by binning hours into traffic time buckets
 
@@ -468,12 +472,16 @@ This code creates a random sampling of the data (25% is used here). Although it 
 
 Time taken to execute above cell: 0.4 seconds
 
+
 ### Feature scaling
 
-Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).
+Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).   
 
->AZURE.NOTE: We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.
 
+>[AZURE.NOTE] We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.   
+
+
+Here is the code to scale to scale variables for use with the regularized linear SGD algorithm.
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
@@ -541,8 +549,6 @@ Time taken to execute above cell: 0.11 seconds
 
 ## Predict whether or not a tip is paid with binary classification models
 
-TBD: review validity in this context.
-
 This section shows how use three models for the binary classification task of predicting whether or not a tip is paid for a taxi trip. The models presented are:
 
 - Logistic regression 
@@ -567,9 +573,10 @@ We show how to do cross-validation (CV) with parameter sweeping in two ways:
 
 ### Generic cross validation and hyperparameter sweeping used with the logistic regression algorithm for binary classification
 
-The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with custom code that can be applied to any of the learning algorithms in MLlib.
+The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with custom code that can be applied to any of the learning algorithms in MLlib.   
 
->AZURE.NOTE: The execution of this custom CV code can take several minutes.
+
+>[AZURE.NOTE] The execution of this custom CV code can take several minutes.
 
 
 	# LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
@@ -758,9 +765,10 @@ Time taken to execute above cell: 9.96 seconds
 
 ### Use MLlib's CrossValidator pipeline function with LogisticRegression (Elastic regression) model
 
-The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with the MLlib CrossValidator pipeline function for CV with parameter sweep.
+The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with the MLlib CrossValidator pipeline function for CV with parameter sweep.   
 
->AZURE.NOTE: The execution of this MLlib CV code can take several minutes.
+
+>[AZURE.NOTE] The execution of this MLlib CV code can take several minutes.
 
 
 	# RECORD START TIME
@@ -946,11 +954,14 @@ These models were described in the introduction. Each model building code sectio
 
 1. **Model training** data with one parameter set
 2. **Model evaluation** on a test data set with metrics
-3. **Saving model** in blob for future consumption
+3. **Saving model** in blob for future consumption   
+
 
 >AZURE NOTE: Cross-validation is not used with the three regression models in this section. But an example showing how to use CV with Elastic Net for linear regression is provided in the Appendix of this topic.
 
->AZURE NOTE: In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps (shown below). Elastic net regression, shown below in the Appendix, can also be use to improve convergence.
+
+>AZURE NOTE: In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. Elastic net regression, shown in the Appendix to this topic, can also be use to improve convergence.
+
 
 ### Linear regression with SGD
 
@@ -1000,9 +1011,10 @@ Time taken to execute above cell: 36.14 seconds
 
 ### Random Forest regression
 
-The code in this section shows how to train evaluate, and save a random forest model that predicts tip amount for the NYC taxi trip data.
+The code in this section shows how to train evaluate, and save a random forest model that predicts tip amount for the NYC taxi trip data.   
 
->AZURE.NOTE: Cross-validation with parameter sweeping using custom code is provided in the appendix.
+
+>[AZURE.NOTE] Cross-validation with parameter sweeping using custom code is provided in the appendix.
 
 
 	#PREDICT TIP AMOUNTS USING RANDOM FOREST
