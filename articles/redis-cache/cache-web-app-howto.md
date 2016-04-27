@@ -28,7 +28,6 @@ You'll learn:
 -	How to use a Redis sorted set to retrieve the top 5 teams.
 -	How to provision the Azure resources for the application using an ARM template.
 -	How to publish the application to Azure using Visual Studio.
--	How to use the [Azure Portal](/features/azure-portal/) to monitor and manage your Azure application.
 
 ## Prerequisites
 
