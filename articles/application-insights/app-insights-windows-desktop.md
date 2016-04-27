@@ -15,17 +15,13 @@
 	ms.date="04/06/2016" 
 	ms.author="awills"/>
 
-# Application Insights on Windows Desktop apps, services and worker roles
+# Monitoring usage and performance in Windows Desktop apps
 
 *Application Insights is in preview.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+Application Insights and HockeyApp let you monitor your deployed application for usage and performance.
 
-Application Insights lets you monitor your deployed application for usage and performance.
 
-All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights SDK to send telemetry to Application Insights. You can also add Application Insights SDK to a class library project.
-
-You can choose which standard data collectors you want to use (for example to monitor performance counters or dependency calls), or just use the Core API and write your own telemetry.
 
 
 ## <a name="add"></a> Create an Application Insights resource
