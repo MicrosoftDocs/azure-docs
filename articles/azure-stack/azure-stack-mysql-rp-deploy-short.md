@@ -19,18 +19,20 @@
 # Using MySQL Databases as PaaS on Azure Stack
 MySQL databases support common website platforms as is a common technology used on the websites scene. You can deploy the MySQL Resource Provider to instantiate MySQL servers and databases through Azure Resource Manager deployment templates, as well as deploy WordPress websites from the Azure Web Apps PaaS add on for Azure Stack.
 
+## Quick steps to deploy the resource provider
+Use these steps if you're already familiar with Azure Stack. If you want more detail, follow the links in each section or go straight to [Deploy the SQL Database Resource Provider Adapter on Azure Stack POC](azure-stack-sql-rp-deploy-long.md).
 
-To deploy a MySQL resource provider, you will:
+1.  Make sure you fulfill all [set up steps before you deploy](azure-stack-mysql-rp-deploy-long.md#set-up-steps-before-you-deploy):
 
-1.  Make sure you comply with all the [prerequisites](/azure-stack-mysql-rp-deploy-long.md#Prerequisites---Before-you-deploy) for RP deployment:
-
-    - .Net 3.5 framework already setup in base image Windows Server image
-    - [Azure-Stack-Compatible](http://aka.ms/azStackPsh) PowerShell release
-    - IE security settings configured properly on ClientVM
+    - .NET 3.5 framework already set up in base image Windows Server image (if you downloaded the Azure Stack bits after 2/23/2016, you can skip this step)
+    - [Azure-Stack-Compatible PowerShell release](http://aka.ms/azStackPsh)
+    - IE security settings configured properly on the ClientVM [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#Turn-off-IE-enhanced-security-and-enable-cookies)
 
 2. [Download the MySQL RP binaries](http://aka.ms/masmysqlrp) and extract it on the ClientVM in your Azure Stack PoC.
 
-3. [Run the bootstrap.cmd and script](azure-stack-mysql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment) - A set of scripts grouped by tabs will open in PowerShell Integrated Scripting Environment (ISE).
+3. [Run the bootstrap.cmd and script](azure-stack-mysql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment)
+
+   A set of scripts grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE).
 
 4. Run all the loaded scripts in sequence from left to right in each tab. The scripts will:
     - In the “Prepare” tab:
@@ -39,26 +41,15 @@ To deploy a MySQL resource provider, you will:
         - Upload the certificates and all other artifacts to an Azure Stack storage account
         - Publish gallery packages to allow deployment MySQL resources through gallery
     - In the “Deploy” tab:
-        - [Deploy a VM](/azure-stack-mysql-rp-deploy-long.md#Deploy-your-MySQL-RP-Resource-Provider-VM) that will host both your resource provider and MySQL Servers and databases you will instantiate *
+        - [Deploy a VM](/azure-stack-mysql-rp-deploy-long.md#Deploy-your-MySQL-RP-Resource-Provider-VM) that will host both your resource provider and MySQL Servers and databases you will instantiate. This script references a JSON parameter file, which you need to update with some values before you run the script.
 
-        - [Register a local DNS record](/azure-stack-mysql-rp-deploy-long.md#Update-the-local-DNS) that will map to your resource provider VM
-        - [Register you resource provider](/azure-stack-mysql-rp-deploy-long.md#Register-the-MySQL-RP-Resource-Provider) with the local Azure Resource Manager
+        - [Register a local DNS record](/azure-stack-mysql-rp-deploy-long.md#Update-the-local-DNS) that will map to your resource provider VM.
+        - [Register you resource provider](/azure-stack-mysql-rp-deploy-long.md#Register-the-MySQL-RP-Resource-Provider) with the local Azure Resource Manager.
 
->\*This script has a separate parameter file with passwords etc. which
-must be complete before running.
-
->\*\*All scripts assume the base operating system image has .Net 3.5
-preinstalled, that the clientVM has JavaScript and cookies enabled, and
-that you are using the latest Azure PowerShell.
+    > [AZURE.IMPORTANT] All scripts assume the base operating system image fulfills the prerequisites (.NET 3.5, Javascript and cookies enabled on the clientVM, and the latest version of Azure PowerShell. If you get errors running the scripts, double-check that you fulfilled the prerequisites.
 
 
 5\. [Test your new MySQL RP](/azure-stack-MySql-rp-deploy-long.md#test-your-deployment-create-your-first-sql-database) by deploying a MySQL database from the Azure Stack portal:
 **Create &gt; Custom &gt; MySQL Server and Database**
 
-This should get your MySQL Resource Provider up and running in about 25 minutes (depending on your hardware). If you wish to know more
-about each step, go to the [detailed MySQL Server RP deployment instructions](/azure-stack-MySql-rp-deploy-long.md#Instructions-for-deploying)
-
-<span id="before-you-deploy" class="anchor"><span
-id="_Prerequisites_-_Before" class="anchor"><span
-id="_Instructions_for_deploying" class="anchor"></span></span></span>
-
+This should get your MySQL Resource Provider up and running in about 25 minutes
