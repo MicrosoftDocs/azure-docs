@@ -46,7 +46,7 @@ There are many parts to this solution that need to be configured and managed cor
 
 ### Supported Scenarios
 
-| &nbsp; | Backup Vault | Recovery Services Vault | 
+| - | Backup Vault | Recovery Services Vault | 
 | -------- | ------------- | ------- |
 | Azure IaaS V1 VMs | Yes | No |
 | Azure IaaS V2 VMs | No | No |
