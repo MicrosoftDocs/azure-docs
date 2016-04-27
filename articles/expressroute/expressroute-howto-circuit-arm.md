@@ -16,6 +16,7 @@
    ms.date="04/15/2016"
    ms.author="ganesr"/>
 
+
 # Create and modify an ExpressRoute circuit
 
 > [AZURE.SELECTOR]
@@ -45,7 +46,7 @@ To begin your configuration, sign in to your Azure account. For more information
 
 	Login-AzureRmAccount
 
-Check the subscriptions for the account.
+Check the subscriptions for the account:
 
 	Get-AzureRmSubscription
 
@@ -90,9 +91,9 @@ Make sure that you specify the correct SKU tier and SKU family:
 - SKU family determines the billing type. You can specify "Metereddata" for a metered data plan and "Unlimiteddata" for an unlimited data plan. Note that you can change the billing type from "Metereddata" to "Unlimiteddata", but you can't change the type from "Unlimiteddata" to "Metereddata".
 
 
->[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Please ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
+>[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
 
-The response contains the service key. You can get detailed descriptions of all parameters by running the following:
+The response contains the service key. You can get detailed descriptions of all the parameters by running the following:
 
 
 	get-help New-AzureRmExpressRouteCircuit -detailed
@@ -100,7 +101,7 @@ The response contains the service key. You can get detailed descriptions of all 
 
 ### 4. List all ExpressRoute circuits
 
-To get a list of all ExpressRoute circuits that you created, run the `Get-AzureRmExpressRouteCircuit` command:
+To get a list of all the ExpressRoute circuits that you created, run the `Get-AzureRmExpressRouteCircuit` command:
 
 
 	Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -130,7 +131,7 @@ The response will look similar to the following example:
 	ServiceKey                        : **************************************
 	Peerings                          : []
 
-You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters lists all circuits. Your service key will be listed in the "ServiceKey" field.
+You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters lists all the circuits. Your service key will be listed in the "ServiceKey" field:
 
 
 	Get-AzureRmExpressRouteCircuit
@@ -162,14 +163,14 @@ The response will look similar to the following example:
 	Peerings                         : []
 
 
-You can get detailed descriptions of all parameters by running the following:
+You can get detailed descriptions of all the parameters by running the following:
 
 
 	get-help Get-AzureRmExpressRouteCircuit -detailed
 
 ### 5. Send the service key to your connectivity provider for provisioning
 
-The "ServiceProviderProvisioningState" provides information about the current state of provisioning on the service provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+"ServiceProviderProvisioningState" provides information about the current state of provisioning on the service provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
 
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
@@ -224,7 +225,7 @@ The response will look similar to the following example:
 
 ### 7. Create your routing configuration
 
-For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration](expressroute-howto-routing-arm.md) to create and modify circuit peerings.
+For step-by-step instructions, see the [ExpressRoute circuit routing configuration](expressroute-howto-routing-arm.md) article to create and modify circuit peerings.
 
 
 >[AZURE.IMPORTANT] These instructions only apply to circuits that are created with service providers that offer layer 2 connectivity services. If you're using a service provider that offers managed layer 3 services (typically an IP VPN, like MPLS), your connectivity provider will configure and manage routing for you.
@@ -298,7 +299,7 @@ The response will look similar to the following example:
 	Peerings                         : []
 
 
-You can get detailed descriptions of all parameters by running the following:
+You can get detailed descriptions of all the parameters by running the following:
 
 	get-help get-azurededicatedcircuit -detailed
 
@@ -332,7 +333,7 @@ The circuit will now have the ExpressRoute premium add-on features enabled. Note
 
 ### To disable the ExpressRoute premium add-on
 
->[AZURE.IMPORTANT] This operation can fail if you are using resources than are greater than what is permitted for the standard circuit.
+>[AZURE.IMPORTANT] This operation can fail if you're using resources than are greater than what is permitted for the standard circuit.
 
 Note the following:
 
