@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/26/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
@@ -131,29 +131,23 @@ For more information about using tags in Resource Manager, see [Using tags to or
 
 ## Supported operations for the deployment models
 
-The resources you created in the classic deployment model do not support Resource Manager operations. In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative tasks such as moving a classic resource to another resource group, but these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains Virtual Machines that were created with Resource Manager and classic. If you run the following PowerShell command:
+The resources you created in the classic deployment model do not support Resource Manager operations. In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative tasks such as moving a classic resource to another resource group, but these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains a Virtual Machine that was created with classic deployment. If you run the following PowerShell command:
 
-    Get-AzureRmResourceGroup -Name ExampleGroup
+    Get-AzureRmResourceGroup -Name ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 
-It will return all of the Virtual Machines:
+It will return the Virtual Machine:
+    
+    Name              : ExampleClassicVM
+    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+    ResourceName      : ExampleClassicVM
+    ResourceType      : Microsoft.ClassicCompute/virtualMachines
+    ResourceGroupName : ExampleGroup
+    Location          : westus
+    SubscriptionId    : {guid}
 
-    Resources :
-     Name                 Type                                          Location
-     ================     ============================================  ========
-     ExampleClassicVM     Microsoft.ClassicCompute/domainNames          eastus
-     ExampleClassicVM     Microsoft.ClassicCompute/virtualMachines      eastus
-     ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
-    ...
-
-However, if you run the **Get-AzureRmVM** command:
+However, the **Get-AzureRmVM** cmdlet only returns Virtual Machines deployed through Resource Manager. The following command does not return the Virtual Machine created through classic deployment.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
-
-You will only get Virtual Machines that were created with Resource Manager.
-
-    Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
-    Name     : ExampleResourceVM
-    ...
 
 In general, you should not expect resources created through classic deployment to work with Resource Manager commands.
 
