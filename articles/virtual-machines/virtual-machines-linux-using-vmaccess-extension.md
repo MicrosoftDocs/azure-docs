@@ -25,7 +25,7 @@ This article shows how to use the VMAcesss VM extension [(Github)](https://githu
 
 ## Quick Commands
 
-There are two ways to use VMAccess on your Linux VMs.  First is using the Azure cli with `azure vm reset-access` with the correct flag.  The second way to use VMAccess is with raw json files that VMAccess will process and then act on.
+There are two ways to use VMAccess on your Linux VMs.  First is using the Azure cli with `azure vm reset-access` with the correct flag.  The second way to use VMAccess is with raw json files that VMAccess will process and then act on.  For the quick command section we will use the `azure vm reset-access` method.
 
 In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
@@ -74,7 +74,7 @@ ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -r
 
 The disk on your Linux VM is showing errors.  You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key.   If that happened back in the datacenter dark ages you would drive there, give your hand print to unlock the door, get into the cage and then crack open the KVM to get at the server console.  Think of the Azure VMAccess Extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
 
-VMAccess files are all written as JSON and we will run them from the Azure CLI but they can also be called from Azure Templates.
+For the detailed walkthrough we will use the long form of VMAccess which uses raw json files.  These VMAccess json files can also be called from Azure Templates.
 
 ### Using VMAccess to check or repair the disk of a Linux VM
 
