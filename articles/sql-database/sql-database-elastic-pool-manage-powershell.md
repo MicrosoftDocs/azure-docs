@@ -194,39 +194,6 @@ For reference documentation about these PowerShell cmdlets, see:
 
 The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, other than starting again from the beginning. The Stop- cmdlet cleans up and releases all appropriate resources.
 
-## Monitor and manage a pool PowerShell example
-
-
-    $subscriptionId = '<Azure subscription id>'
-    $resourceGroupName = '<resource group name>'
-    $location = '<datacenter location>'
-    $serverName = '<server name>'
-    $poolName = '<pool name>'
-    $databaseName = '<database name>'
-    
-    Login-AzureRmAccount
-    Set-AzureRmContext -SubscriptionId $subscriptionId
-    
-    
-    Set-AzureRmSqlElasticPool –ResourceGroupName $resourceGroupName –ServerName $serverName –ElasticPoolName $poolName –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
-    
-    $poolResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticPools/' + $poolName
-    $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $databaseName 
-    $startTime1 = '2/10/2016'
-    $endTime1 = '2/14/2016'
-    $startTime2 = '2/14/2016'
-    $endTime2 = '2/18/2016'
-    
-    $metrics = (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime1 -EndTime $endTime1) 
-    $metrics
-    
-    $metrics = $metrics + (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime2 -EndTime $endTime2)
-        
-    $metrics = (Get-AzureRmMetric -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime1 -EndTime $endTime1) 
-    
-	$metrics = $metrics + (Get-AzureRmMetric -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime2 -EndTime $endTime2)
-    
-
 ## Next steps
 
 - [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
