@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/25/2016"
+   ms.date="04/27/2016"
    ms.author="elfish"/>
 
 # Overview: Cloud business continuity and database disaster recovery with SQL Database
@@ -81,4 +81,4 @@ Geo-Restore is also available with Basic, Standard, and Premium databases. It pr
 
 ###Active Geo-Replication
 
-Active Geo-Replication is available for all database tiers. It’s designed for applications that hve more aggressive recovery requirements than Geo-Restore can offer. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries.  In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to configure Geo-Replication and to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to failover to the secondary database. Refer to [Application upgrade without downtime](sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.
+Active Geo-Replication is available for all database tiers. It’s designed for applications that hve more aggressive recovery requirements than Geo-Restore can offer. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries.  In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to [configure Geo-Replication](sql-database-geo-replication-portal.md) and to [failover to the secondary database](sql-database-geo-replication-failover-portal.md). Refer to [Application upgrade without downtime](sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/25/2016"
+	ms.date="04/27/2016"
 	ms.author="sstein" />
 
 # Overview: SQL Database Active Geo-Replication
