@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Getting started with cross-database queries (vertical partitioning) | Microsoft Azure"	
+	pageTitle="Get started with cross-database queries (vertical partitioning) | Microsoft Azure"	
 	description="how to use elastic database query with vertically partitioned databases"
 	services="sql-database"
 	documentationCenter=""  
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/26/2016"
 	ms.author="torsteng" />
 
-# Getting started with cross-database queries (vertical partitioning) (preview)
+# Get started with cross-database queries (vertical partitioning) (preview)
 
 Elastic database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. This topic applies to [vertically partitioned databases](sql-database-elastic-query-vertical-partitioning.md).  
 

@@ -38,8 +38,10 @@ The setup steps and code provided in this walkthrough is for HDInsight Spark. Ho
 
 2.To create your HDInsight Spark cluster, version Spark 1.5.2 (HDI 3.3), see [Get started: create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 
->AZURE.NOTE: The python2 kernal used by the notebooks and code in this walkthrough currently must use the Spark (Preview) -> Spark 1.5.2 (HDI 3.3) version.
+>[AZURE.NOTE] The python2 kernal used by the notebooks and code in this walkthrough currently must use the Spark (Preview) -> Spark 1.5.2 (HDI 3.3) version.
+
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
+
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
