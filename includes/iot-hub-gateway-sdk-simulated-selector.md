@@ -67,4 +67,4 @@ Instead of opening a connection to IoT Hub for each simulated device, this modul
 <!-- Links -->
 [Simulated Device Cloud Upload sample]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-field-gateway-sdk
-[lnk-gw-getstarted]: iot-hub-gateway-sdk-get-started.md
+[lnk-gw-getstarted]: iot-hub-linux-gateway-sdk-get-started.md
