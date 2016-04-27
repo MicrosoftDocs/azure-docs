@@ -192,6 +192,6 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 <!-- Links -->
-[lnk-main-c]: https://github.com/Azure/azure-iot-field-gateway-sdk/blob/master/samples/helloworld/src/main.c
-[lnk-helloworld-c]: https://github.com/Azure/azure-iot-field-gateway-sdk/blob/master/modules/hello_world/src/hello_world.c
-[lnk-logger-c]: https://github.com/Azure/azure-iot-field-gateway-sdk/blob/master/modules/logger/src/logger.c
+[lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/helloworld/src/main.c
+[lnk-helloworld-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/hello_world/src/hello_world.c
+[lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
