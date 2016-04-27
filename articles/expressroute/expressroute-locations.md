@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
 
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
-## ExpressRoute connectivity providers
+## <a name="partners"></a>ExpressRoute connectivity providers
 
 ExpressRoute is supported across all Azure regions and locations. The following map provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
 
@@ -118,7 +118,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **e-shelter** | Coming soon | Not Supported | Berlin+|
 | **Interxion** | Supported | Not Supported | Frankfurt|
 
-## Connectivity through service providers not listed
+## <a name="nonpartners"></a>Connectivity through service providers not listed
 
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 

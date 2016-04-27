@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="04/25/2016"
    ms.author="nitinme"/>
 
 # Integrating Data Lake Store with other Azure Services
@@ -46,6 +46,18 @@ For instructions on how to use Azure Data Factory with Data Lake Store, see [Mov
 ## Copy data from Azure Storage Blobs into Data Lake Store
 
 Azure Data Lake Store provides a command-line tool, AdlCopy, that enables you to copy data from Azure Blob Storage into a Data Lake Store account. For more information, see [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md).
+
+## Copy data between Azure SQL Database and Data Lake Store
+
+You can use Apache Sqoop to import and export data between Azure SQL Database and Data Lake Store. For more information, see [Copy data between Data Lake Store and Azure SQL database using Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+
+## Use Data Lake Store with Stream Analytics
+
+You can use Data Lake Store as one of the outputs to store data streamed using Azure Stream Analytics. For more information, see [Stream data from Azure Storage Blob into Data Lake Store using Azure Stream Analytics](data-lake-store-stream-analytics.md).
+
+## Use Data Lake Store with Power BI
+
+You can use Power BI to import data from a Data Lake Store account to analyze and visualize the data. For more information, see [Analyze data in Data Lake Store using Power BI](data-lake-store-power-bi.md).
 
 
 ## See also

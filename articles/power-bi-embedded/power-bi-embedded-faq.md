@@ -1,6 +1,6 @@
 <properties
    pageTitle="FAQ"
-   description=""
+   description="Power BI Embedded FAQ"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

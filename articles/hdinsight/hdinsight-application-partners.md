@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="na" 
 	authors="pablissima" 
-	manager="paulettm="" 
+	manager="paulettm" 
 	tags=""/>
 <tags
 	ms.service="hdinsight"

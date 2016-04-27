@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Get started with BizTalk Trading Partner Management and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 The BizTalk Trading Partner Management (TPM) service lets you define and persist business to business relationships such as partners and agreements along with associated artifacts such as schemas and certificates. These relationships can then be enforced by related API services such as AS2, EDIFACT, and X12.
 

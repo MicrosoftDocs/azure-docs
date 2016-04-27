@@ -19,4 +19,4 @@
 
 # Create a Linux Virtual Machine Scale Set using Azure CLI
 
-[AZURE.INCLUDE [virtual-machines-common-vmss-create-cli](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
+[AZURE.INCLUDE [virtual-machines-linux-cli-vmss-quick-create-include](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]

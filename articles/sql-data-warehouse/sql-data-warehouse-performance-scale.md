@@ -3,7 +3,7 @@
    description="Understand SQL Data Warehouse elasticity using Data Warehouse Units to scale compute resources up and down. Code examples provided."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/29/2016"
-   ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
+   ms.author="barbkess;sonyama"/>
 
 # Elastic performance and scale with SQL Data Warehouse
 To elastically increase or decrease your compute power all you need to do is adjust the number of Data Warehouse Units (DWU) allocated to your SQL Data Warehouse. Data Warehouse Units are a new concept delivered by SQL Data Warehouse to enable you to manage this simmply and effectively. This topic serves as an introduction to Data Warehouse units; explaining how you can use them to elastically scale your compute power. The article also provides some initial guidance on how to set a reasonable DWU value for your environment.

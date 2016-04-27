@@ -87,9 +87,8 @@ Open the SQL Database blade for the database you want to export.
 
 ## Next steps
 
-- [Import an Azure SQL database][5]
-
-
+- [Import a BACPCAC to an Azure SQL database](sql-database-import.md)
+- [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx)
 
 ## Additional resources
 

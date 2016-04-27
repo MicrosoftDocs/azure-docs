@@ -20,7 +20,7 @@
 
 # SQL Database security: Manage database access and login security  
 
-Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account. Understand some differences and similarities in login security options between SQL Database and an on-premises SQL Server.
+Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account. Understand some differences and similarities in login security options between SQL Database and an on-premises SQL Server. See [Azure SQL Database Tutorial: Get Started with Azure SQL Database Security](sql-database-get-started-security.md) for a quick tutorial.
 
 ## Database provisioning and server-level principal login
 
@@ -174,5 +174,6 @@ SELECT * FROM sys.databases;
 
 ## See also
 
+[Azure SQL Database Tutorial: Get Started with Azure SQL Database Security](sql-database-get-started-security.md)
 [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md)
 [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)

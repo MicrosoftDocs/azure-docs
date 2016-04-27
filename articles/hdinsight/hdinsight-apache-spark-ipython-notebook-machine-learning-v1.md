@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Build Machine Learning applications using Apache Spark on Azure HDInsight (Windows)
+# Build Machine Learning applications using Apache Spark on HDInsight Windows (Preview)
 
 > [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to create a machine learning application on HDInsight Spark Linux clusters, see [Build Machine Learning applications using Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md).
 

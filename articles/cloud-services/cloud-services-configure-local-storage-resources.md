@@ -1,6 +1,6 @@
 <properties
-pageTitle="Configure Local Storage Resources in Azure Cloud Services"
-description=""
+pageTitle="Configure Local Storage Resources in Azure Cloud Services | Microsoft Azure"
+description="Learn about configuring local storage resources in Azure Cloud Services"
 services="cloud-services"
 documentationCenter=""
 authors="cristy"

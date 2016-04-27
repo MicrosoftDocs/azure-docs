@@ -26,7 +26,7 @@ Try to access the application with the appropriate client program from the VM on
 
 ![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
-For example, if the application is a web server, run a browser on the VM and try to access a web page hosted on the VM.
+For example, if the application is a web server, open a browser on the VM and try to access a web page hosted on the VM.
 
 If you can access the application, go to [Step 2](#step2).
 

@@ -23,9 +23,9 @@ Azure Service Fabric allows the creation of Service Fabric clusters on any virtu
 
 This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on-premises, though it can be easily adapted for any other environment such as other clouds.
 
-## Service Fabric standalone package
+## Download the Service Fabric standalone package
 
-The standalone package for Service Fabric for Windows Server 2012 R2 deployments is named *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip* and can be downloaded [here](http://go.microsoft.com/fwlink/?LinkId=730690).
+[Download the standalone package for Service Fabric for Windows Server 2012 R2](http://go.microsoft.com/fwlink/?LinkId=730690), which is named *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
 In the download package you will find the following files:
 

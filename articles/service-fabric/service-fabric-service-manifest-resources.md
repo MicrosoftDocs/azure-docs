@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
-   ms.author="sumukhs"/>
+   ms.date="04/14/2016"
+   ms.author="mani-ramaswamy"/>
 
 # Specify resources in a service manifest
 
