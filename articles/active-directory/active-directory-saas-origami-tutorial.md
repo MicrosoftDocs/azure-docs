@@ -141,7 +141,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 1. On the Single Sign On Setup dialog page, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_531.png)
+	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/123.png)
 
 	a. Select **Enable Single Sign On**.
 
