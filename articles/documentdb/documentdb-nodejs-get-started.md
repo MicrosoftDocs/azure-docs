@@ -80,11 +80,11 @@ Then, copy and paste the code snippet below and set properties ```config.endpoin
 
 ![Node.js tutorial - Screen shot of the Azure Portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade - Node database][keys]
 
-    // ADD THIS PART TO YOUR CODE
-        var config = {}
+  // ADD THIS PART TO YOUR CODE
+  var config = {}
 
-        config.endpoint = "~your DocumentDB endpoint uri here~";
-        config.primaryKey = "~your primary key here~";
+  config.endpoint = "~your DocumentDB endpoint uri here~";
+  config.primaryKey = "~your primary key here~";
 
 Copy and paste the ```database id```, ```collection id```, and ```JSON documents``` to your ```config``` object below where you set your ```config.endpoint``` and ```config.authKey``` properties. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md) rather than adding the document definitions.
 
@@ -92,70 +92,70 @@ Copy and paste the ```database id```, ```collection id```, and ```JSON documents
   config.primaryKey = "~your primary key here~";
 
   // ADD THIS PART TO YOUR CODE
-    config.database = {
-        "id": "FamilyDB"
-    };
+  config.database = {
+      "id": "FamilyDB"
+  };
 
-    config.collection = {
-        "id": "FamilyColl"
-    };
+  config.collection = {
+      "id": "FamilyColl"
+  };
 
-    config.documents = {
-        "Andersen": {
-            "id": "Anderson.1",
-            "lastName": "Andersen",
-            "parents": [{
-                "firstName": "Thomas"
-            }, {
-                    "firstName": "Mary Kay"
-                }],
-            "children": [{
-                "firstName": "Henriette Thaulow",
-                "gender": "female",
-                "grade": 5,
-                "pets": [{
-                    "givenName": "Fluffy"
-                }]
-            }],
-            "address": {
-                "state": "WA",
-                "county": "King",
-                "city": "Seattle"
-            }
-        },
-        "Wakefield": {
-            "id": "Wakefield.7",
-            "parents": [{
-                "familyName": "Wakefield",
-                "firstName": "Robin"
-            }, {
-                    "familyName": "Miller",
-                    "firstName": "Ben"
-                }],
-            "children": [{
-                "familyName": "Merriam",
-                "firstName": "Jesse",
-                "gender": "female",
-                "grade": 8,
-                "pets": [{
-                    "givenName": "Goofy"
-                }, {
-                        "givenName": "Shadow"
-                    }]
-            }, {
-                    "familyName": "Miller",
-                    "firstName": "Lisa",
-                    "gender": "female",
-                    "grade": 1
-                }],
-            "address": {
-                "state": "NY",
-                "county": "Manhattan",
-                "city": "NY"
-            },
-            "isRegistered": false
-        }
-    };
+  config.documents = {
+      "Andersen": {
+          "id": "Anderson.1",
+          "lastName": "Andersen",
+          "parents": [{
+              "firstName": "Thomas"
+          }, {
+                  "firstName": "Mary Kay"
+              }],
+          "children": [{
+              "firstName": "Henriette Thaulow",
+              "gender": "female",
+              "grade": 5,
+              "pets": [{
+                  "givenName": "Fluffy"
+              }]
+          }],
+          "address": {
+              "state": "WA",
+              "county": "King",
+              "city": "Seattle"
+          }
+      },
+      "Wakefield": {
+          "id": "Wakefield.7",
+          "parents": [{
+              "familyName": "Wakefield",
+              "firstName": "Robin"
+          }, {
+                  "familyName": "Miller",
+                  "firstName": "Ben"
+              }],
+          "children": [{
+              "familyName": "Merriam",
+              "firstName": "Jesse",
+              "gender": "female",
+              "grade": 8,
+              "pets": [{
+                  "givenName": "Goofy"
+              }, {
+                      "givenName": "Shadow"
+                  }]
+          }, {
+                  "familyName": "Miller",
+                  "firstName": "Lisa",
+                  "gender": "female",
+                  "grade": 1
+              }],
+          "address": {
+              "state": "NY",
+              "county": "Manhattan",
+              "city": "NY"
+          },
+          "isRegistered": false
+      }
+  };
 
 
 The database, collection, and document definitions will act as your DocumentDB ```database id```, ```collection id```, and documents' data.
