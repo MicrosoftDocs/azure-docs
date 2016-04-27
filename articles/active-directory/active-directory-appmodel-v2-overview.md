@@ -26,6 +26,7 @@ Apps that use the v2.0 endpoint can also consume REST APIs from the [Microsoft G
 
 ## Getting Started
 [AZURE.VIDEO build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps]
+
 Choose your favorite platform below to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
 
 <!-- TODO: Finalize this table  -->
