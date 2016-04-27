@@ -91,7 +91,7 @@ Once the VM is created you can login to it using remote desktop with the Admin a
 
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are start menu tiles and desktop icons for many of the tools. 
 
-##How to create a strong password on the Jupyter notebook server 
+## How to create a strong password on the Jupyter notebook server 
 
 Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the Jupyter notebook server installed on the machine.
 
