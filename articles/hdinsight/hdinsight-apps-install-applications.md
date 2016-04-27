@@ -19,7 +19,7 @@
 
 # Install HDInsight applications
 
-An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For defining custom HDInsight applications, see [Deine HDInsight applications](hdinsight-apps-define-applications.md).
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For defining custom HDInsight applications, see [Define HDInsight applications](hdinsight-apps-define-applications.md).
 
 The following are the published HDInsight applications: [jgao: list and description to be provided by Travis]
 

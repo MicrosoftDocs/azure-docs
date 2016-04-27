@@ -29,13 +29,12 @@ Other related articles:
  
 ### Prerequisites
 
-Before you begin this tutorial, you must have:
+If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
 
-- **An HDInsight cluster**: To create one, see [Create cluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## Install HDInsight application
 
-HDInsight applications can be installed when you create a cluster or to an existing HDInsight cluster. For defining the ARM templates, see [Define HDInsight applications](hdinsight-apps-define-applications.md)
+HDInsight applications can be installed when you create a cluster or to an existing HDInsight cluster. For defining ARM templates, see [Define HDInsight applications](hdinsight-apps-define-applications.md)
 
 The files needed for deploying this application (Hue):
 
