@@ -102,7 +102,7 @@ To pause a database, use any of these individual methods.
 
 [AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-To pause a database, use any of these individual methods.
+To resume a database, use any of these individual methods.
 
 - [Resume compute with Azure portal][]
 - [Resume compute with PowerShell][]
