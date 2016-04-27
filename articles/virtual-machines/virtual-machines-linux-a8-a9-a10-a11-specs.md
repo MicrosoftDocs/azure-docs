@@ -26,31 +26,28 @@ Here is background information and some considerations for using the Azure A8, A
 
 ## Access to the RDMA network
 
-Within a single cloud service or an availability set, clusters of size A8 and A9 Linux virtual machines that run a supported Linux HPC distribution and a supported MPI implementation can access the RDMA network in Azure to run Linux MPI applications. 
+Within a single cloud service or an availability set, clusters of size A8 and A9 Linux VMs that run one of the following supported Linux HPC distributions and a supported MPI implementation can access the RDMA network in Azure to run Linux MPI applications. 
 
-The following table summarizes current prerequisites for the clustered Linux VMs. See [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md) for deployment options and sample configuration steps.
+* **Distributions** - SUSE Linux Enterprise Server (SLES) 12 for HPC, SLES 12 for HPC (Premium), CentOS-based 7.1 HPC, or CentOS-based 6.5 HPC, deployed from Azure Marketplace image
 
-Prerequisite | Virtual machines 
------------- | -------------
-Operating system | SUSE Linux Enterprise Server (SLES) 12 for HPC,<br/>SLES 12 for HPC (Premium),<br/>CentOS-based 7.1 HPC, or<br/>CentOS-based 6.5 HPC Marketplace image
-MPI | Intel MPI Library 5
-
+* **MPI** - Intel MPI Library 5
 
 >[AZURE.NOTE] Currently, Azure Linux RDMA drivers are only installed when you deploy RDMA-enabled SLES 12 HPC and CentOS HPC images from the Azure Marketplace. You can't install the drivers on other Linux VMs you deploy.
 >
 >The CentOS-based HPC images in the Marketplace also include Intel MPI 5. You must install Intel MPI on SLES 12 HPC VMs.
 
+See [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md) for deployment options and sample configuration steps.
+
 ## Linux RDMA driver updates for SLES 12
-After you create a Linux VM based on a SUSE Linux Enterprise Server (SLES) 12 HPC image, you might need to update the RDMA drivers on the VMs for RDMA network connectivity.
+After you create a VM based on a SLES 12 HPC image, you might need to update the RDMA drivers on the VMs for RDMA network connectivity.
 
 >[AZURE.IMPORTANT]Currently this step is **required** for SLES 12 HPC VM deployments in most Azure regions. **The only SLES 12 HPC VMs you should not update are those created in the following Azure regions: US West, West Europe, and Japan East.**
 
 Before you update the drivers, stop all **zypper** processes or any processes that lock the SUSE repo databases on the VM. Otherwise the drivers might not update properly.  
 
+To update the Linux RDMA drivers on each VM, run one of the following sets of Azure CLI commands from your client computer.
 
-Update the Linux RDMA drivers on each VM by running one of the following sets of Azure CLI commands on your client computer.
-
-**For a VM provisioned in the classic deployment model**
+**For a SLES 12 HPC VM provisioned in the classic deployment model**
 
 ```
 azure config mode asm
@@ -58,7 +55,7 @@ azure config mode asm
 azure vm extension set <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
 ```
 
-**For a VM provisioned in the Resource Manager deployment model**
+**For a SLES 12 HPC VM provisioned in the Resource Manager deployment model**
 
 ```
 azure config mode arm
@@ -84,7 +81,7 @@ vmname=cluster
 
 for (( i=11; i<19; i++ )); do
 
-# For VMs in the classic deployment model use the following command in your script.
+# For VMs created in the classic deployment model use the following command in your script.
 
 azure vm extension set $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
 
@@ -99,7 +96,7 @@ done
 
 ## Considerations for HPC Pack and Linux
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) is Microsoft’s free HPC cluster and job management solution for Windows. The latest releases of HPC Pack 2012 R2 support several Linux distributions to run on compute nodes deployed in Azure VMs, managed by a Windows Server head node. Linux compute nodes deployed on A8 or A9 VMs and running a supported MPI implementation can run MPI applications that access the RDMA network. To get started, see the [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) is Microsoft’s free HPC cluster and job management solution. The latest releases of HPC Pack 2012 R2 support several Linux distributions to run on compute nodes deployed in Azure VMs, managed by a Windows Server head node. Linux compute nodes deployed on A8 or A9 VMs and running a supported MPI implementation can run MPI applications that access the RDMA network. To get started, see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
 ## Network topology considerations
 

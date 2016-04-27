@@ -41,7 +41,7 @@ A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that conne
 
 ## Deployment considerations
 
-* **Azure account** – If you want to deploy more than a small number of compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
+* **Azure subscription** – If you want to deploy more than a small number of compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 
 * **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores per subscription (if you use the classic deployment model) or 20 cores per region (if you use the Resource Manager deployment model). To request a quota increase, open a support ticket at no charge as shown in [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 

@@ -21,13 +21,13 @@ ms.service="virtual-machines-linux"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-Learn how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-linux-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you configure size A8 and A9 VMs to run a supported Linux HPC distribution and a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
+Learn how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-linux-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up a cluster of size A8 and A9 VMs to run a supported Linux HPC distribution and a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
 >[AZURE.NOTE] Azure Linux RDMA is currently supported with Intel MPI Library version 5 running on size A8 or A9 VMs created from a SUSE Linux Enterprise Server (SLES) 12 HPC image or a CentOS 6.5 or 7.1 HPC image in the Azure Marketplace. 
 
 
 
-## Linux cluster deployment options
+## Cluster deployment options
 
 Following are methods you can use to create a Linux RDMA cluster either with or without a job scheduler.
 
@@ -37,7 +37,7 @@ Following are methods you can use to create a Linux RDMA cluster either with or 
 
 * **Azure Resource Manager templates** - Use the Resource Manager deployment model to deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources for a compute cluster that can take advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster.
 
-## Azure CLI and classic deployment model
+## Sample deployment in classic model
 
 The following steps will help you use the Azure CLI to deploy a SUSE Linux Enterprise Server 12 VM, install Intel MPI Library and other customizations, create a custom VM image, and then script the deployment of a cluster of A8 or A9 VMs. 
 
@@ -47,7 +47,7 @@ The following steps will help you use the Azure CLI to deploy a SUSE Linux Enter
 
 *   **Client computer** - You'll need a Mac, Linux, or Windows-based client computer to communicate with Azure. These steps assume you are using a Linux client.
 
-*   **Azure subscription** - If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. 
+*   **Azure subscription** - If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options. 
 
 *   **Cores quota** - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs. For example, you will need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
@@ -59,37 +59,31 @@ The following steps will help you use the Azure CLI to deploy a SUSE Linux Enter
 
 ### Provision a SLES 12 VM
 
-After logging in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows **asm** mode, indicating that the CLI is in Service Management mode. If it is not, set the mode by running this command:
+After logging in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows Service Management mode. If it is not, set the mode by running this command:
 
-```
-azure config mode asm
-```
+
+    azure config mode asm
+
 
 Type the following to list all the subscriptions you are authorized to use:
 
-```
-azure account list
-```
+
+    azure account list
 
 The current active subscription will be identified with `Current` set to `true`. If this is not the subscription you want to use to create the cluster, set the appropriate subscription number as the active subscription:
 
-```
-azure account set <subscription-number>
-```
+    azure account set <subscription-number>
 
 To see the publicly available SLES 12 images in Azure, run a command similar to the following, assuming your shell environment supports **grep**:
 
-```
-azure vm image list | grep "suse.*hpc"
-```
+
+    azure vm image list | grep "suse.*hpc"
 
 >[AZURE.NOTE]The SLES 12 HPC images are preconfigured with the necessary Linux RDMA drivers for Azure. 
 
 Now provision a size A9 VM with an available SLES 12 HPC image by running a command similar to the following, which uses o:
 
-```
-azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
-```
+    azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
 
 where
 
@@ -109,56 +103,44 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
 
 >[AZURE.IMPORTANT]Microsoft Azure does not provide root access to Linux VMs. To gain administrative access when connected as a user to the VM, run commands using `sudo`.
 
-*   **Updates** - Install updates using **zypper**. You might also want to install NFS utilities.  
+* **Updates** - Install updates using **zypper**. You might also want to install NFS utilities.  
 
     >[AZURE.IMPORTANT]At this time we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.
 
-*   **Linux RDMA driver updates** - You'll need to update the RDMA drivers on SLES 12 HPC VMs deployed in certain Azure regions. See [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12) for details.
+* **Linux RDMA driver updates** - You'll need to update the RDMA drivers on SLES 12 HPC VMs deployed in certain Azure regions. See [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12) for details.
 
-*   **Intel MPI** - If you deployed an SLES 12 HPC VM, download and install the Intel MPI Library 5 runtime from the Intel.com site by running commands similar to the following. This step isn't necessary if you deployed a CentOS 6.5 or 7.1 HPC VM.
+* **Intel MPI** - If you deployed an SLES 12 HPC VM, download and install the Intel MPI Library 5 runtime from the Intel.com site by running commands similar to the following. This step isn't necessary if you deployed a CentOS 6.5 or 7.1 HPC VM.
 
-    ```
-    sudo wget <download link for your registration>
+        sudo wget <download link for your registration>
 
-    sudo tar xvzf <tar-file>
+        sudo tar xvzf <tar-file>
 
-    cd <mpi-directory>
+        cd <mpi-directory>
 
-    sudo ./install.sh
-
-    ```
+        sudo ./install.sh
 
     Accept default settings to install Intel MPI on the VM.
 
-*   **Lock memory** - For MPI codes to lock the memory available for RDMA, you need to add or change the following settings in the /etc/security/limits.conf file. (You will need root access to edit this file.)
+* **Lock memory** - For MPI codes to lock the memory available for RDMA, you need to add or change the following settings in the /etc/security/limits.conf file. (You will need root access to edit this file.)
 
-    ```
-    <User or group name> hard    memlock <memory required for your application in KB>
+        <User or group name> hard    memlock <memory required for your application in KB>
 
-    <User or group name> soft    memlock <memory required for your application in KB>
-    ```
+        <User or group name> soft    memlock <memory required for your application in KB>
 
     >[AZURE.NOTE]For testing purposes, you can also set memlock to unlimited. For example: `<User or group name>    hard    memlock unlimited`. If you use a CentOS HPC image, this setting is already added to your /etc/security/limits.conf file.
 
+* **SSH keys** - Generate SSH keys to establish trust for your user account among all the compute nodes in the cluster when running MPI jobs. Run the following command to create SSH keys. Just press Enter to generate the keys in the default location without setting a passphrase.
 
-*   **SSH keys** - Generate SSH keys to establish trust for your user account among all the compute nodes in the cluster when running MPI jobs. Run the following command to create SSH keys. Just press Enter to generate the keys in the default location without setting a passphrase.
-
-    ```
-    ssh-keygen
-    ```
+        ssh-keygen
 
     Append the public key to the authorized_keys file for known public keys.
 
-    ```
-    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-    ```
+        cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
     In the ~/.ssh directory edit or create the "config" file. Provide the IP address range of the private network that you will use in Azure (10.32.0.0/16 in this example):
 
-    ```
-    host 10.32.0.*
-    StrictHostKeyChecking no
-    ```
+        host 10.32.0.*
+        StrictHostKeyChecking no
 
     Alternatively, list the private network IP address of each VM in your cluster as follows:
 
