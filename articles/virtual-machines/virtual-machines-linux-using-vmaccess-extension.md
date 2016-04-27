@@ -149,7 +149,7 @@ VMAccess files are all written as JSON and we will run them from the Azure CLI b
 
 ### Using VMAccess to check or repair the disk of a Linux VM
 
-#### To check and then repair the disk use this VMAccess script:
+To check and then repair the disk use this VMAccess script:
 
 `disk_check_repair.json`
 
@@ -170,7 +170,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### Using VMAccess to reset user access to Linux
 
-#### To reset the root password use this VMAccess script:
+To reset the root password use this VMAccess script:
 
 `reset_root_password.json`
 
@@ -189,7 +189,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
 
-#### To reset the SSH key of a non root user use this VMAccess script:
+To reset the SSH key of a non root user use this VMAccess script:
 
 `reset_ssh_key.json`
 
@@ -210,7 +210,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### Using VMAccess to manage user accounts on Linux
 
-#### To create a new user use this VMAccess script -
+To create a new user use this VMAccess script:
 
 `create_new_user.json`
 
@@ -230,7 +230,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
 
-#### To create a new user use this VMAccess script -
+To create a new user use this VMAccess script:
 
 `remove_user.json`
 
@@ -252,7 +252,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 If you make changes to the Linux VMs SSHD configuration and close the SSH connection before verifying the changes, you may be prevented from SSH'ing back in.  VMAccess can be used to reset the SSHD configuration.
 
-#### To reset the SSHD configuration use this VMAccess script -
+To reset the SSHD configuration use this VMAccess script:
 
 `reset_sshd.json`
 
