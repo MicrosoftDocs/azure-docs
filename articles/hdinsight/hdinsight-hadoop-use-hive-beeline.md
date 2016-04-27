@@ -69,7 +69,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
         !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
         
-    > [AZURE.TIP] This instructs Beeline to connect to port __10001__ on the specified __HOSTNAME__, and that __HTTP__ is the transport method. The __admin__ account is used to authenticate the connection.
+    This instructs Beeline to connect to port __10001__ on the specified __HOSTNAME__, and that __HTTP__ is the transport method. The __admin__ account is used to authenticate the connection.
 
     When prompted, enter the password for the administrator (admin) account for your HDInsight cluster. Once the connection is established, the prompt will change to the following:
     
