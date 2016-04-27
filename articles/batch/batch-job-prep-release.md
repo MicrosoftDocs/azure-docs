@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="04/21/2016"
 	ms.author="marsma" />
 
 # Run job preparation and completion tasks on Azure Batch compute nodes
 
-Azure Batch jobs often require some form of setup prior to execution, and similarly, some sort of post-job maintenance after the job's tasks are completed. Batch provides the mechanisms for this preparation and maintenance in the form of optional *job preparation* and *job release* tasks.
+Azure Batch jobs often require some form of setup prior to execution, as well as some sort of post-job maintenance after the job's tasks are completed. Batch provides the mechanisms for this preparation and maintenance in the form of optional job preparation and job release tasks.
 
-Before any of a job's tasks run, the job preparation task runs on all compute nodes that are scheduled to run tasks. Once the job is completed, the job release task runs on each node in the pool that executed at least one task. For both job preparation and release tasks, you can specify a command line to invoke when the task is run. These special tasks offer familiar task features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
+Before any of a job's tasks run, the **job preparation task** runs on all compute nodes that are scheduled to run tasks. Once the job is completed, the **job release task** runs on each node in the pool that executed at least one task. As with normal Batch tasks, you can specify a job preparation or release task's command line to be invoked when that task is run. These special tasks offer other familiar task features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
 In the following sections, you'll find out how to use these two special task types by using the [JobPreparationTask][net_job_prep] class and [JobReleaseTask][net_job_release] class in the [Batch .NET][api_net] API.
 
@@ -58,7 +58,7 @@ Once a job is marked as completed, the job release task is executed on each node
 
 ## Job preparation and release tasks in the Batch .NET API
 
-To specify a job preparation task, you create and configure a [JobPreparationTask][net_job_prep] object and assign it to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob] property. Similarly, initialize [JobReleaseTask][net_job_release] and assign it to your job's [CloudJob.JobReleaseTask][net_job_prep_cloudjob] property to set the job's release task.
+To use a job preparation task, you create and configure a [JobPreparationTask][net_job_prep] object and assign it to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob] property. Similarly, initialize [JobReleaseTask][net_job_release] and assign it to your job's [CloudJob.JobReleaseTask][net_job_prep_cloudjob] property to set the job's release task.
 
 In this code snippet, `myBatchClient` is a fully initialized instance of [BatchClient][net_batch_client], and `myPool` is an existing pool within the Batch account.
 
@@ -184,4 +184,3 @@ The screenshot below highlights the job preparation and release task properties 
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
-[2]: ./media/batch-job-prep-release/batchexplorer-02.png
