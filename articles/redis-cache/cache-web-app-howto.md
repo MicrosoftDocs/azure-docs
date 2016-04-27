@@ -279,7 +279,7 @@ In this step of the tutorial, we'll configure the sample application to store an
   
 1. Create a file on your computer named `WebAppPlusCacheAppSecrets.config` and place it in a location that won't be checked in with the source code of your sample application, should you decide to check it in somewhere. In this example the `AppSettingsSecrets.config` file is located at `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
 
-2. Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents. If you run the application locally this information is used to connect to your Azure Redis Cache instance. When you deploy to Azure the application will retrieve the cache connection information from the Web App App Settings. Later in the tutorial we'll provision an Azure Redis Cache instance and update the cache name and password.
+    Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents. If you run the application locally this information is used to connect to your Azure Redis Cache instance. When you deploy to Azure the application retrieves the cache connection information from the app setting for the Web App. Later in the tutorial we'll provision an Azure Redis Cache instance and update the cache name and password. If you don't plan to run the sample application locally you can skip the creation of this file and the subsequent steps that reference the file. Since the `WebAppPlusCacheAppSecrets.config` is not deployed to Azure with your application, you don't need it unless you are going to run the application locally.
 
 
 		<appSettings>
