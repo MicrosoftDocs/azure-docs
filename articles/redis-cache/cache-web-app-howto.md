@@ -23,7 +23,7 @@ This tutorial shows how to create and deploy an ASP.NET web application to a web
 You'll learn:
 
 -	How to create an ASP.NET MVC 5 web application in Visual Studio.
--	How to read data from a database using Entity Framework.
+-	How to access data from a database using Entity Framework.
 -	How to improve data throughout and reduce database load by storing and retrieving data using Azure Redis Cache.
 -	How to use a Redis sorted set to retrieve the top 5 teams.
 -	How to provision the Azure resources for the application using an ARM template.
@@ -51,11 +51,11 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 
 1. Open Visual Studio and click **File**, **New**, **Project**.
 
-2. Expand the **Visual C#** node in the **Templates** list, select **Cloud**, and click **ASP.NET Web Application**. Type **ContosoTeamStats** into the **Name** textbox and click **OK**.
+2. Expand the **Visual C#** node in the **Templates** list, select **Cloud**, and click **ASP.NET Web Application**. Ensure that **.NET Framework 4.5.2** is selected.  Type **ContosoTeamStats** into the **Name** textbox and click **OK**.
  
     ![Create project][cache-create-project]
 
-3. Select **MVC** as the project type. Clear the **Host in the cloud** checkbox. We will provision the Azure resources and publish the application to Azure later in the tutorial. 
+3. Select **MVC** as the project type. Clear the **Host in the cloud** checkbox. We'll [provision the Azure resources](#provision-the-azure-resources) and [publish the application to Azure](#publish-the-application-to-azure) in subsequent steps in the tutorial. 
 
     ![Select project template][cache-select-template]
 
@@ -151,7 +151,7 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 		}
 
 
-2. In **Solution Explorer** double-click **web.config** to open it.
+2. In **Solution Explorer**, double-click **web.config** to open it.
 
     ![Web.config][cache-web-config]
 
@@ -233,7 +233,7 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 
     ![Code changes][cache-layout-cshtml-code]
 
-4. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. In the next section we'll add Redis Cache to the application.
+4. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. Note the **Create New**, **Edit**, **Details**, and **Delete** actions that were automatically added to the application by the **MVC 5 Controller with views, using Entity Framework**. In the next section we'll add Redis Cache to optimize the data access and provide additional features to the application.
 
 ![Starter application][cache-starter-application]
 
@@ -287,7 +287,7 @@ In this step of the tutorial, we'll configure the sample application to store an
 		</appSettings>
 
 
-2. In **Solution Explorer** double-click **web.config** to open it.
+2. In **Solution Explorer**, double-click **web.config** to open it.
 
     ![Web.config][cache-web-config]
 
