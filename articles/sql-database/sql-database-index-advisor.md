@@ -186,7 +186,7 @@ If you used the advisor to create an index (meaning you did not manually run the
 
 ## Monitoring performance impact of index recommendations
 
-After recommendations are successfully implemented you can click **Query Insights** on the Index details blade to open [Query Performance Insights](sql-database-query-performance.md) and see the performance impact of your top queries.
+After recommendations are successfully implemented (currently, index operations only) you can click **Query Insights** on the Index details blade to open [Query Performance Insights](sql-database-query-performance.md) and see the performance impact of your top queries.
 
 ![Monitor performance impact](./media/sql-database-index-advisor/query-insights.png)
 
@@ -194,7 +194,7 @@ After recommendations are successfully implemented you can click **Query Insight
 
 ## Summary
 
-SQL Database Advisor provides recommendations for improving SQL database performance. By providing T-SQL scripts, as well as individual and fully-automatic (currently index only), the advisor provides helpful assistance in optimizing your databases and ultimately improving query performance.
+SQL Database Advisor provides recommendations for improving SQL database performance. By providing T-SQL scripts, as well as individual and fully-automatic (currently index only), the advisor provides helpful assistance in optimizing your database and ultimately improving query performance.
 
 
 
