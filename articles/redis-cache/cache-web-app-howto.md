@@ -63,6 +63,8 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 
     ![Select project template][cache-select-template]
 
+    >[AZURE.NOTE] For an example of provisioning an App Service web app from Visual Studio by leaving **Host in the cloud** checked, see [Get started with Web Apps in Azure App Service, using ASP.NET and Visual Studio](../app-service=web/web-sites-dotnet-get-started.md).
+
 4. Click **OK** to create the project.
 
 ## Create the ASP.NET MVC application
