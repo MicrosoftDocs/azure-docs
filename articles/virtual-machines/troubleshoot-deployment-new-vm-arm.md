@@ -33,9 +33,9 @@
 
 To start troubleshooting your deployment issue, you must begin by collecting the audit logs to identify the error associated with the issue. The following links contained detailed information on the process to follow.
 
-[Troubleshoot resource group deployments with Azure Portal](https://azure.microsoft.com/documentation/articles/resource-manager-troubleshoot-deployments-portal/)
+[Troubleshoot resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
 
-[Audit operations with Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-audit/)
+[Audit operations with Resource Manager](../resource-group-audit.md)
 
 ### Resolve your issue
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-issue1](../../includes/troubleshoot-deployment-new-vm-issue1-include.md)]
