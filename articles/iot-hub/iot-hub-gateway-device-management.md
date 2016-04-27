@@ -1,6 +1,6 @@
 <properties
  pageTitle="Enable managed devices behind an IoT gateway | Microsoft Azure"
- description="Guidance topic using an IoT Gateway created using the Gateway SDK with devices managed by IoT Hub."
+ description="Guidance topic using an IoT Gateway created using the Gateway SDK along with devices managed by IoT Hub."
  services="iot-hub"
  documentationCenter=""
  authors="chipalost"
@@ -16,11 +16,11 @@
  ms.date="04/29/2016"
  ms.author="cstreet"/>
  
-# How to enable managed devices behind an IoT gateway
+# Enable managed devices behind an IoT gateway
 
 ## Basic device isolation
 
-Organizations often use IoT gateways to increase the overall security of their IoT solutions. Some devices need to send data to the cloud but are not capable of protecting themselves from threats on the internet. You can shield these devices from external threads by having them communicate with the outside world vthrough a gateway.
+Organizations often use IoT gateways to increase the overall security of their IoT solutions. Some devices need to send data to the cloud but are not capable of protecting themselves from threats on the internet. You can shield these devices from external threads by having them communicate with the outside world through a gateway.
 
 The gateway sits on the border between a secure environment and the open internet. Devices talk to the gateway and the gateway passes the messages along to the correct cloud destination. The gateway is hardened against external threads, blocks unauthorized requests, allows authorized in-bound traffic, and forwards that in-bound traffic to the correct device.
 
