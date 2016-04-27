@@ -89,12 +89,12 @@ Currently in the preview, elastic databases support most [business continuity fe
 
 ## Geo-Replication
 
-Geo-replication is available for any database in a Standard or Premium elastic database pool.  One or all databases in a geo-replication partnership can be in an elastic database pool as long as the service tiers are the same. You can configure geo-replication for elastic database pools using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+Geo-replication is available for any database in an elastic pool.  One or all databases in a geo-replication partnership can be in an elastic database pool as long as the service tiers are the same. You can configure geo-replication for elastic database pools using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 
 ### Import and Export
 
-Export of a database from within a pool is supported. Currently, import of a database directly into a pool is not supported, but you can import into a single database and then move the database into a pool.
+Export of a database from within a pool is supported. Currently, import of a database directly into a pool is not supported, but you can import into a single database and then move the database into a pool. See [Archive an Azure SQL database to a BACPAC file using the Azure Portal](sql-database-export.md)
 
 
 <!--Image references-->
