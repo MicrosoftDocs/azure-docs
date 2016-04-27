@@ -36,7 +36,6 @@ AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 You can add these features:
 1. [Advanced reporting options](mobile-engagement-android-basic-reporting.md)
 2. [Location Reporting](mobile-engagement-android-location-reporting.md)
-3. [Logging](mobile-engagement-android-logging.md)
 
 ### Notifications:
 [How to integrate Reach (Notifications) in your Android app](mobile-engagement-android-integrate-engagement-reach.md)
