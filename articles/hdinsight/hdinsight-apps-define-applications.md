@@ -114,25 +114,25 @@ HTTP endpoints for HDInsight applications allow you to define HTTP routes that w
 
 Using ARM templates, you can create an ARM template which creates a cluster and installs an application on that cluster in a single deployment. Because application installation is dependent on the cluster coming up first, ARM allows you to define a depends on attribute that will orchestrate the deployment:
 
-  {
-    "name": "[concat(parameters('clusterName'),'/hue')]",
-    "type": "Microsoft.HDInsight/clusters/applications",
-    "apiVersion": "[variables('clusterApiVersion')]",
-    "dependsOn": ["[parameters('clusterName')]"],
-    "properties": {
-      "computeProfile": {
-        ...
-      },
-      "installScriptActions": [
-        ...
-      ],
-      "uninstallScriptActions": [ ],
-      "httpsEndpoints": [
-        ...
-      ],
-      "applicationType": "CustomApplication"
+    {
+      "name": "[concat(parameters('clusterName'),'/hue')]",
+      "type": "Microsoft.HDInsight/clusters/applications",
+      "apiVersion": "[variables('clusterApiVersion')]",
+      "dependsOn": ["[parameters('clusterName')]"],
+      "properties": {
+          "computeProfile": {
+            ...
+          },
+          "installScriptActions": [
+            ...
+          ],
+          "uninstallScriptActions": [ ],
+          "httpsEndpoints": [
+            ...
+          ],
+          "applicationType": "CustomApplication"
+      }
     }
-  }
 
 See [Appendix A](#appendix-a) for a complete sample template for installing Hue on an existing HDInsight cluster.  See [Appendix B](#appendix-b) for a complete sample template for creating an HDInsight cluster and installing Hue on the cluster. 
 
@@ -158,7 +158,8 @@ This feature will be released soon.
 
 - [Install HDInsight applications](hdinsight-apps-install-applications.md): learn how to deploy a published HDInsight application from the Azure portal.
 - [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an un-published HDInsight application to HDInsight.
-
+- [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
+- [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call ARM templates to create HDInsight clusters.
 
 ##Appendix A 
 
