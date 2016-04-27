@@ -49,7 +49,7 @@ The following diagram shows this configuration before an outage.
 After an outage in the primary region the monitoring application detects that the primary database is not accessible and registers an alert. Depending on your application SLA you can decide how many consecutive monitoring probes should fail before it declares a database outage. To achieve coordinated failover of the application end-point and the database you should have the monitoring application perform the following steps:
 
 1. [Update the status of the primary end-point](https://msdn.microsoft.com/library/hh758250.aspx) to trigger end-point failover.
-2. Call the secondary database to [initiate database failover](sql-database-geo-replication-failover-portal.md).
+2. Call the secondary database to [initiate database failover](sql-database-geo-replication-portal.md).
 
 After failover, the application will process the user requests in the secondary region but will remain co-located with the database because the primary database will now be in the secondary region. This is illustrated by the next diagram. In all diagrams solid lines indicates active connections, dotted lines indicate suspended connections and stop signs indicate action triggers.
 

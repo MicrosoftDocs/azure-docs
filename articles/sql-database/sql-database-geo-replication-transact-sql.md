@@ -28,7 +28,6 @@
 
 This article shows you how to configure geo-replication for an Azure SQL Database using Transact-SQL.
 
-To initiate failover, see [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-transact-sql.md).
 
 >[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
@@ -233,8 +232,6 @@ Use the following steps to monitor a geo-replication partnership.
 - [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)
 - [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)

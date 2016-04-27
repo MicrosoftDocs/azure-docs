@@ -37,7 +37,7 @@ The recovery operation impacts the application. It requires changing the SQL con
 
 ## Failover to geo-replicated secondary database
 
-> [AZURE.NOTE] You must have a secondary database configured to use for failover. Learn [how to configure Geo-Replication](sql-database-business-geo-replication-portal.md).
+> [AZURE.NOTE] You must have a secondary database configured to use for failover. Learn [how to configure Geo-Replication](sql-database-geo-replication-portal.md).
 
 ###Azure Portal
 Use the Azure Portal to terminate the continuous copy relationship with the Geo-Replicated secondary database.

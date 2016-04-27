@@ -37,7 +37,7 @@ Use the information in [Upgrade SQL Database Web/Business Databases to New Servi
 - To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
 - When upgrading a database with [geo-replication](sql-database-geo-replication-overview.md) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
 - When downgrading a service tier, you must first terminate all geo-replication relationships. 
-- The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](sql-database-business-continuity-overview.md).
+- The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](sql-database-business-continuity.md).
 - Changing your database pricing tier does not change the max database size. To change your database max size use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) or [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
 - The new properties for the database are not applied until the changes are complete.
 

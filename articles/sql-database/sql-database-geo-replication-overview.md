@@ -73,7 +73,5 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 - [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
 - [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)

@@ -91,8 +91,6 @@ For more information on Active Geo-Replication, see [Active Geo-Replication](sql
 ## Additional resources
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)
 - [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
