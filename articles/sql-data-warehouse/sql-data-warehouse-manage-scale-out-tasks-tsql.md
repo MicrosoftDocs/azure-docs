@@ -19,6 +19,7 @@ pageTitle="Performance scalability tasks for Azure SQL Data Warehouse | Microsof
 # Performance scalability tasks for Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
+- [Overview](sql-data-warehouse-overview-scalability.md)
 - [Azure portal](sql-data-warehouse-manage-scale-out-tasks.md)
 - [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
 - [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
@@ -33,8 +34,6 @@ This collection of tasks uses TSQL to:
 - Change compute resources by adjusting DWUs
 
 To pause or resume a database, choose one of the other platform options at the top of this article.
-
-For scale-out capabilities and recommendations, see [Performance scalability overview][].
 
 ## Task 1: View current DWU settings
 

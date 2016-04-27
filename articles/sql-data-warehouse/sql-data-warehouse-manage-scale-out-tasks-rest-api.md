@@ -19,6 +19,7 @@
 # Performance scalability tasks for Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
+- [Overview](sql-data-warehouse-overview-scalability.md)
 - [Azure portal](sql-data-warehouse-manage-scale-out-tasks.md)
 - [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
 - [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
@@ -31,8 +32,6 @@ This collection of tasks uses REST APIs to:
 - Scale performance by adjusting DWUs
 - Pause compute resources
 - Resume compute resources
-
-For scale-out capabilities and recommendations, see [Performance scalability overview][].
 
 ## Task 1: Scale performance
 
@@ -78,7 +77,6 @@ For other management tasks, see [Management overview][].
 <!--Image references-->
 
 <!--Article references-->
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
 [Management overview]: ./sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
