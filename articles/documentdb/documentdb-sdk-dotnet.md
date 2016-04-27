@@ -37,7 +37,7 @@
 ## Release Notes
 
 ### <a name="1.7.0"/>[1.7.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.0)
-  - Added support for Time To Live(TTL) feature for documents.
+  - Added time to live (TTL) support for documents.
 
 ### <a name="1.6.3"/>[1.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
   - Fixed a bug in Nuget packaging of .NET SDK for packaging it as part of a Azure Cloud Service solution.
