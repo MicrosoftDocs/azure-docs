@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Configure geo-replication for Azure SQL Database using PowerShell | Microsoft Azure" 
+    pageTitle="Configure Active Geo-Replication for Azure SQL Database using PowerShell | Microsoft Azure" 
     description="geo-replication for Azure SQL Database using PowerShell" 
     services="sql-database" 
     documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/23/2016"
+    ms.date="04/25/2016"
     ms.author="sstein"/>
 
 # Configure geo-replication for Azure SQL Database with PowerShell
@@ -28,11 +28,11 @@
 
 This article shows you how to configure geo-replication for SQL Database with PowerShell.
 
-Geo-replication enables creating up to 4 replica (secondary) databases in different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
+To initiate failover, see [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-powershell.md).
 
-Geo-replication is only available for Standard and Premium databases. 
+>[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
-Standard databases can have one non-readable secondary and must use the recommended region. Premium databases can have up to four readable secondaries in any of the available regions.
+You can configure up to 4 readable secondary databases in the same or different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
 
 To configure geo-replication you need the following:
 
@@ -152,7 +152,7 @@ The command performs the following workflow:
 This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
-> [AZURE.NOTE] If the primary database is unavailable when the command is issued it will fail with an error message indicating that the primary server is not available. In rare cases it is possible that the operation cannot complete and may appear stuck. In this case the user can call the force failover command (unplanned failover) and accept data loss.
+> [AZURE.NOTE] In rare cases it is possible that the operation cannot complete and may appear stuck. In this case the user can call the force failover command (unplanned failover) and accept data loss.
 
 
 
@@ -174,7 +174,7 @@ This functionality is designed for disaster recovery when restoring availability
 
 But because Point In Time Restore is not supported on secondary databases, if you wish to recovery data committed to the old primary database which had not been replicated to the new primary database, you should engage CSS to restore a database to the known log backup.
 
-> [AZURE.NOTE] If the command is issued when the both primary and secondary are online the old primary will become the new secondary but data synchronization will not be attempted so some data loss may occur.
+> [AZURE.NOTE] If the command is issued when the both primary and secondary are online the old primary will become the new secondary immediately but without data synchronization. If the primary is committing transactions when the command is issued some data loss may occur.
 
 
 If the primary database has multiple secondaries the command will partially succeed. The secondary on which the command was executed will become primary. The old primary however will remain primary, i.e. the two primaries will end up in inconsistent state and connected by a suspended replication link. The user will have to manually repair this configuration using a “remove secondary” API on either of these primary databases.
@@ -211,7 +211,12 @@ The following command retrieves status of the replication link between the prima
 
 ## Additional resources
 
+- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
 - [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Designing cloud applications for business continuity using geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
+- [Geo-Restore](sql-database-geo-restore.md)
+- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
+- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)

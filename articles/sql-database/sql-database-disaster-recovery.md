@@ -21,7 +21,6 @@
 Azure SQL Database's offers the following capabilities for recovering from an outage:
 
 - Active Geo-Replication [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
-- Standard Geo-Replication [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - Geo-Restore [(blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
 - New Geo-replication capabilities [(blog)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
@@ -37,7 +36,8 @@ The recovery operation impacts the application. It requires changing the SQL con
 > [AZURE.NOTE] After your database is recovered you can configure it to be used by following the [Configure your database after recovery](#postrecovery) guide.
 
 ## Failover to geo-replicated secondary database
-> [AZURE.NOTE] You must configure to have a secondary database to use for failover. Geo-Replication is only available for Standard and Premium databases. Learn [how to configure Geo-Replication](sql-database-business-continuity-design.md)
+
+> [AZURE.NOTE] You must have a secondary database configured to use for failover. Learn [how to configure Geo-Replication](sql-database-business-geo-replication-portal.md).
 
 ###Azure Portal
 Use the Azure Portal to terminate the continuous copy relationship with the Geo-Replicated secondary database.

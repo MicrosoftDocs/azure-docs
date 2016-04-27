@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="02/12/2016"
+    ms.date="04/25/2016"
     ms.author="carlrab"/>
 
 # Configure geo-replication for Azure SQL Database with Transact-SQL
@@ -28,19 +28,18 @@
 
 This article shows you how to configure geo-replication for an Azure SQL Database using Transact-SQL.
 
+To initiate failover, see [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-transact-sql.md).
 
-Geo-replication enables creating up to 4 replica (secondary) databases in different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
+>[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
-Geo-replication is only available for Standard and Premium databases. 
-
-Standard databases can have one non-readable secondary and must use the recommended region. Premium databases can have up to four readable secondaries in any of the available regions.
+You can configure up to 4 readable secondary databases in the same or different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
 
 
 To configure geo-replication, you need the following:
 
 - An Azure subscription - If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate to a different geographical region.
-- One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create geo-replication secondary databases.
+- One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create secondary databases.
 - A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure geo-replication.
 - Newest version of SQL Server Management Studio - To obtain the newest version of SQL Server Management Studio (SSMS), go to [Download SQL Server Management Studio] (https://msdn.microsoft.com/library/mt238290.aspx). For information on using SQL Server Management Studio to manage an Azure SQL Database logical servers and databases, see [Managing Azure SQL Database using SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 
@@ -49,7 +48,7 @@ To configure geo-replication, you need the following:
 You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or an elastic databbase. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
 After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure geo-replication using Management Studio. Steps to create non-readable and readable secondaries, either with a single database or an elastic database, are provided.
 
-> [AZURE.NOTE] If the secondary database exists on the specified partner server (for example, because a geo-replication relationship currently exists or previously existed, the command will fail.
+> [AZURE.NOTE] If a database exists on the specified partner server with the same name as the primary database the command will fail.
 
 
 ### Add non-readable secondary (single database)
@@ -88,6 +87,7 @@ Use the following steps to create a readable secondary as a single database.
 
 
 ### Add non-readable secondary (elastic database)
+
 Use the following steps to create a non-readable secondary as an elastic database.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
@@ -229,7 +229,12 @@ Use the following steps to monitor a geo-replication partnership.
 
 ## Additional resources
 
+- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
 - [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Designing cloud applications for business continuity using geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/services/sql-database/)
+- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
+- [Geo-Restore](sql-database-geo-restore.md)
+- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
+- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
