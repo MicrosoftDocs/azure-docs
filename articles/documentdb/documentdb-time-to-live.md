@@ -30,7 +30,6 @@ Time to live in DocumentDB uses an offset against when the document was last mod
 The TTL feature is controlled by TTL properties at two levels - the collection level and the document level. The values are set in seconds and are treated as a delta from the _ts that the document was last modified at.
 
  1.  DefaultTTL for the collection
-
   * If missing (or set to null), documents are not deleted automatically.
   
   * If present and the value is:
@@ -38,8 +37,7 @@ The TTL feature is controlled by TTL properties at two levels - the collection l
     * Some number (“n”) – documents expire “n” seconds after last
             modification
 
- 2.  TTL for the documents:
- 
+ 2.  TTL for the documents: 
   * Property is applicable only if DefaultTTL is present for the parent collection.
   
   * Overrides the DefaultTTL value for the parent collection.
