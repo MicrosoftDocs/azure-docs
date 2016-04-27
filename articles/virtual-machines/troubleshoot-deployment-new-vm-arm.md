@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-selectors](../../includes/troubleshoot-deployment-new-vm-selectors-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-opening](../../includes/troubleshoot-deployment-new-vm-opening-include.md)]
 
@@ -34,6 +34,7 @@
 To start troubleshooting your deployment issue, you must begin by collecting the audit logs to identify the error associated with the issue. The following links contained detailed information on the process to follow.
 
 [Troubleshoot resource group deployments with Azure Portal](https://azure.microsoft.com/documentation/articles/resource-manager-troubleshoot-deployments-portal/)
+
 [Audit operations with Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-audit/)
 
 ### Resolve your issue

@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-selectors](../../includes/troubleshoot-deployment-new-vm-selectors-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-opening](../../includes/troubleshoot-deployment-new-vm-opening-include.md)]
 
@@ -49,7 +49,7 @@ Depending on the constraints of the cloud service you use to create the new VM, 
 
 If you get an error when trying to create a new cloud service, either retry after some time or change the region for the cloud service.
 
-**Important:** If you were trying to create a new VM in an existing cloud service but couldn’t, and had to create a new cloud service for your new VM, you can choose to consolidate all your VMs to be in the same cloud service. To do so, delete the VMs in the existing cloud service, and recreate them from their disks in the new cloud service. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to change that information for all the dependencies that use that information for the existing cloud service.
+> [AZURE.IMPORTANT] If you were trying to create a new VM in an existing cloud service but couldn’t, and had to create a new cloud service for your new VM, you can choose to consolidate all your VMs to be in the same cloud service. To do so, delete the VMs in the existing cloud service, and recreate them from their disks in the new cloud service. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to change that information for all the dependencies that use that information for the existing cloud service.
 
 **Cause 2:** The cloud service is associated with a virtual network that is linked to an affinity group, so it is pinned to a specific cluster by design. All new compute resource requests in that affinity group are therefore tried in the same cluster where the existing resources are hosted. However, the same cluster may either not support the requested VM size or have insufficient available space, resulting in an allocation error. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
 
