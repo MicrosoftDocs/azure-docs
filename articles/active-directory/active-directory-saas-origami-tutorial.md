@@ -131,29 +131,29 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     b. Click **Next**.
 
 
-5. To enable SSO in Origami please follow the below steps
 
-	a. Log in to the Origami account with Admin rights.
+1. Log in to the Origami account with Admin rights.
 
-	b. Click on the **Admin** button from the top menu.
+1. In the menu on the top, click **Admin**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_51.png)
   
-	c. This will open the Administration Page. Now click on **Single Sign On Setup** button
 
-	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_52.png)
+1. On the Single Sign On Setup dialog page, perform the following steps:
 
-	d. Now select the checkbox to **Enable Single Sign On**
+	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_531.png)
 
-	e. Copy the **SAML SSO URL** from Azure AD wizard and paste it into the **Identity Provider's Sign-in Page URL** textbox
+	a. Select **Enable Single Sign On**.
 
-	f. Copy the **SINGLE SIGN OUT SERVICE URL** from Azure AD wizard and paste it into the **Identity Provider's Sign-out Page URL** textbox
+	b. In the Azure classic portal, copy the **SAML SSO URL**, and then paste it into the **Identity Provider's Sign-in Page URL** textbox.
 
-	g. Click on the **Browse** button and upload the certificate which you have downloaded from Azure AD configiration wizard.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_53.png)
+	c. In the Azure classic portal, copy the **SINGLE SIGN OUT SERVICE URL**, and then paste it into the **Identity Provider's Sign-out Page URL** textbox.
 
-	h. Click on **Save Changes** button.
+	d. Click **Browse** to upload the certificate you have downloaded from the Azure classic portal.
+
+	h. Click **Save Changes**.
+
+
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
 	![Azure AD Single Sign-On][10]
@@ -227,34 +227,37 @@ In this section, you create a user called Britta Simon in Origami.
 
 1. Log in to the Origami account with Admin rights.
 
-2. Click on the **Admin** button from the top menu.
+2. In the menu on the top, click **Admin**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_51.png)
 
-3. Click on the **Users** button from the Users and Security Group
+3. On the **Users and Security** dialog, click **Users**.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_54.png)
 
-4. Click on the **Add New User** button on the top right corner
+4. Click **Add New User**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_55.png)
 
-5. Provide the user details as shown below.
-	a. Enter the correct email address of the user in the **Username** field.
-
-	b. Enter the initial **Password** for the user, also enter the same password in the **Confirm Password** textbox.
-
-	c. Enter the **First Name** for the user
-
-	d. Enter the **Last Name** for the user
+5. On the Add New User dialog, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_56.png)
 
-	e. Click on the **Save** button on the top right corner.
+	a. In the **User Name** textbox, type User Name of Britta Simon in the Azure classic portal.
+
+	b. In the **Password** textbox, type a passwotd.
+
+	c. In the **Confirm Password** textbox, type the password again.
+
+	d. In the **First Name** textbox, type **Britta**.
+
+    e. In the **Last Name** textbox, type **Simon**.
+
+	e. Click **Save**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_57.png)
 
-	f. After creating the user make sure that you assign the **User Roles** and **Client Access** to the user. Then only the SSO integration work for that user.
+1. Assign **User Roles** and **Client Access** to the user. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_58.png)
 
