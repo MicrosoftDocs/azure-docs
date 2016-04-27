@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Data Security and Encryption Best Practices | Microsoft Azure"
    description="This article provides a set of best practices for data security and encryption using built in Azure capabilities."
    services="virtual-machines, cloud-services, storage"
@@ -50,31 +50,31 @@ Azure data security and encryption best practices discussed in this article incl
 
 ## Enforce Multi-factor Authentication
 
-The first step in data access and control in Microsoft Azure is to authenticate the user. [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) is a method of verifying user’s identity by using another method than just a username and password. This authentication method helps safeguard access to data and applications while meeting user demand for a simple sign-in process. 
+The first step in data access and control in Microsoft Azure is to authenticate the user. [Azure Multi-Factor Authentication (MFA)](./multi-factor-authentication/multi-factor-authentication.md) is a method of verifying user’s identity by using another method than just a username and password. This authentication method helps safeguard access to data and applications while meeting user demand for a simple sign-in process. 
 
 By enabling Azure MFA for your users, you are adding a second layer of security to user sign-ins and transactions. In this case, a transaction might be accessing a document located in a file server or in your SharePoint Online. Azure MFA also helps IT to reduce the likelihood that a compromised credential will have access to organization’s data.
  
 For example: if you enforce Azure MFA for your users and configure it to use a phone call or text message as verification, if the user’s credential is compromised, the attacker won’t be able to access any resource since he will not have access to user’s phone. Organizations that do not add this extra layer of identity protection are more susceptible for credential theft attack, which may lead to data compromise. 
 
-One alternative for organizations that want to keep the authentication control on-premises is to use [Azure Multi-Factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), also called MFA on-premises. By using this method you will still be able to enforce multi-factor authentication, while keeping the MFA server on-premises.
+One alternative for organizations that want to keep the authentication control on-premises is to use [Azure Multi-Factor Authentication Server](./multi-factor-authentication/multi-factor-authentication-get-started-server.md), also called MFA on-premises. By using this method you will still be able to enforce multi-factor authentication, while keeping the MFA server on-premises.
 
-For more information on Azure MFA, please read the article [Getting started with Azure Multi-Factor Authentication in the cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+For more information on Azure MFA, please read the article [Getting started with Azure Multi-Factor Authentication in the cloud](./multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 ## Use Role Based Access Control (RBAC)
 Restrict access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles. This is imperative for organizations that want to enforce security policies for data access. Azure Role-Based Access Control (RBAC) can be used to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. 
 
-You can leverage [built-in RBAC roles](../active-directory/role-based-access-built-in-roles.md) in Azure to assign privileges to users. Consider using *Storage Account Contributor* for cloud operators that need to manage storage accounts and *Classic Storage Account Contributor* role to manage classic storage accounts. For cloud operators that needs to manage VMs and storage account, consider adding them to *Virtual Machine Contributor* role.
+You can leverage [built-in RBAC roles](./active-directory/role-based-access-built-in-roles.md) in Azure to assign privileges to users. Consider using *Storage Account Contributor* for cloud operators that need to manage storage accounts and *Classic Storage Account Contributor* role to manage classic storage accounts. For cloud operators that needs to manage VMs and storage account, consider adding them to *Virtual Machine Contributor* role.
  
 Organizations that do not enforce data access control by leveraging capabilities such as RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by having some users having access to data that they shouldn’t have in the first place.
  
-You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
+You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
 
 ## Encrypt Azure Virtual Machines
 For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance and data sovereignty. Azure Disk Encryption enables IT administrators to encrypt Windows and Linux IaaS Virtual Machine (VM) disks. Azure Disk Encryption leverages the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and the data disks.
 
 You can leverage Azure Disk Encryption to help protect and safeguard your data to meet your organizational security and compliance requirements. Organizations should also consider using encryption to help mitigate risks related to unauthorized data access. It is also recommended that you encrypt drives prior to writing sensitive data to them.
  
-Make sure to encrypt your VM’s data volumes and boot volume in order to protect data at rest in your Azure storage account. Safeguard the encryption keys and secrets by leveraging [Azure Key Vault](../key-vault/key-vault-whatis.md).
+Make sure to encrypt your VM’s data volumes and boot volume in order to protect data at rest in your Azure storage account. Safeguard the encryption keys and secrets by leveraging [Azure Key Vault](./key-vault/key-vault-whatis.md).
   
 For your on-premises Windows Servers, consider the following encryption best practices:
 
@@ -96,7 +96,7 @@ There are many inherent risks related to not having appropriate security control
  
 You can learn more about general recommendations for certificate management in Azure by reading the article [Certificate Management in Azure: Do’s and Don’ts](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/).
  
-For more information about Azure Key Vault, read [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
+For more information about Azure Key Vault, read [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
 
 ## Manage with Secure Workstations
 
@@ -133,9 +133,9 @@ Protecting data in transit should be essential part of your data protection stra
 
 For data moving between your on-premises infrastructure and Azure, you should consider appropriate safeguards such as HTTPS or VPN.
  
-For organizations that need to secure access from multiple workstations located on-premises to Azure, use [Azure site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+For organizations that need to secure access from multiple workstations located on-premises to Azure, use [Azure site-to-site VPN](./vpn-gateway/vpn-gateway-site-to-site-create.md).
  
-For organizations that need to secure access from one workstation located on-premises to Azure, use [Point-to-Site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md).
+For organizations that need to secure access from one workstation located on-premises to Azure, use [Point-to-Site VPN](./vpn-gateway/vpn-gateway-point-to-site-create.md).
  
 Larger data sets can be moved over a dedicated high-speed WAN link such as [ExpressRoute](https://azure.microsoft.com/services/expressroute/). If you choose to use ExpressRoute, you can also encrypt the data at the application-level using [SSL/TLS](https://support.microsoft.com/kb/257591) or other protocols for added protection.
  
@@ -143,7 +143,7 @@ If you are interacting with Azure Storage through the Azure Portal, all transact
 
 Organizations that fail to protect data in transit are more susceptible for [man-in-the-middle attacks](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
-You can learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](../vpn-gateway/vpn-gateway-plan-design.md).
+You can learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](./vpn-gateway/vpn-gateway-plan-design.md).
 
 ## Enforce file level data encryption
 
