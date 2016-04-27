@@ -111,7 +111,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [WebJobs SDK Release Notes](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
 * [WebJobs SDK source code](https://github.com/Azure/azure-webjobs-sdk)
 * [WebJobs SDK extensions source code](https://github.com/Azure/azure-webjobs-sdk-extensions), with [detailed guide to the extensibility model](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
-* [WebJobs SDK Script source code](https://github.com/Azure/azure-webjobs-sdk-script/) (used for [Azure Functions](../azure-functions/functions-overview.md)
+* [WebJobs SDK Script source code](https://github.com/Azure/azure-webjobs-sdk-script/) (used for [Azure Functions](../azure-functions/functions-overview.md))
 * [WebJob to upload FREB files to Azure Storage using the WebJobs SDK](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Hosting Azure webjobs outside Azure, with the logging benefits from an Azure hosted webjob](http://bypassion.dk/?p=510)
 * [Building a Data Import Tool with Azure WebJobs](http://www.freshconsulting.com/building-data-import-tool-azure-webjobs/)
