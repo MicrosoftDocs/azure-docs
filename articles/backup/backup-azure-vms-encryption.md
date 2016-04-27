@@ -44,14 +44,13 @@ There are many parts to this solution that need to be configured and managed cor
 
 > [AZURE.IMPORTANT]  Key management - including key rollover - is not a part of Azure Backup. This aspect needs to be managed independently but is very important to the overall backup/restore operation.
 
-## Supported Scenarios
+### Supported Scenarios
 
-1. IaaS V1 VMs using Backup Vault
+| | Backup Vault | Recovery Services Vault | 
+| -------- | ------------- | ------- |
+| Azure IaaS V1 VMs | Yes | No |
+| Azure IaaS V2 VMs | No | No |
 
-## Unsupported Scenarios
-
-1. IaaS V2 VMs using Recovery Services Vault
-2. IaaS V1 VMs using Recovery Services Vault
 
 ## CloudLink SecureVM
 
