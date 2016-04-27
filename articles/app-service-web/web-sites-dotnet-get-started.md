@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with ASP.NET and Azure App Service | Microsoft Azure"
-	description="Learn how to create an ASP.NET web project in Visual Studio and deploy it to a new web app in Azure App Service."
+	pageTitle="Get started with Azure App Service and ASP.NET | Microsoft Azure"
+	description="Learn how to deploy an ASP.NET web project to a new web app in Azure App Service, using Visual Studio."
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="04/22/2016"
 	ms.author="tdykstra"/>
 
-# Get started with ASP.NET web apps in Azure App Service using Visual Studio
+# Get started with Web Apps in Azure App Service, using ASP.NET and Visual Studio
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)

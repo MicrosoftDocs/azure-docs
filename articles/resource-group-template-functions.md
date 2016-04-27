@@ -673,15 +673,6 @@ You can retrieve a particular value from the returned object, such as the blob e
 		}
 	}
 
-If you do now wish to directly specify the API version in your template, you can use the [providers](#providers) function and retrieve one the values, such as the latest version as shown below.
-
-    "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
-
 The following example references a storage account in a different resource group.
 
     "outputs": {

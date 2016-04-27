@@ -114,21 +114,18 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 	You can obtain a list of ARM resource groups in your subscription using the `Get-AzureRmResourceGroup` cmdlet.
 
 2. Create a new Azure Recovery Services vault as follows:-
-
+ 
 		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
 	You can retrieve a list of existing vaults using the `Get-AzureRmRecoveryServicesVault` cmdlet.
 
 > [AZURE.NOTE] If you wish to perform operations on ASR vaults created using the classic portal or the Azure Service Management PowerShell module, you can retrieve a list of such vaults using the `Get-AzureRmSiteRecoveryVault` cmdlet. It is recommended that for all new operations you create a new Recovery Services vault. The Site Recovery vaults you've created earlier will continue to be supported but will not have the latest features.
 
-## Step 3: Generate a vault registration key
+## Step 3: Set the Recovery Services Vault context
 
-1. Generate and download a vault registration key for your vault.
+1.  Set the vault context by running the below command.
 
-    	Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -Path $path
-2. Import the downloaded vault settings file to set the vault context
- 
-		Import-AzureRmSiteRecoveryVaultSettingsFile -Path $path 
+		Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## Step 4: Create a Hyper-V Site and generate a new vault registration key for the site.
 
@@ -151,8 +148,11 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 ## Step 5: Install the Azure Site Recovery Provider and Azure Recovery Services Agent on your Hyper-V host
 
 1. Download the installer for the latest version of the Provider from [here](https://aka.ms/downloaddra)
+
 2. Run the installer on your Hyper-V host and at the end of the installation continue to the Register step
+
 3. Provide the downloaded site registration key when prompted and complete registration of the Hyper-V host to the site
+
 4. Verify that the Hyper-V host got registered to the site using the following:
 
 		$server =  Get-AzureRmSiteRecoveryServer -FriendlyName $server-friendlyname 
