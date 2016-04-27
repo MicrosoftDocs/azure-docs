@@ -24,6 +24,7 @@ Use this article to follow the detailed steps for setting up the MySQL Resource 
 ## Set up steps before you deploy
 
 Before you deploy the resource provider, you need to:
+
 - Have a default Windows Server image with .NET 3.5
 - Turn off Internet Explorer (IE) Enhanced Security
 - Install the latest version of Azure PowerShell
@@ -32,7 +33,7 @@ Before you deploy the resource provider, you need to:
 
 You can skip this step if you downloaded the Azure Stack bits after 2/23/2016 because the default base Windows Server 2012 R2 image includes .NET 3.5 framework in this download and later.
 
-If you downloaded before 2/23/2016, you need to create a Windows Server 2012 R2 Datacenter VHD with .NET 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of Windows Server 2012R2 including .NET 3.5](azure-stack-add-image-pir.md#create-an-image-of-windowsserver2012r2-including-&#046;net-3&#046;5).
+If you downloaded before 2/23/2016, you need to create a Windows Server 2012 R2 Datacenter VHD with .NET 3.5 image and set is as the default image in the Platform Image Repository. For more information, see [Create an image of Windows Server 2012R2 including .NET 3.5](azure-stack-add-image-pir.md#create-an-image-of-windowsserver2012r2-including-&#046;net-3&#046;5).
 
 ### Turn off IE enhanced security and enable cookies
 
@@ -92,10 +93,10 @@ To deploy a resource provider, you run the PowerShell Integrated Scripting Envir
 
 Click the **Prepare Prerequisites** tab to:
 
-	- Create required certificates
-	- Download MySQL binaries to your Azure Stack
-	- Upload artifacts to a storage account on Azure Stack
-	- Publish gallery items
+- Create required certificates
+- Download MySQL binaries to your Azure Stack
+- Upload artifacts to a storage account on Azure Stack
+- Publish gallery items
 
 ### Create the required certificates
 This **New-SslCert.ps1** script adds the \_.AzureStack.local.pfx SSL certificate to the D:\\MySQLRP\\Prerequisites\\BlobStorage\\Container folder. The certificate secures communication between the resource provider and the local instance of the Azure Resource Manager.
@@ -129,7 +130,7 @@ This **New-SslCert.ps1** script adds the \_.AzureStack.local.pfx SSL certificate
 
 Select the **Publish-GalleryPackages.ps1** tab and run it. This script adds two marketplace items to the Azure Stack POC portal’s marketplace that you can use to deploy database resources as marketplace items.
 
-## Deploy the MySQL RP Resource Provider VM
+## Deploy the MySQL Resource Provider VM
 
 Now that you have prepared the Azure Stack PoC with the necessary certificates and marketplace items, you can deploy a SQL Server Resource Provider. Click the **Deploy MySQL provider** tab to:
 
@@ -165,7 +166,7 @@ The full deployment may take between 15 and 45 minutes on some highly utilized A
 1. Click the **Register-Microsoft.MySQL-fqdn.ps1** tab and run the script.
 2. When prompted for Azure Active Directory Tenant ID, input your Azure Active Directory tenant fully qualified domain name: for example, **microsoftazurestack.onmicrosoft.com**.
 
-### Register the SQL RP Resource Provider##
+### Register the SQL RP Resource Provider
 
 1. Click the **Register-Microsoft.My-provider.ps1** tab and run the script.
 

@@ -23,6 +23,7 @@ Use this article to follow the detailed steps for setting up the SQL Server Reso
 ## Set up steps before you deploy
 
 Before you deploy the resource provider, you need to:
+
 - Have a default Windows Server image with .NET 3.5
 - Turn off Internet Explorer (IE) Enhanced Security
 - Install the latest version of Azure PowerShell
@@ -87,15 +88,15 @@ To deploy a resource provider, you run the PowerShell Integrated Scripting Envir
 
 	![](./media/azure-stack-sql-rp-deploy-long/1strun.png)
 
-	Two major tabs will load, each containing all the scripts and files you need to deploy your SQL Resource Provider.
+	Two major tabs will load, each containing all the scripts and files you need to deploy the resource provider.
 
 ## Prepare prerequisites
 
 Click the **Prepare Prerequisites** tab to:
 
-	- Create required certificates
-	- Upload artifacts to a storage account on Azure Stack
-	- Publish gallery items
+- Create required certificates
+- Upload artifacts to a storage account on Azure Stack
+- Publish gallery items
 
 ### Create the required certificates
 This **New-SslCert.ps1** script adds the \_.AzureStack.local.pfx SSL certificate to the D:\\SQLRP\\Prerequisites\\BlobStorage\\Container folder. The certificate secures communication between the resource provider and the local instance of the Azure Resource Manager.
@@ -124,7 +125,7 @@ This **New-SslCert.ps1** script adds the \_.AzureStack.local.pfx SSL certificate
 
 Select the **Publish-GalleryPackages.ps1** tab and run it. This script adds two marketplace items to the Azure Stack POC portal’s marketplace that you can use to deploy database resources as marketplace items.
 
-## Deploy the SQL RP Resource Provider VM
+## Deploy the SQL Server Resource Provider VM
 
 Now that you have prepared the Azure Stack PoC with the necessary certificates and marketplace items, you can deploy a SQL Server Resource Provider. Click the **Deploy SQL provider** tab to:
 

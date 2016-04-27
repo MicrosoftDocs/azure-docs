@@ -56,7 +56,7 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
         - Upload the certificates and all other artifacts to an Azure Stack storage account.
         - Publish gallery packages to allow deployment SQL and resources through gallery.
     - In the “Deploy” tab:
-        - [Deploy a VM](azure-stack-sql-rp-deploy-long.md#Deploy-your-SQL-RP-Resource-Provider-VM) that hosts both your resource provider and hosting SQL Server. This script references a JSON parameter file, which you need to update with some values before you run the script.
+        - [Deploy a VM](azure-stack-sql-rp-deploy-long.md#Deploy-the-SQL-Server-Resource-Provider-VM) that hosts both your resource provider and hosting SQL Server. This script references a JSON parameter file, which you need to update with some values before you run the script.
         - [Register a local DNS record](azure-stack-sql-rp-deploy-long.md#Update-the-local-DNS) that maps to your resource provider VM.
         - [Register your resource provider](azure-stack-sql-rp-deploy-long.md#Register-the-SQL-RP-Resource-Provider) with the local Azure Resource Manager.
 
