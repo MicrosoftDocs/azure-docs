@@ -3,8 +3,8 @@
 	description="Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows." 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	authors="deonhe" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="deonhe"/>
 
 # Create a Logic App using a template
 
@@ -56,20 +56,22 @@ Creates an app service plan.
 It uses the same location as the resource group to which it is being deployed.
 
     {
-        "apiVersion": "2014-06-01",
-        "name": "[parameters('svcPlanName')]",
-        "type": "Microsoft.Web/serverfarms",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "displayName": "AppServicePlan"
-        },
-        "properties": {
-            "name": "[parameters('svcPlanName')]",
-            "sku": "[parameters('sku')]",
-            "workerSize": "[parameters('svcPlanSize')]",
-            "numberOfWorkers": 1
-        }
-    }
+      "apiVersion": "2015-08-01",
+      "name": "[parameters('hostingPlanName')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "HostingPlan"
+      },
+      "sku": {
+        "name": "[parameters('hostingSkuName')]",
+        "capacity": "[parameters('hostingSkuCapacity')]"
+      },
+      "properties": {
+        "name": "[parameters('hostingPlanName')]"
+      }
+    },
+
 
 ### Logic app
 
@@ -80,52 +82,53 @@ The templates uses a parameter value for the logic app name. It sets the locatio
 This particular definition runs once an hour, and pings the location specified in the **testUri** parameter. 
 
     {
-        "type": "Microsoft.Logic/workflows",
-        "apiVersion": "2015-02-01-preview",
-        "name": "[parameters('logicAppName')]",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "displayName": "LogicApp"
+      "type": "Microsoft.Logic/workflows",
+      "apiVersion": "2015-08-01-preview",
+      "name": "[parameters('logicAppName')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "LogicApp"
+      },
+      "properties": {
+        "sku": {
+          "name": "[parameters('flowSkuName')]",
+          "plan": {
+            "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('hostingPlanName'))]"
+          }
         },
-        "properties": {
-            "sku": {
-                "name": "[parameters('sku')]",
-                "plan": {
-                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
-                }
-            },
-            "definition": {
-                "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": {
-                    "testURI": {
-                        "type": "string",
-                        "defaultValue": "[parameters('testUri')]"
-                    }
-                },
-                "triggers": {
-                    "recurrence": {
-                        "type": "recurrence",
-                        "recurrence": {
-                            "frequency": "Hour",
-                            "interval": 1
-                        }
-                    }
-                },
-                "actions": {
-                    "http": {
-                        "type": "Http",
-                        "inputs": {
-                            "method": "GET",
-                            "uri": "@parameters('testUri')"
-                        }
-                    }
-                },
-                "outputs": { }
-            },
-            "parameters": { }
-        }
+        "definition": {
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "testURI": {
+              "type": "string",
+              "defaultValue": "[parameters('testUri')]"
+            }
+          },
+          "triggers": {
+            "recurrence": {
+              "type": "recurrence",
+              "recurrence": {
+                "frequency": "Hour",
+                "interval": 1
+              }
+            }
+          },
+          "actions": {
+            "http": {
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@parameters('testUri')"
+              }
+            }
+          },
+          "outputs": {}
+        },
+        "parameters": {}
+      }
     }
+
 
 ## Commands to run deployment
 
