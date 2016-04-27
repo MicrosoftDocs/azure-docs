@@ -29,7 +29,7 @@ First check whether you are working with another type of Windows application:
 
 * Web apps: go to [ASP.NET 4](app-insights-asp-net.md), [ASP.NET 5](app-insights-asp-net-five.md).
 * [Azure Cloud Services](app-insights-cloudservices.md)
-* Desktop apps: we recommend [HockeyApp](https://hockeyapp.net). With HockeyApp, you can manage distribution, live testing, and user feedback, as well as monitor usage and crash reports. You can also [send telemetry to Application Insights from a desktop app](app-insights-desktop.md). 
+* Desktop apps: we recommend [HockeyApp](https://hockeyapp.net). With HockeyApp, you can manage distribution, live testing, and user feedback, as well as monitor usage and crash reports. You can also [send telemetry to Application Insights from a desktop app](app-insights-windows-desktop.md). 
 
 
 ## <a name="add"></a> Create an Application Insights resource
