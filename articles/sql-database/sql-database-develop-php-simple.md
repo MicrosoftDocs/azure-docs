@@ -28,7 +28,7 @@ This topic illustrates how you can connect to Azure SQL Database from a client a
 
 ## Step 1:  Configure Development Environment
 
-[AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
+[Configure development environment for PHP development](https://msdn.microsoft.com/library/mt720663.aspx)
 
 ## Step 2: Create a SQL database
 
@@ -49,4 +49,4 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ## Next steps
 
 
-For more information regarding PHP installation and usage, see [Accessing SQL Server Databases with PHP](http://technet.microsoft.com/library/cc793139.aspx).
+For more information regarding PHP installation and usage, see [Accessing SQL Server Databases with PHP](http://social.technet.microsoft.com/wiki/contents/articles/1258.accessing-sql-server-databases-from-php.aspx).
