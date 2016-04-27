@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add a SQL Server resource provider to Azure Stack"
-	description="Add a SQL Server resource provider to Azure Stack"
+	pageTitle="Using SQL databases on Azure Stack"
+	description="Learn how you can deploy SQL databases as a service on Azure Stack and the quick steps to deploy the SQL Server Resource Provider Adapter."
 	services="azure-stack"
 	documentationCenter=""
 	authors="Dumagar"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="04/27/2016"
 	ms.author="dumagar"/>
 
 # Using SQL databases on Azure Stack
@@ -42,7 +42,7 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
     - .NET 3.5 framework already set up in the base Windows Server image (if you downloaded the Azure Stack bits after 2/23/2016, you can skip this step)
     - [Azure-Stack-Compatible PowerShell release](http://aka.ms/azStackPsh)
-    - IE security settings configured properly on the ClientVM [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#Turn-off-IE-enhanced-security-and-enable-cookies)
+    - IE security settings configured properly on the ClientVM ([Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#Turn-off-IE-enhanced-security-and-enable-cookies))
 
 2. [Download the SQL Server RP binaries](http://aka.ms/massqlrprfrsh) and extract the zip file to the ClientVM in your Azure Stack POC.
 

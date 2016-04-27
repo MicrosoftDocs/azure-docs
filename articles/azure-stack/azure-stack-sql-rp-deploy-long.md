@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add a SQL Server resource provider to Azure Stack"
-	description="Add a SQL Server resource provider to Azure Stack"
+	pageTitle="Deploy the SQL Server resource provider on Azure Stack"
+	description="Detailed steps to deploy a SQL Server Resource Provider Adapter on Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
 	authors="Dumagar"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="04/27/2016"
 	ms.author="dumagar"/>
 
 # Deploy the SQL Server Resource Provider Adapter on Azure Stack

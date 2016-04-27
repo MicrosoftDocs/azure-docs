@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add a MySQL resource provider to Azure Stack"
-	description="Add a MySQL resource provider to Azure Stack"
+	pageTitle="Deploy the MySQL resource provider on Azure Stack"
+	description="Detailed steps to deploy the MySQL Resource Provider to Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
 	authors="Dumagar"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="04/27/2016"
 	ms.author="dumagar"/>
 
 
-# Instructions for adding a MySQL resource provider to Azure Stack to use with WebApps
+# Deploy the MySQL Resource Provider on Azure Stack to use with WebApps
 
-This article shows the detailed instructions for each step, so that you can start [using MySQL databases with Web Apps on Azure Stack] (azure-stack-mysql-rp-deploy-short.md).
+Use this article to follow the detailed steps for setting up the MySQL Resource Provider on the Azure Stack proof of concept (POC) so that you can start [using MySQL databases](azure-stack-mysql-rp-deploy-short.md) on Azure Stack, including using MySQL as the backend for WordPress sites created with [Azure Web Apps](azure-stack-webapps-deploy.md).
 
 ## Set up steps before you deploy
 
@@ -30,13 +30,13 @@ Before you deploy the resource provider, you need to:
 
 ### Create an image of Windows Server including .NET 3.5
 
-Skip this step if you downloaded the Azure Stack bits after 2/23/2016 because the default base Windows Server 2012 R2 image includes .NET 3.5 framework from this download and later.
+You can skip this step if you downloaded the Azure Stack bits after 2/23/2016 because the default base Windows Server 2012 R2 image includes .NET 3.5 framework in this download and later.
 
 If you downloaded before 2/23/2016, you need to create a Windows Server 2012 R2 Datacenter VHD with .NET 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of Windows Server 2012R2 including .NET 3.5](azure-stack-add-image-pir.md#create-an-image-of-windowsserver2012r2-including-&#046;net-3&#046;5).
 
 ### Turn off IE enhanced security and enable cookies
 
-To deploy a resource provider, your PowerShell Integrated Scripting Environment (ISE) must be run as an administrator, so you need to allow cookies and JavaScript in your Internet Explorer profile used for logging into Azure Active Directory (e.g. for both administrator and user separately)
+To deploy a resource provider, you run the PowerShell Integrated Scripting Environment (ISE) as an administrator, so you need to allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user signins.
 
 **To turn off IE enhanced security:**
 
@@ -50,7 +50,7 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 
 **To enable cookies:**
 
-1. On the Windows Start screen, select **All apps**, select **Windows accessories**, right-click **Internet Explorer**, point to **More**,and then select **Run as an administrator**.
+1. On the Windows Start screen, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, point to **More**, and then select **Run as administrator**.
 
 2. If prompted, check **Use recommended security**, and then click **OK**.
 
@@ -78,9 +78,15 @@ To deploy a resource provider, your PowerShell Integrated Scripting Environment 
 
 1. Connect the Azure Stack POC remote desktop to clientVm.AzureStack.Local and sign in as azurestack\\azurestackuser.
 
-2. [Download the MySQL RP binaries](http://aka.ms/masmysqlrp) file and extract its contents to D:\\MySQLRP.
+2. [Download the MySQL RP binaries](http://aka.ms/masmysqlrp) file and extract it to D:\\MySQLRP.
 
-3. Run the D:\\MySQLRP\\Bootstrap.cmd file as an administrator (azurestack\administrator). This opens the Bootstrap.ps1 file in PowerShell ISE. When the PowerShell ISE windows completes loading  run the bootstrap script by clicking the “play” button or pressing F5. Two major tabs will load, each containing all the scripts and files necessary to deploy your MySQL Resource Provider. 
+3. Run the D:\\MySQLRP\\Bootstrap.cmd file as an administrator (azurestack\administrator).
+
+	This opens the Bootstrap.ps1 file in PowerShell ISE.
+
+4. When the PowerShell ISE windows completes loading, click the “play” button or press F5.
+
+	Two major tabs will load, each containing all the scripts and files you need to deploy your MySQL Resource Provider.
 
 ## Prepare prerequisites
 
@@ -96,11 +102,14 @@ This **New-SslCert.ps1** script adds the \_.AzureStack.local.pfx SSL certificate
 
 1. In the **Prepare Prerequisites** major tab, click the **New-SslCert.ps1** tab and run it.
 
-2. In the prompt that appears, type a PFX password that protects the private key and **Make a note of this password**. You will need to supply it as a parameter later.
+2. In the prompt that appears, type a PFX password that protects the private key and **Make a note of this password**. You'll need it later.
 
 ### Download MySQL binaries to your Azure Stack
 
-Select the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking Yes in the Confirm dialog box. This command adds two zip files to the D:\MySql\Prerequisites\BlobStorage\Container folder.
+1. Select the **Download-MySqlServer.ps1** tab and run it.
+2. When prompted, click **Yes** in the Confirm dialog box to accept the EULA.
+
+	This command adds two zip files to the D:\MySql\Prerequisites\BlobStorage\Container folder.
 
 ### Upload all artifacts to a storage account on Azure Stack
 
@@ -108,7 +117,9 @@ Select the **Download-MySqlServer.ps1** tab and run it. When prompted, accept th
 
 2. In the Windows PowerShell credential request dialog box, type the Azure Stack service administrator credentials.
 
-3. When prompted for the Azure Active Directory Tenant ID, input your Azure Active Directory tenant fully qualified domain name, e.g. microsoftazurestack.onmicrosoft.com. A pop up window will ask for credentials. Submit your Azure Stack Service Admin credentials.
+3. When prompted for the Azure Active Directory Tenant ID, type your Azure Active Directory tenant fully qualified domain name: for example, microsoftazurestack.onmicrosoft.com.
+
+	A pop-up window asks for credentials.
 
 	> [AZURE.TIP] If the pop-up doesn't appear, you either haven’t turned off IE enhanced security to enable JavaScript on this machine and user, or you haven’t accepted cookies in IE. See [Set up steps before you deploy](#set-up-steps-before-you-deploy).
 
@@ -122,24 +133,24 @@ Select the **Publish-GalleryPackages.ps1** tab and run it. This script adds two 
 
 Now that you have prepared the Azure Stack PoC with the necessary certificates and marketplace items, you can deploy a SQL Server Resource Provider. Click the **Deploy MySQL provider** tab to:
 
-   - Provide values in a JSON file that the deployment process will references
+   - Provide values in a JSON file that the deployment process references
    - Deploy the resource provider
    - Update the local DNS
    - Register the SQL Server Resource Provider Adapter
 
 ### Provide values in the JSON file
 
-Click **Microsoft.MySqlprovider.Parameters.JSON**. This parameter file contains the necessary parameters for your Azure Resource Manager template to properly deploy to Azure Stack.
+Click **Microsoft.MySqlprovider.Parameters.JSON**. This file has parameters that the Azure Resource Manager template needs to properly deploy to Azure Stack.
 
 1. Fill out the **empty** parameters in the JSON file:
 
-	- Make sure to provide the **adminusername** and **adminpassword** for the MySQL Resource Provider VM:
+	- Make sure you provide the **adminusername** and **adminpassword** for the MySQL Resource Provider VM.
 
-	- Make sure you input the password for the **SetupPfxPassword** parameter that you made a note of in the [Prepare prequisites](#prepare-prerequisites) step.
-	
-	- Make sure you input and note the **basicAuthUserName** and **basicAuthPassword** parameters. you will need them to register the RP later on 
+	- Make sure you provide the password for the **SetupPfxPassword** parameter that you made a note of in the [Prepare prequisites](#prepare-prerequisites) step.
 
-2. Click **Save** to save the parameter file.
+	- Make sure you provide **basicAuthUserName** and **basicAuthPassword** parameters. **Make a note of these values.** You'll need them later to register the resource provider.
+
+2. Click **Save**.
 
 ### Deploy the resource provider
 
@@ -147,37 +158,39 @@ Click **Microsoft.MySqlprovider.Parameters.JSON**. This parameter file contains 
 2. Type your tenant name in Azure Active Directory when prompted.
 3. In the pop-up window, submit your Azure Stack service admin credentials.
 
-The full deployment may take between 15 and 45 minutes on some highly utilized Azure Stack POCs. T
+The full deployment may take between 15 and 45 minutes on some highly utilized Azure Stack POCs.
 
 ### Update the local DNS
 
 1. Click the **Register-Microsoft.MySQL-fqdn.ps1** tab and run the script.
-2. When prompted for Azure Active Directory Tenant ID, input your Azure Active Directory tenant fully qualified domain name (e.g., **microsoftazurestack.onmicrosoft.com**).
+2. When prompted for Azure Active Directory Tenant ID, input your Azure Active Directory tenant fully qualified domain name: for example, **microsoftazurestack.onmicrosoft.com**.
 
 ### Register the SQL RP Resource Provider##
 
 1. Click the **Register-Microsoft.My-provider.ps1** tab and run the script.
 
-2. When prompted for credentials, use what you noted as the **basicAuthUserName** and **basicAuthPassword** parameters
+2. When prompted for credentials, use what you noted as the **basicAuthUserName** and **basicAuthPassword** parameters.
 
 ## Verify the deployment using the Azure Stack Portal
 
-1. Log off the ClientVM and log in again as **AzureStack\User**.
+1. Sign out of the ClientVM and sign in again as **AzureStack\User**.
 
-2. On the desktop, click **Azure Stack POC Portal** and log on to the portal as the service admin.
+2. On the desktop, click **Azure Stack POC Portal** and sign in to the portal as the service admin.
 
-3. Verify that the deployment succeeded. Click **Browse** &gt; **Resource Groups** &gt; click the resource group you used (default is MySQLRP), and then make sure that the essentials part of the blade (upper half) reads **deployment succeeded**.
+3. Verify that the deployment succeeded. Click **Browse** &gt; **Resource Groups**, click the resource group you used (default is **MySQLRP**), and then make sure that the essentials part of the blade (upper half) reads **deployment succeeded**.
 
 
-4. Verify that the registration succeeded. Click **Browse** &gt; **Resource providers** &gt; and then look for **MySQL Local** 
-## Test your deployment– create your first SQL Database
+4. Verify that the registration succeeded. Click **Browse** &gt; **Resource providers**, and then look for **MySQL Local**.
+
+## Create your first MySQL database to test your deployment
 
 1. Sign in to the Azure Stack POC portal as service admin.
 
-2. Click the **+** button &gt;**Custom** &gt;**MySQL Server & Databases**
+2. Click the **+** button &gt; **Custom** &gt; **MySQL Server & Databases**.
 
-3. Fill in the form with database details
-4. The connections string for your database will include the "server" name as part of the user name: eg: **"user@Server"**. you will need to input a username in this form for e.g. when deploying a MySQL web site using the Azure Web Site resource provider
+3. Fill in the form with database details.
+
+	**Make a note of the "server name" you enter.** The connections string for your database includes the "server name" as part of the user name: for example, **"user@<ServerName>"**. You will need to input a user name in this format when you connect to the database: for example, when you deploy a MySQL web site using the Azure Web Site resource provider
 
 
 ## Next steps

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploy MySQL on Azure Stack"
-	description="Deploy MySQL on Azure Stack"
+	pageTitle="Use MySQL databases as PaaS on Azure Stack"
+	description="Understand the quick steps to deploy the MySQL Resource Provider and provide MySQL as a service on Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
 	authors="Dumagar"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="04/27/2016"
 	ms.author="dumagar"/>
 
-# Using MySQL Databases as PaaS on Azure Stack
-You can deploy a MYSQL Resource Provider on Azure Stack, which lets you create MySQL servers and databases through Azure Resource Manager deployment templates. MySQL databases support common website platforms and are common on the websites scene. After you deploy the resource provider, you can create WordPress websites from the Azure Web Apps PaaS add on for Azure Stack.
+# Use MySQL databases as PaaS on Azure Stack
+You can deploy a MYSQL Resource Provider on Azure Stack, which lets you create MySQL servers and databases through Azure Resource Manager deployment templates and provide MySQL databases as a service. MySQL databases support common website platforms and are common on the websites scene. After you deploy the resource provider, you can create WordPress websites from the Azure Web Apps PaaS add on for Azure Stack.
 
 ## Quick steps to deploy the resource provider
 Use these steps if you're already familiar with Azure Stack. If you want more detail, follow the links in each section or go straight to [Deploy the SQL Database Resource Provider Adapter on Azure Stack POC](azure-stack-sql-rp-deploy-long.md).
