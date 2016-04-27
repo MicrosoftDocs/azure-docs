@@ -27,98 +27,44 @@ This article shows how to use the VMAcesss VM extension [(Github)](https://githu
 
 There are two ways to use VMAccess on your Linux VMs.  First is using the Azure cli with `azure vm reset-access` with the correct flag.  The second way to use VMAccess is with raw json files that VMAccess will process and then act on.
 
+In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
+
 ## Reset Root Password
 
-To reset the root password use the `reset_root_password.json` VMAccess script:
-
-```json
-{
-  "username":"root",
-  "password":"exampleNewPassword",   
-}
-```
-
-Execute the VMAccess script with:
+To reset the root password:
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path reset_root_password.json
+ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -u root -p <examplePassword>
 ```
 
 ## SSH Key Reset
 
-To reset the SSH key of a non root user use the `reset_ssh_key.json` VMAccess script:
-
-```json
-{
-  "username":"exampleUser",
-  "ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== exampleUser@exampleServer",   
-}
-```
-
-Execute the VMAccess script with:
+To reset the SSH key of a non root user:
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path reset_ssh_key.json
+ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -u <exampleUser> -M <~/.ssh/azure_id_rsa.pub>
 ```
 
 ## Create a User
 
-To create a new user use the `create_new_user.json` VMAccess script:
-
-```json
-{
-"username":"exampleNewUserName",
-"ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== exampleUser@exampleServer",
-"password":"examplePassword",
-}
-```
-
-Execute the VMAccess script with:
+To create a new user:
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path create_new_user.json
+ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -u <exampleNewUserName> -p <examplePassword>
 ```
 
 ## Remove a User
 
-To remove a user use the `remove_user.json` VMAccess script:
-
-```json
-{
-"remove_user":"exampleUser",
-}
-```
-
-Execute the VMAccess script with:
-
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path remove_user.json
+ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -R <exampleNewUserName>
 ```
 
 ## Reset SSHD
 
-To reset the SSHD configuration use the `reset_sshd.json` VMAccess script:
-
-```json
-{
-  "reset_ssh": true
-}
-```
-
-Execute the VMAccess script with:
+To reset the SSHD configuration:
 
 ```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path reset_sshd.json
+ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -r
 ```
 
 
