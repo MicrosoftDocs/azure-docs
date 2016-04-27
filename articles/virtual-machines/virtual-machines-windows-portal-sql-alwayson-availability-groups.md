@@ -19,14 +19,12 @@
 # Configure an AlwaysOn availability group in Azure Resource Manager virtual machines (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager - Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal - Resource Manager - Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-- [Portal - Classic - Manual](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell - Classic](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Classic model.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Classic model. 
 
 
 This end-to-end tutorial shows you how to create a SQL Server availability group with Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You will review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
