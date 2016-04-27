@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/27/2016"
 	ms.author="andkjell"/>
 
 # Troubleshoot connectivity issues with Azure AD Connect
@@ -27,9 +27,8 @@ In this article we will show how Fabrikam connects to Azure AD through its proxy
 First we need to make sure [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) is correctly configured.  
 ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE] In some non-Microsoft blogs it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system will stop working on first upgrade. For that reason the recommendation is to update machine.config instead.
-
-
+>[AZURE.NOTE]
+In some non-Microsoft blogs it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system will stop working on first upgrade. For that reason the recommendation is to update machine.config instead.
 
 The proxy server must also have the required URLs opened. The official list is documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -39,7 +38,7 @@ Of these, the following table is the absolute bare minimum to be able to connect
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Used to download CRL lists. |
 | *.verisign.com | HTTP/80 | Used to download CRL lists. |
-| *.trust.com | HTTP/80 | Used to download CRL lists for MFA. |
+| *.entrust.com | HTTP/80 | Used to download CRL lists for MFA. |
 | *.windows.net | HTTPS/443 | Used to sign in to Azure AD. |
 | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Used for MFA. |
 | *.microsoftonline.com | HTTPS/443 | Used to configure your Azure AD directory and import/export data. |
@@ -134,25 +133,25 @@ Time | URL
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
-## Errors from ADAL
-This section covers errors which can be returned from ADAL (the authentication library used by Azure AD Connect). The error explained should help you in understanding your next steps.
+## Authentication errors
+This section covers errors which can be returned from ADAL (the authentication library used by Azure AD Connect) and PowerShell. The error explained should help you in understand your next steps.
 
-### invalid_grant
-Invalid username or password.
+### Invalid Grant
+Invalid username or password. See [The password cannot be verified](#the-password-cannot-be-verified) for more information.
 
-### unknown_user_type
-Your Azure AD directory cannot be found or resolved.
+### Unknown User Type
+Your Azure AD directory cannot be found or resolved. Maybe you try to login with a username in an unverified domain?
 
-### user_realm_discovery_failed
+### User Realm Discovery Failed
 Network or proxy configuration issues. The network cannot be reached, see [Troubleshoot connectivity issues in the installation wizard](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
-### user_password_expired
+### User Password Expired
 Your credentials have expired. Change your password.
 
 ### AuthorizationFailure
 Unknown issue.
 
-### authentication_cancelled
+### Authentication Cancelled
 The multi-factor authentication (MFA) challenge was cancelled.
 
 ### ConnectToMSOnline
@@ -162,7 +161,7 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 Authentication was successful. You are not a global administrator.
 
 ### PrivilegedIdentityManagement
-Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator.
+Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. See [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) for more information.
 
 ### CompanyInfoUnavailable
 Authentication was successful. Could not retrieve company information from Azure AD.
