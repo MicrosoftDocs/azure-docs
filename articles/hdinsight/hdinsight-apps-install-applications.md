@@ -14,14 +14,14 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="04/25/2016"
+   	ms.date="04/27/2016"
    	ms.author="jgao"/>
 
 # Install HDInsight applications
 
-An HDInsight application is an application that users can install on an Linux-based HDInsight cluster. HDInsight applications can be installed on Linux-based HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For packaging and deploying custom HDInsight applications, see [Package and deploy HDInsight applications](hdinsight-apps-deploy.md).
+An HDInsight application is an application that users can install to a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). For defining custom HDInsight applications, see [Deine HDInsight applications](hdinsight-apps-define-applications.md).
 
-The following are the published HDInsight applications: [jgao: will these applications be ready by this Friday?]
+The following are the published HDInsight applications: [jgao: list and description to be provided by Travis]
 
 - **Data-Centric Security for HDInsight(Bluetalon)**: [jgao: description to be provided] 
 - **Datameer powered by Azure(Datameer)**: 
@@ -55,7 +55,7 @@ You can see the installation status from the portal notifications (click the bel
 
 ## Install applications during cluster creation
 
-The following procedure shows you how to install HDInsight applications when you create a cluster.
+You have the option to install HDInsight applications when you create a cluster. During the process, HDInsight applications are installed after the cluster is created and is in the running state. The following procedure shows you how to install HDInsight applications when you create a cluster.
 
 **To install an HDInsight application**
 
@@ -106,24 +106,24 @@ You can check the application installation status from the portal notification (
 
 If an application installation failed, you can see the error messages and debug information from 3 places:
 
-- HDInsight Applications
+- HDInsight Applications: general error information.
 
     Open the cluster from the portal, and click Applications from the Settings blade:
 
     ![hdinsight applications application installation error](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
 
-- HDInsight script action
+- HDInsight script action: If the HDInsight Applications' error message indicates a script action failure, more details about the script failure will be presented in the script actions pane.
 
-    Because the application installation calls a script action script, you can also find some debug information, by clicking Script Action from the Settings blade. Script action history shows the error messages
+    Click Script Action from the Settings blade. Script action history shows the error messages
 
     ![hdinsight applications script action error](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
     
-- Ambari Web UI 
+- Ambari Web UI: If the install script was the cause of the failure, use Ambari Web UI to check full logs about the install scripts.
 
     For more information, see [Troubleshooting](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 
 ## Next steps
 
-- [Package and deploy HDInsight applications](hdinsight-apps-deploy.md): learn how to develop ARM templates for deploying HDInsight applications.
+- [Define HDInsight applications](hdinsight-apps-define-applications.md): learn how to develop ARM templates for deploying HDInsight applications.
 - [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an un-published HDInsight application to HDInsight.
