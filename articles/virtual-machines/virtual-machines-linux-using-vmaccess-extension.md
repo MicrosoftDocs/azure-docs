@@ -68,7 +68,7 @@ ahmet@fedora$ azure vm reset-access -g <resource group> -n <vm name> -r
 ```
 
 
-## Detailed Walk Through
+## Detailed Walkthrough
 
 ### VMAccess defined:
 
