@@ -57,6 +57,7 @@ For now, the services that support moving to both a new resource group and subsc
 - Notification Hubs
 - Operational Insights
 - Redis Cache
+- Scheduler
 - Search
 - SQL Database server (see [SQL Database limitations](#sql-database-limitations) below)
 
