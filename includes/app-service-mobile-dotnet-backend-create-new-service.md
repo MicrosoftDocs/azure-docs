@@ -16,7 +16,7 @@
 
 8. In the **New server** blade, type a unique server name in the **Server name** field, provide a login and password, check **Allow azure services to access server**, and click **OK**. This creates the new database.
 
-10. Back in the **Add data connection** blade, click **Connection string**, type the login and password values for your database, and click **OK**. Wait a few minutes for the database to be deployed successfully before proceeding.
+9. Back in the **Add data connection** blade, click **Connection string**, type the login and password values for your database, and click **OK**. Wait a few minutes for the database to be deployed successfully before proceeding.
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/
