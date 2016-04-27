@@ -13,17 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/26/2016" 
 	ms.author="ddove;sidneyh"/>
 
-# Shard map management
+# Scale out databases with the shard map manager
 
-In a sharded database environment, a [**shard map**](sql-database-elastic-scale-glossary.md) maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is essential to shard map management. For Azure SQL Database, use the [ShardMapManager class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), found in the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage shard maps. 
+To easily scale out databases on SQL Azure, use a shard map manager. The shard map manager is a special database that maintains global mapping information about all shards (databases) in a shard set. The metadata allows an application to connect to the correct database based upon the value of the **sharding key**. In addition, every shard in the set contains maps that track the local shard data (known as **shardlets**). 
 
-To convert an existing set of databases, see [Convert existing databases to use elastic database tools](sql-database-elastic-convert-to-use-elastic-tools.md).
- 
+![Shard map management](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
+
+Understanding how these maps are constructed is essential to shard map management. This is done using the [ShardMapManager class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), found in the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage shard maps.  
+
 
 ## Shard maps and shard mappings
+
+For each shard, you must select the type of shard map to create. The choice depends on the database architecture: 
+
+1. Single tenant per database  
+2. Multiple tenants per database (two types):
+	3. List mapping
+	4. Range mapping
+ 
+For a single-tenant model, create a **list mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
+
+![List mapping][1]
+
+The multi-tenant model assigns several tenants to a single database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, we assign a range of tenants to a database using **range mapping**. 
+ 
+
+![Range mapping][2]
+
+Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to a single database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
+
+![Muliple tenants on single DB][3] 
  
 ### Supported .Net types for sharding keys
 
@@ -312,3 +334,7 @@ For scenarios that require data movement, however, the split-merge tool is neede
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
+<!--Image references-->
+[1]: ./media/sql-database-elastic-scale-shard-map-management/listmapping.png
+[2]: ./media/sql-database-elastic-scale-shard-map-management/rangemapping.png
+[3]: ./media/sql-database-elastic-scale-shard-map-management/multipleonsingledb.png
