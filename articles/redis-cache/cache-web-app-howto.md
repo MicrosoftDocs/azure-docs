@@ -31,6 +31,8 @@ You'll learn:
 
 ## Prerequisites
 
+To complete the tutorial, you must have the following prerequisites.
+
 -	[Azure account](#azure-account)
 -	[Visual Studio 2015 with the Azure SDK for .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
 
@@ -705,6 +707,8 @@ When provisioning is complete, you can publish your application to Azure from Vi
 
 ## Publish the application to Azure
 
+In this step of the tutorial, you'll publish the application to Azure and run it in the cloud.
+
 1. Right-click the **ContosoTeamStats** project in Visual Studio and choose **Publish**.
 
     ![Publish][cache-publish-app]
@@ -721,7 +725,7 @@ When provisioning is complete, you can publish your application to Azure from Vi
 
     ![Publish][cache-publish]
 
-    After a few moments the publshing process will complete and a browser will be launched with the running sample application.
+    After a few moments the publshing process will complete and a browser will be launched with the running sample application. If you get a DNS error when validating or publishing, and the provisioning process for the Azure resources for the application has just recently completed, wait a moment and try again.
 
     ![Cache added][cache-added-to-application]
 
@@ -740,11 +744,11 @@ The following table describes each action link from the sample application.
 | Edit / Details / Delete | Edit a team, view details for a team, delete a team.                                                                                                             |
 
 
-Click some of the actions and experiment with retrieving the data from the different sources.
+Click some of the actions and experiment with retrieving the data from the different sources. Not the differences in the time it takes to complete the various ways of retrieving the data from the database and the cache.
 
 ## Delete the resources when you are finished with the application
 
-When you are finished with the sample application, you can delete the resources used in order to conserve cost and resources. 
+When you are finished with the sample tutorial application, you can delete the Azure resources used in order to conserve cost and resources. If you use the **Deploy to Azure** button in the [Provision the Azure resources](#provision-the-azure-resources) section, all of your resources are contained in the same resource group, and you can delete them together by deleting the resource group.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 2. Type the name of your resource group into the **Filter items...** textbox.
@@ -765,11 +769,11 @@ After a few moments the resource group and all of its contained resources are de
 
 To run the application locally on your machine, you need an Azure Redis Cache instance in which to cache your data. 
 
--	If you have published your application to Azure, you can use the Azure Redis Cache instance that was provisioned during that step.
+-	If you have published your application to Azure as described in the previous section, you can use the Azure Redis Cache instance that was provisioned during that step.
 -	If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
 -	If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Once you have selected the cache to use, browse to the cache in the Azure portal to your cache and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+Once you have selected the cache to use, browse to the cache in the Azure portal and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
 
 1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
 
@@ -783,20 +787,20 @@ Once you have selected the cache to use, browse to the cache in the Azure portal
 
 3. Press **Ctrl+F5** to run the application.
 
->[AZURE.NOTE] Note that because the application, including the database, is running locally and the Redis Cache is hosted in Azure, the cache may appear to under perform the database. For best performance, the client application and Azure Redis Cache instance should be in the same location.
+>[AZURE.NOTE] Note that because the application, including the database, is running locally and the Redis Cache is hosted in Azure, the cache may appear to under perform the database. For best performance, the client application and Azure Redis Cache instance should be in the same location. 
 
 ## Next steps
 
 -	Learn more about [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site.
 -	Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
--	Learn more about [web apps in Azure App Service](../app-service-web/app-service-web-overview.md)
+-	Learn more about [web apps in Azure App Service](../app-service-web/app-service-web-overview.md).
 -	Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal.
 
 -	Explore Azure Redis Cache premium features
 	-	[How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
 	-	[How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
 	-	[How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
-	-	See the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches
+	-	See the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
 
 
 <!-- IMAGES -->
