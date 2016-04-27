@@ -214,8 +214,6 @@ The following command retrieves status of the replication link between the prima
 - [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)
 - [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
