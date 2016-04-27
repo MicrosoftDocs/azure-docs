@@ -64,7 +64,7 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 - Clients that support HLS with **AES-128 CBC** encryption: Safari on OS X, Apple TV, iOS.
 
 ##.NET sample
-
+	
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -256,19 +256,7 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	
 	
 	            // Configure FairPlay policy option.
-	            byte[] iv = Guid.NewGuid().ToByteArray();
-	            var askId = Guid.NewGuid();
-	            var pfxPasswordId = Guid.NewGuid();
-	            string pfxPassword = "AMSGIT";
-	            var appCert = new X509Certificate2("amscer.pfx", pfxPassword, X509KeyStorageFlags.Exportable);
-	
-	            string FairPlayConfiguration = Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
-	                    appCert,
-	                    pfxPassword,
-	                    pfxPasswordId,
-	                    askId,
-	                    iv);
-	
+	            string FairPlayConfiguration = ConfigureFairPlayPolicyOption();
 	
 	            IContentKeyAuthorizationPolicyOption FairPlayPolicy =
 	                _context.ContentKeyAuthorizationPolicyOptions.Create("",
@@ -289,6 +277,31 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	            contentKey = contentKey.UpdateAsync().Result;
 	        }
 	
+	        private static string ConfigureFairPlayPolicyOption()
+	        { 
+	            // iv - 16 bytes random value, must match the iv in the asset delivery policy.
+	            byte[] iv = Guid.NewGuid().ToByteArray();
+	
+	            // askId - provided by Apple
+	            var askId = Guid.NewGuid();
+	
+	            var pfxPasswordId = Guid.NewGuid();
+	
+	            //Customer password for creating the .pfx file.
+	            string pfxPassword = "<customer password for creating the .pfx file>";
+	
+	            //Specify the .pfx file created by the customer.
+	            var appCert = new X509Certificate2("path to the .pfx file created by the customer", pfxPassword, X509KeyStorageFlags.Exportable);
+	
+	            string FairPlayConfiguration = Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
+	                    appCert,
+	                    pfxPassword,
+	                    pfxPasswordId,
+	                    askId,
+	                    iv);
+	
+	            return FairPlayConfiguration;
+	        }
 	        public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
 	        {
 	            string tokenTemplateString = GenerateTokenRequirements();
@@ -303,19 +316,10 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	                    }
 	                };
 	
-	            // Configure FairPlay policy option.
-	            byte[] iv = Guid.NewGuid().ToByteArray();
-	            var askId = Guid.NewGuid();
-	            var pfxPasswordId = Guid.NewGuid();
-	            string pfxPassword = "AMSGIT";
-	            var appCert = new X509Certificate2("amscer.pfx", pfxPassword, X509KeyStorageFlags.Exportable);
 	
-	            string FairPlayConfiguration = Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
-	                    appCert,
-	                    pfxPassword,
-	                    pfxPasswordId,
-	                    askId,
-	                    iv);
+	            // Configure FairPlay policy option.
+	            string FairPlayConfiguration = ConfigureFairPlayPolicyOption();
+	
 	
 	            IContentKeyAuthorizationPolicyOption FairPlayPolicy =
 	                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
