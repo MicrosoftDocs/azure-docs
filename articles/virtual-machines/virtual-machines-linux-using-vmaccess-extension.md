@@ -21,7 +21,7 @@
 
 # Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension
 
-This article shows how to use the [VMAcesss VM extension (Github Repo)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) to check or repair the disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux.  This article requires [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure Linux Virtual Machine, and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
+This article shows how to use the VMAcesss VM extension [(Github)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) to check or repair the disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux.  This article requires [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure Linux Virtual Machine, and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
 
 ## Quick Commands
 
