@@ -150,7 +150,7 @@ Along the way, you'll understand the dependency hierarchy that the Resource Mana
 
 Let's build a simple network with a VM useful to development and simple compute, and we'll explain it as we go. Then you'll be able to move on to more complex networks and deployments.
 
-### Create resource group and choose deployment locations
+## Create resource group and choose deployment locations
 
 Azure Resource Groups are logical deployment entities that contain configuration and other metadata to enable logical management of resource deployments.
 
@@ -169,7 +169,7 @@ data:
 info:    group create command OK
 ```
 
-### Create a storage account
+## Create a storage account
 
 You're going to need storage accounts for your VM disks and for any additional data disks you want to add, among other scenarios. In short, you're always going to create storage accounts almost immediately after you create resource groups.
 
@@ -258,7 +258,7 @@ data:    ----  -------------  -----------------------------
 data:    vhds  Off            Sun, 27 Sep 2015 19:03:54 GMT
 info:    storage container list command OK
 ```
-### Create your Virtual Network and subnet
+## Create your Virtual Network and subnet
 
 You're going to need to create an Azure Virtual Network and a subnet into which you can install your VM.
 
@@ -367,7 +367,7 @@ chrisL@fedora$ azure network vnet show testrg testvnet --json | jq '.'
 }
 ```
 
-### Create a NIC to use with the Linux VM
+## Create a NIC to use with the Linux VM
 
 Even NICs are programmatically available, as you may apply rules to their use and have more than one.
 
@@ -475,7 +475,7 @@ chrisL@fedora$ azure network nic show testrg testnic --json | jq '.'
 }
 ```
 
-### Create your Network Security Group and rules
+## Create your Network Security Group and rules
 
 Now we create your network security group (NSG) and the inbound rules that govern access to the NIC.
 
@@ -491,7 +491,7 @@ chrisL@fedora$ azure network nsg rule create --protocol tcp --direction inbound 
 
 > [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we will bind the NSG to the VMs virtual network interface card (nic), which means that any request to port 22 will be passed through to the nic on our VM. Because this is a rule about a network connection -- and not an endpoint as in classic deployments -- to open a port, you must leave the `--source-port-range` set to '\*' (the default value) in order to accept inbound requests from **any** requesting port, which are typically dynamic.
 
-### Create your Public IP address (PIP)
+## Create your Public IP address (PIP)
 
 Now let's create your public IP address (PIP) that will enable you to connect to your VM from the internet using the `azure network public-ip create` command. Because the default is a dynamic address, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `-d testsubdomain` option.
 
@@ -587,7 +587,7 @@ azure network public-ip show testrg testpip --json | jq '.'
 }
 ```
 
-### Associate the public IP and the network security group to the NIC
+## Associate the public IP and the network security group to the NIC
 
 ```
 chrisL@fedora$ azure network nic set --public-ip-name testpip testrg testnic
@@ -599,7 +599,7 @@ Bind the NSG to the NIC:
 chrisL@fedora$ azure network nic set --network-security-group-name testnsg testrg testnic
 ```
 
-### Create your Linux VM
+## Create your Linux VM
 
 You've created the storage and network resources to support an internet accessible VM. Now let's create that VM, and secure it with an ssh key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md). We selected an image using the command `azure vm image list westeurope canonical | grep LTS`, and in this case we'll use `canonical:UbuntuServer:14.04.3-LTS:14.04.201509080`, but for the last field we'll pass `latest` so that in the future we always get the most recent build (the string we use will be `canonical:UbuntuServer:14.04.3-LTS:latest`).
 
@@ -739,6 +739,6 @@ data:    Diagnostics Instance View:
 info:    vm show command OK
 ```
 
-### Next steps
+## Next steps
 
 Now you're ready to begin with multiple networking components and VMs.
