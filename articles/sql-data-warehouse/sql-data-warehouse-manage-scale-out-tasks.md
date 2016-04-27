@@ -21,6 +21,8 @@
 > [AZURE.SELECTOR]
 - [Azure portal](sql-data-warehouse-manage-scale-out-tasks.md)
 - [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
+- [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
+- [TSQL](sql-data-warehouse-manage-scale-out-tasks-tsql.md)
 
 
 Elastically scale out compute resources and memory to meet the changing demands of your workload, and save costs by scaling back resources during non-peak times. 
