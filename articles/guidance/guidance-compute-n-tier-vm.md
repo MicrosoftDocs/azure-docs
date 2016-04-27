@@ -612,7 +612,7 @@ GOTO :eof
 [sql-alwayson-ag-listeners]: https://msdn.microsoft.com/en-us/library/hh213417.aspx
 [sql-always-on-force-failover]: https://msdn.microsoft.com/en-us/library/ff877957.aspx
 [sql-alwayson-getting-started]: https://msdn.microsoft.com/en-us/library/gg509118.aspx
-[sql-alwayson-ilb]: ../load-balancer/load-balancer-configure-sqlao.md
+[sql-alwayson-ilb]: https://blogs.msdn.microsoft.com/igorpag/2016/01/25/configure-an-ilb-listener-for-sql-server-alwayson-availability-groups-in-azure-arm/
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/en-us/library/hh213417.aspx#ConnectToSecondary
 [sql-alwayson-arm-template]: https://azure.microsoft.com/en-us/documentation/templates/sql-server-2014-alwayson-dsc/
 [udr]: ../virtual-network/virtual-networks-udr-overview.md
