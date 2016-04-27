@@ -31,6 +31,9 @@ You'll learn:
 
 ## Prerequisites
 
+-	[Azure account](#azure-account)
+-	[Visual Studio 2015 with the Azure SDK for .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
+
 ### Azure account
 
 You need an Azure account to complete the tutorial. You can:
@@ -38,7 +41,7 @@ You need an Azure account to complete the tutorial. You can:
 * [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 * [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
-### <a name="setupdevenv"></a>Visual Studio 2015 with the Azure SDK for .NET
+### Visual Studio 2015 with the Azure SDK for .NET
 
 The tutorial is written for Visual Studio 2015 with the [Azure SDK for .NET](../dotnet-sdk.md) 2.8.2 or later. [Download the latest Azure SDK for Visual Studio 2015 here](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio is automatically installed with the SDK if you don't already have it.
 
@@ -60,7 +63,15 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 
 4. Click **OK** to create the project.
 
-## Add the model
+## Create the ASP.NET MVC application
+
+In this section of the tutorial, we'll create the basic application that reads and displays team statistics from a database.
+
+-	[Add the model](#add-the-model)
+-	[Add the controller](#add-the-controller)
+-	[Configure the views](#configure-the-views)
+
+### Add the model
 
 1. Right-click **Models** in **Solution Explorer**, and choose **Add**, **Class**. 
 
@@ -168,7 +179,7 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 			<add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" 	providerName="System.Data.SqlClient" />
 		</connectionStrings>
 
-## Add the controller
+### Add the controller
 
 1. Press **F6** to build the project. 
 2. In **Solution Explorer**, right-click the **Controllers** folder and choose **Add**, **Controller**.
@@ -214,7 +225,7 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 	    );
 
 
-## Configure the views
+### Configure the views
 
 1. In **Solution Explorer**, expand the **Views** folder and then the **Shared** folder, and double-click **_Layout.cshtml**. 
 
@@ -238,7 +249,15 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 
 ## Configure the application to use Redis Cache
 
-In this step of the tutorial, we'll configure the sample application to store and retrieve Contoso team statistics from a Redis Cache using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
+In this section of the tutorial, we'll configure the sample application to store and retrieve Contoso team statistics from a Redis Cache using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
+
+-	[Configure the application to use StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
+-	[Update the TeamsController class to return results from the cache or the database](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
+-	[Update the Create, Edit, and Delete methods to work with the cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
+-	[Update the Teams Index view to work with the cache](#update-the-teams-index-view-to-work-with-the-cache)
+
+
+### Configure the application to use StackExchange.Redis
 
 1. To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
@@ -589,7 +608,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 	    }
 
 
-## Update the Teams Index view
+### Update the Teams Index view to work with the cache
 
 1. In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
 
