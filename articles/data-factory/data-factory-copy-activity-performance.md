@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/27/2016"
 	ms.author="spelluru"/>
 
 
@@ -90,12 +90,12 @@ Note that this setting is different from the **concurrency** property in the act
 
 Let's look at a **sample scenario**: consider the following example where there are multiple slices from the past that need to be processed. The Data Factory service runs an instance of the Copy Activity (activity run) for each slice.
 
-•	data slice from 1st activity window (1 AM - 2 AM ) ==> Activity run 1
-•	data slice from 2nd activity window (2 AM - 3 AM) ==> Activity run 2
-•	data slice from 2nd activity window (3 AM - 4 AM) ==> Activity run 3
-•	and so on.
+- data slice from 1st activity window (1 AM - 2 AM ) ==> Activity run 1
+- data slice from 2nd activity window (2 AM - 3 AM) ==> Activity run 2
+- data slice from 2nd activity window (3 AM - 4 AM) ==> Activity run 3
+- and so on.
 
-Having concurrency setting 2 in this example allows Activity run 1 and Activity run 2 to copy data from two activity windows concurrently to improve performance of the data movement. However, if there are multiple files associated with Activity run 1, one file is copied from the source to the destination at a time. 
+Having **concurrency** setting **2** in this example allows **Activity run 1 **and **Activity run 2** to copy data from two activity windows **concurrently** to improve performance of the data movement. However, if there are multiple files associated with Activity run 1, one file is copied from the source to the destination at a time. 
 
 ### parallelCopies
 You can use **parallelCopies** property to indicate the parallelism that you want the Copy Activity to use. In simple terms, think of this   property as the maximum number of threads within a copy activity which are reading from your source and/or writing to your sink data stores in parallel.
@@ -166,7 +166,7 @@ The **allowed values** for the cloudDataMovementUnits property are: 1 (default),
 
 When copying multiple large files with **cloudDataMovementUnits** configured as 2, 4, and 8, the performance can reach 2x (2 times), 4x, and 7x of the reference numbers mentioned in the Performance Reference section. 
 
-Refer to [sample use cases](#case-study–parallel-copy) here to better leverage the above 2 properties to enhance your data movement throughout.   
+Refer to [sample use cases](#appendix) here to better leverage the above 2 properties to enhance your data movement throughout.   
  
 It is **important** to remember that you will be charged based on the total time of the copy operation. Hence, if a copy job used to take 1 hour with 1 cloud unit and now it takes 15 minutes with 4 cloud units then the overall bill would be almost the same. Here is another scenario: suppose, you are using 4 cloud units and the 1st cloud unit spends 10 minutes, 2nd one spends 10 minutes, 3rd one spends 5 minutes, and 4th one spends 5 minutes with in a copy activity run, you will be charged for the total copy (data movement) time, which is 10 + 10 + 5 + 5 = 30 minutes. Usage of **parallelCopies**  has no impact on billing. 
 
