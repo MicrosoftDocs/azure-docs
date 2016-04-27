@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # How to create a Web App with Redis Cache
@@ -28,7 +28,7 @@ You'll learn:
 -	How to use a Redis sorted set to display the top 5 teams.
 -	How to provision the Azure resources for the application using ARM templates.
 -	How to publish the application to Azure using Visual Studio.
--	How to use the [Azure Portal](/features/azure-portal/) to monitor and manage your web app.
+-	How to use the [Azure Portal](/features/azure-portal/) to monitor and manage your Azure application.
 
 ## Prerequisites
 
@@ -36,26 +36,18 @@ You'll learn:
 
 You need an Azure account to complete the tutorial. You can:
 
-* [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
-* [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
-
-If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter  app in App Service — no credit card required, and no commitments.
+* [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
+* [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 ### <a name="setupdevenv"></a>Visual Studio 2015 with the Azure SDK for .NET
 
 The tutorial is written for Visual Studio 2015 with the [Azure SDK for .NET](../dotnet-sdk.md) 2.8.2 or later. [Download the latest Azure SDK for Visual Studio 2015 here](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio is automatically installed with the SDK if you don't already have it.
 
-If you have Visual Studio 2013, you can [download the latest Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Some screens may look different from the illustrations.
+If you have Visual Studio 2013, you can [download the latest Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Some screens may look different from the illustrations shown in this tutorial.
 
 >[AZURE.NOTE] Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
 
-### ASP.NET MVC 5
-
-This tutorial is about using ASP.NET MVC 5 with Azure App Service; it doesn't teach how to develop an ASP.NET web application. For an introduction to ASP.NET MVC 5, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site.
-
 ## Create the Visual Studio project
-
-
 
 1. Open Visual Studio and click **File**, **New**, **Project**.
 
@@ -287,7 +279,7 @@ In this step of the tutorial, we'll configure the sample application to store an
   
 1. Create a file on your computer named `WebAppPlusCacheAppSecrets.config` and place it in a location that won't be checked in with the source code of your sample application, should you decide to check it in somewhere. In this example the `AppSettingsSecrets.config` file is located at `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
 
-2. Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents. Later in the tutorial we'll provision an Azure Redis Cache instance and update the cache name and password.
+2. Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents. If you run the application locally this information is used to connect to your Azure Redis Cache instance. When you deploy to Azure the application will retrieve the cache connection information from the Web App App Settings. Later in the tutorial we'll provision an Azure Redis Cache instance and update the cache name and password.
 
 
 		<appSettings>
@@ -768,6 +760,19 @@ Once you have selected the cache to use, browse to the cache in the Azure portal
 
 >[AZURE.NOTE] Note that because the application, including the database, is running locally and the Redis Cache is hosted in Azure, the cache may appear to under perform the database. For best performance, the client application and Azure Redis Cache instance should be in the same location.
 
+## Next steps
+
+-	Learn more about [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site.
+-	Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
+-	Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal.
+
+-	Explore Azure Redis Cache premium features
+	-	[How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
+	-	[How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
+	-	[How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
+	-	See the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches
+
+
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png
 [cache-added-to-application]: ./media/cache-web-app-howto/cache-added-to-application.png
@@ -800,8 +805,4 @@ Once you have selected the cache to use, browse to the cache in the Azure portal
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
-[]: ./media/cache-web-app-howto/.png
+
