@@ -31,9 +31,18 @@ Notice that it tells you:
 
 * The failure rate compared to normal app behavior.
 * How many users are affected – so you know how much to worry.
+
+## Diagnose the problem
+
+Click the link in the email and you'll immediately get 
+
+In addition, if you click the link, you'll be able to see:
+
 * A characteristic pattern associated with the failures. In this example, there’s a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
 * The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failed requests.
 * Links directly to relevant searches on the telemetry in Application Insights.
+
+You can opt to get this additional diagnostic information directly in the email
 
 Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But NRT Proactive Diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
