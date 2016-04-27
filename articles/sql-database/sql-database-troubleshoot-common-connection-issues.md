@@ -19,8 +19,10 @@
 # Troubleshoot common connection issues to Azure SQL Database
 Connection issues to Azure SQL Database can be broadly classified as any of the following:
 
-- Transient errors (short-lived or intermittent)
-- Persistent or non-transient errors (errors that regularly recur)
+- [Transient errors (short-lived or intermittent)](#troubleshoot-the-transient-errors)
+- [Persistent or non-transient errors (errors that regularly recur)](#troubleshoot-the-persistent-errors-non-transient-errors)
+
+If you encounter the connection issues, try the troubleshoot steps that are described in this article.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -30,6 +32,7 @@ If your application is experiencing transient errors, review the following topic
 - [Troubleshooting Database &lt;x&gt; on Server &lt;y&gt; is unavailable (Error: 40613)](sql-database-troubleshoot-connection.md)
 - [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](sql-database-connectivity-issues.md)
 
+<a id="troubleshoot-the-persistent-errors" name="troubleshoot-the-persistent-errors"></a>
 ## Troubleshoot the persistent errors (non-transient errors)
 If the application persistently fails to connect to SQL Azure Database, it usually indicates an issue with one of the following:
 
@@ -42,4 +45,3 @@ If the application persistently fails to connect to SQL Azure Database, it usual
 2.	On all firewalls between the client and the Internet, make sure that port 1433 is open for outbound connections. Review [Configure the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx) for additional pointers.
 3.	Verify your connection string and other connection settings. See the Connection String section in the [connectivity issues topic](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4.	Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
-5.	If connectivity problems persist, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
