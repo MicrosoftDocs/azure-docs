@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="04/27/2016"
 	ms.author="jeedes"/>
 
 
@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Origami application using the following pattern: **https://live.origamirisk.com/origami/account/login?account=\<company name\>**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Origami application using the following pattern: **https://live.origamirisk.com/origami/account/login?account=\<company name\>**
 	
 	b. click **Next**
  
