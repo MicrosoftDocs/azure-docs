@@ -379,6 +379,8 @@ In this sample, team statistics can be retrieved from the database or from the c
 		
 		    sw.Stop();
 		    double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
+
+            // Add the elapsed time of the operation to the ViewBag.msg.
 		    ViewBag.msg += " MS: " + ms.ToString();
 		
 		    return View(teams);
@@ -675,9 +677,9 @@ To deploy these services to a new or existing resource group of your choice, cli
 
 [![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
-The **Deploy to Azure** button uses the [Create a Web App plus Redis Cache plus SQL Database using a template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) Azure Quickstart template to provision these services and set the connection string for the SQL Database and the application setting for the Azure Redis Cache connection string.
+This **Deploy to Azure** button uses the [Create a Web App plus Redis Cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Azure Quickstart](https://github.com/Azure/azure-quickstart-templates) template to provision these services and set the connection string for the SQL Database and the application setting for the Azure Redis Cache connection string.
 
->[AZURE.NOTE] If you don't have an Azure account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+>[AZURE.NOTE] If you don't have an Azure account, you can [create a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
 
 Clicking the **Deploy to Azure** button takes you to the Azure portal and initiates the process of creating the resources described by the template.
 
