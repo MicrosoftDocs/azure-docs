@@ -26,7 +26,7 @@
 
 ## Overview
 
-Azure Site Recovery contributes to your business continuity and disaster recovery  strategy by orchestrating replication, failover, and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios, see the [Azure Site Recovery overview](site-recovery-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery strategy by orchestrating replication, failover, and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios, see the [Azure Site Recovery overview](site-recovery-overview.md).
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It can work with two types of modules: the Azure Profile module, or the Azure Resource Manager module.
 
@@ -36,25 +36,25 @@ This article describes how to use Windows PowerShell, together with Azure Resour
 
 > [AZURE.NOTE] The Site Recovery PowerShell cmdlets currently allow you to configure the following: one Virtual Machine Manager site to another, a Virtual Machine Manager site to Azure, and a Hyper-V site to Azure.
 
-You don't need to be a PowerShell expert to use this article, but you do need to  understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
+You don't need to be a PowerShell expert to use this article, but you do need to understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
 You can also read more about [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-> [AZURE.NOTE] Microsoft partners that are part of the Cloud Solution Provider (CSP) program can configure and manage protection of their customer's servers to the customer's CSP subscription (tenant subscription).
+> [AZURE.NOTE] Microsoft partners that are part of the Cloud Solution Provider (CSP) program can configure and manage protection of their customers' servers to their customers' respective CSP subscriptions (tenant subscriptions).
 
 ## Before you start
 
 Make sure you have these prerequisites in place:
 
-- You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
-- You'll need Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](https://azure.microsoft.com/)
-- You'll need to have the [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) and [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules installed. You can get the latest versions of these modules from the [PowerShell gallery](https://www.powershellgallery.com/)
+- A [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](https://azure.microsoft.com/)
+- The [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) and [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules. You can get the latest versions of these modules from the [PowerShell gallery](https://www.powershellgallery.com/)
 
-This article illustrates how to use Azure Powershell with Azure Resource Manager to configure and manage protection of your servers. The example used in this article shows you how to protect a virtual machine running on a Hyper-V host to Azure. The following prerequisites are specific to this example. For a more comprehensive set of requirements for the various Site Recovery scenarios, refer to the documentation pertaining to that scenario.
+This article illustrates how to use Azure Powershell with Azure Resource Manager to configure and manage protection of your servers. The example used in this article shows you how to protect a virtual machine, running on a Hyper-V host, to Azure. The following prerequisites are specific to this example. For a more comprehensive set of requirements for the various Site Recovery scenarios, refer to the documentation pertaining to that scenario.
 
-- You'll need a Hyper-V host running Windows Server 2012 R2, containing one or more virtual machines.
-- Hyper-V servers should be connected to the Internet, either directly or through a proxy.
-- Virtual machines you want to protect should conform with [Virtual Machine prerequisites](site-recovery-best-practices.md#virtual-machines).
+- A Hyper-V host running Windows Server 2012 R2, containing one or more virtual machines.
+- Hyper-V servers connected to the Internet, either directly or through a proxy.
+- The virtual machines you want to protect should conform with [Virtual Machine prerequisites](site-recovery-best-practices.md#virtual-machines).
 
 
 ## Step 1: Sign in to your Azure account
@@ -66,15 +66,15 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
 	Alternately, you could also include your account credentials as a parameter to the `Login-AzureRmAccount` cmdlet, by using the `-Credential` parameter.
 
-	If you are CSP partner working on behalf of a tenant, you'll need to specify the customer as a tenant, by using their tenantID or tenant primary domain name.
+	If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name.
 
 		Login-AzureRmAccount -Tenant "fabrikam.com"
 
-2. An account can have several subscriptions, so you'll need to associate the subscription you want to use with the account.
+2. An account can have several subscriptions, so you should associate the subscription you want to use with the account.
 
     	Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-3.  Verify that your subscription is registered to use the Azure Providers for Recovery Services and Site Recovery, by using the following commands:
+3.  Verify that your subscription is registered to use the Azure providers for Recovery Services and Site Recovery, by using the following commands:
 
 	- `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 	-  `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
@@ -89,7 +89,7 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
 		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
 
-	>[AZURE.TIP] After successful completion of this command, it may take up to an hour to enable access to the Recovery Services provider on your subscription. Attempts to register the Recovery Services provider in your subscription using the `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` command might fail in the interim. If this happens, wait for an hour and retry.
+	>[AZURE.TIP] After successful completion of this command, it may take up to an hour to enable access to the Recovery Services provider on your subscription. Attempts to register the Recovery Services provider in your subscription by using the `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` command might fail in the interim. If this happens, wait for an hour and retry.
 
 	Once you've enabled access to the Recovery Services provider on your subscription, register the provider in your subscription by running the following command:
 
@@ -140,9 +140,9 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
 	Copy the downloaded key to the Hyper-V host. You need the key to register the Hyper-V host to the site.
 
-## Step 5: Install the Azure Site Recovery Provider and Azure Recovery Services Agent on your Hyper-V host
+## Step 5: Install the Azure Site Recovery provider and Azure Recovery Services Agent on your Hyper-V host
 
-1. Download the installer for the latest version of the Provider from [Microsoft](https://aka.ms/downloaddra).
+1. Download the installer for the latest version of the provider from [Microsoft](https://aka.ms/downloaddra).
 
 2. Run the installer on your Hyper-V host, and at the end of the installation continue to the registration step.
 
@@ -199,8 +199,7 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
 	> If the VM you are protecting has more than one disk attached to it, specify the operating system disk by using the *OSDiskName* parameter.
 
-3. Wait for the virtual machines to reach a protected state after the initial replication. This will take a while, depending on factors such as the amount of data to be replicated and the available upstream bandwidth to Azure. The job State and StateDescription are updated as follows, upon the VM reaching a protected state.
-
+3. Wait for the virtual machines to reach a protected state after the initial replication. This can take a while, depending on factors such as the amount of data to be replicated and the available upstream bandwidth to Azure. The job State and StateDescription are updated as follows, upon the VM reaching a protected state.
 
 		PS C:\> $DRjob = Get-AzureRmSiteRecoveryJob -Job $DRjob
 
@@ -257,6 +256,6 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
 2. Verify that the test VM is created in Azure. (The test failover job is suspended, after creating the test VM in Azure. The job completes by cleaning up the created artefacts upon resuming the job, as illustrated in the next step.)
 
-3. Complete the test failover
+3. Complete the test failover, as follows:
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
