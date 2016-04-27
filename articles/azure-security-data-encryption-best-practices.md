@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Data Security and Encryption Best Practices | Microsoft Azure"
    description="This article provides a set of best practices for data security and encryption using built in Azure capabilities."
    services="virtual-machines, cloud-services, storage"
@@ -155,7 +155,7 @@ When you use Azure RMS to protect your files, you are using industry-standard cr
  
 When planning for Azure RMS adoption we recommend the following:
 
-- Install the [RMS sharing app](https://technet.microsoft.com/library/dn339006(v=ws.10).aspx). This app integrates with Office applications by installing an Office add-in so that users can easily protect files directly.
+- Install the [RMS sharing app](https://technet.microsoft.com/library/dn339006.aspx). This app integrates with Office applications by installing an Office add-in so that users can easily protect files directly.
 - Configure applications and services to support Azure RMS
 - Create [custom templates](https://technet.microsoft.com/library/dn642472.aspx) that reflect your business requirements. For example: a template for top secret data that should be applied in all top secret related emails. 
 
