@@ -138,7 +138,7 @@ If you don't yet have a machine, you can quickly provision an Azure virtual mach
 
 ### Install the Service Fabric SDK
 
-Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/) on your machine.
+Install the [Service Fabric SDK](service-fabric-get-started.md#install-the-runtime-sdk-and-tools) on your machine.
 
 ### Install Azure PowerShell
 
@@ -185,7 +185,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     d.	Select the **Add** button, enter **Network Service**, and then select **Check Names**.
 
-    e.	Select **OK**, and then close the certificate manager.
+    e.	Select **OK**.
 
     ![Screenshot of steps for granting Local Service account permission](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
@@ -222,7 +222,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 |Agent Pool|Enter the name of your agent pool. (If you haven't created an agent pool, accept the default value.)|
 |Work folder|Accept the default value. This is the folder where the build agent will actually build your application. If you plan to use ASP.NET 5 Web Services, we recommend that you choose the shortest name possible for this folder to avoid running into PathTooLongExceptions errors during deployment.|
 |Install as Windows Service?|Default value is N. Change the value to **Y**.|
-|User account to run the service|Accept the default value, `NT AUTHORITY\NetworkService`.|
+|User account to run the service|Default value is `NT AUTHORITY\LOCAL SERVICE`. Change the default value to `NT AUTHORITY\NetworkService`.|
 |Password for `NT AUTHORITY\Network Service`|The network service account does not have a password, but will refuse blank passwords. Enter any non-empty string for the password (whatever you enter will be ignored).|
 |Un-configure existing agent?|Accept the default value, **N**.|
 
