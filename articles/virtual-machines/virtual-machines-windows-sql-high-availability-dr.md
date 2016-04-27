@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/26/2016"
 	ms.author="mikeray" />
 
 # High availability and disaster recovery for SQL Server in Azure Virtual Machines
