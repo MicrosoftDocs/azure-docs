@@ -118,9 +118,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_04.png) 
 
-    a. In the **IDENTIFIER** textbox, type the URL used by your users to sign-on to your CA PPM application using the following pattern: **https://ca.ondemand.saml.20.post.\<company name\>**.
+    a. In the **Identifier** textbox, type the URL used by your users to sign-on to your CA PPM application using the following pattern: **https://ca.ondemand.saml.20.post.\<company name\>**.
 	
-	b. In the **REPLY URL** textbox type **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
+	b. In the **Reply URL** textbox type **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
 
 	c. click **Next**
  
