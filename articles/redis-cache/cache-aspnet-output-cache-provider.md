@@ -25,11 +25,11 @@ To use the Redis Output Cache Provider, first configure your cache, and then con
 
 To configure a client application in Visual Studio using the Redis Output Cache Provider NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**.
 
-![Azure Redis Cache Manage NuGet Packages](./media/cache-asp.net-output-cache-provider/IC729541.png)
+![Azure Redis Cache Manage NuGet Packages](./media/cache-aspnet-output-cache-provider/redis-cache-manage-nuget-menu.png)
 
-Type **RedisOutputCacheProvider** into the **Search Online** text box, select it from the results, and click **Install**.
+Type **RedisOutputCacheProvider** into the search text box, select it from the results, and click **Install**.
 
-![Azure Redis Cache Output Cache Provider](./media/cache-asp.net-output-cache-provider/IC751727.jpg)
+![Azure Redis Cache Output Cache Provider](./media/cache-aspnet-output-cache-provider/redis-cache-page-output-provider.png)
 
 The Redis Output Cache Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project it will be installed. Note that in addition to the strong-named StackExchange.Redis.StrongName package there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, either before or after installing the Redis Output Cache Provider NuGet package, otherwise you will get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
