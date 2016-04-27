@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="01/21/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache

@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Cache ASP.NET Output Cache Provider"
-   description="Learn how to cache ASP.NET Page Output using Azure Redis Cache"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="erikre"
-   editor="tysonn" />
+	pageTitle="Cache ASP.NET Output Cache Provider"
+	description="Learn how to cache ASP.NET Page Output using Azure Redis Cache"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="erikre"
+	editor="tysonn" />
 <tags
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="01/13/2016"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="04/27/2016"
+	ms.author="sdanie" />
 
 # ASP.NET Output Cache Provider for Azure Redis Cache
 
