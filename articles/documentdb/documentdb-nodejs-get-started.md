@@ -162,7 +162,7 @@ The database, collection, and document definitions will act as your DocumentDB `
 
 Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 
-			},
+	},
 			"isRegistered": false
 		}
 	};
@@ -281,12 +281,12 @@ Copy and paste the **getCollection** function underneath the **getDatabase** fun
 						client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
 							if (err) reject(err)
 								else resolve(created);
-								});
-							} else {
-								reject(err);
-							}
+							});
+					} else {
+						reject(err);
+					}
 				} else {
-						resolve(result);
+					resolve(result);
 				}
 			});
 		});
@@ -392,7 +392,7 @@ Copy and paste the **queryCollection** function underneath the **getFamilyDocume
         	console.log();
         	resolve(results);
       	}
-		  });
+		});
   	});
 	};
 
@@ -424,7 +424,8 @@ DocumentDB supports replacing JSON documents.
 
 Copy and paste the **replaceDocument** function underneath the **queryCollection** function.
 
-          console.log();
+					}
+          		  console.log();
 					resolve(result);
 				}
 			});
@@ -438,12 +439,12 @@ Copy and paste the **replaceDocument** function underneath the **queryCollection
     document.children[0].grade = 6;
 
     return new Promise((resolve, reject) => {
-      client.replaceDocument(documentUrl, document, (err, result) => {
-        if (err) reject(err);
-        else {
-          resolve(result);
-        }
-      });
+        client.replaceDocument(documentUrl, document, (err, result) => {
+          if (err) reject(err);
+          else {
+            resolve(result);
+          }
+        });
   	});
 	};
 
@@ -455,7 +456,7 @@ Copy and paste the code below the call to **queryCollection** to execute the **r
 
 	// ADD THIS PART TO YOUR CODE
 	.then(() => replaceFamilyDocument(config.documents.Andersen))
-  .then(() => queryCollection())
+	.then(() => queryCollection())
 	// ENDS HERE
 
 	.then(() => { exit(`Completed successfully`); })
@@ -479,17 +480,17 @@ Copy and paste the **deleteDocument** function underneath the **replaceDocument*
 
 	// ADD THIS PART TO YOUR CODE
 	function deleteFamilyDocument(document) {
-    let documentUrl = `${collectionUrl}/docs/${document.id}`;
-    console.log(`Deleting document:\n${document.id}\n`);
+    	let documentUrl = `${collectionUrl}/docs/${document.id}`;
+    	console.log(`Deleting document:\n${document.id}\n`);
 
-    return new Promise((resolve, reject) => {
-      client.deleteDocument(documentUrl, (err, result) => {
-        if (err) reject(err);
-		    else {
-		      resolve(result);
-		    }
-		  });
-	  });
+    	return new Promise((resolve, reject) => {
+	    	client.deleteDocument(documentUrl, (err, result) => {
+	      	if (err) reject(err);
+			  else {
+			  	resolve(result);
+			  }
+			});
+		});
 	};
 
 Copy and paste the code below the call to the second **queryCollection** to execute the **deleteDocument** function.
@@ -523,8 +524,8 @@ Copy and paste the following code snippet (function **cleanup**) to remove the d
 	};
 
 	// ADD THIS PART TO YOUR CODE
-  function cleanup() {
-    console.log(`Cleaning up by deleting database ${config.database.id}`);
+	function cleanup() {
+		console.log(`Cleaning up by deleting database ${config.database.id}`);
 
     return new Promise((resolve, reject) => {
       client.deleteDatabase(databaseUrl, (err) => {
@@ -551,14 +552,14 @@ Altogether, the sequence for calling your functions should look like this:
 	getDatabase()
   	.then(() => getCollection())
   	.then(() => getFamilyDocument(config.documents.Andersen))
-		.then(() => getFamilyDocument(config.documents.Wakefield))
-		.then(() => queryCollection())
-		.then(() => replaceFamilyDocument(config.documents.Andersen))
-		.then(() => queryCollection())
-		.then(() => deleteFamilyDocument(config.documents.Andersen))
-		.then(() => cleanup())
-		.then(() => { exit(`Completed successfully`); })
-		.catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+	  .then(() => getFamilyDocument(config.documents.Wakefield))
+	  .then(() => queryCollection())
+	  .then(() => replaceFamilyDocument(config.documents.Andersen))
+	  .then(() => queryCollection())
+	  .then(() => deleteFamilyDocument(config.documents.Andersen))
+	  .then(() => cleanup())
+	  .then(() => { exit(`Completed successfully`); })
+	  .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
