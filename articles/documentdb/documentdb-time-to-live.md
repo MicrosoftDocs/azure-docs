@@ -31,18 +31,18 @@ The TTL feature is controlled by TTL properties at two levels - the collection l
 
  1.  DefaultTTL for the collection
 
-  a. If missing (or set to null), documents are not deleted automatically.
+  * If missing (or set to null), documents are not deleted automatically.
   
-  b. If present and the value is:
+  * If present and the value is:
     * “-1” = infinite – documents don’t expire by default
     * Some number (“n”) – documents expire “n” seconds after last
             modification
 
  2.  TTL for the documents:
  
-  a.  Property is applicable only if DefaultTTL is present for the parent collection.
+  * Property is applicable only if DefaultTTL is present for the parent collection.
   
-  b.  Overrides the DefaultTTL value for the parent collection.
+  * Overrides the DefaultTTL value for the parent collection.
 
 As soon as the document has expired (ttl + _ts >= current server time), the document is marked as “expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](documentdb-request-units.md) from the collection budget.
 
