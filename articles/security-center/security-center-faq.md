@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/22/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)

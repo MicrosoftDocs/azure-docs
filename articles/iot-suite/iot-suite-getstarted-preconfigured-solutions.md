@@ -17,7 +17,7 @@
      ms.date="03/02/2016"
      ms.author="dobett"/>
 
-# Tutorial: Get started with the IoT preconfigured solutions
+# Tutorial: Get started with the preconfigured solutions
 
 ## Introduction
 
@@ -248,8 +248,8 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-connecting-devices]: iot-suite-connecting-devices.md
-[lnk-permissions]: https://azure.microsoft.com/documentation/articles/iot-suite-permissions/
+[lnk-permissions]: iot-suite-permissions.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-faq]: https://azure.microsoft.com/documentation/articles/iot-suite-faq/
+[lnk-faq]: iot-suite-faq.md
