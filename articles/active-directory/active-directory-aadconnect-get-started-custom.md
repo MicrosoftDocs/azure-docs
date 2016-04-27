@@ -165,7 +165,7 @@ You can use an existing AD FS farm or you can choose to create a new AD FS farm.
 
 ![AD FS Farm](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
-**Note:** If you choose to use an existing AD FS farm, you skip a few pages and be taken directly to the configuring the trust relationship between AD FS and Azure AD screen.
+If you choose to use an existing AD FS farm, you skip a few pages and be taken directly to the configuring the trust relationship between AD FS and Azure AD screen.
 
 ### Specify the AD FS servers
 Enter the servers that you want to install AD FS on. You can add one or more servers based on your capacity planning needs. Join all servers to Active Directory before you perform this configuration. It is recommended to install a single AD FS server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration.
@@ -238,7 +238,7 @@ Azure AD Connect verifies the DNS settings for you when you click on the Verify 
 
 In addition, perform the following verification steps:
 
-- Validate that you can sign in from a browser from a domain joined machine on the intranet: Connect to https://myapps.microsoft.com and verify the sign in with your logged in account. **Note:** the built-in AD DS administrator account is not synchronized and cannot be used for verification.
+- Validate that you can sign in from a browser from a domain joined machine on the intranet: Connect to https://myapps.microsoft.com and verify the sign in with your logged in account. The built-in AD DS administrator account is not synchronized and cannot be used for verification.
 - Validate that you can sign in from a device from the extranet. On a home machine or a mobile device, connect to https://myapps.microsoft.com and supply your credentials.
 - Validate rich client sign-in. Connect to https://testconnectivity.microsoft.com, choose the **Office 365** tab and chose the **Office 365 Single Sign-On Test**.
 
