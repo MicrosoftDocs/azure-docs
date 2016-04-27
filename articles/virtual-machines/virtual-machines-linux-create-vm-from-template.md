@@ -24,6 +24,8 @@ This article shows how to quickly deploy a Linux Virtual Machine on Azure using 
 
 ## Quick Command Summary
 
+In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
+
 ```bash
 chrisl@fedora$ azure group create -n <exampleRGname> -l <exampleAzureRegion> [--template-uri <URL> | --template-file <path> | <template-file> -e <parameters.json file>]
 ```
