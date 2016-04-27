@@ -308,6 +308,7 @@ Back in OwinCommunicationListener.cs, you can start implementing OpenAsync. This
 public Task<string> OpenAsync(CancellationToken cancellationToken)
 {
     var serviceEndpoint = this.serviceContext.CodePackageActivationContext.GetEndpoint(this.endpointName);
+    var protocol = serviceEndpoint.Protocol;
     int port = serviceEndpoint.Port;
 
     if (this.serviceContext is StatefulServiceContext)
@@ -316,7 +317,8 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
         this.listeningAddress = string.Format(
             CultureInfo.InvariantCulture,
-            "http://+:{0}/{1}{2}/{3}/{4}",
+            "{0}://+:{1}/{2}{3}/{4}/{5}",
+            protocol,
             port,
             string.IsNullOrWhiteSpace(this.appRoot)
                 ? string.Empty
@@ -329,7 +331,8 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
     {
         this.listeningAddress = string.Format(
             CultureInfo.InvariantCulture,
-            "http://+:{0}/{1}",
+            "{0}://+:{1}/{2}",
+            protocol,
             port,
             string.IsNullOrWhiteSpace(this.appRoot)
                 ? string.Empty
@@ -535,6 +538,7 @@ namespace WebService
         public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
             var serviceEndpoint = this.serviceContext.CodePackageActivationContext.GetEndpoint(this.endpointName);
+            var protocol = serviceEndpoint.Protocol;
             int port = serviceEndpoint.Port;
 
             if (this.serviceContext is StatefulServiceContext)
@@ -543,7 +547,8 @@ namespace WebService
 
                 this.listeningAddress = string.Format(
                     CultureInfo.InvariantCulture,
-                    "http://+:{0}/{1}{2}/{3}/{4}",
+                    "{0}://+:{1}/{2}{3}/{4}/{5}",
+                    protocol,
                     port,
                     string.IsNullOrWhiteSpace(this.appRoot)
                         ? string.Empty
@@ -556,7 +561,8 @@ namespace WebService
             {
                 this.listeningAddress = string.Format(
                     CultureInfo.InvariantCulture,
-                    "http://+:{0}/{1}",
+                    "{0}://+:{1}/{2}",
+                    protocol,
                     port,
                     string.IsNullOrWhiteSpace(this.appRoot)
                         ? string.Empty
