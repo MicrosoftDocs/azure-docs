@@ -162,12 +162,12 @@ The database, collection, and document definitions will act as your DocumentDB `
 
 Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 
-  },
-      "isRegistered": false
-    }
-  };
+            },
+            "isRegistered": false
+        }
+    };
 
-  // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
 ##<a id="Connect"></a> Step 4: Connect to a DocumentDB account
