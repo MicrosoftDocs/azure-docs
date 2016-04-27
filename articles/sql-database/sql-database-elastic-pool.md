@@ -55,7 +55,7 @@ Databases that are great candidates for elastic database pools typically have pe
 
 | Property | Description |
 | :-- | :-- |
-| Service tier | Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition”.|
+| Service tier | Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
 | eDtus per pool | Maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
 | Max storage per pool (GB) | Maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
 | Max number of databases per pool | Maximum number of databases per pool. |
@@ -70,7 +70,7 @@ Databases that are great candidates for elastic database pools typically have pe
 | :-- | :-- |
 | Max eDTUs per database | Maximum number of eDTUs that any database in the pool may use, and applies to all databases in the pool. The max eDTUs per database is not a resource guarantee. |
 | Min eDTUs per database | Minimum number of eDTUs that any database in the pool is guaranteed; this applies to all databases in the pool. The min eDTUs may be set to 0.  Note that the product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool. |
-| Max. storage per database (GB) | The maximum storage for a database in a pool. |
+| Max storage per database (GB) | The maximum storage for a database in a pool. |
 
 
 ## eDTU and storage limits for elastic pools and elastic databases
