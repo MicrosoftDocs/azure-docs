@@ -3,7 +3,7 @@
 	description="The Spark MLlib toolkit brings considerable machine learning modeling capabilities to the distributed HDInsight environment."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="bradsev,deguhath,gokuma"
 	manager="paulettm"
 	editor="cgronlun"  />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="04/26/2016"
 	ms.author="bradsev" />
 
 # Overview of Data Science using Spark on Azure HDInsight
@@ -36,7 +36,11 @@ The setup steps and code provided in this walkthrough is for HDInsight Spark. Ho
 
 1.Before you begin these topics, you must have an Azure subscription. If you do not already have one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2.To create your HDInsight Spark cluster, see [Get started: create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+2.To create your HDInsight Spark cluster, version Spark 1.5.2 (HDI 3.3), see [Get started: create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+
+>[AZURE.NOTE] The python2 kernal used by the notebooks and code in this walkthrough currently must use the Spark (Preview) -> Spark 1.5.2 (HDI 3.3) version.
+
+![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -134,4 +138,6 @@ Now that you are set up with an HDInsight Spark cluster and have uploaded the Ju
 **Data Exploration and modeling with Spark:** Explore the dataset, create the machine learning models to be scored and evaluated here by working through the [Create binary classification and regression models for data with the Spark MLlib toolkit](machine-learning-data-science-spark-data-exploration-modeling.md) topic.
 
 **Model consumption:** To learn how to score the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md).
+
+**Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) on how models can be trained using cross-validation and hyper-parameter sweeping
 

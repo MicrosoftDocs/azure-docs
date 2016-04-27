@@ -154,6 +154,10 @@ Configuring AD FS with Azure AD Connect is simple with just a few clicks. The fo
 - A Windows Server 2012 R2 server for the Web Application Proxy server with remote management enabled
 - An SSL certificate for the federation service name you intend to use (e.g. sts.contoso.com)
 
+### AD FS configuration pre-requisites
+
+In order to successfully configure your AD FS farm using Azure AD Connect, please ensure WinRM is enabled on the remote servers. In addition, please go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap)
+
 ### Create a new AD FS farm or use an existing AD FS farm
 You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you will be required to provide the SSL certificate. If the SSL certificate is protected by a password, you will be prompted to provide the password.
 
