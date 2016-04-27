@@ -151,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	d. Click **Browse** to upload the certificate you have downloaded from the Azure classic portal.
 
-	h. Click **Save Changes**.
+	e. Click **Save Changes**.
 
 
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
@@ -253,7 +253,7 @@ In this section, you create a user called Britta Simon in Origami.
 
     e. In the **Last Name** textbox, type **Simon**.
 
-	e. Click **Save**.
+	f. Click **Save**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_57.png)
 
