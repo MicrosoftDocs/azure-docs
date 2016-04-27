@@ -35,7 +35,7 @@ Network | Description
 32-Gbps back end, RDMA capable | Enables low-latency, high-throughput application communication between instances within a single cloud service or availability set. Reserved for MPI traffic only.
 
 
->[AZURE.IMPORTANT]See [Access to the RDMA network](#access-to-the-rdma-network) in this article for additional requirements for MPI applications to access the RDMA netowrk.
+>[AZURE.IMPORTANT]See [Access to the RDMA network](#access-to-the-rdma-network) in this article for additional requirements for MPI applications to access the RDMA network.
 
 A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that connects to Azure services and the Internet.
 

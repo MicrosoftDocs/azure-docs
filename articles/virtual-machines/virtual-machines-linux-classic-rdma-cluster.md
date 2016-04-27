@@ -81,7 +81,7 @@ To see the publicly available SLES 12 images in Azure, run a command similar to 
 
 >[AZURE.NOTE]The SLES 12 HPC images are preconfigured with the necessary Linux RDMA drivers for Azure. 
 
-Now provision a size A9 VM with an available SLES 12 HPC image by running a command similar to the following, which uses o:
+Now provision a size A9 VM with an available SLES 12 HPC image by running a command similar to the following:
 
     azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
 
@@ -255,7 +255,7 @@ The format of the host file is as follows. Add one line for each node in your cl
 
 ## Verify a basic two node cluster after Intel MPI is installed
 
-If you haven't already done so, first set up the environment for Intel MPI. I this section, change the path to MPI scripts and executables if different for your installation of Intel MPI.
+If you haven't already done so, first set up the environment for Intel MPI. In this section, change the path to MPI scripts and executables if different for your installation of Intel MPI.
 
 ```
 source /opt/intel/impi_latest/bin64/mpivars.sh
