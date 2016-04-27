@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a copy of your Windows VM | Microsoft Azure"
-	description="Learn how to create an exact copy of your Azure virtual machine running Windows, in the Resource Manager deployment model."
+	description="Learn how to create a copy of your Azure virtual machine running Windows, in the Resource Manager deployment model, by creating a *specialized image*."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -20,9 +20,9 @@
 # How to create a copy of a Windows virtual machine in the Resource Manager deployment model
 
 
-This article shows you how to create a copy of your Azure virtual machine (VM) running Windows, in the Resource Manager deployment model using the Azure PowerShell and the Azure Portal. This process allows you to copy over the user accounts and other personal information from your original VM. This is called a **_specialized_** image. You can copy over the OS and data disks this way and then set up the network resources to create the new virtual machine. 
+This article shows you how to create a copy of your Azure virtual machine (VM) running Windows, in the Resource Manager deployment model using the Azure PowerShell and the Azure Portal. It shows you how to create a **_specialized_** image of your Azure VM, which maintains the user accounts and other state data from your original VM. A specialized image is useful for scenarios like porting your Windows VM from classic deployment model to the Resource Manager deployment model, or creating a backup copy of your Windows VM created in the Resource Manager deployment model. You can copy over the OS and data disks this way and then set up the network resources to create the new virtual machine. 
 
-You will need a specialized image for scenarios like porting your Windows VM from classic deployment model to the Resource Manager deployment model, or creating a backup copy of your Windows VM created in the Resource Manager deployment model. If you need to create mass deployments of similar Windows VMs, you need a *generalized* image; for that, read [How to capture a Windows virtual machine](virtual-machines-windows-capture-image.md). 
+If you need to create mass deployments of similar Windows VMs, you need a *generalized* image; for that, read [How to capture a Windows virtual machine](virtual-machines-windows-capture-image.md). 
 
 
 
@@ -48,13 +48,14 @@ This article assumes the following prerequisites are met before you start the st
 
 1. First free up the VHDs used by the source VM, by doing either of the following two options:
 
-	1. Stop and deallocate the source virtual machine.  
+	- If you want to **_copy_** your source virtual machine, then **stop** and **deallocate** it.
 	
 		- For a VM created using classic deployment model, you can either use the [portal](https://portal.azure.com), and click **Browse** > **Virtual machines (classic)** > *your VM* > **Stop**, or the PowerShell command `Stop-AzureVM -ServiceName <yourServiceName> -Name <yourVmName>`. 
 		
-		- For a VM in Resource Manager deployment model, you can login to the portal and click **Browse** > **Virtual machines** > *your VM* > **Stop**, or use PowerShell command `Stop-AzureRmVM -ResourceGroupName <yourResourceGroup> -Name <yourVmName>`. Notice that the *Status* of the VM in the portal changes from **Running** to **Stopped (deallocated)**.	
+		- For a VM in Resource Manager deployment model, you can login to the portal and click **Browse** > **Virtual machines** > *your VM* > **Stop**, or use PowerShell command `Stop-AzureRmVM -ResourceGroupName <yourResourceGroup> -Name <yourVmName>`. Notice that the *Status* of the VM in the portal changes from **Running** to **Stopped (deallocated)**.
+
 	
-	2. Delete the source VM and use the VHD left behind. **Browse** to your virtual machine in the [portal](https://portal.azure.com) and click **Delete**.
+	- Or, if you want to **_migrate_** your source virtual machine, then **delete** that VM and use the VHD left behind. **Browse** to your virtual machine in the [portal](https://portal.azure.com) and click **Delete**.
 	
 1. Find the access keys for the storage account which contains your source VHD, as well as the storage account where you will copy your VHD to create the new VM. The key for the account from where we are copying the VHD is called the *Source Key* and that for the account to which it will be copied to is called the *Destination Key*. Read [About Azure storage accounts](../storage/storage-create-storage-account.md) for more information on access keys.
 
