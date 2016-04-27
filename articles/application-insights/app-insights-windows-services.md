@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights for Windows desktop apps and services" 
-	description="Analyze usage and performance of your Windows desktop app with Application Insights." 
+	pageTitle="Application Insights for Windows services" 
+	description="Analyze usage and performance of Windows background services with Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,23 +12,24 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
-# Application Insights on Windows services and worker roles
+# Application Insights on Windows background services
 
 *Application Insights is in preview.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+[Visual Studio Application Insights](app-insights-get-started.md) lets you monitor your deployed application for usage and performance.
 
-Application Insights lets you monitor your deployed application for usage and performance.
-
-All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights SDK to send telemetry to Application Insights. You can also add Application Insights SDK to a class library project.
+All Windows applications - including background services and worker roles - can use the Application Insights SDK to send telemetry to Application Insights. You can also add  SDK to a class library project. 
 
 You can choose which standard data collectors you want to use (for example to monitor performance counters or dependency calls), or just use the Core API and write your own telemetry.
 
+First check whether you are working with another type of Windows application:
 
-
+* Web apps: go to [ASP.NET 4](app-insights-asp-net.md), [ASP.NET 5](app-insights-asp-net-five.md).
+* [Azure Cloud Services](app-insights-cloudservices.md)
+* Desktop apps: we recommend [HockeyApp](https://hockeyapp.net). With HockeyApp, you can manage distribution, live testing, and user feedback, as well as monitor usage and crash reports. You can also [send telemetry to Application Insights from a desktop app](app-insights-desktop.md). 
 
 
 ## <a name="add"></a> Create an Application Insights resource
@@ -38,7 +39,6 @@ You can choose which standard data collectors you want to use (for example to mo
 
     ![Click New, Application Insights](./media/app-insights-windows-desktop/01-new.png)
 
-    (You can choose a different application type if you want - it sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
 
 2.  Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created. Close the Application Map or scroll left to the overview blade for the resource.
 
@@ -47,7 +47,7 @@ You can choose which standard data collectors you want to use (for example to mo
 ## <a name="sdk"></a>Install the SDK in your application
 
 
-1. In Visual Studio, edit the NuGet packages of your desktop app project.
+1. In Visual Studio, edit the NuGet packages of your Windows application project.
 
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-desktop/03-nuget.png)
 
@@ -59,7 +59,6 @@ You can choose which standard data collectors you want to use (for example to mo
 
     Yes. Choose the Core API (Microsoft.ApplicationInsights) if you only want to use the API to send your own telemetry. The Windows Server package automatically includes the Core API plus a number of other packages such as performance counter collection and dependency monitoring. 
 
-    (But don't use Microsoft.ApplicationInsights.Windows: that is intended for Windows Store apps.)
 
 3. Set your InstrumentationKey.
 
@@ -74,47 +73,6 @@ You can choose which standard data collectors you want to use (for example to mo
     If you use ApplicationInsights.config, make sure its properties in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
 
 ## <a name="telemetry"></a>Insert telemetry calls
-
-Create a `TelemetryClient` instance and then [use it to send telemetry][api].
-
-
-For example, in a Windows Forms application, you could write:
-
-```C#
-
-    public partial class Form1 : Form
-    {
-        private TelemetryClient tc = new TelemetryClient();
-        ...
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // Alternative to setting ikey in config file:
-            tc.InstrumentationKey = "key copied from portal";
-
-            // Set session data:
-            tc.Context.User.Id = Environment.UserName;
-            tc.Context.Session.Id = Guid.NewGuid().ToString();
-            tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
-
-            // Log a page view:
-            tc.TrackPageView("Form1");
-            ...
-        }
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            stop = true;
-            if (tc != null)
-            {
-                tc.Flush(); // only for desktop apps
-
-                // Allow time for flushing:
-                System.Threading.Thread.Sleep(1000);
-            }
-            base.OnClosing(e);
-        }
-
-```
 
 Use any of the [Application Insights API][api] to send telemetry. If you're using the core API, no telemetry is sent automatically. Typically you'd use:
 
@@ -169,10 +127,7 @@ Events also appear in the diagnostics and output windows.
 
 Return to your application blade in the Azure portal.
 
-The first events will appear in [Diagnostic Search](app-insights-diagnostic-search.md). 
-
-If you used TrackMetric or the measurements parameter of TrackEvent, open [Metric Explorer][metrics] and open the Filters blade. You should see your metrics there, but they can sometimes take a while to get through the pipeline, so you might have to close the Filters blade, wait a while and then refresh.
-
+The first events will appear in the Live Stream window.
 
 
 ## Persistence Channel 
