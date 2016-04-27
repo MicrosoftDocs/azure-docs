@@ -98,7 +98,7 @@ Run the following to get the details of the ExpressRoute circuit:
 
     get-azurededicatedcircuit
 
-You must be able to see the service key listed. You can now manage links to the ExpressRoute circuit. The following articles will walk you through how to manage links to the ExpressRoute circuit:
+You must be able to see the service key listed. You can now manage links to the ExpressRoute circuit using your standard ASM commands for ASM VNETs and your standard ARM commands for ARM VNETs. The following articles will walk you through how to manage links to the ExpressRoute circuit:
 
 - [Link your virtual network to your ExpressRoute circuit in the Resource Manager deployment model](expressroute-howto-linkvnet-arm.md)
 - [Link your virtual network to your ExpressRoute circuit in the classic deployment model](expressroute-howto-linkvnet-classic.md)
