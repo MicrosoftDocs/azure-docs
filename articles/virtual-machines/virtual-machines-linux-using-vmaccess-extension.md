@@ -25,24 +25,7 @@ This article shows how to use the VMAcesss VM extension [(Github)](https://githu
 
 ## Quick Commands
 
-## Disk Check & Repair
-
-To check and then repair the disk for Linux use the `disk_check_repair.json` VMAccess script:
-
-```json
-{
-  "check_disk": "true",
-  "repair_disk": "true, user-disk-name"
-}
-```
-
-Execute the VMAccess script with:
-
-```bash
-ahmet@fedora$ azure vm extension set exampleResourceGruop exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
---private-config-path disk_check_repair.json
-```
+There are two ways to use VMAccess on your Linux VMs.  First is using the Azure cli with `azure vm reset-access` with the correct flag.  The second way to use VMAccess is with raw json files that VMAccess will process and then act on.
 
 ## Reset Root Password
 
