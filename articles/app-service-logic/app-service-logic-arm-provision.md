@@ -3,7 +3,7 @@
 	description="Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows." 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="deonhe" 
+	authors="MSFTMan" 
 	manager="erikre" 
 	editor=""/>
 
