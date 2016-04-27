@@ -32,10 +32,9 @@ The TTL feature is controlled by TTL properties at two levels - the collection l
  1.  DefaultTTL for the collection
   * If missing (or set to null), documents are not deleted automatically.
   
-  * If present and the value is:
-    * “-1” = infinite – documents don’t expire by default
-    * Some number (“n”) – documents expire “n” seconds after last
-            modification
+  * If present and the value is “-1” = infinite – documents don’t expire by default
+  
+  * If present and the value is some number (“n”) – documents expire “n” seconds after last modification
 
  2.  TTL for the documents: 
   * Property is applicable only if DefaultTTL is present for the parent collection.
