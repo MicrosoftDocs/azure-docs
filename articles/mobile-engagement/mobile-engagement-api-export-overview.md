@@ -25,6 +25,7 @@ In this document, you will learn the basics about exporting your raw data genera
 ## Pre-requisites
 
 Exporting your data requires:
+
 - That you setup authentication to be able to use the APIs (see [authentication manual setup](mobile-engagement-api-authentication-manual.md))
 - That you use either the REST APIs or our [.net SDK](mobile-engagement-dotnet-sdk-service-api.md)
 - An Azure Storage account
@@ -35,6 +36,7 @@ We also advise the excellent [Microsoft Azure Storage Explorer](http://storageex
 
 Mobile Engagement allows you to collect many types of data and therefore has several types of export suited to these different data types.
 There are 2 essential types of export:
+
 - Snapshot: this export type is used typically to export data that represents a state and for which Mobile Engagement does not necessarily have a history. This includes Tags (app-info) or push campaign feedbacks for example. As a consequence these types of export are not related to a date
 - historical: this export type is used for data that accumulates over time such as Events or Activities
 
@@ -55,6 +57,7 @@ The table below describes exhaustively all the possible exports:
 
 Exports are long running tasks that may produce large data files. For that reason, they cannot be invoked to return immediately a file to download.
 In order to export data from Mobile Engagement, you will have to create an **Export Job** where you specify generally:
+
 - The type of export (snapshot or historical)
 - The data type
 - The Azure Storage Container (including a valid SAS with write access) where the result of the export will be written
